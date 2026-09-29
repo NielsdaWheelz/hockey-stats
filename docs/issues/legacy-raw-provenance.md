@@ -1,6 +1,6 @@
 # legacy raw provenance and invented handedness
 
-status: open salvage constraint; no new application exists to repair. observed 2026-09-29 at legacy commit `1d45312ed4a2d797150e377c87ecdba231b5ebfc`.
+status: open salvage constraint. fresh capture now preserves unchanged client-body bytes; external-corpus provenance and derived missing-value handling remain unresolved. observed 2026-09-29 at legacy commit `1d45312ed4a2d797150e377c87ecdba231b5ebfc`.
 
 ## problem and impact
 
@@ -18,3 +18,5 @@ the predecessor transforms some upstream response bodies before raw storage. its
 before admitting old data, classify affected endpoints and determine whether untouched originals exist. preserve actual upstream response bodies before parsing or transformation in the replacement design. represent absent handedness explicitly; resolve it only from an attributed source. demonstrate a raw-response → derived-record case with missing roster fields, preserving original bytes and unknown values. any re-fetched replacement must retain its new capture date rather than impersonate the original snapshot.
 
 blocker for corpus audit: external drive detached. do not repair the archived code or rewrite historical evidence as part of documentation work.
+
+replacement acquisition verified on 2026-09-29: [capture](../../app/src/operator/capture.ts) preserves bytes before parsing; temporary real-http checks passed for missing fields, unknown fields, invalid utf-8 and gzip decoding. [two fresh games](../../fixtures/README.md) replace the old fixture baseline. this resolves new acquisition fidelity, not the detached corpus audit or the later derived-record demonstration.

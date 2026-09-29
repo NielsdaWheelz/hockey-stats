@@ -1,6 +1,6 @@
 # 01 — faithful capture and a compact offline corpus
 
-status: specification for review; no application code or admitted fixtures yet. scope: one capture command and two small example games. [plan](../plan.md), [architecture](../architecture.md), [legacy defects](../issues/legacy-raw-provenance.md).
+status: implemented and verified on 2026-09-29 using node `24.21.0`; [two fresh fixture games](../../fixtures/README.md) admitted. scope: one capture command and two small example games. [plan](../plan.md), [architecture](../architecture.md), [legacy defects](../issues/legacy-raw-provenance.md).
 
 ## target and boundary
 
@@ -12,7 +12,7 @@ include four fixed sources: play-by-play, boxscore, shift charts and the officia
 
 from the repository root, create the download parent once: `mkdir -p var/captures`. from `app/`, run `npm run capture -- --game 2025020001 --out ../var/captures/example-01`.
 
-`--game` is a ten-digit string; upstream responses determine whether it exists. `--out` must be new and its parent must exist. reject invalid arguments or an existing destination before network access. one game per invocation; repeat the command for another game or retrieval. the operator names directories; no capture-id generator, catalog or deduplication service.
+`--game` is a ten-digit string; upstream responses determine whether it exists. `--out` must be new and its parent must exist. each option occurs once; reject repeated options rather than silently selecting the last value. reject invalid arguments or an existing destination before network access. one game per invocation; repeat the command for another game or retrieval. the operator names directories; no capture-id generator, catalog or deduplication service.
 
 | source key | get request |
 |---|---|
@@ -81,6 +81,7 @@ after attempting all four sources, print disjoint counts: `<n> captured 2xx resp
 | `app/src/operator/capture.ts` | fixed source requests, persistence and schema; `captureGame({ gameId, outDirectory })` returns an effect producing four capture records after requests finish; filesystem failure fails it immediately |
 | `app/src/operator/cli.ts` | arguments, invocation, content above and exit status |
 | `fixtures/captures/`, `fixtures/README.md` | the two admitted captures and manually checked annotations |
+| `.gitattributes` | preserve captured bodies as binary artifacts without git line-ending conversion or text merges |
 | `.gitignore`, root `README.md` | exclude downloads/build output and document the command |
 
 `captureGame` uses the existing effect http/filesystem services; cli wiring supplies their node/fetch implementations. tests can provide a client mapping requests to a real local http server, without production test flags or a new application interface. keep the schema with its only implementation; split further only for actual complexity. no python or browser scaffolding in this slice.

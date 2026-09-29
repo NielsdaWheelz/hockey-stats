@@ -1,6 +1,6 @@
 # implementation plan
 
-status: slice specifications authorized after architecture commit `9ff024a`. no implementation authorized by this document. [brief](brief.md) and [architecture](architecture.md) supply the settled product and operating constraints.
+status: slice specifications authorized after architecture commit `9ff024a`; the user subsequently authorized implementation of 01, now complete. later slices still require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled product and operating constraints.
 
 ## target
 

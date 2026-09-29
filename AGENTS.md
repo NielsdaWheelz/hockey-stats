@@ -1,7 +1,7 @@
 # project instructions
 
 - write new prose in lowercase. preserve exact identifiers, source titles, quotations, and historical copies when fidelity requires it.
-- the user controls progression between research, architecture, slice specifications, and implementation. the current phase is slice specifications, authorized after architecture commit `9ff024a`. no application code yet.
+- the user controls progression between research, architecture, slice specifications, and implementation. implementation of `docs/specs/01-capture.md` is authorized; later slices still require their specifications and the user's progression decision.
 - read `docs/brief.md` and `docs/research/council.md` before proposing further work.
 - `docs/brief.md` is authoritative for settled product choices; dated research and council recommendations do not reopen them. `docs/architecture.md` tracks the current dependency-ordered architecture interview and decisions.
 - the user wants a useful hockey statistics product. do not turn it into a teaching application or curriculum.

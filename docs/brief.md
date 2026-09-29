@@ -1,6 +1,6 @@
 # project brief
 
-status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. the user subsequently authorized [architecture and statistical design](architecture.md); implementation remains unstarted.
+status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. the user subsequently authorized [architecture and statistical design](architecture.md), then implementation of [the first capture slice](specs/01-capture.md). that slice is implemented; modeling and the website remain unstarted.
 
 ## purpose
 
@@ -92,7 +92,7 @@ every result identifies its input selection, transformation/model revision, and 
 
 ordinary development and tests work without the external drive or live upstream requests. maintain a bounded offline fixture corpus of actual captured payloads and explicitly labeled synthetic cases, plus a compact derived dataset for exercising the product. hand-checked facts supplement implementation-generated regression snapshots. none of this substitutes for a training or statistical-evaluation corpus.
 
-the detached dataset and predecessor pipeline remain untrusted until inspected. use [raw-provenance](issues/legacy-raw-provenance.md), [fixture-fidelity](issues/legacy-fixture-fidelity.md), and [external-inventory](issues/external-data-inventory.md) records as admission requirements. improve or replace mechanisms at their responsible layer; do not paper over defects or silently alter the archive.
+the detached dataset and predecessor pipeline remain untrusted until inspected. use [raw-provenance](issues/legacy-raw-provenance.md) and [external-inventory](issues/external-data-inventory.md) records as admission requirements. [fresh fixture admission](../fixtures/README.md) replaces the old fixture baseline without rehabilitating the archive. improve or replace mechanisms at their responsible layer; do not paper over defects or silently alter the archive.
 
 publicly accessible inputs do not automatically permit unrestricted redistribution. the core must be rebuildable from identified accessible sources; publication of bundled source data requires source-specific review. optional paid inputs must identify their additional coverage and must not silently change the meaning of core metrics.
 
@@ -132,4 +132,4 @@ no further user preference is required to complete this brief. unresolved empiri
 
 this is a website run by one person. use ordinary local commands to acquire data and run python analysis, then explicitly publish a completed sqlite file. stopping the server, replacing that file, restarting and reloading the page is sufficient. save work when recreating it is expensive; rerun cheap steps. add automation or machinery only when it demonstrably reduces recurring work or serves an actual feature. the agreed hockey analysis can be ambitious without making website operation elaborate.
 
-the brief and architecture direction are complete. [slice specifications](plan.md) are now authorized; implementation follows their review. outline dependencies without exhaustively specifying empirical research in advance. no application code, trained model, or admitted dataset has been produced yet.
+the brief and architecture direction are complete. [the first slice](specs/01-capture.md) is implemented with two admitted example games. later implementation follows specification review and the user's progression decision. outline dependencies without exhaustively specifying empirical research in advance. no trained model or analytical dataset has been produced yet.

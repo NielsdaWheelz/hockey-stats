@@ -1,0 +1,22 @@
+{
+  "name": "hockey-stats",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.21.0"
+  },
+  "scripts": {
+    "capture": "tsx src/operator/cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@effect/platform": "0.97.2",
+    "@effect/platform-node": "0.108.2",
+    "effect": "3.22.2"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

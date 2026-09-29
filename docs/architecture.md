@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; the user subsequently authorized [slice specifications](plan.md). the [product brief](brief.md) remains authoritative. detailed specifications and empirical verification remain outstanding; implementation remains unstarted.
+status: architecture direction completed in commit `9ff024a`; the user subsequently authorized [slice specifications](plan.md) and implementation of [01 capture](specs/01-capture.md), now complete. the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
 
 ## operating scale
 
@@ -427,6 +427,6 @@ material costs: manual command selection and publication, a browser reload, save
 
 ## empirical constraints
 
-the [external dataset](issues/external-data-inventory.md) remains unavailable for inspection. [legacy raw-provenance](issues/legacy-raw-provenance.md) and [fixture-fidelity](issues/legacy-fixture-fidelity.md) defects constrain reuse. these do not prevent designing explicit contracts, but they prevent claiming admitted data coverage, completed validation, or measured full-corpus performance.
+the [external dataset](issues/external-data-inventory.md) remains unavailable for inspection. [legacy raw-provenance](issues/legacy-raw-provenance.md) defects constrain reuse; the archived fixtures remain excluded. [two fresh games](../fixtures/README.md) now have verified capture integrity and checked source facts. those examples do not establish historical-corpus coverage, reconstruction validity or measured full-corpus performance.
 
 the current execution environment denied the read-only cpu/memory query on 2026-09-29; the user subsequently supplied the inventory above. representative runtime, peak memory, numerical-library compatibility, and drive throughput remain unmeasured. resolve them during the relevant implementation slice before making performance claims.

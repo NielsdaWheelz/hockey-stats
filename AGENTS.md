@@ -1,7 +1,7 @@
 # project instructions
 
 - write new prose in lowercase. preserve exact identifiers, source titles, quotations, and historical copies when fidelity requires it.
-- the user controls progression between research, architecture, slice specifications, and implementation. the current phase is architecture and statistical design, authorized after the completed brief. no application code yet.
+- the user controls progression between research, architecture, slice specifications, and implementation. the current phase is slice specifications, authorized after architecture commit `9ff024a`. no application code yet.
 - read `docs/brief.md` and `docs/research/council.md` before proposing further work.
 - `docs/brief.md` is authoritative for settled product choices; dated research and council recommendations do not reopen them. `docs/architecture.md` tracks the current dependency-ordered architecture interview and decisions.
 - the user wants a useful hockey statistics product. do not turn it into a teaching application or curriculum.
@@ -13,3 +13,4 @@
 - retain missing data as missing. preserve source payloads before transformation. synthetic or transformed records must not be labeled raw observations.
 - record concrete unresolved issues in `docs/issues/<short-name>.md`, including evidence, impact, and resolution criteria. delete resolved records.
 - use meaningful verification proportional to the change. copied historical material should be checked for fidelity; documentation changes do not justify running the predecessor's application test suite.
+- for the initial slices, use temporary integration/live tests for red/green/refactor, then delete all test code and test-only dependencies after verification. keep useful fixture data and documented facts. a later dedicated slice will define an extremely lightweight lasting integration/live suite; do not build its harness ahead of that slice.

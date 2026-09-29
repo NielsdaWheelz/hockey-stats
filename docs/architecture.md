@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture and statistical design ready for review and slice handoff, following authorization on 2026-09-29 and the user's subsequent operating-scope correction. the [product brief](brief.md) remains authoritative. publication, runtime, operator flow and scientific evaluation direction are selected. detailed specifications and empirical verification remain outstanding; implementation remains unstarted.
+status: architecture direction completed in commit `9ff024a`; the user subsequently authorized [slice specifications](plan.md). the [product brief](brief.md) remains authoritative. detailed specifications and empirical verification remain outstanding; implementation remains unstarted.
 
 ## operating scale
 
@@ -31,11 +31,11 @@ statistical meaning comes before model selection. required interactions and oper
 
 the sequence identifies dependencies, not a requirement to ask ten questionnaires. a decision supported by confirmed requirements and evidence can be resolved by engineering judgment, with its tradeoff recorded.
 
-## remaining architecture work
+## handoff to slice specifications
 
-the product interview has supplied enough direction to proceed without another preference questionnaire. finish these engineering/design tasks before handing off to slice specifications:
+the product interview and architecture supplied enough direction to begin specifications. remaining detail belongs to the relevant slice:
 
-1. review the selected scientific and operator contracts together and outline the dependency order for implementation slices. recommend faithful source capture and a bounded, independently checked offline fixture corpus as the first data foundation; specify that slice in detail only after the user advances the phase.
+1. specify faithful source capture and a bounded, independently checked offline corpus first. the user has now authorized this phase; [the plan](plan.md) assigns subsequent boundaries.
 2. carry data-dependent decisions into their scientific specifications: exact likelihoods, reference weighting, priors, eligibility, uncertainty method and quantitative assessment criteria. source audit and separated development work may inform these choices; freeze assessment rules before judging confirmatory results. an architecture interview cannot supply the missing empirical evidence.
 
 the disconnected hdd delays legacy-corpus admission and full-data measurements, not these architecture decisions. actual coverage, reconstruction accuracy, imputation quality, fitted-model validity and resource use remain empirical work during the relevant authorized slices. public deployment and additional card components remain later work. no need to settle every future slice or validate an unimplemented model to finish this phase.

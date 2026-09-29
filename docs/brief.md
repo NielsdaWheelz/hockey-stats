@@ -40,6 +40,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | source access | public-data core; optional paid enrichment later | paid tracking cannot become an undeclared dependency of core results |
 | language responsibility | effect for application behavior; python for numerical work | two environments and an explicit exchange contract; one authoritative implementation per calculation |
 | data fidelity | preserve truly raw responses and correct discovered defects | transformation cannot overwrite evidence or invent missing facts |
+| verification workflow | temporary integration/live tests for initial red/green/refactor, deleted after verification; a later dedicated slice defines a tiny lasting suite | useful fixtures/facts remain; interim changes require recreating checks; scientific model evaluation remains part of the analysis |
 
 ## initial product and scope
 
@@ -121,14 +122,14 @@ no further user preference is required to complete this brief. unresolved empiri
 
 | remaining matter | owner and timing | what settles it |
 |---|---|---|
-| effect version, ui framework, storage, artifact/process boundary | engineering, architecture phase | explicit ownership, required queries, reproducibility, local operation, measured workload |
+| concrete dependency pins and interface fields | engineering, relevant slice specification | selected architecture, current compatibility and the slice's actual inputs/outputs |
 | model family, within-season evidence weighting, xg/shot definitions, priors, contexts, uncertainty method | statistical design, before the relevant implementation slice | the settled season-level estimand and explicit evidence requirements; benchmarked candidates |
 | detailed card reference versions and component expansion order | product/statistical design, as later components are specified | pinned examples and method descriptions; the long-term destination itself is settled |
 | trustworthy historical coverage and training horizon | data audit and statistical validation | actual source inventory, reconstruction checks, and held-out evidence |
-| exact fixture games and size | first data-contract specification | minimal sufficient real and synthetic case coverage |
+| fixture admission and later expansion | first capture slice, then the dedicated testing slice | two selected real games with checked facts; add cases only for actual behavior |
 | input cutoffs, interruption recovery, update/refit commands | architecture and current-season specification | explicit operator actions, measured workload, reusable completed work, and accurate result provenance |
 | hosting, public launch, source-code license, paid inputs | later publication/product decision | a useful personal product and concrete costs/rights; none is a prerequisite for first analysis |
 
 this is a website run by one person. use ordinary local commands to acquire data and run python analysis, then explicitly publish a completed sqlite file. stopping the server, replacing that file, restarting and reloading the page is sufficient. save work when recreating it is expensive; rerun cheap steps. add automation or machinery only when it demonstrably reduces recurring work or serves an actual feature. the agreed hockey analysis can be ambitious without making website operation elaborate.
 
-the brief phase is complete. architecture and systems design are now authorized; slice specifications follow that, and implementation follows specifications. outline dependencies without exhaustively specifying empirical research in advance. no application code, trained model, or admitted dataset has been produced in the brief phase.
+the brief and architecture direction are complete. [slice specifications](plan.md) are now authorized; implementation follows their review. outline dependencies without exhaustively specifying empirical research in advance. no application code, trained model, or admitted dataset has been produced yet.

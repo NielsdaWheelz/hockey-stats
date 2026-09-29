@@ -2,10 +2,12 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-this is a fresh project. the current phase is **architecture and statistical design**. no application, model, database, or deployment has been implemented here.
+this is a fresh project. the current phase is **slice specifications**. no application, model, database, or deployment has been implemented here.
 
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
+- [implementation plan](docs/plan.md): small, non-overlapping slices and their dependencies.
+- [first slice](docs/specs/01-capture.md): faithful source capture and a compact offline corpus.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
 - [product survey](docs/research/product-survey.md): useful products, features, philosophies, and user friction.
 - [statistical methods](docs/research/statistical-methods.md): what the different models actually estimate.
@@ -19,4 +21,4 @@ the product direction is settled: interpretable, history-informed estimates of 5
 
 the long-term goal is to replicate hockeyviz's player-card and component-analysis capabilities and jfresh's player cards, built piece by piece. [card references](docs/research/player-card-references.md) record the distinction between that destination and the initial target.
 
-in progress: architecture and systems design through a dependency-ordered interview. implementation slices follow architecture review. the brief supersedes earlier research recommendations where the user has resolved a choice.
+in progress: specify the first slice before implementing it. later slices remain outlines until their inputs and requirements are concrete. the brief supersedes earlier research recommendations where the user has resolved a choice.

@@ -1,6 +1,6 @@
 # systems and data research
 
-researched 2026-09-29. these are candidate boundaries and requirements for discussion, not architecture decisions. repository inspection is pinned to legacy commit `1d45312ed4a2d797150e377c87ecdba231b5ebfc`.
+researched 2026-09-29. these are candidate boundaries and requirements for discussion, not architecture decisions. repository inspection is pinned to legacy commit `1d45312ed4a2d797150e377c87ecdba231b5ebfc`. the subsequent [brief](../brief.md) accepts effect application/python numerical ownership and records the user's other settled choices; the exchange mechanism remains open.
 
 ## judgment
 

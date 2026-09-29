@@ -2,7 +2,7 @@
 
 date: 2026-09-29
 
-status: research and candidate directions; no product scope or architecture is locked.
+status: initial research and candidate directions. later product choices are settled in the authoritative [brief](../brief.md); open alternatives below retain their research context. architecture is not yet selected.
 
 the objective is a useful hockey statistics website. learning will happen through building it; a curriculum, teaching interface, or exercise system is outside the present brief. the strongest common principle in the references is inspectable evidence: a useful answer has a defined question, intelligible measurements, and a path back to its supporting data.
 

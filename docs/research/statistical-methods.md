@@ -1,6 +1,6 @@
 # statistical methods and scientific contracts
 
-reviewed: 2026-09-29. scope: primary public methodology, historical code, and implications for this project. this is an independent disciplinary review, not advice attributed to the named researchers. linked descriptions establish published methods; they do not establish what currently runs in production. recommendations below remain proposals.
+reviewed: 2026-09-29. scope: primary public methodology, historical code, and implications for this project. this is an independent disciplinary review, not advice attributed to the named researchers. linked descriptions establish published methods; they do not establish what currently runs in production. recommendations below retain their research context; the subsequent [brief](../brief.md) settles product purpose and scope.
 
 ## the question precedes the number
 

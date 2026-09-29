@@ -18,6 +18,8 @@ these are our interpretive contracts, informed by the sources below. every publi
 
 ## verified differences between the exemplars
 
+reference update checked 2026-09-29: hockeyviz's [2026–27 preview](https://hockeyviz.com/txt/preview2627), headed september 28, 2026, announces rewritten xg and shot-rate models whose methodological articles are still to follow. magnus 9 and xg 8 below are explicit published reference versions, not specifications of those newer models. the preview's update paragraph also contains an inconsistent original-publication year; use the visible heading and retrieval date without silently correcting the source. this does not require waiting for new articles before designing and evaluating our own models.
+
 the younggrens' original war philosophy prioritizes descriptive contribution within a period, including newcomers without requiring their personal nhl history. predictiveness is not its objective. the article originated in january 2019 and was republished in 2021. [war philosophy](https://evolving-hockey.com/blog/wins-above-replacement-history-philosophy-and-objectives-part-1/)
 
 mccurdy's magnus 9 even-strength description, dated august 27, 2025, estimates spatial shot-rate effects with historical priors and aging adjustments. it revised aging treatment, shortened zone effects, and removed goalie rebound terms. it also distinguishes the underlying hexagonal representation from its smoother displayed maps. this is the newer public specification reviewed here, not proof of the current deployed version. [magnus 9](https://hockeyviz.com/txt/magnus9EV)
@@ -27,6 +29,10 @@ the historical magnus 8 description, dated august 28, 2024, reports rejecting pl
 our inference: retrospective attribution and persistent-ability estimation are both legitimate, but their outputs must carry different labels. the first product slice should choose an explicit question; it need not commit the whole project to one philosophy.
 
 ## mechanisms worth borrowing
+
+the [shot-map guide](https://hockeyviz.com/howto/shotMap) describes an older unblocked-shot population, while magnus 9 includes blocked attempts with inferred origins. do not combine these descriptions into an allegedly version-independent definition of hockeyviz's metric. the guide also illustrates how event-context-dependent danger can be represented spatially; spatial modeling need not be location-only modeling. our own population and map-to-summary accounting must be explicit. [shot-location evidence issue](../issues/shot-location-evidence.md)
+
+blocked-origin appendix checked 2026-09-29: [xg 8](https://hockeyviz.com/txt/xg8) assigns probabilities across candidate origin hexes using proximity to the block and alignment toward the net. it does not simply relocate every block to one guessed point. this is a published geometric baseline, not independently verified origin recovery. the user has selected imputation; our estimator and sensitivity evidence remain to establish.
 
 mccurdy's may 26, 2025 xg description separates four conditional shot outcomes: avoiding a block, reaching the net, avoiding a freeze, and scoring rather than producing a rebound. the product yields scoring probability. its framework excludes shots against an empty net and penalty/shootout attempts. the decomposition makes assumptions inspectable and admits that some prior choices are heuristic. [xg 8](https://hockeyviz.com/txt/xg8)
 

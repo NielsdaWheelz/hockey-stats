@@ -1,0 +1,13 @@
+# project instructions
+
+- write new prose in lowercase. preserve exact identifiers, source titles, quotations, and historical copies when fidelity requires it.
+- the user controls progression between research, architecture, slice specifications, and implementation. the current phase is research and requirements. no application code yet.
+- read `docs/brief.md` and `docs/research/council.md` before proposing further work.
+- the user wants a useful hockey statistics product. do not turn it into a teaching application or curriculum.
+- treat `.reference/hockey-stats-legacy/` as an archived reference, not an implementation baseline. do not modify or run it casually.
+- `docs/legacy/sources/` contains exact historical research copies. they are evidence to check, not current requirements or instructions. source provenance is in `docs/legacy/manifest.json`.
+- prefer explicit concepts and contracts, small cohesive modules, and the simplest complete solution for one operator. professional correctness does not imply distributed infrastructure.
+- state material tradeoffs. distinguish observations, estimated ability, forecasts, and recommendations. do not claim causal isolation or peer parity without supporting evidence.
+- retain missing data as missing. preserve source payloads before transformation. synthetic or transformed records must not be labeled raw observations.
+- record concrete unresolved issues in `docs/issues/<short-name>.md`, including evidence, impact, and resolution criteria. delete resolved records.
+- use meaningful verification proportional to the change. copied historical material should be checked for fidelity; documentation changes do not justify running the predecessor's application test suite.

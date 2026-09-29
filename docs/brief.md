@@ -10,7 +10,7 @@ the primary product estimates repeatable ability using prior seasons, with obser
 
 the first useful version serves the user personally, with an eventual public website. its initial analytical scope is **5v5 skater chance creation and suppression in a completed regular season**. current-season operation follows through local runs initiated whenever the user wants an update.
 
-the explicit long-term destination is to replicate the substantive player-card and component-analysis capabilities of hockeyviz and jfresh, delivered incrementally. this includes sortable ranking tables and distribution charts showing where a selected player sits among a declared comparison population. this is a product goal, not merely visual inspiration. the initial target does not need to contain the full cards or distribution charts. [reference scope and evidence](research/player-card-references.md)
+the explicit long-term destination is to replicate the substantive player-card and component-analysis capabilities of hockeyviz and jfresh, delivered incrementally. this includes sortable ranking tables and distribution charts showing where a selected player sits among a declared comparison population. dedicated goalie cards are a confirmed later family with their own models and validation. this is a product goal, not merely visual inspiration. the initial target does not need to contain the full cards or distribution charts. [capability inventory](product-inventory.md) · [reference scope and evidence](research/player-card-references.md)
 
 ## choices confirmed by the user
 
@@ -19,6 +19,8 @@ the explicit long-term destination is to replicate the substantive player-card a
 | product focus | player contribution through components | game and team views support this purpose; a game explorer alone does not fulfill the brief |
 | modeling philosophy | hockeyviz-style interpretability and decomposition | model assumptions, context, and component meaning must be inspectable |
 | long-term product | hockeyviz player cards/components and jfresh player cards | preserve the destination while delivering one defensible component at a time |
+| parity boundary | complete player analysis: skater/goalie cards, components, context, history and comparisons | broader team/game products, forecasts, simulators and prospects are not implied; retain our declared statistical meaning |
+| goalie profiles | include dedicated goalie cards later | a separate model and validation family; the first 5v5 skater target stays unchanged |
 | primary statistical question | repeatable ability, informed by prior seasons | estimates can differ from current-season outcomes and can lag abrupt changes in ability |
 | temporal meaning of ability | underlying level across the selected season | a late-season improvement remains blended with earlier play; no claim of season-end form |
 | website interaction | explore published analyses; run new fits separately | interactive filters query available results; new adjusted estimates require a separate analytical run |

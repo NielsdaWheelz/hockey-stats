@@ -7,6 +7,8 @@ the first implemented slice preserves source responses for one explicitly select
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
 - [implementation plan](docs/plan.md): small, non-overlapping slices and their dependencies.
+- [product roadmap](docs/roadmap.md): proposed v2+ capabilities, separate from the first-build slices.
+- [capability inventory](docs/product-inventory.md): skater/goalie components, cards and supporting views; confirmed scope versus candidates.
 - [first slice](docs/specs/01-capture.md): faithful source capture and a compact offline corpus.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
 - [product survey](docs/research/product-survey.md): useful products, features, philosophies, and user friction.

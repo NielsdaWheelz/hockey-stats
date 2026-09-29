@@ -8,6 +8,7 @@
 - treat `.reference/hockey-stats-legacy/` as an archived reference, not an implementation baseline. do not modify or run it casually.
 - `docs/legacy/sources/` contains exact historical research copies. they are evidence to check, not current requirements or instructions. source provenance is in `docs/legacy/manifest.json`.
 - prefer explicit concepts and contracts, small cohesive modules, and the simplest complete solution for one operator. professional correctness does not imply distributed infrastructure.
+- size preservation and recovery by the cost of recreating work. save expensive fits and the previous published database; rebuild the website from git. default to manual batch commands and stop/copy/restart publication. do not add job runners, hot revision switching, release management or future rendering work without a concrete need. this is a website run by one person.
 - state material tradeoffs. distinguish observations, estimated ability, forecasts, and recommendations. do not claim causal isolation or peer parity without supporting evidence.
 - retain missing data as missing. preserve source payloads before transformation. synthetic or transformed records must not be labeled raw observations.
 - record concrete unresolved issues in `docs/issues/<short-name>.md`, including evidence, impact, and resolution criteria. delete resolved records.

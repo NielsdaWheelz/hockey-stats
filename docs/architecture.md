@@ -1,6 +1,12 @@
 # architecture and statistical design
 
-status: architecture and statistical design in progress, authorized 2026-09-29. the [product brief](brief.md) remains authoritative. the interview began from brief commit `279dff4`; decisions through game-level evidence and source/correction contracts were committed in `1f35648`. publication requirements and representation are selected; scientific design is active. implementation remains unstarted.
+status: architecture and statistical design ready for review and slice handoff, following authorization on 2026-09-29 and the user's subsequent operating-scope correction. the [product brief](brief.md) remains authoritative. publication, runtime, operator flow and scientific evaluation direction are selected. detailed specifications and empirical verification remain outstanding; implementation remains unstarted.
+
+## operating scale
+
+this is a website run by one person. retain work according to its replacement cost: source evidence and hours-long fits are worth saving; cheap transformations and website builds are worth rerunning. a local analysis command produces a sqlite file; the website reads it. publication can stop the server, replace the file, restart and require a page reload. one previous database is enough for data rollback; git supplies code history.
+
+the scope review removed hot publication switching, client revision pinning, expired-revision handling, a mandatory effect-to-python job runner and per-stage completion protocol, and an assumed future server-rendering migration. their benefits do not justify them for the current use. costs accepted instead: a few manual commands, brief browsing interruptions, coarser reuse of saved analytical work and rerunning cheap steps. future automation needs evidence of recurring work saved, not a hypothetical failure scenario.
 
 ## method
 
@@ -17,11 +23,11 @@ statistical meaning comes before model selection. required interactions and oper
 | user interaction | temporal target and distinction between observations and estimates | decide which selections query existing estimates and which require computation; clarify comparison and evidence access | settled: league table, name search, profiles, comparisons, full-season summaries and game rows; no date splits or interactive fits |
 | operating envelope | required interaction and operator control | local/detached-drive behavior, available hardware, batch resource use, and initial access needs | local operation and operator-triggered cadence settled; hardware reported; workload measurements deferred to implementation |
 | source and correction ownership | evidence needs and operating envelope | capture fidelity, source identities, missingness, reconstruction, correction and replay contracts | working contracts below; endpoint-specific interpretation and admission rules require data evidence |
-| application/numerical boundary | settled language split and data responsibilities | explicit inputs, outputs, errors, versions, and one owner per calculation | engineering ownership selected below; concrete exchange schema pending |
+| application/numerical boundary | settled language split and data responsibilities | explicit input/output files and one owner per calculation | direct commands and shared files selected below; detailed fields belong to slice specifications |
 | storage and publication | access patterns and boundary | compare alternatives, choose coherent publication and rollback, identify reproducible inputs | explicit publication, active plus one rollback settled; sqlite publication selected after review; runtime compatibility to verify |
-| runtime and frontend | interactions, publication, operating envelope | choose effect version, framework and process layout with current evidence | pending |
-| updates and failure behavior | selected responsibilities and runtime | operator commands, evidence cutoffs, partial input, retry, invalidation, and interrupted-work recovery | cadence and integrity/recovery principles settled; concrete command and failure contracts pending |
-| verification and slice handoff | completed contracts | meaningful scientific/engineering checks and first-slice acceptance; no implementation in this phase | pending |
+| runtime and frontend | interactions, publication, operating envelope | choose effect version, framework and process layout with current evidence | engineering selection below; integration checks belong to implementation |
+| updates and failure behavior | selected responsibilities and runtime | operator commands, evidence cutoffs, partial input, retry, invalidation, and interrupted-work recovery | operator flow, failure behavior, justified gaps and compatible rollback selected below |
+| verification and slice handoff | completed contracts | meaningful scientific/engineering checks and first-slice acceptance; no implementation in this phase | verification families and dependency outline below; detailed slice specification awaits phase transition |
 
 the sequence identifies dependencies, not a requirement to ask ten questionnaires. a decision supported by confirmed requirements and evidence can be resolved by engineering judgment, with its tradeoff recorded.
 
@@ -29,12 +35,19 @@ the sequence identifies dependencies, not a requirement to ask ten questionnaire
 
 the product interview has supplied enough direction to proceed without another preference questionnaire. finish these engineering/design tasks before handing off to slice specifications:
 
-1. select the application runtime, effect version, frontend framework, python environment and module/process layout. verify compatibility with a local sqlite publication and explain dependency/stability tradeoffs. this is the next task.
-2. make the operator flow and process/artifact boundaries concrete: acquisition, derivation/fitting, validation, explicit publication and rollback; input identities, completion, errors, cancellation, compatible reuse and missing-drive behavior. define publication schema compatibility and the data concepts needed by the agreed reads; detailed fields belong in their slice specifications.
-3. finish the scientific evaluation plan: candidate chance/player models and imputer, reference conditions, uncertainty scope, chronological evaluation and criteria to specify before judging fits. distinguish choices justified now from parameters that need data and benchmarks.
-4. review those contracts together and outline the dependency order for implementation slices. recommend faithful source capture and a bounded, independently checked offline fixture corpus as the first data foundation; specify that slice in detail only after the user advances the phase.
+1. review the selected scientific and operator contracts together and outline the dependency order for implementation slices. recommend faithful source capture and a bounded, independently checked offline fixture corpus as the first data foundation; specify that slice in detail only after the user advances the phase.
+2. carry data-dependent decisions into their scientific specifications: exact likelihoods, reference weighting, priors, eligibility, uncertainty method and quantitative assessment criteria. source audit and separated development work may inform these choices; freeze assessment rules before judging confirmatory results. an architecture interview cannot supply the missing empirical evidence.
 
 the disconnected hdd delays legacy-corpus admission and full-data measurements, not these architecture decisions. actual coverage, reconstruction accuracy, imputation quality, fitted-model validity and resource use remain empirical work during the relevant authorized slices. public deployment and additional card components remain later work. no need to settle every future slice or validate an unimplemented model to finish this phase.
+
+proposed dependency order for the next phase:
+
+1. faithful capture and a bounded offline corpus. this first foundation must demonstrate preserved payload bytes and independently checked facts, without inheriting the legacy fixture labels. verify the chosen sqlite reader and python entry point when their slices need them.
+2. interpreted hockey records, 5v5 exposure, coordinate semantics and coverage accounting, with explicit unavailable quantities. historical-corpus admission proceeds when the drive is available.
+3. all-attempt chance valuation and blocked-origin inference, then history-informed spatial player attribution. specify and assess each scientific stage before treating its outputs as admitted results.
+4. publication and browsing can develop against explicitly labeled compact fixture outputs once the shared contract is specified; they need not wait for full-season fitting. integrate the admitted scientific outputs into sqlite publication, explicit activation/rollback, and the league/profile/comparison/game views to complete the first product.
+
+these are dependencies, not fully specified prs or a requirement for four large changes. split each into reviewable slices when its requirements are concrete. finish the personal product before adding current-season operation, public delivery or further card components. the next phase should specify the first foundation in detail, not prematurely freeze every future model or screen.
 
 ## settled inputs
 
@@ -90,7 +103,7 @@ cost: rebuilds and new publications depend on local compute, drive access, and s
 
 recovery design judgment:
 
-- retain completed, validated outputs at meaningful expensive boundaries. reuse requires matching input identities, configuration, implementation, and relevant environment; an incomplete write is not a completed output.
+- save fitted models and any genuinely expensive derivations with their inputs, configuration and implementation identified. check those recorded inputs before reuse. rerun cheap transformations and assembly; do not create a completion record or cache entry for every step.
 - resume within a long numerical fit only when the selected fitter supports the required state and compatibility checks. model parameters alone may support a warm start, but do not establish continuation of the interrupted algorithm. account for optimizer/sampler state, random state, and progress where required; otherwise restart that fit while retaining completed predecessors.
 - choose checkpoint frequency from measured recomputation cost and storage/write overhead. do not introduce a general workflow engine for this requirement.
 - completed computation still must pass the scientific and publication checks. recovery never makes partial output publishable merely because it exists.
@@ -133,6 +146,8 @@ original recommendation: the website serves the active publication, retaining ea
 
 user decision: “serve the active publication. definitely,” with one backup for rollback and no broader archive. adopted: retain the active publication and one previous valid publication. ordinary profile links follow the active revision and display its identity. no historical-publication browsing is required.
 
+user clarification: “no old builds, that's what git history is for.” the reason is replacement cost: old model fits would take hours to recreate, whereas rebuilding the website takes minutes. save expensive analytical artifacts and use git for application code. apply that distinction throughout the system rather than treating every interruption as a reason to add recovery machinery.
+
 the cost is explicit: an older discarded revision may no longer be available to inspect or reproduce. this supersedes earlier broad statements about preserving every prior publication. retention applies to publication revisions, not playing seasons. protect source history, priors/model artifacts, configurations, and implementation references required by the retained publications or current research. keep shared inputs once; a rollback publication does not require another copy of the training corpus.
 
 build candidates and resumable work may temporarily occupy space beyond the two retained publications. discard superseded outputs only after successful activation and identification of the valid rollback target; do not silently reuse a known-invalid release. begin with explicit operator cleanup, not an automatic retention service. the existing legacy archive is unaffected by this new-publication policy.
@@ -174,6 +189,16 @@ user decision: “explicit publication.” adopted: successful runs produce cand
 user decision: “we should impute block shot origin location.” adopted: include blocked attempts through modeled shooting origins in the intended all-attempt analysis. this settles the inclusion direction; source semantics, estimator selection and validation remain scientific work. preserve source block coordinates and record origin inference separately. unblocked-only analysis remains a benchmark, not the default product or an automatic fallback if validation is difficult.
 
 cost: an additional reconstruction model, assumptions about unobserved origins, and sensitivity/uncertainty work. raw fidelity and imputation are compatible because inference never overwrites the evidence. the open [location issue](issues/shot-location-evidence.md) now concerns how to support the chosen imputation, not whether blocked attempts belong in scope.
+
+### 13. publication with coverage gaps — settled
+
+question: if some games cannot be reconstructed reliably, must they block publication of the entire season?
+
+recommendation: permit explicitly incomplete coverage only when the scientific evaluation supports the remaining claims; withhold affected estimates where it does not. report included and excluded evidence and reasons, with per-player consequences where identifiable. an observed subtotal must be labeled as covering included evidence, never as a complete-season total. the analytical target can remain season-level ability, but selective missingness may make that estimate unsupported.
+
+tradeoff: useful results can become available before every source defect is repaired, at the cost of incomplete recorded totals and more coverage explanation. requiring every game gives a stricter completeness condition but may prevent publication indefinitely. neither choice allows biased or numerically failed fits to pass merely because the operator wants a result. exact admission criteria require scientific specification; a league-wide coverage percentage alone cannot establish validity.
+
+user decision: “allow justified, visible gaps.” adopted: publication may contain supported results despite incomplete evidence, with explicit coverage and unavailable unsupported quantities. local withholding is appropriate only when the remaining claims remain supported; a shared input defect can still invalidate the entire fitted model. this does not authorize silent whole-game exclusion or filling missing facts to make a result publishable.
 
 ## scientific design direction
 
@@ -227,17 +252,27 @@ the data contract must retain score/time, skater and goalie presence, substituti
 
 the scientific specifications must set quantitative admission criteria before judging candidate results. no fit, benchmark or admitted full dataset exists yet. the current design therefore selects an estimand and candidate path, while leaving empirical decisions explicitly open. a user question is needed only if evidence forces a material change to the promised product; preference cannot settle whether an estimator or source reconstruction is valid.
 
+### evaluation contract and decision timing
+
+the final retrospective 2025–26 estimate may use the whole selected season and earlier evidence. candidate evaluation uses separate chronological development and assessment periods, keeping each game and its derived records together. fit learned preprocessing, imputation parameters, chance models, historical priors and tuning without assessment information. later-season evidence cannot silently enter an earlier-season estimate. held-out prediction tests useful persistence; it neither turns the product into a forecast nor establishes that an individual latent coefficient is true. the general leakage constraint is documented in [scikit-learn's evaluation guidance](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage); the game/time grouping is our scientific design judgment.
+
+define one conversion reference across players and both directions, including the population, season weighting and context standardization. distinguish factual goal probabilities from chance values standardized to reference finishing and goaltending. [probability calibration](https://scikit-learn.org/stable/modules/calibration.html) concerns predicted probabilities versus observed outcomes. our consequence: test factual predictions on held-out goals, but do not require a standardized opportunity value to reproduce every shooter's individual conversion rate. in a nonlinear model, setting a skill coefficient to zero need not produce the league-average probability. write the actual reference operation in the scientific specification.
+
+initial uncertainty claims must state what is held fixed. uncertainty conditional on the fitted chance model and imputed-origin weights may be useful when accompanied by separate imputation/model sensitivity results; it cannot be labeled total uncertainty. independently checked origin examples support accuracy claims; geometric plausibility and downstream stability alone do not. aggregate prediction can be good while individual attribution remains ambiguous, so shared-deployment and prior sensitivity are required alongside held-out scores. accepted coverage gaps require examining selective missingness, not just counting exclusions.
+
+freeze quantitative criteria after source audit and clearly separated development work, before confirmatory assessment. exact tolerances cannot be invented responsibly before learning the data's precision and failure modes. hard requirements include valid probabilities and complete rates, conserved imputation mass, supported event/exposure populations, coherent identities and reconciled outputs. empirical acceptance addresses calibration, baseline comparisons, instability and the scope of uncertainty. retain rejected candidates' diagnostics when useful; do not search new seeds or redefine thresholds until a favored fit passes. the cost is deliberate validation and sensitivity runs, not a new evaluation service or product surface.
+
 ## responsibility boundary
 
 working engineering decision within the delegated architecture phase, informed by independent systems and statistical reviews on 2026-09-29: effect owns acquisition and application behavior; python owns scientific derivation from captured evidence through analytical outputs. this expands python beyond fitting alone, within the settled application/numerical split. it is not an additional user answer or a completed interface specification.
 
 | owner | responsibility | boundary |
 |---|---|---|
-| effect | source discovery and retrieval, preserving response bodies and capture metadata, operator commands and child-process lifecycle | identified captures and an explicit job input; parsing needed for discovery must not become a second reconstruction implementation |
-| python | source interpretation, reconciled hockey records, shift/on-ice reconstruction, coordinates, coverage, analysis-specific populations, features, models, diagnostics and analytical output assembly | reads identified local captures without implicit network refresh; emits candidate outputs and an explicit completion/validation report |
+| effect | source discovery and retrieval, preserving response bodies and capture metadata, ordinary capture/publication commands | identified capture files; parsing needed for discovery must not become a second reconstruction implementation |
+| python | source interpretation, reconciled hockey records, shift/on-ice reconstruction, coordinates, coverage, analysis-specific populations, features, models, diagnostics and analytical output assembly | runs directly as a local command over identified captures; saves useful fitted artifacts, run metadata and candidate outputs |
 | effect | validate publication shape and completeness, activate a coherent revision, serve/query outputs, frontend interaction and presentation | consume the published contract; do not duplicate hockey calculations or query unpublished research state |
 
-the scientific path is captures → interpreted hockey records → analysis-specific populations and estimates. these are independently understandable stages, not a requirement for separate services, databases, or a universal schema. python owns the meanings and calculations; effect owns execution and publication. application filtering and presentation may use declared published fields, but a new model, eligibility rule, or analytical quantity belongs to its scientific owner.
+the scientific path is captures → interpreted hockey records → analysis-specific populations and estimates. these are functions and saved outputs where useful, not separate services or a generic job system. python owns the meanings and calculations; effect owns the application and publication. the operator runs analysis directly. application filtering and presentation may use declared published fields, but a new model, eligibility rule, or analytical quantity belongs to its scientific owner.
 
 why this boundary: reconstruction already changes the evidence a model receives. [hockeyr's parser](https://github.com/danmorse314/hockeyR/blob/master/R/scrape_game.R), rechecked on this date, changes blocked-shot team attribution and constructs derived event fields before fitting-related work. the archived [coordinate normalization](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/packages/core/src/ingestion/reconstruction/coordinate-normalization.ts) infers direction from shot patterns before applying a rotation. these are substantive interpretations to test, not conventions accepted merely because another implementation uses them.
 
@@ -312,9 +347,83 @@ spatial outputs carry numerical values, coordinate frame, units, baseline, suppo
 
 commit and finalize the candidate as a standalone file, then validate structure, required contents, schema compatibility and scientific results. use ordinary rollback-journal mode for this single-writer build unless measured evidence justifies otherwise; do not publish a live database while ignoring its journal. the [wal documentation](https://www.sqlite.org/wal.html) explains why copying a main file alone is insufficient when committed data remains in a write-ahead log. serving opens the finalized revision [read-only](https://www.sqlite.org/uri.html); production never mutates it.
 
-explicit publication switches the active identity only after the candidate is complete and checked. a view resolves that identity once and pins subsequent requests to it; a database alone does not prevent requests from mixing revisions. never replace an active revision's contents in place. preserve one previous valid publication and compatible reading behavior for rollback; an expired in-flight revision produces an explicit refresh path. local activation atomically replaces the small active reference after finalization; verify filesystem behavior in the implementation. public deployment must preserve the same complete-activation contract.
+publish only a completed, checked database. stop the server for replacement, keep the previous database, then restart and reload the page. read one publication for the server's lifetime and return a view's related data together: profile summary, maps and game rows, or the selected players in a comparison. display its publication identity. this avoids cross-request revision pinning, simultaneous serving of old revisions and a hot-switch protocol. a complete view response may transfer data before it is visible; measure actual payloads before adding separate loading paths. leave the existing database intact until the incoming copy is complete. interrupted replacement can be repaired manually from the intact files.
 
-material costs: a sqlite reader in the serving runtime, an explicit versioned schema and sql queries, and finalization/compatibility checks. ordinary static-file-only hosting cannot directly execute these database reads; the chosen serving runtime must support a local packaged database. no runtime, provider, latency or size claim has been established yet. newly built publications avoid an in-place production migration requirement; schema changes still require compatible producer/consumer releases and a usable rollback. no orm, generic storage interface, replication service or database platform is implied. the evidence archive and numerical workspace remain separate.
+material costs: a sqlite reader in the serving runtime, an explicit versioned schema and sql queries, and finalization/compatibility checks. ordinary static-file-only hosting cannot directly execute these database reads; the selected node runtime must support a local packaged database. no public provider, latency or size claim has been established yet. newly built publications avoid an in-place production migration requirement; schema changes still require compatible producer/consumer releases and a usable rollback. no orm, generic storage interface, replication service or database platform is implied. the evidence archive and numerical workspace remain separate.
+
+## runtime, frontend and process layout
+
+status: engineering selection on 2026-09-29, informed by independent systems, frontend and python-environment reviews. these choices implement the settled requirements; they are not additional user preferences. source and package inspection establish feasibility, not a tested application. recheck release status and pin a compatible dependency set when the first relevant slice begins.
+
+| responsibility | selection | material cost |
+|---|---|---|
+| application runtime | node 24 lts | a separate runtime from python; the selected sqlite integration has a native addon |
+| application behavior | effect v3 stable, currently `3.22.2`, with compatible companion packages | independently versioned packages and possible later v4 migration |
+| frontend | react with react router framework mode and vite; client rendered | framework conventions; no player-specific initial html |
+| numerical environment | standard arm64 cpython 3.14, managed with uv | a second lock/environment; uv-managed interpreters depend on astral's python distribution |
+| serving | one node process with read-only sqlite access and built frontend assets | requires a process-capable serving environment; no direct database queries from the browser |
+| local operations | direct capture, python analysis and publication commands | a few manual commands and file boundaries; no application job runner |
+
+### runtime and dependency judgment
+
+the [node release schedule](https://nodejs.org/en/about/previous-releases), checked on the research date, lists `24.21.0` as the latest lts and node 26 as current. bun is viable, but its integrated tooling and performance do not solve an established problem here; expensive numerical work is in python. select node for its explicit support schedule and direct platform fit.
+
+the [effect registry](https://registry.npmjs.org/-/package/effect/dist-tags) reports stable `3.22.2` and `4.0.0-rc.118`. v4 offers consolidated packages and the current official react atom integration. its [release-candidate announcement](https://effect.website/blog/releases/effect/40-rc) still permits narrow breaking changes. no settled requirement needs a v4-only feature, so prefer the stable line now. accept the possible migration cost explicitly; reconsider if v4 becomes stable before implementation. stable core does not make every pre-1.0 companion package stable by implication.
+
+inspection of the published [v3 node sqlite adapter](https://registry.npmjs.org/@effect/sql-sqlite-node/0.53.0) found `better-sqlite3` with declared node 24 support. the inspected v4 adapter instead uses `node:sqlite`, whose [node 24 documentation](https://nodejs.org/dist/latest-v24.x/docs/api/sqlite.html) labels the api release candidate. both inspected node adapters attempt to enable wal by default, including with read-only access configured. the publication reader must therefore explicitly set `readonly: true` and `disableWAL: true`; verify this against the pinned version. the runtime's lts label alone does not establish the stability or configuration of every database api.
+
+### frontend ownership and rendering
+
+[react router framework mode](https://reactrouter.com/start/modes) provides typed route modules, loading/error conventions and code splitting through vite. those are current application responsibilities. use route loading as a thin boundary into effect operations; forward navigation cancellation and translate operation failures into the route's presentation. effect owns the published-data client, validation and application effects. react owns rendering and transient interaction. urls identify meaningful selections. maintain one owner for loaded results rather than duplicate them in router state, effect atoms and another query cache.
+
+initial [spa mode](https://reactrouter.com/how-to/spa) fits the local read-oriented product. deep links require correct server fallback; player-specific initial html is a different requirement. spa mode still renders the root shell at build time, so browser-only dependencies need the framework's appropriate boundary. current v4 react atoms are not required to run stable effect operations from route loaders.
+
+client rendering does not provide player-specific content in the initial html response. accept that limitation now. a public website does not by itself require changing rendering strategy; revisit it only for an actual search, sharing or delivery requirement. no server-rendering migration is planned.
+
+next.js is a valid alternative; its server-component model adds concepts without a present requirement for their distinctive capabilities. a hand-built vite ssr layer is also unnecessary: vite describes its [ssr api](https://vite.dev/guide/ssr) as low-level infrastructure intended for framework authors. use the routing framework's rendering support when required rather than design our own framework.
+
+### environments and module boundaries
+
+use one typescript application project and one installable python analysis package. within the application, separate browser/routes, server/read queries, operator commands, and shared boundary schemas. these are cohesive modules, not separate deployable services or a package per concept. the browser must not import filesystem, database or process implementations. the operator and server may share publication validation/read contracts without sharing a running process. no monorepo task engine is needed for two explicit projects.
+
+development uses the framework development server and the effect backend, with a development proxy for browser api calls. the built local website uses one node server for assets and api reads. python analysis runs independently from the terminal while the website can keep serving its existing file. publishing may restart the server. browsing never launches python.
+
+python 3.14 is in [bugfix support](https://devguide.python.org/versions/). published arm64 wheel metadata for candidate [numpy](https://pypi.org/project/numpy/2.5.3/#files), [scipy](https://pypi.org/project/scipy/1.18.1/#files), [pyarrow](https://pypi.org/project/pyarrow/25.0.1/#files), [scikit-learn](https://pypi.org/project/scikit-learn/1.9.1/#files) and [statsmodels](https://pypi.org/project/statsmodels/0.15.0/#files) releases supports ordinary cpython 3.14; [polars](https://pypi.org/project/polars-runtime-32/1.44.2/#files) provides a compatible stable-abi distribution. this is ecosystem feasibility, not a tested combined environment or a dependency list to install. select numerical packages when the scientific computation warrants them. free-threaded python and acceleration frameworks have no demonstrated requirement yet.
+
+use `pyproject.toml`, `uv.lock`, and an exact `.python-version` when implementing the package; keep its environment on the internal drive. prepare the environment explicitly with [locked synchronization](https://docs.astral.sh/uv/concepts/projects/sync/), then invoke its prepared entry point. an analytical run must not silently update dependencies. retain a node lockfile and runtime identity as well. record relevant numerical backend and thread settings with runs; a dependency lock does not guarantee bitwise numerical reproducibility.
+
+verify the boundaries when implemented: a known sqlite result read without modifying the file, a python command on compact fixtures, a complete page including direct-route reload, and publication/restore of a sample database. check interrupted work where a selected expensive fit or file copy makes that consequential. no subprocess supervisor or exhaustive crash simulator is implied. no runtime compatibility tests have been executed in this architecture phase.
+
+## operator flow and exchange contracts
+
+use ordinary local commands with explicit inputs and outputs. they need not share a command framework. capture and publication use effect; run the python analysis entry point directly. a short task script can save typing if useful.
+
+| action | result |
+|---|---|
+| capture | body files and a capture inventory identifying completed responses, unavailable sources and failures |
+| analyze | python reads the selected captures and configuration; saves expensive fits, a run record, useful diagnostics and a candidate sqlite file |
+| publish | inspect results, check the completed database, stop the website, copy it into place while retaining the previous database, restart and reload |
+| restore | use the previous database; revert/rebuild code through git if necessary |
+
+analysis follows ordinary program control flow. use named entry points when independent fitting or export is useful; no arbitrary stage-selection language, job receipts or effect subprocess runner. analysis never silently fetches new evidence or upgrades dependencies. capture and analysis can finish without publishing anything.
+
+### useful saved work
+
+keep a small run record with selected source identities, configuration, git revision, relevant environment, saved model/output identities and evaluation results. preserve fitted models and any derivation whose measured cost makes reuse worthwhile. explicitly select a saved fit when reusing it and check its recorded inputs against the intended analysis. cheap interpretation, aggregation, export and website builds can simply run again. no per-function completion manifests, automatic cache search or dependency engine.
+
+use a fitter's supported checkpoint mechanism for expensive runs when it saves meaningful work. otherwise an interrupted fit restarts; completed earlier fits remain available. normal command errors and terminal interruption suffice initially. test interruption for the actual fitter or workers selected, rather than build a process supervisor before there is a workload.
+
+incomplete writes are not usable fits or publications. useful completed captures and fits survive failed later work. report errors directly; an unexpected numerical failure cannot become an accepted coverage gap. a missing drive or input is an error, never a reason to substitute fixtures or silently create another data root. the operator repairs the cause and reruns the relevant command.
+
+### publication and manual recovery
+
+the sqlite file contains publication/schema/model identities, season and evidence cutoffs, reference conditions and units, player-season results, game evidence and coverage, and spatial outputs with their uncertainty meaning. unavailable quantities carry a reason. the website queries these data without recalculating hockey quantities or eligibility. a simple schema version check catches a mismatched reader; maintaining readers for historical schemas is unnecessary.
+
+copy the completed candidate to a temporary destination before replacing the serving file. keep the previous database intact. the server can be stopped during replacement and restarted afterward; manual repair from either intact database is enough if interrupted. no transaction across application versions, database files and browser sessions is needed. one complete response per view and a page reload keep related results together.
+
+restore the previous database directly. if the code no longer reads it, use git and the lockfiles to restore dependencies, rebuild and restart. these are operator steps, not an automated release manager. no old application builds or runtime archives.
+
+material costs: manual command selection and publication, a browser reload, saved expensive artifacts and one previous database. the operator may rerun cheap work or rebuild the website. the benefit is a small, understandable set of commands and files rather than a second system for managing the first.
 
 ## empirical constraints
 

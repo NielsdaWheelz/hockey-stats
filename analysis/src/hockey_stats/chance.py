@@ -144,65 +144,116 @@ def fit_logistic(objective, initial, config):
     )
 
 
-def _stage_objective(beta, rows, layout, config, edges, centers, kernel=None, frozen=None):
+def _fit_data(rows, layout, cell_ids):
+    """encode fixed event fields once; arrays retain the supplied event order."""
+    shooters = {actor: i for i, actor in enumerate(layout["shooters"])}
+    goalies = {actor: i for i, actor in enumerate(layout["goalies"])}
+    scores = {score: i for i, score in enumerate(SCORES)}
+    roles = {role: i for i, role in enumerate(ROLES)}
+    score = np.array([scores[row["score"]] for row in rows], dtype=np.int64)
+    data = dict(
+        cell=np.asarray(cell_ids, dtype=np.int64),
+        score=score,
+        shooter=np.array([shooters[row["shooter_id"]] for row in rows], dtype=np.int64),
+        stratum=np.array([roles[row["role"]] for row in rows], dtype=np.int64) * 3 + score,
+        goal=np.array([row["goal"] for row in rows], dtype=np.bool_),
+    )
+    if goalies:
+        data["goalie"] = np.array([goalies[row["goalie_id"]] for row in rows], dtype=np.int64)
+    return data
+
+
+def _conversion_objective(beta, data, layout, config, edges):
     value, gradient = _penalty(beta, layout, config, edges)
     cells = layout["cells"]
-    for start in range(0, len(rows), BATCH_SIZE):
-        for row in rows[start : start + BATCH_SIZE]:
-            score, shooter, goalie = _indices(row, layout)
-            logits = _logits(beta, layout, score, shooter, goalie)
-            h = cell_id([row["attacking_x"], row["attacking_y"]], centers)
-            if frozen is not None and row["blocked"]:
-                old_beta, old_pi = frozen
-                stratum = ROLES.index(row["role"]) * 3 + score
-                weights, _ = posterior(
-                    np.log(old_pi[stratum]),
-                    log_expit(-_logits(old_beta, layout, score, shooter)),
-                    kernel[h],
-                )
-                value -= np.dot(weights, log_expit(-logits))
-                residual = weights * expit(logits)
-            else:
-                target = int(row["goal"]) if frozen is None else 1
-                value -= float(log_expit(logits[h] if target else -logits[h]))
-                residual = np.zeros(cells)
-                residual[h] = expit(logits[h]) - target
-            total = residual.sum()
-            gradient[0] += total
-            gradient[1 : 1 + cells] += residual
-            if score != 1:
-                gradient[1 + cells + (score == 2)] += total
-            if shooter >= 0:
-                gradient[3 + cells + shooter] += total
-            if goalie >= 0:
-                gradient[3 + cells + len(layout["shooters"]) + goalie] += total
+    logits = beta[0] + beta[1 + data["cell"]]
+    logits += np.where(
+        data["score"] == 0, beta[1 + cells], np.where(data["score"] == 2, beta[2 + cells], 0)
+    )
+    logits += beta[3 + cells + data["shooter"]]
+    logits += beta[3 + cells + len(layout["shooters"]) + data["goalie"]]
+    value -= log_expit(np.where(data["goal"], logits, -logits)).sum()
+    residual = expit(logits) - data["goal"]
+    gradient[0] += residual.sum()
+    gradient[1 : 1 + cells] += np.bincount(data["cell"], weights=residual, minlength=cells)
+    gradient[1 + cells] += residual[data["score"] == 0].sum()
+    gradient[2 + cells] += residual[data["score"] == 2].sum()
+    gradient[3 + cells : 3 + cells + len(layout["shooters"])] += np.bincount(
+        data["shooter"], weights=residual, minlength=len(layout["shooters"])
+    )
+    gradient[3 + cells + len(layout["shooters"]) :] += np.bincount(
+        data["goalie"], weights=residual, minlength=len(layout["goalies"])
+    )
     return float(value), gradient
 
 
-def _observed(beta, pi, rows, layout, config, edges, centers, kernel):
+def _context_logits(beta, groups, layout):
+    cells = layout["cells"]
+    score_effect = np.where(
+        groups[:, 0] == 0, beta[1 + cells], np.where(groups[:, 0] == 2, beta[2 + cells], 0)
+    )
+    return (
+        beta[0]
+        + beta[None, 1 : 1 + cells]
+        + score_effect[:, None]
+        + beta[3 + cells + groups[:, 1], None]
+    )
+
+
+def _block_objective(beta, data, failures, layout, config, edges):
+    """frozen fractional counts share one u logit per score/shooter/cell."""
+    value, gradient = _penalty(beta, layout, config, edges)
+    cells = layout["cells"]
+    logits = _context_logits(beta, data["groups"], layout)
+    successes = data["successes"]
+    value -= (successes * log_expit(logits) + failures * log_expit(-logits)).sum()
+    residual = (successes + failures) * expit(logits) - successes
+    totals = residual.sum(axis=1)
+    gradient[0] += totals.sum()
+    gradient[1 : 1 + cells] += residual.sum(axis=0)
+    gradient[1 + cells] += totals[data["groups"][:, 0] == 0].sum()
+    gradient[2 + cells] += totals[data["groups"][:, 0] == 2].sum()
+    gradient[3 + cells :] += np.bincount(
+        data["groups"][:, 1], weights=totals, minlength=len(layout["shooters"])
+    )
+    return float(value), gradient
+
+
+def _posterior_batch(logits, log_pi, data, kernel, indices):
+    return posterior(
+        log_pi[data["stratum"][indices]],
+        log_expit(-logits[data["context"][indices]]),
+        kernel[data["cell"][indices]],
+    )
+
+
+def _expectation(beta, pi, data, layout, config, edges, kernel):
+    """aggregate frozen counts; retain at most BATCH_SIZE event posteriors."""
+    logits = _context_logits(beta, data["groups"], layout)
+    log_pi = np.log(pi)
+    failures = np.zeros_like(data["successes"])
+    counts = data["unblocked_origins"] + config["origin_pseudocount"] / layout["cells"]
     value = -_penalty(beta, layout, config, edges)[0]
-    value += config["origin_pseudocount"] / layout["cells"] * np.log(pi).sum()
-    for start in range(0, len(rows), BATCH_SIZE):
-        for row in rows[start : start + BATCH_SIZE]:
-            score, shooter, _ = _indices(row, layout)
-            z = ROLES.index(row["role"]) * 3 + score
-            h = cell_id([row["attacking_x"], row["attacking_y"]], centers)
-            logits = _logits(beta, layout, score, shooter)
-            if row["blocked"]:
-                _, ll = posterior(np.log(pi[z]), log_expit(-logits), kernel[h])
-                value += float(ll)
-            else:
-                value += math.log(pi[z, h]) + float(log_expit(logits[h]))
-    return float(value)
+    value += config["origin_pseudocount"] / layout["cells"] * log_pi.sum()
+    indices = data["unblocked_rows"]
+    value += (
+        log_pi[data["stratum"][indices], data["cell"][indices]]
+        + log_expit(logits[data["context"][indices], data["cell"][indices]])
+    ).sum()
+    for start in range(0, len(data["blocked_rows"]), BATCH_SIZE):
+        indices = data["blocked_rows"][start : start + BATCH_SIZE]
+        weights, likelihood = _posterior_batch(logits, log_pi, data, kernel, indices)
+        np.add.at(failures, data["context"][indices], weights)
+        np.add.at(counts, data["stratum"][indices], weights)
+        value += likelihood.sum()
+    next_pi = counts / (data["stratum_counts"][:, None] + config["origin_pseudocount"])
+    return failures, next_pi, float(value)
 
 
-def _em(
-    rows, layout, config, edges, centers, kernel, initial_pi, initial_beta, conversion_objective
-):
+def _em(data, layout, config, edges, kernel, initial_pi, initial_beta, conversion_objective):
     pi, beta = initial_pi.copy(), initial_beta.copy()
-    history = [
-        _observed(beta, pi, rows, layout, config, edges, centers, kernel) - conversion_objective
-    ]
+    failures, next_pi, objective = _expectation(beta, pi, data, layout, config, edges, kernel)
+    history = [objective - conversion_objective]
     diagnostics = dict(
         converged=False, termination="em iteration limit", objective_history=history, inner=[]
     )
@@ -210,29 +261,9 @@ def _em(
         history[0] = None
         diagnostics.update(termination="nonfinite initial observed objective", iterations=0)
         return beta, pi, diagnostics
-    counts_z = np.zeros(9)
-    for row in rows:
-        counts_z[ROLES.index(row["role"]) * 3 + SCORES.index(row["score"])] += 1
     for _ in range(config["em_max_iterations"]):
-        counts = np.full_like(pi, config["origin_pseudocount"] / layout["cells"])
-        for start in range(0, len(rows), BATCH_SIZE):
-            for row in rows[start : start + BATCH_SIZE]:
-                score, shooter, _ = _indices(row, layout)
-                z = ROLES.index(row["role"]) * 3 + score
-                h = cell_id([row["attacking_x"], row["attacking_y"]], centers)
-                if row["blocked"]:
-                    q, _ = posterior(
-                        np.log(pi[z]), log_expit(-_logits(beta, layout, score, shooter)), kernel[h]
-                    )
-                    counts[z] += q
-                else:
-                    counts[z, h] += 1
-        next_pi = counts / (counts_z[:, None] + config["origin_pseudocount"])
-        frozen = (beta.copy(), pi.copy())
         next_beta, inner = fit_logistic(
-            lambda trial: _stage_objective(
-                trial, rows, layout, config, edges, centers, kernel, frozen
-            ),
+            lambda trial: _block_objective(trial, data, failures, layout, config, edges),
             beta,
             config,
         )
@@ -240,10 +271,10 @@ def _em(
         if not inner["converged"]:
             diagnostics["termination"] = "inner optimization failed"
             break
-        objective = (
-            _observed(next_beta, next_pi, rows, layout, config, edges, centers, kernel)
-            - conversion_objective
+        next_failures, following_pi, objective = _expectation(
+            next_beta, next_pi, data, layout, config, edges, kernel
         )
+        objective -= conversion_objective
         history.append(objective if np.isfinite(objective) else None)
         if not np.isfinite(objective):
             diagnostics["termination"] = "nonfinite observed objective"
@@ -254,23 +285,16 @@ def _em(
             diagnostics["termination"] = "observed objective decreased"
             break
         posterior_change = 0.0
-        for start in range(0, len(rows), BATCH_SIZE):
-            for row in rows[start : start + BATCH_SIZE]:
-                if not row["blocked"]:
-                    continue
-                score, shooter, _ = _indices(row, layout)
-                z = ROLES.index(row["role"]) * 3 + score
-                h = cell_id([row["attacking_x"], row["attacking_y"]], centers)
-                old, _ = posterior(
-                    np.log(pi[z]), log_expit(-_logits(beta, layout, score, shooter)), kernel[h]
-                )
-                new, _ = posterior(
-                    np.log(next_pi[z]),
-                    log_expit(-_logits(next_beta, layout, score, shooter)),
-                    kernel[h],
-                )
-                posterior_change = max(posterior_change, float(np.max(np.abs(old - new))))
+        old_logits = _context_logits(beta, data["groups"], layout)
+        new_logits = _context_logits(next_beta, data["groups"], layout)
+        old_log_pi, new_log_pi = np.log(pi), np.log(next_pi)
+        for start in range(0, len(data["blocked_rows"]), BATCH_SIZE):
+            indices = data["blocked_rows"][start : start + BATCH_SIZE]
+            old, _ = _posterior_batch(old_logits, old_log_pi, data, kernel, indices)
+            new, _ = _posterior_batch(new_logits, new_log_pi, data, kernel, indices)
+            posterior_change = max(posterior_change, float(np.max(np.abs(old - new))))
         beta, pi = next_beta, next_pi
+        failures, next_pi = next_failures, following_pi
         diagnostics["maximum_posterior_change"] = posterior_change
         if (
             abs(change) / scale < config["em_relative_tolerance"]
@@ -282,9 +306,9 @@ def _em(
     return beta, pi, diagnostics
 
 
-def _benchmark_features(row, centers, unblocked):
+def _benchmark_features(row, centers, unblocked, h):
     if unblocked:
-        x, y = centers[cell_id([row["attacking_x"], row["attacking_y"]], centers)]
+        x, y = centers[h]
         return np.array([1.0, math.hypot(89 - x, y) / 100, math.atan2(abs(y), 89 - x) / math.pi])
     return np.array(
         [
@@ -298,21 +322,23 @@ def _benchmark_features(row, centers, unblocked):
     )
 
 
-def _benchmark(rows, centers, config, unblocked):
+def _benchmark(rows, cell_ids, centers, config, unblocked):
     size = 3 if unblocked else 5
     initial = np.zeros(size)
-    proportion = sum(row["goal"] for row in rows) / len(rows)
+    targets = np.array([row["goal"] for row in rows], dtype=np.bool_)
+    features = np.array(
+        [_benchmark_features(row, centers, unblocked, h) for row, h in zip(rows, cell_ids)]
+    )
+    proportion = targets.sum() / len(rows)
     initial[0] = math.log(proportion / (1 - proportion))
 
     def objective(beta):
         gradient = config["ridge_benchmark"] * beta.copy()
         gradient[0] = 0
         value = 0.5 * config["ridge_benchmark"] * np.dot(beta[1:], beta[1:])
-        for row in rows:
-            features = _benchmark_features(row, centers, unblocked)
-            logit = np.dot(features, beta)
-            value -= log_expit(logit if row["goal"] else -logit)
-            gradient += (expit(logit) - int(row["goal"])) * features
+        logits = features @ beta
+        value -= log_expit(np.where(targets, logits, -logits)).sum()
+        gradient += features.T @ (expit(logits) - targets)
         return float(value), gradient
 
     beta, diag = fit_logistic(objective, initial, config)
@@ -331,8 +357,8 @@ def fit_model(attempts, config, metadata):
     validate_config(config)
     rows = list(attempts)
     centers, edges = grid()
-    for row in rows:
-        _validate_attempt(row, centers)
+    cell_ids = np.array([_validate_attempt(row, centers) for row in rows], dtype=np.int64)
+    blocked = np.array([row["blocked"] for row in rows], dtype=np.bool_)
     unblocked = [row for row in rows if not row["blocked"]]
     diagnostics = dict(
         status="failed", chosen_start=None, starts={}, scientific_assessment="not_performed"
@@ -346,10 +372,23 @@ def fit_model(attempts, config, metadata):
             "training requires blocks, unblocked goals and unblocked non-goals"
         )
         return None, diagnostics
+    u_data = _fit_data(rows, u_layout, cell_ids)
+    r_data = _fit_data(unblocked, r_layout, cell_ids[~blocked])
+    # role affects the origin prior; u logits share only score and shooter.
+    u_data["groups"], u_data["context"] = np.unique(
+        np.column_stack((u_data["score"], u_data["shooter"])), axis=0, return_inverse=True
+    )
+    u_data["blocked_rows"] = np.flatnonzero(blocked)
+    u_data["unblocked_rows"] = np.flatnonzero(~blocked)
+    u_data["stratum_counts"] = np.bincount(u_data["stratum"], minlength=9)
+    u_data["successes"] = np.zeros((len(u_data["groups"]), len(centers)))
+    np.add.at(u_data["successes"], (u_data["context"][~blocked], cell_ids[~blocked]), 1)
+    u_data["unblocked_origins"] = np.zeros((9, len(centers)))
+    np.add.at(u_data["unblocked_origins"], (u_data["stratum"][~blocked], cell_ids[~blocked]), 1)
     r_initial = np.zeros(r_layout["size"])
     r_initial[0] = math.log(goals / (len(unblocked) - goals))
     r_beta, r_diag = fit_logistic(
-        lambda trial: _stage_objective(trial, unblocked, r_layout, config, edges, centers),
+        lambda trial: _conversion_objective(trial, r_data, r_layout, config, edges),
         r_initial,
         config,
     )
@@ -361,19 +400,14 @@ def fit_model(attempts, config, metadata):
         centers, config["kernel_distance_ft"], config["kernel_direction_strength"]
     )
     pi_uniform = np.full((9, len(centers)), 1 / len(centers))
-    pi_empirical = np.full_like(pi_uniform, config["origin_pseudocount"] / len(centers))
-    for row in unblocked:
-        pi_empirical[
-            ROLES.index(row["role"]) * 3 + SCORES.index(row["score"]),
-            cell_id([row["attacking_x"], row["attacking_y"]], centers),
-        ] += 1
+    pi_empirical = u_data["unblocked_origins"] + config["origin_pseudocount"] / len(centers)
     pi_empirical /= pi_empirical.sum(axis=1, keepdims=True)
     u_initial = np.zeros(u_layout["size"])
     u_initial[0] = math.log(len(unblocked) / (len(rows) - len(unblocked)))
     chosen = None
     for name, initial in [("uniform", pi_uniform), ("unblocked_frequency", pi_empirical)]:
         beta, pi, diag = _em(
-            rows, u_layout, config, edges, centers, kernel, initial, u_initial, r_diag["objective"]
+            u_data, u_layout, config, edges, kernel, initial, u_initial, r_diag["objective"]
         )
         diagnostics["starts"][name] = diag
         if diag["converged"] and (chosen is None or diag["objective_history"][-1] > chosen[3]):
@@ -382,8 +416,8 @@ def fit_model(attempts, config, metadata):
         diagnostics["termination"] = "no em start converged"
         return None, diagnostics
     benchmarks = dict(
-        unblocked=_benchmark(unblocked, centers, config, True),
-        all_attempt=_benchmark(rows, centers, config, False),
+        unblocked=_benchmark(unblocked, cell_ids[~blocked], centers, config, True),
+        all_attempt=_benchmark(rows, cell_ids, centers, config, False),
     )
     diagnostics["benchmarks"] = {key: value["diagnostics"] for key, value in benchmarks.items()}
     if not all(value["diagnostics"]["converged"] for value in benchmarks.values()):
@@ -434,7 +468,7 @@ def _validate_attempt(row, centers):
         or (row["blocked"] and row["goal"])
     ):
         raise InputContractError("invalid attempt outcomes")
-    cell_id([row.get("attacking_x"), row.get("attacking_y")], centers)
+    return cell_id([row.get("attacking_x"), row.get("attacking_y")], centers)
 
 
 def _numeric_array(value, shape):
@@ -732,10 +766,9 @@ def predict_attempt(model, attempt, context=None):
     if context is None:
         context = prediction_context(model)
     centers = context["centers"]
-    _validate_attempt(attempt, centers)
+    h = _validate_attempt(attempt, centers)
     score = SCORES.index(attempt["score"])
     z = ROLES.index(attempt["role"]) * 3 + score
-    h = cell_id([attempt["attacking_x"], attempt["attacking_y"]], centers)
     logits = {}
     for name in ("u", "r"):
         stage = model["stages"][name]
@@ -782,7 +815,7 @@ def predict_attempt(model, attempt, context=None):
         benchmark = "unblocked" if unblocked else "all_attempt"
         logit = float(
             np.dot(
-                _benchmark_features(attempt, centers, unblocked),
+                _benchmark_features(attempt, centers, unblocked, h),
                 model["benchmarks"][benchmark]["coefficients"],
             )
         )

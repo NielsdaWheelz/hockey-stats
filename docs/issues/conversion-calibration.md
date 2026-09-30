@@ -2,7 +2,7 @@
 
 status: open; scientific/context review required after 03b.
 
-03c dependency: the [report-type audit](report-shot-types.md) found types for all 111 fixture blocks in the already captured play report. missingness in the api is not absence from every source. 03c supplies attributed/reconciled fields and coverage; it does not add a type predictor or resolve this scientific issue. any later type-conditional probability must compose conversion, block avoidance and origin assumptions coherently.
+03c dependency: the [completed source audit](../research/chance-03c/decision.md) admits report types and reconciled source coverage across all three seasons. missingness in the api is not absence from every source. this does not add a type predictor or resolve this scientific issue. any later type-conditional probability must compose conversion, block avoidance and origin assumptions coherently.
 
 problem: acceptable pooled conversion calibration conceals material errors by unblocked shot type and inconclusive or adverse consequential probability bins. lower proper loss does not establish calibration.
 

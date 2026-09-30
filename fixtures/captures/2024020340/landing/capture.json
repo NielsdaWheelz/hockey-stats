@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "gameId": "2024020340",
+  "source": "landing",
+  "request": {
+    "method": "GET",
+    "url": "https://api-web.nhle.com/v1/gamecenter/2024020340/landing",
+    "requestedAt": "2026-09-30T19:20:46.931Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Wed, 30 Sep 2026 19:20:47 GMT",
+    "etag": "W/\"6abd611c--gzip\""
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 14647,
+    "sha256": "6ec47b288d7cbd0a1bede10560287f7b4e1cd56d338a1f7a55fc3a1c437f2bbd"
+  },
+  "failure": null
+}

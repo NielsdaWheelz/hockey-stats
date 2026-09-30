@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "gameId": "2024020340",
+  "source": "game-summary",
+  "request": {
+    "method": "GET",
+    "url": "https://www.nhl.com/scores/htmlreports/20242025/GS020340.HTM",
+    "requestedAt": "2026-09-30T19:20:46.308Z"
+  },
+  "responseHeaders": {
+    "content-type": "text/html; charset=UTF-8",
+    "content-encoding": "gzip",
+    "date": "Wed, 30 Sep 2026 19:20:46 GMT",
+    "last-modified": "Fri, 19 Sep 2025 18:36:21 GMT"
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 38989,
+    "sha256": "cef1a1a73ddd468db542c88f49a6b339f13d8aa842abe681f370014ffe890588"
+  },
+  "failure": null
+}

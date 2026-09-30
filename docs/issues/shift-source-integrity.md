@@ -2,6 +2,8 @@
 
 status: open; source-integrity follow-up from 03b. provider cause is unknown.
 
+03c verification: complete [2025020544](../../fixtures/captures/2025020544/) and [2025020565](../../fixtures/captures/2025020565/) bundles reproduce these defects locally with verified historical body hashes and fresh dated receipts. full-population elapsed coverage remains unchanged. the remaining dependency is independently supported shift semantics, not drive access.
+
 problem: two fresh 2025–26 captures pass game-id admission but their shift rows violate reconstruction's source contract. in `2025020544`, bobrovsky's overtime shift key has conflicting 20/300-second durations and an unsupported period-5 row. in `2025020565` (buffalo/new jersey), all 2,179 rows identify the requested game, yet 676 name vegas/san jose teams (all row kinds); among its 2,166 kind-517 rows, 745 are duplicate extra identities. a matching self-reported game id is not sufficient evidence of compatible shifts.
 
 impact: native guards faithfully leave all 3,900/3,600 seconds unresolved. reported event membership still supports 93/102 eligible attempts without usable intervals. both games remain in the exact confirmation cohort. chance evaluation on those attempts cannot validate exposure or downstream player event/exposure compatibility. no provider cause, safe deduplication or replacement source has been established.

@@ -2,6 +2,8 @@
 
 researched 2026-09-30. no implementation, recapture or fitting. three reviewers covered statistics, source contracts and public evidence/content. [03b's rejection](chance-03b/decision.md) remains unchanged. the next implementable boundary is [source revision](../specs/03c-source-revision.md); a new chance model needs a subsequent specification.
 
+implementation follow-up: [03c's completed decision](chance-03c/decision.md) supersedes the implementation gaps below. the original research counts remain attributed to their earlier reader; no fit or scientific verdict was rewritten.
+
 ## evidence we overlooked
 
 the subsequent [field-to-feature audit](model-input-audit.md) broadens this finding: the rejected candidate also omits documented context features, while several useful captured fields remain unstructured. it separates source mistakes, explicit simplifications and later product scope. 03c remains a source revision; the next model must justify its information set explicitly.
@@ -18,7 +20,7 @@ these are source-audit counts, not a true-5v5 training population. agreement use
 
 example: `2025020001`, `PL-6` names marchand, the opposing blocker and `Wrist`. teammate-blocked rows also carry explicit types. `play_report.extract_report` already preserves the description; interpretation does not extract its shooter/type. reproduce by reading `fixtures/captures/<id>/play-report/body.bin`, selecting `BLOCK` rows, and comparing comma-delimited type tokens with api fields on uniquely matched events. no response bytes were changed.
 
-the existing [same-clock issue](../issues/same-clock-event-matching.md) records another omission: two shooters distinguish `PL-216/217` in `2023020001`, while wrist/poke distinguish `PL-218/219`. current reconstruction rejects repeated period/clock/kind groups before consulting these facts. exact source constraints can recover some events; they do not justify row-order matching or filling genuinely missing facts.
+the [same-clock issue](../issues/same-clock-event-matching.md) records another omission: two shooters distinguish `PL-216/217` in `2023020001`, while wrist/poke distinguish `PL-218/219`. the pre-03c reader rejected repeated period/clock/kind groups before consulting these facts. exact source constraints can recover some events; they do not justify row-order matching or filling genuinely missing facts.
 
 ## what the rejected fits explain
 

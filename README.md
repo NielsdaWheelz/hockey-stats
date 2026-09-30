@@ -15,7 +15,7 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr2c specification](docs/specs/02c-corpus.md): season inventory, bulk player references and offline corpus accounting.
 - [pr03a specification](docs/specs/03a-chance-workflow.md): chance-model workflow and software verification.
 - [pr03b specification](docs/specs/03b-training-acceptance.md): fresh three-season corpus, chronological development/confirmation and scientific judgment.
-- [pr03c specification](docs/specs/03c-source-revision.md): source contracts verified locally; expanded offline evidence and [full-corpus verification](docs/issues/03c-corpus-verification.md) remain pending original captures.
+- [pr03c specification](docs/specs/03c-source-revision.md): source contracts, expanded fixtures and [full three-season audit](docs/research/chance-03c/decision.md) implemented and verified.
 - [later pr stubs](docs/plan.md#next-slices): 03d–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
 - [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
 - [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
@@ -182,4 +182,4 @@ after regenerating a corpus, run the retained source operator from `analysis/`:
 
 the selection uses the existing chance-selection schema and purpose (`fixture_exercise` or `research`). output must be new, outside input directories, with an existing parent. preparation validates the selected envelopes; review rereads those envelopes for source-wide counts. finite schema-1 `review.json` is written last. ordinary source gaps succeed with explicit dispositions; malformed inputs fail. source rows, matched events and eligible attempts retain separate denominators. type reconciliation supplies diagnostics, not a new predictor; the narrow non-goal clock repair retains all source issues.
 
-[the 03c decision](docs/research/chance-03c/decision.md) records the local before/after evidence, limitations and outstanding full-corpus acceptance. all three seasons are development/comparison evidence after 03b. no refit or revised scientific verdict is implied.
+[the 03c decision](docs/research/chance-03c/decision.md) records the completed three-season before/after audit, detached verification and remaining source limitations. all three seasons are development/comparison evidence after 03b. no refit or revised scientific verdict is implied.

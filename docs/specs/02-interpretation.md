@@ -1,6 +1,6 @@
 # pr2 — interpret captured game records
 
-status: specification, 2026-09-29; implementation not authorized. pr1 is merged. the user chose local captures now, the external corpus later, and separate prs for source interpretation and on-ice reconstruction. [brief](../brief.md) and [architecture](../architecture.md) remain authoritative.
+status: implemented and verified, 2026-09-29, following the user's implementation authorization. pr1 is merged. the user chose local captures now, the external corpus later, and separate prs for source interpretation and on-ice reconstruction. [brief](../brief.md) and [architecture](../architecture.md) remain authoritative.
 
 ## target and boundary
 
@@ -130,6 +130,8 @@ temporary end-to-end checks invoke the installed command using real files and in
 - synthetic temporary copies exercise one missing optional field, a malformed clock/interval, unknown fields, a failed/non-2xx capture, malformed body json, incomplete shift collection, identity conflict, body-integrity mismatch and existing output. recompute test-copy digests when testing interpretation rather than integrity; label these copies synthetic. verify useful partial output versus errors exactly as above.
 - establish red, implement, establish green, refactor and rerun. smoke-check package installation/entry point. live acquisition is unnecessary for this offline consumer: the real fixtures are the live-captured integration inputs; never claim another live pass occurred.
 - delete all temporary test code, test-only scripts/dependencies and generated outputs afterward. retain useful inspected facts in fixture annotations, not implementation-generated snapshots as their own oracle. no lasting harness before slice 07. summarize verification in the pr description.
+
+verification: behavioral red on both real fixtures, then 44 temporary end-to-end cases green after refactoring and adversarial review. each invocation denied network access and reads under `/Volumes`; original capture digests remained unchanged. verified source facts, partial quantities, admission/errors, clock interpretation, reconciliation and output constraints. the package built as a source distribution and wheel; the wheel installed into a separate environment and its entry point worked. no new live acquisition occurred.
 
 tradeoffs: one fully loaded json document is simple to inspect and exchange for one game; it is verbose and not a bulk analytical storage decision. sqlite remains the website publication format. retaining source-specific records means disagreements stay visible. stdlib parsing requires a few explicit field/clock checks; it avoids a general validation dependency. exposure and normalized spatial analysis arrive in 02b; a compact, reviewable scientific boundary is the benefit.
 

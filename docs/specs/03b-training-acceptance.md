@@ -1,12 +1,12 @@
 # pr03b — training and scientific acceptance
 
-status: research and specification authorized; implementation, bulk acquisition and fitting not started. [03a](03a-chance-workflow.md) is reviewed and merged. the user chose fresh captures of 2023–24 through 2025–26 after the [external audit](../research/external-corpus-audit.md). [brief](../brief.md) · [plan](../plan.md)
+status: implementation, bulk acquisition, real fitting and scientific assessment authorized on 2026-09-30; development underway. [03a](03a-chance-workflow.md) is reviewed and merged. the user chose fresh captures of 2023–24 through 2025–26 after the [external audit](../research/external-corpus-audit.md). [brief](../brief.md) · [plan](../plan.md)
 
 ## target and boundary
 
 produce a defensible decision about the existing all-attempt chance model: **supported for a declared use**, **insufficient evidence**, or **rejected**. a completed pr may conclude that the candidate is unsuitable. acceptance does not publish results, validate player attribution or establish hockeyviz parity.
 
-reuse capture, corpus admission, preparation, fitting, evaluation and scoring. add one retained scientific comparison script and repair [evaluation/scoring attribution](../issues/chance-artifact-attribution.md). no legacy importer, new estimator family, grid search platform, scheduler, model registry, website or permanent test harness. changing the likelihood, features or fixed five-foot grid requires a reviewed scientific revision first.
+reuse capture, corpus admission, preparation, fitting, evaluation and scoring. add one retained scientific comparison script and repair [evaluation/scoring attribution](../../analysis/src/hockey_stats/chance_cli.py), whose resolved issue is recorded in [verification](../research/chance-03b/verification.md). no legacy importer, new estimator family, grid search platform, scheduler, model registry, website or permanent test harness. changing the likelihood, features or fixed five-foot grid requires a reviewed scientific revision first.
 
 ## evidence and operation
 

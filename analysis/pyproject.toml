@@ -8,6 +8,7 @@ dependencies = ["beautifulsoup4==4.14.3"]
 [project.scripts]
 hockey-stats-interpret = "hockey_stats.cli:main"
 hockey-stats-reconstruct = "hockey_stats.cli:reconstruct_main"
+hockey-stats-corpus = "hockey_stats.cli:corpus_main"
 
 [build-system]
 requires = ["uv_build==0.11.28"]

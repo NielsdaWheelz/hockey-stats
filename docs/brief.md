@@ -1,6 +1,6 @@
 # project brief
 
-status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md) and [interpretation](specs/02-interpretation.md) are reviewed and merged. [reconstruction](specs/02b-reconstruction.md) is implemented and [verified](specs/02b-verification.md), including the user-confirmed official event on-ice report. modeling and the website remain unstarted.
+status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md), [interpretation](specs/02-interpretation.md) and [reconstruction](specs/02b-reconstruction.md) are reviewed and merged. [corpus/reference admission](specs/02c-corpus.md) is implemented and [verified](specs/02c-verification.md) for local captures; review and merge remain separate. the user confirmed the historical drive remains later work. modeling and the website remain unstarted.
 
 ## purpose
 

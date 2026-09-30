@@ -20,6 +20,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy
+
 from hockey_stats.artifacts import implementation_identity, write_json
 from hockey_stats.captures import InputContractError, strict_json
 from hockey_stats.chance import validate_model
@@ -940,7 +941,11 @@ def save_figures(assessments, sensitivity, output):
     figures = []
     for index, assessment in enumerate(assessments):
         figure, axes = plt.subplots(
-            2, 2, figsize=(12, 7), sharex="col", gridspec_kw={"height_ratios": [3, 1]}
+            3,
+            2,
+            figsize=(12, 11),
+            sharex="col",
+            gridspec_kw={"height_ratios": [3, 3, 1]},
         )
         extent = 0.05
         for column, (population, names) in enumerate(POPULATIONS.items()):
@@ -952,17 +957,19 @@ def save_figures(assessments, sensitivity, output):
                     x = (bucket["lower"] + bucket["upper"]) / 2 + (offset - 0.5) * 0.012
                     y = bucket["estimate"]
                     extent = max(extent, abs(y))
-                    axes[0, column].plot(
-                        x,
-                        y,
-                        "o",
-                        color=color,
-                        markerfacecolor=color if bucket["interval"] else "none",
-                    )
+                    for axis in axes[:2, column]:
+                        axis.plot(
+                            x,
+                            y,
+                            "o",
+                            color=color,
+                            markerfacecolor=color if bucket["interval"] else "none",
+                        )
                     if bucket["interval"]:
                         lower, upper = bucket["interval"]
                         extent = max(extent, abs(lower), abs(upper))
-                        axes[0, column].vlines(x, lower, upper, color=color)
+                        for axis in axes[:2, column]:
+                            axis.vlines(x, lower, upper, color=color)
                 axes[0, column].plot(
                     [],
                     [],
@@ -970,33 +977,46 @@ def save_figures(assessments, sensitivity, output):
                     color=color,
                     label=f"{'candidate' if offset == 0 else 'benchmark'}; n={sum(b['count'] for b in bins)}",
                 )
-                axes[1, column].bar(
+                axes[2, column].bar(
                     [0.025 + 0.05 * i + (offset - 0.5) * 0.02 for i in range(20)],
                     [b["count"] for b in bins],
                     width=0.019,
                     color=color,
                 )
-            axes[0, column].set_title(population.replace("_", " "))
-            axes[0, column].axhline(0, color="#777777", linewidth=0.7)
-            axes[0, column].legend(fontsize=8)
-            axes[1, column].set(
+            axes[0, column].set_title(population.replace("_", " ") + "\nfull range")
+            axes[0, column].legend(
+                fontsize=8,
+                loc="lower center",
+                bbox_to_anchor=(0.5, 1.18),
+                ncol=2,
+                frameon=False,
+            )
+            axes[1, column].set_title("near-zero diagnostic view · display only")
+            for axis in axes[:2, column]:
+                axis.axhline(0, color="#777777", linewidth=0.7)
+                axis.set_ylabel("predicted minus observed rate")
+            axes[1, column].set_ylim(-0.02, 0.02)
+            axes[2, column].set_yscale("symlog", linthresh=1)
+            axes[2, column].set(
                 xlim=(0, 1),
                 xlabel="fixed predicted-probability bin",
-                ylabel="attempt count",
+                ylabel="attempt count (symlog)",
             )
         for axis in axes[0]:
             axis.set(
                 ylim=(-extent * 1.1, extent * 1.1),
                 ylabel="predicted minus observed rate",
             )
-        figure.suptitle(assessment["label"])
+        figure.suptitle(assessment["label"].replace("_", " "))
         figure.text(
             0.02,
             0.015,
-            "95% paired game-bootstrap intervals, conditional on fitted model. hollow points: at least one undefined draw; no interval.\ncounts show candidate/benchmark populations per fixed bin; support and acceptable margins belong to the frozen protocol.",
+            "95% paired game-bootstrap intervals, conditional on fitted model. hollow points: at least one undefined draw; no interval.\n"
+            "diagnostic zoom clips display at ±0.02; this is not an acceptance boundary. full-range panels retain every point and interval.\n"
+            "all 20 fixed bins remain; count axes use symlog (linear 0–1, then log). support and acceptable margins belong to the frozen protocol.",
             fontsize=8,
         )
-        figure.tight_layout(rect=(0, 0.065, 1, 0.95))
+        figure.tight_layout(rect=(0, 0.075, 1, 0.94))
         filename = f"calibration-{index + 1}.png"
         figure.savefig(output / filename, dpi=160)
         plt.close(figure)
@@ -1062,23 +1082,24 @@ def save_figures(assessments, sensitivity, output):
         figure, axes = plt.subplots(
             2,
             len(maps),
-            figsize=(5 * len(maps), 5 + caption_height),
+            figsize=(5 * len(maps), 7 + caption_height),
             squeeze=False,
             sharex=True,
             sharey=True,
         )
         figure.subplots_adjust(
             left=0.08,
-            bottom=(caption_height + 0.25) / (5 + caption_height),
+            bottom=(caption_height + 0.25) / (7 + caption_height),
             right=0.84,
-            top=0.91,
-            hspace=0.6,
+            top=0.84,
+            hspace=0.9,
             wspace=0.3,
         )
         rendered = None
         for i, name in enumerate(("blocked", "unblocked")):
             for j, row in enumerate(maps):
                 values = panels[i][j]
+                label = textwrap.fill(row["label"].replace("_", " "), width=24)
                 if values is None:
                     axes[i, j].text(
                         0.5,
@@ -1088,7 +1109,7 @@ def save_figures(assessments, sensitivity, output):
                         transform=axes[i, j].transAxes,
                     )
                     axes[i, j].set(
-                        title=f"{row['label']} · {name}",
+                        title=f"{label}\n{name}",
                         xlim=(-100, 100),
                         ylim=(-42.5, 42.5),
                         aspect="equal",
@@ -1106,7 +1127,7 @@ def save_figures(assessments, sensitivity, output):
                     vmax=limit,
                 )
                 axes[i, j].set(
-                    title=f"{row['label']} · {name} · n={sensitivity['population_counts'][name]}\n{'total change' if difference else 'total'}={float(values.sum()):+.5g} expected goals",
+                    title=f"{label}\n{name} · n={sensitivity['population_counts'][name]}\n{'total change' if difference else 'total'}={float(values.sum()):+.5g} expected goals",
                     xlim=(-100, 100),
                     ylim=(-42.5, 42.5),
                     xlabel="attacking x (feet)",
@@ -1174,17 +1195,27 @@ def save_figures(assessments, sensitivity, output):
                 values,
                 np.arange(4) + offset * 0.08,
                 "o",
-                label=f"{comparison['label']}; n={row['count']}",
+                label=comparison["label"].replace("_", " "),
             )
         axes[column].axvline(0, color="#777777", linewidth=0.7)
         axes[column].set(
-            title=name,
+            title=f"{name} · n={sensitivity['population_counts'][name]}",
             yticks=np.arange(4),
             yticklabels=[name.replace("_", " ") for name in measures],
             xlabel="event opportunity-value change (expected goals)",
         )
-        if sensitivity["population_counts"][name]:
-            axes[column].legend(fontsize=8)
+    if any(sensitivity["population_counts"].values()):
+        handles, labels = axes[
+            0 if sensitivity["population_counts"]["blocked"] else 1
+        ].get_legend_handles_labels()
+        figure.legend(
+            handles,
+            labels,
+            fontsize=8,
+            loc="upper center",
+            ncol=2,
+            frameon=False,
+        )
     extent = extent * 1.1 or 0.001
     axes[0].set_xlim(-extent, extent)
     axes[0].set_xticks(np.linspace(-extent, extent, 5))
@@ -1195,7 +1226,9 @@ def save_figures(assessments, sensitivity, output):
         + reference_caption,
         fontsize=8,
     )
-    figure.tight_layout(rect=(0, (caption_height + 0.1) / (3.4 + caption_height), 1, 1))
+    figure.tight_layout(
+        rect=(0, (caption_height + 0.1) / (3.4 + caption_height), 1, 0.82)
+    )
     figure.savefig(output / "event-value-changes.png", dpi=160)
     plt.close(figure)
     figures.append(

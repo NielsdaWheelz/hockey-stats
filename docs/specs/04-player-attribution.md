@@ -14,6 +14,7 @@ python owns attribution and scientific assessment under `analysis/src/hockey_sta
 
 - select the spatial attribution model, units, prior-season/aging treatment, regularization and uncertainty claims. correlated deployment limits isolation; prediction checks do not prove causality.
 - assess teammate/opponent, home/score/time, rest, shift-start zone and post-penalty context. decide which mechanisms the player should receive credit for: chance context used upstream must not automatically be controlled away again here.
+- retain the confirmed 03d chance boundary: shot-type mix and supported preceding-play characteristics belong to created opportunity. the first defensive result concerns attempt volume/danger; it does not add separate credit for a realized block. later blocking/finishing components need nonoverlapping accounting against the same reference.
 - decide whether coach terms are justified. if 03d has not admitted coaches, evaluate structured `right-rail`, game/coach identity and roster-report corroboration here. do not build both parsers by default. scratch views remain later.
 - establish analytical eligibility, selective-gap treatment, historical sufficiency, entrants and traded-player handling. retain team-specific observed evidence without fragmenting the selected season-level ability target.
 - specify map-to-scalar accounting, observed game-to-season reconciliation and a meaningful assessment protocol. split implementation and real assessment further only if this selected work warrants it.

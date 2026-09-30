@@ -88,3 +88,27 @@ selected official event-summary and home/visitor-shift reports were inspected se
 | third game's shortened overtime | [TH021094.HTM](https://www.nhl.com/scores/htmlreports/20252026/TH021094.HTM), woll `#60` shift 4; nylander `#88` shift 19 and tavares `#91` shift 19 | all run period 4 `00:00–00:41`, corroborating the endpoint; the winning goal remains attributable before the horizon ends |
 
 reconstructed time partitions are disjoint and cover the supported horizons. first-two-game genuine-5v5 skater sums reconcile independently for each team to five times the supported seconds. the third game deliberately retains actual source gaps and ambiguous events; adding it does not certify complete reconstruction. source locations and elapsed lineups have separate coverage, and no shooting origins or model eligibility follow from these checks.
+
+## season reference admission
+
+pr2c adds four production captures for the 2025–26 regular season under [references/20252026](references/20252026/), retrieved on local 2026-09-29 (utc 2026-09-30) using node `24.21.0`. all returned http `200`. their client-delivered bodies total 832,140 bytes. every saved length and sha-256 digest was independently recomputed before copying, and every admitted file was compared byte-for-byte with the production output. `.gitattributes` applied binary handling before admission. all fifteen existing game receipts and bodies remain unchanged.
+
+| source | request time, utc | checked received/advertised rows | body bytes |
+|---|---|---|---|
+| `season-summary` | `2026-09-30T04:12:21.559Z` | `1 / 1` | `634` |
+| `season-games` | `2026-09-30T04:12:21.812Z` | `1312 / 1312` | `327491` |
+| `skater-bios` | `2026-09-30T04:12:22.016Z` | `940 / 940` | `459134` |
+| `goalie-bios` | `2026-09-30T04:12:22.276Z` | `98 / 98` | `44881` |
+
+checked directly from admitted bodies, independently of interpretation:
+
+- summary `/data/0/id = 20252026`; `/data/0/totalRegularSeasonGames = 1312`. inventory contains 1,312 distinct ten-digit ids, with matching explicit season/type and distinct positive teams. all rows report numeric states `7 / 1`; these do not establish gamecenter completion.
+- the three fixture ids agree with inventory on date, season, regular-season type and home/away team ids. their identities remain in the admission tables above.
+- summary `/data/0/startDate = "2025-10-07T17:00:00"`; `/data/0/regularSeasonEndDate = "2026-04-17T00:00:00"`. retain this offset-free text; the last inventory date is april 16.
+- skater `/data/837`, player `8486169`, has birth date `2004-05-06` and explicit null `shootsCatches`. this player is outside the three games' roster population; the reference observation retains its null reason.
+- goalie `/data/40`, player `8475683`, has birth date `1988-09-20`, catches `L`, and current team `TOR`; the first game's roster places him on team `13` (florida). the fresh locator is **40**, whereas the earlier scratch research reported 86. neither row order nor current team establishes historical affiliation.
+- each bio report contains distinct player ids; the reports have no overlapping ids. together they cover all 120 distinct ids in the three available rosters, each with a birth date and shoots/catches value. this includes unused goalies `8480193`, `8482821`, `8475717`, `8482445`, `8475883`, `8476932`; roster membership is not participation.
+
+the offline audit reports 1,312 expected games, 3 reconstructed and 1,309 missing captures. the three available games contribute 8,626 supported 5v5 seconds, 118 unresolved seconds and their separately scoped attempt/location totals. missing games have no invented exposure. all 120 roster ids have references in these examples; unavailable rosters for the other 1,309 games prevent league-wide completeness claims. historical admission and model eligibility remain unassessed.
+
+roster-report availability was spot-checked at [RO020001.HTM](https://www.nhl.com/scores/htmlreports/20252026/RO020001.HTM), [RO020006.HTM](https://www.nhl.com/scores/htmlreports/20252026/RO020006.HTM), and [RO021094.HTM](https://www.nhl.com/scores/htmlreports/20252026/RO021094.HTM). each identifies the matching date, game and teams and includes playing rosters, scratches and head coaches. these remain manual evidence, not new production inputs or an assessment of historical availability. selected event-summary and shift-report facts already documented above supply the reconstruction corroboration; no duplicate parsers were added.

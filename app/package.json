@@ -7,6 +7,7 @@
   },
   "scripts": {
     "capture": "tsx src/operator/cli.ts",
+    "capture-season": "tsx src/operator/capture-season-cli.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

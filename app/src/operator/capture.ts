@@ -18,12 +18,14 @@ const responseHeaderNames = [
   "location",
 ] as const;
 
-type CaptureSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report";
+type GameSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report";
 
-type CaptureMetadata = {
+export type CaptureIdentity =
+  | { readonly gameId: string; readonly source: GameSource }
+  | { readonly seasonId: string; readonly source: "season-summary" | "season-games" | "skater-bios" | "goalie-bios" };
+
+type CaptureMetadata = CaptureIdentity & {
   readonly schemaVersion: 1;
-  readonly gameId: string;
-  readonly source: CaptureSource;
   readonly request: {
     readonly method: "GET";
     readonly url: string;
@@ -66,7 +68,6 @@ export const captureGame = ({
 }): Effect.Effect<CaptureRecord[], PlatformError, FileSystem.FileSystem | HttpClient.HttpClient> =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const client = yield* HttpClient.HttpClient;
     yield* fs.makeDirectory(outDirectory);
 
     const seasonStart = gameId.slice(0, 4);
@@ -81,64 +82,76 @@ export const captureGame = ({
     const records: CaptureRecord[] = [];
 
     for (const { source, url } of sources) {
-      const sourceDirectory = join(outDirectory, source);
-      yield* fs.makeDirectory(sourceDirectory);
-      const request = { method: "GET", url, requestedAt: new Date().toISOString() } as const;
-      let response: HttpClientResponse | undefined;
-      const result = yield* Effect.gen(function* () {
-        response = yield* client.get(url, {
-          headers: { "user-agent": "hockey-stats/0.1 (personal hockey statistics; source capture)" },
-        });
-        const bytes = new Uint8Array(yield* response.arrayBuffer);
-        return { response, bytes };
-      }).pipe(
-        Effect.provideService(FetchHttpClient.RequestInit, { redirect: "manual" }),
-        Effect.timeout("30 seconds"),
-        Effect.either,
-      );
-
-      const responseHeaders: CaptureMetadata["responseHeaders"] = {};
-      if (response !== undefined) {
-        for (const name of responseHeaderNames) {
-          const value = response.headers[name];
-          if (value !== undefined) responseHeaders[name] = value;
-        }
-      }
-      const metadata: CaptureMetadata = { schemaVersion: 1, gameId, source, request, responseHeaders };
-      let record: CaptureRecord;
-      if (Either.isRight(result)) {
-        const { response: completeResponse, bytes } = result.right;
-        yield* fs.writeFile(join(sourceDirectory, "body.bin"), bytes);
-        record = {
-          ...metadata,
-          httpStatus: completeResponse.status,
-          state: "captured",
-          body: {
-            path: "body.bin",
-            representation: "http-client-body",
-            bytes: bytes.byteLength,
-            sha256: createHash("sha256").update(bytes).digest("hex"),
-          },
-          failure: null,
-        };
-      } else {
-        const error = result.left;
-        const kind = error._tag === "TimeoutException"
-          ? "timeout"
-          : error._tag === "ResponseError" ? "body-read" : "transport";
-        const message = error._tag === "TimeoutException"
-          ? "request and body read exceeded 30 seconds"
-          : error.cause instanceof Error ? error.cause.message : error.message;
-        record = {
-          ...metadata,
-          httpStatus: response?.status ?? null,
-          state: "failed",
-          body: null,
-          failure: { kind, message },
-        };
-      }
-      yield* fs.writeFileString(join(sourceDirectory, "capture.json"), `${JSON.stringify(record, null, 2)}\n`);
-      records.push(record);
+      records.push(yield* captureResponse({ identity: { gameId, source }, url, outDirectory }));
     }
     return records;
+  });
+
+// callers own the new output directory; each response owns its source directory.
+export const captureResponse = ({ identity, url, outDirectory }: {
+  readonly identity: CaptureIdentity;
+  readonly url: string;
+  readonly outDirectory: string;
+}): Effect.Effect<CaptureRecord, PlatformError, FileSystem.FileSystem | HttpClient.HttpClient> =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const client = yield* HttpClient.HttpClient;
+    const sourceDirectory = join(outDirectory, identity.source);
+    yield* fs.makeDirectory(sourceDirectory);
+    const request = { method: "GET", url, requestedAt: new Date().toISOString() } as const;
+    let response: HttpClientResponse | undefined;
+    const result = yield* Effect.gen(function* () {
+      response = yield* client.get(url, {
+        headers: { "user-agent": "hockey-stats/0.1 (personal hockey statistics; source capture)" },
+      });
+      const bytes = new Uint8Array(yield* response.arrayBuffer);
+      return { response, bytes };
+    }).pipe(
+      Effect.provideService(FetchHttpClient.RequestInit, { redirect: "manual" }),
+      Effect.timeout("30 seconds"),
+      Effect.either,
+    );
+
+    const responseHeaders: CaptureMetadata["responseHeaders"] = {};
+    if (response !== undefined) {
+      for (const name of responseHeaderNames) {
+        const value = response.headers[name];
+        if (value !== undefined) responseHeaders[name] = value;
+      }
+    }
+    const metadata: CaptureMetadata = { schemaVersion: 1, ...identity, request, responseHeaders };
+    let record: CaptureRecord;
+    if (Either.isRight(result)) {
+      const { response: completeResponse, bytes } = result.right;
+      yield* fs.writeFile(join(sourceDirectory, "body.bin"), bytes);
+      record = {
+        ...metadata,
+        httpStatus: completeResponse.status,
+        state: "captured",
+        body: {
+          path: "body.bin",
+          representation: "http-client-body",
+          bytes: bytes.byteLength,
+          sha256: createHash("sha256").update(bytes).digest("hex"),
+        },
+        failure: null,
+      };
+    } else {
+      const error = result.left;
+      const kind = error._tag === "TimeoutException"
+        ? "timeout"
+        : error._tag === "ResponseError" ? "body-read" : "transport";
+      const message = error._tag === "TimeoutException"
+        ? "request and body read exceeded 30 seconds"
+        : error.cause instanceof Error ? error.cause.message : error.message;
+      record = {
+        ...metadata,
+        httpStatus: response?.status ?? null,
+        state: "failed",
+        body: null,
+        failure: { kind, message },
+      };
+    }
+    yield* fs.writeFileString(join(sourceDirectory, "capture.json"), `${JSON.stringify(record, null, 2)}\n`);
+    return record;
   });

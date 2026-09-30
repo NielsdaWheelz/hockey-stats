@@ -2,7 +2,7 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, and reconstruct reported event membership, elapsed exposure and recorded coordinates. modeling, publication and the website follow separately.
+the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, and audit a season inventory against explicit local captures. modeling, publication and the website follow separately.
 
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
@@ -12,6 +12,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [first slice](docs/specs/01-capture.md): faithful source capture and a compact offline corpus.
 - [pr2 specification](docs/specs/02-interpretation.md): offline source interpretation; reconstruction has its own command.
 - [pr2b specification](docs/specs/02b-reconstruction.md): reported event membership, reconstructed exposure and coordinates.
+- [pr2c specification](docs/specs/02c-corpus.md): season inventory, bulk player references and offline corpus accounting.
+- [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
 - [source audit](docs/research/source-audit.md): direct public evidence, omissions corrected and later input dependencies.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
 - [product survey](docs/research/product-survey.md): useful products, features, philosophies, and user friction.
@@ -79,3 +81,49 @@ reported event membership comes from an exact, unique period/clock/kind match to
 exit `0` means an admitted game has at least one supported elapsed interval or timed event, after writing the document. an available diagnostic with no supported classification exits `1`; successful execution does not certify completeness. argument syntax/help and filesystem rules match interpretation. the command summary separates time, attempt, exposure-link and location coverage; detailed located reasons remain in the document. missing collections and unsupported quantities stay null, while supported empty arrays and zero totals remain distinct.
 
 [fixture facts](fixtures/README.md) record source admission, checked boundaries, the penalty-shot goal and shortened overtime example, and the limits of cross-export corroboration. reconstruction requires no network or external drive. future models must choose a coherent event/exposure population and evaluate selective missingness before claiming an ability estimate.
+
+## season references and corpus audit
+
+capture the four fixed season sources into a new directory, with its parent already created:
+
+```sh
+mkdir -p var/references
+cd app
+npm run capture-season -- --season 20252026 --out ../var/references/20252026
+```
+
+`--season` and `--out` occur once. season years must be consecutive. `--help` alone exits `0`; invalid invocation exits `1`. the command preserves the season summary, regular-season game inventory, skater bios and goalie bios using the same response-capture implementation as game acquisition. exit `0` requires four complete 2xx responses; content admission happens offline. each source's receipt names its season, exact filtered request, retrieval time, headers, length and digest. failures retain their http/body/transport distinctions; later requests continue after upstream failures, while filesystem errors stop. no retries, alternate sources or automatic downloading are added.
+
+audit the admitted fixture references against the three local game captures:
+
+```sh
+mkdir -p var
+cd analysis
+uv sync --locked
+.venv/bin/hockey-stats-corpus --reference ../fixtures/references/20252026 --games ../fixtures/captures --out ../var/corpus-20252026
+```
+
+all three options occur exactly once. roots must exist; output must be new, have an existing parent and lie outside both roots. inventory metadata establishes the season; inventory rows establish the population. the audit looks up exactly `<games-root>/<game-id>` for every admitted inventory row, reusing interpretation and reconstruction directly. unrelated directories are ignored. it writes per-game reconstruction envelopes under `games/`, then `corpus.json` last. resolved input paths and relative output links make the selection explicit.
+
+exit `0` means the admitted inventory was accounted for and the report written, even with missing captures, missing bios or reconstruction gaps. unsupported inventory writes a diagnostic report with null populations and exits `1`. per-game local integrity or requested-identity errors remain actionable rows, allow later games to run, and produce exit `1`. unavailable or conflicting upstream game identity keeps its diagnostic but contributes no roster or coverage aggregates. reference integrity and filesystem errors stop immediately. syntax exits `2`; help exits `0`. a directory without its final report is unfinished: remove cheap partial outputs manually and rerun into a new directory.
+
+coverage totals separately retain time, attempts and locations, each with contributing and unavailable game counts. players are ids seen in available admitted rosters, including unused goalies, not participants or a league-wide player population. bio fields join independently: one known value supplies a field; conflicting values leave it null. observations and located issues remain inspectable. no age, historical affiliation, model eligibility or training-ready claim follows from this audit.
+
+to acquire missing games, create the chosen game root, then run an ordinary sequential loop from `app/`. the audit supplies ids; no transcription or batch platform is required:
+
+```sh
+../analysis/.venv/bin/python - ../var/corpus-20252026/corpus.json ../var/captures <<'PY'
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+report = json.loads(Path(sys.argv[1]).read_bytes())
+games = Path(sys.argv[2]).resolve(strict=True)
+for game_id in report["missing_game_ids"]:
+    subprocess.run(["npm", "run", "capture", "--", "--game", game_id,
+                    "--out", str(games / game_id)], check=True)
+PY
+```
+
+the loop stops on the first failed capture so its receipt can be inspected. rerun an audit into a new output directory after acquisition; a present failed capture is evidence to inspect, not an absent directory eligible for silent overwrite. full-season accounting costs per-game json storage and makes the small local sample visibly incomplete. historical admission and scientific assessment remain separate work.

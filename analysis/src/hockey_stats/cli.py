@@ -1,15 +1,13 @@
 """one explicit offline invocation, attributed output, and concise checks."""
 
 import argparse
-import json
 from pathlib import Path
-import platform
 import stat
-import subprocess
 import sys
 
+from .artifacts import implementation_identity, write_json
 from .captures import InputContractError
-from .interpret import GameDocument, Interpretation, interpret_game
+from .interpret import GameDocument, interpret_game
 
 
 class Once(argparse.Action):
@@ -18,26 +16,6 @@ class Once(argparse.Action):
         if getattr(namespace, self.dest) is not None:
             parser.error(f"{option_string} must occur exactly once")
         setattr(namespace, self.dest, values)
-
-
-def implementation_identity() -> Interpretation:
-    analysis = Path(__file__).resolve().parents[2]
-    commit = None
-    dirty = None
-    try:
-        commit = subprocess.run(
-            ["git", "rev-parse", "HEAD"], cwd=analysis, check=True,
-            capture_output=True, text=True,
-        ).stdout.strip()
-        dirty = bool(subprocess.run(
-            ["git", "status", "--porcelain", "--untracked-files=all", "--", "."],
-            cwd=analysis, check=True, capture_output=True, text=True,
-        ).stdout)
-    except (OSError, subprocess.CalledProcessError):
-        commit = None
-        dirty = None
-    return {"git_commit": commit, "git_dirty": dirty,
-            "python_version": platform.python_version()}
 
 
 def report(document: GameDocument, output: Path) -> None:
@@ -114,9 +92,7 @@ def invoke(reconstruct: bool = False) -> int:
         else:
             document["interpretation"] = implementation_identity()
             output_document = document
-        serialized = json.dumps(output_document, allow_nan=False, indent=2) + "\n"
-        with output.open("x", encoding="utf-8") as destination:
-            destination.write(serialized)
+        write_json(output, output_document)
     except InputContractError as error:
         stage = "reconstruction" if reconstruct else "interpretation"
         print(f"{stage} failed: {error}", file=sys.stderr)
@@ -164,3 +140,44 @@ def main() -> int:
 
 def reconstruct_main() -> int:
     return invoke(reconstruct=True)
+
+
+def corpus_main() -> int:
+    parser = argparse.ArgumentParser(
+        description="audit one season inventory against explicit local game captures",
+        allow_abbrev=False,
+    )
+    for option in ("reference", "games", "out"):
+        parser.add_argument(f"--{option}", required=True, action=Once, metavar="DIRECTORY")
+    args = parser.parse_args()
+    from .corpus import audit_corpus, report_corpus
+    from .references import interpret_references
+
+    try:
+        reference = Path(args.reference).resolve(strict=True)
+        games = Path(args.games).resolve(strict=True)
+        for root in (reference, games):
+            if not stat.S_ISDIR(root.stat().st_mode):
+                raise InputContractError(f"{root}: input must be an existing directory")
+        output = Path(args.out).absolute()
+        try:
+            output.lstat()
+        except FileNotFoundError:
+            pass
+        else:
+            raise InputContractError(f"{output}: output already exists; choose a new directory")
+        parent = output.parent.resolve(strict=True)
+        if not stat.S_ISDIR(parent.stat().st_mode):
+            raise InputContractError(f"{parent}: output parent must be an existing directory")
+        output = parent / output.name
+        if any(output.is_relative_to(root) for root in (reference, games)):
+            raise InputContractError(f"{output}: output must be outside both input roots")
+        references = interpret_references(reference)
+        output.mkdir()
+        document = audit_corpus(references, games, output, implementation_identity())
+        write_json(output / "corpus.json", document)
+    except (InputContractError, OSError) as error:
+        print(f"corpus audit failed: {error}", file=sys.stderr)
+        return 1
+    report_corpus(document, output)
+    return 1 if document["summary"] is None or document["summary"]["games_by_status"]["input_error"] else 0

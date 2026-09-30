@@ -1,4 +1,4 @@
-"""the pr1 capture contract; source bytes remain uninterpreted."""
+"""strict game and reference receipts; source bytes remain uninterpreted."""
 
 from dataclasses import dataclass
 from datetime import datetime
@@ -10,10 +10,11 @@ import re
 
 
 SOURCES = ("play-by-play", "boxscore", "shifts", "game-summary", "play-report")
+REFERENCE_SOURCES = ("season-summary", "season-games", "skater-bios", "goalie-bios")
 
 
 class InputContractError(Exception):
-    """capture files contradict the pr1 contract and need repair."""
+    """capture files contradict their receipt contract and need repair."""
 
 
 @dataclass(frozen=True)
@@ -21,6 +22,18 @@ class Capture:
     source: str
     capture_path: Path
     requested_game_id: str | None
+    requested_at: str | None
+    http_status: int | None
+    body_sha256: str | None
+    body: bytes | None
+    reason: str | None
+
+
+@dataclass(frozen=True)
+class ReferenceCapture:
+    source: str
+    capture_path: Path
+    requested_season: str | None
     requested_at: str | None
     http_status: int | None
     body_sha256: str | None
@@ -52,18 +65,31 @@ def strict_json(data: bytes) -> object:
 
 
 def read_capture(directory: Path, source: str) -> Capture:
+    """read one fixed game source under the unchanged game receipt contract."""
+    if source not in SOURCES:
+        raise ValueError(f"unknown capture source {source!r}")
+    return _read_capture(directory, source, reference=False)
+
+
+def read_reference_capture(directory: Path, source: str) -> ReferenceCapture:
+    """read one fixed season source with shared byte integrity checks."""
+    if source not in REFERENCE_SOURCES:
+        raise ValueError(f"unknown reference source {source!r}")
+    return _read_capture(directory, source, reference=True)
+
+
+def _read_capture(directory: Path, source: str, *, reference: bool) -> Capture | ReferenceCapture:
     """read one fixed source, checking metadata and promised body integrity.
 
     unavailable sources retain known metadata; malformed records raise
     InputContractError, while filesystem failures propagate as OSError.
     """
-    if source not in SOURCES:
-        raise ValueError(f"unknown capture source {source!r}")
+    receipt = ReferenceCapture if reference else Capture
     path = (directory / source / "capture.json").resolve()
     try:
         metadata_bytes = path.read_bytes()
     except FileNotFoundError:
-        return Capture(source, path, None, None, None, None, None,
+        return receipt(source, path, None, None, None, None, None,
                        f"{path}: capture.json absent; source unavailable")
 
     def require(condition: bool, problem: str) -> None:
@@ -81,22 +107,36 @@ def read_capture(directory: Path, source: str) -> Capture:
     require(isinstance(metadata, dict), "metadata must be an object")
     require(type(metadata.get("schemaVersion")) is int and metadata["schemaVersion"] == 1,
             "unsupported metadata schemaVersion; expected integer 1")
-    game_id = metadata.get("gameId")
-    require(isinstance(game_id, str) and re.fullmatch(r"[0-9]{10}", game_id) is not None,
-            "gameId must be a ten-digit string")
     require(metadata.get("source") == source, "source identity does not match its directory")
-    season = game_id[:4] + str(int(game_id[:4]) + 1)
-    urls = {
-        "play-by-play": f"https://api-web.nhle.com/v1/gamecenter/{game_id}/play-by-play",
-        "boxscore": f"https://api-web.nhle.com/v1/gamecenter/{game_id}/boxscore",
-        "shifts": f"https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D{game_id}&limit=-1",
-        "game-summary": f"https://www.nhl.com/scores/htmlreports/{season}/GS{game_id[-6:]}.HTM",
-        "play-report": f"https://www.nhl.com/scores/htmlreports/{season}/PL{game_id[-6:]}.HTM",
-    }
+    if reference:
+        identity = metadata.get("seasonId")
+        require(isinstance(identity, str) and re.fullmatch(r"[0-9]{8}", identity) is not None,
+                "seasonId must be an eight-digit string")
+        require(int(identity[4:]) == int(identity[:4]) + 1,
+                "seasonId must describe consecutive years")
+        require("gameId" not in metadata, "reference metadata must not contain gameId")
+        urls = {
+            "season-summary": f"https://api.nhle.com/stats/rest/en/season?cayenneExp=id%3D{identity}&limit=-1",
+            "season-games": f"https://api.nhle.com/stats/rest/en/game?cayenneExp=season%3D{identity}%20and%20gameType%3D2&limit=-1",
+            "skater-bios": f"https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=false&isGame=false&cayenneExp=seasonId%3D{identity}%20and%20gameTypeId%3D2&limit=-1",
+            "goalie-bios": f"https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=false&isGame=false&cayenneExp=seasonId%3D{identity}%20and%20gameTypeId%3D2&limit=-1",
+        }
+    else:
+        identity = metadata.get("gameId")
+        require(isinstance(identity, str) and re.fullmatch(r"[0-9]{10}", identity) is not None,
+                "gameId must be a ten-digit string")
+        season = identity[:4] + str(int(identity[:4]) + 1)
+        urls = {
+            "play-by-play": f"https://api-web.nhle.com/v1/gamecenter/{identity}/play-by-play",
+            "boxscore": f"https://api-web.nhle.com/v1/gamecenter/{identity}/boxscore",
+            "shifts": f"https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D{identity}&limit=-1",
+            "game-summary": f"https://www.nhl.com/scores/htmlreports/{season}/GS{identity[-6:]}.HTM",
+            "play-report": f"https://www.nhl.com/scores/htmlreports/{season}/PL{identity[-6:]}.HTM",
+        }
     request = metadata.get("request")
     require(isinstance(request, dict), "request must be an object")
     require(request.get("method") == "GET" and request.get("url") == urls[source],
-            "request method/url does not identify the requested source and game")
+            "request method/url does not identify the requested source and identity")
     requested_at = request.get("requestedAt")
     require(isinstance(requested_at, str) and re.fullmatch(
         r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]+)?Z", requested_at
@@ -121,7 +161,7 @@ def read_capture(directory: Path, source: str) -> Capture:
         failure = metadata.get("failure")
         require(isinstance(failure, dict) and failure.get("kind") in ("transport", "body-read", "timeout")
                 and isinstance(failure.get("message"), str), "failed capture must name its failure kind/message")
-        return Capture(source, path, game_id, requested_at, status, None, None,
+        return receipt(source, path, identity, requested_at, status, None, None,
                        f"{path}: request failed ({failure['kind']}: {failure['message']}); source unavailable")
 
     require(status is not None, "captured body requires an httpStatus")
@@ -147,6 +187,6 @@ def read_capture(directory: Path, source: str) -> Capture:
     require(hashlib.sha256(body_bytes).hexdigest() == digest,
             "body.bin digest does not match body.sha256")
     if not 200 <= status <= 299:
-        return Capture(source, path, game_id, requested_at, status, digest, None,
+        return receipt(source, path, identity, requested_at, status, digest, None,
                        f"{path}: http {status} response; source unavailable")
-    return Capture(source, path, game_id, requested_at, status, digest, body_bytes, None)
+    return receipt(source, path, identity, requested_at, status, digest, body_bytes, None)

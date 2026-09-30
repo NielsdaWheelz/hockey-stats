@@ -15,6 +15,8 @@ parity scope confirmed 2026-09-29: **complete player analysis**, covering hockey
 
 v2 and v3 are independent after v1. the recommendation favors useful comparison tools first; current-season work can take priority if that is the more pressing use once v1 exists. the cost of the proposed order is delaying current-season analysis while improving the completed-season product. each milestone can ship through several small slices.
 
+source foundations belong within v1: the [plan](plan.md) places event on-ice reports in 02b, schedules/player bios and corpus admission in planned 02c, and coach-source decisions in 04. event-summary/shift reports support selected audits; they do not require duplicate feeds. scratch availability views remain later work. adding a source does not by itself add a card or public feature.
+
 ## milestones that need not wait
 
 - **public website:** publish once the personal product is useful and ready to share. hosting and data-publication details get their own small specification then. full cards are not a prerequisite. fitting stays local; hosting does not create an update schedule.

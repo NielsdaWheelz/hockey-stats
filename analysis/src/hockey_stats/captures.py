@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 
 
-SOURCES = ("play-by-play", "boxscore", "shifts", "game-summary")
+SOURCES = ("play-by-play", "boxscore", "shifts", "game-summary", "play-report")
 
 
 class InputContractError(Exception):
@@ -91,6 +91,7 @@ def read_capture(directory: Path, source: str) -> Capture:
         "boxscore": f"https://api-web.nhle.com/v1/gamecenter/{game_id}/boxscore",
         "shifts": f"https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D{game_id}&limit=-1",
         "game-summary": f"https://www.nhl.com/scores/htmlreports/{season}/GS{game_id[-6:]}.HTM",
+        "play-report": f"https://www.nhl.com/scores/htmlreports/{season}/PL{game_id[-6:]}.HTM",
     }
     request = metadata.get("request")
     require(isinstance(request, dict), "request must be an object")

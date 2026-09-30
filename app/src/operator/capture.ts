@@ -18,7 +18,7 @@ const responseHeaderNames = [
   "location",
 ] as const;
 
-type CaptureSource = "play-by-play" | "boxscore" | "shifts" | "game-summary";
+type CaptureSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report";
 
 type CaptureMetadata = {
   readonly schemaVersion: 1;
@@ -76,6 +76,7 @@ export const captureGame = ({
       { source: "boxscore", url: `https://api-web.nhle.com/v1/gamecenter/${gameId}/boxscore` },
       { source: "shifts", url: `https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D${gameId}&limit=-1` },
       { source: "game-summary", url: `https://www.nhl.com/scores/htmlreports/${season}/GS${gameId.slice(-6)}.HTM` },
+      { source: "play-report", url: `https://www.nhl.com/scores/htmlreports/${season}/PL${gameId.slice(-6)}.HTM` },
     ] as const;
     const records: CaptureRecord[] = [];
 

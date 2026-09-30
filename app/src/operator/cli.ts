@@ -53,7 +53,7 @@ try {
         }
         console.log(`${captured2xx} captured 2xx responses; ${capturedNon2xx} captured non-2xx responses; ${incomplete} incomplete requests`);
         console.log(outDirectory);
-        process.exitCode = captured2xx === 4 ? 0 : 1;
+        process.exitCode = captured2xx === 5 ? 0 : 1;
       },
     }),
   ));

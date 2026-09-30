@@ -75,14 +75,15 @@ def report(document: GameDocument, output: Path) -> None:
         elif check["status"] != "match":
             team = f", team {check['team_id']}" if "team_id" in check else ""
             print(f"{source} {name}{team} {check['status']}: observed {observed}; expected {expected}; {check['reason']}")
-    print("5v5 exposure: not reconstructed in this slice")
+    print("5v5 exposure: not reconstructed by this command")
     if document["game"] is not None:
         print(f"output: {output}")
 
 
-def main() -> int:
+def invoke(reconstruct: bool = False) -> int:
     parser = argparse.ArgumentParser(
-        description="interpret one explicitly selected local game capture", allow_abbrev=False,
+        description=("reconstruct" if reconstruct else "interpret") + " one explicitly selected local game capture",
+        allow_abbrev=False,
     )
     parser.add_argument("--capture", required=True, action=Once, metavar="DIRECTORY")
     parser.add_argument("--out", required=True, action=Once, metavar="FILE")
@@ -105,15 +106,61 @@ def main() -> int:
         if output.is_relative_to(directory):
             raise InputContractError(f"{output}: output must be outside the capture directory; choose another parent")
         document = interpret_game(directory)
-        document["interpretation"] = implementation_identity()
-        serialized = json.dumps(document, allow_nan=False, indent=2) + "\n"
+        if reconstruct:
+            from .reconstruct import reconstruct_game
+            reconstruction = reconstruct_game(document)
+            output_document = {"schema_version": 1, "implementation": implementation_identity(),
+                               "interpreted": document, "reconstruction": reconstruction}
+        else:
+            document["interpretation"] = implementation_identity()
+            output_document = document
+        serialized = json.dumps(output_document, allow_nan=False, indent=2) + "\n"
         with output.open("x", encoding="utf-8") as destination:
             destination.write(serialized)
     except InputContractError as error:
-        print(f"interpretation failed: {error}", file=sys.stderr)
+        stage = "reconstruction" if reconstruct else "interpretation"
+        print(f"{stage} failed: {error}", file=sys.stderr)
         return 1
     except OSError as error:
-        print(f"interpretation failed: {error}; repair the affected path or choose an accessible input/output", file=sys.stderr)
+        stage = "reconstruction" if reconstruct else "interpretation"
+        print(f"{stage} failed: {error}; repair the affected path or choose an accessible input/output", file=sys.stderr)
         return 1
+    if reconstruct:
+        coverage = reconstruction["coverage"]
+        time = coverage["time"]
+        attempts = coverage["attempts"]
+        locations = coverage["locations"]
+        def value(item: int | None, suffix: str = "") -> str:
+            return "unavailable" if item is None else f"{item}{suffix}"
+        expected = time["expected_periods"]
+        supported = time["supported_periods"]
+        horizons = "unavailable" if expected is None else f"{len(supported)}/{len(expected)}"
+        print(f"reconstructed game {document['requested_game_id']}")
+        print(f"time: {horizons} period horizons; {value(time['five_on_five_seconds'], 's')} 5v5; {value(time['other_seconds'], 's')} other; {value(time['unresolved_seconds'], 's')} unresolved")
+        print(f"timed attempts: {value(attempts['five_on_five'])} 5v5; {value(attempts['other'])} other; {value(attempts['unresolved'])} unresolved")
+        if attempts["five_on_five"] is None:
+            linked = "unavailable"
+        elif attempts["five_on_five"] == 0:
+            linked = "0; no 5v5 attempts"
+        else:
+            linked = f"{value(attempts['linked_five_on_five'])}/{attempts['five_on_five']}"
+        print(f"5v5 attempts linked to exposure: {linked}")
+        if attempts["unclassified_events"]:
+            print(f"unclassified events: {attempts['unclassified_events']}")
+        print(f"recorded locations: {value(locations['normalized'])} normalized; {value(locations['missing_coordinates'])} missing; {value(locations['unresolved_frame'])} frame unresolved")
+        print("shooting origins: not computed")
+        print(f"output: {output}")
+        supported_rows = (reconstruction["intervals"] or []) + (reconstruction["events"] or [])
+        return 0 if document["game"] is not None and any(
+            row["classification"] in ("five_on_five", "other") for row in supported_rows
+        ) else 1
     report(document, output)
     return 0 if document["game"] is not None else 1
+
+
+def main() -> int:
+    return invoke()
+
+
+def reconstruct_main() -> int:
+    return invoke(reconstruct=True)

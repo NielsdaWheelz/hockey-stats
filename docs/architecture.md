@@ -1,6 +1,8 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus/reference admission](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is implemented and verified locally; its scientific decision rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [product brief](brief.md) remains authoritative. fixture implementation does not imply scientific acceptance.
+status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus/reference admission](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is complete and merged in `9132131`; its [scientific decision](research/chance-03b/decision.md) rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [product brief](brief.md) remains authoritative. software completion does not imply scientific acceptance.
+
+pr03c follow-up: [source revision](specs/03c-source-revision.md) specifies landing acquisition through existing capture primitives, report/landing interpretation, supported joins, pre-event score repairs and population differences. [03d](specs/03d-chance-revision.md) and [03e](specs/03e-training-assessment.md) are stubs separating revised numerical behavior from real scientific assessment; [04–07](plan.md#next-slices) likewise retain their own later decisions. no new service, database or fitting platform follows. [evidence and scientific limits](research/chance-03c-source-audit.md)
 
 ## operating scale
 
@@ -89,6 +91,8 @@ alternative: also retain a separately identified real-data research subset local
 
 user decision: “browse published results and develop the application,” with the same requirement for the eventual public production website. adopted: local browsing and public serving must function from their complete published datasets without the external drive or fitting environment. substantive detached statistical experiments are not required for the initial target.
 
+03c amendment, approved by the user: retain compact committed raw fixtures across supported seasons and a larger local raw corpus outside git, targeting all three captured seasons after measuring storage. copy original receipts/bodies and references; regenerate cheap path-bound derived artifacts locally. source processing needs those inputs, not a particular drive. use ordinary manual copies and existing commands; no synchronization service or corpus manager. larger explicit checks remain optional invocations, separate from quick fixture checks and scientific training. the cost is duplicated storage and case curation. [operating policy](../fixtures/README.md#fixture-policy-and-local-corpus)
+
 engineering consequences: each serving environment must hold all data needed for its supported published views, with a coherent revision and evidence cutoff. a failed or interrupted update leaves the previous valid publication available; a known-invalid publication requires an explicit correction or withdrawal. source corrections cannot silently mix new observations with estimates from unidentified older inputs. exact storage and publication mechanisms remain open.
 
 this decision separates serving availability from analytical computation and freshness. interactive queries remain permitted. static-only hosting and public launch timing do not follow from it; questions 4 and 5 settle compute location and operator-controlled cadence. the tradeoff is duplicated published outputs and an explicit publication step; source history and fitting dependencies need not be duplicated into the serving environment.
@@ -99,7 +103,7 @@ original question: for the first completed-season release, must data processing 
 
 user decision: local batch runs “initially -- and always”; assume indefinitely that processing and fitting rely on the local machine and hdd. the user also suggested checkpoints. adopted: the analytical producer runs locally indefinitely, including ingestion, processing, and fitting. public serving remains independent. remote fitting and a planned migration to remote computation are outside the design.
 
-cost: rebuilds and new publications depend on local compute, drive access, and successful execution; long runs can occupy the machine. inspect hardware and benchmark representative work before choosing concurrency, memory budgets, or checkpoint intervals. question 5 subsequently settles operator-triggered execution; scheduling is an optional convenience rather than a requirement.
+cost: rebuilds and new publications depend on local compute, identified input availability, and successful execution; long runs can occupy the machine. inspect hardware and benchmark representative work before choosing concurrency, memory budgets, or checkpoint intervals. question 5 subsequently settles operator-triggered execution; scheduling is an optional convenience rather than a requirement.
 
 recovery design judgment:
 

@@ -1,12 +1,16 @@
 import type { PlatformError } from "@effect/platform/Error";
 import type { CaptureRecord } from "./capture.js";
 
-export const reportCaptureFailure = (error: PlatformError, outDirectory: string): 1 => {
-  const path = error._tag === "SystemError" ? error.pathOrDescriptor ?? outDirectory : outDirectory;
-  const action = error._tag === "SystemError" && error.reason === "AlreadyExists"
+const landingReplacement = "for a replacement, use an explicitly prepared new game-directory copy with no landing leaf; preserve the original directory and any landing leaf";
+
+export const reportCaptureFailure = (error: PlatformError | Error, outDirectory: string, source?: "landing"): 1 => {
+  const platformError = "_tag" in error ? error : undefined;
+  const path = platformError?._tag === "SystemError" ? platformError.pathOrDescriptor ?? outDirectory : outDirectory;
+  const action = source === "landing" ? `check the path and core receipt; ${landingReplacement}`
+    : platformError?._tag === "SystemError" && platformError.reason === "AlreadyExists"
     ? "choose a new --out directory"
     : "check the parent directory, path permissions and disk space; retry with a new --out directory";
-  console.error(`local capture failure at ${path}: ${error.description ?? error.message}; ${action}`);
+  console.error(`local capture failure at ${path}: ${platformError?.description ?? error.message}; ${action}`);
   return 1;
 };
 
@@ -14,9 +18,9 @@ export const reportCaptures = (
   records: readonly CaptureRecord[],
   identity: { readonly gameId: string } | { readonly seasonId: string },
   outDirectory: string,
+  source?: "landing",
 ): 0 | 1 => {
   const subject = "gameId" in identity ? `game ${identity.gameId}` : `season ${identity.seasonId}`;
-  const expectedResponses = "gameId" in identity ? 5 : 4;
   let captured2xx = 0;
   let capturedNon2xx = 0;
   let incomplete = 0;
@@ -36,5 +40,7 @@ export const reportCaptures = (
   }
   console.log(`${captured2xx} captured 2xx responses; ${capturedNon2xx} captured non-2xx responses; ${incomplete} incomplete requests`);
   console.log(outDirectory);
-  return captured2xx === expectedResponses ? 0 : 1;
+  const succeeded = records.length > 0 && captured2xx === records.length;
+  if (!succeeded && source === "landing") console.error(landingReplacement);
+  return succeeded ? 0 : 1;
 };

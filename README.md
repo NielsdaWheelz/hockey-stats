@@ -15,6 +15,9 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr2c specification](docs/specs/02c-corpus.md): season inventory, bulk player references and offline corpus accounting.
 - [pr03a specification](docs/specs/03a-chance-workflow.md): chance-model workflow and software verification.
 - [pr03b specification](docs/specs/03b-training-acceptance.md): fresh three-season corpus, chronological development/confirmation and scientific judgment.
+- [pr03c specification](docs/specs/03c-source-revision.md): source contracts, expanded fixtures and [full three-season audit](docs/research/chance-03c/decision.md) implemented and verified.
+- [later pr stubs](docs/plan.md#next-slices): 03d–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
+- [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
 - [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
 - [source audit](docs/research/source-audit.md): direct public evidence, omissions corrected and later input dependencies.
@@ -42,9 +45,17 @@ npm ci
 npm run capture -- --game 2025020001 --out ../var/captures/example-01
 ```
 
-the command requests play-by-play, boxscore, shift charts, the official game-summary report and the official per-event on-ice report sequentially. each source gets `body.bin` and `capture.json`. the body contains the bytes delivered by the http client after content decompression and before text decoding or parsing; its record identifies the request, received headers, byte count and sha-256 digest. capture does not establish game identity, collection completeness or analytical validity.
+the command requests play-by-play, boxscore, shift charts, the official game-summary report, the official per-event on-ice report and gamecenter landing sequentially. each source gets `body.bin` and `capture.json`. the body contains the bytes delivered by the http client after content decompression and before text decoding or parsing; its record identifies the request, received headers, byte count and sha-256 digest. capture does not establish game identity, collection completeness or analytical validity.
 
-exit `0` means all five requests returned complete 2xx bodies. exit `1` includes invalid arguments, local failures, incomplete requests, redirects and upstream errors. complete error/redirect bodies are preserved. transport failures still allow later sources to be attempted; filesystem failure stops immediately. there are no automatic retries or redirects. inspect the records and rerun into a new directory after repairing a failure. an interrupted body without a complete record is unfinished and may be removed manually.
+exit `0` means every requested response returned a complete 2xx body: six for a default game capture, one for landing-only, four for a season capture. exit `1` includes invalid arguments, local failures, incomplete requests, redirects and upstream errors. complete error/redirect bodies are preserved. transport failures still allow later sources to be attempted; filesystem failure stops immediately. there are no automatic retries or redirects. an interrupted body without a complete record is unfinished local work and may be removed manually.
+
+add only landing to an existing game capture:
+
+```sh
+npm run capture -- --game 2025020001 --source landing --out /absolute/existing/game-directory
+```
+
+the parent must contain a readable version-1 `play-by-play/capture.json` naming this game and source. `--source` accepts only `landing`, once. an existing landing leaf fails before network access. for replacement, explicitly prepare a new game-directory copy without its landing leaf, preserving the original directory and any existing landing evidence. the command neither overwrites nor resumes. new retrieval dates remain distinct from the five earlier responses.
 
 downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains three fresh, inspected example games with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
 
@@ -59,7 +70,7 @@ uv sync --locked
 .venv/bin/hockey-stats-interpret --capture ../fixtures/captures/2025020001 --out ../var/interpreted/2025020001.json
 ```
 
-the command reads five fixed capture records, verifies body lengths and digests, and interprets supported completed regular-season json sources. it retains source order, missing values, reported results, event locations and shift records, with source locators and named reconciliations. the play report supplies attributed event on-ice lists; the game-summary report remains manually inspected reference evidence. no network or external drive is needed.
+the command reads six fixed capture records, verifies body lengths and digests, and interprets supported completed regular-season json sources. absent landing remains an explicit source gap. interpretation schema 3 retains source order, missing values, reported results, event locations, shift records, report shooting participants/types and landing scoring rows, with source locators and named reconciliations. the play report supplies attributed event on-ice lists; the game-summary report remains manually inspected reference evidence. no network or external drive is needed.
 
 exit `0` means at least one core source passed game identity, type and state admission, after the document was written. collection gaps and reconciliation mismatches remain explicit in that document. if neither core source is usable but the requested id is known, a diagnostic is saved and exit is `1`. malformed capture contracts, conflicting admitted identities and filesystem failures exit `1` without a successful document; invalid argument syntax exits `2`. `--help` exits `0`.
 
@@ -77,9 +88,11 @@ cd analysis
 .venv/bin/hockey-stats-reconstruct --capture ../fixtures/captures/2025020001 --out ../var/reconstructed/2025020001.json
 ```
 
-both options occur exactly once. the output parent must exist; the output file must be new and outside the capture directory. the envelope contains schema version 1, one implementation identity, schema-version-2 interpretation, and reconstruction. cheap older interpretation outputs should be rerun; no migration or serialized-interpretation input is supported.
+both options occur exactly once. the output parent must exist; the output file must be new and outside the capture directory. the envelope contains schema version 2, one implementation identity, schema-version-3 interpretation, and reconstruction. chance preparation rejects older versions; regenerate cheap derived corpora from preserved captures. historical artifacts remain usable at their historical git revision.
 
-reported event membership comes from an exact, unique period/clock/kind match to the official play report. elapsed intervals come from coherent shifts, with both goalies required for genuine 5v5. neither source fills gaps in the other. unresolved matches and intervals remain visible. coordinate rotation uses the reported defending side; recorded block locations remain block locations. shooting origins, chance values, player attempt totals, rates and model eligibility are not computed.
+reported event membership comes from period/clock/kind matching to the official play report. repeated attempt groups require one complete assignment supported by exact team, shooter and known type constraints; missing facts add no constraints. singleton type disagreement leaves membership intact and the type conflicting. reconstruction keeps both original type spellings and their reconciled evidence. landing goals join unique event ids with period, reported clock, team and credited-scorer corroboration. a joined penalty-shot modifier enforces the existing exclusion; own-goal and awarded observations remain diagnostic.
+
+elapsed intervals come from coherent shifts, with both goalies required for genuine 5v5. neither source fills gaps in the other. unresolved matches and intervals remain visible. coordinate rotation uses the reported defending side; recorded block locations remain block locations. shooting origins, chance values, player attempt totals, rates and model eligibility are not computed.
 
 exit `0` means an admitted game has at least one supported elapsed interval or timed event, after writing the document. an available diagnostic with no supported classification exits `1`; successful execution does not certify completeness. argument syntax/help and filesystem rules match interpretation. the command summary separates time, attempt, exposure-link and location coverage; detailed located reasons remain in the document. missing collections and unsupported quantities stay null, while supported empty arrays and zero totals remain distinct.
 
@@ -158,3 +171,15 @@ its evidence file names the immutable protocol, saved compatible research assess
 fitting writes `checkpoint.json` atomically after each completed start and every 25 nonterminal accepted em updates. optional `--resume /abs/old-fit/checkpoint.json` continues accepted numerical state into a **new** `--out` directory. use the identical selection, configuration (including the iteration ceiling), original clean git revision and pinned numerical environment. even a documentation-only git commit changes the identity; use an isolated checkout of the saved revision. preparation, conversion and benchmarks recompute; an unfinished inner solve and at most 25 accepted updates may repeat. dirty exploratory fits may complete, but their checkpoints cannot resume. preserve failed diagnostics; no automatic retry, changed budget or acceptance of unconverged state is provided.
 
 for a mounted external drive, use the existing native commands and explicit sibling `inputs/`, `fits/`, `assessments/`, `scores/`, `review/` paths described in [03b](docs/specs/03b-training-acceptance.md). inventory ids and exact input digests come from admission; fixtures and archived projections cannot substitute. current research artifacts are retrospective revised-data evidence, not forecasts available at their historical game dates. any tuned revision after confirmation needs separately justified evidence rather than another claim of untouched confirmation on the same games.
+
+## source review
+
+after regenerating a corpus, run the retained source operator from `analysis/`:
+
+```sh
+.venv/bin/python research/source_review.py --selection /absolute/selection.json --out /absolute/new-review-directory
+```
+
+the selection uses the existing chance-selection schema and purpose (`fixture_exercise` or `research`). output must be new, outside input directories, with an existing parent. preparation validates the selected envelopes; review rereads those envelopes for source-wide counts. finite schema-1 `review.json` is written last. ordinary source gaps succeed with explicit dispositions; malformed inputs fail. source rows, matched events and eligible attempts retain separate denominators. type reconciliation supplies diagnostics, not a new predictor; the narrow non-goal clock repair retains all source issues.
+
+[the 03c decision](docs/research/chance-03c/decision.md) records the completed three-season before/after audit, detached verification and remaining source limitations. all three seasons are development/comparison evidence after 03b. no refit or revised scientific verdict is implied.

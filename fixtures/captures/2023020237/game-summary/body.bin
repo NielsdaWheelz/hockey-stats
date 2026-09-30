@@ -1,0 +1,945 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Game Summary</title>
+</head>
+<style type="text/css">
+				@media screen
+				{
+				     .print-class { display: block;}
+				}
+				@media print
+				{
+				     .print-class { display: none;}
+				}
+
+				p, td {font-family: arial,verdana; font-size: 10px;}
+				body {margin: 0; border:solid; border-width: 0;}
+				.title {fon-weight:bold;font-size:14px;}
+				.tablewidth{width: 650px;}
+				.columnwidth{width: 320px;}
+				.sectionheading{font-weight:bold;}
+				.visitorsectionheading{font-weight:bold;background-color: #E7E7E7;color:#000000;}
+				.homesectionheading{font-weight:bold;background-color: #E7E7E7;color:#000000;}
+				.teamHeading{font-weight:bold;font-size:14px;}
+				.heading {font-weight:bold}
+				.totalRow{font-size:10px;font-weight:bold;}
+				.bold{font-weight:bold;}
+				.border {border:1px solid black;border-collapse: collapse;}
+				.noborder {border:0px solid black;border-collapse: collapse;}
+				.tborder{border-top:1px solid black;}
+				.bborder{border-bottom:1px solid black;}
+				.lborder{border-left:1px solid black;}
+				.rborder{border-right:1px solid black;}
+				.oddColor{background-color: #E7E7E7;}
+				.evenColor{background-color: #FFFFFF;}
+				.spacer{font-size:1px;height:5px;}
+				
+			</style>
+<body topmargin="0" leftmargin="0"><script language="javascript" defer><!--
+				//Disable right mouse click Script
+									
+				function clickIE4(){
+				if (event.button==2){
+				return false;
+				}
+				}
+				
+				function clickNS4(e){
+				if (document.layers||document.getElementById&&!document.all){
+				if (e.which==2||e.which==3){
+				return false;
+				}
+				}
+				}
+														
+				if (document.layers){
+				document.captureEvents(Event.MOUSEDOWN);
+				document.onmousedown=clickNS4;
+				}
+				else if (document.all&&!document.getElementById){
+				document.onmousedown=clickIE4;
+				}
+				
+				document.oncontextmenu=new Function("return false");
+		
+			--></script><div class="print-class" align="center"><script languange="javascript" type="text/javascript" src="https://www.nhl.com/scores/htmlreports/scripts/gsTop.js"><!--&nbsp;--></script></div>
+<table id="MainTable" border="0" cellpadding="0" cellspacing="0" class="tablewidth" align="center">
+<tr>
+<td width="100%" align="center">
+<table id="StdHeader" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" xmlns:ext="urn:schemas-microsoft-com:xslt">
+<tr>
+<td valign="top">
+<table id="Visitor" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="center" style="font-size: 12px;font-weight:bold">VISITOR</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="4" cellspacing="20" align="center">
+<tr>
+<td align="center"><img src="http://www.nhl.com/scores/htmlreports/images/logocfla.gif" alt="FLORIDA PANTHERS" width="50" height="50" border="0"></td>
+<td align="center" style="font-size: 40px;font-weight:bold">5</td>
+<td align="center"><img src="http://www.nhl.com/scores/htmlreports/images/logocnhl.gif" width="50" height="50" border="0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">FLORIDA PANTHERS<br>Game 15 Away Game 8</td>
+</tr>
+</table>
+</td>
+<td>
+<table id="GameInfo" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td style="font-size: 14px;font-weight:bold" align="center">Game Summary</td>
+</tr>
+<tr>
+<td style="font-size: 14px;font-weight:bold" align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold"></td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">Tuesday, November 14, 2023</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">Attendance 10,108&nbsp;at&nbsp;SAP Center at San Jose</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">Start&nbsp;7:38&nbsp;PST; End&nbsp;10:14&nbsp;PST</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">Game 0237</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">Final</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table id="Home" border="0" cellpadding="" cellspacing="0" align="center">
+<tr>
+<td align="center" style="font-size: 12px;font-weight:bold">HOME</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="4" cellspacing="20" align="center">
+<tr>
+<td align="center"><img src="http://www.nhl.com/scores/htmlreports/images/logocnhl.gif" width="50" height="50" border="0"></td>
+<td align="center" style="font-size: 40px;font-weight:bold">3</td>
+<td align="center"><img src="http://www.nhl.com/scores/htmlreports/images/logocsjs.gif" alt="SAN JOSE SHARKS" width="50" height="50" border="0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" style="font-size: 10px;font-weight:bold">SAN JOSE SHARKS<br>Game 16 Home Game 9</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer + tborder">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" class="sectionheading">SCORING SUMMARY</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="border">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="heading + bborder" align="center">G</td>
+<td class="heading + bborder" align="center">Per</td>
+<td class="heading + bborder" align="center">Time</td>
+<td class="heading + bborder" align="center">Str</td>
+<td class="heading + bborder" align="center">Team</td>
+<td class="heading + bborder" align="left">Goal Scorer</td>
+<td class="heading + bborder" align="left">Assist</td>
+<td class="heading + bborder" align="left">Assist</td>
+<td class="heading + bborder" align="left">FLA on Ice</td>
+<td class="heading + bborder" align="left">SJS on Ice</td>
+</tr>
+<tr class="oddColor">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">12:34</td>
+<td align="center">EV</td>
+<td align="center">FLA</td>
+<td align="left">94 R.LOMBERG(2)</td>
+<td align="left">unassisted</td>
+<td align="left"></td>
+<td>
+<font style="cursor:hand;" title="Center - NICK COUSINS">21</font>, <font style="cursor:hand;" title="Defense - UVIS BALINSKIS">26</font>, <font style="cursor:hand;" title="Center - EETU LUOSTARINEN">27</font>, <font style="cursor:hand;" title="Defense - JOSH MAHURA">28</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Left Wing - RYAN LOMBERG">94</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Defense - TY EMBERSON">6</font>, <font style="cursor:hand;" title="Left Wing - FABIAN ZETTERLUND">20</font>, <font style="cursor:hand;" title="Goalie - MACKENZIE BLACKWOOD">29</font>, <font style="cursor:hand;" title="Defense - MARIO FERRARO">38</font>, <font style="cursor:hand;" title="Center - TOMAS HERTL">48</font>, <font style="cursor:hand;" title="Left Wing - WILLIAM EKLUND">72</font>
+</td>
+</tr>
+<tr class="evenColor">
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">15:58</td>
+<td align="center">EV</td>
+<td align="center">SJS</td>
+<td align="left">68 M.HOFFMAN(1)</td>
+<td align="left">54 G.SMITH(1)</td>
+<td align="left">84 J.RUTTA(1)</td>
+<td>
+<font style="cursor:hand;" title="Center - SAM BENNETT">9</font>, <font style="cursor:hand;" title="Left Wing - MATTHEW TKACHUK">19</font>, <font style="cursor:hand;" title="Center - CARTER VERHAEGHE">23</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Defense - GUSTAV FORSLING">42</font>, <font style="cursor:hand;" title="Defense - OLIVER EKMAN-LARSSON">91</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Center - RYAN CARPENTER">22</font>, <font style="cursor:hand;" title="Goalie - MACKENZIE BLACKWOOD">29</font>, <font style="cursor:hand;" title="Right Wing - GIVANI SMITH">54</font>, <font style="cursor:hand;" title="Center - MIKE HOFFMAN">68</font>, <font style="cursor:hand;" title="Defense - NIKITA OKHOTIUK">83</font>, <font style="cursor:hand;" title="Defense - JAN RUTTA">84</font>
+</td>
+</tr>
+<tr class="oddColor">
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">12:09</td>
+<td align="center">PP</td>
+<td align="center">FLA</td>
+<td align="left">13 S.REINHART(12)</td>
+<td align="left">91 O.EKMAN-LARSSON(6)</td>
+<td align="left">19 M.TKACHUK(13)</td>
+<td>
+<font style="cursor:hand;" title="Center - SAM REINHART">13</font>, <font style="cursor:hand;" title="Center - ALEKSANDER BARKOV">16</font>, <font style="cursor:hand;" title="Left Wing - MATTHEW TKACHUK">19</font>, <font style="cursor:hand;" title="Center - CARTER VERHAEGHE">23</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Defense - OLIVER EKMAN-LARSSON">91</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Center - NICO STURM">7</font>, <font style="cursor:hand;" title="Center - LUKE KUNIN">11</font>, <font style="cursor:hand;" title="Goalie - MACKENZIE BLACKWOOD">29</font>, <font style="cursor:hand;" title="Defense - MARIO FERRARO">38</font>, <font style="cursor:hand;" title="Defense - JAN RUTTA">84</font>
+</td>
+</tr>
+<tr class="evenColor">
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">6:11</td>
+<td align="center">PP</td>
+<td align="center">SJS</td>
+<td align="left">48 T.HERTL(3)</td>
+<td align="left">20 F.ZETTERLUND(3)</td>
+<td align="left">64 M.GRANLUND(2)</td>
+<td>
+<font style="cursor:hand;" title="Center - SAM REINHART">13</font>, <font style="cursor:hand;" title="Center - ALEKSANDER BARKOV">16</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Defense - GUSTAV FORSLING">42</font>, <font style="cursor:hand;" title="Defense - OLIVER EKMAN-LARSSON">91</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Left Wing - FABIAN ZETTERLUND">20</font>, <font style="cursor:hand;" title="Goalie - MACKENZIE BLACKWOOD">29</font>, <font style="cursor:hand;" title="Defense - CALEN ADDISON">33</font>, <font style="cursor:hand;" title="Center - TOMAS HERTL">48</font>, <font style="cursor:hand;" title="Center - MIKAEL GRANLUND">64</font>, <font style="cursor:hand;" title="Center - MIKE HOFFMAN">68</font>
+</td>
+</tr>
+<tr class="oddColor">
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">7:21</td>
+<td align="center">EV</td>
+<td align="center">SJS</td>
+<td align="left">11 L.KUNIN(3)</td>
+<td align="left">75 D.GUSHCHIN(1)</td>
+<td align="left">64 M.GRANLUND(3)</td>
+<td>
+<font style="cursor:hand;" title="Center - SAM BENNETT">9</font>, <font style="cursor:hand;" title="Center - EVAN RODRIGUES">17</font>, <font style="cursor:hand;" title="Center - NICK COUSINS">21</font>, <font style="cursor:hand;" title="Defense - UVIS BALINSKIS">26</font>, <font style="cursor:hand;" title="Defense - JOSH MAHURA">28</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Center - LUKE KUNIN">11</font>, <font style="cursor:hand;" title="Left Wing - FABIAN ZETTERLUND">20</font>, <font style="cursor:hand;" title="Defense - MARIO FERRARO">38</font>, <font style="cursor:hand;" title="Center - TOMAS HERTL">48</font>, <font style="cursor:hand;" title="Center - MIKAEL GRANLUND">64</font>, <font style="cursor:hand;" title="Left Wing - DANIL GUSHCHIN">75</font>
+</td>
+</tr>
+<tr class="evenColor">
+<td align="center">6</td>
+<td align="center">3</td>
+<td align="center">10:06</td>
+<td align="center">PP</td>
+<td align="center">FLA</td>
+<td align="left">23 C.VERHAEGHE(7)</td>
+<td align="left">19 M.TKACHUK(14)</td>
+<td align="left">16 A.BARKOV(10)</td>
+<td>
+<font style="cursor:hand;" title="Center - SAM REINHART">13</font>, <font style="cursor:hand;" title="Center - ALEKSANDER BARKOV">16</font>, <font style="cursor:hand;" title="Left Wing - MATTHEW TKACHUK">19</font>, <font style="cursor:hand;" title="Center - CARTER VERHAEGHE">23</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Defense - OLIVER EKMAN-LARSSON">91</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Center - NICO STURM">7</font>, <font style="cursor:hand;" title="Center - LUKE KUNIN">11</font>, <font style="cursor:hand;" title="Goalie - MACKENZIE BLACKWOOD">29</font>, <font style="cursor:hand;" title="Defense - MARIO FERRARO">38</font>, <font style="cursor:hand;" title="Defense - JAN RUTTA">84</font>
+</td>
+</tr>
+<tr class="oddColor">
+<td align="center">7</td>
+<td align="center">3</td>
+<td align="center">11:09</td>
+<td align="center">EV</td>
+<td align="center">FLA</td>
+<td align="left">82 K.STENLUND(4)</td>
+<td align="left">26 U.BALINSKIS(1)</td>
+<td align="left">18 S.LORENTZ(2)</td>
+<td>
+<font style="cursor:hand;" title="Center - STEVEN LORENTZ">18</font>, <font style="cursor:hand;" title="Defense - UVIS BALINSKIS">26</font>, <font style="cursor:hand;" title="Defense - JOSH MAHURA">28</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Center - KEVIN STENLUND">82</font>, <font style="cursor:hand;" title="Left Wing - RYAN LOMBERG">94</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Center - RYAN CARPENTER">22</font>, <font style="cursor:hand;" title="Goalie - MACKENZIE BLACKWOOD">29</font>, <font style="cursor:hand;" title="Right Wing - KEVIN LABANC">62</font>, <font style="cursor:hand;" title="Left Wing - DANIL GUSHCHIN">75</font>, <font style="cursor:hand;" title="Defense - NIKITA OKHOTIUK">83</font>, <font style="cursor:hand;" title="Defense - JAN RUTTA">84</font>
+</td>
+</tr>
+<tr class="evenColor">
+<td align="center">8</td>
+<td align="center">3</td>
+<td align="center">17:47</td>
+<td align="center">EV-EN</td>
+<td align="center">FLA</td>
+<td align="left">16 A.BARKOV(6)</td>
+<td align="left">23 C.VERHAEGHE(5)</td>
+<td align="left">13 S.REINHART(11)</td>
+<td>
+<font style="cursor:hand;" title="Defense - DMITRY KULIKOV">7</font>, <font style="cursor:hand;" title="Center - SAM REINHART">13</font>, <font style="cursor:hand;" title="Center - ALEKSANDER BARKOV">16</font>, <font style="cursor:hand;" title="Center - CARTER VERHAEGHE">23</font>, <font style="cursor:hand;" title="Goalie - ANTHONY STOLARZ">41</font>, <font style="cursor:hand;" title="Defense - NIKO MIKKOLA">77</font>
+</td>
+<td>
+<font style="cursor:hand;" title="Left Wing - FABIAN ZETTERLUND">20</font>, <font style="cursor:hand;" title="Defense - CALEN ADDISON">33</font>, <font style="cursor:hand;" title="Center - TOMAS HERTL">48</font>, <font style="cursor:hand;" title="Center - MIKAEL GRANLUND">64</font>, <font style="cursor:hand;" title="Center - MIKE HOFFMAN">68</font>, <font style="cursor:hand;" title="Left Wing - WILLIAM EKLUND">72</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="100%" align="center">
+<table id="VPenaltySummary" border="0" cellpadding="0" cellspacing="5" width="100%">
+<tr>
+<td align="center" width="50%" class="teamHeading + border ">FLORIDA PANTHERS</td>
+<td align="center" width="50%" class="teamHeading + border">SAN JOSE SHARKS</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td align="center" width="100%">
+<table id="PenaltySummary" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" class="sectionheading">PENALTY SUMMARY</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="5" width="100%">
+<tr><td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="50%" valign="top" align="center" class="lborder + rborder + tborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="heading + bborder" align="center">#</td>
+<td class="heading + bborder" align="center">Per</td>
+<td class="heading + bborder" align="center">Time</td>
+<td class="heading + bborder" align="left">Player</td>
+<td class="heading + bborder" align="center">PIM</td>
+<td class="heading + bborder" align="left">Penalty</td>
+</tr>
+<tr class="oddColor">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">8:02</td>
+<td align="left">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="15" align="right">9</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>S.BENNETT</td>
+</tr>
+</table>
+</td>
+<td align="center">2</td>
+<td align="left">Tripping</td>
+</tr>
+<tr class="evenColor">
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">19:41</td>
+<td align="left">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="15" align="right">21</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>N.COUSINS</td>
+</tr>
+</table>
+</td>
+<td align="center">2</td>
+<td align="left">Tripping</td>
+</tr>
+<tr class="oddColor">
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">5:40</td>
+<td align="left">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="15" align="right">18</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>S.LORENTZ</td>
+</tr>
+</table>
+</td>
+<td align="center">2</td>
+<td align="left">Hooking</td>
+</tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td width="50%" valign="top" align="center" class="lborder + rborder + tborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="heading + bborder" align="center">#</td>
+<td class="heading + bborder" align="center">Per</td>
+<td class="heading + bborder" align="center">Time</td>
+<td class="heading + bborder" align="left">Player</td>
+<td class="heading + bborder" align="center">PIM</td>
+<td class="heading + bborder" align="left">Penalty</td>
+</tr>
+<tr class="oddColor">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">9:47</td>
+<td align="left">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="15" align="right">62</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>K.LABANC</td>
+</tr>
+</table>
+</td>
+<td align="center">2</td>
+<td align="left">Tripping</td>
+</tr>
+<tr class="evenColor">
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">11:29</td>
+<td align="left">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="15" align="right">54</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>G.SMITH</td>
+</tr>
+</table>
+</td>
+<td align="center">2</td>
+<td align="left">Roughing</td>
+</tr>
+<tr class="oddColor">
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">9:28</td>
+<td align="left">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="15" align="right">44</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>M.VLASIC</td>
+</tr>
+</table>
+</td>
+<td align="center">2</td>
+<td align="left">Tripping</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center" class="lborder + rborder + bborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="evenColor">
+<td align="right" class="bold + oddColor + tborder" width="60%">
+<table cellpadding="0" cellspacing="0" border="0">
+<td class="bold">TOT (PN-PIM)</td>
+<td>&nbsp;</td>
+</table>
+</td>
+<td align="left" class="bold + oddColor + tborder" width="40%">3-6</td>
+</tr>
+<tr class="evenColor">
+<td align="right" class="bold + oddColor + tborder" width="60%">
+<table cellpadding="0" cellspacing="0" border="0">
+<td class="bold">Power Plays (Goals-Opp./PPTime)</td>
+<td>&nbsp;</td>
+</table>
+</td>
+<td align="left" class="bold + oddColor + tborder" width="40%">2-3/03:03</td>
+</tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td width="50%" valign="top" align="center" class="lborder + rborder + bborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="evenColor">
+<td align="right" class="bold + oddColor + tborder" width="60%">
+<table cellpadding="0" cellspacing="0" border="0">
+<td class="bold">TOT (PN-PIM)</td>
+<td>&nbsp;</td>
+</table>
+</td>
+<td align="left" class="bold + oddColor + tborder" width="40%">3-6</td>
+</tr>
+<tr class="evenColor">
+<td align="right" class="bold + oddColor + tborder" width="60%">
+<table cellpadding="0" cellspacing="0" border="0">
+<td class="bold">Power Plays (Goals-Opp./PPTime)</td>
+<td>&nbsp;</td>
+</table>
+</td>
+<td align="left" class="bold + oddColor + tborder" width="40%">1-3/04:16</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer">&nbsp;</td>
+</tr>
+<tr valign="top">
+<td align="center" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" class="sectionheading">BY PERIOD</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="5" width="100%">
+<tr>
+<td width="50%" valign="top" class="tborder + lborder + rborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="heading">
+<td align="center" class="heading + bborder" width="20%">Per</td>
+<td align="center" class="heading + bborder" width="20%">Goals</td>
+<td align="center" class="heading + bborder" width="20%">Shots</td>
+<td align="center" class="heading + bborder" width="20%">PN</td>
+<td align="center" class="heading + bborder" width="20%">PIM</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder + rborder">7</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder">2</td>
+</tr>
+<tr class="evenColor">
+<td align="center" class=" + bborder + rborder">2</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder + rborder">9</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder">2</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class=" + bborder + rborder">3</td>
+<td align="center" class=" + bborder + rborder">3</td>
+<td align="center" class=" + bborder + rborder">15</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder">2</td>
+</tr>
+<tr class="evenColor">
+<td align="center" class="bold + oddColor + bborder + rborder">TOT</td>
+<td align="center" class="bold + oddColor + bborder + rborder">5</td>
+<td align="center" class="bold + oddColor + bborder + rborder">31</td>
+<td align="center" class="bold + oddColor + bborder + rborder">3</td>
+<td align="center" class="bold + oddColor + bborder">6</td>
+</tr>
+</table>
+</td>
+<td width="50%" align="center" class="tborder + lborder + rborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="heading">
+<td align="center" class="heading + bborder" width="20%">Per</td>
+<td align="center" class="heading + bborder" width="20%">Goals</td>
+<td align="center" class="heading + bborder" width="20%">Shots</td>
+<td align="center" class="heading + bborder" width="20%">PN</td>
+<td align="center" class="heading + bborder" width="20%">PIM</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder + rborder">9</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder">2</td>
+</tr>
+<tr class="evenColor">
+<td align="center" class=" + bborder + rborder">2</td>
+<td align="center" class=" + bborder + rborder">0</td>
+<td align="center" class=" + bborder + rborder">7</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder">2</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class=" + bborder + rborder">3</td>
+<td align="center" class=" + bborder + rborder">2</td>
+<td align="center" class=" + bborder + rborder">6</td>
+<td align="center" class=" + bborder + rborder">1</td>
+<td align="center" class=" + bborder">2</td>
+</tr>
+<tr class="evenColor">
+<td align="center" class="bold + oddColor + bborder + rborder">TOT</td>
+<td align="center" class="bold + oddColor + bborder + rborder">3</td>
+<td align="center" class="bold + oddColor + bborder + rborder">22</td>
+<td align="center" class="bold + oddColor + bborder + rborder">3</td>
+<td align="center" class="bold + oddColor + bborder">6</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer">&nbsp;</td>
+</tr>
+<tr valign="top">
+<td align="center" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" class="sectionheading">POWER PLAYS (Goals-Occurrences / Time)</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="5" width="100%">
+<tr>
+<td width="50%" valign="top" class="border">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="heading">
+<td align="center" class="heading + bborder" width="25%">5v4</td>
+<td align="center" class="heading + bborder" width="25%">5v3</td>
+<td align="center" class="heading + bborder" width="25%">4v3</td>
+<td align="center" class="heading + bborder" width="25%">&nbsp;</td>
+</tr>
+<tr class="oddColor">
+<td align="center">2-3/03:03</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+</tr>
+</table>
+</td>
+<td width="50%" valign="top" class="border">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="heading">
+<td align="center" class="heading + bborder" width="25%">5v4</td>
+<td align="center" class="heading + bborder" width="25%">5v3</td>
+<td align="center" class="heading + bborder" width="25%">4v3</td>
+<td align="center" class="heading + bborder" width="25%">&nbsp;</td>
+</tr>
+<tr class="oddColor">
+<td align="center">1-3/04:16</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td align="center" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" class="sectionheading">EVEN STRENGTH (Goals-Occurrences / Time)</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="5" width="100%">
+<tr>
+<td width="50%" valign="top" class="border">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="heading">
+<td align="center" class="heading + bborder" width="25%">5v5</td>
+<td align="center" class="heading + bborder" width="25%">4v4</td>
+<td align="center" class="heading + bborder" width="25%">3v3</td>
+<td align="center" class="heading + bborder" width="25%">TOT</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class="">3-6/52:26</td>
+<td align="center" class="">0-1/00:15</td>
+<td align="center" class="">&nbsp;</td>
+<td align="center" class="">3-7/52:41</td>
+</tr>
+</table>
+</td>
+<td width="50%" valign="top" class="border">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="heading">
+<td align="center" class="heading + bborder" width="25%">5v5</td>
+<td align="center" class="heading + bborder" width="25%">4v4</td>
+<td align="center" class="heading + bborder" width="25%">3v3</td>
+<td align="center" class="heading + bborder" width="25%">TOT</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class="">2-6/52:26</td>
+<td align="center" class="">0-1/00:15</td>
+<td align="center" class="">&nbsp;</td>
+<td align="center" class="">2-7/52:41</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" class="sectionheading" width="100%">GOALTENDER SUMMARY</td>
+</tr>
+<tr>
+<td align="center" width="100%" class="tborder">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" colspan="3" rowspan="2" valign="middle" class="lborder + rborder + bborder + visitorsectionheading">FLORIDA PANTHERS</td>
+<td colspan="4" align="center" class="rborder + bborder + visitorsectionheading">TOI</td>
+<td align="center" colspan="4" class="rborder + bborder + visitorsectionheading">GOALS-SHOTS AGAINST</td>
+</tr>
+<tr>
+<td align="center" class="rborder + bborder + visitorsectionheading">EV</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">PP</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">SH</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">TOT</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">1</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">2</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">3</td>
+<td align="center" class="rborder + bborder + visitorsectionheading">TOT</td>
+</tr>
+<tr class="evenColor">
+<td align="center" class="lborder + bborder + rborder">41</td>
+<td align="center" class="bborder + rborder">G</td>
+<td class="bborder + rborder">STOLARZ, ANTHONY (W) </td>
+<td align="center" class="bborder + rborder">52:41</td>
+<td align="center" class="bborder + rborder">03:03</td>
+<td align="center" class="bborder + rborder">04:16</td>
+<td align="center" class="bborder + rborder">60:00</td>
+<td align="center" class="bborder + rborder">1-9</td>
+<td align="center" class="bborder + rborder">0-7</td>
+<td align="center" class="bborder + rborder">2-6</td>
+<td align="center" class="bborder + rborder">3-22</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class="lborder + bborder + rborder">72</td>
+<td align="center" class="bborder + rborder">G</td>
+<td class="bborder + rborder">BOBROVSKY, SERGEI</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+</tr>
+<tr class="evenColor + bold">
+<td colspan="3" class="rborder" align="right">TEAM TOTALS&nbsp;</td>
+<td align="center" class="bborder + rborder">52:41</td>
+<td align="center" class="bborder + rborder">03:03</td>
+<td align="center" class="bborder + rborder">04:16</td>
+<td align="center" class="bborder + rborder">60:00</td>
+<td align="center" class="bborder + rborder">1-9</td>
+<td align="center" class="bborder + rborder">0-7</td>
+<td align="center" class="bborder + rborder">2-6</td>
+<td align="center" class="bborder + rborder">3-22</td>
+</tr>
+<tr>
+<td width="100%" class="spacer + bborder" colspan="22">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" colspan="3" rowspan="2" valign="middle" class="lborder + rborder + bborder + homesectionheading">SAN JOSE SHARKS</td>
+<td colspan="4" align="center" class="rborder + bborder + homesectionheading">TOI</td>
+<td align="center" colspan="4" class="rborder + bborder + homesectionheading">GOALS-SHOTS AGAINST</td>
+</tr>
+<tr>
+<td align="center" class="rborder + bborder + homesectionheading">EV</td>
+<td align="center" class="rborder + bborder + homesectionheading">PP</td>
+<td align="center" class="rborder + bborder + homesectionheading">SH</td>
+<td align="center" class="rborder + bborder + homesectionheading">TOT</td>
+<td align="center" class="rborder + bborder + homesectionheading">1</td>
+<td align="center" class="rborder + bborder + homesectionheading">2</td>
+<td align="center" class="rborder + bborder + homesectionheading">3</td>
+<td align="center" class="rborder + bborder + homesectionheading">TOT</td>
+</tr>
+<tr class="evenColor">
+<td align="center" class="lborder + bborder + rborder">29</td>
+<td align="center" class="bborder + rborder">G</td>
+<td class="bborder + rborder">BLACKWOOD, MACKENZIE (L) </td>
+<td align="center" class="bborder + rborder">49:55</td>
+<td align="center" class="bborder + rborder">04:16</td>
+<td align="center" class="bborder + rborder">03:03</td>
+<td align="center" class="bborder + rborder">57:14</td>
+<td align="center" class="bborder + rborder">1-7</td>
+<td align="center" class="bborder + rborder">1-9</td>
+<td align="center" class="bborder + rborder">2-14</td>
+<td align="center" class="bborder + rborder">4-30</td>
+</tr>
+<tr class="oddColor">
+<td align="center" class="lborder + bborder + rborder">36</td>
+<td align="center" class="bborder + rborder">G</td>
+<td class="bborder + rborder">KAHKONEN, KAAPO</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+<td align="center" class="bborder + rborder">&nbsp;</td>
+</tr>
+<tr class="italic">
+<td align="center" colspan="2" class="bborder + lborder">&nbsp;</td>
+<td align="left" class="bborder + rborder">EMPTY NET</td>
+<td align="center" class="bborder + rborder">02:46</td>
+<td align="center" class="bborder + rborder">00:00</td>
+<td align="center" class="bborder + rborder">00:00</td>
+<td align="center" class="bborder + rborder">02:46</td>
+<td class="bborder + rborder" align="center">&nbsp;</td>
+<td class="bborder + rborder" align="center">&nbsp;</td>
+<td class="bborder + rborder" align="center">1-1</td>
+<td class="bborder + rborder" align="center">1-1</td>
+</tr>
+<tr class="evenColor + bold">
+<td colspan="3" class="rborder" align="right">TEAM TOTALS&nbsp;</td>
+<td align="center" class="bborder + rborder">52:41</td>
+<td align="center" class="bborder + rborder">04:16</td>
+<td align="center" class="bborder + rborder">03:03</td>
+<td align="center" class="bborder + rborder">60:00</td>
+<td align="center" class="bborder + rborder">1-7</td>
+<td align="center" class="bborder + rborder">1-9</td>
+<td align="center" class="bborder + rborder">3-15</td>
+<td align="center" class="bborder + rborder">5-31</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer">&nbsp;</td>
+</tr>
+<tr valign="top">
+<td align="center" width="100%" class="border">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr valign="top">
+<td align="center" class="sectionheading + rborder" width="50%">OFFICIALS</td>
+<td align="center" width="50%"><span class="sectionheading">3 STARS</span>&nbsp;By:Dan Rusanowsky</td>
+</tr>
+<tr>
+<td class="rborder" width="50%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr valign="top">
+<td align="center" class="heading">Referee</td>
+<td align="center" class="heading">Linesperson</td>
+</tr>
+<tr valign="top">
+<td align="center">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left">#31 Michael Markovic</td>
+</tr>
+<tr>
+<td align="left">#14 Trevor Hanson</td>
+</tr>
+</table>
+</td>
+<td align="center">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left">#57 Justin Johnson</td>
+</tr>
+<tr>
+<td align="left">#74 Trent Knorr</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td align="center" class="heading">Standby&nbsp;</td>
+<td align="center" class="heading">Standby&nbsp;</td>
+</tr>
+<tr valign="top">
+<td align="center">
+<table cellpadding="0" cellspacing="0" border="0"></table>
+</td>
+<td align="center">
+<table cellpadding="0" cellspacing="0" border="0"></table>
+</td>
+</tr>
+</table>
+</td>
+<td align="center" width="50%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr>
+<td align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr>
+<td align="center">1.</td>
+<td align="center">FLA</td>
+<td align="center">C</td>
+<td align="left">13 S.REINHART</td>
+</tr>
+<tr>
+<td align="center">2.</td>
+<td align="center">SJS</td>
+<td align="center">C</td>
+<td align="left">64 M.GRANLUND</td>
+</tr>
+<tr>
+<td align="center">3.</td>
+<td align="center">FLA</td>
+<td align="center">L</td>
+<td align="left">19 M.TKACHUK</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="spacer">&nbsp;</td>
+</tr>
+<tr>
+<td class="tborder">&#169; Copyright 2024, National Hockey League
+							&nbsp;2024-02-07 3.31.38</td>
+</tr>
+</table>
+<div class="print-class" align="center"><script languange="javascript" type="text/javascript" src="https://www.nhl.com/scores/htmlreports/scripts/gsBottom.js"><!--&nbsp;--></script></div>
+</body>
+</html>

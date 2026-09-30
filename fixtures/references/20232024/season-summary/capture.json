@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "seasonId": "20232024",
+  "source": "season-summary",
+  "request": {
+    "method": "GET",
+    "url": "https://api.nhle.com/stats/rest/en/season?cayenneExp=id%3D20232024&limit=-1",
+    "requestedAt": "2026-09-30T19:05:41.679Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "content-length": "362",
+    "date": "Wed, 30 Sep 2026 19:05:41 GMT"
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 634,
+    "sha256": "520fb7debf44b3deeaa4e73159bc25306f0eb35fdbf5f6a88f445d6f59e9b5e8"
+  },
+  "failure": null
+}

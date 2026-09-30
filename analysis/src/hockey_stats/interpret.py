@@ -140,6 +140,22 @@ class ReportRow(TypedDict):
     away_members: list[ReportMember] | None
     home_members: list[ReportMember] | None
     penalty_shot: bool | None
+    shooting_team_id: int | None
+    shooter_sweater_number: int | None
+    shooter_id: int | None
+    shot_type: str | None
+
+
+class LandingGoal(TypedDict):
+    source_path: str
+    event_id: int | None
+    period_number: int | None
+    period_type: str | None
+    time_in_period: str | None
+    elapsed_seconds: int | None
+    team_id: int | None
+    credited_scorer_id: int | None
+    goal_modifier: str | None
 
 
 class ScoreCounts(TypedDict):
@@ -176,6 +192,7 @@ class GameDocument(TypedDict):
     events: list[Event] | None
     shift_records: list[Shift] | None
     report_rows: list[ReportRow] | None
+    landing_goals: list[LandingGoal] | None
     checks: list[Check]
     issues: list[Issue]
     uncomputed: list[str]
@@ -187,7 +204,7 @@ _EVENT_CODES = {
     "shot-on-goal": 506, "missed-shot": 507, "blocked-shot": 508,
     "penalty": 509, "stoppage": 516, "period-start": 520,
     "period-end": 521, "shootout-complete": 523, "game-end": 524,
-    "takeaway": 525, "delayed-penalty": 535,
+    "takeaway": 525, "delayed-penalty": 535, "failed-shot-attempt": 537,
 }
 _ROLES = {
     "shooter": "shootingPlayerId", "scorer": "scoringPlayerId",
@@ -242,7 +259,7 @@ def _team(value: Any, game: Game | None, source: str, path: str, issues: list[Is
     return team
 
 
-def _clock(value: str | None, source: str, path: str, issues: list[Issue]) -> int | None:
+def clock_seconds(value: str | None, source: str, path: str, issues: list[Issue]) -> int | None:
     if value is None:
         return None
     if re.fullmatch(r"[0-9]+:[0-5][0-9]", value):
@@ -257,8 +274,8 @@ def _clock(value: str | None, source: str, path: str, issues: list[Issue]) -> in
 
 def _elapsed(time: str | None, remaining: str | None, length: int | None,
              source: str, path: str, issues: list[Issue], *, remaining_supplied: bool = False) -> int | None:
-    elapsed = _clock(time, source, path + "/timeInPeriod", issues)
-    remaining_seconds = _clock(remaining, source, path + "/timeRemaining", issues)
+    elapsed = clock_seconds(time, source, path + "/timeInPeriod", issues)
+    remaining_seconds = clock_seconds(remaining, source, path + "/timeRemaining", issues)
     if length is None:
         return None
     if elapsed is None or elapsed > length or ((remaining_supplied or remaining is not None) and
@@ -283,6 +300,15 @@ def _duplicate_ids(rows: list[Any], field: str, source: str, prefix: str, issues
             _issue(issues, source, locator, "duplicate_identity", f"repeated {field} {value}; records retained separately")
         seen.add(value)
     return duplicates
+
+
+def _report_player(sweaters: dict[tuple[int, int], list[RosterRecord]], unresolved: set[int],
+                   team: int | None, sweater: int | None) -> int | None:
+    if team is None or sweater is None or not 1 <= sweater <= 99:
+        return None
+    candidates = sweaters.get((team, sweater), [])
+    player = candidates[0]["player_id"] if len(candidates) == 1 else None
+    return player if player not in unresolved else None
 
 
 def _identity(body: dict[str, Any], requested: str) -> tuple[Game | None, str | None]:
@@ -343,10 +369,18 @@ def interpret_game(directory: Path) -> GameDocument:
         if not isinstance(parsed, dict):
             entry["reason"] = "source json must be an object; source unavailable"
             continue
-        if capture.source in ("play-by-play", "boxscore"):
+        if capture.source in ("play-by-play", "boxscore", "landing"):
             identity, reason = _identity(parsed, requested)
             if identity is None:
                 entry["reason"] = reason
+                continue
+            if capture.source == "landing":
+                if game is None or identity != game:
+                    entry["reason"] = "landing identity does not agree with the admitted core game; source unavailable"
+                    continue
+                bodies[capture.source] = parsed
+                entry["status"] = "parsed"
+                entry["reason"] = None
                 continue
             if game is not None and game != identity:
                 raise InputContractError(f"{capture.capture_path}: play-by-play and boxscore disagree on game identity; recapture or repair the conflicting source")
@@ -449,7 +483,7 @@ def interpret_game(directory: Path) -> GameDocument:
                         players.append({"source_path": path, "player_id": _integer(row.get("playerId"), source, path + "/playerId", issues, 1, required=True),
                             "team_id": game[team_key], "name": _text(name.get("default") if name else None, source, path + "/name/default", issues),
                             "reported_position": _text(row.get("position"), source, path + "/position", issues),
-                            "toi": toi, "toi_seconds": _clock(toi, source, path + "/toi", issues),
+                            "toi": toi, "toi_seconds": clock_seconds(toi, source, path + "/toi", issues),
                             "shift_count": _integer(row.get("shifts"), source, path + "/shifts", issues),
                             "goals": _integer(row.get("goals"), source, path + "/goals", issues),
                             "assists": _integer(row.get("assists"), source, path + "/assists", issues),
@@ -587,9 +621,9 @@ def interpret_game(directory: Path) -> GameDocument:
                 start_seconds = end_seconds = duration_seconds = None
                 interval_status: Literal["coherent", "inconsistent", "unavailable", "not_shift"] = "unavailable"
                 if type_code == 517:
-                    start_seconds = _clock(start, source, path + "/startTime", issues)
-                    end_seconds = _clock(end, source, path + "/endTime", issues)
-                    duration_seconds = _clock(duration, source, path + "/duration", issues)
+                    start_seconds = clock_seconds(start, source, path + "/startTime", issues)
+                    end_seconds = clock_seconds(end, source, path + "/endTime", issues)
+                    duration_seconds = clock_seconds(duration, source, path + "/duration", issues)
                     length = 1200 if period in (1, 2, 3) else 300 if period == 4 else None
                     if (length is None or start_seconds is None or end_seconds is None
                             or not 0 <= start_seconds <= end_seconds <= length):
@@ -777,10 +811,8 @@ def interpret_game(directory: Path) -> GameDocument:
                         if position not in ("C", "L", "R", "D", "F", "G"):
                             _issue(issues, source, member_path + "/reported_position", "unresolved_member_position",
                                    "reported member position is missing or unsupported; category unavailable")
-                        candidates = sweaters.get((game[side + "_team_id"], sweater), [])
-                        player_id = candidates[0]["player_id"] if len(candidates) == 1 else None
-                        if player_id is None or player_id in unresolved_memberships:
-                            player_id = None
+                        player_id = _report_player(sweaters, unresolved_memberships, game[side + "_team_id"], sweater)
+                        if player_id is None:
                             _issue(issues, source, member_path + "/player_id", "unresolved_report_sweater",
                                    "jersey has no unique game/team roster identity; reported slot retained without player id")
                         assert members is not None
@@ -788,17 +820,116 @@ def interpret_game(directory: Path) -> GameDocument:
                     member_lists[side] = members
                 code = row["event_code"]
                 description = row["description"]
-                penalty_shot = ("Penalty Shot" in description) if code in ("GOAL", "SHOT", "MISS", "BLOCK") and description is not None else None
+                shooting_team = sweater = shooter = shot_type = penalty_shot = None
+                if code in ("GOAL", "SHOT", "MISS", "BLOCK") and description is not None:
+                    if "Penalty Shot" in description:
+                        penalty_shot = True
+                    # only the leading identity and explicit comma-delimited type slot are attributed.
+                    prefix = r"(\S+) ONGOAL - #([^\s,]+)(?=\s|,)" if code == "SHOT" else r"(\S+) #([^\s,]+)(?=\s|,)"
+                    match = re.match(prefix, description)
+                    fragments = description.split(",")
+                    if match is None:
+                        _issue(issues, source, path + "/description", "unsupported_attempt_description",
+                               "attempt description has no supported leading team/shooter form; attributed fields unavailable")
+                    else:
+                        teams = [game[side + "_team_id"] for side in ("away", "home")
+                                 if game[side + "_team_abbrev"] == match[1]]
+                        shooting_team = teams[0] if len(teams) == 1 else None
+                        if shooting_team is None:
+                            _issue(issues, source, path + "/shooting_team_id", "unresolved_report_shooting_team",
+                                   "supplied shooting abbreviation does not identify one admitted team; identity unavailable")
+                        supplied_sweater = int(match[2]) if re.fullmatch(r"[0-9]{1,9}", match[2]) else None
+                        sweater = _integer(supplied_sweater, source, path + "/shooter_sweater_number", issues, 1, required=True)
+                        shooter = _report_player(sweaters, unresolved_memberships, shooting_team, sweater)
+                        if shooter is None:
+                            _issue(issues, source, path + "/shooter_id", "unresolved_report_shooter",
+                                   "supplied shooter jersey has no unique game/team roster identity; shooter unavailable")
+                        penalty_shot = "Penalty Shot" in description
+                        type_index = 2 if len(fragments) > 1 and fragments[1].strip() == "Penalty Shot" else 1
+                        if len(fragments) > type_index:
+                            token = fragments[type_index].strip()
+                            # a deficient row can place context where the type should be.
+                            context = ("Off. Zone", "Def. Zone", "Neu. Zone", "Wide Left", "Wide Right", "Short",
+                                       "Above Crossbar", "Hit Crossbar", "Hit Left Post", "Hit Right Post",
+                                       "High and Wide Left", "High and Wide Right", "Failed Bank Attempt", "Failed Attempt",
+                                       "Failed Attempt Flub", "Defensive Deflection", "Flub")
+                            if (token and token not in context
+                                    and not token.startswith(("Assist:", "Assists:", "OPPONENT-BLOCKED BY ", "BLOCKED BY "))
+                                    and re.fullmatch(r"[0-9]+(?:\.[0-9]+)? ft\.", token) is None):
+                                shot_type = token
                 report_rows.append({"source_index": row["source_index"], "row_id": row["row_id"],
                     "event_number": integers["event_number"], "period_number": period,
                     "time_in_period": row["time_in_period"], "time_remaining": row["time_remaining"],
                     "elapsed_seconds": elapsed, "event_code": code, "reported_strength": row["reported_strength"],
                     "description": description, "away_members": member_lists["away"], "home_members": member_lists["home"],
-                    "penalty_shot": penalty_shot})
+                    "penalty_shot": penalty_shot, "shooting_team_id": shooting_team,
+                    "shooter_sweater_number": sweater, "shooter_id": shooter, "shot_type": shot_type})
             _duplicate_ids(report_rows, "event_number", source, "/rows", issues)
 
-    return {"schema_version": 2, "requested_game_id": requested, "inputs": inputs, "game": game,
+    landing_goals: list[LandingGoal] | None = None
+    source = "landing"
+    if source in bodies:
+        entry = next(record for record in inputs if record["source"] == source)
+        summary = _object(bodies[source].get("summary"), source, "/summary", issues)
+        scoring = _array(summary.get("scoring") if summary is not None else None, source, "/summary/scoring", issues)
+        periods = []
+        for index, value in enumerate(scoring or []):
+            path = f"/summary/scoring/{index}"
+            period = _object(value, source, path, issues)
+            goals = _array(period.get("goals") if period is not None else None, source, path + "/goals", issues)
+            periods.append((path, period, goals))
+        if scoring is None or any(goals is None for _, _, goals in periods):
+            entry["status"] = "unavailable"
+            entry["reason"] = "missing or malformed scoring collection; landing goals unavailable"
+        else:
+            assert game is not None
+            landing_goals = []
+            for period_path, period, goals in periods:
+                descriptor_path = period_path + "/periodDescriptor"
+                descriptor = _object(period.get("periodDescriptor"), source, descriptor_path, issues)
+                descriptor = descriptor if descriptor is not None else {}
+                number = _integer(descriptor.get("number"), source, descriptor_path + "/number", issues, 1, required=True)
+                period_type = _text(descriptor.get("periodType"), source, descriptor_path + "/periodType", issues)
+                length = 1200 if period_type == "REG" and number in (1, 2, 3) else 300 if period_type == "OT" and number == 4 else None
+                if length is None and not (period_type == "SO" and number == 5):
+                    _issue(issues, source, descriptor_path, "unsupported_period",
+                           "unsupported period number/type; elapsed exposure unavailable")
+                for index, value in enumerate(goals):
+                    path = f"{period_path}/goals/{index}"
+                    row = _object(value, source, path, issues)
+                    row = row if row is not None else {}
+                    time = _text(row.get("timeInPeriod"), source, path + "/timeInPeriod", issues)
+                    elapsed = _elapsed(time, None, length, source, path, issues)
+                    home = row.get("isHome")
+                    team = game["home_team_id"] if home is True else game["away_team_id"] if home is False else None
+                    if type(home) is not bool:
+                        _issue(issues, source, path + "/isHome", "invalid_goal_team",
+                               "goal ownership requires a supplied boolean isHome; team unavailable")
+                    if "teamAbbrev" in row:
+                        abbreviation = _object(row["teamAbbrev"], source, path + "/teamAbbrev", issues)
+                        reported = _text(abbreviation.get("default") if abbreviation is not None else None,
+                                         source, path + "/teamAbbrev/default", issues)
+                        expected = game["home_team_abbrev"] if home is True else game["away_team_abbrev"] if home is False else None
+                        if abbreviation is not None and not isinstance(abbreviation.get("default"), str):
+                            _issue(issues, source, path + "/teamAbbrev/default", "invalid_goal_team_abbreviation",
+                                   "supplied team abbreviation requires a string default; context unavailable")
+                        elif reported is not None and expected is not None and reported != expected:
+                            _issue(issues, source, path + "/teamAbbrev/default", "goal_team_disagreement",
+                                   "supplied abbreviation contradicts admitted goal team; context conflicting")
+                        elif reported is not None and expected is None:
+                            _issue(issues, source, path + "/teamAbbrev/default", "unavailable_goal_team_abbreviation",
+                                   "supplied abbreviation has no admitted comparison; context unavailable")
+                    landing_goals.append({"source_path": path,
+                        "event_id": _integer(row.get("eventId"), source, path + "/eventId", issues, 1, required=True),
+                        "period_number": number, "period_type": period_type, "time_in_period": time,
+                        "elapsed_seconds": elapsed, "team_id": team,
+                        "credited_scorer_id": _integer(row.get("playerId"), source, path + "/playerId", issues, 1, required=True),
+                        "goal_modifier": _text(row.get("goalModifier"), source, path + "/goalModifier", issues)})
+            _duplicate_ids(landing_goals, "event_id", source, "/summary/scoring", issues)
+
+    return {"schema_version": 3, "requested_game_id": requested, "inputs": inputs, "game": game,
             "reported_results": results, "roster_records": roster, "boxscore_players": players,
-            "events": events, "shift_records": shifts, "report_rows": report_rows, "checks": checks, "issues": issues,
+            "events": events, "shift_records": shifts, "report_rows": report_rows, "landing_goals": landing_goals,
+            "checks": checks, "issues": issues,
             "uncomputed": ["supported_event_membership", "elapsed_on_ice_membership", "genuine_5v5_exposure",
                            "attacking_coordinates", "shooting_origins"]}

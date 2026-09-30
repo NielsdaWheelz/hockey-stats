@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "gameId": "2024020001",
+  "source": "shifts",
+  "request": {
+    "method": "GET",
+    "url": "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D2024020001&limit=-1",
+    "requestedAt": "2026-09-30T19:06:56.212Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Wed, 30 Sep 2026 19:06:56 GMT"
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 292468,
+    "sha256": "84a5b19f63aa9b0618c202cc5237c90e0fdcde5bfb6562208093da1315db8cdf"
+  },
+  "failure": null
+}

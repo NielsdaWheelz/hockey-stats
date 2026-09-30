@@ -1,0 +1,2710 @@
+{
+  "schema_version": 1,
+  "admitted_at": "2026-09-30T20:02:01.268797+00:00",
+  "purpose": "bounded native fixtures; source-contract verification, not training or scientific confirmation",
+  "source_root": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930",
+  "capture_implementation": "d019d36b24e79bb979d03237bbcb7b87216d989b",
+  "source_verification_sha256": "a1da3b812189b59379cb642bd439884e43c39fb65cdbbca7742663b51a197959",
+  "comparison_ledger_sha256": "a792d32a1d8a6be0cfa8c57bdd254afd4a445b1046ce844f166c4c287c2d1e84",
+  "added_game_ids": [
+    "2023020001",
+    "2023020012",
+    "2023020013",
+    "2023020078",
+    "2023020237",
+    "2023020955",
+    "2024020001",
+    "2024020102",
+    "2024020340",
+    "2024020364",
+    "2025020184",
+    "2025020282",
+    "2025020307",
+    "2025020544",
+    "2025020565"
+  ],
+  "added_reference_seasons": [
+    "20232024",
+    "20242025"
+  ],
+  "preservation": "all 44 preexisting raw files retained byte-identically; existing three games and 20252026 references remain their earlier snapshots",
+  "raw_body_representation": "http-client-body; byte-identical body and receipt copies, with actual fresh request timestamps",
+  "copied_files": [
+    {
+      "path": "captures/2023020001/boxscore/body.bin",
+      "bytes": 13535,
+      "sha256": "ea33865cd3401f81181cfd140a94c5c25b7a801a6ab4ad5de0212f46660141d0"
+    },
+    {
+      "path": "captures/2023020001/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "56de8f8732a035f9ebe36ae636103ebc03426bd2ef2000bc72c6b0ca96a6921c"
+    },
+    {
+      "path": "captures/2023020001/game-summary/body.bin",
+      "bytes": 37979,
+      "sha256": "82af4bad8fa74598507a953bb39053c96efc7c821f35e0ac7ac3bfcbae660bd8"
+    },
+    {
+      "path": "captures/2023020001/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "3c5a9bfc54b6945c0baad46dda022a6d328e67bcbbadb704f2f107053caf3191"
+    },
+    {
+      "path": "captures/2023020001/landing/body.bin",
+      "bytes": 14954,
+      "sha256": "9b21d2acff3fb965bac6a1e83ca06ed101a7b189239f681ce85d5fd00467de46"
+    },
+    {
+      "path": "captures/2023020001/landing/capture.json",
+      "bytes": 660,
+      "sha256": "b7f565c7bb9121a8f00603530d2e858282bd2fca7d704a94f86367b45971a665"
+    },
+    {
+      "path": "captures/2023020001/play-by-play/body.bin",
+      "bytes": 136045,
+      "sha256": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13"
+    },
+    {
+      "path": "captures/2023020001/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "71075e0005db8136a7408eddc803cad903e6a7256f63ee4b3e31669e57b05b07"
+    },
+    {
+      "path": "captures/2023020001/play-report/body.bin",
+      "bytes": 1265524,
+      "sha256": "67c6e491003ca3cc09f7e0685841518d75e23b12a70007bb3a876c3ec5dfd8a5"
+    },
+    {
+      "path": "captures/2023020001/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "737bc3b07842f6e7782d566793d70553f11dff7661c12b91bbdb3b2e07cbd7e9"
+    },
+    {
+      "path": "captures/2023020001/shifts/body.bin",
+      "bytes": 269074,
+      "sha256": "6fd5c6c4fecfe0adb34f0b0d4e3c15bc0983f6136aac74c9b607d46cc3137d3a"
+    },
+    {
+      "path": "captures/2023020001/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "3c10447573baabd85e5ec1aa451eb868de455d79fa45b7a2c5e78b01575b9429"
+    },
+    {
+      "path": "captures/2023020012/boxscore/body.bin",
+      "bytes": 13214,
+      "sha256": "f697ce135a3b8bb605d3f64ebf548cedf7c4f34f077f637c2577289693d5b69c"
+    },
+    {
+      "path": "captures/2023020012/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "2b2351a0b73d5de95a58e445a46a3589de6c5f0f676828cf64ca22bbf7643dc4"
+    },
+    {
+      "path": "captures/2023020012/game-summary/body.bin",
+      "bytes": 37978,
+      "sha256": "56cbeeba468be83c2d8cff80dd99f6e98677b088e91904936fab1ec51a8a3114"
+    },
+    {
+      "path": "captures/2023020012/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "a730af01e54248474f8a31a271102fc5ca132ba1d7b76cb7b420d3a92acb3137"
+    },
+    {
+      "path": "captures/2023020012/landing/body.bin",
+      "bytes": 12973,
+      "sha256": "166da592964ac97bf34fe8dc8a37c1f06922f712104c1610626f6566659db46a"
+    },
+    {
+      "path": "captures/2023020012/landing/capture.json",
+      "bytes": 660,
+      "sha256": "7648cb974c18a1c4dc4859e269c0961c6347fe05ffc118c103088d29067f8c84"
+    },
+    {
+      "path": "captures/2023020012/play-by-play/body.bin",
+      "bytes": 143892,
+      "sha256": "0e239b4e69c387ce32749c93a9ea4d337b0b9e23393de714f36ace3b9dbe62af"
+    },
+    {
+      "path": "captures/2023020012/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "91ad0023c8e996dbdb16d14ebe1725801277a02d0a4adaf2ca7dd0e25bae33e6"
+    },
+    {
+      "path": "captures/2023020012/play-report/body.bin",
+      "bytes": 1349556,
+      "sha256": "7379319ecfa5b53462d825cb87e6ececa07b139f25fa2b4b311b8d77ab826c1e"
+    },
+    {
+      "path": "captures/2023020012/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "2ab1baa9a7582e2f894b98ba0b71ddee01fac4774530f6381c3c4eda3db3d22b"
+    },
+    {
+      "path": "captures/2023020012/shifts/body.bin",
+      "bytes": 298552,
+      "sha256": "a6f1cc7b983398a4dedc9997a7cefe78a9f45a4672cd95c154bc1f6fc20d7247"
+    },
+    {
+      "path": "captures/2023020012/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "85b98311224e742eae8c21aa73c48082e1a09d3458a11601455549b6f1a8cab3"
+    },
+    {
+      "path": "captures/2023020013/boxscore/body.bin",
+      "bytes": 13397,
+      "sha256": "c29d6a0d8f3683ea13d119aa8f5b610e9b224407ef4c60ce24d21ca30bdc0e53"
+    },
+    {
+      "path": "captures/2023020013/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "9260e92120050e91ed22da875c231a8d9b662c49502b44f09dd8430e524fc990"
+    },
+    {
+      "path": "captures/2023020013/game-summary/body.bin",
+      "bytes": 32292,
+      "sha256": "e77210dc7e2d4428456b3c62b131c6e9a7ceee618e08cb93ccb944cae79f6481"
+    },
+    {
+      "path": "captures/2023020013/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "4aea6f6dffc43fa24bc575037562dfa1eaae3a8f4460dec1674ae379fc661e97"
+    },
+    {
+      "path": "captures/2023020013/landing/body.bin",
+      "bytes": 9461,
+      "sha256": "6aefc443840a8faea16770e3e77a8665967797f96f2bcaca87f1ae07efb30fba"
+    },
+    {
+      "path": "captures/2023020013/landing/capture.json",
+      "bytes": 659,
+      "sha256": "0307d099bd5be0b6a43fcfd14c82803ac910d42ebb91c4a098f32d8989db7739"
+    },
+    {
+      "path": "captures/2023020013/play-by-play/body.bin",
+      "bytes": 138970,
+      "sha256": "c74f16f2ece7e973214956a6b4464d8d7fbe582f2f224d8b3c86b53df3436d81"
+    },
+    {
+      "path": "captures/2023020013/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "7ee44ac6695a2ccf2127bf86a508fa84f718ac85a0fdfc4c051f034547970d6e"
+    },
+    {
+      "path": "captures/2023020013/play-report/body.bin",
+      "bytes": 1300541,
+      "sha256": "73e18f5b2e5cce80cfcf60d57b5df3277a8a7d05ff567bd9962a829beb838b82"
+    },
+    {
+      "path": "captures/2023020013/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "d1834e5f62fbb913fc5e3634fe7d4a49c3af5fd2b455eee380f8b714dd37dda9"
+    },
+    {
+      "path": "captures/2023020013/shifts/body.bin",
+      "bytes": 281034,
+      "sha256": "4ece9f1b2b6ca98c356ee90443d15b7d2525cfcc14ff26cc1da16368b134c6db"
+    },
+    {
+      "path": "captures/2023020013/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "5d5788fc40d274f27042f2cccd190981767b53399fc5ee6b959a451bc703cd11"
+    },
+    {
+      "path": "captures/2023020078/boxscore/body.bin",
+      "bytes": 13162,
+      "sha256": "cb3e1d702d3abcf7024e1cec7c0a4091c74e6237f8709d65f08f29194801d413"
+    },
+    {
+      "path": "captures/2023020078/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "a2145d2a815a63adcdcaecf9f63197120e6dc4c1414a016b67452d22d2019340"
+    },
+    {
+      "path": "captures/2023020078/game-summary/body.bin",
+      "bytes": 35165,
+      "sha256": "6ba4ba7f089e7c9fe6a9b97b5e2735d2a997ed7c54b674fffd1c488024d636b7"
+    },
+    {
+      "path": "captures/2023020078/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "1183fff8460fce709671c5caddf4a8407472956085af90e5e72a5f07a476e3da"
+    },
+    {
+      "path": "captures/2023020078/landing/body.bin",
+      "bytes": 10548,
+      "sha256": "419380294b5a490f475cfc5bafba873c2b0310669412f076e7ce6e863db48dc1"
+    },
+    {
+      "path": "captures/2023020078/landing/capture.json",
+      "bytes": 660,
+      "sha256": "f9e6878bb5bbc4945176561faa68cac740ab4427194e1e45b3119bb278528e94"
+    },
+    {
+      "path": "captures/2023020078/play-by-play/body.bin",
+      "bytes": 122189,
+      "sha256": "4ecf586aeeb3fc0d6cee21cfd0396369c0a462c0637a3f12b130632b18cc49a1"
+    },
+    {
+      "path": "captures/2023020078/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "45029ce5845ad0fe7bc7a230b92b053475ab18622bccd09b4b6db62b86a2de56"
+    },
+    {
+      "path": "captures/2023020078/play-report/body.bin",
+      "bytes": 1162904,
+      "sha256": "57f5e8a575f5ae81fd5ac18ad0cc8b66ba93f4ce9a29679a8882cc61a539b3a6"
+    },
+    {
+      "path": "captures/2023020078/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "97600a52990039e22eb8b3f6c9d7e78589fe02d959632ed3fc57373fd96cf9f8"
+    },
+    {
+      "path": "captures/2023020078/shifts/body.bin",
+      "bytes": 270643,
+      "sha256": "eff67125f1ac0b4e7f926feba12e20f054726f7c0064071f5ee217431f30df6a"
+    },
+    {
+      "path": "captures/2023020078/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "59f81f7eab59f7f6d0fdd98ce94538441ca3c98c5979c72afbb3dd10e73b6fb6"
+    },
+    {
+      "path": "captures/2023020237/boxscore/body.bin",
+      "bytes": 13445,
+      "sha256": "51b82d51c870fef056ec31cb87d5f7814fc39ddd54422eb05db0fa3f7096b9a1"
+    },
+    {
+      "path": "captures/2023020237/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "740cca6ba6ba6f8f430c4f7e8cba0bc80961f6137af297211e475f49205343af"
+    },
+    {
+      "path": "captures/2023020237/game-summary/body.bin",
+      "bytes": 37265,
+      "sha256": "ae3aadb59b7bd8e5447862742ca82c9409fd6a8e11f5eae3c755d16ee4a741b2"
+    },
+    {
+      "path": "captures/2023020237/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "a1face83f3ab425505bb5f58d6f0000c0a01d39c7cb4abfa6ba63fe6ea943f92"
+    },
+    {
+      "path": "captures/2023020237/landing/body.bin",
+      "bytes": 12417,
+      "sha256": "89775ebcd29eb5fc31442e84a3b22bb11664903fb92b853e1a856ef55ff5af0f"
+    },
+    {
+      "path": "captures/2023020237/landing/capture.json",
+      "bytes": 660,
+      "sha256": "6271cfe4da793eab86b27250a9e74cafb0a69071601d16e0908d44559af5ea89"
+    },
+    {
+      "path": "captures/2023020237/play-by-play/body.bin",
+      "bytes": 115328,
+      "sha256": "8348f6c767cf171b08df6c887efbe16d995453f7e37cc00c3ca24ae524ca09d0"
+    },
+    {
+      "path": "captures/2023020237/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "f5620dcc9832d3426c13e48fbc464a8f05b4fdc0a72c46555d33f93dcdff999b"
+    },
+    {
+      "path": "captures/2023020237/play-report/body.bin",
+      "bytes": 1081980,
+      "sha256": "1c7bc0fe8600b1f3a1435f9885f2a3e48a71239d66dcb721a4e612bd63559054"
+    },
+    {
+      "path": "captures/2023020237/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "20c53087ae19c2f25b217e9778b5cc573bc580208628eeab6f3443846790a73a"
+    },
+    {
+      "path": "captures/2023020237/shifts/body.bin",
+      "bytes": 264727,
+      "sha256": "c06c3da57aebd14f27b073c6438808cf9f776f9ce2651dd402dedbe35ff54d4d"
+    },
+    {
+      "path": "captures/2023020237/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "06671961a0437bb06492c2ed62acb6012286f618e262f511347188faebd64c2c"
+    },
+    {
+      "path": "captures/2023020955/boxscore/body.bin",
+      "bytes": 13574,
+      "sha256": "9d9d69e190db369ab5be78613adbf14d894de8b2a14267b3371cd6b9bc7389b6"
+    },
+    {
+      "path": "captures/2023020955/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "2875a4be87b1966488df1f616998f114f35d1791c05d9f35b740b9e178507369"
+    },
+    {
+      "path": "captures/2023020955/game-summary/body.bin",
+      "bytes": 37927,
+      "sha256": "d7a263a71c1457c5be0b558c5a50478649d418b87b99438d5bbb0f113ea0202b"
+    },
+    {
+      "path": "captures/2023020955/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "00766b56e0604c81b6c758cc462a8440cfc007fe024d958fd8f72500658b9bde"
+    },
+    {
+      "path": "captures/2023020955/landing/body.bin",
+      "bytes": 13885,
+      "sha256": "caaa44f64e47da010f86d17d3b23c424a5a9d448bae7de7cb58a6a2b5ad51574"
+    },
+    {
+      "path": "captures/2023020955/landing/capture.json",
+      "bytes": 660,
+      "sha256": "15d1dba396d01b5f37dffb646e230a2cad56b13b6892f3baab114de7aee9dab8"
+    },
+    {
+      "path": "captures/2023020955/play-by-play/body.bin",
+      "bytes": 142321,
+      "sha256": "02ae5362e7e4954789905cdcd498ef69a0fc9095983a5ed6fe27f9623b3b5418"
+    },
+    {
+      "path": "captures/2023020955/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "1c8a325aab0b21332d98b21c73be2aa78458cec50426ff02e6cd0b3549ef6a47"
+    },
+    {
+      "path": "captures/2023020955/play-report/body.bin",
+      "bytes": 1341386,
+      "sha256": "c3343bb677dc87e4f272cfe515858fb2b12b792f67529666c468ad5619a505ea"
+    },
+    {
+      "path": "captures/2023020955/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "4371d69d1e13bf8d9c75b7aa184129412a7e970dc55e91fb9037bbc7da51884f"
+    },
+    {
+      "path": "captures/2023020955/shifts/body.bin",
+      "bytes": 292666,
+      "sha256": "1d51f157909fddd1250a58e99d045934208b8a327381e98f02a65a8b41f01d55"
+    },
+    {
+      "path": "captures/2023020955/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "c7ca8fd0313d9dcfa0083f8e40724b0c3b0abce92a5dcfa13d20aff4494020fa"
+    },
+    {
+      "path": "captures/2024020001/boxscore/body.bin",
+      "bytes": 13635,
+      "sha256": "d50f382736f89d76305ba3b9ac7c0c4963696734581c571a7d95d5b47d5a7d04"
+    },
+    {
+      "path": "captures/2024020001/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "86619111e40183a95b4ecca2682e3a02b892e1ae5399c0a1729de55c4639171c"
+    },
+    {
+      "path": "captures/2024020001/game-summary/body.bin",
+      "bytes": 34602,
+      "sha256": "6f65b462c54ee0f824856b28c73824ae7b2d1aeddf856dbb9c2c16c490d9d823"
+    },
+    {
+      "path": "captures/2024020001/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "bb5ede239d239bd6aec68daa918a4e5aa1338c2a428ee9f6fa90e4da877cb566"
+    },
+    {
+      "path": "captures/2024020001/landing/body.bin",
+      "bytes": 9950,
+      "sha256": "c1477ab83d09b941cdfbf0f688b12ade156714d00443f2368ce93c5ea44c2d4b"
+    },
+    {
+      "path": "captures/2024020001/landing/capture.json",
+      "bytes": 659,
+      "sha256": "b41323281b5e644f12231a49a1538a4d4fd199f9c02c0e89b930d87b25ccb472"
+    },
+    {
+      "path": "captures/2024020001/play-by-play/body.bin",
+      "bytes": 142287,
+      "sha256": "a0dfedbfe384c7d988d44aeb72bd3555138a5ef4ddc89375cbccfbee8e178bfe"
+    },
+    {
+      "path": "captures/2024020001/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "aec817781f1c77836407ad245f201f8be490e3b2de094f25d5f20e3b829b947a"
+    },
+    {
+      "path": "captures/2024020001/play-report/body.bin",
+      "bytes": 1362801,
+      "sha256": "32c9a8bfd35aa48a475d44b9c15da6e762c201b16c6fb26da932a33538d4bd69"
+    },
+    {
+      "path": "captures/2024020001/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "3909ebad3416651373af3168bcbfae43d8b2366fe4a88b7dd1a7efb10be8b7ab"
+    },
+    {
+      "path": "captures/2024020001/shifts/body.bin",
+      "bytes": 292468,
+      "sha256": "84a5b19f63aa9b0618c202cc5237c90e0fdcde5bfb6562208093da1315db8cdf"
+    },
+    {
+      "path": "captures/2024020001/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "a27ba85a71bed764bba7dc6de12a1331a81672d07535d9f998e343c3f1371361"
+    },
+    {
+      "path": "captures/2024020102/boxscore/body.bin",
+      "bytes": 13256,
+      "sha256": "43a4d93ea2d41a676a4a5d23695df1acee2e07008be6cafe9d12bed734645b8b"
+    },
+    {
+      "path": "captures/2024020102/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "a9cd0cf4135febe8fc3cdcbcbea050e25c968ba637f974c039370013d22f4d15"
+    },
+    {
+      "path": "captures/2024020102/game-summary/body.bin",
+      "bytes": 37243,
+      "sha256": "7fdb1f98eec83449186fce196509a0312cdfaa9b96b42dfeff9d6e0cbf625f75"
+    },
+    {
+      "path": "captures/2024020102/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "f256f674735ddc1623c6ef1c9da6e5146c096475b763519d5ac1ef17ae60aa26"
+    },
+    {
+      "path": "captures/2024020102/landing/body.bin",
+      "bytes": 16091,
+      "sha256": "b683dfaae25d08d77289ba888b62e47363f651d03efb623238628968afc1ac82"
+    },
+    {
+      "path": "captures/2024020102/landing/capture.json",
+      "bytes": 660,
+      "sha256": "2170e7aa316d19671960dd32957d4f7979fd479fd3567177c2b29008ec4debc6"
+    },
+    {
+      "path": "captures/2024020102/play-by-play/body.bin",
+      "bytes": 159183,
+      "sha256": "68751d2185bbd24e2d3d8a81ce228b4b3bc3b10d0716b5629e0dc44310d3ccac"
+    },
+    {
+      "path": "captures/2024020102/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "a29c5541d8101cd7177cf328e7a6199cf062f55fb3e59919db242f01bd3e9e3b"
+    },
+    {
+      "path": "captures/2024020102/play-report/body.bin",
+      "bytes": 1471849,
+      "sha256": "680c518bee14416a1dd93c088d187c3c177d10234c96538309977111ae600b97"
+    },
+    {
+      "path": "captures/2024020102/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "1c9a19c2ba3611d16d3342bad3486b25553655b78b675476f98632bdd010c3b3"
+    },
+    {
+      "path": "captures/2024020102/shifts/body.bin",
+      "bytes": 291679,
+      "sha256": "df9c0283f31f634d4033cfd15cb8bc091f30f2b63486beffb1766e76752a4a37"
+    },
+    {
+      "path": "captures/2024020102/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "5371505e6f594ed4968246db9ab74dcc85e0f1a9a384757abf537072a9291da4"
+    },
+    {
+      "path": "captures/2024020340/boxscore/body.bin",
+      "bytes": 13177,
+      "sha256": "d9c957de44c0438e7f3e1be0369ba70c9ecec6598f482dc229f6dcd6d995a6ca"
+    },
+    {
+      "path": "captures/2024020340/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "be97b82317c0222f5dd11c4932d16a79fbc55c86469b3ae71442bcf8cec0c218"
+    },
+    {
+      "path": "captures/2024020340/game-summary/body.bin",
+      "bytes": 38989,
+      "sha256": "cef1a1a73ddd468db542c88f49a6b339f13d8aa842abe681f370014ffe890588"
+    },
+    {
+      "path": "captures/2024020340/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "50e50f11abdc1449bc27172c9d7a4be40964d1575a037ae7d89a5dfce5df1b92"
+    },
+    {
+      "path": "captures/2024020340/landing/body.bin",
+      "bytes": 14647,
+      "sha256": "6ec47b288d7cbd0a1bede10560287f7b4e1cd56d338a1f7a55fc3a1c437f2bbd"
+    },
+    {
+      "path": "captures/2024020340/landing/capture.json",
+      "bytes": 660,
+      "sha256": "b833cae74a92ea64bff9ba80a85457c6f0171059e68bb4d2f5a6d3161682a255"
+    },
+    {
+      "path": "captures/2024020340/play-by-play/body.bin",
+      "bytes": 141996,
+      "sha256": "fcec11c6c77caf0c18be4d754ea88adfa254c531a59f96f7a32ef197198c7d3c"
+    },
+    {
+      "path": "captures/2024020340/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "32d9204fd0538799c1bf5f15e781c3885cfdfe94f0b9e33dfd58be95455556cb"
+    },
+    {
+      "path": "captures/2024020340/play-report/body.bin",
+      "bytes": 1344625,
+      "sha256": "d19e62bbedb8fea0b110849b80dbd134370f559e9133931d123afc711f66c080"
+    },
+    {
+      "path": "captures/2024020340/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "f0dd8d2fa5baa4a1cf2d7848582573aab550e70e0d45e01cd750f280d9e8663b"
+    },
+    {
+      "path": "captures/2024020340/shifts/body.bin",
+      "bytes": 285638,
+      "sha256": "fc861436119f7870e96f1dc33399501cb24b02500563ca7e9b059802300dd5ce"
+    },
+    {
+      "path": "captures/2024020340/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "7316059099c0a7207247ea61eeb98186cd903ff402d2eb42ed2f9914c430905e"
+    },
+    {
+      "path": "captures/2024020364/boxscore/body.bin",
+      "bytes": 13326,
+      "sha256": "c0a63a786817240758997c85b171cc27ac96ce401d454eb0d8a6513d4109a1d1"
+    },
+    {
+      "path": "captures/2024020364/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "e286dd6a1bd8000722c13a92af68cbed2cbbfc7e87c8fcc387a4f235a6919bde"
+    },
+    {
+      "path": "captures/2024020364/game-summary/body.bin",
+      "bytes": 38839,
+      "sha256": "0bb0eecb21360f397389b14e9fbad1c2a433b46d6b8c2e16de601aacf35374dd"
+    },
+    {
+      "path": "captures/2024020364/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "fe4c931b88f46b56ce8914125004f00dfb96625db4642baaff18861b0aff4876"
+    },
+    {
+      "path": "captures/2024020364/landing/body.bin",
+      "bytes": 13318,
+      "sha256": "df11bf8c70c7ff07c0a8829501d740efb1b5a245fb56fd5f4819e0a36fe267e8"
+    },
+    {
+      "path": "captures/2024020364/landing/capture.json",
+      "bytes": 660,
+      "sha256": "c5689860cb269ebad36309f1bf044bf2b49c306a20212822cb961e03c49293c1"
+    },
+    {
+      "path": "captures/2024020364/play-by-play/body.bin",
+      "bytes": 132205,
+      "sha256": "13c481aec525f54efad50d3d313aaf4c51f1f3f7f14a4f3174be3ff292847f28"
+    },
+    {
+      "path": "captures/2024020364/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "04abb55d0750833cc77e4c2256d354d5d3a3586cba19d0749f0642d0f9c47628"
+    },
+    {
+      "path": "captures/2024020364/play-report/body.bin",
+      "bytes": 1235406,
+      "sha256": "f40326a32f4dc2986c36ec0d70ca77d20511e4deed65fdefb3d74d68f8be849e"
+    },
+    {
+      "path": "captures/2024020364/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "4383ab37ae8399d93bf6c7f0a905a74ed54026cd2d1cc848ef0750f56080e017"
+    },
+    {
+      "path": "captures/2024020364/shifts/body.bin",
+      "bytes": 288644,
+      "sha256": "3dcbce73f36706140ac7f3e879da6183a8cdbf1a7aa218a40e21f95f74536a25"
+    },
+    {
+      "path": "captures/2024020364/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "fcf603555bd5634d110bc678467820d7246b7270c03581b8872a114f4c45c7aa"
+    },
+    {
+      "path": "captures/2025020184/boxscore/body.bin",
+      "bytes": 13212,
+      "sha256": "a16e3877506074640c5dd09022d1ca79ed2c776096322c7acc35befb10225201"
+    },
+    {
+      "path": "captures/2025020184/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "a0a681f6804da5a26fc5fccf900e38bfa8f64477db57092ee281d1af56d78b86"
+    },
+    {
+      "path": "captures/2025020184/game-summary/body.bin",
+      "bytes": 33882,
+      "sha256": "b448ed321eb37549ae5a7a8cec7db88604d2f6e546bb03b9b8ee9eb1250702c7"
+    },
+    {
+      "path": "captures/2025020184/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "d06c921234c679c81f728a7d068ce4fbbba7910ff16ff199361afb60ace02c39"
+    },
+    {
+      "path": "captures/2025020184/landing/body.bin",
+      "bytes": 10489,
+      "sha256": "c0d4654335bd6ebe3cc7029d6ecc889fc4266704ea9825b7f5b6159867a5fd2a"
+    },
+    {
+      "path": "captures/2025020184/landing/capture.json",
+      "bytes": 660,
+      "sha256": "dcbaa3d73c2ed914656034dd6c504aa57481705af7b4f7679450e2c75965f18f"
+    },
+    {
+      "path": "captures/2025020184/play-by-play/body.bin",
+      "bytes": 134064,
+      "sha256": "05c8b075b0e2d1e5f39cdefd250ac00d30f503b9446cb5666d2971404cb9c561"
+    },
+    {
+      "path": "captures/2025020184/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "7e4bba9574c10177d57e12c43e316ed42b66dd2cb2a34c78aa09c1c57d02677d"
+    },
+    {
+      "path": "captures/2025020184/play-report/body.bin",
+      "bytes": 1278544,
+      "sha256": "0ee79cf0fd357da2fd32b5e46f05ed9b7df7dbbfdce51b3a5fdeac2b9485be5e"
+    },
+    {
+      "path": "captures/2025020184/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "da15057f8e938585e1d842611610adc8ed6ad98b1e9bd6803576206c891abcb2"
+    },
+    {
+      "path": "captures/2025020184/shifts/body.bin",
+      "bytes": 264832,
+      "sha256": "8375cf2ffa534804fd06de756e7f718d8cd598530e5845960f047bae077173fd"
+    },
+    {
+      "path": "captures/2025020184/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "fd65a0b851e651e819ae4d8b79437204164bdf3f80de5b20b064f4375190f44f"
+    },
+    {
+      "path": "captures/2025020282/boxscore/body.bin",
+      "bytes": 13346,
+      "sha256": "6cb9a2842136126640fdd677dff3a06c5141b371d73edcef9c65e3c6d4a3f928"
+    },
+    {
+      "path": "captures/2025020282/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "b4b6db56fad3ea4675bcd7c050d6234d7e83cdd59077ec5cd56eb93303089c3c"
+    },
+    {
+      "path": "captures/2025020282/game-summary/body.bin",
+      "bytes": 36398,
+      "sha256": "091da24a870adde60abdd6b49b97ecd75f366e00c71051aa31013acd9edda301"
+    },
+    {
+      "path": "captures/2025020282/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "fb129d87e603648d12c202bedacef4a5a55176792e2d43ca8b867849ea88c03e"
+    },
+    {
+      "path": "captures/2025020282/landing/body.bin",
+      "bytes": 11914,
+      "sha256": "5b090bd2b717768f42aa19bc73702f083989c63f620a124216a1d39e520450ab"
+    },
+    {
+      "path": "captures/2025020282/landing/capture.json",
+      "bytes": 660,
+      "sha256": "d91d78e0cd423b93fa5b82ee733dcde156a4f57c9528ce79432b10510bfb8b36"
+    },
+    {
+      "path": "captures/2025020282/play-by-play/body.bin",
+      "bytes": 130643,
+      "sha256": "714ae128eddd0e2b432b0f110c7cc88b42b2b611b802665c91f969dff01faca8"
+    },
+    {
+      "path": "captures/2025020282/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "36ccd8443777ff02b97e259e8ed730486c288c7418ca351e35c1d42e21a0cdac"
+    },
+    {
+      "path": "captures/2025020282/play-report/body.bin",
+      "bytes": 1218309,
+      "sha256": "912113258c6dcd3e0ddde30b7a6493dfb07c719c243504bd54e1811de26164fb"
+    },
+    {
+      "path": "captures/2025020282/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "7f7ab63ee18c833f51511b63abd4c7d1c30ad369be387161bcff9148485385d5"
+    },
+    {
+      "path": "captures/2025020282/shifts/body.bin",
+      "bytes": 293615,
+      "sha256": "9da8a8fcefb4061d7bf8c4ed97cd64ee4bac4bb8187a557898ac2af19bbcce08"
+    },
+    {
+      "path": "captures/2025020282/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "1fdb84c4d5c0bc8ea04407851fa0a5e3ef965414d60252560239cec859238318"
+    },
+    {
+      "path": "captures/2025020307/boxscore/body.bin",
+      "bytes": 13409,
+      "sha256": "0e1451fb41aff25de05ebd7f546e538b9c4c02896c9b8c07d429ef571050aea7"
+    },
+    {
+      "path": "captures/2025020307/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "67a95252385179cb1f24bf731d75c61230b4bfcffa022d49185fff50f48e697e"
+    },
+    {
+      "path": "captures/2025020307/game-summary/body.bin",
+      "bytes": 33771,
+      "sha256": "3f24ea540fe22ab374c335e6b2844920d06ef9982f848b2c6673b5a0e929deed"
+    },
+    {
+      "path": "captures/2025020307/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "b5a9f99569e951fb84366ba8ca52fa6a877feb1eadd174d83170a3775ad15bb3"
+    },
+    {
+      "path": "captures/2025020307/landing/body.bin",
+      "bytes": 9735,
+      "sha256": "6aed9682dfd89065d1e1fa564f22be871c9c20bc3f7078243288a572287a6856"
+    },
+    {
+      "path": "captures/2025020307/landing/capture.json",
+      "bytes": 659,
+      "sha256": "90122ab93847e87f8793f927cbfaee9c96ddece80b7273605b9d39188b122055"
+    },
+    {
+      "path": "captures/2025020307/play-by-play/body.bin",
+      "bytes": 129761,
+      "sha256": "be2500f2bfce080573c31903e1ce0431fdfcdfb6ff90c5bd3df2a4956795ad11"
+    },
+    {
+      "path": "captures/2025020307/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "b62433089270df50be4f1f4d0597f4aeea5c7139e51c1291a60ce0281f49a896"
+    },
+    {
+      "path": "captures/2025020307/play-report/body.bin",
+      "bytes": 1215611,
+      "sha256": "53e8925caf1fe9c4f5be1389acaa4110dbd40f7f40bd7f045ff69bde0e0315af"
+    },
+    {
+      "path": "captures/2025020307/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "0ef61fbb1531d5446cb854ea0f908cc3744186e75c57bf5e5aff17f0bfd4ed5c"
+    },
+    {
+      "path": "captures/2025020307/shifts/body.bin",
+      "bytes": 302712,
+      "sha256": "8b40e169946eb0ada308d04c7975dc6d11914842bd5ea78d23c4694017082805"
+    },
+    {
+      "path": "captures/2025020307/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "0a1ce2e6a97087a2d1cd0229561f4afd8565e0a6c1e4db7c00e68257a8189c34"
+    },
+    {
+      "path": "captures/2025020544/boxscore/body.bin",
+      "bytes": 13368,
+      "sha256": "67c88988a263b5fd392fef6c72de12dcbfaa2d829c2dab94af3287b71745376e"
+    },
+    {
+      "path": "captures/2025020544/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "80d20551ddbddcf407f7af50b9223f92bf9fcbbb0225ad58cb35356c1c459507"
+    },
+    {
+      "path": "captures/2025020544/game-summary/body.bin",
+      "bytes": 37260,
+      "sha256": "646f16cc106a4dfdd4fb8f3d54943cbde974672ca78af8f457cb42de01c4e2c9"
+    },
+    {
+      "path": "captures/2025020544/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "794e0cc138ff204f7b31f1e54a60644e614cb125778db588756fccba274c0d15"
+    },
+    {
+      "path": "captures/2025020544/landing/body.bin",
+      "bytes": 16383,
+      "sha256": "f444e205d3c6e5908a8f3189b318d50385a97b76afb9f0d5046946d46b32dec9"
+    },
+    {
+      "path": "captures/2025020544/landing/capture.json",
+      "bytes": 660,
+      "sha256": "a2cfc2e0807d92fe6cb96df56e5d45fe3444c8c992adaa8d1efead67d1b37fd1"
+    },
+    {
+      "path": "captures/2025020544/play-by-play/body.bin",
+      "bytes": 161745,
+      "sha256": "2f550dcac4f55356f39dac0a8e9c230aea5450da2f96ddfb51f3a2666fefc1f7"
+    },
+    {
+      "path": "captures/2025020544/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "f8d8fd0945d57b37366445fdddf130f2fd447e30b41f1cadd07f4a9ee772c927"
+    },
+    {
+      "path": "captures/2025020544/play-report/body.bin",
+      "bytes": 1509033,
+      "sha256": "68ac1d82fb1d314011cb6cb21e68ef1e39c80d1dc7b9684f833ea8eaf4a74a71"
+    },
+    {
+      "path": "captures/2025020544/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "5d4affcbf157a3cfc84c9f5fbb20dd8c15f8046420eea6269ad24b22a7311934"
+    },
+    {
+      "path": "captures/2025020544/shifts/body.bin",
+      "bytes": 296296,
+      "sha256": "853f18825bbe3af90fb87eca73e6a811d89487a0fa25f6007f6e14fa9ea7639d"
+    },
+    {
+      "path": "captures/2025020544/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "d35091f3d98dc5174918bbb3edc0f5c62127d67c8348468acf71cbe9ca7ed553"
+    },
+    {
+      "path": "captures/2025020565/boxscore/body.bin",
+      "bytes": 13178,
+      "sha256": "72b91e4d078ff847a61c32d950096ce6ef9137658d5e98b29e9f5203f6d766b9"
+    },
+    {
+      "path": "captures/2025020565/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "3306361dc873bac5df9ea366dffad15983570fc600abee957e2734f20ed5f301"
+    },
+    {
+      "path": "captures/2025020565/game-summary/body.bin",
+      "bytes": 30912,
+      "sha256": "c1dd73ce8c71e472b411a41b9355a318e3bf5a05310f60c0de829fc33b041c0c"
+    },
+    {
+      "path": "captures/2025020565/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "1db7f1cd4f248b9c9166a615353998cef1b36856293cc6bfeef1433320334d02"
+    },
+    {
+      "path": "captures/2025020565/landing/body.bin",
+      "bytes": 7458,
+      "sha256": "d83a8c0c21141e1f01d9234e7fd3ffd52f0cb82c57fa9870729fbd03517c2b56"
+    },
+    {
+      "path": "captures/2025020565/landing/capture.json",
+      "bytes": 659,
+      "sha256": "ced7427e522076b6ab73aa308d943d3f311ec5648ad97dd41e41d63795c03e71"
+    },
+    {
+      "path": "captures/2025020565/play-by-play/body.bin",
+      "bytes": 123057,
+      "sha256": "60e9edf35098b157980d3ccfe8b4bcb979beb3db0b731ebcc11e9a766fd9833f"
+    },
+    {
+      "path": "captures/2025020565/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "2504d64be23f8c6e67c4892746c6f5a620feb723a85bae3e79ceacdad450a172"
+    },
+    {
+      "path": "captures/2025020565/play-report/body.bin",
+      "bytes": 1182727,
+      "sha256": "666d72d469c0c629b210037faeda9b22dd07246f44bb3e9815019f95e04183c7"
+    },
+    {
+      "path": "captures/2025020565/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "6dc2bec34f1e97eb150b6f58cfa2806fc225349338426f6ae6fb2d5cf471abd2"
+    },
+    {
+      "path": "captures/2025020565/shifts/body.bin",
+      "bytes": 771277,
+      "sha256": "5554728da340cfc493d4a3eb2d302bde516ddef4523270127e34ddba3e85b024"
+    },
+    {
+      "path": "captures/2025020565/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "137ab8fa81b71699407cdee7ab44775c1198687767868d1ecee97e74e0b0ed9a"
+    },
+    {
+      "path": "references/20232024/goalie-bios/body.bin",
+      "bytes": 44911,
+      "sha256": "19afa785edd0c0402ca11c255779c2b5f0559caa049ffec881319dad08e7515b"
+    },
+    {
+      "path": "references/20232024/goalie-bios/capture.json",
+      "bytes": 711,
+      "sha256": "902e26ae024b34ee48bcfcfc9fa9c7f4648f3565d7123fbb360e34eb4e2e45f2"
+    },
+    {
+      "path": "references/20232024/season-games/body.bin",
+      "bytes": 327493,
+      "sha256": "4711a8bd9c07b2f5205403699f8f3904ddcbd4b5162f0ee604953bac11ea39d4"
+    },
+    {
+      "path": "references/20232024/season-games/capture.json",
+      "bytes": 671,
+      "sha256": "0a3f8c707f44cd942ac19810e30f65369ddd4831d2d9ba8aff7d5a7aba59640d"
+    },
+    {
+      "path": "references/20232024/season-summary/body.bin",
+      "bytes": 634,
+      "sha256": "520fb7debf44b3deeaa4e73159bc25306f0eb35fdbf5f6a88f445d6f59e9b5e8"
+    },
+    {
+      "path": "references/20232024/season-summary/capture.json",
+      "bytes": 676,
+      "sha256": "8727e0c1dc6c9036e7ff35bb2e269cce54c6ec21e440569931faddf0ad4fed8c"
+    },
+    {
+      "path": "references/20232024/skater-bios/body.bin",
+      "bytes": 448867,
+      "sha256": "f1ced59a6cf806e03a8f5fad5926035ece02df9f778b9b029709a77fff17ad7c"
+    },
+    {
+      "path": "references/20232024/skater-bios/capture.json",
+      "bytes": 712,
+      "sha256": "55a91424a425bfa49b0c2d046c860ff7bd6719450449478edbd36976476c95af"
+    },
+    {
+      "path": "references/20242025/goalie-bios/body.bin",
+      "bytes": 47171,
+      "sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+    },
+    {
+      "path": "references/20242025/goalie-bios/capture.json",
+      "bytes": 711,
+      "sha256": "0fd86d0b478df2e7e156fb718543ab5cdc3eab900a6dce945849ee2846ef1c38"
+    },
+    {
+      "path": "references/20242025/season-games/body.bin",
+      "bytes": 327490,
+      "sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+    },
+    {
+      "path": "references/20242025/season-games/capture.json",
+      "bytes": 671,
+      "sha256": "5b862c889a8ec496b75955591001d8fb3c4f719daf59eb6c6cde743b323bd349"
+    },
+    {
+      "path": "references/20242025/season-summary/body.bin",
+      "bytes": 634,
+      "sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+    },
+    {
+      "path": "references/20242025/season-summary/capture.json",
+      "bytes": 676,
+      "sha256": "03aed697f50917a45a98b20facc8c8a336d3264dea1b32f15d4da76c1638d525"
+    },
+    {
+      "path": "references/20242025/skater-bios/body.bin",
+      "bytes": 448170,
+      "sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+    },
+    {
+      "path": "references/20242025/skater-bios/capture.json",
+      "bytes": 712,
+      "sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a"
+    }
+  ],
+  "preserved_files": [
+    {
+      "path": "captures/2025020001/boxscore/body.bin",
+      "bytes": 13529,
+      "sha256": "75b9bf588856203f7338580c59b0f1b639a84ac29247c6580d57b4442446f8eb"
+    },
+    {
+      "path": "captures/2025020001/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "339e35d3a568d8e33b5ce96cf6682d0e1bc787c3dc3945f8afcb80123537fd59"
+    },
+    {
+      "path": "captures/2025020001/game-summary/body.bin",
+      "bytes": 34275,
+      "sha256": "ff30ff83d0311a17a64fdf248dd80d04e30d694aff7d34df65139e5d51402d4f"
+    },
+    {
+      "path": "captures/2025020001/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "650a5b15ec52fd7901ecc8024f6f912bcf5c073f1deb0e3680a2c68cf2467247"
+    },
+    {
+      "path": "captures/2025020001/landing/body.bin",
+      "bytes": 11355,
+      "sha256": "ab01843edd1d2089df821297fc1b811a233a343f499520d3af175eff4779498b"
+    },
+    {
+      "path": "captures/2025020001/landing/capture.json",
+      "bytes": 660,
+      "sha256": "d9fe8f2b24cfd23c906521b232bf8fb19c8a36785c2cd019aec7dd3ba4eb5374"
+    },
+    {
+      "path": "captures/2025020001/play-by-play/body.bin",
+      "bytes": 146277,
+      "sha256": "9d89ab3e9fcb50ca9be6957eb31dd0df585bb98005f0a3577a054762fecdb299"
+    },
+    {
+      "path": "captures/2025020001/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "e67452380839260d0f850b562d3a531303d04bdac61650730361998bd89eea38"
+    },
+    {
+      "path": "captures/2025020001/play-report/body.bin",
+      "bytes": 1404394,
+      "sha256": "2911d9f2cc567284aad4dc161e04f0fa9cb9153ad1088fb8b492d56aa2061837"
+    },
+    {
+      "path": "captures/2025020001/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "42816729d01707ef5101230ab183420b0f12be1bc071ddab5850a5c416e3bb6b"
+    },
+    {
+      "path": "captures/2025020001/shifts/body.bin",
+      "bytes": 304721,
+      "sha256": "54f2a56becbe325c9dc9c13b7ddaf8e07bbecd41981e8704e9b5fd464986345f"
+    },
+    {
+      "path": "captures/2025020001/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "8158a8fb6002b520ccb15bc218528425a9b9ae51107cc7b42602c34ce6449338"
+    },
+    {
+      "path": "captures/2025020006/boxscore/body.bin",
+      "bytes": 13141,
+      "sha256": "a30184bd0e64ca7a463f86f9311a5c17e6de8a591d8fd7853f453873bb214837"
+    },
+    {
+      "path": "captures/2025020006/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "5ea1dc3c3e43d5ba1c2a218595e944a25afd050946d3373635ef5b9914062e16"
+    },
+    {
+      "path": "captures/2025020006/game-summary/body.bin",
+      "bytes": 37446,
+      "sha256": "ddd2bb9fecf12b83947ac99b66c9319e2d03aba06caf058425ce60493d619627"
+    },
+    {
+      "path": "captures/2025020006/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "582096636274f589c2b7d25763d2b6e202fa3ac052611d15d00ba5bc7e6178a8"
+    },
+    {
+      "path": "captures/2025020006/landing/body.bin",
+      "bytes": 17750,
+      "sha256": "48127d8bf3fb6dc268a4a7258f19940884a13a62ca23d420294c91335a764cd0"
+    },
+    {
+      "path": "captures/2025020006/landing/capture.json",
+      "bytes": 660,
+      "sha256": "75e8f4ad7f73994b27feca4595f3e736faf6f7ad8408f9c2e7f58b92222584b4"
+    },
+    {
+      "path": "captures/2025020006/play-by-play/body.bin",
+      "bytes": 151801,
+      "sha256": "e5c79066faafe9daac9bc1daa12dda899d8cd7382d7f2484085ade1a9c1e57ad"
+    },
+    {
+      "path": "captures/2025020006/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "1b6867cc24ff48ce85ede93123afe87b760720ae8c7dea31164237bb69276c8b"
+    },
+    {
+      "path": "captures/2025020006/play-report/body.bin",
+      "bytes": 1378106,
+      "sha256": "37e8a9c8d8f32428890a9be0ee32abeaa847a5579615e212c61e90084e56a310"
+    },
+    {
+      "path": "captures/2025020006/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "161f0281c707598ebcb9154b27cbcfb8de2a833b90f9bfc97601a4a3c1f0ecd8"
+    },
+    {
+      "path": "captures/2025020006/shifts/body.bin",
+      "bytes": 292033,
+      "sha256": "aac4bc38d85f89a4e893d08135d1e33a516a7b7618a50fbf7736ad63e4bf3425"
+    },
+    {
+      "path": "captures/2025020006/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "b4c25d6a5d7aec6764fb7bc47d700038c87317e33b179bcdae868a4471d7ece9"
+    },
+    {
+      "path": "captures/2025021094/boxscore/body.bin",
+      "bytes": 13401,
+      "sha256": "33af5a81666033ed5551fc07aacee0f0d1242b86433819c91f81781791a82af1"
+    },
+    {
+      "path": "captures/2025021094/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "9fda56ed2f61211113cb2706e6b825568f661a143a2cf61deaaa133fdcc2681c"
+    },
+    {
+      "path": "captures/2025021094/game-summary/body.bin",
+      "bytes": 35984,
+      "sha256": "1c8a9ae6f2d002537ace907641743b34dea193cf3979efcf72ce967a17121ff9"
+    },
+    {
+      "path": "captures/2025021094/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "d0dde6e50849fb28f75e5d0b00603efc872d031c2730798e65a5ad5d8cf6a776"
+    },
+    {
+      "path": "captures/2025021094/landing/body.bin",
+      "bytes": 12977,
+      "sha256": "f0fc466d24dde109d167637d048aac621a0c33f15ed45ba282aaee4c72157f38"
+    },
+    {
+      "path": "captures/2025021094/landing/capture.json",
+      "bytes": 660,
+      "sha256": "ab7677e20f755676ad7cc74b9eb480926fd5fc570bb35dbb70e24171c673c637"
+    },
+    {
+      "path": "captures/2025021094/play-by-play/body.bin",
+      "bytes": 127984,
+      "sha256": "1cb5834471bb57a2f42084290c949adcf1fa6da0ca962057da1dfa13e5c4b2a6"
+    },
+    {
+      "path": "captures/2025021094/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "a13a00c460164583feac2cea764d57f2efa1ac22576ebe3d73136fa7fb71a9b0"
+    },
+    {
+      "path": "captures/2025021094/play-report/body.bin",
+      "bytes": 1186295,
+      "sha256": "eb0bf73de066f115e69f1d259829106a61c1b2bc16ecfe4e753cb2c0305e68a9"
+    },
+    {
+      "path": "captures/2025021094/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "d30bd3e14d819f7efa4445e1e0d2662d33d3a39df491ca15df902ed35440203c"
+    },
+    {
+      "path": "captures/2025021094/shifts/body.bin",
+      "bytes": 263258,
+      "sha256": "8dba952f96711965fbff986f88025e56deaf32f152d16fd846c13cd086acc3d0"
+    },
+    {
+      "path": "captures/2025021094/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "bbc5a378e680241f1e1b9412b2215e22c5916fcc116558adcd5164a359211197"
+    },
+    {
+      "path": "references/20252026/goalie-bios/body.bin",
+      "bytes": 44881,
+      "sha256": "ceb67f93fb62d13f41b26b44eb8b0a2d51fd2e5cead76caf067f47459caa7f57"
+    },
+    {
+      "path": "references/20252026/goalie-bios/capture.json",
+      "bytes": 711,
+      "sha256": "6e654c97c86378852a5c1ab9fcc4cbac84665e8059150f698b99e37ff84166f6"
+    },
+    {
+      "path": "references/20252026/season-games/body.bin",
+      "bytes": 327491,
+      "sha256": "329ed803412779a0cecea1dae60015aa1c254200efdb3c4231d4714d369d81b7"
+    },
+    {
+      "path": "references/20252026/season-games/capture.json",
+      "bytes": 671,
+      "sha256": "17a38b3fd3d60b215ed0201b216be1b9cb59715b072077fb50a3c4253c3ca07b"
+    },
+    {
+      "path": "references/20252026/season-summary/body.bin",
+      "bytes": 634,
+      "sha256": "db5e114813ad72286ecee6ec1c68f121a5a90ffcc36f203834a7dd8b38373647"
+    },
+    {
+      "path": "references/20252026/season-summary/capture.json",
+      "bytes": 676,
+      "sha256": "e178c044c9afba573a161de67bf9df7c68a6f3a1afc7975d8cb00b3efe1b5f19"
+    },
+    {
+      "path": "references/20252026/skater-bios/body.bin",
+      "bytes": 459134,
+      "sha256": "7ecf80fc9e7cbafb90585bff11a0653185e192f1b42c4e6d9b106f22ef94749b"
+    },
+    {
+      "path": "references/20252026/skater-bios/capture.json",
+      "bytes": 712,
+      "sha256": "2eee0e94cbb414ba45a132c732535961654b393308b87dcf2039540d4bc7a115"
+    }
+  ],
+  "source_records": [
+    {
+      "game_id": "2023020001",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:53.283Z",
+      "body_sha256": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13"
+    },
+    {
+      "game_id": "2023020001",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:53.662Z",
+      "body_sha256": "ea33865cd3401f81181cfd140a94c5c25b7a801a6ab4ad5de0212f46660141d0"
+    },
+    {
+      "game_id": "2023020001",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:53.996Z",
+      "body_sha256": "6fd5c6c4fecfe0adb34f0b0d4e3c15bc0983f6136aac74c9b607d46cc3137d3a"
+    },
+    {
+      "game_id": "2023020001",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:54.165Z",
+      "body_sha256": "82af4bad8fa74598507a953bb39053c96efc7c821f35e0ac7ac3bfcbae660bd8"
+    },
+    {
+      "game_id": "2023020001",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:54.473Z",
+      "body_sha256": "67c6e491003ca3cc09f7e0685841518d75e23b12a70007bb3a876c3ec5dfd8a5"
+    },
+    {
+      "game_id": "2023020001",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:54.834Z",
+      "body_sha256": "9b21d2acff3fb965bac6a1e83ca06ed101a7b189239f681ce85d5fd00467de46"
+    },
+    {
+      "game_id": "2023020012",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:53.283Z",
+      "body_sha256": "0e239b4e69c387ce32749c93a9ea4d337b0b9e23393de714f36ace3b9dbe62af"
+    },
+    {
+      "game_id": "2023020012",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:53.664Z",
+      "body_sha256": "f697ce135a3b8bb605d3f64ebf548cedf7c4f34f077f637c2577289693d5b69c"
+    },
+    {
+      "game_id": "2023020012",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:53.995Z",
+      "body_sha256": "a6f1cc7b983398a4dedc9997a7cefe78a9f45a4672cd95c154bc1f6fc20d7247"
+    },
+    {
+      "game_id": "2023020012",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:54.172Z",
+      "body_sha256": "56cbeeba468be83c2d8cff80dd99f6e98677b088e91904936fab1ec51a8a3114"
+    },
+    {
+      "game_id": "2023020012",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:54.504Z",
+      "body_sha256": "7379319ecfa5b53462d825cb87e6ececa07b139f25fa2b4b311b8d77ab826c1e"
+    },
+    {
+      "game_id": "2023020012",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:54.888Z",
+      "body_sha256": "166da592964ac97bf34fe8dc8a37c1f06922f712104c1610626f6566659db46a"
+    },
+    {
+      "game_id": "2023020013",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:08:12.102Z",
+      "body_sha256": "c74f16f2ece7e973214956a6b4464d8d7fbe582f2f224d8b3c86b53df3436d81"
+    },
+    {
+      "game_id": "2023020013",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:08:12.359Z",
+      "body_sha256": "c29d6a0d8f3683ea13d119aa8f5b610e9b224407ef4c60ce24d21ca30bdc0e53"
+    },
+    {
+      "game_id": "2023020013",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:08:12.918Z",
+      "body_sha256": "4ece9f1b2b6ca98c356ee90443d15b7d2525cfcc14ff26cc1da16368b134c6db"
+    },
+    {
+      "game_id": "2023020013",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:08:13.062Z",
+      "body_sha256": "e77210dc7e2d4428456b3c62b131c6e9a7ceee618e08cb93ccb944cae79f6481"
+    },
+    {
+      "game_id": "2023020013",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:08:13.299Z",
+      "body_sha256": "73e18f5b2e5cce80cfcf60d57b5df3277a8a7d05ff567bd9962a829beb838b82"
+    },
+    {
+      "game_id": "2023020013",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:08:13.618Z",
+      "body_sha256": "6aefc443840a8faea16770e3e77a8665967797f96f2bcaca87f1ae07efb30fba"
+    },
+    {
+      "game_id": "2023020078",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:53.283Z",
+      "body_sha256": "4ecf586aeeb3fc0d6cee21cfd0396369c0a462c0637a3f12b130632b18cc49a1"
+    },
+    {
+      "game_id": "2023020078",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:53.644Z",
+      "body_sha256": "cb3e1d702d3abcf7024e1cec7c0a4091c74e6237f8709d65f08f29194801d413"
+    },
+    {
+      "game_id": "2023020078",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:53.969Z",
+      "body_sha256": "eff67125f1ac0b4e7f926feba12e20f054726f7c0064071f5ee217431f30df6a"
+    },
+    {
+      "game_id": "2023020078",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:54.182Z",
+      "body_sha256": "6ba4ba7f089e7c9fe6a9b97b5e2735d2a997ed7c54b674fffd1c488024d636b7"
+    },
+    {
+      "game_id": "2023020078",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:54.486Z",
+      "body_sha256": "57f5e8a575f5ae81fd5ac18ad0cc8b66ba93f4ce9a29679a8882cc61a539b3a6"
+    },
+    {
+      "game_id": "2023020078",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:54.839Z",
+      "body_sha256": "419380294b5a490f475cfc5bafba873c2b0310669412f076e7ce6e863db48dc1"
+    },
+    {
+      "game_id": "2023020237",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:09:55.268Z",
+      "body_sha256": "8348f6c767cf171b08df6c887efbe16d995453f7e37cc00c3ca24ae524ca09d0"
+    },
+    {
+      "game_id": "2023020237",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:09:55.494Z",
+      "body_sha256": "51b82d51c870fef056ec31cb87d5f7814fc39ddd54422eb05db0fa3f7096b9a1"
+    },
+    {
+      "game_id": "2023020237",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:09:55.995Z",
+      "body_sha256": "c06c3da57aebd14f27b073c6438808cf9f776f9ce2651dd402dedbe35ff54d4d"
+    },
+    {
+      "game_id": "2023020237",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:09:56.118Z",
+      "body_sha256": "ae3aadb59b7bd8e5447862742ca82c9409fd6a8e11f5eae3c755d16ee4a741b2"
+    },
+    {
+      "game_id": "2023020237",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:09:56.332Z",
+      "body_sha256": "1c7bc0fe8600b1f3a1435f9885f2a3e48a71239d66dcb721a4e612bd63559054"
+    },
+    {
+      "game_id": "2023020237",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:09:56.641Z",
+      "body_sha256": "89775ebcd29eb5fc31442e84a3b22bb11664903fb92b853e1a856ef55ff5af0f"
+    },
+    {
+      "game_id": "2023020955",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:53.283Z",
+      "body_sha256": "02ae5362e7e4954789905cdcd498ef69a0fc9095983a5ed6fe27f9623b3b5418"
+    },
+    {
+      "game_id": "2023020955",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:53.671Z",
+      "body_sha256": "9d9d69e190db369ab5be78613adbf14d894de8b2a14267b3371cd6b9bc7389b6"
+    },
+    {
+      "game_id": "2023020955",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:54.032Z",
+      "body_sha256": "1d51f157909fddd1250a58e99d045934208b8a327381e98f02a65a8b41f01d55"
+    },
+    {
+      "game_id": "2023020955",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:54.443Z",
+      "body_sha256": "d7a263a71c1457c5be0b558c5a50478649d418b87b99438d5bbb0f113ea0202b"
+    },
+    {
+      "game_id": "2023020955",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:54.737Z",
+      "body_sha256": "c3343bb677dc87e4f272cfe515858fb2b12b792f67529666c468ad5619a505ea"
+    },
+    {
+      "game_id": "2023020955",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:55.102Z",
+      "body_sha256": "caaa44f64e47da010f86d17d3b23c424a5a9d448bae7de7cb58a6a2b5ad51574"
+    },
+    {
+      "game_id": "2024020001",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:55.531Z",
+      "body_sha256": "a0dfedbfe384c7d988d44aeb72bd3555138a5ef4ddc89375cbccfbee8e178bfe"
+    },
+    {
+      "game_id": "2024020001",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:55.879Z",
+      "body_sha256": "d50f382736f89d76305ba3b9ac7c0c4963696734581c571a7d95d5b47d5a7d04"
+    },
+    {
+      "game_id": "2024020001",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:56.212Z",
+      "body_sha256": "84a5b19f63aa9b0618c202cc5237c90e0fdcde5bfb6562208093da1315db8cdf"
+    },
+    {
+      "game_id": "2024020001",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:56.395Z",
+      "body_sha256": "6f65b462c54ee0f824856b28c73824ae7b2d1aeddf856dbb9c2c16c490d9d823"
+    },
+    {
+      "game_id": "2024020001",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:56.800Z",
+      "body_sha256": "32c9a8bfd35aa48a475d44b9c15da6e762c201b16c6fb26da932a33538d4bd69"
+    },
+    {
+      "game_id": "2024020001",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:57.489Z",
+      "body_sha256": "c1477ab83d09b941cdfbf0f688b12ade156714d00443f2368ce93c5ea44c2d4b"
+    },
+    {
+      "game_id": "2024020102",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:55.545Z",
+      "body_sha256": "68751d2185bbd24e2d3d8a81ce228b4b3bc3b10d0716b5629e0dc44310d3ccac"
+    },
+    {
+      "game_id": "2024020102",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:55.864Z",
+      "body_sha256": "43a4d93ea2d41a676a4a5d23695df1acee2e07008be6cafe9d12bed734645b8b"
+    },
+    {
+      "game_id": "2024020102",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:56.247Z",
+      "body_sha256": "df9c0283f31f634d4033cfd15cb8bc091f30f2b63486beffb1766e76752a4a37"
+    },
+    {
+      "game_id": "2024020102",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:56.417Z",
+      "body_sha256": "7fdb1f98eec83449186fce196509a0312cdfaa9b96b42dfeff9d6e0cbf625f75"
+    },
+    {
+      "game_id": "2024020102",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:56.776Z",
+      "body_sha256": "680c518bee14416a1dd93c088d187c3c177d10234c96538309977111ae600b97"
+    },
+    {
+      "game_id": "2024020102",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:57.121Z",
+      "body_sha256": "b683dfaae25d08d77289ba888b62e47363f651d03efb623238628968afc1ac82"
+    },
+    {
+      "game_id": "2024020340",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:20:45.619Z",
+      "body_sha256": "fcec11c6c77caf0c18be4d754ea88adfa254c531a59f96f7a32ef197198c7d3c"
+    },
+    {
+      "game_id": "2024020340",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:20:45.889Z",
+      "body_sha256": "d9c957de44c0438e7f3e1be0369ba70c9ecec6598f482dc229f6dcd6d995a6ca"
+    },
+    {
+      "game_id": "2024020340",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:20:46.187Z",
+      "body_sha256": "fc861436119f7870e96f1dc33399501cb24b02500563ca7e9b059802300dd5ce"
+    },
+    {
+      "game_id": "2024020340",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:20:46.308Z",
+      "body_sha256": "cef1a1a73ddd468db542c88f49a6b339f13d8aa842abe681f370014ffe890588"
+    },
+    {
+      "game_id": "2024020340",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:20:46.545Z",
+      "body_sha256": "d19e62bbedb8fea0b110849b80dbd134370f559e9133931d123afc711f66c080"
+    },
+    {
+      "game_id": "2024020340",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:20:46.931Z",
+      "body_sha256": "6ec47b288d7cbd0a1bede10560287f7b4e1cd56d338a1f7a55fc3a1c437f2bbd"
+    },
+    {
+      "game_id": "2024020364",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:20:57.337Z",
+      "body_sha256": "13c481aec525f54efad50d3d313aaf4c51f1f3f7f14a4f3174be3ff292847f28"
+    },
+    {
+      "game_id": "2024020364",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:20:57.580Z",
+      "body_sha256": "c0a63a786817240758997c85b171cc27ac96ce401d454eb0d8a6513d4109a1d1"
+    },
+    {
+      "game_id": "2024020364",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:20:57.894Z",
+      "body_sha256": "3dcbce73f36706140ac7f3e879da6183a8cdbf1a7aa218a40e21f95f74536a25"
+    },
+    {
+      "game_id": "2024020364",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:20:58.007Z",
+      "body_sha256": "0bb0eecb21360f397389b14e9fbad1c2a433b46d6b8c2e16de601aacf35374dd"
+    },
+    {
+      "game_id": "2024020364",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:20:58.240Z",
+      "body_sha256": "f40326a32f4dc2986c36ec0d70ca77d20511e4deed65fdefb3d74d68f8be849e"
+    },
+    {
+      "game_id": "2024020364",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:20:58.570Z",
+      "body_sha256": "df11bf8c70c7ff07c0a8829501d740efb1b5a245fb56fd5f4819e0a36fe267e8"
+    },
+    {
+      "game_id": "2025020184",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:57.835Z",
+      "body_sha256": "05c8b075b0e2d1e5f39cdefd250ac00d30f503b9446cb5666d2971404cb9c561"
+    },
+    {
+      "game_id": "2025020184",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:57.987Z",
+      "body_sha256": "a16e3877506074640c5dd09022d1ca79ed2c776096322c7acc35befb10225201"
+    },
+    {
+      "game_id": "2025020184",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:58.347Z",
+      "body_sha256": "8375cf2ffa534804fd06de756e7f718d8cd598530e5845960f047bae077173fd"
+    },
+    {
+      "game_id": "2025020184",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:58.568Z",
+      "body_sha256": "b448ed321eb37549ae5a7a8cec7db88604d2f6e546bb03b9b8ee9eb1250702c7"
+    },
+    {
+      "game_id": "2025020184",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:58.886Z",
+      "body_sha256": "0ee79cf0fd357da2fd32b5e46f05ed9b7df7dbbfdce51b3a5fdeac2b9485be5e"
+    },
+    {
+      "game_id": "2025020184",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:59.236Z",
+      "body_sha256": "c0d4654335bd6ebe3cc7029d6ecc889fc4266704ea9825b7f5b6159867a5fd2a"
+    },
+    {
+      "game_id": "2025020282",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:58.026Z",
+      "body_sha256": "714ae128eddd0e2b432b0f110c7cc88b42b2b611b802665c91f969dff01faca8"
+    },
+    {
+      "game_id": "2025020282",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:58.427Z",
+      "body_sha256": "6cb9a2842136126640fdd677dff3a06c5141b371d73edcef9c65e3c6d4a3f928"
+    },
+    {
+      "game_id": "2025020282",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:58.775Z",
+      "body_sha256": "9da8a8fcefb4061d7bf8c4ed97cd64ee4bac4bb8187a557898ac2af19bbcce08"
+    },
+    {
+      "game_id": "2025020282",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:59.027Z",
+      "body_sha256": "091da24a870adde60abdd6b49b97ecd75f366e00c71051aa31013acd9edda301"
+    },
+    {
+      "game_id": "2025020282",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:59.365Z",
+      "body_sha256": "912113258c6dcd3e0ddde30b7a6493dfb07c719c243504bd54e1811de26164fb"
+    },
+    {
+      "game_id": "2025020282",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:59.652Z",
+      "body_sha256": "5b090bd2b717768f42aa19bc73702f083989c63f620a124216a1d39e520450ab"
+    },
+    {
+      "game_id": "2025020307",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:58.177Z",
+      "body_sha256": "be2500f2bfce080573c31903e1ce0431fdfcdfb6ff90c5bd3df2a4956795ad11"
+    },
+    {
+      "game_id": "2025020307",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:58.468Z",
+      "body_sha256": "0e1451fb41aff25de05ebd7f546e538b9c4c02896c9b8c07d429ef571050aea7"
+    },
+    {
+      "game_id": "2025020307",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:06:58.813Z",
+      "body_sha256": "8b40e169946eb0ada308d04c7975dc6d11914842bd5ea78d23c4694017082805"
+    },
+    {
+      "game_id": "2025020307",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:06:59.039Z",
+      "body_sha256": "3f24ea540fe22ab374c335e6b2844920d06ef9982f848b2c6673b5a0e929deed"
+    },
+    {
+      "game_id": "2025020307",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:06:59.410Z",
+      "body_sha256": "53e8925caf1fe9c4f5be1389acaa4110dbd40f7f40bd7f045ff69bde0e0315af"
+    },
+    {
+      "game_id": "2025020307",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:06:59.741Z",
+      "body_sha256": "6aed9682dfd89065d1e1fa564f22be871c9c20bc3f7078243288a572287a6856"
+    },
+    {
+      "game_id": "2025020544",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:06:59.856Z",
+      "body_sha256": "2f550dcac4f55356f39dac0a8e9c230aea5450da2f96ddfb51f3a2666fefc1f7"
+    },
+    {
+      "game_id": "2025020544",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:06:59.999Z",
+      "body_sha256": "67c88988a263b5fd392fef6c72de12dcbfaa2d829c2dab94af3287b71745376e"
+    },
+    {
+      "game_id": "2025020544",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:07:00.384Z",
+      "body_sha256": "853f18825bbe3af90fb87eca73e6a811d89487a0fa25f6007f6e14fa9ea7639d"
+    },
+    {
+      "game_id": "2025020544",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:07:00.548Z",
+      "body_sha256": "646f16cc106a4dfdd4fb8f3d54943cbde974672ca78af8f457cb42de01c4e2c9"
+    },
+    {
+      "game_id": "2025020544",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:07:00.795Z",
+      "body_sha256": "68ac1d82fb1d314011cb6cb21e68ef1e39c80d1dc7b9684f833ea8eaf4a74a71"
+    },
+    {
+      "game_id": "2025020544",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:07:01.123Z",
+      "body_sha256": "f444e205d3c6e5908a8f3189b318d50385a97b76afb9f0d5046946d46b32dec9"
+    },
+    {
+      "game_id": "2025020565",
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:07:00.306Z",
+      "body_sha256": "60e9edf35098b157980d3ccfe8b4bcb979beb3db0b731ebcc11e9a766fd9833f"
+    },
+    {
+      "game_id": "2025020565",
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:07:00.596Z",
+      "body_sha256": "72b91e4d078ff847a61c32d950096ce6ef9137658d5e98b29e9f5203f6d766b9"
+    },
+    {
+      "game_id": "2025020565",
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:07:00.938Z",
+      "body_sha256": "5554728da340cfc493d4a3eb2d302bde516ddef4523270127e34ddba3e85b024"
+    },
+    {
+      "game_id": "2025020565",
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:07:01.109Z",
+      "body_sha256": "c1dd73ce8c71e472b411a41b9355a318e3bf5a05310f60c0de829fc33b041c0c"
+    },
+    {
+      "game_id": "2025020565",
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:07:01.367Z",
+      "body_sha256": "666d72d469c0c629b210037faeda9b22dd07246f44bb3e9815019f95e04183c7"
+    },
+    {
+      "game_id": "2025020565",
+      "source": "landing",
+      "requested_at": "2026-09-30T19:07:01.686Z",
+      "body_sha256": "d83a8c0c21141e1f01d9234e7fd3ffd52f0cb82c57fa9870729fbd03517c2b56"
+    },
+    {
+      "season": "20232024",
+      "source": "season-summary",
+      "requested_at": "2026-09-30T19:05:41.679Z",
+      "body_sha256": "520fb7debf44b3deeaa4e73159bc25306f0eb35fdbf5f6a88f445d6f59e9b5e8"
+    },
+    {
+      "season": "20232024",
+      "source": "season-games",
+      "requested_at": "2026-09-30T19:05:41.900Z",
+      "body_sha256": "4711a8bd9c07b2f5205403699f8f3904ddcbd4b5162f0ee604953bac11ea39d4"
+    },
+    {
+      "season": "20232024",
+      "source": "skater-bios",
+      "requested_at": "2026-09-30T19:05:42.124Z",
+      "body_sha256": "f1ced59a6cf806e03a8f5fad5926035ece02df9f778b9b029709a77fff17ad7c"
+    },
+    {
+      "season": "20232024",
+      "source": "goalie-bios",
+      "requested_at": "2026-09-30T19:05:42.437Z",
+      "body_sha256": "19afa785edd0c0402ca11c255779c2b5f0559caa049ffec881319dad08e7515b"
+    },
+    {
+      "season": "20242025",
+      "source": "season-summary",
+      "requested_at": "2026-09-30T19:05:42.809Z",
+      "body_sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+    },
+    {
+      "season": "20242025",
+      "source": "season-games",
+      "requested_at": "2026-09-30T19:05:42.998Z",
+      "body_sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+    },
+    {
+      "season": "20242025",
+      "source": "skater-bios",
+      "requested_at": "2026-09-30T19:05:43.224Z",
+      "body_sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+    },
+    {
+      "season": "20242025",
+      "source": "goalie-bios",
+      "requested_at": "2026-09-30T19:05:43.534Z",
+      "body_sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+    }
+  ],
+  "historical_body_comparisons": [
+    {
+      "season": "20232024",
+      "game_id": null,
+      "source": "season-summary",
+      "comparison": "same_body",
+      "body_sha256": "520fb7debf44b3deeaa4e73159bc25306f0eb35fdbf5f6a88f445d6f59e9b5e8",
+      "historical_body_sha256": "520fb7debf44b3deeaa4e73159bc25306f0eb35fdbf5f6a88f445d6f59e9b5e8",
+      "historical_line": 1
+    },
+    {
+      "season": "20232024",
+      "game_id": null,
+      "source": "season-games",
+      "comparison": "same_body",
+      "body_sha256": "4711a8bd9c07b2f5205403699f8f3904ddcbd4b5162f0ee604953bac11ea39d4",
+      "historical_body_sha256": "4711a8bd9c07b2f5205403699f8f3904ddcbd4b5162f0ee604953bac11ea39d4",
+      "historical_line": 2
+    },
+    {
+      "season": "20232024",
+      "game_id": null,
+      "source": "skater-bios",
+      "comparison": "different_body",
+      "body_sha256": "f1ced59a6cf806e03a8f5fad5926035ece02df9f778b9b029709a77fff17ad7c",
+      "historical_body_sha256": "00e7e4d396b71a48ecfd828d32d58366d231a9a4b6a9ad4b234967bb118914f8",
+      "historical_line": 3
+    },
+    {
+      "season": "20232024",
+      "game_id": null,
+      "source": "goalie-bios",
+      "comparison": "different_body",
+      "body_sha256": "19afa785edd0c0402ca11c255779c2b5f0559caa049ffec881319dad08e7515b",
+      "historical_body_sha256": "4be3692063d8863f7cbf737dd97a01ecc521921aa6f084a31afba6e539a06e41",
+      "historical_line": 4
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13",
+      "historical_body_sha256": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13",
+      "historical_line": 5
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "ea33865cd3401f81181cfd140a94c5c25b7a801a6ab4ad5de0212f46660141d0",
+      "historical_body_sha256": "ea33865cd3401f81181cfd140a94c5c25b7a801a6ab4ad5de0212f46660141d0",
+      "historical_line": 1317
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "6fd5c6c4fecfe0adb34f0b0d4e3c15bc0983f6136aac74c9b607d46cc3137d3a",
+      "historical_body_sha256": "6fd5c6c4fecfe0adb34f0b0d4e3c15bc0983f6136aac74c9b607d46cc3137d3a",
+      "historical_line": 2629
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "82af4bad8fa74598507a953bb39053c96efc7c821f35e0ac7ac3bfcbae660bd8",
+      "historical_body_sha256": "82af4bad8fa74598507a953bb39053c96efc7c821f35e0ac7ac3bfcbae660bd8",
+      "historical_line": 3941
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "67c6e491003ca3cc09f7e0685841518d75e23b12a70007bb3a876c3ec5dfd8a5",
+      "historical_body_sha256": "67c6e491003ca3cc09f7e0685841518d75e23b12a70007bb3a876c3ec5dfd8a5",
+      "historical_line": 5253
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "9b21d2acff3fb965bac6a1e83ca06ed101a7b189239f681ce85d5fd00467de46",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020012",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "0e239b4e69c387ce32749c93a9ea4d337b0b9e23393de714f36ace3b9dbe62af",
+      "historical_body_sha256": "0e239b4e69c387ce32749c93a9ea4d337b0b9e23393de714f36ace3b9dbe62af",
+      "historical_line": 16
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020012",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "f697ce135a3b8bb605d3f64ebf548cedf7c4f34f077f637c2577289693d5b69c",
+      "historical_body_sha256": "f697ce135a3b8bb605d3f64ebf548cedf7c4f34f077f637c2577289693d5b69c",
+      "historical_line": 1328
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020012",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "a6f1cc7b983398a4dedc9997a7cefe78a9f45a4672cd95c154bc1f6fc20d7247",
+      "historical_body_sha256": "a6f1cc7b983398a4dedc9997a7cefe78a9f45a4672cd95c154bc1f6fc20d7247",
+      "historical_line": 2640
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020012",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "56cbeeba468be83c2d8cff80dd99f6e98677b088e91904936fab1ec51a8a3114",
+      "historical_body_sha256": "56cbeeba468be83c2d8cff80dd99f6e98677b088e91904936fab1ec51a8a3114",
+      "historical_line": 3952
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020012",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "7379319ecfa5b53462d825cb87e6ececa07b139f25fa2b4b311b8d77ab826c1e",
+      "historical_body_sha256": "7379319ecfa5b53462d825cb87e6ececa07b139f25fa2b4b311b8d77ab826c1e",
+      "historical_line": 5264
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020012",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "166da592964ac97bf34fe8dc8a37c1f06922f712104c1610626f6566659db46a",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020013",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "c74f16f2ece7e973214956a6b4464d8d7fbe582f2f224d8b3c86b53df3436d81",
+      "historical_body_sha256": "c74f16f2ece7e973214956a6b4464d8d7fbe582f2f224d8b3c86b53df3436d81",
+      "historical_line": 17
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020013",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "c29d6a0d8f3683ea13d119aa8f5b610e9b224407ef4c60ce24d21ca30bdc0e53",
+      "historical_body_sha256": "c29d6a0d8f3683ea13d119aa8f5b610e9b224407ef4c60ce24d21ca30bdc0e53",
+      "historical_line": 1329
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020013",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "4ece9f1b2b6ca98c356ee90443d15b7d2525cfcc14ff26cc1da16368b134c6db",
+      "historical_body_sha256": "4ece9f1b2b6ca98c356ee90443d15b7d2525cfcc14ff26cc1da16368b134c6db",
+      "historical_line": 2641
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020013",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "e77210dc7e2d4428456b3c62b131c6e9a7ceee618e08cb93ccb944cae79f6481",
+      "historical_body_sha256": "e77210dc7e2d4428456b3c62b131c6e9a7ceee618e08cb93ccb944cae79f6481",
+      "historical_line": 3953
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020013",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "73e18f5b2e5cce80cfcf60d57b5df3277a8a7d05ff567bd9962a829beb838b82",
+      "historical_body_sha256": "73e18f5b2e5cce80cfcf60d57b5df3277a8a7d05ff567bd9962a829beb838b82",
+      "historical_line": 5265
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020013",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "6aefc443840a8faea16770e3e77a8665967797f96f2bcaca87f1ae07efb30fba",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "4ecf586aeeb3fc0d6cee21cfd0396369c0a462c0637a3f12b130632b18cc49a1",
+      "historical_body_sha256": "4ecf586aeeb3fc0d6cee21cfd0396369c0a462c0637a3f12b130632b18cc49a1",
+      "historical_line": 82
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "cb3e1d702d3abcf7024e1cec7c0a4091c74e6237f8709d65f08f29194801d413",
+      "historical_body_sha256": "cb3e1d702d3abcf7024e1cec7c0a4091c74e6237f8709d65f08f29194801d413",
+      "historical_line": 1394
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "eff67125f1ac0b4e7f926feba12e20f054726f7c0064071f5ee217431f30df6a",
+      "historical_body_sha256": "eff67125f1ac0b4e7f926feba12e20f054726f7c0064071f5ee217431f30df6a",
+      "historical_line": 2706
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "6ba4ba7f089e7c9fe6a9b97b5e2735d2a997ed7c54b674fffd1c488024d636b7",
+      "historical_body_sha256": "6ba4ba7f089e7c9fe6a9b97b5e2735d2a997ed7c54b674fffd1c488024d636b7",
+      "historical_line": 4018
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "57f5e8a575f5ae81fd5ac18ad0cc8b66ba93f4ce9a29679a8882cc61a539b3a6",
+      "historical_body_sha256": "57f5e8a575f5ae81fd5ac18ad0cc8b66ba93f4ce9a29679a8882cc61a539b3a6",
+      "historical_line": 5330
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "419380294b5a490f475cfc5bafba873c2b0310669412f076e7ce6e863db48dc1",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020237",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "8348f6c767cf171b08df6c887efbe16d995453f7e37cc00c3ca24ae524ca09d0",
+      "historical_body_sha256": "8348f6c767cf171b08df6c887efbe16d995453f7e37cc00c3ca24ae524ca09d0",
+      "historical_line": 241
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020237",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "51b82d51c870fef056ec31cb87d5f7814fc39ddd54422eb05db0fa3f7096b9a1",
+      "historical_body_sha256": "51b82d51c870fef056ec31cb87d5f7814fc39ddd54422eb05db0fa3f7096b9a1",
+      "historical_line": 1553
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020237",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "c06c3da57aebd14f27b073c6438808cf9f776f9ce2651dd402dedbe35ff54d4d",
+      "historical_body_sha256": "c06c3da57aebd14f27b073c6438808cf9f776f9ce2651dd402dedbe35ff54d4d",
+      "historical_line": 2865
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020237",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "ae3aadb59b7bd8e5447862742ca82c9409fd6a8e11f5eae3c755d16ee4a741b2",
+      "historical_body_sha256": "ae3aadb59b7bd8e5447862742ca82c9409fd6a8e11f5eae3c755d16ee4a741b2",
+      "historical_line": 4177
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020237",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "1c7bc0fe8600b1f3a1435f9885f2a3e48a71239d66dcb721a4e612bd63559054",
+      "historical_body_sha256": "1c7bc0fe8600b1f3a1435f9885f2a3e48a71239d66dcb721a4e612bd63559054",
+      "historical_line": 5489
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020237",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "89775ebcd29eb5fc31442e84a3b22bb11664903fb92b853e1a856ef55ff5af0f",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020955",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "02ae5362e7e4954789905cdcd498ef69a0fc9095983a5ed6fe27f9623b3b5418",
+      "historical_body_sha256": "02ae5362e7e4954789905cdcd498ef69a0fc9095983a5ed6fe27f9623b3b5418",
+      "historical_line": 959
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020955",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "9d9d69e190db369ab5be78613adbf14d894de8b2a14267b3371cd6b9bc7389b6",
+      "historical_body_sha256": "9d9d69e190db369ab5be78613adbf14d894de8b2a14267b3371cd6b9bc7389b6",
+      "historical_line": 2271
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020955",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "1d51f157909fddd1250a58e99d045934208b8a327381e98f02a65a8b41f01d55",
+      "historical_body_sha256": "1d51f157909fddd1250a58e99d045934208b8a327381e98f02a65a8b41f01d55",
+      "historical_line": 3583
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020955",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "d7a263a71c1457c5be0b558c5a50478649d418b87b99438d5bbb0f113ea0202b",
+      "historical_body_sha256": "d7a263a71c1457c5be0b558c5a50478649d418b87b99438d5bbb0f113ea0202b",
+      "historical_line": 4895
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020955",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "c3343bb677dc87e4f272cfe515858fb2b12b792f67529666c468ad5619a505ea",
+      "historical_body_sha256": "c3343bb677dc87e4f272cfe515858fb2b12b792f67529666c468ad5619a505ea",
+      "historical_line": 6207
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020955",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "caaa44f64e47da010f86d17d3b23c424a5a9d448bae7de7cb58a6a2b5ad51574",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20242025",
+      "game_id": null,
+      "source": "season-summary",
+      "comparison": "same_body",
+      "body_sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae",
+      "historical_body_sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae",
+      "historical_line": 6565
+    },
+    {
+      "season": "20242025",
+      "game_id": null,
+      "source": "season-games",
+      "comparison": "same_body",
+      "body_sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1",
+      "historical_body_sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1",
+      "historical_line": 6566
+    },
+    {
+      "season": "20242025",
+      "game_id": null,
+      "source": "skater-bios",
+      "comparison": "different_body",
+      "body_sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396",
+      "historical_body_sha256": "74655ef8ba883908276f952ed2ea45d3dc7148d136d5911e783fcf082899cc5a",
+      "historical_line": 6567
+    },
+    {
+      "season": "20242025",
+      "game_id": null,
+      "source": "goalie-bios",
+      "comparison": "different_body",
+      "body_sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb",
+      "historical_body_sha256": "d7d5c53dab9fcbc02c12f69b3c0721aa860768ea7a5d551b13167d3cc3afe6c5",
+      "historical_line": 6568
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "a0dfedbfe384c7d988d44aeb72bd3555138a5ef4ddc89375cbccfbee8e178bfe",
+      "historical_body_sha256": "a0dfedbfe384c7d988d44aeb72bd3555138a5ef4ddc89375cbccfbee8e178bfe",
+      "historical_line": 6569
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "d50f382736f89d76305ba3b9ac7c0c4963696734581c571a7d95d5b47d5a7d04",
+      "historical_body_sha256": "d50f382736f89d76305ba3b9ac7c0c4963696734581c571a7d95d5b47d5a7d04",
+      "historical_line": 7881
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "84a5b19f63aa9b0618c202cc5237c90e0fdcde5bfb6562208093da1315db8cdf",
+      "historical_body_sha256": "84a5b19f63aa9b0618c202cc5237c90e0fdcde5bfb6562208093da1315db8cdf",
+      "historical_line": 9193
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "6f65b462c54ee0f824856b28c73824ae7b2d1aeddf856dbb9c2c16c490d9d823",
+      "historical_body_sha256": "6f65b462c54ee0f824856b28c73824ae7b2d1aeddf856dbb9c2c16c490d9d823",
+      "historical_line": 10505
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "32c9a8bfd35aa48a475d44b9c15da6e762c201b16c6fb26da932a33538d4bd69",
+      "historical_body_sha256": "32c9a8bfd35aa48a475d44b9c15da6e762c201b16c6fb26da932a33538d4bd69",
+      "historical_line": 11817
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "c1477ab83d09b941cdfbf0f688b12ade156714d00443f2368ce93c5ea44c2d4b",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020102",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "68751d2185bbd24e2d3d8a81ce228b4b3bc3b10d0716b5629e0dc44310d3ccac",
+      "historical_body_sha256": "68751d2185bbd24e2d3d8a81ce228b4b3bc3b10d0716b5629e0dc44310d3ccac",
+      "historical_line": 6670
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020102",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "43a4d93ea2d41a676a4a5d23695df1acee2e07008be6cafe9d12bed734645b8b",
+      "historical_body_sha256": "43a4d93ea2d41a676a4a5d23695df1acee2e07008be6cafe9d12bed734645b8b",
+      "historical_line": 7982
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020102",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "df9c0283f31f634d4033cfd15cb8bc091f30f2b63486beffb1766e76752a4a37",
+      "historical_body_sha256": "df9c0283f31f634d4033cfd15cb8bc091f30f2b63486beffb1766e76752a4a37",
+      "historical_line": 9294
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020102",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "7fdb1f98eec83449186fce196509a0312cdfaa9b96b42dfeff9d6e0cbf625f75",
+      "historical_body_sha256": "7fdb1f98eec83449186fce196509a0312cdfaa9b96b42dfeff9d6e0cbf625f75",
+      "historical_line": 10606
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020102",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "680c518bee14416a1dd93c088d187c3c177d10234c96538309977111ae600b97",
+      "historical_body_sha256": "680c518bee14416a1dd93c088d187c3c177d10234c96538309977111ae600b97",
+      "historical_line": 11918
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020102",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "b683dfaae25d08d77289ba888b62e47363f651d03efb623238628968afc1ac82",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020340",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "fcec11c6c77caf0c18be4d754ea88adfa254c531a59f96f7a32ef197198c7d3c",
+      "historical_body_sha256": "fcec11c6c77caf0c18be4d754ea88adfa254c531a59f96f7a32ef197198c7d3c",
+      "historical_line": 6908
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020340",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "d9c957de44c0438e7f3e1be0369ba70c9ecec6598f482dc229f6dcd6d995a6ca",
+      "historical_body_sha256": "d9c957de44c0438e7f3e1be0369ba70c9ecec6598f482dc229f6dcd6d995a6ca",
+      "historical_line": 8220
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020340",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "fc861436119f7870e96f1dc33399501cb24b02500563ca7e9b059802300dd5ce",
+      "historical_body_sha256": "fc861436119f7870e96f1dc33399501cb24b02500563ca7e9b059802300dd5ce",
+      "historical_line": 9532
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020340",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "cef1a1a73ddd468db542c88f49a6b339f13d8aa842abe681f370014ffe890588",
+      "historical_body_sha256": "cef1a1a73ddd468db542c88f49a6b339f13d8aa842abe681f370014ffe890588",
+      "historical_line": 10844
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020340",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "d19e62bbedb8fea0b110849b80dbd134370f559e9133931d123afc711f66c080",
+      "historical_body_sha256": "d19e62bbedb8fea0b110849b80dbd134370f559e9133931d123afc711f66c080",
+      "historical_line": 12156
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020340",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "6ec47b288d7cbd0a1bede10560287f7b4e1cd56d338a1f7a55fc3a1c437f2bbd",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020364",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "13c481aec525f54efad50d3d313aaf4c51f1f3f7f14a4f3174be3ff292847f28",
+      "historical_body_sha256": "13c481aec525f54efad50d3d313aaf4c51f1f3f7f14a4f3174be3ff292847f28",
+      "historical_line": 6932
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020364",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "c0a63a786817240758997c85b171cc27ac96ce401d454eb0d8a6513d4109a1d1",
+      "historical_body_sha256": "c0a63a786817240758997c85b171cc27ac96ce401d454eb0d8a6513d4109a1d1",
+      "historical_line": 8244
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020364",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "3dcbce73f36706140ac7f3e879da6183a8cdbf1a7aa218a40e21f95f74536a25",
+      "historical_body_sha256": "3dcbce73f36706140ac7f3e879da6183a8cdbf1a7aa218a40e21f95f74536a25",
+      "historical_line": 9556
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020364",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "0bb0eecb21360f397389b14e9fbad1c2a433b46d6b8c2e16de601aacf35374dd",
+      "historical_body_sha256": "0bb0eecb21360f397389b14e9fbad1c2a433b46d6b8c2e16de601aacf35374dd",
+      "historical_line": 10868
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020364",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "f40326a32f4dc2986c36ec0d70ca77d20511e4deed65fdefb3d74d68f8be849e",
+      "historical_body_sha256": "f40326a32f4dc2986c36ec0d70ca77d20511e4deed65fdefb3d74d68f8be849e",
+      "historical_line": 12180
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020364",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "df11bf8c70c7ff07c0a8829501d740efb1b5a245fb56fd5f4819e0a36fe267e8",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020184",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "05c8b075b0e2d1e5f39cdefd250ac00d30f503b9446cb5666d2971404cb9c561",
+      "historical_body_sha256": "05c8b075b0e2d1e5f39cdefd250ac00d30f503b9446cb5666d2971404cb9c561",
+      "historical_line": 13316
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020184",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "a16e3877506074640c5dd09022d1ca79ed2c776096322c7acc35befb10225201",
+      "historical_body_sha256": "a16e3877506074640c5dd09022d1ca79ed2c776096322c7acc35befb10225201",
+      "historical_line": 14628
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020184",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "8375cf2ffa534804fd06de756e7f718d8cd598530e5845960f047bae077173fd",
+      "historical_body_sha256": "8375cf2ffa534804fd06de756e7f718d8cd598530e5845960f047bae077173fd",
+      "historical_line": 15940
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020184",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "b448ed321eb37549ae5a7a8cec7db88604d2f6e546bb03b9b8ee9eb1250702c7",
+      "historical_body_sha256": "b448ed321eb37549ae5a7a8cec7db88604d2f6e546bb03b9b8ee9eb1250702c7",
+      "historical_line": 17252
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020184",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "0ee79cf0fd357da2fd32b5e46f05ed9b7df7dbbfdce51b3a5fdeac2b9485be5e",
+      "historical_body_sha256": "0ee79cf0fd357da2fd32b5e46f05ed9b7df7dbbfdce51b3a5fdeac2b9485be5e",
+      "historical_line": 18564
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020184",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "c0d4654335bd6ebe3cc7029d6ecc889fc4266704ea9825b7f5b6159867a5fd2a",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020282",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "714ae128eddd0e2b432b0f110c7cc88b42b2b611b802665c91f969dff01faca8",
+      "historical_body_sha256": "714ae128eddd0e2b432b0f110c7cc88b42b2b611b802665c91f969dff01faca8",
+      "historical_line": 13414
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020282",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "6cb9a2842136126640fdd677dff3a06c5141b371d73edcef9c65e3c6d4a3f928",
+      "historical_body_sha256": "6cb9a2842136126640fdd677dff3a06c5141b371d73edcef9c65e3c6d4a3f928",
+      "historical_line": 14726
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020282",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "9da8a8fcefb4061d7bf8c4ed97cd64ee4bac4bb8187a557898ac2af19bbcce08",
+      "historical_body_sha256": "9da8a8fcefb4061d7bf8c4ed97cd64ee4bac4bb8187a557898ac2af19bbcce08",
+      "historical_line": 16038
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020282",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "091da24a870adde60abdd6b49b97ecd75f366e00c71051aa31013acd9edda301",
+      "historical_body_sha256": "091da24a870adde60abdd6b49b97ecd75f366e00c71051aa31013acd9edda301",
+      "historical_line": 17350
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020282",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "912113258c6dcd3e0ddde30b7a6493dfb07c719c243504bd54e1811de26164fb",
+      "historical_body_sha256": "912113258c6dcd3e0ddde30b7a6493dfb07c719c243504bd54e1811de26164fb",
+      "historical_line": 18662
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020282",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "5b090bd2b717768f42aa19bc73702f083989c63f620a124216a1d39e520450ab",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020307",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "be2500f2bfce080573c31903e1ce0431fdfcdfb6ff90c5bd3df2a4956795ad11",
+      "historical_body_sha256": "be2500f2bfce080573c31903e1ce0431fdfcdfb6ff90c5bd3df2a4956795ad11",
+      "historical_line": 13439
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020307",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "0e1451fb41aff25de05ebd7f546e538b9c4c02896c9b8c07d429ef571050aea7",
+      "historical_body_sha256": "0e1451fb41aff25de05ebd7f546e538b9c4c02896c9b8c07d429ef571050aea7",
+      "historical_line": 14751
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020307",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "8b40e169946eb0ada308d04c7975dc6d11914842bd5ea78d23c4694017082805",
+      "historical_body_sha256": "8b40e169946eb0ada308d04c7975dc6d11914842bd5ea78d23c4694017082805",
+      "historical_line": 16063
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020307",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "3f24ea540fe22ab374c335e6b2844920d06ef9982f848b2c6673b5a0e929deed",
+      "historical_body_sha256": "3f24ea540fe22ab374c335e6b2844920d06ef9982f848b2c6673b5a0e929deed",
+      "historical_line": 17375
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020307",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "53e8925caf1fe9c4f5be1389acaa4110dbd40f7f40bd7f045ff69bde0e0315af",
+      "historical_body_sha256": "53e8925caf1fe9c4f5be1389acaa4110dbd40f7f40bd7f045ff69bde0e0315af",
+      "historical_line": 18687
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020307",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "6aed9682dfd89065d1e1fa564f22be871c9c20bc3f7078243288a572287a6856",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020544",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "2f550dcac4f55356f39dac0a8e9c230aea5450da2f96ddfb51f3a2666fefc1f7",
+      "historical_body_sha256": "2f550dcac4f55356f39dac0a8e9c230aea5450da2f96ddfb51f3a2666fefc1f7",
+      "historical_line": 13676
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020544",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "67c88988a263b5fd392fef6c72de12dcbfaa2d829c2dab94af3287b71745376e",
+      "historical_body_sha256": "67c88988a263b5fd392fef6c72de12dcbfaa2d829c2dab94af3287b71745376e",
+      "historical_line": 14988
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020544",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "853f18825bbe3af90fb87eca73e6a811d89487a0fa25f6007f6e14fa9ea7639d",
+      "historical_body_sha256": "853f18825bbe3af90fb87eca73e6a811d89487a0fa25f6007f6e14fa9ea7639d",
+      "historical_line": 16300
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020544",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "646f16cc106a4dfdd4fb8f3d54943cbde974672ca78af8f457cb42de01c4e2c9",
+      "historical_body_sha256": "646f16cc106a4dfdd4fb8f3d54943cbde974672ca78af8f457cb42de01c4e2c9",
+      "historical_line": 17612
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020544",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "68ac1d82fb1d314011cb6cb21e68ef1e39c80d1dc7b9684f833ea8eaf4a74a71",
+      "historical_body_sha256": "68ac1d82fb1d314011cb6cb21e68ef1e39c80d1dc7b9684f833ea8eaf4a74a71",
+      "historical_line": 18924
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020544",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "f444e205d3c6e5908a8f3189b318d50385a97b76afb9f0d5046946d46b32dec9",
+      "historical_body_sha256": null,
+      "historical_line": null
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020565",
+      "source": "play-by-play",
+      "comparison": "same_body",
+      "body_sha256": "60e9edf35098b157980d3ccfe8b4bcb979beb3db0b731ebcc11e9a766fd9833f",
+      "historical_body_sha256": "60e9edf35098b157980d3ccfe8b4bcb979beb3db0b731ebcc11e9a766fd9833f",
+      "historical_line": 13697
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020565",
+      "source": "boxscore",
+      "comparison": "same_body",
+      "body_sha256": "72b91e4d078ff847a61c32d950096ce6ef9137658d5e98b29e9f5203f6d766b9",
+      "historical_body_sha256": "72b91e4d078ff847a61c32d950096ce6ef9137658d5e98b29e9f5203f6d766b9",
+      "historical_line": 15009
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020565",
+      "source": "shifts",
+      "comparison": "same_body",
+      "body_sha256": "5554728da340cfc493d4a3eb2d302bde516ddef4523270127e34ddba3e85b024",
+      "historical_body_sha256": "5554728da340cfc493d4a3eb2d302bde516ddef4523270127e34ddba3e85b024",
+      "historical_line": 16321
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020565",
+      "source": "game-summary",
+      "comparison": "same_body",
+      "body_sha256": "c1dd73ce8c71e472b411a41b9355a318e3bf5a05310f60c0de829fc33b041c0c",
+      "historical_body_sha256": "c1dd73ce8c71e472b411a41b9355a318e3bf5a05310f60c0de829fc33b041c0c",
+      "historical_line": 17633
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020565",
+      "source": "play-report",
+      "comparison": "same_body",
+      "body_sha256": "666d72d469c0c629b210037faeda9b22dd07246f44bb3e9815019f95e04183c7",
+      "historical_body_sha256": "666d72d469c0c629b210037faeda9b22dd07246f44bb3e9815019f95e04183c7",
+      "historical_line": 18945
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020565",
+      "source": "landing",
+      "comparison": "no_historical_record",
+      "body_sha256": "d83a8c0c21141e1f01d9234e7fd3ffd52f0cb82c57fa9870729fbd03517c2b56",
+      "historical_body_sha256": null,
+      "historical_line": null
+    }
+  ]
+}

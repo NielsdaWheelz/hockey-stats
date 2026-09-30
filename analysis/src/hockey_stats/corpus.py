@@ -119,7 +119,7 @@ def audit_corpus(reference: ReferenceDocument, games_root: Path, output: Path,
             continue
         reconstruction = reconstruct_game(interpreted)
         relative = f"games/{game_id}.json"
-        write_json(output / relative, {"schema_version": 1, "implementation": implementation,
+        write_json(output / relative, {"schema_version": 2, "implementation": implementation,
                                        "interpreted": interpreted, "reconstruction": reconstruction})
         row["output_path"] = relative
         game = interpreted["game"]

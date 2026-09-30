@@ -5,7 +5,7 @@ import math
 import re
 from typing import Literal, TypedDict
 
-from .interpret import GameDocument, Issue
+from .interpret import GameDocument, Issue, clock_seconds
 
 
 class Period(TypedDict):
@@ -32,7 +32,22 @@ class Interval(Membership):
     issue_indices: list[int]
 
 
+class ShotTypeEvidence(TypedDict):
+    api_value: str | None
+    report_value: str | None
+    value: str | None
+    status: Literal["agreement", "api_only", "report_only", "missing", "conflict", "unsupported", "unmatched"]
+
+
+class GoalModifierEvidence(TypedDict):
+    source_path: str | None
+    reported_value: str | None
+    status: Literal["reported", "missing", "unavailable", "unmatched", "conflict", "unsupported"]
+
+
 class ReconstructedEvent(Membership):
+    shot_type_evidence: ShotTypeEvidence | None
+    goal_modifier_evidence: GoalModifierEvidence | None
     source_index: int
     report_source_index: int | None
     match_status: Literal["matched", "unmatched", "ambiguous", "unavailable", "untimed"]
@@ -93,7 +108,7 @@ class Reconstruction(TypedDict):
     issues: list[Issue]
 
 
-_REPORT_CODES = {
+REPORT_CODES = {
     "period-start": "PSTR", "faceoff": "FAC", "hit": "HIT", "giveaway": "GIVE",
     "goal": "GOAL", "shot-on-goal": "SHOT", "missed-shot": "MISS", "blocked-shot": "BLOCK",
     "penalty": "PENL", "stoppage": "STOP", "period-end": "PEND", "game-end": "GEND",
@@ -129,8 +144,145 @@ def _lineup_classification(members: Membership) -> Literal["five_on_five", "othe
     return "five_on_five" if len(away_skaters) == len(home_skaters) == 5 and len(away_goalies) == len(home_goalies) == 1 else "other"
 
 
+# these spellings are source observations; no case folding or inferred aliases.
+_SHOT_TYPES = {
+    "wrist": "wrist", "Wrist": "wrist", "snap": "snap", "Snap": "snap",
+    "slap": "slap", "Slap": "slap", "backhand": "backhand", "Backhand": "backhand",
+    "tip-in": "tip-in", "Tip-In": "tip-in", "deflected": "deflected", "Deflected": "deflected",
+    "wrap-around": "wrap-around", "Wrap-around": "wrap-around",
+    "poke": "poke", "Poke": "poke", "bat": "bat", "Bat": "bat",
+}
+
+
+def canonical_shot_type(value: str | None) -> str | None:
+    return _SHOT_TYPES.get(value)
+
+
+def reconcile_shot_type(api_value: str | None, report_value: str | None, matched: bool) -> ShotTypeEvidence:
+    a, b = canonical_shot_type(api_value), canonical_shot_type(report_value)
+    value = None
+    if not matched:
+        status = "unmatched"
+    elif (api_value is not None and a is None) or (report_value is not None and b is None):
+        status = "unsupported"
+    elif a is not None and b is not None:
+        status = "agreement" if a == b else "conflict"
+        value = a if a == b else None
+    elif a is not None:
+        status, value = "api_only", a
+    elif b is not None:
+        status, value = "report_only", b
+    else:
+        status = "missing"
+    return {"api_value": api_value, "report_value": report_value, "value": value, "status": status}
+
+
+def _attempt_group(api, reports, event_ids, sort_orders, report_ids, report_numbers, identities):
+    if any(not row["kind_valid"] or row["event_id"] is None or event_ids[row["event_id"]] != 1
+           or row["sort_order"] is None or sort_orders[row["sort_order"]] != 1 for row in api) or any(
+           row["row_id"] is None or report_ids[row["row_id"]] != 1
+           or row["event_number"] is None or report_numbers[row["event_number"]] != 1 for row in reports):
+        return "unavailable", {}, "attempt group contains invalid kind or missing/repeated source identities"
+    if len(api) != len(reports) or not reports:
+        return "ambiguous", {}, "attempt group has unequal api/report sizes"
+    edges = {}
+    for row in api:
+        shooter = row["roles"].get("scorer" if row["type_key"] == "goal" else "shooter")
+        choices = []
+        for report in reports:
+            identity = identities.get(report["shooter_id"])
+            report_shooter = report["shooter_id"] if identity is not None and (
+                report["shooter_sweater_number"] is None or identity["sweater_number"] == report["shooter_sweater_number"]
+            ) and identity["team_id"] == report["shooting_team_id"] else None
+            facts = ((row["shooting_team_id"], report["shooting_team_id"]), (shooter, report_shooter),
+                     (canonical_shot_type(row["shot_type"]), canonical_shot_type(report["shot_type"])))
+            if not any(a is not None and b is not None and a != b for a, b in facts):
+                choices.append(report)
+        edges[row["source_index"]] = choices
+    solutions = []
+    ordered = sorted(api, key=lambda row: len(edges[row["source_index"]]))
+    def search(offset, chosen, used):
+        if len(solutions) == 2:
+            return
+        if offset == len(ordered):
+            solutions.append(dict(chosen))
+            return
+        index = ordered[offset]["source_index"]
+        for report in edges[index]:
+            number = report["source_index"]
+            if number not in used:
+                chosen[index] = report
+                search(offset + 1, chosen, used | {number})
+                del chosen[index]
+    search(0, {}, set())
+    if not solutions:
+        return "unmatched", {}, "attempt group has no complete assignment compatible with supported team/shooter/type"
+    if len(solutions) > 1:
+        return "ambiguous", {}, "attempt group has multiple complete assignments"
+    return "matched", solutions[0], "unique complete assignment from supported team/shooter/type"
+
+
+def _goal_modifier(row, document, event_ids, landing_ids) -> GoalModifierEvidence:
+    evidence: GoalModifierEvidence = {"source_path": None, "reported_value": None, "status": "unavailable"}
+    goals = document["landing_goals"]
+    if goals is None:
+        return evidence
+    matches = [goal for goal in goals if row["event_id"] is not None and goal["event_id"] == row["event_id"]]
+    if len(matches) == 1:
+        goal = matches[0]
+        evidence.update(source_path=goal["source_path"], reported_value=goal["goal_modifier"])
+    if row["event_id"] is None or event_ids[row["event_id"]] != 1:
+        return evidence
+    api_path = f"/plays/{row['source_index']}"
+    corroboration_fields = (api_path + "/periodDescriptor", api_path + "/timeInPeriod",
+                            api_path + "/timeRemaining", api_path + "/details/eventOwnerTeamId")
+    if (not row["kind_valid"] or row["timed_period"] is None
+            or any(value is None for value in (row["period_number"], row["period_type"], row["time_in_period"], row["shooting_team_id"], row["roles"].get("scorer")))
+            or row["timed_period"] is True and row["elapsed_seconds"] is None
+            or any(issue["source"] == "play-by-play" and issue["code"] in (
+                "invalid_integer", "invalid_string", "invalid_object", "invalid_clock", "inconsistent_event_clock", "unsupported_period", "unresolved_team")
+                and (issue["path"] == api_path or any(issue["path"] == field or issue["path"].startswith(field + "/") for field in corroboration_fields))
+                for issue in document["issues"])):
+        return evidence
+    if not matches:
+        evidence["status"] = "unmatched"
+        return evidence
+    if len(matches) != 1 or landing_ids[row["event_id"]] != 1:
+        return evidence
+    goal = matches[0]
+    path = goal["source_path"]
+    period_path = path.rsplit("/goals/", 1)[0] + "/periodDescriptor"
+    located = [issue for issue in document["issues"] if issue["source"] == "landing" and (
+        issue["path"] == path or issue["path"].startswith(path + "/")
+        or issue["path"] == period_path or issue["path"].startswith(period_path + "/"))]
+    invalid_codes = {"invalid_integer", "invalid_string", "invalid_object", "invalid_clock",
+                     "inconsistent_event_clock", "unsupported_period", "invalid_goal_team",
+                     "invalid_goal_team_abbreviation", "unavailable_goal_team_abbreviation"}
+    if any(issue["code"] in invalid_codes for issue in located):
+        return evidence
+    facts = ((row["period_number"], goal["period_number"]), (row["period_type"], goal["period_type"]),
+             (clock_seconds(row["time_in_period"], "play-by-play", api_path + "/timeInPeriod", []),
+              clock_seconds(goal["time_in_period"], "landing", path + "/timeInPeriod", [])), (row["shooting_team_id"], goal["team_id"]),
+             (row["roles"].get("scorer"), goal["credited_scorer_id"]))
+    if any(a is None or b is None for a, b in facts):
+        return evidence
+    if row["timed_period"] is True and goal["elapsed_seconds"] is None:
+        return evidence
+    if (any(a != b for a, b in facts)
+            or row["owner_team_id"] is not None and row["owner_team_id"] != goal["team_id"]
+            or any(issue["code"] == "goal_team_disagreement" for issue in located)):
+        evidence["status"] = "conflict"
+    elif goal["goal_modifier"] is None:
+        evidence["status"] = "missing"
+    elif goal["goal_modifier"] in ("none", "own-goal", "awarded", "penalty-shot"):
+        evidence["status"] = "reported"
+    else:
+        evidence["status"] = "unsupported"
+    return evidence
+
+
 def reconstruct_game(document: GameDocument) -> Reconstruction:
-    """calculate from admitted source facts; do not read files or reinterpret clocks."""
+    """calculate from admitted facts and shared clock conversion; do not read files."""
     issues: list[Issue] = []
     game = document["game"]
     api = document["events"]
@@ -149,6 +301,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
     event_ids = Counter(row["event_id"] for row in api or [] if row["event_id"] is not None)
     sort_orders = Counter(row["sort_order"] for row in api or [] if row["sort_order"] is not None)
     report_ids = Counter(row["row_id"] for row in reports or [] if row["row_id"] is not None)
+    landing_ids = Counter(row["event_id"] for row in document["landing_goals"] or [] if row["event_id"] is not None)
     report_numbers = Counter(row["event_number"] for row in reports or [] if row["event_number"] is not None)
 
     periods: list[Period] | None = None
@@ -196,7 +349,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
         for row in api or []:
             if row["type_key"] in ("period-end", "game-end"):
                 terminals.append(("play-by-play", f"/plays/{row['source_index']}",
-                                  row["period_number"], _REPORT_CODES[row["type_key"]],
+                                  row["period_number"], REPORT_CODES[row["type_key"]],
                                   row["elapsed_seconds"], row["kind_valid"], row["timed_period"]))
         for row in reports or []:
             if row["event_code"] in ("PEND", "GEND"):
@@ -366,12 +519,17 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
     api_keys = defaultdict(list)
     report_keys = defaultdict(list)
     for row in api or []:
-        kind = _REPORT_CODES.get(row["type_key"])
-        if row["kind_valid"] and row["timed_period"] is True and row["elapsed_seconds"] is not None and kind is not None:
+        kind = REPORT_CODES.get(row["type_key"])
+        if (row["kind_valid"] or row["type_key"] in _ATTEMPTS) and row["timed_period"] is True and row["elapsed_seconds"] is not None and kind is not None:
             api_keys[(row["period_number"], row["elapsed_seconds"], kind)].append(row)
     for row in reports or []:
-        if row["period_number"] in (1, 2, 3, 4) and row["elapsed_seconds"] is not None and row["event_code"] in _REPORT_CODES.values():
+        if row["period_number"] in (1, 2, 3, 4) and row["elapsed_seconds"] is not None and row["event_code"] in REPORT_CODES.values():
             report_keys[(row["period_number"], row["elapsed_seconds"], row["event_code"])].append(row)
+    attempt_groups = {}
+    for key in api_keys:
+        if key[2] in ("GOAL", "SHOT", "MISS", "BLOCK") and (len(api_keys[key]) > 1 or len(report_keys[key]) > 1):
+            attempt_groups[key] = _attempt_group(api_keys[key], report_keys[key], event_ids, sort_orders,
+                                                  report_ids, report_numbers, identities)
     period_sides = defaultdict(set)
     for row in api or []:
         if row["timed_period"] is True and row["home_team_defending_side"] in ("left", "right"):
@@ -383,10 +541,17 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
         for row in api:
             index, path = row["source_index"], f"/plays/{row['source_index']}"
             event: ReconstructedEvent = {"source_index": index, "report_source_index": None, "match_status": "unavailable",
+                "shot_type_evidence": None, "goal_modifier_evidence": None,
                 **_EMPTY, "classification": "unresolved", "shift_relation": "unavailable", "interval_indices": [],
                 "attacking_x": None, "attacking_y": None, "coordinate_status": "not_applicable", "issue_indices": []}
             event_issues = event["issue_indices"]
-            kind = _REPORT_CODES.get(row["type_key"])
+            if row["type_key"] == "goal":
+                event["goal_modifier_evidence"] = _goal_modifier(row, document, event_ids, landing_ids)
+                modifier = event["goal_modifier_evidence"]
+                if modifier["status"] in ("unavailable", "unmatched", "conflict", "unsupported"):
+                    event_issues.append(_issue(issues, "goal_modifier_" + modifier["status"], "landing",
+                        modifier["source_path"] or "/summary/scoring", "goal modifier evidence is " + modifier["status"]))
+            kind = REPORT_CODES.get(row["type_key"])
             situation = row["situation_code"]
             valid_situation = situation is not None and re.fullmatch(r"[01][0-6][0-6][01]", situation) is not None
             if row["timed_period"] is True and not valid_situation:
@@ -406,7 +571,16 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
             else:
                 key = (row["period_number"], row["elapsed_seconds"], kind)
                 candidates = report_keys[key]
-                if len(api_keys[key]) > 1 or len(candidates) > 1:
+                if key in attempt_groups:
+                    status, assignment, reason = attempt_groups[key]
+                    event["match_status"] = status
+                    if status == "matched":
+                        report = assignment[index]
+                        event["report_source_index"] = report["source_index"]
+                    else:
+                        event_issues.append(_issue(issues, "attempt_group_" + status, "play-by-play", path,
+                            reason + "; whole group event membership unavailable"))
+                elif len(api_keys[key]) > 1 or len(candidates) > 1:
                     event["match_status"] = "ambiguous"
                     event_issues.append(_issue(issues, "ambiguous_event_match", "play-by-play", path,
                         "period/clock/kind has multiple api or report candidates; event membership unavailable"))
@@ -424,6 +598,11 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                     else:
                         report = candidate
                         event["report_source_index"], event["match_status"] = report["source_index"], "matched"
+            if row["type_key"] in _ATTEMPTS:
+                event["shot_type_evidence"] = reconcile_shot_type(row["shot_type"], report["shot_type"] if report is not None else None, report is not None)
+                if event["shot_type_evidence"]["status"] in ("conflict", "unsupported"):
+                    event_issues.append(_issue(issues, "shot_type_" + event["shot_type_evidence"]["status"],
+                        "play-by-play", path + "/details/shotType", "api/report shot type evidence is " + event["shot_type_evidence"]["status"]))
             membership_issues: list[int] = []
             if report is not None:
                 report_path = f"/rows/{report['source_index']}[{report['row_id']}]"
@@ -452,7 +631,9 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                 if row["type_key"] in _ATTEMPTS and report["penalty_shot"] is None:
                     membership_issues.append(_issue(issues, "unavailable_penalty_shot_status", "play-report", report_path + "/description",
                         "attempt description cannot establish ordinary versus penalty-shot play; event population unresolved"))
-                penalty_shot = row["type_key"] in _ATTEMPTS and report["penalty_shot"] is True
+                modifier = event["goal_modifier_evidence"]
+                penalty_shot = row["type_key"] in _ATTEMPTS and (report["penalty_shot"] is True or
+                    modifier is not None and modifier["status"] == "reported" and modifier["reported_value"] == "penalty-shot")
                 if penalty_shot and all(value is not None for value in membership.values()):
                     away_ids = event["away_skaters"] + event["away_goalies"]
                     home_ids = event["home_skaters"] + event["home_goalies"]
@@ -470,6 +651,18 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                 if row["type_key"] in _ATTEMPTS:
                     shooter_role = "scorer" if row["type_key"] == "goal" else "shooter"
                     shooting_team = row["shooting_team_id"]
+                    for issue in document["issues"]:
+                        if issue["source"] == "play-report" and issue["code"] in ("unresolved_report_shooting_team", "unresolved_report_shooter") and (
+                                issue["path"] == report_path or issue["path"].startswith(report_path + "/")):
+                            membership_issues.append(_issue(issues, issue["code"], issue["source"], issue["path"], issue["message"]))
+                    report_shooter = report["shooter_id"]
+                    shooter_identity = identities.get(report_shooter)
+                    if (report["shooting_team_id"] is not None and report["shooting_team_id"] != shooting_team
+                            or report_shooter is not None and (report_shooter != roles.get(shooter_role)
+                            or shooter_identity is None or shooter_identity["team_id"] != report["shooting_team_id"]
+                            or report["shooter_sweater_number"] is not None and shooter_identity["sweater_number"] != report["shooter_sweater_number"])):
+                        membership_issues.append(_issue(issues, "report_attempt_participant_disagreement", "play-report", report_path,
+                            "parsed report shooting team/shooter conflicts with api or unique roster identity; event strength unresolved"))
                     shooters = away if shooting_team == game["away_team_id"] else home if shooting_team == game["home_team_id"] else set()
                     opponents = event["home_goalies"] if shooting_team == game["away_team_id"] else event["away_goalies"] if shooting_team == game["home_team_id"] else None
                     if roles.get(shooter_role) not in shooters:
@@ -489,8 +682,8 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                             "faceoff participants do not identify opposite reported teams; event strength unresolved"))
                 description = report["description"] or ""
                 leading = re.match(r"^([A-Z]{2,3})\b", description)
-                if leading is not None:
-                    expected_team = row["shooting_team_id"] if row["type_key"] in _ATTEMPTS else row["owner_team_id"]
+                if leading is not None and row["type_key"] not in _ATTEMPTS:
+                    expected_team = row["owner_team_id"]
                     named_team = {game["away_team_abbrev"]: game["away_team_id"], game["home_team_abbrev"]: game["home_team_id"]}.get(leading[1])
                     names_team = named_team is not None or re.match(r"^[A-Z]{2,3}\s+(?:#|won\b)", description) is not None
                     if names_team and (named_team is None or expected_team is None or named_team != expected_team):

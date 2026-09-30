@@ -1,49 +1,35 @@
 # implementation plan
 
-status: 01, [02a](specs/02-interpretation.md), [02b](specs/02b-reconstruction.md), [02c](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is implemented and verified locally; its scientific decision rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [external audit](research/external-corpus-audit.md) documents the replacement corpus. subsequent work requires the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled constraints.
+the [brief](brief.md) fixes the product; [architecture](architecture.md) fixes settled system boundaries. this page owns sequencing. detailed decisions live in the linked slice specs and research, not a second specification here. [roadmap](roadmap.md) and [capability inventory](product-inventory.md) retain the later player-analysis destination.
 
-this plan builds the first useful product. the [product roadmap](roadmap.md) proposes v2+ capabilities and their ordering; its later milestones are not requirements for these slices.
+completed: [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus](specs/02c-corpus.md), [03a chance workflow](specs/03a-chance-workflow.md), [03b training/assessment](specs/03b-training-acceptance.md) and [03c source revision](specs/03c-source-revision.md). 03c is implemented and verified on `feat/03c-source-revision`; [its decision](research/chance-03c/decision.md) records the complete three-season audit. 03b is merged in `9132131`; its [scientific decision](research/chance-03b/decision.md) rejects the declared all-attempt use. completion does not imply scientific support.
 
-## target
+## next slices
 
-local commands acquire evidence and run python analysis. save expensive fits and export a completed sqlite publication. one effect application serves its league table, player profiles, maps, comparisons and game evidence. publication is an explicit stop/copy/restart operation; retain one previous database. source and model meaning remain visible. no job platform or release manager.
+03c's full source audit and offline-evidence amendment are verified. all later documents are **stubs**, recording purpose, ownership and outstanding decisions; they are not ready for implementation. the user controls progression; no new fitting or later implementation is authorized.
 
-## slices and ownership
+| slice | responsibility | dependency / completion boundary |
+|---|---|---|
+| [03d chance revision](specs/03d-chance-revision.md) | selected features and one coherent revised estimator using the existing workflow | specify from 03c evidence; fixture success establishes software behavior |
+| [03e training/assessment](specs/03e-training-assessment.md) | real development, fits and a written scientific judgment | admitted corpus, local storage and reviewed protocol; success is not guaranteed |
+| [04 player attribution](specs/04-player-attribution.md) | history-informed 5v5 creation/suppression, spatial effects, uncertainty and observed evidence | scientifically supported chance values and compatible exposure |
+| [05 publication](specs/05-publication.md) | python sqlite export, effect read contract, explicit activation and one rollback database | agreed analytical/view contract; labeled fixture outputs can precede scientific acceptance |
+| [06 website](specs/06-website.md) | league table/search, profiles/maps, comparisons and complete-season/game evidence | 05; real analytical release needs supported 03–04 outputs |
+| [07 lightweight testing](specs/07-lightweight-testing.md) | tiny lasting integration/live suite using maintained fixtures | stable end-to-end path, before first-product completion; fixture collection already belongs to 03c and subsequent slices |
 
-these are review boundaries, not a fixed number of large prs. specify only the next implementable slice in detail; split further when a change cannot be reviewed comfortably.
+05–06 can develop against explicitly labeled fixture publications once their shared contract is specified. serving and development remain independent of the hdd; numerical processing remains local. later components get their own specs when selected from the roadmap, not speculative numbered prs now.
 
-| slice | owns | input → output | depends on |
-|---|---|---|---|
-| [01 capture](specs/01-capture.md) | effect acquisition; small source corpus | explicit game id → unchanged responses and retrieval records | none |
-| [02a interpretation / pr2](specs/02-interpretation.md) | python source semantics and reconciliation | one game's captures → attributed identities, events, reported locations and shift records | 01 |
-| [02b reconstruction](specs/02b-reconstruction.md) | report capture/interpretation; python event membership, elapsed exposure, coordinates and coverage | five attributed sources → reported event players, supported intervals and genuine 5v5 exposure | 02a |
-| [02c corpus and reference admission](specs/02c-corpus.md) | effect season acquisition; python reference interpretation and corpus audit | four season responses and an explicit game-capture root → attributed inventory, birth dates/handedness and reconstruction coverage | 02b; historical-data inspection when available |
-| [03a chance workflow](specs/03a-chance-workflow.md) | python origin/outcome candidate, benchmarks, fit/evaluate/score commands | explicit 02c selections → fitted artifacts, diagnostics and reference-valued attempts; fixture verification only | 02c local artifacts; no historical-drive requirement |
-| [03b training and scientific acceptance](specs/03b-training-acceptance.md) | fresh 2023–26 corpus admission, chronological development/confirmation, fitted-model judgment | 03a plus real evidence → retained fits, comparison report and supported scope, insufficiency or rejection | 03a; attributable training/assessment captures |
-| 04 player attribution | python history-informed spatial effects | valued attempts and exposure → player surfaces, summaries and supported uncertainty | 03b-supported chance values; software exercises can use labeled 03a fixtures |
-| 05 publication | python export; effect read queries and file publication | declared analytical outputs → sqlite and complete view responses | agreed output contract; fixture outputs can precede scientific acceptance in 03b–04 |
-| 06 website | react/effect presentation | published view responses → league table, profiles, comparisons and game evidence | 05; real analytical release also needs 03–04 |
-| 07 lightweight testing | a small lasting integration/live suite and necessary fixtures | stable capture-to-publication/read path → repeatable high-value checks | after a useful end-to-end path exists; before declaring the first product complete |
+## current discussion versus implementation
 
-02a owns source interpretation; 02b extends it for the necessary on-ice report and owns reconstruction. 02c uses [verified season inventory and bulk bio endpoints](research/corpus-reference-audit.md), avoiding calendar stitching and individual player requests. compare every inventoried regular-season game with a deterministic path under the operator's chosen root; absent local captures remain visible. reuse acquisition mechanics while keeping season identities separate from the fixed game-capture contract. the [historical audit](research/external-corpus-audit.md) supports fresh acquisition rather than legacy admission. local examples exercise these mechanisms without the drive but cannot establish a training population. no scheduler, generic importer or reference-data service follows from this boundary.
+here: use the completed [03c evidence](research/chance-03c/decision.md) and bounded [input audit](research/model-input-audit.md) to specify the next candidate when authorized. 03d owns selected model features; 03e owns real training and assessment. no separate research, landing-only, fixture or generic field-parser pr is needed. existing complete local inputs support further source checks without drive access; neither fresh retrievals nor source repairs create untouched scientific confirmation.
 
-02c establishes available evidence, not fitness for a particular model. 03a fixes the initial likelihood, eligibility, reference and software contract; 03b selects the real training horizon/tuning and determines whether evidence supports their scientific use. their specification need not wait for exhaustive historical recovery. 04 owns player effects and the decision to acquire game-specific roster-report coach evidence before evaluating coach context; 02c already spot-checked its availability. scratches remain a later availability/context input. the [source audit](research/source-audit.md) records these placements. event-summary and home/visitor-shift reports serve selected manual fixture/corpus checks; duplicate production feeds need a demonstrated missing fact.
+additional inputs belong to the first model/component that requires them. coach admission defaults to 04 but can move into 03d if that candidate needs it. optional tracking and later goalie/penalty/territorial inputs remain with their own components. [source evidence](research/source-audit.md) records candidates and limits.
 
-05 serializes results and queries them without a second scientific implementation. 06 renders them without refitting. 07 adds software verification, not application capabilities or model-validation ownership. 02c adds reference acquisition and corpus bookkeeping before fitting; the cost buys explicit populations and attributed age/handedness rather than leaving those tasks hidden inside model code. all later slices still require specification and the user's progression decision.
+## shared rules and first-product completion
 
-each detailed specification names its files, inputs/outputs, content rules and observable acceptance. the content reviewer owns command wording and fixture annotations in 01; later slices assign method explanations, units, missingness and view content to their designer. data and systems reviewers challenge semantics and unnecessary machinery before implementation. no separate design system or content framework follows from that review.
+- reuse existing primitives; hard-cut superseded derived contracts without legacy readers or silent fallbacks. preserve source bytes, expensive fits and 03b's historical verdict.
+- initial slices use temporary integration/live red/green/refactor checks, then delete test code and test-only dependencies. retain useful fixtures/facts. 07 defines the later lasting suite; scientific assessment tools remain analytical work.
+- each full spec names contracts, module owners, verification, content rules and material tradeoffs. no generic importer, model platform, scheduler or release manager follows from this plan.
+- publish explicitly: one completed sqlite database, one previous valid database, manual stop/copy/restart. rebuild website code from git.
 
-## working rules
-
-- hard cutover: no legacy imports, compatibility adapters, fallback feeds or inherited expectations. retain the archive and historical documents as evidence.
-- reuse existing application modules and effect/node/library primitives; extract shared application code only where actual repetition warrants it.
-- initial slices use temporary end-to-end integration/live checks: establish red, implement, establish green, refactor, rerun, then delete all test code and test-only dependencies/scripts. retain a short verification record in the change description and useful source data/facts. production validation remains application behavior.
-- the user explicitly chose deletion of all initial tests. cost: checks must be recreated for later changes until 07 defines the lasting suite. 07 should be extremely lightweight and integration/live-heavy; no matrix, orchestration service or continuous fitting obligation is implied.
-- scientific evaluation routines and results in 03–04 are part of the analysis supporting fitted artifacts and published claims. retain those with the relevant work; they are not the temporary software tests deleted above, and their validity cannot wait for 07.
-- preserve expensive work; rebuild cheap work. no application build archive, automatic stage cache, scheduled pipeline or hot publication protocol.
-
-## first product acceptance
-
-the fixed-season product answers the agreed 5v5 player question with coherent maps/scalars, observed game evidence, coverage and justified uncertainty. raw evidence remains attributable; unsupported quantities remain unavailable. a completed publication works without the hdd or python environment. publishing and restoring the previous database are ordinary operator actions. scientific evaluation must support the claims before real estimates replace development fixtures.
-
-current-season operation, public hosting, fuller cards, distribution charts and further components follow later. exact models, thresholds and frontend endpoint/schema details belong to their slices; inventing them before their scientific inputs are known would add speculative work.
+the first product explains supported 5v5 player contribution with coherent maps/scalars, uncertainty, observed game evidence and visible gaps. it serves without python or the drive. software verification and scientific support must both justify a real analytical release.

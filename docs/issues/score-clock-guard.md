@@ -1,11 +1,11 @@
-# contradictory non-goal clock removes whole-game score support
+# score-clock repair awaits scientific reassessment
 
-status: open; reconstruction/preparation contract follow-up from 03b.
+status: software contract verified; the recorded scientific reassessment criterion remains open under [03e](../specs/03e-training-assessment.md). no further 03c repair or drive access is required.
 
-problem: the fresh `2024020102` capture has an overtime `TAKEAWAY` at api source index 360 whose elapsed and remaining clocks both report `00:00`. the reviewed clock interpretation correctly leaves elapsed time unknown. preparation conservatively requires supported clocks for every timed event before establishing pre-event score, so this non-goal row removes score support for all attempts in the game.
+problem: `2024020102` has an overtime `TAKEAWAY` at api `/plays/360`, event `1224`, with elapsed and remaining clocks both `00:00`. its unsupported elapsed time correctly stays null. the former preparation guard unnecessarily removed score support from every attempt.
 
-impact: 140 recognized attempts remain explicit: 88 unavailable and 52 outside 5v5, with no eligible attempts. ordinary timed goals reconcile to 3–3; the final 3–4 includes the shootout. neither that reconciliation nor the event's non-goal description authorizes bypassing the current completeness guard during 03b.
+impact: 03b retained 140 attempts: 88 unavailable and 52 outside 5v5. the narrow repair preserves the faulty clock and located issue while allowing independently supported timed goal accounting. unsupported goal clocks, unknown potentially scoring kinds and contradictory supported chronology still withhold scores.
 
-evidence: native guards, raw receipts, report/API rows and counts are retained in `/Volumes/Expansion/hockey-stats/chance/03b-20260930/inputs/development-assessment-whole-game-source-checks.json`, sha256 `f070cd4f4fd35191d966da9c7c316773faeec9d3382b5b7364fbb37420e22ad4`. the complete 2024–25 source review found this clock case and two distinct failed-penalty-shot taxonomy cases.
+evidence: [the complete native fixture](../../fixtures/captures/2024020102/) reproduces the body-equivalent historical case, including report `PL-384`. timed goals reconcile to 3–3; the final 3–4 includes a shootout. installed native preparation now supports scores; temporary contradictory/unknown-kind integration checks passed and were deleted. [the full comparison](../research/chance-03c/decision.md) explains population changes and unchanged elapsed coverage.
 
-resolution: review score reconstruction's required evidence at its responsible boundary. establish when a strictly identified non-goal row with unsupported time can leave independent timed-goal accounting valid, while retaining contradictory/unknown potentially scoring rows and correct ordering. verify on this attributed capture and contradictory cases, regenerate changed populations, and repeat the scientific assessment with separately justified confirmation. do not invent a clock, alter the raw payload or waive completeness in a research script.
+remaining resolution: repeat the originally required scientific assessment on a prospectively specified revised candidate with separately justified confirmation. 03d/03e own that work; no fitting is authorized here. source recovery alone cannot certify the old model or alter 03b's rejection. close this issue when the scientific criterion passes.

@@ -93,6 +93,10 @@ review corrections: aggregate assessments need identical consumed inputs and pre
 
 ## public availability and remaining decisions
 
+the [2026-09-30 field-to-feature audit](model-input-audit.md) explicitly compares versioned public methods with our implemented predictors and source omissions. neither public-data access nor a shared method family establishes equal information sets. use this comparison when specifying the next model; do not infer that the first candidate implemented the public reference recipes.
+
+03c follow-up, 2026-09-30: the [source/scientific audit](chance-03c-source-audit.md) corrects the api-only type-availability assumption, isolates the saved model's kernel/block-avoidance coupling, and reviews which earlier gates address physical accuracy versus model-conditional usefulness. 03b's rejection is preserved. source revision comes first; a new model and claim-specific validation design require their own specification after the type/population audit. the exposed seasons cannot be relabeled untouched confirmation.
+
 [evolvingwild/hockey-all](https://github.com/evolvingwild/hockey-all) contains historical xg and other research code. its existence does not establish a current production implementation or blanket reuse permission. evolving hockey's [about page](https://evolving-hockey.com/about/) lists versions dated 2019–2020; treat that as public documentation with its own vintage. a current public hockeyviz production repository was not verified.
 
 evolving hockey's [terms](https://evolving-hockey.com/terms-of-use/) distinguish attributed statistical models created from its data from redistribution of the underlying data. its downloadable data therefore should not become our public fixture by assumption. record source-specific provenance and permissions before copying material into distributable artifacts.

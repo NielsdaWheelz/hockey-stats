@@ -1,19 +1,17 @@
 # external data inventory
 
-status: blocked on the user's detached drive. during pr03 specification the user again confirmed local captures now, drive later. 02c is merged; this does not block 03a's bounded workflow implementation and verification. separate 03b owns real training-data admission and scientific acceptance.
+status: drive inspected during pr03b specification; remaining inventory is limited to preservation before any archive deletion. the user chose a fresh three-season training corpus. the [completed admission audit](../research/external-corpus-audit.md) removes the detached-drive blocker; old-data reuse is not a prerequisite for pr03b.
 
 ## problem and impact
 
-the user reports a substantial downloaded dataset on an external drive. this session has neither mounted nor inspected it. source coverage, storage layout, original responses, derived tables, model artifacts, and reproducibility are unknown. assuming the old documentation describes the stored data accurately would risk importing corrupted or irreproducible evidence.
+the old hockey database, backups and campaign outputs have been located and sampled. model metadata references saved artifacts, but their files and the contents of older vm/rescue images have not all been inventoried. deleting those paths now could discard expensive fits or unique historical observations. this remaining preservation question does not justify importing old projections into the new pipeline.
 
 ## evidence
 
-user report on 2026-09-29; [verified raw-provenance defect](legacy-raw-provenance.md) in the predecessor; full archived source available locally at `.reference/hockey-stats-legacy/`.
+the [read-only audit](../research/external-corpus-audit.md) found a 67-gb database, 20,769 game ids, 172,666 snapshots, projected boxscores/rosters and no saved per-event on-ice reports. the user authorized vm startup and read-only sql, then chose fresh captures. full archived source remains at `.reference/hockey-stats-legacy/`.
 
 ## resolution evidence
 
-on reconnection, inspect read-only first: record mount/storage layout, size and formats, game/season/feed coverage, manifests and hashes, capture dates, raw versus transformed records, and available database/export schema versions. inspect a few representative games through source → canonical → model lineage. identify recoverable originals and record gaps.
+before any requested deletion, identify the exact hockey-only paths, locate/check saved fit artifacts and decide what to retain, including unique source snapshots. distinguish sparse image logical sizes from allocated space. record the retention/deletion decision; this issue can then be closed without pretending the archive has become valid training input. no deletion is currently authorized.
 
-fresh [offline fixtures](../../fixtures/README.md) have since been admitted independently; [pr2b](../specs/02b-reconstruction.md) specifies their bounded extension. keep training data external and development fixtures local; lack of the drive must produce an explicit unavailable training input, not a silent change of dataset.
-
-[02c](../specs/02c-corpus.md) implements verified season inventory, bulk bios and deterministic local corpus accounting for bounded local fixtures. it supplies reusable checks for this later audit, not an importer for an unseen historical layout. compare captured games with an attributed inventory, establish play-report coverage for event membership, and preserve reference provenance. reference acquisition and bounded local exercises need not wait for the drive; historical-data admission does. a directory containing downloaded games does not establish the expected population or reference-field provenance. 03–04 still decide scientific eligibility and training horizons. the [source audit](../research/source-audit.md) assigns coach evidence to 04's context decision and scratch interpretation to later availability work.
+fresh [03b](../specs/03b-training-acceptance.md) capture/admission uses existing 01–02c contracts. missing drive/input remains an explicit unavailable input; no automatic fallback to fixtures or the old database.

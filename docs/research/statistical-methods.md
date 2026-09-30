@@ -69,7 +69,7 @@ the local fixture should contain a small set of complete games with source paylo
 
 ## pr03 candidate and information boundaries
 
-follow-up, 2026-09-29: the user chose [03a workflow implementation](../specs/03a-chance-workflow.md), with real training and scientific acceptance in separate [03b](../specs/03b-training-acceptance.md). the drive remains deferred. the specification fixes a candidate; it does not certify it.
+follow-up, 2026-09-29: the user chose [03a workflow implementation](../specs/03a-chance-workflow.md), with real training and scientific acceptance in separate [03b](../specs/03b-training-acceptance.md). the drive was deferred at that stage. the specification fixes a candidate; it does not certify it.
 
 direct read-only inspection of the three admitted `play-by-play/body.bin` files found 362 timed attempts outside shootouts: 111 blocks and 251 unblocked attempts. all 111 blocks lack `shotType` and `goalieInNetId`; all 251 unblocked attempts have both. all have x/y coordinates. these counts include other strengths, so they are not training-population counts. reproduction: filter each file's `plays` by `typeDescKey` in `blocked-shot/missed-shot/shot-on-goal/goal` and non-`SO` `periodDescriptor.periodType`; count field presence under `details`. opposing goalie identity instead comes from the already interpreted on-ice report.
 
@@ -82,6 +82,14 @@ the council recommends a small joint model: a categorical origin law, a fixed ge
 reference opportunity averages each training shooter–goalie pair's product of conditional probabilities, then averages over the reconstructed origin distribution. it is not a factual forecast conditional on a known block. evaluate factual unblocked conversion against a distance/angle benchmark and outcome-blind all-attempt predictions against a score/role benchmark. never use post-outcome imputed locations only on one side of a purported fair forecast comparison.
 
 review conclusions: statistical review required a coherent observation likelihood and explicit missingness assumptions; systems review required a complete saved model with bounded numerical work, not an estimator framework; content review required distinct labels for predictions, reference values and software versus scientific evidence. all supported separate 03b. the remaining disagreement is empirical: whether the small candidate's omitted context and uncertain origins support useful player analysis. source audit, development and untouched confirmation must decide it. no user preference can settle that question.
+
+## pr03b evidence protocol
+
+follow-up, 2026-09-30: 03a is merged. the [external audit](external-corpus-audit.md) found projected boxscores/rosters and no per-event on-ice reports; the user chose fresh 2023–24 through 2025–26 acquisition. [03b](../specs/03b-training-acceptance.md) specifies development on 2024–25 after fitting 2023–24, confirmation on 2025–26 after the frozen two-season refit, and a separate final three-season retrospective fit. the three exposed fixtures are excluded from confirmation. native commands use the mounted drive directly; no bulk run has started.
+
+the council agrees on paired game-level resampling of pooled losses, separate calibration checks, fixed sensitivity alternatives and one written scientific decision. proper scores combine calibration and resolution; improvement does not alone prove calibration ([official guidance](https://scikit-learn.org/stable/modules/calibration.html)). choosing thresholds or candidates repeatedly against confirmation creates selection bias ([cawley and talbot](https://www.jmlr.org/papers/v11/cawley10a.html)). practical tolerances therefore belong to development and must be frozen before confirmation, not guessed from fixtures.
+
+review corrections: aggregate assessments need identical consumed inputs and preparation identity to establish matched populations; streaming score comparisons use `(game_id, source_index)` because source event ids can be null. undefined bootstrap denominators remain explicit. the fixed sensitivity set must also be checked on the target confirmation population; development-only robustness does not establish target-season support. neither robustness nor good factual predictions establishes origin accuracy. a supported recipe still needs a separately identified final fit, whose training mix defines its reference.
 
 ## public availability and remaining decisions
 

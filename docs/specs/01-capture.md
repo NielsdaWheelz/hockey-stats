@@ -1,6 +1,6 @@
 # 01 — faithful capture and a compact offline corpus
 
-status: implemented and verified on 2026-09-29 using node `24.21.0`; [two fresh fixture games](../../fixtures/README.md) admitted. scope: one capture command and two small example games. [plan](../plan.md), [architecture](../architecture.md), [legacy defects](../issues/legacy-raw-provenance.md).
+status: implemented and verified on 2026-09-29 using node `24.21.0`; [two fresh fixture games](../../fixtures/README.md) admitted. scope: one capture command and two small example games. [plan](../plan.md), [architecture](../architecture.md), [legacy defects](../research/external-corpus-audit.md).
 
 ## target and boundary
 

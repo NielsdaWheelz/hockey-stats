@@ -1,0 +1,15 @@
+# conversion calibration hides consequential context errors
+
+status: open; scientific/context review required after 03b.
+
+problem: acceptable pooled conversion calibration conceals material errors by unblocked shot type and inconclusive or adverse consequential probability bins. lower proper loss does not establish calibration.
+
+impact/evidence: native development replay exactly reconciles saved metrics and computes whole-game intervals: backhand predicted-minus-observed rate `+0.0167846` `[+0.0101898, +0.0231719]`; snap `−0.0202089` `[−0.0240170, −0.0166832]`; tip-in `+0.0460454` `[+0.0405886, +0.0512324]`. each consequential group exceeds the declared diagnostic margin. these development intervals are post-selection diagnostics; the same groups are frozen for confirmation, without introducing new primary tests. primary conversion bins 1 and 3 have adequate attempt/game support but overlap their acceptable ±0.01 bounds, leaving calibration inconclusive. sparse bin 5 remains visibly adverse, without becoming a post-result primary gate. missing type remains unknown; inspected missing-type goals include own-goal descriptions. source proxies do not establish physical launch location or the cause of these errors.
+
+confirmation: required conversion bin 3 has 4,941 attempts/1,233 contributing games and predicted-minus-observed rate `+0.0247150135`, interval `[+0.0150621368, +0.0345386239]`, wholly above +0.01. support minima are met; this decisively fails the frozen calibration requirement. bin 1 still overlaps its margin. unchanged backhand/snap/tip-in intervals are `[+0.01364553, +0.02632420]`, `[−0.02060349, −0.01348565]`, `[+0.05194338, +0.06215675]`; all repeat consequential errors. fifteen unknown-type eligible goals remain included. the first inspected unknown-type goal has no own-goal descriptor; the next two do. none is filled or excluded. no added context has been validated by these source cases.
+
+additional existing aggregate evidence: confirmation slap conversion has 9,250 attempts (10.66% of the conversion population) and mean calibration `−0.01098892795`. no clustered slap interval exists under the five-group frozen investigation, so this remains an unresolved contextual diagnostic rather than a newly added confirmation gate. the [readable native subgroup tables](../research/chance-03b/subgroups.md) preserve it.
+
+resolution: review source-location and scientific context assumptions, preserve missing/outcome-dependent fields, and evaluate a declared revised candidate against proper-loss and calibration requirements on separately justified evidence. adding the current outcome-dependent recorded shot-type field directly to the all-attempt predictor would reveal block outcome; its current all-target shot-type summaries are descriptive. freeze warranted groups/bins and adequate support before a new confirmation; do not discard failing contexts or silently change the product's all-attempt population.
+
+[the scientific decision](../research/chance-03b/decision.md) identifies the exact paired comparisons, source populations, frozen protocol and retained artifact digests.

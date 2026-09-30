@@ -1,6 +1,6 @@
 # legacy archive and salvage audit
 
-audited 2026-09-29. this is a source/doc inspection, not a runtime certification or an audit of the detached data drive.
+audited 2026-09-29. this original source/doc inspection is not a runtime certification. the subsequent [external-data audit](../research/external-corpus-audit.md) records the separately authorized database inspection and fresh-acquisition decision.
 
 ## preservation and repository migration
 
@@ -38,7 +38,7 @@ all source links below are pinned to the archived head. “retain” means retai
 | offline fixture corpus | [fixture guide](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/packages/core/fixtures/README.md) | already available in the local clone; retain as candidates and case catalogue, not a trusted new fixture contract |
 | schema, durable engine, services, frontend, rule subtree, campaign protocols | [design index](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/docs/design/index.md), [status](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/docs/services/_status.md) | leave in archive; rebuild requirements before choosing mechanisms |
 | scientific issues and implementation backlog | [remaining work](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/docs/implementation/remaining-work.md) | consult as a list of known traps; old issue status is not independently verified or a new backlog |
-| downloaded data and trained artifacts | detached drive, user reported | inspect read-only when attached; location, coverage, originality, and integrity remain unknown |
+| downloaded data and trained artifacts | [external database audit](../research/external-corpus-audit.md) | projected inputs and missing reports exclude wholesale admission; fresh captures selected; old fits/backup preservation still to inventory before any cleanup |
 
 ## copied research provenance
 
@@ -55,8 +55,8 @@ their original parent [research readme](https://github.com/NielsdaWheelz/hockey-
 
 ## concrete findings
 
-two confirmed problems constrain salvage: [raw provenance and invented handedness](../issues/legacy-raw-provenance.md), and [fixture fidelity](../issues/legacy-fixture-fidelity.md). the [external inventory](../issues/external-data-inventory.md) remains blocked by the detached drive.
+two confirmed problems constrain salvage: [raw provenance and invented handedness](../research/external-corpus-audit.md), and fixture fidelity, resolved for the new system through [fresh fixture admission](../../fixtures/README.md). the [external audit](../research/external-corpus-audit.md) confirms stored-data defects; [remaining inventory](../issues/external-data-inventory.md) concerns preservation before any separately authorized cleanup.
 
 the old corpus contains 11 curated games, one labeled live and ten synthetic, plus a separate failure-injection game. all 79 manifest hashes verify. several files from the live-labeled game are nevertheless transformed. the play-by-play and shifts appear to use an untouched capture path in the inspected code; this is evidence of a candidate, not independent proof of capture history.
 
-no dependencies were installed, old application processes started, training jobs run, source data changed, or application code copied into the new project. runtime behavior and historical model results remain unverified.
+the original source/doc inspection installed no dependencies, started no old application processes and copied no application code. the later external audit started only the old vm/database with explicit authorization, queried read-only and stopped both afterward. no training jobs ran or source data changed; historical model results remain unverified.

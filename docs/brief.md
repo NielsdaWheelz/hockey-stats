@@ -1,6 +1,6 @@
 # project brief
 
-status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md), [interpretation](specs/02-interpretation.md), [reconstruction](specs/02b-reconstruction.md) and [corpus/reference admission](specs/02c-corpus.md) are reviewed and merged. the user confirmed the historical drive remains later work and chose separate prs for the [chance-model workflow](specs/03a-chance-workflow.md) and real training/scientific acceptance. 03a workflow implementation is fixture-checked on its branch; real training, scientific acceptance and the website remain unstarted.
+status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md), [interpretation](specs/02-interpretation.md), [reconstruction](specs/02b-reconstruction.md), [corpus/reference admission](specs/02c-corpus.md) and [chance-model workflow](specs/03a-chance-workflow.md) are reviewed and merged. 03b is implemented and verified locally; its scientific decision rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [external drive audit](research/external-corpus-audit.md) informed the corpus choice. the website remains unstarted; scientific support is not implied.
 
 ## purpose
 
@@ -43,7 +43,8 @@ the explicit long-term destination is to replicate the substantive player-card a
 | language responsibility | effect for application behavior; python for numerical work | two environments and an explicit exchange contract; one authoritative implementation per calculation |
 | data fidelity | preserve truly raw responses and correct discovered defects | transformation cannot overwrite evidence or invent missing facts |
 | verification workflow | temporary integration/live tests for initial red/green/refactor, deleted after verification; a later dedicated slice defines a tiny lasting suite | useful fixtures/facts remain; interim changes require recreating checks; scientific model evaluation remains part of the analysis |
-| chance-model progression | specify now; implement the workflow in 03a, admit real training data and assess fitted models in separate 03b | the drive stays deferred; fixture verification cannot establish scientific acceptance |
+| chance-model progression | implement the workflow in 03a, admit real training data and assess fitted models in separate 03b | fixture verification cannot establish scientific acceptance |
+| first training corpus | fresh captures of 2023–24 through 2025–26 through the existing pipeline | another download and later retrieval dates; no legacy importer or projected source inputs; acquisition/implementation separately authorized on 2026-09-30; this does not establish scientific support |
 
 ## initial product and scope
 
@@ -95,7 +96,7 @@ every result identifies its input selection, transformation/model revision, and 
 
 ordinary development and tests work without the external drive or live upstream requests. maintain a bounded offline fixture corpus of actual captured payloads and explicitly labeled synthetic cases, plus a compact derived dataset for exercising the product. hand-checked facts supplement implementation-generated regression snapshots. none of this substitutes for a training or statistical-evaluation corpus.
 
-the detached dataset and predecessor pipeline remain untrusted until inspected. use [raw-provenance](issues/legacy-raw-provenance.md) and [external-inventory](issues/external-data-inventory.md) records as admission requirements. [fresh fixture admission](../fixtures/README.md) replaces the old fixture baseline without rehabilitating the archive. improve or replace mechanisms at their responsible layer; do not paper over defects or silently alter the archive.
+the [external audit](research/external-corpus-audit.md) found projected boxscores, synthetic roster fields and no per-event on-ice reports in the old database. the user chose fresh acquisition for pr03b; archive contents remain unadmitted. fresh full-corpus response/missing-value checks are now recorded in the audit and [03b verification](research/chance-03b/verification.md); [external-inventory](issues/external-data-inventory.md) tracks remaining preservation questions before any separately authorized cleanup. [fresh fixture admission](../fixtures/README.md) replaces the old fixture baseline without rehabilitating the archive. improve mechanisms at their responsible layer; do not silently alter old evidence.
 
 publicly accessible inputs do not automatically permit unrestricted redistribution. the core must be rebuildable from identified accessible sources; publication of bundled source data requires source-specific review. optional paid inputs must identify their additional coverage and must not silently change the meaning of core metrics.
 

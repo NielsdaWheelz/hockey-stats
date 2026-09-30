@@ -49,6 +49,8 @@ def main() -> int:
         child = commands.add_parser(command, allow_abbrev=False)
         for option in ("selection", "config" if command == "fit" else "model", "out"):
             child.add_argument(f"--{option}", required=True, action=Once)
+        if command == "fit":
+            child.add_argument("--resume", action=Once)
     args = parser.parse_args()
     try:
         from .chance_data import prepare
@@ -69,9 +71,16 @@ def main() -> int:
         output = output_path(
             args.out, prepared["input_roots"] + [str(selection.parent), str(auxiliary.parent)]
         )
+        implementation = implementation_identity()
+        implementation.update(
+            numpy_version=numpy.__version__,
+            scipy_version=scipy.__version__,
+            lockfile_sha256=identity(Path(__file__).resolve().parents[2] / "uv.lock")["sha256"],
+        )
         common = {
             "schema_version": 1,
             "purpose": prepared["purpose"],
+            "implementation": implementation,
             "inputs": prepared["inputs"],
             "selection": prepared["selection"],
             "game_dates": prepared["game_dates"],
@@ -80,24 +89,51 @@ def main() -> int:
         }
         if args.command == "fit":
             config = read_json(auxiliary)
-            implementation = implementation_identity()
-            implementation.update(
-                numpy_version=numpy.__version__,
-                scipy_version=scipy.__version__,
-                lockfile_sha256=identity(Path(__file__).resolve().parents[2] / "uv.lock")["sha256"],
+            config_identity = identity(auxiliary)
+            binding = dict(
+                purpose=prepared["purpose"], inputs=prepared["inputs"],
+                selection=prepared["selection"], config_identity=config_identity,
+                implementation=implementation,
             )
+            resume, resumed_from = None, None
+            if args.resume is not None:
+                checkpoint_path = Path(args.resume).resolve(strict=True)
+                document = read_json(checkpoint_path)
+                if (
+                    not isinstance(document, dict)
+                    or set(document) != {"schema_version", "binding", "state"}
+                    or type(document["schema_version"]) is not int
+                    or document["schema_version"] != 1
+                    or not isinstance(document["state"], dict)
+                ):
+                    raise InputContractError("unsupported fit checkpoint schema")
+                if not implementation["git_commit"] or implementation["git_dirty"] is not False:
+                    raise InputContractError("resume requires an identified clean implementation")
+                if document["binding"] != binding:
+                    raise InputContractError("checkpoint inputs, selection, config or implementation disagree")
+                output = output_path(args.out, prepared["input_roots"] + [
+                    str(selection.parent), str(auxiliary.parent), str(checkpoint_path.parent)
+                ])
+                resume, resumed_from = document["state"], identity(checkpoint_path)
             metadata = dict(
                 common,
-                implementation=implementation,
-                config_identity=identity(auxiliary),
+                config_identity=config_identity,
+                resumed_from=resumed_from,
                 training_game_dates=prepared["game_dates"],
                 training_game_ids=list(prepared["game_dates"]),
                 training_dates=sorted(set(prepared["game_dates"].values())),
             )
-            model, diagnostics = fit_model(
-                [r for r in prepared["attempts"] if r["status"] == "eligible"], config, metadata
-            )
             output.mkdir()
+
+            def save_checkpoint(state):
+                temporary = output / "checkpoint.tmp"
+                write_json(temporary, dict(schema_version=1, binding=binding, state=state))
+                temporary.replace(output / "checkpoint.json")
+
+            model, diagnostics = fit_model(
+                [r for r in prepared["attempts"] if r["status"] == "eligible"], config, metadata,
+                resume=resume, checkpoint=save_checkpoint,
+            )
             write_json(output / "fit.json", dict(metadata, **diagnostics))
             if model is None:
                 print(

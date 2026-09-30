@@ -1,0 +1,13 @@
+# origin and opportunity values fail declared sensitivity limits
+
+status: open; scientific origin/value revision required after 03b. independent accuracy evidence remains tracked separately in [shot-location evidence](shot-location-evidence.md).
+
+problem: standardized opportunity and blocked-origin distributions depend materially on unverified geometric/prior choices. factual probability calibration cannot establish spatial allocation.
+
+impact/evidence: on the same development events and joint training reference, halving kernel distance changes blocked total value by +36.3%, spatial absolute mass by 64.4% and mean origin total variation by 0.424. unblocked total changes −6.2%, and maximum event value changes 0.0779 expected goals. signed population totals nearly cancel, concealing the differences. halving direction also fails multiple blocked limits and the unblocked maximum; tenfold origin regularization fails maximum blocked variation. stronger actor pooling passes point sensitivity limits but fails probability adequacy. these reject the declared stress-stability use, not independently observed physical origin accuracy; this named range is not a confidence region.
+
+confirmation: shortening the kernel changes blocked total opportunity by +42.14%, absolute spatial mass by 71.81% of anchor total and mean/max origin tv by `0.45138/0.77110`; mean/max blocked value changes are `0.00814884/0.02213178` expected goals. unblocked maximum changes `0.08343682` and total −6.688%. weaker direction changes blocked total +8.774%, spatial mass 29.718% and tv `0.32740/0.68528`; unblocked maximum is `0.08010610`. these fail the declared stability budgets. stronger origin prior and actor pooling pass confirmation point budgets; the prior's development maximum-tv failure is not attributed to confirmation. physical-origin accuracy remains independently insufficient.
+
+resolution: establish supported origin assumptions with representative independently attributable release geometry/uncertainty, review the estimator and opportunity interpretation, then freeze and verify consequential event/total/spatial budgets on separately justified evidence. report kernel changes, refitting and reference changes explicitly; downstream player uncertainty needs its own assessment. do not normalize away totals, average away adverse populations, shrink the tested range after results or replace blocked attempts with an unblocked-only product.
+
+[the scientific decision](../research/chance-03b/decision.md) identifies the exact paired comparisons, source populations, frozen protocol and retained artifact digests.

@@ -2,6 +2,8 @@
 
 status: open; source-admission responsibility in [03c](../specs/03c-source-revision.md).
 
+2026-09-30: structured interpretation/reconciliation is implemented. local native checks reproduce all 111 report-only block types and 249 prior unblocked agreements, plus two newly recovered joins. raw evidence stays unchanged. closure still requires the full-corpus season/outcome audit and original affected captures; [drive verification](03c-corpus-verification.md) is pending.
+
 problem: interpretation preserves play-report descriptions but omits their structured shooter/type attributes. the earlier model audit inferred a general lack of block types from api missingness alone.
 
 evidence: all 111 blocks in the three current fixtures have an explicit report type; none has api `shotType`. on 249 matched unblocked attempts, report types agree with the api. [counts, hashes and reproduction](../research/chance-03c-source-audit.md). these are bounded source facts, not league-wide coverage or physical-origin truth.

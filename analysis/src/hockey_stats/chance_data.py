@@ -14,7 +14,8 @@ role (F/D/unknown), score (trailing/tied/leading/null), pre_event_score
 ({away,home}/null), blocked, goal, reported_x/y, attacking_x/y,
 location_kind (block_evidence/recorded_proxy),
 status (eligible/out_of_scope/unavailable), reasons, reason_details, source_issues,
-season, home_away, shot_type, classification, source_event, diagnostics.
+season, home_away, shot_type, shot_type_evidence, goal_modifier_evidence,
+classification, source_event, diagnostics.
 
 numerical consumers use status == 'eligible'. all applicable exclusions remain;
 source_event is interpreted evidence, never a raw observation. source_issues
@@ -31,8 +32,9 @@ from pathlib import Path
 
 from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_json
 from .corpus import STATUSES
-from .interpret import Check, Event
+from .interpret import Check, Event, LandingGoal
 from .shot_origins import in_rink
+from .reconstruct import reconcile_shot_type
 
 _ATTEMPTS = {"blocked-shot", "missed-shot", "shot-on-goal", "goal"}
 _IDENTITY = ("game_id", "season", "game_type", "game_date", "away_team_id", "home_team_id")
@@ -222,12 +224,12 @@ def _provenance(rows, location, sources):
 
 def _envelope(value, path, entry):
     """validate consumed contracts before distinguishing missing evidence."""
-    _schema(value, str(path), 1, ("interpreted", "reconstruction"))
+    _schema(value, str(path), 2, ("interpreted", "reconstruction"))
     interpreted, reconstructed = value["interpreted"], value["reconstruction"]
     _schema(
         interpreted,
         f"{path}/interpreted",
-        2,
+        3,
         (
             "requested_game_id",
             "game",
@@ -235,6 +237,7 @@ def _envelope(value, path, entry):
             "events",
             "roster_records",
             "report_rows",
+            "landing_goals",
             "checks",
             "issues",
         ),
@@ -281,6 +284,25 @@ def _envelope(value, path, entry):
         _array(interpreted["report_rows"], f"{path}/interpreted/report_rows", nullable=True),
         f"{path}/interpreted/report_rows",
     )
+    for index, report in reports.items():
+        loc = f"{path}/interpreted/report_rows/{index}"
+        _object(report, loc, ("shot_type", "shooting_team_id", "shooter_sweater_number", "shooter_id"))
+        _text(report["shot_type"], loc + "/shot_type", nullable=True)
+        for field in ("shooting_team_id", "shooter_sweater_number", "shooter_id"):
+            _integer(report[field], loc + "/" + field, nullable=True, minimum=1)
+    landing = {}
+    for i, goal in enumerate(_array(interpreted["landing_goals"], f"{path}/interpreted/landing_goals", nullable=True)):
+        loc = f"{path}/interpreted/landing_goals/{i}"
+        _object(goal, loc, LandingGoal.__required_keys__)
+        _text(goal["source_path"], loc + "/source_path")
+        _require(re.fullmatch(r"/summary/scoring/[0-9]+/goals/[0-9]+", goal["source_path"]), loc, "invalid landing source path")
+        _require(goal["source_path"] not in landing, loc, "duplicate landing source path")
+        landing[goal["source_path"]] = goal
+        for field in ("event_id", "period_number", "team_id", "credited_scorer_id"):
+            _integer(goal[field], loc + "/" + field, nullable=True, minimum=1)
+        _integer(goal["elapsed_seconds"], loc + "/elapsed_seconds", nullable=True)
+        for field in ("period_type", "time_in_period", "goal_modifier"):
+            _text(goal[field], loc + "/" + field, nullable=True)
     intervals = _array(
         reconstructed["intervals"], f"{path}/reconstruction/intervals", nullable=True
     )
@@ -368,8 +390,49 @@ def _envelope(value, path, entry):
                 "attacking_y",
                 "away_goalies",
                 "home_goalies",
+                "shot_type_evidence",
+                "goal_modifier_evidence",
             ),
         )
+        _integer(row["report_source_index"], loc + "/report_source_index", nullable=True)
+        type_evidence = row["shot_type_evidence"]
+        if event["type_key"] in _ATTEMPTS:
+            evidence_loc = loc + "/shot_type_evidence"
+            _object(type_evidence, evidence_loc, ("api_value", "report_value", "value", "status"))
+            for field in ("api_value", "report_value", "value"):
+                _text(type_evidence[field], evidence_loc + "/" + field, nullable=True)
+            _require(type_evidence["api_value"] == event["shot_type"], evidence_loc, "api type observation differs")
+            _require(type_evidence["status"] in ("agreement", "api_only", "report_only", "missing", "conflict", "unsupported", "unmatched"), evidence_loc, "invalid type evidence status")
+            report = reports.get(row["report_source_index"])
+            _require(type_evidence["report_value"] == (report["shot_type"] if report else None), evidence_loc, "report type observation differs")
+            _require(type_evidence == reconcile_shot_type(event["shot_type"], report["shot_type"] if report else None, report is not None), evidence_loc, "incoherent type evidence")
+        else:
+            _require(type_evidence is None, loc, "non-attempt must not carry type evidence")
+        modifier = row["goal_modifier_evidence"]
+        if event["type_key"] == "goal":
+            evidence_loc = loc + "/goal_modifier_evidence"
+            _object(modifier, evidence_loc, ("source_path", "reported_value", "status"))
+            _text(modifier["source_path"], evidence_loc + "/source_path", nullable=True)
+            _text(modifier["reported_value"], evidence_loc + "/reported_value", nullable=True)
+            _require(modifier["status"] in ("reported", "missing", "unavailable", "unmatched", "conflict", "unsupported"), evidence_loc, "invalid modifier evidence status")
+            _require(modifier["source_path"] is None or re.fullmatch(r"/summary/scoring/[0-9]+/goals/[0-9]+", modifier["source_path"]), evidence_loc, "invalid landing source path")
+            if modifier["source_path"] is not None:
+                _require(modifier["source_path"] in landing, evidence_loc, "broken landing source reference")
+                counterpart = landing[modifier["source_path"]]
+                _require(modifier["reported_value"] == counterpart["goal_modifier"], evidence_loc, "modifier source observation differs")
+                _require(counterpart["event_id"] == event["event_id"], evidence_loc, "modifier source event identity differs")
+            else:
+                _require(modifier["reported_value"] is None, evidence_loc, "unlocated modifier observation")
+            if modifier["status"] == "reported":
+                _require(modifier["source_path"] is not None and modifier["reported_value"] in ("none", "own-goal", "awarded", "penalty-shot"), evidence_loc, "incoherent reported modifier")
+            elif modifier["status"] == "missing":
+                _require(modifier["source_path"] is not None and modifier["reported_value"] is None, evidence_loc, "incoherent missing modifier")
+            elif modifier["status"] == "unsupported":
+                _require(modifier["source_path"] is not None and modifier["reported_value"] is not None and modifier["reported_value"] not in ("none", "own-goal", "awarded", "penalty-shot"), evidence_loc, "incoherent unsupported modifier")
+            elif modifier["status"] == "unmatched":
+                _require(modifier["source_path"] is None and modifier["reported_value"] is None, evidence_loc, "unmatched modifier cannot name a counterpart")
+        else:
+            _require(modifier is None, loc, "non-goal must not carry modifier evidence")
         _require(
             row["classification"] in ("five_on_five", "other", "unresolved", "untimed"),
             loc,
@@ -383,7 +446,6 @@ def _envelope(value, path, entry):
         )
         for field in ("attacking_x", "attacking_y"):
             _number(row[field], loc + "/" + field)
-        _integer(row["report_source_index"], loc + "/report_source_index", nullable=True)
         if row["report_source_index"] is not None:
             _require(row["report_source_index"] in reports, loc, "broken report row reference")
             report = reports[row["report_source_index"]]
@@ -466,21 +528,18 @@ def _scores(interpreted, events, game):
                 problem = "timed play follows shootout evidence"
             elif (
                 period is None
-                or seconds is None
                 or event["period_type"] not in ("REG", "OT")
                 or not (
-                    1 <= period <= 3
-                    and event["period_type"] == "REG"
-                    and seconds <= 1200
-                    or period == 4
-                    and event["period_type"] == "OT"
-                    and seconds <= 300
+                    1 <= period <= 3 and event["period_type"] == "REG"
+                    or period == 4 and event["period_type"] == "OT"
                 )
+                or seconds is None and event["type_key"] == "goal"
+                or seconds is not None and not (0 <= seconds <= (1200 if period <= 3 else 300))
             ):
                 problem = "supported timed period/clock required"
-            elif previous is not None and (period, seconds) < previous:
+            elif seconds is not None and previous is not None and (period, seconds) < previous:
                 problem = "sort_order contradicts period/elapsed chronology"
-            else:
+            elif seconds is not None:
                 previous = (period, seconds)
             if event["type_key"] == "goal" and (
                 event["shooting_team_id"] not in teams
@@ -541,9 +600,12 @@ def _prepare_game(value, path, entry):
         report = reports.get(row["report_source_index"])
         details = {}
         classification = row["classification"]
+        modifier = row["goal_modifier_evidence"]
+        landing_penalty = modifier is not None and modifier["status"] == "reported" and modifier["reported_value"] == "penalty-shot"
         outside = (
             event["timed_period"] is False
             or classification in ("other", "untimed")
+            or landing_penalty
             or report is not None
             and report["penalty_shot"] is True
         )
@@ -694,12 +756,14 @@ def _prepare_game(value, path, entry):
                 "source_issues": source_issues,
                 "season": game["season"],
                 "home_away": side,
-                "shot_type": event["shot_type"],
+                "shot_type": row["shot_type_evidence"]["value"],
+                "shot_type_evidence": row["shot_type_evidence"],
+                "goal_modifier_evidence": modifier,
                 "classification": classification,
                 "source_event": event,
                 "diagnostics": (
                     ["tip_deflection_recorded_proxy"]
-                    if event["shot_type"] in ("tip-in", "deflected", "deflection")
+                    if row["shot_type_evidence"]["value"] in ("tip-in", "deflected")
                     else []
                 ),
             }

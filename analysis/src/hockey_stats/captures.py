@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 
 
-SOURCES = ("play-by-play", "boxscore", "shifts", "game-summary", "play-report")
+SOURCES = ("play-by-play", "boxscore", "shifts", "game-summary", "play-report", "landing")
 REFERENCE_SOURCES = ("season-summary", "season-games", "skater-bios", "goalie-bios")
 
 
@@ -128,6 +128,7 @@ def _read_capture(directory: Path, source: str, *, reference: bool) -> Capture |
         season = identity[:4] + str(int(identity[:4]) + 1)
         urls = {
             "play-by-play": f"https://api-web.nhle.com/v1/gamecenter/{identity}/play-by-play",
+            "landing": f"https://api-web.nhle.com/v1/gamecenter/{identity}/landing",
             "boxscore": f"https://api-web.nhle.com/v1/gamecenter/{identity}/boxscore",
             "shifts": f"https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D{identity}&limit=-1",
             "game-summary": f"https://www.nhl.com/scores/htmlreports/{season}/GS{identity[-6:]}.HTM",

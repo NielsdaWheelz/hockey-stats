@@ -2,6 +2,8 @@
 
 status: open; identified during fresh 2023–24 development-source review for 03b.
 
+2026-09-30: complete unique constrained assignment is implemented. native `2025021094` indices `168/169` recover against `PL-172/PL-173`; ambiguous, unequal, contradictory and duplicate-id groups remain unresolved in temporary checks. the specified `2023020001` original and full-season selection reconciliation still require [drive verification](03c-corpus-verification.md), so this issue remains open.
+
 problem: reconstruction rejects every nonunique period/clock/kind group before examining participant or shot-type evidence. this implements its current conservative matching contract, but some rejected groups contain enough attributed source information to resolve the events. high overall capture coverage does not make this selective exclusion random.
 
 evidence: `/Volumes/Expansion/hockey-stats/chance/03b-20260930/inputs/development-training-coverage.json` records 606 unavailable attempts among 1,154 eligible-or-unavailable attempts in two-attempt same-clock groups (52.51%), versus 422 among 124,477 singleton attempts (0.339%). 604 paired exclusions carry `ambiguous_event_match`. these denominators include unresolved membership; they are not certified true-5v5 populations.

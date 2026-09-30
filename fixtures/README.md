@@ -112,3 +112,19 @@ checked directly from admitted bodies, independently of interpretation:
 the offline audit reports 1,312 expected games, 3 reconstructed and 1,309 missing captures. the three available games contribute 8,626 supported 5v5 seconds, 118 unresolved seconds and their separately scoped attempt/location totals. missing games have no invented exposure. all 120 roster ids have references in these examples; unavailable rosters for the other 1,309 games prevent league-wide completeness claims. historical admission and model eligibility remain unassessed.
 
 roster-report availability was spot-checked at [RO020001.HTM](https://www.nhl.com/scores/htmlreports/20252026/RO020001.HTM), [RO020006.HTM](https://www.nhl.com/scores/htmlreports/20252026/RO020006.HTM), and [RO021094.HTM](https://www.nhl.com/scores/htmlreports/20252026/RO021094.HTM). each identifies the matching date, game and teams and includes playing rosters, scratches and head coaches. these remain manual evidence, not new production inputs or an assessment of historical availability. selected event-summary and shift-report facts already documented above supply the reconstruction corroboration; no duplicate parsers were added.
+
+## 03c landing admission and reconciled source facts
+
+three production landing-only captures were added on 2026-09-30 using node `24.21.0`. all returned 200. their five-source companion files were compared by sha256 before and after acquisition; all thirty files remain unchanged. each newly admitted file equals its production capture bytes. these are mixed-retrieval inputs, with each receipt preserving its actual request time.
+
+| game | request time, utc | body bytes | body sha256 |
+|---|---|---:|---|
+| `2025020001` | `2026-09-30T17:27:28.028Z` | 11355 | `ab01843edd1d2089df821297fc1b811a233a343f499520d3af175eff4779498b` |
+| `2025020006` | `2026-09-30T17:27:28.959Z` | 17750 | `48127d8bf3fb6dc268a4a7258f19940884a13a62ca23d420294c91335a764cd0` |
+| `2025021094` | `2026-09-30T17:27:29.785Z` | 12977 | `f0fc466d24dde109d167637d048aac621a0c33f15ed45ba282aaee4c72157f38` |
+
+checked source facts: scoring arrays contain 5/7/7 rows, nineteen total, with eighteen `none` and one `penalty-shot`. all event ids join with agreeing period, reported clock, team and credited scorer. landing lacks complete shootout scoring: `2025020006` includes winner event `823`, `/summary/scoring/4/goals/0`, but omits two other successful shootout events. `none` does not turn its winner into timed exposure. `2025021094` event `153`, api index `164`, joins `/summary/scoring/1/goals/1` with `penalty-shot` and remains excluded.
+
+all 111 block descriptions supply report types: 37/40/34 by game; api types remain absent. the previously matched unblocked agreements remain 82/83/84. `2025021094` api indices `168/169`, ids `252/253`, uniquely join report `PL-172/PL-173` through two distinct shooters, recovering two additional wrist agreements. this supersedes the historical ambiguous-join result above without changing its captured evidence. all elapsed intervals remain identical; 118 overlapping-shift seconds remain unresolved. [the partial 03c decision](../docs/research/chance-03c/decision.md) records before/after populations and verification limits.
+
+earlier-season and own-goal/awarded originals remain on the detached drive. they have not been replaced with source extracts or fresh historical lookalikes. complete source-corpus acceptance is pending.

@@ -2,6 +2,8 @@
 
 status: open; reconstruction/preparation contract follow-up from 03b.
 
+2026-09-30: the narrow preparation repair passes temporary installed integration checks. a strictly identified non-goal's unsupported clock stays null while independent goal accounting survives; unsupported goal clocks, unknown kinds and contradictory supported chronology still withhold scores. the native `2024020102` capture and full-population reconciliation remain on the detached drive, so closure is pending [drive verification](03c-corpus-verification.md).
+
 problem: the fresh `2024020102` capture has an overtime `TAKEAWAY` at api source index 360 whose elapsed and remaining clocks both report `00:00`. the reviewed clock interpretation correctly leaves elapsed time unknown. preparation conservatively requires supported clocks for every timed event before establishing pre-event score, so this non-goal row removes score support for all attempts in the game.
 
 impact: 140 recognized attempts remain explicit: 88 unavailable and 52 outside 5v5, with no eligible attempts. ordinary timed goals reconcile to 3–3; the final 3–4 includes the shootout. neither that reconciliation nor the event's non-goal description authorizes bypassing the current completeness guard during 03b.

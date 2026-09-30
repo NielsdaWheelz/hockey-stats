@@ -18,7 +18,7 @@ const responseHeaderNames = [
   "location",
 ] as const;
 
-type GameSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report";
+type GameSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report" | "landing";
 
 export type CaptureIdentity =
   | { readonly gameId: string; readonly source: GameSource }
@@ -78,6 +78,7 @@ export const captureGame = ({
       { source: "shifts", url: `https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D${gameId}&limit=-1` },
       { source: "game-summary", url: `https://www.nhl.com/scores/htmlreports/${season}/GS${gameId.slice(-6)}.HTM` },
       { source: "play-report", url: `https://www.nhl.com/scores/htmlreports/${season}/PL${gameId.slice(-6)}.HTM` },
+      { source: "landing", url: `https://api-web.nhle.com/v1/gamecenter/${gameId}/landing` },
     ] as const;
     const records: CaptureRecord[] = [];
 
@@ -85,6 +86,34 @@ export const captureGame = ({
       records.push(yield* captureResponse({ identity: { gameId, source }, url, outDirectory }));
     }
     return records;
+  });
+
+// the existing core receipt protects against accidentally selecting another game.
+// captureResponse exclusively creates the landing leaf before any request.
+export const captureLanding = ({ gameId, outDirectory }: {
+  readonly gameId: string;
+  readonly outDirectory: string;
+}): Effect.Effect<CaptureRecord[], PlatformError | Error, FileSystem.FileSystem | HttpClient.HttpClient> =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const contents = yield* fs.readFileString(join(outDirectory, "play-by-play", "capture.json"));
+    const receipt: unknown = yield* Effect.try({
+      try: () => JSON.parse(contents),
+      catch: () => new Error("play-by-play/capture.json is not readable version-1 capture metadata"),
+    });
+    if (
+      typeof receipt !== "object" || receipt === null ||
+      !("schemaVersion" in receipt) || receipt.schemaVersion !== 1 ||
+      !("gameId" in receipt) || receipt.gameId !== gameId ||
+      !("source" in receipt) || receipt.source !== "play-by-play"
+    ) {
+      return yield* Effect.fail(new Error("play-by-play/capture.json must identify this game and source with schemaVersion 1"));
+    }
+    return [yield* captureResponse({
+      identity: { gameId, source: "landing" },
+      url: `https://api-web.nhle.com/v1/gamecenter/${gameId}/landing`,
+      outDirectory,
+    })];
   });
 
 // callers own the new output directory; each response owns its source directory.

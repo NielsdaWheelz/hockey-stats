@@ -6,11 +6,11 @@ completed: [01 capture](specs/01-capture.md), [02a interpretation](specs/02-inte
 
 ## next slices
 
-03c is the next specification. all later documents are **stubs**, recording purpose, ownership and outstanding decisions; they are not ready for implementation. the user controls progression. no implementation, training or commit is authorized by this documentation update.
+03c implementation was authorized on 2026-09-30; local source contracts are verified, while full-corpus acceptance waits for the external drive. the user directed work to stop at that boundary. all later documents are **stubs**, recording purpose, ownership and outstanding decisions; they are not ready for implementation. the user controls progression; no new fitting or later implementation is authorized.
 
 | slice | responsibility | dependency / completion boundary |
 |---|---|---|
-| [03c source revision](specs/03c-source-revision.md) | landing modifiers, report attributes, supported joins, score repairs and source/population audit | local implementation after authorization; original affected captures and full-corpus verification require the drive |
+| [03c source revision](specs/03c-source-revision.md) | landing modifiers, report attributes, supported joins, score repairs and source/population audit | local implementation verified; original affected captures and full-corpus verification require the drive |
 | [03d chance revision](specs/03d-chance-revision.md) | selected features and one coherent revised estimator using the existing workflow | specify from 03c evidence; fixture success establishes software behavior |
 | [03e training/assessment](specs/03e-training-assessment.md) | real development, fits and a written scientific judgment | drive, admitted corpus and reviewed protocol; success is not guaranteed |
 | [04 player attribution](specs/04-player-attribution.md) | history-informed 5v5 creation/suppression, spatial effects, uncertainty and observed evidence | scientifically supported chance values and compatible exposure |

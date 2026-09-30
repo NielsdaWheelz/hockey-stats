@@ -1,6 +1,6 @@
 # pr03c — source evidence for the chance-model revision
 
-status: research/specification authorized; no code, captures or derived artifacts changed. 03b is complete and rejected. [audit and council findings](../research/chance-03c-source-audit.md) · [brief](../brief.md) · [plan](../plan.md)
+status: implementation authorized on 2026-09-30; source contracts and local verification implemented. [the partial decision](../research/chance-03c/decision.md) records local evidence. full-corpus acceptance remains pending; the user directed work to stop when the detached external drive becomes necessary. 03b is complete and rejected. [audit and council findings](../research/chance-03c-source-audit.md) · [brief](../brief.md) · [plan](../plan.md)
 
 the landing amendment below addresses [verified additional goal evidence](../research/source-audit.md#additional-source-evidence-without-the-drive). [03d](03d-chance-revision.md) owns the revised estimator and selected features; [03e](03e-training-assessment.md) owns real training/scientific assessment. those are stubs. no separate landing or generic input-audit pr.
 
@@ -24,7 +24,7 @@ accept only the single value `landing`; reject unknown/repeated options before n
 
 update capture reporting for six default requests or one selected request, leaving season capture at four. remove the hardcoded five-response assumption; derive success from the operation's nonempty requested response set. failure guidance must preserve any existing landing leaf: use an explicitly prepared new game-directory copy for a replacement capture, preserving the original. retain ordinary manual cleanup guidance for unfinished local work. no force option.
 
-for the existing corpus, add landing once per game using this mode; an explicit sequential operator loop suffices. cost: 3,936 additional requests, not reacquisition of the existing five bodies. every new receipt keeps its actual retrieval date. inputs are a mixed-retrieval evidence set, not a simultaneous snapshot. full-corpus acquisition waits for the drive and implementation authorization.
+for the existing corpus, add landing once per game using this mode; an explicit sequential operator loop suffices. cost: 3,936 additional requests, not reacquisition of the existing five bodies. every new receipt keeps its actual retrieval date. inputs are a mixed-retrieval evidence set, not a simultaneous snapshot. implementation is authorized; full-corpus acquisition waits for the drive.
 
 ## 1. interpretation owns source facts
 

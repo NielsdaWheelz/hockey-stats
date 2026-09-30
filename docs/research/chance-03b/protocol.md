@@ -24,6 +24,17 @@ if measured fit replacement cost warrants it, resolve completed-em-boundary reco
 
 investigate a small named set of existing kernel, origin-prior and penalty alternatives. define each against an observed development question; no cartesian sweep, new features, new likelihood or changed five-foot grid. numerically fixed penalties carry across windows without silent rescaling. quantify season/source coverage, entrants, score/role/home-away/shot-type summaries, and selective missingness before choosing supported claims.
 
+the bounded 128-game development measurement found 230 of 656 cells without an observed unblocked origin, substantial low-count actor populations, and broad blocked posteriors under the numerical anchor. these motivate four full-window candidates, each changing one existing quantity:
+
+| candidate | difference from anchor | scientific question |
+|---|---|---|
+| `anchor` | none | does the implemented numerical anchor survive a full chronological assessment? |
+| `short_kernel` | `kernel_distance_ft: 10` instead of 20 | does halving the displacement scale materially change inferred origins and opportunity, after refitting? |
+| `stronger_origin_prior` | `origin_pseudocount: 100` instead of 10 | does tenfold uniform origin regularization expose consequential dependence on sparsely observed cells? |
+| `stronger_actor_pooling` | `ridge_actor: 20` instead of 10 | does doubled nuisance-actor pooling improve chronological probability behavior without destabilizing standardized opportunity? |
+
+the range is a bounded perturbation experiment, not a confidence region or a calibrated kernel estimate. the kernel comparison deliberately tests a consequential plausible modeling choice; nothing in the source establishes either displacement scale as correct. the prior and actor changes probe the measured sparse-data problem. all remaining settings, the likelihood and the 656-cell grid stay fixed. investigate all four on development and carry the entire set into confirmation; choose the primary candidate and resolve the practical gates before confirmation.
+
 absent an independently justified positive tolerance, each primary loss excess margin is zero. calibration margins and supported-bin rules must reflect hockey consequences and development precision, independently of whether the candidate passes. origin/value sensitivity requires explicit practical limits and independent evidence judgment. those values and the sensitivity set are unresolved during this draft and must be fixed before confirmation.
 
 ## retained calculations

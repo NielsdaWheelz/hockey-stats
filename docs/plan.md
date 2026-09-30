@@ -6,7 +6,7 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## next slices
 
-03d is the current reviewed-design/specification phase; its full candidate contract is drafted for review. 03e–07 remain **stubs**. the user controls progression; no new fitting or implementation is authorized.
+the user authorized 03d implementation and compact fixture verification on 2026-09-30. 03e–07 remain **stubs**. the user controls progression; real fitting, scientific assessment and later implementation require separate authorization.
 
 | slice | responsibility | dependency / completion boundary |
 |---|---|---|
@@ -21,7 +21,7 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## current discussion versus implementation
 
-here: finish the 03d specification from completed [03c evidence](research/chance-03c/decision.md) and the [input audit](research/model-input-audit.md). chance quality retains type and supported preceding context, as confirmed by the user. 03d owns numerical implementation; 03e owns real training and assessment. no separate source, fixture or parser pr is needed. complete local inputs support source checks without the drive; fresh retrievals and source repairs do not create untouched confirmation.
+here: implement and verify 03d against completed [03c evidence](research/chance-03c/decision.md) and the [input audit](research/model-input-audit.md). chance quality retains type and supported preceding context, as confirmed by the user. 03d owns numerical implementation; 03e owns real training and assessment. no separate source, fixture or parser pr is needed. complete local inputs support source checks without the drive; fresh retrievals and source repairs do not create untouched confirmation.
 
 additional inputs belong to the first model/component that requires them. coach admission defaults to 04 but can move into 03d if that candidate needs it. optional tracking and later goalie/penalty/territorial inputs remain with their own components. [source evidence](research/source-audit.md) records candidates and limits.
 

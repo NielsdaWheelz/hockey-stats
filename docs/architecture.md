@@ -2,7 +2,7 @@
 
 status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus/reference admission](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is complete and merged in `9132131`; its [scientific decision](research/chance-03b/decision.md) rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [product brief](brief.md) remains authoritative. software completion does not imply scientific acceptance.
 
-pr03c is reviewed and merged in `fa61454`; [its decision](research/chance-03c/decision.md) records source repairs, landing, expanded fixtures and the full local audit. [03d](specs/03d-chance-revision.md) is now specified for review; [03e](specs/03e-training-assessment.md) and [04–07](plan.md#next-slices) remain stubs. no implementation, real fitting, new service or platform follows from this specification phase.
+pr03c is reviewed and merged in `fa61454`; [its decision](research/chance-03c/decision.md) records source repairs, landing, expanded fixtures and the full local audit. the user authorized [03d](specs/03d-chance-revision.md) implementation and compact fixture verification on 2026-09-30; [03e](specs/03e-training-assessment.md) and [04–07](plan.md#next-slices) remain stubs. real fitting and later implementation require separate authorization.
 
 ## operating scale
 

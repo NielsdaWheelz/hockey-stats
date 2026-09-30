@@ -1,6 +1,6 @@
 # pr03d — revised chance model
 
-status: **specification for review; no implementation or real fitting authorized.** 03c is reviewed and merged in `fa61454`. [source evidence](../research/chance-03c/decision.md) · [input audit](../research/model-input-audit.md) · [03e assessment](03e-training-assessment.md)
+status: **implementation and compact fixture verification authorized by the user on 2026-09-30; real fitting remains 03e work.** 03c is reviewed and merged in `fa61454`. [source evidence](../research/chance-03c/decision.md) · [input audit](../research/model-input-audit.md) · [03e assessment](03e-training-assessment.md)
 
 ## target and boundary
 
@@ -186,4 +186,4 @@ content design owns field explanations and command/report text; numerical owners
 4. verify save/load and accepted-state resume equivalence, zero-observation seasons, observed/other-seasons-only/unseen actors, failed starts, invalid inputs/old versions. finite normalized masses; probability complements and `sum(opportunity_mass)==reference_opportunity_value` within absolute `1e-10`.
 5. explain fixture eligibility deltas from 03c facts, with exhaustive dispositions and nonexclusive reason counts; check unchanged raw hashes. record runtime/peak memory/scored size and actual failures/resolutions; retain useful facts, delete temporary tests/dependencies.
 
-completion permits 03e assessment only. its protocol must examine type/context residuals, excluded-goal selectivity, seasonal transfer, tip measurement and kernel/origin/refit sensitivity on compatible populations/fixed references. separate conditional parameter uncertainty, assumption sensitivity and independent physical-origin accuracy. 04 still needs supported values, compatible event/exposure selections and player-map sensitivity. no fit is authorized by this document.
+completion permits progression to 03e assessment. its protocol must examine type/context residuals, excluded-goal selectivity, seasonal transfer, tip measurement and kernel/origin/refit sensitivity on compatible populations/fixed references. separate conditional parameter uncertainty, assumption sensitivity and independent physical-origin accuracy. 04 still needs supported values, compatible event/exposure selections and player-map sensitivity. real fitting requires separate 03e authorization.

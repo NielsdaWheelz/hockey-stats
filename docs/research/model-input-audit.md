@@ -48,7 +48,7 @@ this inventory distinguishes interpretation gaps from omitted predictors. full p
 | evidence | actual state | next consumer / disposition |
 |---|---|---|
 | pl shooter/team/type | description only; 111 fixture block types overlooked | 03c structured evidence and unique joins; full-season coverage still to verify |
-| pl distance and own-goal wording | raw description, no structured fields | 03c audit examples; next model specifies coordinate/actor semantics. [own-goal issue](../issues/own-goal-attribution.md) |
+| pl distance and own-goal wording | raw description, no structured fields | 03c audit examples; next model specifies coordinate/actor semantics. [03d physical-action treatment](../specs/03d-chance-revision.md#source-and-population-contract) |
 | turnover `details.playerId` | captured; omitted from event roles | interpretation when a selected context or turnover component needs the actor; team/kind context need not wait |
 | stoppage `reason` / `secondaryReason` | primary interpreted; secondary remains raw | next model if defining freeze/rebound outcomes; explicit sequence rules required |
 | penalty actors/type/duration / `descKey` | actors/type/duration interpreted; description key raw | later penalty component or a demonstrated context need |

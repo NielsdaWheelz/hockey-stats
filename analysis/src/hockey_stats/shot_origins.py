@@ -1,4 +1,4 @@
-"""fixed rink geometry and forward block observation law for chance-1."""
+"""fixed rink geometry and forward block observation law for chance-2."""
 
 import numpy as np
 from scipy.special import logsumexp
@@ -16,7 +16,12 @@ def in_rink(x, y):
 
 def grid():
     centers = np.array(
-        [(x, y) for x in np.arange(-97.5, 100, 5) for y in np.arange(-40, 45, 5) if in_rink(x, y)],
+        [
+            (x, y)
+            for x in np.arange(-97.5, 100, 5)
+            for y in np.arange(-40, 45, 5)
+            if in_rink(x, y)
+        ],
         dtype=np.float64,
     )
     lookup = {tuple(point): i for i, point in enumerate(centers)}
@@ -34,7 +39,11 @@ def cell_id(point, centers=None):
         point = np.asarray(point, dtype=np.float64)
     except (ValueError, TypeError) as error:
         raise InputContractError("invalid origin coordinates") from error
-    if point.shape != (2,) or not np.isfinite(point).all() or not in_rink(point[0], point[1]):
+    if (
+        point.shape != (2,)
+        or not np.isfinite(point).all()
+        or not in_rink(point[0], point[1])
+    ):
         raise InputContractError("origin coordinates outside rink")
     if centers is None:
         centers, _ = grid()
@@ -53,7 +62,9 @@ def forward_kernel(centers, distance_ft, direction_strength):
         out=np.ones_like(distance),
         where=denominator != 0,
     )
-    log_weight = -distance / distance_ft - direction_strength * (1 - np.clip(cosine, -1, 1))
+    log_weight = -distance / distance_ft - direction_strength * (
+        1 - np.clip(cosine, -1, 1)
+    )
     return log_weight - logsumexp(log_weight, axis=0, keepdims=True)
 
 

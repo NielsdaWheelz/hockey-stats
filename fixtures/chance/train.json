@@ -3,10 +3,21 @@
   "purpose": "fixture_exercise",
   "corpora": [
     {
-      "path": "../../var/chance-corpus/corpus.json",
+      "path": "../../var/chance-corpus-20232024/corpus.json",
       "game_ids": [
-        "2025020001",
-        "2025020006"
+        "2023020001"
+      ]
+    },
+    {
+      "path": "../../var/chance-corpus-20242025/corpus.json",
+      "game_ids": [
+        "2024020001"
+      ]
+    },
+    {
+      "path": "../../var/chance-corpus-20252026/corpus.json",
+      "game_ids": [
+        "2025020001"
       ]
     }
   ]

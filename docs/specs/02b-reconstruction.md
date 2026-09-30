@@ -1,6 +1,6 @@
 # pr2b — reported event membership and reconstructed exposure
 
-status: implemented and [verified](02b-verification.md) on `implement/02b-reconstruction`, not yet merged. implementation was authorized on 2026-09-29; pr2a is merged. the user confirmed adding the official per-event on-ice report. [brief](../brief.md), [architecture](../architecture.md), [source audit](../research/source-audit.md) and [boundary evidence](../../fixtures/README.md#manually-corroborated-exposure-and-boundary-facts) supply the decisions and rationale.
+status: implemented and [verified](02b-verification.md). implementation was authorized on 2026-09-29; pr2a is merged. the user confirmed adding the official per-event on-ice report. [brief](../brief.md), [architecture](../architecture.md), [source audit](../research/source-audit.md) and [boundary evidence](../../fixtures/README.md#manually-corroborated-exposure-and-boundary-facts) supply the decisions and rationale.
 
 ## target and boundary
 

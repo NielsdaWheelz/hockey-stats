@@ -1,6 +1,6 @@
 # implementation plan
 
-status: 01 and [02a](specs/02-interpretation.md) are implemented, reviewed and merged. [02b](specs/02b-reconstruction.md) is implemented and [verified](specs/02b-verification.md) on its branch, not yet merged. the user confirmed adding the official per-event on-ice report after the [boundary audit](../fixtures/README.md#manually-corroborated-exposure-and-boundary-facts). later slices still require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled product and operating constraints.
+status: 01 and [02a](specs/02-interpretation.md) are implemented, reviewed and merged. [02b](specs/02b-reconstruction.md) is implemented and [verified](specs/02b-verification.md). the user confirmed adding the official per-event on-ice report after the [boundary audit](../fixtures/README.md#manually-corroborated-exposure-and-boundary-facts). later slices still require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled product and operating constraints.
 
 this plan builds the first useful product. the [product roadmap](roadmap.md) proposes v2+ capabilities and their ordering; its later milestones are not requirements for these slices.
 

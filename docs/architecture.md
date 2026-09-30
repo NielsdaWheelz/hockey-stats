@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md) and [02a interpretation](specs/02-interpretation.md) are reviewed and merged. [02b reconstruction](specs/02b-reconstruction.md) is implemented and [verified](specs/02b-verification.md) on its branch, not yet merged. the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
+status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md) and [02a interpretation](specs/02-interpretation.md) are reviewed and merged. [02b reconstruction](specs/02b-reconstruction.md) is implemented and [verified](specs/02b-verification.md). the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
 
 ## operating scale
 

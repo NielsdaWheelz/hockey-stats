@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md) and [02c corpus/reference admission](specs/02c-corpus.md) are reviewed and merged. [03a](specs/03a-chance-workflow.md) implements the chance-model workflow, with [fixture evidence](../fixtures/chance/README.md); separate 03b owns real training and scientific acceptance. the [product brief](brief.md) remains authoritative. fixture implementation does not imply scientific acceptance.
+status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus/reference admission](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. [03b specification](specs/03b-training-acceptance.md) is underway following the external-data audit; bulk acquisition and real training remain unstarted. the [product brief](brief.md) remains authoritative. fixture implementation does not imply scientific acceptance.
 
 ## operating scale
 
@@ -431,6 +431,6 @@ material costs: manual command selection and publication, a browser reload, save
 
 ## empirical constraints
 
-the [external dataset](issues/external-data-inventory.md) remains unavailable for inspection. [legacy raw-provenance](issues/legacy-raw-provenance.md) defects constrain reuse; the archived fixtures remain excluded. [two fresh games](../fixtures/README.md) now have verified capture integrity and checked source facts. those examples do not establish historical-corpus coverage, reconstruction validity or measured full-corpus performance.
+the [external audit](research/external-corpus-audit.md) inspected the old database using read-only sql; projected inputs and absent on-ice reports led to the user's choice of fresh 2023–24 through 2025–26 captures. old artifacts remain preserved, with [remaining inventory work](issues/external-data-inventory.md) relevant only before archive cleanup. native commands can read/write the mounted drive directly; colima is not a new-pipeline dependency. [three fresh fixture games](../fixtures/chance/README.md) exercise the implemented workflow without establishing historical-corpus coverage or scientific validity.
 
-the current execution environment denied the read-only cpu/memory query on 2026-09-29; the user subsequently supplied the inventory above. representative runtime, peak memory, numerical-library compatibility, and drive throughput remain unmeasured. resolve them during the relevant implementation slice before making performance claims.
+the user supplied the hardware inventory above. 03a verified the local numerical environment on fixtures; representative full-corpus runtime, peak memory and drive throughput remain unmeasured. pr03b measures a bounded admitted workload before launching expensive fits or adding checkpoints.

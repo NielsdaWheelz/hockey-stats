@@ -14,7 +14,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr2b specification](docs/specs/02b-reconstruction.md): reported event membership, reconstructed exposure and coordinates.
 - [pr2c specification](docs/specs/02c-corpus.md): season inventory, bulk player references and offline corpus accounting.
 - [pr03a specification](docs/specs/03a-chance-workflow.md): chance-model workflow and software verification.
-- [pr03b scope](docs/specs/03b-training-acceptance.md): real corpus admission, training and scientific acceptance; empirical details pending.
+- [pr03b specification](docs/specs/03b-training-acceptance.md): fresh three-season corpus, chronological development/confirmation and scientific judgment.
+- [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
 - [source audit](docs/research/source-audit.md): direct public evidence, omissions corrected and later input dependencies.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.

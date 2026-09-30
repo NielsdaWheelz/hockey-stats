@@ -1,6 +1,6 @@
 # pr03a — chance-model workflow
 
-status: implemented and fixture-checked on its branch, 2026-09-29; user-authorized implementation. [software evidence and commands](../../fixtures/chance/README.md#software-verification-record--2026-09-29). 02c is reviewed and merged. the user chose local evidence now, historical admission later, and a separate **03b for real training and scientific acceptance**. [brief](../brief.md) · [architecture](../architecture.md) · [03b boundary](03b-training-acceptance.md)
+status: reviewed and merged in `9eb44d4`; software verification recorded 2026-09-29. [software evidence and commands](../../fixtures/chance/README.md#software-verification-record--2026-09-29). 02c is reviewed and merged. the user chose local evidence now, historical admission later, and a separate **03b for real training and scientific acceptance**. [brief](../brief.md) · [architecture](../architecture.md) · [03b boundary](03b-training-acceptance.md)
 
 ## target and limits
 

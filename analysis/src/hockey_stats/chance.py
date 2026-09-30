@@ -250,18 +250,124 @@ def _expectation(beta, pi, data, layout, config, edges, kernel):
     return failures, next_pi, float(value)
 
 
-def _em(data, layout, config, edges, kernel, initial_pi, initial_beta, conversion_objective):
-    pi, beta = initial_pi.copy(), initial_beta.copy()
+def _fit_resume(resume, layout, config):
+    """decode only accepted current state and terminal starts; never inner solver state."""
+    if resume is None:
+        return {}, None
+    names = ["uniform", "unblocked_frequency"]
+    try:
+        if (
+            not isinstance(resume, dict)
+            or set(resume) != {"schema_version", "completed_starts", "current_start"}
+            or type(resume["schema_version"]) is not int
+            or resume["schema_version"] != 1
+        ):
+            raise ValueError("unsupported numerical state schema")
+        completed, current = resume["completed_starts"], resume["current_start"]
+        if not isinstance(completed, dict) or list(completed) != names[: len(completed)]:
+            raise ValueError("completed starts must follow the fixed start order")
+        if current is not None and (
+            len(completed) == len(names)
+            or not isinstance(current, dict)
+            or current.get("name") != names[len(completed)]
+        ):
+            raise ValueError("current start must follow completed starts")
+        for record, active in [(record, False) for record in completed.values()] + (
+            [(current, True)] if current is not None else []
+        ):
+            fields = {"coefficients", "origin_probabilities", "diagnostics"}
+            if not isinstance(record, dict) or set(record) != fields | ({"name"} if active else set()):
+                raise ValueError("start state fields disagree")
+            _numeric_array(record["coefficients"], (layout["size"],))
+            pi = _numeric_array(record["origin_probabilities"], (9, layout["cells"]))
+            if (pi <= 0).any() or not np.allclose(pi.sum(axis=1), 1, rtol=0, atol=1e-12):
+                raise ValueError("origin probabilities must be positive and normalized")
+            diag = record["diagnostics"]
+            fields = {"converged", "termination", "objective_history", "inner", "iterations"}
+            if not isinstance(diag, dict) or set(diag) not in (
+                fields, fields | {"maximum_posterior_change"}
+            ):
+                raise ValueError("start diagnostics fields disagree")
+            n = diag["iterations"]
+            term = diag["termination"]
+            inner, history = diag["inner"], diag["objective_history"]
+            if (
+                type(n) is not int or not 0 <= n <= config["em_max_iterations"]
+                or type(diag["converged"]) is not bool
+                or not isinstance(inner, list) or len(inner) != n
+                or not isinstance(history, list)
+                or term not in ("converged", "em iteration limit", "inner optimization failed",
+                                "nonfinite initial observed objective", "nonfinite observed objective",
+                                "observed objective decreased")
+                or diag["converged"] != (term == "converged")
+            ):
+                raise ValueError("start termination or iteration budget disagrees")
+            for i, result in enumerate(inner):
+                if (
+                    not isinstance(result, dict)
+                    or set(result) != {"converged", "termination", "iterations", "objective"}
+                    or type(result["converged"]) is not bool
+                    or result["converged"] != (term != "inner optimization failed" or i < n - 1)
+                    or not isinstance(result["termination"], str)
+                    or type(result["iterations"]) is not int or result["iterations"] < 0
+                    or result["objective"] is not None and (
+                        type(result["objective"]) not in (int, float)
+                        or not math.isfinite(result["objective"])
+                    )
+                    or result["converged"] and result["objective"] is None
+                ):
+                    raise ValueError("inner optimization diagnostics disagree")
+            if term == "nonfinite initial observed objective":
+                valid_history = n == 0 and history == [None]
+                accepted = 0
+            else:
+                accepted = n - (term in ("inner optimization failed", "nonfinite observed objective", "observed objective decreased"))
+                valid_history = n > 0 and len(history) == n + (term != "inner optimization failed")
+                for i, value in enumerate(history):
+                    valid_history = valid_history and (
+                        value is None if term == "nonfinite observed objective" and i == len(history) - 1
+                        else type(value) in (int, float) and math.isfinite(value)
+                    )
+            if not valid_history or ("maximum_posterior_change" in diag) != (accepted > 0):
+                raise ValueError("history does not describe accepted updates and terminal attempts")
+            if accepted > 0:
+                change = diag["maximum_posterior_change"]
+                if type(change) not in (int, float) or not math.isfinite(change) or not 0 <= change <= 1:
+                    raise ValueError("maximum posterior change is invalid")
+            if term == "em iteration limit" and (
+                active and n >= config["em_max_iterations"]
+                or not active and n != config["em_max_iterations"]
+            ) or active and term != "em iteration limit":
+                raise ValueError("current state must be accepted, nonterminal and within its budget")
+        return completed.copy(), current
+    except (ValueError, TypeError, OverflowError) as error:
+        raise InputContractError(f"invalid fit checkpoint state: {error}") from error
+
+
+def _em(data, layout, config, edges, kernel, initial_pi, initial_beta, conversion_objective,
+        resume=None, checkpoint=None):
+    if resume is None:
+        pi, beta = initial_pi.copy(), initial_beta.copy()
+        diagnostics = dict(
+            converged=False, termination="em iteration limit", objective_history=[], inner=[]
+        )
+    else:
+        pi = np.asarray(resume["origin_probabilities"], dtype=np.float64)
+        beta = np.asarray(resume["coefficients"], dtype=np.float64)
+        diagnostics = dict(
+            resume["diagnostics"],
+            objective_history=resume["diagnostics"]["objective_history"].copy(),
+            inner=resume["diagnostics"]["inner"].copy(),
+        )
     failures, next_pi, objective = _expectation(beta, pi, data, layout, config, edges, kernel)
-    history = [objective - conversion_objective]
-    diagnostics = dict(
-        converged=False, termination="em iteration limit", objective_history=history, inner=[]
-    )
+    history = diagnostics["objective_history"]
+    if resume is None:
+        history.append(objective - conversion_objective)
     if not np.isfinite(history[0]):
         history[0] = None
         diagnostics.update(termination="nonfinite initial observed objective", iterations=0)
         return beta, pi, diagnostics
-    for _ in range(config["em_max_iterations"]):
+    for _ in range(len(diagnostics["inner"]), config["em_max_iterations"]):
         next_beta, inner = fit_logistic(
             lambda trial: _block_objective(trial, data, failures, layout, config, edges),
             beta,
@@ -295,13 +401,21 @@ def _em(data, layout, config, edges, kernel, initial_pi, initial_beta, conversio
             posterior_change = max(posterior_change, float(np.max(np.abs(old - new))))
         beta, pi = next_beta, next_pi
         failures, next_pi = next_failures, following_pi
-        diagnostics["maximum_posterior_change"] = posterior_change
+        diagnostics.update(
+            maximum_posterior_change=posterior_change, iterations=len(diagnostics["inner"])
+        )
         if (
             abs(change) / scale < config["em_relative_tolerance"]
             and posterior_change < config["em_posterior_tolerance"]
         ):
             diagnostics.update(converged=True, termination="converged")
             break
+        if (
+            checkpoint is not None
+            and diagnostics["iterations"] < config["em_max_iterations"]
+            and diagnostics["iterations"] % 25 == 0
+        ):
+            checkpoint(beta, pi, diagnostics)
     diagnostics["iterations"] = len(diagnostics["inner"])
     return beta, pi, diagnostics
 
@@ -353,7 +467,8 @@ def _benchmark(rows, cell_ids, centers, config, unblocked):
     )
 
 
-def fit_model(attempts, config, metadata):
+def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
+    """fit fixed starts; resume/checkpoint carry opaque accepted numerical state."""
     validate_config(config)
     rows = list(attempts)
     centers, edges = grid()
@@ -366,6 +481,9 @@ def fit_model(attempts, config, metadata):
     u_layout = _layout(rows, False, len(centers))
     r_layout = _layout(unblocked, True, len(centers))
     diagnostics["actor_counts"] = dict(u=u_layout, r=r_layout)
+    completed, current = _fit_resume(resume, u_layout, config)
+    if resume is not None and checkpoint is not None:
+        checkpoint(dict(schema_version=1, completed_starts=completed.copy(), current_start=current))
     goals = sum(row["goal"] for row in unblocked)
     if not unblocked or not goals or goals == len(unblocked) or len(unblocked) == len(rows):
         diagnostics["termination"] = (
@@ -406,9 +524,32 @@ def fit_model(attempts, config, metadata):
     u_initial[0] = math.log(len(unblocked) / (len(rows) - len(unblocked)))
     chosen = None
     for name, initial in [("uniform", pi_uniform), ("unblocked_frequency", pi_empirical)]:
-        beta, pi, diag = _em(
-            u_data, u_layout, config, edges, kernel, initial, u_initial, r_diag["objective"]
-        )
+        if name in completed:
+            record = completed[name]
+            beta = np.asarray(record["coefficients"], dtype=np.float64)
+            pi = np.asarray(record["origin_probabilities"], dtype=np.float64)
+            diag = record["diagnostics"]
+        else:
+            def save_current(beta, pi, diag):
+                checkpoint(dict(
+                    schema_version=1, completed_starts=completed.copy(),
+                    current_start=dict(name=name, coefficients=beta.tolist(),
+                                       origin_probabilities=pi.tolist(), diagnostics=dict(
+                                           diag, objective_history=diag["objective_history"].copy(),
+                                           inner=diag["inner"].copy(),
+                                       )),
+                ))
+
+            beta, pi, diag = _em(
+                u_data, u_layout, config, edges, kernel, initial, u_initial, r_diag["objective"],
+                resume=current, checkpoint=save_current if checkpoint is not None else None,
+            )
+            completed[name] = dict(
+                coefficients=beta.tolist(), origin_probabilities=pi.tolist(), diagnostics=diag
+            )
+            current = None
+            if checkpoint is not None:
+                checkpoint(dict(schema_version=1, completed_starts=completed.copy(), current_start=None))
         diagnostics["starts"][name] = diag
         if diag["converged"] and (chosen is None or diag["objective_history"][-1] > chosen[3]):
             chosen = (name, beta, pi, diag["objective_history"][-1])

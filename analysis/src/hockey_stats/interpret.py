@@ -6,6 +6,7 @@ import re
 from typing import Any, Literal, NotRequired, TypedDict
 
 from .captures import InputContractError, SOURCES, read_capture, strict_json
+from .play_report import extract_report
 
 
 class Issue(TypedDict):
@@ -32,6 +33,8 @@ class Game(TypedDict):
     game_date: str
     away_team_id: int
     home_team_id: int
+    away_team_abbrev: str | None
+    home_team_abbrev: str | None
 
 
 class Result(TypedDict):
@@ -50,6 +53,7 @@ class RosterRecord(TypedDict):
     first_name: str | None
     last_name: str | None
     reported_position: str | None
+    sweater_number: int | None
 
 
 class BoxscorePlayer(TypedDict):
@@ -73,6 +77,7 @@ class Event(TypedDict):
     sort_order: int | None
     type_code: int | None
     type_key: str | None
+    kind_valid: bool
     period_number: int | None
     period_type: str | None
     time_in_period: str | None
@@ -112,6 +117,29 @@ class Shift(TypedDict):
     start_seconds: int | None
     end_seconds: int | None
     duration_seconds: int | None
+    interval_status: Literal["coherent", "inconsistent", "unavailable", "not_shift"]
+
+
+class ReportMember(TypedDict):
+    sweater_number: int | None
+    reported_position: str | None
+    player_id: int | None
+
+
+class ReportRow(TypedDict):
+    source_index: int
+    row_id: str
+    event_number: int | None
+    period_number: int | None
+    time_in_period: str | None
+    time_remaining: str | None
+    elapsed_seconds: int | None
+    event_code: str | None
+    reported_strength: str | None
+    description: str | None
+    away_members: list[ReportMember] | None
+    home_members: list[ReportMember] | None
+    penalty_shot: bool | None
 
 
 class ScoreCounts(TypedDict):
@@ -147,6 +175,7 @@ class GameDocument(TypedDict):
     boxscore_players: list[BoxscorePlayer] | None
     events: list[Event] | None
     shift_records: list[Shift] | None
+    report_rows: list[ReportRow] | None
     checks: list[Check]
     issues: list[Issue]
     uncomputed: list[str]
@@ -226,6 +255,19 @@ def _clock(value: str | None, source: str, path: str, issues: list[Issue]) -> in
     return None
 
 
+def _elapsed(time: str | None, remaining: str | None, length: int | None,
+             source: str, path: str, issues: list[Issue], *, remaining_supplied: bool = False) -> int | None:
+    elapsed = _clock(time, source, path + "/timeInPeriod", issues)
+    remaining_seconds = _clock(remaining, source, path + "/timeRemaining", issues)
+    if length is None:
+        return None
+    if elapsed is None or elapsed > length or ((remaining_supplied or remaining is not None) and
+            (remaining_seconds is None or remaining_seconds + elapsed != length)):
+        _issue(issues, source, path, "inconsistent_event_clock", "elapsed and remaining clocks must fit and sum to the period length; elapsed seconds unavailable")
+        return None
+    return elapsed
+
+
 def _duplicate_ids(rows: list[Any], field: str, source: str, prefix: str, issues: list[Issue]) -> set[int]:
     seen: set[int] = set()
     duplicates: set[int] = set()
@@ -236,6 +278,8 @@ def _duplicate_ids(rows: list[Any], field: str, source: str, prefix: str, issues
         if value in seen:
             duplicates.add(value)
             locator = row.get("source_path", f"{prefix}/{row.get('source_index')}")
+            if "row_id" in row:
+                locator += f"[{row['row_id']}]"
             _issue(issues, source, locator, "duplicate_identity", f"repeated {field} {value}; records retained separately")
         seen.add(value)
     return duplicates
@@ -264,7 +308,8 @@ def _identity(body: dict[str, Any], requested: str) -> tuple[Game | None, str | 
     if type(away_id) is not int or away_id <= 0 or type(home_id) is not int or home_id <= 0 or away_id == home_id:
         return None, "/awayTeam/id and /homeTeam/id must be distinct positive integers; source unavailable"
     return {"game_id": requested, "season": str(season), "game_type": 2,
-            "game_date": game_date, "away_team_id": away_id, "home_team_id": home_id}, None
+            "game_date": game_date, "away_team_id": away_id, "home_team_id": home_id,
+            "away_team_abbrev": None, "home_team_abbrev": None}, None
 
 
 def interpret_game(directory: Path) -> GameDocument:
@@ -284,6 +329,8 @@ def interpret_game(directory: Path) -> GameDocument:
         inputs.append(entry)
         if capture.body is None:
             continue
+        if capture.source == "play-report":
+            continue  # report identity depends on the admitted game and roster below.
         if capture.source == "game-summary":
             entry["status"] = "reference_only"
             entry["reason"] = "integrity-checked html; hockey content requires manual inspection"
@@ -317,6 +364,21 @@ def interpret_game(directory: Path) -> GameDocument:
         entry["status"] = "parsed"
         entry["reason"] = None
 
+    if game is not None:
+        for side in ("away", "home"):
+            supplied = []
+            for source in ("play-by-play", "boxscore"):
+                if source in bodies:
+                    abbreviation = _text(bodies[source][side + "Team"].get("abbrev"), source,
+                                         "/" + side + "Team/abbrev", issues)
+                    if abbreviation is not None:
+                        supplied.append(abbreviation)
+            if len(set(supplied)) <= 1:
+                game[side + "_team_abbrev"] = supplied[0] if supplied else None
+            else:
+                _issue(issues, "game", "/" + side + "_team_abbrev", "conflicting_team_abbreviation",
+                       "admitted sources disagree on team abbreviation; numeric identity retained and report admission unavailable")
+
     results: list[Result] = []
     for source in ("play-by-play", "boxscore"):
         if source not in bodies:
@@ -349,14 +411,15 @@ def interpret_game(directory: Path) -> GameDocument:
                     "team_id": _team(row.get("teamId"), game, source, path + "/teamId", issues, required=True),
                     "first_name": _text(first.get("default") if first else None, source, path + "/firstName/default", issues),
                     "last_name": _text(last.get("default") if last else None, source, path + "/lastName/default", issues),
-                    "reported_position": _text(row.get("positionCode"), source, path + "/positionCode", issues)}
+                    "reported_position": _text(row.get("positionCode"), source, path + "/positionCode", issues),
+                    "sweater_number": _integer(row.get("sweaterNumber"), source, path + "/sweaterNumber", issues, 1)}
                 roster.append(record)
                 if record["player_id"] is not None:
                     if record["team_id"] is None:
                         unresolved_memberships.add(record["player_id"])
                     else:
                         memberships.setdefault(record["player_id"], set()).add(record["team_id"])
-            _duplicate_ids(roster, "player_id", source, "/rosterSpots", issues)
+            unresolved_memberships.update(_duplicate_ids(roster, "player_id", source, "/rosterSpots", issues))
 
     players: list[BoxscorePlayer] | None = None
     admitted_boxscore_arrays = False
@@ -428,13 +491,8 @@ def interpret_game(directory: Path) -> GameDocument:
                     _issue(issues, source, path + "/periodDescriptor", "unsupported_period", "unsupported period number/type; timing and complete event counts unavailable")
                 time = _text(row.get("timeInPeriod"), source, path + "/timeInPeriod", issues)
                 remaining = _text(row.get("timeRemaining"), source, path + "/timeRemaining", issues)
-                elapsed = _clock(time, source, path + "/timeInPeriod", issues)
-                remaining_seconds = _clock(remaining, source, path + "/timeRemaining", issues)
-                if timed is not True:
-                    elapsed = None
-                elif elapsed is None or elapsed > length or (row.get("timeRemaining") is not None and (remaining_seconds is None or remaining_seconds + elapsed != length)):
-                    _issue(issues, source, path, "inconsistent_event_clock", "elapsed and remaining clocks must fit and sum to the period length; elapsed seconds unavailable")
-                    elapsed = None
+                elapsed = _elapsed(time, remaining, length, source, path, issues,
+                                   remaining_supplied=row.get("timeRemaining") is not None)
                 roles = {role: _integer(details[field], source, path + "/details/" + field, issues, 1)
                          for role, field in _ROLES.items() if field in details}
                 type_key = _text(row.get("typeDescKey"), source, path + "/typeDescKey", issues)
@@ -464,7 +522,8 @@ def interpret_game(directory: Path) -> GameDocument:
                 event: Event = {"source_index": index,
                     "event_id": _integer(row.get("eventId"), source, path + "/eventId", issues, 1, required=True),
                     "sort_order": _integer(row.get("sortOrder"), source, path + "/sortOrder", issues, required=True),
-                    "type_code": type_code, "type_key": type_key, "period_number": number, "period_type": period_type,
+                    "type_code": type_code, "type_key": type_key, "kind_valid": classifiable,
+                    "period_number": number, "period_type": period_type,
                     "time_in_period": time, "time_remaining": remaining, "elapsed_seconds": elapsed, "timed_period": timed,
                     "situation_code": _text(row.get("situationCode"), source, path + "/situationCode", issues),
                     "home_team_defending_side": _text(row.get("homeTeamDefendingSide"), source, path + "/homeTeamDefendingSide", issues),
@@ -526,15 +585,23 @@ def interpret_game(directory: Path) -> GameDocument:
                 end = _text(row.get("endTime"), source, path + "/endTime", issues)
                 duration = _text(row.get("duration"), source, path + "/duration", issues)
                 start_seconds = end_seconds = duration_seconds = None
+                interval_status: Literal["coherent", "inconsistent", "unavailable", "not_shift"] = "unavailable"
                 if type_code == 517:
                     start_seconds = _clock(start, source, path + "/startTime", issues)
                     end_seconds = _clock(end, source, path + "/endTime", issues)
                     duration_seconds = _clock(duration, source, path + "/duration", issues)
                     length = 1200 if period in (1, 2, 3) else 300 if period == 4 else None
-                    if (length is None or start_seconds is None or end_seconds is None or duration_seconds is None
-                            or not 0 <= start_seconds <= end_seconds <= length or duration_seconds != end_seconds - start_seconds):
-                        _issue(issues, source, path, "invalid_shift_interval", "shift clocks must fit a supported timed period and duration equal end minus start; normalized interval unavailable")
-                        start_seconds = end_seconds = duration_seconds = None
+                    if (length is None or start_seconds is None or end_seconds is None
+                            or not 0 <= start_seconds <= end_seconds <= length):
+                        _issue(issues, source, path, "invalid_shift_interval", "shift bounds must be ordered within a supported timed period; normalized bounds unavailable")
+                        start_seconds = end_seconds = None
+                    elif duration_seconds is None:
+                        _issue(issues, source, path + "/duration", "unavailable_shift_duration", "reported duration unavailable; usable bounds retained and coherent shift membership unavailable")
+                    elif duration_seconds != end_seconds - start_seconds:
+                        interval_status = "inconsistent"
+                        _issue(issues, source, path, "inconsistent_shift_duration", "reported duration disagrees with end minus start; bounds retained and coherent shift membership unavailable")
+                    else:
+                        interval_status = "coherent"
                     if player_id is None:
                         unknown_shift_identity = True
                     elif record_id is None or team_id is None:
@@ -545,7 +612,9 @@ def interpret_game(directory: Path) -> GameDocument:
                             affected_players.add(player_id)
                             _issue(issues, source, path, "duplicate_shift_identity", "repeated player/period/shift number; affected player reconciliations unavailable")
                         tuples.add(identity)
-                elif type_code is None:
+                elif type_code == 505:
+                    interval_status = "not_shift"
+                else:
                     if player_id is None:
                         unknown_shift_identity = True
                     else:
@@ -556,7 +625,8 @@ def interpret_game(directory: Path) -> GameDocument:
                     "period_number": period, "shift_number": shift_number, "start_time": start, "end_time": end,
                     "duration": duration, "event_number": _integer(row.get("eventNumber"), source, path + "/eventNumber", issues),
                     "event_description": _text(row.get("eventDescription"), source, path + "/eventDescription", issues),
-                    "start_seconds": start_seconds, "end_seconds": end_seconds, "duration_seconds": duration_seconds})
+                    "start_seconds": start_seconds, "end_seconds": end_seconds, "duration_seconds": duration_seconds,
+                    "interval_status": interval_status})
             duplicate_ids = _duplicate_ids(shifts, "record_id", source, "/data", issues)
             for shift in shifts:
                 if shift["record_id"] in duplicate_ids:
@@ -613,13 +683,13 @@ def interpret_game(directory: Path) -> GameDocument:
                 for row in player_shifts:
                     if row["team_id"] != player["team_id"]:
                         _issue(issues, "shifts", f"/data/{row['source_index']}/teamId", "player_team_disagreement", unavailable)
-            duration_valid = all(row["duration_seconds"] is not None for row in player_shifts)
+            duration_valid = all(row["interval_status"] == "coherent" for row in player_shifts)
             observed_toi = sum(row["duration_seconds"] for row in player_shifts) if unavailable is None and duration_valid else None
             observed_count = len(player_shifts) if unavailable is None else None
             for name, observed_value, expected_value in (("player_toi", observed_toi, player["toi_seconds"]), ("player_shift_count", observed_count, player["shift_count"])):
                 reason = unavailable
                 if reason is None and observed_value is None:
-                    reason = "player has an invalid shift duration; duration sum unavailable"
+                    reason = "player has a noncoherent shift interval; duration sum unavailable"
                 if reason is None and expected_value is None:
                     reason = "reported boxscore value unavailable"
                 status = "unavailable" if observed_value is None or expected_value is None else "match" if observed_value == expected_value else "mismatch"
@@ -628,7 +698,107 @@ def interpret_game(directory: Path) -> GameDocument:
                 checks.append({"name": name, "source": "boxscore", "team_id": player["team_id"], "player_id": player_id,
                     "status": status, "observed": observed_value, "expected": expected_value, "reason": reason})
 
-    return {"schema_version": 1, "requested_game_id": requested, "inputs": inputs, "game": game,
+    report_rows: list[ReportRow] | None = None
+    source = "play-report"
+    capture = next(record for record in captures if record.source == source)
+    entry = next(record for record in inputs if record["source"] == source)
+    if capture.body is not None:
+        report = extract_report(capture.body)
+        for issue in report["issues"]:
+            _issue(issues, source, issue["path"], issue["code"], issue["message"])
+        admitted = game is not None and bool(report["game_info"]) and bool(report["team_headers"])
+        admitted = admitted and not any(issue["code"] == "unsupported_report_structure" for issue in report["issues"])
+        months = {name: index for index, name in enumerate(("January", "February", "March", "April", "May", "June",
+                   "July", "August", "September", "October", "November", "December"), 1)}
+        for index, cells in enumerate(report["game_info"]):
+            dates = []
+            numbers = []
+            statuses = []
+            for text in cells:
+                match = re.fullmatch(r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ([A-Za-z]+) ([0-9]{1,2}), ([0-9]{4})", text)
+                if match is not None and match[1] in months:
+                    try:
+                        dates.append(date(int(match[3]), months[match[1]], int(match[2])).isoformat())
+                    except ValueError:
+                        dates.append(None)
+                if re.fullmatch(r"Game [0-9]{4}", text):
+                    numbers.append(text.removeprefix("Game "))
+                if text in ("Final", "In Progress", "Preview"):
+                    statuses.append(text)
+            if (game is None or dates != [game["game_date"]] or numbers != [requested[-4:]] or statuses != ["Final"]):
+                admitted = False
+                _issue(issues, source, f"/GameInfo/{index}", "report_identity_disagreement",
+                       "report requires matching game date/number and final status; event report unavailable")
+        for index, headers in enumerate(report["team_headers"]):
+            if (game is None or game["away_team_abbrev"] is None or game["home_team_abbrev"] is None
+                    or headers != [game["away_team_abbrev"] + " On Ice", game["home_team_abbrev"] + " On Ice"]):
+                admitted = False
+                _issue(issues, source, f"/headers/{index}", "report_team_disagreement",
+                       "away/home on-ice columns must agree with admitted team abbreviations; event report unavailable")
+        if not admitted:
+            entry["reason"] = "missing, unsupported or conflicting report identity; event report unavailable"
+            if not report["game_info"] or not report["team_headers"]:
+                _issue(issues, source, "/", "unavailable_report_identity", entry["reason"])
+        else:
+            assert game is not None
+            entry["status"] = "parsed"
+            entry["reason"] = None
+            sweaters: dict[tuple[int, int], list[RosterRecord]] = {}
+            for record in roster or []:
+                if record["team_id"] is not None and record["sweater_number"] is not None:
+                    sweaters.setdefault((record["team_id"], record["sweater_number"]), []).append(record)
+            report_rows = []
+            seen_ids: set[str] = set()
+            for row in report["rows"]:
+                path = f"/rows/{row['source_index']}[{row['row_id']}]"
+                if row["row_id"] in seen_ids:
+                    _issue(issues, source, path, "duplicate_report_identity", "repeated html row id; records retained separately")
+                seen_ids.add(row["row_id"])
+                integers: dict[str, int | None] = {}
+                for field in ("event_number", "period_number"):
+                    text = row[field]
+                    value = int(text) if text is not None and re.fullmatch(r"[0-9]{1,9}", text) else None
+                    integers[field] = _integer(value, source, path + "/" + field, issues, 1, required=True)
+                period = integers["period_number"]
+                length = 1200 if period in (1, 2, 3) else 300 if period == 4 else None
+                if period not in (1, 2, 3, 4, 5):
+                    _issue(issues, source, path + "/period_number", "unsupported_period", "unsupported report period; elapsed timing unavailable")
+                elapsed = _elapsed(row["time_in_period"], row["time_remaining"], length, source, path, issues)
+                member_lists: dict[str, list[ReportMember] | None] = {}
+                for side in ("away", "home"):
+                    extracted = row[side + "_members"]
+                    members = None if extracted is None else []
+                    for index, member in enumerate(extracted or []):
+                        member_path = f"{path}/{side}_members/{index}"
+                        text = member["sweater_number"]
+                        sweater = int(text) if text is not None and re.fullmatch(r"[0-9]{1,2}", text) else None
+                        sweater = _integer(sweater, source, member_path + "/sweater_number", issues, 1, required=True)
+                        position = member["reported_position"]
+                        if position not in ("C", "L", "R", "D", "F", "G"):
+                            _issue(issues, source, member_path + "/reported_position", "unresolved_member_position",
+                                   "reported member position is missing or unsupported; category unavailable")
+                        candidates = sweaters.get((game[side + "_team_id"], sweater), [])
+                        player_id = candidates[0]["player_id"] if len(candidates) == 1 else None
+                        if player_id is None or player_id in unresolved_memberships:
+                            player_id = None
+                            _issue(issues, source, member_path + "/player_id", "unresolved_report_sweater",
+                                   "jersey has no unique game/team roster identity; reported slot retained without player id")
+                        assert members is not None
+                        members.append({"sweater_number": sweater, "reported_position": position, "player_id": player_id})
+                    member_lists[side] = members
+                code = row["event_code"]
+                description = row["description"]
+                penalty_shot = ("Penalty Shot" in description) if code in ("GOAL", "SHOT", "MISS", "BLOCK") and description is not None else None
+                report_rows.append({"source_index": row["source_index"], "row_id": row["row_id"],
+                    "event_number": integers["event_number"], "period_number": period,
+                    "time_in_period": row["time_in_period"], "time_remaining": row["time_remaining"],
+                    "elapsed_seconds": elapsed, "event_code": code, "reported_strength": row["reported_strength"],
+                    "description": description, "away_members": member_lists["away"], "home_members": member_lists["home"],
+                    "penalty_shot": penalty_shot})
+            _duplicate_ids(report_rows, "event_number", source, "/rows", issues)
+
+    return {"schema_version": 2, "requested_game_id": requested, "inputs": inputs, "game": game,
             "reported_results": results, "roster_records": roster, "boxscore_players": players,
-            "events": events, "shift_records": shifts, "checks": checks, "issues": issues,
-            "uncomputed": ["on_ice_membership", "genuine_5v5_exposure", "attacking_coordinates", "shooting_origins"]}
+            "events": events, "shift_records": shifts, "report_rows": report_rows, "checks": checks, "issues": issues,
+            "uncomputed": ["supported_event_membership", "elapsed_on_ice_membership", "genuine_5v5_exposure",
+                           "attacking_coordinates", "shooting_origins"]}

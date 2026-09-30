@@ -4,7 +4,7 @@ date: 2026-09-29, local time. purpose: account for useful public evidence before
 
 ## corrected omission
 
-the [archived catalogue](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/docs/design/data-sources.md) already named the official play-by-play report as the source of explicit event on-ice lists. we failed to carry that requirement into the new source selection. separating interpretation from reconstruction was appropriate; assuming the four captured sources would suffice was not. the [boundary audit](../issues/event-membership-evidence.md) supplies concrete counterexamples.
+the [archived catalogue](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/docs/design/data-sources.md) already named the official play-by-play report as the source of explicit event on-ice lists. we failed to carry that requirement into the new source selection. separating interpretation from reconstruction was appropriate; assuming the four captured sources would suffice was not. the [boundary audit](../../fixtures/README.md#manually-corroborated-exposure-and-boundary-facts) supplies concrete counterexamples.
 
 the user confirmed adding this report to pr2b. use reported event membership and reconstructed elapsed exposure as separate quantities. no blanket endpoint convention, automatic shift fallback or inference presented as observation.
 

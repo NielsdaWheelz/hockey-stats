@@ -6,7 +6,7 @@ purpose: bounded offline examples for later interpretation and application devel
 
 ## fixture policy and local corpus
 
-03c expands the evidence in two tiers; this policy does not claim those copies already exist:
+03c expands the evidence in two tiers; the case index and copy record state which inputs are actually available:
 
 - **committed fixtures:** a compact set of complete available game capture bundles under `captures/`, with each required four-source season bundle under `references/`. retain ordinary and troublesome games across supported seasons. a few dozen games is a planning estimate, not a quota; select distinct behavior and reuse examples that cover several cases.
 - **larger local corpus:** original raw captures and references in one operator-selected directory outside the git checkout. target all three already-captured seasons after measuring their bytes and available storage. keep large derived outputs and fits separate; a manual copy and existing commands suffice. this corpus supports explicitly selected broad checks, not the default test workload.
@@ -16,6 +16,18 @@ preserve a newly discovered distinct failure before replacing its evidence. copy
 for each retained case, record game id/season, why it exists, source locators, independently checked expected facts or unresolved behavior, and any open issue link. record equivalent failures against an existing case instead of accumulating redundant games. resolved bugs keep their fixtures and facts; remove the resolved issue link when deleting its issue. unavailable originals require a pending-copy issue with their known location. fixture admission preserves evidence, not a claim that the game is valid or must become recoverable.
 
 copy required references too. regenerate path-bound derived corpora and selections locally through existing commands; do not rewrite historical artifacts or depend on symlinks to the drive. verify actual game/source dispositions and detached operation, not just successful command exit. keeping more bytes locally neither authorizes fitting nor creates fresh scientific confirmation. [03c acceptance and copy record](../docs/specs/03c-source-revision.md#offline-evidence-amendment) · [pending work](../docs/issues/offline-source-corpus.md)
+
+## compact case index
+
+each admitted game has six complete source pairs and uses the four-source `20252026` reference bundle. date, teams and exact venue text below were read from `play-by-play/body.bin`; detailed checked facts remain in the admission sections below. these three captures are original fixture snapshots, not the frozen 03b acquisition receipts. the pending-copy issue indexes the additional ordinary cross-season games and distinct failures; none is admitted from an extract or a fresh replacement download.
+
+| game / season, date, teams, venue | purpose and exact locators | checked facts / unresolved behavior |
+|---|---|---|
+| [2025020001](captures/2025020001/) / `20252026`, `2025-10-07`, `CHI/FLA`, `Amerant Bank Arena` | regulation, blocks/teammate blocks, empty net; play-by-play `/plays/2` and `/plays/356`; summary `EVEN STRENGTH` and goalie `EMPTY NET` rows | recorded block ownership is retained; 56 empty-net seconds do not count as genuine 5v5. 37 report-only block types; 2962 supported 5v5 seconds |
+| [2025020006](captures/2025020006/) / `20252026`, `2025-10-08`, `CGY/EDM`, `Rogers Place` | overtime/shootout, goalie gaps and outgoing event membership; play-by-play `/plays/108`, `/plays/195`, `/plays/370`; report `PL-112`, `PL-199`; landing `/summary/scoring/4/goals/0` | timed score is 3–3, final decision 4–3; two other shootout goals lack landing counterparts. goalie gaps remove 35 seconds; 2925 supported 5v5 seconds |
+| [2025021094](captures/2025021094/) / `20252026`, `2026-03-20`, `CAR/TOR`, `Scotiabank Arena` | penalty shot, uniquely recoverable same-clock shots, overlapping shifts, shortened overtime; play-by-play `/plays/164`, `/plays/168`, `/plays/169`, `/plays/304`; report `PL-168`, `PL-172`, `PL-173`; shifts `/data/151`, `/data/152`, `/data/156`, `/data/157`; landing `/summary/scoring/1/goals/1` | penalty shot stays excluded; two wrist shots recover through distinct shooters. overtime lasts 41 seconds; overlapping shifts retain 118 unresolved seconds and 2739 supported 5v5 seconds |
+
+the reference bundle's inventory has 1,312 distinct games; only these three have local fixture snapshots. historical raw receipts, earlier-season references and native own/awarded cases remain pending. absence from this copy is an accessibility gap, not an upstream request failure. the [03c decision](../docs/research/chance-03c/decision.md#offline-copy-and-storage) records the outside-git copy and detached verification.
 
 ## identity and admission
 

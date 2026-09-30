@@ -4,6 +4,8 @@ status: open; interpretation-contract follow-up from 03b.
 
 2026-09-30: the exact `537` / `failed-shot-attempt` non-goal pair is implemented and verified with temporary installed integration checks; wrong pairs remain unknown and no modeled attempt or universal penalty-shot flag is invented. the original affected captures and full-population accounting still require [drive verification](03c-corpus-verification.md); closure remains pending.
 
+offline-evidence review also found `Failed Attempt` in the report's type slot for `2023020955`, `PL-346`. interpretation now retains it as an exact outcome reason, leaving type null. temporary full-pipeline red/green checks passed and were deleted; genuine unknown type tokens remain visible. the complete original case is indexed in [pending copy work](offline-source-corpus.md#pending-original-cases).
+
 the fresh development captures contain `typeCode: 537`, `typeDescKey: failed-shot-attempt`, which interpretation does not classify. one such timed row makes both `timed_goals` checks unavailable under the reviewed completeness rule. preparation then requires matching checks and rejects any timed row whose kind cannot exclude an unaccounted goal. the implementation follows those guards; the source taxonomy contract is incomplete.
 
 raw play reports explicitly record unsuccessful penalty shots in games `2023020955` (api source index 342, period 3/19:57, `PL-346`), `2023020974` (203, 2/17:05, `PL-207`), and `2023021224` (252, 3/04:19, `PL-256`). each report labels the outcome `MISS` / `Penalty Shot, Failed Attempt`. manually counted ordinary goals agree with both sources’ finals: 3–4, 1–6, and 4–3. no conflicting goal total was found.

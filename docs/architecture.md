@@ -103,7 +103,7 @@ original question: for the first completed-season release, must data processing 
 
 user decision: local batch runs “initially -- and always”; assume indefinitely that processing and fitting rely on the local machine and hdd. the user also suggested checkpoints. adopted: the analytical producer runs locally indefinitely, including ingestion, processing, and fitting. public serving remains independent. remote fitting and a planned migration to remote computation are outside the design.
 
-cost: rebuilds and new publications depend on local compute, drive access, and successful execution; long runs can occupy the machine. inspect hardware and benchmark representative work before choosing concurrency, memory budgets, or checkpoint intervals. question 5 subsequently settles operator-triggered execution; scheduling is an optional convenience rather than a requirement.
+cost: rebuilds and new publications depend on local compute, identified input availability, and successful execution; long runs can occupy the machine. inspect hardware and benchmark representative work before choosing concurrency, memory budgets, or checkpoint intervals. question 5 subsequently settles operator-triggered execution; scheduling is an optional convenience rather than a requirement.
 
 recovery design judgment:
 

@@ -1,6 +1,6 @@
 # project brief
 
-status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md), [interpretation](specs/02-interpretation.md) and [reconstruction](specs/02b-reconstruction.md) are reviewed and merged. [corpus/reference admission](specs/02c-corpus.md) is implemented and [verified](specs/02c-verification.md) for local captures; review and merge remain separate. the user confirmed the historical drive remains later work. modeling and the website remain unstarted.
+status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md), [interpretation](specs/02-interpretation.md), [reconstruction](specs/02b-reconstruction.md) and [corpus/reference admission](specs/02c-corpus.md) are reviewed and merged. the user confirmed the historical drive remains later work and chose separate prs for the [chance-model workflow](specs/03a-chance-workflow.md) and real training/scientific acceptance. 03a workflow implementation is fixture-checked on its branch; real training, scientific acceptance and the website remain unstarted.
 
 ## purpose
 
@@ -43,6 +43,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | language responsibility | effect for application behavior; python for numerical work | two environments and an explicit exchange contract; one authoritative implementation per calculation |
 | data fidelity | preserve truly raw responses and correct discovered defects | transformation cannot overwrite evidence or invent missing facts |
 | verification workflow | temporary integration/live tests for initial red/green/refactor, deleted after verification; a later dedicated slice defines a tiny lasting suite | useful fixtures/facts remain; interim changes require recreating checks; scientific model evaluation remains part of the analysis |
+| chance-model progression | specify now; implement the workflow in 03a, admit real training data and assess fitted models in separate 03b | the drive stays deferred; fixture verification cannot establish scientific acceptance |
 
 ## initial product and scope
 
@@ -134,4 +135,4 @@ no further user preference is required to complete this brief. unresolved empiri
 
 this is a website run by one person. use ordinary local commands to acquire data and run python analysis, then explicitly publish a completed sqlite file. stopping the server, replacing that file, restarting and reloading the page is sufficient. save work when recreating it is expensive; rerun cheap steps. add automation or machinery only when it demonstrably reduces recurring work or serves an actual feature. the agreed hockey analysis can be ambitious without making website operation elaborate.
 
-the brief and architecture direction are complete. [the first slice](specs/01-capture.md) is implemented with two admitted example games. later implementation follows specification review and the user's progression decision. outline dependencies without exhaustively specifying empirical research in advance. no trained model or analytical dataset has been produced yet.
+the brief and architecture direction are complete. [the first slice](specs/01-capture.md) is implemented with two admitted example games. later implementation follows specification review and the user's progression decision. outline dependencies without exhaustively specifying empirical research in advance. 03a produces explicitly labeled fixture fits and scored attempts; no scientifically accepted model or player analytical dataset has been produced yet.

@@ -1,6 +1,6 @@
 # external data inventory
 
-status: blocked on the user's detached drive. during pr2c specification the user again confirmed local captures now, drive later; this does not block pr2c's bounded implementation and verification.
+status: blocked on the user's detached drive. during pr03 specification the user again confirmed local captures now, drive later. 02c is merged; this does not block 03a's bounded workflow implementation and verification. separate 03b owns real training-data admission and scientific acceptance.
 
 ## problem and impact
 

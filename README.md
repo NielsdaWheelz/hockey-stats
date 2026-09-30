@@ -2,7 +2,7 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, and audit a season inventory against explicit local captures. modeling, publication and the website follow separately.
+the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, audit a season inventory against explicit local captures, and exercise the specified chance-model workflow. real training and scientific acceptance, publication and the website follow separately.
 
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
@@ -13,6 +13,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr2 specification](docs/specs/02-interpretation.md): offline source interpretation; reconstruction has its own command.
 - [pr2b specification](docs/specs/02b-reconstruction.md): reported event membership, reconstructed exposure and coordinates.
 - [pr2c specification](docs/specs/02c-corpus.md): season inventory, bulk player references and offline corpus accounting.
+- [pr03a specification](docs/specs/03a-chance-workflow.md): chance-model workflow and software verification.
+- [pr03b scope](docs/specs/03b-training-acceptance.md): real corpus admission, training and scientific acceptance; empirical details pending.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
 - [source audit](docs/research/source-audit.md): direct public evidence, omissions corrected and later input dependencies.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
@@ -127,3 +129,13 @@ PY
 ```
 
 the loop stops on the first failed capture so its receipt can be inspected. rerun an audit into a new output directory after acquisition; a present failed capture is evidence to inspect, not an absent directory eligible for silent overwrite. full-season accounting costs per-game json storage and makes the small local sample visibly incomplete. historical admission and scientific assessment remain separate work.
+
+## chance workflow
+
+`hockey-stats-chance` provides separate offline `fit`, `evaluate` and `score` commands. [fixture instructions and source facts](fixtures/chance/README.md) supply explicit selections, the numerical exercise configuration and commands. prepare the locked python environment before running them. no network or external drive is needed for these three-game exercises.
+
+fitting saves two-stage coefficients, origin priors, the fixed forward block kernel, two factual prediction benchmarks and a common joint shooter–goalie reference. scoring reconstructs retrospective reference opportunities: recorded unblocked proxies have point mass; blocks have inferred origin distributions. evaluation reports factual conversion, outcome-blind all-attempt prediction and observed-record likelihood separately. these quantities are not interchangeable.
+
+`model.json` is written last after numerical success; it scores without training files or `fit.json`. `fit.json` records convergence or failure. scoring requires `score.json` written last with the matching `attempts.jsonl` digest. assessment never changes a completed fit. output paths must be new, outside inputs, with existing parents; manually remove cheap interrupted outputs and rerun into new paths. argument syntax/help exits `2`/`0`; input, numerical and filesystem failures exit `1`; completed artifacts with ordinary evidence gaps exit `0`.
+
+fixture artifacts remain explicitly labeled `fixture_exercise`, with scientific assessment `not_performed`. the three captures do not establish full-season coverage, source-origin accuracy, calibration or player skill. [03b](docs/specs/03b-training-acceptance.md) owns real-data admission and scientific judgment; [fixture verification](fixtures/chance/README.md) records the software evidence and its limits.

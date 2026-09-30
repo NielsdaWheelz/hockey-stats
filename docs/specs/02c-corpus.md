@@ -1,6 +1,6 @@
 # pr2c — season corpus and player references
 
-status: implemented and verified under the user's explicit implementation authorization; review and merge remain separate. [verification](02c-verification.md). pr2b is reviewed and merged. the user confirmed local captures now, historical drive later. [brief](../brief.md), [plan](../plan.md) and [source audit](../research/corpus-reference-audit.md) supply scope and evidence.
+status: reviewed and merged in `90f5c1a`; [verification](02c-verification.md). the user confirmed local captures now, historical drive later. [brief](../brief.md), [plan](../plan.md) and [source audit](../research/corpus-reference-audit.md) supply scope and evidence. real chance-model training and scientific acceptance belong to separate 03b, following 03a's workflow implementation.
 
 ## target and boundary
 

@@ -1,6 +1,6 @@
 # implementation plan
 
-status: 01, [02a](specs/02-interpretation.md), [02b](specs/02b-reconstruction.md), [02c](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b research/specification is underway; the [external audit](research/external-corpus-audit.md) is complete for its corpus decision. the user chose fresh three-season captures; acquisition and training have not started. subsequent work requires the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled constraints.
+status: 01, [02a](specs/02-interpretation.md), [02b](specs/02b-reconstruction.md), [02c](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is implemented and verified locally; its scientific decision rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [external audit](research/external-corpus-audit.md) documents the replacement corpus. subsequent work requires the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled constraints.
 
 this plan builds the first useful product. the [product roadmap](roadmap.md) proposes v2+ capabilities and their ordering; its later milestones are not requirements for these slices.
 

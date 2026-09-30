@@ -1,7 +1,7 @@
 # project instructions
 
 - write new prose in lowercase. preserve exact identifiers, source titles, quotations, and historical copies when fidelity requires it.
-- the user controls progression between research, architecture, slice specifications, and implementation. capture (01), interpretation (02a), reconstruction (02b), corpus/reference admission (02c) and chance workflow (03a) are reviewed and merged. pr03b research/specification is authorized; bulk acquisition, implementation and real training remain unstarted. the user chose fresh three-season captures after the external-data audit; old data remains preserved.
+- the user controls progression between research, architecture, slice specifications, and implementation. capture (01), interpretation (02a), reconstruction (02b), corpus/reference admission (02c) and chance workflow (03a) are reviewed and merged. 03b is implemented and verified locally; its scientific decision rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the user chose fresh three-season captures after the external-data audit; old data remains preserved.
 - read `docs/brief.md` and `docs/research/council.md` before proposing further work.
 - `docs/brief.md` is authoritative for settled product choices; dated research and council recommendations do not reopen them. `docs/architecture.md` tracks the current dependency-ordered architecture interview and decisions.
 - the user wants a useful hockey statistics product. do not turn it into a teaching application or curriculum.

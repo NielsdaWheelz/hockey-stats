@@ -55,7 +55,7 @@ their original parent [research readme](https://github.com/NielsdaWheelz/hockey-
 
 ## concrete findings
 
-two confirmed problems constrain salvage: [raw provenance and invented handedness](../issues/legacy-raw-provenance.md), and fixture fidelity, resolved for the new system through [fresh fixture admission](../../fixtures/README.md). the [external audit](../research/external-corpus-audit.md) confirms stored-data defects; [remaining inventory](../issues/external-data-inventory.md) concerns preservation before any separately authorized cleanup.
+two confirmed problems constrain salvage: [raw provenance and invented handedness](../research/external-corpus-audit.md), and fixture fidelity, resolved for the new system through [fresh fixture admission](../../fixtures/README.md). the [external audit](../research/external-corpus-audit.md) confirms stored-data defects; [remaining inventory](../issues/external-data-inventory.md) concerns preservation before any separately authorized cleanup.
 
 the old corpus contains 11 curated games, one labeled live and ten synthetic, plus a separate failure-injection game. all 79 manifest hashes verify. several files from the live-labeled game are nevertheless transformed. the play-by-play and shifts appear to use an untouched capture path in the inspected code; this is evidence of a candidate, not independent proof of capture history.
 

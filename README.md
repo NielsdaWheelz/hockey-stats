@@ -2,7 +2,7 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, audit a season inventory against explicit local captures, and exercise the specified chance-model workflow. real training and scientific acceptance, publication and the website follow separately.
+the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, audit a season inventory against explicit local captures, and exercise the specified chance-model workflow. 03b has completed fresh three-season acquisition, real chronological development/confirmation and scientific comparison/recovery. [the scientific decision](docs/research/chance-03b/decision.md) rejects the declared all-attempt use; 04 is withheld. publication and the website follow separately.
 
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
@@ -140,3 +140,21 @@ fitting saves two-stage coefficients, origin priors, the fixed forward block ker
 `model.json` is written last after numerical success; it scores without training files or `fit.json`. `fit.json` records convergence or failure. scoring requires `score.json` written last with the matching `attempts.jsonl` digest. assessment never changes a completed fit. output paths must be new, outside inputs, with existing parents; manually remove cheap interrupted outputs and rerun into new paths. argument syntax/help exits `2`/`0`; input, numerical and filesystem failures exit `1`; completed artifacts with ordinary evidence gaps exit `0`.
 
 fixture artifacts remain explicitly labeled `fixture_exercise`, with scientific assessment `not_performed`. the three captures do not establish full-season coverage, source-origin accuracy, calibration or player skill. [03b](docs/specs/03b-training-acceptance.md) owns real-data admission and scientific judgment; [fixture verification](fixtures/chance/README.md) records the software evidence and its limits.
+
+## real chance research and explicit recovery
+
+[the frozen 03b protocol](docs/research/chance-03b/protocol.md) defines the chronological study, five recipes, reference population and acceptance criteria; [the scientific decision](docs/research/chance-03b/decision.md) owns the conclusion. fits/assessments/scores retain `scientific_assessment: not_performed`: native commands perform their named numerical operation, while the written decision supplies the scientific judgment. every chance-command output identifies its executing git/python/numpy/scipy/lock identity separately from its consumed model digest.
+
+run the retained comparison from `analysis/` in the locked environment:
+
+```sh
+.venv/bin/python research/chance_review.py \
+  --evidence /Volumes/Expansion/hockey-stats/chance/03b-20260930/inputs/confirmation-evidence.json \
+  --out /Volumes/Expansion/hockey-stats/chance/03b-20260930/review/new-comparison
+```
+
+its evidence file names the immutable protocol, saved compatible research assessments, optional scored streams with a declared reference, and 2,000 paired game draws with a fixed integer seed. comparison checks input/model/dependency identities, populations, coverage, fixed bins and lockstep scored keys/statuses. it pools loss sums over counts, preserves missing/undefined intervals and spatial totals, then writes finite `comparison.json` after figures succeed. it does not acquire, fit, choose thresholds or issue a verdict. outputs must be new; preserve expensive models and frozen evidence, rerun cheap operations into another named directory.
+
+fitting writes `checkpoint.json` atomically after each completed start and every 25 nonterminal accepted em updates. optional `--resume /abs/old-fit/checkpoint.json` continues accepted numerical state into a **new** `--out` directory. use the identical selection, configuration (including the iteration ceiling), original clean git revision and pinned numerical environment. even a documentation-only git commit changes the identity; use an isolated checkout of the saved revision. preparation, conversion and benchmarks recompute; an unfinished inner solve and at most 25 accepted updates may repeat. dirty exploratory fits may complete, but their checkpoints cannot resume. preserve failed diagnostics; no automatic retry, changed budget or acceptance of unconverged state is provided.
+
+for a mounted external drive, use the existing native commands and explicit sibling `inputs/`, `fits/`, `assessments/`, `scores/`, `review/` paths described in [03b](docs/specs/03b-training-acceptance.md). inventory ids and exact input digests come from admission; fixtures and archived projections cannot substitute. current research artifacts are retrospective revised-data evidence, not forecasts available at their historical game dates. any tuned revision after confirmation needs separately justified evidence rather than another claim of untouched confirmation on the same games.

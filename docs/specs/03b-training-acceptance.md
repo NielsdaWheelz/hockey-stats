@@ -1,6 +1,6 @@
 # pr03b — training and scientific acceptance
 
-status: implementation, bulk acquisition, real fitting and scientific assessment authorized on 2026-09-30; development underway. [03a](03a-chance-workflow.md) is reviewed and merged. the user chose fresh captures of 2023–24 through 2025–26 after the [external audit](../research/external-corpus-audit.md). [brief](../brief.md) · [plan](../plan.md)
+status: implemented and verified locally on 2026-09-30. [the scientific decision](../research/chance-03b/decision.md) rejects the declared all-attempt use; the conditional final fit and 04 handoff are withheld. user review and merging remain separate. [03a](03a-chance-workflow.md) is reviewed and merged. the user chose fresh captures of 2023–24 through 2025–26 after the [external audit](../research/external-corpus-audit.md). [brief](../brief.md) · [plan](../plan.md)
 
 ## target and boundary
 

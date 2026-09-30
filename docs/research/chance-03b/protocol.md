@@ -1,6 +1,6 @@
 # chance-03b protocol
 
-status: development draft. implementation and fresh acquisition authorized on 2026-09-30. confirmation has not begun. numerical material criteria will be resolved from development evidence and scientific meaning, then committed before confirmation; this draft grants no acceptance.
+status: development draft. implementation and fresh acquisition authorized on 2026-09-30. confirmation has not begun. practical gates are declared below; primary choice, consequential bin ids and exact evidence identities remain to be committed before confirmation. this draft grants no acceptance.
 
 ## claims and evidence
 
@@ -19,6 +19,8 @@ inspect source integrity uniformly before fitted confirmation performance. recor
 the first eight ids in the admitted 2023–24 inventory are the deterministic preparation/fitting measurement selection. these games are capacity evidence, not season validation. the initial configuration copies the existing fixture numerical anchor solely to measure the unchanged estimator. record preparation, fit, assessment and scoring wall time, peak resident memory and artifact bytes; distinguish profiled runs from ordinary execution. profile demonstrated costs before changing implementation. no season-scale capacity claim follows by multiplying fixture timing.
 
 if measured fit replacement cost warrants it, resolve completed-em-boundary recovery before launching expensive windows. any recovery must bind inputs, configuration and implementation; an interrupted inner optimizer may restart. no job engine or automatic retry is implied.
+
+the first complete 2023–24 anchor fit took 1,602.69 seconds with 861,356,032 bytes peak resident memory. its uniform/frequency starts converged after 480/419 em iterations, close to the original ceiling of 500. preserve that original fit as measured evidence. before further costly fits, add an explicit accepted-em/start checkpoint with exact input/config/implementation binding. use new `recipe-*.json` configurations with an em ceiling of 2,000, then rerun all five development candidates under one clean implementation. this changes the computational ceiling, not the likelihood, penalties or convergence tolerances; it does not authorize accepting unconverged states. confirmation carries the same recipe without changing ceilings after seeing its results.
 
 ## development choices to resolve
 

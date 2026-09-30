@@ -1,6 +1,6 @@
 # pr03e — revised training and assessment
 
-status: **stub; not ready for implementation or training.** the full protocol depends on [03c](03c-source-revision.md) source coverage and the reviewed [03d candidate](03d-chance-revision.md). real execution needs the admitted corpus and drive. this outline supplies no numerical acceptance thresholds. [plan](../plan.md)
+status: **stub; not ready for implementation or training.** the full protocol depends on [03c](03c-source-revision.md) source coverage and the reviewed [03d candidate](03d-chance-revision.md). real execution needs the admitted corpus, from the drive or verified local copies, and space for outputs. this outline supplies no numerical acceptance thresholds. [plan](../plan.md)
 
 ## purpose and ownership
 

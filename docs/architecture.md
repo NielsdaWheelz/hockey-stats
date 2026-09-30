@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; the user subsequently authorized [slice specifications](plan.md) and implementation of [01 capture](specs/01-capture.md), now complete. the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
+status: architecture direction completed in commit `9ff024a`; the user subsequently authorized [slice specifications](plan.md) and implementation of [01 capture](specs/01-capture.md) and [02a interpretation](specs/02-interpretation.md), now complete. the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
 
 ## operating scale
 

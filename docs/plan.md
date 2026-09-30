@@ -1,6 +1,6 @@
 # implementation plan
 
-status: 01 is implemented, reviewed and merged. the user authorized pr2 specification and chose to split interpretation from reconstruction; [02a](specs/02-interpretation.md) is specified, not authorized for implementation. later slices still require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled product and operating constraints.
+status: 01 is implemented, reviewed and merged. following the user's authorization, [02a](specs/02-interpretation.md) is implemented and verified in its separate branch. interpretation remains separate from reconstruction. later slices still require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled product and operating constraints.
 
 this plan builds the first useful product. the [product roadmap](roadmap.md) proposes v2+ capabilities and their ordering; its later milestones are not requirements for these slices.
 

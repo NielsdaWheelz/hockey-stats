@@ -1,0 +1,13 @@
+[project]
+name = "hockey-stats"
+version = "0.1.0"
+description = "offline interpretation of attributed hockey captures"
+requires-python = ">=3.14,<3.15"
+dependencies = []
+
+[project.scripts]
+hockey-stats-interpret = "hockey_stats.cli:main"
+
+[build-system]
+requires = ["uv_build==0.11.28"]
+build-backend = "uv_build"

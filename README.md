@@ -2,7 +2,7 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the first implemented slice preserves source responses for one explicitly selected game. modeling, publication and the website follow separately.
+the implemented slices preserve source responses and interpret one explicitly selected game's captures offline. modeling, publication and the website follow separately.
 
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
@@ -41,4 +41,21 @@ exit `0` means all four requests returned complete 2xx bodies. exit `1` includes
 
 downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains two fresh, inspected example games with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
 
-later slices remain outlines until their inputs and requirements are concrete. the brief supersedes earlier research recommendations where the user has resolved a choice.
+## interpretation
+
+prepare the python package once with uv and the pinned ordinary cpython version, then invoke its installed command directly. the output parent must exist; the output file must be new and outside the capture directory:
+
+```sh
+mkdir -p var/interpreted
+cd analysis
+uv sync --locked
+.venv/bin/hockey-stats-interpret --capture ../fixtures/captures/2025020001 --out ../var/interpreted/2025020001.json
+```
+
+the command reads four fixed capture records, verifies body lengths and digests, and interprets supported completed regular-season json sources. it retains source order, missing values, reported results, event locations and shift records, with source locators and named reconciliations. the html report remains manually inspected reference evidence. no network or external drive is needed.
+
+exit `0` means at least one core source passed game identity, type and state admission, after the document was written. collection gaps and reconciliation mismatches remain explicit in that document. if neither core source is usable but the requested id is known, a diagnostic is saved and exit is `1`. malformed capture contracts, conflicting admitted identities and filesystem failures exit `1` without a successful document; invalid argument syntax exits `2`. `--help` exits `0`.
+
+captures remain unchanged. reported coordinates are not inferred shooting origins; shift arithmetic is not on-ice membership or genuine-5v5 exposure. available boxscore groups remain inspectable when a sibling group is unavailable; located issues identify incomplete lists. interpretation records the commit, changes under `analysis/` and python version. dirty or unidentified results are development outputs, not reproducible solely from a commit. remove an interrupted output manually and rerun into a new file. one fully loaded game document favors inspection over bulk storage; sqlite remains the later publication format. json escapes non-ascii text while preserving decoded strings.
+
+temporary end-to-end checks are deleted after verification. the inspected fixture facts remain; changes must recreate checks until slice 07. later slices remain outlines until their inputs and requirements are concrete. the brief supersedes earlier research recommendations where the user has resolved a choice.

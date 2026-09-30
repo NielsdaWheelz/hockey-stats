@@ -11,6 +11,8 @@ the implemented slices preserve source responses and interpret one explicitly se
 - [capability inventory](docs/product-inventory.md): skater/goalie components, cards and supporting views; confirmed scope versus candidates.
 - [first slice](docs/specs/01-capture.md): faithful source capture and a compact offline corpus.
 - [pr2 specification](docs/specs/02-interpretation.md): offline source interpretation; on-ice reconstruction follows separately.
+- [pr2b specification](docs/specs/02b-reconstruction.md): reported event membership, reconstructed exposure and coordinates; implementation not yet authorized.
+- [source audit](docs/research/source-audit.md): direct public evidence, omissions corrected and later input dependencies.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
 - [product survey](docs/research/product-survey.md): useful products, features, philosophies, and user friction.
 - [statistical methods](docs/research/statistical-methods.md): what the different models actually estimate.

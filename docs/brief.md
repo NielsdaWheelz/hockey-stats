@@ -1,6 +1,6 @@
 # project brief
 
-status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. the user subsequently authorized [architecture and statistical design](architecture.md), then implementation of [the first capture slice](specs/01-capture.md), now reviewed and merged. [pr2 specification](specs/02-interpretation.md) is authorized; its implementation, modeling and the website remain unstarted.
+status: product direction settled through discussion on 2026-09-29. this is the authoritative brief. explicit user choices and delegated implementation judgments are distinguished below. [capture](specs/01-capture.md) and [interpretation](specs/02-interpretation.md) are reviewed and merged. [reconstruction](specs/02b-reconstruction.md) is specified, including the user-confirmed official event on-ice report; its implementation, modeling and the website remain unstarted.
 
 ## purpose
 

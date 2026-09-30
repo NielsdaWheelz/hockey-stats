@@ -1,6 +1,6 @@
 # pr2 — interpret captured game records
 
-status: implemented and verified, 2026-09-29, following the user's implementation authorization. pr1 is merged. the user chose local captures now, the external corpus later, and separate prs for source interpretation and on-ice reconstruction. [brief](../brief.md) and [architecture](../architecture.md) remain authoritative.
+status: implemented, verified, reviewed and merged as pr2a (`3355cb0`), 2026-09-29. the user chose local captures now, the external corpus later, and separate prs for source interpretation and on-ice reconstruction. [brief](../brief.md) and [architecture](../architecture.md) remain authoritative.
 
 ## target and boundary
 

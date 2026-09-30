@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; the user subsequently authorized [slice specifications](plan.md) and implementation of [01 capture](specs/01-capture.md) and [02a interpretation](specs/02-interpretation.md), now complete. the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
+status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md) and [02a interpretation](specs/02-interpretation.md) are reviewed and merged. the user has authorized research and specification of 02b reconstruction, not its implementation. the [product brief](brief.md) remains authoritative. later detailed specifications and empirical verification remain outstanding.
 
 ## operating scale
 
@@ -281,6 +281,8 @@ three distinctions belong in the scientific contracts:
 - deterministic reconstruction is not necessarily direct observation. preserve the rule and evidence supporting event ordering, on-ice assignments, and normalized coordinates; inference remains attributable even inside the interpreted hockey records.
 - shared hockey facts and analysis eligibility differ. source-listed players, dressed players, and inferred on-ice membership are distinct. preserve skater counts and goalie presence; each analysis applies its own declared population.
 - source absence, parsing failure, missing fields, unresolved reconstruction, and analytical exclusions differ. missing shifts cannot become zero exposure. coverage needs the relevant denominator, not a single flag claiming a season is complete.
+
+pr2b source decision: the user confirmed the official per-event on-ice report as an additional input. [fixture research](issues/event-membership-evidence.md) falsified a universal shift-boundary rule. use reported event membership and separately reconstructed elapsed membership; expose disagreements and unavailable joins. [the specification](specs/02b-reconstruction.md) defines this contract; [the source audit](research/source-audit.md) records other public evidence and its next consumer. this adds one necessary source/parser, not a reconciliation platform.
 
 material costs: python must have explicit data contracts, useful errors, and meaningful reconstruction tests as well as statistical checks. two environments still require input/output compatibility and provenance. a website feature needing new hockey facts requires extending published outputs. effect cannot provide static type guarantees inside the python process.
 

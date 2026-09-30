@@ -1,0 +1,35 @@
+# source audit for reconstruction and later models
+
+date: 2026-09-29, local time. purpose: account for useful public evidence before choosing another inference rule. this is a bounded audit, not a claim that every nhl endpoint has been surveyed. source availability is not historical coverage or scientific validation.
+
+## corrected omission
+
+the [archived catalogue](https://github.com/NielsdaWheelz/hockey-stats-legacy/blob/1d45312ed4a2d797150e377c87ecdba231b5ebfc/docs/design/data-sources.md) already named the official play-by-play report as the source of explicit event on-ice lists. we failed to carry that requirement into the new source selection. separating interpretation from reconstruction was appropriate; assuming the four captured sources would suffice was not. the [boundary audit](../issues/event-membership-evidence.md) supplies concrete counterexamples.
+
+the user confirmed adding this report to pr2b. use reported event membership and reconstructed elapsed exposure as separate quantities. no blanket endpoint convention, automatic shift fallback or inference presented as observation.
+
+## inputs and their next consumer
+
+| evidence | useful fact / decision | limit and cost |
+|---|---|---|
+| [official play report](https://www.nhl.com/scores/htmlreports/20252026/PL020001.HTM) | add in 02b: event player lists, clock/type/description and strength observations | one additional capture and focused parser; ambiguous cross-source matches remain unavailable |
+| existing play-by-play/boxscore bodies | expose game-scoped sweater numbers and team abbreviations in 02b; preserve period markers, goalie/situation evidence, event order and locations | already captured, so no new download is needed to recover these fields; current output omits the identity fields needed for matching |
+| [player landing](https://api-web.nhle.com/v1/player/8473419/landing) | 02c: capture and interpret birth date and shoots/catches for the selected corpus; 03–04 own their analytical use | absent from the current game roster. never infer them from a name/position; current team is not historical game membership. derive age at a declared analytical date, not retrieval time |
+| [schedule](https://api-web.nhle.com/v1/schedule/2025-10-07) | 02c: captured expected-game inventory and missing-game denominators, before league/season fits | not needed for an explicit one-game command. do not manufacture game ids from a numeric range; retain schedule state and retrieval provenance |
+| [playing roster](https://www.nhl.com/scores/htmlreports/20252026/RO020001.HTM) | 04 owns coach-source admission before evaluating coach context; later availability/context work owns scratch interpretation | this inspected report does not provide handedness. scratch status does not establish injury reason; reported coach names need attributed identity handling. no roster-report dependency for 02b or 03 |
+| [event summary](https://www.nhl.com/scores/htmlreports/20252026/ES020001.HTM), [visitor shifts](https://www.nhl.com/scores/htmlreports/20252026/TV020001.HTM), [home shifts](https://www.nhl.com/scores/htmlreports/20252026/TH020001.HTM) | 02b: selected manual fixture checks; 02c: selected corpus corroboration. no planned duplicate production parser | overlapping nhl exports, not independent ground truth. reported even-strength totals need not equal genuine 5v5 with both goalies present; add a parser only for a demonstrated missing fact |
+| [moneypuck downloads](https://moneypuck.com/data.htm) | later comparator for features, counts, opportunity values and sensitivity | transformed data and another model, not raw evidence or an oracle. shot downloads omit blocks; use the stated credit/noncommercial terms, and examine other use before publication |
+| [nhl edge](https://www.nhl.com/nhl-edge/nhl-edge-whats-new) | later descriptive skating, shooting and zone-time context | public summaries do not establish access to complete movement trajectories or tracked passing/entries. preserve their population/units rather than turn descriptive percentiles into ability effects |
+| [documented goal replays](https://rentosaijo.github.io/nhlscraper/reference/replay.html) | candidate later movement/coordinate spot checks | public tooling describes goal-event puck/player snapshots. our direct sprite request returned 403; access and coordinate semantics remain unverified. outcome-selected clips cannot supply representative shot training data |
+
+the schedule sample returned seven days and 48 games, including the three opening-day regular-season games. player profiles and the additional reports were read directly; no new source has been admitted to the production fixture corpus in this research phase. the goal-replay candidate comes from the package author's documentation and [implementation](https://github.com/RentoSaijo/nhlscraper/blob/main/R/Event.R), not a successful local capture.
+
+these are the recommended boundaries in the [v1 plan](../plan.md), not postponed wholesale to v2. 02c now names the corpus/reference work previously hidden in “admitted scientific corpus”; it is planned, not specified or authorized for implementation. 04 must explicitly consider whether coach evidence is needed for its contextual candidates before fitting them. that does not preselect a coach coefficient or a new public coach product. if no candidate needs it, document why and defer the parser. scratch availability views are not a v1 requirement.
+
+## consume existing evidence before adding sources
+
+the captures retain full responses. selecting a smaller interpreted schema has not destroyed omitted upstream fields. score/time, preceding events, faceoffs and shift starts can support later feature construction without another feed. distinguish pre-event score from a goal's post-event snapshot; distinguish all shift starts from faceoff starts. their precise analytical features belong in 03–04, not a speculative feature store in 02b.
+
+no newly inspected source supplies a representative set of blocked shooting origins or complete passing/entry/exit tracking. those remain inference or separately sourced tracking problems. do not call a normalized block location a shooting origin, or derive a tracked action merely because a card has a slot for it.
+
+the review rule is small: each next slice identifies the facts it needs, checks whether a direct source already supplies them, then names the source or the inference and its limits. this is a design question, not a new ingestion framework. 02b pays for one necessary source/parser; future reference and corpus work stays with its actual consumers.

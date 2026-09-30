@@ -6,11 +6,11 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## next slices
 
-03d is implemented and fixture-verified on its branch, awaiting review; [verification](research/chance-03d/verification.md) records the acceptance evidence. 03e–07 remain **stubs**. the user controls progression; real fitting, scientific assessment and later implementation require separate authorization.
+03d is implemented and fixture-verified; [verification](research/chance-03d/verification.md) records the acceptance evidence. 03e–07 remain **stubs**. the user controls progression; real fitting, scientific assessment and later implementation require separate authorization.
 
 | slice | responsibility | dependency / completion boundary |
 |---|---|---|
-| [03d chance revision](specs/03d-chance-revision.md) | type/context-aware joint chance model, seasonal execution effects and explicit reference using existing workflow | implemented and fixture-verified; review pending; software behavior established without scientific support |
+| [03d chance revision](specs/03d-chance-revision.md) | type/context-aware joint chance model, seasonal execution effects and explicit reference using existing workflow | implemented and fixture-verified; software behavior established without scientific support |
 | [03e training/assessment](specs/03e-training-assessment.md) | real development, fits and a written scientific judgment | admitted corpus, local storage and reviewed protocol; success is not guaranteed |
 | [04 player attribution](specs/04-player-attribution.md) | history-informed 5v5 creation/suppression, spatial effects, uncertainty and observed evidence | scientifically supported chance values and compatible exposure |
 | [05 publication](specs/05-publication.md) | python sqlite export, effect read contract, explicit activation and one rollback database | agreed analytical/view contract; labeled fixture outputs can precede scientific acceptance |

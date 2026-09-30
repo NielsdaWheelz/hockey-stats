@@ -1,6 +1,6 @@
 # pr03d — revised chance model
 
-status: **implemented and fixture-verified on the 03d branch; awaiting review.** the user authorized implementation and compact fixture verification on 2026-09-30; real fitting remains separately authorized 03e work. 03c is reviewed and merged in `fa61454`. [software verification](../research/chance-03d/verification.md) · [source evidence](../research/chance-03c/decision.md) · [input audit](../research/model-input-audit.md) · [03e assessment](03e-training-assessment.md)
+status: **complete: implemented and fixture-verified; scientific assessment remains separate.** the user authorized implementation and compact fixture verification on 2026-09-30; real fitting remains separately authorized 03e work. 03c is reviewed and merged in `fa61454`. [software verification](../research/chance-03d/verification.md) · [source evidence](../research/chance-03c/decision.md) · [input audit](../research/model-input-audit.md) · [03e assessment](03e-training-assessment.md)
 
 ## target and boundary
 

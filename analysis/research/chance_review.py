@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import math
 import sys
+import textwrap
 from collections import Counter
 from contextlib import ExitStack
 from itertools import zip_longest
@@ -364,6 +365,7 @@ def ratio_interval(numerators, denominators, seed):
     return {
         "estimate": estimate,
         "count": int(total),
+        "contributing_games": int(np.count_nonzero(denominators)),
         "interval": None
         if undefined
         else np.percentile(sampled, [2.5, 97.5], method="linear").tolist(),
@@ -410,10 +412,125 @@ def assessment_review(entry, seed):
         ),
         "overall metric/coverage population mismatch",
     )
-    for group in document["groups"].values():
-        require(isinstance(group, list), "expected subgroup summaries")
+    groups = document["groups"]
+    require(
+        set(groups)
+        == {"season", "score", "role", "home_away", "shot_type", "actor_evidence"},
+        "native subgroup categories missing or unexpected",
+    )
+    for category, group in groups.items():
+        require(
+            isinstance(group, list) and bool(group),
+            "expected nonempty native subgroup summaries",
+        )
         for row in group:
             validate_metrics(row["metrics"])
+        if category != "actor_evidence":
+            values = [row["value"] for row in group]
+            require(
+                all(
+                    isinstance(value, str)
+                    or (category == "shot_type" and value is None)
+                    for value in values
+                )
+                and len(set(values)) == len(values),
+                "invalid or duplicate subgroup labels",
+            )
+    fixed_domains = {
+        "score": {"trailing", "tied", "leading"},
+        "role": {"F", "D", "unknown"},
+        "home_away": {"home", "away"},
+    }
+    for category, expected in fixed_domains.items():
+        require(
+            {row["value"] for row in groups[category]} == expected,
+            f"{category}: native subgroup entries missing or unexpected",
+        )
+    # admission establishes this season/game-id relation; preserve zero-event seasons too.
+    seasons = {gid[:4] + str(int(gid[:4]) + 1) for gid in document["game_dates"]}
+    require(
+        {row["value"] for row in groups["season"]} == seasons,
+        "selected season subgroup missing or unexpected",
+    )
+    actor_pairs = (("u", "shooter"), ("r", "shooter"), ("r", "goalie"))
+    actor_keys = [
+        (row["stage"], row["actor"], row["value"]) for row in groups["actor_evidence"]
+    ]
+    expected_actors = {
+        (stage, actor, basis)
+        for stage, actor in actor_pairs
+        for basis in ("seen", "unseen")
+    }
+    require(
+        len(actor_keys) == 6 and set(actor_keys) == expected_actors,
+        "native stage-specific actor groups missing or duplicated",
+    )
+    partitions = [
+        groups[category] for category in ("season", "score", "role", "home_away")
+    ]
+    partitions.extend(
+        [
+            row
+            for row in groups["actor_evidence"]
+            if (row["stage"], row["actor"]) == (stage, actor)
+        ]
+        for stage, actor in actor_pairs
+    )
+    for partition in partitions:
+        for population, names in POPULATIONS.items():
+            for name in names:
+                for key in ("count", "goals"):
+                    require(
+                        sum(row["metrics"][population][name][key] for row in partition)
+                        == metrics[population][name][key],
+                        "subgroup population does not conserve overall count/goals",
+                    )
+                for key in (
+                    "log_loss_sum",
+                    "brier_score_sum",
+                    "predicted_probability_sum",
+                ):
+                    require(
+                        agrees(
+                            math.fsum(
+                                row["metrics"][population][name][key]
+                                for row in partition
+                            ),
+                            metrics[population][name][key],
+                        ),
+                        "subgroup probability/loss sums do not reconcile",
+                    )
+    shot_types = groups["shot_type"]
+    require(
+        any(row["value"] is None for row in shot_types), "missing shot-type null group"
+    )
+    for row in shot_types:
+        require(
+            row["metrics"]["all_attempt_outcome_blind"]["candidate_all"]["count"]
+            == row["metrics"]["unblocked_conversion"]["candidate_r"]["count"],
+            "shot-type groups must contain only unblocked attempts",
+        )
+    for name in POPULATIONS["unblocked_conversion"]:
+        for key in ("count", "goals"):
+            require(
+                sum(
+                    row["metrics"]["unblocked_conversion"][name][key]
+                    for row in shot_types
+                )
+                == metrics["unblocked_conversion"][name][key],
+                "shot-type groups do not conserve unblocked count/goals",
+            )
+        for key in ("log_loss_sum", "brier_score_sum", "predicted_probability_sum"):
+            require(
+                agrees(
+                    math.fsum(
+                        row["metrics"]["unblocked_conversion"][name][key]
+                        for row in shot_types
+                    ),
+                    metrics["unblocked_conversion"][name][key],
+                ),
+                "shot-type conversion probability/loss sums do not reconcile",
+            )
     for name in ("all", "blocked", "unblocked"):
         saved = metrics["observed_record_likelihood"][name]
         for key in ("count", "negative_log_likelihood_sum"):
@@ -774,8 +891,14 @@ def sensitivity_review(entries, reference_label):
                     for key in model["config"]
                     if model["config"][key] != reference_model["config"][key]
                 ],
-                "reference_weights_equal": model["reference"]
-                == reference_model["reference"],
+                "reference_weights_equal": {
+                    (pair["shooter_id"], pair["goalie_id"]): pair["weight"]
+                    for pair in model["reference"]
+                }
+                == {
+                    (pair["shooter_id"], pair["goalie_id"]): pair["weight"]
+                    for pair in reference_model["reference"]
+                },
                 "training_selection_equal": model["selection"]
                 == reference_model["selection"],
                 "model_digest_equal": entry["document"]["model"]["sha256"]
@@ -886,6 +1009,26 @@ def save_figures(assessments, sensitivity, output):
         )
     if sensitivity is None:
         return figures
+    reference_notes = ["each model uses its own empirical joint training reference."]
+    for comparison in sensitivity["comparisons"]:
+        same_training = comparison["training_selection_equal"]
+        same_weights = comparison["reference_weights_equal"]
+        if same_training and same_weights:
+            note = "matched training selection and reference weights; model/refitting sensitivity"
+        elif same_weights:
+            note = "changed training selection; matched reference weights; refitting effects"
+        elif same_training:
+            note = "matched training selection; changed reference weights; model and reference effects are combined"
+        else:
+            note = "changed training selection and reference weights; refitting and reference effects are combined"
+        kernel = "kernel changed" if comparison["kernel_changed"] else "kernel matched"
+        reference_notes.append(
+            f"{comparison['label']} versus {comparison['reference_label']}: {note}; {kernel}."
+        )
+    reference_caption = "\n".join(
+        textwrap.fill(note, width=135) for note in reference_notes
+    )
+    caption_height = 0.15 * (4 + reference_caption.count("\n"))
     maps = sensitivity["spatial_opportunity_mass"]
     centers = np.asarray(sensitivity["grid"]["centers"])
     reference = next(
@@ -919,13 +1062,18 @@ def save_figures(assessments, sensitivity, output):
         figure, axes = plt.subplots(
             2,
             len(maps),
-            figsize=(5 * len(maps), 6),
+            figsize=(5 * len(maps), 5 + caption_height),
             squeeze=False,
             sharex=True,
             sharey=True,
         )
         figure.subplots_adjust(
-            left=0.08, bottom=0.2, right=0.84, top=0.91, hspace=0.6, wspace=0.3
+            left=0.08,
+            bottom=(caption_height + 0.25) / (5 + caption_height),
+            right=0.84,
+            top=0.91,
+            hspace=0.6,
+            wspace=0.3,
         )
         rendered = None
         for i, name in enumerate(("blocked", "unblocked")):
@@ -982,7 +1130,8 @@ def save_figures(assessments, sensitivity, output):
             0.015,
             0.02,
             caption
-            + "\npoint estimates of standardized values; no origin accuracy or causal attribution. reference, kernel and fitting differences are recorded in comparison.json.",
+            + "\npoint estimates of standardized values; no origin accuracy or causal attribution.\n"
+            + reference_caption,
             fontsize=8,
         )
         filename = "spatial-mass-changes.png" if difference else "spatial-mass.png"
@@ -1002,7 +1151,9 @@ def save_figures(assessments, sensitivity, output):
                 else "no valued events in either population",
             }
         )
-    figure, axes = plt.subplots(1, 2, figsize=(12, 4), sharex=True, sharey=True)
+    figure, axes = plt.subplots(
+        1, 2, figsize=(12, 3.4 + caption_height), sharex=True, sharey=True
+    )
     measures = ("mean", "mean_absolute", "root_mean_square", "maximum_absolute")
     extent = 0.0
     for column, name in enumerate(("blocked", "unblocked")):
@@ -1036,13 +1187,15 @@ def save_figures(assessments, sensitivity, output):
             axes[column].legend(fontsize=8)
     extent = extent * 1.1 or 0.001
     axes[0].set_xlim(-extent, extent)
+    axes[0].set_xticks(np.linspace(-extent, extent, 5))
     figure.text(
         0.01,
         0.01,
-        "alternative minus reference; signed mean and absolute-change summaries on shared axes. no fitted-parameter/origin uncertainty.",
+        "alternative minus reference; signed mean and absolute-change summaries on shared axes. no fitted-parameter/origin uncertainty.\n"
+        + reference_caption,
         fontsize=8,
     )
-    figure.tight_layout(rect=(0, 0.06, 1, 1))
+    figure.tight_layout(rect=(0, (caption_height + 0.1) / (3.4 + caption_height), 1, 1))
     figure.savefig(output / "event-value-changes.png", dpi=160)
     plt.close(figure)
     figures.append(

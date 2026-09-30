@@ -34,3 +34,15 @@ all array indices below are zero-based. source counts are read from the saved re
 | preserve non-shift nulls | `2025020001` shifts `data[134]`: `typeCode`, `duration`, `eventNumber`; `2025020006` shifts `data[73]`: same fields plus `eventDescription` | first: `505`, `null`, `630`; second: `505`, `null`, `823`, `Shootout` | null is missing duration, not zero exposure; these records cannot be treated as ordinary shifts |
 
 the fixture values match the specification's 2026-09-29 survey. later upstream corrections require a new capture with its own retrieval time, not edits to these bodies. roster membership does not establish participation or handedness. a captured response remains evidence to interpret, not a validated game or analysis.
+
+## source interpretation audit
+
+additional read-only checks on 2026-09-29 informed the pr2 specification. these are inspected source facts and cross-export reconciliations, not evidence of a completed interpreter or validated on-ice reconstruction.
+
+| purpose | source locators and check | result / limit |
+|---|---|---|
+| block ownership and zone semantics | both play-by-play bodies: `plays[*]` with `typeDescKey = blocked-shot`; compare `details.eventOwnerTeamId` with the `rosterSpots[*].teamId` of `shootingPlayerId`; inspect `blockingPlayerId`, `reason`, `zoneCode` | all 77 owners match shooting teams. 66 opposing-player blocks have zone `D`; 11 `teammate-blocked` records have zone `O` and matching shooter/blocker teams. neither blanket ownership reversal nor a universal owner-relative zone interpretation is valid |
+| reported interval arithmetic | both shifts bodies: type-517 rows' `startTime`, `endTime`, `duration`, `period`; group by `playerId` and compare with boxscore `playerByGameStats` → each side/group → `toi`, `shifts` where present | all 851/817 intervals have positive duration equal to end minus start within period bounds. duration sums and record counts match every supplied player toi/shift count. this is source reconciliation, not proof of genuine-5v5 exposure |
+| roster versus recorded use | `rosterSpots`; distinct `playerId` among type-517 shift rows; boxscore goalie `toi` and `savePctg` | each roster has 40 players; 38 have intervals. unused goalies have reported zero toi and absent save percentage; absence is not a zero percentage |
+| identity versus order | both play-by-play bodies: `plays[*].eventId`, `sortOrder`, `periodDescriptor`, `timeInPeriod` | event ids are unique but not chronological; sort order strictly increases. calgary/edmonton has 20 shootout-period records, all at `00:00`; those clocks cannot describe timed exposure |
+| penalty roles and score snapshots | calgary/edmonton play-by-play: events `477`, `480`; all `goal` records' `details.awayScore/homeScore` | event 477 distinguishes committed-by from served-by; event 480 is a same-time misconduct. timed goal snapshots include the goal; all three shootout goal snapshots remain `3–3`. these fields are not pre-event score context |

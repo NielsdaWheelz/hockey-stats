@@ -10,6 +10,7 @@ the first implemented slice preserves source responses for one explicitly select
 - [product roadmap](docs/roadmap.md): proposed v2+ capabilities, separate from the first-build slices.
 - [capability inventory](docs/product-inventory.md): skater/goalie components, cards and supporting views; confirmed scope versus candidates.
 - [first slice](docs/specs/01-capture.md): faithful source capture and a compact offline corpus.
+- [pr2 specification](docs/specs/02-interpretation.md): offline source interpretation; on-ice reconstruction follows separately.
 - [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
 - [product survey](docs/research/product-survey.md): useful products, features, philosophies, and user friction.
 - [statistical methods](docs/research/statistical-methods.md): what the different models actually estimate.

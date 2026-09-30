@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md) and [02c corpus/reference admission](specs/02c-corpus.md) are reviewed and merged. [03a](specs/03a-chance-workflow.md) specifies the chance-model workflow; separate 03b owns real training and scientific acceptance. the [product brief](brief.md) remains authoritative. no modeling implementation or scientific acceptance is implied.
+status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md) and [02c corpus/reference admission](specs/02c-corpus.md) are reviewed and merged. [03a](specs/03a-chance-workflow.md) implements the chance-model workflow, with [fixture evidence](../fixtures/chance/README.md); separate 03b owns real training and scientific acceptance. the [product brief](brief.md) remains authoritative. fixture implementation does not imply scientific acceptance.
 
 ## operating scale
 
@@ -250,7 +250,7 @@ the data contract must retain score/time, skater and goalie presence, substituti
 - reconcile game evidence to season results and spatial estimates to scalar summaries. compare rankings and magnitudes with honest baselines; agreement with a private reference product is not the acceptance criterion.
 - quantify supported estimation uncertainty with the relevant dependence retained. aggregate uncertainty from a joint representation rather than summing cell interval endpoints or treating opposing rows of the same game as independent. identify uncertainty conditional on fitted chance values when upstream model uncertainty is not propagated. uncertainty from missing evidence or omitted mechanisms does not disappear because a coefficient interval is narrow.
 
-the scientific specifications must set quantitative admission criteria before judging candidate results. no fit, benchmark or admitted full dataset exists yet. the current design therefore selects an estimand and candidate path, while leaving empirical decisions explicitly open. a user question is needed only if evidence forces a material change to the promised product; preference cannot settle whether an estimator or source reconstruction is valid.
+the scientific specifications must set quantitative admission criteria before judging candidate results. fixture fits and benchmarks exercise 03a; no scientifically accepted fit or admitted full dataset exists yet. the current design therefore selects an estimand and candidate path, while leaving empirical decisions explicitly open. a user question is needed only if evidence forces a material change to the promised product; preference cannot settle whether an estimator or source reconstruction is valid.
 
 ### evaluation contract and decision timing
 

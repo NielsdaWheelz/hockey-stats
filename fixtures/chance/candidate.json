@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kernel_distance_ft": 20,
+  "kernel_direction_strength": 4,
+  "origin_pseudocount": 10,
+  "ridge_cell": 1,
+  "ridge_score": 1,
+  "ridge_actor": 10,
+  "smooth_cell": 10,
+  "ridge_benchmark": 1,
+  "optimizer_max_iterations": 1000,
+  "optimizer_ftol": 1e-10,
+  "optimizer_gtol": 1e-06,
+  "em_max_iterations": 500,
+  "em_relative_tolerance": 1e-08,
+  "em_posterior_tolerance": 1e-06,
+  "objective_decrease_tolerance": 1e-10
+}

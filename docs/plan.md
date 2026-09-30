@@ -1,6 +1,6 @@
 # implementation plan
 
-status: 01, [02a](specs/02-interpretation.md), [02b](specs/02b-reconstruction.md) and [02c](specs/02c-corpus.md) are reviewed and merged. [03a](specs/03a-chance-workflow.md) is specified, not implementation-authorized; the user chose separate 03b for real training and scientific acceptance. historical-drive inspection remains deferred. subsequent slices require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled constraints.
+status: 01, [02a](specs/02-interpretation.md), [02b](specs/02b-reconstruction.md) and [02c](specs/02c-corpus.md) are reviewed and merged. [03a](specs/03a-chance-workflow.md) is implemented and fixture-checked on its branch; the user chose separate 03b for real training and scientific acceptance. historical-drive inspection remains deferred. subsequent slices require their specifications and the user's progression decision. [brief](brief.md) and [architecture](architecture.md) supply the settled constraints.
 
 this plan builds the first useful product. the [product roadmap](roadmap.md) proposes v2+ capabilities and their ordering; its later milestones are not requirements for these slices.
 

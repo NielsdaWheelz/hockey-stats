@@ -1,7 +1,7 @@
 # project instructions
 
 - write new prose in lowercase. preserve exact identifiers, source titles, quotations, and historical copies when fidelity requires it.
-- the user controls progression between research, architecture, slice specifications, and implementation. capture (01), interpretation (02a), reconstruction (02b) and corpus/reference admission (02c) are reviewed and merged. chance modeling is split into 03a workflow implementation and 03b real training/scientific acceptance; 03a is in specification, not authorized for implementation.
+- the user controls progression between research, architecture, slice specifications, and implementation. capture (01), interpretation (02a), reconstruction (02b) and corpus/reference admission (02c) are reviewed and merged. chance modeling is split into 03a workflow implementation and 03b real training/scientific acceptance; 03a is implemented and fixture-checked on its branch; 03b remains unperformed and requires separate authorization.
 - read `docs/brief.md` and `docs/research/council.md` before proposing further work.
 - `docs/brief.md` is authoritative for settled product choices; dated research and council recommendations do not reopen them. `docs/architecture.md` tracks the current dependency-ordered architecture interview and decisions.
 - the user wants a useful hockey statistics product. do not turn it into a teaching application or curriculum.

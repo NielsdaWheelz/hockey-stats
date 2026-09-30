@@ -852,7 +852,7 @@ def interpret_game(directory: Path) -> GameDocument:
                             context = ("Off. Zone", "Def. Zone", "Neu. Zone", "Wide Left", "Wide Right", "Short",
                                        "Above Crossbar", "Hit Crossbar", "Hit Left Post", "Hit Right Post",
                                        "High and Wide Left", "High and Wide Right", "Failed Bank Attempt", "Failed Attempt",
-                                       "Defensive Deflection", "Flub")
+                                       "Failed Attempt Flub", "Defensive Deflection", "Flub")
                             if (token and token not in context
                                     and not token.startswith(("Assist:", "Assists:", "OPPONENT-BLOCKED BY ", "BLOCKED BY "))
                                     and re.fullmatch(r"[0-9]+(?:\.[0-9]+)? ft\.", token) is None):

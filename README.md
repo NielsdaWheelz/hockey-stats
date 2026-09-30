@@ -16,8 +16,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr03a specification](docs/specs/03a-chance-workflow.md): chance-model workflow and software verification.
 - [pr03b specification](docs/specs/03b-training-acceptance.md): fresh three-season corpus, chronological development/confirmation and scientific judgment.
 - [pr03c specification](docs/specs/03c-source-revision.md): reviewed and merged; source contracts, expanded fixtures and [full three-season audit](docs/research/chance-03c/decision.md) verified.
-- [pr03d specification](docs/specs/03d-chance-revision.md): revised chance-model contract for review; implementation and real fitting remain separate.
-- [later pr stubs](docs/plan.md#next-slices): 03d–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
+- [pr03d specification](docs/specs/03d-chance-revision.md): implemented chance-2 contract; [fixture verification](docs/research/chance-03d/verification.md) establishes software behavior, with review pending.
+- [later pr stubs](docs/plan.md#next-slices): 03e–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
 - [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
 - [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.

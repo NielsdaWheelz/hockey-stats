@@ -3,7 +3,12 @@ name = "hockey-stats"
 version = "0.1.0"
 description = "offline interpretation of attributed hockey captures"
 requires-python = ">=3.14,<3.15"
-dependencies = ["beautifulsoup4==4.14.3", "numpy==2.5.3", "scipy==1.18.1"]
+dependencies = [
+    "beautifulsoup4==4.14.3",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "scipy==1.18.1",
+]
 
 [project.scripts]
 hockey-stats-chance = "hockey_stats.chance_cli:main"

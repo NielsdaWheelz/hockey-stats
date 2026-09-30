@@ -69,9 +69,16 @@ def main() -> int:
         output = output_path(
             args.out, prepared["input_roots"] + [str(selection.parent), str(auxiliary.parent)]
         )
+        implementation = implementation_identity()
+        implementation.update(
+            numpy_version=numpy.__version__,
+            scipy_version=scipy.__version__,
+            lockfile_sha256=identity(Path(__file__).resolve().parents[2] / "uv.lock")["sha256"],
+        )
         common = {
             "schema_version": 1,
             "purpose": prepared["purpose"],
+            "implementation": implementation,
             "inputs": prepared["inputs"],
             "selection": prepared["selection"],
             "game_dates": prepared["game_dates"],
@@ -80,15 +87,8 @@ def main() -> int:
         }
         if args.command == "fit":
             config = read_json(auxiliary)
-            implementation = implementation_identity()
-            implementation.update(
-                numpy_version=numpy.__version__,
-                scipy_version=scipy.__version__,
-                lockfile_sha256=identity(Path(__file__).resolve().parents[2] / "uv.lock")["sha256"],
-            )
             metadata = dict(
                 common,
-                implementation=implementation,
                 config_identity=identity(auxiliary),
                 training_game_dates=prepared["game_dates"],
                 training_game_ids=list(prepared["game_dates"]),

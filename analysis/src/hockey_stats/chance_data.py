@@ -10,11 +10,12 @@ public contract: prepare(selection_path) returns a finite-json-compatible dict:
 
 attempt fields: game_id, source_index, event_id, report_row_id,
 report_source_index, interval_indices, shooting_team_id, shooter_id, goalie_id,
-role (F/D/unknown), score (trailing/tied/leading/null), pre_event_score
+role (F/D/unknown), context (ordered fixed scalar evidence), pre_event_score
 ({away,home}/null), blocked, goal, reported_x/y, attacking_x/y,
 location_kind (block_evidence/recorded_proxy),
 status (eligible/out_of_scope/unavailable), reasons, reason_details, source_issues,
-season, home_away, shot_type, shot_type_evidence, goal_modifier_evidence,
+season, home_away, shot_type, model_shot_type, credited_scorer_id,
+previous_event, shot_type_evidence, goal_modifier_evidence,
 classification, source_event, diagnostics.
 
 numerical consumers use status == 'eligible'. all applicable exclusions remain;
@@ -34,17 +35,58 @@ from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_jso
 from .corpus import STATUSES
 from .interpret import Check, Event, LandingGoal
 from .shot_origins import in_rink
-from .reconstruct import reconcile_shot_type
+from .reconstruct import attacking_coordinates, defending_sides, reconcile_shot_type
 
 _ATTEMPTS = {"blocked-shot", "missed-shot", "shot-on-goal", "goal"}
-_IDENTITY = ("game_id", "season", "game_type", "game_date", "away_team_id", "home_team_id")
+_IDENTITY = (
+    "game_id",
+    "season",
+    "game_type",
+    "game_date",
+    "away_team_id",
+    "home_team_id",
+)
 _REASONS = (
     "outside_5v5",
     "membership_unresolved",
     "actor_unavailable",
     "location_unavailable",
     "score_unavailable",
+    "type_unavailable",
+    "physical_attempt_unresolved",
+    "context_unavailable",
 )
+_MODEL_TYPES = {
+    "wrist": "wrist",
+    "snap": "snap",
+    "slap": "slap",
+    "backhand": "backhand",
+    "tip-in": "tip",
+    "deflected": "tip",
+    "wrap-around": "other",
+    "poke": "other",
+    "bat": "other",
+    "between-legs": "other",
+    "cradle": "other",
+}
+_RESETS = {
+    "goal",
+    "stoppage",
+    "penalty",
+    "period-start",
+    "period-end",
+    "game-end",
+    "shootout-complete",
+}
+_RECENT = {
+    "faceoff",
+    "hit",
+    "giveaway",
+    "takeaway",
+    "shot-on-goal",
+    "missed-shot",
+    "blocked-shot",
+}
 
 
 def _require(condition, location, message):
@@ -90,7 +132,9 @@ def _text(value, location, *, nullable=False):
 def _number(value, location):
     # strict_json already rejects non-finite numbers.
     _require(
-        type(value) in (int, float) or value is None, location, "expected finite number or null"
+        type(value) in (int, float) or value is None,
+        location,
+        "expected finite number or null",
     )
 
 
@@ -100,7 +144,9 @@ def _read(path, kind, inputs):
         value = strict_json(data)
     except (OSError, ValueError) as error:
         raise InputContractError(f"{path}: {error}") from error
-    inputs.append({"kind": kind, "path": str(path), "sha256": hashlib.sha256(data).hexdigest()})
+    inputs.append(
+        {"kind": kind, "path": str(path), "sha256": hashlib.sha256(data).hexdigest()}
+    )
     return value
 
 
@@ -131,7 +177,9 @@ def _game_identity(game, location):
         "season/game id disagreement",
     )
     _require(
-        type(game["game_type"]) is int and game["game_type"] == 2 and game["game_id"][4:6] == "02",
+        type(game["game_type"]) is int
+        and game["game_type"] == 2
+        and game["game_id"][4:6] == "02",
         location,
         "expected regular-season identity",
     )
@@ -145,7 +193,9 @@ def _game_identity(game, location):
     _require(valid_date, location, "expected calendar date")
     for field in ("away_team_id", "home_team_id"):
         _integer(game[field], f"{location}/{field}", minimum=1)
-    _require(game["away_team_id"] != game["home_team_id"], location, "teams must differ")
+    _require(
+        game["away_team_id"] != game["home_team_id"], location, "teams must differ"
+    )
 
 
 def _indexed(rows, location):
@@ -196,7 +246,9 @@ def _provenance(rows, location, sources):
         _text(receipt["capture_path"], loc + "/capture_path")
         _require(bool(receipt["capture_path"]), loc, "empty provenance path")
         _text(receipt["requested_at"], loc + "/requested_at", nullable=True)
-        _integer(receipt["http_status"], loc + "/http_status", nullable=True, minimum=100)
+        _integer(
+            receipt["http_status"], loc + "/http_status", nullable=True, minimum=100
+        )
         _require(
             receipt["http_status"] is None or receipt["http_status"] <= 599,
             loc,
@@ -204,7 +256,8 @@ def _provenance(rows, location, sources):
         )
         _text(receipt["body_sha256"], loc + "/body_sha256", nullable=True)
         _require(
-            receipt["body_sha256"] is None or re.fullmatch(r"[0-9a-f]{64}", receipt["body_sha256"]),
+            receipt["body_sha256"] is None
+            or re.fullmatch(r"[0-9a-f]{64}", receipt["body_sha256"]),
             loc,
             "invalid body digest",
         )
@@ -219,12 +272,16 @@ def _provenance(rows, location, sources):
             "consumed source lacks body digest",
         )
         _text(receipt["reason"], loc + "/reason", nullable=True)
-    _require(seen == set(sources), location, "source provenance does not cover declared source set")
+    _require(
+        seen == set(sources),
+        location,
+        "source provenance does not cover declared source set",
+    )
 
 
 def _envelope(value, path, entry):
     """validate consumed contracts before distinguishing missing evidence."""
-    _schema(value, str(path), 2, ("interpreted", "reconstruction"))
+    _schema(value, str(path), 3, ("interpreted", "reconstruction"))
     interpreted, reconstructed = value["interpreted"], value["reconstruction"]
     _schema(
         interpreted,
@@ -248,8 +305,12 @@ def _envelope(value, path, entry):
         "requested game/inventory disagreement",
     )
     _game_identity(interpreted["game"], f"{path}/interpreted/game")
-    conflicts = [field for field in _IDENTITY if interpreted["game"][field] != entry[field]]
-    _require(not conflicts, path, "inventory/game disagreement: " + ", ".join(conflicts))
+    conflicts = [
+        field for field in _IDENTITY if interpreted["game"][field] != entry[field]
+    ]
+    _require(
+        not conflicts, path, "inventory/game disagreement: " + ", ".join(conflicts)
+    )
     _provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
     _issues(interpreted["issues"], f"{path}/interpreted/issues")
     _object(
@@ -272,7 +333,9 @@ def _envelope(value, path, entry):
         "interpreted/reconstruction event source indices differ",
     )
     roster = _array(
-        interpreted["roster_records"], f"{path}/interpreted/roster_records", nullable=True
+        interpreted["roster_records"],
+        f"{path}/interpreted/roster_records",
+        nullable=True,
     )
     for i, player in enumerate(roster):
         loc = f"{path}/interpreted/roster_records/{i}"
@@ -281,22 +344,40 @@ def _envelope(value, path, entry):
         _integer(player["team_id"], loc + "/team_id", nullable=True, minimum=1)
         _text(player["reported_position"], loc + "/reported_position", nullable=True)
     reports = _indexed(
-        _array(interpreted["report_rows"], f"{path}/interpreted/report_rows", nullable=True),
+        _array(
+            interpreted["report_rows"], f"{path}/interpreted/report_rows", nullable=True
+        ),
         f"{path}/interpreted/report_rows",
     )
     for index, report in reports.items():
         loc = f"{path}/interpreted/report_rows/{index}"
-        _object(report, loc, ("shot_type", "shooting_team_id", "shooter_sweater_number", "shooter_id"))
+        _object(
+            report,
+            loc,
+            ("shot_type", "shooting_team_id", "shooter_sweater_number", "shooter_id"),
+        )
         _text(report["shot_type"], loc + "/shot_type", nullable=True)
         for field in ("shooting_team_id", "shooter_sweater_number", "shooter_id"):
             _integer(report[field], loc + "/" + field, nullable=True, minimum=1)
     landing = {}
-    for i, goal in enumerate(_array(interpreted["landing_goals"], f"{path}/interpreted/landing_goals", nullable=True)):
+    for i, goal in enumerate(
+        _array(
+            interpreted["landing_goals"],
+            f"{path}/interpreted/landing_goals",
+            nullable=True,
+        )
+    ):
         loc = f"{path}/interpreted/landing_goals/{i}"
         _object(goal, loc, LandingGoal.__required_keys__)
         _text(goal["source_path"], loc + "/source_path")
-        _require(re.fullmatch(r"/summary/scoring/[0-9]+/goals/[0-9]+", goal["source_path"]), loc, "invalid landing source path")
-        _require(goal["source_path"] not in landing, loc, "duplicate landing source path")
+        _require(
+            re.fullmatch(r"/summary/scoring/[0-9]+/goals/[0-9]+", goal["source_path"]),
+            loc,
+            "invalid landing source path",
+        )
+        _require(
+            goal["source_path"] not in landing, loc, "duplicate landing source path"
+        )
         landing[goal["source_path"]] = goal
         for field in ("event_id", "period_number", "team_id", "credited_scorer_id"):
             _integer(goal[field], loc + "/" + field, nullable=True, minimum=1)
@@ -306,14 +387,22 @@ def _envelope(value, path, entry):
     intervals = _array(
         reconstructed["intervals"], f"{path}/reconstruction/intervals", nullable=True
     )
-    periods = _array(reconstructed["periods"], f"{path}/reconstruction/periods", nullable=True)
+    periods = _array(
+        reconstructed["periods"], f"{path}/reconstruction/periods", nullable=True
+    )
     for i, period in enumerate(periods):
         loc = f"{path}/reconstruction/periods/{i}"
         _object(period, loc, ("period_number", "end_seconds", "status"))
         _integer(period["period_number"], loc + "/period_number", minimum=1)
         _integer(period["end_seconds"], loc + "/end_seconds", nullable=True)
-        _require(period["status"] in ("supported", "unavailable"), loc, "invalid period status")
-    for i, check in enumerate(_array(interpreted["checks"], f"{path}/interpreted/checks")):
+        _require(
+            period["status"] in ("supported", "unavailable"),
+            loc,
+            "invalid period status",
+        )
+    for i, check in enumerate(
+        _array(interpreted["checks"], f"{path}/interpreted/checks")
+    ):
         loc = f"{path}/interpreted/checks/{i}"
         _object(check, loc, Check.__required_keys__)
         _text(check["name"], loc + "/name")
@@ -329,7 +418,9 @@ def _envelope(value, path, entry):
             count = check[field]
             if type(count) is dict:
                 _require(
-                    set(count) == {"away", "home"}, loc + "/" + field, "expected away/home counts"
+                    set(count) == {"away", "home"},
+                    loc + "/" + field,
+                    "expected away/home counts",
                 )
                 for number in count.values():
                     _integer(number, loc + "/" + field, nullable=True)
@@ -394,43 +485,144 @@ def _envelope(value, path, entry):
                 "goal_modifier_evidence",
             ),
         )
-        _integer(row["report_source_index"], loc + "/report_source_index", nullable=True)
+        _integer(
+            row["report_source_index"], loc + "/report_source_index", nullable=True
+        )
         type_evidence = row["shot_type_evidence"]
         if event["type_key"] in _ATTEMPTS:
             evidence_loc = loc + "/shot_type_evidence"
-            _object(type_evidence, evidence_loc, ("api_value", "report_value", "value", "status"))
+            _object(
+                type_evidence,
+                evidence_loc,
+                ("api_value", "report_value", "value", "status"),
+            )
             for field in ("api_value", "report_value", "value"):
                 _text(type_evidence[field], evidence_loc + "/" + field, nullable=True)
-            _require(type_evidence["api_value"] == event["shot_type"], evidence_loc, "api type observation differs")
-            _require(type_evidence["status"] in ("agreement", "api_only", "report_only", "missing", "conflict", "unsupported", "unmatched"), evidence_loc, "invalid type evidence status")
+            _require(
+                type_evidence["api_value"] == event["shot_type"],
+                evidence_loc,
+                "api type observation differs",
+            )
+            _require(
+                type_evidence["status"]
+                in (
+                    "agreement",
+                    "api_only",
+                    "report_only",
+                    "missing",
+                    "conflict",
+                    "unsupported",
+                    "unmatched",
+                ),
+                evidence_loc,
+                "invalid type evidence status",
+            )
             report = reports.get(row["report_source_index"])
-            _require(type_evidence["report_value"] == (report["shot_type"] if report else None), evidence_loc, "report type observation differs")
-            _require(type_evidence == reconcile_shot_type(event["shot_type"], report["shot_type"] if report else None, report is not None), evidence_loc, "incoherent type evidence")
+            _require(
+                type_evidence["report_value"]
+                == (report["shot_type"] if report else None),
+                evidence_loc,
+                "report type observation differs",
+            )
+            _require(
+                type_evidence
+                == reconcile_shot_type(
+                    event["shot_type"],
+                    report["shot_type"] if report else None,
+                    report is not None,
+                ),
+                evidence_loc,
+                "incoherent type evidence",
+            )
         else:
-            _require(type_evidence is None, loc, "non-attempt must not carry type evidence")
+            _require(
+                type_evidence is None, loc, "non-attempt must not carry type evidence"
+            )
         modifier = row["goal_modifier_evidence"]
         if event["type_key"] == "goal":
             evidence_loc = loc + "/goal_modifier_evidence"
             _object(modifier, evidence_loc, ("source_path", "reported_value", "status"))
             _text(modifier["source_path"], evidence_loc + "/source_path", nullable=True)
-            _text(modifier["reported_value"], evidence_loc + "/reported_value", nullable=True)
-            _require(modifier["status"] in ("reported", "missing", "unavailable", "unmatched", "conflict", "unsupported"), evidence_loc, "invalid modifier evidence status")
-            _require(modifier["source_path"] is None or re.fullmatch(r"/summary/scoring/[0-9]+/goals/[0-9]+", modifier["source_path"]), evidence_loc, "invalid landing source path")
+            _text(
+                modifier["reported_value"],
+                evidence_loc + "/reported_value",
+                nullable=True,
+            )
+            _require(
+                modifier["status"]
+                in (
+                    "reported",
+                    "missing",
+                    "unavailable",
+                    "unmatched",
+                    "conflict",
+                    "unsupported",
+                ),
+                evidence_loc,
+                "invalid modifier evidence status",
+            )
+            _require(
+                modifier["source_path"] is None
+                or re.fullmatch(
+                    r"/summary/scoring/[0-9]+/goals/[0-9]+", modifier["source_path"]
+                ),
+                evidence_loc,
+                "invalid landing source path",
+            )
             if modifier["source_path"] is not None:
-                _require(modifier["source_path"] in landing, evidence_loc, "broken landing source reference")
+                _require(
+                    modifier["source_path"] in landing,
+                    evidence_loc,
+                    "broken landing source reference",
+                )
                 counterpart = landing[modifier["source_path"]]
-                _require(modifier["reported_value"] == counterpart["goal_modifier"], evidence_loc, "modifier source observation differs")
-                _require(counterpart["event_id"] == event["event_id"], evidence_loc, "modifier source event identity differs")
+                _require(
+                    modifier["reported_value"] == counterpart["goal_modifier"],
+                    evidence_loc,
+                    "modifier source observation differs",
+                )
+                _require(
+                    counterpart["event_id"] == event["event_id"],
+                    evidence_loc,
+                    "modifier source event identity differs",
+                )
             else:
-                _require(modifier["reported_value"] is None, evidence_loc, "unlocated modifier observation")
+                _require(
+                    modifier["reported_value"] is None,
+                    evidence_loc,
+                    "unlocated modifier observation",
+                )
             if modifier["status"] == "reported":
-                _require(modifier["source_path"] is not None and modifier["reported_value"] in ("none", "own-goal", "awarded", "penalty-shot"), evidence_loc, "incoherent reported modifier")
+                _require(
+                    modifier["source_path"] is not None
+                    and modifier["reported_value"]
+                    in ("none", "own-goal", "awarded", "penalty-shot"),
+                    evidence_loc,
+                    "incoherent reported modifier",
+                )
             elif modifier["status"] == "missing":
-                _require(modifier["source_path"] is not None and modifier["reported_value"] is None, evidence_loc, "incoherent missing modifier")
+                _require(
+                    modifier["source_path"] is not None
+                    and modifier["reported_value"] is None,
+                    evidence_loc,
+                    "incoherent missing modifier",
+                )
             elif modifier["status"] == "unsupported":
-                _require(modifier["source_path"] is not None and modifier["reported_value"] is not None and modifier["reported_value"] not in ("none", "own-goal", "awarded", "penalty-shot"), evidence_loc, "incoherent unsupported modifier")
+                _require(
+                    modifier["source_path"] is not None
+                    and modifier["reported_value"] is not None
+                    and modifier["reported_value"]
+                    not in ("none", "own-goal", "awarded", "penalty-shot"),
+                    evidence_loc,
+                    "incoherent unsupported modifier",
+                )
             elif modifier["status"] == "unmatched":
-                _require(modifier["source_path"] is None and modifier["reported_value"] is None, evidence_loc, "unmatched modifier cannot name a counterpart")
+                _require(
+                    modifier["source_path"] is None
+                    and modifier["reported_value"] is None,
+                    evidence_loc,
+                    "unmatched modifier cannot name a counterpart",
+                )
         else:
             _require(modifier is None, loc, "non-goal must not carry modifier evidence")
         _require(
@@ -440,14 +632,23 @@ def _envelope(value, path, entry):
         )
         _require(
             row["coordinate_status"]
-            in ("normalized", "missing_coordinates", "unresolved_frame", "not_applicable"),
+            in (
+                "normalized",
+                "missing_coordinates",
+                "unresolved_frame",
+                "not_applicable",
+            ),
             loc,
             "invalid coordinate status",
         )
         for field in ("attacking_x", "attacking_y"):
             _number(row[field], loc + "/" + field)
         if row["report_source_index"] is not None:
-            _require(row["report_source_index"] in reports, loc, "broken report row reference")
+            _require(
+                row["report_source_index"] in reports,
+                loc,
+                "broken report row reference",
+            )
             report = reports[row["report_source_index"]]
             _object(report, loc + "/report", ("row_id", "penalty_shot"))
             _text(report["row_id"], loc + "/report/row_id")
@@ -464,11 +665,24 @@ def _envelope(value, path, entry):
             for item in indices:
                 _integer(item, loc + "/" + field)
                 _require(item < length, loc, "broken " + field + " reference")
-            _require(len(indices) == len(set(indices)), loc, "duplicate " + field + " reference")
+            _require(
+                len(indices) == len(set(indices)),
+                loc,
+                "duplicate " + field + " reference",
+            )
         for field in ("away_goalies", "home_goalies"):
             for actor in _array(row[field], loc + "/" + field, nullable=True):
                 _integer(actor, loc + "/" + field, minimum=1)
     return interpreted, reconstructed, events, recon, reports
+
+
+def _period_length(event):
+    if event["timed_period"] is True:
+        if event["period_number"] in (1, 2, 3) and event["period_type"] == "REG":
+            return 1200
+        if event["period_number"] == 4 and event["period_type"] == "OT":
+            return 300
+    return None
 
 
 def _scores(interpreted, events, game):
@@ -491,10 +705,16 @@ def _scores(interpreted, events, game):
             )
     if interpreted["events"] is None:
         failures.append(
-            {"source": "play-by-play", "path": "/events", "message": "event collection unavailable"}
+            {
+                "source": "play-by-play",
+                "path": "/events",
+                "message": "event collection unavailable",
+            }
         )
     orders = [event["sort_order"] for event in events.values()]
-    if None in orders or len(orders) != len(set(orders)):
+    unique_order = None not in orders and len(orders) == len(set(orders))
+    order_supported = unique_order
+    if not order_supported:
         failures.append(
             {
                 "source": "play-by-play",
@@ -506,7 +726,8 @@ def _scores(interpreted, events, game):
     previous_period = 0
     shootout_started = False
     ordered = sorted(
-        events.values(), key=lambda e: e["sort_order"] if e["sort_order"] is not None else -1
+        events.values(),
+        key=lambda e: e["sort_order"] if e["sort_order"] is not None else -1,
     )
     teams = (game["away_team_id"], game["home_team_id"])
     for event in ordered:
@@ -514,43 +735,64 @@ def _scores(interpreted, events, game):
         period = event["period_number"]
         if period is None or period < previous_period:
             problem = "event periods must be known and nondecreasing in sort_order"
+            order_supported = False
         elif period is not None:
             previous_period = period
-        if (
-            event["timed_period"] is None
-            or event["timed_period"] is True
-            and not event["kind_valid"]
-        ):
+        if event["timed_period"] is True and not event["kind_valid"]:
+            failures.append(
+                {
+                    "source": "play-by-play",
+                    "path": f"/events/{event['source_index']}",
+                    "message": "event kind cannot exclude an unaccounted timed goal",
+                }
+            )
+        if event["timed_period"] is None:
             problem = "event kind or period cannot exclude an unaccounted timed goal"
         elif event["timed_period"] is True:
             period, seconds = event["period_number"], event["elapsed_seconds"]
+            length = _period_length(event)
             if shootout_started:
                 problem = "timed play follows shootout evidence"
             elif (
                 period is None
-                or event["period_type"] not in ("REG", "OT")
-                or not (
-                    1 <= period <= 3 and event["period_type"] == "REG"
-                    or period == 4 and event["period_type"] == "OT"
-                )
-                or seconds is None and event["type_key"] == "goal"
-                or seconds is not None and not (0 <= seconds <= (1200 if period <= 3 else 300))
+                or length is None
+                or seconds is not None
+                and not (0 <= seconds <= length)
             ):
                 problem = "supported timed period/clock required"
-            elif seconds is not None and previous is not None and (period, seconds) < previous:
+            elif (
+                seconds is not None
+                and previous is not None
+                and (period, seconds) < previous
+            ):
                 problem = "sort_order contradicts period/elapsed chronology"
             elif seconds is not None:
                 previous = (period, seconds)
+            if event["type_key"] == "goal" and seconds is None:
+                failures.append(
+                    {
+                        "source": "play-by-play",
+                        "path": f"/events/{event['source_index']}",
+                        "message": "known timed goal clock required for score accounting",
+                    }
+                )
             if event["type_key"] == "goal" and (
                 event["shooting_team_id"] not in teams
                 or event["owner_team_id"] != event["shooting_team_id"]
             ):
-                problem = "timed goal ownership missing or conflicting"
+                failures.append(
+                    {
+                        "source": "play-by-play",
+                        "path": f"/events/{event['source_index']}",
+                        "message": "timed goal ownership missing or conflicting",
+                    }
+                )
         else:
             shootout_started = True
             if event["period_type"] != "SO" or period != 5:
                 problem = "untimed event must identify regular-season shootout period 5"
         if problem:
+            order_supported = False
             failures.append(
                 {
                     "source": "play-by-play",
@@ -559,13 +801,15 @@ def _scores(interpreted, events, game):
                 }
             )
     if failures:
-        return {}, failures
+        return {}, failures, ordered if unique_order else None, order_supported
     score = {"away": 0, "home": 0}
     result = {}
     for event in ordered:
         result[event["source_index"]] = dict(score)
         if event["type_key"] == "goal" and event["timed_period"] is True:
-            score["away" if event["shooting_team_id"] == game["away_team_id"] else "home"] += 1
+            score[
+                "away" if event["shooting_team_id"] == game["away_team_id"] else "home"
+            ] += 1
     # corroborate the embedded observed totals, not just a stale status label.
     for check in interpreted["checks"]:
         if (
@@ -581,13 +825,141 @@ def _scores(interpreted, events, game):
                     "check": check,
                 }
             )
-    return ({}, failures) if failures else (result, [])
+    return (
+        ({}, failures, ordered, order_supported)
+        if failures
+        else (result, [], ordered, order_supported)
+    )
+
+
+def _previous_event(
+    event, predecessor, order_supported, game, players, shooter, period_sides
+):
+    """the immediate record owns context, including exclusions and reset barriers."""
+    result = {
+        "status": "unavailable",
+        "source_index": None,
+        "event_id": None,
+        "kind": None,
+        "time_gap_seconds": None,
+        "owner_team_relation": None,
+        "current_attack_x": None,
+        "current_attack_y": None,
+        "location_basis": None,
+        "same_shooter": None,
+        "reason": None,
+    }
+    length, seconds = _period_length(event), event["elapsed_seconds"]
+    if predecessor is not None:
+        result.update(
+            source_index=predecessor["source_index"],
+            event_id=predecessor["event_id"],
+            kind=predecessor["type_key"],
+        )
+        prior_length, prior_seconds = (
+            _period_length(predecessor),
+            predecessor["elapsed_seconds"],
+        )
+        if (
+            prior_length is not None
+            and predecessor["period_number"] == event["period_number"]
+            and prior_seconds is not None
+            and length is not None
+            and seconds is not None
+            and 0 <= prior_seconds <= prior_length
+            and prior_seconds <= seconds <= length
+        ):
+            result["time_gap_seconds"] = seconds - prior_seconds
+    if length is None or seconds is None or not 0 <= seconds <= length:
+        result["reason"] = "focal_period_or_clock_unavailable"
+        return result
+    if not order_supported:
+        result["reason"] = "source_order_unavailable"
+        return result
+    if predecessor is None:
+        result.update(status="none", reason="no_predecessor")
+        return result
+    if (
+        prior_length is not None
+        and predecessor["period_number"] < event["period_number"]
+    ):
+        result.update(status="none", reason="period_transition")
+        return result
+    if predecessor["kind_valid"] and predecessor["type_key"] in _RESETS:
+        result.update(status="none", reason="reset_boundary")
+        return result
+    if (
+        prior_length is None
+        or predecessor["period_number"] != event["period_number"]
+        or prior_seconds is None
+        or not 0 <= prior_seconds <= prior_length
+        or prior_seconds > seconds
+    ):
+        result["reason"] = "predecessor_period_or_clock_unavailable"
+        return result
+    gap = seconds - prior_seconds
+    result["time_gap_seconds"] = gap
+    if gap > 5:
+        result.update(status="none", reason="older_than_five_seconds")
+        return result
+    problems = []
+    kind = predecessor["type_key"]
+    if not predecessor["kind_valid"] or kind not in _RECENT:
+        problems.append("unsupported_recent_action")
+    team = event["shooting_team_id"]
+    owner = predecessor["owner_team_id"]
+    if owner not in (game["away_team_id"], game["home_team_id"]) or team not in (
+        game["away_team_id"],
+        game["home_team_id"],
+    ):
+        problems.append("recent_owner_unavailable")
+    else:
+        result["owner_team_relation"] = "same" if owner == team else "opponent"
+    x, y, frame_reason = attacking_coordinates(predecessor, game, team, period_sides)
+    result.update(current_attack_x=x, current_attack_y=y)
+    if x is not None and y is not None:
+        result["location_basis"] = (
+            "block_evidence"
+            if kind == "blocked-shot"
+            else "recorded_proxy"
+            if kind in _ATTEMPTS
+            else "recorded_event"
+        )
+    if frame_reason is not None or x is None or y is None or not in_rink(x, y):
+        problems.append("recent_location_or_frame_unavailable")
+    if predecessor["kind_valid"] and kind in _ATTEMPTS - {"goal"}:
+        prior_shooter = predecessor["roles"].get("shooter")
+        identities = players.get(prior_shooter, [])
+        if (
+            len(identities) != 1
+            or identities[0]["team_id"] != predecessor["shooting_team_id"]
+            or predecessor["shooting_team_id"]
+            not in (game["away_team_id"], game["home_team_id"])
+            or owner != predecessor["shooting_team_id"]
+        ):
+            problems.append("recent_shooter_unavailable")
+        elif shooter is None:
+            problems.append("focal_shooter_unavailable")
+        else:
+            result["same_shooter"] = prior_shooter == shooter
+    if problems:
+        result["reason"] = ",".join(problems)
+    else:
+        result.update(status="recent")
+    return result
 
 
 def _prepare_game(value, path, entry):
     interpreted, reconstructed, events, recon, reports = _envelope(value, path, entry)
     game = interpreted["game"]
-    scores, score_failures = _scores(interpreted, events, game)
+    scores, score_failures, ordered, order_supported = _scores(
+        interpreted, events, game
+    )
+    predecessors = {
+        event["source_index"]: ordered[i - 1] if i else None
+        for i, event in enumerate(ordered or [])
+    }
+    period_sides = defending_sides(events.values())
     players = defaultdict(list)
     for player in interpreted["roster_records"] or []:
         if player["player_id"] is not None:
@@ -601,7 +973,11 @@ def _prepare_game(value, path, entry):
         details = {}
         classification = row["classification"]
         modifier = row["goal_modifier_evidence"]
-        landing_penalty = modifier is not None and modifier["status"] == "reported" and modifier["reported_value"] == "penalty-shot"
+        landing_penalty = (
+            modifier is not None
+            and modifier["status"] == "reported"
+            and modifier["reported_value"] == "penalty-shot"
+        )
         outside = (
             event["timed_period"] is False
             or classification in ("other", "untimed")
@@ -628,10 +1004,31 @@ def _prepare_game(value, path, entry):
         side = (
             "away"
             if team == game["away_team_id"]
-            else "home" if team == game["home_team_id"] else None
+            else "home"
+            if team == game["home_team_id"]
+            else None
         )
         opposing = "home" if side == "away" else "away" if side == "home" else None
-        shooter = event["roles"].get("scorer" if event["type_key"] == "goal" else "shooter")
+        credited_scorer = (
+            event["roles"].get("scorer") if event["type_key"] == "goal" else None
+        )
+        physical_resolved = event["type_key"] != "goal" or (
+            modifier["status"] == "reported"
+            and modifier["reported_value"] in ("none", "penalty-shot")
+        )
+        if not physical_resolved:
+            details["physical_attempt_unresolved"] = [
+                {
+                    "message": "goal physical action unresolved; credited scorer is retained separately",
+                    "goal_modifier_evidence": modifier,
+                    "credited_scorer_id": credited_scorer,
+                }
+            ]
+        shooter = (
+            credited_scorer
+            if event["type_key"] == "goal"
+            else event["roles"].get("shooter")
+        )
         identities = players.get(shooter, [])
         actor_problems = []
         if event["owner_team_id"] is not None and event["owner_team_id"] != team:
@@ -650,6 +1047,8 @@ def _prepare_game(value, path, entry):
                     "reported_shooter_id": shooter,
                 }
             )
+            shooter = None
+        if not physical_resolved:
             shooter = None
         goalies = row[opposing + "_goalies"] if opposing is not None else None
         goalie = goalies[0] if goalies is not None and len(goalies) == 1 else None
@@ -679,11 +1078,19 @@ def _prepare_game(value, path, entry):
                 for s in ("away", "home")
             )
         ):
-            details["membership_unresolved"] = [{"message": "both reported goalies required"}]
+            details["membership_unresolved"] = [
+                {"message": "both reported goalies required"}
+            ]
         if actor_problems:
             details["actor_unavailable"] = actor_problems
         position = identities[0]["reported_position"] if shooter is not None else None
-        role = "F" if position in ("C", "L", "R", "F") else "D" if position == "D" else "unknown"
+        role = (
+            "F"
+            if position in ("C", "L", "R", "F")
+            else "D"
+            if position == "D"
+            else "unknown"
+        )
         x, y = row["attacking_x"], row["attacking_y"]
         location_ok = (
             row["coordinate_status"] == "normalized"
@@ -701,16 +1108,91 @@ def _prepare_game(value, path, entry):
                 }
             ]
         before = scores.get(index)
-        category = None
+        bucket = None
         if before is None or side is None:
             details["score_unavailable"] = score_failures or [
                 {"message": "shooting team unavailable for score perspective"}
             ]
         else:
             difference = before[side] - before[opposing]
-            category = "trailing" if difference < 0 else "leading" if difference > 0 else "tied"
+            bucket = (
+                "trailing_2_plus"
+                if difference <= -2
+                else "trailing_1"
+                if difference == -1
+                else "leading_2_plus"
+                if difference >= 2
+                else "leading_1"
+                if difference == 1
+                else "tied"
+            )
+        shot_type = row["shot_type_evidence"]["value"]
+        model_type = _MODEL_TYPES.get(shot_type)
+        if model_type is None:
+            details["type_unavailable"] = [
+                {
+                    "message": "supported reconciled shot type required; no default or missingness predictor",
+                    "shot_type_evidence": row["shot_type_evidence"],
+                }
+            ]
+        previous = _previous_event(
+            event,
+            predecessors.get(index),
+            order_supported,
+            game,
+            players,
+            shooter,
+            period_sides,
+        )
+        length, seconds = _period_length(event), event["elapsed_seconds"]
+        minute_band = None
+        if length is not None and seconds is not None and 0 <= seconds <= length:
+            minute_band = (
+                "first"
+                if seconds < 60
+                else "last"
+                if seconds >= length - 60
+                else "middle"
+            )
+        context = {
+            "score_bucket": bucket,
+            "period": str(event["period_number"])
+            if length == 1200
+            else "OT"
+            if length == 300
+            else None,
+            "home_away": side,
+            "minute_band": minute_band,
+            "recent_kind": previous["kind"] if previous["status"] == "recent" else None,
+            "recent_team": previous["owner_team_relation"]
+            if previous["status"] == "recent"
+            else None,
+            "recent_delay": previous["time_gap_seconds"]
+            if previous["status"] == "recent"
+            else None,
+            "recent_zone": (
+                "attacking" if previous["current_attack_x"] > 25 else "other"
+            )
+            if previous["status"] == "recent"
+            else None,
+            "recent_shooter": ("same" if previous["same_shooter"] else "different")
+            if previous["status"] == "recent" and previous["same_shooter"] is not None
+            else None,
+        }
+        if previous["status"] == "unavailable":
+            details["context_unavailable"] = [
+                {
+                    "message": "supported recorded preceding-play context required",
+                    "previous_event": previous,
+                }
+            ]
         source_issues = [
-            {"file": str(path), "layer": "reconstruction", "index": i, **reconstructed["issues"][i]}
+            {
+                "file": str(path),
+                "layer": "reconstruction",
+                "index": i,
+                **reconstructed["issues"][i],
+            }
             for i in row["issue_indices"]
         ]
         for i, issue in enumerate(interpreted["issues"]):
@@ -724,7 +1206,8 @@ def _prepare_game(value, path, entry):
                 )
         for reason in details:
             details[reason] = [
-                {**detail, "source_issue_links": source_issues} for detail in details[reason]
+                {**detail, "source_issue_links": source_issues}
+                for detail in details[reason]
             ]
         reasons = [reason for reason in _REASONS if reason in details]
         attempts.append(
@@ -737,9 +1220,11 @@ def _prepare_game(value, path, entry):
                 "interval_indices": row["interval_indices"],
                 "shooting_team_id": team,
                 "shooter_id": shooter,
+                "credited_scorer_id": credited_scorer,
                 "goalie_id": goalie,
                 "role": role,
-                "score": category,
+                "context": context,
+                "previous_event": previous,
                 "pre_event_score": before,
                 "blocked": event["type_key"] == "blocked-shot",
                 "goal": event["type_key"] == "goal",
@@ -748,15 +1233,22 @@ def _prepare_game(value, path, entry):
                 "attacking_x": x,
                 "attacking_y": y,
                 "location_kind": (
-                    "block_evidence" if event["type_key"] == "blocked-shot" else "recorded_proxy"
+                    "block_evidence"
+                    if event["type_key"] == "blocked-shot"
+                    else "recorded_proxy"
                 ),
-                "status": "out_of_scope" if outside else "unavailable" if reasons else "eligible",
+                "status": "out_of_scope"
+                if outside
+                else "unavailable"
+                if reasons
+                else "eligible",
                 "reasons": reasons,
                 "reason_details": details,
                 "source_issues": source_issues,
                 "season": game["season"],
                 "home_away": side,
-                "shot_type": row["shot_type_evidence"]["value"],
+                "shot_type": shot_type,
+                "model_shot_type": model_type,
                 "shot_type_evidence": row["shot_type_evidence"],
                 "goal_modifier_evidence": modifier,
                 "classification": classification,
@@ -794,7 +1286,11 @@ def prepare(selection_path):
         path,
         "unexpected selection fields",
     )
-    _require(selection["purpose"] in ("fixture_exercise", "research"), path, "unsupported purpose")
+    _require(
+        selection["purpose"] in ("fixture_exercise", "research"),
+        path,
+        "unsupported purpose",
+    )
     corpora = _array(selection["corpora"], f"{path}/corpora")
     _require(bool(corpora), path, "nonempty explicit corpus selection required")
     selected_ids = set()
@@ -802,7 +1298,11 @@ def prepare(selection_path):
     for i, corpus in enumerate(corpora):
         loc = f"{path}/corpora/{i}"
         _object(corpus, loc, ("path", "game_ids"))
-        _require(set(corpus) == {"path", "game_ids"}, loc, "unexpected corpus selection fields")
+        _require(
+            set(corpus) == {"path", "game_ids"},
+            loc,
+            "unexpected corpus selection fields",
+        )
         _text(corpus["path"], loc + "/path")
         _require(bool(corpus["path"]), loc, "empty corpus path")
         ids = _array(corpus["game_ids"], loc + "/game_ids")
@@ -816,7 +1316,10 @@ def prepare(selection_path):
             _require(gid not in selected_ids, loc, "duplicate selected game id " + gid)
             selected_ids.add(gid)
         resolved.append(
-            {"path": str((path.parent / corpus["path"]).resolve()), "game_ids": list(ids)}
+            {
+                "path": str((path.parent / corpus["path"]).resolve()),
+                "game_ids": list(ids),
+            }
         )
     attempts, games, per_game = [], [], []
     game_dates = {}
@@ -829,7 +1332,9 @@ def prepare(selection_path):
         _schema(document, str(corpus_path), 1, ("reference", "games"))
         reference = document["reference"]
         _schema(reference, f"{corpus_path}/reference", 1, ("inventory", "inputs"))
-        _provenance(reference["inputs"], f"{corpus_path}/reference/inputs", REFERENCE_SOURCES)
+        _provenance(
+            reference["inputs"], f"{corpus_path}/reference/inputs", REFERENCE_SOURCES
+        )
         _require(
             reference["inventory"] is not None and document["games"] is not None,
             corpus_path,
@@ -849,7 +1354,15 @@ def prepare(selection_path):
         for i, row in enumerate(_array(document["games"], f"{corpus_path}/games")):
             loc = f"{corpus_path}/games/{i}"
             _object(
-                row, loc, ("game_id", "inventory_source_index", "status", "reason", "output_path")
+                row,
+                loc,
+                (
+                    "game_id",
+                    "inventory_source_index",
+                    "status",
+                    "reason",
+                    "output_path",
+                ),
             )
             gid = row["game_id"]
             _require(
@@ -888,13 +1401,20 @@ def prepare(selection_path):
                 }
             )
             if status in ("input_error", "identity_mismatch"):
-                raise InputContractError(f"{corpus_path}/games/{gid}: {status}: {row['reason']}")
+                raise InputContractError(
+                    f"{corpus_path}/games/{gid}: {status}: {row['reason']}"
+                )
             counts = {
                 "game_id": gid,
                 "game_date": entry["game_date"],
                 "corpus_status": status,
                 "reason": row["reason"],
                 "known_attempts": None,
+                "recognized_attempts": None,
+                "genuine_five_on_five_attempts": None,
+                "chance_2_eligible_attempts": None,
+                "goals_by_status": None,
+                "excluded_goals_by_reason": None,
                 "unclassifiable_source_rows": None,
                 "attempts_by_status": None,
                 "attempts_by_reason": None,
@@ -910,12 +1430,44 @@ def prepare(selection_path):
             envelope_path = (corpus_path.parent / row["output_path"]).resolve()
             input_roots.add(str(envelope_path.parent))
             envelope = _read(envelope_path, "game", inputs)
-            prepared, unclassified, evidence = _prepare_game(envelope, envelope_path, entry)
+            prepared, unclassified, evidence = _prepare_game(
+                envelope, envelope_path, entry
+            )
             attempts.extend(prepared)
             available = evidence["event_collection_available"]
             counts.update(
                 {
                     "known_attempts": len(prepared) if available else None,
+                    "recognized_attempts": len(prepared) if available else None,
+                    "genuine_five_on_five_attempts": sum(
+                        a["classification"] == "five_on_five"
+                        and a["source_event"]["timed_period"] is True
+                        for a in prepared
+                    )
+                    if available
+                    else None,
+                    "chance_2_eligible_attempts": sum(
+                        a["status"] == "eligible" for a in prepared
+                    )
+                    if available
+                    else None,
+                    "goals_by_status": {
+                        s: sum(a["goal"] and a["status"] == s for a in prepared)
+                        for s in ("eligible", "out_of_scope", "unavailable")
+                    }
+                    if available
+                    else None,
+                    "excluded_goals_by_reason": {
+                        r: sum(
+                            a["goal"]
+                            and a["status"] != "eligible"
+                            and r in a["reasons"]
+                            for a in prepared
+                        )
+                        for r in _REASONS
+                    }
+                    if available
+                    else None,
                     "unclassifiable_source_rows": unclassified if available else None,
                     "attempts_by_status": (
                         {
@@ -948,22 +1500,51 @@ def prepare(selection_path):
                 for g in per_game
             ),
             "excluded": sum(
-                g["known_attempts"] is not None and not g["attempts_by_status"]["eligible"]
+                g["known_attempts"] is not None
+                and not g["attempts_by_status"]["eligible"]
                 for g in per_game
             ),
         },
         "games_by_status": {s: corpus_statuses[s] for s in STATUSES},
         "attempts": {
             "known": len(attempts) if contributing else None,
+            "recognized_attempts": len(attempts) if contributing else None,
+            "genuine_five_on_five_attempts": sum(
+                g["genuine_five_on_five_attempts"] for g in contributing
+            )
+            if contributing
+            else None,
+            "chance_2_eligible_attempts": by_status["eligible"]
+            if contributing
+            else None,
+            "excluded_goals_by_reason": {
+                r: sum(
+                    a["goal"] and a["status"] != "eligible" and r in a["reasons"]
+                    for a in attempts
+                )
+                if contributing
+                else None
+                for r in _REASONS
+            },
+            "goals_by_status": {
+                s: sum(a["goal"] and a["status"] == s for a in attempts)
+                if contributing
+                else None
+                for s in ("eligible", "out_of_scope", "unavailable")
+            },
             "usable": by_status["eligible"] if contributing else None,
             "excluded": (
-                by_status["out_of_scope"] + by_status["unavailable"] if contributing else None
+                by_status["out_of_scope"] + by_status["unavailable"]
+                if contributing
+                else None
             ),
             "missing_games": len(games) - len(contributing),
             "unselected": None,
             "unselected_count_reason": "unselected envelopes not consumed; attempt count unavailable",
             "unclassifiable_source_rows": (
-                sum(g["unclassifiable_source_rows"] for g in contributing) if contributing else None
+                sum(g["unclassifiable_source_rows"] for g in contributing)
+                if contributing
+                else None
             ),
         },
         "attempts_by_status": {
@@ -971,7 +1552,8 @@ def prepare(selection_path):
             for s in ("eligible", "out_of_scope", "unavailable")
         },
         "attempts_by_reason": {
-            r: sum(r in a["reasons"] for a in attempts) if contributing else None for r in _REASONS
+            r: sum(r in a["reasons"] for a in attempts) if contributing else None
+            for r in _REASONS
         },
         "per_game": per_game,
     }
@@ -979,7 +1561,11 @@ def prepare(selection_path):
         "attempts": attempts,
         "coverage": coverage,
         "inputs": inputs,
-        "selection": {"schema_version": 1, "purpose": selection["purpose"], "corpora": resolved},
+        "selection": {
+            "schema_version": 1,
+            "purpose": selection["purpose"],
+            "corpora": resolved,
+        },
         "purpose": selection["purpose"],
         "game_dates": game_dates,
         "games": games,

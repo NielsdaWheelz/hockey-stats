@@ -87,7 +87,7 @@ def invoke(reconstruct: bool = False) -> int:
         if reconstruct:
             from .reconstruct import reconstruct_game
             reconstruction = reconstruct_game(document)
-            output_document = {"schema_version": 2, "implementation": implementation_identity(),
+            output_document = {"schema_version": 3, "implementation": implementation_identity(),
                                "interpreted": document, "reconstruction": reconstruction}
         else:
             document["interpretation"] = implementation_identity()

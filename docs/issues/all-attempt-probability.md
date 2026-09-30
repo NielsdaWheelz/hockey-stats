@@ -2,7 +2,7 @@
 
 status: open; scientific revision required after 03b.
 
-problem: the current `chance-1` outcome-blind all-attempt prediction does not support the declared probability use. its native prediction excludes current location and block outcome, but the development primary loses against its saved score/role benchmark under both proper losses.
+problem: the historical `chance-1` outcome-blind all-attempt prediction does not support the declared probability use. its native prediction excludes current location and block outcome, but the development primary loses against its saved score/role benchmark under both proper losses.
 
 impact/evidence: development anchor pooled log-loss difference is `+0.000368988213120077`, game interval `[+0.00017305645869108706, +0.0005620373474194783]`; brier is `+0.00004148402925722762`, interval `[+0.00002224711530819005, +0.00006200828416951881]`. all five named candidates fail at least one zero-excess requirement. forward losses decisively worsen; defender intervals overlap zero. these measurements do not establish a causal mechanism or validate an unblocked-only product.
 

@@ -1,68 +1,55 @@
-# chance-workflow fixture exercise
+# chance-2 fixture exercise
 
-these selections exercise `chance-1` software offline. they are not an admitted training population or scientific assessment. the configuration is the specification's numerical exercise, not a scientific default. all derived artifacts belong under ignored `var/`.
+these selections exercise software, not an admitted scientific training population. all artifacts retain `purpose: fixture_exercise` and `scientific_assessment: not_performed`. the schema-2 configuration is the exact 03d numerical exercise: all penalties are one, distance is 20 feet and direction strength is four. none was selected for attractive fixture predictions.
 
 ## preparation and commands
 
-from the repository root:
+from the repository root, prepare the locked environment and rebuild all eighteen committed games against their three season references:
 
 ```sh
 mkdir -p var
 cd analysis
 uv sync --locked
-.venv/bin/hockey-stats-corpus --reference ../fixtures/references/20252026 --games ../fixtures/captures --out ../var/chance-corpus
+.venv/bin/hockey-stats-corpus --reference ../fixtures/references/20232024 --games ../fixtures/captures --out ../var/chance-corpus-20232024
+.venv/bin/hockey-stats-corpus --reference ../fixtures/references/20242025 --games ../fixtures/captures --out ../var/chance-corpus-20242025
+.venv/bin/hockey-stats-corpus --reference ../fixtures/references/20252026 --games ../fixtures/captures --out ../var/chance-corpus-20252026
 .venv/bin/hockey-stats-chance fit --selection ../fixtures/chance/train.json --config ../fixtures/chance/candidate.json --out ../var/chance-fit
 .venv/bin/hockey-stats-chance evaluate --selection ../fixtures/chance/assessment.json --model ../var/chance-fit/model.json --out ../var/chance-assessment.json
 .venv/bin/hockey-stats-chance score --selection ../fixtures/chance/scoring.json --model ../var/chance-fit/model.json --out ../var/chance-scored
 ```
 
-all output paths must be new, with existing parents. the selection paths resolve relative to their json files. training uses the two october games; assessment uses the march game, strictly later and disjoint. scoring deliberately includes training games for retrospective analysis. neither assessment nor scoring changes the fitted model.
+outputs must be new, with existing parents. selection paths resolve relative to their json files. training uses `2023020001`, `2024020001` and `2025020001`, with 276 eligible attempts across the admitted seasons. the target reference is the latest training season, `20252026`; its 98 eligible attempts supply joint shooter–goalie pair frequencies. history informs estimates without entering reference membership. assessment uses `2025021094`, dated `2026-03-20`, strictly later and disjoint, with 91 eligible attempts. scoring deliberately includes all eighteen development fixtures, including training games. assessment never changes the fit or reference.
 
-## hand-checked source facts
+schema-3 reconstruction envelopes are regenerated from unchanged original captures. old envelopes, candidate configs, models and checkpoints fail explicitly. preserve expensive historical artifacts with their historical git revision; do not relabel them chance-2.
 
-source indices below refer to interpreted play-by-play order; the embedded source identities locate the unchanged capture evidence. [existing fixture facts](../README.md) document source checks and reconstruction limits.
+## source facts and denominators
 
-| game / source index | fact | consequence |
-|---|---|---|
-| `2025020001 / 2` | shooter `8473419`, team `13`; opposing reported goalie `8481519`; block coordinates `(-61,3)` normalize to `(61,-3)` | shooting ownership is retained; these coordinates are block evidence, not a shooting origin |
-| `2025020001 / 66` | chicago's first goal occurs at 1/10:03 with score `0–0` beforehand | goal outcome cannot supply its own pre-event score |
-| `2025020001 / 73` | florida scores at 1/11:06, previously trailing `0–1` | use trailing, not the tied post-goal snapshot |
-| `2025020001 / 90,136` | florida's non-5v5 goal gives it a `2–1` lead; chicago's subsequent 5v5 goal begins trailing `1–2` | goals at other strengths contribute to score context |
-| `2025020006 / 44,73` | edmonton's non-5v5 goal precedes its 5v5 goal; the latter begins leading `1–0` | scope exclusion does not remove a completed goal from score accounting |
-| `2025020006 / 357,358,370` | three shootout goal records occur after timed play ends `3–3` | shootout outcomes do not increment timed scores |
-| `2025021094 / 164,173` | carolina's penalty-shot goal creates a `2–1` lead; toronto's 5v5 goal begins trailing `1–2` | the penalty shot is outside scope but contributes to timed goal accounting |
-| all three games | 362 timed attempts, including 273 reconstructed 5v5 before further eligibility; 111 timed blocks lack shot type and reported goalie id | 362 is not the fitting denominator; on-ice evidence supplies goalies; shot type cannot be a stage predictor |
-| admitted season inventory | 1,312 expected games, three captures, 1,309 missing | explicit selection is not season coverage |
+[the original capture facts](../README.md) retain exact source locators, receipts and evidence limitations. source indices refer to interpreted play-by-play order.
 
-reconstruction retains 118 unresolved elapsed seconds in the march game. event membership and exposure are distinct; interval linkage is retained but does not establish rate compatibility. [shot-location evidence](../../docs/issues/shot-location-evidence.md) and [overlapping-shift evidence](../../docs/issues/overlapping-shift-evidence.md) remain open scientific responsibilities.
-
-## quantities and costs
-
-an unblocked recorded coordinate is a quantized origin proxy. a block receives a retrospective origin distribution conditioned on its observed block evidence. its reference opportunity can be positive although a known blocked attempt cannot score. this value is not a forecast, causal player contribution, or fitted-parameter uncertainty interval.
-
-the common reference averages each training shooter–goalie pair's product of stage probabilities. `weight` is attempt mass; `opportunity_mass` is its contribution in expected goals. summing cell contributions gives `reference_opportunity_value`; do not multiply those contributions by the weights again.
-
-full distributions cost disk. interrupted numerical work restarts into a new directory; completed fits remain reusable. the coarse grid, fixed kernel, regularization and unseen-actor prior modes require assessment in 03b. finite fits and software checks cannot establish origin accuracy or credible chance values.
-
-## software verification record — 2026-09-29
-
-four sol workers divided source preparation, numerical fitting, command/evaluation composition and independent adversarial checks. installed-command and preparation checks first failed on absent modules. implemented behavior passed; refactoring centralized geometry/feature order, reused the fixed prediction context, removed redundant prediction fields and retained exact numerical contracts. the final installed-command checks passed again. no configuration value was changed to obtain convergence.
-
-| final fixture exercise | result |
+| evidence | consequence |
 |---|---|
-| training | `2025020001` and `2025020006`; 184 eligible attempts |
-| em starts | uniform: 83 iterations; unblocked-frequency: 84; both converged |
-| selected start | `unblocked_frequency`; penalized observed objective `-1508.9121373428075` |
-| assessment | `2025021094`; 89 eligible attempts, including 60 unblocked |
-| scoring | 378 recognized attempts: 273 valued, 103 outside scope, two unavailable; 362 are timed |
-| origin basis | 183 recorded proxies; 90 inferred block distributions |
-| numerical checks | finite parameters/metrics; normalized kernel/origin/reference mass; spatial value conservation within absolute `1e-10` |
-| local resources | final automated fit: 9.605 seconds wall; peak child rss 141,918,208 bytes (135.3 mib), python 3.14.7 / numpy 2.5.3 / scipy 1.18.1 on mac arm64 |
+| `2025020001 / 2`, reported block `(-61,3)` rotates to `(61,-3)` for shooter `8473419`, team `13` | coordinates remain block contact evidence; the release distribution is inferred |
+| `2025020001 / 66,73,90,136`; `2025020006 / 44,73` | all timed source goals update the score before later attempts, including goals outside genuine 5v5 |
+| `2025021094 / 164,173` | the positively corroborated penalty-shot goal is outside scope but establishes the later `1–2` pre-event score |
+| `2023020237 / 131,182` | exact `between-legs` / `Between Legs` and `cradle` / `Cradle` reconcile; both belong to model group `other` |
+| `2024020340 / 342` | conflicting `snap` / `Wrist` stays unavailable; no preferred-feed replacement |
+| `2025020184 / 158`; `2025020282 / 282`; `2025020307 / 14` | awarded/own goals retain credited scorers and observed goals, with unavailable analytical physical shooter and opportunity value |
+| `2025020001 / 180`; `2025020184 / 157`; `2025020282 / 36,200` | immediately preceding `delayed-penalty` records are unsupported recent actions; no invented whistle reset or skipped predecessor |
+| `2023020078`, all periods | contradictory defending sides retain unavailable frames and locations |
+| `2025020544`, `2025020565` | elapsed exposure is unavailable; independent reported event membership still permits supported event valuation |
 
-independent arithmetic checked pre-goal scores, actors/ownership, quantization, the forward kernel, marginal likelihood, posterior normalization, fractional count conservation, full penalized objective, analytic gradients against finite differences, frozen e-step weights and the exact joint reference product. saved-model evaluation was recomputed independently for candidate/benchmark log loss, brier score, probability sums, calibration and per-game conservation. train-return/save/load scoring agreed. seven fixture shooters seen only in blocks retained evidence in `u` and prior-mode status in `r`.
+all eighteen games contain 2,210 recognized attempts, 1,623 reconstructed genuine-5v5 attempts and 1,530 chance-2 eligible attempts. those are different denominators. dispositions are 1,530 eligible, 585 outside scope and 95 unavailable. 119 recognized goals comprise 54 eligible, 57 outside scope and eight unavailable. applicable reasons are nonexclusive; an outside-scope goal can also have unresolved physical action. 03c had 1,537 eligible attempts: four recent-action failures and three unresolved awarded/own goals now become unavailable. the complete disposition and reason accounting is in [03d verification](../../docs/research/chance-03d/verification.md).
 
-adversarial checks covered accumulated missing fields, unknown role, missing selected games, unavailable identity, input errors, owner conflicts and shootout chronology; malformed models/configuration/provenance; existing outputs; same-date/overlapping assessment and fixture-purpose relabeling. one injected failed em start retained the other; both failed starts and one-class training produced no usable model. changing a held-out outcome changed assessment without changing fitted coefficients/reference/kernel. changing block evidence changed its retrospective posterior while leaving outcome-blind prediction unchanged. scoring worked with inaccessible training envelopes and without `fit.json`. raw captures, references and consumed corpus bytes remained unchanged; repeated score rows were byte-identical.
+all committed season inventories contain 1,312 expected games. six/four/eight captures are present, leaving 1,306/1,308/1,304 absent. this deliberately small selection establishes neither full-season coverage nor scientific independence: all three seasons have already been examined.
 
-an actual installed score process was terminated during jsonl writing: partial attempts remained without `score.json`, reuse was rejected, and the completed fit remained intact. temporary tests, scripts and the separate formatter environment were deleted after final verification; no test-only dependency was added to the project. production validation and scientific evaluation remain. future changes must recreate appropriate checks until the lasting verification slice.
+## quantities and recovery
 
-these are software facts from small development exercises, not origin accuracy, calibrated hockey probabilities, uncertainty coverage, or permission to use these values for player attribution. 03b remains unperformed. the known 118-second reconstruction gap and unresolved location evidence remain open.
+unblocked locations remain quantized recorded origin/contact proxies, including tips without relocation. each block retains its observed contact coordinate and receives a conditional origin distribution. posterior mass is not independent physical release evidence. `weight` is origin probability mass; `opportunity_mass` is its expected-goal contribution. sum contributions to get `reference_opportunity_value`; do not multiply them by weights again.
+
+reference opportunity averages each target-season shooter–goalie pair's PRODUCT of unblocked and conditional-goal probabilities, holding recorded type/context fixed. a block can retain positive standardized opportunity despite an observed zero goal. this is retrospective opportunity valuation, not total defensive value, a causal decomposition or a demonstrated pre-release forecast.
+
+full block distributions retain every grid cell and cost disk. exact reference reuse is bounded in memory and requests only needed type/context/cell combinations. no pruning or pair subsampling is used. preserve completed fits; regenerate cheap corpora and scores into new paths. `model.json` alone suffices to score. `score.json` is written last and binds the complete scored stream. a missing completion artifact means interrupted work.
+
+`--resume` requires the same exact inputs/configuration and clean implementation identity. it resumes accepted numerical state into a new output directory. before-earliest seasonal scoring remains unavailable; intermediate states and later carried-forward states are labeled. stage evidence distinguishes observations in the applied state, observations only in other seasons, and unseen zero prior modes; none identifies rookie status.
+
+[03d verification](../../docs/research/chance-03d/verification.md) records measured numerical and resource checks. these establish software behavior only. 03b remains scientifically rejected; real fitting, assumption sensitivity and a scientific support decision belong to separately authorized 03e work. 04 still requires supported values and compatible event/exposure selections.

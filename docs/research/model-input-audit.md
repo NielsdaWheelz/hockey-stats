@@ -2,6 +2,8 @@
 
 audited 2026-09-30 against implementation `9132131`, three local game captures, season references and retained 03b evidence. three independent reviewers examined hockeyviz, evolving hockey, and our capture → interpretation → preparation → model path. the drive is detached: fixture presence is not historical completeness. this is a bounded public-method audit, not access to either site's private production system.
 
+current follow-up: [03c is merged](chance-03c/decision.md), with all three seasons admitted locally, expanded fixtures and verified report/landing coverage. the tables below retain the dated chance-1 baseline; their pending source claims are superseded by that evidence. [03d's selected-feature contract](../specs/03d-chance-revision.md#selected-features-and-preceding-context) records the revised candidate's include/assess/omit decisions. no source recovery establishes scientific support.
+
 **we do not use the same complete inputs or features.** `chance-1` is a smaller, rejected candidate. earlier research documented several simplifications, but failed to connect the public-method inventory to every relevant source field. the blocked-shot-type omission is an audit failure, not a necessary consequence of a public-data core.
 
 ## reference versions and meaning
@@ -46,7 +48,7 @@ this inventory distinguishes interpretation gaps from omitted predictors. full p
 | evidence | actual state | next consumer / disposition |
 |---|---|---|
 | pl shooter/team/type | description only; 111 fixture block types overlooked | 03c structured evidence and unique joins; full-season coverage still to verify |
-| pl distance and own-goal wording | raw description, no structured fields | 03c audit examples; next model specifies coordinate/actor semantics. [own-goal issue](../issues/own-goal-attribution.md) |
+| pl distance and own-goal wording | raw description, no structured fields | 03c audit examples; next model specifies coordinate/actor semantics. [03d physical-action treatment](../specs/03d-chance-revision.md#source-and-population-contract) |
 | turnover `details.playerId` | captured; omitted from event roles | interpretation when a selected context or turnover component needs the actor; team/kind context need not wait |
 | stoppage `reason` / `secondaryReason` | primary interpreted; secondary remains raw | next model if defining freeze/rebound outcomes; explicit sequence rules required |
 | penalty actors/type/duration / `descKey` | actors/type/duration interpreted; description key raw | later penalty component or a demonstrated context need |

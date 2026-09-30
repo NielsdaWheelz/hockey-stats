@@ -151,11 +151,42 @@ _SHOT_TYPES = {
     "tip-in": "tip-in", "Tip-In": "tip-in", "deflected": "deflected", "Deflected": "deflected",
     "wrap-around": "wrap-around", "Wrap-around": "wrap-around",
     "poke": "poke", "Poke": "poke", "bat": "bat", "Bat": "bat",
+    "between-legs": "between-legs", "Between Legs": "between-legs",
+    "cradle": "cradle", "Cradle": "cradle",
 }
 
 
 def canonical_shot_type(value: str | None) -> str | None:
     return _SHOT_TYPES.get(value)
+
+
+def defending_sides(events):
+    """retain every explicit timed-event side; conflicts invalidate the period."""
+    result = defaultdict(set)
+    for event in events:
+        if event["timed_period"] is True and event["home_team_defending_side"] in ("left", "right"):
+            result[event["period_number"]].add(event["home_team_defending_side"])
+    return result
+
+
+def attacking_coordinates(event, game, shooting_team_id, period_sides):
+    """rotate recorded coordinates into a declared team's attacking frame.
+
+    neither coordinates nor another event's side supplies a missing frame.
+    callers own rink admission and the meaning of the recorded location.
+    """
+    x, y = event["reported_x"], event["reported_y"]
+    if any(type(value) not in (int, float) or not math.isfinite(value) for value in (x, y)):
+        return None, None, "finite recorded coordinates unavailable"
+    if game is None or shooting_team_id not in (game["away_team_id"], game["home_team_id"]):
+        return None, None, "participant has no resolved shooting team"
+    side = event["home_team_defending_side"]
+    if side not in ("left", "right"):
+        return None, None, "event has no explicit defending side"
+    if len(period_sides[event["period_number"]]) > 1:
+        return None, None, "period reports conflicting defending sides"
+    positive = (shooting_team_id == game["home_team_id"]) == (side == "left")
+    return (x, y, None) if positive else (-x, -y, None)
 
 
 def reconcile_shot_type(api_value: str | None, report_value: str | None, matched: bool) -> ShotTypeEvidence:
@@ -530,10 +561,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
         if key[2] in ("GOAL", "SHOT", "MISS", "BLOCK") and (len(api_keys[key]) > 1 or len(report_keys[key]) > 1):
             attempt_groups[key] = _attempt_group(api_keys[key], report_keys[key], event_ids, sort_orders,
                                                   report_ids, report_numbers, identities)
-    period_sides = defaultdict(set)
-    for row in api or []:
-        if row["timed_period"] is True and row["home_team_defending_side"] in ("left", "right"):
-            period_sides[row["period_number"]].add(row["home_team_defending_side"])
+    period_sides = defending_sides(api or [])
 
     reconstructed_events: list[ReconstructedEvent] | None = None
     if api is not None:
@@ -723,6 +751,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
 
             if row["kind_valid"] and row["type_key"] in _ATTEMPTS and row["timed_period"] is True:
                 x, y = row["reported_x"], row["reported_y"]
+                attack_x, attack_y, frame_reason = attacking_coordinates(row, game, row["shooting_team_id"], period_sides)
                 missing = [field for field, value in (("xCoord", x), ("yCoord", y))
                            if type(value) not in (int, float) or (type(value) is float and not math.isfinite(value))]
                 if missing:
@@ -735,14 +764,12 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                     field = "scoringPlayerId" if row["type_key"] == "goal" else "shootingPlayerId"
                     event_issues.append(_issue(issues, "unresolved_attempt_frame", "play-by-play", path + "/details/" + field,
                         "participant has no resolved shooting team; normalized recorded location unavailable"))
-                elif row["home_team_defending_side"] not in ("left", "right") or len(period_sides[row["period_number"]]) > 1:
+                elif frame_reason is not None:
                     event["coordinate_status"] = "unresolved_frame"
-                    reason = "event has no explicit defending side" if row["home_team_defending_side"] not in ("left", "right") else "period reports conflicting defending sides"
                     event_issues.append(_issue(issues, "unresolved_attempt_frame", "play-by-play", path + "/homeTeamDefendingSide",
-                        reason + "; normalized recorded location unavailable"))
+                        frame_reason + "; normalized recorded location unavailable"))
                 else:
-                    positive = (row["shooting_team_id"] == game["home_team_id"]) == (row["home_team_defending_side"] == "left")
-                    event["attacking_x"], event["attacking_y"] = (x, y) if positive else (-x, -y)
+                    event["attacking_x"], event["attacking_y"] = attack_x, attack_y
                     event["coordinate_status"] = "normalized"
             reconstructed_events.append(event)
 

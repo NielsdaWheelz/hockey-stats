@@ -8,6 +8,8 @@ retain a small, repeatable set of checks for consequential software behavior. in
 
 keep checks within their application or analysis project, reusing ordinary entry points. fixture evidence belongs under `fixtures/`; shared analytical diagnostics remain production research code. select the minimum runner and exact files later. no testing service, orchestration framework, exhaustive matrix or continuous fitting.
 
+[03c](03c-source-revision.md#offline-evidence-amendment) already owns expanded raw fixtures and the larger local corpus; every subsequent slice preserves distinct new failures under the [fixture policy](../../fixtures/README.md#fixture-policy-and-local-corpus). 07 consumes that evidence rather than postponing its collection. default checks use a small declared selection from committed fixtures; broad local-corpus checks are explicitly invoked. raw storage size does not determine routine test workload. do not require the larger corpus, network or drive for the default checks, or introduce a corpus download/synchronization harness.
+
 ## scope and full specification
 
 choose cases for important contracts and observed regressions: source bytes/provenance, missing or conflicting evidence, analytical handoffs, coherent database reads and manual publication recovery. verify a meaningful browser path through 06. manually check cheap presentation details; full historical training does not belong in software tests.

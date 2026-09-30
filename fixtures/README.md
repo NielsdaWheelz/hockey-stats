@@ -4,6 +4,19 @@ the initial eight fresh nhl responses were captured on 2026-09-29 with the produ
 
 purpose: bounded offline examples for later interpretation and application development. these are neither a training population nor a complete boundary suite. no legacy fixtures were imported; the archived projected and synthetic fixtures remain excluded from the source-evidence baseline.
 
+## fixture policy and local corpus
+
+03c expands the evidence in two tiers; this policy does not claim those copies already exist:
+
+- **committed fixtures:** a compact set of complete available game capture bundles under `captures/`, with each required four-source season bundle under `references/`. retain ordinary and troublesome games across supported seasons. a few dozen games is a planning estimate, not a quota; select distinct behavior and reuse examples that cover several cases.
+- **larger local corpus:** original raw captures and references in one operator-selected directory outside the git checkout. target all three already-captured seasons after measuring their bytes and available storage. keep large derived outputs and fits separate; a manual copy and existing commands suffice. this corpus supports explicitly selected broad checks, not the default test workload.
+
+preserve a newly discovered distinct failure before replacing its evidence. copy original bodies and receipts byte-for-byte, verify lengths/hashes, and retain missing/error source dispositions. never trim events, sanitize a response, substitute a corrected download or present a source extract as the original bundle. retain different retrievals separately without overwriting either. synthetic mutations belong separately with an explicit recipe and label.
+
+for each retained case, record game id/season, why it exists, source locators, independently checked expected facts or unresolved behavior, and any open issue link. record equivalent failures against an existing case instead of accumulating redundant games. resolved bugs keep their fixtures and facts; remove the resolved issue link when deleting its issue. unavailable originals require a pending-copy issue with their known location. fixture admission preserves evidence, not a claim that the game is valid or must become recoverable.
+
+copy required references too. regenerate path-bound derived corpora and selections locally through existing commands; do not rewrite historical artifacts or depend on symlinks to the drive. verify actual game/source dispositions and detached operation, not just successful command exit. keeping more bytes locally neither authorizes fitting nor creates fresh scientific confirmation. [03c acceptance and copy record](../docs/specs/03c-source-revision.md#offline-evidence-amendment) · [pending work](../docs/issues/offline-source-corpus.md)
+
 ## identity and admission
 
 the following values were directly inspected in both `play-by-play/body.bin` and `boxscore/body.bin`. the corresponding saved report's `Visitor`, `Home` and `GameInfo` tables were manually inspected to corroborate date, teams, game number and final score.

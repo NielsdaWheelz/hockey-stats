@@ -1,6 +1,8 @@
 # architecture and statistical design
 
-status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus/reference admission](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is implemented and verified locally; its scientific decision rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [product brief](brief.md) remains authoritative. fixture implementation does not imply scientific acceptance.
+status: architecture direction completed in commit `9ff024a`; [01 capture](specs/01-capture.md), [02a interpretation](specs/02-interpretation.md), [02b reconstruction](specs/02b-reconstruction.md), [02c corpus/reference admission](specs/02c-corpus.md) and [03a](specs/03a-chance-workflow.md) are reviewed and merged. 03b is complete and merged in `9132131`; its [scientific decision](research/chance-03b/decision.md) rejects the declared all-attempt use. 04 is withheld pending a reviewed scientific revision. the [product brief](brief.md) remains authoritative. software completion does not imply scientific acceptance.
+
+pr03c follow-up: [source revision](specs/03c-source-revision.md) specifies landing acquisition through existing capture primitives, report/landing interpretation, supported joins, pre-event score repairs and population differences. [03d](specs/03d-chance-revision.md) and [03e](specs/03e-training-assessment.md) are stubs separating revised numerical behavior from real scientific assessment; [04–07](plan.md#next-slices) likewise retain their own later decisions. no new service, database or fitting platform follows. [evidence and scientific limits](research/chance-03c-source-audit.md)
 
 ## operating scale
 

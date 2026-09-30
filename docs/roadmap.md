@@ -15,7 +15,7 @@ parity scope confirmed 2026-09-29: **complete player analysis**, covering hockey
 
 v2 and v3 are independent after v1. the recommendation favors useful comparison tools first; current-season work can take priority if that is the more pressing use once v1 exists. the cost of the proposed order is delaying current-season analysis while improving the completed-season product. each milestone can ship through several small slices.
 
-source foundations belong within v1: the [plan](plan.md) places event on-ice reports in merged 02b, season inventory/player bios and corpus accounting in merged 02c, and coach-source decisions in 04. chance modeling now has separate 03a workflow and 03b real-training/scientific-acceptance boundaries. event-summary/shift reports support selected audits; they do not require duplicate feeds. scratch availability views remain later work. adding a source does not by itself add a card or public feature.
+source foundations belong within v1: the [plan](plan.md) places event on-ice reports in merged 02b and season inventory/player bios and corpus accounting in merged 02c. after 03b's rejection, [03c](specs/03c-source-revision.md) specifies demonstrated source repairs and landing admission; [03d](specs/03d-chance-revision.md)/[03e](specs/03e-training-assessment.md) are stubs separating revised-model implementation from real training/assessment. coach admission belongs to 04 unless the revised chance candidate needs it earlier; structured `right-rail` is a candidate source. event-summary/shift reports support selected audits; they do not require duplicate feeds. scratch availability views remain later work. adding a source does not by itself add a card or public feature.
 
 ## milestones that need not wait
 

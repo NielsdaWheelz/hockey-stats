@@ -2,6 +2,8 @@
 
 status: open; scientific/context review required after 03b.
 
+03c dependency: the [report-type audit](report-shot-types.md) found types for all 111 fixture blocks in the already captured play report. missingness in the api is not absence from every source. 03c supplies attributed/reconciled fields and coverage; it does not add a type predictor or resolve this scientific issue. any later type-conditional probability must compose conversion, block avoidance and origin assumptions coherently.
+
 problem: acceptable pooled conversion calibration conceals material errors by unblocked shot type and inconclusive or adverse consequential probability bins. lower proper loss does not establish calibration.
 
 impact/evidence: native development replay exactly reconciles saved metrics and computes whole-game intervals: backhand predicted-minus-observed rate `+0.0167846` `[+0.0101898, +0.0231719]`; snap `−0.0202089` `[−0.0240170, −0.0166832]`; tip-in `+0.0460454` `[+0.0405886, +0.0512324]`. each consequential group exceeds the declared diagnostic margin. these development intervals are post-selection diagnostics; the same groups are frozen for confirmation, without introducing new primary tests. primary conversion bins 1 and 3 have adequate attempt/game support but overlap their acceptable ±0.01 bounds, leaving calibration inconclusive. sparse bin 5 remains visibly adverse, without becoming a post-result primary gate. missing type remains unknown; inspected missing-type goals include own-goal descriptions. source proxies do not establish physical launch location or the cause of these errors.

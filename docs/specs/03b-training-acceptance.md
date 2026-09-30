@@ -1,0 +1,19 @@
+# pr03b — training and scientific acceptance
+
+status: scope outline; empirical specification pending, work not authorized. depends on the [03a workflow](03a-chance-workflow.md) and trustworthy training/assessment evidence. [brief](../brief.md) · [plan](../plan.md)
+
+this pr owns corpus admission, real training and scientific judgment. complete its empirical specification after the workflow exists and the available corpus is known. the drive audit remains deferred by the user's choice; fresh acquisitions can supply additional evidence if explicitly selected later. no three-game substitute for a training population.
+
+1. inspect and admit originals through existing capture/reconstruction/corpus contracts. document seasons, available/missing games, source versions, event/exposure coverage, location/shot-type semantics and consequential selection. any necessary source/import repair belongs at its responsible layer; do not hide a legacy compatibility path in the fitter.
+2. define chronological training, development and untouched confirmation games. select historical horizon, kernel/prior/penalty candidates and meaningful subgroups from source evidence and development runs. fixture numerical settings are not the scientific defaults. retain exact configs, data identities, fits, cost measurements and evaluation outputs.
+3. freeze quantitative comparison, calibration and sensitivity criteria after development, before confirmation. inspect recorded-location proxies and independently check blocked origins where evidence permits. masked unblocked shots, good observed likelihood and plausible geometry cannot alone validate the blocked-origin assumption. state the scope of uncertainty and unresolved identification.
+4. assess held-out factual probabilities against the saved benchmarks; inspect entrants, sparse actors, omitted context, rink/season variation, selective gaps and sensitivity of reference values/spatial allocation. compare alternative grid/kernel/prior choices only under compatible measurement/metric definitions. add a model feature only for a demonstrated deficiency and review its specification first.
+5. write a short scientific decision: accepted scope and limitations, or rejected/insufficient evidence with concrete next work. acceptance is a reasoned operator/reviewer decision, not a flag set by a command. it does not publish results or prove player attribution. after a supported selection, preserve the final retrospective fit and its distinct evidence cutoff; do not reuse its in-sample scores as confirmation.
+
+completed fits and scientific evaluation code/results remain. measure whether a single fit is costly enough to justify saving intermediate numerical work; if so, specify a small checkpoint before lengthy production runs, not a job engine. 04 uses only values whose scientific scope is supported; the [shot-location issue](../issues/shot-location-evidence.md) stays open until its evidence requirements are met. downstream player-map sensitivity is assessed with 04, rather than pretending 03b validates an unbuilt attribution model.
+
+the tradeoff is an additional review boundary and the possibility that 03b sends the candidate back for revision. that is preferable to conflating software completion with evidence for a hockey claim. it does not add deployment gates, model registries or permanent test infrastructure.
+
+## decisions still pending
+
+actual corpus/seasons, training horizon, development/confirmation dates, candidate tuning ranges, quantitative acceptance criteria and any checkpoint requirement. resolve these from the admitted evidence and measured workload before confirmation; do not invent them from the three fixtures. the mathematical and artifact contracts remain owned by 03a unless a reviewed scientific change requires revision.

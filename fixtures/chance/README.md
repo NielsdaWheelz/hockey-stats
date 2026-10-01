@@ -22,6 +22,8 @@ outputs must be new, with existing parents. selection paths resolve relative to 
 
 schema-3 reconstruction envelopes are regenerated from unchanged original captures. old envelopes, candidate configs, models and checkpoints fail explicitly. preserve expensive historical artifacts with their historical git revision; do not relabel them chance-2.
 
+only evaluation changes to schema 3. configurations, fit/model/checkpoint artifacts, score rows and score completion remain schema 2. evaluate writes a new json file; fit and score create new directories. none overwrites an existing output or writes within an input directory. [research composition](../../README.md#chance-research-review) uses sibling input/output directories and an explicit schema-2 evidence manifest; that reviewer rejects these fixture artifacts.
+
 ## source facts and denominators
 
 [the original capture facts](../README.md) retain exact source locators, receipts and evidence limitations. source indices refer to interpreted play-by-play order.
@@ -48,8 +50,12 @@ unblocked locations remain quantized recorded origin/contact proxies, including 
 
 reference opportunity averages each target-season shooter–goalie pair's PRODUCT of unblocked and conditional-goal probabilities, holding recorded type/context fixed. a block can retain positive standardized opportunity despite an observed zero goal. this is retrospective opportunity valuation, not total defensive value, a causal decomposition or a demonstrated pre-release forecast.
 
+schema-3 assessment retains overall probability bins per game and adds additive subgroup sums with the same category/value descriptors as the global groups. zero-count groups remain present in every selected game; per-game subgroup bins are absent. metrics identify `goal` or `unblocked` outcomes through `outcome` and `observed_positive_count`. period and minute-band groups support residual diagnostics without recomputing predictions.
+
+`tip_distance` bands are `0_10`, `10_20`, `20_40` and `40_plus`, left-closed and right-open in feet. distance is `hypot(89−attacking_x, attacking_y)` before quantization; `tip_below_goal_line` is `attacking_x > 89`. both groups contain only eligible unblocked original `tip-in`/`deflected` events, and only candidate/benchmark `unblocked_conversion` metrics. their counts partition that tip subset. blocked tips retain block-contact evidence and are excluded from these location diagnostics. the fixture assessment has seven such unblocked tips, with distance-band counts `2, 2, 2, 1` and none below the goal line; these facts establish software behavior, not tip-location accuracy.
+
 full block distributions retain every grid cell and cost disk. exact reference reuse is bounded in memory and requests only needed type/context/cell combinations. no pruning or pair subsampling is used. preserve completed fits; regenerate cheap corpora and scores into new paths. `model.json` alone suffices to score. `score.json` is written last and binds the complete scored stream. a missing completion artifact means interrupted work.
 
 `--resume` requires the same exact inputs/configuration and clean implementation identity. it resumes accepted numerical state into a new output directory. before-earliest seasonal scoring remains unavailable; intermediate states and later carried-forward states are labeled. stage evidence distinguishes observations in the applied state, observations only in other seasons, and unseen zero prior modes; none identifies rookie status.
 
-[03d verification](../../docs/research/chance-03d/verification.md) records measured numerical and resource checks. these establish software behavior only. 03b remains scientifically rejected; real fitting, assumption sensitivity and a scientific support decision belong to separately authorized 03e work. 04 still requires supported values and compatible event/exposure selections.
+[03d verification](../../docs/research/chance-03d/verification.md) records historical numerical and resource checks. these establish software behavior only. 03b remains scientifically rejected. authorized 03e real fitting, assumption sensitivity and scientific assessment follow the [protocol](../../docs/research/chance-03e/protocol.md); [the decision](../../docs/research/chance-03e/decision.md) owns the conditional handoff or withholding. 04 still requires supported values, compatible event/exposure selections and player robustness across the admitted family.

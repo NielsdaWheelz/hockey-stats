@@ -3,14 +3,15 @@
 import math
 
 from .captures import InputContractError
+from .chance import CONTEXT_CATEGORIES, ROLES, TYPES
 
 
-_POPULATIONS = {
+PROBABILITY_POPULATIONS = {
     "unblocked_conversion": ("goal", ("candidate_r", "benchmark_r")),
     "all_attempt_recorded_context": ("goal", ("candidate_all", "benchmark_all")),
     "marginal_unblocked": ("unblocked", ("candidate_unblocked",)),
 }
-_SUMS = (
+PROBABILITY_SUMS = (
     "count",
     "observed_positive_count",
     "predicted_probability_sum",
@@ -19,14 +20,32 @@ _SUMS = (
 )
 
 
+GROUP_DOMAINS = {
+    "score_bucket": CONTEXT_CATEGORIES["score_bucket"],
+    "period": CONTEXT_CATEGORIES["period"],
+    "minute_band": CONTEXT_CATEGORIES["minute_band"],
+    "role": ROLES,
+    "home_away": CONTEXT_CATEGORIES["home_away"],
+    "shot_type": [
+        "wrist", "snap", "slap", "backhand", "tip-in", "deflected",
+        "wrap-around", "poke", "bat", "between-legs", "cradle", None,
+    ],
+    "model_shot_type": TYPES + [None],
+    "recent_context": ["recent", "none"],
+    "season_basis": ["fitted", "unobserved", "carried_forward"],
+    "tip_distance": ["0_10", "10_20", "20_40", "40_plus"],
+    "tip_below_goal_line": [False, True],
+}
+
+
 def _new_metrics(full: bool, tip: bool = False) -> dict:
     result = {}
-    for population, (outcome, predictors) in _POPULATIONS.items():
+    for population, (outcome, predictors) in PROBABILITY_POPULATIONS.items():
         if tip and population != "unblocked_conversion":
             continue
         result[population] = {}
         for predictor in predictors:
-            metric = dict(outcome=outcome, **dict.fromkeys(_SUMS, 0))
+            metric = dict(outcome=outcome, **dict.fromkeys(PROBABILITY_SUMS, 0))
             if full:
                 metric["calibration"] = [
                     dict(
@@ -51,7 +70,7 @@ def _new_metrics(full: bool, tip: bool = False) -> dict:
 def _record_metrics(row: dict) -> dict:
     """validate once, then share additive probability evidence among summaries."""
     result = {}
-    for population, (outcome, predictors) in _POPULATIONS.items():
+    for population, (outcome, predictors) in PROBABILITY_POPULATIONS.items():
         if population == "unblocked_conversion" and row["blocked"]:
             continue
         positive = not row["blocked"] if outcome == "unblocked" else row["goal"]
@@ -120,7 +139,7 @@ def _finish_metrics(metrics: dict) -> None:
                     total / metric["count"] if metric["count"] else None
                 )
                 continue
-            if not all(math.isfinite(metric[field]) for field in _SUMS):
+            if not all(math.isfinite(metric[field]) for field in PROBABILITY_SUMS):
                 raise InputContractError("evaluation: nonfinite probability metric sums")
             if "calibration" not in metric:
                 continue
@@ -154,27 +173,9 @@ def _new_groups(categories: dict, full: bool) -> dict:
 
 def evaluate(model: dict, prepared: dict) -> dict:
     """evaluate saved predictors; selected games share exact subgroup domains."""
-    from .chance import (
-        CONTEXT_CATEGORIES, ROLES, TYPES, predict_attempt, prediction_context,
-    )
+    from .chance import predict_attempt, prediction_context
 
-    values = {
-        "season": sorted({r["season"] for r in prepared["games"]}),
-        "score_bucket": CONTEXT_CATEGORIES["score_bucket"],
-        "period": CONTEXT_CATEGORIES["period"],
-        "minute_band": CONTEXT_CATEGORIES["minute_band"],
-        "role": ROLES,
-        "home_away": CONTEXT_CATEGORIES["home_away"],
-        "shot_type": [
-            "wrist", "snap", "slap", "backhand", "tip-in", "deflected",
-            "wrap-around", "poke", "bat", "between-legs", "cradle", None,
-        ],
-        "model_shot_type": TYPES + [None],
-        "recent_context": ["recent", "none"],
-        "season_basis": ["fitted", "unobserved", "carried_forward"],
-        "tip_distance": ["0_10", "10_20", "20_40", "40_plus"],
-        "tip_below_goal_line": [False, True],
-    }
+    values = {"season": sorted({r["season"] for r in prepared["games"]}), **GROUP_DOMAINS}
     categories = {
         key: [dict(value=v) for v in domain] for key, domain in values.items()
     }

@@ -1409,13 +1409,32 @@ def sensitivity_review(entries, reference_label):
     }
 
 
+def caption_layout(lines, width_inches):
+    """reserve physical space for wrapped eight-point figure captions."""
+    columns = max(1, int(width_inches * 72 * 0.96 / (8 * 0.6)))
+    text = "\n".join(textwrap.fill(line, width=columns) for line in lines)
+    return text, 0.15 * (text.count("\n") + 1) + 0.2
+
+
 def save_figures(assessments, sensitivity, output):
     figures = []
     for index, assessment in enumerate(assessments):
+        caption, caption_height = caption_layout(
+            [
+                f"held-out selected cohort: {len(assessment['game_dates'])} games, {min(assessment['game_dates'].values())} to {max(assessment['game_dates'].values())}; model reference season {assessment['reference_season']}.",
+                "factual actor-state probabilities: conversion conditions on unblocked and its quantized recorded-origin proxy; recorded-context goal/unblocked probabilities integrate the origin prior.",
+                "origin-integrated probabilities omit focal location, outcome and posterior. reconciled type/eligibility remain retrospective; this is not a demonstrated live forecast.",
+                "95% paired game-bootstrap intervals condition on fitted models; fitting, selection and origin-law uncertainty excluded. no simultaneous-coverage claim.",
+                "hollow points: undefined draws, all-one labels or fewer than 100 contributing games. undefined draws omit intervals; degenerate label intervals cannot establish support.",
+                "diagnostic zoom clips display at ±0.02; full-range panels retain every point/interval. all 20 fixed bins remain; count axes use symlog (linear 0–1, then log).",
+                "seven-/fourteen-calendar-day dependence results and consequential subgroup intervals are saved in comparison.json; protocol owns margins and frozen groups.",
+            ],
+            18,
+        )
         figure, axes = plt.subplots(
             3,
             3,
-            figsize=(18, 11),
+            figsize=(18, 11 + caption_height),
             sharex="col",
             gridspec_kw={"height_ratios": [3, 3, 1]},
         )
@@ -1487,16 +1506,10 @@ def save_figures(assessments, sensitivity, output):
         figure.text(
             0.02,
             0.015,
-            f"held-out selected cohort: {len(assessment['game_dates'])} games, {min(assessment['game_dates'].values())} to {max(assessment['game_dates'].values())}; model reference season {assessment['reference_season']}.\n"
-            "factual actor-state probabilities: conversion conditions on unblocked and its quantized recorded-origin proxy; recorded-context goal/unblocked probabilities integrate the origin prior.\n"
-            "origin-integrated probabilities omit focal location, outcome and posterior. reconciled type/eligibility remain retrospective; this is not a demonstrated live forecast.\n"
-            "95% paired game-bootstrap intervals condition on fitted models; fitting, selection and origin-law uncertainty excluded. no simultaneous-coverage claim.\n"
-            "hollow points: undefined draws, all-one labels or fewer than 100 contributing games. undefined draws omit intervals; degenerate label intervals cannot establish support.\n"
-            "diagnostic zoom clips display at ±0.02; full-range panels retain every point/interval. all 20 fixed bins remain; count axes use symlog (linear 0–1, then log).\n"
-            "seven-/fourteen-calendar-day dependence results and consequential subgroup intervals are saved in comparison.json; protocol owns margins and frozen groups.",
+            caption,
             fontsize=8,
         )
-        figure.tight_layout(rect=(0, 0.15, 1, 0.94))
+        figure.tight_layout(rect=(0, (caption_height + 0.15) / (11 + caption_height), 1, 0.94))
         filename = f"calibration-{index + 1}.png"
         figure.savefig(output / filename, dpi=160)
         plt.close(figure)
@@ -1518,12 +1531,21 @@ def save_figures(assessments, sensitivity, output):
         reference_notes.append(
             f"{comparison['label']} versus {comparison['reference_label']}: matched events, coverage, geometry and reference; {'kernel changed' if comparison['kernel_changed'] else 'kernel matched'}; refitting effects retained."
         )
-    reference_caption = "\n".join(textwrap.fill(note, width=135) for note in reference_notes)
-    caption_height = 0.15 * (4 + reference_caption.count("\n"))
     maps = sensitivity["spatial_opportunity_mass"]
+    width = 5 * len(maps)
     centers = np.asarray(sensitivity["grid"]["centers"])
     reference = next(row for row in maps if row["label"] == sensitivity["reference_score"])
     for difference in (False, True) if sensitivity["comparisons"] else (False,):
+        caption, caption_height = caption_layout(
+            [
+                "absolute changes from the declared reference score; one symmetric color scale across all panels."
+                if difference
+                else "absolute opportunity mass; one color scale across blocked/unblocked populations and alternatives. totals are preserved.",
+                "point estimates of standardized values; no fitted-parameter, selection or origin-law interval; physical origin accuracy and causal attribution remain unestablished.",
+                *reference_notes,
+            ],
+            width,
+        )
         panels = []
         for name in ("blocked", "unblocked"):
             panels.append(
@@ -1551,15 +1573,15 @@ def save_figures(assessments, sensitivity, output):
         figure, axes = plt.subplots(
             2,
             len(maps),
-            figsize=(5 * len(maps), 7 + caption_height),
+            figsize=(width, 7 + caption_height),
             squeeze=False,
             sharex=True,
             sharey=True,
         )
         figure.subplots_adjust(
-            left=0.08,
+            left=0.75 / width,
             bottom=(caption_height + 0.25) / (7 + caption_height),
-            right=0.84,
+            right=1 - 0.75 / width,
             top=0.84,
             hspace=0.9,
             wspace=0.3,
@@ -1606,22 +1628,18 @@ def save_figures(assessments, sensitivity, output):
         if rendered is not None:
             figure.colorbar(
                 rendered,
-                cax=figure.add_axes([0.89, 0.27, 0.018, 0.5]),
+                ax=axes,
+                fraction=0.12 / (width - 1.5),
+                pad=0.25 / (width - 1.5),
+                aspect=40,
                 label="opportunity mass change per cell (expected goals)"
                 if difference
                 else "opportunity mass per cell (expected goals)",
             )
-        caption = (
-            "absolute changes from the declared reference score; one symmetric color scale across all panels."
-            if difference
-            else "absolute opportunity mass; one color scale across blocked/unblocked populations and alternatives. totals are preserved."
-        )
         figure.text(
             0.015,
             0.02,
-            caption
-            + "\npoint estimates of standardized values; no origin accuracy or causal attribution.\n"
-            + reference_caption,
+            caption,
             fontsize=8,
         )
         filename = "spatial-mass-changes.png" if difference else "spatial-mass.png"
@@ -1647,6 +1665,13 @@ def save_figures(assessments, sensitivity, output):
             for kind in ("spatial_opportunity_mass_change", "event_value_change")
         )
         return figures
+    caption, caption_height = caption_layout(
+        [
+            "alternative minus reference; signed mean and absolute-change summaries on shared axes. point estimates exclude fitted-parameter, selection and origin-law uncertainty.",
+            *reference_notes,
+        ],
+        12,
+    )
     figure, axes = plt.subplots(1, 2, figsize=(12, 3.4 + caption_height), sharex=True, sharey=True)
     measures = ("mean", "mean_absolute", "root_mean_square", "maximum_absolute")
     extent = 0.0
@@ -1695,8 +1720,7 @@ def save_figures(assessments, sensitivity, output):
     figure.text(
         0.01,
         0.01,
-        "alternative minus reference; signed mean and absolute-change summaries on shared axes. no fitted-parameter/origin uncertainty.\n"
-        + reference_caption,
+        caption,
         fontsize=8,
     )
     figure.tight_layout(rect=(0, (caption_height + 0.1) / (3.4 + caption_height), 1, 0.82))

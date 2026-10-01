@@ -351,15 +351,15 @@ def _scalar_logits(beta, layout, data):
     return value
 
 
-def _stage_logits(beta, layout, data, cells):
-    """bounded group by cell logits; cells may instead be paired event cells."""
+def _stage_logits(beta, layout, data, cells, *, scalar_logits=None):
+    """cell logits, with optional exact precomputed reference scalar terms."""
     offsets = _offsets(layout)
     h = layout["cells"]
     shared = beta[offsets["cell"] : offsets["type"]]
     types = np.vstack(
         (np.zeros(h), beta[offsets["type"] : offsets["scalar"]].reshape(5, h))
     )
-    scalar = _scalar_logits(beta, layout, data)
+    scalar = _scalar_logits(beta, layout, data) if scalar_logits is None else scalar_logits
     if np.ndim(cells) == 2:
         ids = cells[0]
         return (
@@ -1654,20 +1654,42 @@ def prediction_context(model):
     """opaque reusable numerical state and bounded exact reference cache."""
     validate_model(model)
     centers, _ = grid()
-    return dict(
-        centers=centers,
-        kernel=forward_kernel(
+    context = {
+        "centers": centers,
+        "kernel": forward_kernel(
             centers,
             model["kernel"]["distance_ft"],
             model["kernel"]["direction_strength"],
         ),
-        origin=np.asarray(model["origin"]["coefficients"]),
-        stages={k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()},
-        benchmarks={
+        "origin": np.asarray(model["origin"]["coefficients"]),
+        "stages": {k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()},
+        "benchmarks": {
             k: np.asarray(v["coefficients"]) for k, v in model["benchmarks"].items()
         },
-        reference_cache=OrderedDict(),
-    )
+        "reference_cache": OrderedDict(),
+        "reference_weights": np.array([pair["weight"] for pair in model["reference"]]),
+        "reference_scalar_logits": {},
+    }
+    # the zero contrast leaves intercept, target season and joint actor terms.
+    neutral_context = {key: CONTEXT_REFERENCES.get(key) for key in CONTEXT_FIELDS}
+    reference_rows = [
+        {
+            "season": model["reference_season"],
+            "model_shot_type": TYPES[0],
+            "role": ROLES[0],
+            "context": neutral_context,
+            "goal": False,
+            "shooter_id": pair["shooter_id"],
+            "goalie_id": pair["goalie_id"],
+        }
+        for pair in model["reference"]
+    ]
+    for name, stage in model["stages"].items():
+        data = _encode(reference_rows, stage, [0] * len(reference_rows))
+        context["reference_scalar_logits"][name] = _scalar_logits(
+            context["stages"][name], stage, data
+        )
+    return context
 
 
 def _prediction_data(attempt, layout, h, state):
@@ -1689,30 +1711,31 @@ def reference_probabilities(model, attempt, cell_ids, context):
     prefix = (attempt["model_shot_type"], tuple(scalar))
     cache = context["reference_cache"]
     missing = sorted({int(h) for h in cells if (prefix, int(h)) not in cache})
+    if missing:
+        data = {
+            "type": np.full(len(model["reference"]), TYPES.index(attempt["model_shot_type"]))
+        }
+        scalar_logits = {}
+        for name, stage in model["stages"].items():
+            offsets = _offsets(stage)
+            scalar_logits[name] = context["reference_scalar_logits"][name] + (
+                scalar @ context["stages"][name][offsets["scalar"] : offsets["shooter"]]
+            )
     for start in range(0, len(missing), BATCH_SIZE):
         hs = np.array(missing[start : start + BATCH_SIZE])
-        values = np.zeros(len(hs))
-        for pair_start in range(0, len(model["reference"]), BATCH_SIZE):
-            pairs = model["reference"][pair_start : pair_start + BATCH_SIZE]
-            rows = [
-                dict(
-                    attempt,
-                    season=model["reference_season"],
-                    shooter_id=p["shooter_id"],
-                    goalie_id=p["goalie_id"],
-                )
-                for p in pairs
-            ]
-            logits = {}
-            for name in ("u", "r"):
-                stage = model["stages"][name]
-                data = _encode(rows, stage, [0] * len(rows))
-                logits[name] = _stage_logits(
-                    context["stages"][name], stage, data, hs[None, :]
-                )
-            values += np.array([p["weight"] for p in pairs]) @ np.exp(
-                log_expit(logits["u"]) + log_expit(logits["r"])
+        logits = {
+            name: _stage_logits(
+                context["stages"][name],
+                stage,
+                data,
+                hs[None, :],
+                scalar_logits=scalar_logits[name],
             )
+            for name, stage in model["stages"].items()
+        }
+        values = context["reference_weights"] @ np.exp(
+            log_expit(logits["u"]) + log_expit(logits["r"])
+        )
         for h, v in zip(hs, values):
             cache[prefix, int(h)] = float(v)
     result = np.array([cache[prefix, int(h)] for h in cells])

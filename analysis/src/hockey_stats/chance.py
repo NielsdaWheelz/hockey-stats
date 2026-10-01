@@ -364,7 +364,7 @@ def _stage_logits(beta, layout, data, cells, *, scalar_logits=None):
         return (
             scalar[:, None]
             + shared[ids][None, :]
-            + types[data["type"][:, None], ids[None, :]]
+            + types[:, ids][data["type"]]
         )
     return scalar + shared[cells] + types[data["type"], cells]
 

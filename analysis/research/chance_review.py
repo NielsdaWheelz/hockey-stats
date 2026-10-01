@@ -578,6 +578,19 @@ def validate_assessment(document):
                     reconcile_metrics(partition, total, ("unblocked_conversion",))
                 else:
                     reconcile_metrics(partition, scope["metrics"], POPULATIONS)
+                    if scope is document:
+                        for name in ("all", "blocked", "unblocked"):
+                            for key in ("count", "negative_log_likelihood_sum"):
+                                require(
+                                    agrees(
+                                        math.fsum(
+                                            part["observed_record_likelihood"][name][key]
+                                            for part in partition
+                                        ),
+                                        metrics["observed_record_likelihood"][name][key],
+                                    ),
+                                    "subgroup likelihood sums do not reconcile",
+                                )
 
 
 def calendar_blocks(dates, days):
@@ -886,31 +899,21 @@ def assessment_review(entry, benchmarks, seed):
             subgroup_reviews[category].append(row)
     monthly = []
     for month in sorted({value[:7] for value in dates}):
-        monthly.append(
-            {
-                "month": month,
-                "populations": {
-                    population: {
-                        "count": sum(
-                            game["metrics"][population][names[0]]["count"]
-                            for game in per_game
-                            if document["game_dates"][game["game_id"]][:7] == month
-                        ),
-                        "predicted_probability_sum": math.fsum(
-                            game["metrics"][population][names[0]]["predicted_probability_sum"]
-                            for game in per_game
-                            if document["game_dates"][game["game_id"]][:7] == month
-                        ),
-                        "observed_positive_count": sum(
-                            game["metrics"][population][names[0]]["observed_positive_count"]
-                            for game in per_game
-                            if document["game_dates"][game["game_id"]][:7] == month
-                        ),
-                    }
-                    for population, names in POPULATIONS.items()
-                },
+        games = [game for game in per_game if document["game_dates"][game["game_id"]][:7] == month]
+        populations = {}
+        for population, names in POPULATIONS.items():
+            selected = [game["metrics"][population][names[0]] for game in games]
+            count = sum(row["count"] for row in selected)
+            predicted = math.fsum(row["predicted_probability_sum"] for row in selected)
+            observed = sum(row["observed_positive_count"] for row in selected)
+            populations[population] = {
+                "outcome": OUTCOMES[population],
+                "count": count,
+                "predicted_probability_sum": predicted,
+                "observed_positive_count": observed,
+                "predicted_minus_observed": (predicted - observed) / count if count else None,
             }
-        )
+        monthly.append({"month": month, "populations": populations})
     return {
         "label": entry["label"],
         "population_definitions": document["prediction_definitions"],

@@ -53,6 +53,14 @@ resampling: 2,000 paired draws, `PCG64`, seed `3032026`, linear 95% percentile i
 
 before transfer, append development counts and compatible supported exposure to translate the calibration budgets. unlinked events receive no invented exposure. conversion-weighted illustrations of marginal-unblocked error are illustrations, not propagated-error bounds. unacceptable practical consequences require a new disclosed protocol round; thresholds cannot change in this campaign.
 
+## transfer execution order
+
+before the external protocol freeze, record the selected primary, both benchmark labels and exact member order. run distinct benchmark regularization members first, in `unblocked_conversion`, then `all_attempt_recorded_context` label order; a shared label runs once. complete their transfer fits and evaluations, then run the primary if it is distinct. a valid primary comparison supplies both frozen labels. a comparator's candidate calibration rejection does not replace its saved benchmark; a missing selected comparator leaves required comparative evidence unresolved.
+
+apply every declared admission criterion to the primary. failure prevents handoff and stops dependent kernel/final work; retain executed evidence and record every remaining member's not-run or unresolved disposition. if the primary meets the criteria, complete remaining regularization members in anchor/weaker/stronger order, then distance 10/40 and direction 2/8 variants sequentially. preserve each disposition without substituting a primary or removing an unresolved member.
+
+staged primary reviews are provisional historical previews. one definitive transfer-cohort bundle binds every actually executed assessment and score, both frozen benchmarks and all required comparisons, figures and sensitivity. newly completed members justify deterministic regeneration of that bundle; preserve earlier previews and their identities. no second bootstrap implementation is introduced.
+
 ## interpretation and stopping
 
 matched comparisons require identical selected evidence, event/status streams, geometry, training populations, reference season and joint matchup counts/weights. final three-season versus transfer two-season results have different references and are descriptive. stream complete blocked/unblocked mass, original-type/role strata, posterior variation and attributable extremes. conserve event and spatial mass; null ratios retain absolute changes.

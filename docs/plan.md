@@ -6,7 +6,7 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## next slices
 
-03e is **specified for review**; 04–07 remain **stubs**. the user controls progression; implementation and real fitting are not yet authorized.
+the user authorized 03e implementation and real fitting on 2026-09-30. [software verification](research/chance-03e/verification.md) is complete; the bounded scientific study is **in progress** under its [protocol](research/chance-03e/protocol.md). 04–07 remain **stubs**; 04 and publication are not authorized. the user controls progression.
 
 | slice | responsibility | dependency / completion boundary |
 |---|---|---|
@@ -20,7 +20,7 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## current discussion versus implementation
 
-next: review [03e](specs/03e-training-assessment.md), then explicitly authorize implementation/execution. its bounded design uses within-season development, later-season transfer and conditional final fits; it reuses native commands and updates the retained comparison script. complete local inputs support execution without the drive. materially different admissible maps may proceed to 04 research, whose player conclusions must survive the retained alternatives; this is not publication approval or untouched confirmation.
+current: complete [03e](specs/03e-training-assessment.md)'s authorized bounded study and actual [decision](research/chance-03e/decision.md). its unchanged design uses within-season development, later-season transfer and conditional final fits; native commands and the retained comparison script are implemented and verified. the restarted development anchor fit remains in progress; none of the three development recipes is complete, and the first complete development-fit resource result remains pending. complete local inputs support execution without the drive. materially different admissible maps may proceed to 04 research after the required decision and separate authorization; player conclusions must survive the retained alternatives. this is not publication approval or untouched confirmation.
 
 additional inputs belong to the first model/component that requires them. coach admission remains with 04; optional tracking and later goalie/penalty/territorial inputs remain with their own components. [source evidence](research/source-audit.md) records candidates and limits.
 

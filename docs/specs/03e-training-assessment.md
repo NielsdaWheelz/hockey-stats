@@ -1,6 +1,6 @@
 # pr03e — revised training and assessment
 
-status: **specified for review; implementation and fitting are not yet authorized.** [03d](03d-chance-revision.md) merged in `af95c88`; its [fixture checks](../research/chance-03d/verification.md) establish software behavior. this slice assesses `chance-2` on real data. [03b's rejection](../research/chance-03b/decision.md) remains unchanged. [brief](../brief.md) · [plan](../plan.md)
+status: **implementation and real fitting authorized by the user on 2026-09-30; bounded scientific study in progress.** [software verification](../research/chance-03e/verification.md) is complete; the [protocol](../research/chance-03e/protocol.md) retains specification revision `b27df7b3a691889d0000a1f1f72d655b27cdb516` and its original digest as study authority. this status correction changes no requirements or criteria. [03d](03d-chance-revision.md) merged in `af95c88`; its [fixture checks](../research/chance-03d/verification.md) establish software behavior. this slice assesses `chance-2` on real data; 04 and publication remain unauthorized pending the actual [decision](../research/chance-03e/decision.md). [03b's rejection](../research/chance-03b/decision.md) remains unchanged. [brief](../brief.md) · [plan](../plan.md)
 
 ## target and limits
 

@@ -2,6 +2,8 @@
 
 status: open; source semantics and imputation validation. identified 2026-09-29. inclusion through blocked-origin imputation is now settled by the user.
 
+03e progression: [the assessment specification](../specs/03e-training-assessment.md) permits an explicitly conditional research family without claiming independent physical accuracy. it includes a tip-proxy measurement ledger; kernel alternatives do not bracket tip-location error. 04 must assess affected scalar/spatial conclusions under justified tip-location sensitivity or withhold them. conditional research admission will not close this physical-evidence issue.
+
 problem: a coordinate attached to an event is not necessarily the shot's origin. the intended all-attempt analysis includes blocked shots, but has not yet established the supported source semantics, origin estimator or its accuracy and downstream sensitivity.
 
 evidence: hockeyviz's [xg 8 description](https://hockeyviz.com/txt/xg8) distinguishes block locations from shot origins and describes imputation for blocked shots and some tip locations. its [magnus 9 description](https://hockeyviz.com/txt/magnus9EV) uses inferred blocked-shot origins. these published observations motivate an audit; they do not independently verify the semantics or error rates of our future captures.

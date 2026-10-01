@@ -2,6 +2,8 @@
 
 status: open; scientific origin/value revision required after 03b. independent accuracy evidence remains tracked separately in [shot-location evidence](shot-location-evidence.md).
 
+03e progression: the user permits carrying scientifically admissible alternatives into 04 research even when opportunity maps differ. [the specification](../specs/03e-training-assessment.md) treats aggregate instability as a downstream robustness obligation, not an automatic research veto. every admitted final variant is retained; 04 must establish which player conclusions survive. no revised fit or sensitivity result exists yet, and 03b's rejection remains unchanged.
+
 problem: standardized opportunity and blocked-origin distributions depend materially on unverified geometric/prior choices. factual probability calibration cannot establish spatial allocation.
 
 impact/evidence: on the same development events and joint training reference, halving kernel distance changes blocked total value by +36.3%, spatial absolute mass by 64.4% and mean origin total variation by 0.424. unblocked total changes −6.2%, and maximum event value changes 0.0779 expected goals. signed population totals nearly cancel, concealing the differences. halving direction also fails multiple blocked limits and the unblocked maximum; tenfold origin regularization fails maximum blocked variation. stronger actor pooling passes point sensitivity limits but fails probability adequacy. these reject the declared stress-stability use, not independently observed physical origin accuracy; this named range is not a confidence region.

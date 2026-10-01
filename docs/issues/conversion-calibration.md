@@ -2,6 +2,8 @@
 
 status: open; scientific/context review required after 03b.
 
+03d now implements reconciled report types and recorded context; no real-data calibration result exists for that revision. [03e](../specs/03e-training-assessment.md) specifies native per-game subgroup evidence and prospective assessment on the exposed seasons. historical api-only type warnings below concern chance-1; current report reconciliation changes that information boundary without establishing calibration.
+
 03c dependency: the [completed source audit](../research/chance-03c/decision.md) admits report types and reconciled source coverage across all three seasons. missingness in the api is not absence from every source. this does not add a type predictor or resolve this scientific issue. any later type-conditional probability must compose conversion, block avoidance and origin assumptions coherently.
 
 problem: acceptable pooled conversion calibration conceals material errors by unblocked shot type and inconclusive or adverse consequential probability bins. lower proper loss does not establish calibration.

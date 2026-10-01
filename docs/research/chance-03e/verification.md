@@ -1,0 +1,100 @@
+# chance-2 training-assessment software verification
+
+status: software and capacity checks completed to the extent recorded below; final source-integrity comparison, temporary-check deletion and the scientific campaign remain pending. this is a verification record, not an admission decision. [protocol](protocol.md) · [03e specification](../../specs/03e-training-assessment.md) · [03d numerical evidence](../chance-03d/verification.md)
+
+## identities and retained evidence
+
+external run root: `/Users/nnandal/Documents/code/hockey-stats-03e-runs`. native corpus preparation and the genuine capacity fit used clean `b27df7b3a691889d0000a1f1f72d655b27cdb516`. additive evaluation groups landed in `05565ce22cc989b121a4f1d5f3e77eacd44191c6`; the retained reviewer cutover in `e56505111a0de0cb17742a78842f546d9efe39ac`; subgroup likelihood reconciliation and monthly diagnostics in `fd3bca6959264028ddde4633914c09c23cb509d9`. exact-reference vectorization and physical figure-caption layout landed in `21575ab4bd05b7a72a7497e9fe18ac1a509486cc`.
+
+models/configurations/checkpoints/scored rows remain schema 2. evaluations are schema 3; research evidence and comparisons are schema 2. artifact envelopes retain `scientific_assessment: not_performed`. executing and fitted-model implementation identities remain separate: regenerating an evaluation or score does not relabel the model's fitting revision.
+
+| retained artifact under the run root | sha256 | executing revision |
+|---|---|---|
+| `fits/pilot-anchor/model.json` | `a29ca67aa1e601d5ee6a414a0594dbbbee836a0099bc82eb23e01577e41f339a` | `b27df7b` |
+| `assessments/pilot-anchor-fd3bca6.json` | `584e6dc8307811cc6b59ad0633fe88b5143504a91665f5a812b1fdb4ccf46504` | `fd3bca6` |
+| `scores/pilot-anchor-fd3bca6/score.json` | `07e737017f1283dbf27e84644c57abb9d64ab54185f405dace8aa0c506c67ee3` | `fd3bca6` |
+| `reviews/pilot-fd3bca6/comparison.json` | `6ece1cfe1be8790484539c2813dd8c7192a7b9dead3f99500173a4cad51bec03` | `fd3bca6` |
+| `reviews/pilot/comparison.json` | `2755549de44cc01de9e4ed8869ed51ecb7ebc685f4cf28feeda52575e42ef03c` | `fd3bca6` |
+| `assessments/pilot-21575ab.json` | `feb9c2aea01f953fcc6b9531744e9633959b16fdacb426c3b1ba672c0b5fdaa4` | `21575ab` |
+| `scores/pilot-21575ab/score.json` | `306e677ac3552d5f422373bb1aac2b5fa82525cf5c39c9fae2b4bb5b343aa7ba` | `21575ab` |
+| `reviews/pilot-21575ab/comparison.json` | `ed8bd594baeedcfa169f0ca58bfe0f98e0c749406a5a2269680d12d2dd0a1488` | `21575ab` |
+
+these artifacts identify python `3.14.7`, numpy `2.5.3`, scipy `1.18.1`, matplotlib `3.11.2` where used, and analysis lock digest `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`. `inputs/protocol-pilot.md`, `inputs/pilot-evidence-frozen.json`, command logs and `review-notes/adversarial-verification.md` preserve the pilot's actual protocol, linked inputs, resources and independent review. definitive immutable-protocol reviews are `reviews/pilot/` under `fd3bca6` and `reviews/pilot-21575ab/` under the numerical/layout repair. both link the preserved protocol digest `6c40178b9545b38cf220435dcadce4c46f3e0505d774082a95c845c24a2b3593`; the preceding review remains historical evidence. `reviews/pilot-21575ab-measurements.json` links all latest artifacts, logs and 26 unchanged prior pilot files.
+
+## native red → green → refactor → green
+
+temporary installed-command checks first exercised fixture fit/evaluate/score. the retained schema-2 evaluator failed the requested schema-3 additive subgroup contract before implementation. schema-3 output then passed native replay and independent arithmetic; the checks passed again after grouping was consolidated into one native prediction pass and shared probability/group domains.
+
+all global and per-game probability counts, observed labels, predicted sums, log-loss sums and brier sums reconcile to direct native predictions within `1e-11`. per-game subgroup summaries carry exactly the six specified outcome/additive fields, without subgroup bins. selected zero-contribution games and all global category descriptors remain present. original and model types partition blocked and unblocked attempts; actor support remains separate for `u/shooter`, `r/shooter` and `r/goalie`.
+
+the later native fixture assessment contains 91 eligible attempts, including seven unblocked tips. independently checked distance-band counts are `2/2/2/1`; no eligible assessment tip is below the goal line. tip distance uses coordinates before quantization, with left-closed boundaries at 10/20/40 feet and `x > 89` for the below-line flag. both tip families partition only unblocked original `tip-in`/`deflected` events and expose only `unblocked_conversion`. no observed-outcome selection is used to calibrate all-attempt or marginal-unblocked quantities. period/minute-band summaries remain omission diagnostics.
+
+native scoring retains schema-2 completion semantics and saved model bytes. the 18-game fixture score contains 2,210 recognized records: 1,530 valued, 585 outside scope and 95 unavailable; 1,087 recorded proxies and 443 full block-origin distributions. installed native outputs and direct checks retain missing states, ordered event identities, full origin normalization and event/spatial conservation.
+
+## reviewer arithmetic and failure boundaries
+
+independent tests reproduced all 2,000 draws with `PCG64`, seed `3032026`, pooled sums/counts and linear 95% percentiles. unequal game contributions cannot become equally weighted game means. zero-contribution games remain in the draw population; an undefined denominator makes the interval null and retains its undefined count. seven/fourteen-calendar-day blocks retain empty intermediate days and the final partial block, sample the original block count, and distinguish contributing games from contributing blocks.
+
+all-one-label calibration populations retain numeric intervals for possible decisive rejection, but an explicit support reason prevents a favorable degenerate interval from establishing calibration support. the 100-game requirement does not erase a decisive failure. group/bin fractions use the entire relevant probability population's attempt count or predicted positive mass. frozen protocol ids and scientific interpretation remain operator responsibilities; the reviewer issues no verdict.
+
+fixed-benchmark tests deliberately made a candidate's own comparator flattering while selecting a different supplied comparator. pooled and subgroup proper losses, subgroup additive metrics and comparator calibration used the selected artifact's saved sums. candidate/model identities were not substituted for benchmark identities. the marginal-unblocked quantity has no invented comparator.
+
+matched stream checks separately conserve blocked/unblocked totals and original-type/role strata. identical native streams give zero event, spatial and posterior changes. a controlled one-event mass change reproduces independently calculated signed totals, mean absolute change and spatial absolute change, with the correct event locator; changing a source event identity is rejected. singleton scoring retains coverage, tip and absolute spatial summaries, an explicit `no compatible alternative supplied` reason and no comparison-only figures. posterior variation is labeled as blocked-origin sensitivity, never physical error.
+
+the actual review command rejects old evidence schemas and fixture-purpose artifacts before creating output. malformed per-game subgroup identities/counts/observed labels, incompatible sources/coverage/order/geometry/training/reference identities and internally consistent but nonreconciling subgroup likelihood sums fail visibly. the genuine clean pilot supplies positive end-to-end research review evidence; no fixture relabeling or validation bypass supplied that result. comparison completion is written after figure generation.
+
+## genuine capacity pilot and measured reference repair
+
+pilot training uses 16 games and 1,601 eligible attempts; assessment uses eight later games, with 988 recognized and 809 eligible attempts, including 564 unblocked and 245 blocked. training contains 935 origin-context groups, 1,503 avoidance-context groups and 265 joint reference pairs representing 849 target-season attempts. both native starts converged in 136/145 updates. the selected fit, coefficients and reference remain unchanged throughout derivative verification.
+
+| operation | wall seconds | peak rss bytes | retained scope |
+|---|---:|---:|---|
+| original native pilot fit | 71.67 | 197,050,368 | clean `b27df7b`; complete fit/model/checkpoint |
+| original exact pilot score | 9.68 | 171,556,864 | clean `b27df7b`; 809 valued records |
+| compatible native evaluation | 1.08 | 153,108,480 | schema 3; eight later games |
+| clean pilot review | 1.69 | 203,063,296 | `fd3bca6`; positive research command |
+| temporary vectorized pilot score | 1.86 | 175,964,160 | verification build preceding `21575ab`; same model and selection |
+| temporary vectorized fixture score | 2.03 | 212,779,008 | 18 games; same saved fixture model |
+| clean repaired pilot evaluation | 0.98 | 153,124,864 | `21575ab`; same model and selection |
+| clean repaired exact pilot score | 1.82 | 177,389,568 | `21575ab`; same 809 valued records |
+| clean repaired pilot review | 1.65 | 202,145,792 | `21575ab`; immutable pilot protocol |
+
+the two temporary vectorized rows are software/resource checks. the clean repaired rows complete native derivatives and positive research review with the same saved fit and pilot selection. the protocol and command logs retain artifact-size measurements and the original resources. fixture/pilot timing cannot establish full-season costs.
+
+profiling exposed repeated reference pair/context encoding inside every cell/pair tile. an instrumentation check first found 18 encodings during one bounded request; after repair there are two canonical target-season actor encodings when creating the opaque prediction context and none during reference requests. the native scalar and spatial logit owners remain authoritative. all pairs and their original joint weights contribute to the exact product average; 32-cell batches bound transient matrices. no matchup subsampling, interpolation, origin pruning or fitted-likelihood change occurred.
+
+both saved pilot score revisions reconcile against every temporary output row: source/status/context/actor evidence and origin weights are identical; every opportunity value and cell mass agrees within absolute `1e-12`, with maximum event difference `5.551115123125783e-17`. the complete fixture score passes the same tolerance. all 809 factual predictions, posteriors, observed-record likelihoods and default stage calculations reproduce `fd3bca6` bit for bit. independent direct pair enumeration covers six types × six native contexts × 656 cells, with maximum difference `2.220446049250313e-16`; duplicate/permuted/empty requests and forced cache eviction also pass.
+
+an explicitly synthetic numerical timing probe uses the actual full 2024–25 selection's 30,276 joint pairs and 125,029 eligible attempts with unchanged pilot coefficients. it writes no season model or scientific prediction. full 656-cell vector arithmetic takes 0.400 seconds after 0.217 seconds of canonical encoding/base setup; an independently enumerated three-cell result agrees within `3.539e-16`. the process's 1,033,682,944-byte peak includes native full-source preparation. this measures arithmetic dimensions, not a fitted season's runtime or scientific validity.
+
+tradeoff: vectorization uses transient pair-by-cell matrices and changes floating-point addition/reduction order. independent cache recomputation differs by at most `5.551115123125783e-17`; mathematical averaging is exact, but batch shapes do not promise bitwise equality. the declared `1e-12` verification tolerance covers the observed rounding. fitting's default stage path and likelihood remain unchanged.
+
+## exact avoidance arithmetic repair
+
+the first development fit exposed a separate measured fitting cost. independent cpu samples locate most work in numpy/scipy special-function evaluation; the fit remains running under its original implementation. native preparation has 181,147 eligible attempts, 128,080 avoidance groups and 25,805 origin groups. 84,661 avoidance groups are unblocked-only; 43,419 contain blocks, including 14,027 mixed groups. known successes occupy 128,024 distinct group/cell pairs. the original objective evaluates all 84,020,480 group/cell combinations and allocates two 672,163,840-byte sufficient-statistic matrices.
+
+the exact complete-data bernoulli objective separates known-cell success terms from posterior-weighted failure terms. successes now use their recorded `(group, cell, count)` pairs. failures retain every one of 656 cells for every group containing a block. compact failure counters preserve the original accumulation order, posterior weights and observed-record likelihood. the origin multinomial objective still normalizes and differentiates over every cell; zero observed origin counts do not remove softmax support. scalar/spatial derivatives for paired cells share their existing responsibility with conversion. penalties, actor/season layouts, kernel, starts, convergence settings, checkpoint bindings and public artifacts remain unchanged.
+
+an external native-development probe compares the complete objective and all 5,923 gradient components at the original initial state and accepted uniform update 1, checkpoint digest `9259f10db177a6f84146a93ec5fa782f9e53e8e2b7322d26829cdc69de4cdaa6`. original objective calls take 1.63/1.96 seconds; exact split calls with the retained 32-group bound take 0.40/0.44 seconds. the storage arithmetic becomes 228,887,104 bytes of success/failure values, plus indexes and encoded rows; this is not a measured whole-process memory reduction. all 28,482,864 failure cells are nonzero, including accepted weights down to `6.185e-11`, and remain present. observed-objective replay differs by zero initially and `2.328e-9` at the accepted state. `review-notes/development-avoidance-prototype.json` records the full measurements, finite differences and saturated-intercept checks; they are numerical evidence, not a fabricated fitted season.
+
+the production implementation separately passes the same full-development checks against uniform update 2, digest `231c9f6cef80fa4fedada734424217c2087eb40bbdfba75ec6295beea73ea2f0`. old/new expectation origin counters, compact failure counters and observed likelihood are bit-identical. all failure cells remain nonzero down to `8.085e-12`. objective calls take 1.76/2.02 seconds before and 0.43/0.47 after; accepted objective/gradient differences are `4.366e-11`/`5.383e-11`. native checkpoint replay differs by `1.281e-9`, retaining the existing relative numerical check. `review-notes/development-avoidance-production.json` records the actual source digest, complete gradients, finite differences and saturated checks. the diagnostic process deliberately retains baseline arrays for comparison; its 4.38-gb peak is not the repaired fit's footprint.
+
+red checks first fail the sparse-support objective and compact native expectation contract; green checks compare complete objective/gradients, finite differences, counted arithmetic work and bit-for-bit native origin/failure counters and observed likelihoods. independent tests cover fifteen actual-pilot states across five kernels and intercept shifts 0/±700: expectation counters and likelihoods remain bit-identical, objective difference is at most `1.746e-10`, gradient difference at most `2.274e-13`, and conversion remains bit-identical. temporary native fixture and genuine pilot fit/evaluate/score commands converge both starts and conserve every scored event's origin and opportunity mass. accepted fixture update 2 is serialized unchanged and resumed through native `fit_model`; coefficients and diagnostics reproduce the uninterrupted fresh fit bit for bit. clean same-revision command-level recovery remains pending commit.
+
+tradeoff: separating sums changes floating-point cancellation and optimizer paths, despite the same mathematical objective. the initial full-development maximum gradient difference is `1.285e-8` on a season gradient of 186.41, relative `6.9e-11`; the accepted-state maximum is `3.831e-11`. strict `optimizer_gtol: 1e-6` is unchanged. the pilot's near-tied native start winner changes from `unblocked_multinomial` to `uniform`: old starts need 136/145 updates, new starts 167/143; their final observed-objective differences are `2.613e-8`/`−1.991e-7`. refitted conversion probabilities are identical; maximum held-out recorded-context goal and marginal-unblocked changes are `1.331e-7` and `1.899e-6`. maximum opportunity change is `6.733e-7`; maximum posterior variation is `9.648e-6`. no bitwise refit-equivalence claim follows from exact objective arithmetic. `/tmp/hockey-avoidance-native/checks.json` records this temporary verification; its 40.68-second pilot and 4.43-second fixture fits run under contention and do not replace campaign resource evidence. the old pilot model and running development fit remain preserved.
+
+## figures and source preservation
+
+all three figure families were generated with native fixture evidence and checked: calibration has counts/intervals and complete fixed bins; spatial mass/change retains common scales and signed/absolute totals; event changes use shared units/scales. captions identify selection, conditioning, reference and excluded fitting/selection/origin-law uncertainty. all-one/undefined/low-game support remains visible. no figure issues an acceptance badge.
+
+independent inspection found the singleton spatial caption extending to 789 pixels on a 500-pixel figure. width-dependent eight-point wrapping and physical margins now reserve space for the actual wrapped lines; direct renderer bounds and independent inspection confirm complete captions, y-axis labels and colorbar units. singleton and paired figures retain the same numerical values and color scales.
+
+independent fixture hashing confirms all 240 preexisting files remain unchanged; the 24 newly preserved files match their original fresh bodies/receipts. the two distinct boundaries, `2024020022` type-resolved same-second matching and `2024020404` rounded-corner predecessor geometry, retain complete original bundles and independently documented expectations in [fixtures/README.md](../../../fixtures/README.md). no corrected download replaced a reproducer.
+
+`inputs/raw-integrity-before.json` records the pre-run acquisition-ledger comparison: 47,256 body/receipt files and 6,651,958,605 bytes match. the final post-work raw comparison is pending; this record does not claim it has run. the archived predecessor was neither modified nor used as an application test baseline.
+
+## remaining work
+
+syntax/undefined-name checks, direct arithmetic, native commands and independent adversarial checks pass for the recorded changes. no lasting test harness or test-only project dependency was added. temporary integration/numerical/layout checks and the baseline code copy remain outside the tree until final independent verification; deletion is pending and must be recorded when complete.
+
+final source/fixture integrity, the first complete development-fit resource result, bounded recipe selection, protocol freeze, transfer/final execution and the written scientific disposition remain outstanding. the first development fit retains its native accepted checkpoint; one accepted update is progress, not convergence or campaign completion. no transfer criterion, publication permission or 03b rejection changed. expensive fits/checkpoints and their original implementation identities remain preserved.

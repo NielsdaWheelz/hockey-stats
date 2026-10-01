@@ -198,6 +198,7 @@ def main() -> int:
             common["reference"] = model["reference"]
             common["reference_season"] = model["reference_season"]
             if args.command == "evaluate":
+                common["schema_version"] = 3
                 training = model["training_game_dates"]
                 if set(training) & set(prepared["game_dates"]):
                     raise InputContractError(

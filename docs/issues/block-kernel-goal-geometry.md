@@ -1,0 +1,11 @@
+# block-contact law shares unbracketed goal geometry
+
+status: open; conditional research may proceed under 03e, physical/spatial publication support remains unresolved. owner: chance-model science; 04 must enforce the resulting player-conclusion constraint.
+
+problem: every declared kernel member permits substantial contact mass after a goalward ray crosses the goal plane. changing distance/direction does not bracket the missing goal-aware stopping geometry. this concerns both blocked origins and unblocked opportunity through cell-specific block avoidance.
+
+evidence: native 656-cell `forward_kernel`, origin `(77.5, 0)`: anchor `x>89` mass `0.46337`; straight planar rays crossing between six-foot posts before contact carry `0.17104`. variants' aperture-crossing mass ranges `0.10820–0.23565`. `/Users/nnandal/Documents/code/hockey-stats-03e-runs/review-notes/block-geometry.json` retains exact native law and source identities. known-frame original block-contact proxies beyond `x=89` number 17/44,653, 25/43,877 and 25/40,866 across the three seasons. conditional kernel mass and unconditional recorded-contact frequencies are different populations; they do not yield a physical error rate. origins, height and deviations are unobserved. rare past-line contacts prohibit a blanket source-coordinate exclusion.
+
+impact: a conditional opportunity surface can be internally conserved and probability-calibrated while depending on an unverified contact law. kernel-family stability alone cannot establish robust spatial meaning. no bias direction or magnitude is proved under the jointly penalized fit. conditional research authorization does not approve affected player conclusions or physical-origin accuracy.
+
+resolution: establish defensible contact/origin-law meaning and justify broader goal-geometry sensitivity; assess affected blocked and unblocked player magnitudes, signs and spatial conclusions, or withhold them. a likelihood change requires its own reviewed scientific round. representative independent geometry with stated uncertainty is needed for physical-accuracy claims; neither the published methodology nor this diagnostic supplies it. [03e protocol](../research/chance-03e/protocol.md) preserves the prospective judgment and unchanged admission criteria.

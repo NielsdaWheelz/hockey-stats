@@ -229,7 +229,6 @@ def _offsets(layout):
     shooter = scalar + len(SCALAR_FEATURES)
     goalie = shooter + len(layout["shooters"]) * y
     return dict(
-        season=1,
         cell=cell,
         type=type_start,
         extra=extra,

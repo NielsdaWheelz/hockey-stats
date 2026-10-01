@@ -4,7 +4,7 @@ these selections exercise software, not an admitted scientific training populati
 
 ## preparation and commands
 
-from the repository root, prepare the locked environment and rebuild all eighteen committed games against their three season references:
+from the repository root, prepare the locked environment and rebuild the committed captures against their three season references. the chance selections below retain the original eighteen-game exercise; the two later source-boundary fixtures are outside those selections:
 
 ```sh
 mkdir -p var

@@ -59,7 +59,7 @@ npm run capture -- --game 2025020001 --source landing --out /absolute/existing/g
 
 the parent must contain a readable version-1 `play-by-play/capture.json` naming this game and source. `--source` accepts only `landing`, once. an existing landing leaf fails before network access. for replacement, explicitly prepare a new game-directory copy without its landing leaf, preserving the original directory and any existing landing evidence. the command neither overwrites nor resumes. new retrieval dates remain distinct from the five earlier responses.
 
-downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains three fresh, inspected example games with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
+downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains twenty complete game bundles and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
 
 ## interpretation
 
@@ -112,7 +112,7 @@ npm run capture-season -- --season 20252026 --out ../var/references/20252026
 
 `--season` and `--out` occur once. season years must be consecutive. `--help` alone exits `0`; invalid invocation exits `1`. the command preserves the season summary, regular-season game inventory, skater bios and goalie bios using the same response-capture implementation as game acquisition. exit `0` requires four complete 2xx responses; content admission happens offline. each source's receipt names its season, exact filtered request, retrieval time, headers, length and digest. failures retain their http/body/transport distinctions; later requests continue after upstream failures, while filesystem errors stop. no retries, alternate sources or automatic downloading are added.
 
-audit the admitted fixture references against the three local game captures:
+audit the admitted fixture references against the local game captures:
 
 ```sh
 mkdir -p var
@@ -148,7 +148,7 @@ the loop stops on the first failed capture so its receipt can be inspected. reru
 
 ## chance workflow
 
-`hockey-stats-chance` provides separate offline `fit`, `evaluate` and `score` commands for `chance-2`. [fixture instructions](fixtures/chance/README.md) supply the three-season selections, exact numerical exercise configuration and commands. all eighteen compact games rebuild from their three committed season references without network or external drive.
+`hockey-stats-chance` provides separate offline `fit`, `evaluate` and `score` commands for `chance-2`. [fixture instructions](fixtures/chance/README.md) supply the three-season selections, exact numerical exercise configuration and commands. the eighteen-game chance exercise rebuilds from its three committed season references without network or external drive; the [source case index](fixtures/README.md#compact-case-index) retains two additional boundary examples.
 
 fitting jointly estimates type/context-dependent origin maps and unblocked probabilities, then conversion given unblocked, with actor-season shrinkage and two factual benchmarks. scoring values recorded opportunity under one target-season joint shooter–goalie reference, holding type and recorded preceding-play/scalar context fixed. unblocked coordinates remain contact/origin proxies; blocks retain observed contact evidence and receive conditional origin distributions. tips are retained without relocation.
 

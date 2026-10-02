@@ -18,7 +18,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr03c specification](docs/specs/03c-source-revision.md): reviewed and merged; source contracts, expanded fixtures and [full three-season audit](docs/research/chance-03c/decision.md) verified.
 - [pr03d specification](docs/specs/03d-chance-revision.md): implemented chance-2 contract; [fixture verification](docs/research/chance-03d/verification.md) establishes software behavior.
 - [pr03e specification](docs/specs/03e-training-assessment.md): completed bounded retrospective assessment, `withheld`; [protocol](docs/research/chance-03e/protocol.md), [verification](docs/research/chance-03e/verification.md) and [decision](docs/research/chance-03e/decision.md).
-- [later pr stubs](docs/plan.md#next-slices): 04–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
+- [pr03f specification](docs/specs/03f-model-development.md): completed saved diagnosis and twelve-cell component screen; [decision](docs/research/chance-03f/decision.md), [verification](docs/research/chance-03f/verification.md) and [protocol](docs/research/chance-03f/protocol.md). context interactions recommended for further component research; history ablation worsens losses. no joint fitting or admission.
+- [later pr stubs](docs/plan.md#next-slices): 03g owns the selected chance revision/assessment; 04–07 retain downstream responsibilities. expand each before implementation.
 - [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
 - [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
@@ -207,6 +208,23 @@ one score references itself and supplies coverage, tip-ledger and absolute spati
 the reviewer resamples pooled sums over counts using 2,000 paired whole-game draws, plus seven- and fourteen-calendar-day dependence blocks, with `PCG64` seed `3032026`. selected zero-contribution games remain present. any zero-denominator draw makes its interval null with the undefined count and reason; there is no redraw. captions state the quantity, selected population, reference and conditioning; pointwise intervals exclude fitting, selection and origin-law uncertainty. tip distance measures proxy dependence, not validated physical origin. opportunity sensitivity compares model-implied surfaces and cannot establish player robustness.
 
 finite schema-2 `comparison.json` is written last after figures succeed. it binds the protocol, evidence and linked artifacts and records executing and fitted-model implementation identities separately. malformed, old, nonfinite or incompatible inputs fail visibly. native artifacts retain `scientific_assessment: not_performed`; [the written decision](docs/research/chance-03e/decision.md) owns the scientific verdict and any conditional 04 obligations. scoring final training games adds no held-out probability evidence.
+
+## chance-component development
+
+03f uses a distinct research artifact and four manual commands from `analysis/`:
+
+```sh
+.venv/bin/python research/chance_development.py diagnose --evidence /absolute/03e-evidence.json --protocol /absolute/protocol.md --out /absolute/new-diagnosis
+.venv/bin/python research/chance_development.py fit-component --selection /absolute/training.json --config /absolute/anchor.json --quantity unblocked_conversion --features recent_interactions --protocol /absolute/protocol.md --out /absolute/new-fit
+.venv/bin/python research/chance_development.py evaluate-component --selection /absolute/later-games.json --component /absolute/new-fit/component.json --out /absolute/new-evaluation
+.venv/bin/python research/chance_development.py compare --evidence /absolute/screen-evidence.json --out /absolute/new-comparison
+```
+
+the other quantity is `all_attempt_recorded_context`; additive features use `--features additive`. conversion conditions on an unblocked attempt's recorded-proxy location. the direct all-attempt component omits focal geometry and observed block status as predictors. standalone fits share native numerical primitives and perform no em or opportunity scoring. native chance readers reject component artifacts.
+
+outputs are exclusive directories outside inputs, with existing parents. numerical failure returns nonzero and retains solve diagnostics without a component; no substitute model is evaluated. keyed streams include exclusions and non-applicable blocked conversion rows. assessment must be strictly later than training with disjoint game ids. comparison requires the exact twelve-cell matrix and pairs full streams without intersecting mismatched cohorts. completion records are written last; exit zero means artifact completion, never scientific approval.
+
+[the protocol](docs/research/chance-03f/protocol.md) fixes inputs, matrix, feature order and comparisons. [verification](docs/research/chance-03f/verification.md) records software and execution evidence; [the decision](docs/research/chance-03f/decision.md) owns the development recommendation. component gains do not establish physical origins, standardized opportunity stability or player attribution.
 
 ## source review
 

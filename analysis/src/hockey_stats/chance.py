@@ -1,13 +1,19 @@
 """chance-2: finite-grid origins, seasonal execution and exact joint reference."""
 
-from collections import Counter, OrderedDict
-from datetime import date
+import hashlib
+import json
 import math
+from collections import Counter, OrderedDict
+from copy import deepcopy
+from datetime import date
+from pathlib import Path
 
 import numpy as np
+import scipy
 from scipy.optimize import minimize
-from scipy.special import log_expit, logsumexp, expit
+from scipy.special import expit, log_expit, logsumexp
 
+from .artifacts import implementation_identity
 from .captures import InputContractError
 from .shot_origins import cell_id, forward_kernel, grid, posterior
 
@@ -48,6 +54,19 @@ SCALAR_FEATURES = [
     for level in levels
     if level != CONTEXT_REFERENCES.get(key)
 ]
+RECENT_INTERACTION_FEATURES = [
+    f"recent_kind:{kind}:recent_team:same"
+    for kind in CONTEXT_CATEGORIES["recent_kind"][1:]
+] + [
+    f"recent_kind:{kind}:recent_delay:{delay}"
+    for kind in CONTEXT_CATEGORIES["recent_kind"][1:]
+    for delay in range(1, 6)
+]
+COMPONENT_QUANTITIES = {
+    "unblocked_conversion": "r",
+    "all_attempt_recorded_context": "all_attempt",
+}
+FEATURE_SETS = ("additive", "recent_interactions")
 BATCH_SIZE = 32
 REFERENCE_CACHE_CELLS = 65536
 CONFIG_FIELDS = {
@@ -105,7 +124,7 @@ def validate_config(config):
     return config
 
 
-def scalar_features(context):
+def scalar_features(context, *, features="additive"):
     """fixed contrasts; missing recent action is the zero reference."""
     if not isinstance(context, dict) or list(context) != CONTEXT_FIELDS:
         raise InputContractError("attempt context fields/order disagree with chance-2")
@@ -128,15 +147,26 @@ def scalar_features(context):
     )
     if (context["recent_shooter"] is not None) != is_attempt:
         raise InputContractError("recent shooter applicability disagrees")
-    return np.array(
-        [
-            context[key] == level
-            for key, levels in CONTEXT_CATEGORIES.items()
-            for level in levels
-            if level != CONTEXT_REFERENCES.get(key)
-        ],
-        dtype=np.float64,
-    )
+    if features not in FEATURE_SETS:
+        raise InputContractError("unsupported component feature set")
+    values = [
+        context[key] == level
+        for key, levels in CONTEXT_CATEGORIES.items()
+        for level in levels
+        if level != CONTEXT_REFERENCES.get(key)
+    ]
+    if features == "recent_interactions":
+        kinds = CONTEXT_CATEGORIES["recent_kind"][1:]
+        values += [
+            context["recent_kind"] == kind and context["recent_team"] == "same"
+            for kind in kinds
+        ]
+        values += [
+            context["recent_kind"] == kind and context["recent_delay"] == delay
+            for kind in kinds
+            for delay in range(1, 6)
+        ]
+    return np.array(values, dtype=np.float64)
 
 
 def _season(value):
@@ -148,7 +178,7 @@ def _season(value):
     return year
 
 
-def _validate_attempt(row, centers):
+def _validate_attempt(row, centers, *, geometry=True):
     if (
         not isinstance(row, dict)
         or row.get("model_shot_type") not in TYPES
@@ -169,7 +199,11 @@ def _validate_attempt(row, centers):
         and row["goal"]
     ):
         raise InputContractError("invalid attempt outcomes")
-    return cell_id([row.get("attacking_x"), row.get("attacking_y")], centers)
+    return (
+        cell_id([row.get("attacking_x"), row.get("attacking_y")], centers)
+        if geometry
+        else 0
+    )
 
 
 def _counts(rows, actor, seasons):
@@ -181,7 +215,7 @@ def _counts(rows, actor, seasons):
     }
 
 
-def _stage_features(kind, seasons, cells, shooters, goalies):
+def _stage_features(kind, seasons, cells, shooters, goalies, *, feature_set="additive"):
     features = ["intercept"] + [f"season:{y}" for y in seasons[1:]]
     if kind in ("u", "r"):
         features += [f"cell:{h}" for h in range(cells)]
@@ -197,26 +231,33 @@ def _stage_features(kind, seasons, cells, shooters, goalies):
         else:
             features += [f"role:{r}" for r in ROLES[1:]]
     features += SCALAR_FEATURES
+    if feature_set == "recent_interactions":
+        features += RECENT_INTERACTION_FEATURES
     features += [f"shooter:{a}:season:{y}" for a in shooters for y in seasons]
     features += [f"goalie:{a}:season:{y}" for a in goalies for y in seasons]
     return features
 
 
-def _layout(rows, seasons, cells, kind):
+def _layout(rows, seasons, cells, kind, *, features="additive"):
     shooters = sorted({r["shooter_id"] for r in rows})
     goalies = sorted({r["goalie_id"] for r in rows}) if kind != "u" else []
-    features = _stage_features(kind, seasons, cells, shooters, goalies)
-    return dict(
+    ordered = _stage_features(
+        kind, seasons, cells, shooters, goalies, feature_set=features
+    )
+    layout = dict(
         kind=kind,
-        features=features,
+        features=ordered,
         seasons=seasons.copy(),
         cells=cells,
-        size=len(features),
+        size=len(ordered),
         shooters=shooters,
         goalies=goalies,
         shooter_counts=_counts(rows, "shooter", seasons),
         goalie_counts=_counts(rows, "goalie", seasons) if goalies else {},
     )
+    if features == "recent_interactions":
+        layout["feature_set"] = features
+    return layout
 
 
 def _offsets(layout):
@@ -227,6 +268,8 @@ def _offsets(layout):
     extra = type_start + 5 * h if spatial else type_start + 5
     scalar = extra if spatial else extra + (30 if layout["kind"] == "unblocked" else 2)
     shooter = scalar + len(SCALAR_FEATURES)
+    if layout.get("feature_set") == "recent_interactions":
+        shooter += len(RECENT_INTERACTION_FEATURES)
     goalie = shooter + len(layout["shooters"]) * y
     return dict(
         cell=cell,
@@ -261,7 +304,14 @@ def _encode(rows, layout, cells):
         type=np.array([TYPES.index(r["model_shot_type"]) for r in rows]),
         role=np.array([ROLES.index(r["role"]) for r in rows]),
         season=np.array([layout["seasons"].index(r["season"]) for r in rows]),
-        scalar=np.array([scalar_features(r["context"]) for r in rows]),
+        scalar=np.array(
+            [
+                scalar_features(
+                    r["context"], features=layout.get("feature_set", "additive")
+                )
+                for r in rows
+            ]
+        ),
         shooter=np.array([shooters.get(r["shooter_id"], -1) for r in rows]),
         goalie=np.array([goalies.get(r["goalie_id"], -1) for r in rows]),
         goal=np.array([r["goal"] for r in rows], dtype=np.float64),
@@ -358,14 +408,12 @@ def _stage_logits(beta, layout, data, cells, *, scalar_logits=None):
     types = np.vstack(
         (np.zeros(h), beta[offsets["type"] : offsets["scalar"]].reshape(5, h))
     )
-    scalar = _scalar_logits(beta, layout, data) if scalar_logits is None else scalar_logits
+    scalar = (
+        _scalar_logits(beta, layout, data) if scalar_logits is None else scalar_logits
+    )
     if np.ndim(cells) == 2:
         ids = cells[0]
-        return (
-            scalar[:, None]
-            + shared[ids][None, :]
-            + types[:, ids][data["type"]]
-        )
+        return scalar[:, None] + shared[ids][None, :] + types[:, ids][data["type"]]
     return scalar + shared[cells] + types[data["type"], cells]
 
 
@@ -525,6 +573,19 @@ def _benchmark_objective(beta, data, layout, config, edges, centers):
         value -= log_expit(np.where(batch["goal"], logits, -logits)).sum()
         gradient += x.T @ (expit(logits) - batch["goal"])
     return float(value), gradient
+
+
+def _fit_binary(data, layout, config, edges, centers):
+    goals = data["goal"].sum()
+    initial = np.zeros(layout["size"])
+    initial[0] = math.log(goals / (len(data["goal"]) - goals))
+
+    def objective(beta):
+        if layout["kind"] == "r":
+            return _conversion_objective(beta, data, layout, config, edges)
+        return _benchmark_objective(beta, data, layout, config, edges, centers)
+
+    return fit_logistic(objective, initial, config)
 
 
 def _expectation(
@@ -994,13 +1055,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
     failure_data = _slice_data(group_data, failure_groups)
     avoidance_group = np.full(len(rows), -1, dtype=np.int64)
     avoidance_group[blocked] = failure_indices
-    r_initial = np.zeros(r_layout["size"])
-    r_initial[0] = math.log(goals / (len(unblocked) - goals))
-    r_beta, r_diag = fit_logistic(
-        lambda b: _conversion_objective(b, r_data, r_layout, config, edges),
-        r_initial,
-        config,
-    )
+    r_beta, r_diag = _fit_binary(r_data, r_layout, config, edges, centers)
     diagnostics["r"] = r_diag
     if not r_diag["converged"]:
         diagnostics["termination"] = "conversion optimizer failed"
@@ -1152,13 +1207,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
     ):
         layout = _layout(selected, seasons, len(centers), name)
         data = _encode(selected, layout, cells)
-        initial = np.zeros(layout["size"])
-        initial[0] = math.log(sum(data["goal"]) / (len(selected) - sum(data["goal"])))
-        beta, diag = fit_logistic(
-            lambda b: _benchmark_objective(b, data, layout, config, edges, centers),
-            initial,
-            config,
-        )
+        beta, diag = _fit_binary(data, layout, config, edges, centers)
         benchmarks[name] = dict(layout, coefficients=beta.tolist(), diagnostics=diag)
     diagnostics["benchmarks"] = {k: v["diagnostics"] for k, v in benchmarks.items()}
     if any(not v["diagnostics"]["converged"] for v in benchmarks.values()):
@@ -1202,7 +1251,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
     return model, diagnostics
 
 
-def _validate_layout(layout, seasons, cells, kind):
+def _validate_layout(layout, seasons, cells, kind, *, features="additive"):
     fields = {
         "kind",
         "features",
@@ -1217,6 +1266,10 @@ def _validate_layout(layout, seasons, cells, kind):
     }
     if kind not in ("u", "r"):
         fields.add("diagnostics")
+    if features == "recent_interactions":
+        fields.add("feature_set")
+        if layout.get("feature_set") != features:
+            raise ValueError("interaction feature set disagrees")
     if not isinstance(layout, dict) or set(layout) != fields or layout["kind"] != kind:
         raise ValueError("layout fields/kind disagree")
     if (
@@ -1257,7 +1310,12 @@ def _validate_layout(layout, seasons, cells, kind):
             if shooters != goalies:
                 raise ValueError("shooter/goalie evidence populations disagree")
     expected_features = _stage_features(
-        kind, seasons, cells, layout["shooters"], layout["goalies"]
+        kind,
+        seasons,
+        cells,
+        layout["shooters"],
+        layout["goalies"],
+        feature_set=features,
     )
     if (
         layout["features"] != expected_features
@@ -1266,6 +1324,138 @@ def _validate_layout(layout, seasons, cells, kind):
     ):
         raise ValueError("coefficient order disagrees")
     _numeric_array(layout["coefficients"], (layout["size"],))
+
+
+def _validate_identity(identity, *, source=False):
+    digest = identity["sha256"]
+    if (
+        set(identity) != {"path", "sha256"} | ({"kind"} if source else set())
+        or source
+        and identity["kind"] not in ("selection", "corpus", "game")
+        or not isinstance(identity["path"], str)
+        or not identity["path"]
+        or not isinstance(digest, str)
+        or len(digest) != 64
+        or any(c not in "0123456789abcdef" for c in digest)
+    ):
+        raise ValueError("invalid input identity")
+
+
+def _validate_implementation(implementation):
+    if not isinstance(implementation, dict) or set(implementation) != {
+        "git_commit",
+        "git_dirty",
+        "python_version",
+        "numpy_version",
+        "scipy_version",
+        "lockfile_sha256",
+    }:
+        raise ValueError("implementation identity fields disagree")
+    commit, dirty = implementation["git_commit"], implementation["git_dirty"]
+    if commit is None:
+        if dirty is not None:
+            raise ValueError("unidentified implementation cannot have git state")
+    elif (
+        not isinstance(commit, str)
+        or len(commit) != 40
+        or any(c not in "0123456789abcdef" for c in commit)
+        or type(dirty) is not bool
+    ):
+        raise ValueError("invalid implementation git identity/state")
+    if any(
+        not isinstance(implementation[k], str) or not implementation[k]
+        for k in ("python_version", "numpy_version", "scipy_version")
+    ):
+        raise ValueError("missing implementation versions")
+    digest = implementation["lockfile_sha256"]
+    if (
+        not isinstance(digest, str)
+        or len(digest) != 64
+        or any(c not in "0123456789abcdef" for c in digest)
+    ):
+        raise ValueError("invalid lockfile identity")
+
+
+def _validate_training_identity(model, years):
+    dates = model["training_game_dates"]
+    if (
+        not isinstance(dates, dict)
+        or not dates
+        or any(not isinstance(g, str) or len(g) != 10 or not g.isdigit() for g in dates)
+    ):
+        raise ValueError("invalid training identities")
+    for value in dates.values():
+        if not isinstance(value, str) or date.fromisoformat(value).isoformat() != value:
+            raise ValueError("invalid training calendar date")
+    selected_years = [int(g[:4]) for g in dates]
+    if (
+        min(selected_years) != years[0]
+        or max(selected_years) != years[-1]
+        or model["training_game_ids"] != list(dates)
+        or model["training_dates"] != sorted(set(dates.values()))
+    ):
+        raise ValueError("training dates/seasons disagree")
+    _validate_implementation(model["implementation"])
+    if not isinstance(model["inputs"], list) or not model["inputs"]:
+        raise ValueError("missing input identities")
+    identities = [(model["config_identity"], False)] + [
+        (identity, True) for identity in model["inputs"]
+    ]
+    if model.get("resumed_from") is not None:
+        identities.append((model["resumed_from"], False))
+    for identity, source in identities:
+        _validate_identity(identity, source=source)
+    selection = model["selection"]
+    if (
+        set(selection) != {"schema_version", "purpose", "corpora"}
+        or type(selection["schema_version"]) is not int
+        or selection["schema_version"] != 1
+        or selection["purpose"] != model["purpose"]
+        or not isinstance(selection["corpora"], list)
+        or not selection["corpora"]
+    ):
+        raise ValueError("invalid selection")
+    selected = []
+    for corpus in selection["corpora"]:
+        if (
+            set(corpus) != {"path", "game_ids"}
+            or not isinstance(corpus["path"], str)
+            or not corpus["path"]
+            or not isinstance(corpus["game_ids"], list)
+            or not corpus["game_ids"]
+        ):
+            raise ValueError("invalid selected corpus")
+        selected += corpus["game_ids"]
+    if len(set(selected)) != len(selected) or set(selected) != set(dates):
+        raise ValueError("selection/training identities disagree")
+
+
+def _validate_training_coverage(model, total):
+    dates = model["training_game_dates"]
+    if model["game_dates"] != dates:
+        raise ValueError("source/training game dates disagree")
+    coverage = model["coverage"]
+    if not isinstance(coverage, dict) or set(coverage) != {
+        "games",
+        "games_by_status",
+        "attempts",
+        "attempts_by_status",
+        "attempts_by_reason",
+        "per_game",
+    }:
+        raise ValueError("incomplete coverage fields")
+    if (
+        coverage["games"]["selected"] != len(dates)
+        or coverage["attempts"]["chance_2_eligible_attempts"] != total
+        or coverage["attempts_by_status"]["eligible"] != total
+    ):
+        raise ValueError("coverage/training counts disagree")
+    if not isinstance(coverage["per_game"], list) or [
+        g["game_id"] for g in coverage["per_game"]
+    ] != list(dates):
+        raise ValueError("coverage game ledger disagrees")
+    if sum(g["chance_2_eligible_attempts"] or 0 for g in coverage["per_game"]) != total:
+        raise ValueError("coverage game counts disagree")
 
 
 def validate_model(model):
@@ -1451,132 +1641,8 @@ def validate_model(model):
                 != all_attempt["goalie_counts"][str(a)]["by_season"][seasons[-1]]
             ):
                 raise ValueError("target reference goalie counts disagree")
-        dates = model["training_game_dates"]
-        if (
-            not isinstance(dates, dict)
-            or not dates
-            or any(
-                not isinstance(g, str) or len(g) != 10 or not g.isdigit() for g in dates
-            )
-        ):
-            raise ValueError("invalid training identities")
-        for value in dates.values():
-            if (
-                not isinstance(value, str)
-                or date.fromisoformat(value).isoformat() != value
-            ):
-                raise ValueError("invalid training calendar date")
-        selected_years = [int(g[:4]) for g in dates]
-        if (
-            min(selected_years) != years[0]
-            or max(selected_years) != years[-1]
-            or model["training_game_ids"] != list(dates)
-            or model["training_dates"] != sorted(set(dates.values()))
-        ):
-            raise ValueError("training dates/seasons disagree")
-        if model["game_dates"] != dates:
-            raise ValueError("source/training game dates disagree")
-        coverage = model["coverage"]
-        if not isinstance(coverage, dict) or set(coverage) != {
-            "games",
-            "games_by_status",
-            "attempts",
-            "attempts_by_status",
-            "attempts_by_reason",
-            "per_game",
-        }:
-            raise ValueError("incomplete coverage fields")
-        if (
-            coverage["games"]["selected"] != len(dates)
-            or coverage["attempts"]["chance_2_eligible_attempts"] != total
-            or coverage["attempts_by_status"]["eligible"] != total
-        ):
-            raise ValueError("coverage/training counts disagree")
-        if not isinstance(coverage["per_game"], list) or [
-            g["game_id"] for g in coverage["per_game"]
-        ] != list(dates):
-            raise ValueError("coverage game ledger disagrees")
-        if (
-            sum(g["chance_2_eligible_attempts"] or 0 for g in coverage["per_game"])
-            != total
-        ):
-            raise ValueError("coverage game counts disagree")
-        implementation = model["implementation"]
-        if not isinstance(implementation, dict) or set(implementation) != {
-            "git_commit",
-            "git_dirty",
-            "python_version",
-            "numpy_version",
-            "scipy_version",
-            "lockfile_sha256",
-        }:
-            raise ValueError("implementation identity fields disagree")
-        commit, dirty = implementation["git_commit"], implementation["git_dirty"]
-        if commit is None:
-            if dirty is not None:
-                raise ValueError("unidentified implementation cannot have git state")
-        elif (
-            not isinstance(commit, str)
-            or len(commit) != 40
-            or any(c not in "0123456789abcdef" for c in commit)
-            or type(dirty) is not bool
-        ):
-            raise ValueError("invalid implementation git identity/state")
-        if any(
-            not isinstance(implementation[k], str) or not implementation[k]
-            for k in ("python_version", "numpy_version", "scipy_version")
-        ):
-            raise ValueError("missing implementation versions")
-        digest = implementation["lockfile_sha256"]
-        if (
-            not isinstance(digest, str)
-            or len(digest) != 64
-            or any(c not in "0123456789abcdef" for c in digest)
-        ):
-            raise ValueError("invalid lockfile identity")
-        if not isinstance(model["inputs"], list) or not model["inputs"]:
-            raise ValueError("missing input identities")
-        identities = [(model["config_identity"], False)] + [
-            (identity, True) for identity in model["inputs"]
-        ]
-        if model["resumed_from"] is not None:
-            identities.append((model["resumed_from"], False))
-        for identity, source in identities:
-            digest = identity["sha256"]
-            if (
-                set(identity) != {"path", "sha256"} | ({"kind"} if source else set())
-                or source
-                and identity["kind"] not in ("selection", "corpus", "game")
-                or not isinstance(identity["path"], str)
-                or not identity["path"]
-                or not isinstance(digest, str)
-                or len(digest) != 64
-                or any(c not in "0123456789abcdef" for c in digest)
-            ):
-                raise ValueError("invalid input identity")
-        selection = model["selection"]
-        if (
-            set(selection) != {"schema_version", "purpose", "corpora"}
-            or type(selection["schema_version"]) is not int
-            or selection["schema_version"] != 1
-            or selection["purpose"] != model["purpose"]
-            or not isinstance(selection["corpora"], list)
-            or not selection["corpora"]
-        ):
-            raise ValueError("invalid selection")
-        selected = []
-        for corpus in selection["corpora"]:
-            if (
-                set(corpus) != {"path", "game_ids"}
-                or not isinstance(corpus["path"], str)
-                or not corpus["path"]
-                or not isinstance(corpus["game_ids"], list)
-                or not corpus["game_ids"]
-            ):
-                raise ValueError("invalid selected corpus")
-            selected += corpus["game_ids"]
-        if len(set(selected)) != len(selected) or set(selected) != set(dates):
-            raise ValueError("selection/training identities disagree")
+        _validate_training_identity(model, years)
+        _validate_training_coverage(model, total)
         diag = model["diagnostics"]
         if (
             set(diag)
@@ -1646,32 +1712,369 @@ def _season_state(model, attempt):
     return ("fitted" if season in model["training_seasons"] else "unobserved"), season
 
 
+def _layout_actor_evidence(layout, row, state):
+    result = {}
+    for actor in ("shooter",) if layout["kind"] == "u" else ("shooter", "goalie"):
+        counts = layout[actor + "_counts"].get(str(row[actor + "_id"]))
+        total = counts["total"] if counts else 0
+        count = counts["by_season"][state] if counts else 0
+        result[actor] = dict(
+            total_training_count=total,
+            state_season_count=count,
+            basis="observed_in_state"
+            if count
+            else "other_seasons_only"
+            if total
+            else "unseen",
+            coefficient_basis="fitted_seasonal_state"
+            if total
+            else "zero_penalty_prior_mode",
+        )
+    return result
+
+
 def actor_evidence(model, row, state_season=None):
     _, state = _season_state(model, row)
     if state_season is not None:
         state = state_season
-    result = {}
-    for name in ("u", "r"):
-        result[name] = {}
-        for actor in ("shooter",) if name == "u" else ("shooter", "goalie"):
-            counts = model["stages"][name][actor + "_counts"].get(
-                str(row[actor + "_id"])
+    return {
+        name: _layout_actor_evidence(model["stages"][name], row, state)
+        for name in ("u", "r")
+    }
+
+
+def benchmark_actor_evidence(model, row, state_season=None):
+    """direct benchmark support uses each benchmark's own fitted population."""
+    _, state = _season_state(model, row)
+    if state_season is not None:
+        state = state_season
+    return {
+        output: _layout_actor_evidence(model["benchmarks"][name], row, state)
+        for output, name in (
+            ("benchmark_r", "unblocked"),
+            ("benchmark_all", "all_attempt"),
+        )
+    }
+
+
+def _component_artifact(metadata, config, layout, diagnostics, *, quantity, features):
+    dates = metadata["training_game_dates"]
+    spatial_grid = None
+    if quantity == "unblocked_conversion":
+        centers, neighbors = grid()
+        spatial_grid = dict(centers=centers.tolist(), neighbors=neighbors.tolist())
+    return dict(
+        {
+            key: deepcopy(metadata[key])
+            for key in (
+                "purpose",
+                "implementation",
+                "inputs",
+                "selection",
+                "config_identity",
             )
-            total = counts["total"] if counts else 0
-            count = counts["by_season"][state] if counts else 0
-            result[name][actor] = dict(
-                total_training_count=total,
-                state_season_count=count,
-                basis="observed_in_state"
-                if count
-                else "other_seasons_only"
-                if total
-                else "unseen",
-                coefficient_basis="fitted_seasonal_state"
-                if total
-                else "zero_penalty_prior_mode",
+        },
+        artifact_kind="chance_component",
+        schema_version=1,
+        quantity=quantity,
+        feature_set=features,
+        layout=deepcopy(layout),
+        grid=spatial_grid,
+        config=dict(config),
+        type_order=TYPES.copy(),
+        role_order=ROLES.copy(),
+        context_categories=dict(CONTEXT_CATEGORIES),
+        scalar_features=SCALAR_FEATURES
+        + (RECENT_INTERACTION_FEATURES if features == "recent_interactions" else []),
+        seasons=layout["seasons"].copy(),
+        training_seasons=[
+            y
+            for y in layout["seasons"]
+            if any(c["by_season"][y] for c in layout["shooter_counts"].values())
+        ],
+        training_eligible_attempts=metadata["coverage"]["attempts"][
+            "chance_2_eligible_attempts"
+        ],
+        training_game_dates=dict(dates),
+        training_game_ids=list(dates),
+        training_dates=sorted(set(dates.values())),
+        protocol_identity=deepcopy(metadata.get("protocol_identity")),
+        extraction=None,
+        diagnostics=dict(diagnostics),
+        scientific_assessment="not_performed",
+    )
+
+
+def extract_component(model, *, quantity):
+    """copy one fitted component exactly; the caller binds this round's protocol."""
+    validate_model(model)
+    if quantity not in COMPONENT_QUANTITIES:
+        raise InputContractError("unsupported component quantity")
+    kind = COMPONENT_QUANTITIES[quantity]
+    layout = model["stages"][kind] if kind == "r" else model["benchmarks"][kind]
+    diagnostics = model["diagnostics"]["r"] if kind == "r" else layout["diagnostics"]
+    component = _component_artifact(
+        model,
+        model["config"],
+        layout,
+        diagnostics,
+        quantity=quantity,
+        features="additive",
+    )
+    extraction = implementation_identity()
+    extraction.update(
+        numpy_version=np.__version__,
+        scipy_version=scipy.__version__,
+        lockfile_sha256=hashlib.sha256(
+            (Path(__file__).resolve().parents[2] / "uv.lock").read_bytes()
+        ).hexdigest(),
+    )
+    component["extraction"] = dict(
+        model_content_sha256=hashlib.sha256(
+            json.dumps(
+                model, sort_keys=True, separators=(",", ":"), allow_nan=False
+            ).encode()
+        ).hexdigest(),
+        implementation=extraction,
+    )
+    validate_component(component, require_protocol=False)
+    return component
+
+
+def fit_component(attempts, config, metadata, *, quantity, features):
+    """one native binary solve; no origin fit, em, or joint reference."""
+    validate_config(config)
+    if quantity not in COMPONENT_QUANTITIES or features not in FEATURE_SETS:
+        raise InputContractError("unsupported component quantity/features")
+    if metadata.get("protocol_identity") is None:
+        raise InputContractError("component fitting requires a bound protocol")
+    rows = list(attempts)
+    centers, edges = grid()
+    kind = COMPONENT_QUANTITIES[quantity]
+    selected_years = [int(g[:4]) for g in metadata["training_game_dates"]]
+    if not selected_years:
+        raise InputContractError("component training requires selected games")
+    seasons = [
+        f"{y:04d}{y + 1:04d}"
+        for y in range(min(selected_years), max(selected_years) + 1)
+    ]
+    try:
+        _validate_identity(metadata["protocol_identity"])
+        training = dict(metadata)
+        training.setdefault("training_game_ids", list(training["training_game_dates"]))
+        training.setdefault(
+            "training_dates", sorted(set(training["training_game_dates"].values()))
+        )
+        _validate_training_identity(
+            training,
+            list(range(min(selected_years), max(selected_years) + 1)),
+        )
+        _validate_training_coverage(training, len(rows))
+    except (KeyError, TypeError, ValueError, OverflowError, AttributeError) as error:
+        raise InputContractError(
+            f"invalid component training metadata: {error}"
+        ) from error
+    cells = []
+    selected = []
+    for row in rows:
+        h = _validate_attempt(row, centers, geometry=kind == "r")
+        if (
+            row.get("status") != "eligible"
+            or row["season"] not in seasons
+            or row.get("game_id") not in metadata["training_game_dates"]
+            or _season(row["season"]) != int(row["game_id"][:4])
+        ):
+            raise InputContractError(
+                "component attempt is outside eligible training selection"
             )
-    return result
+        if kind != "r" or not row["blocked"]:
+            selected.append(row)
+            cells.append(h)
+    goals = sum(r["goal"] for r in selected)
+    if not 0 < goals < len(selected):
+        return None, dict(
+            converged=False,
+            termination="component training requires goals and non-goals",
+            iterations=0,
+            objective=None,
+        )
+    layout = _layout(selected, seasons, len(centers), kind, features=features)
+    data = _encode(selected, layout, cells)
+    beta, diagnostics = _fit_binary(data, layout, config, edges, centers)
+    if not diagnostics["converged"]:
+        return None, diagnostics
+    layout["coefficients"] = beta.tolist()
+    if kind != "r":
+        layout["diagnostics"] = dict(diagnostics)
+    component = _component_artifact(
+        metadata, config, layout, diagnostics, quantity=quantity, features=features
+    )
+    validate_component(component)
+    return component, diagnostics
+
+
+def validate_component(component, *, require_protocol=True):
+    """validate the distinct standalone artifact without a fabricated joint model."""
+    try:
+        fields = {
+            "artifact_kind",
+            "schema_version",
+            "purpose",
+            "implementation",
+            "inputs",
+            "selection",
+            "config_identity",
+            "quantity",
+            "feature_set",
+            "layout",
+            "grid",
+            "config",
+            "type_order",
+            "role_order",
+            "context_categories",
+            "scalar_features",
+            "seasons",
+            "training_seasons",
+            "training_eligible_attempts",
+            "training_game_dates",
+            "training_game_ids",
+            "training_dates",
+            "protocol_identity",
+            "extraction",
+            "diagnostics",
+            "scientific_assessment",
+        }
+        if (
+            not isinstance(component, dict)
+            or set(component) != fields
+            or component["artifact_kind"] != "chance_component"
+            or type(component["schema_version"]) is not int
+            or component["schema_version"] != 1
+            or component["purpose"] not in ("fixture_exercise", "research")
+            or component["scientific_assessment"] != "not_performed"
+        ):
+            raise ValueError("component schema/purpose disagree")
+        quantity, features = component["quantity"], component["feature_set"]
+        if quantity not in COMPONENT_QUANTITIES or features not in FEATURE_SETS:
+            raise ValueError("unsupported component quantity/features")
+        kind = COMPONENT_QUANTITIES[quantity]
+        validate_config(component["config"])
+        centers, edges = grid()
+        if kind == "r":
+            if (
+                set(component["grid"]) != {"centers", "neighbors"}
+                or not np.array_equal(
+                    _numeric_array(component["grid"]["centers"], centers.shape), centers
+                )
+                or not np.array_equal(
+                    _numeric_array(component["grid"]["neighbors"], edges.shape), edges
+                )
+            ):
+                raise ValueError("component grid differs from native grid")
+        elif component["grid"] is not None:
+            raise ValueError("direct component has no spatial grid")
+        if (
+            component["type_order"] != TYPES
+            or component["role_order"] != ROLES
+            or component["context_categories"] != dict(CONTEXT_CATEGORIES)
+            or component["scalar_features"]
+            != SCALAR_FEATURES
+            + (RECENT_INTERACTION_FEATURES if features == "recent_interactions" else [])
+        ):
+            raise ValueError("component feature/category order disagrees")
+        seasons = component["seasons"]
+        years = [_season(y) for y in seasons]
+        if not years or years != list(range(years[0], years[-1] + 1)):
+            raise ValueError("component seasons are not contiguous")
+        layout = component["layout"]
+        _validate_layout(layout, seasons, len(centers), kind, features=features)
+        observed = [
+            y
+            for y in seasons
+            if any(c["by_season"][y] for c in layout["shooter_counts"].values())
+        ]
+        if not observed or component["training_seasons"] != observed:
+            raise ValueError(
+                "component training seasons disagree with applicable evidence"
+            )
+        total = component["training_eligible_attempts"]
+        if type(total) is not int or total <= 0:
+            raise ValueError("invalid component training eligible count")
+        applicable = sum(c["total"] for c in layout["shooter_counts"].values())
+        if not 0 < applicable <= total or kind != "r" and applicable != total:
+            raise ValueError("component applicable/training counts disagree")
+        _validate_training_identity(component, years)
+        _validate_solve(component["diagnostics"], accepted=True)
+        if kind != "r" and layout["diagnostics"] != component["diagnostics"]:
+            raise ValueError("direct component solve diagnostics disagree")
+        protocol = component["protocol_identity"]
+        if protocol is None:
+            if require_protocol or component["extraction"] is None:
+                raise ValueError("component has no protocol identity")
+        else:
+            _validate_identity(protocol)
+        extraction = component["extraction"]
+        if extraction is not None:
+            if (
+                set(extraction) != {"model_content_sha256", "implementation"}
+                or features != "additive"
+            ):
+                raise ValueError("invalid extraction provenance")
+            digest = extraction["model_content_sha256"]
+            if (
+                not isinstance(digest, str)
+                or len(digest) != 64
+                or any(c not in "0123456789abcdef" for c in digest)
+            ):
+                raise ValueError("invalid original model content identity")
+            _validate_implementation(extraction["implementation"])
+    except (
+        KeyError,
+        TypeError,
+        ValueError,
+        OverflowError,
+        AttributeError,
+        IndexError,
+        ZeroDivisionError,
+    ) as error:
+        raise InputContractError(f"invalid chance component: {error}") from error
+    return component
+
+
+def component_prediction_context(component):
+    """validate once and prepare reusable numerical arrays for keyed prediction."""
+    validate_component(component)
+    return dict(
+        centers=grid()[0], coefficients=np.asarray(component["layout"]["coefficients"])
+    )
+
+
+def predict_component(component, attempt, context=None):
+    if context is None:
+        context = component_prediction_context(component)
+    kind = COMPONENT_QUANTITIES[component["quantity"]]
+    h = _validate_attempt(attempt, context["centers"], geometry=kind == "r")
+    if attempt.get("status") != "eligible" or kind == "r" and attempt["blocked"]:
+        raise InputContractError(
+            "component prediction requires an eligible applicable attempt"
+        )
+    basis, state = _season_state(component, attempt)
+    layout = component["layout"]
+    data = _prediction_data(attempt, layout, h, state)
+    if kind == "r":
+        logit = _stage_logits(context["coefficients"], layout, data, data["cell"])[0]
+    else:
+        logit = (
+            _benchmark_features(data, layout, context["centers"])
+            @ context["coefficients"]
+        )[0]
+    return dict(
+        log_p=float(log_expit(logit)),
+        log_not_p=float(log_expit(-logit)),
+        season_basis=basis,
+        state_season=state,
+        actor_evidence=_layout_actor_evidence(layout, attempt, state),
+    )
 
 
 def prediction_context(model):
@@ -1686,7 +2089,9 @@ def prediction_context(model):
             model["kernel"]["direction_strength"],
         ),
         "origin": np.asarray(model["origin"]["coefficients"]),
-        "stages": {k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()},
+        "stages": {
+            k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()
+        },
         "benchmarks": {
             k: np.asarray(v["coefficients"]) for k, v in model["benchmarks"].items()
         },
@@ -1737,7 +2142,9 @@ def reference_probabilities(model, attempt, cell_ids, context):
     missing = sorted({int(h) for h in cells if (prefix, int(h)) not in cache})
     if missing:
         data = {
-            "type": np.full(len(model["reference"]), TYPES.index(attempt["model_shot_type"]))
+            "type": np.full(
+                len(model["reference"]), TYPES.index(attempt["model_shot_type"])
+            )
         }
         scalar_logits = {}
         for name, stage in model["stages"].items():

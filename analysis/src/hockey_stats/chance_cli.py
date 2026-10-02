@@ -20,7 +20,9 @@ def read_json(path: Path) -> object:
 
 
 def identity(path: Path) -> dict:
-    return {"path": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+    with path.open("rb") as source:
+        digest = hashlib.file_digest(source, "sha256").hexdigest()
+    return {"path": str(path), "sha256": digest}
 
 
 def output_path(value: str, roots: list[str]) -> Path:

@@ -1,6 +1,6 @@
 # pr03g — conversion integration and observable geometry
 
-status: **implementation and bounded diagnostic complete; independently verified on the unmerged `codex/03g-chance-assessment` branch.** the user authorized this entire slice on 2026-10-02. [verification](../research/chance-03g/verification.md) records reconciliation and deleted temporary tests; [decision](../research/chance-03g/decision.md) recommends `assess_integrated`, without admission, fitting or handoff. [03f](../research/chance-03f/decision.md) merged in `9c5f3dc`; context interactions improve component losses without resolving calibration. [03e remains withheld](../research/chance-03e/decision.md). [brief](../brief.md) · [plan](../plan.md) · [03h follow-up](03h-chance-revision.md)
+status: **implementation and bounded diagnostic complete; independently verified.** the user authorized this entire slice on 2026-10-02. [verification](../research/chance-03g/verification.md) records reconciliation and deleted temporary tests; [decision](../research/chance-03g/decision.md) recommends `assess_integrated`, without admission, fitting or handoff. [03f](../research/chance-03f/decision.md) merged in `9c5f3dc`; context interactions improve component losses without resolving calibration. [03e remains withheld](../research/chance-03e/decision.md). [brief](../brief.md) · [plan](../plan.md) · [03h follow-up](03h-chance-revision.md)
 
 ## target and scope
 

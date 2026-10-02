@@ -6,7 +6,7 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## next slices
 
-03e merged in `a8b1de8`; [software verification](research/chance-03e/verification.md) and the bounded study are complete, with a [withheld decision](research/chance-03e/decision.md) and no handoff. [03f](specs/03f-model-development.md) merged in `9c5f3dc`; [its decision](research/chance-03f/decision.md) recommends context interactions and retaining history, with calibration unresolved and no admission. 03g implementation and its bounded diagnostic are complete and independently verified on the unmerged `codex/03g-chance-assessment` branch. [its decision](research/chance-03g/decision.md) recommends `assess_integrated`, without admission or handoff. 03h and 04–07 remain stubs; their implementation and publication require the user's progression decision.
+03e merged in `a8b1de8`; [software verification](research/chance-03e/verification.md) and the bounded study are complete, with a [withheld decision](research/chance-03e/decision.md) and no handoff. [03f](specs/03f-model-development.md) merged in `9c5f3dc`; [its decision](research/chance-03f/decision.md) recommends context interactions and retaining history, with calibration unresolved and no admission. 03g implementation and its bounded diagnostic are complete and independently verified. [its decision](research/chance-03g/decision.md) recommends `assess_integrated`, without admission or handoff. 03h and 04–07 remain stubs; their implementation and publication require the user's progression decision.
 
 | slice | responsibility | dependency / completion boundary |
 |---|---|---|

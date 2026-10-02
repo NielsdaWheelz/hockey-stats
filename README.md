@@ -19,7 +19,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr03d specification](docs/specs/03d-chance-revision.md): implemented chance-2 contract; [fixture verification](docs/research/chance-03d/verification.md) establishes software behavior.
 - [pr03e specification](docs/specs/03e-training-assessment.md): completed bounded retrospective assessment, `withheld`; [protocol](docs/research/chance-03e/protocol.md), [verification](docs/research/chance-03e/verification.md) and [decision](docs/research/chance-03e/decision.md).
 - [pr03f specification](docs/specs/03f-model-development.md): completed saved diagnosis and twelve-cell component screen; [decision](docs/research/chance-03f/decision.md), [verification](docs/research/chance-03f/verification.md) and [protocol](docs/research/chance-03f/protocol.md). context interactions recommended for further component research; history ablation worsens losses. no joint fitting or admission.
-- [later pr stubs](docs/plan.md#next-slices): 03g owns the selected chance revision/assessment; 04–07 retain downstream responsibilities. expand each before implementation.
+- [pr03g specification](docs/specs/03g-chance-assessment.md): ready for handoff; compatible saved-fit integration, fixed observable spatial diagnostics and opportunity changes, without fitting or admission.
+- [later pr stubs](docs/plan.md#next-slices): 03h owns the selected chance revision/assessment; 04–07 retain downstream responsibilities. expand each before implementation.
 - [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
 - [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.

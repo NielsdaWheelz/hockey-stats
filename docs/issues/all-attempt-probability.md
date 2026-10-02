@@ -1,6 +1,6 @@
 # all-attempt probability remains unsupported
 
-status: open; 03e completed with a [withheld decision](../research/chance-03e/decision.md). all three revised development recipes decisively fail declared all-attempt calibration. 03b's rejection remains unchanged. owner: chance-model science; any further round requires separate user authorization.
+status: open; 03e completed with a [withheld decision](../research/chance-03e/decision.md). all three revised development recipes decisively fail declared all-attempt calibration. 03b's rejection remains unchanged. owner: chance-model science. [03f](../specs/03f-model-development.md) specifies diagnosis/component screening; [03g](../specs/03g-chance-assessment.md) retains the selected revision/assessment. screening alone cannot resolve this issue.
 
 03e evidence: all three recipes completed fitting, common-cohort evaluation, scoring and comparison on the same 712 held-out games, with 68,775 eligible attempts. fixed recorded-context goal-probability bin 2 `[0.10, 0.15)` contains 2,089/2,340/1,956 attempts for anchor/weaker/stronger, respectively. its attempt shares are only 3.04%/3.40%/2.84%, but its predicted goal-mass shares are 8.56%/9.49%/8.16% of the entire all-attempt quantity. the predeclared count OR predicted-mass trigger therefore makes it consequential for every recipe; this is not a subset selected by observed goals or blocks.
 

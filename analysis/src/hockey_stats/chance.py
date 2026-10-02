@@ -2077,9 +2077,47 @@ def predict_component(component, attempt, context=None):
     )
 
 
-def prediction_context(model):
-    """opaque reusable numerical state and bounded exact reference cache."""
+def prediction_context(model, *, conversion=None):
+    """validated stage selection and bounded exact reference cache; model unchanged."""
     validate_model(model)
+    layouts = dict(model["stages"])
+    stage_models = {"u": model, "r": model}
+    if conversion is not None:
+        validate_component(conversion)
+        if conversion["quantity"] != "unblocked_conversion":
+            raise InputContractError("composition requires a conversion component")
+        for key in (
+            "purpose",
+            "inputs",
+            "selection",
+            "config_identity",
+            "config",
+            "grid",
+            "seasons",
+            "type_order",
+            "role_order",
+            "context_categories",
+            "training_game_dates",
+            "training_game_ids",
+            "training_dates",
+        ):
+            if conversion[key] != model[key]:
+                raise InputContractError(f"conversion and anchor disagree on {key}")
+        anchor = model["stages"]["r"]
+        training_seasons = [
+            y
+            for y in model["seasons"]
+            if any(c["by_season"][y] for c in anchor["shooter_counts"].values())
+        ]
+        if conversion["training_seasons"] != training_seasons or conversion[
+            "training_eligible_attempts"
+        ] != model["coverage"]["attempts"]["chance_2_eligible_attempts"]:
+            raise InputContractError("conversion and anchor training counts disagree")
+        for key in ("shooters", "goalies", "shooter_counts", "goalie_counts"):
+            if conversion["layout"][key] != anchor[key]:
+                raise InputContractError(f"conversion and anchor disagree on {key}")
+        layouts["r"] = conversion["layout"]
+        stage_models["r"] = conversion
     centers, _ = grid()
     context = {
         "centers": centers,
@@ -2089,9 +2127,9 @@ def prediction_context(model):
             model["kernel"]["direction_strength"],
         ),
         "origin": np.asarray(model["origin"]["coefficients"]),
-        "stages": {
-            k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()
-        },
+        "layouts": layouts,
+        "stage_models": stage_models,
+        "stages": {k: np.asarray(v["coefficients"]) for k, v in layouts.items()},
         "benchmarks": {
             k: np.asarray(v["coefficients"]) for k, v in model["benchmarks"].items()
         },
@@ -2113,7 +2151,7 @@ def prediction_context(model):
         }
         for pair in model["reference"]
     ]
-    for name, stage in model["stages"].items():
+    for name, stage in layouts.items():
         data = _encode(reference_rows, stage, [0] * len(reference_rows))
         context["reference_scalar_logits"][name] = _scalar_logits(
             context["stages"][name], stage, data
@@ -2136,8 +2174,13 @@ def reference_probabilities(model, attempt, cell_ids, context):
         or (cells >= len(context["centers"])).any()
     ):
         raise InputContractError("invalid requested reference cells")
-    scalar = scalar_features(attempt["context"])
-    prefix = (attempt["model_shot_type"], tuple(scalar))
+    scalars = {
+        name: scalar_features(
+            attempt["context"], features=layout.get("feature_set", "additive")
+        )
+        for name, layout in context["layouts"].items()
+    }
+    prefix = (attempt["model_shot_type"], tuple(scalars["u"]), tuple(scalars["r"]))
     cache = context["reference_cache"]
     missing = sorted({int(h) for h in cells if (prefix, int(h)) not in cache})
     if missing:
@@ -2147,10 +2190,11 @@ def reference_probabilities(model, attempt, cell_ids, context):
             )
         }
         scalar_logits = {}
-        for name, stage in model["stages"].items():
+        for name, stage in context["layouts"].items():
             offsets = _offsets(stage)
             scalar_logits[name] = context["reference_scalar_logits"][name] + (
-                scalar @ context["stages"][name][offsets["scalar"] : offsets["shooter"]]
+                scalars[name]
+                @ context["stages"][name][offsets["scalar"] : offsets["shooter"]]
             )
     for start in range(0, len(missing), BATCH_SIZE):
         hs = np.array(missing[start : start + BATCH_SIZE])
@@ -2162,7 +2206,7 @@ def reference_probabilities(model, attempt, cell_ids, context):
                 hs[None, :],
                 scalar_logits=scalar_logits[name],
             )
-            for name, stage in model["stages"].items()
+            for name, stage in context["layouts"].items()
         }
         values = context["reference_weights"] @ np.exp(
             log_expit(logits["u"]) + log_expit(logits["r"])
@@ -2177,46 +2221,70 @@ def reference_probabilities(model, attempt, cell_ids, context):
     return result
 
 
-def predict_attempt(model, attempt, context=None):
+def predict_cells(model, attempt, context=None):
+    """native-grid log_pi and binary log_u/log_not_u/log_r/log_not_r arrays.
+
+    cell_id is the quantized observation; stage evidence and seasonal states use
+    the selected layouts. reuse terms only with the same model/context/attempt.
+    """
     if context is None:
         context = prediction_context(model)
     h = _validate_attempt(attempt, context["centers"])
-    basis, state = _season_state(model, attempt)
-    logits = {}
+    result = dict(
+        cell_id=h,
+        stage_actor_evidence={},
+        stage_season_basis={},
+        stage_state_season={},
+    )
     for name in ("u", "r"):
-        stage = model["stages"][name]
+        stage = context["layouts"][name]
+        basis, state = _season_state(context["stage_models"][name], attempt)
         data = _prediction_data(attempt, stage, h, state)
-        logits[name] = _stage_logits(
+        if name == "u":
+            origin_data = data
+        logits = _stage_logits(
             context["stages"][name],
             stage,
             data,
             np.arange(len(context["centers"]))[None, :],
         )[0]
-    data = _prediction_data(attempt, model["stages"]["u"], h, state)
+        result["log_" + name] = log_expit(logits)
+        result["log_not_" + name] = log_expit(-logits)
+        result["stage_actor_evidence"][name] = _layout_actor_evidence(
+            stage, attempt, state
+        )
+        result["stage_season_basis"][name] = basis
+        result["stage_state_season"][name] = state
     log_pi = (
-        _origin_design(data, model["seasons"])
+        _origin_design(origin_data, model["seasons"])
         @ context["origin"].reshape(-1, len(context["centers"]))
     )[0]
     log_pi -= logsumexp(log_pi)
-    log_goal = logsumexp(log_pi + log_expit(logits["u"]) + log_expit(logits["r"]))
-    log_not_goal = logsumexp(
-        log_pi
-        + np.logaddexp(
-            log_expit(-logits["u"]), log_expit(logits["u"]) + log_expit(-logits["r"])
-        )
-    )
-    log_unblocked = logsumexp(log_pi + log_expit(logits["u"]))
-    log_blocked = logsumexp(log_pi + log_expit(-logits["u"]))
+    result["log_pi"] = log_pi
+    return result
+
+
+def predict_attempt(model, attempt, context=None, *, cells=None):
+    """factual probabilities and origins; optional cells come from predict_cells."""
+    if context is None:
+        context = prediction_context(model)
+    if cells is None:
+        cells = predict_cells(model, attempt, context)
+    h = cells["cell_id"]
+    log_pi, log_u, log_r = (cells[key] for key in ("log_pi", "log_u", "log_r"))
+    log_not_u, log_not_r = (cells[key] for key in ("log_not_u", "log_not_r"))
+    basis = cells["stage_season_basis"]["u"]
+    state = cells["stage_state_season"]["u"]
+    log_goal = logsumexp(log_pi + log_u + log_r)
+    log_not_goal = logsumexp(log_pi + np.logaddexp(log_not_u, log_u + log_not_r))
+    log_unblocked = logsumexp(log_pi + log_u)
+    log_blocked = logsumexp(log_pi + log_not_u)
     if attempt["blocked"]:
-        q, observed = posterior(log_pi, log_expit(-logits["u"]), context["kernel"][h])
+        q, observed = posterior(log_pi, log_not_u, context["kernel"][h])
     else:
         q = np.zeros(len(context["centers"]))
         q[h] = 1
-        observed = (
-            log_pi[h]
-            + log_expit(logits["u"][h])
-            + log_expit(logits["r"][h] if attempt["goal"] else -logits["r"][h])
-        )
+        observed = log_pi[h] + log_u[h] + (log_r[h] if attempt["goal"] else log_not_r[h])
     result = dict(
         candidate_r=None,
         benchmark_r=None,
@@ -2226,14 +2294,14 @@ def predict_attempt(model, attempt, context=None):
         ),
         observed_log_likelihood=float(observed),
         origin_weights=q,
-        actor_evidence=actor_evidence(model, attempt, state),
+        actor_evidence=cells["stage_actor_evidence"],
         season_basis=basis,
         state_season=state,
     )
     if not attempt["blocked"]:
         result["candidate_r"] = dict(
-            log_p=float(log_expit(logits["r"][h])),
-            log_not_p=float(log_expit(-logits["r"][h])),
+            log_p=float(log_r[h]),
+            log_not_p=float(log_not_r[h]),
         )
     for output, name in (
         ("benchmark_r", "unblocked"),

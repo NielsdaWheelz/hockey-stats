@@ -1376,7 +1376,7 @@ def _validate_implementation(implementation):
         raise ValueError("invalid lockfile identity")
 
 
-def _validate_training_identity(model, years, total):
+def _validate_training_identity(model, years):
     dates = model["training_game_dates"]
     if (
         not isinstance(dates, dict)
@@ -1395,30 +1395,6 @@ def _validate_training_identity(model, years, total):
         or model["training_dates"] != sorted(set(dates.values()))
     ):
         raise ValueError("training dates/seasons disagree")
-    if model["game_dates"] != dates:
-        raise ValueError("source/training game dates disagree")
-    coverage = model["coverage"]
-    if not isinstance(coverage, dict) or set(coverage) != {
-        "games",
-        "games_by_status",
-        "attempts",
-        "attempts_by_status",
-        "attempts_by_reason",
-        "per_game",
-    }:
-        raise ValueError("incomplete coverage fields")
-    if (
-        coverage["games"]["selected"] != len(dates)
-        or coverage["attempts"]["chance_2_eligible_attempts"] != total
-        or coverage["attempts_by_status"]["eligible"] != total
-    ):
-        raise ValueError("coverage/training counts disagree")
-    if not isinstance(coverage["per_game"], list) or [
-        g["game_id"] for g in coverage["per_game"]
-    ] != list(dates):
-        raise ValueError("coverage game ledger disagrees")
-    if sum(g["chance_2_eligible_attempts"] or 0 for g in coverage["per_game"]) != total:
-        raise ValueError("coverage game counts disagree")
     _validate_implementation(model["implementation"])
     if not isinstance(model["inputs"], list) or not model["inputs"]:
         raise ValueError("missing input identities")
@@ -1452,6 +1428,34 @@ def _validate_training_identity(model, years, total):
         selected += corpus["game_ids"]
     if len(set(selected)) != len(selected) or set(selected) != set(dates):
         raise ValueError("selection/training identities disagree")
+
+
+def _validate_training_coverage(model, total):
+    dates = model["training_game_dates"]
+    if model["game_dates"] != dates:
+        raise ValueError("source/training game dates disagree")
+    coverage = model["coverage"]
+    if not isinstance(coverage, dict) or set(coverage) != {
+        "games",
+        "games_by_status",
+        "attempts",
+        "attempts_by_status",
+        "attempts_by_reason",
+        "per_game",
+    }:
+        raise ValueError("incomplete coverage fields")
+    if (
+        coverage["games"]["selected"] != len(dates)
+        or coverage["attempts"]["chance_2_eligible_attempts"] != total
+        or coverage["attempts_by_status"]["eligible"] != total
+    ):
+        raise ValueError("coverage/training counts disagree")
+    if not isinstance(coverage["per_game"], list) or [
+        g["game_id"] for g in coverage["per_game"]
+    ] != list(dates):
+        raise ValueError("coverage game ledger disagrees")
+    if sum(g["chance_2_eligible_attempts"] or 0 for g in coverage["per_game"]) != total:
+        raise ValueError("coverage game counts disagree")
 
 
 def validate_model(model):
@@ -1637,7 +1641,8 @@ def validate_model(model):
                 != all_attempt["goalie_counts"][str(a)]["by_season"][seasons[-1]]
             ):
                 raise ValueError("target reference goalie counts disagree")
-        _validate_training_identity(model, years, total)
+        _validate_training_identity(model, years)
+        _validate_training_coverage(model, total)
         diag = model["diagnostics"]
         if (
             set(diag)
@@ -1766,8 +1771,6 @@ def _component_artifact(metadata, config, layout, diagnostics, *, quantity, feat
                 "implementation",
                 "inputs",
                 "selection",
-                "game_dates",
-                "coverage",
                 "config_identity",
             )
         },
@@ -1788,6 +1791,9 @@ def _component_artifact(metadata, config, layout, diagnostics, *, quantity, feat
             y
             for y in layout["seasons"]
             if any(c["by_season"][y] for c in layout["shooter_counts"].values())
+        ],
+        training_eligible_attempts=metadata["coverage"]["attempts"][
+            "chance_2_eligible_attempts"
         ],
         training_game_dates=dict(dates),
         training_game_ids=list(dates),
@@ -1862,8 +1868,8 @@ def fit_component(attempts, config, metadata, *, quantity, features):
         _validate_training_identity(
             training,
             list(range(min(selected_years), max(selected_years) + 1)),
-            len(rows),
         )
+        _validate_training_coverage(training, len(rows))
     except (KeyError, TypeError, ValueError, OverflowError, AttributeError) as error:
         raise InputContractError(
             f"invalid component training metadata: {error}"
@@ -1917,8 +1923,6 @@ def validate_component(component, *, require_protocol=True):
             "implementation",
             "inputs",
             "selection",
-            "game_dates",
-            "coverage",
             "config_identity",
             "quantity",
             "feature_set",
@@ -1931,6 +1935,7 @@ def validate_component(component, *, require_protocol=True):
             "scalar_features",
             "seasons",
             "training_seasons",
+            "training_eligible_attempts",
             "training_game_dates",
             "training_game_ids",
             "training_dates",
@@ -1992,11 +1997,13 @@ def validate_component(component, *, require_protocol=True):
             raise ValueError(
                 "component training seasons disagree with applicable evidence"
             )
-        total = component["coverage"]["attempts"]["chance_2_eligible_attempts"]
+        total = component["training_eligible_attempts"]
+        if type(total) is not int or total <= 0:
+            raise ValueError("invalid component training eligible count")
         applicable = sum(c["total"] for c in layout["shooter_counts"].values())
         if not 0 < applicable <= total or kind != "r" and applicable != total:
-            raise ValueError("component evidence/coverage counts disagree")
-        _validate_training_identity(component, years, total)
+            raise ValueError("component applicable/training counts disagree")
+        _validate_training_identity(component, years)
         _validate_solve(component["diagnostics"], accepted=True)
         if kind != "r" and layout["diagnostics"] != component["diagnostics"]:
             raise ValueError("direct component solve diagnostics disagree")

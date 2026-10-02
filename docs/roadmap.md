@@ -15,7 +15,19 @@ parity scope confirmed 2026-09-29: **complete player analysis**, covering hockey
 
 v2 and v3 are independent after v1. the recommendation favors useful comparison tools first; current-season work can take priority if that is the more pressing use once v1 exists. the cost of the proposed order is delaying current-season analysis while improving the completed-season product. each milestone can ship through several small slices.
 
-source foundations belong within v1: event on-ice reports are in merged 02b; season inventory/bios and corpus accounting in merged 02c; source repairs, landing and the full local audit in merged [03c](specs/03c-source-revision.md). [03d](specs/03d-chance-revision.md) implemented the revised candidate; merged [03e](specs/03e-training-assessment.md) withheld its handoff. [03f](specs/03f-model-development.md) specifies bounded component development; [03g](specs/03g-chance-assessment.md) retains the selected revision/assessment. 04 requires supported chance inputs and must assess player robustness before publication. coach admission belongs to 04; structured `right-rail` is a candidate. event-summary/shift reports support selected audits without requiring duplicate feeds. scratch views remain later. a source does not itself add a card or feature.
+source foundations belong within v1: event on-ice reports are in merged 02b; season inventory/bios and corpus accounting in merged 02c; source repairs, landing and the full local audit in merged [03c](specs/03c-source-revision.md). [03d](specs/03d-chance-revision.md) implemented the revised candidate; merged [03e](specs/03e-training-assessment.md) withheld its handoff. merged [03f](specs/03f-model-development.md) found context-interaction gains without resolving calibration. coach admission belongs to 04; structured `right-rail` is a candidate. event-summary/shift reports support selected audits without requiring duplicate feeds. scratch views remain later. a source does not itself add a card or feature.
+
+## scientific path to v1
+
+| next boundary | question to settle | output |
+|---|---|---|
+| [03g integration/spatial diagnosis](specs/03g-chance-assessment.md) | what does improved conversion change, and where do observable spatial predictions disagree? | compatible saved-fit recomposition and bounded diagnostics; no new fitting or admission |
+| [03h selected revision/assessment](specs/03h-chance-revision.md) | does the integrated candidate warrant assessment, or which one structural assumption should change? | prospective assessment and supported conditional handoff, or withheld decision |
+| [04 player attribution](specs/04-player-attribution.md) | do supported chance alternatives yield defensible player magnitudes, signs and spatial explanations? | player-analysis evidence before real publication |
+
+03h owns the ranked research backlog: seasonal context with historical borrowing first, then outcome decomposition and narrowly justified geometry/type/actor changes; origin-law sensitivity remains a separate obligation for origin-sensitive claims. longer sequences, fatigue and older data need evidence of a problem they can address. this is adaptive research, not six promised features or repeated large fitting campaigns.
+
+tradeoff: a cheap diagnosis comes before the next revision, delaying breadth while avoiding unsupported computation. observed spatial agreement does not prove physical blocked origins; player robustness and honest limitations still matter. v1–v4+ capabilities and the one-operator operating model are unchanged. 05–06 may proceed with labeled fixture publications when separately specified and assigned.
 
 ## milestones that need not wait
 

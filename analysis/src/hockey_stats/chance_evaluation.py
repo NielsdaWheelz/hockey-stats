@@ -2,6 +2,9 @@
 
 import math
 
+import numpy as np
+from scipy.special import logsumexp
+
 from .captures import InputContractError
 from .chance import CONTEXT_CATEGORIES, ROLES, TYPES
 
@@ -18,6 +21,60 @@ PROBABILITY_SUMS = (
     "log_loss_sum",
     "brier_score_sum",
 )
+
+REGION_NAMES = (
+    "behind_goal", "outside_attacking_zone", "in_zone_0_10", "in_zone_10_20",
+    "in_zone_20_40", "in_zone_40_plus",
+)
+
+
+def compound_regions(centers) -> np.ndarray:
+    """partition native cell centers in the declared geometric precedence."""
+    result = []
+    for x, y in centers:
+        if x > 89:
+            region = 0
+        elif x <= 25:
+            region = 1
+        else:
+            distance = math.hypot(89 - x, y)
+            region = 2 if distance < 10 else 3 if distance < 20 else 4 if distance < 40 else 5
+        result.append(region)
+    return np.asarray(result, dtype=np.int64)
+
+
+def compound_region_records(attempt: dict, cell_regions: np.ndarray, cells: dict) -> dict:
+    """binary evidence for unblocked/goal and proxy cell in each fixed region.
+
+    denominators contain every eligible attempt. a blocked record has zero
+    compound labels and its block-contact cell is never a shooting proxy.
+    complement sums stay in log space; no clipping or fabricated origin rows.
+    """
+    if attempt["status"] != "eligible":
+        raise InputContractError("regional evaluation requires an eligible attempt")
+    log_pi, log_u = cells["log_pi"], cells["log_u"]
+    log_not_u, log_r, log_not_r = (
+        cells["log_not_u"], cells["log_r"], cells["log_not_r"]
+    )
+    terms = {
+        "unblocked": (log_pi + log_u, log_pi + log_not_u),
+        "goal": (log_pi + log_u + log_r,
+                 log_pi + np.logaddexp(log_not_u, log_u + log_not_r)),
+    }
+    result = {}
+    for quantity, (positive, negative) in terms.items():
+        records = []
+        for region in range(len(REGION_NAMES)):
+            included = cell_regions == region
+            observed = not attempt["blocked"] and cell_regions[cells["cell_id"]] == region
+            if quantity == "goal":
+                observed = observed and attempt["goal"]
+            records.append(binary_record(
+                bool(observed), float(logsumexp(positive[included])),
+                float(logsumexp(np.concatenate((negative, positive[~included])))),
+            ))
+        result[quantity] = records
+    return result
 
 
 GROUP_DOMAINS = {

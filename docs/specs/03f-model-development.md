@@ -1,6 +1,6 @@
 # pr03f — diagnose and screen chance-model revisions
 
-status: **specification ready for handoff; no implementation or fitting performed in this documentation phase.** 03e merged in `a8b1de8`; its [withheld decision](../research/chance-03e/decision.md) remains unchanged. this is a new, bounded development round. [brief](../brief.md) · [plan](../plan.md) · [03g follow-up](03g-chance-assessment.md)
+status: **implemented, reviewed and merged in `9c5f3dc`.** [decision](../research/chance-03f/decision.md) and [verification](../research/chance-03f/verification.md) record the completed bounded development round, without admission. 03e merged in `a8b1de8`; its [withheld decision](../research/chance-03e/decision.md) remains unchanged. follow-up ownership is now [03g integration/diagnosis](03g-chance-assessment.md) and [03h revision/assessment](03h-chance-revision.md). [brief](../brief.md) · [plan](../plan.md)
 
 ## target and boundary
 
@@ -10,7 +10,7 @@ explain where the current model overpredicts and measure whether richer recent c
 
 the failed quantity integrates over origins without the focal location: `P(goal | recorded context, actors) = Σπur`. the product's opportunity value instead retains observed/imputed location and standardizes modeled execution. failure of the first warns about the shared model; it does not directly measure player-value bias. passing it would not establish physical-origin accuracy.
 
-**included:** saved-model diagnosis; independent component fitting/prediction; a fixed twelve-cell experiment with ten new solves; a readable comparison and next-revision recommendation. **excluded:** joint em fits, new origin/avoidance laws, opportunity scoring, 04 handoffs, acquisition, older-corpus admission, new source parsers, coordinate correction, player attribution, publication, website work and a lasting test harness. [03g](03g-chance-assessment.md) owns the selected model revision and its assessment.
+**included:** saved-model diagnosis; independent component fitting/prediction; a fixed twelve-cell experiment with ten new solves; a readable comparison and next-revision recommendation. **excluded:** joint em fits, new origin/avoidance laws, opportunity scoring, 04 handoffs, acquisition, older-corpus admission, new source parsers, coordinate correction, player attribution, publication, website work and a lasting test harness. [03g](03g-chance-assessment.md) owns saved-fit integration/diagnosis; [03h](03h-chance-revision.md) owns the selected model revision and its assessment.
 
 ## evidence and chronology
 
@@ -103,7 +103,7 @@ prediction streams key every recognized attempt by `(game_id, source_index)`; re
 
 the schema-1 screen evidence index binds the protocol, input identities and twelve cells `(window, recipe, quantity)`, each with training/assessment selections, component/evaluation references and `reused|fitted|failed` status. failed cells retain diagnostics with null unavailable artifact references. comparison records bind it and contain counts/sums, candidate-minus-baseline metrics/intervals, coverage and resource measurements. missing/duplicate/mismatched keys, labels or source identities fail pairing; do not silently intersect cohorts. a failed cell remains visible and yields incomplete evidence, not a substituted model.
 
-exit `0` means the requested artifact completed, not scientific approval; numerical/input/output failure is nonzero. use existing argument/output/error conventions. write completion records last. interrupted cheap component solves may be rerun explicitly; no new recovery engine. preserve 03e's expensive fits/checkpoints. keep native chance-2 schemas and baseline prediction meaning intact; this is a distinct research capability, not a legacy compatibility dispatcher. any later joint-model cutover belongs to 03g.
+exit `0` means the requested artifact completed, not scientific approval; numerical/input/output failure is nonzero. use existing argument/output/error conventions. write completion records last. interrupted cheap component solves may be rerun explicitly; no new recovery engine. preserve 03e's expensive fits/checkpoints. keep native chance-2 schemas and baseline prediction meaning intact; this is a distinct research capability, not a legacy compatibility dispatcher. any later joint-model cutover belongs to the selected follow-up specification.
 
 ## content, verification and completion
 
@@ -123,9 +123,9 @@ run a fixture capacity check before full component solves; record wall time, pea
 
 | question / cost | owner and disposition |
 |---|---|
-| sustained sequences and shift age | 03f records source feasibility/missingness from existing reconstruction evidence; 03g selects them only if justified. membership at two events does not prove continuous presence between them |
+| sustained sequences and shift age | 03f records source feasibility/missingness from existing reconstruction evidence; 03h selects them only if justified. membership at two events does not prove continuous presence between them |
 | calendar rest, cumulative game workload, current shift age | distinct concepts; 04 retains deployment/rest ownership unless a revised chance hypothesis needs one earlier. no generic fatigue variable |
-| older seasons or annual spatial/context evolution | 03f measures the bounded history ablation; 03g decides whether additional admission or a different pooling model is warranted. archive bytes remain unadmitted |
+| older seasons or annual spatial/context evolution | 03f measures the bounded history ablation; 03h decides whether additional admission or a different pooling model is warranted. archive bytes remain unadmitted |
 | handedness, rink effects, coaches, setters, tip/block geometry | retain [input-audit](../research/model-input-audit.md) and issue ownership; none is silently added or declared irrelevant |
 | limited experiments | isolates two questions without an exhaustive search; no claim that rejected or omitted alternatives cannot work |
 | screening before joint revision | adds a small research boundary while avoiding another speculative hours-long em campaign; component gains may not transfer to opportunity/player estimates |

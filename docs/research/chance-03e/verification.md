@@ -20,6 +20,8 @@ models/configurations/checkpoints/scored rows remain schema 2. evaluations are s
 | `reviews/pilot-21575ab/comparison.json` | `ed8bd594baeedcfa169f0ca58bfe0f98e0c749406a5a2269680d12d2dd0a1488` | `21575ab` |
 | `fits/development-anchor-e20adb2/model.json` | `fff2c86b743fcbcae3a44848e9ae084341bcec00ecbd77797b0060c276a1549e` | `e20adb2` |
 | `assessments/development-anchor-5bb2897.json` | `6eb1ecb51aaaa55067b8f39acbefeac6c84da0f5eec9c88fa3d095055bbcb9c2` | `5bb2897` |
+| `fits/development-weaker-5bb2897/model.json` | `0422cdd6161bd4435fe6c79f9cebbe1a38522c5f0c3ea00a7955902e483daa42` | `5bb2897` |
+| `assessments/development-weaker-5bb2897.json` | `03d123150fd24a1e341cf49f58a5ea934c178f5d474316762a4406195f4eb24d` | `5bb2897` |
 
 these artifacts identify python `3.14.7`, numpy `2.5.3`, scipy `1.18.1`, matplotlib `3.11.2` where used, and analysis lock digest `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`. `inputs/protocol-pilot.md`, `inputs/pilot-evidence-frozen.json`, command logs and `review-notes/adversarial-verification.md` preserve the pilot's actual protocol, linked inputs, resources and independent review. definitive immutable-protocol reviews are `reviews/pilot/` under `fd3bca6` and `reviews/pilot-21575ab/` under the numerical/layout repair. both link the preserved protocol digest `6c40178b9545b38cf220435dcadce4c46f3e0505d774082a95c845c24a2b3593`; the preceding review remains historical evidence. `reviews/pilot-21575ab-measurements.json` links all latest artifacts, logs and 26 unchanged prior pilot files.
 
@@ -108,7 +110,18 @@ the native anchor fit completed with exit 0 under clean `e20adb20e784e811c703129
 
 the full fit's peak memory footprint is 2,436,172,080 bytes. `fit.json` and `model.json` are byte-identical, each 30,570,973 bytes; the retained checkpoint is 4,416,434 bytes, totaling 65,558,380 bytes. `logs/development-anchor-e20adb2-fit.log` preserves the complete command measurement. evaluation under clean `5bb28976d3b14fe9022fdd65ab019c2cdf377cd6` links the original model digest and covers 712 later games, 68,775 eligible attempts and 49,014 unblocked attempts. its 118,532,819-byte artifact and `logs/development-anchor-5bb2897-evaluate.log` retain native evidence and resources; `review-notes/development-anchor-assessment.json` records independent evaluation reconciliation. this is the first complete development-fit resource measurement; it neither predicts remaining recipes' costs nor establishes scientific eligibility.
 
-weaker fitting has started; stronger remains required afterward. failure of one recipe does not remove the others' execution obligations. no development primary, selected comparator, protocol freeze or admission decision has been made.
+## remaining development recipes
+
+weaker completed native fit artifacts under clean `5bb28976d3b14fe9022fdd65ab019c2cdf377cd6`. both starts converged after 1,431/1,556 accepted updates; strict objective comparison selected `unblocked_multinomial`, with objective advantage `0.00020717422012239695`. conversion and both benchmark fits also converged. the original terminal session was unavailable after the conversation resumed, so direct fit-process exit status is unknown. completed model-last artifacts, candidate-completion log, full resource footer and absent matching process establish native completion. `review-notes/development-weaker-uniform-phase.json` preserves the earlier phase; `review-notes/development-weaker-complete-fit.json` binds the whole-fit artifacts, unchanged recipe and shared audited inputs.
+
+| completed operation | wall seconds | peak rss bytes | executing revision |
+|---|---:|---:|---|
+| development weaker fit | 35,664.86 | 2,494,709,760 | `5bb2897` |
+| held-out weaker evaluation | 50.66 | 1,067,040,768 | `5bb2897` |
+
+the weaker fit's peak memory footprint is 2,687,420,840 bytes. `fit.json` and `model.json` are byte-identical, each 30,242,729 bytes; the checkpoint is 4,067,138 bytes, totaling 64,552,596 bytes. held-out evaluation completed with observed exit 0 under the common clean revision, covering the same 712 games, 68,775 eligible attempts and 49,014 unblocked attempts. its artifact is 118,550,784 bytes. `logs/development-weaker-5bb2897-{fit,evaluate}.log` and `review-notes/development-weaker-assessment.json` retain resources, linked identities and independent arithmetic reconciliation. runtime differences from anchor change recipe and trajectory; they do not isolate the indexing repair's benefit.
+
+stronger's uniform start terminated with `em iteration limit` after 2,000 accepted updates under the same clean revision. its last relative objective change `1.1571035732762514e-13` satisfies `1e-8`, but maximum posterior change `2.075714352105265e-6` exceeds `1e-6`. finite nondecreasing objective history and converged inner `ftol` solves do not waive the missing posterior stop. `review-notes/development-stronger-uniform-phase.json` binds this terminal start, exact doubled penalties and unchanged numerical settings. its second start remains live; no whole-fit resource measurement or candidate is established yet. the inherited native contract retains both start dispositions and selects only a converged start; uniform nonconvergence alone is neither whole-recipe failure nor probability rejection. no development primary, selected comparator, protocol freeze or scientific admission decision has been made.
 
 ## figures and source preservation
 

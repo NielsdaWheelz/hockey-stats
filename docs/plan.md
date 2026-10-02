@@ -6,12 +6,12 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## next slices
 
-03e merged in `a8b1de8`; [software verification](research/chance-03e/verification.md) and the bounded study are complete, with a [withheld decision](research/chance-03e/decision.md) and no handoff. [03f](specs/03f-model-development.md) is the next specification, for saved-evidence diagnosis and bounded component experiments. 03g and 04–07 remain **stubs**; 04 and publication are not authorized. the user controls progression.
+03e merged in `a8b1de8`; [software verification](research/chance-03e/verification.md) and the bounded study are complete, with a [withheld decision](research/chance-03e/decision.md) and no handoff. [03f](specs/03f-model-development.md) implementation and the bounded component study are complete; [its decision](research/chance-03f/decision.md) recommends further context-interaction research without admission. 03g and 04–07 remain **stubs**; 03g, 04 and publication are not authorized. the user controls progression.
 
 | slice | responsibility | dependency / completion boundary |
 |---|---|---|
 | [03e training/assessment](specs/03e-training-assessment.md) | completed bounded development/assessment; `withheld` | all three development recipes failed declared all-attempt calibration; no handoff |
-| [03f model development](specs/03f-model-development.md) | diagnose saved predictions; compare recent-context interactions and history in two observable components | twelve experiment cells, two saved components reused, ten new solves; recommendation without joint fitting or admission |
+| [03f model development](specs/03f-model-development.md) | completed diagnosis and context/history screen in two observable components | twelve completed cells, two exact reused baselines and ten converged solves; context recommended for research, history ablation not recommended; no admission |
 | [03g chance revision/assessment](specs/03g-chance-assessment.md) | implement and assess a selected revision; reuse unchanged expensive components | expand after 03f; supported research handoff or withheld decision |
 | [04 player attribution](specs/04-player-attribution.md) | history-informed 5v5 creation/suppression, spatial effects, uncertainty and observed evidence | supported chance-model research handoff; compatible exposure and player robustness across admitted alternatives before publication |
 | [05 publication](specs/05-publication.md) | python sqlite export, effect read contract, explicit activation and one rollback database | agreed analytical/view contract; labeled fixture outputs can precede scientific acceptance |
@@ -22,7 +22,7 @@ completed and merged: [01 capture](specs/01-capture.md), [02a interpretation](sp
 
 ## current discussion versus implementation
 
-current: the user requested [03f's handoff specification](specs/03f-model-development.md). this documentation phase runs no fits. 03f tests whether recent-context interactions or removing one prior season improves observable probabilities; it neither assumes that more data fixes bias nor requires an early model to be final. [03g](specs/03g-chance-assessment.md) retains the selected revision and prospective assessment boundary. separate component improvements do not validate a combined or joint model. 03e's failed/stopped stages and expensive artifacts remain preserved; 03b's rejection and the product brief remain unchanged.
+current: the user assigned [03f](specs/03f-model-development.md) implementation and all declared scientific work. [verification](research/chance-03f/verification.md) records completed diagnosis, ten sequential new solves, twelve later evaluations and paired comparison. context interactions improve each component in both windows; history ablation worsens both. [03g](specs/03g-chance-assessment.md) retains the separately assigned selected revision and prospective assessment boundary. separate component improvements do not validate a combined or joint model. 03e's failed/stopped stages and expensive artifacts remain preserved; 03b's rejection and the product brief remain unchanged.
 
 additional inputs belong to the first model/component that requires them. coach admission remains with 04; optional tracking and later goalie/penalty/territorial inputs remain with their own components. [source evidence](research/source-audit.md) records candidates and limits.
 

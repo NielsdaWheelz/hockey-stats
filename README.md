@@ -209,6 +209,23 @@ the reviewer resamples pooled sums over counts using 2,000 paired whole-game dra
 
 finite schema-2 `comparison.json` is written last after figures succeed. it binds the protocol, evidence and linked artifacts and records executing and fitted-model implementation identities separately. malformed, old, nonfinite or incompatible inputs fail visibly. native artifacts retain `scientific_assessment: not_performed`; [the written decision](docs/research/chance-03e/decision.md) owns the scientific verdict and any conditional 04 obligations. scoring final training games adds no held-out probability evidence.
 
+## chance-component development
+
+03f uses a distinct research artifact and four manual commands from `analysis/`:
+
+```sh
+.venv/bin/python research/chance_development.py diagnose --evidence /absolute/03e-evidence.json --protocol /absolute/protocol.md --out /absolute/new-diagnosis
+.venv/bin/python research/chance_development.py fit-component --selection /absolute/training.json --config /absolute/anchor.json --quantity unblocked_conversion --features recent_interactions --protocol /absolute/protocol.md --out /absolute/new-fit
+.venv/bin/python research/chance_development.py evaluate-component --selection /absolute/later-games.json --component /absolute/new-fit/component.json --out /absolute/new-evaluation
+.venv/bin/python research/chance_development.py compare --evidence /absolute/screen-evidence.json --out /absolute/new-comparison
+```
+
+the other quantity is `all_attempt_recorded_context`; additive features use `--features additive`. conversion conditions on an unblocked attempt's recorded-proxy location. the direct all-attempt component omits focal geometry and observed block status as predictors. standalone fits share native numerical primitives and perform no em or opportunity scoring. native chance readers reject component artifacts.
+
+outputs are exclusive directories outside inputs, with existing parents. numerical failure returns nonzero and retains solve diagnostics without a component; no substitute model is evaluated. keyed streams include exclusions and non-applicable blocked conversion rows. assessment must be strictly later than training with disjoint game ids. comparison requires the exact twelve-cell matrix and pairs full streams without intersecting mismatched cohorts. completion records are written last; exit zero means artifact completion, never scientific approval.
+
+[the protocol](docs/research/chance-03f/protocol.md) fixes inputs, matrix, feature order and comparisons. [verification](docs/research/chance-03f/verification.md) records software and execution evidence; [the decision](docs/research/chance-03f/decision.md) owns the development recommendation. component gains do not establish physical origins, standardized opportunity stability or player attribution.
+
 ## source review
 
 after regenerating a corpus, run the retained source operator from `analysis/`:

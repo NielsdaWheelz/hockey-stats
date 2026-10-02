@@ -1,0 +1,11 @@
+# observable spatial calibration
+
+status: open. owner: chance-model science; any 03h assessment must declare the supported spatial/probability claim and its checks before judgment. [03g's completed diagnosis](../research/chance-03g/decision.md) recommends `assess_integrated`, without admission or further implementation authorization.
+
+problem: the retained origin/avoidance law misallocates observable compound unblocked mass across native regions and preceding-action contexts. conversion replacement cannot repair unchanged `A_R`. revised goal mass also retains opposing context errors that pooled totals conceal.
+
+evidence: the original 712-game assessment has 68,775 eligible attempts, with no-recent/recent denominators 47,638/21,137, each supported by 712 games. recent unblocked 10–20 ft residual is +0.924972 per 100 eligible attempts, whole-game 95% interval [+0.496610,+1.368014]; no-recent 20–40 ft is −0.981744 [−1.387244,−0.574153]. revised recent goal residuals are +0.345267/+0.400877 in 10–20/20–40 ft, with intervals above zero; no-recent 20–40 ft is −0.171810. exact fixed-region counts, sums and conditional intervals are in [the frozen comparison](/Users/nnandal/Documents/code/hockey-stats-03g-runs/diagnosis/comparison.json), sha256 `e2d825297f5dd5a02871595a101d4a458a1c0546742f1acb9c8068a9f51e5e3c`.
+
+impact: lower goal loss and small total opportunity changes do not establish adequate spatial predictions. regions use quantized unblocked proxies and every eligible denominator; blocked labels are zero without assigned origins. discrepancies cannot uniquely blame origin, avoidance or kernel, or prove physical shooting-origin error. pointwise game intervals omit fitting, selection and origin-law uncertainty; recent outside-zone goals have constant zero labels and cannot establish calibration support.
+
+resolution: resolve or justify restrictions on affected spatial/probability claims under a prospectively specified, coherent assessment. retain adverse contexts and correct compound populations; do not repair evidence by recoding coordinates, unavailable context or denominators. [physical kernel geometry](block-kernel-goal-geometry.md) and [origin/player sensitivity](origin-value-sensitivity.md) remain separate obligations even if observable checks improve.

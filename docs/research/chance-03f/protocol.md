@@ -1,6 +1,6 @@
 # chance-component development protocol
 
-status: prospective study choices, written on 2026-10-02 before new scientific fitting or factual prediction inspection. implementation revision and the final immutable protocol copy will be frozen after software verification and independent review, before either operation. [specification](../../specs/03f-model-development.md) · [03e decision](../chance-03e/decision.md)
+status: frozen on 2026-10-02 before new scientific fitting or factual prediction inspection, following temporary red/green/refactor/green checks and independent review. [specification](../../specs/03f-model-development.md) · [03e decision](../chance-03e/decision.md)
 
 the question is whether differentiated recent context or removing the oldest training season improves either observable component across both declared windows. this is a retrospective development screen on research-exposed seasons. it does not admit a chance model, establish physical shooting origins, authorize player attribution or publication, or revise 03b/03e's decisions.
 
@@ -50,6 +50,10 @@ reuse native whole-game and 7/14-calendar-day paired bootstrap arithmetic: 2,000
 the written decision labels each changed-recipe/quantity pair: either window unavailable/nonconverged → `incomplete`; both point deltas negative → `consistent_direction`; neither negative → `no_improvement`; exactly one negative → `mixed_direction`. zero is not improvement. these labels describe point estimates, not demonstrated superiority. interval overlap with zero does not prove equivalence or prohibit a bounded follow-up. if both recipes improve, report them separately; their combination is untested. report adverse brier/calibration tradeoffs. no negative direction means `no_revision_identified`, a complete screen outcome.
 
 ## execution, verification and retained questions
+
+implementation source is frozen at clean `8afc8f9`, following numerical implementation `fa8bbe2`. the subsequent documentation-only freeze commit is the executing revision; `inputs/execution-freeze.json` records that full revision, dependency lock and exact code/protocol digests before the first scientific operation. an immutable copy of this document is `inputs/protocol.md` under the external run root. no scientific recipe, cutoff or criterion changed during software verification.
+
+independent review is `review-notes/prefit-adversarial-review.json`, sha256 `68577b04f74c17292cedc5606e913347795946d18c028ab1cd9ed8f33637ee77`, binding reviewed source bytes and green evidence. it found no remaining implementation/matrix blocker. temporary tests and caches are deleted; their factual logs/digests remain in `software/`. fixture capacity results are bound in `verification/capacity.json`; both quantities with interactions completed under the exact fixture configuration, with wall time, memory and artifact size measured before full solves. these measurements do not forecast full-corpus costs.
 
 freeze clean code revision and immutable protocol copy after fixture red/green/refactor/green and independent prefit challenge. run the fixture capacity check before full solves and record wall time, peak memory and artifact size. full solves run sequentially; unexpectedly expensive work is reported, never met by quietly increasing limits or parallel fitting. ordinary exclusive outputs and completion records written last suffice; interrupted cheap solves need explicit reruns, not a recovery engine. preserve expensive 03e artifacts.
 

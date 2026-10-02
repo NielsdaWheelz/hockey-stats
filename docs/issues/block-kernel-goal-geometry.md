@@ -1,6 +1,6 @@
 # block-contact law shares unbracketed goal geometry
 
-status: open; conditional research may proceed under 03e, physical/spatial publication support remains unresolved. owner: chance-model science; 04 must enforce the resulting player-conclusion constraint.
+status: open; [03e is withheld](../research/chance-03e/decision.md) on declared all-attempt calibration, with no primary or 04 handoff. this shared physical/spatial limitation persists for any separately authorized future round; it did not cause 03e withholding. owner: chance-model science; any later 04 must enforce the resulting player-conclusion constraint before publication.
 
 problem: every declared kernel member permits substantial contact mass after a goalward ray crosses the goal plane. changing distance/direction does not bracket the missing goal-aware stopping geometry. this concerns both blocked origins and unblocked opportunity through cell-specific block avoidance.
 

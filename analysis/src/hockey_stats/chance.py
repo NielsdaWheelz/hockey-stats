@@ -229,7 +229,6 @@ def _offsets(layout):
     shooter = scalar + len(SCALAR_FEATURES)
     goalie = shooter + len(layout["shooters"]) * y
     return dict(
-        season=1,
         cell=cell,
         type=type_start,
         extra=extra,
@@ -351,21 +350,21 @@ def _scalar_logits(beta, layout, data):
     return value
 
 
-def _stage_logits(beta, layout, data, cells):
-    """bounded group by cell logits; cells may instead be paired event cells."""
+def _stage_logits(beta, layout, data, cells, *, scalar_logits=None):
+    """cell logits, with optional exact precomputed reference scalar terms."""
     offsets = _offsets(layout)
     h = layout["cells"]
     shared = beta[offsets["cell"] : offsets["type"]]
     types = np.vstack(
         (np.zeros(h), beta[offsets["type"] : offsets["scalar"]].reshape(5, h))
     )
-    scalar = _scalar_logits(beta, layout, data)
+    scalar = _scalar_logits(beta, layout, data) if scalar_logits is None else scalar_logits
     if np.ndim(cells) == 2:
         ids = cells[0]
         return (
             scalar[:, None]
             + shared[ids][None, :]
-            + types[data["type"][:, None], ids[None, :]]
+            + types[:, ids][data["type"]]
         )
     return scalar + shared[cells] + types[data["type"], cells]
 
@@ -391,11 +390,8 @@ def _slice_data(data, indices):
     return {key: value[indices] for key, value in data.items()}
 
 
-def _conversion_objective(beta, data, layout, config, edges):
-    value, gradient = _penalty(beta, layout, config, edges)
-    logits = _stage_logits(beta, layout, data, data["cell"])
-    value -= log_expit(np.where(data["goal"], logits, -logits)).sum()
-    residual = expit(logits) - data["goal"]
+def _paired_stage_gradient(gradient, layout, data, residual):
+    """accumulate scalar and spatial derivatives at known recorded cells."""
     _scalar_gradient(gradient, layout, data, residual)
     offsets = _offsets(layout)
     np.add.at(gradient, offsets["cell"] + data["cell"], residual)
@@ -407,23 +403,39 @@ def _conversion_objective(beta, data, layout, config, edges):
         + data["cell"][valid],
         residual[valid],
     )
+
+
+def _conversion_objective(beta, data, layout, config, edges):
+    value, gradient = _penalty(beta, layout, config, edges)
+    logits = _stage_logits(beta, layout, data, data["cell"])
+    value -= log_expit(np.where(data["goal"], logits, -logits)).sum()
+    residual = expit(logits) - data["goal"]
+    _paired_stage_gradient(gradient, layout, data, residual)
     return float(value), gradient
 
 
-def _avoidance_objective(beta, data, successes, failures, layout, config, edges):
+def _avoidance_objective(
+    beta, successes, failure_data, failures, layout, config, edges
+):
+    """known-cell successes and posterior-weighted failures, with one penalty."""
     value, gradient = _penalty(beta, layout, config, edges)
+    logits = _stage_logits(beta, layout, successes, successes["cell"])
+    value -= np.dot(successes["count"], log_expit(logits))
+    residual = successes["count"] * (expit(logits) - 1)
+    _paired_stage_gradient(gradient, layout, successes, residual)
     offsets = _offsets(layout)
     h = layout["cells"]
-    for start in range(0, len(successes), BATCH_SIZE):
+    cells = np.arange(h)[None, :]
+    maps = gradient[offsets["type"] : offsets["scalar"]].reshape(5, h)
+    for start in range(0, len(failures), BATCH_SIZE):
         end = start + BATCH_SIZE
-        batch = _slice_data(data, slice(start, end))
-        logits = _stage_logits(beta, layout, batch, np.arange(h)[None, :])
-        a, b = successes[start:end], failures[start:end]
-        value -= (a * log_expit(logits) + b * log_expit(-logits)).sum()
-        residual = (a + b) * expit(logits) - a
+        batch = _slice_data(failure_data, slice(start, end))
+        logits = _stage_logits(beta, layout, batch, cells)
+        weights = failures[start:end]
+        value -= (weights * log_expit(-logits)).sum()
+        residual = weights * expit(logits)
         _scalar_gradient(gradient, layout, batch, residual.sum(axis=1))
         gradient[offsets["cell"] : offsets["type"]] += residual.sum(axis=0)
-        maps = gradient[offsets["type"] : offsets["scalar"]].reshape(5, h)
         for t in range(1, 6):
             maps[t - 1] += residual[batch["type"] == t].sum(axis=0)
     return float(value), gradient
@@ -523,7 +535,7 @@ def _expectation(
     origin_group,
     avoidance_group,
     unblocked_counts,
-    successes,
+    failure_group_count,
     origin_layout,
     layout,
     config,
@@ -531,7 +543,8 @@ def _expectation(
     kernel,
     conversion_objective,
 ):
-    counts, failures = unblocked_counts.copy(), np.zeros_like(successes)
+    counts = unblocked_counts.copy()
+    failures = np.zeros((failure_group_count, layout["cells"]))
     maps = origin_beta.reshape(-1, layout["cells"])
     value = (
         -_origin_penalty(origin_beta, origin_layout, config, edges)[0]
@@ -784,7 +797,7 @@ def _em(
     data,
     design,
     origin_group,
-    group_data,
+    failure_data,
     avoidance_group,
     counts0,
     successes,
@@ -819,7 +832,7 @@ def _em(
         origin_group,
         avoidance_group,
         counts0,
-        successes,
+        len(failure_data["type"]),
         origin_layout,
         layout,
         config,
@@ -841,7 +854,7 @@ def _em(
     for _ in range(diag["iterations"], config["em_max_iterations"]):
         next_beta, u_diag = fit_logistic(
             lambda b: _avoidance_objective(
-                b, group_data, successes, failures, layout, config, edges
+                b, successes, failure_data, failures, layout, config, edges
             ),
             beta,
             config,
@@ -952,7 +965,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
     design, origin_group = np.unique(
         _origin_design(u_data, seasons), axis=0, return_inverse=True
     )
-    group_keys, avoidance_group = np.unique(
+    group_keys, groups = np.unique(
         np.column_stack(
             (u_data["type"], u_data["season"], u_data["shooter"], u_data["scalar"])
         ),
@@ -967,9 +980,20 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
         goalie=np.full(len(group_keys), -1),
     )
     counts0 = np.zeros((len(design), len(centers)))
-    successes = np.zeros((len(group_keys), len(centers)))
     np.add.at(counts0, (origin_group[~blocked], ids[~blocked]), 1)
-    np.add.at(successes, (avoidance_group[~blocked], ids[~blocked]), 1)
+    # successes have known cells; blocked failure groups retain every grid cell.
+    positive_keys, positive_counts = np.unique(
+        np.column_stack((groups[~blocked], ids[~blocked])),
+        axis=0,
+        return_counts=True,
+    )
+    successes = _slice_data(group_data, positive_keys[:, 0])
+    successes["cell"] = positive_keys[:, 1]
+    successes["count"] = positive_counts
+    failure_groups, failure_indices = np.unique(groups[blocked], return_inverse=True)
+    failure_data = _slice_data(group_data, failure_groups)
+    avoidance_group = np.full(len(rows), -1, dtype=np.int64)
+    avoidance_group[blocked] = failure_indices
     r_initial = np.zeros(r_layout["size"])
     r_initial[0] = math.log(goals / (len(unblocked) - goals))
     r_beta, r_diag = fit_logistic(
@@ -1003,7 +1027,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
                 origin_group,
                 avoidance_group,
                 counts0,
-                successes,
+                len(failure_groups),
                 origin_layout,
                 u_layout,
                 config,
@@ -1061,7 +1085,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
                     origin_group,
                     avoidance_group,
                     counts0,
-                    successes,
+                    len(failure_groups),
                     origin_layout,
                     u_layout,
                     config,
@@ -1084,7 +1108,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
                     u_data,
                     design,
                     origin_group,
-                    group_data,
+                    failure_data,
                     avoidance_group,
                     counts0,
                     successes,
@@ -1654,20 +1678,42 @@ def prediction_context(model):
     """opaque reusable numerical state and bounded exact reference cache."""
     validate_model(model)
     centers, _ = grid()
-    return dict(
-        centers=centers,
-        kernel=forward_kernel(
+    context = {
+        "centers": centers,
+        "kernel": forward_kernel(
             centers,
             model["kernel"]["distance_ft"],
             model["kernel"]["direction_strength"],
         ),
-        origin=np.asarray(model["origin"]["coefficients"]),
-        stages={k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()},
-        benchmarks={
+        "origin": np.asarray(model["origin"]["coefficients"]),
+        "stages": {k: np.asarray(v["coefficients"]) for k, v in model["stages"].items()},
+        "benchmarks": {
             k: np.asarray(v["coefficients"]) for k, v in model["benchmarks"].items()
         },
-        reference_cache=OrderedDict(),
-    )
+        "reference_cache": OrderedDict(),
+        "reference_weights": np.array([pair["weight"] for pair in model["reference"]]),
+        "reference_scalar_logits": {},
+    }
+    # the zero contrast leaves intercept, target season and joint actor terms.
+    neutral_context = {key: CONTEXT_REFERENCES.get(key) for key in CONTEXT_FIELDS}
+    reference_rows = [
+        {
+            "season": model["reference_season"],
+            "model_shot_type": TYPES[0],
+            "role": ROLES[0],
+            "context": neutral_context,
+            "goal": False,
+            "shooter_id": pair["shooter_id"],
+            "goalie_id": pair["goalie_id"],
+        }
+        for pair in model["reference"]
+    ]
+    for name, stage in model["stages"].items():
+        data = _encode(reference_rows, stage, [0] * len(reference_rows))
+        context["reference_scalar_logits"][name] = _scalar_logits(
+            context["stages"][name], stage, data
+        )
+    return context
 
 
 def _prediction_data(attempt, layout, h, state):
@@ -1689,30 +1735,31 @@ def reference_probabilities(model, attempt, cell_ids, context):
     prefix = (attempt["model_shot_type"], tuple(scalar))
     cache = context["reference_cache"]
     missing = sorted({int(h) for h in cells if (prefix, int(h)) not in cache})
+    if missing:
+        data = {
+            "type": np.full(len(model["reference"]), TYPES.index(attempt["model_shot_type"]))
+        }
+        scalar_logits = {}
+        for name, stage in model["stages"].items():
+            offsets = _offsets(stage)
+            scalar_logits[name] = context["reference_scalar_logits"][name] + (
+                scalar @ context["stages"][name][offsets["scalar"] : offsets["shooter"]]
+            )
     for start in range(0, len(missing), BATCH_SIZE):
         hs = np.array(missing[start : start + BATCH_SIZE])
-        values = np.zeros(len(hs))
-        for pair_start in range(0, len(model["reference"]), BATCH_SIZE):
-            pairs = model["reference"][pair_start : pair_start + BATCH_SIZE]
-            rows = [
-                dict(
-                    attempt,
-                    season=model["reference_season"],
-                    shooter_id=p["shooter_id"],
-                    goalie_id=p["goalie_id"],
-                )
-                for p in pairs
-            ]
-            logits = {}
-            for name in ("u", "r"):
-                stage = model["stages"][name]
-                data = _encode(rows, stage, [0] * len(rows))
-                logits[name] = _stage_logits(
-                    context["stages"][name], stage, data, hs[None, :]
-                )
-            values += np.array([p["weight"] for p in pairs]) @ np.exp(
-                log_expit(logits["u"]) + log_expit(logits["r"])
+        logits = {
+            name: _stage_logits(
+                context["stages"][name],
+                stage,
+                data,
+                hs[None, :],
+                scalar_logits=scalar_logits[name],
             )
+            for name, stage in model["stages"].items()
+        }
+        values = context["reference_weights"] @ np.exp(
+            log_expit(logits["u"]) + log_expit(logits["r"])
+        )
         for h, v in zip(hs, values):
             cache[prefix, int(h)] = float(v)
     result = np.array([cache[prefix, int(h)] for h in cells])

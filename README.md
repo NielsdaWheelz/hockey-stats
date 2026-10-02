@@ -2,7 +2,7 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, audit a season inventory against explicit local captures, and exercise the specified chance-model workflow. 03b has completed fresh three-season acquisition, real chronological development/confirmation and scientific comparison/recovery. [the scientific decision](docs/research/chance-03b/decision.md) rejects the declared all-attempt use; 04 is withheld. publication and the website follow separately.
+the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, audit a season inventory against explicit local captures, and fit, assess and score chance-2 models. 03b completed fresh three-season acquisition, real chronological development/confirmation and scientific comparison/recovery; [its scientific decision](docs/research/chance-03b/decision.md) rejects the declared all-attempt use. 03e completed all three development recipes and their common-cohort evaluation, scoring and comparison under its unchanged [protocol](docs/research/chance-03e/protocol.md); [its decision](docs/research/chance-03e/decision.md) is `withheld` because all three fail declared all-attempt calibration. no primary survived, so dependent transfer, kernel variants and final fits were not run. no handoff is issued; 04 and publication remain unauthorized, and the website is unstarted.
 
 - [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
 - [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
@@ -17,7 +17,8 @@ the implemented slices preserve source responses, interpret one explicitly selec
 - [pr03b specification](docs/specs/03b-training-acceptance.md): fresh three-season corpus, chronological development/confirmation and scientific judgment.
 - [pr03c specification](docs/specs/03c-source-revision.md): reviewed and merged; source contracts, expanded fixtures and [full three-season audit](docs/research/chance-03c/decision.md) verified.
 - [pr03d specification](docs/specs/03d-chance-revision.md): implemented chance-2 contract; [fixture verification](docs/research/chance-03d/verification.md) establishes software behavior.
-- [later pr stubs](docs/plan.md#next-slices): 03e–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
+- [pr03e specification](docs/specs/03e-training-assessment.md): completed bounded retrospective assessment, `withheld`; [protocol](docs/research/chance-03e/protocol.md), [verification](docs/research/chance-03e/verification.md) and [decision](docs/research/chance-03e/decision.md).
+- [later pr stubs](docs/plan.md#next-slices): 04–07 retain ownership, dependencies and unresolved decisions; expand each before implementation.
 - [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
 - [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
 - [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
@@ -58,7 +59,7 @@ npm run capture -- --game 2025020001 --source landing --out /absolute/existing/g
 
 the parent must contain a readable version-1 `play-by-play/capture.json` naming this game and source. `--source` accepts only `landing`, once. an existing landing leaf fails before network access. for replacement, explicitly prepare a new game-directory copy without its landing leaf, preserving the original directory and any existing landing evidence. the command neither overwrites nor resumes. new retrieval dates remain distinct from the five earlier responses.
 
-downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains three fresh, inspected example games with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
+downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains twenty complete game bundles and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
 
 ## interpretation
 
@@ -111,7 +112,7 @@ npm run capture-season -- --season 20252026 --out ../var/references/20252026
 
 `--season` and `--out` occur once. season years must be consecutive. `--help` alone exits `0`; invalid invocation exits `1`. the command preserves the season summary, regular-season game inventory, skater bios and goalie bios using the same response-capture implementation as game acquisition. exit `0` requires four complete 2xx responses; content admission happens offline. each source's receipt names its season, exact filtered request, retrieval time, headers, length and digest. failures retain their http/body/transport distinctions; later requests continue after upstream failures, while filesystem errors stop. no retries, alternate sources or automatic downloading are added.
 
-audit the admitted fixture references against the three local game captures:
+audit the admitted fixture references against the local game captures:
 
 ```sh
 mkdir -p var
@@ -147,23 +148,65 @@ the loop stops on the first failed capture so its receipt can be inspected. reru
 
 ## chance workflow
 
-`hockey-stats-chance` provides separate offline `fit`, `evaluate` and `score` commands for `chance-2`. [fixture instructions](fixtures/chance/README.md) supply the three-season selections, exact numerical exercise configuration and commands. all eighteen compact games rebuild from their three committed season references without network or external drive.
+`hockey-stats-chance` provides separate offline `fit`, `evaluate` and `score` commands for `chance-2`. [fixture instructions](fixtures/chance/README.md) supply the three-season selections, exact numerical exercise configuration and commands. the eighteen-game chance exercise rebuilds from its three committed season references without network or external drive; the [source case index](fixtures/README.md#compact-case-index) retains two additional boundary examples.
 
 fitting jointly estimates type/context-dependent origin maps and unblocked probabilities, then conversion given unblocked, with actor-season shrinkage and two factual benchmarks. scoring values recorded opportunity under one target-season joint shooter–goalie reference, holding type and recorded preceding-play/scalar context fixed. unblocked coordinates remain contact/origin proxies; blocks retain observed contact evidence and receive conditional origin distributions. tips are retained without relocation.
 
 evaluation separately reports unblocked conversion, recorded-context all-attempt goal probability, marginal unblocked probability and the joint observed-record likelihood. the latter marginal predictions omit focal location, outcome and posterior; retrospective type and eligibility measurements still prevent a demonstrated pre-release forecast claim. calibration summaries explicitly name the outcome and observed positive count. positive standardized block opportunity is not calibrated against observed blocked zeros.
 
-schema-2 `model.json` is written last after numerical success and alone suffices to score. `fit.json` records numerical completion or failure. schema-2 `score.json` is written last with the matching `attempts.jsonl` digest. assessment requires disjoint games dated strictly after training and never changes the fit or reference. output paths must be new, outside inputs, with existing parents; remove cheap interrupted outputs manually and rerun into new paths. syntax/help exits `2`/`0`; input, numerical and filesystem failures exit `1`; completed artifacts with ordinary evidence gaps exit `0`.
+schema-3 evaluations retain twenty fixed probability bins globally and per game. global subgroup summaries and additive `per_game[].groups` share category/value descriptors, including stage-specific actor support; every selected game retains every subgroup, including zero-count groups. per-game subgroup metrics contain only `outcome`, `count`, `observed_positive_count`, `predicted_probability_sum`, `log_loss_sum` and `brier_score_sum`, with no subgroup bins. period and minute-band residuals are omission diagnostics. `tip_distance` and `tip_below_goal_line` assess only eligible unblocked original `tip-in`/`deflected` conversion, using recorded coordinates before quantization. they partition that subset, not all attempts; their predictions still use native quantization.
 
-fixture artifacts retain `purpose: fixture_exercise` and `scientific_assessment: not_performed`. complete numerical fits do not establish calibration, physical-origin accuracy, player skill or scientific support. [03d software verification](docs/research/chance-03d/verification.md) records the checks and costs; [03e](docs/specs/03e-training-assessment.md) owns any separately authorized real fitting and assessment. 03b's scientific rejection remains intact. player attribution belongs to 04.
+configurations, `fit.json`, `model.json`, checkpoints, score rows and `score.json` remain schema 2; only evaluation becomes schema 3. `model.json` is written last after numerical success and alone suffices to score. `fit.json` records numerical completion or failure. `score.json` is written last with the matching `attempts.jsonl` digest. assessment requires disjoint games dated strictly after training and never changes the fit or reference. output paths must be new, outside input directories, with existing parents; evaluation writes a json file, while fit and score create directories. remove cheap interrupted outputs manually and rerun into new paths. syntax/help exits `2`/`0`; input, numerical and filesystem failures exit `1`; completed artifacts with ordinary evidence gaps exit `0`.
+
+fixture artifacts retain `purpose: fixture_exercise` and `scientific_assessment: not_performed`. complete numerical fits do not establish calibration, physical-origin accuracy, player skill or scientific support. [03d software verification](docs/research/chance-03d/verification.md) records the historical checks and costs. [03e's completed assessment](docs/research/chance-03e/decision.md) withholds the revised chance family; all three seasons were previously examined, so its chronological assessment is retrospective evidence, not untouched confirmation. 03b's scientific rejection remains intact. player attribution belongs to 04, which remains unauthorized.
 
 ## numerical recovery and historical research
 
 fitting writes schema-2 `checkpoint.json` atomically after completed starts and accepted em updates. optional `--resume /abs/old-fit/checkpoint.json` continues accepted state into a **new** `--out` directory. use identical input bytes, selection, configuration, clean git revision and pinned numerical environment. dirty exploratory fits can complete but cannot resume. preparation, conversion and benchmarks recompute; interrupted inner solves repeat from the preceding accepted state. preserve expensive fits and failed diagnostics; there is no automatic retry or acceptance of unconverged state.
 
-chance-1 envelopes, configs, models and checkpoints are rejected by the active workflow. regenerate cheap reconstruction envelopes from unchanged captures. preserved 03b research artifacts and comparisons require their historical git revision; [the 03b decision](docs/research/chance-03b/decision.md) remains scientific evidence, not an active chance-2 run recipe. the retained `analysis/research/chance_review.py` comparison belongs to a separately specified 03e adaptation before reuse. no historical comparison is silently rerun with changed populations or observation laws.
+chance-1 envelopes, configs, models, checkpoints and old evaluation/review schemas are rejected by the active workflow. regenerate cheap reconstruction envelopes and evaluations from unchanged source evidence. preserved 03b research artifacts and comparisons require their historical git revision; [the 03b decision](docs/research/chance-03b/decision.md) remains scientific evidence, not an active chance-2 run recipe. the retained reviewer now consumes chance-2 evidence directly, with no compatibility path or duplicate predictor.
 
 scoring applies saved contiguous actor-season states. intermediate unobserved seasons retain their fitted penalized states; later seasons carry the latest state forward and label that choice. records before the earliest state remain unavailable with `season_unsupported`. stage-specific actor evidence distinguishes observations in the applied state, observations only in other seasons, and unseen zero prior modes. none implies rookie status. historical scoring is retrospective analysis, not a forecast available at the game's date.
+
+## chance research review
+
+compose research manually in an external run directory with sibling `inputs/`, `corpora/`, `fits/`, `assessments/`, `scores/` and `reviews/`. put selections, configurations, protocol copies and evidence manifests in `inputs/`; using the common parent for selections would make every sibling an input-directory output. run expensive fits sequentially, preserve their checkpoints and completed models, and regenerate cheap derivatives under one identified clean implementation.
+
+`evidence.json` schema 2 names absolute paths. this pilot example uses one assessment and one score; the frozen development protocol supplies the actual benchmark labels for later cohorts:
+
+```json
+{
+  "schema_version": 2,
+  "purpose": "research",
+  "protocol": "/absolute/run/inputs/protocol.md",
+  "assessments": [
+    {"label": "anchor", "path": "/absolute/run/assessments/anchor.json"}
+  ],
+  "benchmarks": {
+    "unblocked_conversion": "anchor",
+    "all_attempt_recorded_context": "anchor"
+  },
+  "scores": [
+    {"label": "anchor", "path": "/absolute/run/scores/anchor/score.json"}
+  ],
+  "reference_score": "anchor",
+  "resampling": {"draws": 2000, "seed": 3032026}
+}
+```
+
+from `analysis/`, run:
+
+```sh
+uv run python research/chance_review.py --evidence /absolute/run/inputs/evidence.json --out /absolute/run/reviews/pilot
+```
+
+the output must be new, outside all input directories, with an existing parent. assessments require schema-3 research evaluations and linked schema-2 research models; fixture artifacts fail. `benchmarks` is required exactly when assessments are nonempty, and each label must identify a supplied assessment. candidate log loss and brier compare with that selected model's saved benchmark sums for every member. marginal unblocked has no benchmark. omit `scores` and `reference_score` together for an assessment-only pilot; score-only evidence uses an empty assessment list and omits `benchmarks`.
+
+one score references itself and supplies coverage, tip-ledger and absolute spatial-mass summaries. pairwise sensitivity is empty with reason `no compatible alternative supplied`; comparison-only figures are omitted with the same reason. additional score members require identical sources, selected event order/statuses, grid, training population, reference season and joint reference counts/weights. mismatches fail rather than become paired evidence.
+
+the reviewer resamples pooled sums over counts using 2,000 paired whole-game draws, plus seven- and fourteen-calendar-day dependence blocks, with `PCG64` seed `3032026`. selected zero-contribution games remain present. any zero-denominator draw makes its interval null with the undefined count and reason; there is no redraw. captions state the quantity, selected population, reference and conditioning; pointwise intervals exclude fitting, selection and origin-law uncertainty. tip distance measures proxy dependence, not validated physical origin. opportunity sensitivity compares model-implied surfaces and cannot establish player robustness.
+
+finite schema-2 `comparison.json` is written last after figures succeed. it binds the protocol, evidence and linked artifacts and records executing and fitted-model implementation identities separately. malformed, old, nonfinite or incompatible inputs fail visibly. native artifacts retain `scientific_assessment: not_performed`; [the written decision](docs/research/chance-03e/decision.md) owns the scientific verdict and any conditional 04 obligations. scoring final training games adds no held-out probability evidence.
 
 ## source review
 

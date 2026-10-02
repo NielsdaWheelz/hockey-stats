@@ -2706,5 +2706,258 @@
       "historical_body_sha256": null,
       "historical_line": null
     }
+  ],
+  "additional_admissions": [
+    {
+      "admitted_at": "2026-10-01T01:08:01.271592+00:00",
+      "purpose": "03e distinct source boundaries: between-legs same-clock identity recovery and a finite predecessor coordinate outside the rounded rink",
+      "source_root": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930",
+      "game_ids": [
+        "2024020022",
+        "2024020404"
+      ],
+      "required_reference_seasons": [
+        "20242025"
+      ],
+      "copied_files": [
+        {
+          "path": "captures/2024020022/boxscore/body.bin",
+          "bytes": 13413,
+          "sha256": "1a6b39d6d6d15bd72ca26beefdcc4ec16ff535bc0e0edcbbb03b535bd749dc34"
+        },
+        {
+          "path": "captures/2024020022/boxscore/capture.json",
+          "bytes": 662,
+          "sha256": "50378bab0d60dd3de35cb0f38b3424c1e4fa8480adb4578b1955f9d71688706a"
+        },
+        {
+          "path": "captures/2024020022/game-summary/body.bin",
+          "bytes": 34631,
+          "sha256": "0ad3d265607ce2fb25f314886ef3df08f203956c2759e2452291948892abbe03"
+        },
+        {
+          "path": "captures/2024020022/game-summary/capture.json",
+          "bytes": 694,
+          "sha256": "568d3c243c80f6f370533d435eab2c02e6e35e6e4923165bd225f16d8b4913ca"
+        },
+        {
+          "path": "captures/2024020022/landing/body.bin",
+          "bytes": 13508,
+          "sha256": "3415a56069ba105f9d900c70d6aa24f6c1d21d2158aa0c1f20b993f84f9357c9"
+        },
+        {
+          "path": "captures/2024020022/landing/capture.json",
+          "bytes": 660,
+          "sha256": "925c1c0cd83ec09d4d4f39a55a25c0ba467f7b7d93e18e71ee3141dea921d85d"
+        },
+        {
+          "path": "captures/2024020022/play-by-play/body.bin",
+          "bytes": 145126,
+          "sha256": "1de0659952b3c8036ac8aee8b36756ede20e1e5d0751521f5d090fa7135204c3"
+        },
+        {
+          "path": "captures/2024020022/play-by-play/capture.json",
+          "bytes": 671,
+          "sha256": "c846d14b6f7e2d9e721717b4ba714b1406d912575ba3354e22da1487f633fe84"
+        },
+        {
+          "path": "captures/2024020022/play-report/body.bin",
+          "bytes": 1345455,
+          "sha256": "2c4bb1a6d02d2b59611199b9cfe5179fdc20cacb45316811cd14323fa0386ae5"
+        },
+        {
+          "path": "captures/2024020022/play-report/capture.json",
+          "bytes": 695,
+          "sha256": "69d18dd353e72f58daa04545d64c2348aea4d75020673e2fa61e2bb2e84648d0"
+        },
+        {
+          "path": "captures/2024020022/shifts/body.bin",
+          "bytes": 300579,
+          "sha256": "48734692839664cc645ad9b83476cd38dd5c1f195b7449a486e6751aba28cfbf"
+        },
+        {
+          "path": "captures/2024020022/shifts/capture.json",
+          "bytes": 653,
+          "sha256": "f4cb078483cfc9b8db2b624d275c89e121417398962c926835514e83f4e33660"
+        },
+        {
+          "path": "captures/2024020404/boxscore/body.bin",
+          "bytes": 13310,
+          "sha256": "d63f50fcaeafdf98f67a4a905bf3f1754991bc577edff964f351ae4f79f1c2a5"
+        },
+        {
+          "path": "captures/2024020404/boxscore/capture.json",
+          "bytes": 662,
+          "sha256": "52e7e70f7205bc4668cca54f3fee75034cc3a6369afe1cbff56fd2b048722067"
+        },
+        {
+          "path": "captures/2024020404/game-summary/body.bin",
+          "bytes": 31180,
+          "sha256": "a64e7099a68bd32addec25c5b58d3f95a9966e542bc122343c79bce58f2769fd"
+        },
+        {
+          "path": "captures/2024020404/game-summary/capture.json",
+          "bytes": 694,
+          "sha256": "6c2373a12b9ef3f25d1451fcedeb3588ba8688a786ed41dc300aa1302496fa6e"
+        },
+        {
+          "path": "captures/2024020404/landing/body.bin",
+          "bytes": 7875,
+          "sha256": "61dd41dabad3bf30470962898a0f8227fc290f1081ee319bfb3fb1e3e485c5bd"
+        },
+        {
+          "path": "captures/2024020404/landing/capture.json",
+          "bytes": 659,
+          "sha256": "ebee43a986c9d82572f1fb63ece4382a5e81a7e2a6822b880adc6769a05853f6"
+        },
+        {
+          "path": "captures/2024020404/play-by-play/body.bin",
+          "bytes": 121008,
+          "sha256": "87198b52430289c1e6dac8394e3678c125caa69940fb3e9eacf4ac25719f2b77"
+        },
+        {
+          "path": "captures/2024020404/play-by-play/capture.json",
+          "bytes": 671,
+          "sha256": "cc7577052d2a8844c57c660434b230ba19e4451a010fcef1ffdea2b38f9adceb"
+        },
+        {
+          "path": "captures/2024020404/play-report/body.bin",
+          "bytes": 1153507,
+          "sha256": "36edf853ba6b0328f6453cc0b43176ca16262c02a4ffa8f536692e90a295174a"
+        },
+        {
+          "path": "captures/2024020404/play-report/capture.json",
+          "bytes": 695,
+          "sha256": "cd0caa63af63e92046bde32e0cd93399ca73026278442d9a83e8fa52516920e1"
+        },
+        {
+          "path": "captures/2024020404/shifts/body.bin",
+          "bytes": 268464,
+          "sha256": "d6605732f95b48085cf6c9b46ce8376e32a9d26137d24fc5ae1fcd5df355aae7"
+        },
+        {
+          "path": "captures/2024020404/shifts/capture.json",
+          "bytes": 653,
+          "sha256": "b9649ba9603153b27604808613b0590b8d660ee27019f27bd46a721cd4b5079e"
+        }
+      ],
+      "source_records": [
+        {
+          "game_id": "2024020022",
+          "source": "play-by-play",
+          "requested_at": "2026-09-30T19:18:16.920Z",
+          "body_sha256": "1de0659952b3c8036ac8aee8b36756ede20e1e5d0751521f5d090fa7135204c3"
+        },
+        {
+          "game_id": "2024020022",
+          "source": "boxscore",
+          "requested_at": "2026-09-30T19:18:17.226Z",
+          "body_sha256": "1a6b39d6d6d15bd72ca26beefdcc4ec16ff535bc0e0edcbbb03b535bd749dc34"
+        },
+        {
+          "game_id": "2024020022",
+          "source": "shifts",
+          "requested_at": "2026-09-30T19:18:17.618Z",
+          "body_sha256": "48734692839664cc645ad9b83476cd38dd5c1f195b7449a486e6751aba28cfbf"
+        },
+        {
+          "game_id": "2024020022",
+          "source": "game-summary",
+          "requested_at": "2026-09-30T19:18:17.746Z",
+          "body_sha256": "0ad3d265607ce2fb25f314886ef3df08f203956c2759e2452291948892abbe03"
+        },
+        {
+          "game_id": "2024020022",
+          "source": "play-report",
+          "requested_at": "2026-09-30T19:18:17.980Z",
+          "body_sha256": "2c4bb1a6d02d2b59611199b9cfe5179fdc20cacb45316811cd14323fa0386ae5"
+        },
+        {
+          "game_id": "2024020022",
+          "source": "landing",
+          "requested_at": "2026-09-30T19:18:18.359Z",
+          "body_sha256": "3415a56069ba105f9d900c70d6aa24f6c1d21d2158aa0c1f20b993f84f9357c9"
+        },
+        {
+          "game_id": "2024020404",
+          "source": "play-by-play",
+          "requested_at": "2026-09-30T19:21:16.489Z",
+          "body_sha256": "87198b52430289c1e6dac8394e3678c125caa69940fb3e9eacf4ac25719f2b77"
+        },
+        {
+          "game_id": "2024020404",
+          "source": "boxscore",
+          "requested_at": "2026-09-30T19:21:16.783Z",
+          "body_sha256": "d63f50fcaeafdf98f67a4a905bf3f1754991bc577edff964f351ae4f79f1c2a5"
+        },
+        {
+          "game_id": "2024020404",
+          "source": "shifts",
+          "requested_at": "2026-09-30T19:21:17.149Z",
+          "body_sha256": "d6605732f95b48085cf6c9b46ce8376e32a9d26137d24fc5ae1fcd5df355aae7"
+        },
+        {
+          "game_id": "2024020404",
+          "source": "game-summary",
+          "requested_at": "2026-09-30T19:21:17.272Z",
+          "body_sha256": "a64e7099a68bd32addec25c5b58d3f95a9966e542bc122343c79bce58f2769fd"
+        },
+        {
+          "game_id": "2024020404",
+          "source": "play-report",
+          "requested_at": "2026-09-30T19:21:17.502Z",
+          "body_sha256": "36edf853ba6b0328f6453cc0b43176ca16262c02a4ffa8f536692e90a295174a"
+        },
+        {
+          "game_id": "2024020404",
+          "source": "landing",
+          "requested_at": "2026-09-30T19:21:17.832Z",
+          "body_sha256": "61dd41dabad3bf30470962898a0f8227fc290f1081ee319bfb3fb1e3e485c5bd"
+        }
+      ],
+      "preserved_reference_files": [
+        {
+          "path": "references/20242025/season-summary/body.bin",
+          "bytes": 634,
+          "sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+        },
+        {
+          "path": "references/20242025/season-summary/capture.json",
+          "bytes": 676,
+          "sha256": "03aed697f50917a45a98b20facc8c8a336d3264dea1b32f15d4da76c1638d525"
+        },
+        {
+          "path": "references/20242025/season-games/body.bin",
+          "bytes": 327490,
+          "sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+        },
+        {
+          "path": "references/20242025/season-games/capture.json",
+          "bytes": 671,
+          "sha256": "5b862c889a8ec496b75955591001d8fb3c4f719daf59eb6c6cde743b323bd349"
+        },
+        {
+          "path": "references/20242025/skater-bios/body.bin",
+          "bytes": 448170,
+          "sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+        },
+        {
+          "path": "references/20242025/skater-bios/capture.json",
+          "bytes": 712,
+          "sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a"
+        },
+        {
+          "path": "references/20242025/goalie-bios/body.bin",
+          "bytes": 47171,
+          "sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+        },
+        {
+          "path": "references/20242025/goalie-bios/capture.json",
+          "bytes": 711,
+          "sha256": "0fd86d0b478df2e7e156fb718543ab5cdc3eab900a6dce945849ee2846ef1c38"
+        }
+      ],
+      "preservation": "all 240 existing body/receipt files remain unchanged; the existing 20242025 four-source reference bundle supplies both cases"
+    }
   ]
 }

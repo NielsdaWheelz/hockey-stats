@@ -1,190 +1,264 @@
-"""factual probability diagnostics on explicit held-out populations."""
+"""factual probability diagnostics from one native prediction pass."""
 
 import math
 
 from .captures import InputContractError
+from .chance import CONTEXT_CATEGORIES, ROLES, TYPES
 
 
-def probability_summary(rows: list[dict], outcome: str) -> dict:
-    bins = [
-        {
-            "lower": i / 20,
-            "upper": (i + 1) / 20,
-            "upper_inclusive": i == 19,
-            "count": 0,
-            "predicted_probability_sum": 0.0,
-            "observed_positive_count": 0,
-        }
-        for i in range(20)
-    ]
-    loss = brier = predicted = 0.0
-    positives = 0
-    for row in rows:
-        lp, ln, y = row["log_p"], row["log_not_p"], row["positive"]
-        if not all(
-            type(v) in (int, float) and math.isfinite(v) and v <= 0 for v in (lp, ln)
-        ):
-            raise InputContractError(
-                "evaluation: nonfinite or positive log probability"
-            )
-        if type(y) not in (bool, int) or y not in (0, 1):
-            raise InputContractError("evaluation: expected binary observed label")
-        if abs(math.exp(lp) + math.exp(ln) - 1) > 1e-10:
-            raise InputContractError(
-                "evaluation: probability and complement do not sum to one"
-            )
-        p = math.exp(lp)
-        loss -= lp if y else ln
-        brier += (p - y) ** 2
-        predicted += p
-        positives += y
-        bucket = bins[next((i for i in range(19) if p < (i + 1) / 20), 19)]
-        bucket["count"] += 1
-        bucket["predicted_probability_sum"] += p
-        bucket["observed_positive_count"] += y
-    for bucket in bins:
-        n = bucket["count"]
-        bucket["predicted_rate"] = (
-            bucket["predicted_probability_sum"] / n if n else None
-        )
-        bucket["observed_rate"] = bucket["observed_positive_count"] / n if n else None
-    n = len(rows)
-    if not all(math.isfinite(v) for v in (loss, brier, predicted)):
-        raise InputContractError("evaluation: nonfinite probability metric sums")
-    return {
-        "outcome": outcome,
-        "count": n,
-        "observed_positive_count": positives,
-        "log_loss_sum": loss,
-        "brier_score_sum": brier,
-        "predicted_probability_sum": predicted,
-        "log_loss": loss / n if n else None,
-        "brier_score": brier / n if n else None,
-        "calibration": bins,
-    }
+PROBABILITY_POPULATIONS = {
+    "unblocked_conversion": ("goal", ("candidate_r", "benchmark_r")),
+    "all_attempt_recorded_context": ("goal", ("candidate_all", "benchmark_all")),
+    "marginal_unblocked": ("unblocked", ("candidate_unblocked",)),
+}
+PROBABILITY_SUMS = (
+    "count",
+    "observed_positive_count",
+    "predicted_probability_sum",
+    "log_loss_sum",
+    "brier_score_sum",
+)
 
 
-def likelihood_summary(rows: list[dict]) -> dict:
+GROUP_DOMAINS = {
+    "score_bucket": CONTEXT_CATEGORIES["score_bucket"],
+    "period": CONTEXT_CATEGORIES["period"],
+    "minute_band": CONTEXT_CATEGORIES["minute_band"],
+    "role": ROLES,
+    "home_away": CONTEXT_CATEGORIES["home_away"],
+    "shot_type": [
+        "wrist", "snap", "slap", "backhand", "tip-in", "deflected",
+        "wrap-around", "poke", "bat", "between-legs", "cradle", None,
+    ],
+    "model_shot_type": TYPES + [None],
+    "recent_context": ["recent", "none"],
+    "season_basis": ["fitted", "unobserved", "carried_forward"],
+    "tip_distance": ["0_10", "10_20", "20_40", "40_plus"],
+    "tip_below_goal_line": [False, True],
+}
+
+
+def _new_metrics(full: bool, tip: bool = False) -> dict:
     result = {}
-    for name, selected in (
-        ("all", rows),
-        ("blocked", [r for r in rows if r["blocked"]]),
-        ("unblocked", [r for r in rows if not r["blocked"]]),
-    ):
-        values = [r["observed_log_likelihood"] for r in selected]
-        if any(not math.isfinite(v) or v > 0 for v in values):
-            raise InputContractError(
-                "evaluation: invalid observed-record log likelihood"
-            )
-        total = -math.fsum(values)
-        if not math.isfinite(total):
-            raise InputContractError("evaluation: nonfinite likelihood sum")
-        result[name] = {
-            "count": len(values),
-            "negative_log_likelihood_sum": total,
-            "mean_negative_log_likelihood": total / len(values) if values else None,
+    for population, (outcome, predictors) in PROBABILITY_POPULATIONS.items():
+        if tip and population != "unblocked_conversion":
+            continue
+        result[population] = {}
+        for predictor in predictors:
+            metric = dict(outcome=outcome, **dict.fromkeys(PROBABILITY_SUMS, 0))
+            if full:
+                metric["calibration"] = [
+                    dict(
+                        lower=i / 20,
+                        upper=(i + 1) / 20,
+                        upper_inclusive=i == 19,
+                        count=0,
+                        predicted_probability_sum=0.0,
+                        observed_positive_count=0,
+                    )
+                    for i in range(20)
+                ]
+            result[population][predictor] = metric
+    if full and not tip:
+        result["observed_record_likelihood"] = {
+            name: dict(count=0, negative_log_likelihood_sum=0.0)
+            for name in ("all", "blocked", "unblocked")
         }
     return result
 
 
-def summarize(rows: list[dict]) -> dict:
+def _record_metrics(row: dict) -> dict:
+    """validate once, then share additive probability evidence among summaries."""
+    result = {}
+    for population, (outcome, predictors) in PROBABILITY_POPULATIONS.items():
+        if population == "unblocked_conversion" and row["blocked"]:
+            continue
+        positive = not row["blocked"] if outcome == "unblocked" else row["goal"]
+        if type(positive) not in (bool, int) or positive not in (0, 1):
+            raise InputContractError("evaluation: expected binary observed label")
+        result[population] = {}
+        for predictor in predictors:
+            lp, ln = row[predictor]["log_p"], row[predictor]["log_not_p"]
+            if not all(
+                type(v) in (int, float) and math.isfinite(v) and v <= 0
+                for v in (lp, ln)
+            ):
+                raise InputContractError(
+                    "evaluation: nonfinite or positive log probability"
+                )
+            probability = math.exp(lp)
+            if abs(probability + math.exp(ln) - 1) > 1e-10:
+                raise InputContractError(
+                    "evaluation: probability and complement do not sum to one"
+                )
+            result[population][predictor] = dict(
+                count=1,
+                observed_positive_count=int(positive),
+                predicted_probability_sum=probability,
+                log_loss_sum=-(lp if positive else ln),
+                brier_score_sum=(probability - positive) ** 2,
+            )
+    observed = row["observed_log_likelihood"]
+    if not math.isfinite(observed) or observed > 0:
+        raise InputContractError("evaluation: invalid observed-record log likelihood")
+    result["observed_record_likelihood"] = {
+        name: dict(count=1, negative_log_likelihood_sum=-observed)
+        for name in ("all", "blocked" if row["blocked"] else "unblocked")
+    }
+    return result
+
+
+def _add_metrics(target: dict, record: dict) -> None:
+    for population, predictors in record.items():
+        if population not in target:
+            continue
+        for predictor, values in predictors.items():
+            metric = target[population][predictor]
+            for field, value in values.items():
+                metric[field] += value
+            if "calibration" in metric:
+                probability = values["predicted_probability_sum"]
+                index = next(
+                    (i for i in range(19) if probability < (i + 1) / 20), 19
+                )
+                bucket = metric["calibration"][index]
+                for field in (
+                    "count", "predicted_probability_sum", "observed_positive_count"
+                ):
+                    bucket[field] += values[field]
+
+
+def _finish_metrics(metrics: dict) -> None:
+    for population, predictors in metrics.items():
+        for metric in predictors.values():
+            if population == "observed_record_likelihood":
+                total = metric["negative_log_likelihood_sum"]
+                if not math.isfinite(total):
+                    raise InputContractError("evaluation: nonfinite likelihood sum")
+                metric["mean_negative_log_likelihood"] = (
+                    total / metric["count"] if metric["count"] else None
+                )
+                continue
+            if not all(math.isfinite(metric[field]) for field in PROBABILITY_SUMS):
+                raise InputContractError("evaluation: nonfinite probability metric sums")
+            if "calibration" not in metric:
+                continue
+            n = metric["count"]
+            metric["log_loss"] = metric["log_loss_sum"] / n if n else None
+            metric["brier_score"] = metric["brier_score_sum"] / n if n else None
+            for bucket in metric["calibration"]:
+                n = bucket["count"]
+                bucket["predicted_rate"] = (
+                    bucket["predicted_probability_sum"] / n if n else None
+                )
+                bucket["observed_rate"] = (
+                    bucket["observed_positive_count"] / n if n else None
+                )
+
+
+def _new_groups(categories: dict, full: bool) -> dict:
     return {
-        "unblocked_conversion": {
-            name: probability_summary(
-                [dict(r[name], positive=r["goal"]) for r in rows if not r["blocked"]],
-                "goal",
+        category: [
+            dict(
+                descriptor,
+                metrics=_new_metrics(
+                    full, category in ("tip_distance", "tip_below_goal_line")
+                ),
             )
-            for name in ("candidate_r", "benchmark_r")
-        },
-        "all_attempt_recorded_context": {
-            name: probability_summary(
-                [dict(r[name], positive=r["goal"]) for r in rows], "goal"
-            )
-            for name in ("candidate_all", "benchmark_all")
-        },
-        "marginal_unblocked": {
-            "candidate_unblocked": probability_summary(
-                [
-                    dict(r["candidate_unblocked"], positive=not r["blocked"])
-                    for r in rows
-                ],
-                "unblocked",
-            )
-        },
-        "observed_record_likelihood": likelihood_summary(rows),
+            for descriptor in descriptors
+        ]
+        for category, descriptors in categories.items()
     }
 
 
 def evaluate(model: dict, prepared: dict) -> dict:
-    """use saved predictors and reference; assessment never updates a model."""
+    """evaluate saved predictors; selected games share exact subgroup domains."""
     from .chance import predict_attempt, prediction_context
 
-    context = prediction_context(model)
-    rows = []
-    for attempt in prepared["attempts"]:
-        if attempt["status"] == "eligible":
-            prediction = predict_attempt(model, attempt, context)
-            prediction.pop("origin_weights", None)
-            rows.append(dict(attempt, **prediction))
+    values = {"season": sorted({r["season"] for r in prepared["games"]}), **GROUP_DOMAINS}
     categories = {
-        "season": sorted({r["season"] for r in prepared["games"]}),
-        "score_bucket": [
-            "trailing_2_plus",
-            "trailing_1",
-            "tied",
-            "leading_1",
-            "leading_2_plus",
-        ],
-        "role": ["F", "D", "unknown"],
-        "home_away": ["home", "away"],
-        "shot_type": [
-            "wrist",
-            "snap",
-            "slap",
-            "backhand",
-            "tip-in",
-            "deflected",
-            "wrap-around",
-            "poke",
-            "bat",
-            "between-legs",
-            "cradle",
-            None,
-        ],
-        "model_shot_type": ["wrist", "snap", "slap", "backhand", "tip", "other", None],
-        "recent_context": ["recent", "none"],
-        "season_basis": ["fitted", "unobserved", "carried_forward"],
+        key: [dict(value=v) for v in domain] for key, domain in values.items()
     }
-    groups = {}
-    for key, values in categories.items():
-        groups[key] = []
-        for value in values:
-            if key == "score_bucket":
-                selected = [r for r in rows if r["context"][key] == value]
-            elif key == "recent_context":
-                selected = [r for r in rows if r["previous_event"]["status"] == value]
-            else:
-                selected = [r for r in rows if r[key] == value]
-            groups[key].append({"value": value, "metrics": summarize(selected)})
-    groups["actor_evidence"] = []
-    for stage, actors in (("u", ("shooter",)), ("r", ("shooter", "goalie"))):
-        for actor in actors:
-            for value in ("observed_in_state", "other_seasons_only", "unseen"):
-                selected = [
-                    r
-                    for r in rows
-                    if r["actor_evidence"][stage][actor]["basis"] == value
-                ]
-                groups["actor_evidence"].append(
-                    {
-                        "stage": stage,
-                        "actor": actor,
-                        "value": value,
-                        "metrics": summarize(selected),
-                    }
+    categories["actor_evidence"] = [
+        dict(stage=stage, actor=actor, value=value)
+        for stage, actors in (("u", ("shooter",)), ("r", ("shooter", "goalie")))
+        for actor in actors
+        for value in ("observed_in_state", "other_seasons_only", "unseen")
+    ]
+    indices = {
+        category: {
+            (
+                (d["stage"], d["actor"], d["value"])
+                if category == "actor_evidence" else d["value"]
+            ): i
+            for i, d in enumerate(descriptors)
+        }
+        for category, descriptors in categories.items()
+    }
+    metrics = _new_metrics(full=True)
+    groups = _new_groups(categories, full=True)
+    games = {
+        game_id: dict(
+            game_id=game_id,
+            metrics=_new_metrics(full=True),
+            groups=_new_groups(categories, full=False),
+        )
+        for game_id in prepared["game_dates"]
+    }
+    context = prediction_context(model)
+    for attempt in prepared["attempts"]:
+        if attempt["status"] != "eligible":
+            continue
+        row = dict(attempt, **predict_attempt(model, attempt, context))
+        record = _record_metrics(row)
+        game = games[row["game_id"]]
+        _add_metrics(metrics, record)
+        _add_metrics(game["metrics"], record)
+        memberships = [
+            (category, row[category])
+            for category in (
+                "season", "role", "home_away", "shot_type", "model_shot_type",
+                "season_basis",
+            )
+        ]
+        memberships.extend(
+            (category, row["context"][category])
+            for category in ("score_bucket", "period", "minute_band")
+        )
+        memberships.append(("recent_context", row["previous_event"]["status"]))
+        for stage, actors in row["actor_evidence"].items():
+            for actor, evidence in actors.items():
+                memberships.append(
+                    ("actor_evidence", (stage, actor, evidence["basis"]))
                 )
+        if not row["blocked"] and row["shot_type"] in ("tip-in", "deflected"):
+            distance = math.hypot(89 - row["attacking_x"], row["attacking_y"])
+            band = (
+                "0_10" if distance < 10 else "10_20" if distance < 20
+                else "20_40" if distance < 40 else "40_plus"
+            )
+            memberships.extend(
+                (
+                    ("tip_distance", band),
+                    ("tip_below_goal_line", row["attacking_x"] > 89),
+                )
+            )
+        for category, value in memberships:
+            index = indices[category][value]
+            _add_metrics(groups[category][index]["metrics"], record)
+            _add_metrics(game["groups"][category][index]["metrics"], record)
+    _finish_metrics(metrics)
+    for category in groups.values():
+        for group in category:
+            _finish_metrics(group["metrics"])
+    for game in games.values():
+        _finish_metrics(game["metrics"])
+        for category in game["groups"].values():
+            for group in category:
+                _finish_metrics(group["metrics"])
+    included = metrics["all_attempt_recorded_context"]["candidate_all"]
     return {
-        "status": "evaluated" if rows else "insufficient_evidence",
+        "status": "evaluated" if included["count"] else "insufficient_evidence",
         "prediction_definitions": {
             "unblocked_conversion": "factual goal probability conditional on unblocked and its quantized recorded-origin proxy; six type-specific geometry benchmark",
             "all_attempt_recorded_context": "goal probability integrated over the origin prior; holds recorded type and preceding-play/scalar context; omits focal location, outcome and posterior; geometry-free benchmark",
@@ -192,23 +266,17 @@ def evaluate(model: dict, prepared: dict) -> dict:
             "observed_record_likelihood": "fixed-grid joint observation law; compare only matching quantization, population and observation definitions",
             "measurement_limit": "reconciled type and eligibility are retrospective and potentially outcome-influenced; these are not demonstrated pre-release forecasts",
         },
-        "metrics": summarize(rows),
+        "metrics": metrics,
         "groups": groups,
         "inclusion": {
             "recognized_attempts": len(prepared["attempts"]),
-            "model_included_attempts": len(rows),
+            "model_included_attempts": included["count"],
             "recognized_goals": sum(r["goal"] for r in prepared["attempts"]),
-            "model_included_goals": sum(r["goal"] for r in rows),
+            "model_included_goals": included["observed_positive_count"],
             "excluded_goals_by_reason": prepared["coverage"]["attempts"][
                 "excluded_goals_by_reason"
             ],
         },
-        "per_game": [
-            {
-                "game_id": game_id,
-                "metrics": summarize([r for r in rows if r["game_id"] == game_id]),
-            }
-            for game_id in prepared["game_dates"]
-        ],
+        "per_game": list(games.values()),
         "scientific_assessment": "not_performed",
     }

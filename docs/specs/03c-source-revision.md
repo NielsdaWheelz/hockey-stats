@@ -2,7 +2,7 @@
 
 status: implemented and verified on `feat/03c-source-revision`, including the offline-evidence amendment, expanded fixtures and full three-season audit. [the completed decision](../research/chance-03c/decision.md) records evidence and remaining source limitations. 03b is complete and rejected; no fitting or later implementation is authorized. [audit and council findings](../research/chance-03c-source-audit.md) · [brief](../brief.md) · [plan](../plan.md)
 
-the landing amendment below addresses [verified additional goal evidence](../research/source-audit.md#additional-source-evidence-without-the-drive). [03d](03d-chance-revision.md) owns the revised estimator and selected features; [03e](03e-training-assessment.md) owns real training/scientific assessment. 03d is now being specified; 03e remains a stub. no separate landing or generic input-audit pr.
+the landing amendment below addresses [verified additional goal evidence](../research/source-audit.md#additional-source-evidence-without-the-drive). [03d](03d-chance-revision.md) implements the revised estimator and selected features; [03e](03e-training-assessment.md) is specified for review and owns real training/scientific assessment. no separate landing or generic input-audit pr.
 
 ## target and scope
 

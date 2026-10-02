@@ -2323,8 +2323,10 @@ def predict_attempt(model, attempt, context=None, *, cells=None):
     return result
 
 
-def score_attempt(model, attempt, context):
-    prediction = predict_attempt(model, attempt, context)
+def score_attempt(model, attempt, context, *, prediction=None):
+    """opportunity mass; supplied prediction uses the same model/context/attempt."""
+    if prediction is None:
+        prediction = predict_attempt(model, attempt, context)
     weights = prediction["origin_weights"]
     ids = (
         np.arange(len(weights))

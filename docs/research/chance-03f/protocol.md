@@ -1,6 +1,6 @@
 # chance-component development protocol
 
-status: frozen on 2026-10-02 before new scientific fitting or factual prediction inspection, following temporary red/green/refactor/green checks and independent review. [specification](../../specs/03f-model-development.md) · [03e decision](../chance-03e/decision.md)
+status: scientific choices frozen on 2026-10-02 before new scientific fitting or factual prediction inspection. a serialization-only implementation amendment follows completed diagnosis and precedes all ten scientific component solves; no scientific choice changes. [specification](../../specs/03f-model-development.md) · [03e decision](../chance-03e/decision.md)
 
 the question is whether differentiated recent context or removing the oldest training season improves either observable component across both declared windows. this is a retrospective development screen on research-exposed seasons. it does not admit a chance model, establish physical shooting origins, authorize player attribution or publication, or revise 03b/03e's decisions.
 
@@ -51,7 +51,11 @@ the written decision labels each changed-recipe/quantity pair: either window una
 
 ## execution, verification and retained questions
 
-implementation source is frozen at clean `8afc8f9`, following numerical implementation `fa8bbe2`. the subsequent documentation-only freeze commit is the executing revision; `inputs/execution-freeze.json` records that full revision, dependency lock and exact code/protocol digests before the first scientific operation. an immutable copy of this document is `inputs/protocol.md` under the external run root. no scientific recipe, cutoff or criterion changed during software verification.
+initial implementation source was frozen at clean `8afc8f9`, following numerical implementation `fa8bbe2`; diagnosis ran at documentation-only revision `3f7bc37`. immutable `inputs/protocol.md` and `inputs/execution-freeze.json` preserve that phase's original protocol, full revision, dependency lock and exact code/input digests.
+
+diagnosis exposed an unnecessarily expanded component payload: full coverage occupied about 90% of each extracted artifact. independent review required the specification's prediction-only component contract. `d2b6991` removes full coverage and duplicate game dates from components, retaining the eligible-attempt total, training identities, layout and prediction provenance. full coverage remains in fit/evaluation/diagnosis records; native validation and all numerical functions remain unchanged. temporary red/green/refactor/green checks and independent `review-notes/component-compact-repair-review.json` verify that boundary repair. original diagnosis streams are retained without rerunning predictions or fitting.
+
+the subsequent documentation-only amendment is the executing revision for fresh compact anchor extraction and the fixed component screen. immutable `inputs/protocol-components.md` and `inputs/execution-freeze-components.json` bind that clean revision, this amended protocol, unchanged study inputs, repair review and repeated compact fixture capacity measurements before any of the ten scientific solves. no scientific recipe, cutoff, penalty, comparison, selection or criterion changed after factual prediction inspection. this phase distinction is provenance, not a second experiment.
 
 independent review is `review-notes/prefit-adversarial-review.json`, sha256 `68577b04f74c17292cedc5606e913347795946d18c028ab1cd9ed8f33637ee77`, binding reviewed source bytes and green evidence. it found no remaining implementation/matrix blocker. temporary tests and caches are deleted; their factual logs/digests remain in `software/`. fixture capacity results are bound in `verification/capacity.json`; both quantities with interactions completed under the exact fixture configuration, with wall time, memory and artifact size measured before full solves. these measurements do not forecast full-corpus costs.
 

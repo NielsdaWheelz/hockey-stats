@@ -637,7 +637,7 @@ def save_figures(document, output):
                 axis.plot(point, index + offset, "o",
                           color=color, fillstyle="full" if interval is not None else "none", ms=4)
         axis.set(yticks=range(len(selected)), yticklabels=[f"{c['window']} / {c['recipe']}" for c in selected],
-                 title=quantity, xlabel="changed − baseline mean goal log loss (nats / applicable attempt)")
+                 title=quantity, xlabel="changed − baseline mean goal log loss\n(nats / applicable attempt)")
     fig.suptitle("later-game component screen; whole-game (blue), 7-day (orange), 14-day (green) intervals")
     fig.text(.5, .01, "pointwise 95% intervals condition on fitted models; hollow points have undefined draws; lower is better", ha="center", fontsize=8)
     fig.tight_layout(rect=(0, .04, 1, .94))
@@ -664,7 +664,9 @@ def save_figures(document, output):
     fig.savefig(path, dpi=160)
     plt.close(fig)
     figures.append(path)
-    fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True, sharey=True)
+    max_bin_count = max((b["count"] for cell in document["cells"] if cell["status"] != "failed"
+                         for b in cell["metrics"]["calibration"] if b["count"]), default=1)
+    fig, axes = plt.subplots(2, 2, figsize=(12, 9), sharex=True, sharey=True)
     for row, window in enumerate(WINDOWS):
         for column, quantity in enumerate(QUANTITIES):
             axis = axes[row, column]
@@ -677,15 +679,18 @@ def save_figures(document, output):
                 if cell["status"] == "failed":
                     continue
                 bins = [b for b in cell["metrics"]["calibration"] if b["count"]]
-                axis.plot([b["predicted_rate"] for b in bins],
-                          [100 * (b["predicted_rate"] - b["observed_rate"]) for b in bins],
-                          "o-", label=recipe, ms=3)
+                axis.scatter([b["predicted_rate"] for b in bins],
+                             [100 * (b["predicted_rate"] - b["observed_rate"]) for b in bins],
+                             s=[12 + 80 * math.sqrt(b["count"] / max_bin_count) for b in bins],
+                             label=recipe, alpha=.75)
             axis.set(title=f"{window} / {quantity}", xlabel="mean predicted goal probability in own fixed bin",
-                     ylabel="predicted − observed goal rate (percentage points)")
+                     ylabel="predicted − observed\n(percentage points)")
             axis.legend(fontsize=7)
     fig.suptitle("later-game fixed-bin calibration; each predictor defines its own twenty cohorts")
-    fig.text(.5, .01, "empty bins omitted; descriptive residuals, no joint bin comparison; dashed ±1 pp historical subgroup goal margin is reference only", ha="center", fontsize=8)
-    fig.tight_layout(rect=(0, .04, 1, .94))
+    fig.text(.5, .01, "marker area reflects √(bin count), with a visibility floor; one common scale; exact counts in comparison.json\n"
+             "all nonempty bins retained; descriptive own cohorts; dashed ±1 pp historical subgroup goal margin is reference only",
+             ha="center", fontsize=8)
+    fig.tight_layout(rect=(0, .07, 1, .94), h_pad=3)
     path = output / "fixed-bin-calibration.png"
     fig.savefig(path, dpi=160)
     plt.close(fig)

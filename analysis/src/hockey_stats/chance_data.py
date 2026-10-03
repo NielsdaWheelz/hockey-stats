@@ -56,7 +56,7 @@ _REASONS = (
     "physical_attempt_unresolved",
     "context_unavailable",
 )
-_MODEL_TYPES = {
+MODEL_SHOT_TYPES = {
     "wrist": "wrist",
     "snap": "snap",
     "slap": "slap",
@@ -1127,7 +1127,7 @@ def _prepare_game(value, path, entry):
                 else "tied"
             )
         shot_type = row["shot_type_evidence"]["value"]
-        model_type = _MODEL_TYPES.get(shot_type)
+        model_type = MODEL_SHOT_TYPES.get(shot_type)
         if model_type is None:
             details["type_unavailable"] = [
                 {

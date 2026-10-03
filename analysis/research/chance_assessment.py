@@ -163,8 +163,8 @@ def reconcile_counts(actual, saved, description):
             and Counter(actual) == Counter(saved), f"{description} disagree")
 
 
-def reconstruct(loaded):
-    """hash one pass; per-game bins retain additive triples in native bin order."""
+def reconstruct(loaded, *, diagnostic=None):
+    """hash one pass; diagnostic sums are provisional until reconciliation returns."""
     comparison, stream = loaded["comparison"], loaded["stream"]
     dates = comparison["game_dates"]
     metrics = {q: binary_metrics(outcome=outcome) for q, (_, outcome) in QUANTITIES.items()}
@@ -233,6 +233,7 @@ def reconstruct(loaded):
             predictions = row["predictions"]["revision"]
             require(set(predictions) == {field for field, _ in QUANTITIES.values()},
                     "revised prediction quantities disagree")
+            records = {}
             for quantity, (field, outcome) in QUANTITIES.items():
                 applicable = status == "eligible" and (quantity != "unblocked_conversion" or not row["blocked"])
                 prediction_status = "predicted" if applicable else "not_applicable" if status == "eligible" else status
@@ -247,8 +248,11 @@ def reconstruct(loaded):
                         "applicable saved complementary log probabilities required")
                 positive = not row["blocked"] if outcome == "unblocked" else row["goal"]
                 record = binary_record(positive, value["log_p"], value["log_not_p"])
+                records[quantity] = record
                 add_binary(metrics[quantity], record)
                 add_binary(part["metrics"], record)
+            if diagnostic is not None:
+                diagnostic.consume(row, records)
     require(hasher.hexdigest() == loaded["identities"]["attempts"]["sha256"],
             "saved attempt stream digest mismatch")
     coverage = comparison["coverage"]

@@ -129,12 +129,17 @@ def binary_record(observed: bool | int, log_p: float, log_not_p: float) -> dict:
     )
 
 
+def calibration_bin(probability: float) -> int:
+    """bin an already validated native binary probability; the final bin includes one."""
+    return next((i for i in range(19) if probability < (i + 1) / 20), 19)
+
+
 def add_binary(target: dict, record: dict) -> None:
     for field in PROBABILITY_SUMS:
         target[field] += record[field]
     if "calibration" in target:
         probability = record["predicted_probability_sum"]
-        index = next((i for i in range(19) if probability < (i + 1) / 20), 19)
+        index = calibration_bin(probability)
         for field in ("count", "predicted_probability_sum", "observed_positive_count"):
             target["calibration"][index][field] += record[field]
 

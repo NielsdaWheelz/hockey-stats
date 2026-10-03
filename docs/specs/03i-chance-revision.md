@@ -1,6 +1,6 @@
 # pr03i — conversion localization and spatial composition
 
-status: **specification ready for handoff; docs only. implementation/diagnosis require separate assignment.** 03h is reviewed and merged in `d828085`; [its decision](../research/chance-03h/decision.md) is `withheld`. [brief](../brief.md) · [plan](../plan.md) · [03j follow-up](03j-chance-experiment.md)
+status: **authorized implementation and one real diagnosis complete on 2026-10-02.** [verification](../research/chance-03i/verification.md) binds frozen sources and review/deletion closure; [decision](../research/chance-03i/decision.md) proposes one avoidance-only interaction experiment. candidate `withheld`; no fitting/admission. 03h remains reviewed and merged in `d828085`. [brief](../brief.md) · [plan](../plan.md) · [03j follow-up](03j-chance-experiment.md)
 
 ## target and boundary
 

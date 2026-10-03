@@ -1,6 +1,8 @@
 # observable spatial calibration
 
-status: open. owner: chance-model science; any 03h assessment must declare the supported spatial/probability claim and its checks before judgment. [03g's completed diagnosis](../research/chance-03g/decision.md) recommends `assess_integrated`, without admission or further implementation authorization.
+status: open. owner: chance-model science. [03h's completed screen](../research/chance-03h/decision.md) withholds on required factual-probability failures, retains this discrepancy and sets no regional gate. spatial adequacy is `not_assessed_by_this_slice`; no new spatial arithmetic or figure was produced. [03i](../specs/03i-chance-revision.md) retains separately selected spatial assessment/revision. [03g's completed diagnosis](../research/chance-03g/decision.md) remains the spatial evidence.
+
+03h disposition: lower proper losses remain real, while probability withholding neither proves nor removes observable spatial error. the decision recommends one bounded shared-stratum diagnostic for the hypothesis that additive retained origin/avoidance terms underfit joint recent context, with calendar/shot-type composition and recorded-proxy measurement as competing explanations. that recommendation does not authorize execution or resolve this issue.
 
 problem: the retained origin/avoidance law misallocates observable compound unblocked mass across native regions and preceding-action contexts. conversion replacement cannot repair unchanged `A_R`. revised goal mass also retains opposing context errors that pooled totals conceal.
 

@@ -1,6 +1,6 @@
 # pr04 — season-level player contribution
 
-status: **stub; not ready for implementation.** 03e withheld its handoff. [03f](03f-model-development.md) completed component screening; [03g](03g-chance-assessment.md) retains integration/spatial diagnosis and [03h](03h-chance-revision.md) owns the next possible conditional research handoff. expand 04 only after supported chance inputs exist and the user selects this phase. the user permits carrying admissible chance alternatives into this research; publication requires supported player conclusions. [brief](../brief.md) · [architecture](../architecture.md) · [input audit](../research/model-input-audit.md)
+status: **stub; not ready for implementation.** 03e withheld its handoff; 03g completed integration/spatial diagnosis. [03h](03h-chance-revision.md) owns a necessary-condition screen with no handoff; [03i](03i-chance-revision.md) retains the next possible supported conditional research handoff. expand 04 only after supported chance inputs exist and the user selects this phase. the user permits carrying admissible chance alternatives into this research; publication requires supported player conclusions. [brief](../brief.md) · [architecture](../architecture.md) · [input audit](../research/model-input-audit.md)
 
 ## target and boundary
 

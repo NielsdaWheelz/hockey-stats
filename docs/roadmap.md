@@ -22,10 +22,11 @@ source foundations belong within v1: event on-ice reports are in merged 02b; sea
 | next boundary | question to settle | output |
 |---|---|---|
 | [03g integration/spatial diagnosis](specs/03g-chance-assessment.md) | what does improved conversion change, and where do observable spatial predictions disagree? | compatible saved-fit recomposition and bounded diagnostics; no new fitting or admission |
-| [03h selected revision/assessment](specs/03h-chance-revision.md) | does the integrated candidate warrant assessment, or which one structural assumption should change? | prospective assessment and supported conditional handoff, or withheld decision |
+| [03h saved-candidate assessment](specs/03h-chance-revision.md) | does an inherited necessary calibration condition already disqualify this composition? | saved-evidence withholding or further assessment required; no handoff |
+| [03i selected chance work](specs/03i-chance-revision.md) | which structural experiment or remaining assessment can change the decision? | separately specified work; only complete support can supply a conditional handoff |
 | [04 player attribution](specs/04-player-attribution.md) | do supported chance alternatives yield defensible player magnitudes, signs and spatial explanations? | player-analysis evidence before real publication |
 
-03h owns the ranked research backlog: seasonal context with historical borrowing first, then outcome decomposition and narrowly justified geometry/type/actor changes; origin-law sensitivity remains a separate obligation for origin-sensitive claims. longer sequences, fatigue and older data need evidence of a problem they can address. this is adaptive research, not six promised features or repeated large fitting campaigns.
+03i owns the ranked research backlog: seasonal context with historical borrowing first, then outcome decomposition and narrowly justified geometry/type/actor changes; origin-law sensitivity remains a separate obligation for origin-sensitive claims. longer sequences, fatigue and older data need evidence of a problem they can address. 03h reads existing evidence and computes missing intervals, without new fits. this is adaptive research, not six promised features or repeated large fitting campaigns.
 
 tradeoff: a cheap diagnosis comes before the next revision, delaying breadth while avoiding unsupported computation. observed spatial agreement does not prove physical blocked origins; player robustness and honest limitations still matter. v1–v4+ capabilities and the one-operator operating model are unchanged. 05–06 may proceed with labeled fixture publications when separately specified and assigned.
 

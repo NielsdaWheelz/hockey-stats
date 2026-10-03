@@ -1,6 +1,6 @@
 # pr03h — saved-candidate eligibility assessment
 
-status: **specification ready for handoff; docs only. implementation/assessment require separate assignment.** 03g is reviewed and merged in `42e1ef7`; [its decision](../research/chance-03g/decision.md) recommends `assess_integrated`. 03b remains rejected and 03e withheld. [brief](../brief.md) · [plan](../plan.md) · [03i follow-up](03i-chance-revision.md)
+status: **implementation and real assessment complete; verified decision: `withheld`.** [verification](../research/chance-03h/verification.md) records full reconciliation, independent reviews and deleted temporary tests; [decision](../research/chance-03h/decision.md) records two required calibration failures and no handoff. 03g is reviewed and merged in `42e1ef7`; [its decision](../research/chance-03g/decision.md) recommends `assess_integrated`. 03b remains rejected and 03e withheld. 03i, 04 and publication are not authorized. [brief](../brief.md) · [plan](../plan.md) · [03i follow-up](03i-chance-revision.md)
 
 ## target and boundary
 

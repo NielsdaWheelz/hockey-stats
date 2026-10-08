@@ -2,6 +2,8 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+execution follow-up, 2026-10-08: the assigned [conversion-scale benchmark](chance-03j/decision.md) completed with `inconclusive` and no supported intervention. this preserves the historical recommendations without making avoidance or any other native experiment automatic.
+
 later council review and user-approved direction after merged 03i: [conversion-first research and retained features](model-direction.md), 2026-10-08. the original recommendations below remain dated evidence.
 
 ## recommendation

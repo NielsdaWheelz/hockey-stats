@@ -2,6 +2,8 @@
 
 date: 2026-10-08. status: user-approved direction with retained-feature amendment; documentation only. [brief](../brief.md) owns settled choices, [plan](../plan.md) sequencing, [03j](../specs/03j-chance-experiment.md) the next experiment and [feature inventory](../model-features.md) the repertoire. implementation and fitting require their separately completed specifications/assignment.
 
+execution follow-up, 2026-10-08: the separately assigned [03j benchmark](chance-03j/decision.md) completed with `inconclusive` and `no_supported_intervention`; all 6,000 refits converged. it neither prioritizes scale nor identifies a structural cause. [verification](chance-03j/verification.md) preserves the frozen protocol and independent checks. 03k and native follow-on research remain separately specified/assigned work.
+
 ## purpose and evidence
 
 recorded hockey → release/outcome model → reference-standardized opportunity → season-level player effects → cards/maps. prediction, measurement, valuation and attribution are different questions. current research mainly addresses prediction; latent-release accuracy and player robustness remain separate obligations.

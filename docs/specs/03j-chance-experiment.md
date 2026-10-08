@@ -1,6 +1,6 @@
 # pr03j — conversion-scale benchmark
 
-status: **full specification for handoff; implementation and real execution require separate assignment.** direction approved 2026-10-08 after merged 03i; the user confirmed adjustment-fitting uncertainty. historical 03b/03e/03h verdicts stand. [brief](../brief.md) · [direction](../research/model-direction.md) · [03k feature preparation](03k-feature-repertoire.md)
+status: **implemented, executed and verified after assignment on 2026-10-08; decision `inconclusive`, with `no_supported_intervention`.** [verification](../research/chance-03j/verification.md) and [decision](../research/chance-03j/decision.md) record completion; all scientific requirements below remained unchanged. direction approved 2026-10-08 after merged 03i; the user confirmed adjustment-fitting uncertainty. historical 03b/03e/03h verdicts stand. [brief](../brief.md) · [direction](../research/model-direction.md) · [03k feature preparation](03k-feature-repertoire.md)
 
 ## target and scope
 

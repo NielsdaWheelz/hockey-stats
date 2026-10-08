@@ -1,0 +1,29 @@
+# 03j verification
+
+status: implementation verification complete; real execution and final deletion closure pending. the user authorized the complete [specification](../../specs/03j-chance-experiment.md) on 2026-10-08. branch `codex/03j-conversion-scale`, worktree `/Users/nnandal/Documents/code/hockey-stats-03j`; the original checkout's uncommitted documentation was copied and committed as the starting contract in `317ec3c`, without changing that checkout. shared descriptor extraction is `15bee8e`.
+
+## software and adversarial review
+
+one new research command owns compact collection, the two-parameter solve, refit resampling, summaries, figure and exclusive output. existing evidence loading/reconciliation, optimizer, binary arithmetic, calendar units and artifact/resource helpers remain authoritative. 03h behavior/schema and 03i's historical computation remain unchanged. no raw acquisition, preparation, base-model fitting/prediction, spatial recomputation, feature campaign, model handoff or publication was added. dependencies, lockfile and python 3.14.8 remain unchanged.
+
+all verification evidence is external under `/Users/nnandal/Documents/code/hockey-stats-03j-runs/verification/`. red checks recorded the missing command and shared helper before implementation; later numerical red checks preceded their green run. the shared extraction matches the historical descriptor validator in 2,252 checks over 450 valid/corrupted rows, including stale previous-event metadata and unavailable contexts. `descriptor-green.json` preserves this comparison.
+
+temporary numerical checks independently solve weighted two-risk-level likelihoods, compare analytic/finite-difference gradients, retain negative slopes, test extreme finite logs through ±1000, and reject both separation orientations/touching, rank deficiency and invalid nominal support. source-level statistical review separately checks support, stable complementary derivatives, hessian positivity, fixed scaling/initialization, generator order, paired attempt weighting, missingness and strict recommendation boundaries. independent systems review guards base-model/raw/network access, sole stream consumption, input/output identities and resource failure paths.
+
+end-to-end checks cover the exact three single-use flags, missing/abbreviated/extra flags, malformed links/stream/coverage/descriptors/dates, research relabeling, exclusive external outputs and native model-loader rejection. complete synthetic commands cover all 6,000 draws, explicit unsupported draws and a wholly empty assessment population with null rates/intervals. actual/projected time and memory breaches, and injected final-write failure, leave no completion. independent output audits check every fixed summary, per-game sum, group, own/matched bin, interval and decision.
+
+the successful complete fixture uses an exact identity adjustment. it verifies the full command but does not establish general numerical convergence. a separate changing-fit fixture independently checks the first 20 predetermined draws of every method; refitting versus fixed coefficients changes paired loss by up to `0.012373892140842807` nats, and pooled-attempt versus equal-game averaging differs by up to `0.016373653802040034`. the largest coefficient/statistic discrepancy against its independent solution is `9.296434178018842e-09`. no fixed-coefficient uncertainty substitution occurred.
+
+review corrected an unjustified nonempty-assessment gate and an artifact field collision that replaced the independently checked numerical objective with its description. a valid nominal fit with empty assessment evidence now completes with null affected estimates/intervals; unsupported nominal fitting still fails. all twenty bins and zero-contribution selected games remain explicit. the rendered synthetic figure has common full-range scales, visible zero counts, absent empty residual markers and readable unclipped annotation.
+
+## numerical limitation and tradeoffs
+
+supported synthetic refits can report abnormal termination near floating-point resolution. the command correctly rejects these as execution errors, never undefined draws or retried fits. [the issue](../../issues/conversion-refit-convergence.md) preserves exact current and historical reproducers plus independent high-precision analysis. correctly rounded objective/gradient reduction improves summation accuracy at roughly five times the 24,000-row callback cost, but cannot remove all row-term/line-search roundoff. bootstrap assessment metrics remain vectorized. the unchanged 900-second/2-gib ceiling governs the real execution.
+
+strict zero endpoints also expose floating-point sensitivity: the identity fixture's nominal paired loss is about `3.85e-18` nats and every interval lower endpoint is positive, so the literal rule reports `conflicting_or_adverse`. this is fixture roundoff, not empirical evidence of harm. no clamping, useful-effect margin or scientific rule was introduced.
+
+two compact saved-log arrays cost about 0.8 mb for the real population and preserve exact unchanged losses. only summaries and bootstrap draws are written; there is no copied prediction stream. nonlinear figure tails trade proportional spacing for readability; exact values remain in tables. genuine historical commands and supported feature code remain; no compatibility path or generalized feature/runner framework was added.
+
+## execution and closure
+
+the protocol will be frozen outside the worktree after final source-bound green verification and a clean implementation commit, before any real adjustment fit. the temporary in-process audit captures the already-collected arrays, checks representative independent refits and all output arithmetic, and does not replay the stream. final execution identities, numerical evidence, review and deletion receipts belong here after execution.

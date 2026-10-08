@@ -15,7 +15,7 @@ import numpy as np
 
 from hockey_stats.artifacts import write_json
 from hockey_stats.captures import InputContractError
-from hockey_stats.chance import CONTEXT_CATEGORIES, TYPES
+from hockey_stats.chance import CONTEXT_CATEGORIES
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_data import MODEL_SHOT_TYPES
 from hockey_stats.chance_evaluation import (
@@ -168,61 +168,8 @@ class ResidualAccumulator:
         self._spatial = SpatialAccumulator(self._game_dates, comparison)
 
     def consume(self, row, revised_records):
-        previous, groups, context = row["previous_event"], row["diagnostic_groups"], row["context"]
-        require(isinstance(previous, dict) and isinstance(groups, dict) and isinstance(context, dict),
-                "saved descriptors must be objects")
-        recent = previous["status"]
-        require(recent in ("none", "recent", "unavailable"), "invalid saved preceding-action status")
-        original, model_type, month = row["shot_type"], row["model_shot_type"], row["game_date"][:7]
-        require((original is None or isinstance(original, str))
-                and model_type == MODEL_SHOT_TYPES.get(original),
-                "saved original/model shot-type mapping disagrees")
-        descriptors = dict(
-            original_type=original, model_type=model_type, calendar_month=month,
-            recent_context=recent, recent_kind=previous["kind"] if recent != "none" else None,
-            recent_team=previous["owner_team_relation"] if recent != "none" else None,
-            recent_delay=previous["time_gap_seconds"] if recent != "none" else None,
-        )
-        require(all(groups[field] == value for field, value in descriptors.items()),
-                "saved diagnostic date/type/recent descriptors disagree")
-        for field, previous_field in (
-            ("recent_kind", "kind"), ("recent_team", "owner_team_relation"),
-            ("recent_delay", "time_gap_seconds"),
-        ):
-            require(context[field] == (previous[previous_field] if recent == "recent" else None),
-                    "saved model context and preceding descriptor disagree")
-        if recent == "recent":
-            require(type(previous["time_gap_seconds"]) is int
-                    and previous["time_gap_seconds"] in CONTEXT_CATEGORIES["recent_delay"]
-                    and previous["owner_team_relation"] in CONTEXT_CATEGORIES["recent_team"]
-                    and all(type(previous[field]) in (int, float) and math.isfinite(previous[field])
-                            for field in ("current_attack_x", "current_attack_y"))
-                    and (previous["same_shooter"] is None or type(previous["same_shooter"]) is bool),
-                    "saved recent descriptors are unsupported")
-            recent_zone = "attacking" if previous["current_attack_x"] > 25 else "other"
-            recent_shooter = None if previous["same_shooter"] is None else (
-                "same" if previous["same_shooter"] else "different")
-        else:
-            recent_zone, recent_shooter = None, None
-        require(context["recent_zone"] == recent_zone and context["recent_shooter"] == recent_shooter
-                and groups["home_away"] == context["home_away"],
-                "saved model context location/shooter/side descriptors disagree")
-        predictor_groups = row["predictor_groups"]
-        require(isinstance(predictor_groups, dict) and set(predictor_groups) == {
-                    "baseline", "revision", "historical_stronger", "improved_direct"}
-                and all(set(predictor_groups[name]) == set(assessment.QUANTITIES)
-                        for name in ("baseline", "revision"))
-                and all(set(predictor_groups[name]) == set(FOCAL_BINS)
-                        for name in ("historical_stronger", "improved_direct"))
-                and all(all(part[field] == value for field, value in descriptors.items())
-                        and part["home_away"] == groups["home_away"] and part["role"] == groups["role"]
-                        for quantities in predictor_groups.values() for part in quantities.values()),
-                "saved predictor descriptors disagree")
+        original, model_type, month, recent = assessment.saved_descriptors(row)
         applicable = row["status"] == "eligible"
-        if applicable:
-            require(recent in ("none", "recent") and model_type in TYPES
-                    and (recent != "recent" or previous["kind"] in CONTEXT_CATEGORIES["recent_kind"]),
-                    "eligible saved type/recent context must be supported")
         proxy = row["proxy_cell_id"]
         if applicable and not row["blocked"]:
             require(type(proxy) is int and 0 <= proxy < len(self._cell_regions),
@@ -257,7 +204,7 @@ class ResidualAccumulator:
             return
         keys = dict(
             calendar_month=month, original_shot_type=original,
-            preceding_kind="none" if recent == "none" else "recent/" + previous["kind"],
+            preceding_kind="none" if recent == "none" else "recent/" + row["previous_event"]["kind"],
             observed_proxy_region="blocked_origin_unobserved" if row["blocked"] else REGION_NAMES[proxy_region],
         )
         index = self._game_index[row["game_id"]]

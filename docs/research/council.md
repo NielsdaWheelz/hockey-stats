@@ -2,6 +2,8 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+later council review and user-approved direction after merged 03i: [conversion-first research and retained features](model-direction.md), 2026-10-08. the original recommendations below remain dated evidence.
+
 ## recommendation
 
 the proposed sequence is sound: preserve the predecessor, build a selective knowledge base, establish the product's questions and statistical meanings, design ownership and contracts, then specify reviewable implementation slices. repository preservation and this first knowledge-base pass are complete. architecture and implementation remain unstarted.

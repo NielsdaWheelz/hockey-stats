@@ -1,6 +1,6 @@
 # retained analytical feature repertoire
 
-status: implemented on isolated `codex/03k-feature-repertoire`; [software verification](research/features-03k/verification.md) passed, and it is not merged. [03k](specs/03k-feature-repertoire.md) implements all specified local facts and sixteen explicit numerical families; correct inactive code is retained. [the input audit](research/model-input-audit.md) owns source-field and peer-method evidence; this page owns the inventory and retention policy. no scientific admission or real fitting campaign follows. product features remain in [the capability inventory](product-inventory.md).
+status: implemented and independently reviewed; [software verification](research/features-03k/verification.md) passed. [03k](specs/03k-feature-repertoire.md) implements all specified local facts and sixteen explicit numerical families; correct inactive code is retained. [the input audit](research/model-input-audit.md) owns source-field and peer-method evidence; this page owns the inventory and retention policy. no scientific admission or real fitting campaign follows. product features remain in [the capability inventory](product-inventory.md).
 
 ## policy and contract
 

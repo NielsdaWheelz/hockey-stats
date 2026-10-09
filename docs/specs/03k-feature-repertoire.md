@@ -1,6 +1,6 @@
 # pr03k — retained local feature repertoire
 
-status: **implemented; [software verification](../research/features-03k/verification.md) passed on isolated `codex/03k-feature-repertoire`, not merged.** user choice, 2026-10-08: the full local-data repertoire in one pr, including continuity/deployment/workload/history. internal blocks divide ownership, not later prs. [03j](../research/chance-03j/decision.md) is merged and inconclusive; no intervention selected. [brief](../brief.md) · [retention policy/inventory](../model-features.md) · [input audit](../research/model-input-audit.md)
+status: **implemented; [software verification](../research/features-03k/verification.md) passed.** user choice, 2026-10-08: the full local-data repertoire in one pr, including continuity/deployment/workload/history. internal blocks divide ownership, not later prs. [03j](../research/chance-03j/decision.md) is merged and inconclusive; no intervention selected. [brief](../brief.md) · [retention policy/inventory](../model-features.md) · [input audit](../research/model-input-audit.md)
 
 ## target and scope
 

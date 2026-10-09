@@ -1,6 +1,6 @@
 # 03k exact-field and design ledger
 
-status: implemented and software verified on isolated `codex/03k-feature-repertoire`, not merged. source, temporal, numerical and full-corpus checks pass. native source/content, temporal, statistical and systems reviewers challenged the source, chronological, design and consumer contracts. [verification](verification.md) records the implementation, temporary red/green/refactor checks, full-corpus reconciliation, availability and resources. software completion does not establish scientific support.
+status: implemented and independently reviewed; software verification passed. source, temporal, numerical and full-corpus checks pass. native source/content, temporal, statistical and systems reviewers challenged the source, chronological, design and consumer contracts. [verification](verification.md) records the implementation, temporary red/green/refactor checks, full-corpus reconciliation, availability and resources. software completion does not establish scientific support.
 
 ## located source observations
 

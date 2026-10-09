@@ -4,6 +4,8 @@ audited 2026-09-30 against implementation `9132131`, three local game captures, 
 
 current follow-up: [03c is merged](chance-03c/decision.md), with all three seasons admitted locally, expanded fixtures and verified report/landing coverage. the tables below retain the dated chance-1 baseline; their pending source claims are superseded by that evidence. [03d's selected-feature contract](../specs/03d-chance-revision.md#selected-features-and-preceding-context) records the revised candidate's include/assess/omit decisions. no source recovery establishes scientific support.
 
+prospective amendment, 2026-10-08: the user approved a [retained feature repertoire](../model-features.md), implemented in [03k](../specs/03k-feature-repertoire.md) independently of the next saved-prediction benchmark. reviewed available families now have an explicit preparation consumer even while inactive. omit/ablate means model selection, not deletion of a correct supported extractor. the inventory owns current family status; these dated field/peer tables remain evidence, not current implementation claims or an all-features recipe.
+
 **we do not use the same complete inputs or features.** `chance-1` is a smaller, rejected candidate. earlier research documented several simplifications, but failed to connect the public-method inventory to every relevant source field. the blocked-shot-type omission is an audit failure, not a necessary consequence of a public-data core.
 
 ## reference versions and meaning

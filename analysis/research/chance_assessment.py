@@ -17,6 +17,7 @@ from hockey_stats.captures import InputContractError, strict_json
 from hockey_stats.chance import CONTEXT_CATEGORIES, TYPES
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_data import MODEL_SHOT_TYPES
+from hockey_stats.chance_features import PREPARATION_IDENTITY, stage_design
 from hockey_stats.chance_evaluation import (
     PROBABILITY_SUMS, add_binary, binary_metrics, binary_record, finish_binary,
 )
@@ -97,15 +98,22 @@ def load_evidence(completion_path):
     comparison_path = linked_path(completion["comparison"])
     composition_path = linked_path(completion["composition"])
     comparison, composition = read_json(comparison_path), read_json(composition_path)
-    for document, kind in (
-        (completion, "chance_conversion_diagnosis_completion"),
-        (comparison, "chance_conversion_diagnosis"),
-        (composition, "chance_conversion_composition"),
+    for document, kind, version in (
+        (completion, "chance_conversion_diagnosis_completion", 1),
+        (comparison, "chance_conversion_diagnosis", 1),
+        (composition, "chance_conversion_composition", 2),
     ):
-        require(type(document["schema_version"]) is int and document["schema_version"] == 1
+        require(type(document["schema_version"]) is int and document["schema_version"] == version
                 and document["artifact_kind"] == kind and document["purpose"] == purpose
                 and document["scientific_assessment"] == "not_performed",
-                "schema-1 completed diagnosis kinds/purposes required")
+                "current completed diagnosis kinds/schemas/purposes required")
+    require(composition["preparation_identity"] == PREPARATION_IDENTITY,
+            "composition preparation identity disagrees")
+    design = composition["compatibility"]["stage_design"]
+    require(design["stage"] == "r" and design == stage_design(
+                "r", design["families"], core_layout=design["core_layout"],
+                trait_assumptions=design["trait_assumptions"]),
+            "composition conversion design disagrees")
     require(comparison["composition"] == completion["composition"]
             and comparison["attempts"] == completion["attempts"]
             and comparison["implementation"] == composition["implementation"],
@@ -252,7 +260,7 @@ def reconstruct(loaded, *, diagnostic=None):
             except ValueError as error:
                 raise InputContractError(f"{stream}:{line_number}: invalid prediction json") from error
             require(isinstance(row, dict) and type(row["schema_version"]) is int
-                    and row["schema_version"] == 1, "schema-1 saved prediction row required")
+                    and row["schema_version"] == 2, "schema-2 saved prediction row required")
             gid, index = row["game_id"], row["source_index"]
             require(gid in games and type(index) is int and index >= 0, "invalid recognized key")
             key = (order[gid], index)

@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "kernel_distance_ft": 20,
   "kernel_direction_strength": 4,
   "ridge_origin_base": 1,
@@ -20,5 +20,28 @@
   "em_max_iterations": 500,
   "em_relative_tolerance": 1e-08,
   "em_posterior_tolerance": 1e-06,
-  "objective_decrease_tolerance": 1e-10
+  "objective_decrease_tolerance": 1e-10,
+  "stage_families": {
+    "origin": [
+      "game_additive",
+      "recent_additive"
+    ],
+    "u": [
+      "game_additive",
+      "recent_additive"
+    ],
+    "r": [
+      "game_additive",
+      "recent_additive"
+    ],
+    "unblocked": [
+      "game_additive",
+      "recent_additive"
+    ],
+    "all_attempt": [
+      "game_additive",
+      "recent_additive"
+    ]
+  },
+  "trait_assumptions": []
 }

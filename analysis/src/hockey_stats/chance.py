@@ -3,7 +3,7 @@
 import hashlib
 import json
 import math
-from collections import Counter, OrderedDict
+from collections import Counter
 from copy import deepcopy
 from datetime import date
 from pathlib import Path
@@ -19,56 +19,17 @@ from .shot_origins import cell_id, forward_kernel, grid, posterior
 
 TYPES = ["wrist", "snap", "slap", "backhand", "tip", "other"]
 ROLES = ["F", "D", "unknown"]
-CONTEXT_CATEGORIES = OrderedDict(
-    score_bucket=[
-        "trailing_2_plus",
-        "trailing_1",
-        "tied",
-        "leading_1",
-        "leading_2_plus",
-    ],
-    period=["1", "2", "3", "OT"],
-    home_away=["home", "away"],
-    minute_band=["first", "middle", "last"],
-    recent_kind=[
-        "faceoff",
-        "hit",
-        "giveaway",
-        "takeaway",
-        "shot-on-goal",
-        "missed-shot",
-        "blocked-shot",
-    ],
-    recent_team=["same", "opponent"],
-    recent_delay=list(range(6)),
-    recent_zone=["attacking", "other"],
-    recent_shooter=["same", "different"],
+from .chance_features import (
+    PREPARATION_IDENTITY, STAGES, CONTEXT_CATEGORIES, CONTEXT_FIELDS,
+    CONTEXT_REFERENCES, validate_context, validate_stage_selection,
+    stage_design, encode_stage_inputs, candidate_columns,
 )
-CONTEXT_FIELDS = list(CONTEXT_CATEGORIES)
-CONTEXT_REFERENCES = dict(
-    score_bucket="tied", period="1", home_away="away", minute_band="middle"
-)
-SCALAR_FEATURES = [
-    f"{key}:{level}"
-    for key, levels in CONTEXT_CATEGORIES.items()
-    for level in levels
-    if level != CONTEXT_REFERENCES.get(key)
-]
-RECENT_INTERACTION_FEATURES = [
-    f"recent_kind:{kind}:recent_team:same"
-    for kind in CONTEXT_CATEGORIES["recent_kind"][1:]
-] + [
-    f"recent_kind:{kind}:recent_delay:{delay}"
-    for kind in CONTEXT_CATEGORIES["recent_kind"][1:]
-    for delay in range(1, 6)
-]
+
 COMPONENT_QUANTITIES = {
     "unblocked_conversion": "r",
     "all_attempt_recorded_context": "all_attempt",
 }
-FEATURE_SETS = ("additive", "recent_interactions")
 BATCH_SIZE = 32
-REFERENCE_CACHE_CELLS = 65536
 CONFIG_FIELDS = {
     "kernel_distance_ft",
     "kernel_direction_strength",
@@ -104,11 +65,15 @@ STARTS = ["uniform", "unblocked_multinomial"]
 
 def validate_config(config):
     if not isinstance(config, dict) or set(config) != CONFIG_FIELDS | {
-        "schema_version"
+        "schema_version", "stage_families", "trait_assumptions"
     }:
-        raise InputContractError("candidate configuration keys do not match schema 2")
-    if type(config["schema_version"]) is not int or config["schema_version"] != 2:
+        raise InputContractError("candidate configuration keys do not match schema 3")
+    if type(config["schema_version"]) is not int or config["schema_version"] != 3:
         raise InputContractError("unsupported candidate schema")
+    if not isinstance(config["stage_families"], dict) or set(config["stage_families"]) != set(STAGES):
+        raise InputContractError("candidate requires all five explicit stage family lists")
+    for stage in STAGES:
+        validate_stage_selection(stage, config["stage_families"][stage], config["trait_assumptions"])
     for key in CONFIG_FIELDS:
         value = config[key]
         try:
@@ -122,51 +87,6 @@ def validate_config(config):
         if value < 0 or value == 0 and key not in ZERO_ALLOWED:
             raise InputContractError(f"{key} has invalid sign")
     return config
-
-
-def scalar_features(context, *, features="additive"):
-    """fixed contrasts; missing recent action is the zero reference."""
-    if not isinstance(context, dict) or list(context) != CONTEXT_FIELDS:
-        raise InputContractError("attempt context fields/order disagree with chance-2")
-    for key, levels in CONTEXT_CATEGORIES.items():
-        value = context[key]
-        if key.startswith("recent_") and value is None:
-            continue
-        if value not in levels or key == "recent_delay" and type(value) is not int:
-            raise InputContractError(f"unsupported context {key}")
-    recent = context["recent_kind"] is not None
-    if any(
-        (context[key] is not None) != recent
-        for key in ("recent_team", "recent_delay", "recent_zone")
-    ):
-        raise InputContractError("recent context factors disagree")
-    is_attempt = context["recent_kind"] in (
-        "shot-on-goal",
-        "missed-shot",
-        "blocked-shot",
-    )
-    if (context["recent_shooter"] is not None) != is_attempt:
-        raise InputContractError("recent shooter applicability disagrees")
-    if features not in FEATURE_SETS:
-        raise InputContractError("unsupported component feature set")
-    values = [
-        context[key] == level
-        for key, levels in CONTEXT_CATEGORIES.items()
-        for level in levels
-        if level != CONTEXT_REFERENCES.get(key)
-    ]
-    if features == "recent_interactions":
-        kinds = CONTEXT_CATEGORIES["recent_kind"][1:]
-        values += [
-            context["recent_kind"] == kind and context["recent_team"] == "same"
-            for kind in kinds
-        ]
-        values += [
-            context["recent_kind"] == kind and context["recent_delay"] == delay
-            for kind in kinds
-            for delay in range(1, 6)
-        ]
-    return np.array(values, dtype=np.float64)
 
 
 def _season(value):
@@ -186,7 +106,7 @@ def _validate_attempt(row, centers, *, geometry=True):
     ):
         raise InputContractError("attempt requires supported model type and role")
     _season(row.get("season"))
-    scalar_features(row.get("context"))
+    validate_context(row.get("context"))
     if any(
         type(row.get(key)) is not int or row[key] <= 0
         for key in ("shooter_id", "goalie_id")
@@ -215,120 +135,163 @@ def _counts(rows, actor, seasons):
     }
 
 
-def _stage_features(kind, seasons, cells, shooters, goalies, *, feature_set="additive"):
-    features = ["intercept"] + [f"season:{y}" for y in seasons[1:]]
+def _core_layout(kind, seasons, cells, shooters, goalies):
+    if kind == "origin":
+        prefix = ["base"] + [f"type:{t}" for t in TYPES[1:]]
+        prefix += [f"role:{r}" for r in ROLES[1:]]
+        prefix += [f"season:{y}" for y in seasons[1:]]
+        return dict(
+            prefix=prefix, suffix=[], cells=cells, seasons=seasons.copy(),
+            slices={"core": [0, len(prefix) * cells]},
+        )
+    prefix = ["intercept"] + [f"season:{y}" for y in seasons[1:]]
+    cell = len(prefix)
     if kind in ("u", "r"):
-        features += [f"cell:{h}" for h in range(cells)]
-        features += [f"type:{t}:cell:{h}" for t in TYPES[1:] for h in range(cells)]
+        prefix += [f"cell:{h}" for h in range(cells)]
+        type_start = len(prefix)
+        prefix += [
+            f"type:{t}:cell:{h}" for t in TYPES[1:] for h in range(cells)
+        ]
+        extra = len(prefix)
     else:
-        features += [f"type:{t}" for t in TYPES[1:]]
+        type_start = len(prefix)
+        prefix += [f"type:{t}" for t in TYPES[1:]]
+        extra = len(prefix)
         if kind == "unblocked":
-            features += [
+            prefix += [
                 f"type:{t}:geometry:{g}"
-                for t in TYPES
-                for g in ("d", "a", "d2", "da", "a2")
+                for t in TYPES for g in ("d", "a", "d2", "da", "a2")
             ]
         else:
-            features += [f"role:{r}" for r in ROLES[1:]]
-    features += SCALAR_FEATURES
-    if feature_set == "recent_interactions":
-        features += RECENT_INTERACTION_FEATURES
-    features += [f"shooter:{a}:season:{y}" for a in shooters for y in seasons]
-    features += [f"goalie:{a}:season:{y}" for a in goalies for y in seasons]
-    return features
+            prefix += [f"role:{r}" for r in ROLES[1:]]
+    suffix = [f"shooter:{a}:season:{y}" for a in shooters for y in seasons]
+    shooter_size = len(suffix)
+    suffix += [f"goalie:{a}:season:{y}" for a in goalies for y in seasons]
+    return dict(
+        prefix=prefix, suffix=suffix, cells=cells, seasons=seasons.copy(),
+        shooter_size=shooter_size,
+        slices={
+            "core": [0, len(prefix)], "cell": [cell, type_start],
+            "type": [type_start, extra], "extra": [extra, len(prefix)],
+        },
+    )
 
 
-def _layout(rows, seasons, cells, kind, *, features="additive"):
+def _layout(rows, seasons, cells, kind, *, config):
     shooters = sorted({r["shooter_id"] for r in rows})
     goalies = sorted({r["goalie_id"] for r in rows}) if kind != "u" else []
-    ordered = _stage_features(
-        kind, seasons, cells, shooters, goalies, feature_set=features
+    design = stage_design(
+        kind, config["stage_families"][kind],
+        core_layout=_core_layout(kind, seasons, cells, shooters, goalies),
+        trait_assumptions=config["trait_assumptions"],
     )
-    layout = dict(
-        kind=kind,
-        features=ordered,
-        seasons=seasons.copy(),
-        cells=cells,
-        size=len(ordered),
-        shooters=shooters,
-        goalies=goalies,
+    return dict(
+        kind=kind, features=design["columns"], design=design,
+        seasons=seasons.copy(), cells=cells, size=len(design["columns"]),
+        shooters=shooters, goalies=goalies,
         shooter_counts=_counts(rows, "shooter", seasons),
         goalie_counts=_counts(rows, "goalie", seasons) if goalies else {},
     )
-    if features == "recent_interactions":
-        layout["feature_set"] = features
-    return layout
 
 
 def _offsets(layout):
-    y, h = len(layout["seasons"]), layout["cells"]
-    spatial = layout["kind"] in ("u", "r")
-    cell = y
-    type_start = cell + h if spatial else y
-    extra = type_start + 5 * h if spatial else type_start + 5
-    scalar = extra if spatial else extra + (30 if layout["kind"] == "unblocked" else 2)
-    shooter = scalar + len(SCALAR_FEATURES)
-    if layout.get("feature_set") == "recent_interactions":
-        shooter += len(RECENT_INTERACTION_FEATURES)
-    goalie = shooter + len(layout["shooters"]) * y
+    return {
+        name: layout["design"]["slices"][name][0]
+        for name in ("cell", "type", "extra", "scalar", "shooter", "goalie")
+    }
+
+
+def _origin_layout(seasons, cells, *, config):
+    design = stage_design(
+        "origin", config["stage_families"]["origin"],
+        core_layout=_core_layout("origin", seasons, cells, [], []),
+        trait_assumptions=config["trait_assumptions"],
+    )
+    maps = design["core_layout"]["prefix"] + design["circumstance_columns"]
     return dict(
-        cell=cell,
-        type=type_start,
-        extra=extra,
-        scalar=scalar,
-        shooter=shooter,
-        goalie=goalie,
+        maps=maps, features=design["columns"], design=design,
+        seasons=seasons.copy(), cells=cells, size=len(design["columns"]),
     )
 
 
-def _origin_layout(seasons, cells):
-    maps = (
-        ["base"] + [f"type:{t}" for t in TYPES[1:]] + [f"role:{r}" for r in ROLES[1:]]
+def compile_designs(attempts, config, *, seasons=None):
+    """compile every independent stage without requiring selected facts."""
+    validate_config(config)
+    rows = [row for row in attempts if row["status"] == "eligible"]
+    years = [_season(value) for value in (
+        (row["season"] for row in rows) if seasons is None else seasons
+    )]
+    seasons = (
+        [f"{y:04d}{y + 1:04d}" for y in range(min(years), max(years) + 1)]
+        if years else []
     )
-    maps += [f"season:{y}" for y in seasons[1:]] + SCALAR_FEATURES
-    features = [f"{name}:cell:{h}" for name in maps for h in range(cells)]
-    return dict(
-        maps=maps,
-        features=features,
-        seasons=seasons.copy(),
-        cells=cells,
-        size=len(features),
-    )
+    centers, _ = grid()
+    layouts = {"origin": _origin_layout(seasons, len(centers), config=config)}
+    for kind in STAGES[1:]:
+        selected = (
+            [r for r in rows if not r["blocked"]]
+            if kind in ("r", "unblocked") else rows
+        )
+        layouts[kind] = _layout(selected, seasons, len(centers), kind, config=config)
+    return layouts
 
 
-def _encode(rows, layout, cells):
-    shooters = {a: i for i, a in enumerate(layout["shooters"])}
-    goalies = {a: i for i, a in enumerate(layout["goalies"])}
-    return dict(
+def _encode(rows, layout, cells, *, feature_games, feature_player_games):
+    encoded = [
+        encode_stage_inputs(
+            r, layout["design"],
+            game_facts=feature_games.get(r["game_id"], {}),
+            player_game_facts=feature_player_games.get(r["game_id"], {}),
+        )
+        for r in rows
+    ]
+    scalar = np.asarray([values for values, _ in encoded], dtype=np.float64)
+    scalar = scalar.reshape(len(rows), len(layout["design"]["circumstance_columns"]))
+    data = dict(
         cell=np.asarray(cells, dtype=np.int64),
         type=np.array([TYPES.index(r["model_shot_type"]) for r in rows]),
         role=np.array([ROLES.index(r["role"]) for r in rows]),
         season=np.array([layout["seasons"].index(r["season"]) for r in rows]),
-        scalar=np.array(
-            [
-                scalar_features(
-                    r["context"], features=layout.get("feature_set", "additive")
-                )
-                for r in rows
-            ]
-        ),
-        shooter=np.array([shooters.get(r["shooter_id"], -1) for r in rows]),
-        goalie=np.array([goalies.get(r["goalie_id"], -1) for r in rows]),
+        scalar=scalar,
         goal=np.array([r["goal"] for r in rows], dtype=np.float64),
     )
+    if layout["design"]["stage"] != "origin":
+        for actor in ("shooter", "goalie"):
+            indices = {a: i for i, a in enumerate(layout[actor + "s"])}
+            data[actor] = np.array([indices.get(r[actor + "_id"], -1) for r in rows])
+    if encoded and encoded[0][1]:
+        for key in encoded[0][1]:
+            data[key] = np.array([inputs[key] for _, inputs in encoded], dtype=np.float64)
+    return data
 
 
 def _origin_design(data, seasons):
     n = len(data["type"])
-    return np.column_stack(
-        (
-            np.ones(n),
-            data["type"][:, None] == np.arange(1, 6),
-            data["role"][:, None] == np.arange(1, 3),
-            data["season"][:, None] == np.arange(1, len(seasons)),
-            data["scalar"],
-        )
+    return np.column_stack((
+        np.ones(n),
+        data["type"][:, None] == np.arange(1, 6),
+        data["role"][:, None] == np.arange(1, 3),
+        data["season"][:, None] == np.arange(1, len(seasons)),
+        data["scalar"],
+    ))
+
+
+def _candidate_columns(data, layout, cells):
+    if not any(
+        f in layout["design"]["families"] for f in ("recent_geometry", "off_wing")
+    ):
+        return
+    centers, _ = grid()
+    points = centers[cells[0] if np.ndim(cells) == 2 else cells]
+    inputs = {
+        name: data[name][:, None] if np.ndim(cells) == 2 else data[name]
+        for name in ("previous_x", "previous_y", "hand") if name in data
+    }
+    xy = (
+        (points[None, :, 0], points[None, :, 1])
+        if np.ndim(cells) == 2 else (points[:, 0], points[:, 1])
     )
+    yield from candidate_columns(inputs, layout["design"], xy)
 
 
 def _map_penalty(beta, cells, ridges, smooth, edges):
@@ -354,6 +317,9 @@ def _penalty(beta, layout, config, edges):
     benchmark = layout["kind"] not in ("u", "r")
     ridge = config["ridge_benchmark"] if benchmark else config["ridge_context"]
     gradient = ridge * beta.copy()
+    scalar_start = offsets["scalar"]
+    for index, owner in enumerate(layout["design"]["penalty_owners"]):
+        gradient[scalar_start + index] = config[owner] * beta[scalar_start + index]
     gradient[0] = 0
     value = 0.5 * np.dot(beta, gradient)
     if not benchmark:
@@ -413,8 +379,12 @@ def _stage_logits(beta, layout, data, cells, *, scalar_logits=None):
     )
     if np.ndim(cells) == 2:
         ids = cells[0]
-        return scalar[:, None] + shared[ids][None, :] + types[:, ids][data["type"]]
-    return scalar + shared[cells] + types[data["type"], cells]
+        value = scalar[:, None] + shared[ids][None, :] + types[:, ids][data["type"]]
+    else:
+        value = scalar + shared[cells] + types[data["type"], cells]
+    for index, column in _candidate_columns(data, layout, cells):
+        value += beta[offsets["scalar"] + index] * column
+    return value
 
 
 def _scalar_gradient(gradient, layout, data, totals):
@@ -442,6 +412,8 @@ def _paired_stage_gradient(gradient, layout, data, residual):
     """accumulate scalar and spatial derivatives at known recorded cells."""
     _scalar_gradient(gradient, layout, data, residual)
     offsets = _offsets(layout)
+    for index, column in _candidate_columns(data, layout, data["cell"]):
+        gradient[offsets["scalar"] + index] += np.sum(residual * column)
     np.add.at(gradient, offsets["cell"] + data["cell"], residual)
     valid = data["type"] > 0
     np.add.at(
@@ -483,6 +455,8 @@ def _avoidance_objective(
         value -= (weights * log_expit(-logits)).sum()
         residual = weights * expit(logits)
         _scalar_gradient(gradient, layout, batch, residual.sum(axis=1))
+        for index, column in _candidate_columns(batch, layout, cells):
+            gradient[offsets["scalar"] + index] += np.sum(residual * column)
         gradient[offsets["cell"] : offsets["type"]] += residual.sum(axis=0)
         for t in range(1, 6):
             maps[t - 1] += residual[batch["type"] == t].sum(axis=0)
@@ -555,6 +529,8 @@ def _benchmark_features(data, layout, centers):
         valid = data["role"] > 0
         features[np.flatnonzero(valid), offsets["extra"] + data["role"][valid] - 1] = 1
     features[:, offsets["scalar"] : offsets["shooter"]] = data["scalar"]
+    for index, column in _candidate_columns(data, layout, data["cell"]):
+        features[:, offsets["scalar"] + index] = column
     for actor in ("shooter", "goalie"):
         valid = data[actor] >= 0
         features[
@@ -822,7 +798,7 @@ def _fit_resume(resume, origin_layout, layout, config):
             not isinstance(resume, dict)
             or set(resume) != {"schema_version", "completed_starts", "current_start"}
             or type(resume["schema_version"]) is not int
-            or resume["schema_version"] != 2
+            or resume["schema_version"] != 3
         ):
             raise ValueError("unsupported numerical state schema")
         completed, current = resume["completed_starts"], resume["current_start"]
@@ -978,17 +954,17 @@ def _em(
     return origin, beta, diag
 
 
-def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
+def fit_model(attempts, config, metadata, *, feature_games, feature_player_games, resume=None, checkpoint=None):
     """fit two fixed starts; checkpoints contain only fully accepted em states."""
     validate_config(config)
     rows = list(attempts)
     centers, edges = grid()
     ids = np.array([_validate_attempt(r, centers) for r in rows], dtype=np.int64)
-    selected_years = [int(game_id[:4]) for game_id in metadata["training_game_dates"]]
-    seasons = [
-        f"{y:04d}{y + 1:04d}"
-        for y in range(min(selected_years), max(selected_years) + 1)
-    ]
+    layouts = compile_designs(rows, config, seasons=[
+        game_id[:4] + str(int(game_id[:4]) + 1)
+        for game_id in metadata["training_game_dates"]
+    ])
+    seasons = layouts["origin"]["seasons"]
     if any(r["season"] not in seasons for r in rows):
         raise InputContractError("attempt season outside selected training seasons")
     diagnostics = dict(
@@ -1016,30 +992,24 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
             "target reference season requires eligible attempts"
         )
         return None, diagnostics
-    u_layout = _layout(rows, seasons, len(centers), "u")
-    r_layout = _layout(unblocked, seasons, len(centers), "r")
-    origin_layout = _origin_layout(seasons, len(centers))
+    u_layout, r_layout, origin_layout = (layouts[name] for name in ("u", "r", "origin"))
     completed, current = _fit_resume(resume, origin_layout, u_layout, config)
-    u_data = _encode(rows, u_layout, ids)
-    r_data = _encode(unblocked, r_layout, ids[~blocked])
+    u_data = _encode(rows, u_layout, ids, feature_games=feature_games, feature_player_games=feature_player_games)
+    r_data = _encode(unblocked, r_layout, ids[~blocked], feature_games=feature_games, feature_player_games=feature_player_games)
+    origin_data = _encode(rows, origin_layout, ids, feature_games=feature_games, feature_player_games=feature_player_games)
     u_data["blocked"] = blocked
-    design, origin_group = np.unique(
-        _origin_design(u_data, seasons), axis=0, return_inverse=True
+    design, origin_group = np.unique(_origin_design(origin_data, seasons), axis=0, return_inverse=True)
+    # group only numerically identical avoidance circumstances; candidate inputs
+    # remain original facts, never the observed block-contact coordinates.
+    candidate_keys = [name for name in ("previous_x", "previous_y", "hand") if name in u_data]
+    _, representatives, groups = np.unique(
+        np.column_stack((
+            u_data["type"], u_data["season"], u_data["shooter"], u_data["scalar"],
+            *[u_data[name] for name in candidate_keys],
+        )),
+        axis=0, return_index=True, return_inverse=True,
     )
-    group_keys, groups = np.unique(
-        np.column_stack(
-            (u_data["type"], u_data["season"], u_data["shooter"], u_data["scalar"])
-        ),
-        axis=0,
-        return_inverse=True,
-    )
-    group_data = dict(
-        type=group_keys[:, 0].astype(int),
-        season=group_keys[:, 1].astype(int),
-        shooter=group_keys[:, 2].astype(int),
-        scalar=group_keys[:, 3:],
-        goalie=np.full(len(group_keys), -1),
-    )
+    group_data = _slice_data(u_data, representatives)
     counts0 = np.zeros((len(design), len(centers)))
     np.add.at(counts0, (origin_group[~blocked], ids[~blocked]), 1)
     # successes have known cells; blocked failure groups retain every grid cell.
@@ -1118,7 +1088,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
                     saved_diag["initializer"] = initializer
                 checkpoint(
                     dict(
-                        schema_version=2,
+                        schema_version=3,
                         completed_starts=completed.copy(),
                         current_start=dict(
                             name=name,
@@ -1187,7 +1157,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
             if checkpoint:
                 checkpoint(
                     dict(
-                        schema_version=2,
+                        schema_version=3,
                         completed_starts=completed.copy(),
                         current_start=None,
                     )
@@ -1205,8 +1175,8 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
         ("unblocked", unblocked, ids[~blocked]),
         ("all_attempt", rows, ids),
     ):
-        layout = _layout(selected, seasons, len(centers), name)
-        data = _encode(selected, layout, cells)
+        layout = layouts[name]
+        data = _encode(selected, layout, cells, feature_games=feature_games, feature_player_games=feature_player_games)
         beta, diag = _fit_binary(data, layout, config, edges, centers)
         benchmarks[name] = dict(layout, coefficients=beta.tolist(), diagnostics=diag)
     diagnostics["benchmarks"] = {k: v["diagnostics"] for k, v in benchmarks.items()}
@@ -1217,14 +1187,14 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
     diagnostics.update(status="fitted", chosen_start=chosen[0], termination="converged")
     model = dict(
         metadata,
-        schema_version=2,
+        schema_version=3,
         model_kind="chance-2",
         config=dict(config),
         grid=dict(centers=centers.tolist(), neighbors=edges.tolist()),
         type_order=TYPES.copy(),
         role_order=ROLES.copy(),
         context_categories=dict(CONTEXT_CATEGORIES),
-        scalar_features=SCALAR_FEATURES.copy(),
+        preparation_identity=deepcopy(metadata["preparation_identity"]),
         seasons=seasons,
         training_seasons=sorted({r["season"] for r in rows}),
         reference_season=seasons[-1],
@@ -1251,7 +1221,7 @@ def fit_model(attempts, config, metadata, *, resume=None, checkpoint=None):
     return model, diagnostics
 
 
-def _validate_layout(layout, seasons, cells, kind, *, features="additive"):
+def _validate_layout(layout, seasons, cells, kind, *, config):
     fields = {
         "kind",
         "features",
@@ -1263,13 +1233,10 @@ def _validate_layout(layout, seasons, cells, kind, *, features="additive"):
         "shooter_counts",
         "goalie_counts",
         "coefficients",
+        "design",
     }
     if kind not in ("u", "r"):
         fields.add("diagnostics")
-    if features == "recent_interactions":
-        fields.add("feature_set")
-        if layout.get("feature_set") != features:
-            raise ValueError("interaction feature set disagrees")
     if not isinstance(layout, dict) or set(layout) != fields or layout["kind"] != kind:
         raise ValueError("layout fields/kind disagree")
     if (
@@ -1309,20 +1276,18 @@ def _validate_layout(layout, seasons, cells, kind, *, features="additive"):
             goalies = sum(c["by_season"][y] for c in layout["goalie_counts"].values())
             if shooters != goalies:
                 raise ValueError("shooter/goalie evidence populations disagree")
-    expected_features = _stage_features(
-        kind,
-        seasons,
-        cells,
-        layout["shooters"],
-        layout["goalies"],
-        feature_set=features,
+    expected_design = stage_design(
+        kind, config["stage_families"][kind],
+        core_layout=_core_layout(kind, seasons, cells, layout["shooters"], layout["goalies"]),
+        trait_assumptions=config["trait_assumptions"],
     )
     if (
-        layout["features"] != expected_features
+        layout["design"] != expected_design
+        or layout["features"] != expected_design["columns"]
         or type(layout["size"]) is not int
-        or layout["size"] != len(expected_features)
+        or layout["size"] != len(expected_design["columns"])
     ):
-        raise ValueError("coefficient order disagrees")
+        raise ValueError("coefficient/design order disagrees")
     _numeric_array(layout["coefficients"], (layout["size"],))
 
 
@@ -1407,14 +1372,22 @@ def _validate_training_identity(model, years):
         _validate_identity(identity, source=source)
     selection = model["selection"]
     if (
-        set(selection) != {"schema_version", "purpose", "corpora"}
+        set(selection) != {"schema_version", "purpose", "corpora", "history_corpora"}
         or type(selection["schema_version"]) is not int
-        or selection["schema_version"] != 1
+        or selection["schema_version"] != 2
         or selection["purpose"] != model["purpose"]
         or not isinstance(selection["corpora"], list)
         or not selection["corpora"]
     ):
         raise ValueError("invalid selection")
+    if (
+        not isinstance(selection["history_corpora"], list)
+        or any(not isinstance(path, str) or not path for path in selection["history_corpora"])
+        or len(set(selection["history_corpora"])) != len(selection["history_corpora"])
+    ):
+        raise ValueError("invalid history selection")
+    if model["preparation_identity"] != PREPARATION_IDENTITY:
+        raise ValueError("preparation identity disagrees")
     selected = []
     for corpus in selection["corpora"]:
         if (
@@ -1464,7 +1437,7 @@ def validate_model(model):
         if (
             not isinstance(model, dict)
             or type(model["schema_version"]) is not int
-            or model["schema_version"] != 2
+            or model["schema_version"] != 3
             or model["model_kind"] != "chance-2"
         ):
             raise ValueError("unsupported model version")
@@ -1488,7 +1461,7 @@ def validate_model(model):
             "type_order",
             "role_order",
             "context_categories",
-            "scalar_features",
+            "preparation_identity",
             "seasons",
             "training_seasons",
             "reference_season",
@@ -1500,7 +1473,7 @@ def validate_model(model):
             "diagnostics",
         }
         if set(model) != fields:
-            raise ValueError("model fields do not match schema 2")
+            raise ValueError("model fields do not match schema 3")
         if (
             model["purpose"] not in ("fixture_exercise", "research")
             or model["scientific_assessment"] != "not_performed"
@@ -1517,14 +1490,13 @@ def validate_model(model):
                 _numeric_array(model["grid"]["neighbors"], edges.shape), edges
             )
         ):
-            raise ValueError("grid differs from chance-2")
+            raise ValueError("grid differs from chance-3")
         if (
             model["type_order"] != TYPES
             or model["role_order"] != ROLES
             or model["context_categories"] != dict(CONTEXT_CATEGORIES)
-            or model["scalar_features"] != SCALAR_FEATURES
         ):
-            raise ValueError("category/feature order differs from chance-2")
+            raise ValueError("category/feature order differs from chance-3")
         seasons = model["seasons"]
         years = [_season(y) for y in seasons]
         if not years or years != list(range(years[0], years[-1] + 1)):
@@ -1538,7 +1510,7 @@ def validate_model(model):
             or seasons[-1] not in observed
         ):
             raise ValueError("invalid target/training seasons")
-        expected_origin = _origin_layout(seasons, len(centers))
+        expected_origin = _origin_layout(seasons, len(centers), config=model["config"])
         origin = model["origin"]
         if set(origin) != set(expected_origin) | {"coefficients"} or any(
             origin[k] != v for k, v in expected_origin.items()
@@ -1553,7 +1525,7 @@ def validate_model(model):
         for kind, layout in list(model["stages"].items()) + list(
             model["benchmarks"].items()
         ):
-            _validate_layout(layout, seasons, len(centers), kind)
+            _validate_layout(layout, seasons, len(centers), kind, config=model["config"])
         if model["kernel"] != dict(
             distance_ft=model["config"]["kernel_distance_ft"],
             direction_strength=model["config"]["kernel_direction_strength"],
@@ -1757,7 +1729,7 @@ def benchmark_actor_evidence(model, row, state_season=None):
     }
 
 
-def _component_artifact(metadata, config, layout, diagnostics, *, quantity, features):
+def _component_artifact(metadata, config, layout, diagnostics, *, quantity):
     dates = metadata["training_game_dates"]
     spatial_grid = None
     if quantity == "unblocked_conversion":
@@ -1772,20 +1744,18 @@ def _component_artifact(metadata, config, layout, diagnostics, *, quantity, feat
                 "inputs",
                 "selection",
                 "config_identity",
+                "preparation_identity",
             )
         },
         artifact_kind="chance_component",
-        schema_version=1,
+        schema_version=2,
         quantity=quantity,
-        feature_set=features,
         layout=deepcopy(layout),
         grid=spatial_grid,
         config=dict(config),
         type_order=TYPES.copy(),
         role_order=ROLES.copy(),
         context_categories=dict(CONTEXT_CATEGORIES),
-        scalar_features=SCALAR_FEATURES
-        + (RECENT_INTERACTION_FEATURES if features == "recent_interactions" else []),
         seasons=layout["seasons"].copy(),
         training_seasons=[
             y
@@ -1819,7 +1789,6 @@ def extract_component(model, *, quantity):
         layout,
         diagnostics,
         quantity=quantity,
-        features="additive",
     )
     extraction = implementation_identity()
     extraction.update(
@@ -1841,23 +1810,23 @@ def extract_component(model, *, quantity):
     return component
 
 
-def fit_component(attempts, config, metadata, *, quantity, features):
+def fit_component(attempts, config, metadata, *, quantity, design, feature_games, feature_player_games):
     """one native binary solve; no origin fit, em, or joint reference."""
     validate_config(config)
-    if quantity not in COMPONENT_QUANTITIES or features not in FEATURE_SETS:
-        raise InputContractError("unsupported component quantity/features")
+    if quantity not in COMPONENT_QUANTITIES:
+        raise InputContractError("unsupported component quantity")
     if metadata.get("protocol_identity") is None:
         raise InputContractError("component fitting requires a bound protocol")
     rows = list(attempts)
     centers, edges = grid()
     kind = COMPONENT_QUANTITIES[quantity]
-    selected_years = [int(g[:4]) for g in metadata["training_game_dates"]]
-    if not selected_years:
+    if not metadata["training_game_dates"]:
         raise InputContractError("component training requires selected games")
-    seasons = [
-        f"{y:04d}{y + 1:04d}"
-        for y in range(min(selected_years), max(selected_years) + 1)
-    ]
+    layouts = compile_designs(rows, config, seasons=[
+        game_id[:4] + str(int(game_id[:4]) + 1)
+        for game_id in metadata["training_game_dates"]
+    ])
+    seasons = layouts[kind]["seasons"]
     try:
         _validate_identity(metadata["protocol_identity"])
         training = dict(metadata)
@@ -1867,7 +1836,7 @@ def fit_component(attempts, config, metadata, *, quantity, features):
         )
         _validate_training_identity(
             training,
-            list(range(min(selected_years), max(selected_years) + 1)),
+            [_season(season) for season in seasons],
         )
         _validate_training_coverage(training, len(rows))
     except (KeyError, TypeError, ValueError, OverflowError, AttributeError) as error:
@@ -1898,8 +1867,10 @@ def fit_component(attempts, config, metadata, *, quantity, features):
             iterations=0,
             objective=None,
         )
-    layout = _layout(selected, seasons, len(centers), kind, features=features)
-    data = _encode(selected, layout, cells)
+    layout = layouts[kind]
+    if design != layout["design"]:
+        raise InputContractError("component design differs from explicit config/population layout")
+    data = _encode(selected, layout, cells, feature_games=feature_games, feature_player_games=feature_player_games)
     beta, diagnostics = _fit_binary(data, layout, config, edges, centers)
     if not diagnostics["converged"]:
         return None, diagnostics
@@ -1907,7 +1878,7 @@ def fit_component(attempts, config, metadata, *, quantity, features):
     if kind != "r":
         layout["diagnostics"] = dict(diagnostics)
     component = _component_artifact(
-        metadata, config, layout, diagnostics, quantity=quantity, features=features
+        metadata, config, layout, diagnostics, quantity=quantity
     )
     validate_component(component)
     return component, diagnostics
@@ -1925,14 +1896,13 @@ def validate_component(component, *, require_protocol=True):
             "selection",
             "config_identity",
             "quantity",
-            "feature_set",
             "layout",
             "grid",
             "config",
             "type_order",
             "role_order",
             "context_categories",
-            "scalar_features",
+            "preparation_identity",
             "seasons",
             "training_seasons",
             "training_eligible_attempts",
@@ -1949,14 +1919,14 @@ def validate_component(component, *, require_protocol=True):
             or set(component) != fields
             or component["artifact_kind"] != "chance_component"
             or type(component["schema_version"]) is not int
-            or component["schema_version"] != 1
+            or component["schema_version"] != 2
             or component["purpose"] not in ("fixture_exercise", "research")
             or component["scientific_assessment"] != "not_performed"
         ):
             raise ValueError("component schema/purpose disagree")
-        quantity, features = component["quantity"], component["feature_set"]
-        if quantity not in COMPONENT_QUANTITIES or features not in FEATURE_SETS:
-            raise ValueError("unsupported component quantity/features")
+        quantity = component["quantity"]
+        if quantity not in COMPONENT_QUANTITIES:
+            raise ValueError("unsupported component quantity")
         kind = COMPONENT_QUANTITIES[quantity]
         validate_config(component["config"])
         centers, edges = grid()
@@ -1977,9 +1947,7 @@ def validate_component(component, *, require_protocol=True):
             component["type_order"] != TYPES
             or component["role_order"] != ROLES
             or component["context_categories"] != dict(CONTEXT_CATEGORIES)
-            or component["scalar_features"]
-            != SCALAR_FEATURES
-            + (RECENT_INTERACTION_FEATURES if features == "recent_interactions" else [])
+
         ):
             raise ValueError("component feature/category order disagrees")
         seasons = component["seasons"]
@@ -1987,7 +1955,7 @@ def validate_component(component, *, require_protocol=True):
         if not years or years != list(range(years[0], years[-1] + 1)):
             raise ValueError("component seasons are not contiguous")
         layout = component["layout"]
-        _validate_layout(layout, seasons, len(centers), kind, features=features)
+        _validate_layout(layout, seasons, len(centers), kind, config=component["config"])
         observed = [
             y
             for y in seasons
@@ -2017,7 +1985,6 @@ def validate_component(component, *, require_protocol=True):
         if extraction is not None:
             if (
                 set(extraction) != {"model_content_sha256", "implementation"}
-                or features != "additive"
             ):
                 raise ValueError("invalid extraction provenance")
             digest = extraction["model_content_sha256"]
@@ -2041,17 +2008,18 @@ def validate_component(component, *, require_protocol=True):
     return component
 
 
-def component_prediction_context(component):
+def component_prediction_context(component, *, feature_games, feature_player_games):
     """validate once and prepare reusable numerical arrays for keyed prediction."""
     validate_component(component)
     return dict(
-        centers=grid()[0], coefficients=np.asarray(component["layout"]["coefficients"])
+        centers=grid()[0], coefficients=np.asarray(component["layout"]["coefficients"]),
+        feature_games=feature_games, feature_player_games=feature_player_games,
     )
 
 
 def predict_component(component, attempt, context=None):
     if context is None:
-        context = component_prediction_context(component)
+        raise InputContractError("component prediction requires an explicit prepared context")
     kind = COMPONENT_QUANTITIES[component["quantity"]]
     h = _validate_attempt(attempt, context["centers"], geometry=kind == "r")
     if attempt.get("status") != "eligible" or kind == "r" and attempt["blocked"]:
@@ -2060,7 +2028,7 @@ def predict_component(component, attempt, context=None):
         )
     basis, state = _season_state(component, attempt)
     layout = component["layout"]
-    data = _prediction_data(attempt, layout, h, state)
+    data = _prediction_data(attempt, layout, h, state, context)
     if kind == "r":
         logit = _stage_logits(context["coefficients"], layout, data, data["cell"])[0]
     else:
@@ -2077,8 +2045,8 @@ def predict_component(component, attempt, context=None):
     )
 
 
-def prediction_context(model, *, conversion=None):
-    """validated stage selection and bounded exact reference cache; model unchanged."""
+def prediction_context(model, *, feature_games, feature_player_games, conversion=None):
+    """validated stage composition and explicit, nonserialized prepared tables."""
     validate_model(model)
     layouts = dict(model["stages"])
     stage_models = {"u": model, "r": model}
@@ -2087,137 +2055,84 @@ def prediction_context(model, *, conversion=None):
         if conversion["quantity"] != "unblocked_conversion":
             raise InputContractError("composition requires a conversion component")
         for key in (
-            "purpose",
-            "inputs",
-            "selection",
-            "config_identity",
-            "config",
-            "grid",
-            "seasons",
-            "type_order",
-            "role_order",
-            "context_categories",
-            "training_game_dates",
-            "training_game_ids",
-            "training_dates",
+            "purpose", "inputs", "selection", "preparation_identity", "grid", "seasons",
+            "type_order", "role_order", "context_categories", "training_game_dates",
+            "training_game_ids", "training_dates",
         ):
             if conversion[key] != model[key]:
                 raise InputContractError(f"conversion and anchor disagree on {key}")
+        # selection may change only the replacement stage, never the anchor.
+        for key in CONFIG_FIELDS | {"schema_version", "trait_assumptions"}:
+            if conversion["config"][key] != model["config"][key]:
+                raise InputContractError(f"conversion and anchor disagree on config.{key}")
         anchor = model["stages"]["r"]
         training_seasons = [
-            y
-            for y in model["seasons"]
+            y for y in model["seasons"]
             if any(c["by_season"][y] for c in anchor["shooter_counts"].values())
         ]
-        if conversion["training_seasons"] != training_seasons or conversion[
-            "training_eligible_attempts"
-        ] != model["coverage"]["attempts"]["chance_2_eligible_attempts"]:
+        if (
+            conversion["training_seasons"] != training_seasons
+            or conversion["training_eligible_attempts"]
+            != model["coverage"]["attempts"]["chance_2_eligible_attempts"]
+        ):
             raise InputContractError("conversion and anchor training counts disagree")
         for key in ("shooters", "goalies", "shooter_counts", "goalie_counts"):
             if conversion["layout"][key] != anchor[key]:
                 raise InputContractError(f"conversion and anchor disagree on {key}")
-        layouts["r"] = conversion["layout"]
-        stage_models["r"] = conversion
+        layouts["r"], stage_models["r"] = conversion["layout"], conversion
     centers, _ = grid()
-    context = {
-        "centers": centers,
-        "kernel": forward_kernel(
-            centers,
-            model["kernel"]["distance_ft"],
-            model["kernel"]["direction_strength"],
+    return dict(
+        centers=centers,
+        kernel=forward_kernel(
+            centers, model["kernel"]["distance_ft"], model["kernel"]["direction_strength"]
         ),
-        "origin": np.asarray(model["origin"]["coefficients"]),
-        "layouts": layouts,
-        "stage_models": stage_models,
-        "stages": {k: np.asarray(v["coefficients"]) for k, v in layouts.items()},
-        "benchmarks": {
+        origin=np.asarray(model["origin"]["coefficients"]),
+        layouts=layouts, stage_models=stage_models,
+        stages={k: np.asarray(v["coefficients"]) for k, v in layouts.items()},
+        benchmarks={
             k: np.asarray(v["coefficients"]) for k, v in model["benchmarks"].items()
         },
-        "reference_cache": OrderedDict(),
-        "reference_weights": np.array([pair["weight"] for pair in model["reference"]]),
-        "reference_scalar_logits": {},
-    }
-    # the zero contrast leaves intercept, target season and joint actor terms.
-    neutral_context = {key: CONTEXT_REFERENCES.get(key) for key in CONTEXT_FIELDS}
-    reference_rows = [
-        {
-            "season": model["reference_season"],
-            "model_shot_type": TYPES[0],
-            "role": ROLES[0],
-            "context": neutral_context,
-            "goal": False,
-            "shooter_id": pair["shooter_id"],
-            "goalie_id": pair["goalie_id"],
-        }
-        for pair in model["reference"]
-    ]
-    for name, stage in layouts.items():
-        data = _encode(reference_rows, stage, [0] * len(reference_rows))
-        context["reference_scalar_logits"][name] = _scalar_logits(
-            context["stages"][name], stage, data
-        )
-    return context
+        reference_weights=np.array([pair["weight"] for pair in model["reference"]]),
+        feature_games=feature_games, feature_player_games=feature_player_games,
+    )
 
 
-def _prediction_data(attempt, layout, h, state):
+def _prediction_data(attempt, layout, h, state, context):
     row = dict(attempt, season=state)
-    return _encode([row], layout, [h])
+    return _encode(
+        [row], layout, [h], feature_games=context["feature_games"],
+        feature_player_games=context["feature_player_games"],
+    )
 
 
 def reference_probabilities(model, attempt, cell_ids, context):
-    """exact target-season pairwise products, in requested cell order."""
+    """exact joint products; original circumstances survive actor substitution."""
     cells = np.asarray(cell_ids)
     if (
-        cells.ndim != 1
-        or cells.dtype.kind not in ("i", "u")
-        or (cells < 0).any()
-        or (cells >= len(context["centers"])).any()
+        cells.ndim != 1 or cells.dtype.kind not in ("i", "u")
+        or (cells < 0).any() or (cells >= len(context["centers"])).any()
     ):
         raise InputContractError("invalid requested reference cells")
-    scalars = {
-        name: scalar_features(
-            attempt["context"], features=layout.get("feature_set", "additive")
-        )
-        for name, layout in context["layouts"].items()
-    }
-    prefix = (attempt["model_shot_type"], tuple(scalars["u"]), tuple(scalars["r"]))
-    cache = context["reference_cache"]
-    missing = sorted({int(h) for h in cells if (prefix, int(h)) not in cache})
-    if missing:
-        data = {
-            "type": np.full(
-                len(model["reference"]), TYPES.index(attempt["model_shot_type"])
-            )
-        }
-        scalar_logits = {}
-        for name, stage in context["layouts"].items():
-            offsets = _offsets(stage)
-            scalar_logits[name] = context["reference_scalar_logits"][name] + (
-                scalars[name]
-                @ context["stages"][name][offsets["scalar"] : offsets["shooter"]]
-            )
-    for start in range(0, len(missing), BATCH_SIZE):
-        hs = np.array(missing[start : start + BATCH_SIZE])
+    reference_data = {}
+    for name, stage in context["layouts"].items():
+        # encode before substituting ids: joins and traits belong to the original
+        # attempt. the reference changes only residual actor execution effects.
+        original = _prediction_data(attempt, stage, 0, model["reference_season"], context)
+        data = {key: np.repeat(value, len(model["reference"]), axis=0) for key, value in original.items()}
+        for actor in ("shooter", "goalie"):
+            indices = {actor_id: i for i, actor_id in enumerate(stage[actor + "s"])}
+            data[actor] = np.array([indices.get(pair[actor + "_id"], -1) for pair in model["reference"]])
+        reference_data[name] = data
+    result = np.empty(len(cells))
+    for start in range(0, len(cells), BATCH_SIZE):
+        hs = cells[start:start + BATCH_SIZE][None, :]
         logits = {
-            name: _stage_logits(
-                context["stages"][name],
-                stage,
-                data,
-                hs[None, :],
-                scalar_logits=scalar_logits[name],
-            )
+            name: _stage_logits(context["stages"][name], stage, reference_data[name], hs)
             for name, stage in context["layouts"].items()
         }
-        values = context["reference_weights"] @ np.exp(
+        result[start:start + BATCH_SIZE] = context["reference_weights"] @ np.exp(
             log_expit(logits["u"]) + log_expit(logits["r"])
         )
-        for h, v in zip(hs, values):
-            cache[prefix, int(h)] = float(v)
-    result = np.array([cache[prefix, int(h)] for h in cells])
-    for h in cells:
-        cache.move_to_end((prefix, int(h)))
-    while len(cache) > REFERENCE_CACHE_CELLS:
-        cache.popitem(last=False)
     return result
 
 
@@ -2228,7 +2143,7 @@ def predict_cells(model, attempt, context=None):
     the selected layouts. reuse terms only with the same model/context/attempt.
     """
     if context is None:
-        context = prediction_context(model)
+        raise InputContractError("prediction requires an explicit prepared prediction context")
     h = _validate_attempt(attempt, context["centers"])
     result = dict(
         cell_id=h,
@@ -2239,9 +2154,7 @@ def predict_cells(model, attempt, context=None):
     for name in ("u", "r"):
         stage = context["layouts"][name]
         basis, state = _season_state(context["stage_models"][name], attempt)
-        data = _prediction_data(attempt, stage, h, state)
-        if name == "u":
-            origin_data = data
+        data = _prediction_data(attempt, stage, h, state, context)
         logits = _stage_logits(
             context["stages"][name],
             stage,
@@ -2255,6 +2168,8 @@ def predict_cells(model, attempt, context=None):
         )
         result["stage_season_basis"][name] = basis
         result["stage_state_season"][name] = state
+    _, origin_state = _season_state(model, attempt)
+    origin_data = _prediction_data(attempt, model["origin"], h, origin_state, context)
     log_pi = (
         _origin_design(origin_data, model["seasons"])
         @ context["origin"].reshape(-1, len(context["centers"]))
@@ -2267,7 +2182,7 @@ def predict_cells(model, attempt, context=None):
 def predict_attempt(model, attempt, context=None, *, cells=None):
     """factual probabilities and origins; optional cells come from predict_cells."""
     if context is None:
-        context = prediction_context(model)
+        raise InputContractError("prediction requires an explicit prepared prediction context")
     if cells is None:
         cells = predict_cells(model, attempt, context)
     h = cells["cell_id"]
@@ -2310,7 +2225,7 @@ def predict_attempt(model, attempt, context=None, *, cells=None):
         if output == "benchmark_r" and attempt["blocked"]:
             continue
         layout = model["benchmarks"][name]
-        data = _prediction_data(attempt, layout, h, state)
+        data = _prediction_data(attempt, layout, h, state, context)
         logit = float(
             (
                 _benchmark_features(data, layout, context["centers"])

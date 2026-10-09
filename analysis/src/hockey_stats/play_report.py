@@ -1,6 +1,8 @@
 """extract the current official play report's structure without hockey inference."""
 
-from typing import TypedDict
+from datetime import date
+import re
+from typing import Any, TypedDict
 
 from bs4 import BeautifulSoup, Tag
 
@@ -37,9 +39,101 @@ class ExtractedReport(TypedDict):
     issues: list[ExtractionIssue]
 
 
+class ExtractedSummary(TypedDict):
+    game_info: list[list[str]]
+    values: dict[str, Any]
+    paths: dict[str, str]
+    issues: list[ExtractionIssue]
+
+
 def _text(tag: Tag) -> str | None:
     text = " ".join(tag.stripped_strings)
     return text or None
+
+
+def report_identity(cells: list[str], game_date: str, game_number: str) -> bool:
+    """require the supplied report date, game number and final status."""
+    months = {name: index for index, name in enumerate(("January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"), 1)}
+    dates: list[str | None] = []
+    numbers = []
+    statuses = []
+    for text in cells:
+        match = re.fullmatch(r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ([A-Za-z]+) ([0-9]{1,2}), ([0-9]{4})", text)
+        if match is not None and match[1] in months:
+            try:
+                dates.append(date(int(match[3]), months[match[1]], int(match[2])).isoformat())
+            except ValueError:
+                dates.append(None)
+        if re.fullmatch(r"Game [0-9]{4}", text):
+            numbers.append(text.removeprefix("Game "))
+        if text in ("Final", "In Progress", "Preview"):
+            statuses.append(text)
+    return dates == [game_date] and numbers == [game_number] and statuses == ["Final"]
+
+
+def extract_summary(body: bytes) -> ExtractedSummary:
+    """extract located recording fields from the official game summary."""
+    soup = BeautifulSoup(body, "html.parser")
+    tables = soup.select("table#GameInfo")
+    game_info = [[text for cell in table.find_all("td") if (text := _text(cell)) is not None] for table in tables]
+    values: dict[str, Any] = dict.fromkeys(("reported_date", "reported_start", "reported_end", "attendance", "venue", "officials"))
+    paths = {field: "/GameInfo" for field in values}
+    paths["officials"] = "/OFFICIALS"
+    issues: list[ExtractionIssue] = []
+    if len(tables) != 1:
+        issues.append({"code": "unsupported_summary_structure", "path": "/GameInfo",
+                       "message": "expected one game identity table; summary recording unavailable"})
+    else:
+        found: dict[str, list[tuple[Any, str]]] = {field: [] for field in values if field != "officials"}
+        for index, cell in enumerate(tables[0].find_all("td")):
+            text = _text(cell)
+            if text is None:
+                continue
+            text = " ".join(text.split())
+            path = f"/GameInfo/td/{index}"
+            if re.fullmatch(r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), [A-Za-z]+ [0-9]{1,2}, [0-9]{4}", text):
+                found["reported_date"].append((text, path))
+            attendance = re.fullmatch(r"Attendance ([0-9]+(?:,[0-9]{3})*) at (.+)", text)
+            if attendance is not None:
+                found["attendance"].append((int(attendance[1].replace(",", "")), path))
+                found["venue"].append((attendance[2], path))
+            clocks = re.fullmatch(r"Start (.+); End (.+)", text)
+            if clocks is not None:
+                for field, fragment in (("reported_start", clocks[1]), ("reported_end", clocks[2])):
+                    if re.fullmatch(r"(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9] [A-Z]+", fragment):
+                        found[field].append((fragment, path))
+        for field, matches in found.items():
+            if len(matches) == 1:
+                values[field], paths[field] = matches[0]
+            else:
+                issues.append({"code": "unavailable_summary_field", "path": paths[field],
+                               "message": f"expected one supported {field} fragment; field unavailable"})
+    sections = [cell for cell in soup.find_all("td") if _text(cell) == "OFFICIALS"]
+    if len(sections) == 1:
+        row = sections[0].find_parent("tr")
+        following = row.find_next_sibling("tr") if row is not None else None
+        cells = following.find_all("td", recursive=False) if following is not None else []
+        role_tables = cells[0].find_all("table", recursive=False) if cells else []
+        role_rows = role_tables[0].find_all("tr", recursive=False) if len(role_tables) == 1 else []
+        headings = role_rows[0].find_all("td", recursive=False) if role_rows else []
+        names = role_rows[1].find_all("td", recursive=False) if len(role_rows) >= 2 else []
+        if (len(role_rows) in (2, 4) and len(headings) == len(names) == 2
+                and len({_text(cell) for cell in headings}) == 2 and all(_text(cell) is not None for cell in headings)):
+            officials = {_text(heading): list(cell.stripped_strings) for heading, cell in zip(headings, names, strict=True)}
+            if len(role_rows) == 4:
+                standby_headings = role_rows[2].find_all("td", recursive=False)
+                standby_names = role_rows[3].find_all("td", recursive=False)
+                if len(standby_headings) == len(standby_names) == 2:
+                    for heading, cell, main_heading in zip(standby_headings, standby_names, headings, strict=True):
+                        listed = list(cell.stripped_strings)
+                        if listed and _text(heading) == "Standby":
+                            officials["Standby " + _text(main_heading)] = listed
+            values["officials"] = officials
+    if values["officials"] is None:
+        issues.append({"code": "unavailable_officials", "path": "/OFFICIALS",
+                       "message": "expected one supported officials section with labeled role columns; officials unavailable"})
+    return {"game_info": game_info, "values": values, "paths": paths, "issues": issues}
 
 
 def _members(cell: Tag, path: str, issues: list[ExtractionIssue]) -> list[ExtractedMember] | None:

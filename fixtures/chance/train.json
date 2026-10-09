@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "purpose": "fixture_exercise",
   "corpora": [
     {
@@ -20,5 +20,10 @@
         "2025020001"
       ]
     }
+  ],
+  "history_corpora": [
+    "../../var/chance-corpus-20232024/corpus.json",
+    "../../var/chance-corpus-20242025/corpus.json",
+    "../../var/chance-corpus-20252026/corpus.json"
   ]
 }

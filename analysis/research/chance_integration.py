@@ -114,7 +114,7 @@ def load_evidence(path):
         document = read_json(document_path)
         require(identity(document_path) == parents[label]["assessment"],
                 "screen/original assessment identities differ")
-        require(document["schema_version"] == 3 and document["purpose"] == purpose
+        require(document["schema_version"] == 4 and document["purpose"] == purpose
                 and document["scientific_assessment"] == "not_performed",
                 "original native assessment schema/purpose mismatch")
         require(document["model"] == parents[label]["model"],
@@ -126,8 +126,13 @@ def load_evidence(path):
             clean_implementation(document["implementation"])
         require(document["geometry"] == model["grid"]
                 and document["reference"] == model["reference"]
-                and document["reference_season"] == model["reference_season"],
-                "native assessment/model grid or reference mismatch")
+                and document["reference_season"] == model["reference_season"]
+                and document["preparation_identity"] == model["preparation_identity"]
+                and document["stage_designs"] == {
+                    "origin": model["origin"]["design"],
+                    **{name: layout["design"] for name, layout in model["stages"].items()},
+                    **{name: layout["design"] for name, layout in model["benchmarks"].items()}},
+                "native assessment/model grid, reference or design mismatch")
         training = model["training_game_dates"]
         require(not set(training) & set(document["game_dates"])
                 and document["game_dates"]
@@ -160,12 +165,13 @@ def load_evidence(path):
             == selected["assessment"]["sha256"], "original assessment selection changed")
     score_path = absolute_path(scores["anchor"]["path"])
     score = read_json(score_path)
-    require(score["schema_version"] == 2 and score["purpose"] == purpose
+    require(score["schema_version"] == 3 and score["purpose"] == purpose
             and score["scientific_assessment"] == "not_performed"
             and score["quantity"] == "reference_opportunity_value"
             and score["units"] == "expected_goals" and score["model"] == original["model"],
             "original anchor score binding mismatch")
-    for field in ("inputs", "selection", "game_dates", "coverage", "geometry", "reference", "reference_season"):
+    for field in ("inputs", "selection", "game_dates", "coverage", "geometry", "reference", "reference_season",
+                  "preparation_identity", "stage_designs"):
         require(score[field] == original[field], f"anchor score/assessment {field} mismatch")
     if purpose == "research":
         clean_implementation(score["implementation"])
@@ -183,7 +189,7 @@ def load_evidence(path):
                 "selected screen cell must retain original training/assessment")
         component = validate_component(read_json(linked_path(cell["component"])))
         require(component["purpose"] == purpose and component["quantity"] == quantity
-                and component["feature_set"] == "recent_interactions"
+                and component["layout"]["design"]["families"] == ["game_additive", "recent_additive", "recent_interactions"]
                 and component["protocol_identity"] == screen["protocol"]
                 and component["config_identity"]["sha256"] == study["config"]["sha256"],
                 "selected component kind/features/protocol/config mismatch")
@@ -192,25 +198,27 @@ def load_evidence(path):
                         if field == "training_eligible_attempts" else anchor[field])
             require(component[field] == expected, f"component/anchor training {field} mismatch")
         evaluation = read_json(linked_path(cell["evaluation"]))
-        require(type(evaluation["schema_version"]) is int and evaluation["schema_version"] == 1
+        require(type(evaluation["schema_version"]) is int and evaluation["schema_version"] == 2
                 and evaluation["artifact_kind"] == "chance_component_evaluation"
                 and evaluation["purpose"] == purpose and evaluation["quantity"] == quantity
                 and evaluation["scientific_assessment"] == "not_performed"
                 and evaluation["component"] == cell["component"]
                 and evaluation["protocol"] == screen["protocol"]
-                and evaluation["selection_identity"] == selected["assessment"],
+                and evaluation["selection_identity"] == selected["assessment"]
+                and evaluation["preparation_identity"] == component["preparation_identity"]
+                and evaluation["stage_design"] == component["layout"]["design"],
                 "selected component evaluation binding mismatch")
         for field in ("selection", "inputs", "game_dates", "coverage"):
             require(evaluation[field] == original[field], f"component evaluation {field} changed")
         diagnostics = read_json(linked_path(cell["diagnostics"]))
-        require(type(diagnostics["schema_version"]) is int and diagnostics["schema_version"] == 1
+        require(type(diagnostics["schema_version"]) is int and diagnostics["schema_version"] == 2
                 and diagnostics["artifact_kind"] == "chance_component_fit"
                 and diagnostics["status"] == "fitted" and diagnostics["purpose"] == purpose
                 and diagnostics["quantity"] == quantity
-                and diagnostics["feature_set"] == "recent_interactions"
+                and diagnostics["stage_design"] == component["layout"]["design"]
                 and diagnostics["diagnostics"] == component["diagnostics"],
                 "selected component fit diagnostics mismatch")
-        for field in ("implementation", "inputs", "selection", "config_identity", "protocol_identity",
+        for field in ("implementation", "inputs", "selection", "config_identity", "protocol_identity", "preparation_identity",
                       "training_game_dates", "training_game_ids", "training_dates"):
             require(diagnostics[field] == component[field], f"selected fit/component {field} mismatch")
         if purpose == "research":
@@ -236,9 +244,6 @@ def load_evidence(path):
                 and len(original["game_dates"]) == 712
                 and original["reference_season"] == "20242025",
                 "frozen research population/cutoff/reference changed")
-    # this validates the complete replacement against the anchor without fitting.
-    baseline_context = prediction_context(anchor)
-    revision_context = prediction_context(anchor, conversion=components["unblocked_conversion"])
     resolved.update(evidence=identity(path), protocol=evidence["protocol"],
                     source_evidence=evidence["source_evidence"], original_protocol=original_protocol,
                     component_screen=evidence["component_screen"], screen_protocol=screen["protocol"],
@@ -247,7 +252,7 @@ def load_evidence(path):
     return dict(evidence=evidence, resolved=resolved, models=models, originals=originals,
                 score=score, score_stream=score_stream, components=components,
                 evaluations=evaluations, streams=streams, assessment_path=assessment_path,
-                baseline_context=baseline_context, revision_context=revision_context)
+                )
 
 
 def factual_rows(path, quantity, predictor, *, paired=False, cohort=False):
@@ -339,7 +344,8 @@ def run(evidence_path, output_value):
     if purpose == "research":
         clean_implementation(execution)
     composition = dict(
-        schema_version=1, artifact_kind="chance_conversion_composition", purpose=purpose,
+        schema_version=2, artifact_kind="chance_conversion_composition", purpose=purpose,
+        preparation_identity=prepared["preparation_identity"],
         implementation=execution, identities=resolved,
         parent_implementations=dict(
             anchor_model=anchor["implementation"],
@@ -352,7 +358,7 @@ def run(evidence_path, output_value):
         compatibility=dict(
             retained=["origin", "avoidance", "forward_kernel", "joint_reference"],
             replaced="complete conversion layout and coefficients",
-            feature_set="recent_interactions", training_game_dates=anchor["training_game_dates"],
+            stage_design=loaded["components"]["unblocked_conversion"]["layout"]["design"], training_game_dates=anchor["training_game_dates"],
             training_eligible_attempts=anchor["coverage"]["attempts_by_status"]["eligible"],
             conversion_training_attempts=sum(v["total"] for v in anchor["stages"]["r"]["shooter_counts"].values()),
             config=anchor["config_identity"], reference_season=anchor["reference_season"],
@@ -361,8 +367,11 @@ def run(evidence_path, output_value):
         ), scientific_assessment="not_performed",
     )
     write_json(output / "composition.json", composition)
-    contexts = dict(baseline=loaded["baseline_context"], revision=loaded["revision_context"])
-    stronger_context = prediction_context(stronger)
+    contexts = dict(
+        baseline=prediction_context(anchor, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"]),
+        revision=prediction_context(anchor, conversion=loaded["components"]["unblocked_conversion"], feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"]),
+    )
+    stronger_context = prediction_context(stronger, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"])
     centers = np.asarray(anchor["grid"]["centers"])
     cell_regions = compound_regions(centers)
     game_dates = prepared["game_dates"]
@@ -405,7 +414,7 @@ def run(evidence_path, output_value):
             require(key not in seen, "duplicate recognized attempt key")
             seen.add(key)
             expected_status = "valued" if attempt["status"] == "eligible" else attempt["status"]
-            require(score["schema_version"] == 2 and score["status"] == expected_status,
+            require(score["schema_version"] == 3 and score["status"] == expected_status,
                     "native score semantic disposition disagrees")
             for field, value in attempt.items():
                 if field not in ("status", "source_event"):

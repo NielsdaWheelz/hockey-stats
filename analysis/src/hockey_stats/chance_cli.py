@@ -66,6 +66,7 @@ def main() -> int:
             validate_model,
             score_attempt,
             prediction_context,
+            compile_designs,
         )
         from .chance_evaluation import evaluate
         import numpy
@@ -89,24 +90,29 @@ def main() -> int:
             ],
         )
         common = {
-            "schema_version": 2,
+            "schema_version": 3,
             "purpose": prepared["purpose"],
             "implementation": implementation,
             "inputs": prepared["inputs"],
             "selection": prepared["selection"],
             "game_dates": prepared["game_dates"],
             "coverage": prepared["coverage"],
+            "preparation_identity": prepared["preparation_identity"],
             "scientific_assessment": "not_performed",
         }
         if args.command == "fit":
             config = read_json(auxiliary)
             config_identity = identity(auxiliary)
+            layouts = compile_designs(prepared["attempts"], config,
+                                      seasons=[game["season"] for game in prepared["games"]])
             binding = dict(
                 purpose=prepared["purpose"],
                 inputs=prepared["inputs"],
                 selection=prepared["selection"],
                 config_identity=config_identity,
                 implementation=implementation,
+                preparation_identity=prepared["preparation_identity"],
+                stage_designs={name: layout["design"] for name, layout in layouts.items()},
             )
             resume, resumed_from = None, None
             if args.resume is not None:
@@ -116,7 +122,7 @@ def main() -> int:
                     not isinstance(document, dict)
                     or set(document) != {"schema_version", "binding", "state"}
                     or type(document["schema_version"]) is not int
-                    or document["schema_version"] != 2
+                    or document["schema_version"] != 3
                     or not isinstance(document["state"], dict)
                 ):
                     raise InputContractError("unsupported fit checkpoint schema")
@@ -154,7 +160,7 @@ def main() -> int:
             def save_checkpoint(state):
                 temporary = output / "checkpoint.tmp"
                 write_json(
-                    temporary, dict(schema_version=2, binding=binding, state=state)
+                    temporary, dict(schema_version=3, binding=binding, state=state)
                 )
                 temporary.replace(output / "checkpoint.json")
 
@@ -162,6 +168,8 @@ def main() -> int:
                 [r for r in prepared["attempts"] if r["status"] == "eligible"],
                 config,
                 metadata,
+                feature_games=prepared["feature_games"],
+                feature_player_games=prepared["feature_player_games"],
                 resume=resume,
                 checkpoint=save_checkpoint,
             )
@@ -199,8 +207,9 @@ def main() -> int:
             common["geometry"] = model["grid"]
             common["reference"] = model["reference"]
             common["reference_season"] = model["reference_season"]
+            common["stage_designs"] = {"origin": model["origin"]["design"], **{name: layout["design"] for name, layout in model["stages"].items()}, **{name: layout["design"] for name, layout in model["benchmarks"].items()}}
             if args.command == "evaluate":
-                common["schema_version"] = 3
+                common["schema_version"] = 4
                 training = model["training_game_dates"]
                 if set(training) & set(prepared["game_dates"]):
                     raise InputContractError(
@@ -236,7 +245,7 @@ def main() -> int:
                         f"{label}: {metric['count']} attempts; log loss {metric['log_loss']}; brier score {metric['brier_score']}"
                     )
             else:
-                context = prediction_context(model)
+                context = prediction_context(model, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"])
                 output.mkdir()
                 counts, reasons, origins = Counter(), Counter(), Counter()
                 per_game = {game_id: Counter() for game_id in prepared["game_dates"]}
@@ -246,7 +255,7 @@ def main() -> int:
                     for attempt in prepared["attempts"]:
                         row = {k: v for k, v in attempt.items() if k != "source_event"}
                         row.update(
-                            schema_version=2,
+                            schema_version=3,
                             season_basis=None,
                             state_season=None,
                             actor_evidence=None,

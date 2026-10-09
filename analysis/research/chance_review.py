@@ -120,9 +120,9 @@ def load_entries(entries, kind):
         document = read_json(path)
         require(
             type(document["schema_version"]) is int
-            and document["schema_version"] == (3 if kind == "assessments" else 2)
+            and document["schema_version"] == (4 if kind == "assessments" else 3)
             and document["purpose"] == "research",
-            f"{path}: research {'evaluation schema 3' if kind == 'assessments' else 'score schema 2'} required; fixture evidence forbidden",
+            f"{path}: research {'evaluation schema 4' if kind == 'assessments' else 'score schema 3'} required; fixture evidence forbidden",
         )
         require(
             document["scientific_assessment"] == "not_performed",
@@ -132,7 +132,7 @@ def load_entries(entries, kind):
         selection = document["selection"]
         require(
             type(selection["schema_version"]) is int
-            and selection["schema_version"] == 1
+            and selection["schema_version"] == 2
             and selection["purpose"] == "research",
             "invalid research selection",
         )
@@ -187,8 +187,13 @@ def load_entries(entries, kind):
         require(
             document["geometry"] == model["grid"]
             and document["reference"] == model["reference"]
-            and document["reference_season"] == model["reference_season"],
-            "artifact/model geometry or reference mismatch",
+            and document["reference_season"] == model["reference_season"]
+            and document["preparation_identity"] == model["preparation_identity"]
+            and document["stage_designs"] == {
+                "origin": model["origin"]["design"],
+                **{name: layout["design"] for name, layout in model["stages"].items()},
+                **{name: layout["design"] for name, layout in model["benchmarks"].items()}},
+            "artifact/model geometry, reference or design mismatch",
         )
         if kind == "assessments":
             require(
@@ -213,6 +218,7 @@ def load_entries(entries, kind):
                 "geometry",
                 "reference",
                 "reference_season",
+                "preparation_identity",
             ):
                 require(
                     document[field] == previous["document"][field],
@@ -1101,7 +1107,7 @@ def sensitivity_review(entries, reference_label):
             source = {key: value for key, value in rows[0].items() if key not in model_fields}
             for row in rows:
                 require(
-                    type(row["schema_version"]) is int and row["schema_version"] == 2,
+                    type(row["schema_version"]) is int and row["schema_version"] == 3,
                     "unsupported scored row schema",
                 )
                 require(

@@ -1,12 +1,13 @@
 """interpret selected captured hockey records without reconstructing exposure."""
 
-from datetime import date
+from datetime import date, datetime, timezone
+import math
 from pathlib import Path
 import re
 from typing import Any, Literal, NotRequired, TypedDict
 
 from .captures import InputContractError, SOURCES, read_capture, strict_json
-from .play_report import extract_report
+from .play_report import extract_report, extract_summary, report_identity
 
 
 class Issue(TypedDict):
@@ -24,6 +25,29 @@ class Input(TypedDict):
     body_sha256: str | None
     status: Literal["parsed", "unavailable", "reference_only"]
     reason: str | None
+
+
+class SourceEvidence(TypedDict):
+    source: str
+    path: str
+    input_index: int
+
+
+class FieldProblem(TypedDict):
+    status: Literal["unavailable", "conflict", "not_applicable"]
+    reason: str
+    evidence_refs: list[int]
+
+
+class SourceFields(TypedDict):
+    values: dict[str, Any]
+    problems: dict[str, FieldProblem]
+    evidence: list[SourceEvidence]
+
+
+class SourceObservation(TypedDict):
+    source: str
+    source_fields: SourceFields
 
 
 class Game(TypedDict):
@@ -69,6 +93,8 @@ class BoxscorePlayer(TypedDict):
     assists: int | None
     sog: int | None
     blocked_shots: int | None
+    source_fields: SourceFields
+    derived_fields: SourceFields
 
 
 class Event(TypedDict):
@@ -94,7 +120,9 @@ class Event(TypedDict):
     shooting_team_id: int | None
     shot_type: str | None
     reason: str | None
+    secondary_reason: str | None
     penalty_type: str | None
+    penalty_description: str | None
     penalty_duration_minutes: int | None
     away_score: int | None
     home_score: int | None
@@ -193,6 +221,8 @@ class GameDocument(TypedDict):
     shift_records: list[Shift] | None
     report_rows: list[ReportRow] | None
     landing_goals: list[LandingGoal] | None
+    recording_observations: list[SourceObservation]
+    coach_scratch_observations: list[SourceObservation]
     checks: list[Check]
     issues: list[Issue]
     uncomputed: list[str]
@@ -215,18 +245,26 @@ _ROLES = {
     "penalty_committed_by": "committedByPlayerId",
     "penalty_drawn_by": "drawnByPlayerId", "penalty_served_by": "servedByPlayerId",
 }
+SKATER_SOURCE_FIELDS = ("toi", "shifts", "goals", "assists", "sog", "blockedShots", "points", "plusMinus", "pim", "hits",
+    "powerPlayGoals", "giveaways", "takeaways", "faceoffWinningPctg")
+GOALIE_SOURCE_FIELDS = ("toi", "starter", "decision", "saves", "shotsAgainst", "goalsAgainst", "savePctg", "saveShotsAgainst",
+    "evenStrengthShotsAgainst", "powerPlayShotsAgainst", "shorthandedShotsAgainst", "evenStrengthGoalsAgainst",
+    "powerPlayGoalsAgainst", "shorthandedGoalsAgainst", "pim")
+RECORDING_FIELDS = ("venue", "venueLocation", "startTimeUTC", "easternUTCOffset", "venueUTCOffset", "venueTimezone")
+SUMMARY_RECORDING_FIELDS = ("reported_date", "reported_start", "reported_end", "attendance", "venue", "officials")
 
 
 def _issue(issues: list[Issue], source: str, path: str, code: str, message: str) -> None:
     issues.append({"code": code, "source": source, "path": path, "message": message})
 
 
-def _integer(value: Any, source: str, path: str, issues: list[Issue], minimum: int = 0, *, required: bool = False) -> int | None:
+def _integer(value: Any, source: str, path: str, issues: list[Issue], minimum: int | None = 0, *, required: bool = False) -> int | None:
     if value is None and not required:
         return None
-    if type(value) is int and value >= minimum:
+    if type(value) is int and (minimum is None or value >= minimum):
         return value
-    _issue(issues, source, path, "invalid_integer", f"expected integer >= {minimum}; selected value unavailable")
+    requirement = "integer" if minimum is None else f"integer >= {minimum}"
+    _issue(issues, source, path, "invalid_integer", f"expected {requirement}; selected value unavailable")
     return None
 
 
@@ -235,6 +273,93 @@ def _text(value: Any, source: str, path: str, issues: list[Issue]) -> str | None
         return value
     _issue(issues, source, path, "invalid_string", "expected string; selected value unavailable")
     return None
+
+
+def _fraction(value: Any, source: str, path: str, issues: list[Issue]) -> int | float | None:
+    if value is None:
+        return None
+    if type(value) in (int, float) and 0 <= value <= 1 and math.isfinite(value):
+        return value
+    _issue(issues, source, path, "invalid_fraction", "expected finite fraction in [0,1]; selected value unavailable")
+    return None
+
+
+def _boolean(value: Any, source: str, path: str, issues: list[Issue]) -> bool | None:
+    if value is None or type(value) is bool:
+        return value
+    _issue(issues, source, path, "invalid_boolean", "expected boolean; selected value unavailable")
+    return None
+
+
+def source_fields(values: dict[str, Any], source: str, input_index: int,
+                  paths: dict[str, str], issues: list[Issue]) -> SourceFields:
+    """locate selected source values and retain a problem for every null."""
+    evidence = [{"source": source, "path": paths[field], "input_index": input_index} for field in values]
+    messages = {issue["path"]: issue["message"] for issue in issues if issue["source"] == source}
+    problems = {field: {"status": "unavailable", "reason": messages.get(paths[field], "source field missing or null"),
+                        "evidence_refs": [index]}
+                for index, (field, value) in enumerate(values.items()) if value is None}
+    return {"values": values, "problems": problems, "evidence": evidence}
+
+
+def _boxscore_features(row: dict[str, Any], goalie: bool, source: str, path: str,
+                       input_index: int, issues: list[Issue]) -> tuple[SourceFields, SourceFields]:
+    """retain reported totals and derive only arithmetically supported saves."""
+    issue_start = len(issues)
+    values: dict[str, Any] = {}
+    selected_fields = GOALIE_SOURCE_FIELDS if goalie else SKATER_SOURCE_FIELDS
+    for field in selected_fields:
+        field_path = path + "/" + field
+        if field == "starter":
+            values[field] = _boolean(row.get(field), source, field_path, issues)
+        elif field in ("savePctg", "faceoffWinningPctg"):
+            values[field] = _fraction(row.get(field), source, field_path, issues)
+        elif field in ("toi", "decision") or field.endswith("ShotsAgainst"):
+            values[field] = _text(row.get(field), source, field_path, issues)
+        else:
+            values[field] = _integer(row.get(field), source, field_path, issues, None if field == "plusMinus" else 0)
+    facts = source_fields(values, source, input_index, {field: path + "/" + field for field in values}, issues[issue_start:])
+    derived: SourceFields = {"values": {}, "problems": {}, "evidence": []}
+    if goalie:
+        pairs: dict[str, tuple[int, int] | None] = {}
+        for field in ("saveShotsAgainst", "evenStrengthShotsAgainst", "powerPlayShotsAgainst", "shorthandedShotsAgainst"):
+            raw = values[field]
+            match = re.fullmatch(r"([0-9]+)/([0-9]+)", raw) if raw is not None else None
+            pair = (int(match[1]), int(match[2])) if match is not None else None
+            if pair is not None and pair[0] > pair[1]:
+                pair = None
+            pairs[field] = pair
+            if raw is not None and pair is None:
+                _issue(issues, source, path + "/" + field, "invalid_goalie_ratio",
+                       "expected saves/shots with numerator no greater than denominator; reported string retained")
+            goals_field = "goalsAgainst" if field == "saveShotsAgainst" else field.replace("Shots", "Goals")
+            goals = values[goals_field]
+            if pair is not None and goals is not None and pair[1] - pair[0] != goals:
+                _issue(issues, source, path + "/" + field, "goalie_ratio_conflict",
+                       "shots minus saves disagrees with reported goals against; source observations retained")
+        overall = pairs["saveShotsAgainst"]
+        if overall is not None:
+            if ((values["saves"] is not None and overall[0] != values["saves"])
+                    or (values["shotsAgainst"] is not None and overall[1] != values["shotsAgainst"])):
+                _issue(issues, source, path + "/saveShotsAgainst", "goalie_total_conflict",
+                       "formatted saves/shots disagrees with reported scalar totals; source observations retained")
+            percentage = values["savePctg"]
+            if percentage is not None and (overall[1] == 0 or abs(percentage - overall[0] / overall[1]) > 0.000001):
+                _issue(issues, source, path + "/savePctg", "goalie_percentage_conflict",
+                       "reported save fraction disagrees with formatted saves/shots; source observations retained")
+        for field, derived_name in (("evenStrengthShotsAgainst", "even_strength_saves"), ("powerPlayShotsAgainst", "power_play_saves"), ("shorthandedShotsAgainst", "shorthanded_saves")):
+            goals_field = field.replace("Shots", "Goals")
+            pair, goals = pairs[field], values[goals_field]
+            conflict = pair is not None and goals is not None and pair[1] - pair[0] != goals
+            derived["values"][derived_name] = pair[0] if pair is not None and goals is not None and not conflict else None
+            evidence_start = len(derived["evidence"])
+            derived["evidence"].extend({"source": source, "path": path + "/" + selected, "input_index": input_index}
+                                       for selected in (field, goals_field))
+            if derived["values"][derived_name] is None:
+                derived["problems"][derived_name] = {"status": "conflict" if conflict else "unavailable",
+                    "reason": "reported strength saves/shots and goals disagree" if conflict else "supported strength saves/shots and goals required",
+                    "evidence_refs": [evidence_start, evidence_start + 1]}
+    return facts, derived
 
 
 def _object(value: Any, source: str, path: str, issues: list[Issue]) -> dict[str, Any] | None:
@@ -355,12 +480,8 @@ def interpret_game(directory: Path) -> GameDocument:
         inputs.append(entry)
         if capture.body is None:
             continue
-        if capture.source == "play-report":
+        if capture.source in ("play-report", "game-summary"):
             continue  # report identity depends on the admitted game and roster below.
-        if capture.source == "game-summary":
-            entry["status"] = "reference_only"
-            entry["reason"] = "integrity-checked html; hockey content requires manual inspection"
-            continue
         try:
             parsed = strict_json(capture.body)
         except (ValueError, UnicodeDecodeError) as error:
@@ -459,6 +580,7 @@ def interpret_game(directory: Path) -> GameDocument:
     admitted_boxscore_arrays = False
     source = "boxscore"
     if source in bodies:
+        source_input_index = next(i for i, entry in enumerate(inputs) if entry["source"] == source)
         stats = _object(bodies[source].get("playerByGameStats"), source, "/playerByGameStats", issues)
         if stats is not None:
             players = []
@@ -478,17 +600,20 @@ def interpret_game(directory: Path) -> GameDocument:
                         row = _object(value, source, path, issues)
                         row = row if row is not None else {}
                         name = _object(row["name"], source, path + "/name", issues) if row.get("name") is not None else None
-                        toi = _text(row.get("toi"), source, path + "/toi", issues)
                         assert game is not None
+                        facts, derived = _boxscore_features(row, group == "goalies", source, path,
+                                                              source_input_index, issues)
+                        toi = facts["values"]["toi"]
                         players.append({"source_path": path, "player_id": _integer(row.get("playerId"), source, path + "/playerId", issues, 1, required=True),
                             "team_id": game[team_key], "name": _text(name.get("default") if name else None, source, path + "/name/default", issues),
                             "reported_position": _text(row.get("position"), source, path + "/position", issues),
                             "toi": toi, "toi_seconds": clock_seconds(toi, source, path + "/toi", issues),
-                            "shift_count": _integer(row.get("shifts"), source, path + "/shifts", issues),
-                            "goals": _integer(row.get("goals"), source, path + "/goals", issues),
-                            "assists": _integer(row.get("assists"), source, path + "/assists", issues),
-                            "sog": _integer(row.get("sog"), source, path + "/sog", issues),
-                            "blocked_shots": _integer(row.get("blockedShots"), source, path + "/blockedShots", issues)})
+                            "shift_count": facts["values"].get("shifts"),
+                            "goals": facts["values"].get("goals"),
+                            "assists": facts["values"].get("assists"),
+                            "sog": facts["values"].get("sog"),
+                            "blocked_shots": facts["values"].get("blockedShots"),
+                            "source_fields": facts, "derived_fields": derived})
             _duplicate_ids(players, "player_id", source, "/playerByGameStats", issues)
             if not admitted_boxscore_arrays:
                 players = None
@@ -530,6 +655,8 @@ def interpret_game(directory: Path) -> GameDocument:
                 roles = {role: _integer(details[field], source, path + "/details/" + field, issues, 1)
                          for role, field in _ROLES.items() if field in details}
                 type_key = _text(row.get("typeDescKey"), source, path + "/typeDescKey", issues)
+                if type_key in ("giveaway", "takeaway") and "playerId" in details:
+                    roles["turnover_player"] = _integer(details["playerId"], source, path + "/details/playerId", issues, 1)
                 type_code = _integer(row.get("typeCode"), source, path + "/typeCode", issues, 1, required=True)
                 classifiable = type_key in _EVENT_CODES and type_code == _EVENT_CODES[type_key]
                 if not classifiable:
@@ -566,7 +693,9 @@ def interpret_game(directory: Path) -> GameDocument:
                     "shooting_team_id": shooting_team,
                     "shot_type": _text(details.get("shotType"), source, path + "/details/shotType", issues),
                     "reason": _text(details.get("reason"), source, path + "/details/reason", issues),
+                    "secondary_reason": _text(details.get("secondaryReason"), source, path + "/details/secondaryReason", issues),
                     "penalty_type": _text(details.get("typeCode"), source, path + "/details/typeCode", issues) if type_key == "penalty" else None,
+                    "penalty_description": _text(details.get("descKey"), source, path + "/details/descKey", issues) if type_key == "penalty" else None,
                     "penalty_duration_minutes": _integer(details.get("duration"), source, path + "/details/duration", issues) if type_key == "penalty" else None,
                     "away_score": _integer(details.get("awayScore"), source, path + "/details/awayScore", issues),
                     "home_score": _integer(details.get("homeScore"), source, path + "/details/homeScore", issues)}
@@ -742,24 +871,8 @@ def interpret_game(directory: Path) -> GameDocument:
             _issue(issues, source, issue["path"], issue["code"], issue["message"])
         admitted = game is not None and bool(report["game_info"]) and bool(report["team_headers"])
         admitted = admitted and not any(issue["code"] == "unsupported_report_structure" for issue in report["issues"])
-        months = {name: index for index, name in enumerate(("January", "February", "March", "April", "May", "June",
-                   "July", "August", "September", "October", "November", "December"), 1)}
         for index, cells in enumerate(report["game_info"]):
-            dates = []
-            numbers = []
-            statuses = []
-            for text in cells:
-                match = re.fullmatch(r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ([A-Za-z]+) ([0-9]{1,2}), ([0-9]{4})", text)
-                if match is not None and match[1] in months:
-                    try:
-                        dates.append(date(int(match[3]), months[match[1]], int(match[2])).isoformat())
-                    except ValueError:
-                        dates.append(None)
-                if re.fullmatch(r"Game [0-9]{4}", text):
-                    numbers.append(text.removeprefix("Game "))
-                if text in ("Final", "In Progress", "Preview"):
-                    statuses.append(text)
-            if (game is None or dates != [game["game_date"]] or numbers != [requested[-4:]] or statuses != ["Final"]):
+            if game is None or not report_identity(cells, game["game_date"], requested[-4:]):
                 admitted = False
                 _issue(issues, source, f"/GameInfo/{index}", "report_identity_disagreement",
                        "report requires matching game date/number and final status; event report unavailable")
@@ -927,9 +1040,84 @@ def interpret_game(directory: Path) -> GameDocument:
                         "goal_modifier": _text(row.get("goalModifier"), source, path + "/goalModifier", issues)})
             _duplicate_ids(landing_goals, "event_id", source, "/summary/scoring", issues)
 
-    return {"schema_version": 3, "requested_game_id": requested, "inputs": inputs, "game": game,
+    recording_observations: list[SourceObservation] = []
+    for source in ("play-by-play", "boxscore", "landing"):
+        input_index = next(i for i, entry in enumerate(inputs) if entry["source"] == source)
+        body = bodies.get(source)
+        values = {}
+        paths = {}
+        recording_issue_start = len(issues)
+        for field in RECORDING_FIELDS:
+            path = "/" + field
+            supplied = body.get(field) if body is not None else None
+            if field in ("venue", "venueLocation"):
+                localized = _object(supplied, source, path, issues) if supplied is not None else None
+                supplied = localized.get("default") if localized is not None else None
+                path += "/default"
+            value = _text(supplied, source, path, issues)
+            if value is not None and field == "startTimeUTC":
+                try:
+                    parsed_time = datetime.fromisoformat(value)
+                    valid_time = parsed_time.utcoffset() == timezone.utc.utcoffset(parsed_time)
+                except ValueError:
+                    valid_time = False
+                if not valid_time:
+                    _issue(issues, source, path, "invalid_scheduled_time", "expected explicitly UTC iso datetime; scheduled time unavailable")
+                    value = None
+            if value is not None and field in ("easternUTCOffset", "venueUTCOffset") and re.fullmatch(r"[+-](?:[01][0-9]|2[0-3]):[0-5][0-9]", value) is None:
+                _issue(issues, source, path, "invalid_utc_offset", "expected signed hours:minutes offset; supplied offset unavailable")
+                value = None
+            values[field], paths[field] = value, path
+        facts = source_fields(values, source, input_index, paths, issues[recording_issue_start:])
+        if body is None:
+            for problem in facts["problems"].values():
+                problem["reason"] = inputs[input_index]["reason"] or "source unavailable"
+        recording_observations.append({"source": source, "source_fields": facts})
+
+    source = "game-summary"
+    input_index = next(i for i, entry in enumerate(inputs) if entry["source"] == source)
+    capture = captures[input_index]
+    entry = inputs[input_index]
+    values = dict.fromkeys(SUMMARY_RECORDING_FIELDS)
+    paths = {field: "/GameInfo" if field != "officials" else "/OFFICIALS" for field in values}
+    summary_issue_start = len(issues)
+    if capture.body is not None:
+        summary = extract_summary(capture.body)
+        for issue in summary["issues"]:
+            _issue(issues, source, issue["path"], issue["code"], issue["message"])
+        admitted = (game is not None and len(summary["game_info"]) == 1
+                    and report_identity(summary["game_info"][0], game["game_date"], requested[-4:]))
+        if admitted:
+            entry["status"], entry["reason"] = "parsed", None
+            values, paths = summary["values"], summary["paths"]
+        else:
+            entry["reason"] = "missing, unsupported or conflicting summary identity; recording fields unavailable"
+            _issue(issues, source, "/GameInfo", "report_identity_disagreement", entry["reason"])
+    facts = source_fields(values, source, input_index, paths, issues[summary_issue_start:])
+    if entry["status"] != "parsed":
+        for problem in facts["problems"].values():
+            problem["reason"] = entry["reason"] or "summary source unavailable"
+    recording_observations.append({"source": source, "source_fields": facts})
+    for field in RECORDING_FIELDS:
+        supplied = {row["source_fields"]["values"][field] for row in recording_observations
+                    if field in row["source_fields"]["values"] and row["source_fields"]["values"][field] is not None}
+        if len(supplied) > 1:
+            _issue(issues, "game", "/recording/" + field, "recording_field_conflict",
+                   "supplied recording sources disagree; source observations retained separately")
+    coach_scratch_observations: list[SourceObservation] = []
+    for source in ("boxscore", "landing", "game-summary"):
+        input_index = next(i for i, entry in enumerate(inputs) if entry["source"] == source)
+        facts = source_fields({"coaches": None, "scratches": None}, source, input_index,
+                              {"coaches": "/", "scratches": "/"}, [])
+        for problem in facts["problems"].values():
+            problem["reason"] = ("captured source has no admitted coach/scratch collection" if inputs[input_index]["status"] == "parsed"
+                                 else inputs[input_index]["reason"] or "source unavailable")
+        coach_scratch_observations.append({"source": source, "source_fields": facts})
+
+    return {"schema_version": 4, "requested_game_id": requested, "inputs": inputs, "game": game,
             "reported_results": results, "roster_records": roster, "boxscore_players": players,
             "events": events, "shift_records": shifts, "report_rows": report_rows, "landing_goals": landing_goals,
+            "recording_observations": recording_observations, "coach_scratch_observations": coach_scratch_observations,
             "checks": checks, "issues": issues,
             "uncomputed": ["supported_event_membership", "elapsed_on_ice_membership", "genuine_5v5_exposure",
                            "attacking_coordinates", "shooting_origins"]}

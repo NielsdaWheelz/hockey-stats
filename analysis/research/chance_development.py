@@ -16,6 +16,7 @@ from hockey_stats.artifacts import implementation_identity, write_json
 from hockey_stats.captures import InputContractError, strict_json
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_data import prepare
+from hockey_stats.chance_features import PREPARATION_IDENTITY
 from hockey_stats.chance_evaluation import (
     PROBABILITY_POPULATIONS, PROBABILITY_SUMS, binary_record, diagnostic_groups,
     summarize_component,
@@ -58,16 +59,17 @@ def rows(path):
 
 
 def common(prepared):
-    return dict(schema_version=1, purpose=prepared["purpose"], implementation=implementation(),
+    return dict(schema_version=2, purpose=prepared["purpose"], implementation=implementation(),
                 inputs=prepared["inputs"], selection=prepared["selection"],
                 game_dates=prepared["game_dates"], coverage=prepared["coverage"],
+                preparation_identity=prepared["preparation_identity"],
                 scientific_assessment="not_performed")
 
 
 def prediction_row(attempt, prepared, sources):
     gid = attempt["game_id"]
     return dict(
-        schema_version=1, game_id=gid, source_index=attempt["source_index"],
+        schema_version=2, game_id=gid, source_index=attempt["source_index"],
         event_id=attempt["event_id"], game_date=prepared["game_dates"][gid],
         season=attempt["season"], source_identity=sources[gid],
         status=attempt["status"], reasons=attempt["reasons"],
@@ -80,6 +82,8 @@ def source_identities(prepared):
 
 
 def prediction_check(row):
+    require(type(row["schema_version"]) is int and row["schema_version"] == 2,
+            "schema-2 component prediction row required")
     require(type(row["source_index"]) is int and row["source_index"] >= 0,
             "invalid attempt source index")
     require(row["status"] in ("predicted", "not_applicable", "out_of_scope", "unavailable"),
@@ -118,7 +122,7 @@ def paired_rows(left, right):
 
 
 def fit(args):
-    from hockey_stats.chance import fit_component
+    from hockey_stats.chance import fit_component, compile_designs, COMPONENT_QUANTITIES
 
     started = time.monotonic()
     selection = Path(args.selection).resolve(strict=True)
@@ -132,12 +136,17 @@ def fit(args):
                     training_game_ids=list(prepared["game_dates"]),
                     training_dates=sorted(set(prepared["game_dates"].values())))
     output.mkdir()
+    config = read_json(config_path)
+    design = compile_designs(prepared["attempts"], config,
+                             seasons=[game["season"] for game in prepared["games"]])[
+                                 COMPONENT_QUANTITIES[args.quantity]]["design"]
     component, diagnostics = fit_component(
         [r for r in prepared["attempts"] if r["status"] == "eligible"],
-        read_json(config_path), metadata, quantity=args.quantity, features=args.features,
+        config, metadata, quantity=args.quantity, design=design,
+        feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"],
     )
     document = dict(metadata, artifact_kind="chance_component_fit", quantity=args.quantity,
-                    feature_set=args.features, diagnostics=diagnostics,
+                    stage_design=design, diagnostics=diagnostics,
                     status="fitted" if component is not None else "failed", resources=resources(started))
     write_json(output / "fit.json", document)
     if component is None:
@@ -145,7 +154,7 @@ def fit(args):
         return 1
     write_json(output / "component.json", component)
     write_json(output / "completion.json", dict(
-        artifact_kind="chance_component_fit_completion", schema_version=1,
+        artifact_kind="chance_component_fit_completion", schema_version=2,
         fit=identity(output / "fit.json"), component=identity(output / "component.json"),
         scientific_assessment="not_performed"))
     print(f"component fit complete: {output}; scientific assessment not performed")
@@ -168,7 +177,7 @@ def evaluate(args):
     output = output_path(args.out, prepared["input_roots"] +
                          [str(selection.parent), str(component_path.parent)])
     output.mkdir()
-    context = component_prediction_context(component)
+    context = component_prediction_context(component, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"])
     sources = source_identities(prepared)
     component_identity = identity(component_path)
     with (output / "attempts.jsonl").open("x", encoding="utf-8") as destination:
@@ -190,13 +199,14 @@ def evaluate(args):
             destination.write(json.dumps(row, allow_nan=False) + "\n")
     document = dict(common(prepared), artifact_kind="chance_component_evaluation",
                     quantity=component["quantity"], component=component_identity,
+                    stage_design=component["layout"]["design"],
                     protocol=component["protocol_identity"], selection_identity=identity(selection),
                     attempts=identity(output / "attempts.jsonl"),
                     **summarize_component(rows(output / "attempts.jsonl"), prepared["game_dates"]),
                     resources=resources(started))
     write_json(output / "evaluation.json", document)
     write_json(output / "completion.json", dict(
-        schema_version=1, artifact_kind="chance_component_evaluation_completion",
+        schema_version=2, artifact_kind="chance_component_evaluation_completion",
         evaluation=identity(output / "evaluation.json"), scientific_assessment="not_performed"))
     print(f"component evaluation complete: {output}; scientific assessment not performed")
     return 0
@@ -249,17 +259,15 @@ def diagnose(args):
     for entry in evidence["assessments"]:
         assessment_path = Path(entry["path"]).resolve(strict=True)
         assessment = read_json(assessment_path)
-        require(assessment["schema_version"] == 3, "historical assessment schema 3 required")
+        require(assessment["schema_version"] == 4, "current assessment schema 4 required; historical studies use their git revision")
         model_path = linked_path(assessment["model"])
         model = validate_model(read_json(model_path))
-        context = prediction_context(model)
         model_identity = identity(model_path)
         components, component_contexts = {}, {}
         for quantity in QUANTITIES:
             component = extract_component(model, quantity=quantity)
             component["protocol_identity"] = identity(protocol)
             components[quantity] = component
-            component_contexts[quantity] = component_prediction_context(component)
         require(model["purpose"] == "research", "fixture candidate cannot supply scientific diagnosis")
         for population, origin in (("training", model), ("assessment", assessment)):
             selection_ref = next(v for v in origin["inputs"] if v["kind"] == "selection")
@@ -267,6 +275,8 @@ def diagnose(args):
             if str(selection_path) not in prepared_cache:
                 prepared_cache[str(selection_path)] = prepare(selection_path)
             prepared = prepared_cache[str(selection_path)]
+            context = prediction_context(model, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"])
+            component_contexts = {quantity: component_prediction_context(component, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"]) for quantity, component in components.items()}
             require(not any(output.is_relative_to(Path(root)) for root in prepared["input_roots"]),
                     "diagnosis output must be outside source input directories")
             require(all(prepared[field] == origin[field] for field in ("selection", "inputs", "game_dates", "coverage")),
@@ -429,19 +439,25 @@ def compare_pair(baseline, changed):
                 changed_own_groups=changed["groups"], counts_by_status=changed["counts_by_status"])
 
 
-def validate_evaluation(reference, component_reference, selection_reference, protocol, quantity, purpose):
+def validate_evaluation(reference, component_reference, selection_reference, protocol, quantity, purpose, *, component):
     document = read_json(linked_path(reference))
-    require(document["schema_version"] == 1 and
+    require(document["schema_version"] == 2 and
             document["artifact_kind"] == "chance_component_evaluation" and
             document["purpose"] == purpose and document["quantity"] == quantity and
             document["scientific_assessment"] == "not_performed" and
             document["component"] == component_reference and document["protocol"] == protocol and
-            document["selection_identity"] == selection_reference,
+            document["selection_identity"] == selection_reference and
+            document["preparation_identity"] == component["preparation_identity"] and
+            document["stage_design"] == component["layout"]["design"],
             "component evaluation binding mismatch")
     selection_path = linked_path(selection_reference)
     selection = read_json(selection_path)
     for corpus in selection["corpora"]:
         corpus["path"] = str((selection_path.parent / corpus["path"]).resolve(strict=True))
+    selection["history_corpora"] = [
+        str((selection_path.parent / path).resolve(strict=True))
+        for path in selection["history_corpora"]
+    ]
     require(document["selection"] == selection, "evaluation selection content mismatch")
     require([v["game_id"] for v in document["per_game"]] == list(document["game_dates"]),
             "evaluation selected/per-game identities mismatch")
@@ -516,8 +532,10 @@ def compare(args):
             require(not reused and cell["component"] is None and cell["evaluation"] is None and
                     cell["diagnostics"] is not None, "failed cell artifact references inconsistent")
             failed = read_json(linked_path(cell["diagnostics"]))
-            require(failed["status"] == "failed" and failed["quantity"] == quantity and
-                    failed["feature_set"] == ("recent_interactions" if recipe == "context_interactions" else "additive") and
+            require(failed["schema_version"] == 2 and
+                    failed["preparation_identity"] == PREPARATION_IDENTITY and
+                    failed["status"] == "failed" and failed["quantity"] == quantity and
+                    failed["stage_design"]["families"] == ["game_additive", "recent_additive"] + (["recent_interactions"] if recipe == "context_interactions" else []) and
                     failed["config_identity"] == inputs["config"] and
                     failed["protocol_identity"] == protocol and
                     failed["purpose"] == purpose and failed["diagnostics"]["converged"] is False,
@@ -533,12 +551,16 @@ def compare(args):
         require(cell["status"] == ("reused" if reused else "fitted"), "fixed reused/fitted cell status mismatch")
         component = validate_component(read_json(linked_path(cell["component"])))
         require(component["purpose"] == purpose and component["quantity"] == quantity and
-                component["feature_set"] == ("recent_interactions" if recipe == "context_interactions" else "additive") and
+                component["layout"]["design"]["families"] == ["game_additive", "recent_additive"] + (["recent_interactions"] if recipe == "context_interactions" else []) and
                 component["protocol_identity"] == protocol and component["config_identity"] == inputs["config"] and
                 component["config"] == config, "component matrix/configuration binding mismatch")
         selection = read_json(training_path)
         for corpus in selection["corpora"]:
             corpus["path"] = str((training_path.parent / corpus["path"]).resolve(strict=True))
+        selection["history_corpora"] = [
+            str((training_path.parent / path).resolve(strict=True))
+            for path in selection["history_corpora"]
+        ]
         require(component["selection"] == selection and
                 next(v for v in component["inputs"] if v["kind"] == "selection")["sha256"] == training_ref["sha256"],
                 "component training selection binding mismatch")
@@ -548,7 +570,7 @@ def compare(args):
                     component["implementation"] == anchor["implementation"],
                     "reused component is not the declared anchor extraction")
         evaluation = validate_evaluation(cell["evaluation"], cell["component"], assessment_ref,
-                                         protocol, quantity, purpose)
+                                         protocol, quantity, purpose, component=component)
         require(not set(component["training_game_dates"]) & set(evaluation["game_dates"]) and
                 min(evaluation["game_dates"].values()) > max(component["training_game_dates"].values()),
                 "component assessment is overlapping or nonfuture")
@@ -566,9 +588,11 @@ def compare(args):
         require((cell["diagnostics"] is None) == reused, "fitted cell requires solve diagnostics; reused cell has no new solve")
         if not reused:
             fit_record = read_json(linked_path(cell["diagnostics"]))
-            require(fit_record["status"] == "fitted" and fit_record["diagnostics"] == component["diagnostics"] and
+            require(fit_record["schema_version"] == 2 and
+                    fit_record["preparation_identity"] == component["preparation_identity"] and
+                    fit_record["status"] == "fitted" and fit_record["diagnostics"] == component["diagnostics"] and
                     fit_record["purpose"] == purpose and fit_record["quantity"] == quantity and
-                    fit_record["feature_set"] == component["feature_set"] and
+                    fit_record["stage_design"] == component["layout"]["design"] and
                     fit_record["config_identity"] == inputs["config"] and
                     fit_record["protocol_identity"] == protocol and
                     fit_record["selection"] == component["selection"] and
@@ -703,13 +727,13 @@ def main():
     commands = parser.add_subparsers(dest="command", required=True)
     for command, options in (
         ("diagnose", ("evidence", "protocol", "out")),
-        ("fit-component", ("selection", "config", "quantity", "features", "protocol", "out")),
+        ("fit-component", ("selection", "config", "quantity", "protocol", "out")),
         ("evaluate-component", ("selection", "component", "out")),
         ("compare", ("evidence", "out")),
     ):
         child = commands.add_parser(command, allow_abbrev=False)
         for option in options:
-            choices = QUANTITIES if option == "quantity" else ("additive", "recent_interactions") if option == "features" else None
+            choices = QUANTITIES if option == "quantity" else None
             child.add_argument(f"--{option}", required=True, action=Once, choices=choices)
     args = parser.parse_args()
     try:

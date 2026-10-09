@@ -6,7 +6,7 @@ import re
 from typing import Any, TypedDict
 
 from .captures import InputContractError, REFERENCE_SOURCES, read_reference_capture, strict_json
-from .interpret import Check, Input, Issue
+from .interpret import Check, Input, Issue, SourceFields, source_fields
 
 
 class Season(TypedDict):
@@ -42,6 +42,10 @@ class BioObservation(TypedDict):
     birth_date: str | None
     shoots_catches: str | None
     issue_indices: list[int]
+    source_fields: SourceFields
+    requested_season: str
+    requested_at: str | None
+    effective_at: None
 
 
 class ReferenceDocument(TypedDict):
@@ -54,6 +58,15 @@ class ReferenceDocument(TypedDict):
     bio_observations: list[BioObservation]
     checks: list[Check]
     issues: list[Issue]
+
+
+BIO_COMMON_SOURCE_FIELDS = ("playerId", "birthDate", "shootsCatches", "lastName", "birthCity", "birthCountryCode",
+    "birthStateProvinceCode", "nationalityCode", "height", "weight", "draftYear", "draftRound", "draftOverall",
+    "firstSeasonForGameType", "currentTeamAbbrev", "isInHallOfFameYn", "gamesPlayed")
+BIO_SKATER_SOURCE_FIELDS = (*BIO_COMMON_SOURCE_FIELDS, "skaterFullName", "positionCode", "currentTeamName", "goals", "assists", "points")
+BIO_GOALIE_SOURCE_FIELDS = (*BIO_COMMON_SOURCE_FIELDS, "goalieFullName", "wins", "losses", "otLosses", "shutouts", "ties")
+BIO_INTEGER_SOURCE_FIELDS = ("height", "weight", "draftYear", "draftRound", "draftOverall", "firstSeasonForGameType",
+    "gamesPlayed", "goals", "assists", "points", "wins", "losses", "otLosses", "shutouts", "ties")
 
 
 def _issue(issues: list[Issue], source: str, path: str, code: str, message: str) -> None:
@@ -235,6 +248,8 @@ def interpret_references(directory: Path) -> ReferenceDocument:
             path = f"/data/{index}"
             player_id = None
             values: dict[str, str | None] = {"birthDate": None, "shootsCatches": None}
+            selected_fields = BIO_SKATER_SOURCE_FIELDS if source == "skater-bios" else BIO_GOALIE_SOURCE_FIELDS
+            observed: dict[str, Any] = dict.fromkeys(selected_fields)
             if not isinstance(row, dict):
                 _issue(issues, source, path, "invalid_object", "expected bio object; fields unavailable")
             else:
@@ -255,10 +270,35 @@ def interpret_references(directory: Path) -> ReferenceDocument:
                     else:
                         code, message = "invalid_field", "expected actual YYYY-MM-DD date" if field == "birthDate" else "expected L or R"
                     _issue(issues, source, path + "/" + field, code, message)
+                observed.update({"playerId": player_id, **values})
+                for field in selected_fields:
+                    if field in ("playerId", "birthDate", "shootsCatches"):
+                        continue
+                    value = row.get(field)
+                    if value is None:
+                        continue
+                    if field in BIO_INTEGER_SOURCE_FIELDS:
+                        valid = type(value) is int and value >= 0
+                        if valid and field == "firstSeasonForGameType":
+                            valid = (re.fullmatch(r"[0-9]{8}", str(value)) is not None
+                                     and str(value)[4:] == str(int(str(value)[:4]) + 1))
+                    else:
+                        valid = isinstance(value, str)
+                        if valid and field == "isInHallOfFameYn":
+                            valid = value in ("Y", "N")
+                    if valid:
+                        observed[field] = value
+                    else:
+                        _issue(issues, source, path + "/" + field, "invalid_bio_field",
+                               "selected biography field has invalid source type or vocabulary; value unavailable")
+            input_index = next(i for i, entry in enumerate(inputs) if entry["source"] == source)
             observations.append({"source": source, "source_index": index, "player_id": player_id,
                                  "birth_date": values["birthDate"], "shoots_catches": values["shootsCatches"],
+                                 "source_fields": source_fields(observed, source, input_index,
+                                                               {field: path + "/" + field for field in observed}, issues[start:]),
+                                 "requested_season": requested, "requested_at": inputs[input_index]["requested_at"], "effective_at": None,
                                  "issue_indices": list(range(start, len(issues)))})
 
-    return {"schema_version": 1, "requested_season": requested, "inputs": inputs,
+    return {"schema_version": 2, "requested_season": requested, "inputs": inputs,
             "season": season, "inventory": inventory, "bio_collections": collections,
             "bio_observations": observations, "checks": checks, "issues": issues}

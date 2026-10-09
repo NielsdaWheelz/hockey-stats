@@ -55,7 +55,7 @@ class CorpusSummary(TypedDict):
 
 
 class CorpusDocument(TypedDict):
-    schema_version: Literal[1]
+    schema_version: Literal[2]
     implementation: Interpretation
     reference: ReferenceDocument
     games_root: str
@@ -75,7 +75,7 @@ def audit_corpus(reference: ReferenceDocument, games_root: Path, output: Path,
     the final report only after this function returns.
     """
     result: CorpusDocument = {
-        "schema_version": 1, "implementation": implementation, "reference": reference,
+        "schema_version": 2, "implementation": implementation, "reference": reference,
         "games_root": str(games_root), "games": None, "players": None,
         "summary": None, "missing_game_ids": None, "issues": [],
     }
@@ -119,7 +119,7 @@ def audit_corpus(reference: ReferenceDocument, games_root: Path, output: Path,
             continue
         reconstruction = reconstruct_game(interpreted)
         relative = f"games/{game_id}.json"
-        write_json(output / relative, {"schema_version": 3, "implementation": implementation,
+        write_json(output / relative, {"schema_version": 4, "implementation": implementation,
                                        "interpreted": interpreted, "reconstruction": reconstruction})
         row["output_path"] = relative
         game = interpreted["game"]

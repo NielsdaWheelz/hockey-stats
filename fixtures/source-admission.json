@@ -2958,6 +2958,160 @@
         }
       ],
       "preservation": "all 240 existing body/receipt files remain unchanged; the existing 20242025 four-source reference bundle supplies both cases"
+    },
+    {
+      "admitted_at": "2026-10-09T19:10:32.182492+00:00",
+      "purpose": "03k distinct original html boundary: game-summary officials supplied in table-owned tbody rows, excluding nested name-table rows",
+      "source_root": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930",
+      "game_ids": [
+        "2024021177"
+      ],
+      "required_reference_seasons": [
+        "20242025"
+      ],
+      "copied_files": [
+        {
+          "path": "captures/2024021177/boxscore/body.bin",
+          "bytes": 13255,
+          "sha256": "0c31dc1b13207c4c610db47ec3091fb7b51c3dc9d96cd9ae32e2ff0dc7b5472f"
+        },
+        {
+          "path": "captures/2024021177/boxscore/capture.json",
+          "bytes": 662,
+          "sha256": "669e6565a219715aeb2e23aea21446dcae40d53e42f34db62b6a470051a784ab"
+        },
+        {
+          "path": "captures/2024021177/game-summary/body.bin",
+          "bytes": 39379,
+          "sha256": "a1e3cdce06a415e99af9bee561addb32e5c2f745644bb229fe258ae8b03fd878"
+        },
+        {
+          "path": "captures/2024021177/game-summary/capture.json",
+          "bytes": 694,
+          "sha256": "5bba53d549ad2a96d3ff77b68b97dac7912ee18d5ee1b0562b40f721c5d22ef3"
+        },
+        {
+          "path": "captures/2024021177/landing/body.bin",
+          "bytes": 16987,
+          "sha256": "be107173a8992c090c5bb6b3d21b17c3a8d52069e0693320f2b73df475d0780b"
+        },
+        {
+          "path": "captures/2024021177/landing/capture.json",
+          "bytes": 660,
+          "sha256": "7895ed1bd725b0b0cca72e1d07db122af1684d5a17d0b9b895f842c6db3ff4a6"
+        },
+        {
+          "path": "captures/2024021177/play-by-play/body.bin",
+          "bytes": 145479,
+          "sha256": "e0796622df32e36057ccd9f12b97d508f16c926714e108d77ecdf94e5e40b80f"
+        },
+        {
+          "path": "captures/2024021177/play-by-play/capture.json",
+          "bytes": 671,
+          "sha256": "823c46d05b0888e07247f53a3f5235e0e2b626e97ea2da302df4a770373e5472"
+        },
+        {
+          "path": "captures/2024021177/play-report/body.bin",
+          "bytes": 1363271,
+          "sha256": "17cd865ae814ddd5d48269e361d94dc04ec48355fd028456981dce71ec7d1336"
+        },
+        {
+          "path": "captures/2024021177/play-report/capture.json",
+          "bytes": 695,
+          "sha256": "ac73c16fd5f71a4b322e6706844c729a7393105446fc0f10ad260cc98a049bfc"
+        },
+        {
+          "path": "captures/2024021177/shifts/body.bin",
+          "bytes": 264388,
+          "sha256": "5392405ecda6829208ab6802629b4d3c22418a45726074ee1e5bb6a2f0b73a94"
+        },
+        {
+          "path": "captures/2024021177/shifts/capture.json",
+          "bytes": 653,
+          "sha256": "73adfe5c29445c96f2091bb3ea18b792bf85a648c8af28481251deb8e1119619"
+        }
+      ],
+      "preserved_reference_files": [
+        {
+          "path": "references/20242025/goalie-bios/body.bin",
+          "bytes": 47171,
+          "sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+        },
+        {
+          "path": "references/20242025/goalie-bios/capture.json",
+          "bytes": 711,
+          "sha256": "0fd86d0b478df2e7e156fb718543ab5cdc3eab900a6dce945849ee2846ef1c38"
+        },
+        {
+          "path": "references/20242025/season-games/body.bin",
+          "bytes": 327490,
+          "sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+        },
+        {
+          "path": "references/20242025/season-games/capture.json",
+          "bytes": 671,
+          "sha256": "5b862c889a8ec496b75955591001d8fb3c4f719daf59eb6c6cde743b323bd349"
+        },
+        {
+          "path": "references/20242025/season-summary/body.bin",
+          "bytes": 634,
+          "sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+        },
+        {
+          "path": "references/20242025/season-summary/capture.json",
+          "bytes": 676,
+          "sha256": "03aed697f50917a45a98b20facc8c8a336d3264dea1b32f15d4da76c1638d525"
+        },
+        {
+          "path": "references/20242025/skater-bios/body.bin",
+          "bytes": 448170,
+          "sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+        },
+        {
+          "path": "references/20242025/skater-bios/capture.json",
+          "bytes": 712,
+          "sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a"
+        }
+      ],
+      "source_records": [
+        {
+          "game_id": "2024021177",
+          "source": "boxscore",
+          "requested_at": "2026-09-30T19:27:25.726Z",
+          "body_sha256": "0c31dc1b13207c4c610db47ec3091fb7b51c3dc9d96cd9ae32e2ff0dc7b5472f"
+        },
+        {
+          "game_id": "2024021177",
+          "source": "game-summary",
+          "requested_at": "2026-09-30T19:27:26.135Z",
+          "body_sha256": "a1e3cdce06a415e99af9bee561addb32e5c2f745644bb229fe258ae8b03fd878"
+        },
+        {
+          "game_id": "2024021177",
+          "source": "landing",
+          "requested_at": "2026-09-30T19:27:26.740Z",
+          "body_sha256": "be107173a8992c090c5bb6b3d21b17c3a8d52069e0693320f2b73df475d0780b"
+        },
+        {
+          "game_id": "2024021177",
+          "source": "play-by-play",
+          "requested_at": "2026-09-30T19:27:25.496Z",
+          "body_sha256": "e0796622df32e36057ccd9f12b97d508f16c926714e108d77ecdf94e5e40b80f"
+        },
+        {
+          "game_id": "2024021177",
+          "source": "play-report",
+          "requested_at": "2026-09-30T19:27:26.367Z",
+          "body_sha256": "17cd865ae814ddd5d48269e361d94dc04ec48355fd028456981dce71ec7d1336"
+        },
+        {
+          "game_id": "2024021177",
+          "source": "shifts",
+          "requested_at": "2026-09-30T19:27:26.018Z",
+          "body_sha256": "5392405ecda6829208ab6802629b4d3c22418a45726074ee1e5bb6a2f0b73a94"
+        }
+      ],
+      "preservation": "all 264 existing body/receipt files remain unchanged; the existing byte-identical 20242025 four-source reference bundle supplies this case"
     }
   ]
 }

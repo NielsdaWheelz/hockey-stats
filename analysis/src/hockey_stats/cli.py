@@ -1,9 +1,13 @@
 """one explicit offline invocation, attributed output, and concise checks."""
 
 import argparse
+import hashlib
+import json
 from pathlib import Path
+import resource
 import stat
 import sys
+import time
 
 from .artifacts import implementation_identity, write_json
 from .captures import InputContractError
@@ -87,7 +91,7 @@ def invoke(reconstruct: bool = False) -> int:
         if reconstruct:
             from .reconstruct import reconstruct_game
             reconstruction = reconstruct_game(document)
-            output_document = {"schema_version": 3, "implementation": implementation_identity(),
+            output_document = {"schema_version": 4, "implementation": implementation_identity(),
                                "interpreted": document, "reconstruction": reconstruction}
         else:
             document["interpretation"] = implementation_identity()
@@ -181,3 +185,180 @@ def corpus_main() -> int:
         return 1
     report_corpus(document, output)
     return 1 if document["summary"] is None or document["summary"]["games_by_status"]["input_error"] else 0
+
+
+def _inspect_fields(value, path, key, season, outcome, availability, representatives, input_ref):
+    """count exact located fields without emitting another row stream."""
+    if isinstance(value, list):
+        for item in value:
+            label = item["source"] if isinstance(item, dict) and isinstance(item.get("source"), str) else "*"
+            _inspect_fields(item, path + "." + label, key, season, outcome, availability, representatives, input_ref)
+        return
+    if not isinstance(value, dict):
+        return
+    if isinstance(value.get("input_ref"), str):
+        input_ref = value["input_ref"]
+    if {"values", "problems", "evidence"} <= set(value):
+        for field, observed in value["values"].items():
+            name = path + "." + field
+            problem = value["problems"].get(field)
+            status = "available" if observed is not None else problem["status"]
+            counts = availability.setdefault(name, {"denominator": 0, "available": 0, "unavailable": 0,
+                "conflict": 0, "not_applicable": 0, "by_season": {}, "by_outcome": {}})
+            counts["denominator"] += 1
+            counts[status] += 1
+            for category, label in (("by_season", season), ("by_outcome", outcome)):
+                if label is None:
+                    continue
+                subtotal = counts[category].setdefault(label, {"denominator": 0, "available": 0,
+                    "unavailable": 0, "conflict": 0, "not_applicable": 0})
+                subtotal["denominator"] += 1
+                subtotal[status] += 1
+            examples = representatives.setdefault(name, {})
+            if status not in examples:
+                sample = observed
+                if isinstance(observed, list):
+                    sample = {"collection_length": len(observed)}
+                elif isinstance(observed, dict):
+                    sample = {"mapping_size": len(observed), "first_keys": list(observed)[:3]}
+                refs = problem["evidence_refs"] if problem else range(len(value["evidence"]))
+                if not problem:
+                    field_refs = [ref for ref in refs if value["evidence"][ref].get("field") == field]
+                    if field_refs:
+                        refs = field_refs
+                examples[status] = {"key": key, "value": sample,
+                    "problem": {"status": problem["status"], "reason": problem["reason"]} if problem else None,
+                    "evidence": [{**value["evidence"][ref], "input_ref": value["evidence"][ref].get("input_ref", input_ref)}
+                                 for ref in refs[:3]],
+                    "evidence_count": len(refs)}
+                if "scope" in value:
+                    examples[status]["window"] = {field: value[field] for field in ("scope", "start", "cutoff", "complete")}
+            _inspect_fields(observed, name, key, season, outcome, availability, representatives, input_ref)
+        return
+    for field, child in value.items():
+        parent = path.rsplit(".", 1)[-1]
+        label, nested_key = field, key
+        if parent in ("players", "teams"):
+            label = "*"
+            nested_key = {**key, "player_id" if parent == "players" else "team_id": field}
+        _inspect_fields(child, path + "." + str(label), nested_key, season, outcome, availability, representatives, input_ref)
+
+
+def _inspect_designs(prepared, layouts):
+    """inspect requested bases; source gaps are distinct from invalid contracts."""
+    from .chance_features import FeatureUnavailableError, STAGES, encode_stage
+    from .shot_origins import cell_id, grid
+
+    centers, _ = grid()
+    eligible = [attempt for attempt in prepared["attempts"] if attempt["status"] == "eligible"]
+    design_availability = {}
+    for stage in STAGES:
+        rows = [attempt for attempt in eligible if not attempt["blocked"]] if stage in ("r", "unblocked") else eligible
+        counts = {"denominator": len(rows), "available": 0, "unavailable": 0,
+                  "by_season": {}, "by_outcome": {}, "requirement_errors": {}}
+        for attempt in rows:
+            outcome = attempt["source_event"]["type_key"]
+            origin_xy = None
+            if stage in ("u", "r", "unblocked"):
+                origin_xy = centers[0] if attempt["blocked"] else centers[cell_id((attempt["attacking_x"], attempt["attacking_y"]), centers)]
+            try:
+                encode_stage(attempt, layouts[stage]["design"], game_facts=prepared["feature_games"][attempt["game_id"]],
+                    player_game_facts=prepared["feature_player_games"][attempt["game_id"]], origin_xy=origin_xy)
+            except FeatureUnavailableError as error:
+                message = str(error)
+                status = "unavailable"
+                requirement = message.split(": ", 1)[0].split(".", 1)[-1]
+                errors = counts["requirement_errors"].setdefault(requirement, {"count": 0, "example": message})
+                errors["count"] += 1
+            else:
+                status = "available"
+            counts[status] += 1
+            for category, label in (("by_season", attempt["season"]), ("by_outcome", outcome)):
+                subtotal = counts[category].setdefault(label, {"denominator": 0, "available": 0, "unavailable": 0})
+                subtotal["denominator"] += 1
+                subtotal[status] += 1
+        design_availability[stage] = counts
+    return design_availability
+
+
+def features_main() -> int:
+    parser = argparse.ArgumentParser(description="inspect retained local feature facts and explicit stage designs",
+                                     allow_abbrev=False)
+    for option in ("selection", "config", "out"):
+        parser.add_argument(f"--{option}", required=True, action=Once)
+    args = parser.parse_args()
+    started = time.perf_counter()
+    try:
+        from .chance import compile_designs, validate_config
+        from .chance_cli import identity, output_path, read_json
+        from .chance_data import prepare
+        from .chance_features import STAGES
+        import numpy
+        import scipy
+
+        selection = Path(args.selection).resolve(strict=True)
+        config_path = Path(args.config).resolve(strict=True)
+        config = validate_config(read_json(config_path))
+        prepared = prepare(selection)
+        output = output_path(args.out, prepared["input_roots"] + [str(selection.parent), str(config_path.parent)])
+        seasons = sorted({game["season"] for game in prepared["games"]})
+        layouts = compile_designs(prepared["attempts"], config, seasons=seasons)
+        availability, representatives = {}, {}
+        game_seasons = {game["game_id"]: game["season"] for game in prepared["games"]}
+        game_inputs = {game_id: facts["game"]["evidence"][0]["input_ref"]
+                       for game_id, facts in prepared["feature_games"].items()}
+        for game_id, facts in prepared["feature_games"].items():
+            _inspect_fields(facts, "game", {"game_id": game_id}, game_seasons[game_id], None, availability, representatives, game_inputs[game_id])
+        for game_id, players in prepared["feature_player_games"].items():
+            for player_id, facts in players.items():
+                _inspect_fields(facts, "player_game", {"game_id": game_id, "player_id": player_id},
+                                game_seasons[game_id], None, availability, representatives, game_inputs[game_id])
+        for attempt in prepared["attempts"]:
+            outcome = attempt["source_event"]["type_key"]
+            _inspect_fields(attempt["feature_facts"], "attempt", {"game_id": attempt["game_id"],
+                "source_index": attempt["source_index"]}, attempt["season"], outcome, availability, representatives, game_inputs[attempt["game_id"]])
+        design_availability = _inspect_designs(prepared, layouts)
+        implementation = implementation_identity()
+        implementation.update(numpy_version=numpy.__version__, scipy_version=scipy.__version__,
+            lockfile_sha256=identity(Path(__file__).resolve().parents[2] / "uv.lock")["sha256"])
+        config_identity = identity(config_path)
+        execution = {"implementation": implementation, "preparation_identity": prepared["preparation_identity"],
+                     "inputs": prepared["inputs"], "config_identity": config_identity, "selection": prepared["selection"]}
+        execution_sha256 = hashlib.sha256(json.dumps(execution, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+        input_bytes = sum(Path(item["path"]).stat().st_size for item in prepared["inputs"]) + config_path.stat().st_size
+        peak_rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        resources = {"elapsed_seconds": time.perf_counter() - started,
+                     "peak_rss_bytes": peak_rss if sys.platform == "darwin" else peak_rss * 1024,
+                     "input_bytes": input_bytes, "output_bytes": 0}
+        report = {"schema_version": 1, "artifact_kind": "feature_preparation", "purpose": prepared["purpose"],
+            **execution, "execution_sha256": execution_sha256, "coverage": prepared["coverage"],
+            "field_completion": {"disposition": "inspected", "fields": list(availability)},
+            "field_availability": availability, "design_availability": design_availability,
+            "stage_designs": {stage: layouts[stage]["design"] for stage in STAGES},
+            "representative_values": representatives,
+            "availability_meaning": "denominators count records carrying each exact field; nested fields are counted separately; a value does not imply completeness or scientific support",
+            "candidate_geometry_probe": "unblocked assigned cell center; blocked first grid cell as an explicit hypothetical candidate; no recorded blocked release",
+            "external_inference_prerequisites": ["absent coach/scratch feeds", "neutral-site and actual-time evidence",
+                "travel and physical-recovery evidence", "passes/screens/entries/exits/tracking", "calibrated setter/possession/freeze targets",
+                "physical origin/tip/scorer corrections", "compatible dated historical fitted-effect producers", "later component targets/exposure"],
+            "scientific_assessment": "not_performed", "resource_measurement": "process high-water rss; elapsed through inspection; bytes include both output artifacts",
+            **resources}
+        completion = {"schema_version": 1, "artifact_kind": "feature_preparation_completion",
+            "execution_sha256": execution_sha256, "report": {"path": str(output / "features.json"), "sha256": "0" * 64},
+            "resources": dict(resources)}
+        while True:
+            output_bytes = sum(len((json.dumps(document, allow_nan=False, indent=2) + "\n").encode()) for document in (report, completion))
+            if output_bytes == report["output_bytes"]:
+                break
+            report["output_bytes"] = completion["resources"]["output_bytes"] = output_bytes
+        output.mkdir()
+        write_json(output / "features.json", report)
+        completion["report"] = identity(output / "features.json")
+        write_json(output / "completion.json", completion)
+    except (InputContractError, OSError) as error:
+        print(f"feature inspection failed: {error}", file=sys.stderr)
+        return 1
+    print(f"feature preparation complete: {prepared['coverage']['games']['selected']} games; {len(prepared['attempts'])} retained baseline attempts")
+    print("selected designs: " + "; ".join(f"{stage} {design_availability[stage]['available']}/{design_availability[stage]['denominator']} available" for stage in STAGES))
+    print(f"output: {output / 'features.json'}; scientific assessment not performed")
+    return 0

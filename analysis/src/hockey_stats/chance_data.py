@@ -4,9 +4,11 @@ public contract: prepare(selection_path) returns a finite-json-compatible dict:
   attempts: every recognized attempt, including exclusions, in source order;
   coverage: games_by_status, games/attempts counts and per_game evidence ledger;
   inputs: {kind, path, sha256} for the actual bytes read;
-  selection: schema 1 selection with absolute corpus paths;
+  selection: schema 2 target/history selection with absolute corpus paths;
   purpose: fixture_exercise or research; game_dates: selected id -> inventory date;
-  games: selected inventory/status ledger; input_roots: absolute parents.
+  games: selected inventory/status ledger; input_roots: absolute parents;
+  preparation_identity: exact fact contract; feature_games and
+  feature_player_games: shared keyed facts; feature_facts: local attempt facts.
 
 attempt fields: game_id, source_index, event_id, report_row_id,
 report_source_index, interval_indices, shooting_team_id, shooter_id, goalie_id,
@@ -28,16 +30,22 @@ local file/schema/reference/identity failures raise InputContractError.
 from collections import Counter, defaultdict
 from datetime import date
 import hashlib
+import json
 import re
 from pathlib import Path
 
 from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_json
 from .corpus import STATUSES
-from .interpret import Check, Event, LandingGoal
+from .interpret import (
+    BoxscorePlayer, Check, Event, GOALIE_SOURCE_FIELDS, LandingGoal,
+    RECORDING_FIELDS, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
+)
+from .references import BIO_GOALIE_SOURCE_FIELDS, BIO_INTEGER_SOURCE_FIELDS, BIO_SKATER_SOURCE_FIELDS
+from .feature_data import ACTION_KINDS, ATTEMPT_KINDS, RESETS
 from .shot_origins import in_rink
 from .reconstruct import attacking_coordinates, defending_sides, reconcile_shot_type
 
-_ATTEMPTS = {"blocked-shot", "missed-shot", "shot-on-goal", "goal"}
+_ATTEMPTS = ATTEMPT_KINDS
 _IDENTITY = (
     "game_id",
     "season",
@@ -69,24 +77,8 @@ MODEL_SHOT_TYPES = {
     "between-legs": "other",
     "cradle": "other",
 }
-_RESETS = {
-    "goal",
-    "stoppage",
-    "penalty",
-    "period-start",
-    "period-end",
-    "game-end",
-    "shootout-complete",
-}
-_RECENT = {
-    "faceoff",
-    "hit",
-    "giveaway",
-    "takeaway",
-    "shot-on-goal",
-    "missed-shot",
-    "blocked-shot",
-}
+_RESETS = RESETS
+_RECENT = set(ACTION_KINDS)
 
 
 def _require(condition, location, message):
@@ -151,12 +143,13 @@ def _read(path, kind, inputs):
 
 
 def _schema(value, location, version, fields):
-    _object(value, location, ("schema_version", *fields))
+    _object(value, location, ("schema_version",))
     _require(
         type(value["schema_version"]) is int and value["schema_version"] == version,
         location,
         f"expected schema {version}",
     )
+    _object(value, location, fields)
 
 
 def _game_identity(game, location):
@@ -279,14 +272,91 @@ def _provenance(rows, location, sources):
     )
 
 
+def _source_facts(record, location, inputs, fields, *, links_per_field=1):
+    """validate a located source-fact envelope, keeping missing evidence legal."""
+    _object(record, location, ("values", "problems", "evidence"))
+    _require(set(record) == {"values", "problems", "evidence"}, location,
+             "unexpected source-fact fields")
+    values = _object(record["values"], location + "/values", ())
+    _require(set(values) == set(fields), location,
+             "source value fields disagree with the declared contract")
+    integer_fields = set(BIO_INTEGER_SOURCE_FIELDS) | {
+        "playerId", "points", "plusMinus", "pim", "hits", "powerPlayGoals", "giveaways",
+        "takeaways", "saves", "shotsAgainst", "goalsAgainst", "evenStrengthGoalsAgainst",
+        "powerPlayGoalsAgainst", "shorthandedGoalsAgainst", "shifts", "goals", "assists",
+        "sog", "blockedShots", "attendance", "even_strength_saves", "power_play_saves",
+        "shorthanded_saves",
+    }
+    for field, value in values.items():
+        if value is None:
+            continue
+        loc = location + "/values/" + field
+        if field == "plusMinus":
+            _require(type(value) is int, loc, "expected signed integer")
+        elif field in integer_fields:
+            _integer(value, loc, minimum=1 if field == "playerId" else 0)
+        elif field == "starter":
+            _require(type(value) is bool, loc, "expected boolean")
+        elif field in ("savePctg", "faceoffWinningPctg"):
+            _require(type(value) in (int, float) and 0 <= value <= 1, loc,
+                     "expected finite source fraction in [0,1]")
+        elif field == "officials":
+            _object(value, loc, ())
+            for role, names in value.items():
+                _text(role, loc)
+                for name in _array(names, loc + "/" + role):
+                    _text(name, loc + "/" + role)
+        elif field in ("coaches", "scratches"):
+            _array(value, loc)
+        else:
+            _text(value, loc)
+    problems = _object(record["problems"], location + "/problems", ())
+    evidence = _array(record["evidence"], location + "/evidence")
+    _require(set(problems) == {key for key, value in values.items() if value is None},
+             location, "every null requires exactly one located problem")
+    field_refs = {field: [] for field in fields}
+    for i, item in enumerate(evidence):
+        loc = f"{location}/evidence/{i}"
+        _object(item, loc, SourceEvidence.__required_keys__)
+        _require(set(item) == SourceEvidence.__required_keys__, loc,
+                 "source locator fields disagree with the declared contract")
+        _text(item["field"], loc + "/field")
+        _require(item["field"] in field_refs, loc, "locator names an unknown source field")
+        field_refs[item["field"]].append(i)
+        _text(item["source"], loc + "/source")
+        _text(item["path"], loc + "/path")
+        _integer(item["input_index"], loc + "/input_index")
+        _require(item["input_index"] < len(inputs), loc, "broken input reference")
+        _require(item["source"] == inputs[item["input_index"]]["source"], loc,
+                 "source and input reference disagree")
+    _require(all(len(refs) == links_per_field for refs in field_refs.values()), location,
+             "source field locator counts disagree with the declared contract")
+    for field, problem in problems.items():
+        loc = f"{location}/problems/{field}"
+        _object(problem, loc, ("status", "reason", "evidence_refs"))
+        _require(set(problem) == {"status", "reason", "evidence_refs"}, loc,
+                 "unexpected problem fields")
+        _require(problem["status"] in ("unavailable", "conflict", "not_applicable"),
+                 loc, "unsupported field problem status")
+        _text(problem["reason"], loc + "/reason")
+        _require(bool(problem["reason"]), loc, "empty field problem reason")
+        refs = _array(problem["evidence_refs"], loc + "/evidence_refs")
+        _require(bool(refs), loc, "located field problem requires evidence")
+        for ref in refs:
+            _integer(ref, loc + "/evidence_refs")
+            _require(ref < len(evidence), loc, "broken evidence reference")
+        _require(len(refs) == links_per_field and set(refs) == set(field_refs[field]), loc,
+                 "null problem must name exactly its source field locators")
+
+
 def _envelope(value, path, entry):
     """validate consumed contracts before distinguishing missing evidence."""
-    _schema(value, str(path), 3, ("interpreted", "reconstruction"))
+    _schema(value, str(path), 4, ("interpreted", "reconstruction"))
     interpreted, reconstructed = value["interpreted"], value["reconstruction"]
     _schema(
         interpreted,
         f"{path}/interpreted",
-        3,
+        4,
         (
             "requested_game_id",
             "game",
@@ -295,6 +365,10 @@ def _envelope(value, path, entry):
             "roster_records",
             "report_rows",
             "landing_goals",
+            "boxscore_players",
+            "shift_records",
+            "recording_observations",
+            "coach_scratch_observations",
             "checks",
             "issues",
         ),
@@ -313,6 +387,37 @@ def _envelope(value, path, entry):
     )
     _provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
     _issues(interpreted["issues"], f"{path}/interpreted/issues")
+    for i, player in enumerate(_array(interpreted["boxscore_players"],
+                                     f"{path}/interpreted/boxscore_players", nullable=True)):
+        loc = f"{path}/interpreted/boxscore_players/{i}"
+        _object(player, loc, BoxscorePlayer.__required_keys__)
+        _text(player["source_path"], loc + "/source_path")
+        goalie = "/goalies/" in player["source_path"]
+        for field in ("player_id", "team_id"):
+            _integer(player[field], loc + "/" + field, nullable=True, minimum=1)
+        for field in ("toi_seconds", "shift_count", "goals", "assists", "sog", "blocked_shots"):
+            _integer(player[field], loc + "/" + field, nullable=True)
+        _source_facts(player["source_fields"], loc + "/source_fields", interpreted["inputs"],
+                      GOALIE_SOURCE_FIELDS if goalie else SKATER_SOURCE_FIELDS)
+        _source_facts(player["derived_fields"], loc + "/derived_fields", interpreted["inputs"],
+                      ("even_strength_saves", "power_play_saves", "shorthanded_saves") if goalie else (),
+                      links_per_field=2)
+    for i, shift in enumerate(_array(interpreted["shift_records"],
+                                    f"{path}/interpreted/shift_records", nullable=True)):
+        loc = f"{path}/interpreted/shift_records/{i}"
+        _object(shift, loc, Shift.__required_keys__)
+        for field in ("source_index", "start_seconds", "end_seconds", "duration_seconds"):
+            _integer(shift[field], loc + "/" + field, nullable=field != "source_index")
+        _require(shift["interval_status"] in ("coherent", "inconsistent", "unavailable", "not_shift"),
+                 loc, "unsupported shift interval status")
+    for collection in ("recording_observations", "coach_scratch_observations"):
+        for i, row in enumerate(_array(interpreted[collection], f"{path}/interpreted/{collection}")):
+            loc = f"{path}/interpreted/{collection}/{i}"
+            _object(row, loc, ("source", "source_fields"))
+            _require(row["source"] in SOURCES, loc, "unknown source observation")
+            fields = ("coaches", "scratches") if collection == "coach_scratch_observations" else (
+                SUMMARY_RECORDING_FIELDS if row["source"] == "game-summary" else RECORDING_FIELDS)
+            _source_facts(row["source_fields"], loc + "/source_fields", interpreted["inputs"], fields)
     _object(
         reconstructed,
         f"{path}/reconstruction",
@@ -453,6 +558,8 @@ def _envelope(value, path, entry):
             "zone_code",
             "reason",
             "penalty_type",
+            "secondary_reason",
+            "penalty_description",
         ):
             _text(event[field], loc + "/" + field, nullable=True)
         _require(type(event["kind_valid"]) is bool, loc, "kind_valid must be boolean")
@@ -949,7 +1056,7 @@ def _previous_event(
     return result
 
 
-def _prepare_game(value, path, entry):
+def _prepare_game(value, path, entry, *, bio_rows):
     interpreted, reconstructed, events, recon, reports = _envelope(value, path, entry)
     game = interpreted["game"]
     scores, score_failures, ordered, order_supported = _scores(
@@ -1260,6 +1367,10 @@ def _prepare_game(value, path, entry):
                 ),
             }
         )
+    from .feature_data import prepare_game
+    features = prepare_game(value, attempts, input_ref=str(path), bio_rows=bio_rows,
+                            chronology={"ordered": ordered, "order_supported": order_supported,
+                                        "scores": scores})
     return (
         attempts,
         sum(not event["kind_valid"] for event in events.values()),
@@ -1272,226 +1383,248 @@ def _prepare_game(value, path, entry):
             "score_issues": score_failures,
             "event_collection_available": interpreted["events"] is not None,
         },
+        features,
     )
+
+
+def _load_corpus(path, inputs):
+    """admit one complete inventory and its attributed derived-game ledger."""
+    document = _read(path, "corpus", inputs)
+    _schema(document, str(path), 2, ("reference", "games"))
+    reference = document["reference"]
+    _schema(reference, f"{path}/reference", 2,
+            ("requested_season", "inventory", "inputs", "bio_observations", "bio_collections"))
+    _provenance(reference["inputs"], f"{path}/reference/inputs", REFERENCE_SOURCES)
+    _require(reference["inventory"] is not None and document["games"] is not None,
+             path, "admitted inventory and corpus game ledger required")
+    for i, observation in enumerate(_array(reference["bio_observations"],
+                                           f"{path}/reference/bio_observations")):
+        loc = f"{path}/reference/bio_observations/{i}"
+        _object(observation, loc, ("source", "source_index", "player_id", "birth_date",
+                                  "shoots_catches", "source_fields", "requested_season",
+                                  "requested_at", "effective_at"))
+        _require(observation["source"] in ("skater-bios", "goalie-bios"), loc,
+                 "unknown bio observation source")
+        _integer(observation["source_index"], loc + "/source_index")
+        _integer(observation["player_id"], loc + "/player_id", nullable=True, minimum=1)
+        _text(observation["birth_date"], loc + "/birth_date", nullable=True)
+        try:
+            valid_birth_date = (observation["birth_date"] is None
+                or date.fromisoformat(observation["birth_date"]).isoformat() == observation["birth_date"])
+        except ValueError:
+            valid_birth_date = False
+        _require(valid_birth_date, loc + "/birth_date", "expected canonical calendar date")
+        _require(observation["shoots_catches"] in (None, "L", "R"), loc,
+                 "unsupported reported hand")
+        _require(observation["requested_season"] == reference["requested_season"], loc,
+                 "bio report season disagreement")
+        _text(observation["requested_at"], loc + "/requested_at", nullable=True)
+        source_input = next(row for row in reference["inputs"] if row["source"] == observation["source"])
+        _require(observation["requested_at"] == source_input["requested_at"], loc,
+                 "bio retrieval date differs from its receipt")
+        _require(observation["effective_at"] is None, loc,
+                 "bio contract does not establish historical effective time")
+        _source_facts(observation["source_fields"], loc + "/source_fields", reference["inputs"],
+                      BIO_SKATER_SOURCE_FIELDS if observation["source"] == "skater-bios" else BIO_GOALIE_SOURCE_FIELDS)
+        _require(all(observation["source_fields"]["values"][source] == observation[field]
+                     for source, field in (("playerId", "player_id"), ("birthDate", "birth_date"),
+                                           ("shootsCatches", "shoots_catches"))), loc,
+                 "bio source values and resolved aliases disagree")
+    inventory = {}
+    for i, entry in enumerate(_array(reference["inventory"], f"{path}/reference/inventory")):
+        loc = f"{path}/reference/inventory/{i}"
+        _game_identity(entry, loc)
+        _require(entry["season"] == reference["requested_season"], loc,
+                 "inventory and requested reference season disagree")
+        _integer(entry.get("source_index"), loc + "/source_index")
+        gid = entry["game_id"]
+        _require(gid not in inventory, loc, "duplicate inventory game id")
+        inventory[gid] = entry
+    ledger = {}
+    for i, row in enumerate(_array(document["games"], f"{path}/games")):
+        loc = f"{path}/games/{i}"
+        _object(row, loc, ("game_id", "inventory_source_index", "status", "reason", "output_path"))
+        gid = row["game_id"]
+        _require(type(gid) is str and gid in inventory and gid not in ledger, loc,
+                 "unknown or duplicate corpus game id")
+        _require(type(row["inventory_source_index"]) is int
+                 and row["inventory_source_index"] == inventory[gid]["source_index"], loc,
+                 "inventory source index disagreement")
+        _require(row["status"] in STATUSES, loc, "unsupported corpus game status")
+        _text(row["reason"], loc + "/reason", nullable=True)
+        _text(row["output_path"], loc + "/output_path", nullable=True)
+        _require((row["status"] == "reconstructed") == bool(row["output_path"])
+                 or row["status"] in ("identity_unavailable", "identity_mismatch"), loc,
+                 "game status and envelope reference disagree")
+        ledger[gid] = row
+    _require(ledger.keys() == inventory.keys(), path,
+             "corpus ledger does not cover admitted inventory")
+    return document, inventory, ledger
 
 
 def prepare(selection_path):
-    """read explicit selected evidence, preserving every exclusion and game gap."""
+    """assemble target facts once; history adds strictly earlier evidence only."""
+    from .chance_features import PREPARATION_IDENTITY
+    from .feature_data import prepare_missing_game
+    from .feature_history import prepare_history
+
     path = Path(selection_path).resolve()
     inputs = []
     selection = _read(path, "selection", inputs)
-    _schema(selection, str(path), 1, ("purpose", "corpora"))
-    _require(
-        set(selection) == {"schema_version", "purpose", "corpora"},
-        path,
-        "unexpected selection fields",
-    )
-    _require(
-        selection["purpose"] in ("fixture_exercise", "research"),
-        path,
-        "unsupported purpose",
-    )
+    _schema(selection, str(path), 2, ("purpose", "corpora", "history_corpora"))
+    _require(set(selection) == {"schema_version", "purpose", "corpora", "history_corpora"},
+             path, "unexpected selection fields")
+    _require(selection["purpose"] in ("fixture_exercise", "research"), path,
+             "unsupported purpose")
     corpora = _array(selection["corpora"], f"{path}/corpora")
     _require(bool(corpora), path, "nonempty explicit corpus selection required")
-    selected_ids = set()
-    resolved = []
-    for i, corpus in enumerate(corpora):
+    selected_ids, resolved, target_paths = set(), [], {}
+    for i, selected in enumerate(corpora):
         loc = f"{path}/corpora/{i}"
-        _object(corpus, loc, ("path", "game_ids"))
-        _require(
-            set(corpus) == {"path", "game_ids"},
-            loc,
-            "unexpected corpus selection fields",
-        )
-        _text(corpus["path"], loc + "/path")
-        _require(bool(corpus["path"]), loc, "empty corpus path")
-        ids = _array(corpus["game_ids"], loc + "/game_ids")
+        _object(selected, loc, ("path", "game_ids"))
+        _require(set(selected) == {"path", "game_ids"}, loc,
+                 "unexpected corpus selection fields")
+        _text(selected["path"], loc + "/path")
+        _require(bool(selected["path"]), loc, "empty corpus path")
+        corpus_path = str((path.parent / selected["path"]).resolve())
+        ids = _array(selected["game_ids"], loc + "/game_ids")
         _require(bool(ids), loc, "nonempty explicit game_ids required")
         for gid in ids:
-            _require(
-                type(gid) is str and re.fullmatch(r"[0-9]{10}", gid),
-                loc,
-                "expected ten-digit string game id",
-            )
+            _require(type(gid) is str and re.fullmatch(r"[0-9]{10}", gid), loc,
+                     "expected ten-digit string game id")
             _require(gid not in selected_ids, loc, "duplicate selected game id " + gid)
             selected_ids.add(gid)
-        resolved.append(
-            {
-                "path": str((path.parent / corpus["path"]).resolve()),
-                "game_ids": list(ids),
-            }
-        )
-    attempts, games, per_game = [], [], []
-    game_dates = {}
-    inventories = set()
+            target_paths[gid] = corpus_path
+        resolved.append({"path": corpus_path, "game_ids": list(ids)})
+    history_paths = []
+    for i, value in enumerate(_array(selection["history_corpora"], f"{path}/history_corpora")):
+        loc = f"{path}/history_corpora/{i}"
+        _text(value, loc)
+        _require(bool(value), loc, "empty history corpus path")
+        corpus_path = str((path.parent / value).resolve())
+        _require(corpus_path not in history_paths, loc, "duplicate history corpus path")
+        history_paths.append(corpus_path)
     input_roots = {str(path.parent)}
-    for selected in resolved:
-        corpus_path = Path(selected["path"])
+    bio_observations, reference_signatures, candidates = {}, {}, defaultdict(list)
+    target_inventories, history_ids = set(), set()
+    identities = {}
+    for value in dict.fromkeys([row["path"] for row in resolved] + history_paths):
+        corpus_path = Path(value)
         input_roots.add(str(corpus_path.parent))
-        document = _read(corpus_path, "corpus", inputs)
-        _schema(document, str(corpus_path), 1, ("reference", "games"))
-        reference = document["reference"]
-        _schema(reference, f"{corpus_path}/reference", 1, ("inventory", "inputs"))
-        _provenance(
-            reference["inputs"], f"{corpus_path}/reference/inputs", REFERENCE_SOURCES
-        )
-        _require(
-            reference["inventory"] is not None and document["games"] is not None,
-            corpus_path,
-            "admitted inventory and corpus game ledger required",
-        )
-        inventory = {}
-        for i, entry in enumerate(
-            _array(reference["inventory"], f"{corpus_path}/reference/inventory")
-        ):
-            loc = f"{corpus_path}/reference/inventory/{i}"
-            _game_identity(entry, loc)
-            _integer(entry.get("source_index"), loc + "/source_index")
-            gid = entry["game_id"]
-            _require(gid not in inventory, loc, "duplicate inventory game id")
-            inventory[gid] = entry
-        ledger = {}
-        for i, row in enumerate(_array(document["games"], f"{corpus_path}/games")):
-            loc = f"{corpus_path}/games/{i}"
-            _object(
-                row,
-                loc,
-                (
-                    "game_id",
-                    "inventory_source_index",
-                    "status",
-                    "reason",
-                    "output_path",
-                ),
-            )
-            gid = row["game_id"]
-            _require(
-                type(gid) is str and gid in inventory and gid not in ledger,
-                loc,
-                "unknown or duplicate corpus game id",
-            )
-            _require(
-                type(row["inventory_source_index"]) is int
-                and row["inventory_source_index"] == inventory[gid]["source_index"],
-                loc,
-                "inventory source index disagreement",
-            )
-            _require(row["status"] in STATUSES, loc, "unsupported corpus game status")
-            _text(row["reason"], loc + "/reason", nullable=True)
-            _text(row["output_path"], loc + "/output_path", nullable=True)
-            ledger[gid] = row
-        _require(
-            ledger.keys() == inventory.keys(),
-            corpus_path,
-            "corpus ledger does not cover admitted inventory",
-        )
-        inventories.update(inventory)
-        for gid in selected["game_ids"]:
-            _require(gid in inventory, corpus_path, "unknown selected game id " + gid)
-            entry, row = inventory[gid], ledger[gid]
+        document, inventory, ledger = _load_corpus(corpus_path, inputs)
+        reference_signatures[value] = hashlib.sha256(json.dumps(document["reference"], sort_keys=True,
+            separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+        _require(all(gid in inventory for gid, target in target_paths.items() if target == value),
+                 corpus_path, "target game absent from its explicitly selected inventory")
+        bio_observations[value] = [{**observation, "input_ref": value}
+            for observation in document["reference"]["bio_observations"]]
+        admitted = value in history_paths
+        if value in target_paths.values():
+            target_inventories.update(inventory)
+        if admitted:
+            history_ids.update(inventory)
+        for gid, entry in inventory.items():
+            if gid in identities:
+                _require(all(identities[gid][field] == entry[field] for field in _IDENTITY),
+                         corpus_path, "conflicting inventory identity for " + gid)
+            else:
+                identities[gid] = {**entry, "input_ref": value, "selection_input_ref": str(path), "history_admitted": False}
+            identities[gid]["history_admitted"] |= admitted
+            if admitted or target_paths.get(gid) == value:
+                candidates[gid].append((value, entry, ledger[gid]))
+    _require(selected_ids <= target_inventories, path,
+             "unknown selected game ids: " + ", ".join(sorted(selected_ids - target_inventories)))
+    _require(not history_paths or selected_ids <= history_ids, path,
+             "nonempty history inventories must contain every target")
+    target_order = [gid for row in resolved for gid in row["game_ids"]]
+    target_attempts, target_counts, target_games, target_features, summaries = {}, {}, {}, {}, {}
+    requested = selected_ids | history_ids
+    for gid in sorted(requested, key=lambda key: (identities[key]["game_date"], key)):
+        chosen, chosen_path, chosen_signature, chosen_corpus, chosen_entry, chosen_row = None, None, None, None, None, None
+        chosen_reference_signature = None
+        seen_paths = set()
+        for corpus_value, entry, row in candidates[gid]:
+            corpus_path = Path(corpus_value)
             status = row["status"]
-            game_dates[gid] = entry["game_date"]
-            games.append(
-                {
-                    **entry,
-                    "corpus_path": str(corpus_path),
-                    "status": status,
-                    "reason": row["reason"],
-                    "output_path": row["output_path"],
-                }
-            )
             if status in ("input_error", "identity_mismatch"):
-                raise InputContractError(
-                    f"{corpus_path}/games/{gid}: {status}: {row['reason']}"
-                )
-            counts = {
-                "game_id": gid,
-                "game_date": entry["game_date"],
-                "corpus_status": status,
-                "reason": row["reason"],
-                "known_attempts": None,
-                "recognized_attempts": None,
-                "genuine_five_on_five_attempts": None,
-                "chance_2_eligible_attempts": None,
-                "goals_by_status": None,
-                "excluded_goals_by_reason": None,
-                "unclassifiable_source_rows": None,
-                "attempts_by_status": None,
-                "attempts_by_reason": None,
-            }
-            per_game.append(counts)
-            if status != "reconstructed":
-                continue
-            _require(
-                bool(row["output_path"]),
-                corpus_path,
-                "reconstructed game lacks envelope reference: " + gid,
-            )
-            envelope_path = (corpus_path.parent / row["output_path"]).resolve()
-            input_roots.add(str(envelope_path.parent))
-            envelope = _read(envelope_path, "game", inputs)
-            prepared, unclassified, evidence = _prepare_game(
-                envelope, envelope_path, entry
-            )
-            attempts.extend(prepared)
-            available = evidence["event_collection_available"]
-            counts.update(
-                {
-                    "known_attempts": len(prepared) if available else None,
-                    "recognized_attempts": len(prepared) if available else None,
-                    "genuine_five_on_five_attempts": sum(
-                        a["classification"] == "five_on_five"
-                        and a["source_event"]["timed_period"] is True
-                        for a in prepared
-                    )
-                    if available
-                    else None,
-                    "chance_2_eligible_attempts": sum(
-                        a["status"] == "eligible" for a in prepared
-                    )
-                    if available
-                    else None,
-                    "goals_by_status": {
-                        s: sum(a["goal"] and a["status"] == s for a in prepared)
-                        for s in ("eligible", "out_of_scope", "unavailable")
-                    }
-                    if available
-                    else None,
-                    "excluded_goals_by_reason": {
-                        r: sum(
-                            a["goal"]
-                            and a["status"] != "eligible"
-                            and r in a["reasons"]
-                            for a in prepared
-                        )
-                        for r in _REASONS
-                    }
-                    if available
-                    else None,
-                    "unclassifiable_source_rows": unclassified if available else None,
-                    "attempts_by_status": (
-                        {
-                            s: sum(a["status"] == s for a in prepared)
-                            for s in ("eligible", "out_of_scope", "unavailable")
-                        }
-                        if available
-                        else None
-                    ),
-                    "attempts_by_reason": (
-                        {r: sum(r in a["reasons"] for a in prepared) for r in _REASONS}
-                        if available
-                        else None
-                    ),
-                    **evidence,
-                }
-            )
+                raise InputContractError(f"{corpus_path}/games/{gid}: {status}: {row['reason']}")
+            reference_signature = reference_signatures[corpus_value]
+            _require(chosen_reference_signature is None or reference_signature == chosen_reference_signature,
+                     corpus_path, "different reference bio snapshots for historical game " + gid)
+            chosen_reference_signature = reference_signature
+            envelope, envelope_path, signature = None, None, (status,)
+            if status == "reconstructed":
+                envelope_path = (corpus_path.parent / row["output_path"]).resolve()
+                input_roots.add(str(envelope_path.parent))
+                if envelope_path in seen_paths:
+                    continue
+                seen_paths.add(envelope_path)
+                envelope = _read(envelope_path, "game", inputs)
+                signature = (status, inputs[-1]["sha256"])
+            _require(chosen_signature is None or signature == chosen_signature, corpus_path,
+                     "different snapshots of historical game " + gid)
+            if chosen_signature is None:
+                chosen, chosen_path, chosen_signature = envelope, envelope_path, signature
+                chosen_corpus, chosen_entry, chosen_row = corpus_value, entry, row
+        status = chosen_row["status"]
+        if chosen is not None:
+            attempts, unclassified, evidence, features = _prepare_game(
+                chosen, chosen_path, chosen_entry, bio_rows=bio_observations[chosen_corpus])
+            summaries[gid] = features["history_summary"]
+        else:
+            attempts, unclassified, evidence = [], 0, {"event_collection_available": False}
+            features = prepare_missing_game(chosen_entry, input_ref=chosen_corpus)
+            summaries[gid] = None
+        if gid not in selected_ids:
+            continue
+        selected_corpus = target_paths[gid]
+        selected_entry = identities[gid]
+        target_games[gid] = {**{field: selected_entry[field] for field in chosen_entry},
+            "corpus_path": selected_corpus, "status": status, "reason": chosen_row["reason"],
+            "output_path": chosen_row["output_path"]}
+        target_attempts[gid] = attempts
+        target_features[gid] = features
+        available = evidence["event_collection_available"]
+        target_counts[gid] = {
+            "game_id": gid, "game_date": chosen_entry["game_date"], "corpus_status": status,
+            "reason": chosen_row["reason"], "known_attempts": len(attempts) if available else None,
+            "recognized_attempts": len(attempts) if available else None,
+            "genuine_five_on_five_attempts": sum(a["classification"] == "five_on_five"
+                and a["source_event"]["timed_period"] is True for a in attempts) if available else None,
+            "chance_2_eligible_attempts": sum(a["status"] == "eligible" for a in attempts) if available else None,
+            "goals_by_status": {s: sum(a["goal"] and a["status"] == s for a in attempts)
+                for s in ("eligible", "out_of_scope", "unavailable")} if available else None,
+            "excluded_goals_by_reason": {r: sum(a["goal"] and a["status"] != "eligible"
+                and r in a["reasons"] for a in attempts) for r in _REASONS} if available else None,
+            "unclassifiable_source_rows": unclassified if available else None,
+            "attempts_by_status": {s: sum(a["status"] == s for a in attempts)
+                for s in ("eligible", "out_of_scope", "unavailable")} if available else None,
+            "attempts_by_reason": {r: sum(r in a["reasons"] for a in attempts)
+                for r in _REASONS} if available else None, **evidence}
+    history = prepare_history(list(identities.values()), summaries, target_order)
+    feature_games, feature_player_games = {}, {}
+    for gid in target_order:
+        feature_games[gid] = target_features[gid]["game_facts"]
+        feature_player_games[gid] = target_features[gid]["player_game_facts"]
+        for team_id, groups in history["games"][gid]["teams"].items():
+            _require(team_id in feature_games[gid]["teams"], gid,
+                     "history join lacks target team " + team_id)
+            feature_games[gid]["teams"][team_id].update(groups)
+        for player_id, groups in history["players"][gid].items():
+            _require(player_id in feature_player_games[gid], gid,
+                     "history join lacks uniquely identified target player " + player_id)
+            feature_player_games[gid][player_id].update(groups)
+    attempts = [attempt for gid in target_order for attempt in target_attempts[gid]]
+    games = [target_games[gid] for gid in target_order]
+    per_game = [target_counts[gid] for gid in target_order]
+    game_dates = {gid: identities[gid]["game_date"] for gid in target_order}
     by_status = Counter(a["status"] for a in attempts)
     corpus_statuses = Counter(g["status"] for g in games)
     contributing = [g for g in per_game if g["known_attempts"] is not None]
     coverage = {
         "games": {
             "selected": len(games),
-            "unselected": len(inventories - selected_ids),
+            "unselected": len(target_inventories - selected_ids),
             "missing_capture": corpus_statuses["missing_capture"],
             "identity_unavailable": corpus_statuses["identity_unavailable"],
             "missing": sum(g["known_attempts"] is None for g in per_game),
@@ -1562,12 +1695,16 @@ def prepare(selection_path):
         "coverage": coverage,
         "inputs": inputs,
         "selection": {
-            "schema_version": 1,
+            "schema_version": 2,
             "purpose": selection["purpose"],
             "corpora": resolved,
+            "history_corpora": history_paths,
         },
         "purpose": selection["purpose"],
         "game_dates": game_dates,
         "games": games,
         "input_roots": sorted(input_roots),
+        "preparation_identity": dict(PREPARATION_IDENTITY),
+        "feature_games": feature_games,
+        "feature_player_games": feature_player_games,
     }

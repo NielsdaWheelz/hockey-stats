@@ -2,7 +2,7 @@
 
 date: 2026-10-08. status: user-approved direction with retained-feature amendment; documentation only. [brief](../brief.md) owns settled choices, [plan](../plan.md) sequencing, [03j](../specs/03j-chance-experiment.md) the next experiment and [feature inventory](../model-features.md) the repertoire. implementation and fitting require their separately completed specifications/assignment.
 
-execution follow-up, 2026-10-08: the separately assigned [03j benchmark](chance-03j/decision.md) completed with `inconclusive` and `no_supported_intervention`; all 6,000 refits converged. it neither prioritizes scale nor identifies a structural cause. [verification](chance-03j/verification.md) preserves the frozen protocol and independent checks. 03k and native follow-on research remain separately specified/assigned work.
+execution follow-up, 2026-10-08: the separately assigned [03j benchmark](chance-03j/decision.md) completed with `inconclusive` and `no_supported_intervention`; all 6,000 refits converged. it neither prioritizes scale nor identifies a structural cause. [verification](chance-03j/verification.md) preserves the frozen protocol and independent checks. 03j is reviewed and merged in `e6b814f`. the user selected the full local-data repertoire in one 03k pr; [its full specification](../specs/03k-feature-repertoire.md) separates local facts/history and stage selection from external/inference prerequisites. implementation and native follow-on research need separate assignment.
 
 ## purpose and evidence
 

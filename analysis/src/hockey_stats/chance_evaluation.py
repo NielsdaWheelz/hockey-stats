@@ -355,7 +355,7 @@ def evaluate(model: dict, prepared: dict) -> dict:
         )
         for game_id in prepared["game_dates"]
     }
-    context = prediction_context(model)
+    context = prediction_context(model, feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"])
     for attempt in prepared["attempts"]:
         if attempt["status"] != "eligible":
             continue

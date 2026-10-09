@@ -99,7 +99,7 @@ def candidate_geometry(origin_xy, previous_event, hand):
         if hand in ("R", "L") else None,
         "dx_ft": dx, "dy_ft": dy,
         "displacement_ft": math.hypot(dx, dy) if prior else None,
-        "crossed_centerline": (py * y < 0) if prior else None,
+        "crossed_centerline": (py < 0 < y or y < 0 < py) if prior else None,
     })
     if not distance:
         _problem(result, ("signed_angle_rad", "absolute_angle_rad"),

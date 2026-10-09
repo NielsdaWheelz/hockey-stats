@@ -475,7 +475,11 @@ def candidate_columns(inputs, design, origin_xy):
             yield start, dx / 100
             yield start + 1, dy / 100
             yield start + 2, np.hypot(dx, dy) / 100
-            yield start + 3, np.asarray(y * inputs["previous_y"] < 0, dtype=np.float64)
+            yield start + 3, np.asarray(
+                ((y > 0) & (inputs["previous_y"] < 0))
+                | ((y < 0) & (inputs["previous_y"] > 0)),
+                dtype=np.float64,
+            )
         elif family == "off_wing":
             start = design["family_slices"][family][0]
             yield start, np.asarray(y * inputs["hand"] > 0, dtype=np.float64)

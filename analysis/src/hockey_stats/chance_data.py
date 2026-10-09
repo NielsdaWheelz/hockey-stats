@@ -38,7 +38,7 @@ from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_jso
 from .corpus import STATUSES
 from .interpret import (
     BoxscorePlayer, Check, Event, GOALIE_SOURCE_FIELDS, LandingGoal,
-    RECORDING_FIELDS, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift,
+    RECORDING_FIELDS, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
 )
 from .references import BIO_GOALIE_SOURCE_FIELDS, BIO_INTEGER_SOURCE_FIELDS, BIO_SKATER_SOURCE_FIELDS
 from .feature_data import ACTION_KINDS, ATTEMPT_KINDS, RESETS
@@ -272,7 +272,7 @@ def _provenance(rows, location, sources):
     )
 
 
-def _source_facts(record, location, inputs, fields):
+def _source_facts(record, location, inputs, fields, *, links_per_field=1):
     """validate a located source-fact envelope, keeping missing evidence legal."""
     _object(record, location, ("values", "problems", "evidence"))
     _require(set(record) == {"values", "problems", "evidence"}, location,
@@ -314,15 +314,23 @@ def _source_facts(record, location, inputs, fields):
     evidence = _array(record["evidence"], location + "/evidence")
     _require(set(problems) == {key for key, value in values.items() if value is None},
              location, "every null requires exactly one located problem")
+    field_refs = {field: [] for field in fields}
     for i, item in enumerate(evidence):
         loc = f"{location}/evidence/{i}"
-        _object(item, loc, ("source", "path", "input_index"))
+        _object(item, loc, SourceEvidence.__required_keys__)
+        _require(set(item) == SourceEvidence.__required_keys__, loc,
+                 "source locator fields disagree with the declared contract")
+        _text(item["field"], loc + "/field")
+        _require(item["field"] in field_refs, loc, "locator names an unknown source field")
+        field_refs[item["field"]].append(i)
         _text(item["source"], loc + "/source")
         _text(item["path"], loc + "/path")
         _integer(item["input_index"], loc + "/input_index")
         _require(item["input_index"] < len(inputs), loc, "broken input reference")
         _require(item["source"] == inputs[item["input_index"]]["source"], loc,
                  "source and input reference disagree")
+    _require(all(len(refs) == links_per_field for refs in field_refs.values()), location,
+             "source field locator counts disagree with the declared contract")
     for field, problem in problems.items():
         loc = f"{location}/problems/{field}"
         _object(problem, loc, ("status", "reason", "evidence_refs"))
@@ -337,6 +345,8 @@ def _source_facts(record, location, inputs, fields):
         for ref in refs:
             _integer(ref, loc + "/evidence_refs")
             _require(ref < len(evidence), loc, "broken evidence reference")
+        _require(len(refs) == links_per_field and set(refs) == set(field_refs[field]), loc,
+                 "null problem must name exactly its source field locators")
 
 
 def _envelope(value, path, entry):
@@ -390,7 +400,8 @@ def _envelope(value, path, entry):
         _source_facts(player["source_fields"], loc + "/source_fields", interpreted["inputs"],
                       GOALIE_SOURCE_FIELDS if goalie else SKATER_SOURCE_FIELDS)
         _source_facts(player["derived_fields"], loc + "/derived_fields", interpreted["inputs"],
-                      ("even_strength_saves", "power_play_saves", "shorthanded_saves") if goalie else ())
+                      ("even_strength_saves", "power_play_saves", "shorthanded_saves") if goalie else (),
+                      links_per_field=2)
     for i, shift in enumerate(_array(interpreted["shift_records"],
                                     f"{path}/interpreted/shift_records", nullable=True)):
         loc = f"{path}/interpreted/shift_records/{i}"

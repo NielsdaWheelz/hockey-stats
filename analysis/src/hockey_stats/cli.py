@@ -223,9 +223,7 @@ def _inspect_fields(value, path, key, season, outcome, availability, representat
                     sample = {"mapping_size": len(observed), "first_keys": list(observed)[:3]}
                 refs = problem["evidence_refs"] if problem else range(len(value["evidence"]))
                 if not problem:
-                    field_refs = [ref for ref in refs if "input_index" in value["evidence"][ref]
-                        and (value["evidence"][ref]["path"].endswith("/" + field)
-                             or value["evidence"][ref]["path"].endswith("/" + field + "/default"))]
+                    field_refs = [ref for ref in refs if value["evidence"][ref].get("field") == field]
                     if field_refs:
                         refs = field_refs
                 examples[status] = {"key": key, "value": sample,
@@ -303,8 +301,7 @@ def features_main() -> int:
         config = validate_config(read_json(config_path))
         prepared = prepare(selection)
         output = output_path(args.out, prepared["input_roots"] + [str(selection.parent), str(config_path.parent)])
-        years = [int(game["season"][:4]) for game in prepared["games"]]
-        seasons = [f"{year:04d}{year + 1:04d}" for year in range(min(years), max(years) + 1)]
+        seasons = sorted({game["season"] for game in prepared["games"]})
         layouts = compile_designs(prepared["attempts"], config, seasons=seasons)
         availability, representatives = {}, {}
         game_seasons = {game["game_id"]: game["season"] for game in prepared["games"]}

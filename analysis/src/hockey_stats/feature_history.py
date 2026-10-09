@@ -1,6 +1,6 @@
 """strictly earlier-date history over explicitly admitted regular inventories."""
 
-from bisect import bisect_left
+from bisect import bisect_left, bisect_right
 from collections import defaultdict
 from datetime import date, timedelta
 
@@ -114,7 +114,7 @@ def _window(scope, season_index, player, role, start, cutoff, missing_evidence):
 
 def _previous_player(index, player, cutoff):
     if index is None:
-        return None, True
+        return None, True, True
     entry = index["players"].get(player)
     appearances = entry["appearances"] if entry else []
     appearance_dates = entry["appearance_dates"] if entry else []
@@ -122,21 +122,26 @@ def _previous_player(index, player, cutoff):
     previous = appearances[position - 1] if position else None
     start = previous[0] if previous else "0001-01-01"
     lo, hi = _bounds(index, start, cutoff)
-    unknown = index["unknown"][hi] - index["unknown"][lo] > 0
+    game_unknown = index["unknown"][hi] > index["unknown"][lo]
+    date_lo = bisect_right(index["dates"], start) if previous else lo
+    date_unknown = index["unknown"][hi] > index["unknown"][date_lo]
     if entry:
         uncertain = entry["uncertain_appearances"]
-        unknown |= bisect_left(uncertain, cutoff) > bisect_left(uncertain, start)
+        stop = bisect_left(uncertain, cutoff)
+        game_unknown |= stop > bisect_left(uncertain, start)
+        date_lo = bisect_right(uncertain, start) if previous else bisect_left(uncertain, start)
+        date_unknown |= stop > date_lo
     # two appearances on one prior date have no declared within-date order.
     ambiguous = previous is not None and position - bisect_left(appearance_dates, previous[0]) > 1
-    return previous, unknown or ambiguous
+    return previous, date_unknown, game_unknown or ambiguous
 
 
 def _player_rest(index, player, cutoff, windows, missing_evidence):
-    previous, unknown = _previous_player(index, player, cutoff)
+    previous, date_unknown, game_unknown = _previous_player(index, player, cutoff)
     current = date.fromisoformat(cutoff)
-    prior_date = previous[0] if previous and not unknown else None
+    prior_date = previous[0] if previous and not date_unknown else None
     values = {
-        "prior_appearance_exists": True if previous else None if unknown else False,
+        "prior_appearance_exists": True if previous else None if date_unknown else False,
         "prior_game_date": prior_date,
         "calendar_gap_days": (current - date.fromisoformat(prior_date)).days if prior_date else None,
         "prior_one_date": None, "prior_two_date": None,
@@ -160,10 +165,10 @@ def _player_rest(index, player, cutoff, windows, missing_evidence):
     if previous:
         evidence.extend(previous[2]["counters"]["evidence"])
     result = fact(values, evidence, reason="player predecessor or calendar coverage left-censored")
-    if not unknown and not previous:
+    if not date_unknown and not previous:
         for field in ("prior_game_date", "calendar_gap_days"):
             result["problems"][field] = {"status": "not_applicable", "reason": "complete declared prefix has no positive-toi appearance", "evidence_refs": [0]}
-    return result, previous, unknown
+    return result, previous, game_unknown
 
 
 def _team_rest(index, cutoff, missing_evidence):

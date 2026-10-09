@@ -28,6 +28,7 @@ class Input(TypedDict):
 
 
 class SourceEvidence(TypedDict):
+    field: str
     source: str
     path: str
     input_index: int
@@ -40,6 +41,12 @@ class FieldProblem(TypedDict):
 
 
 class SourceFields(TypedDict):
+    """source locators explicitly name the value they support.
+
+    source_fields has one locator per field; boxscore derived_fields has two.
+    null problems explicitly name the applicable locator indices.
+    """
+
     values: dict[str, Any]
     problems: dict[str, FieldProblem]
     evidence: list[SourceEvidence]
@@ -293,8 +300,9 @@ def _boolean(value: Any, source: str, path: str, issues: list[Issue]) -> bool | 
 
 def source_fields(values: dict[str, Any], source: str, input_index: int,
                   paths: dict[str, str], issues: list[Issue]) -> SourceFields:
-    """locate selected source values and retain a problem for every null."""
-    evidence = [{"source": source, "path": paths[field], "input_index": input_index} for field in values]
+    """one named locator per field; locate every null problem."""
+    evidence = [{"field": field, "source": source, "path": paths[field], "input_index": input_index}
+                for field in values]
     messages = {issue["path"]: issue["message"] for issue in issues if issue["source"] == source}
     problems = {field: {"status": "unavailable", "reason": messages.get(paths[field], "source field missing or null"),
                         "evidence_refs": [index]}
@@ -304,7 +312,10 @@ def source_fields(values: dict[str, Any], source: str, input_index: int,
 
 def _boxscore_features(row: dict[str, Any], goalie: bool, source: str, path: str,
                        input_index: int, issues: list[Issue]) -> tuple[SourceFields, SourceFields]:
-    """retain reported totals and derive only arithmetically supported saves."""
+    """retain source totals and arithmetically supported strength saves.
+
+    derived_fields names each value on its pair/goals locators.
+    """
     issue_start = len(issues)
     values: dict[str, Any] = {}
     selected_fields = GOALIE_SOURCE_FIELDS if goalie else SKATER_SOURCE_FIELDS
@@ -353,7 +364,8 @@ def _boxscore_features(row: dict[str, Any], goalie: bool, source: str, path: str
             conflict = pair is not None and goals is not None and pair[1] - pair[0] != goals
             derived["values"][derived_name] = pair[0] if pair is not None and goals is not None and not conflict else None
             evidence_start = len(derived["evidence"])
-            derived["evidence"].extend({"source": source, "path": path + "/" + selected, "input_index": input_index}
+            derived["evidence"].extend({"field": derived_name, "source": source,
+                                       "path": path + "/" + selected, "input_index": input_index}
                                        for selected in (field, goals_field))
             if derived["values"][derived_name] is None:
                 derived["problems"][derived_name] = {"status": "conflict" if conflict else "unavailable",

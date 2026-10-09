@@ -133,15 +133,30 @@ def _people(document, bio_rows, input_ref, link):
     for player_id in sorted((rosters.keys() | boxes.keys()) - {None}):
         roster, box = rosters[player_id], boxes[player_id]
         rows = roster + box
-        teams = {row["team_id"] for row in rows}
-        if (len(roster) > 1 or len(box) > 1 or len(teams) != 1
-                or None in teams or not teams <= {game["away_team_id"], game["home_team_id"]}):
-            continue
-        team = next(iter(teams))
-        r, b = (roster[0] if roster else {}), (box[0] if box else {})
-        evidence = [link("play-by-play", f"/rosterSpots/{r['source_index']}")] if r else []
-        if b:
-            evidence.append(link("boxscore", b["source_path"]))
+        teams = {row["team_id"] for row in rows if row["team_id"] is not None}
+        team = None
+        if len(teams) == 1 and teams <= {game["away_team_id"], game["home_team_id"]}:
+            team = next(iter(teams))
+        r = roster[0] if len(roster) == 1 else {}
+        unique_box = box[0] if len(box) == 1 else {}
+        b = unique_box if team is not None else {}
+        evidence = [link("play-by-play", f"/rosterSpots/{row['source_index']}") for row in roster]
+        evidence.extend(link("boxscore", row["source_path"]) for row in box)
+        source_evidence = list(evidence)
+        box_problem = None
+        if len(box) > 1 or box and team is None:
+            box_problem = {
+                "status": "conflict" if len(box) > 1 or len(teams) > 1 else "unavailable",
+                "reason": "boxscore observations lack a unique compatible game-team join",
+            }
+        counter_evidence = [link("boxscore", b["source_path"])] if b else [link("play-by-play", "/rosterSpots")]
+        if box_problem:
+            counter_evidence.extend(source_evidence)
+        event_team, event_team_source = None, None
+        if r and r["team_id"] in (game["away_team_id"], game["home_team_id"]):
+            event_team, event_team_source = r["team_id"], "play-by-play"
+        elif b:
+            event_team, event_team_source = b["team_id"], "boxscore"
         observations = bios[player_id]
         for observation in observations:
             evidence.append({
@@ -155,12 +170,18 @@ def _people(document, bio_rows, input_ref, link):
         values = {
             "player_id": player_id, "team_id": team,
             "reported_position": next(iter(positions)) if len(positions) == 1 else None,
-            "first_name": r.get("first_name"), "last_name": r.get("last_name"),
-            "name": b.get("name"), "birth_date": None, "shoots_catches": None,
+            "first_name": None, "last_name": None,
+            "name": None, "birth_date": None, "shoots_catches": None,
             "age_days": None, "bio_observations": observations,
-            "reported_totals": b.get("source_fields") if b else None,
+            "reported_totals": unique_box.get("source_fields"),
         }
         result = fact(values, evidence)
+        if team is None:
+            _problem(result, ("team_id",), "reported game-team observations are conflicting or unavailable", "conflict" if len(teams) > 1 else "unavailable")
+        if len(box) > 1:
+            _problem(result, ("reported_totals",), "multiple boxscore observations", "conflict")
+        if len(roster) > 1 or box_problem or team is None:
+            values["identity_observations"] = {"roster": roster, "boxscore": box}
         if len(positions) > 1:
             _problem(result, ("reported_position",), "conflicting reported roster/boxscore positions", "conflict")
         values["position_observations"] = [
@@ -169,13 +190,15 @@ def _people(document, bio_rows, input_ref, link):
              "path": f"/rosterSpots/{row['source_index']}" if "source_index" in row else row["source_path"]}
             for row in rows
         ]
-        for field in ("birth_date", "shoots_catches"):
-            known = {row[field] for row in observations if row[field] is not None}
+        for field, field_rows in (("first_name", roster), ("last_name", roster), ("name", box),
+                                  ("birth_date", observations), ("shoots_catches", observations)):
+            known = {row[field] for row in field_rows if row[field] is not None}
             if len(known) == 1:
                 values[field] = known.pop()
                 result["problems"].pop(field, None)
             elif len(known) > 1:
-                _problem(result, (field,), "conflicting attributed bio observations", "conflict")
+                reason = "conflicting attributed bio observations" if field in ("birth_date", "shoots_catches") else f"conflicting attributed {field} observations"
+                _problem(result, (field,), reason, "conflict")
         if values["birth_date"] is not None:
             age = (date.fromisoformat(game["game_date"]) - date.fromisoformat(values["birth_date"])).days
             if age >= 0:
@@ -185,7 +208,9 @@ def _people(document, bio_rows, input_ref, link):
                 _problem(result, ("age_days",), "birth date follows game date")
         players[str(player_id)] = {"people": result}
         identities[player_id] = {"team_id": team, "position": values["reported_position"],
-                                 "box": b, "roster": r}
+                                 "box": b, "roster": r, "box_problem": box_problem,
+                                 "counter_evidence": counter_evidence,
+                                 "event_team_id": event_team, "event_team_source": event_team_source}
     return players, identities
 
 
@@ -600,20 +625,20 @@ def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempt
                             or shift_index["bad_from"] is not None and shift_index["bad_from"] <= clock
                             or indexed_shifts[None]["bad_from"] is not None and indexed_shifts[None]["bad_from"] <= clock):
                         _problem(record, ("shifts_begun", "shifts_completed"), "positive shift-prefix coverage or tied-clock frame unavailable")
-                    if identities[player]["team_id"] in unknown_attempt_teams:
+                    if identities[player]["event_team_id"] is None or identities[player]["event_team_id"] in unknown_attempt_teams:
                         _problem(record, ("attempts", "goals"), "attributed earlier event count unavailable")
                 players[str(player)] = record
             result[event["source_index"]] = players
         if event["source_index"] in normal_attempts:
             shooter = event["roles"].get("scorer" if event["type_key"] == "goal" else "shooter")
-            if shooter in prefix and identities[shooter]["team_id"] == event["shooting_team_id"]:
+            if shooter in prefix and identities[shooter]["event_team_id"] == event["shooting_team_id"]:
                 prefix[shooter]["attempts"] += 1
                 prefix[shooter]["goals"] += event["type_key"] == "goal"
             else:
                 unknown_attempt_teams.add(event["shooting_team_id"])
         elif (not event["kind_valid"] or event["timed_period"] is None
               or event["type_key"] == "goal" and event["timed_period"] is True):
-            unknown_attempt_teams.update(identity["team_id"] for identity in identities.values())
+            unknown_attempt_teams.update(identity["event_team_id"] for identity in identities.values())
     return result
 
 
@@ -936,7 +961,7 @@ def _history_summary(document, reconstruction, identities, attempts, normal_atte
             continue
         player = event["roles"].get("scorer" if event["type_key"] == "goal" else "shooter")
         team = event["shooting_team_id"]
-        attributed = player in identities and identities[player]["team_id"] == team
+        attributed = player in identities and identities[player]["event_team_id"] == team
         relevant = (team,) if team in teams else teams
         if event["type_key"] == "goal":
             if attributed:
@@ -963,7 +988,7 @@ def _history_summary(document, reconstruction, identities, attempts, normal_atte
                 uncertain_teams.update((game["away_team_id"], game["home_team_id"]) if attempt["shooting_team_id"] is None else (attempt["shooting_team_id"],))
             continue
         shooter = event["roles"].get("scorer" if event["type_key"] == "goal" else "shooter")
-        if shooter in identities and identities[shooter]["team_id"] == event["shooting_team_id"]:
+        if shooter in identities and identities[shooter]["event_team_id"] == event["shooting_team_id"]:
             attributed_attempts[shooter] += 1
         else:
             uncertain_teams.update((game["away_team_id"], game["home_team_id"]) if attempt["shooting_team_id"] is None else (attempt["shooting_team_id"],))
@@ -974,6 +999,14 @@ def _history_summary(document, reconstruction, identities, attempts, normal_atte
                        and all(row["player_id"] in identities for row in document["roster_records"])
                        and all(row["player_id"] in identities for row in document["boxscore_players"]))
     intervals = reconstruction["intervals"] or []
+    supported_all = Counter()
+    for interval in intervals:
+        if interval["classification"] == "unresolved":
+            continue
+        duration = interval["end_seconds"] - interval["start_seconds"]
+        for side in ("away", "home"):
+            for player in interval[side + "_skaters"] + interval[side + "_goalies"]:
+                supported_all[player] += duration
     full_elapsed = bool(intervals) and bool(reconstruction["periods"]) and all(p["status"] == "supported" for p in reconstruction["periods"]) and all(i["classification"] != "unresolved" for i in intervals)
     supported_rows = {i for interval in intervals if interval["classification"] != "unresolved"
                       for i in interval["shift_source_indices"]}
@@ -996,16 +1029,35 @@ def _history_summary(document, reconstruction, identities, attempts, normal_atte
         goalie = identity["position"] == "G" if identity["position"] is not None else None
         starter = fields.get("starter") if goalie else None
         exposure = exposures.get(player)
-        side = "away" if identity["team_id"] == game["away_team_id"] else "home"
+        event_team = identity["event_team_id"]
         known_5v5 = (exposure["supported_5v5_seconds"] if exposure else sum(
             i["end_seconds"] - i["start_seconds"] for i in intervals
-            if i["classification"] == "five_on_five" and player in i[side + "_goalies"]))
+            if i["classification"] == "five_on_five" and player in i["away_goalies"] + i["home_goalies"]))
         complete_5v5 = exposure["complete"] if exposure else goalie and full_elapsed
+        zero_toi_conflict = appearance is False and supported_all[player] > 0
         if appearance is False:
-            complete_5v5, known_5v5 = True, 0
+            if zero_toi_conflict:
+                appearance = None
+            else:
+                complete_5v5, known_5v5 = True, 0
         shift_count = box.get("shift_count")
-        if shift_count is None and full_elapsed:
+        reconstructed_shifts = shift_count is None and full_elapsed
+        if reconstructed_shifts:
             shift_count = shift_counts[player]
+        if goalie:
+            goals = None
+            if event_team in teams and goals_complete and event_team not in uncertain_goals:
+                goals = credited_goals[player]
+            sog = None
+            if event_team in teams and sog_complete[event_team] and event_team not in uncertain_sog:
+                sog = credited_sog[player]
+            counter_basis = {
+                "goals": "timed_recorded_scorer_credits",
+                "sog": "timed_recorded_shooter_credits_and_supported_physical_goals",
+            }
+        else:
+            goals, sog = box.get("goals"), box.get("sog")
+            counter_basis = {"goals": "reported_boxscore_goals", "sog": "reported_boxscore_sog"}
         values = {
             "ice_appearances": int(appearance) if appearance is not None else None,
             "starts": int(starter) if starter is not None else None,
@@ -1013,26 +1065,51 @@ def _history_summary(document, reconstruction, identities, attempts, normal_atte
             "toi_all_seconds": toi,
             "toi_5v5_seconds": known_5v5 if complete_5v5 else None,
             "shifts": shift_count,
-            "attempts": attributed_attempts[player] if identity["team_id"] not in uncertain_teams and document["events"] is not None else None,
-            "goals": credited_goals[player] if goalie and goals_complete and identity["team_id"] not in uncertain_goals else None if goalie else box.get("goals"),
-            "sog": credited_sog[player] if goalie and sog_complete[identity["team_id"]] and identity["team_id"] not in uncertain_sog else None if goalie else box.get("sog"),
+            "attempts": attributed_attempts[player] if event_team in teams and event_team not in uncertain_teams and document["events"] is not None else None,
+            "goals": goals,
+            "sog": sog,
             "saves": fields.get("saves") if goalie else None,
             "shots_against": fields.get("shotsAgainst") if goalie else None,
             "goals_against": fields.get("goalsAgainst") if goalie else None,
         }
-        evidence = [link("boxscore", box["source_path"])] if box else [link("play-by-play", "/rosterSpots")]
-        evidence += [link("play-by-play", "/plays"), link("reconstruction", "/player_exposure")]
+        known_values = dict(values)
+        known_values["toi_5v5_seconds"] = known_5v5
+        known_values["attempts"] = attributed_attempts[player]
+        if goalie:
+            known_values["goals"] = credited_goals[player]
+            known_values["sog"] = credited_sog[player]
+        if zero_toi_conflict:
+            known_values["toi_all_seconds"] = supported_all[player]
+        evidence = identity["counter_evidence"] + [link("play-by-play", "/plays"), link("reconstruction", "/player_exposure")]
+        if zero_toi_conflict or reconstructed_shifts:
+            evidence.append(link("reconstruction", "/intervals"))
+        if reconstructed_shifts:
+            evidence.append(link("shifts", "/data"))
         record = fact(values, evidence)
-        record["counter_basis"] = {"goals": "timed_recorded_scorer_credits" if goalie else "reported_boxscore_goals",
-                                   "sog": "timed_recorded_shooter_credits_and_supported_physical_goals" if goalie else "reported_boxscore_sog"}
+        record["counter_basis"] = counter_basis
+        if zero_toi_conflict:
+            fields = ["ice_appearances", "toi_all_seconds"]
+            if known_5v5 is not None and known_5v5 > 0:
+                fields.append("toi_5v5_seconds")
+            _problem(record, fields, "zero reported toi conflicts with positive supported exposure", "conflict")
+            record["counter_basis"]["known_toi_all_seconds"] = "supported_all_strength_interval_membership_lower_bound"
+        if identity["team_id"] is None and event_team is not None:
+            record["counter_basis"]["event_team"] = {"source": identity["event_team_source"], "reported_team_id": event_team}
+        if identity["box_problem"]:
+            box_fields = ["ice_appearances", "starts", "relief_appearances", "toi_all_seconds", "shifts"]
+            if goalie is not True:
+                box_fields.extend(("goals", "sog"))
+            if goalie is not False:
+                box_fields.extend(("saves", "shots_against", "goals_against"))
+            _problem(record, tuple(field for field in box_fields if values[field] is None),
+                     identity["box_problem"]["reason"], identity["box_problem"]["status"])
         if goalie is False:
             _problem(record, ("starts", "relief_appearances", "saves", "shots_against", "goals_against"),
                      "goaltending counter for a reported skater", "not_applicable")
-        for field in COUNTERS:
-            value = record["values"][field]
+        for field, value in known_values.items():
             known_field = "known_" + field
-            record["values"][known_field] = known_5v5 if field == "toi_5v5_seconds" else attributed_attempts[player] if field == "attempts" else credited_goals[player] if field == "goals" and goalie else credited_sog[player] if field == "sog" and goalie else value
-            if record["values"][known_field] is None:
+            record["values"][known_field] = value
+            if value is None:
                 record["problems"][known_field] = dict(record["problems"][field])
         players[str(player)] = {"team_id": identity["team_id"], "role": identity["position"],
                                 "participation": appearance, "counters": record}

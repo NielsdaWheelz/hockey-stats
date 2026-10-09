@@ -115,7 +115,10 @@ def extract_summary(body: bytes) -> ExtractedSummary:
         following = row.find_next_sibling("tr") if row is not None else None
         cells = following.find_all("td", recursive=False) if following is not None else []
         role_tables = cells[0].find_all("table", recursive=False) if cells else []
-        role_rows = role_tables[0].find_all("tr", recursive=False) if len(role_tables) == 1 else []
+        role_rows = []
+        if len(role_tables) == 1:
+            role_table = role_tables[0]
+            role_rows = [row for row in role_table.find_all("tr") if row.find_parent("table") is role_table]
         headings = role_rows[0].find_all("td", recursive=False) if role_rows else []
         names = role_rows[1].find_all("td", recursive=False) if len(role_rows) >= 2 else []
         if (len(role_rows) in (2, 4) and len(headings) == len(names) == 2

@@ -4,7 +4,7 @@ status: user choice approved 2026-10-08; prospective policy, not an implemented 
 
 ## policy and contract
 
-implement and retain all distinct, defensibly computable feature families supported by the reviewed public-data scope, including families not selected by the current model. add newly identified families to this inventory and their preparation queue. build them in reviewable batches; do not defer every unused family until a fit requests it. available public sources requiring acquisition/admission remain explicit pending dependencies; inaccessible tracking is not available evidence.
+implement and retain all distinct, defensibly computable feature families supported by the reviewed public-data scope, including families not selected by the current model. add newly identified families to this inventory and their preparation queue. the user chose the full local-data repertoire in one 03k pr; review independent internal ownership blocks without deferring unused local families until a fit requests them. available public sources requiring acquisition/admission remain explicit pending dependencies; inaccessible tracking is not available evidence.
 
 retain correct extraction/encoding after an adverse experiment. a model recipe selects named families independently for each stage; omission disables use, not the supported implementation. remove incorrect derivations, duplicate implementations, obsolete schemas and superseded estimators. this does not restore legacy code or compatibility paths.
 
@@ -18,7 +18,7 @@ ablation means refitting without a family under a declared comparable population
 
 ## initial family inventory
 
-current status describes implemented subsets, not readiness of every listed field. 03k's full spec traces exact fields/functions and names each queued batch; new source families require explicit admission before use.
+current status describes implemented subsets, not readiness of every listed field. [03k's full spec](specs/03k-feature-repertoire.md) enumerates mandatory local facts/derivations and permitted numerical families. its implementation ledger must trace every field/function/encoding/check; the current subsets below are not claims that 03k is implemented. only absent sources, unsupported inference or later statistical targets remain pending.
 
 | family | retained / to add | current disposition and boundary |
 |---|---|---|

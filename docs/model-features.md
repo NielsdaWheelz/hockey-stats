@@ -4,6 +4,8 @@ status: implemented and independently reviewed; [software verification](research
 
 ## policy and contract
 
+03k is reviewed and merged in `15647ff`. [03l](specs/03l-conversion-sequence.md) selects only `sequence` beyond the improved conversion basis; the remaining families stay implemented. matched-cohort selection does not redefine source eligibility or establish predictive/scientific support. implementation and real execution are not yet assigned.
+
 implement and retain all distinct, defensibly computable feature families supported by the reviewed public-data scope, including families not selected by the current model. add newly identified families to this inventory and their preparation queue. the user chose the full local-data repertoire in one 03k pr; review independent internal ownership blocks without deferring unused local families until a fit requests them. available public sources requiring acquisition/admission remain explicit pending dependencies; inaccessible tracking is not available evidence.
 
 retain correct extraction/encoding after an adverse experiment. a model recipe selects named families independently for each stage; omission disables use, not the supported implementation. remove incorrect derivations, duplicate implementations, obsolete schemas and superseded estimators. this does not restore legacy code or compatibility paths.

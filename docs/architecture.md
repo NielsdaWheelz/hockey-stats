@@ -326,6 +326,8 @@ cost: more feature preparation, maintained schemas and verification before predi
 
 ### preserve supported quantities and explain gaps
 
+03k is reviewed and merged in `15647ff`. [03l](specs/03l-conversion-sequence.md) specifies a separate source-eligibility/study-inclusion contract for matched component fits. one cohort owner preserves source facts, defines common keys and keeps omitted predictions explicit; the native fitter and evaluator own their respective population checks. four conversion fits and conditional intervals remain local developmental research, without joint composition or admission.
+
 keep unaffected facts usable when another part of a game cannot be reconstructed. distinguish missing feeds, parsing failures, missing fields, uncertain reconstruction, and analysis exclusions. the scientific specification decides which inputs support each quantity, including any justified inference. there is no universal coverage percentage, automatic imputation rule, or whole-game exclusion policy.
 
 in the game table, known source-listed/dressed status may be shown with unavailable exposure; roster membership alone does not prove participation. missing shifts are not zero minutes. every rate's numerator and denominator must jointly support its declared meaning. an unblocked-attempt rate can legitimately use all eligible 5v5 exposure, but missing coordinates or player assignments cannot silently become complete spatial or player-attribution evidence. withhold quantities whose support fails their contract; describe the valid remainder and its scope.

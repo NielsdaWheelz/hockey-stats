@@ -2,6 +2,7 @@
 
 from collections import OrderedDict
 from copy import deepcopy
+import json
 import math
 
 import numpy as np
@@ -56,6 +57,10 @@ RECENT_INTERACTION_FEATURES = [
 
 class FeatureUnavailableError(InputContractError):
     """a valid prepared fact cannot fulfill a selected numerical requirement."""
+
+    def __init__(self, *reasons):
+        self.reasons = list(reasons)
+        super().__init__("; ".join(reasons))
 
 
 def validate_context(context, *, family=None):
@@ -236,20 +241,41 @@ def stage_design(stage, families, *, core_layout, trait_assumptions):
     )
 
 
+def requirement_reason_prefix(key, field, *, status, reason):
+    """the located requirement description shared by errors and saved audit checks."""
+    return f"{key}.{field}: {status}: {reason}; evidence="
+
+
 def _required(record, field, key):
-    if not isinstance(record, dict) or "values" not in record or field not in record["values"]:
+    if (
+        not isinstance(record, dict) or not isinstance(record.get("values"), dict)
+        or field not in record["values"]
+    ):
         raise InputContractError(f"{key}.{field}: unavailable prepared requirement")
     value = record["values"][field]
     if value is None:
-        problem = record["problems"].get(field)
+        problems = record.get("problems")
+        problem = problems.get(field) if isinstance(problems, dict) else None
         if (
             not isinstance(problem, dict)
             or problem.get("status") not in ("unavailable", "conflict", "not_applicable")
-            or not isinstance(problem.get("reason"), str)
+            or not isinstance(problem.get("reason"), str) or not problem["reason"]
+            or not isinstance(problem.get("evidence_refs"), list)
+            or not isinstance(record.get("evidence"), list)
+            or any(type(index) is not int or not 0 <= index < len(record["evidence"])
+                   for index in problem["evidence_refs"])
         ):
             raise InputContractError(f"{key}.{field}: null has no located problem")
+        evidence = [record["evidence"][index] for index in problem["evidence_refs"]]
+        if any(
+            not isinstance(locator, dict) or set(locator) != {"input_ref", "source", "path"}
+            or any(not isinstance(value, str) or not value for value in locator.values())
+            for locator in evidence
+        ):
+            raise InputContractError(f"{key}.{field}: invalid missing-field evidence")
         raise FeatureUnavailableError(
-            f"{key}.{field}: {problem['status']}: {problem['reason']}"
+            requirement_reason_prefix(key, field, status=problem["status"], reason=problem["reason"])
+            + json.dumps(evidence, sort_keys=True, separators=(",", ":"))
         )
     return value
 
@@ -366,8 +392,23 @@ def encode_stage_inputs(attempt, design, *, game_facts, player_game_facts):
             values += [count / 10, age / 60]
         elif family == "sequence":
             record = local.get("sequence", {})
-            index = _required(record, "defender_sequence_index", family_key)
-            age = _required(record, "defender_sequence_age_seconds", family_key)
+            sequence, reasons = {}, []
+            for field in ("defender_sequence_index", "defender_sequence_age_seconds"):
+                try:
+                    sequence[field] = _required(record, field, family_key)
+                except FeatureUnavailableError as error:
+                    if not record["problems"][field]["evidence_refs"]:
+                        raise InputContractError(f"{family_key}.{field}: missing sequence evidence locator") from error
+                    reasons.extend(error.reasons)
+            index = sequence.get("defender_sequence_index")
+            age = sequence.get("defender_sequence_age_seconds")
+            if (
+                index is not None and (type(index) is not int or index < 1)
+                or age is not None and (type(age) not in (int, float) or not math.isfinite(age) or age < 0)
+            ):
+                raise InputContractError(f"{family_key}: invalid sequence index or age")
+            if reasons:
+                raise FeatureUnavailableError(*reasons)
             values += [index == 2, index == 3, index >= 4, age / 60]
         elif family == "shift_age":
             record = local.get("deployment", {})

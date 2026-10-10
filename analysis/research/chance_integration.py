@@ -23,6 +23,7 @@ from hockey_stats.chance import (
 )
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_data import prepare
+from hockey_stats.chance_cohort import component_cohort
 from hockey_stats.chance_evaluation import (
     PROBABILITY_SUMS, REGION_NAMES, add_binary, binary_metrics, compound_region_records,
     compound_regions, diagnostic_groups, finish_binary, summarize_component,
@@ -30,7 +31,7 @@ from hockey_stats.chance_evaluation import (
 from hockey_stats.cli import Once
 from chance_development import (
     QUANTITIES, implementation, prediction_check, prediction_row, resources, rows,
-    source_identities,
+    source_identities, validate_evaluation,
 )
 from chance_review import (
     absolute_path, agrees, calendar_blocks, caption_layout, clean_implementation,
@@ -189,6 +190,7 @@ def load_evidence(path):
                 "selected screen cell must retain original training/assessment")
         component = validate_component(read_json(linked_path(cell["component"])))
         require(component["purpose"] == purpose and component["quantity"] == quantity
+                and component["training_cohort"]["definition"] == dict(mode="all_source_eligible", required_families=[])
                 and component["layout"]["design"]["families"] == ["game_additive", "recent_additive", "recent_interactions"]
                 and component["protocol_identity"] == screen["protocol"]
                 and component["config_identity"]["sha256"] == study["config"]["sha256"],
@@ -197,21 +199,13 @@ def load_evidence(path):
             expected = (anchor["coverage"]["attempts_by_status"]["eligible"]
                         if field == "training_eligible_attempts" else anchor[field])
             require(component[field] == expected, f"component/anchor training {field} mismatch")
-        evaluation = read_json(linked_path(cell["evaluation"]))
-        require(type(evaluation["schema_version"]) is int and evaluation["schema_version"] == 2
-                and evaluation["artifact_kind"] == "chance_component_evaluation"
-                and evaluation["purpose"] == purpose and evaluation["quantity"] == quantity
-                and evaluation["scientific_assessment"] == "not_performed"
-                and evaluation["component"] == cell["component"]
-                and evaluation["protocol"] == screen["protocol"]
-                and evaluation["selection_identity"] == selected["assessment"]
-                and evaluation["preparation_identity"] == component["preparation_identity"]
-                and evaluation["stage_design"] == component["layout"]["design"],
-                "selected component evaluation binding mismatch")
+        evaluation = validate_evaluation(
+            cell["evaluation"], cell["component"], selected["assessment"], screen["protocol"],
+            quantity, purpose, component=component, cohort_reference=cell["assessment_cohort"], arm="sequence")
         for field in ("selection", "inputs", "game_dates", "coverage"):
             require(evaluation[field] == original[field], f"component evaluation {field} changed")
         diagnostics = read_json(linked_path(cell["diagnostics"]))
-        require(type(diagnostics["schema_version"]) is int and diagnostics["schema_version"] == 2
+        require(type(diagnostics["schema_version"]) is int and diagnostics["schema_version"] == 3
                 and diagnostics["artifact_kind"] == "chance_component_fit"
                 and diagnostics["status"] == "fitted" and diagnostics["purpose"] == purpose
                 and diagnostics["quantity"] == quantity
@@ -267,14 +261,17 @@ def factual_rows(path, quantity, predictor, *, paired=False, cohort=False):
             continue
         value = row["predictions"][predictor][field]
         applicable = quantity != "unblocked_conversion" or not row["blocked"]
+        inclusion = ("included" if applicable else "not_applicable") if row["source_status"] == "eligible" else "source_excluded"
         groups = row["predictor_groups"]["baseline" if paired else predictor][quantity]
-        yield dict(row, diagnostic_groups=groups, applicable=applicable,
+        yield dict(row, quantity=quantity, diagnostic_groups=groups, applicable=applicable,
+                   study_inclusion=inclusion, study_reasons=[],
                    status="predicted" if value is not None else
                    "not_applicable" if row["status"] == "eligible" else row["status"],
                    observed=int(not row["blocked"] if quantity == "marginal_unblocked" else row["goal"])
                    if value is not None else None,
                    log_p=value["log_p"] if value else None,
-                   log_not_p=value["log_not_p"] if value else None)
+                   log_not_p=value["log_not_p"] if value else None,
+                   probability=math.exp(value["log_p"]) if value else None)
 
 
 def paired_deltas(before, after, game_dates, samples):
@@ -303,11 +300,13 @@ def pair_component(saved, row, quantity, reference):
     """current formats pair by semantic disposition, never literal status spelling."""
     prediction_check(saved)
     for field in ("game_id", "source_index", "event_id", "game_date", "season",
-                  "source_identity", "reasons", "blocked", "goal"):
+                  "source_identity", "source_status", "source_reasons", "reasons", "blocked", "goal"):
         require(saved[field] == row[field], f"saved component {field} disagrees with prepared evidence")
     applicable = quantity != "unblocked_conversion" or not row["blocked"]
     status = ("predicted" if applicable else "not_applicable") if row["status"] == "eligible" else row["status"]
+    inclusion = ("included" if applicable else "not_applicable") if row["source_status"] == "eligible" else "source_excluded"
     require(saved["status"] == status and saved["applicable"] == applicable
+            and saved["study_inclusion"] == inclusion and not saved["study_reasons"]
             and saved["quantity"] == quantity and saved["component"] == reference,
             "saved component semantic disposition or identity mismatch")
     groups = {key: value for key, value in saved["diagnostic_groups"].items()
@@ -376,6 +375,7 @@ def run(evidence_path, output_value):
     cell_regions = compound_regions(centers)
     game_dates = prepared["game_dates"]
     sources = source_identities(prepared)
+    source_cohort = component_cohort(prepared, quantity="all_attempt_recorded_context", required_families=[])
     region_games = {
         predictor: {quantity: {context: {
             gid: [binary_metrics(calibration=False, outcome=quantity) for _ in REGION_NAMES]
@@ -405,10 +405,11 @@ def run(evidence_path, output_value):
         prepared["attempts"], rows(loaded["score_stream"]),
         rows(loaded["streams"]["unblocked_conversion"]),
         rows(loaded["streams"]["all_attempt_recorded_context"]),
+        source_cohort["rows"],
     )
     with stream.open("x", encoding="utf-8") as destination:
-        for attempt, score, conversion, direct in paired_inputs:
-            require(all(value is not None for value in (attempt, score, conversion, direct)),
+        for attempt, score, conversion, direct, membership in paired_inputs:
+            require(all(value is not None for value in (attempt, score, conversion, direct, membership)),
                     "complete recognized stream lengths disagree")
             key = attempt["game_id"], attempt["source_index"]
             require(key not in seen, "duplicate recognized attempt key")
@@ -422,7 +423,7 @@ def run(evidence_path, output_value):
             score_counts[expected_status] += 1
             score_reasons.update(score["reasons"])
             score_games[attempt["game_id"]][expected_status] += 1
-            row = prediction_row(attempt, prepared, sources)
+            row = prediction_row(attempt, prepared, sources, membership)
             row.update(
                 diagnostic_groups=diagnostic_groups(attempt, row["game_date"], {}),
                 context=attempt["context"], previous_event=attempt["previous_event"],

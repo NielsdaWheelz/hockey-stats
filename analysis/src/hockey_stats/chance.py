@@ -14,7 +14,7 @@ from scipy.optimize import minimize
 from scipy.special import expit, log_expit, logsumexp
 
 from .artifacts import implementation_identity
-from .captures import InputContractError
+from .captures import InputContractError, strict_json
 from .shot_origins import cell_id, forward_kernel, grid, posterior
 
 TYPES = ["wrist", "snap", "slap", "backhand", "tip", "other"]
@@ -1729,7 +1729,7 @@ def benchmark_actor_evidence(model, row, state_season=None):
     }
 
 
-def _component_artifact(metadata, config, layout, diagnostics, *, quantity):
+def _component_artifact(metadata, config, layout, diagnostics, *, quantity, training_cohort):
     dates = metadata["training_game_dates"]
     spatial_grid = None
     if quantity == "unblocked_conversion":
@@ -1748,7 +1748,7 @@ def _component_artifact(metadata, config, layout, diagnostics, *, quantity):
             )
         },
         artifact_kind="chance_component",
-        schema_version=2,
+        schema_version=3,
         quantity=quantity,
         layout=deepcopy(layout),
         grid=spatial_grid,
@@ -1765,6 +1765,7 @@ def _component_artifact(metadata, config, layout, diagnostics, *, quantity):
         training_eligible_attempts=metadata["coverage"]["attempts"][
             "chance_2_eligible_attempts"
         ],
+        training_cohort=deepcopy(training_cohort),
         training_game_dates=dict(dates),
         training_game_ids=list(dates),
         training_dates=sorted(set(dates.values())),
@@ -1783,12 +1784,18 @@ def extract_component(model, *, quantity):
     kind = COMPONENT_QUANTITIES[quantity]
     layout = model["stages"][kind] if kind == "r" else model["benchmarks"][kind]
     diagnostics = model["diagnostics"]["r"] if kind == "r" else layout["diagnostics"]
+    applicable = sum(count["total"] for count in layout["shooter_counts"].values())
     component = _component_artifact(
         model,
         model["config"],
         layout,
         diagnostics,
         quantity=quantity,
+        training_cohort=dict(
+            definition=dict(mode="all_source_eligible", required_families=[]),
+            source_applicable_count=applicable, included_count=applicable,
+            excluded_count=0, membership_identity=None,
+        ),
     )
     extraction = implementation_identity()
     extraction.update(
@@ -1810,8 +1817,10 @@ def extract_component(model, *, quantity):
     return component
 
 
-def fit_component(attempts, config, metadata, *, quantity, design, feature_games, feature_player_games):
+def fit_component(attempts, config, metadata, *, quantity, design, training_cohort, feature_games, feature_player_games):
     """one native binary solve; no origin fit, em, or joint reference."""
+    from .chance_cohort import component_cohort, validate_cohort_document
+
     validate_config(config)
     if quantity not in COMPONENT_QUANTITIES:
         raise InputContractError("unsupported component quantity")
@@ -1822,29 +1831,21 @@ def fit_component(attempts, config, metadata, *, quantity, design, feature_games
     kind = COMPONENT_QUANTITIES[quantity]
     if not metadata["training_game_dates"]:
         raise InputContractError("component training requires selected games")
-    layouts = compile_designs(rows, config, seasons=[
-        game_id[:4] + str(int(game_id[:4]) + 1)
-        for game_id in metadata["training_game_dates"]
-    ])
-    seasons = layouts[kind]["seasons"]
+    years = [_season(game_id[:4] + str(int(game_id[:4]) + 1))
+             for game_id in metadata["training_game_dates"]]
+    seasons = [f"{year:04d}{year + 1:04d}" for year in range(min(years), max(years) + 1)]
     try:
         _validate_identity(metadata["protocol_identity"])
-        training = dict(metadata)
-        training.setdefault("training_game_ids", list(training["training_game_dates"]))
-        training.setdefault(
-            "training_dates", sorted(set(training["training_game_dates"].values()))
-        )
         _validate_training_identity(
-            training,
+            metadata,
             [_season(season) for season in seasons],
         )
-        _validate_training_coverage(training, len(rows))
+        _validate_training_coverage(metadata, len(rows))
     except (KeyError, TypeError, ValueError, OverflowError, AttributeError) as error:
         raise InputContractError(
             f"invalid component training metadata: {error}"
         ) from error
-    cells = []
-    selected = []
+    cells, seen = {}, set()
     for row in rows:
         h = _validate_attempt(row, centers, geometry=kind == "r")
         if (
@@ -1856,9 +1857,65 @@ def fit_component(attempts, config, metadata, *, quantity, design, feature_games
             raise InputContractError(
                 "component attempt is outside eligible training selection"
             )
-        if kind != "r" or not row["blocked"]:
-            selected.append(row)
-            cells.append(h)
+        key = row["game_id"], row["source_index"]
+        if key in seen:
+            raise InputContractError("duplicate component training attempt key")
+        seen.add(key)
+        cells[key] = h
+    by_game = Counter(row["game_id"] for row in rows)
+    goals_by_game = Counter(row["game_id"] for row in rows if row["goal"])
+    if any(by_game[game["game_id"]] != (game["chance_2_eligible_attempts"] or 0)
+           for game in metadata["coverage"]["per_game"]):
+        raise InputContractError("original eligible rows disagree with source per-game coverage")
+    if (
+        sum(goals_by_game.values()) != metadata["coverage"]["attempts"]["goals_by_status"]["eligible"]
+        or any(goals_by_game[game["game_id"]] !=
+               (game["goals_by_status"]["eligible"] if game["goals_by_status"] is not None else 0)
+               for game in metadata["coverage"]["per_game"])
+    ):
+        raise InputContractError("original eligible goal labels disagree with source coverage")
+    validate_cohort_document(training_cohort)
+    for field, expected in (
+        ("purpose", metadata["purpose"]), ("quantity", quantity),
+        ("selection", metadata["selection"]), ("inputs", metadata["inputs"]),
+        ("preparation_identity", metadata["preparation_identity"]),
+        ("game_dates", metadata["training_game_dates"]),
+    ):
+        if training_cohort[field] != expected:
+            raise InputContractError(f"training cohort and original source disagree on {field}")
+    if training_cohort["counts"]["source_statuses"] != metadata["coverage"]["attempts_by_status"]:
+        raise InputContractError("training cohort source status counts disagree with coverage")
+    for cohort_game, source_game in zip(training_cohort["per_game"], metadata["coverage"]["per_game"], strict=True):
+        source_counts = source_game["attempts_by_status"] or dict.fromkeys(("eligible", "out_of_scope", "unavailable"), 0)
+        if cohort_game["source_statuses"] != source_counts:
+            raise InputContractError("training cohort per-game source status counts disagree with coverage")
+    applicable_cohort = component_cohort(
+        dict(metadata, attempts=rows, game_dates=metadata["training_game_dates"],
+             feature_games=feature_games, feature_player_games=feature_player_games),
+        quantity=quantity,
+        required_families=training_cohort["definition"]["required_families"],
+    )
+    if applicable_cohort["rows"] != [row for row in training_cohort["rows"] if row["source_status"] == "eligible"]:
+        raise InputContractError("training cohort differs from exact original eligible membership")
+    membership = metadata.get("training_cohort_identity")
+    if membership is None:
+        if training_cohort["definition"]["mode"] != "all_source_eligible":
+            raise InputContractError("selected-family cohort requires an external membership identity")
+    else:
+        try:
+            _validate_identity(membership)
+            captured = Path(membership["path"]).read_bytes()
+            if hashlib.sha256(captured).hexdigest() != membership["sha256"] or strict_json(captured) != training_cohort:
+                raise ValueError("external cohort bytes or content disagree")
+        except (OSError, KeyError, TypeError, ValueError) as error:
+            raise InputContractError(f"invalid training cohort binding: {error}") from error
+    included = {(row["game_id"], row["source_index"]) for row in training_cohort["rows"]
+                if row["study_inclusion"] == "included"}
+    selected = [row for row in rows if (row["game_id"], row["source_index"]) in included]
+    cells = [cells[row["game_id"], row["source_index"]] for row in selected]
+    layout = _layout(selected, seasons, len(centers), kind, config=config)
+    if design != layout["design"]:
+        raise InputContractError("component design differs from explicit config/included population layout")
     goals = sum(r["goal"] for r in selected)
     if not 0 < goals < len(selected):
         return None, dict(
@@ -1867,9 +1924,6 @@ def fit_component(attempts, config, metadata, *, quantity, design, feature_games
             iterations=0,
             objective=None,
         )
-    layout = layouts[kind]
-    if design != layout["design"]:
-        raise InputContractError("component design differs from explicit config/population layout")
     data = _encode(selected, layout, cells, feature_games=feature_games, feature_player_games=feature_player_games)
     beta, diagnostics = _fit_binary(data, layout, config, edges, centers)
     if not diagnostics["converged"]:
@@ -1878,7 +1932,14 @@ def fit_component(attempts, config, metadata, *, quantity, design, feature_games
     if kind != "r":
         layout["diagnostics"] = dict(diagnostics)
     component = _component_artifact(
-        metadata, config, layout, diagnostics, quantity=quantity
+        metadata, config, layout, diagnostics, quantity=quantity,
+        training_cohort=dict(
+            definition=training_cohort["definition"],
+            source_applicable_count=training_cohort["counts"]["source_applicable_count"],
+            included_count=training_cohort["counts"]["included_count"],
+            excluded_count=training_cohort["counts"]["excluded_count"],
+            membership_identity=membership,
+        ),
     )
     validate_component(component)
     return component, diagnostics
@@ -1906,6 +1967,7 @@ def validate_component(component, *, require_protocol=True):
             "seasons",
             "training_seasons",
             "training_eligible_attempts",
+            "training_cohort",
             "training_game_dates",
             "training_game_ids",
             "training_dates",
@@ -1919,7 +1981,7 @@ def validate_component(component, *, require_protocol=True):
             or set(component) != fields
             or component["artifact_kind"] != "chance_component"
             or type(component["schema_version"]) is not int
-            or component["schema_version"] != 2
+            or component["schema_version"] != 3
             or component["purpose"] not in ("fixture_exercise", "research")
             or component["scientific_assessment"] != "not_performed"
         ):
@@ -1968,9 +2030,35 @@ def validate_component(component, *, require_protocol=True):
         total = component["training_eligible_attempts"]
         if type(total) is not int or total <= 0:
             raise ValueError("invalid component training eligible count")
-        applicable = sum(c["total"] for c in layout["shooter_counts"].values())
-        if not 0 < applicable <= total or kind != "r" and applicable != total:
-            raise ValueError("component applicable/training counts disagree")
+        included = sum(c["total"] for c in layout["shooter_counts"].values())
+        cohort = component["training_cohort"]
+        if (
+            not isinstance(cohort, dict) or set(cohort) != {
+                "definition", "source_applicable_count", "included_count",
+                "excluded_count", "membership_identity",
+            }
+            or cohort["definition"] not in (
+                dict(mode="all_source_eligible", required_families=[]),
+                dict(mode="selected_family_complete", required_families=["sequence"]),
+            )
+            or any(type(cohort[key]) is not int or cohort[key] < 0 for key in (
+                "source_applicable_count", "included_count", "excluded_count"))
+            or cohort["included_count"] != included
+            or cohort["included_count"] != sum(c["total"] for c in layout["goalie_counts"].values())
+            or not 0 < included <= cohort["source_applicable_count"] <= total
+            or cohort["source_applicable_count"] != included + cohort["excluded_count"]
+            or kind != "r" and cohort["source_applicable_count"] != total
+        ):
+            raise ValueError("component source/study/actor counts disagree")
+        if cohort["definition"]["mode"] == "all_source_eligible":
+            if cohort["excluded_count"] != 0:
+                raise ValueError("all-source component cannot exclude applicable rows")
+        elif cohort["membership_identity"] is None:
+            raise ValueError("selected-family component requires an external cohort identity")
+        if cohort["membership_identity"] is not None:
+            _validate_identity(cohort["membership_identity"])
+        if component["extraction"] is not None and cohort["definition"]["mode"] != "all_source_eligible":
+            raise ValueError("extraction cannot declare selected-family membership")
         _validate_training_identity(component, years)
         _validate_solve(component["diagnostics"], accepted=True)
         if kind != "r" and layout["diagnostics"] != component["diagnostics"]:
@@ -2054,6 +2142,8 @@ def prediction_context(model, *, feature_games, feature_player_games, conversion
         validate_component(conversion)
         if conversion["quantity"] != "unblocked_conversion":
             raise InputContractError("composition requires a conversion component")
+        if conversion["training_cohort"]["definition"]["mode"] != "all_source_eligible":
+            raise InputContractError("composition requires all_source_eligible conversion membership")
         for key in (
             "purpose", "inputs", "selection", "preparation_identity", "grid", "seasons",
             "type_order", "role_order", "context_categories", "training_game_dates",

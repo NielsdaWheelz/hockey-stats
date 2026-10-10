@@ -1,6 +1,6 @@
 # pr03l — defending-sequence conversion screen
 
-status: **specified; implementation and real execution require separate assignment.** 03k is reviewed and merged in `15647ff`; [its verification](../research/features-03k/verification.md) establishes preparation, not scientific support. user choices, 2026-10-09: test defending-skater continuity; use four fresh fits and conditional assessment intervals. [brief](../brief.md) · [direction](../research/model-direction.md) · [feature contract](03k-feature-repertoire.md)
+status: **implementation and real execution assigned on 2026-10-09; in progress.** 03k is reviewed and merged in `15647ff`; [its verification](../research/features-03k/verification.md) establishes preparation, not scientific support. user choices, 2026-10-09: test defending-skater continuity; use four fresh fits and conditional assessment intervals. [brief](../brief.md) · [direction](../research/model-direction.md) · [feature contract](03k-feature-repertoire.md)
 
 ## question and boundary
 

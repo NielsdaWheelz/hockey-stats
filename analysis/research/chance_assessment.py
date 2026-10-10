@@ -260,7 +260,7 @@ def reconstruct(loaded, *, diagnostic=None):
             except ValueError as error:
                 raise InputContractError(f"{stream}:{line_number}: invalid prediction json") from error
             require(isinstance(row, dict) and type(row["schema_version"]) is int
-                    and row["schema_version"] == 2, "schema-2 saved prediction row required")
+                    and row["schema_version"] == 3, "schema-3 saved prediction row required")
             gid, index = row["game_id"], row["source_index"]
             require(gid in games and type(index) is int and index >= 0, "invalid recognized key")
             key = (order[gid], index)
@@ -280,6 +280,9 @@ def reconstruct(loaded, *, diagnostic=None):
                     "source identity changed within a saved game")
             game["source_identity"] = reference
             status, excluded = row["status"], row["reasons"]
+            require(row["source_status"] == status and row["source_reasons"] == excluded and
+                    row["study_inclusion"] == ("included" if status == "eligible" else "source_excluded") and
+                    not row["study_reasons"], "saved full-model source/study disposition changed")
             require(status in STATUSES and isinstance(excluded, list)
                     and row["classification"] in ("five_on_five", "other", "unresolved", "untimed")
                     and all(isinstance(reason, str) and reason for reason in excluded)

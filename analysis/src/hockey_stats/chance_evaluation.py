@@ -1,5 +1,6 @@
 """factual probability diagnostics from one native prediction pass."""
 
+from collections import Counter
 import math
 
 import numpy as np
@@ -7,6 +8,7 @@ from scipy.special import logsumexp
 
 from .captures import InputContractError
 from .chance import CONTEXT_CATEGORIES, ROLES, TYPES
+from .chance_cohort import SOURCE_STATUSES, STUDY_INCLUSIONS
 
 
 PROBABILITY_POPULATIONS = {
@@ -172,7 +174,12 @@ def diagnostic_groups(attempt: dict, game_date: str, actor_evidence: dict) -> di
         "recent_delay": previous["time_gap_seconds"] if recent else None,
         "home_away": attempt["home_away"], "role": attempt["role"],
         "calendar_month": game_date[:7],
+        "sequence_index": None,
     }
+    sequence = attempt.get("feature_facts", {}).get("sequence", {})
+    index = sequence.get("values", {}).get("defender_sequence_index")
+    if index is not None:
+        groups["sequence_index"] = str(index) if index < 4 else "4+"
     for actor, evidence in actor_evidence.items():
         if "basis" in evidence:
             groups[f"actor_support:{actor}"] = evidence["basis"]
@@ -183,48 +190,114 @@ def diagnostic_groups(attempt: dict, game_date: str, actor_evidence: dict) -> di
 
 
 def summarize_component(rows, game_dates: dict, *, outcome: str = "goal") -> dict:
-    """consume quantity-specific prediction rows, retaining every selected game."""
-    from collections import Counter
-
+    """main metrics use study inclusion; source and prediction counts stay separate."""
+    statuses = ("predicted", "study_excluded", "not_applicable", "out_of_scope", "unavailable")
+    domains = {
+        "recent_context": ["recent", "none"], "model_type": TYPES + [None],
+        "sequence_index": ["1", "2", "3", "4+", None], "role": ROLES,
+        "calendar_month": sorted({date[:7] for date in game_dates.values()}),
+        **{f"actor_support:{actor}": ["observed_in_state", "other_seasons_only", "unseen", None]
+           for actor in ("shooter", "goalie")},
+    }
     metrics = binary_metrics(outcome=outcome)
-    groups = {}
+    omitted = binary_metrics(outcome=outcome)
+    groups = {
+        category: {value: dict(value=value, recognized_count=0, excluded_count=0,
+                               non_applicable_count=0, study_excluded_count=0,
+                               metrics=binary_metrics(outcome=outcome))
+                   for value in values}
+        for category, values in domains.items()
+    }
     games = {
         gid: dict(game_id=gid, metrics=binary_metrics(outcome=outcome), counts_by_status={})
         for gid in game_dates
     }
+    omitted_games = {
+        gid: dict(game_id=gid, metrics=binary_metrics(outcome=outcome)) for gid in game_dates
+    }
+    accounting = {
+        gid: dict(game_id=gid, game_date=date,
+                  source_statuses=dict.fromkeys(SOURCE_STATUSES, 0),
+                  study_inclusions=dict.fromkeys(STUDY_INCLUSIONS, 0),
+                  source_applicable_count=0, included_count=0, excluded_count=0)
+        for gid, date in game_dates.items()
+    }
     counts, reasons = Counter(), Counter()
+    source_reasons, study_reasons = Counter(), Counter()
+    game_order = {gid: index for index, gid in enumerate(game_dates)}
+    previous_key = (-1, -1)
     for row in rows:
         status, gid = row["status"], row["game_id"]
+        if gid not in games or status not in statuses:
+            raise InputContractError("component summary: foreign game or prediction disposition")
+        source, study = row["source_status"], row["study_inclusion"]
+        if source not in SOURCE_STATUSES or study not in STUDY_INCLUSIONS:
+            raise InputContractError("component summary: unknown source or study disposition")
+        index = row["source_index"]
+        if type(index) is not int or index < 0 or (game_order[gid], index) <= previous_key:
+            raise InputContractError("component summary: duplicate or reordered source key")
+        previous_key = (game_order[gid], index)
         counts[status] += 1
         reasons.update(row["reasons"])
+        source_reasons.update(row["source_reasons"])
+        study_reasons.update(row["study_reasons"])
         game = games[gid]
         game["counts_by_status"][status] = game["counts_by_status"].get(status, 0) + 1
+        evidence = accounting[gid]
+        evidence["source_statuses"][source] += 1
+        evidence["study_inclusions"][study] += 1
+        evidence["source_applicable_count"] += source == "eligible" and row["applicable"]
+        evidence["included_count"] += study == "included"
+        evidence["excluded_count"] += study == "feature_unavailable"
         for category, value in row["diagnostic_groups"].items():
             group = groups.setdefault(category, {}).setdefault(
                 value, dict(value=value, recognized_count=0, excluded_count=0,
-                            non_applicable_count=0, metrics=binary_metrics(outcome=outcome))
+                            non_applicable_count=0, study_excluded_count=0,
+                            metrics=binary_metrics(outcome=outcome))
             )
             group["recognized_count"] += 1
-            group["excluded_count"] += status in ("out_of_scope", "unavailable")
-            group["non_applicable_count"] += status == "not_applicable"
+            group["excluded_count"] += study == "source_excluded"
+            group["non_applicable_count"] += study == "not_applicable"
+            group["study_excluded_count"] += study == "feature_unavailable"
         if status != "predicted":
             continue
         record = binary_record(row["observed"], row["log_p"], row["log_not_p"])
-        add_binary(metrics, record)
-        add_binary(game["metrics"], record)
-        for category, value in row["diagnostic_groups"].items():
-            add_binary(groups[category][value]["metrics"], record)
-    finish_binary(metrics)
+        if study == "included":
+            add_binary(metrics, record)
+            add_binary(game["metrics"], record)
+            for category, value in row["diagnostic_groups"].items():
+                add_binary(groups[category][value]["metrics"], record)
+        elif study == "feature_unavailable":
+            add_binary(omitted, record)
+            add_binary(omitted_games[gid]["metrics"], record)
+        else:
+            raise InputContractError("component summary: prediction outside source-applicable cohort")
     for game in games.values():
-        finish_binary(game["metrics"])
-    for category in groups.values():
-        for group in category.values():
-            finish_binary(group["metrics"])
+        game["counts_by_status"] = {status: game["counts_by_status"].get(status, 0) for status in statuses}
+    for metric in (
+        [metrics, omitted] + [game["metrics"] for game in games.values()] +
+        [game["metrics"] for game in omitted_games.values()] +
+        [group["metrics"] for category in groups.values() for group in category.values()]
+    ):
+        finish_binary(metric)
+        metric["observed_rate"] = metric["observed_positive_count"] / metric["count"] if metric["count"] else None
+    aggregate = dict(
+        source_statuses={s: sum(v["source_statuses"][s] for v in accounting.values()) for s in SOURCE_STATUSES},
+        study_inclusions={s: sum(v["study_inclusions"][s] for v in accounting.values()) for s in STUDY_INCLUSIONS},
+        **{field: sum(v[field] for v in accounting.values())
+           for field in ("source_applicable_count", "included_count", "excluded_count")},
+        counts_by_source_reason=dict(source_reasons), counts_by_study_reason=dict(study_reasons),
+        per_game=list(accounting.values()),
+    )
+    if aggregate["source_applicable_count"] != aggregate["included_count"] + aggregate["excluded_count"]:
+        raise InputContractError("component summary: source-applicable cohort does not reconcile")
+    if metrics["count"] != aggregate["included_count"]:
+        raise InputContractError("component summary: included rows must all be predicted")
     return dict(
         metrics=metrics, per_game=list(games.values()),
         groups={name: list(values.values()) for name, values in groups.items()},
-        counts_by_status={s: counts[s] for s in ("predicted", "not_applicable", "out_of_scope", "unavailable")},
-        counts_by_reason=dict(reasons),
+        counts_by_status={s: counts[s] for s in statuses}, counts_by_reason=dict(reasons),
+        accounting=aggregate, omitted_baseline=dict(metrics=omitted, per_game=list(omitted_games.values())),
     )
 
 

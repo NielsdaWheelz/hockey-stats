@@ -4,7 +4,7 @@ date: 2026-10-08. status: user-approved direction with retained-feature amendmen
 
 execution follow-up, 2026-10-08: the separately assigned [03j benchmark](chance-03j/decision.md) completed with `inconclusive` and `no_supported_intervention`; all 6,000 refits converged. it neither prioritizes scale nor identifies a structural cause. [verification](chance-03j/verification.md) preserves the frozen protocol and independent checks. 03j is reviewed and merged in `e6b814f`. the user selected the full local-data repertoire in one 03k pr; [its full specification](../specs/03k-feature-repertoire.md) separates local facts/history and stage selection from external/inference prerequisites. implementation and native follow-on research need separate assignment.
 
-follow-up, 2026-10-09: 03k is reviewed and merged in `15647ff`. the user selected [03l](../specs/03l-conversion-sequence.md): defending-skater continuity added to the improved conversion basis, four fresh fits and conditional assessment intervals. explicit common cohorts expose selective sequence gaps. this is a bounded predictive screen, not a pressure/fatigue claim, joint-model integration or admission. implementation and real execution need separate assignment; other challengers stay queued.
+follow-up, 2026-10-09: 03k is reviewed and merged in `15647ff`. the user selected [03l](../specs/03l-conversion-sequence.md): defending-skater continuity added to the improved conversion basis, four fresh fits and conditional assessment intervals, and assigned complete implementation and execution. explicit common cohorts expose selective sequence gaps. this is a bounded predictive screen, not a pressure/fatigue claim, joint-model integration or admission. other challengers stay queued.
 
 ## purpose and evidence
 

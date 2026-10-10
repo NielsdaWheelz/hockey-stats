@@ -255,7 +255,9 @@ the native composition api requires explicit `all_source_eligible` membership as
 
 ## defending-sequence conversion study
 
-[03l](docs/specs/03l-conversion-sequence.md) compares four fresh native conversion fits on explicit sequence-complete cohorts. its manual commands require located paths and exclusive output directories:
+[03l](docs/specs/03l-conversion-sequence.md) compares four fresh native conversion fits on explicit sequence-complete cohorts. the assigned study is complete: [verification](docs/research/chance-03l/verification.md) records four converged fits and reconciled software/research evidence; [decision](docs/research/chance-03l/decision.md) is `mixed_direction,no_supported_next_fit,not_admitted`. saved research artifacts run at frozen revision `ccbaa85`.
+
+its manual commands require located paths and exclusive output directories:
 
 ```sh
 .venv/bin/python research/chance_sequence.py cohort --selection /absolute/run/inputs/development-training.json --protocol /absolute/run/protocol/protocol.md --output /absolute/run/cohorts/development-training

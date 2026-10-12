@@ -446,6 +446,8 @@ def _envelope(value, path, entry):
             fields = ("coaches", "scratches") if collection == "coach_scratch_observations" else (
                 SUMMARY_RECORDING_FIELDS if row["source"] == "game-summary" else RECORDING_FIELDS)
             _source_facts(row["source_fields"], loc + "/source_fields", interpreted["inputs"], fields)
+            _require(all(item["source"] == row["source"] for item in row["source_fields"]["evidence"]),
+                     loc + "/source_fields/evidence", "observation source and field evidence disagree")
     _require(recording_sources == declared_recording_sources,
              f"{path}/interpreted/recording_observations",
              "recording observations must cover the native source set")

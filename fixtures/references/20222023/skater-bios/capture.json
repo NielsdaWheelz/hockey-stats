@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "seasonId": "20222023",
+  "source": "skater-bios",
+  "request": {
+    "method": "GET",
+    "url": "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=false&isGame=false&cayenneExp=seasonId%3D20222023%20and%20gameTypeId%3D2&limit=-1",
+    "requestedAt": "2026-10-12T04:49:00.904Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Mon, 12 Oct 2026 04:49:01 GMT"
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 460392,
+    "sha256": "26cd1fc857e994af26a6352f1787b87d90df39fb96a9a3f4e2518c5260cd4331"
+  },
+  "failure": null
+}

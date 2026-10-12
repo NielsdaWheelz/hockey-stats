@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "seasonId": "20222023",
+  "source": "goalie-bios",
+  "request": {
+    "method": "GET",
+    "url": "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=false&isGame=false&cayenneExp=seasonId%3D20222023%20and%20gameTypeId%3D2&limit=-1",
+    "requestedAt": "2026-10-12T04:49:01.212Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Mon, 12 Oct 2026 04:49:01 GMT"
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 49018,
+    "sha256": "8e93c20c01cd4261b13be5241e03e1c1f9b04095fa52e1ee45d8ff88419372fb"
+  },
+  "failure": null
+}

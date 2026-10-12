@@ -481,6 +481,48 @@ def audit_selection(selection_path, output_value):
         if unavailable:
             limitations.append({'code': 'attempt_population_unavailable', 'season': season, 'games': unavailable,
                 'reason': 'recognized-attempt, goal, applicability and active counts are null for these games'})
+        period_gaps, membership_games, location_games, attempt_games = [], [], [], []
+        for row in per_game:
+            if row['season'] != season:
+                continue
+            if row['coverage'] is not None:
+                time = row['coverage']['time']
+                expected = time['expected_periods']
+                missing_periods = sorted(set(expected) - set(time['supported_periods'])) if expected is not None else None
+                if missing_periods is None or missing_periods:
+                    period_gaps.append({'game_id': row['game_id'], 'expected_periods': expected,
+                        'supported_periods': time['supported_periods'], 'missing_periods': missing_periods})
+                if time['unresolved_seconds'] is not None and time['unresolved_seconds'] > 0:
+                    membership_games.append(row['game_id'])
+                locations = row['coverage']['locations']
+                if any(locations[field] is not None and locations[field] > 0
+                       for field in ('missing_coordinates', 'unresolved_frame')):
+                    location_games.append(row['game_id'])
+            if row['conversion_applicability'] is not None:
+                unavailable_attempts = row['conversion_applicability']['unavailable']
+                if unavailable_attempts is not None and unavailable_attempts > 0:
+                    attempt_games.append(row['game_id'])
+        if period_gaps:
+            limitations.append({'code': 'period_horizon_unavailable', 'season': season,
+                'games': len(period_gaps), 'game_ids': [row['game_id'] for row in period_gaps],
+                'periods': period_gaps,
+                'reason': 'unknown or unsupported expected period horizons prevent complete elapsed-game exposure; only available supported-period contributions are reported'})
+        if membership_games:
+            limitations.append({'code': 'elapsed_membership_unresolved', 'season': season,
+                'games': len(membership_games), 'game_ids': membership_games,
+                'unresolved_seconds': totals['native_coverage']['time']['unresolved_seconds'],
+                'reason': 'unresolved on-ice or strength membership prevents complete attribution of these elapsed seconds to supported five-on-five or other play; event membership and conversion applicability remain separate'})
+        if location_games:
+            limitations.append({'code': 'timed_location_unavailable', 'season': season,
+                'games': len(location_games), 'game_ids': location_games,
+                'missing_coordinates': totals['native_coverage']['locations']['missing_coordinates'],
+                'unresolved_frame': totals['native_coverage']['locations']['unresolved_frame'],
+                'reason': 'missing coordinates or unresolved coordinate frames prevent attacking-coordinate normalization for these timed records; event eligibility remains separate'})
+        if attempt_games:
+            limitations.append({'code': 'recognized_attempt_input_unavailable', 'season': season,
+                'games': len(attempt_games), 'game_ids': attempt_games,
+                'unavailable_attempts': totals['conversion_applicability']['unavailable'],
+                'reason': 'recognized observations with native attempt status unavailable do not establish source eligibility or current conversion applicability; they are not eligible rows rejected by the encoder and may include blocked observations'})
         for source in SOURCES:
             gaps = sum(record['count'] for record in totals['source_dispositions']
                        if record['source'] == source and

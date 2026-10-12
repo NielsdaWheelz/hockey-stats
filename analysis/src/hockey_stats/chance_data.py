@@ -43,7 +43,7 @@ from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_jso
 from .corpus import STATUSES
 from .interpret import (
     BoxscorePlayer, Check, Event, GOALIE_SOURCE_FIELDS, LandingGoal,
-    RECORDING_FIELDS, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
+    RECORDING_FIELDS, Result, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
 )
 from .references import BIO_GOALIE_SOURCE_FIELDS, BIO_INTEGER_SOURCE_FIELDS, BIO_SKATER_SOURCE_FIELDS
 from .feature_data import ACTION_KINDS, ATTEMPT_KINDS, RESETS
@@ -369,6 +369,7 @@ def _envelope(value, path, entry):
             "requested_game_id",
             "game",
             "inputs",
+            "reported_results",
             "events",
             "roster_records",
             "report_rows",
@@ -395,6 +396,18 @@ def _envelope(value, path, entry):
     )
     _provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
     _issues(interpreted["issues"], f"{path}/interpreted/issues")
+    result_sources = set()
+    for i, result in enumerate(_array(interpreted["reported_results"],
+                                      f"{path}/interpreted/reported_results")):
+        loc = f"{path}/interpreted/reported_results/{i}"
+        _object(result, loc, Result.__required_keys__)
+        source = result["source"]
+        _require(source in ("play-by-play", "boxscore") and source not in result_sources,
+                 loc + "/source", "unknown or duplicate reported result source")
+        result_sources.add(source)
+        for field in ("away_score", "home_score", "away_sog", "home_sog"):
+            _integer(result[field], loc + "/" + field, nullable=True)
+        _text(result["last_period_type"], loc + "/last_period_type", nullable=True)
     for i, player in enumerate(_array(interpreted["boxscore_players"],
                                      f"{path}/interpreted/boxscore_players", nullable=True)):
         loc = f"{path}/interpreted/boxscore_players/{i}"
@@ -418,14 +431,24 @@ def _envelope(value, path, entry):
             _integer(shift[field], loc + "/" + field, nullable=field != "source_index")
         _require(shift["interval_status"] in ("coherent", "inconsistent", "unavailable", "not_shift"),
                  loc, "unsupported shift interval status")
+    recording_sources = set()
+    declared_recording_sources = {"play-by-play", "boxscore", "landing", "game-summary"}
     for collection in ("recording_observations", "coach_scratch_observations"):
         for i, row in enumerate(_array(interpreted[collection], f"{path}/interpreted/{collection}")):
             loc = f"{path}/interpreted/{collection}/{i}"
             _object(row, loc, ("source", "source_fields"))
             _require(row["source"] in SOURCES, loc, "unknown source observation")
+            if collection == "recording_observations":
+                _require(row["source"] in declared_recording_sources
+                         and row["source"] not in recording_sources, loc,
+                         "unknown or duplicate recording source")
+                recording_sources.add(row["source"])
             fields = ("coaches", "scratches") if collection == "coach_scratch_observations" else (
                 SUMMARY_RECORDING_FIELDS if row["source"] == "game-summary" else RECORDING_FIELDS)
             _source_facts(row["source_fields"], loc + "/source_fields", interpreted["inputs"], fields)
+    _require(recording_sources == declared_recording_sources,
+             f"{path}/interpreted/recording_observations",
+             "recording observations must cover the native source set")
     _object(
         reconstructed,
         f"{path}/reconstruction",

@@ -390,7 +390,7 @@ def audit_selection(selection_path, output_value):
                     attempts, evidence = prepared['attempts'], prepared['evidence']
                     unclassified = prepared['unclassified_events']
                     del prepared
-                    require(ledger_row.get('coverage') == evidence['source_coverage'], envelope_path,
+                    require(same_json(ledger_row.get('coverage'), evidence['source_coverage']), envelope_path,
                             'corpus coverage disagrees with bound reconstruction')
                     row.update({'coverage': evidence['source_coverage'],
                         'score_support': evidence['score_support'], 'score_issues': evidence['score_issues'],

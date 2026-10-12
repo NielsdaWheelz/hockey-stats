@@ -94,10 +94,12 @@ def extract_summary(body: bytes) -> ExtractedSummary:
             path = f"/GameInfo/td/{index}"
             if re.fullmatch(r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), [A-Za-z]+ [0-9]{1,2}, [0-9]{4}", text):
                 found["reported_date"].append((text, path))
-            attendance = re.fullmatch(r"Attendance ([0-9]+(?:,[0-9]{3})*) at (.+)", text)
-            if attendance is not None:
-                found["attendance"].append((int(attendance[1].replace(",", "")), path))
-                found["venue"].append((attendance[2], path))
+            recording = re.fullmatch(r"Attendance(?: ([0-9]+(?:,[0-9]{3})*))?(?: at(?: (.+))?)?", text)
+            if recording is not None:
+                if recording[1] is not None:
+                    found["attendance"].append((int(recording[1].replace(",", "")), path))
+                if recording[2] is not None:
+                    found["venue"].append((recording[2], path))
             clocks = re.fullmatch(r"Start (.+); End (.+)", text)
             if clocks is not None:
                 for field, fragment in (("reported_start", clocks[1]), ("reported_end", clocks[2])):

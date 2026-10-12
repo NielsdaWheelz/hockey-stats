@@ -268,6 +268,7 @@ def audit_selection(selection_path, output_value):
             require(gid not in seen_ids, location, f'duplicate selected game id {gid}')
             seen_ids.add(gid)
         document, inventory, ledger = load_corpus(path, inputs)
+        corpus_identity = {field: inputs[-1][field] for field in ('path', 'sha256')}
         require(set(ids) <= inventory.keys(), path, 'selected game absent from inventory')
         season = document['reference']['requested_season']
         require(season not in seen_seasons, path, 'one current corpus per season required')
@@ -286,7 +287,7 @@ def audit_selection(selection_path, output_value):
             raw_path = ledger[gid].get('capture_path')
             require(isinstance(raw_path, str) and bool(raw_path), path, f'{gid}: native capture_path required')
             roots.add(str(Path(raw_path).resolve()))
-        corpora.append((path, document, inventory, ledger, ids, reference_root, games_root))
+        corpora.append((path, corpus_identity, document, inventory, ledger, ids, reference_root, games_root))
     if selection['purpose'] == 'research':
         require(seen_seasons == set(SEASONS), selection_path, 'research requires all five 2021–22 through 2025–26 seasons')
     output = output_path(output_value, sorted(roots))
@@ -298,7 +299,7 @@ def audit_selection(selection_path, output_value):
             'circumstance design', 'current 65-column circumstance contract changed')
     references, per_game, review_counts, review_lists = {}, [], {}, defaultdict(list)
     type_counts, reason_counts = defaultdict(Counter), defaultdict(Counter)
-    for corpus_path, corpus, inventory, ledger, ids, reference_root, games_root in corpora:
+    for corpus_path, corpus_identity, corpus, inventory, ledger, ids, reference_root, games_root in corpora:
         reference = corpus['reference']
         season = reference['requested_season']
         sources = source_records(reference['inputs'], directory=reference_root,
@@ -317,6 +318,7 @@ def audit_selection(selection_path, output_value):
             'bio_collections': reference['bio_collections'],
             'bio_observation_rows': len(reference['bio_observations']),
         }
+        ledger_indices = {row['game_id']: index for index, row in enumerate(corpus['games'])}
         for gid in ids:
             entry, ledger_row = inventory[gid], ledger[gid]
             status = ledger_row['status']
@@ -378,7 +380,8 @@ def audit_selection(selection_path, output_value):
                             and ledger_row.get('coverage') is None, envelope_path,
                             'native identity disposition/reason/coverage differs from stored corpus row')
                     row['issues'].append({'code': status, 'source': 'corpus',
-                        'path': f'/games/{gid}', 'message': expected_reason,
+                        'path': f'/games/{ledger_indices[gid]}', 'corpus': corpus_identity,
+                        'message': expected_reason,
                         'conflicting_fields': conflicts, 'envelope': envelope_identity})
                 else:
                     require(status == 'reconstructed' and ledger_row['reason'] is None,

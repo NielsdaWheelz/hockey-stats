@@ -10,6 +10,11 @@ public contract: prepare(selection_path) returns a finite-json-compatible dict:
   preparation_identity: exact fact contract; feature_games and
   feature_player_games: shared keyed facts; feature_facts: local attempt facts.
 
+prepare_game_attempts(envelope, envelope_path, inventory_entry) returns core
+attempts, unclassified_events, evidence and chronology without retained features.
+load_corpus(path, inputs) validates a corpus and appends its consumed identity,
+returning the document, inventory and game ledger keyed by game id.
+
 attempt fields: game_id, source_index, event_id, report_row_id,
 report_source_index, interval_indices, shooting_team_id, shooter_id, goalie_id,
 role (F/D/unknown), context (ordered fixed scalar evidence), pre_event_score
@@ -38,12 +43,15 @@ from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_jso
 from .corpus import STATUSES
 from .interpret import (
     BoxscorePlayer, Check, Event, GOALIE_SOURCE_FIELDS, LandingGoal,
-    RECORDING_FIELDS, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
+    RECORDING_FIELDS, Result, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
 )
 from .references import BIO_GOALIE_SOURCE_FIELDS, BIO_INTEGER_SOURCE_FIELDS, BIO_SKATER_SOURCE_FIELDS
 from .feature_data import ACTION_KINDS, ATTEMPT_KINDS, RESETS
 from .shot_origins import in_rink
-from .reconstruct import attacking_coordinates, defending_sides, reconcile_shot_type
+from .reconstruct import (
+    AttemptCoverage, Coverage, LocationCoverage, TimeCoverage,
+    attacking_coordinates, defending_sides, reconcile_shot_type,
+)
 
 _ATTEMPTS = ATTEMPT_KINDS
 _IDENTITY = (
@@ -361,6 +369,7 @@ def _envelope(value, path, entry):
             "requested_game_id",
             "game",
             "inputs",
+            "reported_results",
             "events",
             "roster_records",
             "report_rows",
@@ -387,6 +396,18 @@ def _envelope(value, path, entry):
     )
     _provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
     _issues(interpreted["issues"], f"{path}/interpreted/issues")
+    result_sources = set()
+    for i, result in enumerate(_array(interpreted["reported_results"],
+                                      f"{path}/interpreted/reported_results")):
+        loc = f"{path}/interpreted/reported_results/{i}"
+        _object(result, loc, Result.__required_keys__)
+        source = result["source"]
+        _require(source in ("play-by-play", "boxscore") and source not in result_sources,
+                 loc + "/source", "unknown or duplicate reported result source")
+        result_sources.add(source)
+        for field in ("away_score", "home_score", "away_sog", "home_sog"):
+            _integer(result[field], loc + "/" + field, nullable=True)
+        _text(result["last_period_type"], loc + "/last_period_type", nullable=True)
     for i, player in enumerate(_array(interpreted["boxscore_players"],
                                      f"{path}/interpreted/boxscore_players", nullable=True)):
         loc = f"{path}/interpreted/boxscore_players/{i}"
@@ -410,19 +431,66 @@ def _envelope(value, path, entry):
             _integer(shift[field], loc + "/" + field, nullable=field != "source_index")
         _require(shift["interval_status"] in ("coherent", "inconsistent", "unavailable", "not_shift"),
                  loc, "unsupported shift interval status")
+    recording_sources = set()
+    declared_recording_sources = {"play-by-play", "boxscore", "landing", "game-summary"}
     for collection in ("recording_observations", "coach_scratch_observations"):
         for i, row in enumerate(_array(interpreted[collection], f"{path}/interpreted/{collection}")):
             loc = f"{path}/interpreted/{collection}/{i}"
             _object(row, loc, ("source", "source_fields"))
             _require(row["source"] in SOURCES, loc, "unknown source observation")
+            if collection == "recording_observations":
+                _require(row["source"] in declared_recording_sources
+                         and row["source"] not in recording_sources, loc,
+                         "unknown or duplicate recording source")
+                recording_sources.add(row["source"])
             fields = ("coaches", "scratches") if collection == "coach_scratch_observations" else (
                 SUMMARY_RECORDING_FIELDS if row["source"] == "game-summary" else RECORDING_FIELDS)
             _source_facts(row["source_fields"], loc + "/source_fields", interpreted["inputs"], fields)
+            _require(all(item["source"] == row["source"] for item in row["source_fields"]["evidence"]),
+                     loc + "/source_fields/evidence", "observation source and field evidence disagree")
+    _require(recording_sources == declared_recording_sources,
+             f"{path}/interpreted/recording_observations",
+             "recording observations must cover the native source set")
     _object(
         reconstructed,
         f"{path}/reconstruction",
         ("events", "intervals", "periods", "issues", "coverage"),
     )
+    coverage_loc = f"{path}/reconstruction/coverage"
+    coverage = _object(reconstructed["coverage"], coverage_loc, Coverage.__required_keys__)
+    _require(set(coverage) == Coverage.__required_keys__, coverage_loc, "unexpected coverage groups")
+    for group, contract, total, parts in (
+        ("time", TimeCoverage, "known_seconds", ("five_on_five_seconds", "other_seconds", "unresolved_seconds")),
+        ("attempts", AttemptCoverage, "known_timed_attempts", ("five_on_five", "other", "unresolved")),
+        ("locations", LocationCoverage, "known_timed_attempts", ("normalized", "missing_coordinates", "unresolved_frame")),
+    ):
+        loc = coverage_loc + "/" + group
+        row = _object(coverage[group], loc, contract.__required_keys__)
+        _require(set(row) == contract.__required_keys__, loc, "unexpected coverage fields")
+        for field in sorted(contract.__required_keys__ - {"expected_periods", "supported_periods"}):
+            _integer(row[field], loc + "/" + field, nullable=True)
+            _require((row[field] is None) == (row[total] is None), loc + "/" + field,
+                     "coverage count availability differs from total")
+        if row[total] is not None:
+            _require(row[total] == sum(row[field] for field in parts), loc,
+                     "coverage partition does not sum to total")
+    time = coverage["time"]
+    for field in ("expected_periods", "supported_periods"):
+        loc = coverage_loc + "/time/" + field
+        numbers = _array(time[field], loc, nullable=field == "expected_periods")
+        for number in numbers:
+            _integer(number, loc, minimum=1)
+        _require(len(numbers) == len(set(numbers)), loc, "duplicate coverage period")
+    _require(set(time["supported_periods"]) <= set(time["expected_periods"] or []),
+             coverage_loc + "/time", "supported periods absent from expected periods")
+    _require((time["known_seconds"] is not None) == bool(time["supported_periods"]),
+             coverage_loc + "/time", "elapsed coverage availability differs from supported periods")
+    attempts = coverage["attempts"]
+    _require(attempts["known_timed_attempts"] == coverage["locations"]["known_timed_attempts"],
+             coverage_loc, "attempt and location totals disagree")
+    if attempts["linked_five_on_five"] is not None:
+        _require(attempts["linked_five_on_five"] <= attempts["five_on_five"],
+                 coverage_loc + "/attempts", "linked 5v5 attempts exceed 5v5 attempts")
     _issues(reconstructed["issues"], f"{path}/reconstruction/issues")
     events = _indexed(
         _array(interpreted["events"], f"{path}/interpreted/events", nullable=True),
@@ -1056,8 +1124,11 @@ def _previous_event(
     return result
 
 
-def _prepare_game(value, path, entry, *, bio_rows):
-    interpreted, reconstructed, events, recon, reports = _envelope(value, path, entry)
+def prepare_game_attempts(envelope, envelope_path, inventory_entry):
+    """validate and prepare one game's core attempts, evidence and chronology."""
+    interpreted, reconstructed, events, recon, reports = _envelope(
+        envelope, envelope_path, inventory_entry
+    )
     game = interpreted["game"]
     scores, score_failures, ordered, order_supported = _scores(
         interpreted, events, game
@@ -1295,7 +1366,7 @@ def _prepare_game(value, path, entry, *, bio_rows):
             ]
         source_issues = [
             {
-                "file": str(path),
+                "file": str(envelope_path),
                 "layer": "reconstruction",
                 "index": i,
                 **reconstructed["issues"][i],
@@ -1309,7 +1380,7 @@ def _prepare_game(value, path, entry, *, bio_rows):
                 issue["path"] == prefix or issue["path"].startswith(prefix + "/")
             ):
                 source_issues.append(
-                    {"file": str(path), "layer": "interpreted", "index": i, **issue}
+                    {"file": str(envelope_path), "layer": "interpreted", "index": i, **issue}
                 )
         for reason in details:
             details[reason] = [
@@ -1367,14 +1438,10 @@ def _prepare_game(value, path, entry, *, bio_rows):
                 ),
             }
         )
-    from .feature_data import prepare_game
-    features = prepare_game(value, attempts, input_ref=str(path), bio_rows=bio_rows,
-                            chronology={"ordered": ordered, "order_supported": order_supported,
-                                        "scores": scores})
-    return (
-        attempts,
-        sum(not event["kind_valid"] for event in events.values()),
-        {
+    return {
+        "attempts": attempts,
+        "unclassified_events": sum(not event["kind_valid"] for event in events.values()),
+        "evidence": {
             "source_inputs": interpreted["inputs"],
             "interpreted_issues": interpreted["issues"],
             "reconstruction_issues": reconstructed["issues"],
@@ -1383,11 +1450,20 @@ def _prepare_game(value, path, entry, *, bio_rows):
             "score_issues": score_failures,
             "event_collection_available": interpreted["events"] is not None,
         },
-        features,
-    )
+        "chronology": {"ordered": ordered, "order_supported": order_supported, "scores": scores},
+    }
 
 
-def _load_corpus(path, inputs):
+def _prepare_game(value, path, entry, *, bio_rows):
+    from .feature_data import prepare_game
+
+    core = prepare_game_attempts(value, path, entry)
+    features = prepare_game(value, core["attempts"], input_ref=str(path), bio_rows=bio_rows,
+                            chronology=core["chronology"])
+    return core["attempts"], core["unclassified_events"], core["evidence"], features
+
+
+def load_corpus(path, inputs):
     """admit one complete inventory and its attributed derived-game ledger."""
     document = _read(path, "corpus", inputs)
     _schema(document, str(path), 2, ("reference", "games"))
@@ -1511,7 +1587,7 @@ def prepare(selection_path):
     for value in dict.fromkeys([row["path"] for row in resolved] + history_paths):
         corpus_path = Path(value)
         input_roots.add(str(corpus_path.parent))
-        document, inventory, ledger = _load_corpus(corpus_path, inputs)
+        document, inventory, ledger = load_corpus(corpus_path, inputs)
         reference_signatures[value] = hashlib.sha256(json.dumps(document["reference"], sort_keys=True,
             separators=(",", ":"), allow_nan=False).encode()).hexdigest()
         _require(all(gid in inventory for gid, target in target_paths.items() if target == value),

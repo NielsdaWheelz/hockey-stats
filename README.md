@@ -66,7 +66,7 @@ npm run capture -- --game 2025020001 --source landing --out /absolute/existing/g
 
 the parent must contain a readable version-1 `play-by-play/capture.json` naming this game and source. `--source` accepts only `landing`, once. an existing landing leaf fails before network access. for replacement, explicitly prepare a new game-directory copy without its landing leaf, preserving the original directory and any existing landing evidence. the command neither overwrites nor resumes. new retrieval dates remain distinct from the five earlier responses.
 
-downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains twenty-one complete game bundles and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
+downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains thirty-two complete game bundles across five seasons, one interrupted bundle and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
 
 ## interpretation
 
@@ -279,3 +279,20 @@ after regenerating a corpus, run the retained source operator from `analysis/`:
 the selection uses the existing chance-selection schema and purpose (`fixture_exercise` or `research`). output must be new, outside input directories, with an existing parent. preparation validates the selected envelopes; review rereads those envelopes for source-wide counts. finite schema-1 `review.json` is written last. ordinary source gaps succeed with explicit dispositions; malformed inputs fail. source rows, matched events and eligible attempts retain separate denominators. type reconciliation supplies diagnostics, not a new predictor; the narrow non-goal clock repair retains all source issues.
 
 [the 03c decision](docs/research/chance-03c/decision.md) records the completed three-season before/after audit, detached verification and remaining source limitations. all three seasons are development/comparison evidence after 03b. no refit or revised scientific verdict is implied.
+
+
+## historical corpus admission
+
+03m uses the existing native capture/corpus commands and an offline admission audit. bulk inputs live under `/Volumes/Expansion/hockey-stats`; existing studies keep their absolute local input paths. the ordinary detached working set selects 2024–25/2025–26 from the fixed local raw root. preflight the mounted apfs uuid `EBBBAAB0-DA80-40ED-B9B9-E8C0CCEB56A0` before each external batch; an absent or mismatched drive stops work.
+
+from `analysis/`:
+
+```sh
+.venv/bin/python research/corpus_admission.py --selection /absolute/run/inputs/selection.json --out /absolute/run/audit
+```
+
+both flags are required exactly once. outputs are exclusive and outside the selection parent, corpus and raw input roots. schema-2 selections declare explicit corpus paths/game ids and `history_corpora=[]`. `research` requires exactly all official inventory games in all five seasons, 2021–22 through 2025–26; bounded selections use `fixture_exercise` and make no five-season claim. no source discovery, fixture fallback or network request occurs in the audit.
+
+raw receipts/bodies are read through native validators and bound against stored provenance. references are rederived; identity-gap diagnostics are separately rederived without core preparation. one game at a time passes shared core preparation/source review and the existing 65-column `r` circumstance encoder. source status, conversion applicability and encoding availability have separate reconciled counts; absent populations remain null and available empty populations remain zero. eligible blocks stay source-eligible but conversion-inapplicable.
+
+schema-1 `admission-audit.json` is written last after reduction checks. `complete` means the declared population was accounted for, including honest upstream gaps; `scientific_assessment` is always `not_performed`. contract/i/o failures exit 1 without a complete artifact; syntax exits 2 and help exits 0. located encoding failures retain `failure-diagnostics.json`. no fitting, history campaign or scientific admission follows. [verification](docs/research/corpus-03m/verification.md) binds the execution evidence and explicit storage/capture paths.

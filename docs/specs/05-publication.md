@@ -1,6 +1,6 @@
 # pr05 — publication
 
-status: **stub; not ready for implementation.** expand when 04 defines the analytical outputs. labeled fixture outputs can support development before scientific acceptance; they cannot support a real analytical release. [plan](../plan.md) · [architecture](../architecture.md)
+status: **stub; not ready for implementation.** expand when the shared analytical/view contract is specified from the settled brief. explicitly labeled fixture outputs can support separately assigned development before final 04 estimates or scientific acceptance; they cannot support a real analytical release or relabel withheld real estimates as fixture ability. [plan](../plan.md) · [architecture](../architecture.md)
 
 ## purpose and contract
 

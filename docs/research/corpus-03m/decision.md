@@ -1,0 +1,43 @@
+# 03m source decision
+
+status: **complete.** external cutover, scoped disposal, exact raw copy, detached working set and five-season audit passed independent review. [verification](verification.md) owns execution/protection/review/deletion evidence; [summary](summary.json) projects the final audit, including observed gaps and their consequences. the season counts and final reporting repair passed independent reduction review. scientific assessment is `not_performed`.
+
+the [full audit](/Volumes/Expansion/hockey-stats/runs/03m-20261010-03/audit/admission-audit.json) has sha256 `78d4034971e8d781ceb5dfa6af56b64ffb423e368027dc9c08a6701a4540b6d6`: 6,560 declared games, no missing captures, identity gaps, input errors, unavailable attempt collections or active encoding errors. all six game sources and four season references were reread through native validators and bound to actual receipts/bodies. references were rederived. the [explicit selection](/Volumes/Expansion/hockey-stats/runs/03m-20261010-03/inputs/selection.json) binds the corrected 2021–22 manifest and four unchanged manifests. earlier controls remain at their original paths. `complete` accounts for the population; it does not admit a model or independently establish physical events.
+
+game-source cells give captured; parsed counts, each out of 7,872 expected pairs per season. reference cells give captured; parsed counts, each out of four. unresolved seconds are within known elapsed horizons; games with unknown horizons remain a separate denominator.
+
+| season | inventory / expected | game sources / 7,872 | references / 4 | reconstructed / declared | score supported / prepared | unresolved membership games / reconstructed | unresolved / known seconds | unavailable horizon games / reconstructed |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 2021–22 | 1,312 / 1,312 | 7,872; 7,872 | 4; 4 | 1,312 / 1,312 | 1,312 / 1,312 | 253 / 1,312 | 69,299 / 4,778,050 | 1 / 1,312 |
+| 2022–23 | 1,312 / 1,312 | 7,872; 7,872 | 4; 4 | 1,312 / 1,312 | 1,312 / 1,312 | 188 / 1,312 | 27,075 / 4,780,618 | 0 / 1,312 |
+| 2023–24 | 1,312 / 1,312 | 7,872; 7,872 | 4; 4 | 1,312 / 1,312 | 1,312 / 1,312 | 623 / 1,312 | 128,655 / 4,774,523 | 0 / 1,312 |
+| 2024–25 | 1,312 / 1,312 | 7,872; 7,872 | 4; 4 | 1,312 / 1,312 | 1,312 / 1,312 | 377 / 1,312 | 260,095 / 4,773,197 | 0 / 1,312 |
+| 2025–26 | 1,312 / 1,312 | 7,872; 7,872 | 4; 4 | 1,312 / 1,312 | 1,312 / 1,312 | 297 / 1,312 | 57,215 / 4,789,005 | 0 / 1,312 |
+
+each recognized population comes from all 1,312 available collections. the four status/applicability columns partition those rows. eligible blocks remain source-eligible and conversion-inapplicable. encoded and goal fractions use eligible unblocked rows as their denominator; goals are recorded conversion outcomes, not independently measured physical goals.
+
+| season | available collections / declared | recognized | eligible unblocked | eligible blocks | out of scope | unavailable rows | encoded / applicable | goals / applicable |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 2021–22 | 1,312 / 1,312 | 149,412 | 88,862 | 28,636 | 31,478 | 436 | 88,862 / 88,862 | 5,441 / 88,862 |
+| 2022–23 | 1,312 / 1,312 | 153,348 | 88,500 | 30,932 | 33,521 | 395 | 88,500 / 88,500 | 5,416 / 88,500 |
+| 2023–24 | 1,312 / 1,312 | 160,123 | 88,905 | 35,988 | 34,560 | 670 | 88,905 / 88,905 | 5,266 / 88,905 |
+| 2024–25 | 1,312 / 1,312 | 156,622 | 88,788 | 36,241 | 31,074 | 519 | 88,788 / 88,788 | 5,152 / 88,788 |
+| 2025–26 | 1,312 / 1,312 | 153,754 | 87,018 | 33,514 | 32,641 | 581 | 87,018 / 87,018 | 5,291 / 87,018 |
+
+all five seasons total 773,259 recognized rows, 442,073 applicable rows and 26,566 applicable goals. the unchanged 2023–24 through 2025–26 subset exactly reconciles to 03k: 470,499 recognized, 264,711 applicable and 15,709 applicable goals. the recording repair recovers ten venues and eleven attendance values in 2021–22; independent owner checks find no core, reconstruction or eligibility delta. historical scientific artifacts remain unchanged. the 65 circumstance columns use only `game_additive,recent_additive,recent_interactions`, with no trait assumption or full feature/history preparation. availability does not assess fitted geometry, actor effects or numerical penalties.
+
+type evidence remains attributed. 2021–22 has 35,353 report-only types, all blocked shots; 2022–23 has 38,572, comprising 38,571 blocks and one goal. these are supported report observations rather than invented api values. missing, unmatched and conflicting evidence remain distinct; the full five-season table includes one conflict, in 2024–25. eleven supported canonical types retain their source evidence while the existing model folds them into six types. the 2,393 unknown-token entries are landing goal modifiers: 2,370 `empty-net`, 18 `awarded-empty-net`, five `own-goal-empty-net`. they are not unknown shot types or new physical-shooter support.
+
+landing scoring collections and final scores also differ. `2022021077` preserves an empty shootout scoring-summary collection despite a successful event in the separate shootout collection. the existing importer retains its untimed unmatched api goal outside conversion scope; it does not synthesize a scoring-summary join. this boundary does not count all omitted successful api shootout goals. supported timed score accounting remains separate from final results.
+
+venue strata retain four overlapping source observations per reviewed game. review found a report-reader defect behind 21 null game-summary names in the first audit: ten originals supply venue without attendance, and eleven supply attendance without venue. the repaired reader preserves each independently supplied value and leaves genuine absences null. an independent reread of all 6,560 summaries proves exactly those 21 field recoveries and zero other recording delta. the corrected audit has eleven null game-summary venues in 2021–22. ten games have literal conflicts, including `Amalie Arena` versus `AMALIE Arena`, with no new conflict from the repair. neither a spelling conflict nor a frequency difference establishes a different rink or bias.
+
+bios are retrieval-dated observations with unknown effective time. all ten collections returned their reported row count; unmatched roster ids remain 24 / 19 / 19 / 18 / 25 by season. another 2025–26 matched bio, player `8486169` at skater-bios `/data/830/shootsCatches`, explicitly supplies null shooting side while its birth date is available. complete collections do not establish contemporaneous affiliation or complete player coverage. the original reference bundle is already preserved in fixtures.
+
+the preserved [outdoor frame](../../issues/defending-side-source-conflicts.md), [overtime terminal](../../issues/overtime-terminal-source-conflict.md) and [elapsed lineup](../../issues/elapsed-lineup-counts.md) cases remain unresolved under unchanged contracts. in `2021021103`, known regulation contributes 3,600 seconds and zero unresolved seconds, while its overtime horizon stays null. known scalar contributions do not establish complete full-game exposure. the actual [volume-removal cause](../../issues/external-volume-interruption.md) also remains unknown; recovered source integrity is separate from hardware repair.
+
+machine limitations separately identify that horizon gap, unresolved elapsed membership, unsupported timed locations and recognized unavailable attempt inputs, with affected games and native nullable quantities. 36 unresolved frames in 2021–22 and 98 in 2023–24 prevent supported coordinate normalization; no timed coordinates are missing. the 2,601 unavailable recognized rows are source/input dispositions, not eligible observations discarded after an encoder failure. gap categories can overlap and do not redefine eligibility. known-zero contributions and unavailable quantities remain distinct.
+
+[03n](../../specs/03n-history-comparison.md) can reference the bound five manifests and factual audit when separately specified and assigned. it must settle its population, incomplete exposure, retrospective covariates and measured preparation/solver capacity. older observations enter training `corpora`; `history_corpora` alone does not add likelihood rows. no fitting, model admission, changed historical verdict, 04 handoff or publication follows.
+
+material costs: permanent predecessor-data loss; fresh retrospective requests; slower external reads; fixed local historical inputs retained; one external raw copy without ongoing synchronization; manual recaptures and explicit selection. full historical work requires the mounted drive; fixtures and the two recent local seasons remain detached.

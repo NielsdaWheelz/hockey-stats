@@ -189,7 +189,8 @@ def diagnostic_groups(attempt: dict, game_date: str, actor_evidence: dict) -> di
     return groups
 
 
-def summarize_component(rows, game_dates: dict, *, outcome: str = "goal") -> dict:
+def summarize_component(rows, game_dates: dict, *, outcome: str = "goal",
+                        group_categories: tuple[str, ...] | None = None) -> dict:
     """main metrics use study inclusion; source and prediction counts stay separate."""
     statuses = ("predicted", "study_excluded", "not_applicable", "out_of_scope", "unavailable")
     domains = {
@@ -199,6 +200,8 @@ def summarize_component(rows, game_dates: dict, *, outcome: str = "goal") -> dic
         **{f"actor_support:{actor}": ["observed_in_state", "other_seasons_only", "unseen", None]
            for actor in ("shooter", "goalie")},
     }
+    if group_categories is not None:
+        domains = {category: values for category, values in domains.items() if category in group_categories}
     metrics = binary_metrics(outcome=outcome)
     omitted = binary_metrics(outcome=outcome)
     groups = {
@@ -249,7 +252,10 @@ def summarize_component(rows, game_dates: dict, *, outcome: str = "goal") -> dic
         evidence["source_applicable_count"] += source == "eligible" and row["applicable"]
         evidence["included_count"] += study == "included"
         evidence["excluded_count"] += study == "feature_unavailable"
-        for category, value in row["diagnostic_groups"].items():
+        descriptors = row["diagnostic_groups"]
+        if group_categories is not None:
+            descriptors = {category: value for category, value in descriptors.items() if category in group_categories}
+        for category, value in descriptors.items():
             group = groups.setdefault(category, {}).setdefault(
                 value, dict(value=value, recognized_count=0, excluded_count=0,
                             non_applicable_count=0, study_excluded_count=0,
@@ -265,7 +271,7 @@ def summarize_component(rows, game_dates: dict, *, outcome: str = "goal") -> dic
         if study == "included":
             add_binary(metrics, record)
             add_binary(game["metrics"], record)
-            for category, value in row["diagnostic_groups"].items():
+            for category, value in descriptors.items():
                 add_binary(groups[category][value]["metrics"], record)
         elif study == "feature_unavailable":
             add_binary(omitted, record)

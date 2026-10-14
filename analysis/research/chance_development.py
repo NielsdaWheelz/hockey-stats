@@ -198,9 +198,37 @@ def fit(args):
     return fit_prepared(args, prepare(Path(args.selection).resolve(strict=True)), started=started)
 
 
+def _component_inputs(prepared, cohort, config, config_reference, protocol_reference, cohort_reference):
+    from hockey_stats.chance import compile_component_design
+
+    metadata = dict(common(prepared), config_identity=config_reference,
+                    protocol_identity=protocol_reference, training_cohort_identity=cohort_reference,
+                    training_game_dates=prepared["game_dates"],
+                    training_game_ids=list(prepared["game_dates"]),
+                    training_dates=sorted(set(prepared["game_dates"].values())))
+    included = [attempt for attempt, membership in zip(prepared["attempts"], cohort["rows"], strict=True)
+                if membership["study_inclusion"] == "included"]
+    design = compile_component_design(included, config, quantity=cohort["quantity"],
+                                      seasons=[game["season"] for game in prepared["games"]])
+    return dict(
+        attempts=[attempt for attempt in prepared["attempts"] if attempt["status"] == "eligible"],
+        config=config, metadata=metadata, quantity=cohort["quantity"], design=design,
+        training_cohort=cohort, feature_games=prepared["feature_games"],
+        feature_player_games=prepared["feature_player_games"],
+    )
+
+
+def component_setup(prepared, cohort, config, config_reference, protocol_reference, cohort_reference):
+    """encode the cohort's literal binary quantity through the production setup."""
+    from hockey_stats.chance import prepare_component_fit
+
+    return prepare_component_fit(**_component_inputs(
+        prepared, cohort, config, config_reference, protocol_reference, cohort_reference))
+
+
 def fit_prepared(args, prepared, *, started=None):
     """write one native fit from an explicitly supplied source preparation."""
-    from hockey_stats.chance import fit_component, compile_component_design
+    from hockey_stats.chance import fit_component
     from hockey_stats.chance_cohort import outcome_audit, validate_cohort
 
     if started is None:
@@ -214,24 +242,12 @@ def fit_prepared(args, prepared, *, started=None):
     require(cohort["quantity"] == args.quantity, "training cohort quantity mismatch")
     output = output_path(args.out, prepared["input_roots"] +
                          [str(p.parent) for p in (selection, cohort_path, config_path, protocol)])
-    metadata = dict(common(prepared), config_identity=identity(config_path),
-                    protocol_identity=identity(protocol), training_cohort_identity=identity(cohort_path),
-                    training_game_dates=prepared["game_dates"],
-                    training_game_ids=list(prepared["game_dates"]),
-                    training_dates=sorted(set(prepared["game_dates"].values())))
-    config = read_json(config_path)
-    included = [attempt for attempt, membership in zip(prepared["attempts"], cohort["rows"], strict=True)
-                if membership["study_inclusion"] == "included"]
-    design = compile_component_design(included, config, quantity=args.quantity,
-                                      seasons=[game["season"] for game in prepared["games"]])
+    inputs = _component_inputs(prepared, cohort, read_json(config_path), identity(config_path),
+                               identity(protocol), identity(cohort_path))
     output.mkdir()
-    component, diagnostics = fit_component(
-        [r for r in prepared["attempts"] if r["status"] == "eligible"],
-        config, metadata, quantity=args.quantity, design=design, training_cohort=cohort,
-        feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"],
-    )
-    document = dict(metadata, artifact_kind="chance_component_fit", quantity=args.quantity,
-                    stage_design=design, training_cohort_audit=outcome_audit(prepared, cohort),
+    component, diagnostics = fit_component(**inputs)
+    document = dict(inputs["metadata"], artifact_kind="chance_component_fit", quantity=args.quantity,
+                    stage_design=inputs["design"], training_cohort_audit=outcome_audit(prepared, cohort),
                     diagnostics=diagnostics, status="fitted" if component is not None else "failed",
                     resources=resources(started))
     write_json(output / "fit.json", document)
@@ -251,6 +267,7 @@ def fit_prepared(args, prepared, *, started=None):
 
 def validate_evaluation_arm(arm, quantity, cohort):
     require(arm in EVALUATION_ARMS, "unsupported component evaluation arm")
+    require(quantity in QUANTITIES, "schema-3 component evaluation supports only recorded-goal quantities")
     if arm in ("short", "expanded"):
         require(quantity == "unblocked_conversion" and
                 cohort["definition"] == dict(mode="all_source_eligible", required_families=[]) and
@@ -520,23 +537,37 @@ def diagnose(args):
 
 def compare_pair(baseline, changed):
     """strict entire-stream pairing; baseline owns paired subgroup membership."""
+    return compare_paired_records(
+        baseline, changed, paired_rows(linked_path(baseline["attempts"]), linked_path(changed["attempts"])))
+
+
+def compare_paired_records(baseline, changed, pairs):
+    """compare bound binary numerical views; baseline owns paired groups and bins."""
     require(baseline["game_dates"] == changed["game_dates"], "paired selected game ledgers changed")
-    left = linked_path(baseline["attempts"])
-    right = linked_path(changed["attempts"])
+    require(baseline["metrics"]["outcome"] == changed["metrics"]["outcome"], "paired binary outcomes changed")
+    outcome = baseline["metrics"]["outcome"]
     bins = [dict(lower=b["lower"], upper=b["upper"], upper_inclusive=b["upper_inclusive"],
-                 baseline=binary_metrics(calibration=False), changed=binary_metrics(calibration=False))
+                 baseline=binary_metrics(calibration=False, outcome=outcome),
+                 changed=binary_metrics(calibration=False, outcome=outcome))
             for b in binary_metrics()["calibration"]]
 
     def paired_predictions():
-        for before, after in paired_rows(left, right):
+        for before, after in pairs:
+            require(all(before[field] == after[field] for field in
+                        ("game_id", "source_index", "source_status", "source_reasons",
+                         "study_inclusion", "study_reasons", "applicable")),
+                    "paired numerical keys or scoring populations changed")
             if before["study_inclusion"] == "included":
+                require(before["status"] == after["status"] == "predicted" and
+                        before["observed"] == after["observed"], "paired binary labels changed")
                 bucket = bins[calibration_bin(before["probability"])]
                 for name, row in (("baseline", before), ("changed", after)):
                     add_binary(bucket[name], binary_record(row["observed"], row["log_p"], row["log_not_p"]))
             yield dict(after, diagnostic_groups=before["diagnostic_groups"])
 
     paired_summary = summarize_component(
-        paired_predictions(), baseline["game_dates"])
+        paired_predictions(), baseline["game_dates"], outcome=outcome,
+        group_categories=tuple(baseline["groups"]))
     for field in ("count", "observed_positive_count"):
         require(paired_summary["metrics"][field] == baseline["metrics"][field],
                 "paired quantity population mismatch")

@@ -1,22 +1,23 @@
-"""goal-blind study membership over unchanged prepared source dispositions."""
+"""target-applicable study membership over unchanged source dispositions."""
 
 from collections import Counter
 from copy import deepcopy
 from datetime import date
 import hashlib
 import json
+from pathlib import Path
 
-from .captures import InputContractError
+from .captures import InputContractError, strict_json
 from .chance_features import (
     PREPARATION_IDENTITY, FeatureUnavailableError, encode_stage_inputs,
     requirement_reason_prefix, stage_design,
 )
+from .chance_targets import QUANTITIES, DECOMPOSITION_QUANTITIES, component_target, recorded_on_net
 
 SOURCE_STATUSES = ("eligible", "out_of_scope", "unavailable")
 STUDY_INCLUSIONS = (
     "included", "feature_unavailable", "not_applicable", "source_excluded",
 )
-QUANTITIES = ("unblocked_conversion", "all_attempt_recorded_context")
 OMISSION_REASON_ACCOUNTING = (
     "one disjoint joint missing-field/status/reason pattern per omitted attempt; "
     "exact evidence locators remain in cohort rows"
@@ -45,7 +46,7 @@ def _counts(rows):
 
 
 def component_cohort(prepared, *, quantity, required_families):
-    """classify every recognized row without inspecting focal outcomes or predictions."""
+    """retain recognized rows; target applicability alone selects baseline membership."""
     if quantity not in QUANTITIES:
         raise InputContractError("unsupported component cohort quantity")
     definition = _definition(required_families)
@@ -84,7 +85,7 @@ def component_cohort(prepared, *, quantity, required_families):
         seen.add(key)
         inclusion, reasons = "source_excluded", []
         if attempt["status"] == "eligible":
-            inclusion = "not_applicable" if quantity == "unblocked_conversion" and attempt["blocked"] else "included"
+            inclusion = "not_applicable" if component_target(attempt, quantity) is None else "included"
             if inclusion == "included" and required_families:
                 facts = dict(
                     game_facts=prepared["feature_games"].get(game_id, {}),
@@ -209,7 +210,7 @@ def validate_cohort_document(cohort):
                 (row["source_status"] != "eligible") != (inclusion == "source_excluded")
                 or bool(row["study_reasons"]) != (inclusion == "feature_unavailable")
                 or inclusion == "feature_unavailable" and cohort["definition"]["mode"] != "selected_family_complete"
-                or inclusion == "not_applicable" and cohort["quantity"] != "unblocked_conversion"
+                or inclusion == "not_applicable" and cohort["quantity"] == "all_attempt_recorded_context"
             ):
                 raise ValueError("cohort source/study dispositions disagree")
             by_game[row["game_id"]].append(row)
@@ -245,7 +246,7 @@ def validate_cohort(cohort, prepared):
 
 
 def source_outcome_counts(prepared, cohort):
-    """count source-bound observed outcomes after blind membership is fixed."""
+    """count actual source goals within the explicit target-applicable membership."""
     validate_cohort_document(cohort)
     if any(cohort[field] != prepared[field] for field in (
         "purpose", "selection", "inputs", "preparation_identity", "game_dates",
@@ -339,7 +340,7 @@ def outcome_audit(prepared, cohort):
 
 
 def validate_outcome_audit_document(audit, cohort):
-    """check compact outcome and disjoint missingness summaries against blind counts."""
+    """check source-goal and disjoint missingness summaries against membership counts."""
     try:
         counts = cohort["counts"]
         scalar_fields = ("recognized_count", "source_eligible_count")
@@ -358,7 +359,7 @@ def validate_outcome_audit_document(audit, cohort):
             or audit["included"]["attempts"] != counts["included_count"]
             or audit["omitted"]["attempts"] != counts["excluded_count"]
         ):
-            raise ValueError("outcome audit and blind cohort accounting disagree")
+            raise ValueError("outcome audit and cohort accounting disagree")
         aggregated_patterns = {}
         for record in [audit] + audit["per_season"]:
             if record is not audit and (
@@ -482,4 +483,185 @@ def validate_outcome_audit(audit, prepared, cohort):
                          if value["requirements"] == pattern["requirements"])
             if any(counted[record["season"], index, field] != pattern[field] for field in ("attempts", "goals")):
                 raise InputContractError("audit pattern outcomes differ from source-bound stream")
+    return audit
+
+
+def _target_counts(records, quantity):
+    memberships = [membership for _, membership in records]
+    counts = dict(
+        recognized_count=len(records),
+        source_eligible_count=sum(row["source_status"] == "eligible" for row in memberships),
+        **_counts(memberships), unblocked=0, on_net=0, missed=0, saved=0, goals=0,
+        target_positive=0, target_negative=0,
+    )
+    for attempt, membership in records:
+        target = component_target(attempt, quantity)
+        if attempt["status"] == "eligible":
+            on_net = recorded_on_net(attempt)
+            counts["unblocked"] += on_net is not None
+            counts["on_net"] += on_net is True
+            counts["missed"] += on_net is False
+            counts["saved"] += on_net is True and not attempt["goal"]
+            counts["goals"] += attempt["goal"]
+        if membership["study_inclusion"] == "included":
+            if type(target) is not bool:
+                raise InputContractError("included target audit row has no binary target")
+            counts["target_positive"] += target
+            counts["target_negative"] += not target
+    return counts
+
+
+def target_audit(prepared, cohort, *, selection_identity, cohort_identity):
+    """retain source-class counts and literal targets without changing raw goals."""
+    validate_cohort(cohort, prepared)
+    if (
+        cohort["quantity"] not in DECOMPOSITION_QUANTITIES
+        or cohort["definition"] != _definition([])
+    ):
+        raise InputContractError("target audit requires an all-source decomposition cohort")
+    quantity = cohort["quantity"]
+    seasons = {game["game_id"]: game["season"] for game in prepared["games"]}
+    records = list(zip(prepared["attempts"], cohort["rows"], strict=True))
+    by_game = {game_id: [] for game_id in prepared["game_dates"]}
+    by_season = {season: [] for season in dict.fromkeys(seasons.values())}
+    for attempt, membership in records:
+        by_game[attempt["game_id"]].append((attempt, membership))
+        by_season[seasons[attempt["game_id"]]].append((attempt, membership))
+    audit = dict(
+        schema_version=1, artifact_kind="chance_component_target_audit",
+        purpose=prepared["purpose"], quantity=quantity,
+        selection=deepcopy(selection_identity), cohort=deepcopy(cohort_identity),
+        inputs=deepcopy(prepared["inputs"]),
+        preparation_identity=deepcopy(prepared["preparation_identity"]),
+        counts=_target_counts(records, quantity),
+        per_game=[dict(game_id=game_id, game_date=game_date, season=seasons[game_id],
+                       counts=_target_counts(by_game[game_id], quantity))
+                  for game_id, game_date in prepared["game_dates"].items()],
+        per_season=[dict(season=season, games=sum(value == season for value in seasons.values()),
+                         counts=_target_counts(by_season[season], quantity))
+                    for season in by_season],
+    )
+    return validate_target_audit_document(audit, cohort)
+
+
+def validate_target_audit_document(audit, cohort):
+    """check the closed count/identity contract; source replay belongs below."""
+    validate_cohort_document(cohort)
+    try:
+        if (
+            not isinstance(audit, dict) or set(audit) != {
+                "schema_version", "artifact_kind", "purpose", "quantity", "selection",
+                "cohort", "inputs", "preparation_identity", "counts", "per_game", "per_season",
+            }
+            or type(audit["schema_version"]) is not int or audit["schema_version"] != 1
+            or audit["artifact_kind"] != "chance_component_target_audit"
+            or audit["quantity"] not in DECOMPOSITION_QUANTITIES
+            or cohort["definition"] != _definition([])
+            or any(audit[field] != cohort[field] for field in
+                   ("purpose", "quantity", "inputs", "preparation_identity"))
+        ):
+            raise ValueError("target audit schema/cohort identity disagrees")
+        for reference in (audit["selection"], audit["cohort"]):
+            if (
+                not isinstance(reference, dict) or set(reference) != {"path", "sha256"}
+                or not isinstance(reference["path"], str) or not reference["path"]
+                or not isinstance(reference["sha256"], str) or len(reference["sha256"]) != 64
+                or any(c not in "0123456789abcdef" for c in reference["sha256"])
+            ):
+                raise ValueError("invalid target audit identity reference")
+        if [value for value in audit["inputs"] if value["kind"] == "selection"] != [
+            dict(kind="selection", **audit["selection"])
+        ]:
+            raise ValueError("target audit selection differs from native input identity")
+        captured = Path(audit["cohort"]["path"]).read_bytes()
+        if (
+            hashlib.sha256(captured).hexdigest() != audit["cohort"]["sha256"]
+            or strict_json(captured) != cohort
+        ):
+            raise ValueError("target audit cohort bytes/content disagree")
+        if (
+            not isinstance(audit["per_game"], list)
+            or len(audit["per_game"]) != len(cohort["game_dates"])
+            or not isinstance(audit["per_season"], list) or not audit["per_season"]
+        ):
+            raise ValueError("invalid target audit game/season ledger")
+        for game, (game_id, game_date) in zip(audit["per_game"], cohort["game_dates"].items(), strict=True):
+            season = game_id[:4] + str(int(game_id[:4]) + 1)
+            if (
+                not isinstance(game, dict) or set(game) != {"game_id", "game_date", "season", "counts"}
+                or (game["game_id"], game["game_date"], game["season"]) != (game_id, game_date, season)
+            ):
+                raise ValueError("target audit game identity/order disagrees")
+        seasons = list(dict.fromkeys(game["season"] for game in audit["per_game"]))
+        if [record["season"] for record in audit["per_season"]] != seasons:
+            raise ValueError("target audit season identity/order disagrees")
+        for record in audit["per_season"]:
+            if (
+                not isinstance(record, dict) or set(record) != {"season", "games", "counts"}
+                or type(record["games"]) is not int
+                or record["games"] != sum(game["season"] == record["season"] for game in audit["per_game"])
+            ):
+                raise ValueError("target audit season game counts disagree")
+        scalar_fields = (
+            "recognized_count", "source_eligible_count", "source_applicable_count", "included_count",
+            "excluded_count", "unblocked", "on_net", "missed", "saved", "goals",
+            "target_positive", "target_negative",
+        )
+        records = [audit["counts"]] + [record["counts"] for record in audit["per_game"] + audit["per_season"]]
+        for counts in records:
+            if (
+                not isinstance(counts, dict) or set(counts) != {*scalar_fields, "source_statuses", "study_inclusions"}
+                or any(type(counts[field]) is not int or counts[field] < 0 for field in scalar_fields)
+                or not isinstance(counts["source_statuses"], dict)
+                or set(counts["source_statuses"]) != set(SOURCE_STATUSES)
+                or not isinstance(counts["study_inclusions"], dict)
+                or set(counts["study_inclusions"]) != set(STUDY_INCLUSIONS)
+                or any(type(value) is not int or value < 0 for field in ("source_statuses", "study_inclusions")
+                       for value in counts[field].values())
+                or counts["recognized_count"] != sum(counts["source_statuses"].values())
+                or counts["recognized_count"] != sum(counts["study_inclusions"].values())
+                or counts["source_eligible_count"] != counts["source_statuses"]["eligible"]
+                or counts["unblocked"] != counts["missed"] + counts["saved"] + counts["goals"]
+                or counts["on_net"] != counts["saved"] + counts["goals"]
+                or not counts["on_net"] <= counts["unblocked"] <= counts["source_eligible_count"]
+                or counts["source_applicable_count"] != counts["included_count"]
+                or counts["included_count"] != counts["study_inclusions"]["included"]
+                or counts["excluded_count"] != 0 or counts["study_inclusions"]["feature_unavailable"] != 0
+                or counts["source_applicable_count"] != counts[
+                    "unblocked" if audit["quantity"] == "unblocked_on_net" else "on_net"]
+                or counts["target_positive"] != counts[
+                    "on_net" if audit["quantity"] == "unblocked_on_net" else "goals"]
+                or counts["target_positive"] + counts["target_negative"] != counts["included_count"]
+            ):
+                raise ValueError("target audit source/class/target counts disagree")
+        for field in ("source_statuses", "study_inclusions", "source_applicable_count", "included_count", "excluded_count"):
+            if audit["counts"][field] != cohort["counts"][field] or any(
+                game["counts"][field] != member[field]
+                for game, member in zip(audit["per_game"], cohort["per_game"], strict=True)
+            ):
+                raise ValueError("target audit membership counts disagree")
+        partitions = [(audit["counts"], [record["counts"] for record in audit[ledger]])
+                      for ledger in ("per_game", "per_season")]
+        partitions += [(record["counts"], [game["counts"] for game in audit["per_game"]
+                                           if game["season"] == record["season"]])
+                       for record in audit["per_season"]]
+        for total, children in partitions:
+            if any(sum(counts[field] for counts in children) != total[field] for field in scalar_fields) or any(
+                sum(counts[field][status] for counts in children) != value
+                for field in ("source_statuses", "study_inclusions") for status, value in total[field].items()
+            ):
+                raise ValueError("target audit game/season counts do not reconcile")
+    except (OSError, KeyError, TypeError, ValueError, AttributeError, OverflowError) as error:
+        raise InputContractError(f"invalid component target audit: {error}") from error
+    return audit
+
+
+def validate_target_audit(audit, prepared, cohort, *, selection_identity, cohort_identity):
+    """derive every saved class/target count again from the actual source rows."""
+    validate_target_audit_document(audit, cohort)
+    expected = target_audit(
+        prepared, cohort, selection_identity=selection_identity, cohort_identity=cohort_identity,
+    )
+    if audit != expected:
+        raise InputContractError("target audit differs from actual source labels or identities")
     return audit

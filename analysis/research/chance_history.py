@@ -24,7 +24,7 @@ from hockey_stats.chance_data import prepare_core
 from hockey_stats.chance_features import PREPARATION_IDENTITY
 from hockey_stats.cli import Once
 from chance_development import (
-    common, compare_pair, evaluate_prepared, fit_prepared, implementation,
+    component_setup, compare_pair, evaluate_prepared, fit_prepared, implementation,
     paired_rows, resources, validate_evaluation,
 )
 from chance_review import agrees, clean_implementation, linked_path, require
@@ -220,26 +220,6 @@ def validate_window(window, arm, training, assessment, training_audit, assessmen
     require(not set(training["game_dates"]) & set(assessment["game_dates"]) and
             min(assessment["game_dates"].values()) > max(training["game_dates"].values()),
             "every assessment game/date must follow disjoint training")
-
-
-def component_setup(prepared, cohort, config, config_reference, protocol_reference, cohort_reference):
-    """one production setup, shared by preflight and objective replay."""
-    from hockey_stats.chance import compile_component_design, prepare_component_fit
-
-    metadata = dict(common(prepared), config_identity=config_reference,
-                    protocol_identity=protocol_reference, training_cohort_identity=cohort_reference,
-                    training_game_dates=prepared["game_dates"],
-                    training_game_ids=list(prepared["game_dates"]),
-                    training_dates=sorted(set(prepared["game_dates"].values())))
-    included = [attempt for attempt, member in zip(prepared["attempts"], cohort["rows"], strict=True)
-                if member["study_inclusion"] == "included"]
-    design = compile_component_design(included, config, quantity=QUANTITY,
-                                      seasons=[game["season"] for game in prepared["games"]])
-    return prepare_component_fit(
-        [attempt for attempt in prepared["attempts"] if attempt["status"] == "eligible"],
-        config, metadata, quantity=QUANTITY, design=design, training_cohort=cohort,
-        feature_games=prepared["feature_games"], feature_player_games=prepared["feature_player_games"],
-    )
 
 
 def cohort_command(args):
@@ -571,6 +551,7 @@ def verify_component(component, component_reference, cohort, cohort_reference, p
     """replay the saved objective once, through the production setup and objective."""
     from hockey_stats.chance import component_objective
 
+    require(component["quantity"] == cohort["quantity"], "objective replay component/cohort quantity mismatch")
     selected = selection_reference(cohort)
     prepared = prepare_core(linked_path(selected))
     validate_cohort(cohort, prepared)

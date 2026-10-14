@@ -1,6 +1,6 @@
 # pr03o — observable conversion decomposition
 
-status: **specified; implementation and real fitting await separate assignment.** [03n](../research/chance-03n/decision.md) is reviewed and merged in `fa3c0e1`; its conditional short nomination informs this study, without model admission. user choice, 2026-10-13: decomposition only, current actor treatment, tip-shooter masking deferred. use two saved short direct controls and four fresh stage fits. [brief](../brief.md) · [direction](../research/model-direction.md)
+status: **assigned for complete implementation and real execution, 2026-10-13.** [03n](../research/chance-03n/decision.md) is reviewed and merged in `fa3c0e1`; its conditional short nomination informs this study, without model admission. user choice, 2026-10-13: decomposition only, current actor treatment, tip-shooter masking deferred. use two saved short direct controls and four fresh stage fits. [brief](../brief.md) · [direction](../research/model-direction.md)
 
 ## question and boundary
 

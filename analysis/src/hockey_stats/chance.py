@@ -24,11 +24,8 @@ from .chance_features import (
     CONTEXT_REFERENCES, validate_context, validate_stage_selection,
     stage_design, encode_stage_inputs, candidate_columns,
 )
+from .chance_targets import component_kind, component_target, component_prediction_applicable
 
-COMPONENT_QUANTITIES = {
-    "unblocked_conversion": "r",
-    "all_attempt_recorded_context": "all_attempt",
-}
 BATCH_SIZE = 32
 CONFIG_FIELDS = {
     "kernel_distance_ft",
@@ -243,11 +240,8 @@ def compile_designs(attempts, config, *, seasons=None):
 def compile_component_design(attempts, config, *, quantity, seasons=None):
     """compile only the named component over its selected annual domain."""
     validate_config(config)
-    if quantity not in COMPONENT_QUANTITIES:
-        raise InputContractError("unsupported component quantity")
-    kind = COMPONENT_QUANTITIES[quantity]
-    rows = [row for row in attempts if row["status"] == "eligible"
-            and (kind != "r" or not row["blocked"])]
+    kind = component_kind(quantity)
+    rows = [row for row in attempts if component_target(row, quantity) is not None]
     seasons = _season_domain(
         (row["season"] for row in rows) if seasons is None else seasons
     )
@@ -443,11 +437,11 @@ def _paired_stage_gradient(gradient, layout, data, residual):
     )
 
 
-def _conversion_objective(beta, data, layout, config, edges):
+def _spatial_binary_objective(beta, data, response, layout, config, edges):
     value, gradient = _penalty(beta, layout, config, edges)
     logits = _stage_logits(beta, layout, data, data["cell"])
-    value -= log_expit(np.where(data["goal"], logits, -logits)).sum()
-    residual = expit(logits) - data["goal"]
+    value -= log_expit(np.where(response, logits, -logits)).sum()
+    residual = expit(logits) - response
     _paired_stage_gradient(gradient, layout, data, residual)
     return float(value), gradient
 
@@ -558,38 +552,43 @@ def _benchmark_features(data, layout, centers):
     return features
 
 
-def _benchmark_objective(beta, data, layout, config, edges, centers):
+def _benchmark_objective(beta, data, response, layout, config, edges, centers):
     value, gradient = _penalty(beta, layout, config, edges)
-    for start in range(0, len(data["goal"]), BATCH_SIZE):
+    for start in range(0, len(response), BATCH_SIZE):
         batch = _slice_data(data, slice(start, start + BATCH_SIZE))
         x = _benchmark_features(batch, layout, centers)
         logits = x @ beta
-        value -= log_expit(np.where(batch["goal"], logits, -logits)).sum()
-        gradient += x.T @ (expit(logits) - batch["goal"])
+        target = response[start : start + BATCH_SIZE]
+        value -= log_expit(np.where(target, logits, -logits)).sum()
+        gradient += x.T @ (expit(logits) - target)
     return float(value), gradient
 
 
-def _binary_initial(layout, goals, count):
-    if not 0 < goals < count:
+def _binary_initial(layout, positives, count):
+    if not 0 < positives < count:
         return None
     initial = np.zeros(layout["size"])
-    initial[0] = math.log(goals / (count - goals))
+    initial[0] = math.log(positives / (count - positives))
     return initial
 
 
-def component_objective(beta, data, layout, config, edges, centers):
-    """the native binary likelihood and penalties, without an optimizer."""
+def _binary_objective(beta, data, response, layout, config, edges, centers):
     if layout["kind"] == "r":
-        return _conversion_objective(beta, data, layout, config, edges)
+        return _spatial_binary_objective(beta, data, response, layout, config, edges)
     if layout["kind"] in ("unblocked", "all_attempt"):
-        return _benchmark_objective(beta, data, layout, config, edges, centers)
+        return _benchmark_objective(beta, data, response, layout, config, edges, centers)
     raise InputContractError("unsupported binary component layout")
 
 
-def _fit_binary(data, layout, config, edges, centers):
+def component_objective(beta, data, layout, config, edges, centers):
+    """the native binary likelihood and penalties for the explicit component target."""
+    return _binary_objective(beta, data, data["target"], layout, config, edges, centers)
+
+
+def _fit_binary(data, response, layout, config, edges, centers):
     return fit_logistic(
-        lambda beta: component_objective(beta, data, layout, config, edges, centers),
-        _binary_initial(layout, data["goal"].sum(), len(data["goal"])), config,
+        lambda beta: _binary_objective(beta, data, response, layout, config, edges, centers),
+        _binary_initial(layout, response.sum(), len(response)), config,
     )
 
 
@@ -1054,7 +1053,7 @@ def fit_model(attempts, config, metadata, *, feature_games, feature_player_games
     failure_data = _slice_data(group_data, failure_groups)
     avoidance_group = np.full(len(rows), -1, dtype=np.int64)
     avoidance_group[blocked] = failure_indices
-    r_beta, r_diag = _fit_binary(r_data, r_layout, config, edges, centers)
+    r_beta, r_diag = _fit_binary(r_data, r_data["goal"], r_layout, config, edges, centers)
     diagnostics["r"] = r_diag
     if not r_diag["converged"]:
         diagnostics["termination"] = "conversion optimizer failed"
@@ -1206,7 +1205,7 @@ def fit_model(attempts, config, metadata, *, feature_games, feature_player_games
     ):
         layout = layouts[name]
         data = _encode(selected, layout, cells, feature_games=feature_games, feature_player_games=feature_player_games)
-        beta, diag = _fit_binary(data, layout, config, edges, centers)
+        beta, diag = _fit_binary(data, data["goal"], layout, config, edges, centers)
         benchmarks[name] = dict(layout, coefficients=beta.tolist(), diagnostics=diag)
     diagnostics["benchmarks"] = {k: v["diagnostics"] for k, v in benchmarks.items()}
     if any(not v["diagnostics"]["converged"] for v in benchmarks.values()):
@@ -1761,7 +1760,7 @@ def benchmark_actor_evidence(model, row, state_season=None):
 def _component_artifact(metadata, config, layout, diagnostics, *, quantity, training_cohort):
     dates = metadata["training_game_dates"]
     spatial_grid = None
-    if quantity == "unblocked_conversion":
+    if layout["kind"] == "r":
         centers, neighbors = grid()
         spatial_grid = dict(centers=centers.tolist(), neighbors=neighbors.tolist())
     return dict(
@@ -1807,10 +1806,10 @@ def _component_artifact(metadata, config, layout, diagnostics, *, quantity, trai
 
 def extract_component(model, *, quantity):
     """copy one fitted component exactly; the caller binds this round's protocol."""
+    kind = component_kind(quantity)
+    if quantity not in ("unblocked_conversion", "all_attempt_recorded_context"):
+        raise InputContractError("joint models contain neither decomposition component")
     validate_model(model)
-    if quantity not in COMPONENT_QUANTITIES:
-        raise InputContractError("unsupported component quantity")
-    kind = COMPONENT_QUANTITIES[quantity]
     layout = model["stages"][kind] if kind == "r" else model["benchmarks"][kind]
     diagnostics = model["diagnostics"]["r"] if kind == "r" else layout["diagnostics"]
     applicable = sum(count["total"] for count in layout["shooter_counts"].values())
@@ -1855,13 +1854,11 @@ def prepare_component_fit(attempts, config, metadata, *, quantity, design, train
     from .chance_cohort import component_cohort, validate_cohort_document
 
     validate_config(config)
-    if quantity not in COMPONENT_QUANTITIES:
-        raise InputContractError("unsupported component quantity")
+    kind = component_kind(quantity)
     if metadata.get("protocol_identity") is None:
         raise InputContractError("component fitting requires a bound protocol")
     rows = list(attempts)
     centers, edges = grid()
-    kind = COMPONENT_QUANTITIES[quantity]
     if not metadata["training_game_dates"]:
         raise InputContractError("component training requires selected games")
     seasons = _season_domain(
@@ -1881,6 +1878,7 @@ def prepare_component_fit(attempts, config, metadata, *, quantity, design, train
         ) from error
     cells, seen = {}, set()
     for row in rows:
+        component_target(row, quantity)
         h = _validate_attempt(row, centers, geometry=kind == "r")
         if (
             row.get("status") != "eligible"
@@ -1950,10 +1948,12 @@ def prepare_component_fit(attempts, config, metadata, *, quantity, design, train
     layout = _layout(selected, seasons, len(centers), kind, config=config)
     if design != layout["design"]:
         raise InputContractError("component design differs from explicit config/included population layout")
-    initial = _binary_initial(layout, sum(r["goal"] for r in selected), len(selected))
+    targets = np.array([component_target(row, quantity) for row in selected], dtype=np.float64)
+    initial = _binary_initial(layout, targets.sum(), len(selected))
     if initial is None:
         return layout, None, centers, edges, None
     data = _encode(selected, layout, cells, feature_games=feature_games, feature_player_games=feature_player_games)
+    data["target"] = targets
     return layout, data, centers, edges, initial
 
 
@@ -1967,7 +1967,7 @@ def fit_component(attempts, config, metadata, *, quantity, design, training_coho
     if initial is None:
         return None, dict(
             converged=False,
-            termination="component training requires goals and non-goals",
+            termination="component training requires positive and negative binary target outcomes",
             iterations=0,
             objective=None,
         )
@@ -2036,9 +2036,7 @@ def validate_component(component, *, require_protocol=True):
         ):
             raise ValueError("component schema/purpose disagree")
         quantity = component["quantity"]
-        if quantity not in COMPONENT_QUANTITIES:
-            raise ValueError("unsupported component quantity")
-        kind = COMPONENT_QUANTITIES[quantity]
+        kind = component_kind(quantity)
         validate_config(component["config"])
         centers, edges = grid()
         if kind == "r":
@@ -2097,6 +2095,7 @@ def validate_component(component, *, require_protocol=True):
             or not 0 < included <= cohort["source_applicable_count"] <= total
             or cohort["source_applicable_count"] != included + cohort["excluded_count"]
             or kind != "r" and cohort["source_applicable_count"] != total
+            or quantity != "unblocked_conversion" and cohort["definition"]["mode"] != "all_source_eligible"
         ):
             raise ValueError("component source/study/actor counts disagree")
         if cohort["definition"]["mode"] == "all_source_eligible":
@@ -2106,8 +2105,11 @@ def validate_component(component, *, require_protocol=True):
             raise ValueError("selected-family component requires an external cohort identity")
         if cohort["membership_identity"] is not None:
             _validate_identity(cohort["membership_identity"])
-        if component["extraction"] is not None and cohort["definition"]["mode"] != "all_source_eligible":
-            raise ValueError("extraction cannot declare selected-family membership")
+        if component["extraction"] is not None and (
+            cohort["definition"]["mode"] != "all_source_eligible"
+            or quantity not in ("unblocked_conversion", "all_attempt_recorded_context")
+        ):
+            raise ValueError("joint extraction cannot declare selected-family or decomposition membership")
         _validate_training_identity(component, years)
         _validate_solve(component["diagnostics"], accepted=True)
         if kind != "r" and layout["diagnostics"] != component["diagnostics"]:
@@ -2166,12 +2168,12 @@ def component_prediction_basis(component, attempt):
 def predict_component(component, attempt, context=None):
     if context is None:
         raise InputContractError("component prediction requires an explicit prepared context")
-    kind = COMPONENT_QUANTITIES[component["quantity"]]
-    h = _validate_attempt(attempt, context["centers"], geometry=kind == "r")
-    if attempt.get("status") != "eligible" or kind == "r" and attempt["blocked"]:
+    kind = component_kind(component["quantity"])
+    if not component_prediction_applicable(attempt, component["quantity"]):
         raise InputContractError(
             "component prediction requires an eligible applicable attempt"
         )
+    h = _validate_attempt(attempt, context["centers"], geometry=kind == "r")
     basis = component_prediction_basis(component, attempt)
     layout = component["layout"]
     data = _prediction_data(attempt, layout, h, basis["state_season"], context)

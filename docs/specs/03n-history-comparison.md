@@ -1,6 +1,6 @@
 # pr03n — short versus expanded training history
 
-status: **implemented and verified on `codex/03n-history-comparison` after assignment on 2026-10-13.** [verification](../research/chance-03n/verification.md) records software acceptance, capacity, four fresh converged fits, paired report, independent review and temporary-code deletion. [decision](../research/chance-03n/decision.md): `short_direction,supported_horizon,short,not_admitted`; nomination is conditional, without automatic adoption. 03m is reviewed and merged in `8cb0ff1`; [its audit](../research/corpus-03m/decision.md) supplies five inventories, not model admission. user choice, 2026-10-13: external-only outputs, manual rerun risk accepted; no further drive investigation or special recovery machinery. [brief](../brief.md) · [direction](../research/model-direction.md)
+status: **complete and reviewed; merged in `fa3c0e1`.** [verification](../research/chance-03n/verification.md) records four fresh converged fits and independent source/objective/interval closure; [decision](../research/chance-03n/decision.md) conditionally nominates short, `not_admitted`. the specification below retains its original contract. user choice, 2026-10-13: external-only outputs, manual rerun risk accepted; no drive-investigation gate or special recovery machinery. [brief](../brief.md) · [direction](../research/model-direction.md)
 
 ## question and boundary
 

@@ -490,11 +490,18 @@ def fit_command(args):
 
 
 def compose_logs(q, g):
-    """compose binary log probabilities without subtracting rounded probabilities."""
+    """evaluate the same 1-q*g identity using its numerically resolved tail.
+
+    log1p(-exp(log_p)) preserves the complement sign for p <= 1/2.
+    the stage-complement sum retains the failure tail when p approaches one
+    and native log_p can round to -0.0. neither branch clips probabilities.
+    """
     binary_record(0, q["log_p"], q["log_not_p"])
     binary_record(0, g["log_p"], g["log_not_p"])
-    result = dict(log_p=q["log_p"] + g["log_p"],
-                  log_not_p=float(np.logaddexp(q["log_not_p"], q["log_p"] + g["log_not_p"])))
+    log_p = q["log_p"] + g["log_p"]
+    log_not_p = (math.log1p(-math.exp(log_p)) if log_p <= -math.log(2) else
+                 float(np.logaddexp(q["log_not_p"], q["log_p"] + g["log_not_p"])))
+    result = dict(log_p=log_p, log_not_p=log_not_p)
     binary_record(0, result["log_p"], result["log_not_p"])
     return result
 

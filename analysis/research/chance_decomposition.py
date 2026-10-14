@@ -1033,6 +1033,7 @@ def save_figures(document, output):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    from matplotlib.ticker import MaxNLocator
 
     destination = output / "figures"
     destination.mkdir()
@@ -1046,6 +1047,8 @@ def save_figures(document, output):
         loss.set_title(window.replace("_", " "))
         loss.set_yticks([0, 1, 2], ["whole game", "7-day block", "14-day block"])
         loss.set_xlabel("decomposed − direct goal log loss\nnats / eligible unblocked attempt")
+        loss.xaxis.set_major_locator(MaxNLocator(nbins=4))
+        loss.ticklabel_format(axis="x", style="sci", scilimits=(-3, 3), useOffset=False, useMathText=True)
         calibration.set_xlim(0, 1)
         calibration.set_xlabel("direct probability bin; shared membership")
         calibration.set_ylabel("predicted − observed\npercentage points")
@@ -1074,9 +1077,12 @@ def save_figures(document, output):
             calibration.plot(xs, residuals, "o-", color=colors[arm], ms=3, lw=.8, label=arm)
         for x, bucket in zip(xs, bins, strict=True):
             if bucket["baseline"]["count"]:
+                edge, below = x >= .85, .85 <= x < .95
                 calibration.annotate(f"n={bucket['baseline']['count']:,}",
-                    (x, bucket["baseline"]["predicted_minus_observed_pp"]), xytext=(0, 8),
-                    textcoords="offset points", fontsize=6, rotation=60)
+                    (x, bucket["baseline"]["predicted_minus_observed_pp"]),
+                    xytext=(-3 if edge else 3, -8 if below else 8), textcoords="offset points",
+                    ha="right" if edge else "left", va="top" if below else "bottom",
+                    fontsize=6, rotation=60)
         metric = comparison["baseline_metrics"]
         calibration.set_title(f"direct-defined bins; n={metric['count']:,}; goals={metric['observed_positive_count']:,}", fontsize=9)
         calibration.margins(y=.25)
@@ -1114,8 +1120,11 @@ def save_figures(document, output):
             ys = [100 * (bucket["predicted_rate"] - bucket["observed_rate"]) for bucket in buckets]
             axis.scatter(xs, ys, s=16, color=colors["decomposed"])
             for x, y, bucket in zip(xs, ys, buckets, strict=True):
-                axis.annotate(f"n={bucket['count']:,}", (x, y), xytext=(3, 6),
-                              textcoords="offset points", fontsize=6, rotation=45)
+                edge, below = x >= .85, .85 <= x < .95
+                axis.annotate(f"n={bucket['count']:,}", (x, y),
+                              xytext=(-3 if edge else 3, -6 if below else 6), textcoords="offset points",
+                              ha="right" if edge else "left", va="top" if below else "bottom",
+                              fontsize=6, rotation=45)
             axis.text(.03, .04, f"n={stage['count']:,}; positives={stage['observed_positive_count']:,}",
                       transform=axis.transAxes, fontsize=9)
             axis.margins(y=.25)

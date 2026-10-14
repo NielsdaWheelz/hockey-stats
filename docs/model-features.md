@@ -4,7 +4,7 @@ status: implemented and independently reviewed; [software verification](research
 
 ## policy and contract
 
-03k is reviewed and merged in `15647ff`. [03l](specs/03l-conversion-sequence.md) tested only `sequence` beyond the improved conversion basis; [the completed decision](research/chance-03l/decision.md) is `mixed_direction,no_supported_next_fit,not_admitted`. all four fresh fits converged; matching preserves source eligibility but leaves selective omissions and unproved representativeness. the remaining families stay implemented, and this result does not remove correct sequence extraction.
+preparation, numerical encoding, supported study population and scientific use are distinct. [the plan](plan.md) owns phase status; this page owns each family's capability and activation boundary.
 
 implement and retain all distinct, defensibly computable feature families supported by the reviewed public-data scope, including families not selected by the current model. add newly identified families to this inventory and their preparation queue. the user chose the full local-data repertoire in one 03k pr; review independent internal ownership blocks without deferring unused local families until a fit requests them. available public sources requiring acquisition/admission remain explicit pending dependencies; inaccessible tracking is not available evidence.
 
@@ -38,6 +38,24 @@ the [exact ledger](research/features-03k/ledger.md) traces every required local 
 | observed/component facts | exact involvement credits, skater/goalie totals, checked strength-save pairs, display/bio observations and scratch availability | specified local observations and lagged ingredients implemented. original arithmetic conflicts remain visible; scratches require a feed. later components own targets/exposure; current postgame totals cannot predict a focal event |
 
 the sixteen numerical families are `game_additive,recent_additive,recent_interactions,game_detail,recent_detail,recent_geometry,off_wing,action_windows,zone_run,sequence,shift_age,shift_start,workload,calendar_rest,historical,strength_transition`. each stage declares its own ordered selection and saved design; the ledger specifies permissions, scales, structural absence and reference treatment. retaining a fact does not create an encoder or activate it in a recipe.
+
+## scientific activation and population support
+
+reviewed after [03o](research/chance-03o/protocol.md), 2026-10-14. this classification covers circumstance families; native spatial/type/season/shooter/goalie terms are separate.
+
+| scientific use | families |
+|---|---|
+| active in the latest conversion comparison | `game_additive`, `recent_additive`, `recent_interactions` |
+| tested and inactive | `sequence`; [03l](research/chance-03l/decision.md) found no supported next fit |
+| implemented; no real scientific fit established | `game_detail`, `recent_detail`, `recent_geometry`, `off_wing`, `action_windows`, `zone_run`, `shift_age`, `shift_start`, `workload`, `calendar_rest`, `historical`, `strength_transition` |
+
+`historical` denotes lagged counts/exposure, not the training horizon or annual actor borrowing already used. `recent_detail` cannot coexist with the current recent encodings; off-wing requires the declared hand-stability assumption. bios/recording facts without an eligible encoder and focal/future labels are not extra inactive predictor families.
+
+[current cohort requirements](../analysis/src/hockey_stats/chance_cohort.py) support all source-eligible rows or sequence-complete conversion only. `prepare_core` deliberately skips inactive feature/history joins. selecting another family owns the needed stage/population extension; encoder availability alone does not make an arbitrary campaign valid.
+
+before activation, inspect availability by season and outcome; preserve source status, structural absence and unavailable/conflicting evidence. define the comparable population before fitting, evaluate both arms there, and report departures from the full source-eligible population. complete-case comparability does not establish representativeness. no silent zero fill, successful-row intersection or automatic imputation follows. the full specification must also decide whether conditioning on the family removes a mechanism the player should receive credit for.
+
+## unavailable evidence and separate inference
 
 complete passing/screens, tracked entries/exits, trajectories and representative physical block release/contact pairs remain unavailable in the admitted public corpus. catalogue possible enrichment; never synthesize it as observed input. unsupported proxies remain pending until their meaning can be specified. optional paid evidence stays separate from the core.
 

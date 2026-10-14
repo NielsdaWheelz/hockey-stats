@@ -2,11 +2,21 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
-execution follow-up, 2026-10-08: the assigned [conversion-scale benchmark](chance-03j/decision.md) completed with `inconclusive` and no supported intervention. this preserves the historical recommendations without making avoidance or any other native experiment automatic.
+## approved review after 03o — 2026-10-14
 
-later council review and user-approved direction after merged 03i: [conversion-first research and retained features](model-direction.md), 2026-10-08. the original recommendations below remain dated evidence.
+three independent reviews covered statistics/numerics, software ownership and public-method/product parity. they agreed that the project needs earlier evidence about player attribution and downstream consequences, while chance research remains bounded. the user approved research-only attribution feasibility alongside one structural chance study with its numerical check included. [model direction](model-direction.md) owns the rationale and alternatives; [the plan](../plan.md) owns assignment and sequencing.
 
-## recommendation
+agreement: preserve truthful source/feature meaning, retain correct inactive capability, distinguish optimizer completion from useful numerical resolution, and assess the actual player question. prospective representation decisions may value useful components within a justified predictive-cost budget. historical verdicts and exposed-data limitations remain intact.
+
+disagreement: whether the next structural experiment should emphasize spatial/type pooling, temporal borrowing or additional context. no specific recipe or numeric margin was approved. attribution research can reveal consequences without admitting its provisional weights. cost: parallel work and explicitly provisional outputs; benefit: less time optimizing an upstream metric without knowing its product effect.
+
+software judgment: extract mature shared mechanisms when next needed, keep study policy with the study, consolidate current status into the plan, and retain a few selected stable regression checks under 07. no general research platform or standalone numerical gate.
+
+## initial recommendation — 2026-09-29
+
+the remaining sections preserve the original reconnaissance context, not current assignment or unresolved versions of subsequently settled product choices.
+
+
 
 the proposed sequence is sound: preserve the predecessor, build a selective knowledge base, establish the product's questions and statistical meanings, design ownership and contracts, then specify reviewable implementation slices. repository preservation and this first knowledge-base pass are complete. architecture and implementation remain unstarted.
 

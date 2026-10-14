@@ -4,6 +4,22 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 **status:** **first** = agreed first product; **later** = part of the agreed destination, implemented incrementally; **candidate** = reference detail worth considering, not yet selected; **optional** = enrichment outside the public-data core. a later family does not commit us to every competitor field or formula. nothing here expands the current slice or requires a universal card framework.
 
+## analytical dependencies
+
+the post-03o capability review separates available facts from supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
+
+| capability boundary | remaining work |
+|---|---|
+| chance measurement | supported recorded probabilities, block-origin/avoidance composition, tip sensitivity and reference-standardized opportunity; q × g alone supplies none of these admissions |
+| temporal structure | justified annual information borrowing, aging, entrants and cutoffs; current joint annual actor penalties do not reproduce hockeyviz's annual prior propagation |
+| spatial player contribution | aligned stints/exposure including zero-event time, offense/defense attribution, teammate/opponent/deployment context, uncertainty and map-to-scalar accounting |
+| later skills | setting inference, validated freeze/rebound targets, dedicated goalie effects, special teams, penalties, shootiness, territory and nonoverlapping totals |
+| player experience | publication/read contract, profiles/maps/cards, tables/search/comparisons, history, distributions and downloads |
+
+[04a feasibility](specs/04a-attribution-feasibility.md) may investigate recorded-rate attribution and sensitivities before chance admission. those provisional outputs do not fulfill the promised chance-valued profile. a few useful components can justify a bounded predictive cost under a prospective claim-specific rule; identical private-model numbers remain outside acceptance.
+
+public [xg8](https://hockeyviz.com/txt/xg8) supplies reference distinctions in outcome layers, symmetry/type geometry, tip treatment, setters, coaches and historical priors. precise current hockeyviz implementation remains unknown after its announced rewrite; the reference caveat below governs. available local proxies, unadmitted sources and unsupported physical tracking must remain distinct.
+
 ## skater components
 
 the ten contribution rows below follow the public [isolated-impact guide](https://hockeyviz.com/howto/isolate). their meanings are reference descriptions, not adopted estimators. our temporal target remains underlying ability across the selected season.

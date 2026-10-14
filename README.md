@@ -2,40 +2,16 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the implemented slices preserve source responses, interpret one explicitly selected game's captures offline, reconstruct reported event membership, elapsed exposure and recorded coordinates, audit a season inventory against explicit local captures, prepare retained local feature facts and explicit stage designs, and fit, assess and score chance-2 models. 03b completed fresh three-season acquisition, real chronological development/confirmation and scientific comparison/recovery; [its scientific decision](docs/research/chance-03b/decision.md) rejects the declared all-attempt use. 03e completed all three development recipes and their common-cohort evaluation, scoring and comparison under its unchanged [protocol](docs/research/chance-03e/protocol.md); [its decision](docs/research/chance-03e/decision.md) is `withheld` because all three fail declared all-attempt calibration. no primary survived, so dependent transfer, kernel variants and final fits were not run. no handoff is issued; 04 and publication remain unauthorized, and the website is unstarted.
+the project preserves source evidence and implements offline hockey reconstruction, feature preparation and chance-model research. the [implementation plan](docs/plan.md) owns current status, assignments and next steps; scientific completion and software completion are distinct.
 
-- [project brief](docs/brief.md): settled product direction, initial scope, evidence requirements, and phase boundaries.
-- [architecture interview](docs/architecture.md): dependent decisions, recommendations, and remaining evidence.
-- [implementation plan](docs/plan.md): small, non-overlapping slices and their dependencies.
-- [product roadmap](docs/roadmap.md): proposed v2+ capabilities, separate from the first-build slices.
-- [capability inventory](docs/product-inventory.md): skater/goalie components, cards and supporting views; confirmed scope versus candidates.
-- [first slice](docs/specs/01-capture.md): faithful source capture and a compact offline corpus.
-- [pr2 specification](docs/specs/02-interpretation.md): offline source interpretation; reconstruction has its own command.
-- [pr2b specification](docs/specs/02b-reconstruction.md): reported event membership, reconstructed exposure and coordinates.
-- [pr2c specification](docs/specs/02c-corpus.md): season inventory, bulk player references and offline corpus accounting.
-- [pr03a specification](docs/specs/03a-chance-workflow.md): chance-model workflow and software verification.
-- [pr03b specification](docs/specs/03b-training-acceptance.md): fresh three-season corpus, chronological development/confirmation and scientific judgment.
-- [pr03c specification](docs/specs/03c-source-revision.md): reviewed and merged; source contracts, expanded fixtures and [full three-season audit](docs/research/chance-03c/decision.md) verified.
-- [pr03d specification](docs/specs/03d-chance-revision.md): implemented chance-2 contract; [fixture verification](docs/research/chance-03d/verification.md) establishes software behavior.
-- [pr03e specification](docs/specs/03e-training-assessment.md): completed bounded retrospective assessment, `withheld`; [protocol](docs/research/chance-03e/protocol.md), [verification](docs/research/chance-03e/verification.md) and [decision](docs/research/chance-03e/decision.md).
-- [pr03f specification](docs/specs/03f-model-development.md): completed saved diagnosis and twelve-cell component screen; [decision](docs/research/chance-03f/decision.md), [verification](docs/research/chance-03f/verification.md) and [protocol](docs/research/chance-03f/protocol.md). context interactions recommended for further component research; history ablation worsens losses. no joint fitting or admission.
-- [pr03g specification](docs/specs/03g-chance-assessment.md): reviewed and merged; completed saved-fit integration and spatial diagnosis. [decision](docs/research/chance-03g/decision.md): `assess_integrated`, without fitting or admission.
-- [pr03h specification](docs/specs/03h-chance-revision.md): reviewed and merged in `d828085`; [decision](docs/research/chance-03h/decision.md) is `withheld` after two required own-bin failures. [verification](docs/research/chance-03h/verification.md) records one saved-stream pass, independent reviews and deleted temporary tests; no fitting or handoff.
-- [pr03i specification](docs/specs/03i-chance-revision.md): reviewed and merged in `d3d1b92`; completed saved localization/composition diagnosis. [decision](docs/research/chance-03i/decision.md) preserves its avoidance proposal; candidate `withheld`. [verification](docs/research/chance-03i/verification.md) records independent reviews and temporary-test deletion closure; no fitting or admission.
-- [pr03j specification](docs/specs/03j-chance-experiment.md): implemented and executed: [decision](docs/research/chance-03j/decision.md) `inconclusive`, with no supported intervention; [verification](docs/research/chance-03j/verification.md) records all 6,000 refits and independent checks. no admission or follow-on fit.
-- [pr03k specification](docs/specs/03k-feature-repertoire.md): retained local facts, chronological history and explicit stage selection; [field/design ledger](docs/research/features-03k/ledger.md) and [software verification](docs/research/features-03k/verification.md). [policy/inventory](docs/model-features.md) records available families and their limits; no new scientific fit or admission.
-- [later pr stubs](docs/plan.md#next-slices): 04–07 retain downstream responsibilities. expand each before implementation.
-- [pr03c research](docs/research/chance-03c-source-audit.md): overlooked report shot types, measured model coupling and limits of public origin evidence.
-- [external-data audit](docs/research/external-corpus-audit.md): inspected legacy database, fidelity findings and fresh-acquisition decision.
-- [corpus/reference audit](docs/research/corpus-reference-audit.md): verified season sources, coverage and source limitations.
-- [source audit](docs/research/source-audit.md): direct public evidence, omissions corrected and later input dependencies.
-- [council synthesis](docs/research/council.md): recommendations, disagreements, and tradeoffs.
-- [model direction after 03i](docs/research/model-direction.md): approved sequence, council disagreement, measurement/uncertainty obligations and retained research challengers.
-- [product survey](docs/research/product-survey.md): useful products, features, philosophies, and user friction.
-- [statistical methods](docs/research/statistical-methods.md): what the different models actually estimate.
-- [systems and data](docs/research/systems-and-data.md): effect/python candidates, provenance, and offline data requirements.
-- [legacy audit](docs/legacy/README.md): archive, salvage inventory, and historical source dossiers.
-- [unresolved issues](docs/issues/): concrete findings and what would resolve them.
+- [project brief](docs/brief.md): settled player question, scope and user choices.
+- [architecture](docs/architecture.md): responsibilities, contracts and one-operator operation.
+- [implementation plan](docs/plan.md): current direction, lean next specs and completed-study index.
+- [model direction](docs/research/model-direction.md): scientific rationale, alternatives and limits.
+- [roadmap](docs/roadmap.md) and [capability inventory](docs/product-inventory.md): full player-analysis destination.
+- [feature repertoire](docs/model-features.md): retained facts/encoders, scientific use and source dependencies.
+- [council](docs/research/council.md), [source audit](docs/research/source-audit.md), [input audit](docs/research/model-input-audit.md), [product survey](docs/research/product-survey.md) and [statistical methods](docs/research/statistical-methods.md): attributable research.
+- [fixtures](fixtures/README.md), [lasting-check scope](docs/specs/07-lightweight-testing.md) and [unresolved issues](docs/issues/): software evidence and remaining limitations.
 
 the predecessor is preserved at [hockey-stats-legacy](https://github.com/NielsdaWheelz/hockey-stats-legacy). its code is available locally under `.reference/hockey-stats-legacy/`; that directory and the git mirror beside it are excluded from this repository. historical research copied here is explicitly marked as historical and has a digest manifest.
 
@@ -66,7 +42,7 @@ npm run capture -- --game 2025020001 --source landing --out /absolute/existing/g
 
 the parent must contain a readable version-1 `play-by-play/capture.json` naming this game and source. `--source` accepts only `landing`, once. an existing landing leaf fails before network access. for replacement, explicitly prepare a new game-directory copy without its landing leaf, preserving the original directory and any existing landing evidence. the command neither overwrites nor resumes. new retrieval dates remain distinct from the five earlier responses.
 
-downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains thirty-two complete game bundles across five seasons, one interrupted bundle and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. temporary integration/live checks for this slice are deleted after verification, as requested; later changes must recreate them until the lightweight testing slice.
+downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains thirty-two complete game bundles across five seasons, one interrupted bundle and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. this slice's temporary integration/live checks were deleted after verification. new work follows the prospective [lasting-check policy](docs/specs/07-lightweight-testing.md).
 
 ## interpretation
 
@@ -85,7 +61,7 @@ exit `0` means at least one core source passed game identity, type and state adm
 
 captures remain unchanged. reported coordinates are not inferred shooting origins. interpretation preserves source facts; reconstruction separately derives elapsed membership and genuine-5v5 exposure. available boxscore groups remain inspectable when a sibling group is unavailable; located issues identify incomplete lists. interpretation records the commit, changes under `analysis/` and python version. dirty or unidentified results are development outputs, not reproducible solely from a commit. remove an interrupted output manually and rerun into a new file. one fully loaded game document favors inspection over bulk storage; sqlite remains the later publication format. json escapes non-ascii text while preserving decoded strings.
 
-temporary end-to-end checks are deleted after verification. the inspected fixture facts remain; changes must recreate checks until slice 07. later slices remain outlines until their inputs and requirements are concrete. the brief supersedes earlier research recommendations where the user has resolved a choice.
+the initial temporary end-to-end checks were deleted; inspected fixture facts remain. new work follows [07's prospective policy](docs/specs/07-lightweight-testing.md): retain explicitly selected stable checks, discard campaign machinery. full specifications precede implementation, and the brief supersedes older research recommendations.
 
 ## reconstruction
 

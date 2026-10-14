@@ -86,7 +86,7 @@ fixed separate descriptive groups: recent/none, model type, sequence index `1,2,
 
 per window use 2,000 paired whole-game draws and 2,000 each nonoverlapping 7-/14-calendar-day block draws, `PCG64`, seed `3032026`, 95% linear-percentile intervals. use the same sampled units across arms/metrics; pool additive sums and counts, never average game means. blocks start at earliest selected assessment date; retain empty games/days/intervening blocks/final partial block. any undefined draw yields a null interval, without redraws. report contributing units. intervals for paired overall loss, brier and signed residual shift condition on the four fitted models; no bootstrap fitting. group/bin tables are descriptive, not simultaneous tests.
 
-declare `1e-10` nats/row as a prospective arithmetic deadband; independently verify identity/near-identity loss arithmetic. it is neither a hockey-effect threshold nor permission to relax optimizer convergence. preserve unrounded estimates/intervals; no post-result epsilon. [03j roundoff](../issues/conversion-priority-roundoff.md) does not change 03j's verdict.
+declare `1e-10` nats/row as a prospective arithmetic deadband; independently verify identity/near-identity loss arithmetic. it is neither a hockey-effect threshold nor permission to relax optimizer convergence. preserve unrounded estimates/intervals; no post-result epsilon. [03j's arithmetic limitation](../research/chance-03j/verification.md#numerical-limitation-and-tradeoffs) does not change 03j's verdict; [completed 03l checks](../research/chance-03l/verification.md) establish the prospective contract.
 
 | condition across both windows | `direction` |
 |---|---|

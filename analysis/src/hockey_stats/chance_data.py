@@ -10,6 +10,10 @@ public contract: prepare(selection_path) returns a finite-json-compatible dict:
   preparation_identity: exact fact contract; feature_games and
   feature_player_games: shared keyed facts; feature_facts: local attempt facts.
 
+prepare_core(selection_path) returns the same source projection and identity,
+without retained feature/history facts. history_corpora must be empty; both
+per-game feature joins remain complete dictionaries with empty inactive values.
+
 prepare_game_attempts(envelope, envelope_path, inventory_entry) returns core
 attempts, unclassified_events, evidence and chronology without retained features.
 load_corpus(path, inputs) validates a corpus and appends its consumed identity,
@@ -1454,15 +1458,6 @@ def prepare_game_attempts(envelope, envelope_path, inventory_entry):
     }
 
 
-def _prepare_game(value, path, entry, *, bio_rows):
-    from .feature_data import prepare_game
-
-    core = prepare_game_attempts(value, path, entry)
-    features = prepare_game(value, core["attempts"], input_ref=str(path), bio_rows=bio_rows,
-                            chronology=core["chronology"])
-    return core["attempts"], core["unclassified_events"], core["evidence"], features
-
-
 def load_corpus(path, inputs):
     """admit one complete inventory and its attributed derived-game ledger."""
     document = _read(path, "corpus", inputs)
@@ -1540,9 +1535,19 @@ def load_corpus(path, inputs):
 
 def prepare(selection_path):
     """assemble target facts once; history adds strictly earlier evidence only."""
+    return _prepare(selection_path, include_features=True)
+
+
+def prepare_core(selection_path):
+    """prepare source evidence with explicitly inactive feature/history joins."""
+    return _prepare(selection_path, include_features=False)
+
+
+def _prepare(selection_path, *, include_features):
     from .chance_features import PREPARATION_IDENTITY
-    from .feature_data import prepare_missing_game
-    from .feature_history import prepare_history
+    if include_features:
+        from .feature_data import prepare_game, prepare_missing_game
+        from .feature_history import prepare_history
 
     path = Path(selection_path).resolve()
     inputs = []
@@ -1580,6 +1585,8 @@ def prepare(selection_path):
         corpus_path = str((path.parent / value).resolve())
         _require(corpus_path not in history_paths, loc, "duplicate history corpus path")
         history_paths.append(corpus_path)
+    _require(include_features or not history_paths, f"{path}/history_corpora",
+             "core preparation requires history_corpora=[]")
     input_roots = {str(path.parent)}
     bio_observations, reference_signatures, candidates = {}, {}, defaultdict(list)
     target_inventories, history_ids = set(), set()
@@ -1592,8 +1599,9 @@ def prepare(selection_path):
             separators=(",", ":"), allow_nan=False).encode()).hexdigest()
         _require(all(gid in inventory for gid, target in target_paths.items() if target == value),
                  corpus_path, "target game absent from its explicitly selected inventory")
-        bio_observations[value] = [{**observation, "input_ref": value}
-            for observation in document["reference"]["bio_observations"]]
+        if include_features:
+            bio_observations[value] = [{**observation, "input_ref": value}
+                for observation in document["reference"]["bio_observations"]]
         admitted = value in history_paths
         if value in target_paths.values():
             target_inventories.update(inventory)
@@ -1613,7 +1621,9 @@ def prepare(selection_path):
     _require(not history_paths or selected_ids <= history_ids, path,
              "nonempty history inventories must contain every target")
     target_order = [gid for row in resolved for gid in row["game_ids"]]
-    target_attempts, target_counts, target_games, target_features, summaries = {}, {}, {}, {}, {}
+    target_attempts, target_counts, target_games, summaries = {}, {}, {}, {}
+    feature_games = {gid: {} for gid in target_order}
+    feature_player_games = {gid: {} for gid in target_order}
     requested = selected_ids | history_ids
     for gid in sorted(requested, key=lambda key: (identities[key]["game_date"], key)):
         chosen, chosen_path, chosen_signature, chosen_corpus, chosen_entry, chosen_row = None, None, None, None, None, None
@@ -1644,13 +1654,18 @@ def prepare(selection_path):
                 chosen_corpus, chosen_entry, chosen_row = corpus_value, entry, row
         status = chosen_row["status"]
         if chosen is not None:
-            attempts, unclassified, evidence, features = _prepare_game(
-                chosen, chosen_path, chosen_entry, bio_rows=bio_observations[chosen_corpus])
-            summaries[gid] = features["history_summary"]
+            core = prepare_game_attempts(chosen, chosen_path, chosen_entry)
+            attempts, unclassified, evidence = (
+                core["attempts"], core["unclassified_events"], core["evidence"])
+            if include_features:
+                features = prepare_game(chosen, attempts, input_ref=str(chosen_path),
+                    bio_rows=bio_observations[chosen_corpus], chronology=core["chronology"])
+                summaries[gid] = features["history_summary"]
         else:
             attempts, unclassified, evidence = [], 0, {"event_collection_available": False}
-            features = prepare_missing_game(chosen_entry, input_ref=chosen_corpus)
-            summaries[gid] = None
+            if include_features:
+                features = prepare_missing_game(chosen_entry, input_ref=chosen_corpus)
+                summaries[gid] = None
         if gid not in selected_ids:
             continue
         selected_corpus = target_paths[gid]
@@ -1659,7 +1674,9 @@ def prepare(selection_path):
             "corpus_path": selected_corpus, "status": status, "reason": chosen_row["reason"],
             "output_path": chosen_row["output_path"]}
         target_attempts[gid] = attempts
-        target_features[gid] = features
+        if include_features:
+            feature_games[gid] = features["game_facts"]
+            feature_player_games[gid] = features["player_game_facts"]
         available = evidence["event_collection_available"]
         target_counts[gid] = {
             "game_id": gid, "game_date": chosen_entry["game_date"], "corpus_status": status,
@@ -1677,19 +1694,17 @@ def prepare(selection_path):
                 for s in ("eligible", "out_of_scope", "unavailable")} if available else None,
             "attempts_by_reason": {r: sum(r in a["reasons"] for a in attempts)
                 for r in _REASONS} if available else None, **evidence}
-    history = prepare_history(list(identities.values()), summaries, target_order)
-    feature_games, feature_player_games = {}, {}
-    for gid in target_order:
-        feature_games[gid] = target_features[gid]["game_facts"]
-        feature_player_games[gid] = target_features[gid]["player_game_facts"]
-        for team_id, groups in history["games"][gid]["teams"].items():
-            _require(team_id in feature_games[gid]["teams"], gid,
-                     "history join lacks target team " + team_id)
-            feature_games[gid]["teams"][team_id].update(groups)
-        for player_id, groups in history["players"][gid].items():
-            _require(player_id in feature_player_games[gid], gid,
-                     "history join lacks uniquely identified target player " + player_id)
-            feature_player_games[gid][player_id].update(groups)
+    if include_features:
+        history = prepare_history(list(identities.values()), summaries, target_order)
+        for gid in target_order:
+            for team_id, groups in history["games"][gid]["teams"].items():
+                _require(team_id in feature_games[gid]["teams"], gid,
+                         "history join lacks target team " + team_id)
+                feature_games[gid]["teams"][team_id].update(groups)
+            for player_id, groups in history["players"][gid].items():
+                _require(player_id in feature_player_games[gid], gid,
+                         "history join lacks uniquely identified target player " + player_id)
+                feature_player_games[gid][player_id].update(groups)
     attempts = [attempt for gid in target_order for attempt in target_attempts[gid]]
     games = [target_games[gid] for gid in target_order]
     per_game = [target_counts[gid] for gid in target_order]

@@ -16,7 +16,7 @@ import scipy
 from hockey_stats.artifacts import implementation_identity, write_json
 from hockey_stats.captures import InputContractError, strict_json
 from hockey_stats.chance_cli import identity, output_path, read_json
-from hockey_stats.chance_data import prepare
+from hockey_stats.chance_data import prepare, prepare_core
 from hockey_stats.chance_cohort import SOURCE_STATUSES, STUDY_INCLUSIONS
 from hockey_stats.chance_features import PREPARATION_IDENTITY
 from hockey_stats.chance_evaluation import (
@@ -29,6 +29,7 @@ from chance_review import agrees, calendar_blocks, linked_path, ratio_interval, 
 QUANTITIES = ("unblocked_conversion", "all_attempt_recorded_context")
 WINDOWS = ("development", "season_transfer")
 RECIPES = ("baseline", "context_interactions", "recent_history")
+EVALUATION_ARMS = ("baseline", "sequence", "short", "expanded")
 PAIR_FIELDS = (
     "game_id", "source_index", "event_id", "game_date", "season", "source_identity",
     "source_status", "source_reasons", "study_inclusion", "study_reasons",
@@ -96,7 +97,8 @@ def source_identities(prepared):
 def prediction_check(row):
     require(isinstance(row, dict) and all(field in row for field in (
         "schema_version", *PAIR_FIELDS, "status", "reasons", "observed", "log_p",
-        "log_not_p", "probability", "diagnostic_groups", "component")),
+        "log_not_p", "probability", "diagnostic_groups", "component",
+        "season_basis", "state_season", "actor_evidence")),
         "incomplete component prediction row")
     require(type(row["schema_version"]) is int and row["schema_version"] == 3,
             "schema-3 component prediction row required")
@@ -174,16 +176,40 @@ def paired_rows(left, right):
         yield before, after
 
 
+def validate_prepared_selection(prepared, selection):
+    """bind a supplied native preparation to the actual selection bytes."""
+    reference = identity(selection)
+    require([value for value in prepared["inputs"] if value["kind"] == "selection"] ==
+            [dict(kind="selection", **reference)], "prepared selection identity mismatch")
+    document = read_json(selection)
+    for corpus in document["corpora"]:
+        corpus["path"] = str((selection.parent / corpus["path"]).resolve(strict=True))
+    document["history_corpora"] = [
+        str((selection.parent / path).resolve(strict=True))
+        for path in document["history_corpora"]
+    ]
+    require(prepared["selection"] == document and prepared["purpose"] == document["purpose"] and
+            prepared["preparation_identity"] == PREPARATION_IDENTITY,
+            "prepared selection content or preparation identity mismatch")
+
+
 def fit(args):
-    from hockey_stats.chance import fit_component, compile_designs, COMPONENT_QUANTITIES
+    started = time.monotonic()
+    return fit_prepared(args, prepare(Path(args.selection).resolve(strict=True)), started=started)
+
+
+def fit_prepared(args, prepared, *, started=None):
+    """write one native fit from an explicitly supplied source preparation."""
+    from hockey_stats.chance import fit_component, compile_component_design
     from hockey_stats.chance_cohort import outcome_audit, validate_cohort
 
-    started = time.monotonic()
+    if started is None:
+        started = time.monotonic()
     selection = Path(args.selection).resolve(strict=True)
     cohort_path = Path(args.cohort).resolve(strict=True)
     config_path = Path(args.config).resolve(strict=True)
     protocol = Path(args.protocol).resolve(strict=True)
-    prepared = prepare(selection)
+    validate_prepared_selection(prepared, selection)
     cohort = validate_cohort(read_json(cohort_path), prepared)
     require(cohort["quantity"] == args.quantity, "training cohort quantity mismatch")
     output = output_path(args.out, prepared["input_roots"] +
@@ -196,9 +222,8 @@ def fit(args):
     config = read_json(config_path)
     included = [attempt for attempt, membership in zip(prepared["attempts"], cohort["rows"], strict=True)
                 if membership["study_inclusion"] == "included"]
-    design = compile_designs(included, config,
-                             seasons=[game["season"] for game in prepared["games"]])[
-                                 COMPONENT_QUANTITIES[args.quantity]]["design"]
+    design = compile_component_design(included, config, quantity=args.quantity,
+                                      seasons=[game["season"] for game in prepared["games"]])
     output.mkdir()
     component, diagnostics = fit_component(
         [r for r in prepared["attempts"] if r["status"] == "eligible"],
@@ -224,11 +249,21 @@ def fit(args):
     return 0
 
 
+def validate_evaluation_arm(arm, quantity, cohort):
+    require(arm in EVALUATION_ARMS, "unsupported component evaluation arm")
+    if arm in ("short", "expanded"):
+        require(quantity == "unblocked_conversion" and
+                cohort["definition"] == dict(mode="all_source_eligible", required_families=[]) and
+                cohort["counts"]["excluded_count"] == 0 and
+                not any(row["study_inclusion"] == "feature_unavailable" for row in cohort["rows"]),
+                "short/expanded arms require full-source conversion without omissions")
+
+
 def predict_component_rows(component, prepared, assessment_cohort, *, component_identity, arm):
     """one native pass over validated source facts and their explicit cohort ledger."""
     from hockey_stats.chance import component_prediction_context, predict_component
 
-    require(arm in ("baseline", "sequence"), "component evaluation arm must be baseline or sequence")
+    validate_evaluation_arm(arm, component["quantity"], assessment_cohort)
     context = component_prediction_context(component, feature_games=prepared["feature_games"],
                                            feature_player_games=prepared["feature_player_games"])
     sources = source_identities(prepared)
@@ -256,17 +291,25 @@ def predict_component_rows(component, prepared, assessment_cohort, *, component_
 
 
 def evaluate(args):
+    started = time.monotonic()
+    return evaluate_prepared(args, prepare(Path(args.selection).resolve(strict=True)), started=started)
+
+
+def evaluate_prepared(args, prepared, *, started=None):
+    """write a complete recognized stream from the supplied native preparation."""
     from hockey_stats.chance import validate_component
     from hockey_stats.chance_cohort import outcome_audit, validate_cohort
 
-    started = time.monotonic()
+    if started is None:
+        started = time.monotonic()
     selection = Path(args.selection).resolve(strict=True)
     cohort_path = Path(args.cohort).resolve(strict=True)
     protocol = Path(args.protocol).resolve(strict=True)
     component_path = Path(args.component).resolve(strict=True)
     component = validate_component(read_json(component_path))
-    prepared = prepare(selection)
+    validate_prepared_selection(prepared, selection)
     cohort = validate_cohort(read_json(cohort_path), prepared)
+    validate_evaluation_arm(args.arm, component["quantity"], cohort)
     require(component["purpose"] == prepared["purpose"], "component and selection purposes disagree")
     require(cohort["quantity"] == component["quantity"] and
             cohort["definition"] == component["training_cohort"]["definition"],
@@ -564,9 +607,10 @@ def compare_pair(baseline, changed):
 
 
 def validate_evaluation(reference, component_reference, selection_reference, protocol, quantity, purpose,
-                        *, component, cohort_reference, arm):
+                        *, component, cohort_reference, arm, prepared=None):
     """bind the whole recognized stream to one saved cohort, source ledger and summary."""
-    from hockey_stats.chance_cohort import validate_cohort_document, validate_outcome_audit
+    from hockey_stats.chance import component_prediction_basis
+    from hockey_stats.chance_cohort import validate_cohort, validate_cohort_document, validate_outcome_audit
 
     document = read_json(linked_path(reference))
     cohort = validate_cohort_document(read_json(linked_path(cohort_reference)))
@@ -581,20 +625,20 @@ def validate_evaluation(reference, component_reference, selection_reference, pro
             document["preparation_identity"] == component["preparation_identity"] and
             document["stage_design"] == component["layout"]["design"],
             "component evaluation binding mismatch")
-    require(arm in ("baseline", "sequence") and cohort["quantity"] == quantity and
+    validate_evaluation_arm(arm, quantity, cohort)
+    require(cohort["quantity"] == quantity and
             cohort["definition"] == component["training_cohort"]["definition"] and
             all(cohort[field] == document[field] for field in
                 ("purpose", "selection", "inputs", "game_dates", "preparation_identity")),
             "component evaluation cohort identities or definition changed")
     selection_path = linked_path(selection_reference)
-    selection = read_json(selection_path)
-    for corpus in selection["corpora"]:
-        corpus["path"] = str((selection_path.parent / corpus["path"]).resolve(strict=True))
-    selection["history_corpora"] = [
-        str((selection_path.parent / path).resolve(strict=True))
-        for path in selection["history_corpora"]
-    ]
-    require(document["selection"] == selection, "evaluation selection content mismatch")
+    if prepared is None:
+        prepared = (prepare_core if arm in ("short", "expanded") else prepare)(selection_path)
+    validate_prepared_selection(prepared, selection_path)
+    require(all(document[field] == prepared[field] for field in
+                ("purpose", "selection", "inputs", "game_dates", "coverage", "preparation_identity")),
+            "evaluation source identities or coverage differ from native preparation")
+    validate_cohort(cohort, prepared)
     require([v["game_id"] for v in document["per_game"]] == list(document["game_dates"]),
             "evaluation selected/per-game identities mismatch")
     coverage = document["coverage"]
@@ -606,25 +650,21 @@ def validate_evaluation(reference, component_reference, selection_reference, pro
     else:
         require(not cohort["rows"] and all(value is None for value in coverage["attempts_by_status"].values()),
                 "unavailable source coverage must have no recognized cohort rows")
-    corpus_references = {item["path"]: item for item in document["inputs"] if item["kind"] == "corpus"}
-    games = {}
-    for selected in selection["corpora"]:
-        corpus = read_json(linked_path(corpus_references[selected["path"]]))
-        inventory = {game["game_id"]: game for game in corpus["reference"]["inventory"]}
-        for gid in selected["game_ids"]:
-            game = inventory[gid]
-            require(gid not in games and game["game_date"] == document["game_dates"][gid],
-                    "evaluation source inventory game/date mismatch")
-            games[gid] = game
+    games = {game["game_id"]: game for game in prepared["games"]}
     stream = linked_path(document["attempts"])
     sources = source_identities(document)
     goals = {gid: Counter() for gid in document["game_dates"]}
     reasons = Counter()
-    for row, membership in zip_longest(rows(stream), cohort["rows"]):
-        require(row is not None and membership is not None, "prediction stream and cohort length mismatch")
+    for row, membership, attempt in zip_longest(rows(stream), cohort["rows"], prepared["attempts"]):
+        require(row is not None and membership is not None and attempt is not None,
+                "prediction stream, cohort and original source length mismatch")
         prediction_check(row)
         require(all(row[field] == membership[field] for field in membership),
                 "prediction stream and cohort keys, order or dispositions mismatch")
+        require(all(row[field] == attempt[field] for field in
+                    ("game_id", "source_index", "event_id", "blocked", "goal")) and
+                row["source_status"] == attempt["status"] and row["source_reasons"] == attempt["reasons"],
+                "prediction key, labels or disposition differ from original source")
         gid = row["game_id"]
         require(row["component"] == component_reference and row["quantity"] == quantity and
                 row["source_identity"] == sources[gid] and row["season"] == games[gid]["season"] and
@@ -633,6 +673,14 @@ def validate_evaluation(reference, component_reference, selection_reference, pro
         if row["study_inclusion"] == "feature_unavailable":
             require(row["status"] == ("predicted" if arm == "baseline" else "study_excluded"),
                     "omitted prediction does not follow declared arm")
+        basis = (component_prediction_basis(component, attempt) if row["status"] == "predicted" else
+                 dict(season_basis=None, state_season=None, actor_evidence=None))
+        require(all(row[field] == value for field, value in basis.items()),
+                "prediction annual state or actor evidence differs from native component")
+        require(row["diagnostic_groups"] == diagnostic_groups(
+            attempt, row["game_date"], basis["actor_evidence"] or
+            {actor: dict(basis=None) for actor in ("shooter", "goalie")}),
+            "prediction diagnostic descriptors differ from original source/native actor evidence")
         goals[gid][row["source_status"]] += int(row["goal"])
         reasons.update(row["source_reasons"])
     for status in ("eligible", "out_of_scope", "unavailable"):
@@ -662,13 +710,7 @@ def validate_evaluation(reference, component_reference, selection_reference, pro
     require(json.dumps(summary, sort_keys=True, allow_nan=False) ==
             json.dumps({field: document[field] for field in summary}, sort_keys=True, allow_nan=False),
             "prediction stream and saved evaluation accounting disagree")
-    audit_inputs = {field: document[field] for field in
-                    ("purpose", "selection", "inputs", "game_dates", "preparation_identity")}
-    audit_inputs.update(games=list(games.values()), attempts=[
-        dict(game_id=row["game_id"], source_index=row["source_index"], event_id=row["event_id"],
-             status=row["source_status"], reasons=row["source_reasons"], goal=row["goal"], blocked=row["blocked"])
-        for row in rows(stream)])
-    validate_outcome_audit(document["assessment_cohort_audit"], audit_inputs, cohort)
+    validate_outcome_audit(document["assessment_cohort_audit"], prepared, cohort)
     return document
 
 
@@ -943,7 +985,7 @@ def main():
     ):
         child = commands.add_parser(command, allow_abbrev=False)
         for option in options:
-            choices = QUANTITIES if option == "quantity" else ("baseline", "sequence") if option == "arm" else None
+            choices = QUANTITIES if option == "quantity" else EVALUATION_ARMS if option == "arm" else None
             child.add_argument(f"--{option}", required=True, action=Once, choices=choices)
     args = parser.parse_args()
     try:

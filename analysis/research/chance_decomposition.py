@@ -1082,7 +1082,8 @@ def save_figures(document, output):
                     (x, bucket["baseline"]["predicted_minus_observed_pp"]),
                     xytext=(-3 if edge else 3, -8 if below else 8), textcoords="offset points",
                     ha="right" if edge else "left", va="top" if below else "bottom",
-                    fontsize=6, rotation=60)
+                    fontsize=6, rotation=60,
+                    arrowprops=dict(arrowstyle="-", lw=.3) if edge else None)
         metric = comparison["baseline_metrics"]
         calibration.set_title(f"direct-defined bins; n={metric['count']:,}; goals={metric['observed_positive_count']:,}", fontsize=9)
         calibration.margins(y=.25)
@@ -1124,7 +1125,8 @@ def save_figures(document, output):
                 axis.annotate(f"n={bucket['count']:,}", (x, y),
                               xytext=(-3 if edge else 3, -6 if below else 6), textcoords="offset points",
                               ha="right" if edge else "left", va="top" if below else "bottom",
-                              fontsize=6, rotation=45)
+                              fontsize=6, rotation=45,
+                              arrowprops=dict(arrowstyle="-", lw=.3) if edge else None)
             axis.text(.03, .04, f"n={stage['count']:,}; positives={stage['observed_positive_count']:,}",
                       transform=axis.transAxes, fontsize=9)
             axis.margins(y=.25)

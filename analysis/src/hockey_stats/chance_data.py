@@ -16,8 +16,6 @@ per-game feature joins remain complete dictionaries with empty inactive values.
 
 prepare_game_attempts(envelope, envelope_path, inventory_entry) returns core
 attempts, unclassified_events, evidence and chronology without retained features.
-load_corpus(path, inputs) validates a corpus and appends its consumed identity,
-returning the document, inventory and game ledger keyed by game id.
 
 attempt fields: game_id, source_index, event_id, report_row_id,
 report_source_index, interval_indices, shooting_team_id, shooter_id, goalie_id,
@@ -37,35 +35,25 @@ local file/schema/reference/identity failures raise InputContractError.
 """
 
 from collections import Counter, defaultdict
-from datetime import date
 import hashlib
 import json
 import re
 from pathlib import Path
 
-from .captures import InputContractError, REFERENCE_SOURCES, SOURCES, strict_json
+from .captures import InputContractError
 from .corpus import STATUSES
-from .interpret import (
-    BoxscorePlayer, Check, Event, GOALIE_SOURCE_FIELDS, LandingGoal,
-    RECORDING_FIELDS, Result, SKATER_SOURCE_FIELDS, SUMMARY_RECORDING_FIELDS, Shift, SourceEvidence,
+from .corpus_inputs import (
+    IDENTITY_FIELDS, array, load_corpus, object_fields, read_document, require, schema, text,
+    validate_envelope,
 )
-from .references import BIO_GOALIE_SOURCE_FIELDS, BIO_INTEGER_SOURCE_FIELDS, BIO_SKATER_SOURCE_FIELDS
+from .game_chronology import period_length, score_chronology
 from .feature_data import ACTION_KINDS, ATTEMPT_KINDS, RESETS
 from .shot_origins import in_rink
 from .reconstruct import (
-    AttemptCoverage, Coverage, LocationCoverage, TimeCoverage,
-    attacking_coordinates, defending_sides, reconcile_shot_type,
+    attacking_coordinates, defending_sides,
 )
 
 _ATTEMPTS = ATTEMPT_KINDS
-_IDENTITY = (
-    "game_id",
-    "season",
-    "game_type",
-    "game_date",
-    "away_team_id",
-    "home_team_id",
-)
 _REASONS = (
     "outside_5v5",
     "membership_unresolved",
@@ -93,924 +81,6 @@ _RESETS = RESETS
 _RECENT = set(ACTION_KINDS)
 
 
-def _require(condition, location, message):
-    if not condition:
-        raise InputContractError(f"{location}: {message}")
-
-
-def _object(value, location, fields):
-    _require(type(value) is dict, location, "expected object")
-    _require(
-        set(fields).issubset(value),
-        location,
-        "missing fields: " + ", ".join(sorted(set(fields) - value.keys())),
-    )
-    return value
-
-
-def _array(value, location, *, nullable=False):
-    _require(
-        type(value) is list or nullable and value is None,
-        location,
-        "expected array" + (" or null" if nullable else ""),
-    )
-    return value or []
-
-
-def _integer(value, location, *, nullable=False, minimum=0):
-    _require(
-        type(value) is int and value >= minimum or nullable and value is None,
-        location,
-        "expected integer" + (" or null" if nullable else ""),
-    )
-
-
-def _text(value, location, *, nullable=False):
-    _require(
-        type(value) is str or nullable and value is None,
-        location,
-        "expected string" + (" or null" if nullable else ""),
-    )
-
-
-def _number(value, location):
-    # strict_json already rejects non-finite numbers.
-    _require(
-        type(value) in (int, float) or value is None,
-        location,
-        "expected finite number or null",
-    )
-
-
-def _read(path, kind, inputs):
-    try:
-        data = path.read_bytes()
-        value = strict_json(data)
-    except (OSError, ValueError) as error:
-        raise InputContractError(f"{path}: {error}") from error
-    inputs.append(
-        {"kind": kind, "path": str(path), "sha256": hashlib.sha256(data).hexdigest()}
-    )
-    return value
-
-
-def _schema(value, location, version, fields):
-    _object(value, location, ("schema_version",))
-    _require(
-        type(value["schema_version"]) is int and value["schema_version"] == version,
-        location,
-        f"expected schema {version}",
-    )
-    _object(value, location, fields)
-
-
-def _game_identity(game, location):
-    _object(game, location, _IDENTITY)
-    _require(
-        type(game["game_id"]) is str and re.fullmatch(r"[0-9]{10}", game["game_id"]),
-        location,
-        "expected ten-digit game id",
-    )
-    _require(
-        type(game["season"]) is str and re.fullmatch(r"[0-9]{8}", game["season"]),
-        location,
-        "expected season id",
-    )
-    _require(
-        game["season"] == game["game_id"][:4] + str(int(game["game_id"][:4]) + 1),
-        location,
-        "season/game id disagreement",
-    )
-    _require(
-        type(game["game_type"]) is int
-        and game["game_type"] == 2
-        and game["game_id"][4:6] == "02",
-        location,
-        "expected regular-season identity",
-    )
-    try:
-        valid_date = (
-            type(game["game_date"]) is str
-            and date.fromisoformat(game["game_date"]).isoformat() == game["game_date"]
-        )
-    except ValueError:
-        valid_date = False
-    _require(valid_date, location, "expected calendar date")
-    for field in ("away_team_id", "home_team_id"):
-        _integer(game[field], f"{location}/{field}", minimum=1)
-    _require(
-        game["away_team_id"] != game["home_team_id"], location, "teams must differ"
-    )
-
-
-def _indexed(rows, location):
-    result = {}
-    for i, row in enumerate(rows):
-        loc = f"{location}/{i}"
-        _object(row, loc, ("source_index",))
-        index = row["source_index"]
-        _integer(index, loc + "/source_index")
-        _require(index not in result, loc, "duplicate source_index")
-        result[index] = row
-    return result
-
-
-def _issues(rows, location):
-    rows = _array(rows, location)
-    for i, issue in enumerate(rows):
-        _object(issue, f"{location}/{i}", ("code", "source", "path", "message"))
-        for field in ("code", "source", "path", "message"):
-            _text(issue[field], f"{location}/{i}/{field}")
-    return rows
-
-
-def _provenance(rows, location, sources):
-    seen = set()
-    for i, receipt in enumerate(_array(rows, location)):
-        loc = f"{location}/{i}"
-        _object(
-            receipt,
-            loc,
-            (
-                "source",
-                "capture_path",
-                "requested_at",
-                "http_status",
-                "body_sha256",
-                "status",
-                "reason",
-            ),
-        )
-        _text(receipt["source"], loc + "/source")
-        _require(
-            receipt["source"] in sources and receipt["source"] not in seen,
-            loc,
-            "unknown or duplicate source",
-        )
-        seen.add(receipt["source"])
-        _text(receipt["capture_path"], loc + "/capture_path")
-        _require(bool(receipt["capture_path"]), loc, "empty provenance path")
-        _text(receipt["requested_at"], loc + "/requested_at", nullable=True)
-        _integer(
-            receipt["http_status"], loc + "/http_status", nullable=True, minimum=100
-        )
-        _require(
-            receipt["http_status"] is None or receipt["http_status"] <= 599,
-            loc,
-            "invalid http status",
-        )
-        _text(receipt["body_sha256"], loc + "/body_sha256", nullable=True)
-        _require(
-            receipt["body_sha256"] is None
-            or re.fullmatch(r"[0-9a-f]{64}", receipt["body_sha256"]),
-            loc,
-            "invalid body digest",
-        )
-        _require(
-            receipt["status"] in ("parsed", "unavailable", "reference_only"),
-            loc,
-            "invalid source status",
-        )
-        _require(
-            receipt["status"] == "unavailable" or receipt["body_sha256"] is not None,
-            loc,
-            "consumed source lacks body digest",
-        )
-        _text(receipt["reason"], loc + "/reason", nullable=True)
-    _require(
-        seen == set(sources),
-        location,
-        "source provenance does not cover declared source set",
-    )
-
-
-def _source_facts(record, location, inputs, fields, *, links_per_field=1):
-    """validate a located source-fact envelope, keeping missing evidence legal."""
-    _object(record, location, ("values", "problems", "evidence"))
-    _require(set(record) == {"values", "problems", "evidence"}, location,
-             "unexpected source-fact fields")
-    values = _object(record["values"], location + "/values", ())
-    _require(set(values) == set(fields), location,
-             "source value fields disagree with the declared contract")
-    integer_fields = set(BIO_INTEGER_SOURCE_FIELDS) | {
-        "playerId", "points", "plusMinus", "pim", "hits", "powerPlayGoals", "giveaways",
-        "takeaways", "saves", "shotsAgainst", "goalsAgainst", "evenStrengthGoalsAgainst",
-        "powerPlayGoalsAgainst", "shorthandedGoalsAgainst", "shifts", "goals", "assists",
-        "sog", "blockedShots", "attendance", "even_strength_saves", "power_play_saves",
-        "shorthanded_saves",
-    }
-    for field, value in values.items():
-        if value is None:
-            continue
-        loc = location + "/values/" + field
-        if field == "plusMinus":
-            _require(type(value) is int, loc, "expected signed integer")
-        elif field in integer_fields:
-            _integer(value, loc, minimum=1 if field == "playerId" else 0)
-        elif field == "starter":
-            _require(type(value) is bool, loc, "expected boolean")
-        elif field in ("savePctg", "faceoffWinningPctg"):
-            _require(type(value) in (int, float) and 0 <= value <= 1, loc,
-                     "expected finite source fraction in [0,1]")
-        elif field == "officials":
-            _object(value, loc, ())
-            for role, names in value.items():
-                _text(role, loc)
-                for name in _array(names, loc + "/" + role):
-                    _text(name, loc + "/" + role)
-        elif field in ("coaches", "scratches"):
-            _array(value, loc)
-        else:
-            _text(value, loc)
-    problems = _object(record["problems"], location + "/problems", ())
-    evidence = _array(record["evidence"], location + "/evidence")
-    _require(set(problems) == {key for key, value in values.items() if value is None},
-             location, "every null requires exactly one located problem")
-    field_refs = {field: [] for field in fields}
-    for i, item in enumerate(evidence):
-        loc = f"{location}/evidence/{i}"
-        _object(item, loc, SourceEvidence.__required_keys__)
-        _require(set(item) == SourceEvidence.__required_keys__, loc,
-                 "source locator fields disagree with the declared contract")
-        _text(item["field"], loc + "/field")
-        _require(item["field"] in field_refs, loc, "locator names an unknown source field")
-        field_refs[item["field"]].append(i)
-        _text(item["source"], loc + "/source")
-        _text(item["path"], loc + "/path")
-        _integer(item["input_index"], loc + "/input_index")
-        _require(item["input_index"] < len(inputs), loc, "broken input reference")
-        _require(item["source"] == inputs[item["input_index"]]["source"], loc,
-                 "source and input reference disagree")
-    _require(all(len(refs) == links_per_field for refs in field_refs.values()), location,
-             "source field locator counts disagree with the declared contract")
-    for field, problem in problems.items():
-        loc = f"{location}/problems/{field}"
-        _object(problem, loc, ("status", "reason", "evidence_refs"))
-        _require(set(problem) == {"status", "reason", "evidence_refs"}, loc,
-                 "unexpected problem fields")
-        _require(problem["status"] in ("unavailable", "conflict", "not_applicable"),
-                 loc, "unsupported field problem status")
-        _text(problem["reason"], loc + "/reason")
-        _require(bool(problem["reason"]), loc, "empty field problem reason")
-        refs = _array(problem["evidence_refs"], loc + "/evidence_refs")
-        _require(bool(refs), loc, "located field problem requires evidence")
-        for ref in refs:
-            _integer(ref, loc + "/evidence_refs")
-            _require(ref < len(evidence), loc, "broken evidence reference")
-        _require(len(refs) == links_per_field and set(refs) == set(field_refs[field]), loc,
-                 "null problem must name exactly its source field locators")
-
-
-def _envelope(value, path, entry):
-    """validate consumed contracts before distinguishing missing evidence."""
-    _schema(value, str(path), 4, ("interpreted", "reconstruction"))
-    interpreted, reconstructed = value["interpreted"], value["reconstruction"]
-    _schema(
-        interpreted,
-        f"{path}/interpreted",
-        4,
-        (
-            "requested_game_id",
-            "game",
-            "inputs",
-            "reported_results",
-            "events",
-            "roster_records",
-            "report_rows",
-            "landing_goals",
-            "boxscore_players",
-            "shift_records",
-            "recording_observations",
-            "coach_scratch_observations",
-            "checks",
-            "issues",
-        ),
-    )
-    _require(
-        interpreted["requested_game_id"] == entry["game_id"],
-        path,
-        "requested game/inventory disagreement",
-    )
-    _game_identity(interpreted["game"], f"{path}/interpreted/game")
-    conflicts = [
-        field for field in _IDENTITY if interpreted["game"][field] != entry[field]
-    ]
-    _require(
-        not conflicts, path, "inventory/game disagreement: " + ", ".join(conflicts)
-    )
-    _provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
-    _issues(interpreted["issues"], f"{path}/interpreted/issues")
-    result_sources = set()
-    for i, result in enumerate(_array(interpreted["reported_results"],
-                                      f"{path}/interpreted/reported_results")):
-        loc = f"{path}/interpreted/reported_results/{i}"
-        _object(result, loc, Result.__required_keys__)
-        source = result["source"]
-        _require(source in ("play-by-play", "boxscore") and source not in result_sources,
-                 loc + "/source", "unknown or duplicate reported result source")
-        result_sources.add(source)
-        for field in ("away_score", "home_score", "away_sog", "home_sog"):
-            _integer(result[field], loc + "/" + field, nullable=True)
-        _text(result["last_period_type"], loc + "/last_period_type", nullable=True)
-    for i, player in enumerate(_array(interpreted["boxscore_players"],
-                                     f"{path}/interpreted/boxscore_players", nullable=True)):
-        loc = f"{path}/interpreted/boxscore_players/{i}"
-        _object(player, loc, BoxscorePlayer.__required_keys__)
-        _text(player["source_path"], loc + "/source_path")
-        goalie = "/goalies/" in player["source_path"]
-        for field in ("player_id", "team_id"):
-            _integer(player[field], loc + "/" + field, nullable=True, minimum=1)
-        for field in ("toi_seconds", "shift_count", "goals", "assists", "sog", "blocked_shots"):
-            _integer(player[field], loc + "/" + field, nullable=True)
-        _source_facts(player["source_fields"], loc + "/source_fields", interpreted["inputs"],
-                      GOALIE_SOURCE_FIELDS if goalie else SKATER_SOURCE_FIELDS)
-        _source_facts(player["derived_fields"], loc + "/derived_fields", interpreted["inputs"],
-                      ("even_strength_saves", "power_play_saves", "shorthanded_saves") if goalie else (),
-                      links_per_field=2)
-    for i, shift in enumerate(_array(interpreted["shift_records"],
-                                    f"{path}/interpreted/shift_records", nullable=True)):
-        loc = f"{path}/interpreted/shift_records/{i}"
-        _object(shift, loc, Shift.__required_keys__)
-        for field in ("source_index", "start_seconds", "end_seconds", "duration_seconds"):
-            _integer(shift[field], loc + "/" + field, nullable=field != "source_index")
-        _require(shift["interval_status"] in ("coherent", "inconsistent", "unavailable", "not_shift"),
-                 loc, "unsupported shift interval status")
-    recording_sources = set()
-    declared_recording_sources = {"play-by-play", "boxscore", "landing", "game-summary"}
-    for collection in ("recording_observations", "coach_scratch_observations"):
-        for i, row in enumerate(_array(interpreted[collection], f"{path}/interpreted/{collection}")):
-            loc = f"{path}/interpreted/{collection}/{i}"
-            _object(row, loc, ("source", "source_fields"))
-            _require(row["source"] in SOURCES, loc, "unknown source observation")
-            if collection == "recording_observations":
-                _require(row["source"] in declared_recording_sources
-                         and row["source"] not in recording_sources, loc,
-                         "unknown or duplicate recording source")
-                recording_sources.add(row["source"])
-            fields = ("coaches", "scratches") if collection == "coach_scratch_observations" else (
-                SUMMARY_RECORDING_FIELDS if row["source"] == "game-summary" else RECORDING_FIELDS)
-            _source_facts(row["source_fields"], loc + "/source_fields", interpreted["inputs"], fields)
-            _require(all(item["source"] == row["source"] for item in row["source_fields"]["evidence"]),
-                     loc + "/source_fields/evidence", "observation source and field evidence disagree")
-    _require(recording_sources == declared_recording_sources,
-             f"{path}/interpreted/recording_observations",
-             "recording observations must cover the native source set")
-    _object(
-        reconstructed,
-        f"{path}/reconstruction",
-        ("events", "intervals", "periods", "issues", "coverage"),
-    )
-    coverage_loc = f"{path}/reconstruction/coverage"
-    coverage = _object(reconstructed["coverage"], coverage_loc, Coverage.__required_keys__)
-    _require(set(coverage) == Coverage.__required_keys__, coverage_loc, "unexpected coverage groups")
-    for group, contract, total, parts in (
-        ("time", TimeCoverage, "known_seconds", ("five_on_five_seconds", "other_seconds", "unresolved_seconds")),
-        ("attempts", AttemptCoverage, "known_timed_attempts", ("five_on_five", "other", "unresolved")),
-        ("locations", LocationCoverage, "known_timed_attempts", ("normalized", "missing_coordinates", "unresolved_frame")),
-    ):
-        loc = coverage_loc + "/" + group
-        row = _object(coverage[group], loc, contract.__required_keys__)
-        _require(set(row) == contract.__required_keys__, loc, "unexpected coverage fields")
-        for field in sorted(contract.__required_keys__ - {"expected_periods", "supported_periods"}):
-            _integer(row[field], loc + "/" + field, nullable=True)
-            _require((row[field] is None) == (row[total] is None), loc + "/" + field,
-                     "coverage count availability differs from total")
-        if row[total] is not None:
-            _require(row[total] == sum(row[field] for field in parts), loc,
-                     "coverage partition does not sum to total")
-    time = coverage["time"]
-    for field in ("expected_periods", "supported_periods"):
-        loc = coverage_loc + "/time/" + field
-        numbers = _array(time[field], loc, nullable=field == "expected_periods")
-        for number in numbers:
-            _integer(number, loc, minimum=1)
-        _require(len(numbers) == len(set(numbers)), loc, "duplicate coverage period")
-    _require(set(time["supported_periods"]) <= set(time["expected_periods"] or []),
-             coverage_loc + "/time", "supported periods absent from expected periods")
-    _require((time["known_seconds"] is not None) == bool(time["supported_periods"]),
-             coverage_loc + "/time", "elapsed coverage availability differs from supported periods")
-    attempts = coverage["attempts"]
-    _require(attempts["known_timed_attempts"] == coverage["locations"]["known_timed_attempts"],
-             coverage_loc, "attempt and location totals disagree")
-    if attempts["linked_five_on_five"] is not None:
-        _require(attempts["linked_five_on_five"] <= attempts["five_on_five"],
-                 coverage_loc + "/attempts", "linked 5v5 attempts exceed 5v5 attempts")
-    _issues(reconstructed["issues"], f"{path}/reconstruction/issues")
-    events = _indexed(
-        _array(interpreted["events"], f"{path}/interpreted/events", nullable=True),
-        f"{path}/interpreted/events",
-    )
-    recon = _indexed(
-        _array(reconstructed["events"], f"{path}/reconstruction/events", nullable=True),
-        f"{path}/reconstruction/events",
-    )
-    _require(
-        events.keys() == recon.keys(),
-        path,
-        "interpreted/reconstruction event source indices differ",
-    )
-    roster = _array(
-        interpreted["roster_records"],
-        f"{path}/interpreted/roster_records",
-        nullable=True,
-    )
-    for i, player in enumerate(roster):
-        loc = f"{path}/interpreted/roster_records/{i}"
-        _object(player, loc, ("player_id", "team_id", "reported_position"))
-        _integer(player["player_id"], loc + "/player_id", nullable=True, minimum=1)
-        _integer(player["team_id"], loc + "/team_id", nullable=True, minimum=1)
-        _text(player["reported_position"], loc + "/reported_position", nullable=True)
-    reports = _indexed(
-        _array(
-            interpreted["report_rows"], f"{path}/interpreted/report_rows", nullable=True
-        ),
-        f"{path}/interpreted/report_rows",
-    )
-    for index, report in reports.items():
-        loc = f"{path}/interpreted/report_rows/{index}"
-        _object(
-            report,
-            loc,
-            ("shot_type", "shooting_team_id", "shooter_sweater_number", "shooter_id"),
-        )
-        _text(report["shot_type"], loc + "/shot_type", nullable=True)
-        for field in ("shooting_team_id", "shooter_sweater_number", "shooter_id"):
-            _integer(report[field], loc + "/" + field, nullable=True, minimum=1)
-    landing = {}
-    for i, goal in enumerate(
-        _array(
-            interpreted["landing_goals"],
-            f"{path}/interpreted/landing_goals",
-            nullable=True,
-        )
-    ):
-        loc = f"{path}/interpreted/landing_goals/{i}"
-        _object(goal, loc, LandingGoal.__required_keys__)
-        _text(goal["source_path"], loc + "/source_path")
-        _require(
-            re.fullmatch(r"/summary/scoring/[0-9]+/goals/[0-9]+", goal["source_path"]),
-            loc,
-            "invalid landing source path",
-        )
-        _require(
-            goal["source_path"] not in landing, loc, "duplicate landing source path"
-        )
-        landing[goal["source_path"]] = goal
-        for field in ("event_id", "period_number", "team_id", "credited_scorer_id"):
-            _integer(goal[field], loc + "/" + field, nullable=True, minimum=1)
-        _integer(goal["elapsed_seconds"], loc + "/elapsed_seconds", nullable=True)
-        for field in ("period_type", "time_in_period", "goal_modifier"):
-            _text(goal[field], loc + "/" + field, nullable=True)
-    intervals = _array(
-        reconstructed["intervals"], f"{path}/reconstruction/intervals", nullable=True
-    )
-    periods = _array(
-        reconstructed["periods"], f"{path}/reconstruction/periods", nullable=True
-    )
-    for i, period in enumerate(periods):
-        loc = f"{path}/reconstruction/periods/{i}"
-        _object(period, loc, ("period_number", "end_seconds", "status"))
-        _integer(period["period_number"], loc + "/period_number", minimum=1)
-        _integer(period["end_seconds"], loc + "/end_seconds", nullable=True)
-        _require(
-            period["status"] in ("supported", "unavailable"),
-            loc,
-            "invalid period status",
-        )
-    for i, check in enumerate(
-        _array(interpreted["checks"], f"{path}/interpreted/checks")
-    ):
-        loc = f"{path}/interpreted/checks/{i}"
-        _object(check, loc, Check.__required_keys__)
-        _text(check["name"], loc + "/name")
-        _text(check["reason"], loc + "/reason", nullable=True)
-        if "source" in check:
-            _text(check["source"], loc + "/source")
-        _require(
-            check["status"] in ("match", "mismatch", "unavailable"),
-            loc,
-            "invalid accounting status",
-        )
-        for field in ("observed", "expected"):
-            count = check[field]
-            if type(count) is dict:
-                _require(
-                    set(count) == {"away", "home"},
-                    loc + "/" + field,
-                    "expected away/home counts",
-                )
-                for number in count.values():
-                    _integer(number, loc + "/" + field, nullable=True)
-            else:
-                _integer(count, loc + "/" + field, nullable=True)
-    for index, event in events.items():
-        loc = f"{path}/interpreted/events/{index}"
-        _object(event, loc, Event.__required_keys__)
-        for field in (
-            "event_id",
-            "sort_order",
-            "type_code",
-            "period_number",
-            "elapsed_seconds",
-            "shooting_team_id",
-            "owner_team_id",
-            "penalty_duration_minutes",
-            "away_score",
-            "home_score",
-        ):
-            _integer(event[field], loc + "/" + field, nullable=True)
-        for field in (
-            "type_key",
-            "period_type",
-            "shot_type",
-            "time_in_period",
-            "time_remaining",
-            "situation_code",
-            "home_team_defending_side",
-            "zone_code",
-            "reason",
-            "penalty_type",
-            "secondary_reason",
-            "penalty_description",
-        ):
-            _text(event[field], loc + "/" + field, nullable=True)
-        _require(type(event["kind_valid"]) is bool, loc, "kind_valid must be boolean")
-        _require(
-            event["timed_period"] is None or type(event["timed_period"]) is bool,
-            loc,
-            "timed_period must be boolean or null",
-        )
-        _object(event["roles"], loc + "/roles", ())
-        for role, actor in event["roles"].items():
-            _integer(actor, loc + "/roles/" + role, nullable=True, minimum=1)
-        for field in ("reported_x", "reported_y"):
-            _number(event[field], loc + "/" + field)
-        row = recon[index]
-        loc = f"{path}/reconstruction/events/{index}"
-        _object(
-            row,
-            loc,
-            (
-                "report_source_index",
-                "classification",
-                "interval_indices",
-                "issue_indices",
-                "coordinate_status",
-                "attacking_x",
-                "attacking_y",
-                "away_goalies",
-                "home_goalies",
-                "shot_type_evidence",
-                "goal_modifier_evidence",
-            ),
-        )
-        _integer(
-            row["report_source_index"], loc + "/report_source_index", nullable=True
-        )
-        type_evidence = row["shot_type_evidence"]
-        if event["type_key"] in _ATTEMPTS:
-            evidence_loc = loc + "/shot_type_evidence"
-            _object(
-                type_evidence,
-                evidence_loc,
-                ("api_value", "report_value", "value", "status"),
-            )
-            for field in ("api_value", "report_value", "value"):
-                _text(type_evidence[field], evidence_loc + "/" + field, nullable=True)
-            _require(
-                type_evidence["api_value"] == event["shot_type"],
-                evidence_loc,
-                "api type observation differs",
-            )
-            _require(
-                type_evidence["status"]
-                in (
-                    "agreement",
-                    "api_only",
-                    "report_only",
-                    "missing",
-                    "conflict",
-                    "unsupported",
-                    "unmatched",
-                ),
-                evidence_loc,
-                "invalid type evidence status",
-            )
-            report = reports.get(row["report_source_index"])
-            _require(
-                type_evidence["report_value"]
-                == (report["shot_type"] if report else None),
-                evidence_loc,
-                "report type observation differs",
-            )
-            _require(
-                type_evidence
-                == reconcile_shot_type(
-                    event["shot_type"],
-                    report["shot_type"] if report else None,
-                    report is not None,
-                ),
-                evidence_loc,
-                "incoherent type evidence",
-            )
-        else:
-            _require(
-                type_evidence is None, loc, "non-attempt must not carry type evidence"
-            )
-        modifier = row["goal_modifier_evidence"]
-        if event["type_key"] == "goal":
-            evidence_loc = loc + "/goal_modifier_evidence"
-            _object(modifier, evidence_loc, ("source_path", "reported_value", "status"))
-            _text(modifier["source_path"], evidence_loc + "/source_path", nullable=True)
-            _text(
-                modifier["reported_value"],
-                evidence_loc + "/reported_value",
-                nullable=True,
-            )
-            _require(
-                modifier["status"]
-                in (
-                    "reported",
-                    "missing",
-                    "unavailable",
-                    "unmatched",
-                    "conflict",
-                    "unsupported",
-                ),
-                evidence_loc,
-                "invalid modifier evidence status",
-            )
-            _require(
-                modifier["source_path"] is None
-                or re.fullmatch(
-                    r"/summary/scoring/[0-9]+/goals/[0-9]+", modifier["source_path"]
-                ),
-                evidence_loc,
-                "invalid landing source path",
-            )
-            if modifier["source_path"] is not None:
-                _require(
-                    modifier["source_path"] in landing,
-                    evidence_loc,
-                    "broken landing source reference",
-                )
-                counterpart = landing[modifier["source_path"]]
-                _require(
-                    modifier["reported_value"] == counterpart["goal_modifier"],
-                    evidence_loc,
-                    "modifier source observation differs",
-                )
-                _require(
-                    counterpart["event_id"] == event["event_id"],
-                    evidence_loc,
-                    "modifier source event identity differs",
-                )
-            else:
-                _require(
-                    modifier["reported_value"] is None,
-                    evidence_loc,
-                    "unlocated modifier observation",
-                )
-            if modifier["status"] == "reported":
-                _require(
-                    modifier["source_path"] is not None
-                    and modifier["reported_value"]
-                    in ("none", "own-goal", "awarded", "penalty-shot"),
-                    evidence_loc,
-                    "incoherent reported modifier",
-                )
-            elif modifier["status"] == "missing":
-                _require(
-                    modifier["source_path"] is not None
-                    and modifier["reported_value"] is None,
-                    evidence_loc,
-                    "incoherent missing modifier",
-                )
-            elif modifier["status"] == "unsupported":
-                _require(
-                    modifier["source_path"] is not None
-                    and modifier["reported_value"] is not None
-                    and modifier["reported_value"]
-                    not in ("none", "own-goal", "awarded", "penalty-shot"),
-                    evidence_loc,
-                    "incoherent unsupported modifier",
-                )
-            elif modifier["status"] == "unmatched":
-                _require(
-                    modifier["source_path"] is None
-                    and modifier["reported_value"] is None,
-                    evidence_loc,
-                    "unmatched modifier cannot name a counterpart",
-                )
-        else:
-            _require(modifier is None, loc, "non-goal must not carry modifier evidence")
-        _require(
-            row["classification"] in ("five_on_five", "other", "unresolved", "untimed"),
-            loc,
-            "invalid event classification",
-        )
-        _require(
-            row["coordinate_status"]
-            in (
-                "normalized",
-                "missing_coordinates",
-                "unresolved_frame",
-                "not_applicable",
-            ),
-            loc,
-            "invalid coordinate status",
-        )
-        for field in ("attacking_x", "attacking_y"):
-            _number(row[field], loc + "/" + field)
-        if row["report_source_index"] is not None:
-            _require(
-                row["report_source_index"] in reports,
-                loc,
-                "broken report row reference",
-            )
-            report = reports[row["report_source_index"]]
-            _object(report, loc + "/report", ("row_id", "penalty_shot"))
-            _text(report["row_id"], loc + "/report/row_id")
-            _require(
-                report["penalty_shot"] is None or type(report["penalty_shot"]) is bool,
-                loc,
-                "invalid penalty_shot status",
-            )
-        for field, length in (
-            ("interval_indices", len(intervals)),
-            ("issue_indices", len(reconstructed["issues"])),
-        ):
-            indices = _array(row[field], loc + "/" + field)
-            for item in indices:
-                _integer(item, loc + "/" + field)
-                _require(item < length, loc, "broken " + field + " reference")
-            _require(
-                len(indices) == len(set(indices)),
-                loc,
-                "duplicate " + field + " reference",
-            )
-        for field in ("away_goalies", "home_goalies"):
-            for actor in _array(row[field], loc + "/" + field, nullable=True):
-                _integer(actor, loc + "/" + field, minimum=1)
-    return interpreted, reconstructed, events, recon, reports
-
-
-def _period_length(event):
-    if event["timed_period"] is True:
-        if event["period_number"] in (1, 2, 3) and event["period_type"] == "REG":
-            return 1200
-        if event["period_number"] == 4 and event["period_type"] == "OT":
-            return 300
-    return None
-
-
-def _scores(interpreted, events, game):
-    """count all strengths before each event; never read post-event scores."""
-    failures = []
-    for source in ("play-by-play", "boxscore"):
-        checks = [
-            c
-            for c in interpreted["checks"]
-            if c["name"] == "timed_goals" and c.get("source") == source
-        ]
-        if len(checks) != 1 or checks[0]["status"] != "match":
-            failures.append(
-                {
-                    "source": source,
-                    "path": "/checks",
-                    "message": "unique matching timed_goals check required",
-                    "checks": checks,
-                }
-            )
-    if interpreted["events"] is None:
-        failures.append(
-            {
-                "source": "play-by-play",
-                "path": "/events",
-                "message": "event collection unavailable",
-            }
-        )
-    orders = [event["sort_order"] for event in events.values()]
-    unique_order = None not in orders and len(orders) == len(set(orders))
-    order_supported = unique_order
-    if not order_supported:
-        failures.append(
-            {
-                "source": "play-by-play",
-                "path": "/events",
-                "message": "unique sort_order required for every source event",
-            }
-        )
-    previous = None
-    previous_period = 0
-    shootout_started = False
-    ordered = sorted(
-        events.values(),
-        key=lambda e: e["sort_order"] if e["sort_order"] is not None else -1,
-    )
-    teams = (game["away_team_id"], game["home_team_id"])
-    for event in ordered:
-        problem = None
-        period = event["period_number"]
-        if period is None or period < previous_period:
-            problem = "event periods must be known and nondecreasing in sort_order"
-            order_supported = False
-        elif period is not None:
-            previous_period = period
-        if event["timed_period"] is True and not event["kind_valid"]:
-            failures.append(
-                {
-                    "source": "play-by-play",
-                    "path": f"/events/{event['source_index']}",
-                    "message": "event kind cannot exclude an unaccounted timed goal",
-                }
-            )
-        if event["timed_period"] is None:
-            problem = "event kind or period cannot exclude an unaccounted timed goal"
-        elif event["timed_period"] is True:
-            period, seconds = event["period_number"], event["elapsed_seconds"]
-            length = _period_length(event)
-            if shootout_started:
-                problem = "timed play follows shootout evidence"
-            elif (
-                period is None
-                or length is None
-                or seconds is not None
-                and not (0 <= seconds <= length)
-            ):
-                problem = "supported timed period/clock required"
-            elif (
-                seconds is not None
-                and previous is not None
-                and (period, seconds) < previous
-            ):
-                problem = "sort_order contradicts period/elapsed chronology"
-            elif seconds is not None:
-                previous = (period, seconds)
-            if event["type_key"] == "goal" and seconds is None:
-                failures.append(
-                    {
-                        "source": "play-by-play",
-                        "path": f"/events/{event['source_index']}",
-                        "message": "known timed goal clock required for score accounting",
-                    }
-                )
-            if event["type_key"] == "goal" and (
-                event["shooting_team_id"] not in teams
-                or event["owner_team_id"] != event["shooting_team_id"]
-            ):
-                failures.append(
-                    {
-                        "source": "play-by-play",
-                        "path": f"/events/{event['source_index']}",
-                        "message": "timed goal ownership missing or conflicting",
-                    }
-                )
-        else:
-            shootout_started = True
-            if event["period_type"] != "SO" or period != 5:
-                problem = "untimed event must identify regular-season shootout period 5"
-        if problem:
-            order_supported = False
-            failures.append(
-                {
-                    "source": "play-by-play",
-                    "path": f"/events/{event['source_index']}",
-                    "message": problem,
-                }
-            )
-    if failures:
-        return {}, failures, ordered if unique_order else None, order_supported
-    score = {"away": 0, "home": 0}
-    result = {}
-    for event in ordered:
-        result[event["source_index"]] = dict(score)
-        if event["type_key"] == "goal" and event["timed_period"] is True:
-            score[
-                "away" if event["shooting_team_id"] == game["away_team_id"] else "home"
-            ] += 1
-    # corroborate the embedded observed totals, not just a stale status label.
-    for check in interpreted["checks"]:
-        if (
-            check["name"] == "timed_goals"
-            and check.get("source") in ("play-by-play", "boxscore")
-            and check.get("observed") != score
-        ):
-            failures.append(
-                {
-                    "source": check["source"],
-                    "path": "/checks",
-                    "message": "counted timed goals disagree with embedded observed accounting",
-                    "check": check,
-                }
-            )
-    return (
-        ({}, failures, ordered, order_supported)
-        if failures
-        else (result, [], ordered, order_supported)
-    )
-
-
 def _previous_event(
     event, predecessor, order_supported, game, players, shooter, period_sides
 ):
@@ -1028,7 +98,7 @@ def _previous_event(
         "same_shooter": None,
         "reason": None,
     }
-    length, seconds = _period_length(event), event["elapsed_seconds"]
+    length, seconds = period_length(event), event["elapsed_seconds"]
     if predecessor is not None:
         result.update(
             source_index=predecessor["source_index"],
@@ -1036,7 +106,7 @@ def _previous_event(
             kind=predecessor["type_key"],
         )
         prior_length, prior_seconds = (
-            _period_length(predecessor),
+            period_length(predecessor),
             predecessor["elapsed_seconds"],
         )
         if (
@@ -1130,11 +200,11 @@ def _previous_event(
 
 def prepare_game_attempts(envelope, envelope_path, inventory_entry):
     """validate and prepare one game's core attempts, evidence and chronology."""
-    interpreted, reconstructed, events, recon, reports = _envelope(
+    interpreted, reconstructed, events, recon, reports = validate_envelope(
         envelope, envelope_path, inventory_entry
     )
     game = interpreted["game"]
-    scores, score_failures, ordered, order_supported = _scores(
+    scores, score_failures, ordered, order_supported = score_chronology(
         interpreted, events, game
     )
     predecessors = {
@@ -1326,7 +396,7 @@ def prepare_game_attempts(envelope, envelope_path, inventory_entry):
             shooter,
             period_sides,
         )
-        length, seconds = _period_length(event), event["elapsed_seconds"]
+        length, seconds = period_length(event), event["elapsed_seconds"]
         minute_band = None
         if length is not None and seconds is not None and 0 <= seconds <= length:
             minute_band = (
@@ -1458,81 +528,6 @@ def prepare_game_attempts(envelope, envelope_path, inventory_entry):
     }
 
 
-def load_corpus(path, inputs):
-    """admit one complete inventory and its attributed derived-game ledger."""
-    document = _read(path, "corpus", inputs)
-    _schema(document, str(path), 2, ("reference", "games"))
-    reference = document["reference"]
-    _schema(reference, f"{path}/reference", 2,
-            ("requested_season", "inventory", "inputs", "bio_observations", "bio_collections"))
-    _provenance(reference["inputs"], f"{path}/reference/inputs", REFERENCE_SOURCES)
-    _require(reference["inventory"] is not None and document["games"] is not None,
-             path, "admitted inventory and corpus game ledger required")
-    for i, observation in enumerate(_array(reference["bio_observations"],
-                                           f"{path}/reference/bio_observations")):
-        loc = f"{path}/reference/bio_observations/{i}"
-        _object(observation, loc, ("source", "source_index", "player_id", "birth_date",
-                                  "shoots_catches", "source_fields", "requested_season",
-                                  "requested_at", "effective_at"))
-        _require(observation["source"] in ("skater-bios", "goalie-bios"), loc,
-                 "unknown bio observation source")
-        _integer(observation["source_index"], loc + "/source_index")
-        _integer(observation["player_id"], loc + "/player_id", nullable=True, minimum=1)
-        _text(observation["birth_date"], loc + "/birth_date", nullable=True)
-        try:
-            valid_birth_date = (observation["birth_date"] is None
-                or date.fromisoformat(observation["birth_date"]).isoformat() == observation["birth_date"])
-        except ValueError:
-            valid_birth_date = False
-        _require(valid_birth_date, loc + "/birth_date", "expected canonical calendar date")
-        _require(observation["shoots_catches"] in (None, "L", "R"), loc,
-                 "unsupported reported hand")
-        _require(observation["requested_season"] == reference["requested_season"], loc,
-                 "bio report season disagreement")
-        _text(observation["requested_at"], loc + "/requested_at", nullable=True)
-        source_input = next(row for row in reference["inputs"] if row["source"] == observation["source"])
-        _require(observation["requested_at"] == source_input["requested_at"], loc,
-                 "bio retrieval date differs from its receipt")
-        _require(observation["effective_at"] is None, loc,
-                 "bio contract does not establish historical effective time")
-        _source_facts(observation["source_fields"], loc + "/source_fields", reference["inputs"],
-                      BIO_SKATER_SOURCE_FIELDS if observation["source"] == "skater-bios" else BIO_GOALIE_SOURCE_FIELDS)
-        _require(all(observation["source_fields"]["values"][source] == observation[field]
-                     for source, field in (("playerId", "player_id"), ("birthDate", "birth_date"),
-                                           ("shootsCatches", "shoots_catches"))), loc,
-                 "bio source values and resolved aliases disagree")
-    inventory = {}
-    for i, entry in enumerate(_array(reference["inventory"], f"{path}/reference/inventory")):
-        loc = f"{path}/reference/inventory/{i}"
-        _game_identity(entry, loc)
-        _require(entry["season"] == reference["requested_season"], loc,
-                 "inventory and requested reference season disagree")
-        _integer(entry.get("source_index"), loc + "/source_index")
-        gid = entry["game_id"]
-        _require(gid not in inventory, loc, "duplicate inventory game id")
-        inventory[gid] = entry
-    ledger = {}
-    for i, row in enumerate(_array(document["games"], f"{path}/games")):
-        loc = f"{path}/games/{i}"
-        _object(row, loc, ("game_id", "inventory_source_index", "status", "reason", "output_path"))
-        gid = row["game_id"]
-        _require(type(gid) is str and gid in inventory and gid not in ledger, loc,
-                 "unknown or duplicate corpus game id")
-        _require(type(row["inventory_source_index"]) is int
-                 and row["inventory_source_index"] == inventory[gid]["source_index"], loc,
-                 "inventory source index disagreement")
-        _require(row["status"] in STATUSES, loc, "unsupported corpus game status")
-        _text(row["reason"], loc + "/reason", nullable=True)
-        _text(row["output_path"], loc + "/output_path", nullable=True)
-        _require((row["status"] == "reconstructed") == bool(row["output_path"])
-                 or row["status"] in ("identity_unavailable", "identity_mismatch"), loc,
-                 "game status and envelope reference disagree")
-        ledger[gid] = row
-    _require(ledger.keys() == inventory.keys(), path,
-             "corpus ledger does not cover admitted inventory")
-    return document, inventory, ledger
-
-
 def prepare(selection_path):
     """assemble target facts once; history adds strictly earlier evidence only."""
     return _prepare(selection_path, include_features=True)
@@ -1544,48 +539,48 @@ def prepare_core(selection_path):
 
 
 def _prepare(selection_path, *, include_features):
-    from .chance_features import PREPARATION_IDENTITY
+    from .chance_features import PREPARATIONIDENTITY_FIELDS
     if include_features:
         from .feature_data import prepare_game, prepare_missing_game
         from .feature_history import prepare_history
 
     path = Path(selection_path).resolve()
     inputs = []
-    selection = _read(path, "selection", inputs)
-    _schema(selection, str(path), 2, ("purpose", "corpora", "history_corpora"))
-    _require(set(selection) == {"schema_version", "purpose", "corpora", "history_corpora"},
+    selection = read_document(path, "selection", inputs)
+    schema(selection, str(path), 2, ("purpose", "corpora", "history_corpora"))
+    require(set(selection) == {"schema_version", "purpose", "corpora", "history_corpora"},
              path, "unexpected selection fields")
-    _require(selection["purpose"] in ("fixture_exercise", "research"), path,
+    require(selection["purpose"] in ("fixture_exercise", "research"), path,
              "unsupported purpose")
-    corpora = _array(selection["corpora"], f"{path}/corpora")
-    _require(bool(corpora), path, "nonempty explicit corpus selection required")
+    corpora = array(selection["corpora"], f"{path}/corpora")
+    require(bool(corpora), path, "nonempty explicit corpus selection required")
     selected_ids, resolved, target_paths = set(), [], {}
     for i, selected in enumerate(corpora):
         loc = f"{path}/corpora/{i}"
-        _object(selected, loc, ("path", "game_ids"))
-        _require(set(selected) == {"path", "game_ids"}, loc,
+        object_fields(selected, loc, ("path", "game_ids"))
+        require(set(selected) == {"path", "game_ids"}, loc,
                  "unexpected corpus selection fields")
-        _text(selected["path"], loc + "/path")
-        _require(bool(selected["path"]), loc, "empty corpus path")
+        text(selected["path"], loc + "/path")
+        require(bool(selected["path"]), loc, "empty corpus path")
         corpus_path = str((path.parent / selected["path"]).resolve())
-        ids = _array(selected["game_ids"], loc + "/game_ids")
-        _require(bool(ids), loc, "nonempty explicit game_ids required")
+        ids = array(selected["game_ids"], loc + "/game_ids")
+        require(bool(ids), loc, "nonempty explicit game_ids required")
         for gid in ids:
-            _require(type(gid) is str and re.fullmatch(r"[0-9]{10}", gid), loc,
+            require(type(gid) is str and re.fullmatch(r"[0-9]{10}", gid), loc,
                      "expected ten-digit string game id")
-            _require(gid not in selected_ids, loc, "duplicate selected game id " + gid)
+            require(gid not in selected_ids, loc, "duplicate selected game id " + gid)
             selected_ids.add(gid)
             target_paths[gid] = corpus_path
         resolved.append({"path": corpus_path, "game_ids": list(ids)})
     history_paths = []
-    for i, value in enumerate(_array(selection["history_corpora"], f"{path}/history_corpora")):
+    for i, value in enumerate(array(selection["history_corpora"], f"{path}/history_corpora")):
         loc = f"{path}/history_corpora/{i}"
-        _text(value, loc)
-        _require(bool(value), loc, "empty history corpus path")
+        text(value, loc)
+        require(bool(value), loc, "empty history corpus path")
         corpus_path = str((path.parent / value).resolve())
-        _require(corpus_path not in history_paths, loc, "duplicate history corpus path")
+        require(corpus_path not in history_paths, loc, "duplicate history corpus path")
         history_paths.append(corpus_path)
-    _require(include_features or not history_paths, f"{path}/history_corpora",
+    require(include_features or not history_paths, f"{path}/history_corpora",
              "core preparation requires history_corpora=[]")
     input_roots = {str(path.parent)}
     bio_observations, reference_signatures, candidates = {}, {}, defaultdict(list)
@@ -1597,7 +592,7 @@ def _prepare(selection_path, *, include_features):
         document, inventory, ledger = load_corpus(corpus_path, inputs)
         reference_signatures[value] = hashlib.sha256(json.dumps(document["reference"], sort_keys=True,
             separators=(",", ":"), allow_nan=False).encode()).hexdigest()
-        _require(all(gid in inventory for gid, target in target_paths.items() if target == value),
+        require(all(gid in inventory for gid, target in target_paths.items() if target == value),
                  corpus_path, "target game absent from its explicitly selected inventory")
         if include_features:
             bio_observations[value] = [{**observation, "input_ref": value}
@@ -1609,16 +604,16 @@ def _prepare(selection_path, *, include_features):
             history_ids.update(inventory)
         for gid, entry in inventory.items():
             if gid in identities:
-                _require(all(identities[gid][field] == entry[field] for field in _IDENTITY),
+                require(all(identities[gid][field] == entry[field] for field in IDENTITY_FIELDS),
                          corpus_path, "conflicting inventory identity for " + gid)
             else:
                 identities[gid] = {**entry, "input_ref": value, "selection_input_ref": str(path), "history_admitted": False}
             identities[gid]["history_admitted"] |= admitted
             if admitted or target_paths.get(gid) == value:
                 candidates[gid].append((value, entry, ledger[gid]))
-    _require(selected_ids <= target_inventories, path,
+    require(selected_ids <= target_inventories, path,
              "unknown selected game ids: " + ", ".join(sorted(selected_ids - target_inventories)))
-    _require(not history_paths or selected_ids <= history_ids, path,
+    require(not history_paths or selected_ids <= history_ids, path,
              "nonempty history inventories must contain every target")
     target_order = [gid for row in resolved for gid in row["game_ids"]]
     target_attempts, target_counts, target_games, summaries = {}, {}, {}, {}
@@ -1635,7 +630,7 @@ def _prepare(selection_path, *, include_features):
             if status in ("input_error", "identity_mismatch"):
                 raise InputContractError(f"{corpus_path}/games/{gid}: {status}: {row['reason']}")
             reference_signature = reference_signatures[corpus_value]
-            _require(chosen_reference_signature is None or reference_signature == chosen_reference_signature,
+            require(chosen_reference_signature is None or reference_signature == chosen_reference_signature,
                      corpus_path, "different reference bio snapshots for historical game " + gid)
             chosen_reference_signature = reference_signature
             envelope, envelope_path, signature = None, None, (status,)
@@ -1645,9 +640,9 @@ def _prepare(selection_path, *, include_features):
                 if envelope_path in seen_paths:
                     continue
                 seen_paths.add(envelope_path)
-                envelope = _read(envelope_path, "game", inputs)
+                envelope = read_document(envelope_path, "game", inputs)
                 signature = (status, inputs[-1]["sha256"])
-            _require(chosen_signature is None or signature == chosen_signature, corpus_path,
+            require(chosen_signature is None or signature == chosen_signature, corpus_path,
                      "different snapshots of historical game " + gid)
             if chosen_signature is None:
                 chosen, chosen_path, chosen_signature = envelope, envelope_path, signature
@@ -1698,11 +693,11 @@ def _prepare(selection_path, *, include_features):
         history = prepare_history(list(identities.values()), summaries, target_order)
         for gid in target_order:
             for team_id, groups in history["games"][gid]["teams"].items():
-                _require(team_id in feature_games[gid]["teams"], gid,
+                require(team_id in feature_games[gid]["teams"], gid,
                          "history join lacks target team " + team_id)
                 feature_games[gid]["teams"][team_id].update(groups)
             for player_id, groups in history["players"][gid].items():
-                _require(player_id in feature_player_games[gid], gid,
+                require(player_id in feature_player_games[gid], gid,
                          "history join lacks uniquely identified target player " + player_id)
                 feature_player_games[gid][player_id].update(groups)
     attempts = [attempt for gid in target_order for attempt in target_attempts[gid]]
@@ -1795,7 +790,7 @@ def _prepare(selection_path, *, include_features):
         "game_dates": game_dates,
         "games": games,
         "input_roots": sorted(input_roots),
-        "preparation_identity": dict(PREPARATION_IDENTITY),
+        "preparation_identity": dict(PREPARATIONIDENTITY_FIELDS),
         "feature_games": feature_games,
         "feature_player_games": feature_player_games,
     }

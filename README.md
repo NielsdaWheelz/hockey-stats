@@ -252,6 +252,16 @@ from `analysis/`, use `research/chance_decomposition.py` with its five explicit 
 
 the [completed study](docs/research/chance-03o/verification.md) has two exactly reused controls, four converged stage fits and independently reconciled complete assessments. [the decision](docs/research/chance-03o/decision.md) is `decomposed_direction,no_supported_representation,null,not_admitted`: every primary interval crosses zero. the report verifies saved source labels, predictions and objectives, then compares direct and decomposed goal losses with paired game and calendar intervals conditional on the six models. stage losses are descriptive. successful computation and any representation nomination grant no model admission, integration, 04 handoff or publication. future opportunity standardization must average the two-layer product over the same joint actor reference; multiplying separately averaged layers is generally wrong.
 
+## mirror pooling within the decomposition
+
+[03p](docs/specs/03p-chance-structure.md) ties reflected spatial coefficients separately within each q/g type map, while refitting the unchanged remaining terms. both arms already contain q/g. four fresh mirrored fits are compared with the four immutable 03o components under a prospective 99% predictive-gain retention policy relative to a training-rate constant. 3,936 independent spatial coefficients become 2,088 per stage; expanded native prediction arrays remain unchanged.
+
+from `analysis/`, `research/chance_mirror.py` exposes `reuse`, `fit`, `evaluate`, `numerics` and `report`; `--help` lists the required explicit paths. fit and assessment inputs name completion files. the two matrix manifests require explicit completed/failed/not-run cells. use new exclusive output directories. original research paths/hashes are pinned; separate bounded fixture exercises need neither the external drive nor a fabricated historical result. [the protocol](docs/research/chance-03p/protocol.md) fixes exact inputs and policies; [verification](docs/research/chance-03p/verification.md) records the manual commands and evidence.
+
+eight fixed capped continuations produce diagnostic states, preserving all original fits. paired game/calendar intervals condition on fitted models and the training reference; numerical movement is reported separately. fewer coefficients, convergence and a developmental nomination do not admit a model or establish player accuracy.
+
+the [completed decision](docs/research/chance-03p/decision.md) is `within_budget,nominate_mirror,mirror_y,not_admitted`: both windows meet the selected cost policy and pass bounded numerical sensitivity. calibration limitations and every historical verdict remain explicit.
+
 ## source review
 
 after regenerating a corpus, run the retained source operator from `analysis/`:

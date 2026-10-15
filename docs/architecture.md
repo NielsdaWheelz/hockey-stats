@@ -299,6 +299,8 @@ keep source facts, target applicability, prediction applicability, design, objec
 
 as assigned work next needs shared component setup/execution, artifact validation or paired numerical comparison, put the mature mechanism in its responsible `analysis/src/hockey_stats/` module. keep frozen selections, thresholds, decisions and figures in `analysis/research/`. preserve behavior at affected boundaries; historical studies remain reproducible at recorded revisions. no blanket migration, compatibility layer or generic experiment framework.
 
+03p places native component setup, execution, source/artifact validation and objective replay in `chance_components.py`; `chance_evaluation.py` owns shared composition, scoring views and paired additive evaluation. `chance.py` owns the full-to-free constraint map, existing objective, single solver and explicit diagnostic prediction context. expanded schema-3 coefficients remain the prediction contract; a constrained fit separately binds its parameterization. diagnostic continuations are states with an explicit role, never replacement primary fits. `chance_mirror.py` owns the fixed experiment, numerical budget, 99% selection policy and figures.
+
 explicit file/function contracts should absorb validation and incidental complexity so consumers can reason about hockey quantities. retain one mathematical implementation per operation. stage-specific rules and finite family lists are preferable to a configurable platform.
 
 ## capture, derivation, and correction contracts

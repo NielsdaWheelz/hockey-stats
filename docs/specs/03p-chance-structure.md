@@ -1,6 +1,6 @@
 # pr03p — mirror pooling within the outcome decomposition
 
-status: **assigned for complete implementation and bounded execution on 2026-10-14; in progress.** the user selected mirror pooling and at least 99% predictive-gain retention on 2026-10-14. this specification freezes the experiment; execution later binds actual code/artifact hashes in its protocol. [plan](../plan.md) owns progression. [03o](../research/chance-03o/decision.md) remains `no_supported_representation,not_admitted`; [04a](04a-attribution-feasibility.md) is independent.
+status: **complete on 2026-10-14.** [the decision](../research/chance-03p/decision.md) is `within_budget,nominate_mirror,mirror_y,not_admitted`; both windows pass the bounded numerical check. [verification](../research/chance-03p/verification.md) records full software/research acceptance. the user selected mirror pooling and at least 99% predictive-gain retention, then assigned complete implementation and bounded execution, on 2026-10-14. the prospective specification copy and exact code/artifact identities remain frozen in the execution [protocol](../research/chance-03p/protocol.md). [plan](../plan.md) owns progression. [03o](../research/chance-03o/decision.md) remains `no_supported_representation,not_admitted`; [04a](04a-attribution-feasibility.md) is independent.
 
 ## question and boundary
 

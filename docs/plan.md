@@ -8,13 +8,14 @@ this page owns current status, assignment and sequencing. the [brief](brief.md) 
 
 on 2026-10-14 the user approved two research tracks: **attribution feasibility and consequence-based sensitivity, alongside one structural chance-model experiment with its numerical check included**. the user subsequently assigned the entire [03p](specs/03p-chance-structure.md) implementation and bounded execution, with adversarial review and temporary red/green/refactor verification, on branch `work/03p-chance-mirror`. 04a remains an unassigned stub with settled preferences. no acquisition, model adoption or publication is assigned.
 
+03p is complete on that branch: [its decision](research/chance-03p/decision.md) is `within_budget,nominate_mirror,mirror_y,not_admitted`. four controls replay exactly, all four mirror fits succeed, both assessments reconcile and all eight capped probes pass the specified stability rule. this developmental structure nomination leaves calibration, all-attempt/player claims and historical verdicts unchanged. no subsequent implementation is assigned.
+
 research-only 04a may precede chance admission. supported chance-valued player outputs still require the relevant probability, measurement and player evidence; 04a cannot supply that handoff merely by completing. 05–06 may separately develop with clearly labeled fixtures. observed-rate benchmarks and fixtures do not replace the agreed all-attempt player product.
 
 ## next slices
 
 | slice | owner / output | dependency and unresolved choice |
 |---|---|---|
-| [03p structural chance study](specs/03p-chance-structure.md) | assigned, in implementation: numerical parameterization, shared component boundary, paired assessment/report and content/evidence | temporary detached verification and independent prefit review precede frozen code/input/protocol, exact control reuse, four fresh fits, eight capped continuations and paired 99% gain-retention report; no admission |
 | [04a attribution feasibility](specs/04a-attribution-feasibility.md) | aligned exposure, recorded-rate benchmarks, synthetic recovery and provisional final-season valuation sensitivity | source/reconstruction support and existing saved valuation artifacts; no chance-admission or 03p-result prerequisite. estimator, uncertainty and perturbations remain to specify |
 | [04 supported player attribution](specs/04-player-attribution.md) | season-level 5v5 chance creation/suppression, coherent maps/scalars, uncertainty and observed evidence | supported chance inputs and player robustness; learn from 04a without promoting its provisional estimates |
 | [05 publication](specs/05-publication.md) | python sqlite export, effect reads, explicit activation and one rollback file | agreed analytical/view contract; labeled fixtures can precede final scientific outputs |
@@ -23,7 +24,7 @@ research-only 04a may precede chance admission. supported chance-valued player o
 
 03p and 04a share source and numerical primitives but answer different questions. 03p owns constrained chance fitting and the shared component/comparison mechanisms it uses; 04a's full spec must respect that boundary. 04a's synthetic and observed-rate work need not wait for 03p; interpretation of any chance-weight sensitivity depends on the named weights and their limitations. future claim-based criteria may use 04a's evidence without making it a new mandatory precursor to every exploratory chance experiment.
 
-the headline choices are settled: mirror pooling and a 99% predictive-gain retention policy for 03p; the 04a choices below. 03p now fixes populations, comparison/numerical rules, compute limits, artifacts and failure behavior; its execution protocol will bind actual implementation hashes before fitting. 04a's estimator, uncertainty/sensitivity and full execution contract remain to specify. do not invent numeric margins from the residuals or intervals a favored model needs to pass.
+the headline choices were settled before execution: mirror pooling and a 99% predictive-gain retention policy for 03p; the 04a choices below. 03p's frozen protocol and completed evidence retain its exact populations, rules, compute limits and identities. 04a's estimator, uncertainty/sensitivity and full execution contract remain to specify. do not invent numeric margins from the residuals or intervals a favored model needs to pass.
 
 the 04a interview has selected all five admitted seasons with chronological annual borrowing, an age-neutral starting design, a meaningful recorded-rate contrast of 5% of the relevant league-average team rate, and a provisional final-season valuation comparison using existing direct/decomposed transfer fits. [04a](specs/04a-attribution-feasibility.md) owns the exact choices: the attribution history stays in count-rate units, valuation happens afterward, and the 5% contrast is not an error or chance-value budget. age-informed borrowing is queued within later [04 attribution work](specs/04-player-attribution.md#decisions-for-the-full-specification), after the baseline and before any age-specific claim; no separate aging campaign is assigned now.
 
@@ -43,6 +44,7 @@ the 04a interview has selected all five admitted seasons with chronological annu
 | [03m](research/corpus-03m/verification.md) | external cutover, scoped predecessor disposal, five-season/6,560-game audit and detached verification |
 | [03n](research/chance-03n/decision.md) | four fits; expanded history worsens both windows, conditional short nomination for this estimator |
 | [03o](research/chance-03o/decision.md) | two exact reused controls/four new fits; tiny decomposed direction, no supported representation or admission |
+| [03p](research/chance-03p/decision.md) | four exact reused controls/four mirror fits; both windows retain at least 99% predictive gain under the selected conditional policy and pass bounded numerical sensitivity; developmental mirror nomination, no admission |
 
 these are completed questions, not a queue to rerun. their linked protocols and verification records preserve exact populations, code revisions, artifacts and historical test deletion. the older restricted-avoidance proposal remains a [recorded alternative](specs/03j-chance-experiment.md#queued-avoidance-experiment), not an automatic next fit.
 

@@ -2,7 +2,7 @@
 
 status: open. owner: chance-model science. [03h's screen](../research/chance-03h/decision.md) withholds on required probability failures and sets no regional gate. [03i](../research/chance-03i/decision.md) completes full/common/standardized spatial diagnosis, with little measured-composition relief and no admission assessment. conversion-first direction was approved 2026-10-08; the avoidance intervention remains queued. [03g's original evidence](../research/chance-03g/decision.md) remains preserved.
 
-current routing: [03p](../specs/03p-chance-structure.md) will select one structural question; [04a](../specs/04a-attribution-feasibility.md) can examine consequences of spatial perturbations. neither is assigned by this issue, and downstream stability would not itself establish calibrated spatial probabilities. [the plan](../plan.md) owns progression.
+current routing: [03p's completed mirror comparison](../research/chance-03p/decision.md) supports its selected unblocked predictive-cost policy and bounded numerical stability. it does not assess regional calibration, origins or avoidance and cannot resolve this issue. [04a](../specs/04a-attribution-feasibility.md) can examine consequences of spatial perturbations; downstream stability would not itself establish calibrated spatial probabilities. [the plan](../plan.md) owns progression.
 
 03j follow-up, 2026-10-08: the completed [conversion-scale benchmark](../research/chance-03j/decision.md) is `inconclusive`, with no supported intervention. it computes no regional quantity or origin/avoidance revision; neither calibration repair nor a spatial mechanism follows. this issue and the queued experiment remain separately owned.
 

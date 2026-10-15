@@ -10,7 +10,9 @@ import time
 
 import numpy as np
 
-from hockey_stats.artifacts import write_json
+from hockey_stats.artifacts import (
+    write_json, implementation, resources, agrees, clean_implementation, linked_path, require,
+)
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance import validate_component, validate_config
 from hockey_stats.chance_cli import identity, output_path, read_json
@@ -18,10 +20,9 @@ from hockey_stats.chance_data import prepare
 from hockey_stats.chance_features import PREPARATION_IDENTITY
 from hockey_stats.cli import Once
 from chance_development import (
-    compare_pair, evaluate as component_evaluate, fit as component_fit,
-    implementation, paired_rows, resources, validate_evaluation,
+    compare_pair, evaluate as component_evaluate, fit as component_fit, paired_rows,
+    validate_evaluation,
 )
-from chance_review import agrees, clean_implementation, linked_path, require
 
 WINDOWS = ("development", "season_transfer")
 ARMS = ("baseline", "sequence")

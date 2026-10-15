@@ -1,14 +1,18 @@
 """factual probability diagnostics from one native prediction pass."""
 
 from collections import Counter
+from datetime import date
+from itertools import zip_longest
 import math
 
 import numpy as np
 from scipy.special import logsumexp
 
+from .artifacts import agrees, require, rows
 from .captures import InputContractError
-from .chance import CONTEXT_CATEGORIES, ROLES, TYPES
+from .chance import CONTEXT_CATEGORIES, ROLES, TYPES, component_prediction_context, predict_component
 from .chance_cohort import SOURCE_STATUSES, STUDY_INCLUSIONS
+from .chance_targets import DECOMPOSITION_QUANTITIES, component_target, recorded_on_net
 
 
 PROBABILITY_POPULATIONS = {
@@ -509,3 +513,390 @@ def evaluate(model: dict, prepared: dict) -> dict:
         "per_game": list(games.values()),
         "scientific_assessment": "not_performed",
     }
+
+
+
+COMPOSED_METRICS = ("on_net", "goal_given_on_net", "composed_goal")
+COMPOSED_SOURCE_GROUPS = (
+    "original_type", "model_type", "recent_context", "recent_kind", "recent_team",
+    "recent_delay", "home_away", "role", "calendar_month", "sequence_index",
+)
+COMPOSED_ROW_FIELDS = {
+    "schema_version", "game_id", "source_index", "event_id", "game_date", "season",
+    "source_identity", "source_status", "source_reasons", "study_inclusion",
+    "study_reasons", "status", "blocked", "goal", "on_net", "diagnostic_groups",
+    "stages", "composed_goal",
+}
+COMPOSED_STAGE_FIELDS = {
+    "metric_applicable", "observed", "log_p", "log_not_p", "season_basis",
+    "state_season", "actor_evidence",
+}
+
+def compose_logs(q, g):
+    """evaluate the same 1-q*g identity using its numerically resolved tail.
+
+    log1p(-exp(log_p)) preserves the complement sign for p <= 1/2.
+    the stage-complement sum retains the failure tail when p approaches one
+    and native log_p can round to -0.0. neither branch clips probabilities.
+    """
+    binary_record(0, q["log_p"], q["log_not_p"])
+    binary_record(0, g["log_p"], g["log_not_p"])
+    log_p = q["log_p"] + g["log_p"]
+    log_not_p = (math.log1p(-math.exp(log_p)) if log_p <= -math.log(2) else
+                 float(np.logaddexp(q["log_not_p"], q["log_p"] + g["log_not_p"])))
+    result = dict(log_p=log_p, log_not_p=log_not_p)
+    binary_record(0, result["log_p"], result["log_not_p"])
+    return result
+
+
+def composed_rows(prepared, cohorts, components):
+    from .chance_components import source_identities
+
+    contexts = {quantity: component_prediction_context(
+        component, feature_games=prepared["feature_games"],
+        feature_player_games=prepared["feature_player_games"])
+        for quantity, component in components.items()}
+    sources = source_identities(prepared)
+    for attempt, qmember, gmember in zip(prepared["attempts"], cohorts[DECOMPOSITION_QUANTITIES[0]]["rows"],
+                                        cohorts[DECOMPOSITION_QUANTITIES[1]]["rows"], strict=True):
+        gid = attempt["game_id"]
+        included = qmember["study_inclusion"] == "included"
+        row = dict(
+            schema_version=1, game_id=gid, source_index=attempt["source_index"],
+            event_id=attempt["event_id"], game_date=prepared["game_dates"][gid],
+            season=attempt["season"], source_identity=sources[gid],
+            **{field: qmember[field] for field in
+               ("source_status", "source_reasons", "study_inclusion", "study_reasons")},
+            status=("predicted" if included else "not_applicable"
+                    if attempt["status"] == "eligible" else attempt["status"]),
+            blocked=attempt["blocked"], goal=attempt["goal"], on_net=recorded_on_net(attempt),
+            diagnostic_groups=diagnostic_groups(attempt, prepared["game_dates"][gid], {}),
+            stages={}, composed_goal=None)
+        for quantity, member in ((DECOMPOSITION_QUANTITIES[0], qmember), (DECOMPOSITION_QUANTITIES[1], gmember)):
+            stage = dict(metric_applicable=False, observed=None, log_p=None, log_not_p=None,
+                         season_basis=None, state_season=None, actor_evidence=None)
+            if included:
+                observed = component_target(attempt, quantity)
+                stage.update(predict_component(components[quantity], attempt, contexts[quantity]),
+                             metric_applicable=member["study_inclusion"] == "included",
+                             observed=int(observed) if observed is not None else None)
+            row["stages"][quantity] = stage
+        if included:
+            row["composed_goal"] = compose_logs(*(row["stages"][quantity] for quantity in DECOMPOSITION_QUANTITIES))
+        yield row
+
+
+def metric_rows(stream, metric):
+    """an explicit binary scoring view; serialized source/composition rows stay intact."""
+    require(metric in COMPOSED_METRICS, "unknown composed binary metric")
+    for row in stream:
+        if metric == "composed_goal":
+            applicable = row["status"] == "predicted"
+            predicted = row["composed_goal"]
+            observed = int(row["goal"]) if applicable else None
+            groups = row["diagnostic_groups"]
+        else:
+            quantity = DECOMPOSITION_QUANTITIES[0] if metric == "on_net" else DECOMPOSITION_QUANTITIES[1]
+            stage = row["stages"][quantity]
+            applicable = stage["metric_applicable"]
+            predicted = stage if applicable else None
+            observed = stage["observed"] if applicable else None
+            groups = dict(row["diagnostic_groups"], **{
+                f"actor_support:{actor}": stage["actor_evidence"][actor]["basis"]
+                if stage["actor_evidence"] is not None else None for actor in ("shooter", "goalie")})
+        status = ("predicted" if applicable else "not_applicable"
+                  if row["source_status"] == "eligible" else row["source_status"])
+        yield dict(
+            game_id=row["game_id"], source_index=row["source_index"], status=status,
+            reasons=row["source_reasons"], source_status=row["source_status"],
+            source_reasons=row["source_reasons"],
+            study_inclusion=("included" if applicable else "not_applicable"
+                             if row["source_status"] == "eligible" else "source_excluded"),
+            study_reasons=[], applicable=(row["on_net"] is True if metric == "goal_given_on_net"
+                                         else not row["blocked"]), observed=observed,
+            log_p=None if predicted is None else predicted["log_p"],
+            log_not_p=None if predicted is None else predicted["log_not_p"],
+            probability=None if predicted is None else math.exp(predicted["log_p"]),
+            diagnostic_groups=groups)
+
+
+def composed_summaries(stream_path, game_dates):
+    result = {}
+    for metric in COMPOSED_METRICS:
+        kwargs = dict(outcome="on_net" if metric == "on_net" else "goal")
+        if metric == "composed_goal":
+            kwargs["group_categories"] = COMPOSED_SOURCE_GROUPS
+        result[metric] = summarize_component(metric_rows(rows(stream_path), metric), game_dates, **kwargs)
+    return result
+
+
+def calendar_blocks(dates, days):
+    require(bool(dates) and type(days) is int and days > 0, "invalid calendar resampling units")
+    parsed = [date.fromisoformat(value) for value in dates]
+    first = min(parsed)
+    return np.array([(value - first).days // days for value in parsed], dtype=np.int64)
+
+
+def ratio_interval(numerators, denominators, seed, *, observed=None, blocks=None, samples=None):
+    """pool additive sums; retain zero-contribution units and every undefined draw."""
+    numerators = np.asarray(numerators, dtype=np.float64)
+    denominators = np.asarray(denominators, dtype=np.float64)
+    require(
+        numerators.shape == denominators.shape
+        and numerators.ndim == 1
+        and len(numerators) > 0
+        and np.isfinite(numerators).all()
+        and np.isfinite(denominators).all()
+        and (denominators >= 0).all(),
+        "invalid resampling sums",
+    )
+    contributing_games = int(np.count_nonzero(denominators))
+    total = float(denominators.sum())
+    estimate = float(numerators.sum() / total) if total else None
+    all_one_label = False
+    if observed is not None:
+        observed = np.asarray(observed, dtype=np.float64)
+        require(
+            observed.shape == denominators.shape
+            and np.isfinite(observed).all()
+            and (observed >= 0).all()
+            and (observed <= denominators).all(),
+            "invalid observed label sums",
+        )
+        all_one_label = bool(total and (observed.sum() == 0 or observed.sum() == total))
+    if blocks is not None:
+        blocks = np.asarray(blocks)
+        require(blocks.shape == denominators.shape and np.issubdtype(blocks.dtype, np.integer)
+                and (blocks >= 0).all(), "invalid calendar block assignments")
+        n = int(max(blocks)) + 1
+        numerators = np.bincount(blocks, weights=numerators, minlength=n)
+        denominators = np.bincount(blocks, weights=denominators, minlength=n)
+    else:
+        n = len(numerators)
+    if samples is None:
+        samples = np.random.Generator(np.random.PCG64(seed)).integers(0, n, size=(2000, n))
+    require(samples.shape == (2000, n) and np.issubdtype(samples.dtype, np.integer)
+            and (samples >= 0).all() and (samples < n).all(), "resampling dimensions disagree")
+    sampled_denominators = denominators[samples].sum(axis=1)
+    undefined = int(np.count_nonzero(sampled_denominators == 0))
+    sampled = np.divide(
+        numerators[samples].sum(axis=1),
+        sampled_denominators,
+        out=np.full(2000, np.nan),
+        where=sampled_denominators != 0,
+    )
+    require(estimate is None or math.isfinite(estimate), "nonfinite pooled estimate")
+    require(np.isfinite(sampled).sum() + undefined == 2000, "nonfinite bootstrap estimate")
+    reason = (
+        "zero attempt denominator in at least one resampled draw"
+        if undefined
+        else "all-one-label population cannot establish calibration support"
+        if all_one_label
+        else None
+    )
+    result = {
+        "estimate": estimate,
+        "count": int(total),
+        "contributing_games": contributing_games,
+        "interval": None
+        if undefined
+        else np.percentile(sampled, [2.5, 97.5], method="linear").tolist(),
+        "undefined_draws": undefined,
+        "missing_reason": "zero attempt denominator in at least one resampled draw"
+        if undefined
+        else None,
+    }
+    if observed is not None:
+        result.update(
+            observed_positive_count=int(observed.sum()),
+            all_one_label=all_one_label,
+            calibration_support_missing_reason=reason,
+        )
+    if blocks is not None:
+        result.update(contributing_blocks=int(np.count_nonzero(denominators)), selected_blocks=n)
+    return result
+
+
+
+def compare_paired_records(baseline, changed, pairs, *, resampling=True, samples=None):
+    """compare bound binary numerical views; baseline owns paired groups and bins."""
+    require(baseline["game_dates"] == changed["game_dates"], "paired selected game ledgers changed")
+    require(baseline["metrics"]["outcome"] == changed["metrics"]["outcome"], "paired binary outcomes changed")
+    outcome = baseline["metrics"]["outcome"]
+    bins = [dict(lower=b["lower"], upper=b["upper"], upper_inclusive=b["upper_inclusive"],
+                 baseline=binary_metrics(calibration=False, outcome=outcome),
+                 changed=binary_metrics(calibration=False, outcome=outcome))
+            for b in binary_metrics()["calibration"]]
+
+    def paired_predictions():
+        for before, after in pairs:
+            require(all(before[field] == after[field] for field in
+                        ("game_id", "source_index", "source_status", "source_reasons",
+                         "study_inclusion", "study_reasons", "applicable")),
+                    "paired numerical keys or scoring populations changed")
+            if before["study_inclusion"] == "included":
+                require(before["status"] == after["status"] == "predicted" and
+                        before["observed"] == after["observed"], "paired binary labels changed")
+                bucket = bins[calibration_bin(before["probability"])]
+                for name, row in (("baseline", before), ("changed", after)):
+                    add_binary(bucket[name], binary_record(row["observed"], row["log_p"], row["log_not_p"]))
+            yield dict(after, diagnostic_groups=before["diagnostic_groups"])
+
+    paired_summary = summarize_component(
+        paired_predictions(), baseline["game_dates"], outcome=outcome,
+        group_categories=tuple(baseline["groups"]))
+    for field in ("count", "observed_positive_count"):
+        require(paired_summary["metrics"][field] == baseline["metrics"][field],
+                "paired quantity population mismatch")
+    for key in PROBABILITY_SUMS:
+        require(agrees(paired_summary["metrics"][key], changed["metrics"][key]),
+                "stream and saved changed metrics disagree")
+    if resampling and samples is None:
+        samples = paired_samples(baseline["game_dates"])
+    before_games = baseline["per_game"]
+    after_games = paired_summary["per_game"]
+    require([v["game_id"] for v in before_games] == [v["game_id"] for v in after_games],
+            "paired game order mismatch")
+    denominators = [v["metrics"]["count"] for v in before_games]
+    require(denominators == [v["metrics"]["count"] for v in after_games],
+            "paired per-game cohort denominators changed")
+    results = {}
+    if resampling:
+        for name, field, scale in (("log_loss", "log_loss_sum", 1),
+                                   ("brier_score", "brier_score_sum", 1),
+                                   ("predicted_minus_observed_pp", "predicted_probability_sum", 100)):
+            numerators = [scale * (a["metrics"][field] - b["metrics"][field])
+                          for b, a in zip(before_games, after_games, strict=True)]
+            results[name] = paired_additive(numerators, denominators, baseline["game_dates"], samples=samples)
+    groups = {}
+    for category, before_groups in baseline["groups"].items():
+        after_groups = {g["value"]: g for g in paired_summary["groups"][category]}
+        groups[category] = []
+        for before in before_groups:
+            after = after_groups[before["value"]]
+            groups[category].append(dict(
+                value=before["value"], baseline=before["metrics"], changed=after["metrics"],
+                delta_log_loss=(after["metrics"]["log_loss"] - before["metrics"]["log_loss"])
+                if before["metrics"]["count"] else None,
+                delta_brier=(after["metrics"]["brier_score"] - before["metrics"]["brier_score"])
+                if before["metrics"]["count"] else None,
+                delta_predicted_minus_observed_pp=(after["metrics"]["predicted_minus_observed_pp"] -
+                                                   before["metrics"]["predicted_minus_observed_pp"])
+                if before["metrics"]["count"] else None,
+            ))
+    for bucket in bins:
+        before, after = bucket["baseline"], bucket["changed"]
+        finish_binary(before)
+        finish_binary(after)
+        bucket.update(
+            delta_log_loss=after["log_loss"] - before["log_loss"] if before["count"] else None,
+            delta_brier=after["brier_score"] - before["brier_score"] if before["count"] else None,
+            delta_predicted_minus_observed_pp=(after["predicted_minus_observed_pp"] -
+                                               before["predicted_minus_observed_pp"])
+            if before["count"] else None,
+        )
+    for name, expected in (("baseline", baseline["metrics"]), ("changed", changed["metrics"])):
+        require(all(agrees(sum(bucket[name][field] for bucket in bins), expected[field])
+                    for field in PROBABILITY_SUMS), "paired calibration sums do not reconcile")
+    return dict(delta=results, baseline_metrics=baseline["metrics"], changed_metrics=changed["metrics"],
+                paired_groups=groups, paired_calibration=bins,
+                group_definition="baseline component defines actor-support memberships for both predictors; own calibration bins remain separate",
+                changed_own_groups=changed["groups"], counts_by_status=changed["counts_by_status"])
+
+
+def paired_samples(game_dates, seed=3032026):
+    """one selected draw matrix per unit; retain empty dates and zero-count games."""
+    dates = list(game_dates.values())
+    require(bool(dates), "paired resampling requires selected games")
+    units = dict(games=None, calendar_7_day=calendar_blocks(dates, 7),
+                 calendar_14_day=calendar_blocks(dates, 14))
+    result = {}
+    for name, blocks in units.items():
+        count = len(dates) if blocks is None else int(max(blocks)) + 1
+        result[name] = dict(blocks=blocks, samples=np.random.Generator(np.random.PCG64(seed)).integers(
+            0, count, size=(2000, count)))
+    return result
+
+
+def paired_additive(numerators, denominators, game_dates, *, samples=None):
+    """resample an already paired additive contrast with pooled attempt weights."""
+    require(len(numerators) == len(denominators) == len(game_dates),
+            "paired additive sums differ from the selected game ledger")
+    if samples is None:
+        samples = paired_samples(game_dates)
+    require(set(samples) == {"games", "calendar_7_day", "calendar_14_day"},
+            "paired resampling methods differ")
+    return {name: ratio_interval(numerators, denominators, 3032026, **unit)
+            for name, unit in samples.items()}
+
+
+def validate_composed_stream(path, prepared, cohorts, components):
+    """rejoin original source rows and replay native stage predictions in order."""
+    recognized, included, goals = 0, 0, 0
+    for saved, expected in zip_longest(rows(path), composed_rows(prepared, cohorts, components)):
+        require(saved is not None and expected is not None, "composed source stream length mismatch")
+        validate_composed_pair(expected, saved, predictions=True)
+        recognized += 1
+        included += expected["status"] == "predicted"
+        goals += expected["status"] == "predicted" and expected["goal"]
+    return dict(recognized=recognized, included=included, goals=goals,
+                source_labels_dispositions_order="verified", native_predictions="verified",
+                prediction_absolute_tolerance=1e-12)
+
+
+def validate_composed_pair(source, changed, *, predictions=False):
+    """join full source identity and targets; optionally replay saved native logs."""
+    for row in (source, changed):
+        require(isinstance(row, dict) and set(row) == COMPOSED_ROW_FIELDS and
+                type(row["schema_version"]) is int and row["schema_version"] == 1 and
+                type(row["source_index"]) is int and row["source_index"] >= 0 and
+                type(row["blocked"]) is bool and type(row["goal"]) is bool and
+                (row["on_net"] is None or type(row["on_net"]) is bool) and
+                isinstance(row["stages"], dict) and set(row["stages"]) == set(DECOMPOSITION_QUANTITIES),
+                "invalid composed source row schema")
+        for stage in row["stages"].values():
+            require(isinstance(stage, dict) and set(stage) == COMPOSED_STAGE_FIELDS and
+                    type(stage["metric_applicable"]) is bool and
+                    (stage["observed"] is None or type(stage["observed"]) is int),
+                    "invalid composed stage schema")
+            if row["status"] == "predicted":
+                binary_record(0, stage["log_p"], stage["log_not_p"])
+            else:
+                require(all(stage[field] is None for field in COMPOSED_STAGE_FIELDS - {"metric_applicable"})
+                        and stage["metric_applicable"] is False, "stage prediction outside U must be null")
+        if row["status"] == "predicted":
+            q, g = (row["stages"][quantity] for quantity in DECOMPOSITION_QUANTITIES)
+            require(row["study_inclusion"] == "included" and row["source_status"] == "eligible" and
+                    not row["blocked"] and q["metric_applicable"] and
+                    q["observed"] == int(row["on_net"]) and
+                    g["metric_applicable"] == row["on_net"] and
+                    g["observed"] == (int(row["goal"]) if row["on_net"] else None),
+                    "composed U/O/U labels or scoring populations changed")
+            product = compose_logs(q, g)
+            require(isinstance(row["composed_goal"], dict) and set(row["composed_goal"]) == set(product) and
+                    all(type(row["composed_goal"][key]) in (int, float) and
+                        math.isfinite(row["composed_goal"][key]) and
+                        abs(row["composed_goal"][key] - value) <= 1e-12
+                        for key, value in product.items()), "composed probability arithmetic differs")
+        else:
+            require(row["composed_goal"] is None, "product prediction outside U must be null")
+    for field in COMPOSED_ROW_FIELDS - {"stages", "composed_goal"}:
+        require(source[field] == changed[field], "composed source keys/labels/dispositions/descriptors changed")
+    for quantity in DECOMPOSITION_QUANTITIES:
+        before, after = source["stages"][quantity], changed["stages"][quantity]
+        for field in ("metric_applicable", "observed"):
+            require(before[field] == after[field], "composed stage target population changed")
+        if predictions:
+            for field in COMPOSED_STAGE_FIELDS - {"log_p", "log_not_p"}:
+                require(before[field] == after[field], "saved stage basis or actor support changed")
+            if source["status"] == "predicted":
+                require(all(abs(before[field] - after[field]) <= 1e-12 for field in ("log_p", "log_not_p")),
+                        "saved stage differs from native source/design/coefficients")
+
+
+def paired_composed_rows(left, right):
+    """no intersections: every recognized source record must pair in order."""
+    for before, after in zip_longest(rows(left), rows(right)):
+        require(before is not None and after is not None, "composed stream length mismatch")
+        validate_composed_pair(before, after)
+        yield before, after

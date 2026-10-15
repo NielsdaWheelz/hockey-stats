@@ -198,6 +198,90 @@ def _offsets(layout):
     }
 
 
+def spatial_parameterization(layout, centers, constraint):
+    """free coordinates in first native occurrence order; prediction stays full."""
+    if constraint not in ("untied", "mirror_y"):
+        raise InputContractError("unsupported spatial constraint")
+    if not np.array_equal(centers, grid()[0]) or layout["cells"] != len(centers):
+        raise InputContractError("spatial parameterization requires the native grid")
+    if constraint == "mirror_y" and layout["kind"] != "r":
+        raise InputContractError("mirror pooling requires a spatial binary component")
+    full_count = layout["size"]
+    representatives = list(range(full_count))
+    spatial_count = 0
+    orbits = len(centers)
+    if layout["kind"] in ("u", "r"):
+        offsets = _offsets(layout)
+        start, end = offsets["cell"], offsets["scalar"]
+        spatial_count = end - start
+        if spatial_count != len(TYPES) * len(centers):
+            raise InputContractError("spatial parameterization requires six native maps")
+        if constraint == "mirror_y":
+            lookup = {tuple(point): i for i, point in enumerate(centers)}
+            cell_representatives = [
+                min(i, lookup[x, -y]) for i, (x, y) in enumerate(centers)
+            ]
+            orbits = len(set(cell_representatives))
+            for offset in range(start, end, len(centers)):
+                representatives[offset : offset + len(centers)] = [
+                    offset + i for i in cell_representatives
+                ]
+    free_indices = {}
+    full_to_free = []
+    for index in representatives:
+        if index not in free_indices:
+            free_indices[index] = len(free_indices)
+        full_to_free.append(free_indices[index])
+    return dict(
+        constraint=constraint, full_to_free=full_to_free,
+        full_count=full_count, free_count=len(free_indices),
+        full_spatial_count=spatial_count,
+        free_spatial_count=spatial_count - full_count + len(free_indices),
+        orbit_count=orbits, centreline_count=int(np.count_nonzero(centers[:, 1] == 0)),
+        penalty="restricted_full_objective", cell_assignment="native_nearest_first",
+    )
+
+
+def validate_spatial_parameterization(layout, centers, parameterization):
+    """regenerate the exact integer map and dimensions at a saved boundary."""
+    if not isinstance(parameterization, dict):
+        raise InputContractError("spatial parameterization must be an object")
+    expected = spatial_parameterization(layout, centers, parameterization.get("constraint"))
+    if (
+        set(parameterization) != set(expected)
+        or not isinstance(parameterization["full_to_free"], list)
+        or any(type(index) is not int for index in parameterization["full_to_free"])
+        or any(type(parameterization[key]) is not int for key in (
+            "full_count", "free_count", "full_spatial_count", "free_spatial_count",
+            "orbit_count", "centreline_count",
+        ))
+        or parameterization != expected
+    ):
+        raise InputContractError("spatial parameterization differs from the native design or integer map")
+    return expected
+
+
+def free_coefficients(coefficients, parameterization):
+    """reduce a finite expanded vector only when its exact constraint holds."""
+    try:
+        full = np.asarray(coefficients)
+    except (TypeError, ValueError, OverflowError) as error:
+        raise InputContractError("component coefficients must be finite numeric data") from error
+    if (
+        full.dtype.kind not in ("f", "i", "u")
+        or full.shape != (parameterization["full_count"],)
+        or not np.isfinite(full).all()
+    ):
+        raise InputContractError("component coefficients must have finite expanded shape")
+    full = full.astype(np.float64, copy=False)
+    mapping = np.asarray(parameterization["full_to_free"], dtype=np.int64)
+    _, first = np.unique(mapping, return_index=True)
+    free = full[first]
+    if not np.array_equal(full, free[mapping]):
+        raise InputContractError("component coefficients violate the exact spatial constraint")
+    return free
+
+
 def _origin_layout(seasons, cells, *, config):
     design = stage_design(
         "origin", config["stage_families"]["origin"],
@@ -491,28 +575,42 @@ def _origin_objective(beta, design, counts, layout, config, edges):
     return float(value), gradient
 
 
-def fit_logistic(objective, initial, config):
-    """one optimizer contract for every penalized logistic/multinomial solve."""
+def solve_logistic(objective, initial, *, maxiter, ftol, gtol, maxfun=None, maxls=None):
+    """one scipy call for native fits and explicitly capped diagnostic endpoints."""
+    options = dict(maxiter=maxiter, ftol=ftol, gtol=gtol)
+    if maxfun is not None:
+        options["maxfun"] = maxfun
+    if maxls is not None:
+        options["maxls"] = maxls
     result = minimize(
         objective,
         np.asarray(initial, dtype=np.float64),
         jac=True,
         method="L-BFGS-B",
-        options=dict(
-            maxiter=config["optimizer_max_iterations"],
-            ftol=config["optimizer_ftol"],
-            gtol=config["optimizer_gtol"],
-        ),
+        options=options,
     )
     success = bool(
         result.success and np.isfinite(result.x).all() and np.isfinite(result.fun)
     )
     return result.x, dict(
         converged=success,
+        status=int(result.status),
         termination=str(result.message),
         iterations=int(result.nit),
+        evaluations=int(result.nfev),
         objective=float(result.fun) if np.isfinite(result.fun) else None,
     )
+
+
+def fit_logistic(objective, initial, config):
+    """preserve the native four-field diagnostic contract for accepted fits."""
+    coefficients, result = solve_logistic(
+        objective, initial, maxiter=config["optimizer_max_iterations"],
+        ftol=config["optimizer_ftol"], gtol=config["optimizer_gtol"],
+    )
+    return coefficients, {key: result[key] for key in (
+        "converged", "termination", "iterations", "objective",
+    )}
 
 
 def _geometry(cells, centers):
@@ -583,6 +681,23 @@ def _binary_objective(beta, data, response, layout, config, edges, centers):
 def component_objective(beta, data, layout, config, edges, centers):
     """the native binary likelihood and penalties for the explicit component target."""
     return _binary_objective(beta, data, data["target"], layout, config, edges, centers)
+
+
+def restricted_component_objective(theta, data, layout, config, edges, centers, parameterization):
+    """restrict the full objective and sum its derivatives; never change penalties."""
+    mapping = np.asarray(parameterization["full_to_free"], dtype=np.int64)
+    value, gradient = component_objective(
+        theta[mapping], data, layout, config, edges, centers,
+    )
+    return value, project_gradient(gradient, parameterization)
+
+
+def project_gradient(gradient, parameterization):
+    """sum full-coordinate derivatives into their shared free coordinates."""
+    return np.bincount(
+        parameterization["full_to_free"], weights=gradient,
+        minlength=parameterization["free_count"],
+    )
 
 
 def _fit_binary(data, response, layout, config, edges, centers):
@@ -1957,13 +2072,16 @@ def prepare_component_fit(attempts, config, metadata, *, quantity, design, train
     return layout, data, centers, edges, initial
 
 
-def fit_component(attempts, config, metadata, *, quantity, design, training_cohort, feature_games, feature_player_games):
+def fit_component(attempts, config, metadata, *, quantity, constraint, design, training_cohort, feature_games, feature_player_games):
     """one native binary solve; no origin fit, em, or joint reference."""
+    if constraint == "mirror_y" and quantity not in ("unblocked_on_net", "on_net_conversion"):
+        raise InputContractError("mirror pooling supports only the two decomposition quantities")
     layout, data, centers, edges, initial = prepare_component_fit(
         attempts, config, metadata, quantity=quantity, design=design,
         training_cohort=training_cohort, feature_games=feature_games,
         feature_player_games=feature_player_games,
     )
+    parameterization = spatial_parameterization(layout, centers, constraint)
     if initial is None:
         return None, dict(
             converged=False,
@@ -1971,13 +2089,15 @@ def fit_component(attempts, config, metadata, *, quantity, design, training_coho
             iterations=0,
             objective=None,
         )
-    beta, diagnostics = fit_logistic(
-        lambda beta: component_objective(beta, data, layout, config, edges, centers),
-        initial, config,
+    theta, diagnostics = fit_logistic(
+        lambda value: restricted_component_objective(
+            value, data, layout, config, edges, centers, parameterization,
+        ),
+        free_coefficients(initial, parameterization), config,
     )
     if not diagnostics["converged"]:
         return None, diagnostics
-    layout["coefficients"] = beta.tolist()
+    layout["coefficients"] = theta[parameterization["full_to_free"]].tolist()
     if layout["kind"] != "r":
         layout["diagnostics"] = dict(diagnostics)
     component = _component_artifact(
@@ -2151,9 +2271,28 @@ def component_prediction_context(component, *, feature_games, feature_player_gam
     """validate once and prepare reusable numerical arrays for keyed prediction."""
     validate_component(component)
     return dict(
+        role="primary", source_component=component,
         centers=grid()[0], coefficients=np.asarray(component["layout"]["coefficients"]),
         feature_games=feature_games, feature_player_games=feature_player_games,
     )
+
+
+def component_probe_context(component, coefficients, parameterization, *, feature_games, feature_player_games):
+    """validate a diagnostic endpoint without changing its native source artifact."""
+    context = component_prediction_context(
+        component, feature_games=feature_games, feature_player_games=feature_player_games,
+    )
+    expected = validate_spatial_parameterization(
+        component["layout"], context["centers"], parameterization,
+    )
+    if expected["constraint"] == "mirror_y" and component["quantity"] not in (
+        "unblocked_on_net", "on_net_conversion",
+    ):
+        raise InputContractError("mirror probes require a decomposition component")
+    free_coefficients(component["layout"]["coefficients"], expected)
+    free_coefficients(coefficients, expected)
+    context.update(role="numerical_probe", coefficients=np.asarray(coefficients, dtype=np.float64))
+    return context
 
 
 def component_prediction_basis(component, attempt):
@@ -2168,6 +2307,8 @@ def component_prediction_basis(component, attempt):
 def predict_component(component, attempt, context=None):
     if context is None:
         raise InputContractError("component prediction requires an explicit prepared context")
+    if context["source_component"] is not component or context["role"] not in ("primary", "numerical_probe"):
+        raise InputContractError("component prediction context belongs to another source or role")
     kind = component_kind(component["quantity"])
     if not component_prediction_applicable(attempt, component["quantity"]):
         raise InputContractError(

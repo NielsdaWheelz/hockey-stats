@@ -15,11 +15,14 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from hockey_stats.artifacts import write_json
+from hockey_stats.artifacts import (
+    write_json, implementation, resources, rows, absolute_path, agrees, clean_implementation,
+    linked_path, require,
+)
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance import (
-    benchmark_actor_evidence, predict_attempt, predict_cells, prediction_context,
-    score_attempt, validate_component, validate_model,
+    benchmark_actor_evidence, predict_attempt, predict_cells, prediction_context, score_attempt,
+    validate_component, validate_model,
 )
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_data import prepare
@@ -29,14 +32,9 @@ from hockey_stats.chance_evaluation import (
     compound_regions, diagnostic_groups, finish_binary, summarize_component,
 )
 from hockey_stats.cli import Once
-from chance_development import (
-    QUANTITIES, implementation, prediction_check, prediction_row, resources, rows,
-    source_identities, validate_evaluation,
-)
-from chance_review import (
-    absolute_path, agrees, calendar_blocks, caption_layout, clean_implementation,
-    linked_path, ratio_interval, require, scored_distribution,
-)
+from chance_development import QUANTITIES, prediction_check, prediction_row, validate_evaluation
+from hockey_stats.chance_components import source_identities
+from chance_review import calendar_blocks, caption_layout, ratio_interval, scored_distribution
 
 
 FROZEN_DIGESTS = {

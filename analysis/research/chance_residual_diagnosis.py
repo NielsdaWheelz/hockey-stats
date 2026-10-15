@@ -13,7 +13,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from hockey_stats.artifacts import write_json
+from hockey_stats.artifacts import (
+    write_json, implementation, agrees, clean_implementation, linked_path, require,
+)
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance import CONTEXT_CATEGORIES
 from hockey_stats.chance_cli import identity, output_path, read_json
@@ -24,9 +26,8 @@ from hockey_stats.chance_evaluation import (
 )
 from hockey_stats.cli import Once
 import chance_assessment as assessment
-from chance_development import implementation
 from chance_residual_spatial import SpatialAccumulator, save_spatial_figure
-from chance_review import agrees, caption_layout, clean_implementation, linked_path, require
+from chance_review import caption_layout
 
 
 FROZEN_DIGESTS = {

@@ -12,7 +12,8 @@ import numpy as np
 from hockey_stats.chance import TYPES
 from hockey_stats.chance_evaluation import REGION_NAMES
 from chance_assessment import BIN_SUMS, RESAMPLING
-from chance_review import agrees, calendar_blocks, caption_layout, integer, ratio_interval, require
+from hockey_stats.artifacts import agrees, require
+from chance_review import calendar_blocks, caption_layout, integer, ratio_interval
 
 
 CONTEXTS = ("none", "recent")

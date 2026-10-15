@@ -6,25 +6,25 @@ import json
 import hashlib
 import math
 from pathlib import Path
-import resource
 import sys
 import time
 from itertools import zip_longest
 
-import numpy as np
-import scipy
-from hockey_stats.artifacts import implementation_identity, write_json
-from hockey_stats.captures import InputContractError, strict_json
+from hockey_stats.artifacts import (
+    implementation, resources, rows, write_json, agrees, linked_path, require,
+)
+from hockey_stats.captures import InputContractError
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_data import prepare, prepare_core
 from hockey_stats.chance_cohort import SOURCE_STATUSES, STUDY_INCLUSIONS
-from hockey_stats.chance_features import PREPARATION_IDENTITY
+from hockey_stats.chance_components import (
+    common, fit_prepared, source_identities, validate_prepared_selection,
+)
 from hockey_stats.chance_evaluation import (
-    PROBABILITY_POPULATIONS, PROBABILITY_SUMS, add_binary, binary_metrics, binary_record,
-    calibration_bin, diagnostic_groups, finish_binary, summarize_component,
+    PROBABILITY_POPULATIONS, PROBABILITY_SUMS, binary_record, diagnostic_groups,
+    summarize_component, compare_paired_records,
 )
 from hockey_stats.cli import Once
-from chance_review import agrees, calendar_blocks, linked_path, ratio_interval, require
 
 QUANTITIES = ("unblocked_conversion", "all_attempt_recorded_context")
 WINDOWS = ("development", "season_transfer")
@@ -35,39 +35,6 @@ PAIR_FIELDS = (
     "source_status", "source_reasons", "study_inclusion", "study_reasons",
     "quantity", "applicable", "blocked", "goal",
 )
-
-
-def implementation():
-    value = implementation_identity()
-    value.update(
-        numpy_version=np.__version__, scipy_version=scipy.__version__,
-        lockfile_sha256=identity(Path(__file__).resolve().parents[1] / "uv.lock")["sha256"],
-    )
-    return value
-
-
-def resources(started):
-    return dict(wall_seconds=time.monotonic() - started,
-                peak_memory_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
-
-
-def rows(path):
-    with path.open(encoding="utf-8") as source:
-        for index, line in enumerate(source):
-            try:
-                value = strict_json(line.encode())
-            except ValueError as error:
-                raise InputContractError(f"{path}:{index + 1}: invalid prediction json") from error
-            require(isinstance(value, dict), "prediction row must be an object")
-            yield value
-
-
-def common(prepared):
-    return dict(schema_version=3, purpose=prepared["purpose"], implementation=implementation(),
-                inputs=prepared["inputs"], selection=prepared["selection"],
-                game_dates=prepared["game_dates"], coverage=prepared["coverage"],
-                preparation_identity=prepared["preparation_identity"],
-                scientific_assessment="not_performed")
 
 
 def prediction_row(attempt, prepared, sources, cohort_row):
@@ -81,17 +48,6 @@ def prediction_row(attempt, prepared, sources, cohort_row):
            ("source_status", "source_reasons", "study_inclusion", "study_reasons")},
         blocked=attempt["blocked"], goal=attempt["goal"],
     )
-
-
-def source_identities(prepared):
-    sources = {}
-    for value in prepared["inputs"]:
-        if value["kind"] == "game":
-            gid = Path(value["path"]).stem
-            require(gid not in sources and gid in prepared["game_dates"],
-                    "duplicate or unselected game source identity")
-            sources[gid] = value
-    return sources
 
 
 def prediction_check(row):
@@ -176,93 +132,9 @@ def paired_rows(left, right):
         yield before, after
 
 
-def validate_prepared_selection(prepared, selection):
-    """bind a supplied native preparation to the actual selection bytes."""
-    reference = identity(selection)
-    require([value for value in prepared["inputs"] if value["kind"] == "selection"] ==
-            [dict(kind="selection", **reference)], "prepared selection identity mismatch")
-    document = read_json(selection)
-    for corpus in document["corpora"]:
-        corpus["path"] = str((selection.parent / corpus["path"]).resolve(strict=True))
-    document["history_corpora"] = [
-        str((selection.parent / path).resolve(strict=True))
-        for path in document["history_corpora"]
-    ]
-    require(prepared["selection"] == document and prepared["purpose"] == document["purpose"] and
-            prepared["preparation_identity"] == PREPARATION_IDENTITY,
-            "prepared selection content or preparation identity mismatch")
-
-
 def fit(args):
     started = time.monotonic()
     return fit_prepared(args, prepare(Path(args.selection).resolve(strict=True)), started=started)
-
-
-def _component_inputs(prepared, cohort, config, config_reference, protocol_reference, cohort_reference):
-    from hockey_stats.chance import compile_component_design
-
-    metadata = dict(common(prepared), config_identity=config_reference,
-                    protocol_identity=protocol_reference, training_cohort_identity=cohort_reference,
-                    training_game_dates=prepared["game_dates"],
-                    training_game_ids=list(prepared["game_dates"]),
-                    training_dates=sorted(set(prepared["game_dates"].values())))
-    included = [attempt for attempt, membership in zip(prepared["attempts"], cohort["rows"], strict=True)
-                if membership["study_inclusion"] == "included"]
-    design = compile_component_design(included, config, quantity=cohort["quantity"],
-                                      seasons=[game["season"] for game in prepared["games"]])
-    return dict(
-        attempts=[attempt for attempt in prepared["attempts"] if attempt["status"] == "eligible"],
-        config=config, metadata=metadata, quantity=cohort["quantity"], design=design,
-        training_cohort=cohort, feature_games=prepared["feature_games"],
-        feature_player_games=prepared["feature_player_games"],
-    )
-
-
-def component_setup(prepared, cohort, config, config_reference, protocol_reference, cohort_reference):
-    """encode the cohort's literal binary quantity through the production setup."""
-    from hockey_stats.chance import prepare_component_fit
-
-    return prepare_component_fit(**_component_inputs(
-        prepared, cohort, config, config_reference, protocol_reference, cohort_reference))
-
-
-def fit_prepared(args, prepared, *, started=None):
-    """write one native fit from an explicitly supplied source preparation."""
-    from hockey_stats.chance import fit_component
-    from hockey_stats.chance_cohort import outcome_audit, validate_cohort
-
-    if started is None:
-        started = time.monotonic()
-    selection = Path(args.selection).resolve(strict=True)
-    cohort_path = Path(args.cohort).resolve(strict=True)
-    config_path = Path(args.config).resolve(strict=True)
-    protocol = Path(args.protocol).resolve(strict=True)
-    validate_prepared_selection(prepared, selection)
-    cohort = validate_cohort(read_json(cohort_path), prepared)
-    require(cohort["quantity"] == args.quantity, "training cohort quantity mismatch")
-    output = output_path(args.out, prepared["input_roots"] +
-                         [str(p.parent) for p in (selection, cohort_path, config_path, protocol)])
-    inputs = _component_inputs(prepared, cohort, read_json(config_path), identity(config_path),
-                               identity(protocol), identity(cohort_path))
-    output.mkdir()
-    component, diagnostics = fit_component(**inputs)
-    document = dict(inputs["metadata"], artifact_kind="chance_component_fit", quantity=args.quantity,
-                    stage_design=inputs["design"], training_cohort_audit=outcome_audit(prepared, cohort),
-                    diagnostics=diagnostics, status="fitted" if component is not None else "failed",
-                    resources=resources(started))
-    write_json(output / "fit.json", document)
-    if component is None:
-        print(f"component fit failed; diagnostics saved to {output}", file=sys.stderr)
-        return 1
-    write_json(output / "component.json", component)
-    write_json(output / "completion.json", dict(
-        artifact_kind="chance_component_fit_completion", schema_version=3, purpose=prepared["purpose"],
-        protocol=identity(protocol), config=identity(config_path), selection=identity(selection),
-        preparation_identity=prepared["preparation_identity"], training_cohort=identity(cohort_path),
-        fit=identity(output / "fit.json"), component=identity(output / "component.json"),
-        scientific_assessment="not_performed"))
-    print(f"component fit complete: {output}; scientific assessment not performed")
-    return 0
 
 
 def validate_evaluation_arm(arm, quantity, cohort):
@@ -541,102 +413,6 @@ def compare_pair(baseline, changed):
         baseline, changed, paired_rows(linked_path(baseline["attempts"]), linked_path(changed["attempts"])))
 
 
-def compare_paired_records(baseline, changed, pairs):
-    """compare bound binary numerical views; baseline owns paired groups and bins."""
-    require(baseline["game_dates"] == changed["game_dates"], "paired selected game ledgers changed")
-    require(baseline["metrics"]["outcome"] == changed["metrics"]["outcome"], "paired binary outcomes changed")
-    outcome = baseline["metrics"]["outcome"]
-    bins = [dict(lower=b["lower"], upper=b["upper"], upper_inclusive=b["upper_inclusive"],
-                 baseline=binary_metrics(calibration=False, outcome=outcome),
-                 changed=binary_metrics(calibration=False, outcome=outcome))
-            for b in binary_metrics()["calibration"]]
-
-    def paired_predictions():
-        for before, after in pairs:
-            require(all(before[field] == after[field] for field in
-                        ("game_id", "source_index", "source_status", "source_reasons",
-                         "study_inclusion", "study_reasons", "applicable")),
-                    "paired numerical keys or scoring populations changed")
-            if before["study_inclusion"] == "included":
-                require(before["status"] == after["status"] == "predicted" and
-                        before["observed"] == after["observed"], "paired binary labels changed")
-                bucket = bins[calibration_bin(before["probability"])]
-                for name, row in (("baseline", before), ("changed", after)):
-                    add_binary(bucket[name], binary_record(row["observed"], row["log_p"], row["log_not_p"]))
-            yield dict(after, diagnostic_groups=before["diagnostic_groups"])
-
-    paired_summary = summarize_component(
-        paired_predictions(), baseline["game_dates"], outcome=outcome,
-        group_categories=tuple(baseline["groups"]))
-    for field in ("count", "observed_positive_count"):
-        require(paired_summary["metrics"][field] == baseline["metrics"][field],
-                "paired quantity population mismatch")
-    for key in PROBABILITY_SUMS:
-        require(agrees(paired_summary["metrics"][key], changed["metrics"][key]),
-                "stream and saved changed metrics disagree")
-    dates = list(baseline["game_dates"].values())
-    units = dict(games=None, calendar_7_day=calendar_blocks(dates, 7),
-                 calendar_14_day=calendar_blocks(dates, 14))
-    samples = {
-        name: np.random.Generator(np.random.PCG64(3032026)).integers(
-            0, len(dates) if blocks is None else int(max(blocks)) + 1,
-            size=(2000, len(dates) if blocks is None else int(max(blocks)) + 1))
-        for name, blocks in units.items()
-    }
-    before_games = baseline["per_game"]
-    after_games = paired_summary["per_game"]
-    require([v["game_id"] for v in before_games] == [v["game_id"] for v in after_games],
-            "paired game order mismatch")
-    denominators = [v["metrics"]["count"] for v in before_games]
-    require(denominators == [v["metrics"]["count"] for v in after_games],
-            "paired per-game cohort denominators changed")
-    results = {}
-    for name, field, scale in (("log_loss", "log_loss_sum", 1),
-                               ("brier_score", "brier_score_sum", 1),
-                               ("predicted_minus_observed_pp", "predicted_probability_sum", 100)):
-        numerators = [scale * (a["metrics"][field] - b["metrics"][field])
-                      for b, a in zip(before_games, after_games, strict=True)]
-        results[name] = {
-            unit: ratio_interval(numerators, denominators, 3032026,
-                                 blocks=blocks, samples=samples[unit])
-            for unit, blocks in units.items()
-        }
-    groups = {}
-    for category, before_groups in baseline["groups"].items():
-        after_groups = {g["value"]: g for g in paired_summary["groups"][category]}
-        groups[category] = []
-        for before in before_groups:
-            after = after_groups[before["value"]]
-            groups[category].append(dict(
-                value=before["value"], baseline=before["metrics"], changed=after["metrics"],
-                delta_log_loss=(after["metrics"]["log_loss"] - before["metrics"]["log_loss"])
-                if before["metrics"]["count"] else None,
-                delta_brier=(after["metrics"]["brier_score"] - before["metrics"]["brier_score"])
-                if before["metrics"]["count"] else None,
-                delta_predicted_minus_observed_pp=(after["metrics"]["predicted_minus_observed_pp"] -
-                                                   before["metrics"]["predicted_minus_observed_pp"])
-                if before["metrics"]["count"] else None,
-            ))
-    for bucket in bins:
-        before, after = bucket["baseline"], bucket["changed"]
-        finish_binary(before)
-        finish_binary(after)
-        bucket.update(
-            delta_log_loss=after["log_loss"] - before["log_loss"] if before["count"] else None,
-            delta_brier=after["brier_score"] - before["brier_score"] if before["count"] else None,
-            delta_predicted_minus_observed_pp=(after["predicted_minus_observed_pp"] -
-                                               before["predicted_minus_observed_pp"])
-            if before["count"] else None,
-        )
-    for name, expected in (("baseline", baseline["metrics"]), ("changed", changed["metrics"])):
-        require(all(agrees(sum(bucket[name][field] for bucket in bins), expected[field])
-                    for field in PROBABILITY_SUMS), "paired calibration sums do not reconcile")
-    return dict(delta=results, baseline_metrics=baseline["metrics"], changed_metrics=changed["metrics"],
-                paired_groups=groups, paired_calibration=bins,
-                group_definition="baseline component defines actor-support memberships for both predictors; own calibration bins remain separate",
-                changed_own_groups=changed["groups"], counts_by_status=changed["counts_by_status"])
-
-
 def validate_evaluation(reference, component_reference, selection_reference, protocol, quantity, purpose,
                         *, component, cohort_reference, arm, prepared=None):
     """bind the whole recognized stream to one saved cohort, source ledger and summary."""
@@ -748,7 +524,7 @@ def validate_evaluation(reference, component_reference, selection_reference, pro
 def compare(args):
     from hockey_stats.chance import validate_component
     from hockey_stats.chance_cohort import validate_cohort_document
-    from chance_review import clean_implementation
+    from hockey_stats.artifacts import clean_implementation
 
     started = time.monotonic()
     evidence_path = Path(args.evidence).resolve(strict=True)

@@ -19,13 +19,17 @@ source capture, reconstruction and feature preparation support the first product
 
 ## scientific path to v1
 
-the user approved two research tracks after 03o. [03p](specs/03p-chance-structure.md) develops one structural chance hypothesis with its numerical-resolution check included; [04a](specs/04a-attribution-feasibility.md) develops observed-rate attribution, synthetic recovery and consequence-based sensitivity. exact choices belong to their full specs; neither stub authorizes execution.
+the user approved two research tracks after 03o. [03p](specs/03p-chance-structure.md) specifies mirror pooling with its bounded numerical check; [04a](specs/04a-attribution-feasibility.md) remains an attribution/sensitivity stub with settled preferences. exact execution contracts belong to the full specs; documentation does not authorize execution.
 
 04a does not require chance-model admission for its recorded-rate/synthetic claims. provisional chance-weight sensitivity retains its input limitations; it cannot admit rejected models or supply published ability. supported opportunity measurement, coherent spatial player attribution and player robustness still precede real analytical release.
 
+the selected provisional comparison values only the final-season unblocked spatial effects after the count-rate fits, using existing direct/decomposed transfer models under a shared reference. this provides location-only sensitivity evidence without additional historical chance fits; it does not capture player-specific shot-type/context mix or depend on 03p results. [04a](specs/04a-attribution-feasibility.md) owns its scope and limitations.
+
+age-informed historical borrowing remains an explicit attribution follow-up under [04](specs/04-player-attribution.md#decisions-for-the-full-specification). 04a starts with age-neutral annual borrowing across the five admitted seasons. later work must evaluate age-related development/decline and changeability against that baseline, including entry/exit selection and uncertainty. deferral avoids an additional aging model in 04a; it accepts possible lag in systematic development or decline, not a claim that age is irrelevant.
+
 future representation selection may value useful components within a prospectively justified prediction-cost budget. player-effect resolution should make upstream error tolerances relevant to the intended use; historical criteria and verdicts remain unchanged. numerical checks are bounded parts of model work, not a new serial research programme.
 
-the next structural choice remains open: mirror pooling or wrist/snap analytical pooling are leading candidates. temporal borrowing, targeted unused features, tip policy and further outcome layers remain alternatives in [model direction](research/model-direction.md), not a mandatory campaign. more historical acquisition needs a concrete consumer. the [capability inventory](product-inventory.md#analytical-dependencies) records the remaining model/product gaps.
+the selected structural experiment is mirror pooling within shot type in both on-net and goal-given-on-net components. wrist/snap analytical pooling, temporal structure, targeted unused features, tip policy and further outcome layers remain alternatives in [model direction](research/model-direction.md), not a mandatory campaign. more historical acquisition needs a concrete consumer. the [capability inventory](product-inventory.md#analytical-dependencies) records the remaining model/product gaps.
 
 05–06 can separately exercise a clearly labeled fixture publication/profile. a few lasting source/numerical checks under [07](specs/07-lightweight-testing.md) can precede the website; browser/publication checks arrive with those boundaries. current assignments and order live only in [the plan](plan.md).
 

@@ -8,7 +8,7 @@ three independent reviews covered statistics/numerics, software ownership and pu
 
 agreement: preserve truthful source/feature meaning, retain correct inactive capability, distinguish optimizer completion from useful numerical resolution, and assess the actual player question. prospective representation decisions may value useful components within a justified predictive-cost budget. historical verdicts and exposed-data limitations remain intact.
 
-disagreement: whether the next structural experiment should emphasize spatial/type pooling, temporal borrowing or additional context. no specific recipe or numeric margin was approved. attribution research can reveal consequences without admitting its provisional weights. cost: parallel work and explicitly provisional outputs; benefit: less time optimizing an upstream metric without knowing its product effect.
+disagreement: whether the next structural experiment should emphasize spatial/type pooling, temporal borrowing or additional context. no specific recipe or numeric margin was selected at this review; the [plan](../plan.md) records the subsequent interview's choices. attribution research can reveal consequences without admitting its provisional weights. cost: parallel work and explicitly provisional outputs; benefit: less time optimizing an upstream metric without knowing its product effect.
 
 software judgment: extract mature shared mechanisms when next needed, keep study policy with the study, consolidate current status into the plan, and retain a few selected stable regression checks under 07. no general research platform or standalone numerical gate.
 

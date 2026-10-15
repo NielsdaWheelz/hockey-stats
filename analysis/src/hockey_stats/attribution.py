@@ -11,7 +11,7 @@ from pathlib import Path
 import time
 
 import numpy as np
-from scipy.linalg import cholesky, cho_solve, solve_triangular
+from scipy.linalg import cho_solve, solve_triangular
 from scipy.optimize import minimize_scalar
 
 from .artifacts import clean_implementation, implementation, linked_path, require, resources, rows, write_json
@@ -66,9 +66,9 @@ class AnnualState:
 def _posterior(H: np.ndarray, T: np.ndarray, M0: np.ndarray,
                V0: np.ndarray) -> tuple[np.ndarray, np.ndarray, dict]:
     """solve one proper prior using cholesky factors, retaining full covariance."""
-    L = cholesky(V0, lower=True, check_finite=True)
+    L = np.linalg.cholesky(V0)
     K = np.eye(len(H)) + L.T @ H @ L
-    factor = cholesky(K, lower=True, check_finite=True)
+    factor = np.linalg.cholesky(K)
     intermediate = solve_triangular(factor, L.T, lower=True, check_finite=False)
     U = solve_triangular(factor.T, intermediate, lower=False, check_finite=False)
     residual = float(np.linalg.norm(K @ U - L.T, ord=np.inf) /
@@ -157,9 +157,9 @@ def fit_year(population: AnnualPopulation, previous_state: AnnualState | None) -
         covariance[innovation_indices, innovation_indices] += variance
         error, solve_residual = None, None
         try:
-            L = cholesky(covariance, lower=True, check_finite=False)
+            L = np.linalg.cholesky(covariance)
             K = np.eye(2*n) + L.T @ H @ L
-            factor = cholesky(K, lower=True, check_finite=False)
+            factor = np.linalg.cholesky(K)
             rhs = L.T @ b
             solution = cho_solve((factor, True), rhs, check_finite=False)
             solve_residual = float(np.linalg.norm(K @ solution - rhs, ord=np.inf) /

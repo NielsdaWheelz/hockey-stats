@@ -12,7 +12,10 @@ import time
 
 import numpy as np
 
-from hockey_stats.artifacts import write_json
+from hockey_stats.artifacts import (
+    write_json, implementation, resources, absolute_path, agrees, clean_implementation, digest,
+    linked_path, require,
+)
 from hockey_stats.captures import InputContractError, strict_json
 from hockey_stats.chance import CONTEXT_CATEGORIES, TYPES
 from hockey_stats.chance_cli import identity, output_path, read_json
@@ -22,11 +25,7 @@ from hockey_stats.chance_evaluation import (
     PROBABILITY_SUMS, add_binary, binary_metrics, binary_record, finish_binary,
 )
 from hockey_stats.cli import Once
-from chance_development import implementation, resources
-from chance_review import (
-    absolute_path, agrees, calendar_blocks, clean_implementation, digest,
-    integer, linked_path, ratio_interval, require, validate_probability,
-)
+from chance_review import calendar_blocks, integer, ratio_interval, validate_probability
 
 
 QUANTITIES = {

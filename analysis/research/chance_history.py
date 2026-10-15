@@ -12,7 +12,9 @@ import time
 
 import numpy as np
 
-from hockey_stats.artifacts import write_json
+from hockey_stats.artifacts import (
+    write_json, implementation, resources, agrees, clean_implementation, linked_path, require,
+)
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance import validate_component, validate_config
 from hockey_stats.chance_cli import identity, output_path, read_json
@@ -23,11 +25,8 @@ from hockey_stats.chance_cohort import (
 from hockey_stats.chance_data import prepare_core
 from hockey_stats.chance_features import PREPARATION_IDENTITY
 from hockey_stats.cli import Once
-from chance_development import (
-    component_setup, compare_pair, evaluate_prepared, fit_prepared, implementation,
-    paired_rows, resources, validate_evaluation,
-)
-from chance_review import agrees, clean_implementation, linked_path, require
+from hockey_stats.chance_components import component_setup, fit_prepared
+from chance_development import compare_pair, evaluate_prepared, paired_rows, validate_evaluation
 from chance_sequence import independent_loss
 
 WINDOWS = ("development", "season_transfer")
@@ -101,19 +100,11 @@ def validate_recipe(config):
 
 
 def selection_reference(cohort):
-    references = [value for value in cohort["inputs"] if value["kind"] == "selection"]
-    require(len(references) == 1, "cohort requires one consumed selection identity")
-    reference = {key: references[0][key] for key in ("path", "sha256")}
-    path = linked_path(reference)
-    selected = read_json(path)
-    require(isinstance(selected, dict) and set(selected) ==
-            {"schema_version", "purpose", "corpora", "history_corpora"} and
-            type(selected["schema_version"]) is int and selected["schema_version"] == 2 and
-            selected["purpose"] == cohort["purpose"] and selected["history_corpora"] == [],
+    from hockey_stats.chance_components import selection_reference as native_selection_reference
+
+    reference = native_selection_reference(cohort)
+    require(cohort["selection"]["history_corpora"] == [],
             "history study requires schema-2 explicit selections with empty history")
-    for entry in selected["corpora"]:
-        entry["path"] = str((path.parent / entry["path"]).resolve(strict=True))
-    require(selected == cohort["selection"], "consumed selection differs from cohort selection")
     return reference
 
 
@@ -548,28 +539,12 @@ def decision(comparisons, *, purpose):
 
 
 def verify_component(component, component_reference, cohort, cohort_reference, protocol):
-    """replay the saved objective once, through the production setup and objective."""
-    from hockey_stats.chance import component_objective
+    from hockey_stats.chance_components import objective_replay
 
-    require(component["quantity"] == cohort["quantity"], "objective replay component/cohort quantity mismatch")
-    selected = selection_reference(cohort)
-    prepared = prepare_core(linked_path(selected))
+    prepared = prepare_core(linked_path(selection_reference(cohort)))
     validate_cohort(cohort, prepared)
-    layout, data, centers, edges, initial = component_setup(
-        prepared, cohort, component["config"], component["config_identity"], protocol, cohort_reference)
-    require(data is not None and initial is not None and
-            layout == {key: value for key, value in component["layout"].items() if key != "coefficients"},
-            "replayed source/encoding/design/actor layout differs from saved component")
-    beta = np.asarray(component["layout"]["coefficients"])
-    replayed, gradient = component_objective(beta, data, layout, component["config"], edges, centers)
-    saved = component["diagnostics"]["objective"]
-    require(math.isfinite(replayed) and np.isfinite(gradient).all() and agrees(saved, replayed),
-            "saved native objective does not agree with replay")
-    receipt = dict(schema_version=1, purpose=prepared["purpose"], component=component_reference,
-                   selection=selected, cohort=cohort_reference, config=component["config_identity"],
-                   protocol=protocol, implementation=implementation(), saved_objective=saved,
-                   replayed_objective=float(replayed), difference=float(replayed - saved),
-                   gradient_max_abs=float(np.max(np.abs(gradient))), agrees=True)
+    receipt = objective_replay(component, prepared, cohort, component_reference=component_reference,
+                               cohort_reference=cohort_reference, protocol=protocol)
     return receipt, prepared["input_roots"]
 
 

@@ -5,7 +5,6 @@ independent origin evidence and the frozen protocol remain scientific judgments.
 """
 
 import argparse
-import hashlib
 import math
 import sys
 import textwrap
@@ -21,14 +20,15 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy
-from hockey_stats.artifacts import implementation_identity, write_json
+from hockey_stats.artifacts import (
+    implementation_identity, write_json, require, agrees, digest, clean_implementation,
+    absolute_path, linked_path,
+)
 from hockey_stats.captures import InputContractError, strict_json
 from hockey_stats.chance import validate_model
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_evaluation import (
-    GROUP_DOMAINS,
-    PROBABILITY_POPULATIONS,
-    PROBABILITY_SUMS,
+    GROUP_DOMAINS, calendar_blocks, ratio_interval, PROBABILITY_POPULATIONS, PROBABILITY_SUMS,
 )
 from hockey_stats.cli import Once
 
@@ -39,11 +39,6 @@ STATUSES = ("valued", "out_of_scope", "unavailable")
 TIP_GROUPS = ("tip_distance", "tip_below_goal_line")
 
 
-def require(condition, message):
-    if not condition:
-        raise InputContractError(message)
-
-
 def integer(value):
     require(type(value) is int and value >= 0, "expected nonnegative integer")
     return value
@@ -52,53 +47,6 @@ def integer(value):
 def number(value):
     require(type(value) in (int, float) and math.isfinite(value), "expected finite number")
     return value
-
-
-def agrees(left, right):
-    return math.isclose(left, right, rel_tol=1e-10, abs_tol=1e-10)
-
-
-def digest(value):
-    require(
-        isinstance(value, str)
-        and len(value) == 64
-        and all(c in "0123456789abcdef" for c in value),
-        "invalid sha256",
-    )
-
-
-def clean_implementation(value):
-    commit = value["git_commit"]
-    require(
-        isinstance(commit, str)
-        and len(commit) == 40
-        and all(c in "0123456789abcdef" for c in commit)
-        and value["git_dirty"] is False,
-        "scientific evidence requires an identified clean implementation",
-    )
-    for key in ("python_version", "numpy_version", "scipy_version"):
-        require(
-            isinstance(value[key], str) and bool(value[key]),
-            "missing implementation dependency version",
-        )
-    digest(value["lockfile_sha256"])
-
-
-def absolute_path(value):
-    require(
-        isinstance(value, str) and Path(value).is_absolute(),
-        "artifact paths must be absolute",
-    )
-    return Path(value).resolve(strict=True)
-
-
-def linked_path(reference):
-    path = absolute_path(reference["path"])
-    digest(reference["sha256"])
-    with path.open("rb") as source:
-        actual = hashlib.file_digest(source, "sha256").hexdigest()
-    require(actual == reference["sha256"], f"{path}: linked artifact digest mismatch")
-    return path
 
 
 def load_entries(entries, kind):
@@ -598,87 +546,6 @@ def validate_assessment(document):
                                     "subgroup likelihood sums do not reconcile",
                                 )
 
-
-def calendar_blocks(dates, days):
-    parsed = [date.fromisoformat(value) for value in dates]
-    first = min(parsed)
-    return np.array([(value - first).days // days for value in parsed], dtype=np.int64)
-
-
-def ratio_interval(numerators, denominators, seed, *, observed=None, blocks=None, samples=None):
-    """pool additive sums; retain zero-contribution units and every undefined draw."""
-    numerators = np.asarray(numerators, dtype=np.float64)
-    denominators = np.asarray(denominators, dtype=np.float64)
-    require(
-        numerators.shape == denominators.shape
-        and numerators.ndim == 1
-        and len(numerators) > 0
-        and np.isfinite(numerators).all()
-        and np.isfinite(denominators).all()
-        and (denominators >= 0).all(),
-        "invalid resampling sums",
-    )
-    contributing_games = int(np.count_nonzero(denominators))
-    total = float(denominators.sum())
-    estimate = float(numerators.sum() / total) if total else None
-    all_one_label = False
-    if observed is not None:
-        observed = np.asarray(observed, dtype=np.float64)
-        require(
-            observed.shape == denominators.shape
-            and np.isfinite(observed).all()
-            and (observed >= 0).all()
-            and (observed <= denominators).all(),
-            "invalid observed label sums",
-        )
-        all_one_label = bool(total and (observed.sum() == 0 or observed.sum() == total))
-    if blocks is not None:
-        n = int(max(blocks)) + 1
-        numerators = np.bincount(blocks, weights=numerators, minlength=n)
-        denominators = np.bincount(blocks, weights=denominators, minlength=n)
-    else:
-        n = len(numerators)
-    if samples is None:
-        samples = np.random.Generator(np.random.PCG64(seed)).integers(0, n, size=(2000, n))
-    require(samples.shape == (2000, n), "resampling dimensions disagree")
-    sampled_denominators = denominators[samples].sum(axis=1)
-    undefined = int(np.count_nonzero(sampled_denominators == 0))
-    sampled = np.divide(
-        numerators[samples].sum(axis=1),
-        sampled_denominators,
-        out=np.full(2000, np.nan),
-        where=sampled_denominators != 0,
-    )
-    require(estimate is None or math.isfinite(estimate), "nonfinite pooled estimate")
-    require(np.isfinite(sampled).sum() + undefined == 2000, "nonfinite bootstrap estimate")
-    reason = (
-        "zero attempt denominator in at least one resampled draw"
-        if undefined
-        else "all-one-label population cannot establish calibration support"
-        if all_one_label
-        else None
-    )
-    result = {
-        "estimate": estimate,
-        "count": int(total),
-        "contributing_games": contributing_games,
-        "interval": None
-        if undefined
-        else np.percentile(sampled, [2.5, 97.5], method="linear").tolist(),
-        "undefined_draws": undefined,
-        "missing_reason": "zero attempt denominator in at least one resampled draw"
-        if undefined
-        else None,
-    }
-    if observed is not None:
-        result.update(
-            observed_positive_count=int(observed.sum()),
-            all_one_label=all_one_label,
-            calibration_support_missing_reason=reason,
-        )
-    if blocks is not None:
-        result.update(contributing_blocks=int(np.count_nonzero(denominators)), selected_blocks=n)
-    return result
 
 
 def assessment_review(entry, benchmarks, seed):

@@ -12,37 +12,34 @@ import time
 
 import numpy as np
 
-from hockey_stats.artifacts import write_json
-from hockey_stats.captures import InputContractError
-from hockey_stats.chance import (
-    component_prediction_context, predict_component, validate_component,
+from hockey_stats.artifacts import (
+    artifact_roots, write_json, implementation, resources, rows, agrees, clean_implementation,
+    linked_path, require,
 )
+from hockey_stats.captures import InputContractError
+from hockey_stats.chance import validate_component
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_cohort import (
-    component_cohort, outcome_audit, target_audit, validate_cohort,
-    validate_cohort_document, validate_outcome_audit, validate_outcome_audit_document,
-    validate_target_audit,
+    component_cohort, outcome_audit, target_audit, validate_cohort, validate_cohort_document,
+    validate_outcome_audit,
 )
 from hockey_stats.chance_data import prepare_core
 from hockey_stats.chance_evaluation import (
-    binary_record, diagnostic_groups, summarize_component,
+    compose_logs, composed_rows, metric_rows, composed_summaries as summaries,
+    compare_paired_records,
 )
 from hockey_stats.chance_features import PREPARATION_IDENTITY
-from hockey_stats.chance_targets import (
-    DECOMPOSITION_QUANTITIES as QUANTITIES, component_target, recorded_on_net,
-)
+from hockey_stats.chance_targets import DECOMPOSITION_QUANTITIES as QUANTITIES, component_target
 from hockey_stats.cli import Once
-from chance_development import (
-    compare_paired_records, component_setup, fit_prepared, implementation,
-    predict_component_rows, resources, rows, source_identities, validate_evaluation,
-    validate_prepared_selection,
+from hockey_stats.chance_components import (
+    component_setup, fit_prepared, validate_prepared_selection, read_component_bundle,
+    read_component_fit, verify_decomposition_pair,
 )
+from chance_development import predict_component_rows, validate_evaluation
 from chance_history import (
-    DEADBAND, DEFINITION, FAMILIES, REPORT_GROUPS, RESAMPLING, WINDOWS,
-    read_cohort as read_direct_cohort, selection_reference, validate_population,
-    validate_recipe, validate_window, verify_component,
+    DEADBAND, DEFINITION, REPORT_GROUPS, RESAMPLING, WINDOWS, read_cohort as read_direct_cohort,
+    selection_reference, validate_population, validate_recipe, validate_window, verify_component,
 )
-from chance_review import agrees, clean_implementation, linked_path, require
 
 METRICS = ("on_net", "goal_given_on_net", "composed_goal")
 DIRECT = "unblocked_conversion"
@@ -96,17 +93,6 @@ LIMITATIONS = [
 ]
 
 
-def artifact_roots(value):
-    """locate bound input parents before choosing an exclusive output directory."""
-    if isinstance(value, dict):
-        if set(value) == {"path", "sha256"}:
-            return [str(linked_path(value).parent)]
-        return [root for item in value.values() for root in artifact_roots(item)]
-    if isinstance(value, list):
-        return [root for item in value for root in artifact_roots(item)]
-    return []
-
-
 def completion(reference, kind, extra, *, purpose, protocol=None):
     document = read_json(linked_path(reference))
     common = {"schema_version", "artifact_kind", "purpose", "implementation", "scientific_assessment"}
@@ -124,39 +110,23 @@ def completion(reference, kind, extra, *, purpose, protocol=None):
 
 def read_bundle(reference, prepared, quantity):
     path = linked_path(reference)
-    cohort = validate_cohort_document(read_json(path))
-    require(cohort["purpose"] == prepared["purpose"] and cohort["quantity"] == quantity and
-            cohort["definition"] == DEFINITION and cohort["preparation_identity"] == PREPARATION_IDENTITY,
-            "decomposition cohort purpose/quantity/definition/preparation mismatch")
-    validate_cohort(cohort, prepared)
-    selected = selection_reference(cohort)
-    validate_prepared_selection(prepared, linked_path(selected))
-    audit = read_json(path.with_name("outcome_audit.json"))
-    validate_outcome_audit_document(audit, cohort)
-    validate_outcome_audit(audit, prepared, cohort)
     target_path = path.with_name("target_audit.json")
-    target = read_json(target_path)
-    validate_target_audit(target, prepared, cohort,
-                          selection_identity=selected, cohort_identity=reference)
+    bundle = dict(cohort=reference, outcome_audit=identity(path.with_name("outcome_audit.json")),
+                  target_audit=identity(target_path))
+    cohort, audit, target = read_component_bundle(bundle, prepared, quantity)
+    selected = selection_reference(cohort)
     if prepared["purpose"] == "research":
         path = Path(selected["path"])
         expected = SELECTIONS.get(path.name)
         require(path.parent == SELECTION_ROOT and expected is not None and
                 selected["sha256"] == expected[0] and target["counts"]["on_net"] == expected[1],
                 "research target source selection/on-net counts differ from the independently frozen audit")
-    return cohort, audit, target, identity(target_path)
+    return cohort, audit, target, bundle["target_audit"]
 
 
 def verify_pair(prepared, cohorts, audits, *, window=None, partition=None):
-    q, g = (cohorts[quantity] for quantity in QUANTITIES)
-    require(q["game_dates"] == g["game_dates"] and q["inputs"] == g["inputs"] and
-            q["selection"] == g["selection"], "stage cohorts bind different source selections")
-    for attempt, qrow, grow in zip(prepared["attempts"], q["rows"], g["rows"], strict=True):
-        require((qrow["study_inclusion"] == "included" and
-                 component_target(attempt, QUANTITIES[0]) is True) ==
-                (grow["study_inclusion"] == "included"),
-                f"{attempt['game_id']}:{attempt['source_index']}: q positives differ from g included keys")
-    validate_population(q, audits[QUANTITIES[0]], window=window, partition=partition)
+    verify_decomposition_pair(prepared, cohorts)
+    validate_population(cohorts[QUANTITIES[0]], audits[QUANTITIES[0]], window=window, partition=partition)
 
 
 def cohort_command(args):
@@ -238,45 +208,15 @@ def validate_reuse_inputs(document):
     return source
 
 
-def read_fit(reference, cohort_reference, cohort, audit, *, config, protocol, quantity, purpose,
+def read_fit(reference, cohort_reference, cohort, audit, *, coverage, config, protocol, quantity, purpose,
              expected_implementation=None):
-    document = read_json(linked_path(reference))
-    require(isinstance(document, dict) and set(document) == {
-        "artifact_kind", "schema_version", "purpose", "protocol", "config", "selection",
-        "preparation_identity", "training_cohort", "fit", "component", "scientific_assessment",
-    } and type(document["schema_version"]) is int and document["schema_version"] == 3 and
-        document["artifact_kind"] == "chance_component_fit_completion" and
-        document["purpose"] == purpose and document["protocol"] == protocol and
-        document["config"] == config and document["selection"] == selection_reference(cohort) and
-        document["preparation_identity"] == PREPARATION_IDENTITY and
-        document["training_cohort"] == cohort_reference and document["scientific_assessment"] == "not_performed",
-        "native fit completion schema/binding mismatch")
-    component = validate_component(read_json(linked_path(document["component"])))
-    fit = read_json(linked_path(document["fit"]))
-    require(component["purpose"] == purpose and component["quantity"] == quantity and
-            component["extraction"] is None and component["config_identity"] == config and
-            component["protocol_identity"] == protocol and
-            component["training_cohort"]["membership_identity"] == cohort_reference and
-            component["training_cohort"]["definition"] == DEFINITION and
-            component["training_cohort"]["excluded_count"] == 0 and
-            component["training_game_dates"] == cohort["game_dates"] and
-            component["diagnostics"]["converged"] is True and
-            component["config"] == validate_recipe(read_json(linked_path(config))) and
-            all(component[field] == cohort[field] for field in
-                ("purpose", "selection", "inputs", "preparation_identity")),
-            "native fitted component target/config/protocol/source mismatch")
-    require(fit["schema_version"] == 3 and fit["artifact_kind"] == "chance_component_fit" and
-            fit["status"] == "fitted" and fit["diagnostics"] == component["diagnostics"] and
-            fit["training_cohort_identity"] == cohort_reference and
-            fit["training_cohort_audit"] == audit and
-            fit["stage_design"] == component["layout"]["design"] and
-            all(fit[field] == component[field] for field in (
-                "purpose", "quantity", "config_identity", "protocol_identity", "selection", "inputs",
-                "implementation", "preparation_identity", "training_game_dates")) and
-            (expected_implementation is None or component["implementation"] == expected_implementation),
-            "native fit source/design/diagnostics/implementation mismatch")
-    if purpose == "research":
-        clean_implementation(component["implementation"])
+    document, component, fit = read_component_fit(
+        reference, cohort_reference, cohort, audit, coverage=coverage, config=config, protocol=protocol,
+        quantity=quantity, purpose=purpose, expected_implementation=expected_implementation)
+    validate_recipe(component["config"])
+    require(component["training_cohort"]["definition"] == DEFINITION and
+            component["training_cohort"]["excluded_count"] == 0,
+            "decomposition fit requires the complete source population")
     return document, component, fit
 
 
@@ -301,16 +241,16 @@ def reuse_command(args):
                 selection_reference(assessment) == entry["assessment_selection"],
                 "control cohort/selection identity changed")
         validate_window(window, "short", training, assessment, training_audit, assessment_audit)
+        prepared = prepare_core(linked_path(entry["training_selection"]))
         fitted, component, fit = read_fit(
             entry["fit"], entry["training_cohort"], training, training_audit,
-            config=inputs["config"], protocol=source["protocol"], quantity=DIRECT,
+            coverage=prepared["coverage"], config=inputs["config"], protocol=source["protocol"], quantity=DIRECT,
             purpose=purpose, expected_implementation=source["implementation"])
         original = source["cells"][window]["short"]
         require(fitted["component"] == original["component"], "original direct component identity changed")
         objective, source_roots = verify_component(component, fitted["component"], training,
                                                    entry["training_cohort"], source["protocol"])
         roots.extend(source_roots)
-        prepared = prepare_core(linked_path(entry["training_selection"]))
         validate_cohort(training, prepared)
         validate_outcome_audit(training_audit, prepared, training)
         q = component_cohort(prepared, quantity=QUANTITIES[0], required_families=[])
@@ -487,101 +427,6 @@ def fit_command(args):
     q = component_cohort(prepared, quantity=QUANTITIES[0], required_families=[])
     validate_population(q, outcome_audit(prepared, q), window=args.window, partition="short")
     return fit_prepared(args, prepared, started=started)
-
-
-def compose_logs(q, g):
-    """evaluate the same 1-q*g identity using its numerically resolved tail.
-
-    log1p(-exp(log_p)) preserves the complement sign for p <= 1/2.
-    the stage-complement sum retains the failure tail when p approaches one
-    and native log_p can round to -0.0. neither branch clips probabilities.
-    """
-    binary_record(0, q["log_p"], q["log_not_p"])
-    binary_record(0, g["log_p"], g["log_not_p"])
-    log_p = q["log_p"] + g["log_p"]
-    log_not_p = (math.log1p(-math.exp(log_p)) if log_p <= -math.log(2) else
-                 float(np.logaddexp(q["log_not_p"], q["log_p"] + g["log_not_p"])))
-    result = dict(log_p=log_p, log_not_p=log_not_p)
-    binary_record(0, result["log_p"], result["log_not_p"])
-    return result
-
-
-def composed_rows(prepared, cohorts, components):
-    contexts = {quantity: component_prediction_context(
-        component, feature_games=prepared["feature_games"],
-        feature_player_games=prepared["feature_player_games"])
-        for quantity, component in components.items()}
-    sources = source_identities(prepared)
-    for attempt, qmember, gmember in zip(prepared["attempts"], cohorts[QUANTITIES[0]]["rows"],
-                                        cohorts[QUANTITIES[1]]["rows"], strict=True):
-        gid = attempt["game_id"]
-        included = qmember["study_inclusion"] == "included"
-        row = dict(
-            schema_version=1, game_id=gid, source_index=attempt["source_index"],
-            event_id=attempt["event_id"], game_date=prepared["game_dates"][gid],
-            season=attempt["season"], source_identity=sources[gid],
-            **{field: qmember[field] for field in
-               ("source_status", "source_reasons", "study_inclusion", "study_reasons")},
-            status=("predicted" if included else "not_applicable"
-                    if attempt["status"] == "eligible" else attempt["status"]),
-            blocked=attempt["blocked"], goal=attempt["goal"], on_net=recorded_on_net(attempt),
-            diagnostic_groups=diagnostic_groups(attempt, prepared["game_dates"][gid], {}),
-            stages={}, composed_goal=None)
-        for quantity, member in ((QUANTITIES[0], qmember), (QUANTITIES[1], gmember)):
-            stage = dict(metric_applicable=False, observed=None, log_p=None, log_not_p=None,
-                         season_basis=None, state_season=None, actor_evidence=None)
-            if included:
-                observed = component_target(attempt, quantity)
-                stage.update(predict_component(components[quantity], attempt, contexts[quantity]),
-                             metric_applicable=member["study_inclusion"] == "included",
-                             observed=int(observed) if observed is not None else None)
-            row["stages"][quantity] = stage
-        if included:
-            row["composed_goal"] = compose_logs(*(row["stages"][quantity] for quantity in QUANTITIES))
-        yield row
-
-
-def metric_rows(stream, metric):
-    """an explicit binary scoring view; serialized source/composition rows stay intact."""
-    for row in stream:
-        if metric == "composed_goal":
-            applicable = row["status"] == "predicted"
-            predicted = row["composed_goal"]
-            observed = int(row["goal"]) if applicable else None
-            groups = row["diagnostic_groups"]
-        else:
-            quantity = QUANTITIES[0] if metric == "on_net" else QUANTITIES[1]
-            stage = row["stages"][quantity]
-            applicable = stage["metric_applicable"]
-            predicted = stage if applicable else None
-            observed = stage["observed"] if applicable else None
-            groups = dict(row["diagnostic_groups"], **{
-                f"actor_support:{actor}": stage["actor_evidence"][actor]["basis"]
-                if stage["actor_evidence"] is not None else None for actor in ("shooter", "goalie")})
-        status = ("predicted" if applicable else "not_applicable"
-                  if row["source_status"] == "eligible" else row["source_status"])
-        yield dict(
-            game_id=row["game_id"], source_index=row["source_index"], status=status,
-            reasons=row["source_reasons"], source_status=row["source_status"],
-            source_reasons=row["source_reasons"],
-            study_inclusion=("included" if applicable else "not_applicable"
-                             if row["source_status"] == "eligible" else "source_excluded"),
-            study_reasons=[], applicable=(row["on_net"] is True if metric == "goal_given_on_net"
-                                         else not row["blocked"]), observed=observed,
-            log_p=None if predicted is None else predicted["log_p"],
-            log_not_p=None if predicted is None else predicted["log_not_p"],
-            probability=None if predicted is None else math.exp(predicted["log_p"]),
-            diagnostic_groups=groups)
-
-
-def summaries(stream_path, game_dates):
-    result = {}
-    for metric in METRICS:
-        kwargs = dict(outcome="on_net" if metric == "on_net" else "goal")
-        if metric == "composed_goal":
-            kwargs["group_categories"] = SOURCE_GROUPS
-        result[metric] = summarize_component(metric_rows(rows(stream_path), metric), game_dates, **kwargs)
-    return result
 
 
 def read_stage_component(reference, quantity, protocol, purpose):
@@ -895,6 +740,7 @@ def report_command(args):
                 if quantity == QUANTITIES[0]:
                     coverage[window]["training"] = target
                 roots.extend(prepared["input_roots"])
+                native_coverage = prepared["coverage"]
                 del prepared, q
             else:
                 require(cell["target_audit"] is None, "target audit cannot claim an absent cohort")
@@ -902,7 +748,7 @@ def report_command(args):
                 require(reuse is not None and cohort is not None,
                         "new fitted stage requires successful bound direct reuse and target cohort")
                 completed, component, fit = read_fit(
-                    cell["fit"], cell["cohort"], cohort, audit, config=inputs["config"],
+                    cell["fit"], cell["cohort"], cohort, audit, coverage=native_coverage, config=inputs["config"],
                     protocol=protocol, quantity=quantity, purpose=purpose,
                     expected_implementation=reuse["implementation"])
                 require(frozen is None or frozen == component["implementation"],

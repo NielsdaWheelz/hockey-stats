@@ -15,7 +15,7 @@ from scipy.special import expit, log_expit
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from hockey_stats.artifacts import write_json
+from hockey_stats.artifacts import write_json, implementation, agrees, clean_implementation, require
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance import TYPES, fit_logistic
 from hockey_stats.chance_cli import identity, output_path
@@ -24,8 +24,7 @@ from hockey_stats.chance_evaluation import (
 )
 from hockey_stats.cli import Once
 import chance_assessment as assessment
-from chance_development import implementation
-from chance_review import agrees, calendar_blocks, clean_implementation, require
+from chance_review import calendar_blocks
 
 
 WINDOWS = {

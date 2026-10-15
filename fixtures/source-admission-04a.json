@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "purpose": "bounded original incoming-goal membership/pre-score conflict; no source repair",
+  "copies": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/play-by-play/body.bin",
+      "fixture": "captures/2022020822/play-by-play/body.bin",
+      "bytes": 121860,
+      "sha256": "2f6d19c68d8bef8390cbe05315f53d2ff49fe4f4c6fa8da96d61dad7ef158ab0"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/play-by-play/capture.json",
+      "fixture": "captures/2022020822/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "924a722b3c5be9c2642f9c1903858628f89fc93ada09ff1aff058fc8bf798d87"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/boxscore/body.bin",
+      "fixture": "captures/2022020822/boxscore/body.bin",
+      "bytes": 13216,
+      "sha256": "37cd88bae12c236227d94e5cd7bc762c2d15d8666df3217f0bf2dfc6a6105c4d"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/boxscore/capture.json",
+      "fixture": "captures/2022020822/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "1753f90849b2a35ec45d9182d658ed32e77ae61bf80745b61cdea59c8b25b952"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/shifts/body.bin",
+      "fixture": "captures/2022020822/shifts/body.bin",
+      "bytes": 289353,
+      "sha256": "4b2a9d4b6c0dbb91b39042376e084a3a06d4434bbfa405642ffcaf19a2a3cecb"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/shifts/capture.json",
+      "fixture": "captures/2022020822/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "2768da81669cc5bc40ba9c7bba84f6a37026ede0575220d515f116af5b2a960b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/game-summary/body.bin",
+      "fixture": "captures/2022020822/game-summary/body.bin",
+      "bytes": 30169,
+      "sha256": "9d7e068f141a2305476032aebd7081136283898ccefa0e8a0e4f7bd5f92d294c"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/game-summary/capture.json",
+      "fixture": "captures/2022020822/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "71af3d9af7e0eae26ac73d990fbfeea5c277d7c55ce1aa0ce1308d532a5a28ff"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/play-report/body.bin",
+      "fixture": "captures/2022020822/play-report/body.bin",
+      "bytes": 1131632,
+      "sha256": "cc7bc8262d597b0085c82cb9c463706d64ff61032245aa2d97033ce537db2a03"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/play-report/capture.json",
+      "fixture": "captures/2022020822/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "976c3d854247a3d2ae786918ae118ddfcafbbb8ad2907e95f6fb69a2b7f8ef6c"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/landing/body.bin",
+      "fixture": "captures/2022020822/landing/body.bin",
+      "bytes": 7716,
+      "sha256": "c9bf6d3ba89a32498b9ce2cdaefbef038c9abd83a9d5537bc3f5ab82235c163a"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/landing/capture.json",
+      "fixture": "captures/2022020822/landing/capture.json",
+      "bytes": 659,
+      "sha256": "5d54d4a4e3507de3e63233ab560e33ceee47d94dfbd94963e097b9d38b05a895"
+    }
+  ],
+  "reused_references": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/season-summary/body.bin",
+      "fixture": "references/20222023/season-summary/body.bin",
+      "bytes": 634,
+      "sha256": "7802e4f87953cc157313a84b18929649c9d34c008d5634a841f9682044c5eea8"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/season-summary/capture.json",
+      "fixture": "references/20222023/season-summary/capture.json",
+      "bytes": 676,
+      "sha256": "0a85768ef733cd14919560184701801c035cd20456189e80f08a9431d7a46828"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/season-games/body.bin",
+      "fixture": "references/20222023/season-games/body.bin",
+      "bytes": 327491,
+      "sha256": "b362d2cf3d425789b5b465873933d70d73f7c46ae04fbcd5d4fa600132087bfc"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/season-games/capture.json",
+      "fixture": "references/20222023/season-games/capture.json",
+      "bytes": 671,
+      "sha256": "bb94f4b4c2a141aefc12ff4c7bb9522da9a414314431bfc15c88b01a7e6733cc"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/skater-bios/body.bin",
+      "fixture": "references/20222023/skater-bios/body.bin",
+      "bytes": 460392,
+      "sha256": "26cd1fc857e994af26a6352f1787b87d90df39fb96a9a3f4e2518c5260cd4331"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/skater-bios/capture.json",
+      "fixture": "references/20222023/skater-bios/capture.json",
+      "bytes": 712,
+      "sha256": "26b9e6948cbf21d761329cadde4f7c643f23d40dd07b069eefbc2f007dd54aee"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/goalie-bios/body.bin",
+      "fixture": "references/20222023/goalie-bios/body.bin",
+      "bytes": 49018,
+      "sha256": "8e93c20c01cd4261b13be5241e03e1c1f9b04095fa52e1ee45d8ff88419372fb"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20222023/goalie-bios/capture.json",
+      "fixture": "references/20222023/goalie-bios/capture.json",
+      "bytes": 711,
+      "sha256": "a7567fa5a7de24792864a46716878bbeed1b1d519f46d537d9e933b91ff118b7"
+    }
+  ],
+  "checked_facts": {
+    "source": {
+      "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20222023/games/2022020822.json",
+      "sha256": "02615b8cf18ef5a351587d282dc29d62a5013a6dd76570d925d690ec3e83d615"
+    },
+    "raw_play_by_play": {
+      "path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020822/20261011-01/play-by-play/body.bin",
+      "sha256": "2f6d19c68d8bef8390cbe05315f53d2ff49fe4f4c6fa8da96d61dad7ef158ab0"
+    },
+    "event": {
+      "game_id": "2022020822",
+      "season": "20222023",
+      "source_index": 93,
+      "event_id": 231,
+      "type": "goal",
+      "period": 2,
+      "clock": 116,
+      "shooting_team_id": 22,
+      "side": "away",
+      "membership": {
+        "away_skaters": [
+          8475169,
+          8478402,
+          8478585,
+          8480803,
+          8481598
+        ],
+        "home_skaters": [
+          8477499,
+          8477948,
+          8479322,
+          8480028,
+          8480797
+        ],
+        "away_goalies": [
+          8479973
+        ],
+        "home_goalies": [
+          8479394
+        ]
+      },
+      "classification": "five_on_five",
+      "interval_indices": [
+        174
+      ],
+      "shift_relation": "after",
+      "pre_score": {
+        "away": 0,
+        "home": 1
+      },
+      "report_source_index": 96,
+      "reconstruction_issue_indices": [],
+      "assigned_segment": null,
+      "plausible_segments": [
+        173,
+        174
+      ],
+      "cell_id": 544,
+      "reasons": [
+        "segment_assignment_unresolved"
+      ],
+      "location_reason": null,
+      "all_attempts": "excluded",
+      "unblocked_spatial": "excluded",
+      "all_attempts_collateral": false,
+      "unblocked_spatial_collateral": false
+    },
+    "adjacent_segments": [
+      {
+        "game_id": "2022020822",
+        "season": "20222023",
+        "period": 2,
+        "start": 113,
+        "end": 116,
+        "interval_indices": [
+          173
+        ],
+        "away_skaters": [
+          8475169,
+          8477498,
+          8478402,
+          8478585,
+          8481598
+        ],
+        "home_skaters": [
+          8477499,
+          8477948,
+          8479322,
+          8480028,
+          8480797
+        ],
+        "away_goalies": [
+          8479973
+        ],
+        "home_goalies": [
+          8479394
+        ],
+        "classification": "five_on_five",
+        "score": {
+          "away": 0,
+          "home": 1
+        },
+        "score_difference": 1,
+        "score_changes": [
+          {
+            "source_index": 93,
+            "period": 2,
+            "elapsed_seconds": 116,
+            "pre_score": {
+              "away": 0,
+              "home": 1
+            },
+            "post_score": {
+              "away": 1,
+              "home": 1
+            }
+          }
+        ],
+        "masks": {
+          "all_attempts": [
+            {
+              "reason": "segment_assignment_unresolved",
+              "event_source_index": 93
+            }
+          ],
+          "unblocked_spatial": [
+            {
+              "reason": "segment_assignment_unresolved",
+              "event_source_index": 93
+            }
+          ]
+        },
+        "counts": {
+          "away": {
+            "all_attempts": 0,
+            "unblocked_spatial": []
+          },
+          "home": {
+            "all_attempts": 0,
+            "unblocked_spatial": []
+          }
+        }
+      },
+      {
+        "game_id": "2022020822",
+        "season": "20222023",
+        "period": 2,
+        "start": 116,
+        "end": 129,
+        "interval_indices": [
+          174
+        ],
+        "away_skaters": [
+          8475169,
+          8478402,
+          8478585,
+          8480803,
+          8481598
+        ],
+        "home_skaters": [
+          8477499,
+          8477948,
+          8479322,
+          8480028,
+          8480797
+        ],
+        "away_goalies": [
+          8479973
+        ],
+        "home_goalies": [
+          8479394
+        ],
+        "classification": "five_on_five",
+        "score": {
+          "away": 1,
+          "home": 1
+        },
+        "score_difference": 0,
+        "score_changes": [
+          {
+            "source_index": 93,
+            "period": 2,
+            "elapsed_seconds": 116,
+            "pre_score": {
+              "away": 0,
+              "home": 1
+            },
+            "post_score": {
+              "away": 1,
+              "home": 1
+            }
+          }
+        ],
+        "masks": {
+          "all_attempts": [
+            {
+              "reason": "segment_assignment_unresolved",
+              "event_source_index": 93
+            }
+          ],
+          "unblocked_spatial": [
+            {
+              "reason": "segment_assignment_unresolved",
+              "event_source_index": 93
+            }
+          ]
+        },
+        "counts": {
+          "away": {
+            "all_attempts": 1,
+            "unblocked_spatial": [
+              [
+                609,
+                1
+              ]
+            ]
+          },
+          "home": {
+            "all_attempts": 0,
+            "unblocked_spatial": []
+          }
+        }
+      }
+    ],
+    "populations": {
+      "all_attempts": {
+        "supported_seconds": 3240,
+        "retained_seconds": 3224,
+        "excluded_seconds": 16,
+        "recognized_attempts": 98,
+        "retained_attempts": 96,
+        "excluded_attempts": 2,
+        "collateral_attempts": 1,
+        "unassigned_attempts": 1,
+        "unallocated_ownership_attempts": 0,
+        "common_population_seconds": 3224,
+        "common_population_all_attempts": 96,
+        "common_population_unblocked_attempts": 72,
+        "unresolved_membership_seconds": 0,
+        "unknown_horizon_periods": []
+      },
+      "unblocked_spatial": {
+        "supported_seconds": 3240,
+        "retained_seconds": 3224,
+        "excluded_seconds": 16,
+        "recognized_attempts": 74,
+        "retained_attempts": 72,
+        "excluded_attempts": 2,
+        "collateral_attempts": 1,
+        "unassigned_attempts": 1,
+        "unallocated_ownership_attempts": 0,
+        "common_population_seconds": 3224,
+        "common_population_all_attempts": 96,
+        "common_population_unblocked_attempts": 72,
+        "unresolved_membership_seconds": 0,
+        "unknown_horizon_periods": []
+      }
+    }
+  }
+}

@@ -19,7 +19,8 @@ from hockey_stats.captures import (
     read_reference_capture, strict_json,
 )
 from hockey_stats.chance_cli import identity, output_path
-from hockey_stats.chance_data import load_corpus, prepare_game_attempts
+from hockey_stats.chance_data import prepare_game_attempts
+from hockey_stats.corpus_inputs import load_corpus
 from hockey_stats.chance_features import (
     PREPARATION_IDENTITY, encode_stage_inputs, stage_design, validate_context,
 )

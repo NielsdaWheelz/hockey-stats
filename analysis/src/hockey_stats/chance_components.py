@@ -234,6 +234,23 @@ def read_component_fit(reference, cohort_reference, cohort, audit, *, coverage, 
     return document, component, fit
 
 
+def read_completed_component(reference: dict, *, quantity: str, purpose: str) -> tuple[dict, dict, dict]:
+    """validate a historical fit using its original bound membership and audit.
+
+    this checks saved evidence, not a new source audit or objective replay.
+    """
+    from .chance_cohort import validate_cohort_document, validate_outcome_audit_document
+
+    completion = read_json(linked_path(reference))
+    cohort = validate_cohort_document(read_json(linked_path(completion["training_cohort"])))
+    fit = read_json(linked_path(completion["fit"]))
+    audit = validate_outcome_audit_document(fit["training_cohort_audit"], cohort)
+    linked_path(completion["protocol"])
+    return read_component_fit(reference, completion["training_cohort"], cohort, audit,
+        coverage=fit["coverage"], config=completion["config"], protocol=completion["protocol"],
+        quantity=quantity, purpose=purpose)
+
+
 def objective_replay(component, prepared, cohort, *, component_reference, cohort_reference,
                      protocol, parameterization=None):
     """replay one saved objective and its gradient through the native setup.

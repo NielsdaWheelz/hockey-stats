@@ -19,9 +19,11 @@ source capture, reconstruction and feature preparation support the first product
 
 ## scientific path to v1
 
-the user approved two research tracks after 03o. [03p](specs/03p-chance-structure.md) specifies mirror pooling with its bounded numerical check; [04a](specs/04a-attribution-feasibility.md) remains an attribution/sensitivity stub with settled preferences. exact execution contracts belong to the full specs; documentation does not authorize execution.
+the user approved two research tracks after 03o. [03p](specs/03p-chance-structure.md) owns mirror pooling and its bounded numerical check; [04a](specs/04a-attribution-feasibility.md) now fully specifies attribution/sensitivity. [the plan](plan.md) owns status and assignment; documentation does not authorize execution.
 
 04a does not require chance-model admission for its recorded-rate/synthetic claims. provisional chance-weight sensitivity retains its input limitations; it cannot admit rejected models or supply published ability. supported opportunity measurement, coherent spatial player attribution and player robustness still precede real analytical release.
+
+04a separates all-attempt scalar exposure from coordinate-complete unblocked spatial exposure. its age-neutral annual linear benchmark carries correlated player uncertainty, with conditional model-based intervals. location-only unit stresses do not supply type/context/venue-specific error bounds. richer deployment adjustment and claim-specific consequence budgets remain later attribution work, informed by this benchmark rather than automatically added to it.
 
 the selected provisional comparison values only the final-season unblocked spatial effects after the count-rate fits, using existing direct/decomposed transfer models under a shared reference. this provides location-only sensitivity evidence without additional historical chance fits; it does not capture player-specific shot-type/context mix or depend on 03p results. [04a](specs/04a-attribution-feasibility.md) owns its scope and limitations.
 

@@ -213,7 +213,7 @@ def prepare_reference(prepared_path: Path | str, out: Path | str) -> ArtifactRef
                            joint="one distinct predictor tuple with event frequency and equal-event reference weight"),
         units=dict(surfaces="probability", league_baselines="provisional goals per 60 team minutes",
                    cell_type_counts="recorded common-reference events", unseen_cell_type_reference_mass="probability mass"),
-        limitations=["provisional rejected weights; no admission", "reference extrapolation is not empirical support",
+        limitations=["unadmitted fixed transfer weights; no admission", "reference extrapolation is not empirical support",
                      "fixed chance fits and reference weights; attribution uncertainty only",
                      "location valuation omits player-specific type/context mix"], resources=resources(started))
     write_json(output / "reference.json", document)

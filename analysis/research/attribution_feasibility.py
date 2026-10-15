@@ -1,4 +1,4 @@
-"""manual 04a preparation, annual fitting and fixed known-truth research exercise."""
+"""manual 04a preparation, fitting, recovery and descriptive assessment."""
 
 import argparse
 from collections import Counter
@@ -10,13 +10,17 @@ import time
 
 import numpy as np
 from scipy import sparse
+from scipy.special import expit, logit
 from scipy.stats import norm
 
-from hockey_stats.artifacts import clean_implementation, implementation, linked_path, require, resources, write_json
+from hockey_stats.artifacts import clean_implementation, implementation, linked_path, require, resources, rows, write_json
 from hockey_stats.attribution import (
-    AnnualPopulation, contrast_interval, fit_prepared_year, fit_year, negative_rate_summary, validate_model_rules,
+    AnnualPopulation, AnnualState, contrast_interval, fit_prepared_year, fit_year, negative_rate_summary, read_annual, validate_model_rules,
 )
-from hockey_stats.attribution_data import prepare_attribution
+from hockey_stats.attribution_data import POPULATIONS, prepare_attribution
+from hockey_stats.attribution_valuation import prepare_reference, read_reference, location_transport, transport_state
+from hockey_stats.chance_evaluation import REGION_NAMES, compound_regions
+from hockey_stats.shot_origins import grid
 from hockey_stats.chance_cli import identity, output_path, read_json
 
 
@@ -140,7 +144,7 @@ def meaningful_status(lower: float, upper: float) -> str:
     return "unresolved"
 
 
-def scalar_contrast(state, player_contrast: np.ndarray) -> dict:
+def scalar_contrast(state: AnnualState, player_contrast: np.ndarray) -> dict:
     """the study's meaningful band applies only to matched scalar recorded rates."""
     result = contrast_interval(state, player_contrast, np.ones(state.M.shape[1]))
     result.update(relative_mean=result["mean"] / state.r, relative_lower=result["lower"] / state.r,
@@ -375,6 +379,438 @@ def simulate(protocol: Path | str, out: Path | str) -> dict:
     return identity(output / "simulation.json")
 
 
+def _coverage_tables(prepared: dict, output: Path) -> tuple[list, dict, dict]:
+    """aggregate known losses without assigning unknown game time to players."""
+    teams, players = {}, {}
+    for game in rows(linked_path(prepared["ledgers"]["coverage"])):
+        if game["populations"] is None:
+            continue
+        for team in game["teams"]:
+            key = (team["population"], game["season"], team["team_id"])
+            record = teams.setdefault(key, dict(benchmark=key[0], season=key[1], team_id=key[2],
+                measured_games=0, score_unavailable_games=0, unknown_horizon_games=0,
+                retained_seconds=0, excluded_seconds=0, unresolved_membership_seconds=0,
+                retained_attempts=0, excluded_attempts=0))
+            record["measured_games"] += 1
+            record["score_unavailable_games"] += bool(game["score_failures"])
+            record["unknown_horizon_games"] += bool(team["unknown_horizon_periods"])
+            for name in ("retained_seconds", "excluded_seconds", "unresolved_membership_seconds",
+                         "retained_attempts", "excluded_attempts"):
+                record[name] += team[name]
+        for player in game["players"]:
+            key = (player["population"], game["season"], player["player_id"])
+            record = players.setdefault(key, dict(benchmark=key[0], season=key[1], player_id=key[2], teams=set(),
+                measured_games=0, score_unavailable_games=0, unknown_horizon_games=0, native_incomplete_games=0,
+                native_exposure_unavailable_games=0, unknown_membership_games=0, retained_seconds=0, excluded_seconds=0,
+                unresolved_membership_known_seconds=0, unassignable_team_membership_seconds=0,
+                unknown_event_membership_attempts=0, for_retained=0, against_retained=0,
+                for_excluded=0, against_excluded=0))
+            record["teams"].add(player["team_id"])
+            record["measured_games"] += 1
+            record["score_unavailable_games"] += bool(game["score_failures"])
+            record["unknown_horizon_games"] += bool(game["unknown_horizon_periods"])
+            native = player["native_exposure"]
+            record["native_exposure_unavailable_games"] += native is None
+            record["native_incomplete_games"] += native is not None and not native["complete"]
+            record["unknown_membership_games"] += player["unresolved_membership_seconds"] is None
+            record["unassignable_team_membership_seconds"] += player["unknown_membership_seconds"]
+            for name in ("retained_seconds", "excluded_seconds", "unresolved_membership_known_seconds",
+                         "unknown_event_membership_attempts", "for_retained", "against_retained",
+                         "for_excluded", "against_excluded"):
+                record[name] += player[name]
+    for record in players.values():
+        record["teams"] = sorted(record["teams"])
+        record["unresolved_membership_seconds"] = (None if record["unknown_membership_games"]
+                                                   else record["unresolved_membership_known_seconds"])
+    references = {}
+    for name, records in (("coverage_teams", teams), ("coverage_players", players)):
+        path = output / (name.replace("_", "-") + ".jsonl")
+        with path.open("x") as destination:
+            for key in sorted(records):
+                destination.write(json.dumps(records[key], allow_nan=False, separators=(",", ":")) + "\n")
+        references[name] = identity(path)
+    seasons = []
+    for annual in prepared["annual"]:
+        scalar = next(row for row in prepared["annual"] if row["population"] == "all_attempts"
+                      and row["season"] == annual["season"])
+        spatial = next(row for row in prepared["annual"] if row["population"] == "unblocked_spatial"
+                       and row["season"] == annual["season"])
+        scalar_seconds, spatial_seconds = scalar["coverage"].get("retained_seconds", 0), spatial["coverage"].get("retained_seconds", 0)
+        seasons.append(dict(benchmark=annual["population"], season=annual["season"],
+            population_status=annual["status"], population_reason=annual["reason"], **annual["coverage"],
+            common_spatial_fraction_of_scalar_seconds=spatial_seconds/scalar_seconds if scalar_seconds else None,
+            common_spatial_fraction_reason=None if scalar_seconds else "no_scalar_exposure",
+            scalar_attempts_on_spatial_exposure=spatial["coverage"].get("common_population_all_attempts", 0)))
+    return seasons, references, players
+
+
+def _assessed_contrast(state: AnnualState, c: np.ndarray, surfaces: dict | None,
+                       transported: dict, regions: dict) -> dict:
+    """one study contrast, with scalar policy and separate projection stresses."""
+    result = dict(scalar=scalar_contrast(state, c), regions=None, valuation=None, scenarios=None)
+    if state.benchmark == "all_attempts":
+        return result
+    result["regions"] = {name: contrast_interval(state, c, weights) for name, weights in regions.items()}
+    if surfaces is not None:
+        vectors = dict(surfaces, direct_minus_product=surfaces["direct"]-surfaces["product"])
+        result["valuation"] = {name: contrast_interval(state, c, weights) for name, weights in vectors.items()}
+    selected = np.flatnonzero(c)
+    base_map = state.r * c[selected] @ state.M[selected]
+    scenarios = {}
+    for direction, moved in transported.items():
+        moved_map = moved.r * c[selected] @ moved.M[selected]
+        change = dict(scalar_delta=scalar_contrast(moved, c)["mean"]-result["scalar"]["mean"],
+            map_l1_delta=float(np.abs(moved_map-base_map).sum()),
+            map_max_abs_delta=float(np.abs(moved_map-base_map).max()),
+            regions={}, valuation=None)
+        for name, weights in regions.items():
+            interval = contrast_interval(moved, c, weights)
+            interval["mean_delta"] = interval["mean"]-result["regions"][name]["mean"]
+            change["regions"][name] = interval
+        if surfaces is not None:
+            change["valuation"] = {}
+            for name, weights in vectors.items():
+                interval = contrast_interval(moved, c, weights)
+                interval.update(mean_delta=interval["mean"]-result["valuation"][name]["mean"],
+                    sign_changed=np.sign(interval["mean"]) != np.sign(result["valuation"][name]["mean"]))
+                interval["sign_changed"] = bool(interval["sign_changed"])
+                change["valuation"][name] = interval
+        scenarios["location_"+direction] = change
+    for shift, name in ((-.10, "logodds_minus_0.10"), (.10, "logodds_plus_0.10")):
+        values = None
+        if surfaces is not None:
+            shifted = {key: expit(logit(value)+shift) for key, value in surfaces.items()}
+            shifted["direct_minus_product"] = shifted["direct"]-shifted["product"]
+            values = {}
+            for key, weights in shifted.items():
+                interval = contrast_interval(state, c, weights)
+                interval.update(mean_delta=interval["mean"]-result["valuation"][key]["mean"],
+                    sign_changed=bool(np.sign(interval["mean"]) != np.sign(result["valuation"][key]["mean"])))
+                values[key] = interval
+        scenarios[name] = dict(logodds_change=shift, valuation=values)
+    result["scenarios"] = scenarios
+    return result
+
+
+def _assessment_figures(output: Path, prepared: dict, player_rows: list, pair_rows: list,
+                        selected_maps: list, reference: dict) -> dict:
+    """three static scientific figures, using only the frozen exposure-selected ids."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.collections import PolyCollection
+
+    selected = sorted({player for name in ("greatest_shared", "greatest_disjoint")
+                       for player in (prepared["pairs"][name] or [])})
+    figures = {}
+    target = prepared["target_season"][:4] + "–" + prepared["target_season"][6:]
+    figure, axes = plt.subplots(2, 2, figsize=(13, 9), layout="constrained")
+    for i, benchmark in enumerate(POPULATIONS):
+        for j, role in enumerate(("offense", "suppression")):
+            axis = axes[i, j]
+            candidates = []
+            for player in selected:
+                matches = [row for row in player_rows if row["benchmark"] == benchmark and row["role"] == role
+                           and row["player_id"] == player]
+                candidates.append(matches[0] if matches else dict(player_id=player, exposure_seconds=0,
+                    status="unavailable", reason="player_not_currently_observed", scalar=None))
+            candidates += [row for row in pair_rows if row["benchmark"] == benchmark and row["role"] == role]
+            labels = []
+            for index, row in enumerate(candidates):
+                label = (f"{row['player_id']}  ({row['exposure_seconds']/3600:.1f} h)" if "player_id" in row
+                         else (row["pair"].replace("greatest_", "") + f": {row['players'][0]} - {row['players'][1]}" if row["players"] is not None else "unavailable pair"))
+                labels.append(label)
+                if row["status"] == "available":
+                    value = row["scalar"]
+                    axis.errorbar(value["relative_mean"], index,
+                        xerr=[[value["relative_mean"]-value["relative_lower"]],
+                              [value["relative_upper"]-value["relative_mean"]]],
+                        fmt="o", color="#1d5367", capsize=3, markersize=4)
+                else:
+                    axis.text(0, index, "unavailable", va="center", fontsize=8)
+            axis.axvspan(-.05, .05, color="#dfe8e8", zorder=-1)
+            axis.axvline(0, color="0.5", linewidth=.7)
+            axis.set(yticks=range(len(labels)), yticklabels=labels,
+                     title=benchmark.replace("_", " ") + " / " + role,
+                     xlabel="effect / relevant league team rate; meaningful band ±0.05")
+            axis.invert_yaxis()
+            axis.grid(axis="x", alpha=.15)
+            rate = next(row["r"] for row in prepared["annual"] if row["population"] == benchmark
+                        and row["season"] == prepared["target_season"])
+            if rate is not None:
+                secondary = axis.secondary_xaxis("top", functions=(lambda x, r=rate: x*r, lambda x, r=rate: x/r))
+                secondary.set_xlabel("attempts/60 effect")
+    figure.suptitle(f"{target} 5v5: exposure-selected recorded-rate associations\npointwise 95% working intervals; not ability or causal effects")
+    path = output / "scalar-contrasts.png"
+    figure.savefig(path, dpi=180, bbox_inches="tight", pad_inches=.15)
+    plt.close(figure)
+    figures["scalar_contrasts"] = identity(path)
+
+    figure, axes = plt.subplots(max(len(selected), 1), 2, figsize=(12, max(len(selected), 1)*2.8+1),
+                                squeeze=False, layout="constrained")
+    centers, _ = grid()
+    corners = np.array([[-2.5, -2.5], [2.5, -2.5], [2.5, 2.5], [-2.5, 2.5]])
+    polygons = centers[:, None, :] + corners
+    magnitude = max((float(np.abs(row["map"]).max()) for row in selected_maps), default=0) or 1
+    collection = None
+    for i, player in enumerate(selected or [None]):
+        for j, role in enumerate(("offense", "suppression")):
+            axis = axes[i, j]
+            matches = [row for row in selected_maps if row["player_id"] == player and row["role"] == role]
+            if matches:
+                row = matches[0]
+                collection = PolyCollection(polygons, array=row["map"], cmap="RdBu_r", clim=(-magnitude, magnitude), linewidth=0)
+                axis.add_collection(collection)
+                scalar = row["scalar"]
+                axis.set_title(f"{player} / {role}; sum {scalar['mean']:.2f} [{scalar['lower']:.2f}, {scalar['upper']:.2f}] attempts/60", fontsize=9)
+            else:
+                axis.text(0, 0, f"{player}: unavailable", ha="center")
+            axis.plot([89], [0], marker="+", color="black", markersize=5)
+            axis.set(xlim=(-100, 100), ylim=(-42.5, 42.5), xlabel="attacking x (feet)", ylabel="y (feet)", aspect="equal")
+    if collection is not None:
+        figure.colorbar(collection, ax=axes.ravel().tolist(), label="centered effect: attempts/60 in each native cell", shrink=.8)
+    figure.suptitle(f"{target} 5v5: recorded unblocked associations on coordinate-complete exposure\ncommon axes/scales; not observed shot density; conditional scalar intervals")
+    path = output / "maps.png"
+    figure.savefig(path, dpi=180, bbox_inches="tight", pad_inches=.15)
+    plt.close(figure)
+    figures["maps"] = identity(path)
+
+    figure, axes = plt.subplots(1, 2, figsize=(11, 5.8), layout="constrained")
+    for axis, role in zip(axes, ("offense", "suppression"), strict=True):
+        candidates = [row for row in player_rows if row["benchmark"] == "unblocked_spatial"
+                      and row["role"] == role and row["status"] == "available" and row["valuation"] is not None]
+        if candidates:
+            direct = np.array([row["valuation"]["direct"]["mean"] for row in candidates])
+            product = np.array([row["valuation"]["product"]["mean"] for row in candidates])
+            axis.scatter(direct, product, s=13, alpha=.55, color="#1d5367")
+            low, high = min(float(direct.min()), float(product.min()), 0), max(float(direct.max()), float(product.max()), 0)
+            margin = (high-low)*.06 or .01
+            axis.plot([low-margin, high+margin], [low-margin, high+margin], color="0.4", linewidth=1)
+            axis.set(xlim=(low-margin, high+margin), ylim=(low-margin, high+margin))
+        else:
+            axis.text(.5, .5, "valuation unavailable: " + str(reference["reason"]), transform=axis.transAxes, ha="center", wrap=True)
+        axis.set(title=role, xlabel="direct: provisional goals/60 effect", ylabel="product: provisional goals/60 effect", aspect="equal")
+        axis.grid(alpha=.15)
+    figure.suptitle(f"{target} 5v5: same maps, two unadmitted provisional valuations\nall current spatial players; equality line; disagreement is not error against truth")
+    path = output / "valuation.png"
+    figure.savefig(path, dpi=180, bbox_inches="tight", pad_inches=.15)
+    plt.close(figure)
+    figures["valuation"] = identity(path)
+    return figures
+
+
+def assess(prepared: Path | str, chains: Path | str, simulation: Path | str, out: Path | str) -> dict:
+    """project completed evidence; no fitting and no automatic scientific verdict."""
+    started = time.monotonic()
+    prepared_path, chains_path, simulation_path = (Path(value).resolve(strict=True) for value in (prepared, chains, simulation))
+    document, chain_document, simulation_document = map(read_json, (prepared_path, chains_path, simulation_path))
+    require(type(document["schema_version"]) is int and document["schema_version"] == 1
+            and document["kind"] == "attribution_prepared", "assessment requires prepared attribution evidence")
+    prepared_reference = identity(prepared_path)
+    protocol = read_json(linked_path(document["protocol"]))
+    validate_model_rules(protocol)
+    require(type(chain_document["schema_version"]) is int and chain_document["schema_version"] == 1
+            and chain_document["kind"] == "attribution_chains" and chain_document["purpose"] == document["purpose"]
+            and chain_document["protocol"] == document["protocol"] and chain_document["prepared"] == prepared_reference,
+            "assessment chain identity differs from preparation")
+    require(type(simulation_document["schema_version"]) is int and simulation_document["schema_version"] == 1
+            and simulation_document["kind"] == "attribution_simulation"
+            and simulation_document["purpose"] == document["purpose"] and simulation_document["protocol"] == document["protocol"],
+            "assessment simulation identity differs from preparation")
+    expected = dict(location_feet=5, goal_coordinate=[89, 0], directions=["toward", "away"],
+        nearest_center="first_argmin_native_order", transport="A[dest,source]", keep_valuation_fixed=True,
+        probability_logodds_changes=[-.10, .10], valuation_comparison=["direct", "product"], crossed_scenarios=False,
+        meaningful_relative_difference=.05, interval="pointwise_95_percent_gaussian_working_posterior",
+        reference="equal_weight_common_final_season_spatial_and_native_core_eligible_events_all_three_actors",
+        exposure_summary=dict(quantiles=[.25, .5, .75], method="linear", population="all_current_observed_players",
+                              selection="exposure_only; no minutes exclusion"))
+    require(all(protocol["scenarios"].get(key) == value for key, value in expected.items()),
+            "frozen assessment scenarios differ from implementation")
+    current_implementation = implementation()
+    if document["purpose"] == "research":
+        clean_implementation(current_implementation)
+        require(current_implementation == protocol["implementation"]
+                and simulation_document["implementation"] == protocol["implementation"]
+                and document["implementation"] == protocol["implementation"],
+                "assessment/source implementation differs from frozen protocol")
+    ordered = [(population, season) for population in POPULATIONS for season in document["seasons"]]
+    require([(row["benchmark"], row["season"]) for row in chain_document["annual"]] == ordered,
+            "assessment requires every population/season in chronological chain order")
+    annual_statuses, final_states = [], {}
+    for population in POPULATIONS:
+        previous, unavailable = None, False
+        for season in document["seasons"]:
+            entry = next(row for row in chain_document["annual"] if row["benchmark"] == population and row["season"] == season)
+            annual = next(row for row in document["annual"] if row["population"] == population and row["season"] == season)
+            reason = "population_unavailable" if annual["status"] == "unavailable" else "preceding_population_unavailable" if unavailable else None
+            require(entry["reason"] == reason and (entry["reference"] is None) == (reason is not None),
+                    "chain missingness is not explained by scientifically unavailable preparation")
+            status = dict(benchmark=population, season=season, reference=entry["reference"], reason=reason,
+                          population_status=annual["status"], fit_status="unavailable" if reason else "completed")
+            if reason is not None:
+                unavailable = True
+            else:
+                path = linked_path(entry["reference"])
+                fitted = read_json(path)
+                require(fitted["prepared"] == prepared_reference and fitted["previous"] == previous
+                        and fitted["benchmark"] == population and fitted["season"] == season
+                        and fitted["purpose"] == document["purpose"]
+                        and (document["purpose"] != "research" or fitted["implementation"] == protocol["implementation"]),
+                        "completed annual artifact differs from the declared chain")
+                state = read_annual(path)
+                status.update(current_players=len(state.current_player_ids), carried_players=len(state.carried_only_ids),
+                    entrants=len(state.entrant_ids), r=state.r, a=state.a, q=state.q,
+                    scale_status=state.scale["status"], diagnostics=state.diagnostics)
+                previous = entry["reference"]
+                if season == document["target_season"]:
+                    final_states[population] = state
+            annual_statuses.append(status)
+    recovery_path = linked_path(simulation_document["recovery"])
+    linked_path(simulation_document["annual_diagnostics"])
+    linked_path(simulation_document["design"])
+    output = output_path(str(out), [str(path.parent) for path in (prepared_path, chains_path, simulation_path)])
+    require(output.is_relative_to(Path(protocol["output_root"]).resolve()), "assessment differs from frozen output root")
+    if document["purpose"] == "research":
+        require(output.is_relative_to(Path("/Volumes/Expansion/hockey-stats")), "research assessment must remain external")
+    output.mkdir()
+    reference = prepare_reference(prepared_path, output / "reference")
+    reference_document, surfaces = read_reference(reference["path"])
+    coverage, tables, player_coverage = _coverage_tables(document, output)
+    transports, transport_details = {}, {}
+    spatial = final_states.get("unblocked_spatial")
+    spatial_population = next(row for row in document["annual"] if row["population"] == "unblocked_spatial"
+                              and row["season"] == document["target_season"])
+    density = None
+    if surfaces is not None:
+        with np.load(linked_path(spatial_population["arrays"]), allow_pickle=False) as arrays:
+            counts = arrays["response_counts"]
+        density = spatial_population["r"] * counts / counts.sum()
+    scenario_baselines = dict(base=dict(values=reference_document["league_baselines"], reason=reference_document["reason"]))
+    for direction in ("toward", "away"):
+        matrix, details = location_transport(direction)
+        transport_details[direction] = details
+        if spatial is not None:
+            transports[direction] = transport_state(spatial, matrix)
+        values = {name: float((matrix @ density) @ surface) for name, surface in surfaces.items()} if surfaces is not None else None
+        scenario_baselines["location_"+direction] = dict(values=values, reason=reference_document["reason"])
+    for shift, name in ((-.10, "logodds_minus_0.10"), (.10, "logodds_plus_0.10")):
+        values = {key: float(density @ expit(logit(surface)+shift)) for key, surface in surfaces.items()} if surfaces is not None else None
+        scenario_baselines[name] = dict(values=values, reason=reference_document["reason"])
+    cell_regions = compound_regions(grid()[0])
+    regions = {name: (cell_regions == index).astype(float) for index, name in enumerate(REGION_NAMES)}
+    player_rows, pair_rows, selected_maps = [], [], []
+    selected = {player for name in ("greatest_shared", "greatest_disjoint") for player in (document["pairs"][name] or [])}
+    for population in POPULATIONS:
+        annual = next(row for row in document["annual"] if row["population"] == population and row["season"] == document["target_season"])
+        state = final_states.get(population)
+        positions = {player: index for index, player in enumerate(state.player_ids)} if state is not None else {}
+        for player in annual["players"]:
+            observed = player_coverage[(population, annual["season"], player)]
+            for role, sign in (("offense", 1), ("suppression", -1)):
+                row = dict(benchmark=population, season=annual["season"], player_id=player, role=role,
+                    exposure_seconds=observed["retained_seconds"],
+                    observed_counts=dict(for_=observed["for_retained"], against=observed["against_retained"]),
+                    status="available" if state is not None else "unavailable",
+                    reason=None if state is not None else "annual_chain_unavailable", scalar=None, regions=None,
+                    valuation=None, valuation_reason=reference_document["reason"] if population == "unblocked_spatial" else "not_spatial",
+                    scenarios=None)
+                if state is not None:
+                    c = np.zeros(len(state.M))
+                    c[positions[player] + (0 if role == "offense" else len(positions))] = sign
+                    row.update(_assessed_contrast(state, c, surfaces, transports, regions))
+                    if population == "unblocked_spatial" and player in selected:
+                        index = positions[player] + (0 if role == "offense" else len(positions))
+                        selected_maps.append(dict(player_id=player, role=role, map=sign*state.r*state.M[index], scalar=row["scalar"]))
+                player_rows.append(row)
+        for name in ("greatest_shared", "greatest_disjoint"):
+            pair = document["pairs"][name]
+            reason = ("pair_unavailable" if pair is None else "annual_chain_unavailable" if state is None
+                      else "pair_player_not_currently_observed" if not set(pair) <= set(state.current_player_ids) else None)
+            for role, sign in (("offense", 1), ("suppression", -1)):
+                row = dict(benchmark=population, season=annual["season"], pair=name, players=pair, role=role,
+                    status="available" if reason is None else "unavailable", reason=reason,
+                    scalar=None, regions=None, valuation=None,
+                    valuation_reason=reference_document["reason"] if population == "unblocked_spatial" else "not_spatial", scenarios=None)
+                if reason is None:
+                    c = np.zeros(len(state.M))
+                    offset = 0 if role == "offense" else len(positions)
+                    c[offset+positions[pair[0]]], c[offset+positions[pair[1]]] = sign, -sign
+                    row.update(_assessed_contrast(state, c, surfaces, transports, regions))
+                pair_rows.append(row)
+    for name, records in (("players", player_rows), ("pairs", pair_rows)):
+        path = output / (name + ".jsonl")
+        with path.open("x") as destination:
+            for row in records:
+                destination.write(json.dumps(row, allow_nan=False, separators=(",", ":")) + "\n")
+        tables[name] = identity(path)
+    map_path = output / "selected-maps.npz"
+    maps = np.stack([row["map"] for row in selected_maps]) if selected_maps else np.empty((0, 656))
+    with map_path.open("xb") as destination:
+        np.savez(destination, maps=maps)
+    exposure_summary = []
+    for population in POPULATIONS:
+        for role in ("offense", "suppression"):
+            candidates = [row for row in player_rows if row["benchmark"] == population and row["role"] == role]
+            cutpoints = np.quantile([row["exposure_seconds"] for row in candidates], [.25, .5, .75], method="linear") if candidates else np.array([])
+            groups = []
+            for index in range(4):
+                members = [row for row in candidates if np.searchsorted(cutpoints, row["exposure_seconds"], side="right") == index]
+                available = [row for row in members if row["status"] == "available"]
+                widths = [row["scalar"]["relative_upper"]-row["scalar"]["relative_lower"] for row in available]
+                groups.append(dict(quartile=index+1, players=len(members), available=len(available),
+                    statuses=dict(Counter(row["scalar"]["status"] for row in available)),
+                    median_relative_width=float(np.median(widths)) if widths else None,
+                    minimum_seconds=min((row["exposure_seconds"] for row in members), default=None),
+                    maximum_seconds=max((row["exposure_seconds"] for row in members), default=None)))
+            exposure_summary.append(dict(benchmark=population, role=role, cutpoints_seconds=cutpoints.tolist(), groups=groups))
+    recovery = list(rows(recovery_path))
+    recovery_summary = []
+    for case in ("mixed", "paired", "count_stress"):
+        for population in POPULATIONS:
+            for year in range(1, 6):
+                available = [row for row in recovery if row["case"] == case and row["benchmark"] == population
+                             and row["year"] == year and row["response"] == "scalar" and row["n"]]
+                recovery_summary.append(dict(case=case, benchmark=population, year=year,
+                    available_named_contrasts=len(available),
+                    pointwise_coverage_rate_range=[min(row["coverage"]["rate"] for row in available),
+                        max(row["coverage"]["rate"] for row in available)] if available else None,
+                    median_relative_interval_width=float(np.median([row["mean_relative_width"] for row in available])) if available else None,
+                    interpretation="descriptive across contrasts; each named row retains its own replicate denominator and wilson interval"))
+    figures = _assessment_figures(output, document, player_rows, pair_rows, selected_maps, reference_document)
+    result = dict(schema_version=1, kind="attribution_assessment", purpose=document["purpose"],
+        implementation=current_implementation, protocol=document["protocol"], prepared=prepared_reference,
+        chains=identity(chains_path), simulation=identity(simulation_path), reference=reference,
+        annual=annual_statuses, coverage=coverage, game_coverage=document["ledgers"]["coverage"],
+        pairs=document["pairs"], tables=tables, exposure_summary=exposure_summary,
+        selected_maps=dict(reference=identity(map_path), shapes=dict(maps=list(maps.shape)),
+            order=[dict(player_id=row["player_id"], role=row["role"]) for row in selected_maps]),
+        recovery=dict(reference=simulation_document["recovery"], summaries=recovery_summary,
+                      scale_statuses=simulation_document["scale_statuses"]),
+        scenarios=dict(location=transport_details, probability_logodds_changes=[-.10, .10],
+                       league_baselines=scenario_baselines,
+                       crossed=False, interval_meaning="conditional intervals; scenario changes are separate unit stresses"),
+        figures=figures, league_baselines=reference_document["league_baselines"],
+        row_contracts=dict(players="final-season current observed player/role in population then stable-id order; recorded counts and fitted effects are separate",
+            pairs="frozen pair/population/role; first id minus second, unavailable is null plus reason",
+            coverage_teams="population/season/team; measured known losses, with unknown horizons counted separately",
+            coverage_players="population/season/player across teams; unknown membership loss stays null, known partial loss remains separate"),
+        units=dict(effects="attempts per 60; suppression is negative defense exactly once",
+            relative_effects="share of the population annual league team rate", valuation="provisional goals per 60 effects",
+            league_baselines="provisional goals per 60 team minutes",
+            maps="centered recorded unblocked associations per native cell; not observed density",
+            counts="recorded admitted on-ice attempts", exposure="known admitted seconds; unknown excluded duration is not zero"),
+        limitations=["research-only recorded-rate associations, not published ability or causal effects",
+            "selective coordinate-complete spatial exposure; no missing-at-random claim",
+            "pointwise gaussian working intervals condition on references, response shape and fitted scales",
+            "age-neutral borrowing, omitted deployment, unsmoothed cells and separable uncertainty",
+            "negative fitted rates are retained; bound/refinement failures remain visible",
+            "unadmitted provisional weights; chance/reference uncertainty and player type/context-mix credit omitted",
+            "unit stresses are not truth-error bounds; consequence budgets remain open"],
+        admission="not_admitted", handoff=None, resources=resources(started))
+    write_json(output / "assessment.json", result)
+    return identity(output / "assessment.json")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="manual research-only attribution commands", allow_abbrev=False)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -388,13 +824,18 @@ def main() -> int:
     simulation = commands.add_parser("simulate", allow_abbrev=False)
     for name in ("protocol", "out"):
         simulation.add_argument("--" + name, required=True)
+    assessment = commands.add_parser("assess", allow_abbrev=False)
+    for name in ("prepared", "chains", "simulation", "out"):
+        assessment.add_argument("--" + name, required=True)
     args = parser.parse_args()
     if args.command == "prepare":
         result = prepare_attribution(args.selection, args.protocol, args.out)
     elif args.command == "fit-year":
         result = fit_prepared_year(args.prepared, args.benchmark, args.season, args.previous, args.out)
-    else:
+    elif args.command == "simulate":
         result = simulate(args.protocol, args.out)
+    else:
+        result = assess(args.prepared, args.chains, args.simulation, args.out)
     print(json.dumps(result, allow_nan=False))
     return 0
 

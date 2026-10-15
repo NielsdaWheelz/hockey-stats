@@ -1,6 +1,6 @@
 # player-consequence budgets
 
-status: open; owner: 04a attribution feasibility, with 03p owning its prospective structural comparison.
+status: open; owner: prospective player-attribution claims and robustness. completed 04a supplies conditional propagation evidence; 03p owns its historical structural comparison.
 
 problem: existing calibration tolerances do not bound error in player effects, and 03o's representation rule values predictive superiority without a practical allowance for useful components.
 
@@ -14,4 +14,6 @@ the user separately selected [03p's 99% predictive-gain retention policy](../spe
 
 04a now includes a provisional post-fit comparison of final-season unblocked spatial effects under the existing direct/decomposed transfer models and a common reference. historical attribution stays in count-rate units; no historical chance refits are implied. this gives location-only sensitivity evidence. disagreement between these unadmitted models cannot bound error against truth or, by itself, close this issue.
 
-resolution: assess 04a's declared recovery and propagation, then justify claim-specific error magnitudes/margins prospectively. its location-only response cannot reconstruct type/context/venue-specific effects; richer source-stratum sensitivity requires an explicit later response/population contract. unit stresses, two unadmitted valuations or narrow working-model intervals cannot alone close this issue. preserve historical failures and research exposure; choose no margin to rescue them. 03p's completed structural nomination does not resolve player-consequence accuracy.
+completed evidence: [04a](../research/attribution-04a/decision.md) reconciles its corrected recovery and propagation. direct/product valuations are close under the common reference, while nominal five-foot location transport changes provisional magnitudes and some conditional zero-exclusion conclusions. most scalar player effects and all eight fixed-pair contrasts remain unresolved. synthetic recovery and negative native predictions limit stronger claims. neither the 5% meaningful band nor these observed stress magnitudes justify an accuracy budget.
+
+resolution: justify claim-specific error magnitudes/margins prospectively. 04a's location-only response cannot reconstruct type/context/venue-specific effects; richer source-stratum sensitivity requires an explicit later response/population contract. unit stresses, two unadmitted valuations or narrow working-model intervals cannot alone close this issue. preserve historical failures and research exposure; choose no margin to rescue them. 03p's completed structural nomination does not resolve player-consequence accuracy.

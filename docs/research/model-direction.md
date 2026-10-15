@@ -38,6 +38,16 @@ the user also selected a final-season-only comparison using existing direct/deco
 
 blocked contact coordinates cannot become release maps. recorded-rate associations cannot be labeled supported chance-creation ability. neither synthetic recovery nor stable downstream rankings validates physical origins. 04's supported valuation/attribution requirements and the [origin evidence](../issues/shot-location-evidence.md) remain.
 
+## 04a's implication for player claims
+
+[04a's corrected evidence](attribution-04a/decision.md) separates computational feasibility from supported player claims. matched source populations, full annual covariance and common-reference projection are feasible on one machine. their independent posterior equations pass after repairing a dependency's triangular-factor defect; the original numerical execution remains invalidated. this establishes implementation correctness, not model adequacy.
+
+under the selected meaningful band, most current-player recorded-rate associations and all eight frozen pair contrasts remain unresolved. synthetic recovery exposes weak spatial and entrant coverage and an unidentified paired difference; native complete predictions can be negative. scalar-selected shrinkage and four-cell recovery do not certify native spatial shape. the working gaussian model's signed associations cannot silently become nonnegative event intensities or calibrated ability claims.
+
+the direct/product valuation comparison is close under its common reference, while nominal location transport moves provisional magnitudes and some conditional zero-exclusion conclusions. transport preserves scalar totals by construction. neither that invariant, agreement between unadmitted weights nor these unit stresses bounds error against truth. consequence budgets remain open.
+
+the justified next question is recorded-rate model adequacy and uncertainty together: specify intended claims and prospective criteria for native-grid mean behavior, contrast recovery, annual transitions, paired null directions and game dependence before choosing alternatives. the evidence does not isolate one corrective parameter or justify retrospective variance inflation. [the plan](../plan.md) owns assignment; this scientific recommendation authorizes no new experiment. chance admission, source/deployment robustness and publication remain distinct requirements.
+
 ## software and verification judgment
 
 the existing effect-capture/python-analysis boundary is appropriate. mature shared fitting/prediction, artifact validation and paired-evaluation mechanisms should live in package modules when next needed; study-specific selections, criteria and figures stay with the study. the current import chain through older research commands is an ownership problem, not a reason to build a framework or migrate every historical study.
@@ -69,6 +79,6 @@ the september 2026 [preview](https://hockeyviz.com/txt/preview2627), rechecked 2
 | venue/type measurement portability | do patterns follow participants or recording context? confounding remains; evidence before correction |
 | fixture publication/profile | can users inspect coherent values, maps and evidence? useful independent design feedback; no real analytical release |
 
-three independent reviews agreed on truthful evidence, bounded numerics, retained capabilities and testing the actual player question. they differed on the next model emphasis: pooling, temporal structure or additional context. the subsequent interview selected mirror pooling with 99% predictive-gain retention for 03p and five-season age-neutral borrowing with a meaningful 5% recorded-rate contrast for 04a. 03p now specifies its comparison and bounded numerical rules; 04a's full technical contract remains open. no automatic sequence of alternatives is assigned.
+three independent reviews agreed on truthful evidence, bounded numerics, retained capabilities and testing the actual player question. they differed on the next model emphasis: pooling, temporal structure or additional context. the subsequent interview selected mirror pooling with 99% predictive-gain retention for 03p and five-season age-neutral borrowing with a meaningful 5% recorded-rate contrast for 04a. their frozen specifications and evidence preserve those decisions. no automatic sequence of alternatives is assigned.
 
 tradeoffs: parallel research exposes player consequences earlier but adds provisional outputs and some coordination. interpretable components may earn a bounded predictive cost, not exemption from validity. shared-helper extraction and lasting checks cost limited maintenance. native local commands, external-only fits/manual reruns, bounded local evidence, sqlite publication and effect application behavior remain sufficient.

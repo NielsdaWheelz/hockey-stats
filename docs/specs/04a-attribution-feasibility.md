@@ -1,6 +1,6 @@
 # pr04a — attribution feasibility and player-consequence sensitivity
 
-status: **fully specified; implementation and execution require assignment.** [plan](../plan.md) owns progression. this is research-only attribution, independent of chance admission. [04](04-player-attribution.md) retains supported chance-valued player outputs; no admission, publication or player-card handoff follows here.
+status: **completed; research only, not admitted.** [decision](../research/attribution-04a/decision.md), [result](../research/attribution-04a/result.json) and [verification](../research/attribution-04a/verification.md) retain the corrected execution and reviews. the assigned specification survives unchanged in the frozen external snapshot. [plan](../plan.md) owns progression. [04](04-player-attribution.md) retains supported chance-valued player outputs; no admission, publication or player-card handoff follows here.
 
 ## question and boundary
 

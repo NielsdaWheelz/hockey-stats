@@ -241,8 +241,11 @@ def contrast(state: AnnualState, player_contrast: np.ndarray,
     c, v = np.asarray(player_contrast, dtype=float), np.asarray(response_weights, dtype=float)
     require(c.shape == (len(state.M),) and v.shape == (state.M.shape[1],)
             and np.isfinite(c).all() and np.isfinite(v).all(), "invalid attribution contrast dimensions")
-    mean = float(state.r * c @ state.M @ v)
-    variance = float(state.r**2 * (c @ state.V @ c) * (v @ state.S @ v))
+    selected = np.flatnonzero(c)
+    coefficients = c[selected]
+    mean = float(state.r * coefficients @ state.M[selected] @ v)
+    row_variance = float(coefficients @ state.V[np.ix_(selected, selected)] @ coefficients)
+    variance = float(state.r**2 * row_variance * (v @ state.S @ v))
     tolerance = state.diagnostics["covariance_rounding_tolerance"] * state.r**2 * float(c @ c) * float(v @ v)
     require(math.isfinite(mean) and math.isfinite(variance) and variance >= -tolerance,
             "invalid attribution contrast variance")

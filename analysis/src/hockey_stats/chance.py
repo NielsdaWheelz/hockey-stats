@@ -95,20 +95,24 @@ def _season(value):
     return year
 
 
-def _validate_attempt(row, centers, *, geometry=True):
+def _validate_predictors(row):
     if (
         not isinstance(row, dict)
         or row.get("model_shot_type") not in TYPES
         or row.get("role") not in ROLES
     ):
-        raise InputContractError("attempt requires supported model type and role")
+        raise InputContractError("prediction requires supported model type and role")
     _season(row.get("season"))
     validate_context(row.get("context"))
     if any(
         type(row.get(key)) is not int or row[key] <= 0
         for key in ("shooter_id", "goalie_id")
     ):
-        raise InputContractError("attempt requires actor identities")
+        raise InputContractError("prediction requires actor identities")
+
+
+def _validate_attempt(row, centers, *, geometry=True):
+    _validate_predictors(row)
     if (
         type(row.get("blocked")) is not bool
         or type(row.get("goal")) is not bool
@@ -332,12 +336,12 @@ def compile_component_design(attempts, config, *, quantity, seasons=None):
     return _layout(rows, seasons, len(grid()[0]), kind, config=config)["design"]
 
 
-def _encode(rows, layout, cells, *, feature_games, feature_player_games):
+def _encode_predictors(rows, layout, cells, *, feature_games, feature_player_games):
     encoded = [
         encode_stage_inputs(
             r, layout["design"],
-            game_facts=feature_games.get(r["game_id"], {}),
-            player_game_facts=feature_player_games.get(r["game_id"], {}),
+            game_facts=feature_games.get(r.get("game_id"), {}),
+            player_game_facts=feature_player_games.get(r.get("game_id"), {}),
         )
         for r in rows
     ]
@@ -349,7 +353,6 @@ def _encode(rows, layout, cells, *, feature_games, feature_player_games):
         role=np.array([ROLES.index(r["role"]) for r in rows]),
         season=np.array([layout["seasons"].index(r["season"]) for r in rows]),
         scalar=scalar,
-        goal=np.array([r["goal"] for r in rows], dtype=np.float64),
     )
     if layout["design"]["stage"] != "origin":
         for actor in ("shooter", "goalie"):
@@ -358,6 +361,13 @@ def _encode(rows, layout, cells, *, feature_games, feature_player_games):
     if encoded and encoded[0][1]:
         for key in encoded[0][1]:
             data[key] = np.array([inputs[key] for _, inputs in encoded], dtype=np.float64)
+    return data
+
+
+def _encode(rows, layout, cells, *, feature_games, feature_player_games):
+    data = _encode_predictors(rows, layout, cells, feature_games=feature_games,
+                              feature_player_games=feature_player_games)
+    data["goal"] = np.array([row["goal"] for row in rows], dtype=np.float64)
     return data
 
 
@@ -2304,6 +2314,31 @@ def component_prediction_basis(component, attempt):
     )
 
 
+def component_reference_logits(component: dict, predictors: list[dict],
+                               cell_ids: np.ndarray, context: dict) -> np.ndarray:
+    """cross predictor tuples with native cells, retaining native annual states.
+
+    predictors require type, role, season, actors and selected feature inputs;
+    outcomes, source eligibility and observed coordinates have no role here.
+    """
+    if context["source_component"] is not component or context["role"] != "primary":
+        raise InputContractError("reference context belongs to another component or role")
+    if component_kind(component["quantity"]) != "r":
+        raise InputContractError("cell reference requires a native spatial component")
+    cells = np.asarray(cell_ids)
+    if (cells.ndim != 1 or cells.dtype.kind not in ("i", "u")
+            or (cells < 0).any() or (cells >= len(context["centers"])).any()):
+        raise InputContractError("invalid requested reference cells")
+    rows = []
+    for row in predictors:
+        _validate_predictors(row)
+        _, state = _season_state(component, row)
+        rows.append(dict(row, season=state))
+    data = _encode_predictors(rows, component["layout"], np.zeros(len(rows), dtype=np.int64),
+        feature_games=context["feature_games"], feature_player_games=context["feature_player_games"])
+    return _stage_logits(context["coefficients"], component["layout"], data, cells[None, :])
+
+
 def predict_component(component, attempt, context=None):
     if context is None:
         raise InputContractError("component prediction requires an explicit prepared context")
@@ -2388,7 +2423,7 @@ def prediction_context(model, *, feature_games, feature_player_games, conversion
 
 def _prediction_data(attempt, layout, h, state, context):
     row = dict(attempt, season=state)
-    return _encode(
+    return _encode_predictors(
         [row], layout, [h], feature_games=context["feature_games"],
         feature_player_games=context["feature_player_games"],
     )

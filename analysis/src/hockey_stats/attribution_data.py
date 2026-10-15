@@ -546,7 +546,7 @@ def prepare_attribution(selection: Path | str, protocol: Path | str, out: Path |
                  "rows": [dict(population=population, season=season, reference=identity(path))
                           for (population, season), path in row_paths.items()]},
         row_contracts=dict(segments="one positive native/coalesced physical segment, source interval links, masks and sparse pre-mask counts",
-                          events="one recognized recorded attempt keyed by game_id/source_index; assignment and population dispositions",
+                          events="one recognized recorded attempt keyed by game_id/source_index; contiguous season/game groups in corpus order, native source order within each game; assignment and population dispositions",
                           coverage="one inventory game with native horizons and population/team/player count and time losses",
                           rows="one admitted attacking direction keyed by game_id/period/start/end/attacking_team per population"),
         array_contract="H=Xr'WXr; T=Xr'WY; yy=matched scalar yr'Wyr; xbar/ybar=context means; stratum_weight=e*r",

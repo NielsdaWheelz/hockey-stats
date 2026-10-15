@@ -4,11 +4,11 @@ this page owns current status, assignment and sequencing. the [brief](brief.md) 
 
 ## current boundary
 
-01–03o are reviewed and merged; 03o merged in `0f863ec`. no model has been admitted and the website is unbuilt. software completion is separate from scientific support. 03b remains rejected, 03e/03h withheld, and [03o](research/chance-03o/decision.md) records `decomposed_direction,no_supported_representation,null,not_admitted`; all six primary intervals cross zero.
+01–03p are reviewed and merged; 03o merged in `0f863ec`, and 03p in `c0efc7d` through [pr #20](https://github.com/NielsdaWheelz/hockey-stats/pull/20). no model has been admitted and the website is unbuilt. software completion is separate from scientific support. 03b remains rejected, 03e/03h withheld, and [03o](research/chance-03o/decision.md) records `decomposed_direction,no_supported_representation,null,not_admitted`; all six primary intervals cross zero.
 
 on 2026-10-14 the user approved two research tracks: **attribution feasibility and consequence-based sensitivity, alongside one structural chance-model experiment with its numerical check included**. the user subsequently assigned the entire [03p](specs/03p-chance-structure.md) implementation and bounded execution, with adversarial review and temporary red/green/refactor verification, on branch `work/03p-chance-mirror`. 04a remains an unassigned stub with settled preferences. no acquisition, model adoption or publication is assigned.
 
-03p is complete on that branch: [its decision](research/chance-03p/decision.md) is `within_budget,nominate_mirror,mirror_y,not_admitted`. four controls replay exactly, all four mirror fits succeed, both assessments reconcile and all eight capped probes pass the specified stability rule. this developmental structure nomination leaves calibration, all-attempt/player claims and historical verdicts unchanged. no subsequent implementation is assigned.
+03p is complete and merged: [its decision](research/chance-03p/decision.md) is `within_budget,nominate_mirror,mirror_y,not_admitted`. four controls replay exactly, all four mirror fits succeed, both assessments reconcile and all eight capped probes pass the specified stability rule. this developmental structure nomination leaves calibration, all-attempt/player claims and historical verdicts unchanged. no subsequent implementation is assigned.
 
 research-only 04a may precede chance admission. supported chance-valued player outputs still require the relevant probability, measurement and player evidence; 04a cannot supply that handoff merely by completing. 05–06 may separately develop with clearly labeled fixtures. observed-rate benchmarks and fixtures do not replace the agreed all-attempt player product.
 

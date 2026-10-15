@@ -1040,11 +1040,13 @@ def save_figures(result, output):
                 axis.plot([(bucket["lower"] + bucket["upper"]) / 2 for bucket in selected],
                           [bucket[arm]["predicted_minus_observed_pp"] for bucket in selected],
                           "o-", color=color, lw=.8, ms=3, label=name)
-            for bucket in bins:
+            for index, bucket in enumerate(bins):
                 if bucket["baseline"]["count"]:
                     axis.annotate(f"{bucket['baseline']['count']:,}",
                         ((bucket["lower"] + bucket["upper"]) / 2, bucket["baseline"]["predicted_minus_observed_pp"]),
-                        xytext=(0, 5), textcoords="offset points", ha="center", fontsize=6)
+                        xytext=(0, 5 if index % 2 == 0 else 26), textcoords="offset points",
+                        ha="left" if index == 0 else "right" if index == len(bins) - 1 else "center", fontsize=6,
+                        arrowprops=dict(arrowstyle="-", color="#777777", lw=.3))
             axis.margins(y=.3)
             axis.legend(fontsize=8)
     fig.suptitle("descriptive stage calibration · counts label the shared untied-defined bins", fontsize=12)

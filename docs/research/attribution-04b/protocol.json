@@ -1,0 +1,196 @@
+{
+  "schema_version": 2,
+  "kind": "attribution_revision_protocol",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "d465795030c66c13d5b5c789c2c1879e1ef7a78b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/inputs/spec-snapshot.md",
+    "sha256": "1ef3d7393b368f3d98ad06ccbfa97fabfbbd76bea6b4327baa001a1a6b494fca"
+  },
+  "baseline_prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/prepared/prepared.json",
+    "sha256": "b771cdc1784a72cf0db6be47b9eb0f597af542bb9cace1f339ba40002265cd8a"
+  },
+  "baseline_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/report/result.json",
+    "sha256": "8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac"
+  },
+  "baseline_fits": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/inputs/chains.json",
+    "sha256": "dc68f420858d55b3b141cb5e0e0f2a2f1a3ff34795a9e6971a93870aa0bac325"
+  },
+  "seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "populations": [
+    "all_attempts",
+    "unblocked_spatial"
+  ],
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015",
+  "blocks": {
+    "all_attempts": [
+      "volume"
+    ],
+    "unblocked_spatial": [
+      "volume",
+      "shape"
+    ],
+    "shape_rank": 655,
+    "volume_response_covariance": "p_p_transpose",
+    "shape_response_covariance": "diag_p_minus_p_p_transpose",
+    "prior": "independent_volume_shape_full_row_covariance",
+    "annual_transition": "age_neutral_complete_mean_covariance"
+  },
+  "scale": {
+    "variance_bounds": [
+      1e-08,
+      1.0
+    ],
+    "coarse_exponents": [
+      -8.0,
+      -7.5,
+      -7.0,
+      -6.5,
+      -6.0,
+      -5.5,
+      -5.0,
+      -4.5,
+      -4.0,
+      -3.5,
+      -3.0,
+      -2.5,
+      -2.0,
+      -1.5,
+      -1.0,
+      -0.5,
+      0.0
+    ],
+    "refinement": {
+      "method": "bounded",
+      "xatol": 0.0001,
+      "maxiter": 40,
+      "bracket": "best_interior_coarse_neighbors",
+      "repetitions": 1
+    },
+    "ties": "smaller_variance",
+    "volume_objective": "matched_scalar_restricted_gaussian_marginal_likelihood",
+    "shape_objective": "rank_655_zero_sum_restricted_gaussian_marginal_likelihood",
+    "solve_relative_residual_max": 1e-08
+  },
+  "references": {
+    "r": "original_annual_team_rate",
+    "u": "original_annual_admitted_player_exposure",
+    "p": "corrected_04a_positive_first_season_native_shares",
+    "fixed_across_refits": true,
+    "source_population_identity": "unchanged_04a_population_id"
+  },
+  "seeds": {
+    "bit_generator": "PCG64",
+    "design": 40400,
+    "response": 40420,
+    "synthetic_refit": 40421,
+    "real_refit": 40422,
+    "paired_error": 40423,
+    "index_base": 0,
+    "order": [
+      "sorted_game",
+      "stint",
+      "direction",
+      "native_cell"
+    ]
+  },
+  "intervals": {
+    "level": 0.95,
+    "working": "gaussian_conditional",
+    "refit": "basic_game_refit",
+    "quantile_method": "linear",
+    "weights": "independent_Exp1_normalized_per_inventory_season",
+    "reference_uncertainty": false,
+    "failed_draw_replacement": false,
+    "exact_duplicate_guard": "not_data_identified"
+  },
+  "generator": {
+    "cases": [
+      "gaussian",
+      "game_pace"
+    ],
+    "design": "04a_paired",
+    "teams": 4,
+    "skaters_per_team": 8,
+    "games_per_season": 96,
+    "stints_per_game": 50,
+    "seasons": 5,
+    "native_cells": 656,
+    "references": {
+      "unblocked": 40,
+      "all_attempts": 55
+    },
+    "paired_players": [
+      26,
+      31
+    ],
+    "entrants": [
+      32,
+      33
+    ],
+    "returner": 8,
+    "change_player": 1,
+    "shape_players": {
+      "broad": [
+        3,
+        4
+      ],
+      "local": [
+        18,
+        19
+      ]
+    },
+    "shape_amplitude": 0.1,
+    "pace": {
+      "shape": 2,
+      "scale": 0.5
+    },
+    "centering": "known_design_exposure_before_counts",
+    "positive_means": "required_without_clipping_or_redraw"
+  },
+  "criteria": {
+    "shape": "paired_95_percent_percentile_interval_lower_gt_zero",
+    "coverage": {
+      "method": "wilson_two_sided_95",
+      "floor": 0.9,
+      "nomination_cells": 12
+    },
+    "false_claim": {
+      "method": "wilson_two_sided_95",
+      "ceiling": 0.1,
+      "nomination_cells": 8,
+      "denominator": "all_200_outer_replicates",
+      "meaningful_band": 0.05,
+      "strict": true
+    },
+    "null": "no_empirical_claim_with_exact_null_component",
+    "numerical_control_tolerance": 1e-08,
+    "conditional_shape_resolution_max": 0.0001,
+    "admission": "not_admitted",
+    "handoff": null
+  },
+  "budgets": {
+    "real_refits": 200,
+    "outer_per_case": 200,
+    "inner_refits": 200,
+    "paired_error_resamples": 10000,
+    "new_shape_fits": 5,
+    "replayed_control_states": 10
+  }
+}

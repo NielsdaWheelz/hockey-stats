@@ -1,6 +1,6 @@
 # pr04b — separate spatial shape and assess refit uncertainty
 
-status: **implementation and bounded execution assigned on 2026-10-15; in progress.** the user selected an additive shape revision and full historical refits. [the plan](../plan.md) owns progression. [04a](../research/attribution-04a/decision.md) remains the corrected historical benchmark; no admission or publication follows from this study.
+status: **complete and verified on 2026-10-16.** the [decision](../research/attribution-04b/decision.md) records the mixed scientific result; [verification](../research/attribution-04b/verification.md) records the full numerical budget and independent reviews. the user selected an additive shape revision and full historical refits. [the plan](../plan.md) owns progression. [04a](../research/attribution-04a/decision.md) remains the corrected historical benchmark; no admission or publication follows from this study.
 
 ## question, target and boundary
 
@@ -151,6 +151,8 @@ reuse `artifacts.py`, native grid/regions, exclusive outputs, finite json, sha25
 the control reader validates old protocol/prepared/previous links and reconstructs prior covariance through its preceding state, as the current reader does; that covariance is not an old npz field. interpret its spatial control as `m_t=M*1`, `M_h=M-m_t*p'`, `V_t=V_h=V`, which exactly recovers `D⊗V`. this is a named comparison, not a second production path.
 
 new manifests use `schema_version:2`, exact kinds below, `purpose:research|fixture_exercise`, implementation identity, protocol hash and consumed `{path,sha256}` refs. protocol has no self-hash. research requires the exact corrected inputs and full budgets above. fixture purpose permits explicitly synthetic/compact native-grid inputs and smaller declared counts through the same paths, without claiming research completion. arrays/ledgers carry manifest-bound shapes/order rather than repeated headers:
+
+the protocol freezes the model producer for preparation, fits, refits and recovery. assessment/result artifacts additionally bind that `model_implementation` and their own clean reporting `implementation`; a reporting repair consumes the unchanged frozen evidence and writes a fresh output. it does not authorize different upstream producers, new draws, modified thresholds or overwritten results. the named historical control retains its original `M,A` for complete-rate sign diagnostics: decomposing and recombining exact zeros is insufficient for a strict-sign count.
 
 | artifact / kind | required contract |
 |---|---|

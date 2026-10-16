@@ -10,6 +10,7 @@ import time
 import numpy as np
 
 from hockey_stats.artifacts import (
+    clean_implementation,
     implementation,
     json_values,
     linked_path,
@@ -29,6 +30,7 @@ def _annual_assessment(document: dict, states: dict, fits: dict) -> list[dict]:
         context_mean,
         negative_rates,
         read_control_annual,
+        control_negative_rates,
     )
 
     controls = {
@@ -68,7 +70,7 @@ def _annual_assessment(document: dict, states: dict, fits: dict) -> list[dict]:
         control_negative = None
         if key in controls:
             control = read_control_annual(linked_path(controls[key]))
-            control_negative = negative_rates(
+            control_negative = control_negative_rates(
                 control, rows(linked_path(annual["rows"])), annual["strata"]
             )
             require(
@@ -580,6 +582,9 @@ def assess(
     ]
     document = read_revision_prepared(prepared_path)
     protocol = read_json(linked_path(document["protocol"]))
+    current_implementation = implementation()
+    if document["purpose"] == "research":
+        clean_implementation(current_implementation)
     fit_document, states = read_fits(fits_path)
     recovery = read_json(simulation_path)
     require(
@@ -629,9 +634,8 @@ def assess(
     )
     if document["purpose"] == "research":
         require(
-            output.is_relative_to(Path("/Volumes/Expansion/hockey-stats"))
-            and implementation() == protocol["implementation"],
-            "research assessment requires frozen implementation and external output",
+            output.is_relative_to(Path("/Volumes/Expansion/hockey-stats")),
+            "research assessment requires external output",
         )
     output.mkdir()
     annual = _annual_assessment(document, states, fit_document)
@@ -680,7 +684,8 @@ def assess(
         schema_version=2,
         kind="attribution_revision_assessment",
         purpose=document["purpose"],
-        implementation=implementation(),
+        implementation=current_implementation,
+        model_implementation=protocol["implementation"],
         protocol=document["protocol"],
         prepared=identity(prepared_path),
         fits=identity(fits_path),
@@ -731,7 +736,8 @@ def assess(
         schema_version=2,
         kind="attribution_revision_result",
         purpose=document["purpose"],
-        implementation=implementation(),
+        implementation=current_implementation,
+        model_implementation=protocol["implementation"],
         protocol=document["protocol"],
         evidence=dict(
             prepared=identity(prepared_path),

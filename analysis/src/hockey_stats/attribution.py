@@ -57,6 +57,15 @@ class AnnualState:
     response_counts: np.ndarray
 
 
+@dataclass(frozen=True)
+class ControlAnnual:
+    """frozen schema-1 control; strict rate signs use its original map arrays."""
+
+    state: AnnualState
+    original_M: np.ndarray
+    original_A: np.ndarray
+
+
 def _factor(H: np.ndarray, covariance: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     # numpy returns the triangular factor alone. scipy's cho_factor retains an
     # unspecified opposite triangle, which is not part of a covariance factor.
@@ -660,45 +669,63 @@ def negative_rate_summary(batches, reference_rate: float) -> dict:
     )
 
 
-def negative_rates(state: AnnualState, count_rows, strata: list) -> dict:
-    n = len(state.player_ids)
-    positions = {player: i for i, player in enumerate(state.player_ids)}
+def _rate_row_batches(player_ids: tuple[int, ...], count_rows, strata: list):
+    n = len(player_ids)
+    positions = {player: i for i, player in enumerate(player_ids)}
     contexts = {tuple(value): i for i, value in enumerate(strata)}
+    columns, context_ids, seconds, locators = [], [], [], []
+    for row in count_rows:
+        columns.append(
+            [positions[player] for player in row["offense"]]
+            + [n + positions[player] for player in row["defense"]]
+        )
+        context_ids.append(contexts[tuple(row["stratum"])])
+        seconds.append(row["seconds"])
+        locators.append(
+            {
+                key: row[key]
+                for key in ("game_id", "period", "start", "end", "attacking_team", "segment_index")
+                if key in row
+            }
+        )
+        if len(columns) == 128:
+            yield np.asarray(columns), np.asarray(context_ids), np.asarray(seconds), locators
+            columns, context_ids, seconds, locators = [], [], [], []
+    if columns:
+        yield np.asarray(columns), np.asarray(context_ids), np.asarray(seconds), locators
 
-    def batches():
-        columns, context_ids, seconds, locators = [], [], [], []
-        for row in count_rows:
-            columns.append(
-                [positions[player] for player in row["offense"]]
-                + [n + positions[player] for player in row["defense"]]
+
+def negative_rates(state: AnnualState, count_rows, strata: list) -> dict:
+    return negative_rate_summary(
+        (
+            (complete_rates(state, columns, contexts), seconds, locators)
+            for columns, contexts, seconds, locators in _rate_row_batches(
+                state.player_ids, count_rows, strata
             )
-            context_ids.append(contexts[tuple(row["stratum"])])
-            seconds.append(row["seconds"])
-            locators.append(
-                {
-                    key: row[key]
-                    for key in ("game_id", "period", "start", "end", "attacking_team", "segment_index")
-                    if key in row
-                }
-            )
-            if len(columns) == 128:
-                yield (
-                    complete_rates(state, np.asarray(columns), np.asarray(context_ids)),
-                    np.asarray(seconds),
-                    locators,
-                )
-                columns, context_ids, seconds, locators = [], [], [], []
-        if columns:
-            yield (
-                complete_rates(state, np.asarray(columns), np.asarray(context_ids)),
-                np.asarray(seconds),
+        ),
+        state.r,
+    )
+
+
+def control_negative_rates(control: ControlAnnual, count_rows, strata: list) -> dict:
+    """evaluate the frozen control's original arithmetic, including exact zeros."""
+    state = control.state
+    return negative_rate_summary(
+        (
+            (
+                state.r * (control.original_A[contexts] + control.original_M[columns].sum(axis=1)),
+                seconds,
                 locators,
             )
+            for columns, contexts, seconds, locators in _rate_row_batches(
+                state.player_ids, count_rows, strata
+            )
+        ),
+        state.r,
+    )
 
-    return negative_rate_summary(batches(), state.r)
 
-
-def read_control_annual(path: Path | str) -> AnnualState:
+def read_control_annual(path: Path | str) -> ControlAnnual:
     """the only schema-1 path: read an immutable corrected scientific control."""
     document = read_json(Path(path).resolve(strict=True))
     require(
@@ -849,7 +876,7 @@ def read_control_annual(path: Path | str) -> AnnualState:
         ),
         "control covariance is asymmetric",
     )
-    return AnnualState(
+    state = AnnualState(
         document["benchmark"],
         document["season"],
         document["season_index"],
@@ -866,6 +893,8 @@ def read_control_annual(path: Path | str) -> AnnualState:
         p,
         values["response_counts"],
     )
+
+    return ControlAnnual(state, values["M"], values["A"])
 
 
 def _control_replay(state: AnnualState, control: AnnualState) -> dict:
@@ -1322,7 +1351,7 @@ def fit_prepared(prepared: Path | str, out: Path | str) -> dict:
             state = fit_revision_year(population, previous)
             control_ref = controls.get((benchmark, season))
             control_replay = (
-                _control_replay(state, read_control_annual(linked_path(control_ref)))
+                _control_replay(state, read_control_annual(linked_path(control_ref)).state)
                 if control_ref is not None
                 else None
             )

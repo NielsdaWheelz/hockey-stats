@@ -1,0 +1,2237 @@
+{
+  "schema_version": 2,
+  "kind": "attribution_revision_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "d3ef9b5308458342e50afb211e77bb4f62edb901",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "model_implementation": {
+    "git_commit": "d465795030c66c13d5b5c789c2c1879e1ef7a78b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/inputs/protocol.json",
+    "sha256": "32c4edf30c7cc8d5f1c844c7ee048991465d9066019e434ddefc0746ccedc7d6"
+  },
+  "evidence": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+      "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"
+    },
+    "fits": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/fits/fits.json",
+      "sha256": "356fe332cd0c8d3786140db41c99e739ba4a807c519ddb7c1ab6a876a7a580fc"
+    },
+    "refits": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-000-001/refits.json",
+        "sha256": "e01dc976f4f25c5641fad6d04c80d84a532701b457e2fec201786bbdaaafdf98"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-001-035/refits.json",
+        "sha256": "813009b97085e0fd11c29dc9c2dbbb8ffaf7d91894354fd4d40912a216946f1b"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-035-068/refits.json",
+        "sha256": "1f08477f496a2c12fd5b2f6198fba80a26349a20525130514aeb8f1d6b1b57b0"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-068-101/refits.json",
+        "sha256": "73da39d5a76b35cb378497d611573412e2bf03d14d33a7a8bd5fa4782de0942f"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-101-134/refits.json",
+        "sha256": "917755e4e60bdad0821a56fb207653ec33f160913d7625f8b8ebcda37528cff5"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-134-167/refits.json",
+        "sha256": "ce5d6d7cb800cf1cc4783243a1f81c6d3fb324f91741a5887c32165bcf0df9d8"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-167-200/refits.json",
+        "sha256": "a7b3e243a3d3ff8319d54e509da881ee415f38b2c037fca0a28e616893bb93f4"
+      }
+    ],
+    "simulation": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/simulation/simulation.json",
+      "sha256": "6075a4de7ca5449a2e66e2b7b6bd7caca7d81e6c4dedc29a12d328f627250863"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/assessment-02/assessment.json",
+      "sha256": "a2a3347f29d1c0cde218e4ddec2175946f45c71a4a7306d7b441966d48d6319b"
+    }
+  },
+  "completion": "complete",
+  "scientific_verdict": {
+    "native_shape_gain": [
+      {
+        "case": "gaussian",
+        "contrast": "broad",
+        "year": 5,
+        "observed": 200,
+        "n": 200,
+        "mean_reduction": 1.3887960543091564,
+        "interval": [
+          1.324465152202172,
+          1.4550218538099684
+        ],
+        "status": "supported",
+        "seed": [
+          40423,
+          0,
+          0
+        ],
+        "resamples": 10000,
+        "unit": "paired reduction in squared attempts/60 native map norm",
+        "reason": null
+      },
+      {
+        "case": "gaussian",
+        "contrast": "local",
+        "year": 5,
+        "observed": 200,
+        "n": 200,
+        "mean_reduction": 1.8196658801274292,
+        "interval": [
+          1.7570593563388242,
+          1.8817704775175494
+        ],
+        "status": "supported",
+        "seed": [
+          40423,
+          0,
+          1
+        ],
+        "resamples": 10000,
+        "unit": "paired reduction in squared attempts/60 native map norm",
+        "reason": null
+      },
+      {
+        "case": "game_pace",
+        "contrast": "broad",
+        "year": 5,
+        "observed": 200,
+        "n": 200,
+        "mean_reduction": 5.574526235709628,
+        "interval": [
+          5.3468642734038765,
+          5.810330110888989
+        ],
+        "status": "supported",
+        "seed": [
+          40423,
+          1,
+          0
+        ],
+        "resamples": 10000,
+        "unit": "paired reduction in squared attempts/60 native map norm",
+        "reason": null
+      },
+      {
+        "case": "game_pace",
+        "contrast": "local",
+        "year": 5,
+        "observed": 200,
+        "n": 200,
+        "mean_reduction": 5.521876896010124,
+        "interval": [
+          5.307738132138488,
+          5.745321925781291
+        ],
+        "status": "supported",
+        "seed": [
+          40423,
+          1,
+          1
+        ],
+        "resamples": 10000,
+        "unit": "paired reduction in squared attempts/60 native map norm",
+        "reason": null
+      }
+    ],
+    "interval_recovery": [
+      {
+        "name": "game_pace/all_attempts/5/pair_2_minus_5/scalar",
+        "case": "game_pace",
+        "benchmark": "all_attempts",
+        "year": 5,
+        "contrast": "pair_2_minus_5",
+        "role": "offense",
+        "coefficients": [
+          [
+            2,
+            1
+          ],
+          [
+            5,
+            -1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "volume",
+        "nomination": true,
+        "truth": 0.0,
+        "relative_truth": 0.0,
+        "exact_relative_truth": [
+          0,
+          1
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 188,
+          "n": 200,
+          "rate": 0.94,
+          "wilson": [
+            0.8980683070423372,
+            0.9653478057456681
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 13.691671713759387
+        },
+        "control_working": {
+          "covered": 188,
+          "n": 200,
+          "rate": 0.94,
+          "wilson": [
+            0.8980683070423372,
+            0.9653478057456681
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 13.691671713759387
+        },
+        "refit": {
+          "covered": 200,
+          "n": 200,
+          "rate": 1.0,
+          "wilson": [
+            0.9811546736227335,
+            1.0
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 16.262442978543515
+        },
+        "bias": 0.03012260988914235,
+        "rmse": 3.6148335461089838,
+        "control_bias": 0.03012260988914235,
+        "control_rmse": 3.6148335461089838,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/all_attempts/5/pair_6_minus_2/scalar",
+        "case": "game_pace",
+        "benchmark": "all_attempts",
+        "year": 5,
+        "contrast": "pair_6_minus_2",
+        "role": "offense",
+        "coefficients": [
+          [
+            6,
+            1
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "volume",
+        "nomination": true,
+        "truth": 2.75,
+        "relative_truth": 0.05,
+        "exact_relative_truth": [
+          1,
+          20
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 184,
+          "n": 200,
+          "rate": 0.92,
+          "wilson": [
+            0.874010511732856,
+            0.9501594141102401
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 13.664721142299804
+        },
+        "control_working": {
+          "covered": 184,
+          "n": 200,
+          "rate": 0.92,
+          "wilson": [
+            0.874010511732856,
+            0.9501594141102401
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 13.664721142299804
+        },
+        "refit": {
+          "covered": 197,
+          "n": 200,
+          "rate": 0.985,
+          "wilson": [
+            0.9568342712073097,
+            0.9948857622067417
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 15.548597786394843
+        },
+        "bias": -0.2577759730459923,
+        "rmse": 3.7369886457326906,
+        "control_bias": -0.2577759730459923,
+        "control_rmse": 3.7369886457326906,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/all_attempts/5/pair_7_minus_2/scalar",
+        "case": "game_pace",
+        "benchmark": "all_attempts",
+        "year": 5,
+        "contrast": "pair_7_minus_2",
+        "role": "offense",
+        "coefficients": [
+          [
+            7,
+            1
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "volume",
+        "nomination": true,
+        "truth": 5.5,
+        "relative_truth": 0.1,
+        "exact_relative_truth": [
+          1,
+          10
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 191,
+          "n": 200,
+          "rate": 0.955,
+          "wilson": [
+            0.9167032959981803,
+            0.976147456998507
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 13.705504952648484
+        },
+        "control_working": {
+          "covered": 191,
+          "n": 200,
+          "rate": 0.955,
+          "wilson": [
+            0.9167032959981803,
+            0.976147456998507
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 13.705504952648484
+        },
+        "refit": {
+          "covered": 198,
+          "n": 200,
+          "rate": 0.99,
+          "wilson": [
+            0.9642782382838231,
+            0.9972533418664555
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 15.964310000615088
+        },
+        "bias": -0.028187441322767955,
+        "rmse": 3.339349458452026,
+        "control_bias": -0.028187441322767955,
+        "control_rmse": 3.339349458452026,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/3/entrant_32_offense/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 3,
+        "contrast": "entrant_32_offense",
+        "role": "offense",
+        "coefficients": [
+          [
+            32,
+            1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "annual_transition",
+        "nomination": true,
+        "truth": 1.6829335016835016,
+        "relative_truth": 0.042073337542087544,
+        "exact_relative_truth": [
+          79973,
+          1900800
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 186,
+          "n": 200,
+          "rate": 0.93,
+          "wilson": [
+            0.8859451911438936,
+            0.9578478281716571
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 6.971212965557867
+        },
+        "control_working": {
+          "covered": 186,
+          "n": 200,
+          "rate": 0.93,
+          "wilson": [
+            0.8859451911438936,
+            0.9578478281716571
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 6.971212965557867
+        },
+        "refit": {
+          "covered": 184,
+          "n": 200,
+          "rate": 0.92,
+          "wilson": [
+            0.874010511732856,
+            0.9501594141102401
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 7.763891983664277
+        },
+        "bias": -0.9578499149119523,
+        "rmse": 1.9911015863255521,
+        "control_bias": -0.9578499149119523,
+        "control_rmse": 1.9911015863255521,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/3/entrant_33_defense/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 3,
+        "contrast": "entrant_33_defense",
+        "role": "defense",
+        "coefficients": [
+          [
+            33,
+            1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "annual_transition",
+        "nomination": true,
+        "truth": 0.1211489898989899,
+        "relative_truth": 0.0030287247474747475,
+        "exact_relative_truth": [
+          1919,
+          633600
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 196,
+          "n": 200,
+          "rate": 0.98,
+          "wilson": [
+            0.9497129130941735,
+            0.9921955735836505
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 6.972544753906609
+        },
+        "control_working": {
+          "covered": 196,
+          "n": 200,
+          "rate": 0.98,
+          "wilson": [
+            0.9497129130941735,
+            0.9921955735836505
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 6.972544753906609
+        },
+        "refit": {
+          "covered": 197,
+          "n": 200,
+          "rate": 0.985,
+          "wilson": [
+            0.9568342712073097,
+            0.9948857622067417
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 7.427621080299889
+        },
+        "bias": -0.057525721117666906,
+        "rmse": 1.6490050618218326,
+        "control_bias": -0.057525721117666906,
+        "control_rmse": 1.6490050618218326,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/4/returner_8_offense/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 4,
+        "contrast": "returner_8_offense",
+        "role": "offense",
+        "coefficients": [
+          [
+            8,
+            1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "annual_transition",
+        "nomination": true,
+        "truth": -4.276683501683501,
+        "relative_truth": -0.10691708754208754,
+        "exact_relative_truth": [
+          -50807,
+          475200
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 192,
+          "n": 200,
+          "rate": 0.96,
+          "wilson": [
+            0.923067931799067,
+            0.9795943679338476
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 7.823707548404419
+        },
+        "control_working": {
+          "covered": 192,
+          "n": 200,
+          "rate": 0.96,
+          "wilson": [
+            0.923067931799067,
+            0.9795943679338476
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 7.823707548404419
+        },
+        "refit": {
+          "covered": 196,
+          "n": 200,
+          "rate": 0.98,
+          "wilson": [
+            0.9497129130941735,
+            0.9921955735836505
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 9.319398057985696
+        },
+        "bias": 0.6697656871135246,
+        "rmse": 2.057356319730277,
+        "control_bias": 0.6697656871135246,
+        "control_rmse": 2.057356319730277,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/5/broad/peak_cell_591",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "broad",
+        "role": "offense",
+        "coefficients": [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            -1
+          ]
+        ],
+        "functional": "peak_cell_591",
+        "group": "native_shape_broad",
+        "nomination": true,
+        "truth": 0.26659635890922173,
+        "relative_truth": null,
+        "exact_relative_truth": null,
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 125,
+          "n": 200,
+          "rate": 0.625,
+          "wilson": [
+            0.5561430369897816,
+            0.6891456314159018
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 0.5639002920853364
+        },
+        "control_working": {
+          "covered": 198,
+          "n": 200,
+          "rate": 0.99,
+          "wilson": [
+            0.9642782382838231,
+            0.9972533418664555
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 2.00461368446024
+        },
+        "refit": {
+          "covered": 160,
+          "n": 200,
+          "rate": 0.8,
+          "wilson": [
+            0.7391448134346212,
+            0.8495479907390189
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.764754536167926
+        },
+        "bias": -0.2419628414329037,
+        "rmse": 0.26136732875664853,
+        "control_bias": -0.014104729628770971,
+        "control_rmse": 0.44778734885515387,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/5/local/peak_cell_607",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "local",
+        "role": "offense",
+        "coefficients": [
+          [
+            18,
+            1
+          ],
+          [
+            19,
+            -1
+          ]
+        ],
+        "functional": "peak_cell_607",
+        "group": "native_shape_local",
+        "nomination": true,
+        "truth": -0.08352303951853196,
+        "relative_truth": null,
+        "exact_relative_truth": null,
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 194,
+          "n": 200,
+          "rate": 0.97,
+          "wilson": [
+            0.9361057075454807,
+            0.9861796856598887
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 0.42914635432415565
+        },
+        "control_working": {
+          "covered": 194,
+          "n": 200,
+          "rate": 0.97,
+          "wilson": [
+            0.9361057075454807,
+            0.9861796856598887
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.6696904981202658
+        },
+        "refit": {
+          "covered": 185,
+          "n": 200,
+          "rate": 0.925,
+          "wilson": [
+            0.8799563897637055,
+            0.954025082815618
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.3687420705050255
+        },
+        "bias": 0.07444259030806404,
+        "rmse": 0.10103695895472943,
+        "control_bias": -0.020149337680990972,
+        "control_rmse": 0.3588730742000803,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/5/pair_26_plus_31/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "pair_26_plus_31",
+        "role": "offense",
+        "coefficients": [
+          [
+            26,
+            1
+          ],
+          [
+            31,
+            1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "paired_sum",
+        "nomination": true,
+        "truth": 3.4572601010101014,
+        "relative_truth": 0.08643150252525253,
+        "exact_relative_truth": [
+          54763,
+          633600
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 169,
+          "n": 200,
+          "rate": 0.845,
+          "wilson": [
+            0.7883930940765792,
+            0.8886036307231068
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 7.330379087703957
+        },
+        "control_working": {
+          "covered": 169,
+          "n": 200,
+          "rate": 0.845,
+          "wilson": [
+            0.7883930940765792,
+            0.8886036307231068
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 7.330379087703957
+        },
+        "refit": {
+          "covered": 192,
+          "n": 200,
+          "rate": 0.96,
+          "wilson": [
+            0.923067931799067,
+            0.9795943679338476
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 10.169764436444066
+        },
+        "bias": -0.12078888230976459,
+        "rmse": 2.6231426637652895,
+        "control_bias": -0.12078888230976459,
+        "control_rmse": 2.6231426637652895,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "game_pace/unblocked_spatial/5/pair_7_minus_2/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "pair_7_minus_2",
+        "role": "offense",
+        "coefficients": [
+          [
+            7,
+            1
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "functional": "scalar",
+        "group": "volume",
+        "nomination": true,
+        "truth": 4.0,
+        "relative_truth": 0.1,
+        "exact_relative_truth": [
+          1,
+          10
+        ],
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 195,
+          "n": 200,
+          "rate": 0.975,
+          "wilson": [
+            0.942821659593358,
+            0.9892752803482386
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 11.162783060578557
+        },
+        "control_working": {
+          "covered": 195,
+          "n": 200,
+          "rate": 0.975,
+          "wilson": [
+            0.942821659593358,
+            0.9892752803482386
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 11.162783060578557
+        },
+        "refit": {
+          "covered": 198,
+          "n": 200,
+          "rate": 0.99,
+          "wilson": [
+            0.9642782382838231,
+            0.9972533418664555
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 12.969717605749189
+        },
+        "bias": -0.05042894690162889,
+        "rmse": 2.65687528826034,
+        "control_bias": -0.05042894690162889,
+        "control_rmse": 2.65687528826034,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "gaussian/unblocked_spatial/5/broad/peak_cell_591",
+        "case": "gaussian",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "broad",
+        "role": "offense",
+        "coefficients": [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            -1
+          ]
+        ],
+        "functional": "peak_cell_591",
+        "group": "native_shape_broad",
+        "nomination": true,
+        "truth": 0.26659635890922173,
+        "relative_truth": null,
+        "exact_relative_truth": null,
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 0.25240823178888133
+        },
+        "control_working": {
+          "covered": 199,
+          "n": 200,
+          "rate": 0.995,
+          "wilson": [
+            0.9722262956021069,
+            0.9991168312843989
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.215484971787161
+        },
+        "refit": {
+          "covered": 156,
+          "n": 200,
+          "rate": 0.78,
+          "wilson": [
+            0.7176120008170632,
+            0.8318346164116674
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.6317330397754188
+        },
+        "bias": -0.26530926173682784,
+        "rmse": 0.2690557857937243,
+        "control_bias": -0.06108379920069229,
+        "control_rmse": 0.2386756367987052,
+        "working_interval_meaning": "gaussian conditional working interval"
+      },
+      {
+        "name": "gaussian/unblocked_spatial/5/local/peak_cell_607",
+        "case": "gaussian",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "local",
+        "role": "offense",
+        "coefficients": [
+          [
+            18,
+            1
+          ],
+          [
+            19,
+            -1
+          ]
+        ],
+        "functional": "peak_cell_607",
+        "group": "native_shape_local",
+        "nomination": true,
+        "truth": -0.08352303951853196,
+        "relative_truth": null,
+        "exact_relative_truth": null,
+        "identification": "available",
+        "reason": null,
+        "working": {
+          "covered": 125,
+          "n": 200,
+          "rate": 0.625,
+          "wilson": [
+            0.5561430369897816,
+            0.6891456314159018
+          ],
+          "status": "failed",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 0.1783590062908209
+        },
+        "control_working": {
+          "covered": 194,
+          "n": 200,
+          "rate": 0.97,
+          "wilson": [
+            0.9361057075454807,
+            0.9861796856598887
+          ],
+          "status": "supported",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.0009265602894077
+        },
+        "refit": {
+          "covered": 187,
+          "n": 200,
+          "rate": 0.935,
+          "wilson": [
+            0.8919809207009312,
+            0.961623645350847
+          ],
+          "status": "inconclusive",
+          "nominal_coverage": 0.95,
+          "developmental_floor": 0.9,
+          "observed": 200,
+          "mean_width": 1.3292927309033706
+        },
+        "bias": 0.08129267576227114,
+        "rmse": 0.08561499418970134,
+        "control_bias": 0.020410847447701354,
+        "control_rmse": 0.2155873575093294,
+        "working_interval_meaning": "gaussian conditional working interval"
+      }
+    ],
+    "false_claims": [
+      {
+        "name": "game_pace/all_attempts/5/pair_2_minus_5/scalar",
+        "case": "game_pace",
+        "benchmark": "all_attempts",
+        "year": 5,
+        "contrast": "pair_2_minus_5",
+        "group": "volume",
+        "nomination": true,
+        "relative_truth": 0.0,
+        "exact_relative_truth": [
+          0,
+          1
+        ],
+        "refit": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 12,
+          "n": 200,
+          "rate": 0.06,
+          "wilson": [
+            0.03465219425433187,
+            0.1019316929576627
+          ],
+          "status": "inconclusive",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 6,
+            "negative_zero_exclusion": 6,
+            "meaningful_positive": 0,
+            "meaningful_negative": 1,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 0,
+          "meaningful_separation": 0,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.2956807814280639,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/all_attempts/5/pair_6_minus_2/scalar",
+        "case": "game_pace",
+        "benchmark": "all_attempts",
+        "year": 5,
+        "contrast": "pair_6_minus_2",
+        "group": "volume",
+        "nomination": true,
+        "relative_truth": 0.05,
+        "exact_relative_truth": [
+          1,
+          20
+        ],
+        "refit": {
+          "count": 2,
+          "n": 200,
+          "rate": 0.01,
+          "wilson": [
+            0.0027466581335444384,
+            0.0357217617161768
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 1,
+            "meaningful_positive": 1,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 12,
+          "n": 200,
+          "rate": 0.06,
+          "wilson": [
+            0.03465219425433187,
+            0.1019316929576627
+          ],
+          "status": "inconclusive",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 2,
+            "meaningful_positive": 10,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 10,
+          "meaningful_separation": 1,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.2827017779344516,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/all_attempts/5/pair_7_minus_2/scalar",
+        "case": "game_pace",
+        "benchmark": "all_attempts",
+        "year": 5,
+        "contrast": "pair_7_minus_2",
+        "group": "volume",
+        "nomination": true,
+        "relative_truth": 0.1,
+        "exact_relative_truth": [
+          1,
+          10
+        ],
+        "refit": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 38,
+          "meaningful_separation": 10,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.2902601818293652,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/unblocked_spatial/3/entrant_32_offense/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 3,
+        "contrast": "entrant_32_offense",
+        "group": "annual_transition",
+        "nomination": true,
+        "relative_truth": 0.042073337542087544,
+        "exact_relative_truth": [
+          79973,
+          1900800
+        ],
+        "refit": {
+          "count": 1,
+          "n": 200,
+          "rate": 0.005,
+          "wilson": [
+            0.0008831687156009814,
+            0.02777370439789293
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 1,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 2,
+          "n": 200,
+          "rate": 0.01,
+          "wilson": [
+            0.0027466581335444384,
+            0.0357217617161768
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 1,
+            "meaningful_positive": 1,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 2,
+          "meaningful_separation": 0,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.19409729959160693,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/unblocked_spatial/3/entrant_33_defense/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 3,
+        "contrast": "entrant_33_defense",
+        "group": "annual_transition",
+        "nomination": true,
+        "relative_truth": 0.0030287247474747475,
+        "exact_relative_truth": [
+          1919,
+          633600
+        ],
+        "refit": {
+          "count": 3,
+          "n": 200,
+          "rate": 0.015,
+          "wilson": [
+            0.00511423779325831,
+            0.04316572879269026
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 3,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 2,
+          "n": 200,
+          "rate": 0.01,
+          "wilson": [
+            0.0027466581335444384,
+            0.0357217617161768
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 2,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 3,
+          "meaningful_separation": 0,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.18569052700749722,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/unblocked_spatial/4/returner_8_offense/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 4,
+        "contrast": "returner_8_offense",
+        "group": "annual_transition",
+        "nomination": true,
+        "relative_truth": -0.10691708754208754,
+        "exact_relative_truth": [
+          -50807,
+          475200
+        ],
+        "refit": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 55,
+          "meaningful_separation": 10,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.23298495144964237,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/unblocked_spatial/5/pair_26_plus_31/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "pair_26_plus_31",
+        "group": "paired_sum",
+        "nomination": true,
+        "relative_truth": 0.08643150252525253,
+        "exact_relative_truth": [
+          54763,
+          633600
+        ],
+        "refit": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 37,
+          "meaningful_separation": 7,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.2542441109111016,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      },
+      {
+        "name": "game_pace/unblocked_spatial/5/pair_7_minus_2/scalar",
+        "case": "game_pace",
+        "benchmark": "unblocked_spatial",
+        "year": 5,
+        "contrast": "pair_7_minus_2",
+        "group": "volume",
+        "nomination": true,
+        "relative_truth": 0.1,
+        "exact_relative_truth": [
+          1,
+          10
+        ],
+        "refit": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "working": {
+          "count": 0,
+          "n": 200,
+          "rate": 0.0,
+          "wilson": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ],
+          "status": "supported",
+          "developmental_ceiling": 0.1,
+          "observed": 200,
+          "components": {
+            "positive_zero_exclusion": 0,
+            "negative_zero_exclusion": 0,
+            "meaningful_positive": 0,
+            "meaningful_negative": 0,
+            "within_meaningful_band": 0
+          }
+        },
+        "usefulness": {
+          "n": 200,
+          "observed": 200,
+          "zero_exclusion": 29,
+          "meaningful_separation": 4,
+          "near_zero_resolution": 0,
+          "mean_relative_width": 0.32424294014372973,
+          "interpretation": "descriptive resolution at the exact declared truth; no universal power gate"
+        }
+      }
+    ],
+    "null_handling": {
+      "status": "passed",
+      "outer_checked": 400,
+      "expected_outer": 400,
+      "meaning": "individuals 26/31 and their difference retain prior-conditioned diagnostics only"
+    },
+    "claim_groups": [
+      {
+        "group": "native_shape_broad",
+        "status": "failed",
+        "rules": [
+          "game_pace/unblocked_spatial/5/broad/peak_cell_591/refit_coverage",
+          "gaussian/unblocked_spatial/5/broad/peak_cell_591/refit_coverage",
+          "gaussian/broad/final_native_error_reduction/shape_gain",
+          "game_pace/broad/final_native_error_reduction/shape_gain"
+        ]
+      },
+      {
+        "group": "native_shape_local",
+        "status": "inconclusive",
+        "rules": [
+          "game_pace/unblocked_spatial/5/local/peak_cell_607/refit_coverage",
+          "gaussian/unblocked_spatial/5/local/peak_cell_607/refit_coverage",
+          "gaussian/local/final_native_error_reduction/shape_gain",
+          "game_pace/local/final_native_error_reduction/shape_gain"
+        ]
+      },
+      {
+        "group": "volume",
+        "status": "supported",
+        "rules": [
+          "game_pace/all_attempts/5/pair_2_minus_5/scalar/refit_coverage",
+          "game_pace/all_attempts/5/pair_2_minus_5/scalar/false_claim",
+          "game_pace/all_attempts/5/pair_6_minus_2/scalar/refit_coverage",
+          "game_pace/all_attempts/5/pair_6_minus_2/scalar/false_claim",
+          "game_pace/all_attempts/5/pair_7_minus_2/scalar/refit_coverage",
+          "game_pace/all_attempts/5/pair_7_minus_2/scalar/false_claim",
+          "game_pace/unblocked_spatial/5/pair_7_minus_2/scalar/refit_coverage",
+          "game_pace/unblocked_spatial/5/pair_7_minus_2/scalar/false_claim"
+        ]
+      },
+      {
+        "group": "annual_transition",
+        "status": "inconclusive",
+        "rules": [
+          "game_pace/unblocked_spatial/3/entrant_32_offense/scalar/refit_coverage",
+          "game_pace/unblocked_spatial/3/entrant_32_offense/scalar/false_claim",
+          "game_pace/unblocked_spatial/3/entrant_33_defense/scalar/refit_coverage",
+          "game_pace/unblocked_spatial/3/entrant_33_defense/scalar/false_claim",
+          "game_pace/unblocked_spatial/4/returner_8_offense/scalar/refit_coverage",
+          "game_pace/unblocked_spatial/4/returner_8_offense/scalar/false_claim"
+        ]
+      },
+      {
+        "group": "paired_sum",
+        "status": "supported",
+        "rules": [
+          "game_pace/unblocked_spatial/5/pair_26_plus_31/scalar/refit_coverage",
+          "game_pace/unblocked_spatial/5/pair_26_plus_31/scalar/false_claim"
+        ]
+      }
+    ],
+    "conditional_real_shape_resolution": {
+      "status": "verified",
+      "checks": [
+        {
+          "benchmark": "unblocked_spatial",
+          "season": "20212022",
+          "status": "verified",
+          "scope": "conditional_per_fit_fixed_incoming_prior_not_propagated_history_or_coverage_bound",
+          "saved_winner": {
+            "exponent": -8.0,
+            "variance": 1e-08,
+            "objective": 537712571.2899574,
+            "phase": "coarse",
+            "error": null,
+            "equation_relative_residual": 4.756059364408002e-18
+          },
+          "rechecked_candidates": [
+            {
+              "exponent": -8.0,
+              "variance": 1e-08,
+              "objective": 537712571.2899574,
+              "phase": "independent_recheck",
+              "error": null,
+              "equation_relative_residual": 4.756059364408002e-18
+            },
+            {
+              "exponent": -7.5,
+              "variance": 3.162277660168379e-08,
+              "objective": 537712572.0750623,
+              "phase": "independent_recheck",
+              "error": null,
+              "equation_relative_residual": 9.022928274256453e-18
+            },
+            {
+              "exponent": -7.0,
+              "variance": 1e-07,
+              "objective": 537712574.5600091,
+              "phase": "independent_recheck",
+              "error": null,
+              "equation_relative_residual": 1.5386191165954473e-17
+            },
+            {
+              "exponent": -7.618033988749895,
+              "variance": 2.4097168320749048e-08,
+              "objective": 537712571.8017753,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 7.397492501276033e-18
+            },
+            {
+              "exponent": -7.381966011250105,
+              "variance": 4.149865190338329e-08,
+              "objective": 537712572.4337597,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 1.002494191872776e-17
+            },
+            {
+              "exponent": -7.76393202250021,
+              "variance": 1.7221381097981775e-08,
+              "objective": 537712571.552122,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 6.422301875671684e-18
+            },
+            {
+              "exponent": -7.854101966249685,
+              "variance": 1.3992587576830912e-08,
+              "objective": 537712571.4348994,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.826297897249871e-18
+            },
+            {
+              "exponent": -7.9098300562505255,
+              "variance": 1.2307502814202242e-08,
+              "objective": 537712571.3737248,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.338594034945619e-18
+            },
+            {
+              "exponent": -7.944271909999158,
+              "variance": 1.136915244958075e-08,
+              "objective": 537712571.3396602,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.176035206726823e-18
+            },
+            {
+              "exponent": -7.965558146251366,
+              "variance": 1.0825347684256021e-08,
+              "objective": 537712571.3199189,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.972810401674488e-18
+            },
+            {
+              "exponent": -7.978713763747791,
+              "variance": 1.0502343925743504e-08,
+              "objective": 537712571.3081933,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.040579698528223e-18
+            },
+            {
+              "exponent": -7.986844382503575,
+              "variance": 1.0307553971567019e-08,
+              "objective": 537712571.3011221,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.121887814289107e-18
+            },
+            {
+              "exponent": -7.991869381244217,
+              "variance": 1.0188977864888008e-08,
+              "objective": 537712571.2968175,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.9728425038111345e-18
+            },
+            {
+              "exponent": -7.994975001259359,
+              "variance": 1.0116376841967252e-08,
+              "objective": 537712571.2941821,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.796695816320449e-18
+            },
+            {
+              "exponent": -7.996894379984859,
+              "variance": 1.007176583479923e-08,
+              "objective": 537712571.2925626,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.796706062807021e-18
+            },
+            {
+              "exponent": -7.998080621274501,
+              "variance": 1.0044293133795729e-08,
+              "objective": 537712571.2915653,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.905107736421264e-18
+            },
+            {
+              "exponent": -7.998813758710358,
+              "variance": 1.0027351552406473e-08,
+              "objective": 537712571.2909503,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.86445832000408e-18
+            },
+            {
+              "exponent": -7.999266862564142,
+              "variance": 1.0016895369929671e-08,
+              "objective": 537712571.2905707,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.837357933647646e-18
+            },
+            {
+              "exponent": -7.999546896146215,
+              "variance": 1.0010438546166921e-08,
+              "objective": 537712571.2903363,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.796708342219845e-18
+            },
+            {
+              "exponent": -7.999719966417927,
+              "variance": 1.0006450090805705e-08,
+              "objective": 537712571.2901915,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.7560582339514635e-18
+            },
+            {
+              "exponent": -7.999826929728288,
+              "variance": 1.0003985884429564e-08,
+              "objective": 537712571.2901021,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.7831591076919474e-18
+            },
+            {
+              "exponent": -7.99989303668964,
+              "variance": 1.0002463224563277e-08,
+              "objective": 537712571.2900468,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.7560589655476375e-18
+            },
+            {
+              "exponent": -7.999933893038648,
+              "variance": 1.0001522284893332e-08,
+              "objective": 537712571.2900127,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.742508956874316e-18
+            },
+            {
+              "exponent": -7.999959143650991,
+              "variance": 1.0000940796453942e-08,
+              "objective": 537712571.2899916,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.783158966920101e-18
+            },
+            {
+              "exponent": -7.999974749387657,
+              "variance": 1.000058143373831e-08,
+              "objective": 537712571.2899785,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.742508400855362e-18
+            },
+            {
+              "exponent": -7.999984394263335,
+              "variance": 1.0000359341822266e-08,
+              "objective": 537712571.2899704,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.728958629228463e-18
+            },
+            {
+              "exponent": -7.999990355124321,
+              "variance": 1.000022208393564e-08,
+              "objective": 537712571.2899654,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.769609199191103e-18
+            },
+            {
+              "exponent": -7.999994039139013,
+              "variance": 1.0000137254838438e-08,
+              "objective": 537712571.2899624,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.756059436660343e-18
+            },
+            {
+              "exponent": -7.999996315985308,
+              "variance": 1.0000084827932919e-08,
+              "objective": 537712571.2899605,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.742508821740821e-18
+            },
+            {
+              "exponent": -7.999997723153705,
+              "variance": 1.0000052426460797e-08,
+              "objective": 537712571.2899593,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.7425089154957756e-18
+            },
+            {
+              "exponent": -7.999998592831603,
+              "variance": 1.0000032401302233e-08,
+              "objective": 537712571.2899586,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.756059431358583e-18
+            },
+            {
+              "exponent": -7.999999130322103,
+              "variance": 1.0000020025093659e-08,
+              "objective": 537712571.2899581,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.728959640432081e-18
+            }
+          ],
+          "tightened_refinement": {
+            "bounds": [
+              -8.0,
+              -7.0
+            ],
+            "success": true,
+            "message": "Solution found.",
+            "evaluations": 29,
+            "exponent": -7.999999130322103,
+            "xatol": 1e-06,
+            "maxiter": 80
+          },
+          "selected": {
+            "exponent": -8.0,
+            "variance": 1e-08,
+            "objective": 537712571.2899574,
+            "phase": "coarse",
+            "error": null,
+            "equation_relative_residual": 4.756059364408002e-18
+          },
+          "maximum_league_relative_current_player_movement": {
+            "native_cells": 0.0,
+            "scalars": 0.0,
+            "regions": 0.0
+          },
+          "tolerance": 0.0001,
+          "working_label_changes": {
+            "native_zero_exclusion": 0,
+            "regional_zero_exclusion": 0,
+            "scalar_zero_exclusion": 0,
+            "scalar_meaningful_band": 0
+          },
+          "diagnostics": {
+            "equation_relative_residual": 4.756059364408002e-18,
+            "cholesky_equation_relative_residual": 4.756059364408002e-18,
+            "original_mean_equation_relative_residual": 6.228218476818059e-20,
+            "original_covariance_equation_relative_residual": 4.748088719918266e-22,
+            "covariance_symmetry": 0.0,
+            "covariance_rounding_tolerance": 1e-10,
+            "centered_covariance_symmetry": 1.357093192469811e-25,
+            "centered_mean_residual": 6.617444900424222e-24,
+            "resources": {
+              "wall_seconds": 0.39075095811858773,
+              "peak_memory_bytes": 1306771456
+            },
+            "zero_sum_mean_residual": 2.033209945655342e-21
+          }
+        },
+        {
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "status": "verified",
+          "scope": "conditional_per_fit_fixed_incoming_prior_not_propagated_history_or_coverage_bound",
+          "saved_winner": {
+            "exponent": -3.4105535927707393,
+            "variance": 0.000388549547237649,
+            "objective": 772953167.1886611,
+            "phase": "refinement",
+            "error": null,
+            "equation_relative_residual": 4.0491076538761274e-16
+          },
+          "rechecked_candidates": [
+            {
+              "exponent": -3.4105535927707393,
+              "variance": 0.000388549547237649,
+              "objective": 772953167.1886611,
+              "phase": "independent_recheck",
+              "error": null,
+              "equation_relative_residual": 4.0491076538761274e-16
+            },
+            {
+              "exponent": -3.5,
+              "variance": 0.00031622776601683794,
+              "objective": 772953463.3342314,
+              "phase": "independent_recheck",
+              "error": null,
+              "equation_relative_residual": 4.2126567220989007e-16
+            },
+            {
+              "exponent": -3.0,
+              "variance": 0.001,
+              "objective": 772966899.3994436,
+              "phase": "independent_recheck",
+              "error": null,
+              "equation_relative_residual": 5.177661240801574e-16
+            },
+            {
+              "exponent": -3.618033988749895,
+              "variance": 0.00024097168320749048,
+              "objective": 772954479.8835386,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 3.926183452394675e-16
+            },
+            {
+              "exponent": -3.381966011250105,
+              "variance": 0.0004149865190338329,
+              "objective": 772953203.870484,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.125710105444778e-16
+            },
+            {
+              "exponent": -3.23606797749979,
+              "variance": 0.0005806735210785115,
+              "objective": 772954894.287254,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.367113347886251e-16
+            },
+            {
+              "exponent": -3.439245376869663,
+              "variance": 0.00036370948179807245,
+              "objective": 772953200.8453921,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.3209847659333627e-16
+            },
+            {
+              "exponent": -3.411470680814855,
+              "variance": 0.00038772992324242344,
+              "objective": 772953167.2246066,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.270756226456929e-16
+            },
+            {
+              "exponent": -3.4112224256253496,
+              "variance": 0.00038795162415312484,
+              "objective": 772953167.2077806,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.627595303129902e-16
+            },
+            {
+              "exponent": -3.410515492012636,
+              "variance": 0.000388583636277061,
+              "objective": 772953167.1887249,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.70099102520172e-16
+            },
+            {
+              "exponent": -3.4105535927707393,
+              "variance": 0.000388549547237649,
+              "objective": 772953167.1886611,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.0491076538761274e-16
+            },
+            {
+              "exponent": -3.410554095063477,
+              "variance": 0.00038854909785247127,
+              "objective": 772953167.1886611,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 5.231403716253107e-16
+            },
+            {
+              "exponent": -3.4105544789835025,
+              "variance": 0.0003885487543719072,
+              "objective": 772953167.1886612,
+              "phase": "refinement",
+              "error": null,
+              "equation_relative_residual": 4.853864042673933e-16
+            }
+          ],
+          "tightened_refinement": {
+            "bounds": [
+              -4.0,
+              -3.0
+            ],
+            "success": true,
+            "message": "Solution found.",
+            "evaluations": 10,
+            "exponent": -3.410554095063477,
+            "xatol": 1e-06,
+            "maxiter": 80
+          },
+          "selected": {
+            "exponent": -3.410554095063477,
+            "variance": 0.00038854909785247127,
+            "objective": 772953167.1886611,
+            "phase": "refinement",
+            "error": null,
+            "equation_relative_residual": 5.231403716253107e-16
+          },
+          "maximum_league_relative_current_player_movement": {
+            "native_cells": 3.886499646416075e-09,
+            "scalars": 1.3639771549635998e-16,
+            "regions": 1.222503610755904e-08
+          },
+          "tolerance": 0.0001,
+          "working_label_changes": {
+            "native_zero_exclusion": 0,
+            "regional_zero_exclusion": 0,
+            "scalar_zero_exclusion": 0,
+            "scalar_meaningful_band": 0
+          },
+          "diagnostics": {
+            "equation_relative_residual": 1.4036901380035951e-15,
+            "cholesky_equation_relative_residual": 5.231403716253107e-16,
+            "original_mean_equation_relative_residual": 1.4036901380035951e-15,
+            "original_covariance_equation_relative_residual": 5.363700841198379e-17,
+            "covariance_symmetry": 0.0,
+            "covariance_rounding_tolerance": 1e-10,
+            "centered_covariance_symmetry": 2.710505431213761e-20,
+            "centered_mean_residual": 1.6940658945086007e-19,
+            "resources": {
+              "wall_seconds": 1.1906313330400735,
+              "peak_memory_bytes": 2167881728
+            },
+            "zero_sum_mean_residual": 1.695692197767329e-16
+          }
+        }
+      ],
+      "consequence": null
+    },
+    "meaningful_resolution": [
+      {
+        "benchmark": "all_attempts",
+        "role": "offense",
+        "players": 940,
+        "refit_unavailable": 0,
+        "statuses": {
+          "available": 940
+        }
+      },
+      {
+        "benchmark": "all_attempts",
+        "role": "defense",
+        "players": 940,
+        "refit_unavailable": 0,
+        "statuses": {
+          "available": 940
+        }
+      },
+      {
+        "benchmark": "unblocked_spatial",
+        "role": "offense",
+        "players": 940,
+        "refit_unavailable": 0,
+        "statuses": {
+          "available": 940
+        }
+      },
+      {
+        "benchmark": "unblocked_spatial",
+        "role": "defense",
+        "players": 940,
+        "refit_unavailable": 0,
+        "statuses": {
+          "available": 940
+        }
+      }
+    ]
+  },
+  "recommendation": "mixed",
+  "admission": "not_admitted",
+  "handoff": null,
+  "limitations": [
+    "recorded-rate associations; no causal isolation or supported ability",
+    "selective matched coverage and omitted deployment remain conditional",
+    "age-neutral annual history; unseen players and cross-game dependence excluded",
+    "native cells are parameters, not established five-foot physical accuracy",
+    "negative complete rates retained; no intensity-model claim",
+    "pointwise intervals; no simultaneous map or total uncertainty claim",
+    "scale endpoints and inherited limitations remain in every denominator"
+  ],
+  "costs": {
+    "preparation": {
+      "wall_seconds": 218.1416276250966,
+      "peak_memory_bytes": 599703552
+    },
+    "fits": {
+      "wall_seconds": 189.01937983301468,
+      "peak_memory_bytes": 2167881728
+    },
+    "refit_ranges": [
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-000-001/refits.json",
+          "sha256": "e01dc976f4f25c5641fad6d04c80d84a532701b457e2fec201786bbdaaafdf98"
+        },
+        "resources": {
+          "wall_seconds": 209.5132704579737,
+          "peak_memory_bytes": 3247030272
+        }
+      },
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-001-035/refits.json",
+          "sha256": "813009b97085e0fd11c29dc9c2dbbb8ffaf7d91894354fd4d40912a216946f1b"
+        },
+        "resources": {
+          "wall_seconds": 15049.4324140409,
+          "peak_memory_bytes": 2977677312
+        }
+      },
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-035-068/refits.json",
+          "sha256": "1f08477f496a2c12fd5b2f6198fba80a26349a20525130514aeb8f1d6b1b57b0"
+        },
+        "resources": {
+          "wall_seconds": 14825.081569541944,
+          "peak_memory_bytes": 2562932736
+        }
+      },
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-068-101/refits.json",
+          "sha256": "73da39d5a76b35cb378497d611573412e2bf03d14d33a7a8bd5fa4782de0942f"
+        },
+        "resources": {
+          "wall_seconds": 14905.224668833893,
+          "peak_memory_bytes": 2524938240
+        }
+      },
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-101-134/refits.json",
+          "sha256": "917755e4e60bdad0821a56fb207653ec33f160913d7625f8b8ebcda37528cff5"
+        },
+        "resources": {
+          "wall_seconds": 14922.756463083206,
+          "peak_memory_bytes": 2581659648
+        }
+      },
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-134-167/refits.json",
+          "sha256": "ce5d6d7cb800cf1cc4783243a1f81c6d3fb324f91741a5887c32165bcf0df9d8"
+        },
+        "resources": {
+          "wall_seconds": 14799.32296283287,
+          "peak_memory_bytes": 2579529728
+        }
+      },
+      {
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/refits-167-200/refits.json",
+          "sha256": "a7b3e243a3d3ff8319d54e509da881ee415f38b2c037fca0a28e616893bb93f4"
+        },
+        "resources": {
+          "wall_seconds": 14830.989712167066,
+          "peak_memory_bytes": 2591866880
+        }
+      }
+    ],
+    "recovery": {
+      "wall_seconds": 1673.0290162921883,
+      "peak_memory_bytes": 1286619136
+    },
+    "assessment": {
+      "wall_seconds": 299.5909893750213,
+      "peak_memory_bytes": 6298124288
+    },
+    "interpretation": "process wall times; concurrent durations are not summed elapsed time"
+  }
+}

@@ -1,6 +1,6 @@
 # model direction
 
-updated 2026-10-14 after the user's approval of the post-03o council review. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
+updated 2026-10-16 after the completed 04b assessment. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
 
 ## approved direction and decision logic
 
@@ -47,6 +47,14 @@ under the selected meaningful band, most current-player recorded-rate associatio
 the direct/product valuation comparison is close under its common reference, while nominal location transport moves provisional magnitudes and some conditional zero-exclusion conclusions. transport preserves scalar totals by construction. neither that invariant, agreement between unadmitted weights nor these unit stresses bounds error against truth. consequence budgets remain open.
 
 the justified next question is recorded-rate model adequacy and uncertainty together: specify intended claims and prospective criteria for native-grid mean behavior, contrast recovery, annual transitions, paired null directions and game dependence before choosing alternatives. the evidence does not isolate one corrective parameter or justify retrospective variance inflation. [the plan](../plan.md) owns assignment; this scientific recommendation authorizes no new experiment. chance admission, source/deployment robustness and publication remain distinct requirements.
+
+### selected 04b revision — 2026-10-15
+
+the user chose an additive revision and full historical refits. [04b](../specs/04b-attribution-revision.md) separates native map volume from zero-sum shape, each with its own entry/innovation scales. this directly tests the fact that scalar-selected regularization cannot respond to a zero-sum shape; it does not establish that this mechanism explains every 04a failure. all 655 shape directions remain, with no new smoother or positivity link.
+
+whole-game reweighting refits all annual means, scales and covariance histories, holding declared rate/centering/spatial references fixed. it adds substantial computation and cannot remove shrinkage bias or identify permanently paired players. basic refit intervals and working posterior intervals remain separate. native known-truth recovery has prospective, claim-specific tolerances; broad coverage does not establish meaningful resolution, and incomplete evidence cannot become support. no repeat valuation campaign or new chance model belongs in this slice. positive intensities, richer deployment and age-informed borrowing remain open; the plan owns execution authorization.
+
+the completed [04b decision](attribution-04b/decision.md) separates estimation gains from uncertainty support. all four frozen native map-error comparisons favor independent shape borrowing, but broad peak-cell coverage fails in both noise cases, local coverage remains inconclusive and annual-transition support is incomplete. the named final game-pace volume cells and paired sum pass their developmental criteria, with little meaningful-effect resolution. all 200 real refits and 400 nested recovery replicates complete; exact persistent duplicate contrasts abstain correctly. this supports a useful component under the tested assumptions, not blanket uncertainty, intensity adequacy, ability admission or a new automatic campaign.
 
 ## software and verification judgment
 

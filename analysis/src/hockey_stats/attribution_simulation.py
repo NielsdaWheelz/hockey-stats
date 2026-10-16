@@ -69,4 +69,3 @@ def synthetic_designs() -> dict[str, list[dict]]:
                               u=exposure / exposure.sum()))
         designs[case] = years
     return designs
-

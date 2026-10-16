@@ -1,6 +1,6 @@
 # architecture and statistical design
 
-status: settled system responsibilities and statistical meanings, with dated interview evidence below. [the brief](brief.md) owns product choices and [the plan](plan.md) current progression. the approved research branch permits attribution feasibility before chance admission; supported chance-valued outputs and publication retain their evidence requirements.
+status: settled system responsibilities and statistical meanings, with dated interview evidence below. [the brief](brief.md) owns product choices and [the plan](plan.md) current progression. attribution research and source-supported private observed results may precede model admission; supported chance-valued outputs retain their scientific requirements and every publication remains explicit.
 
 ## operating scale
 
@@ -37,8 +37,9 @@ the [plan](plan.md) owns order and assignments. the dependency graph distinguish
 
 1. source captures and interpretation support separate reported event membership, elapsed exposure and feature facts.
 2. chance research defines target populations, fits probabilities and assesses calibration/measurement assumptions. [03p](specs/03p-chance-structure.md) owns one structural experiment with its bounded numerical check.
-3. [04a](specs/04a-attribution-feasibility.md) may independently develop observed-rate attribution, synthetic recovery and consequence-based sensitivity using compatible evidence. it supplies no admitted chance-valued player result.
-4. supported opportunity values and robust player attribution are required for real 04 analytical outputs. 05–06 may separately exercise their publication/view contract on labeled fixtures before those outputs exist.
+3. attribution research can independently assess recorded-rate associations, synthetic recovery and provisional sensitivity. [04c](specs/04c-attribution-recovery.md) records the next bounded question; research supplies no admitted chance-valued player result.
+4. [05a](specs/05a-observed-website.md) uses the source/reconstruction boundary for a private observed-results website, independently of chance/attribution admission. source-supported counts, matched exposure and coverage need their own checks. fitted effects and xg are absent.
+5. supported opportunity values and robust player attribution are required for 04 ability outputs. 05–06 extend 05a's same publication/view owners with those quantities; labeled fixtures can exercise their design earlier.
 
 full specs own exact formulas, interfaces, populations, cutoffs, uncertainty, numeric budgets and verification. new work remains separately assigned; research branches do not weaken release claims. [07](specs/07-lightweight-testing.md) permits a few selected lasting source/numerical checks with their owning work; publication/browser checks follow their consumers. no entire testing slice must finish before a study starts.
 
@@ -239,7 +240,9 @@ account first for teammates and opponents, score/time and venue, and defensible 
 
 the data contract must retain score/time, skater and goalie presence, substitutions, event order, relevant faceoffs and source uncertainties needed to reconstruct those inputs. exposure intervals must support the covariates they describe; very short or same-timestamp events require explicit handling. the website's lack of date-range controls does not remove temporal detail from scientific inputs.
 
-### evidence required before publication
+### evidence required before ability publication
+
+these model requirements govern supported ability and chance-valued outputs. the intermediate observed-only publication instead requires attributable source selection, matched counts/exposure, reconciliation and visible coverage; it cannot include unadmitted model values.
 
 - verify reconstruction against independent selected facts, including five-skater/goalie presence, clock boundaries, event membership, exposure and coordinate meaning. fixtures verify these contracts; they do not establish population validity.
 - evaluate chance probabilities on held-out games/time periods against the transparent baseline, including calibration, proper probability scores and consequential subgroups. preprocessing, priors and tuning must respect each evaluation cutoff. retrospective final fits remain labeled as such.
@@ -374,7 +377,9 @@ the earlier json recommendation was reasonable for bounded, independently consum
 
 the initial read contract remains: compact league-wide table with sorting and name search; profile and map retrieval; selected-player comparisons; complete-season observed summaries and game rows with coverage. richer cohort filters and distribution charts are long-term goals. window/date-range summaries are excluded. effect queries published facts and estimates and returns application responses; numerical models, hockey reconstruction, eligibility, and analytical calculations stay in python. the browser's json response contract is distinct from the sqlite storage schema.
 
-python builds a fresh candidate database with publication metadata, shared player-season results, game evidence and spatial outputs. use a small explicit schema with [strict tables](https://www.sqlite.org/stricttables.html), appropriate uniqueness/check constraints, and [foreign-key enforcement](https://www.sqlite.org/foreignkeys.html) explicitly enabled on writing connections. these catch structural defects; they do not prove correct exposure, model validity, finite numerical output, or game-to-season reconciliation. required scientific checks remain separate. retain explicit meanings for unavailable values; unexpected numerical failure cannot silently become missing evidence.
+05a first implements the observed table/profile/game subset of this contract. python owns the supported observed population and aggregates; effect reads the finalized values and react presents them. reported event membership and reconstructed elapsed membership are distinct: observed numerators cannot be divided by unrelated surviving exposure. the full 05a spec must define their alignment and gaps. model fields and empty future ability tables are not mandatory for an observed-only database. later 05–06 extend these same owners; no separate observed application, generic metric registry or compatibility layer.
+
+python builds a fresh candidate database with publication/source/derivation metadata, shared player-season results and game evidence; spatial outputs are included when a supported view requires them. use a small explicit schema with [strict tables](https://www.sqlite.org/stricttables.html), appropriate uniqueness/check constraints, and [foreign-key enforcement](https://www.sqlite.org/foreignkeys.html) explicitly enabled on writing connections. these catch structural defects; they do not prove correct exposure, model validity, finite numerical output, or game-to-season reconciliation. required scientific checks remain separate. retain explicit meanings for unavailable values; unexpected numerical failure cannot silently become missing evidence.
 
 spatial outputs carry numerical values, coordinate frame, units, baseline, support/missingness and any uncertainty interpretation. sqlite can contain a validated map payload without requiring a relational row per grid cell. exact array encoding follows the scientific contract and measurements. the application renders values without refitting the surface. resolution and precision must preserve scientific meaning. json responses use finite numbers and exact identifiers within their declared contract; [rfc 8259](https://www.rfc-editor.org/rfc/rfc8259.html) describes the relevant numerical interoperability limits.
 
@@ -450,7 +455,7 @@ incomplete writes are not usable fits or publications. useful completed captures
 
 ### publication and manual recovery
 
-the sqlite file contains publication/schema/model identities, season and evidence cutoffs, reference conditions and units, player-season results, game evidence and coverage, and spatial outputs with their uncertainty meaning. unavailable quantities carry a reason. the website queries these data without recalculating hockey quantities or eligibility. a simple schema version check catches a mismatched reader; maintaining readers for historical schemas is unnecessary.
+the sqlite file contains publication/schema/source/derivation identities, season and evidence cutoffs, population definitions and units, player-season results, game evidence and coverage. model identities, analytical references and spatial/uncertainty outputs are required only when the published quantities use them; 05a's observed-only file needs none. unavailable quantities carry a reason. the website queries these data without recalculating hockey quantities or eligibility. a simple schema version check catches a mismatched reader; maintaining readers for historical schemas is unnecessary.
 
 copy the completed candidate to a temporary destination before replacing the serving file. keep the previous database intact. the server can be stopped during replacement and restarted afterward; manual repair from either intact database is enough if interrupted. no transaction across application versions, database files and browser sessions is needed. one complete response per view and a page reload keep related results together.
 

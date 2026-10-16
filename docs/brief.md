@@ -37,6 +37,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | observed period | complete-season summary plus game-by-game breakdown; no window/date-range splits | no interactive aggregation over selected dates; the season summary and fitted estimate retain their declared periods |
 | first evidence drill-down | game-by-game breakdown | publish recorded counts, reconstructed 5v5 exposure, and coverage; individual-event investigation remains in local analytical tools initially |
 | first audience | the user, then a public audience | one operator; no first-release subscription, account, or multi-user administration system |
+| intermediate private product, approved 2026-10-16 | browse source-supported recorded 5v5 results while model research continues | table/search, player and season/game evidence can precede model admission; some schema/view rework may follow. no adjusted ability or xg is implied |
 | first analytical scope | 5v5 skater chance creation/suppression | finishing, special teams, and dedicated goalie profiles follow separately; no claim of total player value |
 | blocked attempts | include blocked shots by imputing their shooting origins | retain observed block locations separately; location inference adds assumptions, validation and uncertainty |
 | first time horizon | completed season, then current season | establishes a fixed reference before ongoing updates and correction handling |
@@ -55,6 +56,8 @@ the explicit long-term destination is to replicate the substantive player-card a
 | research progression, approved 2026-10-14 | research-only attribution feasibility and consequence-based sensitivity may proceed alongside one structural chance study containing its numerical check | provisional rate/synthetic evidence can precede chance admission; supported player outputs and publication keep their evidence requirements |
 | representation choice, approved 2026-10-14 | useful components may justify a small, prospectively bounded prediction cost | define the budget from the intended claim before assessment; no equivalence claim from intervals crossing zero or retrospective rescue |
 | first comparison resolution, approved 2026-10-14 | meaningful player magnitudes, defensible comparisons and coherent spatial explanations before fine ranking precision | exact quantitative resolution remains a scientific/product specification decision; adjacent ranks need not imply distinguishable ability |
+| 04c research claim, confirmed 2026-10-16 | broad spatial shape first; complete rates and fine-cell behavior remain secondary diagnostics | where attempts are allocated is assessed separately from volume; success would not establish complete player-map accuracy |
+| 04c uncertainty boundary, confirmed 2026-10-16 | full historical refits in simulations; one real five-season point chain only if the pilot supports progression | avoids repeating 200 expensive real histories; new real-player refit intervals remain deferred |
 
 ## initial product and scope
 
@@ -81,6 +84,12 @@ local browsing and the eventual public production website consume complete publi
 retain the active publication and one previous valid publication for rollback. this limits revisions of published outputs, not the historical seasons needed for fitting. keep the source evidence, expensive fitted artifacts, configuration and git references needed for the retained results and current research. preservation follows replacement cost: fitting can take hours, while rebuilding the website takes minutes. recover application code through git and rebuild it; rerun cheap derived work. no archived application builds, per-step recovery system or automatic cleanup service. removing old research outputs is an ordinary operator task after checking what is still useful.
 
 ingestion, analytical processing, and fitting run locally with the external hdd indefinitely. this is a settled operating constraint, not a temporary step toward cloud computation. preserve completed expensive work. the later external-only choice accepts manual reruns of interrupted fits; existing fitter recovery may be reused where explicitly specified, but no new checkpoint engine or local output mirror is implied. if resources are unavailable, work waits until the user runs it again. automation may be added for demonstrated convenience; schedulers, freshness alerts, and availability commitments are not current requirements.
+
+## intermediate private product
+
+the user approved bringing forward a private observed-results website alongside attribution research. [05a](specs/05a-observed-website.md) records the bounded target: the existing completed-season selection, league table/name search, player identity, recorded 5v5 attempts for/against, matched reconstructed exposure/rates and reconciled game evidence with visible gaps. source and aggregation checks still apply; chance-model admission is not a dependency for these observed quantities. omit ability panels rather than showing withheld fitted results as supported estimates.
+
+this is an intermediate delivery, not fulfillment or narrowing of the first analytical product below. it uses the same python → sqlite → effect → frontend boundary and explicit local publication. richer observed maps, comparisons, public hosting and analytical claims remain outside this initial slice. the accepted cost is possible schema/view adjustment when supported ability arrives; the benefit is earlier utility and design feedback. [the plan](plan.md) owns assignment; direction approval does not authorize implementation or activation.
 
 ## what interpretability requires
 

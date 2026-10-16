@@ -1,12 +1,14 @@
 # pr05 — publication
 
-status: **stub; not ready for implementation.** expand when the shared analytical/view contract is specified from the settled brief. explicitly labeled fixture outputs can support separately assigned development before final 04 estimates or scientific acceptance; they cannot support a real analytical release or relabel withheld real estimates as fixture ability. [plan](../plan.md) · [architecture](../architecture.md)
+status: **stub; not ready for implementation.** [05a](05a-observed-website.md) first establishes this publication/read boundary for private source-supported observed results, independently of model admission. expand this spec for supported analytical quantities when their shared view contract is ready. labeled fixtures may support that design but cannot admit withheld estimates. [plan](../plan.md) · [architecture](../architecture.md)
 
 ## purpose and contract
 
 turn declared analytical outputs into one self-contained sqlite publication and coherent read responses for 06. inputs include supported player-season effects, spatial outputs, observed game/season summaries, reconstructed exposure, coverage and uncertainty definitions. outputs are a checked candidate database, read queries and an explicit local publication/restore procedure. browsing must work without python or the external drive.
 
 python owns export, analytical eligibility, reference conditions, units and reconciliation. effect owns application reads and file publication. proposed module homes are `analysis/src/hockey_stats/` for export, and server/read, operator and shared boundary modules within `app/src/`; exact files follow the full specification. do not duplicate hockey calculations in sql or typescript.
+
+extend 05a's same database/export/read owners with supported estimates; do not build a second publisher or make model fields mandatory for its observed-only predecessor. matched observed counts/exposure and coverage remain source/aggregation claims. supported chance-valued effects additionally require the relevant 03–04 evidence. the full spec owns the concrete producer/reader cutover, without legacy fallbacks.
 
 ## settled behavior and exclusions
 

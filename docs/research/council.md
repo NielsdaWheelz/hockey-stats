@@ -2,6 +2,16 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## approved review after 04b — 2026-10-16
+
+independent statistical, public-method and product/systems reviews recommend bounded spatial recovery/uncertainty work and a private observed-results website. the user approved that direction; [the plan](../plan.md) owns assignments. the [post-study zero-baseline comparison](../issues/attribution-spatial-recovery.md) qualifies 04b's relative error improvement without revising its frozen verdict.
+
+agreement: diagnose saved bias, variation and scale behavior before another large campaign; compare useful recovery against trivial baselines; preserve source and model claim boundaries. statistics favors testing geometric spatial pooling if the diagnosis supports it. hockey modeling retains deployment and aging as substantive later gaps, which cannot explain away matched synthetic failures. product favors an independently useful observed profile; systems favors the existing python/sqlite/effect owners.
+
+the useful disagreement is how much spatial resolution the first claim needs and which representation can support it. a smooth basis sacrifices local detail and needs deliberately poorly represented stresses; intervals cannot create individual identification for inseparable linemates. exact peer-model parity is unverifiable, and no review attributes a private recommendation to micah. [model direction](model-direction.md) owns the rationale and alternatives.
+
+the 04c interview settled broad spatial shape first, complete rates/fine cells as secondary, synthetic refit uncertainty and a conditional real point-fit chain. statistical, systems and content review informs the [full specification](../specs/04c-attribution-recovery.md): one geometry-defined representation, explicit bias/variance diagnosis including the volume–shape cross term, paired shape comparisons, narrowly scoped interval claims and shared numerical owners. this trades fine detail and new real-player uncertainty for a bounded test of the suspected mechanism; it does not promise that pooling will work.
+
 ## approved review after 03o — 2026-10-14
 
 three independent reviews covered statistics/numerics, software ownership and public-method/product parity. they agreed that the project needs earlier evidence about player attribution and downstream consequences, while chance research remains bounded. the user approved research-only attribution feasibility alongside one structural chance study with its numerical check included. [model direction](model-direction.md) owns the rationale and alternatives; [the plan](../plan.md) owns assignment and sequencing.

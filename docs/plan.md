@@ -12,13 +12,15 @@ on 2026-10-14 the user approved two research tracks: **attribution feasibility a
 
 post-merge cleanup removed the 04a branch and worktree. `/Users/nnandal/Documents/code/hockey-stats-04a` remains a symlink to the primary checkout because frozen evidence references that path; it retains no second checkout or environment.
 
+on 2026-10-15 the user assigned the entire [04b specification](specs/04b-attribution-revision.md) implementation and bounded execution, with subagent implementation, independent adversarial review and temporary red/green/refactor checks deleted after closure. work proceeds on `work/04b-attribution-revision` in `/Users/nnandal/Documents/code/hockey-stats-04b`. the bounded design keeps the existing populations and native grid, tests known-effect recovery/entrants/inseparable linemates, and leaves complete-rate positivity open. its 200 real refit trajectories and 400 nested native-grid recovery replicates have explicit budgets and prospective claim-specific criteria; no automatic follow-on campaign or publication.
+
 research-only 04a may precede chance admission. supported chance-valued player outputs still require the relevant probability, measurement and player evidence; 04a cannot supply that handoff merely by completing. 05–06 may separately develop with clearly labeled fixtures. observed-rate benchmarks and fixtures do not replace the agreed all-attempt player product.
 
 ## next slices
 
 | slice | owner / output | dependency and unresolved choice |
 |---|---|---|
-| recorded-rate adequacy and uncertainty | one prospective specification for intended player claims, native-grid mean behavior and contrast-specific uncertainty | recommended by [04a](research/attribution-04a/decision.md), **unassigned**; current matched populations and corrected benchmark. criteria precede alternatives; no new fitting, source acquisition or automatic model choice |
+| [04b attribution revision](specs/04b-attribution-revision.md) | separate total/zero-sum spatial borrowing, full-history game-refit intervals, native-grid recovery and explicit unidentified contrasts | **assigned; implementation in progress**. evidence/statistics, model/projection, refits/recovery, numerical execution and closure each require independent review. corrected 04a evidence; no new sources, chance fits or publication |
 | [04 supported player attribution](specs/04-player-attribution.md) | season-level 5v5 chance creation/suppression, coherent maps/scalars, uncertainty and observed evidence | supported chance inputs and player robustness; learn from 04a without promoting its provisional estimates |
 | [05 publication](specs/05-publication.md) | python sqlite export, effect reads, explicit activation and one rollback file | agreed analytical/view contract; labeled fixtures can precede final scientific outputs |
 | [06 website](specs/06-website.md) | league table/search, profiles/maps, comparisons and full-season/game evidence | 05; real analytical release needs supported 03–04 results |

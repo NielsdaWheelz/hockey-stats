@@ -1,6 +1,6 @@
 # attribution negative complete rates
 
-status: open on corrected fit evidence; owner: supported player-attribution model research. no replacement model or follow-on experiment is assigned. the original run remains invalidated by [verification](../research/attribution-04a/verification.md).
+status: open on corrected fit evidence; owner: supported player-attribution model research. the user selected an additive shape revision in [04b](../specs/04b-attribution-revision.md), accepting that positive-intensity adequacy may remain unresolved. its specification requires matched native negative-rate/frequency/mass diagnostics; [the plan](../plan.md) owns execution status. no positive-link model is assigned. the original run remains invalidated by [verification](../research/attribution-04a/verification.md).
 
 problem: 04a's specified gaussian additive model produces negative complete fitted rates. signed player effects are legitimate contrasts; a negative complete intensity is a different limitation. the four-cell synthetic exercise does not validate the native 656-cell approximation.
 

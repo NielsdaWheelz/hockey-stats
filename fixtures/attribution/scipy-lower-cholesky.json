@@ -1,0 +1,48 @@
+{
+  "kind": "synthetic_attribution_factor_fixture",
+  "purpose": "fixture_exercise",
+  "recipe": "prior = .004*eye(64) + .0001*ones((64,64)); float64",
+  "arrays": {
+    "file": "scipy-lower-cholesky.npz",
+    "sha256": "23471a3ab018910245021d61078ad6f24054326e3a526bc4b6f1b84b3e9fd748",
+    "shapes": {
+      "prior": [
+        64,
+        64
+      ],
+      "expected_lower": [
+        64,
+        64
+      ]
+    }
+  },
+  "provenance": {
+    "historical_review": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014/reviews/numerical-defect-review.json",
+      "sha256": "c4f648de6f5c03e3f1d8f56e0ace24c7b9b8cab90e5d8b0cfab980c445bdbf80"
+    },
+    "source_locator": "decisive_evidence.small_reproducer"
+  },
+  "expected_contract": {
+    "prior_positive_definite_eigenvalues": {
+      "multiplicity_63": 0.004,
+      "multiplicity_1": 0.0104
+    },
+    "lower_triangle_only": true,
+    "maximum_absolute_factor_reconstruction_error": 1e-15,
+    "maximum_absolute_closed_form_factor_error": 1e-15
+  },
+  "independent_expectation": "for zero-based i,j: L_ii=sqrt(a*(a+(i+1)*b)/(a+i*b)); L_ij=b*sqrt(a)/sqrt((a+j*b)*(a+(j+1)*b)) for i>j; zero above diagonal",
+  "observed": {
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "public_scipy_call": "scipy.linalg.cholesky(prior,lower=True,check_finite=False)",
+    "public_scipy_nonzero_upper_entries": 112,
+    "public_scipy_maximum_reconstruction_error": 7.197168645573098e-06,
+    "numpy_nonzero_upper_entries": 0,
+    "numpy_maximum_reconstruction_error": 3.469446951953614e-18,
+    "numpy_maximum_closed_form_factor_error": 2.7755575615628914e-17
+  },
+  "limitation": "the scipy upper triangle is defective output on the recorded pinned build; its exact garbage values are not expected facts and may vary. cho_factor unspecified-triangle behavior is a different contract.",
+  "resolved_behavior": "the attribution owner uses numpy.linalg.cholesky only and verifies original prior-space posterior equations"
+}

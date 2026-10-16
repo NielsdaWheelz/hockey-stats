@@ -48,6 +48,12 @@ the direct/product valuation comparison is close under its common reference, whi
 
 the justified next question is recorded-rate model adequacy and uncertainty together: specify intended claims and prospective criteria for native-grid mean behavior, contrast recovery, annual transitions, paired null directions and game dependence before choosing alternatives. the evidence does not isolate one corrective parameter or justify retrospective variance inflation. [the plan](../plan.md) owns assignment; this scientific recommendation authorizes no new experiment. chance admission, source/deployment robustness and publication remain distinct requirements.
 
+### selected 04b revision — 2026-10-15
+
+the user chose an additive revision and full historical refits. [04b](../specs/04b-attribution-revision.md) separates native map volume from zero-sum shape, each with its own entry/innovation scales. this directly tests the fact that scalar-selected regularization cannot respond to a zero-sum shape; it does not establish that this mechanism explains every 04a failure. all 655 shape directions remain, with no new smoother or positivity link.
+
+whole-game reweighting refits all annual means, scales and covariance histories, holding declared rate/centering/spatial references fixed. it adds substantial computation and cannot remove shrinkage bias or identify permanently paired players. basic refit intervals and working posterior intervals remain separate. native known-truth recovery has prospective, claim-specific tolerances; broad coverage does not establish meaningful resolution, and incomplete evidence cannot become support. no repeat valuation campaign or new chance model belongs in this slice. positive intensities, richer deployment and age-informed borrowing remain open; the plan owns execution authorization.
+
 ## software and verification judgment
 
 the existing effect-capture/python-analysis boundary is appropriate. mature shared fitting/prediction, artifact validation and paired-evaluation mechanisms should live in package modules when next needed; study-specific selections, criteria and figures stay with the study. the current import chain through older research commands is an ownership problem, not a reason to build a framework or migrate every historical study.

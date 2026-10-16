@@ -39,6 +39,21 @@ def write_json(output: Path, document: object) -> None:
         destination.write(serialized)
 
 
+def json_values(value):
+    """convert numerical report values; write_json still rejects nonfinite data."""
+    import numpy as np
+
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, dict):
+        return {key: json_values(item) for key, item in value.items()}
+    if isinstance(value, (tuple, list)):
+        return [json_values(item) for item in value]
+    return value
+
+
 def require(condition, message):
     if not condition:
         raise InputContractError(message)

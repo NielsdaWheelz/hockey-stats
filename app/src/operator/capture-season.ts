@@ -1,6 +1,6 @@
-import type { PlatformError } from "@effect/platform/Error";
-import * as FileSystem from "@effect/platform/FileSystem";
-import * as HttpClient from "@effect/platform/HttpClient";
+import type { PlatformError } from "effect/PlatformError";
+import * as FileSystem from "effect/FileSystem";
+import * as HttpClient from "effect/http/HttpClient";
 import * as Effect from "effect/Effect";
 import { captureResponse, type CaptureRecord } from "./capture.js";
 

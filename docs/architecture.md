@@ -395,12 +395,12 @@ material costs: a sqlite reader in the serving runtime, an explicit versioned sc
 
 ## runtime, frontend and process layout
 
-status: engineering selection on 2026-09-29, amended by the user-confirmed effect-4 cutover in 05a on 2026-10-16. other exact package choices are engineering selections. source and package inspection establish feasibility, not a tested application. [05a](specs/05a-observed-website.md) owns exact pins and migration verification.
+status: engineering selection on 2026-09-29, amended by the user-confirmed effect-4 cutover in 05a on 2026-10-16. other exact package choices are engineering selections. [05a verification](research/observed-05a/verification.md) establishes the implemented private observed application and migration boundaries; it establishes no scientific model support. [05a](specs/05a-observed-website.md) owns exact pins and migration verification.
 
 | responsibility | selection | material cost |
 |---|---|---|
 | application runtime | node `24.21.0` lts | a separate runtime from python; v4 sqlite integration uses the release-candidate `node:sqlite` api |
-| application behavior | existing effect `3.22.2`; 05a hard-cuts to stable `4.0.5` and compatible companions | migrate five capture operator files now; pinned http/sql boundaries still carry unstable-api risk |
+| application behavior | effect `4.0.5` and matching node/sqlite companions | five capture operator files migrated and byte/receipt behavior verified; pinned http/sql boundaries still carry unstable-api risk |
 | frontend | react with react router framework mode and vite; client rendered | framework conventions; no player-specific initial html |
 | numerical environment | standard arm64 cpython 3.14, managed with uv | a second lock/environment; uv-managed interpreters depend on astral's python distribution |
 | serving | one node process with read-only sqlite access and built frontend assets | requires a process-capable serving environment; no direct database queries from the browser |

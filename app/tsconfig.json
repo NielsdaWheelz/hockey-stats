@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2024",
+    "lib": ["ES2024"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "rootDir": "src",
     "strict": true,
     "noEmit": true,
     "types": ["node"],
     "skipLibCheck": true,
     "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/operator/**/*.ts", "src/server/**/*.ts", "src/shared/**/*.ts"]
 }

@@ -129,7 +129,7 @@ def _category(position: str | None) -> str | None:
     return "goalie" if position == "G" else "skater" if position in _SKATERS else None
 
 
-def _lineup_classification(members: Membership) -> Literal["five_on_five", "other", "unresolved"]:
+def lineup_classification(members: Membership) -> Literal["five_on_five", "other", "unresolved"]:
     if any(value is None for value in members.values()):
         return "unresolved"
     away_skaters, home_skaters = members["away_skaters"], members["home_skaters"]
@@ -530,7 +530,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                         members[key].append(row["player_id"])
                     for value in members.values():
                         value.sort()
-                    classification = _lineup_classification(members)
+                    classification = lineup_classification(members)
                     if classification == "unresolved" and not local_issues:
                         unknown_membership = True
                         local_issues.append(_issue(issues, "implausible_elapsed_lineup", "shifts", "/data",
@@ -655,7 +655,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                                 "member has missing/ambiguous identity or incompatible roster team/position; event strength unresolved"))
                     event[side + "_skaters"], event[side + "_goalies"] = sorted(skaters), sorted(goalies)
                 membership: Membership = {key: event[key] for key in _EMPTY}
-                classification = _lineup_classification(membership)
+                classification = lineup_classification(membership)
                 if row["type_key"] in _ATTEMPTS and report["penalty_shot"] is None:
                     membership_issues.append(_issue(issues, "unavailable_penalty_shot_status", "play-report", report_path + "/description",
                         "attempt description cannot establish ordinary versus penalty-shot play; event population unresolved"))

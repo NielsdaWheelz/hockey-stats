@@ -448,7 +448,7 @@ def _select_scale(problem: _ScaleProblem, inherited: bool) -> tuple[float, dict]
     )
 
 
-def _center(M, V, weights):
+def _center(M, V, weights, diagnostics):
     n = len(weights)
     off_mean, def_mean = weights @ M[:n], weights @ M[n:]
     M[:n] -= off_mean
@@ -462,6 +462,15 @@ def _center(M, V, weights):
             centered[start : start + n, stop : stop + n] = (
                 block - left[None, :] - right[:, None] + weights @ right
             )
+    symmetry = float(np.max(np.abs(centered - centered.T)))
+    tolerance = float(1e-10 * max(1, np.linalg.norm(centered, ord=np.inf)))
+    require(symmetry <= tolerance and np.min(np.diag(centered)) >= -tolerance,
+            "invalid centered covariance")
+    diagnostics.update(
+        centered_covariance_symmetry=symmetry,
+        covariance_rounding_tolerance=tolerance,
+        centered_mean_residual=float(max(np.max(np.abs(weights @ M[:n])), np.max(np.abs(weights @ M[n:])))),
+    )
     return M, centered, compensation
 
 
@@ -481,28 +490,19 @@ def fixed_shape_update(
             "invalid fixed shape update contract")
     M, V, diagnostics = _posterior(H, score, prior_mean, prior_covariance)
     uncentered_mean = M.copy()
-    M, centered, shift = _center(M, V, u)
-    symmetry = float(np.max(np.abs(centered - centered.T)))
-    tolerance = float(1e-10 * max(1, np.linalg.norm(centered, ord=np.inf)))
-    require(symmetry <= tolerance and np.min(np.diag(centered)) >= -tolerance,
-            "invalid centered covariance")
-    diagnostics.update(
-        centered_covariance_symmetry=symmetry,
-        covariance_rounding_tolerance=tolerance,
-        centered_mean_residual=float(max(np.max(np.abs(u @ M[:n])), np.max(np.abs(u @ M[n:])))),
-    )
+    M, centered, shift = _center(M, V, u, diagnostics)
     return ShapeUpdate(M, centered, centered @ H, uncentered_mean, V, shift, diagnostics)
 
 
 def _block_at_scale(
     H, T, ybar, xbar, M0, covariance, previous, weights, p, variance, scale, started, *, basis=None
 ) -> BlockState | GraphShapeState:
-    update = fixed_shape_update(H, M0, covariance, T, weights)
-    M, V, diagnostics = update.mean, update.covariance, update.diagnostics
+    M, V, diagnostics = _posterior(H, T, M0, covariance)
     response_map = None if basis is None else basis.R
-    native = update.uncentered_mean if response_map is None else update.uncentered_mean @ response_map.T
+    native = M if response_map is None else M @ response_map.T
     A = ybar - xbar @ native
-    A += 5 * (update.reference_shift if response_map is None else update.reference_shift @ response_map.T)
+    M, V, shift = _center(M, V, weights, diagnostics)
+    A += 5 * (shift if response_map is None else shift @ response_map.T)
     diagnostics["resources"] = resources(started)
     if p is not None:
         native = M if response_map is None else M @ response_map.T

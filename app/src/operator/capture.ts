@@ -1,10 +1,10 @@
-import type { PlatformError } from "@effect/platform/Error";
-import * as FetchHttpClient from "@effect/platform/FetchHttpClient";
-import * as FileSystem from "@effect/platform/FileSystem";
-import * as HttpClient from "@effect/platform/HttpClient";
-import type { HttpClientResponse } from "@effect/platform/HttpClientResponse";
+import type { PlatformError } from "effect/PlatformError";
+import * as FetchHttpClient from "effect/http/FetchHttpClient";
+import * as FileSystem from "effect/FileSystem";
+import * as HttpClient from "effect/http/HttpClient";
+import type { HttpClientResponse } from "effect/http/HttpClientResponse";
 import * as Effect from "effect/Effect";
-import * as Either from "effect/Either";
+import * as Result from "effect/Result";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
 
@@ -138,7 +138,7 @@ export const captureResponse = ({ identity, url, outDirectory }: {
     }).pipe(
       Effect.provideService(FetchHttpClient.RequestInit, { redirect: "manual" }),
       Effect.timeout("30 seconds"),
-      Effect.either,
+      Effect.result,
     );
 
     const responseHeaders: CaptureMetadata["responseHeaders"] = {};
@@ -150,8 +150,8 @@ export const captureResponse = ({ identity, url, outDirectory }: {
     }
     const metadata: CaptureMetadata = { schemaVersion: 1, ...identity, request, responseHeaders };
     let record: CaptureRecord;
-    if (Either.isRight(result)) {
-      const { response: completeResponse, bytes } = result.right;
+    if (Result.isSuccess(result)) {
+      const { response: completeResponse, bytes } = result.success;
       yield* fs.writeFile(join(sourceDirectory, "body.bin"), bytes);
       record = {
         ...metadata,
@@ -166,13 +166,13 @@ export const captureResponse = ({ identity, url, outDirectory }: {
         failure: null,
       };
     } else {
-      const error = result.left;
-      const kind = error._tag === "TimeoutException"
+      const error = result.failure;
+      const kind = error._tag === "TimeoutError"
         ? "timeout"
-        : error._tag === "ResponseError" ? "body-read" : "transport";
-      const message = error._tag === "TimeoutException"
+        : error.reason._tag === "DecodeError" ? "body-read" : "transport";
+      const message = error._tag === "TimeoutError"
         ? "request and body read exceeded 30 seconds"
-        : error.cause instanceof Error ? error.cause.message : error.message;
+        : error.reason.cause instanceof Error ? error.reason.cause.message : error.message;
       record = {
         ...metadata,
         httpStatus: response?.status ?? null,

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["DOM", "DOM.Iterable", "ES2024"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "rootDirs": [".", "./.react-router/types"]
+  },
+  "include": [
+    "src/web/**/*.ts",
+    "src/web/**/*.tsx",
+    "src/shared/**/*.ts",
+    ".react-router/types/**/*.ts"
+  ]
+}

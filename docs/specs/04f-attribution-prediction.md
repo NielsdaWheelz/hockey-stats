@@ -1,6 +1,6 @@
 # pr04f — explain attribution prediction failure
 
-status: **assigned for implementation and bounded execution on 2026-10-16.** [the plan](../plan.md) owns assignment. preserve [04e's failed verdict](../research/attribution-04e/decision.md), criteria and artifacts. this diagnostic cannot nominate, admit or publish a model.
+status: **complete; bounded accounting and independent reviews verified.** [decision](../research/attribution-04f/decision.md) · [verification](../research/attribution-04f/verification.md). [the plan](../plan.md) owns assignment. preserve [04e's failed verdict](../research/attribution-04e/decision.md), criteria and artifacts. this diagnostic cannot nominate, admit or publish a model.
 
 ## target and boundary
 

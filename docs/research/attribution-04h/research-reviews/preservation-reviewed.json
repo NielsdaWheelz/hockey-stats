@@ -1,0 +1,110 @@
+{
+  "status": "verified",
+  "scope": "final frozen reviewed reporting output rebind; no histories reopened or numeric reassessment",
+  "previous_preservation": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/reviews/preservation-final.json",
+    "sha256": "de150b2bfe1752854851ac9afb7d409e89f5188910a2bb7eb20af727fed0c630"
+  },
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+    "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+  },
+  "reporting_producer": {
+    "git_commit": "7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "verified_named_reference_count": 14,
+  "unchanged_numerical_inputs": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+      "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+      "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+    },
+    "fits": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/fit.json",
+        "sha256": "505d56b76fb0a1a568394d426b6b9c04872ba32bb0953146d36ee27ca5c4b4ae"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+        "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/fit.json",
+        "sha256": "083bd46f1a2518681a31e581d44672a8605ee0f223bb9fedc757b886e6569c58"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+        "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+        "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+        "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+      }
+    ],
+    "cell_arrays": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/cell.npz",
+        "sha256": "f97f3d73220bbd6e481f3f7cfafee981120fd4eabb16cd3b8933156bab1197ea"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/cell.npz",
+        "sha256": "aac9676b449b690f4fe70c1ed8866946d9b218d0a46b878ecd30db94daa69403"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/cell.npz",
+        "sha256": "5140758310a12499ca8fe142c212e5a30a2cdff1acca3c1d3998f48db1421b0d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/cell.npz",
+        "sha256": "c084230d64f2a96afd5c00a33d20538294eb56356bf92660c6a1b4057146aab3"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/cell.npz",
+        "sha256": "1ae7f2aac3f4464aaaf29a759cd7d43df68c17d9d4a5cad63ab9e7cc94ce7e62"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/cell.npz",
+        "sha256": "a797462492907891f8fd33f67bacb234eeb17e4425b80d3efee49524732871f5"
+      }
+    ]
+  },
+  "operational_reference_classes": {
+    "new_run_external": 13,
+    "stable_primary": 1,
+    "selected_source_external": 3000
+  },
+  "worktree_references": [],
+  "alias_required": false,
+  "compressed_protocol": {
+    "path": "docs/research/attribution-04h/protocol.json.gz",
+    "sha256": "921d35fcf74c37dfc7b8cf889ee7bb394c3780a026305f1e601cbfecb6d14b8b",
+    "bytes": 688319,
+    "uncompressed": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+      "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+    },
+    "uncompressed_bytes": 36523676,
+    "mtime": 0,
+    "filename_present": false,
+    "decompression": "byte_identical",
+    "role": "archival_only_operational_plain_protocol_stays_external"
+  },
+  "compression_identity": "unchanged compressed digest and unchanged externally verified uncompressed protocol reference; exact decompression/header checks retained in prior receipts",
+  "preservation": "retain frozen external operational inputs/outputs and producer ancestry; disposable worktree requires no alias"
+}

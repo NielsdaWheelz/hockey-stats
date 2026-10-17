@@ -1,0 +1,279 @@
+{
+  "kind": "attribution_resolution_research_statistical_acceptance_review",
+  "status": "verified",
+  "purpose": "research",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+    "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+    "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+  },
+  "executing_producer": "a9269b491d71a6036fb94ce30e0542fdbe4e85d7",
+  "cells": [
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+        "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+      },
+      "assessment_records": 100,
+      "bootstrap_seed": [
+        40901,
+        1,
+        1
+      ],
+      "bootstrap_resamples": 10000,
+      "bootstrap_index_sha256": "477b211afb9a938969c223d2d1c502b7b8c82fa0bb93bcb9be9037ecaeacb826",
+      "fixed_curve_rows": 216,
+      "comparison_rows": 24,
+      "partition_rows": 120,
+      "calibration": [
+        {
+          "condition": "base",
+          "calibration_index": 10,
+          "assessment_hindsight_index": 10,
+          "reselected_on_assessment": false
+        },
+        {
+          "condition": "half_effect",
+          "calibration_index": 8,
+          "assessment_hindsight_index": 8,
+          "reselected_on_assessment": false
+        },
+        {
+          "condition": "double_games",
+          "calibration_index": 10,
+          "assessment_hindsight_index": 10,
+          "reselected_on_assessment": false
+        },
+        {
+          "condition": "broad",
+          "calibration_index": 10,
+          "assessment_hindsight_index": 10,
+          "reselected_on_assessment": false
+        }
+      ],
+      "bootstrap_method": "index whole outer records; recompute means first, then roots/ratios; sorted linear percentile interpolation",
+      "observed_null_intervals": null,
+      "analytic_null_intervals": null
+    },
+    {
+      "population": "null",
+      "law": "game_pace",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+        "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+      },
+      "assessment_records": 100,
+      "bootstrap_seed": [
+        40901,
+        2,
+        1
+      ],
+      "bootstrap_resamples": 10000,
+      "bootstrap_index_sha256": "7bfff8eca37dceed3a95acfd5213ba495a98ee38fe812c1e2a657f5592412d17",
+      "fixed_curve_rows": 162,
+      "comparison_rows": 24,
+      "partition_rows": 120,
+      "calibration": [
+        {
+          "condition": "base",
+          "calibration_index": 0,
+          "assessment_hindsight_index": 0,
+          "reselected_on_assessment": false
+        },
+        {
+          "condition": "double_games",
+          "calibration_index": 0,
+          "assessment_hindsight_index": 0,
+          "reselected_on_assessment": false
+        },
+        {
+          "condition": "broad",
+          "calibration_index": 0,
+          "assessment_hindsight_index": 0,
+          "reselected_on_assessment": false
+        }
+      ],
+      "bootstrap_method": "index whole outer records; recompute means first, then roots/ratios; sorted linear percentile interpolation",
+      "observed_null_intervals": "retained for annual/adaptive saved fits",
+      "analytic_null_intervals": "none; no outer replication"
+    }
+  ],
+  "comparisons": 9348,
+  "maximum_absolute_residual": 1.014086592476815e-10,
+  "maximum_tolerance_fraction": 0.023468714820662172,
+  "atol": 1e-10,
+  "rtol": 1e-08,
+  "new_responses": 0,
+  "new_annual_fits": 0,
+  "expanded_search": false,
+  "elapsed_seconds": 12.138538292001613,
+  "selected_residuals": {
+    "diffuse-game_pace_annual_full_target_risk": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_adaptive40_full_target_risk": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_adaptive11_full_target_risk": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_physical_zero_risk": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_source_annual_excess": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_risk_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_risk_percentiles": {
+      "maximum_absolute_residual": 2.7755575615628914e-17,
+      "maximum_tolerance_fraction": 1.4439739342440217e-08
+    },
+    "diffuse-game_pace_base_0_0_bias_squared_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_bias_squared_percentiles": {
+      "maximum_absolute_residual": 2.7755575615628914e-17,
+      "maximum_tolerance_fraction": 1.4439739342440217e-08
+    },
+    "diffuse-game_pace_base_0_0_sampling_variance_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_sampling_variance_percentiles": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_zero_risk_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_zero_risk_percentiles": {
+      "maximum_absolute_residual": 2.7755575615628914e-17,
+      "maximum_tolerance_fraction": 1.4439739342440217e-08
+    },
+    "diffuse-game_pace_base_0_0_prediction_excess_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_prediction_excess_percentiles": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_coupling_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_coupling_percentiles": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_rms_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_rms_percentiles": {
+      "maximum_absolute_residual": 1.3877787807814457e-17,
+      "maximum_tolerance_fraction": 1.0606727598416308e-08
+    },
+    "diffuse-game_pace_base_0_0_ratio_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_0_ratio_percentiles": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_1_risk_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_1_risk_percentiles": {
+      "maximum_absolute_residual": 6.938893903907228e-18,
+      "maximum_tolerance_fraction": 1.0150180933787297e-08
+    },
+    "diffuse-game_pace_base_0_1_bias_squared_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_1_bias_squared_percentiles": {
+      "maximum_absolute_residual": 6.938893903907228e-18,
+      "maximum_tolerance_fraction": 1.0150180933787297e-08
+    },
+    "diffuse-game_pace_base_0_1_sampling_variance_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_1_sampling_variance_percentiles": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_1_zero_risk_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    },
+    "diffuse-game_pace_base_0_1_zero_risk_percentiles": {
+      "maximum_absolute_residual": 6.938893903907228e-18,
+      "maximum_tolerance_fraction": 1.0150180933787297e-08
+    },
+    "diffuse-game_pace_base_0_1_prediction_excess_mean": {
+      "maximum_absolute_residual": 0.0,
+      "maximum_tolerance_fraction": 0.0
+    }
+  },
+  "final_binding": {
+    "status": "verified",
+    "initial_assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-initial/assessment.json",
+      "sha256": "fdaf08036fb2efd9c909eb9c24ebf87ff8b904c0470f5244a4c9d383ae51d2f7"
+    },
+    "prior_assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment/assessment.json",
+      "sha256": "a946a215bc48a337da7ae6d82d8e3d0f78c8ff99719731d24abc35ecd2da99ba"
+    },
+    "final_assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+      "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+    },
+    "exact_fields": [
+      "curves",
+      "comparisons",
+      "selections",
+      "partitions",
+      "exact_completeness",
+      "numerical",
+      "real_context",
+      "target_rank",
+      "source_status",
+      "null_aliases",
+      "interval_meaning",
+      "units"
+    ],
+    "canonical_numeric_sha256": "9dd9c1dde284e369a5fa35757488b7f0d907d3e3827c8ec3779d5f0cb897c379",
+    "numerical_collections": "byte-identical canonical json; bootstrap and physical rescoring not repeated",
+    "final_producer": {
+      "git_commit": "7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "executing_review_commit": "7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5",
+    "scientific_question_review": "approved bounded observable selection/prior question with a prospective prediction-cost budget; no causal selector-defect or deployable joint-winner claim",
+    "contrary_result_comparator": "eleven-mode adaptive lateral risk exceeds annual borrowing in both game-pace populations; the comparator is now explicit"
+  }
+}

@@ -54,7 +54,13 @@ rendering checks inspect actual geometry, text ranges and keyboard scrolling as 
 
 `adversarial-final.json` records independent review of each boundary and the four closed findings, with no open application finding. after that clearance, `test-deletion.json` records removal of the sole browser controller, temporary sandbox profile and two copied baseline setup logs, and confirms the entire temporary directory is absent. the task server is stopped and port 3057 has no listener. all 66 retained evidence-file hashes remain unchanged through deletion, as do active publication bytes/mtime and the clean primary checkout. the concurrently active 04h worktree is observed without writes.
 
-no test-only dependency was installed; the existing cached browser tools remain. no lasting check or harness is retained. the assigned branch/worktree and built app remain available, with operation documented in the [readme](../../../README.md#private-observed-results). pr/merge and primary-checkout activation are not part of this handoff; the current publication has not been rebuilt or replaced.
+no test-only dependency was installed; the existing cached browser tools remain. no lasting check or harness is retained. at implementation handoff, the assigned branch/worktree and built app were retained, with operation documented in the [readme](../../../README.md#private-observed-results). the user subsequently assigned the source integration and cleanup below. the current publication has not been rebuilt or replaced.
+
+## source integration and task cleanup
+
+the user assigned pr, merge and task cleanup after implementation acceptance. delivery uses a merge commit preserving `b584337` and verifies the reviewed tree against the merged tree before removing the 05b worktree and local/remote task refs. the primary checkout rebuilds the merged application and serves the existing read-only publication. this changes application code, not the database or scientific claims.
+
+the final receipt is `/Users/nnandal/Documents/code/hockey-stats-local/05b-verification/pr-merge-cleanup.json`; independent delivery review is `pr-delivery-review.json` beside it. they record the actual pr/checks/merge identity, primary build and localhost verification, exact removed resources and preserved evidence/publication. the unrelated, concurrently active 04h worktree and its staged work are outside this cleanup. source locators in earlier receipts remain historical verification provenance; no expensive output requires a 05b worktree alias.
 
 ## limits and costs
 

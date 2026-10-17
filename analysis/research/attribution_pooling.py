@@ -20,6 +20,7 @@ from hockey_stats.artifacts import (
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.captures import InputContractError
 from hockey_stats.attribution_data import POOLING_STAT_FIELDS as STAT_FIELDS
+from hockey_stats.attribution_prediction import current_player_rows, deployment_gram, prediction_loss
 from hockey_stats.attribution_simulation import synthetic_rosters
 from hockey_stats.shot_origins import grid
 from attribution_recovery import shape_regions
@@ -363,31 +364,6 @@ def read_prepared(path, *, source=None):
     return document, protocol, basis, train, evaluation, W
 
 
-def _current_rows(state, players):
-    require(tuple(players) == state.current_player_ids, "current player identity differs from annual state")
-    positions = {player: i for i, player in enumerate(state.player_ids)}
-    selected = [positions[player] for player in players]
-    return np.asarray(selected + [len(positions) + i for i in selected])
-
-
-def _evaluation_gram(design):
-    from scipy import sparse
-
-    Z = sparse.csr_matrix((np.ones(len(design["si"])), (np.arange(len(design["si"])), design["si"])),
-                          shape=(len(design["si"]), len(design["strata"])))
-    deployment = sparse.hstack((Z, design["X"]), format="csr")
-    return (deployment.T @ deployment.multiply(design["e"][:, None])).toarray() / design["e"].sum()
-
-
-def _quadratic_loss(gram, context, maps, p=None):
-    difference = np.vstack((context, maps))
-    metric = difference @ difference.T if p is None else (difference / p) @ difference.T
-    risk = 40 ** 2 * float(np.sum(gram * metric))
-    tolerance = 1e-10 * max(1., 40 ** 2 * float(np.sum(np.abs(gram * metric))))
-    require(np.isfinite(risk) and risk >= -tolerance, "known-mean evaluation risk is invalid")
-    return max(0., risk)
-
-
 def _scale_summary(block):
     return dict(a=block.a, q=block.q, **{name: block.scale[name] for name in
                 ("selected", "status", "own_reasons", "inherited_limitation")},
@@ -399,7 +375,7 @@ def annual_losses(control, candidate, population, training, evaluation, truth, b
     from hockey_stats.attribution import complete_rates, shape_mean
     from hockey_stats.attribution_data import centered_estimability, exposure_centering, likelihood_spectrum
 
-    rows = _current_rows(control, training["players"])
+    rows = current_player_rows(control, training["players"])
     require(control.player_ids == candidate.player_ids and control.current_player_ids == candidate.current_player_ids
             and np.array_equal(control.u, candidate.u) and np.array_equal(control.p, candidate.p)
             and all(np.array_equal(getattr(control.volume, name), getattr(candidate.volume, name))
@@ -437,9 +413,9 @@ def annual_losses(control, candidate, population, training, evaluation, truth, b
                   projected_truth_native_error=float(np.sum((40 * C_current @ projected - true_contrasts)[estimable] ** 2) / 30),
                   truth_active_count=int(np.count_nonzero(estimable & active)),
                   truth_inactive_count=int(np.count_nonzero(estimable & ~active)))
-    gram = _evaluation_gram(evaluation)
+    gram = deployment_gram(evaluation["X"], evaluation["si"], evaluation["e"], len(evaluation["strata"]))
     yh = population.ybar - population.ybar.sum(axis=1, keepdims=True) * basis.p
-    record["P_zero"] = _quadratic_loss(gram, yh - truth["context"], -truth["centered"], basis.p)
+    record["P_zero"] = prediction_loss(gram, yh - truth["context"], -truth["centered"], p=basis.p)
     current_positions = {player: i for i, player in enumerate(training["players"])}
     transitions = [player for player in (32, 33) if control.season_index >= 2 and player in current_positions]
     if control.season_index >= 3 and 8 in current_positions:
@@ -454,7 +430,7 @@ def annual_losses(control, candidate, population, training, evaluation, truth, b
         inactive_risk = float(errors[estimable & ~active].sum() / 30)
         require(abs(total - active_risk - inactive_risk) <= 1e-10 * max(1., total), "active/inactive risks do not reconcile")
         record["R_" + arm] = total
-        record["P_" + arm] = _quadratic_loss(gram, state.shape.A - truth["context"], current - truth["centered"], basis.p)
+        record["P_" + arm] = prediction_loss(gram, state.shape.A - truth["context"], current - truth["centered"], p=basis.p)
         partition = dict(active=active_risk, inactive=inactive_risk)
         for role in ("offense", "defense"):
             mask = estimable & np.array([pair["role"] == role for pair in pairs])
@@ -476,8 +452,8 @@ def annual_losses(control, candidate, population, training, evaluation, truth, b
             projected_native_shape_error=float(np.sum((40 * (C @ maps) - 40 * C_current @ projected)[estimable] ** 2) / 30),
             complete_native_pair_error=float(np.sum((40 * (C @ maps + (C @ state.volume.M) * basis.p) - true_contrasts)[estimable] ** 2) / 30),
             false_map_maximum_regional_norm=float(np.max(np.sqrt(errors[estimable & ~active]), initial=0.)),
-            native_shape_prediction_error=_quadratic_loss(gram, state.shape.A - truth["context"], current - truth["centered"]),
-            complete_rate_prediction_error=_quadratic_loss(gram,
+            native_shape_prediction_error=prediction_loss(gram, state.shape.A - truth["context"], current - truth["centered"]),
+            complete_rate_prediction_error=prediction_loss(gram,
                 state.shape.A + state.volume.A * basis.p - basis.p - truth["context"],
                 current + relative_volume[:, None] * basis.p - truth["centered"]),
             volume_player_mean_square=float(np.mean((40 * relative_volume) ** 2)),
@@ -698,7 +674,7 @@ def _restored_probe(state, arrays, year, population):
     maps = shape_mean(restored)
     n = len(state.player_ids)
     centered = [state.u @ maps[role * n:(role + 1) * n] for role in range(2)]
-    current = maps[_current_rows(state, state.current_player_ids)]
+    current = maps[current_player_rows(state, state.current_player_ids)]
     yh = population.ybar - population.ybar.sum(axis=1, keepdims=True) * population.p
     context = yh - population.xbar @ current
     require(np.max(np.abs(centered)) <= 1e-8 and np.max(np.abs(maps.sum(axis=1))) <= 1e-8
@@ -710,7 +686,7 @@ def _restored_probe(state, arrays, year, population):
 def _probe_movements(original, altered, truth, W):
     from hockey_stats.attribution import project, shape_mean
 
-    selected = _current_rows(original, original.current_player_ids)
+    selected = current_player_rows(original, original.current_player_ids)
     delta = shape_mean(altered)[selected] - shape_mean(original)[selected]
     movement = dict(native_cells=float(np.max(np.abs(delta))), regions=float(np.max(np.abs(delta @ W))),
                     scalars=float(np.max(np.abs(delta.sum(axis=1)))), requested_projections=0.)

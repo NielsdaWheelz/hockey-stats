@@ -8,6 +8,7 @@ blocks; the shared-volume estimator survives only as a named scientific control.
 from dataclasses import dataclass
 from functools import cached_property
 import hashlib
+import json
 import math
 from pathlib import Path
 import time
@@ -18,14 +19,17 @@ from scipy.linalg import cho_solve, eigh, solve_triangular
 from scipy.optimize import minimize_scalar
 
 from .artifacts import (
-    clean_implementation, implementation, linked_path, load_arrays, read_artifact, require, resources,
+    artifact, clean_implementation, digest, implementation, linked_path, load_arrays,
+    ordered_array_digest, read_artifact, require, resources,
     write_arrays, write_json,
 )
 from .chance_cli import identity, output_path, read_json
 
 from .attribution_data import (
     POPULATIONS,
+    POOLING_STAT_FIELDS,
     RevisionPopulation,
+    pooling_population,
     read_recovery_prepared,
     read_revision_prepared,
 )
@@ -118,6 +122,36 @@ def decode_shape_basis(arrays: dict[str, np.ndarray], *, basis_sha256: str) -> S
     return ShapeBasis(B, p, eigenvalues, basis_sha256)
 
 
+def validate_pooling_basis(basis: ShapeBasis) -> dict:
+    """verify the saved nested low space without changing its columns or signs."""
+    from .shot_origins import grid
+
+    decode_shape_basis(dict(B=basis.B, p=basis.p, eigenvalues=basis.eigenvalues),
+                       basis_sha256=basis.sha256)
+    cutoff = (2 * math.pi / 80) ** 2
+    require(basis.eigenvalues[10] < cutoff - 1e-8
+            and basis.eigenvalues[11] > cutoff + 1e-8
+            and np.count_nonzero(basis.eigenvalues <= cutoff) == 11,
+            "two-band cutoff rank or separation differs from the saved graph")
+    centers, edges = grid()
+    laplacian = np.zeros((len(centers), len(centers)))
+    laplacian[edges[:, 0], edges[:, 1]] = -1
+    laplacian[edges[:, 1], edges[:, 0]] = -1
+    np.fill_diagonal(laplacian, -laplacian.sum(axis=1))
+    values, vectors = eigh(laplacian / 25, subset_by_index=(0, 12), check_finite=False)
+    require(np.allclose(values[1:12], basis.eigenvalues[:11], rtol=1e-8, atol=1e-10),
+            "saved low-band eigenvalue ordering differs")
+    expected = vectors[:, 1:12] - basis.p @ vectors[:, 1:12]
+    expected, _ = np.linalg.qr(np.sqrt(basis.p)[:, None] * expected)
+    actual = np.sqrt(basis.p)[:, None] * basis.B[:, :11]
+    residual = float(np.linalg.norm(actual - expected @ (expected.T @ actual), ord=2))
+    require(residual <= 1e-8, "saved first eleven columns are not the nested low graph space")
+    return dict(low_rank=11, high_rank=29, cutoff=cutoff,
+                low_largest_eigenvalue=float(basis.eigenvalues[10]),
+                high_smallest_eigenvalue=float(basis.eigenvalues[11]),
+                nested_subspace_relative_residual=residual, basis_sha256=basis.sha256)
+
+
 @dataclass(frozen=True)
 class BlockState:
     M: np.ndarray
@@ -145,6 +179,47 @@ class GraphShapeState:
 
 
 @dataclass(frozen=True)
+class ShapeBandState:
+    Theta: np.ndarray
+    V: np.ndarray
+    prior_mean: np.ndarray
+    prior_covariance: np.ndarray
+    a: float
+    q: float | None
+    scale: dict
+    diagnostics: dict
+
+
+@dataclass(frozen=True)
+class TwoBandShapeState:
+    low: ShapeBandState
+    high: ShapeBandState
+    A: np.ndarray
+    diagnostics: dict
+
+
+@dataclass(frozen=True)
+class PoolingSource:
+    reference: dict
+    prepared: dict
+    protocol: dict
+    basis: ShapeBasis
+
+
+@dataclass(frozen=True)
+class PoolingStatistics:
+    reference: dict
+    prepared_sha256: str
+    arrays: dict[str, np.ndarray]
+
+
+POOLING_UNITS = dict(M="relative league team rate", Theta="whitened relative shape coefficient",
+    V="relative-rate-squared full row covariance", A="relative league native team rate",
+    r="attempts per 60 team minutes", u="fixed training exposure share", p="fixed positive native share")
+POOLING_PROBE_SCOPE = "conditional_per_fit_fixed_incoming_prior_not_propagated_history_or_global_optimum"
+
+
+@dataclass(frozen=True)
 class ShapeUpdate:
     mean: np.ndarray
     covariance: np.ndarray
@@ -160,7 +235,7 @@ class AnnualState:
     season_index: int
     source_protocol_sha256: str
     model_protocol_sha256: str
-    representation: Literal["native_04b", "graph_40ft"]
+    representation: Literal["native_04b", "graph_40ft", "graph_two_band_80ft"]
     basis: ShapeBasis | None
     population_id: str
     player_ids: tuple[int, ...]
@@ -168,7 +243,7 @@ class AnnualState:
     entrant_ids: tuple[int, ...]
     carried_only_ids: tuple[int, ...]
     volume: BlockState
-    shape: BlockState | GraphShapeState | None
+    shape: BlockState | GraphShapeState | TwoBandShapeState | None
     r: float
     u: np.ndarray
     p: np.ndarray | None
@@ -280,12 +355,13 @@ def _posterior(
     )
 
 
-def _coefficient_mean(block: BlockState | GraphShapeState) -> np.ndarray:
-    return block.Theta if isinstance(block, GraphShapeState) else block.M
+def _coefficient_mean(block: BlockState | GraphShapeState | ShapeBandState) -> np.ndarray:
+    return block.Theta if isinstance(block, (GraphShapeState, ShapeBandState)) else block.M
 
 
 def _prior(
-    players: tuple[int, ...], previous: AnnualState | None, block: BlockState | GraphShapeState | None, width: int
+    players: tuple[int, ...], previous: AnnualState | None,
+    block: BlockState | GraphShapeState | ShapeBandState | None, width: int
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     n = len(players)
     M0 = np.zeros((2 * n, width))
@@ -338,12 +414,14 @@ def shape_objective_terms(
 class _ScaleProblem:
     """cache response contractions once; each scale candidate solves row space."""
 
-    def __init__(self, H, T, yy, M0, base_covariance, innovation_indices, p, *, basis=None):
+    def __init__(self, H, T, yy, M0, base_covariance, innovation_indices, p, *, basis=None, response_rank=None):
         self.H, self.T, self.M0 = H, T, M0
         self.base_covariance, self.innovation_indices = base_covariance, innovation_indices
         self.b = T - H @ M0
-        self.rank = basis.B.shape[1] if basis is not None else (1 if p is None else len(p) - 1)
-        self.reduced = basis is not None
+        self.rank = response_rank if response_rank is not None else (
+            basis.B.shape[1] if basis is not None else (1 if p is None else len(p) - 1))
+        self.band = response_rank is not None
+        self.reduced = basis is not None or response_rank is not None
         if self.reduced:
             self.zz = float(yy - 2 * np.sum(M0 * T) + np.sum(M0 * (H @ M0)))
         elif p is None:
@@ -397,7 +475,8 @@ class _ScaleProblem:
             )
         )
         if self.reduced:
-            self.curve[-1]["full_objective"] = float(value + self.zz) if error is None else None
+            self.curve[-1]["band_objective" if self.band else "full_objective"] = (
+                float(value + self.zz) if error is None else None)
         return value if error is None else math.inf
 
 
@@ -537,6 +616,43 @@ def _fit_block(
     )
 
 
+def _band_at_scale(H, T, M0, covariance, previous, weights, variance, scale, started) -> ShapeBandState:
+    M, V, diagnostics = _posterior(H, T, M0, covariance)
+    M, V, _ = _center(M, V, weights, diagnostics)
+    diagnostics["resources"] = resources(started)
+    return ShapeBandState(M, V, M0, covariance, variance if previous is None else previous.a,
+                          None if previous is None else variance, scale, diagnostics)
+
+
+def _two_band_shape(H, Th, yh, xbar, basis, low, high, response_energy) -> TwoBandShapeState:
+    native = low.Theta @ basis.R[:, :11].T + high.Theta @ basis.R[:, 11:].T
+    A = yh - xbar @ native
+    residual = float(max(np.max(np.abs(native.sum(axis=1))), np.max(np.abs(A.sum(axis=1)))))
+    require(residual <= 1e-8, "two-band shape/context is not zero sum")
+    terms = {}
+    for name, block, columns in (("low", low, slice(0, 11)), ("high", high, slice(11, 40))):
+        score = Th @ basis.B[:, columns]
+        prior = float(-2 * np.sum(block.prior_mean * score)
+                      + np.sum(block.prior_mean * (H @ block.prior_mean)))
+        terms[name] = dict(prior_mean_terms=prior,
+                           reduced_objective=block.scale["selected"]["objective"])
+    full = float(response_energy + sum(row["prior_mean_terms"] + row["reduced_objective"]
+                                       for row in terms.values()))
+    return TwoBandShapeState(low, high, A, dict(native_response_energy=float(response_energy),
+        band_objective_terms=terms, full_objective=full, zero_sum_mean_residual=residual))
+
+
+def annual_input_identity(population: RevisionPopulation) -> str:
+    """bind a fitted volume block to the exact residualized likelihood and references."""
+    metadata = [population.benchmark, population.season, population.season_index,
+                population.protocol_sha256, population.population_id, population.player_ids, population.strata]
+    arrays = {name: np.asarray(getattr(population, name)) for name in (
+        "H", "T", "yy", "shape_yy", "r", "xbar", "ybar", "stratum_weight", "player_exposure",
+        "response_counts", "u", "p") if getattr(population, name) is not None}
+    return hashlib.sha256(json.dumps(metadata, separators=(",", ":")).encode()
+                          + bytes.fromhex(ordered_array_digest(arrays))).hexdigest()
+
+
 def _annual_inputs(population: "RevisionPopulation", previous: AnnualState | None):
     current = population.player_ids
     require(
@@ -647,13 +763,13 @@ def _annual_inputs(population: "RevisionPopulation", previous: AnnualState | Non
 
 def _fit(
     population: "RevisionPopulation", previous: AnnualState | None, shared_volume: bool,
-    *, representation: Literal["native_04b", "graph_40ft"], basis: ShapeBasis | None,
-    model_protocol_sha256: str,
+    *, representation: Literal["native_04b", "graph_40ft", "graph_two_band_80ft"], basis: ShapeBasis | None,
+    model_protocol_sha256: str, volume_source: AnnualState | None = None,
 ) -> AnnualState:
     require(
         (representation == "native_04b" and basis is None)
         or (
-            representation == "graph_40ft"
+            representation in ("graph_40ft", "graph_two_band_80ft")
             and basis is not None
             and population.p is not None
             and np.array_equal(population.p, basis.p)
@@ -676,26 +792,62 @@ def _fit(
     p = population.p
     prior_volume = None if previous is None else previous.volume
     M0, base, innovations = _prior(players, previous, prior_volume, 1)
-    volume = _fit_block(
-        H,
-        T.sum(axis=1, keepdims=True),
-        population.yy,
-        population.ybar.sum(axis=1, keepdims=True),
-        xbar,
-        M0,
-        base,
-        innovations,
-        prior_volume,
-        weights,
-        None,
-    )
+    if representation == "graph_two_band_80ft":
+        require(volume_source is not None and volume_source.representation == "graph_40ft"
+                and volume_source.benchmark == population.benchmark
+                and volume_source.season == population.season
+                and volume_source.season_index == population.season_index
+                and volume_source.source_protocol_sha256 == population.protocol_sha256
+                and volume_source.model_protocol_sha256 == model_protocol_sha256
+                and volume_source.population_id == population.population_id
+                and volume_source.player_ids == players
+                and volume_source.current_player_ids == population.player_ids
+                and np.array_equal(volume_source.u, weights)
+                and np.array_equal(volume_source.p, population.p)
+                and np.array_equal(volume_source.response_counts, population.response_counts)
+                and volume_source.volume.diagnostics.get("population_sha256") == annual_input_identity(population),
+                "two-band fit requires the explicit same-input control volume")
+        volume = volume_source.volume
+        variance = volume.scale["selected"]["variance"]
+        base[innovations, innovations] += variance
+        require(np.array_equal(volume.prior_mean, M0) and np.array_equal(volume.prior_covariance, base)
+                and volume.a == (variance if prior_volume is None else prior_volume.a)
+                and volume.q == (None if prior_volume is None else variance),
+                "shared volume previous-state lineage differs")
+    else:
+        require(volume_source is None, "only the named two-band candidate accepts a shared volume")
+        volume = _fit_block(
+            H, T.sum(axis=1, keepdims=True), population.yy,
+            population.ybar.sum(axis=1, keepdims=True), xbar, M0, base, innovations,
+            prior_volume, weights, None,
+        )
+        volume.diagnostics["population_sha256"] = annual_input_identity(population)
+        for array in (volume.M, volume.V, volume.A, volume.prior_mean, volume.prior_covariance):
+            array.setflags(write=False)
     shape = None
     if p is not None:
         Th = T - T.sum(axis=1, keepdims=True) * p
         yh = population.ybar - population.ybar.sum(axis=1, keepdims=True) * p
         prior_shape = None if previous is None else previous.shape
-        width = len(p) if basis is None else basis.B.shape[1]
-        M0, base, innovations = _prior(players, previous, prior_shape, width)
+        if representation == "graph_two_band_80ft":
+            require(prior_shape is None or isinstance(prior_shape, TwoBandShapeState),
+                    "two-band annual prior changed shape variant")
+            bands = []
+            for name, columns in (("low", slice(0, 11)), ("high", slice(11, 40))):
+                prior_band = None if prior_shape is None else getattr(prior_shape, name)
+                width = columns.stop - columns.start
+                M0, base, innovations = _prior(players, previous, prior_band, width)
+                started = time.monotonic()
+                problem = _ScaleProblem(H, Th @ basis.B[:, columns], 0., M0, base, innovations, p,
+                                        response_rank=width)
+                inherited = prior_band is not None and prior_band.scale["status"] == "scale_unresolved"
+                variance, scale = _select_scale(problem, inherited)
+                bands.append(_band_at_scale(H, problem.T, M0, problem.covariance(variance),
+                                             prior_band, weights, variance, scale, started))
+            shape = _two_band_shape(H, Th, yh, xbar, basis, *bands, population.shape_yy)
+        else:
+            width = len(p) if basis is None else basis.B.shape[1]
+            M0, base, innovations = _prior(players, previous, prior_shape, width)
         if shared_volume:
             covariance = base.copy()
             covariance[innovations, innovations] += volume.scale["selected"]["variance"]
@@ -713,7 +865,7 @@ def _fit(
                 volume.scale,
                 time.monotonic(),
             )
-        else:
+        elif representation != "graph_two_band_80ft":
             shape = _fit_block(
                 H, Th if basis is None else Th @ basis.B, population.shape_yy,
                 yh, xbar, M0, base, innovations, prior_shape, weights, p, basis=basis,
@@ -753,12 +905,12 @@ def fit_revision_year(population: "RevisionPopulation", previous: AnnualState | 
 
 def fit_recovery_year(
     population: RevisionPopulation, previous: AnnualState | None,
-    *, representation: Literal["native_04b", "graph_40ft"], basis: ShapeBasis | None,
-    model_protocol_sha256: str,
+    *, representation: Literal["native_04b", "graph_40ft", "graph_two_band_80ft"], basis: ShapeBasis | None,
+    model_protocol_sha256: str, shared_volume: AnnualState | None = None,
 ) -> AnnualState:
     """fit one explicitly selected representation against unchanged source references."""
     return _fit(population, previous, False, representation=representation, basis=basis,
-                model_protocol_sha256=model_protocol_sha256)
+                model_protocol_sha256=model_protocol_sha256, volume_source=shared_volume)
 
 
 def fit_shared_volume_control(population: "RevisionPopulation", previous: AnnualState | None) -> AnnualState:
@@ -774,6 +926,11 @@ def shape_mean(state: AnnualState) -> np.ndarray:
         require(isinstance(state.shape, BlockState) and state.basis is None,
                 "native shape state has incompatible representation")
         return state.shape.M
+    if state.representation == "graph_two_band_80ft":
+        require(isinstance(state.shape, TwoBandShapeState) and state.basis is not None,
+                "two-band shape state has incompatible representation")
+        return (state.shape.low.Theta @ state.basis.R[:, :11].T
+                + state.shape.high.Theta @ state.basis.R[:, 11:].T)
     require(isinstance(state.shape, GraphShapeState) and state.basis is not None,
             "graph shape state has incompatible representation")
     return state.shape.Theta @ state.basis.R.T
@@ -793,7 +950,9 @@ def _row_moments(state: AnnualState, player_contrast: np.ndarray):
     selected = np.flatnonzero(c)
     coefficients = c[selected]
     moments = []
-    for block in (state.volume, state.shape):
+    blocks = (state.volume, state.shape.low, state.shape.high) if isinstance(state.shape, TwoBandShapeState) else (
+        state.volume, state.shape)
+    for block in blocks:
         if block is not None:
             mean = coefficients @ _coefficient_mean(block)[selected]
             variance = float(coefficients @ block.V[np.ix_(selected, selected)] @ coefficients)
@@ -828,14 +987,23 @@ def project(
         if estimand == "volume":
             shifted = np.zeros_like(shifted)
             center = 0.0
-        if state.representation == "graph_40ft":
+        if state.representation == "graph_two_band_80ft":
+            response_low = state.basis.R[:, :11].T @ shifted
+            response_high = state.basis.R[:, 11:].T @ shifted
+            mean = state.r * (moments[0][0][0] * volume
+                             + moments[1][0] @ response_low + moments[2][0] @ response_high)
+            variance = state.r**2 * (moments[0][1] * volume**2
+                        + moments[1][1] * float(response_low @ response_low)
+                        + moments[2][1] * float(response_high @ response_high))
+        elif state.representation == "graph_40ft":
             response = state.basis.R.T @ shifted
             response_variance = float(response @ response)
         else:
             response = shifted
             response_variance = float(state.p @ (shifted - center) ** 2)
-        mean = state.r * (moments[0][0][0] * volume + moments[1][0] @ response)
-        variance = state.r**2 * (moments[0][1] * volume**2 + moments[1][1] * response_variance)
+        if state.representation != "graph_two_band_80ft":
+            mean = state.r * (moments[0][0][0] * volume + moments[1][0] @ response)
+            variance = state.r**2 * (moments[0][1] * volume**2 + moments[1][1] * response_variance)
     tolerance = state.r**2 * float(c @ c) * float(v @ v) * sum(row[2] for row in moments)
     require(
         math.isfinite(mean) and math.isfinite(variance) and variance >= -tolerance,
@@ -850,16 +1018,8 @@ def project_interval(
 ) -> dict:
     mean, variance = project(state, player_contrast, response_weights, estimand=estimand)
     c, v = np.asarray(player_contrast, dtype=float), np.asarray(response_weights, dtype=float)
-    tolerance = (
-        state.r**2
-        * float(c @ c)
-        * float(v @ v)
-        * sum(
-            block.diagnostics["covariance_rounding_tolerance"]
-            for block in (state.volume, state.shape)
-            if block is not None
-        )
-    )
+    _, moments = _row_moments(state, c)
+    tolerance = state.r**2 * float(c @ c) * float(v @ v) * sum(row[2] for row in moments)
     interval_variance = max(variance, 0.0)
     half = 1.959963984540054 * math.sqrt(interval_variance)
     return dict(
@@ -885,7 +1045,12 @@ def project_native(
         mean = state.r * moments[0][0]
         variance = np.array([state.r**2 * moments[0][1]])
     else:
-        if state.representation == "graph_40ft":
+        if state.representation == "graph_two_band_80ft":
+            R_low, R_high = state.basis.R[:, :11], state.basis.R[:, 11:]
+            native_shape = moments[1][0] @ R_low.T + moments[2][0] @ R_high.T
+            native_shape_variance = (moments[1][1] * np.sum(R_low**2, axis=1)
+                                     + moments[2][1] * np.sum(R_high**2, axis=1))
+        elif state.representation == "graph_40ft":
             R = state.basis.R
             native_shape = moments[1][0] @ R.T
             shape_variance = np.sum(R**2, axis=1)
@@ -898,7 +1063,11 @@ def project_native(
             native_shape = np.zeros_like(state.p)
             shape_variance = np.zeros_like(state.p)
         mean = state.r * (volume_mean + native_shape)
-        variance = state.r**2 * (volume_variance + moments[1][1] * shape_variance)
+        if state.representation == "graph_two_band_80ft":
+            variance = state.r**2 * (volume_variance + (
+                np.zeros_like(state.p) if estimand == "volume" else native_shape_variance))
+        else:
+            variance = state.r**2 * (volume_variance + moments[1][1] * shape_variance)
     tolerance = state.r**2 * float(c @ c) * sum(row[2] for row in moments)
     require(
         np.isfinite(mean).all() and np.isfinite(variance).all() and np.all(variance >= -tolerance),
@@ -929,10 +1098,13 @@ def complete_rates(
     volume = state.volume.A[contexts] + state.volume.M[columns].sum(axis=1)
     if state.p is None:
         return state.r * volume
-    shape = (
-        state.shape.Theta[columns].sum(axis=1) @ state.basis.R.T
-        if state.representation == "graph_40ft" else state.shape.M[columns].sum(axis=1)
-    )
+    if state.representation == "graph_two_band_80ft":
+        shape = (state.shape.low.Theta[columns].sum(axis=1) @ state.basis.R[:, :11].T
+                 + state.shape.high.Theta[columns].sum(axis=1) @ state.basis.R[:, 11:].T)
+    elif state.representation == "graph_40ft":
+        shape = state.shape.Theta[columns].sum(axis=1) @ state.basis.R.T
+    else:
+        shape = state.shape.M[columns].sum(axis=1)
     return state.r * (volume * state.p + state.shape.A[contexts] + shape)
 
 
@@ -1436,12 +1608,530 @@ def annual_arrays(state: AnnualState) -> tuple[dict, dict[str, np.ndarray]]:
         if block is None:
             blocks[name] = None
             continue
+        if isinstance(block, TwoBandShapeState):
+            values["shape_A"] = block.A
+            metadata = dict(kind="two_band", diagnostics=block.diagnostics)
+            for band_name in ("low", "high"):
+                band = getattr(block, band_name)
+                for field in ("Theta", "V", "prior_mean", "prior_covariance"):
+                    values["shape_" + band_name + "_" + field] = getattr(band, field)
+                metadata[band_name] = {field: getattr(band, field) for field in ("a", "q", "scale", "diagnostics")}
+            blocks[name] = metadata
+            continue
         mean_name = "Theta" if isinstance(block, GraphShapeState) else "M"
         values[name + "_" + mean_name] = _coefficient_mean(block)
         for field in ("V", "A", "prior_mean", "prior_covariance"):
             values[name + "_" + field] = getattr(block, field)
         blocks[name] = dict(a=block.a, q=block.q, scale=block.scale, diagnostics=block.diagnostics)
     return blocks, values
+
+
+def bounded_pooling_resolution_check(
+    population: RevisionPopulation, previous: AnnualState | None, state: AnnualState,
+    *, regions: np.ndarray, projections: tuple[tuple[np.ndarray, np.ndarray, str], ...] = (),
+) -> tuple[AnnualState, dict]:
+    """tighten only the original local bracket, with fixed incoming band priors."""
+    from dataclasses import replace
+
+    require(state.representation in ("graph_40ft", "graph_two_band_80ft")
+            and state.basis is not None and population.p is not None
+            and regions.shape == (656, 12) and np.isfinite(regions).all(),
+            "pooling resolution requires a named graph state and fixed regions")
+    _validate_pooling_state(state, population, previous, state.basis)
+    players, H, T, xbar, u = _annual_inputs(population, previous)
+    require(players == state.player_ids and np.array_equal(u, state.u),
+            "resolution population/player reference differs")
+    Th = T - T.sum(axis=1, keepdims=True) * population.p
+    yh = population.ybar - population.ybar.sum(axis=1, keepdims=True) * population.p
+    bands = (("low", slice(0, 11)), ("high", slice(11, 40))) if isinstance(state.shape, TwoBandShapeState) else (
+        ("shape", slice(0, 40)),)
+    receipts, changed = {}, {}
+    for name, columns in bands:
+        block = state.shape if name == "shape" else getattr(state.shape, name)
+        prior = None if previous is None else (previous.shape if name == "shape" else getattr(previous.shape, name))
+        M0, base, indices = _prior(players, previous, prior, columns.stop - columns.start)
+        require(np.array_equal(M0, block.prior_mean), "resolution check changed incoming mean")
+        score = Th @ state.basis.B[:, columns]
+        problem = _ScaleProblem(H, score, population.shape_yy if name == "shape" else 0., M0,
+                                base, indices, population.p,
+                                basis=state.basis if name == "shape" else None,
+                                response_rank=None if name == "shape" else columns.stop - columns.start)
+        covariance = problem.covariance(block.scale["selected"]["variance"])
+        require(np.array_equal(covariance, block.prior_covariance), "resolution check changed incoming covariance")
+        saved = block.scale
+        winner = saved["selected"]
+        coarse = [row for row in saved["curve"] if row["phase"] == "coarse"
+                  and row["objective"] is not None and row["exponent"] != winner["exponent"]]
+        nearest = sorted(coarse, key=lambda row: (abs(row["exponent"] - winner["exponent"]), row["exponent"]))[:2]
+        for row in [winner] + nearest:
+            problem.objective(row["exponent"], "independent_recheck")
+        refinement = None
+        if saved["refinement"] is not None:
+            bounds = saved["refinement"]["bounds"]
+            fit = minimize_scalar(problem.objective, bounds=bounds, method="bounded",
+                                  options={"xatol": 1e-6, "maxiter": 80})
+            refinement = dict(bounds=bounds, success=bool(fit.success), message=str(fit.message),
+                              evaluations=int(fit.nfev), exponent=float(fit.x), xatol=1e-6, maxiter=80)
+        valid = [row for row in saved["curve"] + problem.curve if row["objective"] is not None]
+        selected = min(valid, key=lambda row: (row["objective"], row["variance"]))
+        scale = {**saved, "selected": selected}
+        if name == "shape":
+            changed[name] = _block_at_scale(H, score, yh, xbar, M0,
+                problem.covariance(selected["variance"]), prior, u, population.p,
+                selected["variance"], scale, time.monotonic(), basis=state.basis)
+        else:
+            changed[name] = _band_at_scale(H, score, M0, problem.covariance(selected["variance"]),
+                prior, u, selected["variance"], scale, time.monotonic())
+        receipts[name] = dict(saved_winner=winner, rechecked_candidates=problem.curve,
+            tightened_refinement=refinement, selected=selected,
+            saved_scale_status={key: saved[key] for key in ("status", "own_reasons", "inherited_limitation")},
+            numerical_complete=all(row["objective"] is not None for row in problem.curve)
+                and (refinement is None or refinement["success"]))
+    shape = changed["shape"] if "shape" in changed else _two_band_shape(
+        H, Th, yh, xbar, state.basis, changed["low"], changed["high"], population.shape_yy)
+    alternative = replace(state, shape=shape)
+    positions = {player: index for index, player in enumerate(players)}
+    n = len(players)
+    current = [positions[player] for player in state.current_player_ids]
+    rows = current + [n + index for index in current]
+    delta = shape_mean(alternative)[rows] - shape_mean(state)[rows]
+    movement = dict(native_cells=float(np.max(np.abs(delta))),
+                    regions=float(np.max(np.abs(delta @ regions))),
+                    scalars=float(np.max(np.abs(delta.sum(axis=1)))), requested_projections=0.)
+    for contrast, response, estimand in projections:
+        old, _ = project(state, contrast, response, estimand=estimand)
+        new, _ = project(alternative, contrast, response, estimand=estimand)
+        movement["requested_projections"] = max(movement["requested_projections"], abs(new - old) / state.r)
+    receipt = dict(status="verified" if all(row["numerical_complete"] for row in receipts.values())
+            and max(movement["native_cells"], movement["regions"]) <= 1e-4 else "withheld",
+        scope=POOLING_PROBE_SCOPE,
+        blocks=receipts, maximum_league_relative_current_player_movement=movement, tolerance=1e-4)
+    validate_pooling_probe(receipt, state)
+    return alternative, receipt
+
+
+def validate_pooling_probe(probe: dict, state: AnnualState) -> bool:
+    """check the exact bounded receipt against its saved original scale process."""
+    blocks = {"shape": state.shape} if state.representation == "graph_40ft" else (
+        {"low": state.shape.low, "high": state.shape.high}
+        if state.representation == "graph_two_band_80ft" and isinstance(state.shape, TwoBandShapeState) else {})
+    require(bool(blocks) and list(probe["blocks"]) == list(blocks) and probe["scope"] == POOLING_PROBE_SCOPE
+            and probe["tolerance"] == 1e-4, "pooling numerical probe representation, scope or policy differs")
+    complete = True
+    for name, block in blocks.items():
+        receipt = probe["blocks"][name]
+        require(set(receipt) == {"saved_winner", "rechecked_candidates", "tightened_refinement", "selected",
+                                "saved_scale_status", "numerical_complete"},
+                "pooling numerical probe block fields differ")
+        saved = block.scale
+        winner = saved["selected"]
+        require(receipt["saved_winner"] == winner and receipt["saved_scale_status"] == {
+                key: saved[key] for key in ("status", "own_reasons", "inherited_limitation")},
+                "pooling numerical probe changed the saved winner or limitations")
+        coarse = [row for row in saved["curve"] if row["phase"] == "coarse"
+                  and row["objective"] is not None and row["exponent"] != winner["exponent"]]
+        nearest = sorted(coarse, key=lambda row: (abs(row["exponent"] - winner["exponent"]), row["exponent"]))[:2]
+        evaluations = receipt["rechecked_candidates"]
+        rechecks = [row for row in evaluations if row["phase"] == "independent_recheck"]
+        require(len(rechecks) == 3 and evaluations[:3] == rechecks
+                and [row["exponent"] for row in rechecks] == [row["exponent"] for row in [winner] + nearest],
+                "pooling numerical probe did not recheck the selected and two nearest coarse points")
+        objective_field = "full_objective" if name == "shape" else "band_objective"
+        expected_fields = {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual", objective_field}
+        for row in evaluations:
+            require(set(row) == expected_fields and type(row["exponent"]) in (int, float)
+                    and -8 <= row["exponent"] <= 0 and type(row["variance"]) in (int, float)
+                    and row["variance"] == 10. ** row["exponent"]
+                    and row["phase"] in ("independent_recheck", "refinement")
+                    and (row["equation_relative_residual"] is None or (
+                        type(row["equation_relative_residual"]) in (int, float)
+                        and math.isfinite(row["equation_relative_residual"]) and row["equation_relative_residual"] >= 0))
+                    and ((row["objective"] is None and row[objective_field] is None
+                          and isinstance(row["error"], str) and bool(row["error"]))
+                         or (row["error"] is None and type(row["objective"]) in (int, float)
+                             and type(row[objective_field]) in (int, float) and math.isfinite(row["objective"])
+                             and math.isfinite(row[objective_field]) and row["equation_relative_residual"] is not None
+                             and row["equation_relative_residual"] <= 1e-8)),
+                    "pooling numerical probe has an invalid bounded objective evaluation")
+        for old, new in zip([winner] + nearest, rechecks, strict=True):
+            require(new["objective"] is None or math.isclose(old["objective"], new["objective"], rel_tol=1e-8, abs_tol=1e-10),
+                    "pooling numerical probe recheck differs from the saved objective")
+        refinement, original = receipt["tightened_refinement"], saved["refinement"]
+        refined = [row for row in evaluations if row["phase"] == "refinement"]
+        require((refinement is None) == (original is None)
+                and (refinement is not None or not refined), "pooling numerical probe changed refinement availability")
+        if refinement is not None:
+            require(set(refinement) == {"bounds", "success", "message", "evaluations", "exponent", "xatol", "maxiter"}
+                    and refinement["bounds"] == original["bounds"]
+                    and -8 <= refinement["bounds"][0] < refinement["bounds"][1] <= 0
+                    and refinement["xatol"] == 1e-6 and refinement["maxiter"] == 80
+                    and type(refinement["evaluations"]) is int and refinement["evaluations"] == len(refined) <= 80
+                    and type(refinement["success"]) is bool and isinstance(refinement["message"], str)
+                    and type(refinement["exponent"]) in (int, float) and math.isfinite(refinement["exponent"])
+                    and refinement["bounds"][0] <= refinement["exponent"] <= refinement["bounds"][1]
+                    and all(refinement["bounds"][0] <= row["exponent"] <= refinement["bounds"][1] for row in refined),
+                    "pooling numerical probe changed its original bracket or tighter search budget")
+        valid = [row for row in saved["curve"] + evaluations if row["objective"] is not None]
+        require(receipt["selected"] == min(valid, key=lambda row: (row["objective"], row["variance"])),
+                "pooling numerical probe selected a point outside the original and checked evaluations")
+        numerical_complete = all(row["objective"] is not None for row in evaluations) and (
+            refinement is None or refinement["success"])
+        require(receipt["numerical_complete"] is numerical_complete,
+                "pooling numerical probe completeness contradicts its evaluations")
+        complete = complete and numerical_complete
+    movement = probe["maximum_league_relative_current_player_movement"]
+    require(set(movement) == {"native_cells", "regions", "scalars", "requested_projections"}
+            and all(type(value) in (int, float) and math.isfinite(value) and value >= 0 for value in movement.values()),
+            "pooling numerical probe movements are invalid")
+    verified = complete and max(movement["native_cells"], movement["regions"]) <= 1e-4
+    require(probe["status"] == ("verified" if verified else "withheld"),
+            "pooling numerical probe status contradicts the specified native/regional movement limit")
+    return verified
+
+
+def read_pooling_source(path: Path | str) -> PoolingSource:
+    """validate one fixed synthetic preparation before consuming annual states."""
+    path = Path(path).resolve(strict=True)
+    prepared = read_artifact(path, "attribution_pooling_prepared", expected_schema=4)
+    protocol = read_artifact(linked_path(prepared["protocol"]), "attribution_pooling_protocol", expected_schema=4)
+    require(prepared["purpose"] == protocol["purpose"]
+            and prepared["spec_snapshot"] == protocol["spec_snapshot"]
+            and all(prepared[name] == protocol[name] for name in ("basis", "basis_sha256", "design_sha256"))
+            and prepared["consumed"] == dict(protocol=prepared["protocol"], basis=prepared["basis"],
+                spec_snapshot=prepared["spec_snapshot"], designs=prepared["designs"]["arrays"])
+            and prepared["implementation"] == protocol["implementation"]
+            and prepared["seasons"] == [row["season"] for row in prepared["years"]]
+            and prepared["seasons"] == protocol["seasons"]
+            and prepared["seasons"] == [f"{year}{year+1}" for year in range(2021, 2026)]
+            and len(prepared["years"]) == 5,
+            "pooling preparation protocol, specification or annual inventory differs")
+    require(ordered_array_digest(load_arrays(prepared["designs"])) == prepared["design_sha256"],
+            "pooling preparation design bytes differ from the frozen protocol")
+    basis = read_shape_basis(prepared)
+    validate_pooling_basis(basis)
+    return PoolingSource(identity(path), prepared, protocol, basis)
+
+
+def read_pooling_statistics(reference: dict, source: PoolingSource) -> PoolingStatistics:
+    """load one compact five-year dataset with exact original ordering and dtypes."""
+    with np.load(linked_path(reference), allow_pickle=False) as archive:
+        require(archive.files == [year["season"] + "_" + field
+                                 for year in source.prepared["years"] for field in POOLING_STAT_FIELDS],
+                "pooling sufficient-statistic names/order differ")
+        arrays = {name: archive[name] for name in archive.files}
+    require(all(np.isfinite(value).all() and value.dtype == np.dtype(
+                "int64" if name.endswith("_player_ids") else "float64") for name, value in arrays.items()),
+            "pooling sufficient-statistic dtype or finiteness differs")
+    return PoolingStatistics(reference, source.reference["sha256"], arrays)
+
+
+def _pooling_blocks(state: AnnualState) -> tuple[tuple[str, BlockState | GraphShapeState | ShapeBandState, int], ...]:
+    require(state.representation in ("graph_40ft", "graph_two_band_80ft") and state.basis is not None,
+            "pooling annual requires an explicitly named graph representation")
+    if state.representation == "graph_40ft":
+        require(isinstance(state.shape, GraphShapeState), "pooling control shape variant differs")
+        return (("volume", state.volume, 1), ("shape", state.shape, 40))
+    require(isinstance(state.shape, TwoBandShapeState), "pooling candidate shape variant differs")
+    return (("volume", state.volume, 1), ("shape_low", state.shape.low, 11), ("shape_high", state.shape.high, 29))
+
+
+def _validate_pooling_scale(scale: dict, problem: _ScaleProblem, previous) -> None:
+    require(set(scale) == {"status", "own_reasons", "inherited_limitation", "curve", "competing_coarse_minima",
+                           "refinement", "selected"}, "pooling scale receipt fields differ")
+    curve = scale["curve"]
+    coarse = [row for row in curve if row["phase"] == "coarse"]
+    require([row["exponent"] for row in coarse] == np.arange(-8, 0.1, .5).tolist()
+            and all(type(row["exponent"]) in (int, float) and -8 <= row["exponent"] <= 0
+                    and row["variance"] == 10. ** row["exponent"]
+                    and row["phase"] in ("coarse", "refinement")
+                    and ((row["objective"] is None and isinstance(row["error"], str))
+                         or (row["error"] is None and type(row["objective"]) in (int, float)
+                             and math.isfinite(row["objective"]))) for row in curve),
+            "pooling scale grid, bounds or finite search receipt differs")
+    valid = [row for row in curve if row["objective"] is not None]
+    require(bool(valid) and scale["selected"] == min(valid, key=lambda row: (row["objective"], row["variance"])),
+            "pooling selected scale differs from its original search")
+    refinement = scale["refinement"]
+    own = []
+    if scale["selected"]["exponent"] in (-8, 0):
+        own.append("endpoint_winner")
+    if refinement is None or not refinement["success"]:
+        own.append("refinement_failed")
+    if any(row["phase"] == "refinement" and row["objective"] is None for row in curve):
+        own.append("nonfinite_refinement")
+    inherited = previous is not None and previous.scale["status"] == "scale_unresolved"
+    require(scale["own_reasons"] == own and scale["inherited_limitation"] is inherited
+            and scale["status"] == ("scale_unresolved" if own or inherited else "resolved"),
+            "pooling selected scale dropped its own or inherited numerical limitation")
+    if refinement is not None:
+        interior = [row for row in coarse[1:-1] if row["objective"] is not None]
+        require(bool(interior), "pooling refinement has no original interior coarse point")
+        center = min(interior, key=lambda row: (row["objective"], row["exponent"]))["exponent"]
+        require(refinement["bounds"] == [center - .5, center + .5]
+                and refinement["evaluations"] <= 40, "pooling original refinement bracket or budget changed")
+    value = problem.objective(scale["selected"]["exponent"], "saved_state_recheck")
+    objective_field = "band_objective" if problem.band else "full_objective"
+    require(math.isfinite(value) and math.isclose(value, scale["selected"]["objective"], rel_tol=1e-8, abs_tol=1e-10)
+            and (not problem.reduced or math.isclose(problem.curve[-1][objective_field],
+                scale["selected"][objective_field], rel_tol=1e-8, abs_tol=1e-10)),
+            "pooling selected reduced/full objective differs from its saved likelihood")
+
+
+def _validate_pooling_state(state: AnnualState, population: RevisionPopulation,
+                            previous: AnnualState | None, basis: ShapeBasis) -> None:
+    players, H, T, xbar, u = _annual_inputs(population, previous)
+    require(state.benchmark == "unblocked_spatial" and state.season == population.season
+            and state.season_index == population.season_index and state.player_ids == players
+            and state.current_player_ids == population.player_ids
+            and state.entrant_ids == tuple(player for player in population.player_ids
+                                           if previous is None or player not in previous.player_ids)
+            and state.carried_only_ids == tuple(player for player in players if player not in population.player_ids)
+            and state.source_protocol_sha256 == state.model_protocol_sha256 == population.protocol_sha256
+            and state.population_id == population.population_id and state.r == population.r
+            and state.basis is not None and state.basis.sha256 == basis.sha256
+            and np.array_equal(state.u, u) and np.array_equal(state.p, basis.p)
+            and np.array_equal(state.p, population.p)
+            and np.array_equal(state.response_counts, population.response_counts)
+            and state.volume.diagnostics.get("population_sha256") == annual_input_identity(population),
+            "pooling annual source references, response or identity differs")
+    require(previous is None or (previous.representation == state.representation
+            and previous.model_protocol_sha256 == state.model_protocol_sha256
+            and previous.basis is not None and previous.basis.sha256 == state.basis.sha256),
+            "pooling annual preceding representation/model differs")
+    n = len(players)
+    for name, block, width in _pooling_blocks(state):
+        prior = None if previous is None else (previous.volume if name == "volume" else
+                previous.shape if name == "shape" else getattr(previous.shape, name.removeprefix("shape_")))
+        mean = _coefficient_mean(block)
+        require(mean.shape == block.prior_mean.shape == (2 * n, width)
+                and block.V.shape == block.prior_covariance.shape == (2 * n, 2 * n)
+                and all(np.isfinite(array).all() for array in (mean, block.V, block.prior_mean, block.prior_covariance)),
+                "pooling annual block shape or finiteness differs")
+        variance = block.scale["selected"]["variance"]
+        require(type(variance) in (int, float) and math.isfinite(variance) and 1e-8 <= variance <= 1,
+                "pooling annual selected variance is invalid")
+        M0, base, selected = _prior(players, previous, prior, width)
+        covariance = base.copy()
+        covariance[selected, selected] += variance
+        score = T.sum(axis=1, keepdims=True) if name == "volume" else (
+            T - T.sum(axis=1, keepdims=True) * population.p) @ basis.B[:,
+                slice(0, 40) if name == "shape" else slice(0, 11) if name == "shape_low" else slice(11, 40)]
+        problem = _ScaleProblem(H, score, population.yy if name == "volume" else
+            population.shape_yy if name == "shape" else 0., M0, base, selected,
+            None if name == "volume" else population.p, basis=basis if name == "shape" else None,
+            response_rank=width if name.startswith("shape_") else None)
+        _validate_pooling_scale(block.scale, problem, prior)
+        tolerance = block.diagnostics["covariance_rounding_tolerance"]
+        expected_tolerance = float(1e-10 * max(1, np.linalg.norm(block.V, ord=np.inf)))
+        require(block.a == (variance if prior is None else prior.a)
+                and block.q == (None if prior is None else variance)
+                and np.array_equal(block.prior_mean, M0) and np.array_equal(block.prior_covariance, covariance)
+                and tolerance == expected_tolerance
+                and np.max(np.abs(block.V - block.V.T)) <= tolerance
+                and np.min(np.linalg.eigvalsh(block.V)) >= -max(tolerance, 1e-12)
+                and np.max(np.abs(u @ mean[:n])) <= 1e-8
+                and np.max(np.abs(u @ mean[n:])) <= 1e-8
+                and np.max(np.abs(u @ block.V[:n])) <= tolerance
+                and np.max(np.abs(u @ block.V[n:])) <= tolerance,
+                "pooling annual full covariance, centering or proper prior lineage differs")
+        np.linalg.cholesky(block.prior_covariance)
+    require(state.volume.A.shape == (len(population.strata), 1)
+            and np.isfinite(state.volume.A).all()
+            and state.shape.A.shape == (len(population.strata), 656)
+            and np.isfinite(state.shape.A).all()
+            and np.allclose(state.volume.A, population.ybar.sum(axis=1, keepdims=True) - xbar @ state.volume.M,
+                            rtol=1e-8, atol=1e-10)
+            and np.allclose(state.shape.A, population.ybar - population.ybar.sum(axis=1, keepdims=True) * population.p
+                            - xbar @ shape_mean(state), rtol=1e-8, atol=1e-10)
+            and np.max(np.abs(shape_mean(state).sum(axis=1))) <= 1e-8
+            and np.max(np.abs(state.shape.A.sum(axis=1))) <= 1e-8,
+            "pooling annual context shape/finiteness/conservation differs")
+    if isinstance(state.shape, TwoBandShapeState):
+        Th = T - T.sum(axis=1, keepdims=True) * population.p
+        yh = population.ybar - population.ybar.sum(axis=1, keepdims=True) * population.p
+        expected = _two_band_shape(H, Th, yh, xbar, basis, state.shape.low, state.shape.high, population.shape_yy)
+        require(np.array_equal(state.shape.A, expected.A) and state.shape.diagnostics == expected.diagnostics,
+                "pooling annual duplicated response energy or context differs")
+
+
+def write_pooling_annual(
+    state: AnnualState, prepared: PoolingSource | Path | str, previous: Path | str | None, out: Path | str,
+    *, population: str, law: str, outer: int, response_sha256: str, statistics: PoolingStatistics | dict,
+    shared_volume: dict | None = None, previous_state: AnnualState | None = None,
+    shared_volume_state: AnnualState | None = None,
+) -> dict:
+    """write fresh schema-4 synthetic evidence; frozen schema-3 states stay separate."""
+    started = time.monotonic()
+    context = prepared if isinstance(prepared, PoolingSource) else read_pooling_source(prepared)
+    source, protocol, basis = context.prepared, context.protocol, context.basis
+    statistics = statistics if isinstance(statistics, PoolingStatistics) else read_pooling_statistics(statistics, context)
+    original = pooling_population(context, statistics, population, law, outer, state.season)
+    previous_path = None if previous is None else Path(previous).resolve(strict=True)
+    require(previous_path is not None or previous_state is None, "initial annual cannot supply a preceding state")
+    prior = previous_state if previous_state is not None else (
+        None if previous_path is None else read_pooling_annual(previous_path, source=context, statistics=statistics))
+    if previous_path is not None:
+        prior_document = read_json(previous_path)
+        require(prior_document["prepared"] == context.reference
+                and prior_document["statistics"] == statistics.reference
+                and prior_document["population"] == population and prior_document["law"] == law
+                and prior_document["outer"] == outer and prior_document["representation"] == state.representation
+                and prior_document["season"] == prior.season and prior_document["season_index"] == prior.season_index,
+                "pooling writer preceding annual reference differs")
+    _validate_pooling_state(state, original, prior, basis)
+    digest(response_sha256)
+    require(shared_volume is not None or shared_volume_state is None,
+            "explicit shared volume state requires its annual reference")
+    shared = shared_volume_state if shared_volume_state is not None else (
+        None if shared_volume is None else read_pooling_annual(linked_path(shared_volume), source=context, statistics=statistics))
+    if shared_volume is not None:
+        shared_document = read_json(linked_path(shared_volume))
+        require(shared_document["prepared"] == context.reference
+                and shared_document["statistics"] == statistics.reference
+                and shared_document["population"] == population and shared_document["law"] == law
+                and shared_document["outer"] == outer and shared_document["season"] == state.season
+                and shared_document["response_sha256"] == response_sha256,
+                "pooling writer shared volume changed response/data lineage")
+    require((state.representation == "graph_40ft" and shared is None)
+            or (state.representation == "graph_two_band_80ft" and shared is not None
+                and shared.representation == "graph_40ft" and shared.season == state.season
+                and shared.population_id == state.population_id
+                and all(np.array_equal(getattr(state.volume, field), getattr(shared.volume, field))
+                        for field in ("M", "V", "A", "prior_mean", "prior_covariance"))
+                and all(getattr(state.volume, field) == getattr(shared.volume, field)
+                        for field in ("a", "q", "scale", "diagnostics"))),
+            "pooling candidate shared-volume artifact differs")
+    output = output_path(str(out), [])
+    require(output.is_relative_to(Path(protocol["output_root"]).resolve())
+            and (source["purpose"] != "research" or output.is_relative_to(Path("/Volumes/Expansion/hockey-stats/runs"))),
+            "pooling annual output differs from its frozen root")
+    blocks, values = annual_arrays(state)
+    if state.representation == "graph_40ft":
+        blocks["shape"] = dict(kind="one_band", **blocks["shape"])
+    parents = dict(prepared=context.reference, protocol=source["protocol"],
+                   previous=None if previous_path is None else identity(previous_path), statistics=statistics.reference,
+                   shared_volume=shared_volume, basis=source["basis"], spec_snapshot=source["spec_snapshot"])
+    output.mkdir()
+    arrays = write_arrays(output, "state.npz", values)
+    document = artifact("attribution_pooling_annual", source["purpose"], parents, schema_version=4,
+        **parents, source_kind="synthetic", representation=state.representation, basis_shapes=source["basis_shapes"],
+        basis_sha256=basis.sha256, design_sha256=source["design_sha256"], population=population, law=law, outer=outer,
+        benchmark=state.benchmark, season=state.season, season_index=state.season_index,
+        population_id=state.population_id, player_ids=state.player_ids, current_player_ids=state.current_player_ids,
+        entrant_ids=state.entrant_ids, carried_only_ids=state.carried_only_ids, r=state.r, strata=original.strata,
+        response_sha256=response_sha256, annual_input_sha256=annual_input_identity(original),
+        volume=blocks["volume"], shape=blocks["shape"], **arrays,
+        units=POOLING_UNITS,
+        resources=resources(started))
+    require(source["purpose"] != "research" or document["implementation"] == protocol["implementation"],
+            "pooling annual producer differs from frozen protocol")
+    write_json(output / "annual.json", document)
+    return identity(output / "annual.json")
+
+
+def read_pooling_annual(
+    path: Path | str, *, source: PoolingSource | None = None,
+    previous: tuple[dict, AnnualState] | None = None, shared_volume: tuple[dict, AnnualState] | None = None,
+    statistics: PoolingStatistics | None = None,
+) -> AnnualState:
+    """strict schema 4, with explicit shape tags and exact chronological band priors."""
+    document = read_artifact(path, "attribution_pooling_annual", expected_schema=4)
+    context = read_pooling_source(linked_path(document["prepared"])) if source is None else source
+    source, protocol, basis = context.prepared, context.protocol, context.basis
+    require(document["prepared"] == context.reference
+            and document["source_kind"] == "synthetic" and document["purpose"] == source["purpose"]
+            and document["units"] == POOLING_UNITS
+            and all(document[name] == source[name] for name in
+                    ("protocol", "basis", "basis_shapes", "basis_sha256", "design_sha256", "spec_snapshot"))
+            and document["consumed"] == {name: document[name] for name in
+                    ("prepared", "protocol", "previous", "statistics", "shared_volume", "basis", "spec_snapshot")}
+            and (source["purpose"] != "research" or document["implementation"] == protocol["implementation"]),
+            "pooling annual preparation/producer/source binding differs")
+    digest(document["response_sha256"])
+    statistics = read_pooling_statistics(document["statistics"], context) if statistics is None else statistics
+    require(statistics.reference == document["statistics"], "pooling annual statistics source differs")
+    original = pooling_population(context, statistics, document["population"], document["law"],
+                                   document["outer"], document["season"])
+    require(document["annual_input_sha256"] == annual_input_identity(original)
+            and document["strata"] == list(map(list, original.strata)),
+            "pooling annual sufficient-statistic identity differs")
+    require(previous is None or previous[0] == document["previous"],
+            "explicit preceding annual reference differs")
+    prior = previous[1] if previous is not None else (None if document["previous"] is None else
+        read_pooling_annual(linked_path(document["previous"]), source=context, statistics=statistics))
+    if document["previous"] is not None:
+        prior_document = read_json(linked_path(document["previous"]))
+        require(all(document[name] == prior_document[name] for name in
+                    ("prepared", "protocol", "population", "law", "outer", "statistics", "representation")),
+                "pooling annual chronological source lineage differs")
+    players = tuple(document["player_ids"])
+    n, s = len(players), len(original.strata)
+    shapes = dict(u=(n,), response_counts=(656,), p=(656,), volume_M=(2*n, 1), volume_V=(2*n, 2*n),
+                  volume_A=(s, 1), volume_prior_mean=(2*n, 1), volume_prior_covariance=(2*n, 2*n))
+    shape_metadata = document["shape"]
+    representation = document["representation"]
+    if representation == "graph_40ft":
+        require(set(shape_metadata) == {"kind", "a", "q", "scale", "diagnostics"}
+                and shape_metadata["kind"] == "one_band", "pooling control shape tag differs")
+        shapes.update(shape_Theta=(2*n, 40), shape_V=(2*n, 2*n), shape_A=(s, 656),
+                      shape_prior_mean=(2*n, 40), shape_prior_covariance=(2*n, 2*n))
+    else:
+        require(representation == "graph_two_band_80ft" and set(shape_metadata) == {"kind", "low", "high", "diagnostics"}
+                and shape_metadata["kind"] == "two_band", "pooling candidate shape tag differs")
+        shapes["shape_A"] = (s, 656)
+        for name, width in (("low", 11), ("high", 29)):
+            shapes.update({"shape_" + name + "_" + field: shape for field, shape in
+                dict(Theta=(2*n, width), V=(2*n, 2*n), prior_mean=(2*n, width), prior_covariance=(2*n, 2*n)).items()})
+    values = load_arrays(document)
+    require(list(values) == list(shapes) and all(values[name].shape == shape for name, shape in shapes.items()),
+            "pooling annual array names/order/rank differ")
+    blocks = {}
+    names = ("volume", "shape") if representation == "graph_40ft" else ("volume", "shape_low", "shape_high")
+    for name in names:
+        metadata = document[name] if name in ("volume", "shape") else shape_metadata[name.removeprefix("shape_")]
+        expected = {"a", "q", "scale", "diagnostics"} | ({"kind"} if name == "shape" else set())
+        require(set(metadata) == expected, "pooling annual block metadata differs")
+        fields = {field: metadata[field] for field in ("a", "q", "scale", "diagnostics")}
+        fields.update({field: values[name + "_" + field] for field in ("V", "prior_mean", "prior_covariance")})
+        if name == "volume":
+            blocks[name] = BlockState(values["volume_M"], A=values["volume_A"], **fields)
+        elif name == "shape":
+            blocks[name] = GraphShapeState(values["shape_Theta"], A=values["shape_A"], **fields)
+        else:
+            blocks[name] = ShapeBandState(values[name + "_Theta"], **fields)
+    shape = blocks["shape"] if representation == "graph_40ft" else TwoBandShapeState(
+        blocks["shape_low"], blocks["shape_high"], values["shape_A"], shape_metadata["diagnostics"])
+    state = AnnualState(document["benchmark"], document["season"], document["season_index"],
+        document["protocol"]["sha256"], document["protocol"]["sha256"], representation, basis,
+        document["population_id"], players, tuple(document["current_player_ids"]), tuple(document["entrant_ids"]),
+        tuple(document["carried_only_ids"]), blocks["volume"], shape, document["r"], values["u"], values["p"],
+        values["response_counts"])
+    _validate_pooling_state(state, original, prior, basis)
+    if representation == "graph_40ft":
+        require(document["shared_volume"] is None and shared_volume is None,
+                "pooling control cannot bind another volume")
+    else:
+        require(document["shared_volume"] is not None, "pooling candidate shared volume is missing")
+        shared_path = linked_path(document["shared_volume"])
+        shared_document = read_json(shared_path)
+        require(all(document[name] == shared_document[name] for name in
+                ("prepared", "protocol", "population", "law", "outer", "statistics", "season", "response_sha256")),
+                "pooling candidate changed shared response/data lineage")
+        require(shared_volume is None or shared_volume[0] == document["shared_volume"],
+                "explicit shared-volume annual reference differs")
+        shared = shared_volume[1] if shared_volume is not None else read_pooling_annual(
+            shared_path, source=context, statistics=statistics)
+        require(shared.representation == "graph_40ft" and shared.player_ids == state.player_ids
+                and all(np.array_equal(getattr(state.volume, field), getattr(shared.volume, field))
+                        for field in ("M", "V", "A", "prior_mean", "prior_covariance"))
+                and all(getattr(state.volume, field) == getattr(shared.volume, field)
+                        for field in ("a", "q", "scale", "diagnostics")),
+                "pooling candidate shared volume block differs")
+        from dataclasses import replace
+        state = replace(state, volume=shared.volume)
+    for array in (state.volume.M, state.volume.V, state.volume.A, state.volume.prior_mean, state.volume.prior_covariance):
+        array.setflags(write=False)
+    return state
 
 
 def read_recovery_embedded_annual(
@@ -1772,7 +2462,9 @@ def bounded_shape_resolution_check(
     from .chance_evaluation import REGION_NAMES, compound_regions
     from .shot_origins import grid
 
-    require(state.shape is not None and population.p is not None, "shape resolution requires spatial state")
+    require(state.shape is not None and population.p is not None
+            and state.representation in ("native_04b", "graph_40ft"),
+            "one-band shape resolution requires a named native or graph control")
     players, H, T, xbar, u = _annual_inputs(population, previous)
     prior = None if previous is None else previous.shape
     basis = state.basis

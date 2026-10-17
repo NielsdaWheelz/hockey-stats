@@ -1,6 +1,6 @@
 # pr04e — test two spatial pooling bands
 
-status: **full specification; implementation and execution unassigned.** [the plan](../plan.md) owns assignment. the user selected two spatial bands, mean recovery/prediction before interval calibration, at least 25% lower regional squared error than zero, at least 99% prediction-gain retention, and mandatory null-population diagnostics without a null nomination gate. preserve every previous verdict, including [04c](../research/attribution-04c/decision.md) and [04d](../research/attribution-04d/decision.md).
+status: **complete; `criteria_failed`, no nomination or admission.** all 1,200 paired datasets and 12,000 annual states reconcile; all bounded numerical checks and independent reviews pass. [decision](../research/attribution-04e/decision.md), [result](../research/attribution-04e/result.json) and [verification](../research/attribution-04e/verification.md) retain the frozen evidence. [the plan](../plan.md) owns assignment. the user selected two spatial bands, mean recovery/prediction before interval calibration, at least 25% lower regional squared error than zero, at least 99% prediction-gain retention, and mandatory null-population diagnostics without a null nomination gate. preserve every previous verdict, including [04c](../research/attribution-04c/decision.md) and [04d](../research/attribution-04d/decision.md). the exact pre-response specification is retained by the [protocol](../research/attribution-04e/protocol.json).
 
 ## question and scope
 

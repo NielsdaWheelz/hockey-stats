@@ -17,6 +17,9 @@ from hockey_stats.artifacts import (artifact, clean_implementation, implementati
     require, resources, write_arrays, write_json)
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.captures import strict_json
+from hockey_stats.attribution_data import (
+    centered_estimability, exposure_centering as _centering, likelihood_spectrum as _rank,
+)
 
 SPEC = Path(__file__).resolve().parents[2] / 'docs/specs/04d-attribution-diagnosis.md'
 RESEARCH_ROOT = Path('/Volumes/Expansion/hockey-stats/runs')
@@ -98,10 +101,6 @@ def _close(actual, expected, message):
     scale = 1. + float(np.max(np.abs(expected))) if expected.size else 1.
     require(residual <= 1e-8 * scale, message)
     return residual / scale
-
-
-def _centering(u):
-    return np.kron(np.eye(2), np.eye(len(u)) - np.ones((len(u), 1)) * u)
 
 
 def requests(saved_requests: list[dict]) -> list[dict]:
@@ -263,33 +262,12 @@ def _coefficient(request, players):
     return c
 
 
-def _rank(H):
-    values, vectors = np.linalg.eigh((H + H.T) / 2)
-    tau = 100 * len(H) * np.finfo(float).eps * max(float(values[- 1]), 0.)
-    require(float(values[0]) >= - tau, 'likelihood information has a negative eigenvalue below -tau')
-    masks = [values > factor * tau for factor in (.1, 1., 10.)]
-    return values, vectors, tau, masks
-
-
 def _information(H, P, c, spectra, S, W, scalar_vectors, truth, r):
-    values, vectors, tau, masks = spectra
-    d = P.T @ c
-    norm = float(np.linalg.norm(d))
-    statuses, nulls, precisions = [], [], []
-    for mask in masks:
-        null = float(np.linalg.norm(d - vectors[:, mask] @ (vectors[:, mask].T @ d)) / norm) if norm else 0.
-        statuses.append('zero_functional' if norm == 0 else 'not_estimable' if null > 1e-8 else 'available')
-        nulls.append(null)
-        precisions.append(float(np.sum((vectors[:, mask].T @ d) ** 2 / values[mask])) if norm and statuses[- 1] == 'available' else None)
-    stable = len(set(statuses)) == 1 and len({int(mask.sum()) for mask in masks}) == 1
-    status = statuses[1] if stable else 'numerically_unresolved'
-    precision = precisions[1] if status == 'available' else None
+    information = centered_estimability(H, P, c, spectrum=spectra)
+    precision = information['contrast_information_inverse']
     regional_variance = r * r * precision * float(np.trace(W.T @ S @ W)) if precision is not None else None
     energy = float((truth @ W) @ (truth @ W))
-    return dict(status=status, rank=int(masks[1].sum()), dimension=len(H), nullity=int(len(H) - masks[1].sum()),
-        tau=tau, rank_at_tau_factors=[int(mask.sum()) for mask in masks], null_projection=nulls[1],
-        null_at_tau_factors=nulls, status_at_tau_factors=statuses,
-        centered_functional_norm=norm, contrast_information_inverse=precision,
+    return dict(**information,
         regional_total_variance=regional_variance,
         variance_to_actual_truth_energy=regional_variance / energy if regional_variance is not None and energy > 0 else None,
         scalar_variances={name: r * r * precision * float(v @ S @ v) if precision is not None else None

@@ -1,0 +1,1261 @@
+{
+  "schema_version": 4,
+  "kind": "attribution_pooling_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "b86f61fe0dedc516e622efdb05db07b63c503559",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/assessment/assessment.json",
+      "sha256": "d7b126e1c924ac374b6d414e6eca8c6d884489e7f0241d4b24897f2fef126236"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/prepared.json",
+      "sha256": "986ddf180bce3606a264595afbf1d8635ef9f9ae21c4af8f186daea69c35eb1f"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/protocol.json",
+      "sha256": "d476213aacce91c977484bf80dc13153c349b3a826e1c3854e3daa95976bb351"
+    },
+    "basis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+      "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+    },
+    "designs": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/designs.npz",
+      "sha256": "ad96e40169280c035f85853d92ec162f96bb88480ce38bf37e617aeb700804c2"
+    },
+    "spec_snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/spec-snapshot.md",
+      "sha256": "6ce63e7efe31925c7ea3b1566ed85d5459e8da310852ecff19c25a4e19092e69"
+    },
+    "fit_000": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/sparse-gaussian-000-002/fit.json",
+      "sha256": "00a42bb8e3f82c6e56f47efe6229ffd8c5342d01ff191fec10fa96a1a70db7be"
+    },
+    "fit_001": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/sparse-gaussian-002-200/fit.json",
+      "sha256": "6d5bfd0f62744ccddeb7b4573efe493fd26e719415afe46814f84fc8ebfc5418"
+    },
+    "fit_002": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/sparse-game_pace-000-200/fit.json",
+      "sha256": "6318264b17e402cbb4fa73b17a3bb8148cd275942ed9359ec5073195cea397f8"
+    },
+    "fit_003": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/diffuse-gaussian-000-200/fit.json",
+      "sha256": "deee242915bdf2a83682849e404b8851b5e5fb4aa58e6015f64233a5686c1560"
+    },
+    "fit_004": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/diffuse-game_pace-000-200/fit.json",
+      "sha256": "6d06a5051486ba223a3f1f055cbc29bc0a5839d308e87f37d883701753b56062"
+    },
+    "fit_005": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-gaussian-000-200/fit.json",
+      "sha256": "69ecc8ec48225439caa8debd80328c5b5da8f874076e51850c5320582b3bbfaa"
+    },
+    "fit_006": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-game_pace-000-200/fit.json",
+      "sha256": "5277c94116675f60620497a4cc75818ee93d88c57b0e6ad5ed3733804d604cce"
+    }
+  },
+  "execution_status": "complete",
+  "study_status": "criteria_failed",
+  "nomination": null,
+  "criterion_decision": "criteria_failed",
+  "admission": "not_admitted",
+  "handoff": null,
+  "criterion_rows": [
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "regional_recovery_25pct",
+      "mean": -0.041731336049400575,
+      "lower": -0.043897561785266305,
+      "upper": -0.03960553267588315,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "regional_improvement",
+      "mean": 0.005802044926252699,
+      "lower": 0.0041660397983662185,
+      "upper": 0.007504200160964067,
+      "strict_positive": true,
+      "status": "supported",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "positive_control_prediction_gain",
+      "mean": -2.962205294212615,
+      "lower": -3.351475498213233,
+      "upper": -2.5867278200416224,
+      "strict_positive": true,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "prediction_gain_retention_99pct",
+      "mean": -2.1115094346832133,
+      "lower": -2.3239914903831282,
+      "upper": -1.9093709814844246,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "regional_recovery_25pct",
+      "mean": -0.05262091026921904,
+      "lower": -0.05885932225217607,
+      "upper": -0.047554275485465675,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "regional_improvement",
+      "mean": -0.0035505688226129062,
+      "lower": -0.007028223659095195,
+      "upper": -0.0007148904418606694,
+      "strict_positive": true,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "positive_control_prediction_gain",
+      "mean": -13.407123540527218,
+      "lower": -15.210663126422224,
+      "upper": -11.667750288741447,
+      "strict_positive": true,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "prediction_gain_retention_99pct",
+      "mean": -1.9887505326412032,
+      "lower": -2.2628024960198085,
+      "upper": -1.7342584535771792,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        0,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "regional_recovery_25pct",
+      "mean": -0.12725843217681404,
+      "lower": -0.1361403918129279,
+      "upper": -0.11819571483660865,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "regional_improvement",
+      "mean": 0.05123262665472545,
+      "lower": 0.043560715488443764,
+      "upper": 0.059008608383225365,
+      "strict_positive": true,
+      "status": "supported",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "positive_control_prediction_gain",
+      "mean": -2.7482301441082337,
+      "lower": -3.0792852440022838,
+      "upper": -2.4306158682812726,
+      "strict_positive": true,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "prediction_gain_retention_99pct",
+      "mean": -1.752913128487969,
+      "lower": -1.9305046271855377,
+      "upper": -1.5830687870961306,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        0
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "regional_recovery_25pct",
+      "mean": -0.07891666563230046,
+      "lower": -0.09160995629587902,
+      "upper": -0.06632802718400078,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "regional_improvement",
+      "mean": 0.032557518219968974,
+      "lower": 0.022752942991148817,
+      "upper": 0.04168127219952142,
+      "strict_positive": true,
+      "status": "supported",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "positive_control_prediction_gain",
+      "mean": -12.12852096947097,
+      "lower": -14.019510452538093,
+      "upper": -10.447399306648917,
+      "strict_positive": true,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "prediction_gain_retention_99pct",
+      "mean": -1.7182758613411864,
+      "lower": -1.9354747467990234,
+      "upper": -1.5057238669172492,
+      "strict_positive": false,
+      "status": "failed",
+      "n": 200,
+      "resamples": 10000,
+      "seed": [
+        40605,
+        1,
+        1
+      ],
+      "units": "squared attempts per 60 team minutes"
+    }
+  ],
+  "numerical_status": "verified",
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/assessment/assessment.json",
+    "sha256": "d7b126e1c924ac374b6d414e6eca8c6d884489e7f0241d4b24897f2fef126236"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/prepared.json",
+    "sha256": "986ddf180bce3606a264595afbf1d8635ef9f9ae21c4af8f186daea69c35eb1f"
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/protocol.json",
+    "sha256": "d476213aacce91c977484bf80dc13153c349b3a826e1c3854e3daa95976bb351"
+  },
+  "consumed_fits": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/sparse-gaussian-000-002/fit.json",
+      "sha256": "00a42bb8e3f82c6e56f47efe6229ffd8c5342d01ff191fec10fa96a1a70db7be"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/sparse-gaussian-002-200/fit.json",
+      "sha256": "6d5bfd0f62744ccddeb7b4573efe493fd26e719415afe46814f84fc8ebfc5418"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/sparse-game_pace-000-200/fit.json",
+      "sha256": "6318264b17e402cbb4fa73b17a3bb8148cd275942ed9359ec5073195cea397f8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/diffuse-gaussian-000-200/fit.json",
+      "sha256": "deee242915bdf2a83682849e404b8851b5e5fb4aa58e6015f64233a5686c1560"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/diffuse-game_pace-000-200/fit.json",
+      "sha256": "6d06a5051486ba223a3f1f055cbc29bc0a5839d308e87f37d883701753b56062"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-gaussian-000-200/fit.json",
+      "sha256": "69ecc8ec48225439caa8debd80328c5b5da8f874076e51850c5320582b3bbfaa"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-game_pace-000-200/fit.json",
+      "sha256": "5277c94116675f60620497a4cc75818ee93d88c57b0e6ad5ed3733804d604cce"
+    }
+  ],
+  "summaries": [
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "n": 200,
+      "means": {
+        "R_zero": 0.23020590065393465,
+        "R_control": 0.22018780646610422,
+        "R_candidate": 0.21438576153985153,
+        "P_zero": 1988.4953339454548,
+        "P_control": 1991.4575392396675,
+        "P_candidate": 1993.5394266214082
+      },
+      "differences": {
+        "regional_control_minus_candidate": 0.005802044926252692,
+        "prediction_candidate_minus_control": 2.081887381740671
+      },
+      "diagnostics": {
+        "control": {
+          "active": 0.21795819101494537,
+          "inactive": 0.002229615451158849,
+          "offense": 0.11167511138495012,
+          "defense": 0.10851269508115412
+        },
+        "candidate": {
+          "active": 0.2067445097967672,
+          "inactive": 0.007641251743084336,
+          "offense": 0.10904382368128697,
+          "defense": 0.10534193785856455
+        }
+      },
+      "scale_diagnostics": {
+        "control": {
+          "all": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 8.011861292859507e-05,
+            "endpoint_count": 150,
+            "inherited_limitation_count": 199,
+            "n": 200
+          }
+        },
+        "candidate": {
+          "low": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.0001816665551182803,
+            "endpoint_count": 127,
+            "inherited_limitation_count": 197,
+            "n": 200
+          },
+          "high": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 8.852115783803721e-05,
+            "endpoint_count": 159,
+            "inherited_limitation_count": 199,
+            "n": 200
+          }
+        }
+      },
+      "false_map_regional_rms": {
+        "control": 0.047218803999665736,
+        "candidate": 0.0874142536608552
+      },
+      "diagnostic_meaning": "year-five risks; false-map rms uses the all-thirty denominator; innovation-scale summaries include all bound selections; full paths in secondary records",
+      "ratios": {
+        "recovery_ratio": {
+          "value": 0.931278307510174,
+          "reason": null
+        },
+        "prediction_gain_retention": {
+          "value": null,
+          "reason": "nonpositive_control_gain"
+        }
+      },
+      "ratio_reason": null
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "n": 200,
+      "means": {
+        "R_zero": 0.23020590065393465,
+        "R_control": 0.22172476693705712,
+        "R_candidate": 0.22527533575967,
+        "P_zero": 2000.2174757221446,
+        "P_control": 2013.6245992626718,
+        "P_candidate": 2015.4792785599077
+      },
+      "differences": {
+        "regional_control_minus_candidate": -0.0035505688226128707,
+        "prediction_candidate_minus_control": 1.8546792972358617
+      },
+      "diagnostics": {
+        "control": {
+          "active": 0.2019024216649347,
+          "inactive": 0.019822345272122406,
+          "offense": 0.11089541237946085,
+          "defense": 0.11082935455759627
+        },
+        "candidate": {
+          "active": 0.19688511260891517,
+          "inactive": 0.028390223150754818,
+          "offense": 0.11240392707678995,
+          "defense": 0.11287140868288006
+        }
+      },
+      "scale_diagnostics": {
+        "control": {
+          "all": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00041694145613461076,
+            "endpoint_count": 133,
+            "inherited_limitation_count": 194,
+            "n": 200
+          }
+        },
+        "candidate": {
+          "low": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00036697048354757177,
+            "endpoint_count": 129,
+            "inherited_limitation_count": 198,
+            "n": 200
+          },
+          "high": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.0004939772697767386,
+            "endpoint_count": 133,
+            "inherited_limitation_count": 198,
+            "n": 200
+          }
+        }
+      },
+      "false_map_regional_rms": {
+        "control": 0.14079185087256438,
+        "candidate": 0.16849398550320666
+      },
+      "diagnostic_meaning": "year-five risks; false-map rms uses the all-thirty denominator; innovation-scale summaries include all bound selections; full paths in secondary records",
+      "ratios": {
+        "recovery_ratio": {
+          "value": 0.9785819352142641,
+          "reason": null
+        },
+        "prediction_gain_retention": {
+          "value": null,
+          "reason": "nonpositive_control_gain"
+        }
+      },
+      "ratio_reason": null
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "n": 200,
+      "means": {
+        "R_zero": 0.9235057324512779,
+        "R_control": 0.8711203581699979,
+        "R_candidate": 0.8198877315152725,
+        "P_zero": 1989.6261630363308,
+        "P_control": 1992.374393180439,
+        "P_candidate": 1994.099824007486
+      },
+      "differences": {
+        "regional_control_minus_candidate": 0.05123262665472539,
+        "prediction_candidate_minus_control": 1.725430827046921
+      },
+      "diagnostics": {
+        "control": {
+          "active": 0.8711203581699979,
+          "inactive": 0.0,
+          "offense": 0.4355727944141647,
+          "defense": 0.43554756375583326
+        },
+        "candidate": {
+          "active": 0.8198877315152725,
+          "inactive": 0.0,
+          "offense": 0.41015565102316953,
+          "defense": 0.40973208049210297
+        }
+      },
+      "scale_diagnostics": {
+        "control": {
+          "all": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 6.418761452883117e-05,
+            "endpoint_count": 136,
+            "inherited_limitation_count": 199,
+            "n": 200
+          }
+        },
+        "candidate": {
+          "low": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00016853375537491635,
+            "endpoint_count": 132,
+            "inherited_limitation_count": 200,
+            "n": 200
+          },
+          "high": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 9.44004591257905e-05,
+            "endpoint_count": 142,
+            "inherited_limitation_count": 200,
+            "n": 200
+          }
+        }
+      },
+      "false_map_regional_rms": {
+        "control": 0.0,
+        "candidate": 0.0
+      },
+      "diagnostic_meaning": "year-five risks; false-map rms uses the all-thirty denominator; innovation-scale summaries include all bound selections; full paths in secondary records",
+      "ratios": {
+        "recovery_ratio": {
+          "value": 0.8877992877629788,
+          "reason": null
+        },
+        "prediction_gain_retention": {
+          "value": null,
+          "reason": "nonpositive_control_gain"
+        }
+      },
+      "ratio_reason": null
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "n": 200,
+      "means": {
+        "R_zero": 0.9235057324512779,
+        "R_control": 0.804103483190728,
+        "R_candidate": 0.7715459649707589,
+        "P_zero": 1996.7467054501083,
+        "P_control": 2008.8752264195791,
+        "P_candidate": 2010.4722170712257
+      },
+      "differences": {
+        "regional_control_minus_candidate": 0.032557518219969106,
+        "prediction_candidate_minus_control": 1.5969906516465926
+      },
+      "diagnostics": {
+        "control": {
+          "active": 0.804103483190728,
+          "inactive": 0.0,
+          "offense": 0.40129669628274894,
+          "defense": 0.40280678690797883
+        },
+        "candidate": {
+          "active": 0.7715459649707589,
+          "inactive": 0.0,
+          "offense": 0.3851518101015512,
+          "defense": 0.38639415486920775
+        }
+      },
+      "scale_diagnostics": {
+        "control": {
+          "all": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00032246546449759845,
+            "endpoint_count": 138,
+            "inherited_limitation_count": 198,
+            "n": 200
+          }
+        },
+        "candidate": {
+          "low": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.0003850586505562248,
+            "endpoint_count": 131,
+            "inherited_limitation_count": 197,
+            "n": 200
+          },
+          "high": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00032534522953710996,
+            "endpoint_count": 134,
+            "inherited_limitation_count": 197,
+            "n": 200
+          }
+        }
+      },
+      "false_map_regional_rms": {
+        "control": 0.0,
+        "candidate": 0.0
+      },
+      "diagnostic_meaning": "year-five risks; false-map rms uses the all-thirty denominator; innovation-scale summaries include all bound selections; full paths in secondary records",
+      "ratios": {
+        "recovery_ratio": {
+          "value": 0.8354533576341,
+          "reason": null
+        },
+        "prediction_gain_retention": {
+          "value": null,
+          "reason": "nonpositive_control_gain"
+        }
+      },
+      "ratio_reason": null
+    },
+    {
+      "population": "null",
+      "law": "gaussian",
+      "n": 200,
+      "means": {
+        "R_zero": 0.0,
+        "R_control": 0.002595599589820968,
+        "R_candidate": 0.00942251634969513,
+        "P_zero": 1987.0058796101453,
+        "P_control": 1989.8430788395783,
+        "P_candidate": 1991.791013159053
+      },
+      "differences": {
+        "regional_control_minus_candidate": -0.006826916759874161,
+        "prediction_candidate_minus_control": 1.947934319474598
+      },
+      "diagnostics": {
+        "control": {
+          "active": 0.0,
+          "inactive": 0.002595599589820968,
+          "offense": 0.001299692451064998,
+          "defense": 0.0012959071387559707
+        },
+        "candidate": {
+          "active": 0.0,
+          "inactive": 0.00942251634969513,
+          "offense": 0.004554156268596711,
+          "defense": 0.004868360081098418
+        }
+      },
+      "scale_diagnostics": {
+        "control": {
+          "all": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 4.7925972376780304e-05,
+            "endpoint_count": 150,
+            "inherited_limitation_count": 200,
+            "n": 200
+          }
+        },
+        "candidate": {
+          "low": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00015244139110578186,
+            "endpoint_count": 135,
+            "inherited_limitation_count": 198,
+            "n": 200
+          },
+          "high": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 7.119485067690412e-05,
+            "endpoint_count": 149,
+            "inherited_limitation_count": 200,
+            "n": 200
+          }
+        }
+      },
+      "false_map_regional_rms": {
+        "control": 0.05094702729130492,
+        "candidate": 0.09706964690208329
+      },
+      "diagnostic_meaning": "year-five risks; false-map rms uses the all-thirty denominator; innovation-scale summaries include all bound selections; full paths in secondary records",
+      "ratios": null,
+      "ratio_reason": "null_has_no_recovery_or_retention_ratio"
+    },
+    {
+      "population": "null",
+      "law": "game_pace",
+      "n": 200,
+      "means": {
+        "R_zero": 0.0,
+        "R_control": 0.023242894376745253,
+        "R_candidate": 0.031857263778086044,
+        "P_zero": 1963.7481930331644,
+        "P_control": 1976.028715611428,
+        "P_candidate": 1977.7710324186787
+      },
+      "differences": {
+        "regional_control_minus_candidate": -0.00861436940134079,
+        "prediction_candidate_minus_control": 1.7423168072507451
+      },
+      "diagnostics": {
+        "control": {
+          "active": 0.0,
+          "inactive": 0.023242894376745253,
+          "offense": 0.011698544797208337,
+          "defense": 0.01154434957953692
+        },
+        "candidate": {
+          "active": 0.0,
+          "inactive": 0.031857263778086044,
+          "offense": 0.01619773807582459,
+          "defense": 0.01565952570226146
+        }
+      },
+      "scale_diagnostics": {
+        "control": {
+          "all": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.00034760203974388925,
+            "endpoint_count": 138,
+            "inherited_limitation_count": 197,
+            "n": 200
+          }
+        },
+        "candidate": {
+          "low": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.000368770784067341,
+            "endpoint_count": 150,
+            "inherited_limitation_count": 195,
+            "n": 200
+          },
+          "high": {
+            "median_selected_variance": 1e-08,
+            "minimum": 1e-08,
+            "maximum": 0.000390327057261626,
+            "endpoint_count": 132,
+            "inherited_limitation_count": 199,
+            "n": 200
+          }
+        }
+      },
+      "false_map_regional_rms": {
+        "control": 0.15245620478270228,
+        "candidate": 0.17848603244535982
+      },
+      "diagnostic_meaning": "year-five risks; false-map rms uses the all-thirty denominator; innovation-scale summaries include all bound selections; full paths in secondary records",
+      "ratios": null,
+      "ratio_reason": "null_has_no_recovery_or_retention_ratio"
+    }
+  ],
+  "costs": {
+    "datasets": 1200,
+    "histories": 2400,
+    "annual_states": 12000,
+    "volume_updates": 6000,
+    "shape_updates": 18000
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/spec-snapshot.md",
+    "sha256": "6ce63e7efe31925c7ea3b1566ed85d5459e8da310852ecff19c25a4e19092e69"
+  },
+  "limitations": [
+    "one additional covariance and scale process; gaussian band independence is a working assumption",
+    "fixed training/evaluation deployment designs and training exposure references limit generalization",
+    "broad physical lobe families do not establish useful recovery for every hockey effect",
+    "slot-based entry/return transitions stress changing player truth",
+    "working player uncertainty is unvalidated; monte carlo intervals concern mean risks only",
+    "additive complete fitted rates may be negative and are never clipped",
+    "synthetic nomination does not establish real-hockey identification, chance valuation or admission",
+    "native pixels and an 80-foot nominal cutoff do not establish native precision",
+    "inseparable player differences remain unsupported by the likelihood despite finite prior estimates"
+  ],
+  "figures": {
+    "recovery_prediction": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/assessment/recovery-prediction-cost.png",
+      "sha256": "74208d350f21071f4534e2744e7dbf98e28bd1ba40636013f4fee1b831e284a3"
+    },
+    "spatial_changes": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/assessment/spatial-changes.png",
+      "sha256": "04d4b629274144075273c897de5ca2e287e6223d562aceac66836fd9245922ff"
+    },
+    "spatial_examples": {
+      "arrays": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/assessment/spatial-examples.npz",
+        "sha256": "44b4e44d98ef1e36983cfae1a3de3f2229f2d1af1402a0a57b950680f2639258"
+      },
+      "array_shapes": [
+        {
+          "name": "example_0_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_0_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_0_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_0_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_0_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_1_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_1_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_1_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_1_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_1_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_2_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_2_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_2_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_2_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_2_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_3_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_3_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_3_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_3_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_3_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_4_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_4_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_4_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_4_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_4_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_5_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_5_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_5_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_5_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_5_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_6_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_6_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_6_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_6_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_6_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_7_truth",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_7_control",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_7_candidate",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_7_low",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "example_7_high",
+          "shape": [
+            656
+          ],
+          "dtype": "<f8"
+        }
+      ]
+    },
+    "example_order": [
+      {
+        "name": "sparse_team0_offense_first_active",
+        "law": "gaussian",
+        "population": "sparse",
+        "players": [
+          32,
+          1
+        ],
+        "evidence": "estimable"
+      },
+      {
+        "name": "sparse_team0_offense_first_active",
+        "law": "game_pace",
+        "population": "sparse",
+        "players": [
+          32,
+          1
+        ],
+        "evidence": "estimable"
+      },
+      {
+        "name": "sparse_team0_offense_first_inactive",
+        "law": "gaussian",
+        "population": "sparse",
+        "players": [
+          2,
+          3
+        ],
+        "evidence": "estimable"
+      },
+      {
+        "name": "sparse_team0_offense_first_inactive",
+        "law": "game_pace",
+        "population": "sparse",
+        "players": [
+          2,
+          3
+        ],
+        "evidence": "estimable"
+      },
+      {
+        "name": "diffuse_team0_defense_first_pair",
+        "law": "gaussian",
+        "population": "diffuse",
+        "players": [
+          32,
+          1
+        ],
+        "evidence": "estimable"
+      },
+      {
+        "name": "diffuse_team0_defense_first_pair",
+        "law": "game_pace",
+        "population": "diffuse",
+        "players": [
+          32,
+          1
+        ],
+        "evidence": "estimable"
+      },
+      {
+        "name": "diffuse_team3_offense_inseparable",
+        "law": "gaussian",
+        "population": "diffuse",
+        "players": [
+          26,
+          31
+        ],
+        "evidence": "unsupported prior allocation; not estimable"
+      },
+      {
+        "name": "diffuse_team3_offense_inseparable",
+        "law": "game_pace",
+        "population": "diffuse",
+        "players": [
+          26,
+          31
+        ],
+        "evidence": "unsupported prior allocation; not estimable"
+      }
+    ],
+    "units": "attempts per 60 team minutes; defense retains allowed-attempt sign"
+  },
+  "monte_carlo_interval_meaning": "mean risks over fresh physical truths and training responses, conditional on fixed designs and references; no player interval calibration",
+  "resources": {
+    "wall_seconds": 849.380163915921,
+    "peak_memory_bytes": 2307571712,
+    "process_seconds": 584.4710689999999
+  }
+}

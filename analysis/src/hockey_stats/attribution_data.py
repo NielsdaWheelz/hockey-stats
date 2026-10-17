@@ -16,6 +16,7 @@ import numpy as np
 from scipy import sparse
 
 from .artifacts import (
+    digest,
     linked_path,
     load_arrays,
     ordered_array_digest,
@@ -101,6 +102,51 @@ class RevisionPopulation:
     p: np.ndarray | None
 
 
+def decode_saved_population(
+    arrays: dict[str, np.ndarray], *, benchmark: str, season: str, season_index: int,
+    source_protocol_sha256: str, population_id: str, player_ids: tuple[int, ...],
+    strata: tuple[tuple, ...], expected_p: np.ndarray, expected_r: float,
+) -> RevisionPopulation:
+    """decode the compact spatial likelihood without inventing response rows."""
+    digest(source_protocol_sha256)
+    n, s = len(player_ids), len(strata)
+    shapes = dict(H=(2*n, 2*n), T=(2*n, 656), yy=(), shape_yy=(), xbar=(s, 2*n), ybar=(s, 656),
+                  stratum_weight=(s,), player_exposure=(n,), response_counts=(656,), u=(n,), p=(656,),
+                  r=(), player_ids=(n,))
+    require(benchmark == "unblocked_spatial" and bool(population_id)
+            and type(season_index) is int and season_index >= 0
+            and isinstance(season, str) and len(season) == 8 and season.isdigit()
+            and int(season[4:]) == int(season[:4]) + 1
+            and bool(player_ids) and player_ids == tuple(sorted(set(player_ids)))
+            and bool(strata) and strata == tuple(sorted(set(strata)))
+            and list(arrays) == list(POOLING_STAT_FIELDS)
+            and all(isinstance(arrays[name], np.ndarray) and arrays[name].shape == shape
+                    and arrays[name].dtype == np.dtype("int64" if name == "player_ids" else "float64")
+                    and np.isfinite(arrays[name]).all()
+                    for name, shape in shapes.items()),
+            "saved spatial statistic fields, shapes, order or identity differ")
+    require(arrays["player_ids"].dtype.kind in "iu"
+            and tuple(arrays["player_ids"].tolist()) == player_ids
+            and expected_p.shape == (656,) and np.isfinite(expected_p).all()
+            and np.all(expected_p > 0) and abs(float(expected_p.sum()) - 1) <= 1e-12
+            and np.array_equal(arrays["p"], expected_p)
+            and math.isfinite(expected_r) and expected_r > 0 and float(arrays["r"]) == expected_r
+            and np.all(arrays["player_exposure"] > 0) and np.all(arrays["stratum_weight"] > 0)
+            and np.all(arrays["u"] > 0) and abs(float(arrays["u"].sum()) - 1) <= 1e-12
+            and np.allclose(arrays["u"], arrays["player_exposure"] / arrays["player_exposure"].sum(),
+                            rtol=1e-12, atol=1e-12)
+            and np.allclose(arrays["stratum_weight"] @ arrays["ybar"], arrays["response_counts"],
+                            rtol=1e-10, atol=1e-10)
+            and np.allclose(arrays["xbar"][:, :n].sum(axis=1), 5., rtol=0, atol=1e-10)
+            and np.allclose(arrays["xbar"][:, n:].sum(axis=1), 5., rtol=0, atol=1e-10)
+            and np.allclose(arrays["H"], arrays["H"].T, rtol=1e-10, atol=1e-10),
+            "saved spatial player order, fixed references or information differ")
+    return RevisionPopulation(benchmark, season, season_index, source_protocol_sha256, population_id,
+        player_ids, strata, arrays["H"], arrays["T"], float(arrays["yy"]), float(arrays["shape_yy"]),
+        expected_r, arrays["xbar"], arrays["ybar"], arrays["stratum_weight"], arrays["player_exposure"],
+        arrays["response_counts"], arrays["u"], arrays["p"])
+
+
 def pooling_population(source: "PoolingSource", statistics: "PoolingStatistics", population: str,
                        law: str, outer: int, season: str) -> RevisionPopulation:
     """decode one bound schema-4 annual likelihood in its original reference/order."""
@@ -117,21 +163,11 @@ def pooling_population(source: "PoolingSource", statistics: "PoolingStatistics",
     require(len(years) == 1, "pooling annual season absent or duplicated")
     annual = years[0]
     players, strata = tuple(annual["players"]), tuple(map(tuple, annual["strata"]))
-    n, s = len(players), len(strata)
     values = {name: statistics.arrays[season + "_" + name] for name in POOLING_STAT_FIELDS}
-    shapes = dict(H=(2*n, 2*n), T=(2*n, 656), yy=(), shape_yy=(), xbar=(s, 2*n), ybar=(s, 656),
-                  stratum_weight=(s,), player_exposure=(n,), response_counts=(656,), u=(n,), p=(656,),
-                  r=(), player_ids=(n,))
-    require(players == tuple(sorted(set(players))) and strata == tuple(sorted(set(strata)))
-            and all(values[name].shape == shape for name, shape in shapes.items())
-            and tuple(values["player_ids"].tolist()) == players
-            and float(values["r"]) == 40. and np.array_equal(values["p"], source.basis.p),
-            "pooling original sufficient-statistic shapes, players or references differ")
-    return RevisionPopulation("unblocked_spatial", season, prepared["seasons"].index(season),
-        prepared["protocol"]["sha256"], f"synthetic:04e:{population}:{law}:{outer}:unblocked_spatial",
-        players, strata, values["H"], values["T"], float(values["yy"]), float(values["shape_yy"]), 40.,
-        values["xbar"], values["ybar"], values["stratum_weight"], values["player_exposure"],
-        values["response_counts"], values["u"], values["p"])
+    return decode_saved_population(values, benchmark="unblocked_spatial", season=season,
+        season_index=prepared["seasons"].index(season), source_protocol_sha256=prepared["protocol"]["sha256"],
+        population_id=f"synthetic:04e:{population}:{law}:{outer}:unblocked_spatial",
+        player_ids=players, strata=strata, expected_p=source.basis.p, expected_r=40.)
 
 
 def group_observations(
@@ -570,6 +606,78 @@ def centered_estimability(H: np.ndarray, P: np.ndarray, c: np.ndarray, *, spectr
         null_at_tau_factors=nulls, status_at_tau_factors=statuses,
         centered_functional_norm=norm,
         contrast_information_inverse=precisions[1] if status == "available" else None)
+
+
+def identifiable_recovery_operator(
+    H: np.ndarray, u: np.ndarray, player_ids: tuple[int, ...], *,
+    inseparable_groups: tuple[tuple[int, ...], ...], expected_rank: int | None = None,
+) -> tuple[np.ndarray, dict]:
+    """the full likelihood-identified, exposure-centered player metric and entity audit."""
+    n = len(player_ids)
+    members = [player for group in inseparable_groups for player in group]
+    require(player_ids == tuple(sorted(set(player_ids))) and n > 0 and H.shape == (2*n, 2*n)
+            and u.shape == (n,) and len(members) == len(set(members))
+            and all(len(group) > 1 and group == tuple(sorted(set(group)))
+                    and set(group).issubset(player_ids) for group in inseparable_groups),
+            "identifiable recovery player order or inseparable groups differ")
+    P = exposure_centering(u)
+    spectrum = likelihood_spectrum(H)
+    values, vectors, tau, masks = spectrum
+    ranks = [int(mask.sum()) for mask in masks]
+    require(len(set(ranks)) == 1 and (expected_rank is None or ranks[1] == expected_rank),
+            "identifiable recovery likelihood rank is unstable or differs from its declared target")
+    E = vectors[:, masks[1]] @ vectors[:, masks[1]].T
+    J = P @ E
+    by_player = {player: group for group in inseparable_groups for player in group}
+    entity_rows, entities, weights, nulls, differences = [], [], [], [], []
+    for role_index, role in enumerate(("offense", "defense")):
+        offset = role_index * n
+        common = np.zeros(2*n)
+        common[offset:offset+n] = 1
+        nulls.append(common)
+        for player in player_ids:
+            group = by_player.get(player, (player,))
+            if player != group[0]:
+                continue
+            row = np.zeros(2*n)
+            row[[offset + player_ids.index(member) for member in group]] = 1 / len(group)
+            centered = row @ P
+            status = centered_estimability(H, P, row, spectrum=spectrum)
+            require(status["status"] == "available", "declared recovery entity is not likelihood estimable")
+            entity_rows.append(centered)
+            weights.append(len(group))
+            entities.append(dict(role=role, players=list(group), weight=len(group), status="available"))
+            for member in group[1:]:
+                difference = np.zeros(2*n)
+                difference[offset + player_ids.index(group[0])] = 1
+                difference[offset + player_ids.index(member)] = -1
+                nulls.append(difference)
+                status = centered_estimability(H, P, difference, spectrum=spectrum)
+                require(status["status"] == "not_estimable", "inseparable player difference became estimable")
+                differences.append(dict(role=role, players=[group[0], member], status="not_estimable",
+                                        null_projection=status["null_projection"]))
+    entity_operator = np.stack(entity_rows)
+    null_basis = np.stack(nulls, axis=1)
+    expected_nullity = null_basis.shape[1]
+    null_residual = float(np.linalg.norm(H @ null_basis, ord=2) / max(1., np.linalg.norm(H, ord=2)))
+    annihilation = float(np.linalg.norm(J @ null_basis, ord=2))
+    metric = entity_operator.T @ (np.asarray(weights)[:, None] * entity_operator)
+    equivalence = float(np.linalg.norm(J.T @ J - metric, ord=2) / max(1., np.linalg.norm(metric, ord=2)))
+    _, singular, right = np.linalg.svd(J, full_matrices=False)
+    rank = int(np.count_nonzero(singular > 1e-8))
+    row_projector = right[:rank].T @ right[:rank]
+    span = float(np.linalg.norm(row_projector - E, ord=2))
+    require(2*n - ranks[1] == expected_nullity and rank == ranks[1]
+            and null_residual <= 1e-10 and annihilation <= 1e-8
+            and equivalence <= 1e-8 and span <= 1e-8,
+            "identifiable recovery entity metric, null space or complete span differs")
+    return J, dict(rank=ranks[1], dimension=2*n, denominator=2*n, tau=tau,
+        rank_at_tau_factors=ranks, cutoff_factors=[.1, 1., 10.], entities=entities,
+        entity_operator=entity_operator.tolist(), entity_weights=weights,
+        inseparable_differences=differences, expected_nullity=expected_nullity,
+        likelihood_null_relative_residual=null_residual, null_annihilation_residual=annihilation,
+        entity_metric_relative_residual=equivalence, row_span_residual=span,
+        positive_eigenvalue_minimum=float(values[masks[1]].min()))
 
 
 REVISION_RULES = {

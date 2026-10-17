@@ -1,8 +1,57 @@
-# 04h implementation verification
+# 04h verification
 
-status: implementation and detached verification merged; task cleanup complete. **research execution remains blocked by selected external input reads**. this is not completion of the full [04h specification](../../specs/04h-attribution-resolution.md). [the plan](../../plan.md) owns progression; the [input issue](../../issues/04h-research-inputs.md) records the blocker and closure criteria. no research protocol/result, scientific decision, nomination, admission or handoff is issued.
+status: the full bounded [04h assignment](../../specs/04h-attribution-resolution.md) is complete and independently verified. [the result](result.json) is `execution_status:complete,numerical_status:verified,study_status:diagnosed,next_question:penalty_selection,nomination:null,admission:not_admitted,handoff:null`. [the plan](../../plan.md) owns subsequent assignment. no further numerical campaign is assigned.
 
-## implementation and ownership
+## completed research execution
+
+ordinary access to the selected external originals succeeded after the earlier stalls. pinned prepared metadata, protocol and the previously stalled manifest read in 0.008/0.026/0.001 seconds with matching digests. strict inventory decoding and all subsequent research reads also succeeded. no repair or replacement source was used; the earlier cause remains unknown. the input issue's execution and acceptance criteria are now fulfilled, so its record is removed. [access evidence](research-reviews/input-access.json) preserves the resumption state; the original failed preflight remains below.
+
+clean producer `a9269b491d71a6036fb94ce30e0542fdbe4e85d7` ran the existing `prepare` and six `fit` commands using stable primary-checkout 04g/04a metadata paths. all expensive outputs remain under `/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017`. no local nhl capture, fixture or new simulated response replaces the saved histories. calibration truths 0–99 never open response archives; assessment uses the original histories 100–199.
+
+| executed research work | count |
+|---|---:|
+| cells / retained outer ids per cell | 6 / 200 |
+| non-null / analytic-null grid records | 57,600 / 108 |
+| pooled point fits | 1,200 |
+| original control histories / annual states | 600 / 3,000 |
+| independent eigensolve probes | 12 |
+| new responses / annual fits / real fits | 0 / 0 / 0 |
+
+the original basis semantic identity, 656 positive native shares, explicit forty/eleven-mode columns, twelve-region operator, current identity order and rank-60 target reconcile. all 1,200 truth/activation records and 600 final control scores are checked. no source record or unresolved scale state is dropped: 2,498 of 3,000 control states retain `scale_unresolved`. these source limitations remain distinct from this study's verified equations and visible in the limits table.
+
+## independent research acceptance
+
+| boundary | independent evidence | result |
+|---|---|---|
+| source and chronology | six named manifests, 1,200 truth/activation identities, 600 five-year histories/3,000 states; all final score replays; 24 direct native deployment endpoint checks | passed; maximum control recovery discrepancy `5.55e-17`, prediction discrepancy zero |
+| extraction parity | frozen 04g producer versus shared truth functions with actual research shares at outers 0/51/199 | 75 annual physical truths bitwise identical; centered/context/activation/regions unchanged |
+| numerical probes | all eighteen penalties at outer 100/base and 199/broad in every cell; independent dense precision versus eigensolve, raw score/physical predictions, posterior/objective/context/covariance and known-law moments | all twelve probes pass; 8,376 comparisons at `atol=1e-10,rtol=1e-8` |
+| original equations | every pooled grid mean and fixed covariance solve; prescribed eigensolve probe equations | all residuals below `1e-8`; the receipt retains actual maxima |
+| complete statistical cells | diffuse/game-pace and observed null/game-pace; explicit 100-record resampling, 10,000 paired draws, linear percentiles, calibration-only reference, means before roots/ratios, signed projection/coupling and full-denominator transition partitions | 9,348 comparisons pass; independent physical rescoring of all 200 selected histories/400 saved pooled states |
+| content and figure | all six saved archives, every csv/figure value, conditional intervals, source counts, units, transitions, selected endpoints, analytic versus observed null and actual rendered thirty-panel figure | 101,480 checks pass; no material clipping or overlap |
+| preservation | named references, all six archive digests, exact frozen spec/protocol, compressed archival identity and operational path review | passed; no consumer requires the disposable 04h worktree or a new alias |
+
+[the research receipt](research-verification.json) binds exact sources, producers, fits, reports, resource costs and [independent receipts](research-reviews/). analytic null curves agree across laws; observed null fits retain separate saved samples and intervals. calibration choices remain frozen. half-effect/double-game conditions have fixed curves only. adaptive risks are realized errors, never fixed-risk formulas evaluated at selected penalties.
+
+## diagnosis and reporting verification
+
+[the decision](decision.md), [complete table](comparison.csv), [limits/context table](limits-context.md) and [figure](resolution.png) answer the bounded research question. forty-mode pooling improves mean regional recovery over annual borrowing in one of four non-null cells; eleven modes improve recovery and spatial prediction means in all four. truth-selected fixed references show further regional potential in all eight base/broad comparisons but worsen prediction relative to training selection. the single next question is observable selection/prior assumptions at a prospectively justified spatial prediction cost. this establishes neither a causal selector defect nor a deployable joint winner. eleven-mode lateral risk exceeds annual borrowing in both game-pace cells, and null false maps persist.
+
+the initial assessment correctly computed every numerical result but left the scientific question at its default `unresolved`; the temporary end-to-end decision check was red. a reporting-only change records the reviewed question and its recovery/prediction evidence. independent review then required an explicit annual comparator in the contrary lateral finding. clean final reporting producer `7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5` passes the green contract. numerical collections, comparison table, limits table and figure are identical to the independently audited initial outputs; no fit, truth, threshold or numerical recipe changed. all three assessment iterations remain external as provenance.
+
+## costs and retained evidence
+
+preparation took 2.03 seconds. cell wall times were 27.45–172.48 seconds; maximum fit process peak memory was 865,075,200 bytes. final assessment/result generation took 4.98 seconds and peaked at 934,871,040 bytes. up to three ordinary single-threaded cell processes traded modest memory/i/o for elapsed time; no controller or recovery engine was introduced. manifest output sizes explicitly exclude their own final serialization; the research receipt separately records the complete retained tree size.
+
+the full protocol is 36,523,676 bytes. [its deterministic gzip copy](protocol.json.gz) is 688,319 bytes and decompresses byte for byte to external protocol sha256 `a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1`. this keeps the complete inventory in git without duplicating 36.5 mb of repetitive json. operational references still name the ordinary external json; no compressed-reader path or fallback is added. prepared metadata, arrays, fits and source evidence remain external; only exact compact reports/receipts and the protocol archive enter git. conditional intervals do not include reference-selection uncertainty or individual-player precision; constant pooling can bias the changed returner and eleven modes omit detail. previously exposed cases provide no fresh confirmation.
+
+temporary integration/live/review scripts, disposable logs and worktree bytecode are deleted after acceptance. no test-only dependency or permanent harness was added. existing scientific tools, checked fixtures, expensive fits, source originals, frozen historical receipts, main environment and published databases remain intact.
+
+## historical implementation and detached verification
+
+the following sections record the earlier implementation, fixture verification, blocked preflight and first merge/cleanup. their then-pending research statements describe that stage. the original [verification receipt](verification.json), reviews and cleanup record remain unchanged; the completed research acceptance above supersedes their execution status without changing their evidence or scientific limits.
+
+### implementation and ownership
 
 branch `codex/04h-attribution-resolution`, worktree `/Users/nnandal/Documents/code/hockey-stats-04h`. the primary checkout's ten draft documents were copied into the worktree and preserved in `f4ebb71`; the primary checkout was not edited. producer `fbdc47016478fdbed257ae43e43891743df37c47` implements the study with the existing locked python environment and no new dependencies. later changes remove two unused imports and document verification; numerical behavior is unchanged.
 
@@ -16,7 +65,7 @@ three native subagents implemented source/pooling, known-law algebra and study e
 
 constant pooling changes persistence and selector assumptions; eleven modes also lose spatial detail. the fixed reference is selected with calibration truth and cannot be deployed. adaptive risks use realized saved-response errors, never fixed-variance formulas evaluated at a response-selected penalty. working covariance remains numerical evidence, not calibrated player uncertainty.
 
-## red, green and adversarial review
+### red, green and adversarial review
 
 temporary checks began red at the absent cli and absent moment/pooling interfaces. after implementation they passed, then passed again after refactoring and independent review. the final verification used the clean producer above.
 
@@ -35,7 +84,7 @@ review repaired reference/context field collisions, seconds-to-minutes conversio
 
 the compact [known-law fixture](../../../fixtures/attribution/known-law-moments.json) retains the independently checked count-covariance inputs and expected moments; its 82-array archive is 30,305 bytes. extraction parity preserves 75 annual physical truths at outers 0/51/199, activation and region bytes on nonuniform synthetic shares. parity using the actual research shares still requires the unread external basis.
 
-## bounded fixture execution
+### bounded fixture execution
 
 the explicitly named schema-5 fixture source was constructed temporarily through the existing 04e/04g fixture interfaces. it has six selected cells, outers 0/1, five years, the same player/native/basis dimensions, calibration `{0}` and assessment `{1}`. its uniform native reference and smaller deployment retain their own identities. source numerical limitations remain explicitly visible. no fixture output satisfies research acceptance.
 
@@ -50,7 +99,7 @@ the explicitly named schema-5 fixture source was constructed temporarily through
 
 the guarded final pipeline completed in about 3.49 seconds. fixture intervals have one assessment record and are degenerate; a separate 100-record arithmetic oracle checks nontrivial paired means, roots, ratios and linear-percentile interpolation. it creates no research responses, fit or scientific conclusion. the public command-line path and independently reconciled report are recorded in the [verification receipt](verification.json).
 
-## research execution
+### original input-blocked execution
 
 the committed 04g result/protocol sha256 values are `84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6` and `9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2`; the 04a contextual result is `8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac`. these local metadata digests pass. external basis/design/operators, six fit manifests, selected statistic/control originals and the assessment reference remain unverified in this execution. ordinary reads stalled and were interrupted. no source was modified and no research run directory was created. the final [research preflight](reviews/research-preflight.json) on clean merged branch `08c31b5` locates the block at opening the pinned 04g prepared metadata. the concurrent 05b specification is incorporated without changing the reviewed numerical code or closing the research assignment.
 
@@ -70,7 +119,7 @@ run `fit` once for each explicit sparse/diffuse/null × gaussian/game-pace cell,
 
 temporary integration/live scripts, generated fixture trees and bytecode are removed after final review; compact receipts and useful checked fixtures remain. the verification receipt records cleanup and final document checks. current source evidence, expensive fits, published databases, frozen paths and the main environment remain untouched.
 
-## merge and task cleanup
+### merge and task cleanup
 
 the user subsequently assigned pr, merge and cleanup. [pr #29](https://github.com/NielsdaWheelz/hockey-stats/pull/29) merged in `4a0720b5881d85fb342b038ab3f4c4606c476d0f`, with its security check passed. the merge commit preserves producer `fbdc470`, initial draft snapshot `f4ebb71`, concurrent specification commit `b62fa98` and reviewed head `18f1cf8`. merged tree `02b64195500d2026b664929d58edc1608719e02f` equals the reviewed tree. primary-checkout module paths, cli and frozen review references pass; no research rerun is performed.
 

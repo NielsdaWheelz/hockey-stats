@@ -1,0 +1,158 @@
+{
+  "status": "verified",
+  "temporary_scripts_and_scratch_removed": [
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/content-final.json",
+      "bytes": 21810,
+      "sha256": "b2dac9b8879bf65a6b377e212e879e7e535e71ebf15821e60e6aae853212e129"
+    },
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/content-initial.json",
+      "bytes": 21577,
+      "sha256": "0af22fa6270e21e6c0b3b9398a78fcf63689250486cf1f11de47eff56be4651b"
+    },
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/numerical-probes.py",
+      "bytes": 11689,
+      "sha256": "0d1fba634d35100efdc275fdac3e05caf35b8670127a7a17208d4861e5f7a4e4"
+    },
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/source-systems.log",
+      "bytes": 1279,
+      "sha256": "ef42ca307aa7ff05d7742d951dc6121c3d29b41531841cf6a21dc17418cae589"
+    },
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/source_systems_review.py",
+      "bytes": 13070,
+      "sha256": "437348daaa99333568e82884286a7923467fff3faedef7e705411d53d8887269"
+    },
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/statistical-assessment.py",
+      "bytes": 16705,
+      "sha256": "6951870ac8e14aef977f9024039b84e8f5c6715d8817d0a328291db5ff5cd76c"
+    },
+    {
+      "path": "/tmp/hockey-04h-research-review-20261017/truth-parity.py",
+      "bytes": 4456,
+      "sha256": "8f0cf8ac4ca0bca713549300e3d34fac4624bd598b2ec793ac82ded6268acc25"
+    }
+  ],
+  "worktree_bytecode_removed": [
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 251,
+      "sha256": "794442befa5130af5be8f6f07cd1348efcf9ef90fe40492ba149cf2732c85f92"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/artifacts.cpython-314.pyc",
+      "bytes": 17732,
+      "sha256": "5484f8aa43d8869d95c012eb2edac5672c7984857a1ef06d61972f15a8dc9abb"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/attribution.cpython-314.pyc",
+      "bytes": 331441,
+      "sha256": "8c27ba5a1ac6d73d77e5b8e2887463bd415091868fc3dc879ebd715fbcb0c8fa"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/attribution_data.cpython-314.pyc",
+      "bytes": 137896,
+      "sha256": "5dbf2e7206495b31399e2a2a0b47cddd51f20f93a9177ea16cca2656340f17d9"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/attribution_prediction.cpython-314.pyc",
+      "bytes": 12563,
+      "sha256": "001f301aa6057ac950a6ee891e7d1abeadbb5d74c599c0220f199ec2fcdd376a"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/attribution_simulation.cpython-314.pyc",
+      "bytes": 42471,
+      "sha256": "d85f288e73440d03bf00743c430858f25c45d9a3306aedafade7ac6c14840cdc"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/captures.cpython-314.pyc",
+      "bytes": 15284,
+      "sha256": "51b561e750aaf2edcdd882439e99ba2f64448d8ad5a723d5efb14164e55264b9"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/chance.cpython-314.pyc",
+      "bytes": 147189,
+      "sha256": "f7696c03e257a3bb89064ce5a15cf3783c8c901c2349d29b036f1154f73bc744"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/chance_cli.cpython-314.pyc",
+      "bytes": 17528,
+      "sha256": "c9a528b42dfa3f31bee1259b1d67244b2d4a171f787a0a858bf0f2c24ac30676"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/chance_cohort.cpython-314.pyc",
+      "bytes": 57274,
+      "sha256": "4cf6b9444e8436f2efe3affaac5eb41d758c7e09932a5e8f1ec7716434e88f87"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/chance_evaluation.cpython-314.pyc",
+      "bytes": 64262,
+      "sha256": "7c028007eb4967031e39469c5d3731a64cdb73045d56a6c37eab0abc99c06716"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/chance_features.cpython-314.pyc",
+      "bytes": 35867,
+      "sha256": "6fdbbfb273202f779112c2207382995c8337de1f586369b43439bae5b32148a8"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/chance_targets.cpython-314.pyc",
+      "bytes": 2834,
+      "sha256": "4946409a8f86ef8f6c3799235e7c494cde7a3368fce85df3afa73b29059dce2a"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/cli.cpython-314.pyc",
+      "bytes": 32962,
+      "sha256": "3df417fd55f43ecb52c73eb212fcb5b26314cbe2d834c8f2ce2fc2b8a269e709"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/feature_data.cpython-314.pyc",
+      "bytes": 94377,
+      "sha256": "ecd322645da1659eda905fe3cb86e4616de959108e5313a46e9239889677f9cd"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/interpret.cpython-314.pyc",
+      "bytes": 84242,
+      "sha256": "803e9d0034fc0dac953ff0e6b36d67e838764c66e18e86e3695b5eb3fa927c89"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/play_report.cpython-314.pyc",
+      "bytes": 19065,
+      "sha256": "5f2ebdbcdf9e75f2275458e1ae8d16130956a2bd468f0b89e783bf9e3965119e"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/reconstruct.cpython-314.pyc",
+      "bytes": 77540,
+      "sha256": "58cccf6755783476b9a67878f88d1c76e2066cb08798f3c62b2412326278c425"
+    },
+    {
+      "path": "analysis/src/hockey_stats/__pycache__/shot_origins.cpython-314.pyc",
+      "bytes": 4731,
+      "sha256": "6bc51ae2039aedf618e38f7a64757a08dcd82d4c45ea78b458af77bea0844ab3"
+    },
+    {
+      "path": "analysis/research/__pycache__/attribution_resolution_report.cpython-314.pyc",
+      "bytes": 32618,
+      "sha256": "8b5aa4fe58549c13c6fa0b0c07f03bde2447b3b4d931b549c8144aaf2ba989ad"
+    }
+  ],
+  "temporary_root_absent": true,
+  "content_author_cleanup": "three report/content checks removed separately; hashes and evidence in content.json",
+  "test_only_dependencies_added": false,
+  "permanent_test_harness_added": false,
+  "running_review_processes": 0,
+  "preserved": [
+    "external source originals",
+    "all six research fits and arrays",
+    "all three assessment iterations",
+    "external review receipts",
+    "checked fixtures",
+    "scientific tools",
+    "primary environment",
+    "published databases"
+  ],
+  "scope": "only task-owned temporary review directory and generated bytecode in the 04h worktree"
+}

@@ -1,0 +1,135 @@
+{
+  "kind": "attribution_resolution_research_truth_extraction_review",
+  "status": "verified",
+  "purpose": "research",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+    "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+  },
+  "executing_producer": "a9269b491d71a6036fb94ce30e0542fdbe4e85d7",
+  "frozen_original_commit": "f17103c5be381c39a071c8f212a9a8c91484bf9f",
+  "original_body_sha256": "541b7e28fba93497aef673671b3759f8813554510a0e1b72097d54b75c2b015f",
+  "basis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+    "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+  },
+  "basis_semantic_sha256": "649a49ecba19de5df609d6980d9de76491afa13e9108df0d8e6500659886cc51",
+  "p_sha256": "d31332886c1a12258e60a19da907710f583b4df302e3ede7a8440c749537910e",
+  "records": [
+    {
+      "family": "independent",
+      "population": "sparse",
+      "outer": 0,
+      "sha256": "9a6bf3feacfcb58814a4c2af5739e255f71203b8a58163bc66a3d3b6340f89e9",
+      "annual_truths": 5
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "outer": 0,
+      "sha256": "a1ce2291d32b41f63777138c51b08f67d910963a3ea748b2e8a0c9bf69da1d7c",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "outer": 0,
+      "sha256": "c78ae183f965dc3a0d7a3eb5f4faccc99b2fa72e33490ee33c2d0fe13647429f",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "outer": 0,
+      "sha256": "ded970953cb1869f58481477ee56b7b0553dc440f197456672c2a407964a7984",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "outer": 0,
+      "sha256": "ddf04931c6ee37f70d64f3e1d195560e19472837de097e325b1f811563749a7c",
+      "annual_truths": 5
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "outer": 51,
+      "sha256": "b1120e497ee82869448493a5d5446342d096a0f7a7b6664d65ace47168e3b84f",
+      "annual_truths": 5
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "outer": 51,
+      "sha256": "c846d0190562b91583ac4c4ece492b327348039d5fb8446886b90e8c4b1dadf1",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "outer": 51,
+      "sha256": "90bd6ffd46ab3576976a7ad65cda7529f400b04098238eec1429939f0c044095",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "outer": 51,
+      "sha256": "b8d6ab7a3347a2ec5824fcf801a78e4516bf83e41eab9a8e14b8e9c685c08a1f",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "outer": 51,
+      "sha256": "ddf04931c6ee37f70d64f3e1d195560e19472837de097e325b1f811563749a7c",
+      "annual_truths": 5
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "outer": 199,
+      "sha256": "a1c242b89f4c5f976a93f8d5ae8ed70ea5c99e80a42be2d0e5e676706f025a1a",
+      "annual_truths": 5
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "outer": 199,
+      "sha256": "0a732a8f643586b2d0d0be30ffa9764b36331213c57baa7c1eb7db3778c673fc",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "outer": 199,
+      "sha256": "d7b692880c307399a1871bc4bb37625178cec0b2ede887d5293b0949a7b925bc",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "outer": 199,
+      "sha256": "93c0239a7bdb2d67531d93d0653b60b5639bac658adfe5834ae33da780ecd970",
+      "annual_truths": 5
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "outer": 199,
+      "sha256": "ddf04931c6ee37f70d64f3e1d195560e19472837de097e325b1f811563749a7c",
+      "annual_truths": 5
+    }
+  ],
+  "histories": 15,
+  "annual_truths": 75,
+  "physical_arrays": "bitwise equal raw/centered/context",
+  "activation": "exact equality; independent active masks also bitwise equal",
+  "regions": "bitwise equality; exact name equality",
+  "region_sha256": "1d8a2c4d0db2cba2884a66a2aa25a41fbfd1ba24f7544c584788432dcafb5dfe",
+  "original_research_shares": true,
+  "new_responses": 0,
+  "new_annual_fits": 0,
+  "elapsed_seconds": 5.726308082998003
+}

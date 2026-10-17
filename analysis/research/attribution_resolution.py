@@ -810,7 +810,9 @@ def assess(prepared, fits, output):
         source_status=dict(numerical_status=prepared.source.result["numerical_status"],
                            controls=[dict(population=document["population"], law=document["law"],
                                           audit=document["source_control_audit"]) for document, _, _ in cells]),
-        next_question="unresolved", limits=LIMITS,
+        # this frozen inventory's reviewed scientific judgment; verification only permits release.
+        next_question="penalty_selection" if verified and prepared.document["purpose"] == "research" else "unresolved",
+        limits=LIMITS,
         null_aliases=dict(half_effect="base"), interval_meaning="mean experimental risk conditional on designs, calibration set and chosen reference; not individual-player precision",
         units=RULES["units"], purpose=prepared.document["purpose"])
     from attribution_resolution_report import render_reports

@@ -1,13 +1,12 @@
 """immutable recorded-count evidence and game-local sufficient statistics.
 
-revision preparation reads the corrected 04a population, preserves its rows and
-ledgers, and derives native shape and grouped raw moments. positive game weights
-recompute context residualization while original references remain fixed.
+the original preparation and grouped evidence remain read-only. positive game
+weights recompute context residualization while original references remain fixed.
+active recovery preparation binds its separate model protocol explicitly.
 """
 
 import hashlib
 import math
-import time
 from dataclasses import dataclass
 from itertools import groupby
 from pathlib import Path
@@ -17,15 +16,10 @@ import numpy as np
 from scipy import sparse
 
 from .artifacts import (
-    clean_implementation,
-    implementation,
     linked_path,
     require,
-    resources,
-    rows,
-    write_json,
 )
-from .chance_cli import identity, output_path, read_json
+from .chance_cli import read_json
 
 POPULATIONS = ("all_attempts", "unblocked_spatial")
 RESEARCH_SEASONS = tuple(f"{year}{year + 1}" for year in range(2021, 2026))
@@ -545,16 +539,6 @@ def _read_arrays(path: Path, shapes: dict) -> dict[str, np.ndarray]:
     return arrays
 
 
-def _write_arrays(path: Path, arrays: dict) -> tuple[ArtifactReference, dict]:
-    require(
-        all(np.isfinite(value).all() for value in arrays.values()),
-        "nonfinite revision array",
-    )
-    with path.open("xb") as destination:
-        np.savez(destination, **arrays)
-    return identity(path), {name: list(value.shape) for name, value in arrays.items()}
-
-
 def read_revision_prepared(path: Path | str) -> dict:
     """read schema 2 only; source schema 1 is an explicitly bound control."""
     document = read_json(Path(path).resolve(strict=True))
@@ -629,6 +613,46 @@ def read_revision_prepared(path: Path | str) -> dict:
             == document["games_by_season"][annual["season"]],
             "revision game inventory differs",
         )
+    return document
+
+
+def read_recovery_prepared(path: Path | str) -> dict:
+    """active 04c source/model boundary; the original preparation keeps its own protocol."""
+    from .artifacts import load_arrays, read_artifact
+
+    document = read_artifact(path, "attribution_recovery_prepared")
+    source_path = linked_path(document["source_prepared"])
+    source = read_revision_prepared(source_path)
+    protocol = read_artifact(linked_path(document["model_protocol"]), "attribution_recovery_protocol")
+    diagnosis = read_artifact(linked_path(document["diagnosis"]), "attribution_recovery_diagnosis")
+    require(document["purpose"] == protocol["purpose"] == diagnosis["purpose"] == source["purpose"]
+            and document["source_prepared"] == protocol["source_prepared"] == diagnosis["source_prepared"]
+            and document["source_protocol"] == protocol["source_protocol"] == source["protocol"]
+            and document["diagnosis"] == protocol["diagnosis"]
+            and diagnosis["status"] == "complete" and diagnosis["gate"]["status"] == "proceed"
+            and document["seasons"] == source["seasons"] == protocol["seasons"]
+            and document["source_population_ids"] == source["population_ids"]
+            and document["grid"] == source["grid"],
+            "recovery preparation changed diagnosed source, model or reference identity")
+    require(document["original_annual"] == [
+        dict(population=row["population"], season=row["season"], references=row["references"], rows=row["rows"])
+        for row in source["annual"]], "recovery preparation changed original annual references or ledgers")
+    if document["purpose"] == "research":
+        require(document["implementation"] == protocol["implementation"],
+                "recovery preparation producer differs from frozen model")
+        require(Path(path).resolve(strict=True).is_relative_to(Path(protocol["output_root"]))
+                and Path(protocol["output_root"]).is_relative_to(Path("/Volumes/Expansion/hockey-stats/runs")),
+                "research preparation escaped frozen external output root")
+    linked_path(document["basis"])
+    require(document["basis_shapes"] == [dict(name="B", shape=[656, 40], dtype="<f8"),
+            dict(name="p", shape=[656], dtype="<f8"), dict(name="eigenvalues", shape=[40], dtype="<f8")],
+            "recovery basis ordered shapes differ")
+    basis_arrays = load_arrays(dict(arrays=document["basis"], array_shapes=document["basis_shapes"]))
+    first_spatial = next(row for row in source["annual"]
+                         if row["population"] == "unblocked_spatial" and row["season"] == source["seasons"][0])
+    references = _load_arrays(first_spatial["references"], first_spatial["reference_shapes"])
+    require(np.array_equal(basis_arrays["p"], references["p"]),
+            "recovery basis changed the original native reference")
     return document
 
 
@@ -734,239 +758,3 @@ def load_revision_population(
         ref["u"],
         ref.get("p"),
     )
-
-
-def prepare_revision(
-    prepared: Path | str, protocol: Path | str, out: Path | str
-) -> ArtifactReference:
-    """derive native shape/game moments while retaining all original evidence."""
-    started = time.monotonic()
-    source_path, protocol_path = (
-        Path(prepared).resolve(strict=True),
-        Path(protocol).resolve(strict=True),
-    )
-    source_ref, protocol_ref = identity(source_path), identity(protocol_path)
-    frozen, source = read_json(protocol_path), read_json(source_path)
-    validate_revision_protocol(frozen)
-    require(
-        source_ref == frozen["baseline_prepared"]
-        and source["schema_version"] == 1
-        and source["kind"] == "attribution_prepared"
-        and source["purpose"] == frozen["purpose"]
-        and source["seasons"] == frozen["seasons"]
-        and source["populations"] == list(POPULATIONS),
-        "revision requires its explicitly bound original preparation",
-    )
-    current_implementation = implementation()
-    if frozen["purpose"] == "research":
-        clean_implementation(current_implementation)
-        require(
-            frozen["implementation"] == current_implementation,
-            "research revision implementation differs from frozen protocol",
-        )
-    checked = set()
-
-    def check_links(value):
-        if isinstance(value, dict):
-            if "path" in value and "sha256" in value:
-                reference = {name: value[name] for name in ("path", "sha256")}
-                key = (reference["path"], reference["sha256"])
-                if key not in checked:
-                    linked_path(reference)
-                    checked.add(key)
-            else:
-                for nested in value.values():
-                    check_links(nested)
-        elif isinstance(value, list):
-            for nested in value:
-                check_links(nested)
-
-    check_links(source)
-    controls = []
-    if frozen["baseline_fits"] is not None:
-        chains = read_json(linked_path(frozen["baseline_fits"]))
-        require(
-            chains["schema_version"] == 1
-            and chains["kind"] == "attribution_chains"
-            and chains["prepared"] == source_ref
-            and chains["protocol"] == source["protocol"],
-            "corrected control chains differ from original evidence",
-        )
-        for row in chains["annual"]:
-            state = read_json(linked_path(row["reference"]))
-            require(
-                state["prepared"] == source_ref
-                and state["protocol"] == source["protocol"]
-                and state["benchmark"] == row["benchmark"]
-                and state["season"] == row["season"],
-                "control state differs from its source chain",
-            )
-            check_links(state)
-            controls.append(
-                {
-                    "benchmark": row["benchmark"],
-                    "season": row["season"],
-                    "state": row["reference"],
-                }
-            )
-        require(
-            [(row["benchmark"], row["season"]) for row in controls]
-            == [
-                (population, season)
-                for population in POPULATIONS
-                for season in source["seasons"]
-            ],
-            "control chains do not contain exactly the ordered annual states",
-        )
-    if frozen["baseline_result"] is not None:
-        result = read_json(linked_path(frozen["baseline_result"]))
-        require(
-            result["status"] == "research_complete"
-            and result["evidence"]["prepared"] == source_ref
-            and result["evidence"]["chains"] == frozen["baseline_fits"],
-            "revision baseline result does not bind corrected completed evidence",
-        )
-        linked_path(result["evidence"]["assessment"])
-    inventory = {season: [] for season in source["seasons"]}
-    for row in rows(Path(source["ledgers"]["coverage"]["path"])):
-        require(row["season"] in inventory, "source coverage has an undeclared season")
-        inventory[row["season"]].append(row["game_id"])
-    for season, games in inventory.items():
-        require(
-            len(games) == len(set(games)) == source["games_by_season"][season],
-            "source coverage does not reconcile inventory games",
-        )
-        games.sort()
-    output = output_path(str(out), [str(source_path.parent), str(protocol_path.parent)])
-    require(
-        output.is_relative_to(Path(frozen["output_root"]).resolve()),
-        "revision output differs from frozen root",
-    )
-    if frozen["purpose"] == "research":
-        require(
-            output.is_relative_to(Path("/Volumes/Expansion/hockey-stats")),
-            "research revision outputs must remain external",
-        )
-    output.mkdir()
-    first = next(
-        row
-        for row in source["annual"]
-        if row["population"] == "unblocked_spatial"
-        and row["season"] == source["seasons"][0]
-    )
-    first_arrays = _read_arrays(Path(first["arrays"]["path"]), first["shapes"])
-    p = (first_arrays["response_counts"] + 0.5) / (
-        first_arrays["response_counts"].sum() + 0.5 * 656
-    )
-    require(
-        p.shape == (656,) and np.all(p > 0),
-        "source spatial reference is not the native positive shape",
-    )
-    annual_documents = []
-    for annual in source["annual"]:
-        require(
-            annual["status"] == "prepared",
-            "revision requires all original annual populations",
-        )
-        benchmark, season = annual["population"], annual["season"]
-        arrays = _read_arrays(Path(annual["arrays"]["path"]), annual["shapes"])
-        exposure = arrays["player_exposure"]
-        reference_arrays = {
-            "u": exposure / exposure.sum(),
-            "player_exposure": exposure,
-            "response_counts": arrays["response_counts"],
-        }
-        if benchmark == "unblocked_spatial":
-            reference_arrays["p"] = p
-        references = AnnualReferences(
-            benchmark,
-            season,
-            source["seasons"].index(season),
-            protocol_ref["sha256"],
-            source["population_ids"][benchmark],
-            tuple(annual["players"]),
-            tuple(tuple(row) for row in annual["strata"]),
-            annual["r"],
-            reference_arrays["u"],
-            reference_arrays.get("p"),
-            exposure,
-            arrays["response_counts"],
-        )
-        grouped = group_observations(
-            rows(Path(annual["rows"]["path"])), references, tuple(inventory[season])
-        )
-        require(
-            grouped.row_count == annual["row_count"],
-            "grouped row count differs from original evidence",
-        )
-        population = weighted_population(
-            grouped, np.ones(len(grouped.game_ids)), references
-        )
-        errors = {
-            name: float(
-                np.max(np.abs(getattr(population, name) - arrays[name]))
-                / (1 + np.max(np.abs(arrays[name])))
-            )
-            for name in ("H", "T", "yy", "xbar", "ybar", "stratum_weight")
-        }
-        require(
-            max(errors.values()) <= 1e-8,
-            "unit game weights do not recover original annual statistics",
-        )
-        grouped_arrays = {"stratum_e": grouped.stratum_e, "Q_t": grouped.Q_t}
-        if grouped.Q_h is not None:
-            grouped_arrays["Q_h"] = grouped.Q_h
-        for name in ("H_e", "T_raw", "stratum_x", "stratum_n"):
-            matrix = getattr(grouped, name)
-            grouped_arrays.update(
-                {
-                    name + "_data": matrix.data,
-                    name + "_indices": matrix.indices,
-                    name + "_indptr": matrix.indptr,
-                }
-            )
-        prefix = benchmark + "-" + season
-        grouped_ref, grouped_shapes = _write_arrays(
-            output / (prefix + "-grouped.npz"), grouped_arrays
-        )
-        reference_ref, reference_shapes = _write_arrays(
-            output / (prefix + "-references.npz"), reference_arrays
-        )
-        statistics = {
-            name: arrays[name]
-            for name in ("H", "T", "yy", "xbar", "ybar", "stratum_weight")
-        }
-        if population.shape_yy is not None:
-            statistics["shape_yy"] = np.asarray(population.shape_yy)
-        statistic_ref, statistic_shapes = _write_arrays(
-            output / (prefix + "-statistics.npz"), statistics
-        )
-        annual_documents.append(
-            dict(
-                annual,
-                grouped=grouped_ref,
-                grouped_shapes=grouped_shapes,
-                references=reference_ref,
-                reference_shapes=reference_shapes,
-                statistics=statistic_ref,
-                statistic_shapes=statistic_shapes,
-                game_ids=inventory[season],
-                membership_signatures=list(grouped.membership_signatures),
-                unit_weight_errors=errors,
-            )
-        )
-    document = dict(
-        source,
-        schema_version=2,
-        kind="attribution_revision_prepared",
-        implementation=current_implementation,
-        protocol=protocol_ref,
-        baseline_prepared=source_ref,
-        baseline_controls=controls,
-        annual=annual_documents,
-        reference_contract="fixed original r,u,positive first-season p; original response counts and player exposure",
-        grouped_contract="per inventory game sparse unresidualized H_e,T_raw,X_s,N_s and E_s,Q_t,Q_h; c-order columns",
-        resources=resources(started),
-    )
-    write_json(output / "prepared.json", document)
-    return identity(output / "prepared.json")

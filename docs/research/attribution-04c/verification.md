@@ -1,0 +1,28 @@
+# 04c verification
+
+status: implementation and pre-execution review accepted; prescribed research execution pending. the plan owns assignment. fixture checks establish software behavior, never scientific nomination.
+
+## implementation boundaries
+
+the work uses `work/04c-attribution-recovery` in `/Users/nnandal/Documents/code/hockey-stats-04c`. subagents implemented the model, diagnosis, preparation/means and interval stage; the primary agent integrated shared history/artifact owners, conditional real fitting and reporting. an independent adversary reviewed each delivery boundary before progression. the spec snapshot, source protocols and historical studies remain unchanged.
+
+one model owner builds the fixed graph basis, fits independent volume/shape priors, compensates unrestricted native context and projects full row covariance. one history owner handles explicit unit weights and full game refits. study policy supplies populations, streams, budgets and requests. active schema 3 separates source preparation and model protocol; named schema-1/2 readers preserve controls. obsolete 04b preparation/fit/refit/simulation write paths are removed; historical execution remains in its frozen git revision. no compatibility dispatcher or artifact migration is added.
+
+## temporary red, green and refactor evidence
+
+- evidence/geometry: missing diagnosis/basis contracts fail first. independent replay reconciles 847 original artifact hashes, all 400 saved outer ids, full annual state/error accounting and the volume–shape cross term. maximum normalized decomposition discrepancy is `7.61e-16`. the original source inventory retains all 6,560 games. forty modes lie below the fixed cutoff; the next eigenvalue is separated. whitening, centering and rotation residuals are below `1.3e-14`.
+- model: independent prior-space and observation-space gaussian equations check means, full covariance, native context, full/reduced objectives and projections. interior entry/innovation scales and nonzero cross-player covariance exercise carry, absence, entry and return. maximum normalized discrepancy is `2.66e-13`; the tolerance is `1e-8`. the original scipy triangular-factor reproducer remains retained.
+- native control: original 04b gaussian outer zero is regenerated from its original stream solely for control verification. all fifty saved mean/covariance/context/prior arrays and full scale dictionaries replay bitwise. no 04c response or scientific result is reused from that replay.
+- artifacts: all five graph annual files roundtrip every array bitwise. schema-2 input to the active reader, changed basis/request identity, changed seeds, changed original shares and absent/changed original files are rejected. a missing recorded source cannot activate synthetic input.
+- statistics: independent order-statistic interpolation reproduces basic quantiles; score-quadratic inversion reproduces all 401 possible 400-denominator wilson intervals within `1.2e-14`. all eight fixed-seed paired percentile intervals reproduce exactly. supports/fails/inconclusive boundaries remain those specified prospectively.
+- full fixture path: diagnosis proceed/stop, means failure, interval refusal, full conditional refits, real refusal, conditional real fitting and reporting run through the same owners/commands. twelve small inner histories verify sixty exact weight arrays, 772 basic intervals and 840 null abstentions. a separate final-year failure leaves 284 prefix projections but withholds every non-null empirical interval; partial spread and working diagnostics remain. missing/duplicate/error ids keep their assigned denominators.
+- real fixture path: five ordered annual files, all eight fixed player/role examples, unchanged scalar/volume/control diagnostics and both bounded probes complete. this source is explicitly synthetic. conditional later stages use visibly tagged counterfactual fixture gates because the actual small fixture mean/coverage rules fail; these exercises cannot satisfy research acceptance.
+- content: the three figure contracts precede generation. independent visual review checks shared scales, units, actual versus projected truth, outer means versus one fit, pointwise nominal `.95` versus the `.90` developmental floor, secondary stresses, null abstention and defense sign meaning. incomplete stages receive explicit reasons and no substitute maps.
+
+source and numerical review receipts are retained under `/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/prefreeze/`. their original temporary paths describe verification exercises; copied receipt bytes and a consolidated external index preserve the findings after temporary controllers are deleted. no lasting checks are selected by this slice. `fixtures/attribution/graph-40ft.npz` retains a bounded synthetic basis and checked expectations; it is not a research season reference.
+
+## material implementation prices
+
+the fixed basis loses local/rough directions and conditions on estimated native shares. full-history refits reselect scales, while sources, references and topology stay fixed. two offensive patterns support only the stated broad-shape question. complete additive rates remain unconstrained and new real-player refit uncertainty is deferred.
+
+the derived fixed matrix `R` is cached once per immutable basis, retaining 210 kb. a bounded component benchmark reduces 403 projection calls from `23.01` to `18.87` ms per fixture history, with bitwise identical records. this measures that component, not campaign duration. there is no general cache, runner, checkpoint engine, local fit mirror or new dependency.

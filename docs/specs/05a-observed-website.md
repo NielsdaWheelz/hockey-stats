@@ -1,6 +1,6 @@
 # pr05a — private observed-results website
 
-status: **full specification; ready for handoff, implementation and publication unassigned.** the user confirmed localhost-only access and the narrow effect-4 cutover. [the plan](../plan.md) owns assignment. this is the first vertical slice of [05](05-publication.md)/[06](06-website.md), independent of model admission and 04e execution.
+status: **full specification; implemented and locally verified.** [verification](../research/observed-05a/verification.md) records the explicit private activation and acceptance evidence. the user confirmed localhost-only access and the narrow effect-4 cutover. [the plan](../plan.md) owns status and assignment. this is the first vertical slice of [05](05-publication.md)/[06](06-website.md), independent of model admission and 04e execution.
 
 ## target and boundary
 

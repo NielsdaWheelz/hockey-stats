@@ -26,8 +26,9 @@ export const meta = () => [
 export function Layout({ children }: { readonly children: ReactNode }) {
   const league = useRouteLoaderData<LeagueResponse>("routes/league");
   const player = useRouteLoaderData<PlayerResponse>("routes/player");
-  const season = (player ?? league)?.publication.season ?? "20252026";
-  const seasonLabel = `${season.slice(0, 4)}–${season.slice(6)}`;
+  const comparison = useRouteLoaderData<LeagueResponse>("routes/compare");
+  const season = (player ?? league ?? comparison)?.publication.season;
+  const seasonLabel = season ? `${season.slice(0, 4)}–${season.slice(6)}` : "";
   return (
     <html lang="en">
       <head>
@@ -45,9 +46,12 @@ export function Layout({ children }: { readonly children: ReactNode }) {
             <p className="eyebrow">
               <Link to="/">hockey statistics / included results</Link>
             </p>
-            <h1>{seasonLabel} · regular season · 5v5 recorded results</h1>
+            <h1>
+              {seasonLabel && `${seasonLabel} · `}regular season · 5v5 recorded
+              results
+            </h1>
             <p>
-              recorded while the player was on the ice; unadjusted for
+              recorded while each player was on the ice; unadjusted for
               teammates, opponents, score or deployment.
             </p>
           </header>

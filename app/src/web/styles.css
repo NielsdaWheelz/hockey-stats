@@ -83,7 +83,8 @@ p {
   margin: 0.5rem 0 1rem;
 }
 .league-heading > p,
-.player-heading > p {
+.player-heading > p,
+.comparison-heading > p {
   color: var(--muted);
 }
 .search-row {
@@ -97,13 +98,15 @@ p {
   flex: 1 1 16rem;
   max-width: 30rem;
 }
-.search-row label {
+.search-row label,
+.player-picker label {
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.85rem;
   font-weight: 650;
 }
-.search-row input {
+.search-row input,
+.player-picker input {
   width: 100%;
   border: 1px solid #9ca8a5;
   border-radius: 3px;
@@ -112,7 +115,8 @@ p {
   padding: 0.55rem 0.65rem;
 }
 .search-row > button,
-.actions button {
+.actions button,
+.picker-clear {
   padding: 0.55rem 0.8rem;
   border: 1px solid #a8b3b0;
   border-radius: 3px;
@@ -228,8 +232,111 @@ thead .identity {
   font-size: 0.7rem;
 }
 .back-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.3rem;
   margin-bottom: 1.5rem;
   font-size: 0.85rem;
+}
+.comparison-heading {
+  max-width: 52rem;
+}
+.comparison-pickers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 1.7rem 0;
+}
+.player-picker {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--rule);
+}
+.player-picker legend {
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+.picker-selection,
+.selection-error,
+.picker-hint {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.picker-selection {
+  margin-top: 0;
+}
+.selection-error {
+  font-weight: 650;
+}
+.picker-hint {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+}
+.picker-clear {
+  margin-top: 0.7rem;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+}
+.picker-results {
+  list-style: none;
+  padding: 0;
+  margin: 0.7rem 0 0;
+}
+.picker-results button {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.3rem;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  text-align: left;
+  background: transparent;
+}
+.picker-results button:hover {
+  background: #edf0eb;
+}
+.picker-results span {
+  display: block;
+}
+.picker-results span:last-child {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.comparison-scroll {
+  --comparison-metric-width: min(28vw, 10rem);
+  scroll-padding-inline-start: var(--comparison-metric-width);
+}
+.comparison-table {
+  /* each player column fits beside the metric column on narrow screens. */
+  min-width: min(34rem, calc(200% - var(--comparison-metric-width)));
+  table-layout: fixed;
+}
+.comparison-table th,
+.comparison-table td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.comparison-table .identity {
+  width: var(--comparison-metric-width);
+}
+.comparison-table thead span,
+.comparison-table thead a {
+  width: fit-content;
+  display: block;
+}
+.comparison-table thead a {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+.comparison-table .metric-coverage {
+  min-width: 0;
+  max-width: none;
+}
+.comparison-note {
+  max-width: 55rem;
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.8rem;
 }
 .player-heading {
   margin-bottom: 1.5rem;
@@ -369,6 +476,10 @@ footer {
   }
   .metric-sheet {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .comparison-pickers {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
   }
   .metric-sheet > div {
     padding: 0.8rem;

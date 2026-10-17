@@ -1,0 +1,714 @@
+{
+  "kind": "synthetic_attribution_known_law_moments",
+  "description": "deterministic tiny full-count covariance oracle; no hockey capture, response sample, fit or research input",
+  "arrays": {
+    "path": "known-law-moments.npz",
+    "sha256": "a55faa0c83b1caa8ec5d6b5634b8fa3f1427013a0ee72d2a219f6a08d6ee90ef",
+    "ordered_contract": [
+      {
+        "name": "p",
+        "shape": [
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "B",
+        "shape": [
+          5,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "rate",
+        "shape": [],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_e",
+        "shape": [
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_si",
+        "shape": [
+          4
+        ],
+        "dtype": "<i8"
+      },
+      {
+        "name": "year_0_row_game_ids",
+        "shape": [
+          4
+        ],
+        "dtype": "<i8"
+      },
+      {
+        "name": "year_0_xbar",
+        "shape": [
+          2,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_H",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_X",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_raw",
+        "shape": [
+          4,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_selection",
+        "shape": [
+          4,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_e",
+        "shape": [
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_si",
+        "shape": [
+          6
+        ],
+        "dtype": "<i8"
+      },
+      {
+        "name": "year_1_row_game_ids",
+        "shape": [
+          6
+        ],
+        "dtype": "<i8"
+      },
+      {
+        "name": "year_1_xbar",
+        "shape": [
+          2,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_H",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_X",
+        "shape": [
+          6,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_raw",
+        "shape": [
+          4,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_selection",
+        "shape": [
+          4,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "evaluation_e",
+        "shape": [
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "evaluation_si",
+        "shape": [
+          4
+        ],
+        "dtype": "<i8"
+      },
+      {
+        "name": "evaluation_X",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "operator_0",
+        "shape": [
+          5,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "operator_1",
+        "shape": [
+          5,
+          1
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "operator_2",
+        "shape": [
+          5,
+          1
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_H",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_m",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_context_cross_score",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_covariance_0",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_covariance_1",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_covariance_2",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_score_full_covariance",
+        "shape": [
+          12,
+          12
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_base_score_context_full_covariance",
+        "shape": [
+          6,
+          2,
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_H",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_m",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_context_cross_score",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_covariance_0",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_covariance_1",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_covariance_2",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_score_full_covariance",
+        "shape": [
+          12,
+          12
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_half_effect_score_context_full_covariance",
+        "shape": [
+          6,
+          2,
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_H",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_m",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_context_cross_score",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_covariance_0",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_covariance_1",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_covariance_2",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_score_full_covariance",
+        "shape": [
+          12,
+          12
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "gaussian_double_games_score_context_full_covariance",
+        "shape": [
+          6,
+          2,
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_H",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_m",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_context_cross_score",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_covariance_0",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_covariance_1",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_covariance_2",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_score_full_covariance",
+        "shape": [
+          12,
+          12
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_base_score_context_full_covariance",
+        "shape": [
+          6,
+          2,
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_H",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_m",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_context_cross_score",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_covariance_0",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_covariance_1",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_covariance_2",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_score_full_covariance",
+        "shape": [
+          12,
+          12
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_half_effect_score_context_full_covariance",
+        "shape": [
+          6,
+          2,
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_H",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_m",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_context_cross_score",
+        "shape": [
+          6,
+          2
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_covariance_0",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_covariance_1",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_covariance_2",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_score_full_covariance",
+        "shape": [
+          12,
+          12
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_games_score_context_full_covariance",
+        "shape": [
+          6,
+          2,
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_0_physical_role_exposure_mean",
+        "shape": [
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "year_1_physical_role_exposure_mean",
+        "shape": [
+          2,
+          5
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "game_pace_double_duration_prediction_covariance",
+        "shape": [
+          6,
+          6
+        ],
+        "dtype": "<f8"
+      }
+    ]
+  },
+  "dimensions": {
+    "native_cells": 5,
+    "spatial_columns": 2,
+    "current_player_role_rows": 4,
+    "union_player_role_rows": 6,
+    "training_rows": [
+      4,
+      6
+    ],
+    "evaluation_rows": 4,
+    "strata": 2,
+    "years": 2
+  },
+  "checked_tolerance": {
+    "absolute": 1e-10,
+    "relative": 1e-08
+  },
+  "maximum_absolute_residual": 2.842170943040401e-14,
+  "checks": 121,
+  "semantics": {
+    "e": "hours",
+    "H": "rate times exposure-residualized design gram",
+    "selection": "current rows by union rows",
+    "raw": "physical zero-sum native maps before role exposure centering",
+    "operator_0": "five-component native map",
+    "operator_1": "redistribution into native cells zero and four",
+    "operator_2": "signed half mass across cells zero through three",
+    "full_score_order": "union player-role row then spatial coefficient",
+    "full_score_context_order": "score row/coefficient then stratum/native cell"
+  },
+  "independent_oracle": {
+    "physical_mean": "mu_ij = rate*e_i*(p_j + alpha*(X*raw)_ij)",
+    "gaussian": "count covariance = diag(rate*e_i*p_j)",
+    "game_pace": "count covariance = diag(mu) + .5*sum_game outer(vec(mu_game),vec(mu_game)); both game directions share pace",
+    "score_map": "each count (i,j) has score column vec(outer((X_i-xbar_si)*selection, B_j))",
+    "context_map": "each final count (i,j) contributes native context cell (si,j) with factor 1/(rate*final_stratum_exposure)",
+    "contractions": "transform the full count covariance through score/context maps, then sum equal spatial-coefficient diagonals",
+    "copies": "multiply full score covariance, H and m by copies; divide final context by copies*exposure; context cross-score stays unchanged",
+    "duration": "doubling e doubles diagonal covariance but quadruples each shared-pace outer product",
+    "prediction": "transform score covariance to current fitted native maps via kron(selection*K,R), then contract explicit evaluation rows with exposure weights and inverse shares"
+  },
+  "checked_facts": [
+    "all 121 moment, fixed-risk and signed prediction comparisons pass",
+    "raw physical exposure means are nonzero; exposure-centering raw inputs changes the game-pace law",
+    "fixed null contractions agree exactly between both laws",
+    "independent game copies and doubled shared-pace duration have equal information/mean and unequal covariance",
+    "native truth contains omitted basis detail; replacing actual regional truth by its projection changes bias"
+  ]
+}

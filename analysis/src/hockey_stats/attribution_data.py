@@ -16,6 +16,7 @@ import numpy as np
 from scipy import sparse
 
 from .artifacts import (
+    clean_implementation,
     digest,
     linked_path,
     load_arrays,
@@ -25,7 +26,7 @@ from .artifacts import (
 from .chance_cli import read_json
 
 if TYPE_CHECKING:
-    from .attribution import PoolingSource, PoolingStatistics
+    from .attribution import AnnualState, PoolingSource, PoolingStatistics, ShapeBasis
 
 POPULATIONS = ("all_attempts", "unblocked_spatial")
 RESEARCH_SEASONS = tuple(f"{year}{year + 1}" for year in range(2021, 2026))
@@ -102,6 +103,85 @@ class RevisionPopulation:
     p: np.ndarray | None
 
 
+@dataclass(frozen=True)
+class PooledShapeLikelihood:
+    """constant identity effects with separately residualized annual contexts."""
+
+    player_ids: tuple[int, ...]
+    current_player_ids: tuple[int, ...]
+    selections: tuple[np.ndarray, ...]
+    target_selection: np.ndarray
+    H: np.ndarray
+    score: np.ndarray
+    r: float
+    p: np.ndarray
+    u: np.ndarray
+    B: np.ndarray
+    R: np.ndarray
+    basis_columns: tuple[int, ...]
+    target: RevisionPopulation
+    source_identity: dict
+
+
+def pool_shape_likelihood(
+    populations: tuple[RevisionPopulation, ...], basis: "ShapeBasis",
+    columns: tuple[int, ...], target_season: str,
+) -> PooledShapeLikelihood:
+    """align physical identities before summing native annual shape scores."""
+    populations, columns = tuple(populations), tuple(columns)
+    require(bool(populations) and bool(columns)
+            and columns == tuple(sorted(set(columns)))
+            and all(type(column) is int and 0 <= column < basis.B.shape[1] for column in columns)
+            and target_season == populations[-1].season
+            and all(current.season_index + 1 == following.season_index
+                    and int(current.season[:4]) + 1 == int(following.season[:4])
+                    for current, following in zip(populations, populations[1:])),
+            "pooled shape requires chronological annual likelihoods and explicit saved columns")
+    first, target = populations[0], populations[-1]
+    require(first.p is not None and np.array_equal(first.p, basis.p)
+            and basis.B.shape == (656, 40) and basis.p.shape == (656,)
+            and np.isfinite(basis.B).all() and np.all(basis.p > 0)
+            and abs(float(basis.p.sum()) - 1) <= 1e-12,
+            "pooled shape basis or native reference differs")
+    players = tuple(sorted({player for population in populations for player in population.player_ids}))
+    positions, n = {player: i for i, player in enumerate(players)}, len(players)
+    B = basis.B[:, columns]
+    H, score, selections = np.zeros((2*n, 2*n)), np.zeros((2*n, len(columns))), []
+    identities = []
+    for population in populations:
+        current, m = population.player_ids, len(population.player_ids)
+        require(m > 0 and len(set(current)) == m and all(type(player) is int for player in current)
+                and population.benchmark == "unblocked_spatial" and population.r == first.r
+                and population.protocol_sha256 == first.protocol_sha256
+                and population.population_id == first.population_id and np.array_equal(population.p, basis.p)
+                and population.H.shape == (2*m, 2*m) and population.T.shape == (2*m, 656)
+                and population.xbar.shape == (len(population.strata), 2*m)
+                and population.ybar.shape == (len(population.strata), 656)
+                and population.u.shape == (m,)
+                and all(np.isfinite(value).all() for value in
+                        (population.H, population.T, population.xbar, population.ybar, population.u))
+                and np.allclose(population.H, population.H.T, rtol=1e-10, atol=1e-10),
+                "pooled shape annual identity, reference or moments differ")
+        S = np.zeros((2*m, 2*n))
+        rows = np.array([positions[player] for player in current])
+        S[np.arange(2*m), np.r_[rows, n+rows]] = 1
+        T_h = population.T - population.T.sum(axis=1, keepdims=True) * basis.p
+        H += S.T @ population.H @ S
+        score += S.T @ T_h @ B
+        selections.append(S)
+        identities.append(dict(season=population.season, population_id=population.population_id,
+                               protocol_sha256=population.protocol_sha256,
+                               statistics_sha256=statistic_digest(population), player_ids=current))
+    u = np.zeros(n)
+    u[[positions[player] for player in target.player_ids]] = target.u
+    exposure_centering(u)
+    likelihood_spectrum(H)
+    return PooledShapeLikelihood(players, target.player_ids, tuple(selections), selections[-1],
+        H, score, first.r, basis.p, u, B, basis.p[:, None]*B, columns, target,
+        dict(annual=identities, basis_sha256=basis.sha256, basis_columns=list(columns),
+             target_season=target_season))
+
+
 def decode_saved_population(
     arrays: dict[str, np.ndarray], *, benchmark: str, season: str, season_index: int,
     source_protocol_sha256: str, population_id: str, player_ids: tuple[int, ...],
@@ -168,6 +248,303 @@ def pooling_population(source: "PoolingSource", statistics: "PoolingStatistics",
         season_index=prepared["seasons"].index(season), source_protocol_sha256=prepared["protocol"]["sha256"],
         population_id=f"synthetic:04e:{population}:{law}:{outer}:unblocked_spatial",
         player_ids=players, strata=strata, expected_p=source.basis.p, expected_r=40.)
+
+
+@dataclass(frozen=True)
+class RegularizationSourceSlice:
+    """named 04g evidence; only assessment records retain response references."""
+
+    reference: ArtifactReference
+    result: dict
+    prepared: dict
+    protocol: dict
+    context: "PoolingSource"
+    basis: "ShapeBasis"
+    training: tuple[dict, ...]
+    evaluation: tuple[dict, ...]
+    W: np.ndarray
+    recovery: tuple[np.ndarray, ...]
+    records: tuple[dict, ...]
+    cells: dict[tuple[str, str, str], dict]
+    fixed_populations: tuple[RevisionPopulation, ...]
+    consumed: dict
+    input_roots: tuple[str, ...]
+    inventory: dict
+
+
+def _read_selected_artifact(reference: ArtifactReference, kind: str, schema: int) -> dict:
+    """bind named metadata without traversing unrelated historical consumed links."""
+    document = read_json(linked_path(reference))
+    require(isinstance(document, dict) and type(document.get("schema_version")) is int
+            and document["schema_version"] == schema and document.get("kind") == kind
+            and document.get("purpose") in ("research", "fixture_exercise")
+            and isinstance(document.get("consumed"), dict), f"expected schema-{schema} {kind}")
+    if document["purpose"] == "research":
+        clean_implementation(document["implementation"])
+    return document
+
+
+def read_regularization_source_slice(
+    result_ref: ArtifactReference, cells: tuple[tuple[str, str, str], ...], assessment_ids: tuple[int, ...],
+) -> RegularizationSourceSlice:
+    """read six named manifests and selected final scores, never the complete 04f inventory."""
+    from .attribution import PoolingSource, read_shape_basis, validate_pooling_basis
+    from .attribution_simulation import shape_regions
+    from .shot_origins import grid
+
+    cells, assessment_ids = tuple(map(tuple, cells)), tuple(assessment_ids)
+    allowed = {("paired" if population == "null" else "independent", population, law)
+               for population in ("sparse", "diffuse", "null") for law in ("gaussian", "game_pace")}
+    require(set(cells) == allowed and len(cells) == 6 and bool(assessment_ids)
+            and assessment_ids == tuple(sorted(set(assessment_ids)))
+            and all(type(outer) is int for outer in assessment_ids),
+            "04g source slice requires six explicit cells and ordered unique assessment ids")
+    result = _read_selected_artifact(result_ref, "attribution_regularization_result", 5)
+    purpose = result["purpose"]
+    require(result["execution_status"] == "complete"
+            and result["numerical_status"] in (("verified", "numerically_unresolved")
+                                             if purpose == "fixture_exercise" else ("verified",))
+            and result["nomination"] is None and result["admission"] == "not_admitted" and result["handoff"] is None
+            and all(result[name] == result["consumed"][name] for name in ("prepared", "protocol", "assessment")),
+            "04g selected result is incomplete or changed its named parent bindings")
+    prepared = _read_selected_artifact(result["prepared"], "attribution_regularization_prepared", 5)
+    protocol = _read_selected_artifact(result["protocol"], "attribution_regularization_protocol", 5)
+    n = 200 if purpose == "research" else 2
+    require(prepared["purpose"] == protocol["purpose"] == purpose
+            and prepared["protocol"] == result["protocol"]
+            and prepared["budget"] == protocol["budget"] and protocol["budget"]["outer_per_cell"] == n
+            and assessment_ids == (tuple(range(100, 200)) if purpose == "research" else (1,))
+            and protocol["seasons"] == list(RESEARCH_SEASONS)
+            and protocol["families"] == ["paired", "independent"]
+            and protocol["populations"] == ["sparse", "diffuse", "null"]
+            and protocol["laws"] == ["gaussian", "game_pace"]
+            and protocol["policies"] == ["history", "population_history"]
+            and protocol["representation"] == "graph_40ft" and protocol["rate"] == 40
+            and protocol["shared_null"] == "paired"
+            and all(prepared[name] == protocol[name] for name in
+                    ("source_prepared", "source_protocol", "basis", "designs", "basis_sha256",
+                     "source_design_sha256", "recovery_receipts"))
+            and prepared["operators"]["arrays"] == protocol["operators"],
+            "04g selected preparation, truth ordering, laws or assessment split differs")
+    require(all(result["consumed"][name] == prepared[name] for name in
+                ("source_result", "source_prepared", "basis", "designs", "spec_snapshot"))
+            and result["consumed"]["operators"] == prepared["operators"]["arrays"],
+            "04g result changed its named evidence references")
+    if purpose == "research":
+        require(result_ref["sha256"] == "84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6"
+                and result["protocol"]["sha256"] == "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2"
+                and result["implementation"] == prepared["implementation"] == protocol["implementation"],
+                "research requires the committed 04g result, protocol and source producer")
+        named = {
+            ("independent", "diffuse", "game_pace"): "c4181ad60710eda3a7861e31ee84c691a00a2467dd870cf13be7ff7ce4c0124f",
+            ("independent", "diffuse", "gaussian"): "2090a03c258957fbb14f90bb8b7c77dc8ba6baf9a39f893c0bdc57e9595c9274",
+            ("independent", "sparse", "game_pace"): "4d5e9ceef16b6a9feb67dd529fb6333cc1f48727c5449799a449cb219544a9a3",
+            ("independent", "sparse", "gaussian"): "f5cc99497783f2891cf6b70f76eae842bde42c573809db97ac01dbf960fa4438",
+            ("paired", "null", "game_pace"): "6cb091e00485526b0417752b10e43a054b50165b18bfa2882331a99ba2a0bdaa",
+            ("paired", "null", "gaussian"): "1f04e03130c398e37e895fa3f9ce6517454553868f98bf8c3712a2d05aed0e64",
+        }
+        selected = {cell: [ref for ref in result["consumed_fits"] if ref["sha256"] == sha]
+                    for cell, sha in named.items()}
+        require(all(len(refs) == 1 for refs in selected.values()), "named research fit manifest is absent or duplicated")
+        selected = {cell: refs[0] for cell, refs in selected.items()}
+    else:
+        rows = result["selected_cells"]
+        selected = {(row["family"], row["population"], row["law"]): row["fit"] for row in rows}
+        require(len(rows) == len(selected) == 6 and set(selected) == allowed
+                and all(ref in result["consumed_fits"] for ref in selected.values()),
+                "fixture source requires six explicitly named schema-5 fit references")
+    source_prepared = _read_selected_artifact(prepared["source_prepared"], "attribution_pooling_prepared", 4)
+    source_protocol = _read_selected_artifact(prepared["source_protocol"], "attribution_pooling_protocol", 4)
+    require(source_prepared["purpose"] == source_protocol["purpose"] == purpose
+            and source_prepared["protocol"] == prepared["source_protocol"]
+            and source_prepared["basis"] == prepared["basis"]
+            and source_prepared["designs"]["arrays"] == prepared["designs"]
+            and source_prepared["basis_sha256"] == prepared["basis_sha256"] == source_protocol["basis_sha256"]
+            and source_prepared["design_sha256"] == prepared["source_design_sha256"] == source_protocol["design_sha256"]
+            and source_prepared["seasons"] == [row["season"] for row in source_prepared["years"]] == list(RESEARCH_SEASONS),
+            "04g named source basis, design or chronological reference differs")
+    basis = read_shape_basis(source_prepared)
+    validate_pooling_basis(basis)
+    require(purpose != "research" or basis.sha256 == "649a49ecba19de5df609d6980d9de76491afa13e9108df0d8e6500659886cc51",
+            "research basis differs from the frozen semantic identity")
+    context = PoolingSource(prepared["source_prepared"], source_prepared, source_protocol, basis)
+    arrays = load_arrays(source_prepared["designs"])
+    fields = ("offense", "defense", "seconds", "si", "u", "player_exposure", "home_teams", "away_teams", "row_game_ids")
+    require(list(arrays) == [f"{name}_{year}_{field}" for name in ("train", "evaluation")
+                            for year in range(5) for field in fields]+["centers", "W"]
+            and ordered_array_digest(arrays) == source_prepared["design_sha256"]
+            and np.array_equal(arrays["centers"], grid()[0]), "named design archive order or identity differs")
+    W, regions = shape_regions()
+    require(np.array_equal(arrays["W"], W) and source_prepared["regions"] == list(regions),
+            "named twelve-region operator differs")
+    histories = []
+    for name in ("train", "evaluation"):
+        designs = []
+        for year, annual in enumerate(source_prepared["years"]):
+            design = {field: arrays[f"{name}_{year}_{field}"] for field in fields}
+            players, strata = tuple(annual["players"]), tuple(map(tuple, annual["strata"]))
+            positions, row_count = {player: i for i, player in enumerate(players)}, len(design["seconds"])
+            require(len(players) == len(set(players)) == 32 and players == tuple(sorted(players))
+                    and all(design[field].dtype == np.dtype("float64" if field in
+                        ("seconds", "u", "player_exposure") else "int64") for field in fields)
+                    and design["offense"].shape == design["defense"].shape == (row_count, 5)
+                    and design["si"].shape == design["row_game_ids"].shape == (row_count,)
+                    and np.all(design["seconds"] > 0) and np.all((design["si"] >= 0) & (design["si"] < len(strata)))
+                    and all(len(set(row)) == 5 and set(row).issubset(players)
+                            for field in ("offense", "defense") for row in design[field]),
+                    "named design player order, rows or dtypes differ")
+            X = np.zeros((row_count, 64))
+            for role, field in enumerate(("offense", "defense")):
+                indices = np.array([[positions[int(player)] for player in row] for row in design[field]])
+                X[np.arange(row_count)[:, None], role*32+indices] = 1
+            e, si = design["seconds"]/3600, design["si"]
+            weights = np.bincount(si, weights=e, minlength=len(strata))
+            xbar = np.stack([np.average(X[si == s], axis=0, weights=e[si == s]) for s in range(len(strata))])
+            Z = X-xbar[si]
+            exposure = design["seconds"]@X[:, :32]
+            require(np.allclose(exposure, design["player_exposure"], rtol=1e-12, atol=1e-12)
+                    and np.allclose(design["u"], exposure/exposure.sum(), rtol=1e-12, atol=1e-12),
+                    "named design exposure reference differs from its complete rows")
+            design.update(players=players, strata=strata, e=e, X=X, p=basis.p,
+                          H=40*Z.T@(e[:, None]*Z), xbar=xbar, stratum_weight=40*weights,
+                          game_ids=tuple(np.unique(design["row_game_ids"]).tolist()))
+            designs.append(design)
+        histories.append(tuple(designs))
+    operator_arrays = load_arrays(prepared["operators"])
+    require(list(operator_arrays) == [season+"_J" for season in RESEARCH_SEASONS], "named recovery operator order differs")
+    recovery = []
+    for year, design in enumerate(histories[0]):
+        J, receipt = identifiable_recovery_operator(design["H"], design["u"], design["players"],
+            inseparable_groups=((26, 31),), expected_rank=60 if purpose == "research" else protocol["recovery_receipts"][year]["rank"])
+        saved = operator_arrays[RESEARCH_SEASONS[year]+"_J"]
+        require(saved.shape == (64, 64) and saved.dtype == np.dtype("float64")
+                and np.allclose(saved, J, rtol=1e-8, atol=1e-10)
+                and receipt["rank_at_tau_factors"] == protocol["recovery_receipts"][year]["rank_at_tau_factors"],
+                "named recovery operator, inseparable average or cutoff sensitivity differs")
+        recovery.append(saved)
+    assessment = _read_selected_artifact(result["assessment"], "attribution_regularization_assessment", 5)
+    require(assessment["purpose"] == purpose and assessment["prepared"] == result["prepared"]
+            and assessment["protocol"] == result["protocol"]
+            and assessment["fits"] == result["consumed_fits"]
+            and assessment["execution_status"] == "complete"
+            and assessment["numerical_status"] == result["numerical_status"],
+            "named 04g assessment changed its completion or source bindings")
+    score_rows = {}
+    for row in assessment["records"]:
+        key = tuple(row[name] for name in ("family", "population", "law", "outer", "year"))
+        if key[:3] in allowed and key[3] in assessment_ids and key[4] == 5:
+            require(key not in score_rows, "selected source assessment record is duplicated")
+            score_rows[key] = {name: row[name] for name in ("R_control", "R_zero", "P_control", "P_zero")}
+            require(row["denominator"] == 64 and all(type(value) in (int, float) and math.isfinite(value)
+                    for value in score_rows[key].values()), "selected source assessment score or denominator differs")
+    require(set(score_rows) == {(*cell, outer, 5) for cell in cells for outer in assessment_ids},
+            "selected source final-year assessment record is missing")
+    consumed = dict(source_result=result_ref, source_prepared=result["prepared"], source_protocol=result["protocol"],
+        pooling_prepared=prepared["source_prepared"], pooling_protocol=prepared["source_protocol"],
+        basis=prepared["basis"], designs=prepared["designs"], operators=prepared["operators"]["arrays"],
+        source_assessment=result["assessment"])
+    records, manifests = [], {}
+    parents = dict(prepared=result["prepared"], protocol=result["protocol"], source_result=prepared["source_result"],
+        source_prepared=prepared["source_prepared"], basis=prepared["basis"], designs=prepared["designs"],
+        operators=prepared["operators"]["arrays"], spec_snapshot=prepared["spec_snapshot"])
+    for index, cell in enumerate(cells):
+        reference = selected[cell]
+        require(reference in result["consumed_fits"], "selected manifest is not a named source fit")
+        document = _read_selected_artifact(reference, "attribution_regularization_fit", 5)
+        require(document["purpose"] == purpose and tuple(document[name] for name in ("family", "population", "law")) == cell
+                and document["status"] == "complete" and document["range"] == dict(start=0, stop=n)
+                and document["consumed"] == parents and all(document[name] == value for name, value in parents.items())
+                and [row["outer"] for row in document["records"]] == list(range(n))
+                and (purpose != "research" or document["implementation"] == protocol["implementation"]),
+                "selected manifest source, cell, outer inventory or producer differs")
+        truths = []
+        for row in document["records"]:
+            require(tuple(row[name] for name in ("family", "population", "law")) == cell and row["status"] == "complete",
+                    "selected dataset identity differs from its manifest")
+            digest(row["truth_sha256"])
+            digest(row["activation_sha256"])
+            truths.append({name: row[name] for name in
+                ("family", "population", "law", "outer", "truth_sha256", "activation", "activation_sha256")})
+            if row["outer"] in assessment_ids:
+                require(len(row["annual"]["history"]) == len(row["responses"]) == 5,
+                        "selected annual control chain is incomplete")
+                records.append(dict(truths[-1], statistics=row["statistics"], responses=row["responses"],
+                    annual=dict(history=row["annual"]["history"]), saved_scores=score_rows[(*cell, row["outer"], 5)]))
+        manifests[cell] = dict(reference=reference, truths=truths)
+        consumed[f"selected_fit_{index}"] = reference
+    source = RegularizationSourceSlice(result_ref, result, prepared, protocol, context, basis,
+        histories[0], histories[1], W, tuple(recovery), tuple(records), manifests, (), consumed,
+        tuple(sorted({str(Path(ref["path"]).parent) for ref in consumed.values()})),
+        dict(cells=6, truth_records=6*n, assessment_histories=6*len(assessment_ids),
+             assessment_annual_states=30*len(assessment_ids)))
+    from dataclasses import replace
+    return replace(source, fixed_populations=_regularization_source_populations(source, records[0])[0])
+
+
+def _regularization_source_populations(source: RegularizationSourceSlice, record: dict) -> tuple:
+    from .attribution import PoolingStatistics
+
+    arrays = load_arrays(record["statistics"])
+    require(list(arrays) == [season+"_"+name for season in RESEARCH_SEASONS for name in POOLING_STAT_FIELDS],
+            "selected source sufficient-statistic names or annual order differs")
+    populations = []
+    paired = record["family"] == "paired"
+    require((paired and record["population"] == "null")
+            or (not paired and record["family"] == "independent" and record["population"] in ("sparse", "diffuse")),
+            "source record requires explicit paired-null or independent contract")
+    for year, season in enumerate(RESEARCH_SEASONS):
+        design = source.training[year]
+        population = decode_saved_population({name: arrays[season+"_"+name] for name in POOLING_STAT_FIELDS},
+            benchmark="unblocked_spatial", season=season, season_index=year,
+            source_protocol_sha256=(source.context.prepared["protocol"] if paired else source.result["protocol"])["sha256"],
+            population_id=(f"synthetic:04e:null:{record['law']}:{record['outer']}:unblocked_spatial" if paired else
+                f"synthetic:04g:independent:{record['population']}:{record['law']}:{record['outer']}:unblocked_spatial"),
+            player_ids=design["players"], strata=design["strata"], expected_p=source.basis.p, expected_r=40.)
+        response = record["responses"][year]
+        require(response["year"] == year+1 and response["season"] == season
+                and response["seed"] == [40604 if paired else 40804,
+                    ("sparse", "diffuse", "null").index(record["population"]),
+                    ("gaussian", "game_pace").index(record["law"]), record["outer"], year]
+                and response["sufficient_statistics_sha256"] == statistic_digest(population)
+                and all(np.allclose(getattr(population, name), design[name], rtol=1e-10, atol=1e-10)
+                        for name in ("H", "xbar", "u", "player_exposure", "stratum_weight")),
+                "selected source response identity or fixed deployment moments differ")
+        digest(response["sha256"])
+        populations.append(population)
+    return tuple(populations), PoolingStatistics(record["statistics"]["arrays"], source.context.reference["sha256"], arrays)
+
+
+def read_regularization_source_record(
+    source: RegularizationSourceSlice, record: dict,
+) -> tuple[tuple[RevisionPopulation, ...], tuple["AnnualState", ...]]:
+    """stream one selected history through its named schema, with explicit predecessors."""
+    from .attribution import read_pooling_annual, read_regularization_annual
+
+    require(record in source.records, "record is not in the selected assessment inventory")
+    populations, statistics = _regularization_source_populations(source, record)
+    states, previous = [], None
+    for year, population in enumerate(populations):
+        reference = record["annual"]["history"][year]
+        path = linked_path(reference)
+        document = read_json(path)
+        require(all(document[name] == record[name] for name in ("population", "law", "outer"))
+                and document["season"] == population.season and document["season_index"] == year
+                and document["representation"] == "graph_40ft"
+                and document["response_sha256"] == record["responses"][year]["sha256"]
+                and document["previous"] == (None if previous is None else previous[0]),
+                "selected source annual case, response or explicit predecessor differs")
+        if record["family"] == "paired":
+            state = read_pooling_annual(path, source=source.context, previous=previous, statistics=statistics)
+        else:
+            require(document["family"] == "independent" and document["prior_policy"] == "history",
+                    "selected independent control changed family or prior policy")
+            state = read_regularization_annual(path, population=population, basis=source.basis,
+                prepared=source.result["prepared"], protocol=source.result["protocol"],
+                source=source.prepared["source_prepared"], statistics=record["statistics"]["arrays"],
+                basis_reference=source.prepared["basis"], previous=previous, shared_volume=None)
+        states.append(state)
+        previous = (reference, state)
+    return populations, tuple(states)
 
 
 def group_observations(

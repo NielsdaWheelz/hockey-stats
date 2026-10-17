@@ -17,9 +17,8 @@ from hockey_stats.artifacts import (
     clean_implementation, implementation, json_values, linked_path, require, resources,
     write_json, write_arrays, load_arrays, artifact, read_artifact, ordered_array_digest,
 )
-from hockey_stats.attribution_simulation import synthetic_counts
+from hockey_stats.attribution_simulation import shape_regions, synthetic_counts
 from hockey_stats.chance_cli import identity, output_path, read_json
-from hockey_stats.chance_evaluation import REGION_NAMES, compound_regions
 from hockey_stats.shot_origins import grid
 
 SEASONS = tuple(f"{year}{year + 1}" for year in range(2021, 2026))
@@ -89,20 +88,6 @@ def validate_protocol(document: dict) -> None:
     require(document["grid"] == source["grid"] and document["reference"] == reference,
             "frozen geometry or original reference identity changed")
     linked_path(reference)
-
-
-def shape_regions() -> tuple[np.ndarray, tuple[str, ...]]:
-    centers = grid()[0]
-    regions = compound_regions(centers)
-    W = np.zeros((len(centers), 12))
-    for region in range(6):
-        member = regions == region
-        W[:, 2 * region] = member * np.where(centers[:, 1] < 0, 1., np.where(centers[:, 1] == 0, .5, 0.))
-        W[:, 2 * region + 1] = member * np.where(centers[:, 1] > 0, 1., np.where(centers[:, 1] == 0, .5, 0.))
-    require(W.shape == (656, 12) and np.array_equal(W.sum(axis=1), np.ones(656)),
-            "twelve shape regions must partition the original grid")
-    names = tuple(f"{region}_{side}" for region in REGION_NAMES for side in ("negative_y", "positive_y"))
-    return W, names
 
 
 def error_decomposition(estimated_volume: float, estimated_shape: np.ndarray,

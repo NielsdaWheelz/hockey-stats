@@ -67,3 +67,40 @@ def excess_prediction_terms(gram, xbar, noise_context, true_maps, fitted_maps, *
     S = prediction_inner(gram, truth, truth, p=p, rate=rate)
     I = 2 * prediction_inner(gram, noise, fitted, p=p, rate=rate)
     return dict(error=E, signal=S, coupling=I, delta=E - S + I)
+
+
+def expected_excess_prediction_terms(gram, xbar, true_maps, selection, K, mean_score,
+                                      covariance, context_cross_score, *, p, B, rate=40.):
+    """fixed-penalty expected spatial excess over noisy training context.
+
+    the known-law score covariance is summed over spatial coefficients. the
+    context cross-score retains its sign and final training reference. true_maps
+    are physical native fields, including detail omitted from the fitted basis.
+    a response-selected K does not satisfy this fixed-penalty risk contract.
+    """
+    n, d = mean_score.shape
+    current, cells = true_maps.shape
+    strata = len(xbar)
+    require(K.shape == covariance.shape == (n, n) and selection.shape == (current, n)
+            and xbar.shape == (strata, current) and context_cross_score.shape == (n, strata)
+            and B.shape == (cells, d) and p.shape == (cells,)
+            and gram.shape == (strata+current, strata+current)
+            and all(np.isfinite(value).all() for value in
+                    (K, covariance, selection, xbar, context_cross_score, B, p, mean_score, true_maps))
+            and np.all(p > 0) and np.isfinite(rate) and rate > 0,
+            "fixed expected prediction inputs differ from their explicit geometry")
+    influence = selection @ K
+    bias = influence @ mean_score @ (p[:, None]*B).T - true_maps
+    correction = np.vstack((-xbar, np.eye(current)))
+    G = correction.T @ gram @ correction
+    bias_squared = prediction_loss(gram, -xbar @ bias, bias, p=p, rate=rate)
+    variation = rate**2 * float(np.trace((influence.T @ G @ influence) @ covariance))
+    signal = prediction_loss(gram, -xbar @ true_maps, true_maps, p=p, rate=rate)
+    zbar = gram[:strata, strata:] - gram[:strata, :strata] @ xbar
+    coupling = 2*rate**2 * float(np.sum((zbar @ influence)*context_cross_score.T))
+    error = bias_squared + variation
+    delta = error-signal+coupling
+    require(all(np.isfinite(value) for value in (bias_squared, variation, signal, coupling, error, delta)),
+            "fixed expected spatial prediction is nonfinite")
+    return dict(error=error, bias_squared=bias_squared, sampling_variance=variation,
+                signal=signal, coupling=coupling, delta=delta)

@@ -1,0 +1,138 @@
+{
+  "status": "verified",
+  "preserved_draft_commit": "7fb7850711b92a166d7c08d8276dd86afccca85a",
+  "reconciled_drafts": [
+    {
+      "path": "docs/architecture.md",
+      "sha256": "7527667a8b47262db5e4d637af23348fd086d2d3cd0be0af5c3f946e02c1a32f",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/brief.md",
+      "sha256": "a8bf7ba0f12c88201fb5d66ef14fe0e15645bc7dee6ff86d667e2bfa43cf2852",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/issues/attribution-spatial-recovery.md",
+      "sha256": "0189908e01a0fa2f495154689ef641b33cefc0645797ffe7d1f66d8ab8173b72",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/plan.md",
+      "sha256": "67110efac8244605a5eecbbc42c274a4cf4aca49db1625b3ec66e56ad77a8681",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/research/model-direction.md",
+      "sha256": "09d34b15bcd3c339cc22f49a126ac8a3f5474ab28d30fb0fa7c6843119f22e65",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/roadmap.md",
+      "sha256": "f12d70a714ba193e7e03ca8ed9a32cc8f5e7e8c88784f64bb291284e283e78e5",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/specs/04-player-attribution.md",
+      "sha256": "325e4505c1e2517be7d67df075a037f8eb030bd69358dc2104da44a0e6a3c031",
+      "equal_preserved_commit": true
+    },
+    {
+      "path": "docs/specs/04g-attribution-regularization.md",
+      "sha256": "2075ffe3dfd63c492676079a2d04cb19a89076b5826769007b765696ca355d8c",
+      "equal_preserved_commit": true
+    }
+  ],
+  "reviewed_head": "a589750ad0a0df7b2c8ba8e43c8b28173ad49f73",
+  "merge_commit": "724674d7489aeeea5af9123296911f6955a3b33a",
+  "reviewed_tree": "807e7ba43f14271395e3210e4738308f569ce0dd",
+  "merge_tree_equals_reviewed_tree": true,
+  "frozen_producer_preserved": true,
+  "recorded_utc": "2026-10-17T14:04:30.628925+00:00",
+  "pull_request": {
+    "headRefOid": "a589750ad0a0df7b2c8ba8e43c8b28173ad49f73",
+    "mergeCommit": {
+      "oid": "724674d7489aeeea5af9123296911f6955a3b33a"
+    },
+    "mergedAt": "2026-10-17T14:02:18Z",
+    "number": 28,
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-17T14:02:06Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://dashboard.gitguardian.com",
+        "name": "GitGuardian Security Checks",
+        "startedAt": "2026-10-17T14:02:00Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ],
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/28"
+  },
+  "removed": {
+    "local_branch": "codex/04g-attribution-regularization",
+    "remote_branch": "codex/04g-attribution-regularization",
+    "registered_worktree": "/Users/nnandal/Documents/code/hockey-stats-04g",
+    "temporary_files": [
+      {
+        "path": "/tmp/hockey-04g-pr-body.md",
+        "sha256": "39a1a53983cefea833e558e6c7905c41f2162b7b943f375e44dcbc1d12658cdc"
+      },
+      {
+        "path": "/tmp/hockey-04g-post-merge-drafts.json",
+        "sha256": "7a7aafcc215f7c6fec07fec2d76dec425eadf5f5e858ece2dd917938aa1ba197"
+      }
+    ]
+  },
+  "task_worktree_absent": true,
+  "only_primary_worktree_registered": true,
+  "task_temporary_paths_absent": true,
+  "path_alias_required": false,
+  "path_review": {
+    "independent_reviewer": "data_chronology",
+    "committed_artifacts": [
+      {
+        "path": "docs/research/attribution-04g/protocol.json",
+        "sha256": "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2",
+        "operational_references": 14,
+        "all_references_external": true
+      },
+      {
+        "path": "docs/research/attribution-04g/result.json",
+        "sha256": "84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6",
+        "operational_references": 40,
+        "all_references_external": true
+      }
+    ],
+    "construction_contract": "new 04g artifacts remain under the external protocol output root; inherited source, basis, design, statistic and graph-control references retain their original external paths; no operational reference requires the task worktree",
+    "historical_review_locators": "closed provenance records do not require a live task checkout"
+  },
+  "preserved": {
+    "primary_environment": true,
+    "older_path_aliases": [
+      "04a",
+      "04b",
+      "04c",
+      "04f"
+    ],
+    "frozen_producer_and_full_reviewed_history": true,
+    "source_fits_research_publication_archived_reference": "untouched"
+  },
+  "external_drive": {
+    "available_during_cleanup": false,
+    "external_reads_or_writes_performed": false,
+    "verification_scope": "committed frozen protocol/result copies and previously completed study verification; no refits, new acquisition or mount handling"
+  },
+  "changes_since_frozen_producer": "documentation only",
+  "documentation_checks": {
+    "status": "verified",
+    "changed_markdown_files": 15,
+    "available_local_links_checked": 265,
+    "missing": [],
+    "frozen_external_locators_deferred": 22,
+    "external_scope": "external drive unavailable; existing frozen external locator strings retained, not revalidated",
+    "implementation_and_fixtures_unchanged_since_frozen_producer": true
+  }
+}

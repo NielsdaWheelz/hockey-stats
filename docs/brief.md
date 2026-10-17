@@ -66,6 +66,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04e useful recovery, confirmed 2026-10-16 | at least 25% lower regional mean squared error than zero, plus supported improvement over unchanged pooling | a new prospective research target, about 13% lower root mean squared error; not the 5% scalar band or a guarantee per player |
 | 04e prediction cost, confirmed 2026-10-16 | retain at least 99% of control prediction gain over no player shape effects, with uncertainty supporting the limit | at most 1% of the gain may be lost, not 1% of total error; positive control gain must be supported |
 | 04e null population, confirmed 2026-10-16 | mandatory diagnostic, without a separate nomination gate | nomination is limited to tested non-null populations; null/false-map behavior remains visible |
+| post-04e direction, approved 2026-10-16 | explain failed prediction from saved evidence before selecting another attribution revision | one bounded diagnosis, no new fits; compare recovery-tested differences with full-lineup prediction and preserve context/player interaction. no successor model or narrower product claim is selected |
 
 ## initial product and scope
 

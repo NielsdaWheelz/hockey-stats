@@ -1,6 +1,6 @@
 # model direction
 
-updated 2026-10-16 through completed 04e execution. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
+updated 2026-10-16 through approved post-04e diagnosis. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
 
 ## approved direction and decision logic
 
@@ -92,6 +92,31 @@ the completed [04e decision](attribution-04e/decision.md) is `criteria_failed`, 
 
 the approved private observed product can develop independently, using counts, matched exposure and coverage only. it provides real utility and feedback without relabeling provisional fitted associations. later deployment, age and chance questions remain explicit alternatives chosen from evidence; adding all prepared features or more years is not the default response to this controlled failure.
 
+### approved post-04e diagnosis — 2026-10-16
+
+the user approved one bounded saved-output diagnosis before selecting another attribution revision and requested its full specification. [04f](../specs/04f-attribution-prediction.md) fixes its accounting, partitions, uncertainty scope and finite work; [the plan](../plan.md) owns assignment and completion. 04e's complete predictor fails its comparison, but that result alone identifies neither a unique cause nor a failure of all spatial attribution.
+
+the completed [04f accounting](attribution-04f/decision.md) reproduces every original final risk. candidate error rises in all six cells while mean context-coupling changes remain small. in diffuse gaussian, tested lineup directions improve by `0.290808`, but complementary directions add `2.015350` and signed cross terms add `0.000889`, so prediction worsens by `1.725431`. regional mean gains occur in three cells and weighted native-pair gains in one; the diffuse/game-pace native-pair contrast remains uncertain. the large omitted absolute baseline error cancels from excess. these findings distinguish the scoring metrics and fitted complementary maps without proving a causal remedy or making the complement synonymous with unidentifiability. the remedy remains unresolved, with no successor proposed. [verification](attribution-04f/verification.md) retains the full audit and conditional uncertainty limits.
+
+two distinctions guide the diagnosis. regional recovery scores thirty within-pair differences in twelve regions; prediction scores full lineups in 656 native cells using inverse-reference-share weights. false effects shared by a pair can cancel in recovery contrasts while worsening lineup prediction. second, fitted context is coupled to player maps: `A_hat = ybar_shape - xbar_train*M_hat`. its large common error cannot explain a paired loss difference without calculating the interaction. these are mathematical distinctions and plausible mechanisms, not new measured findings.
+
+with all maps in the frozen training reference, the existing fitted prediction admits exact accounting:
+
+```text
+z = X_eval - xbar_train[stratum]
+b = ybar_shape_train[stratum] - A_true[stratum] - xbar_train[stratum]*M_true
+
+P_arm - P_zero = ||z*(M_hat-M_true)||^2
+                - ||z*M_true||^2
+                + 2*<b, z*M_hat>
+```
+
+every norm/product uses the existing exposure-weighted, inverse-reference-share metric and rate scaling. the terms are player-estimation error under evaluation deployment, available lineup signal, and signed coupling with training-context noise. preserve cross terms in any further partition unless metric orthogonality is established. omitted-space context noise cancels from the paired difference because the fitted player correction lies in the retained span. this does not make the original prediction criterion invalid or its failure negligible.
+
+reproduce the original losses first, then inspect low/high spatial directions, recovery-tested differences and remaining prediction combinations across the original population/noise cells. truth-informed substitutions, if useful, are diagnostic interventions only; they cannot select a usable estimator or replace the frozen baseline. changing references can reallocate apparent blame without changing predictions. no percentages of causal responsibility, new fits or retroactive thresholds follow.
+
+the output should determine one next hypothesis. correct a demonstrated arithmetic inconsistency at its owner; target a supported context/deployment or regularization mechanism; or separately specify a different formulation or narrower supported claim. if exact accounting leaves the mechanism unresolved, report that and stop extending the same diagnostic indefinitely. additional features, seasons or looser margins do not by themselves explain this controlled failure. the cost is delayed candidate development in exchange for a decision that can distinguish remedies.
+
 ## software and verification judgment
 
 the existing effect-capture/python-analysis boundary is appropriate. 04c places shared attribution fitting, chronology, projection and artifact validation in their package owners; old study commands retain named read-only controls and assessment. study-specific selections, criteria and figures stay with the study. further mature shared mechanisms belong in their responsible modules when needed, without a framework or historical migration.
@@ -104,7 +129,7 @@ the [feature inventory](../model-features.md) distinguishes sixteen implemented 
 
 [xg8](https://hockeyviz.com/txt/xg8) describes four outcome layers, symmetric/type-specific geometry, tip handling, inferred setters, coaching terms and differentiated annual priors. our current q × g leaves freezing collapsed; the older origin/avoidance path has no admitted integrated successor. physical blocked/tip location evidence remains limited. our 5-foot square cells already have area similar to the published hexes; coarsening solely to copy their shape is unjustified.
 
-[magnus 9](https://hockeyviz.com/txt/magnus9EV) supplies a public reference for stint-level offense/defense, contextual adjustment and age-sensitive historical borrowing. it is not a reason to control away mechanisms for which the player should receive credit. the chance-quality/execution boundary in the brief still governs.
+[magnus 9](https://hockeyviz.com/txt/magnus9EV), checked 2026-10-16, describes duration-weighted linear regression on stint maps, separate historical/structural ridge penalties, contextual adjustment and age-sensitive borrowing. it discusses predictive checks and plausible annual behavior when choosing penalties. a positive count-likelihood rewrite is therefore an alternative, not synonymous with the published hockeyviz method. public resemblance cannot establish private equivalence or justify controlling away mechanisms for which the player should receive credit. the chance-quality/execution boundary in the brief still governs.
 
 the september 2026 [preview](https://hockeyviz.com/txt/preview2627), rechecked 2026-10-14, announces rewritten models with descriptions forthcoming and nineteen suitably weighted seasons. exact current private-model parity is unknown. more historical acquisition needs a concrete historical/temporal consumer; a nineteen-year stationary pool is not implied. [the inventory](../product-inventory.md) owns complete player-analysis capabilities and the intentional differences from the references.
 
@@ -112,6 +137,9 @@ the september 2026 [preview](https://hockeyviz.com/txt/preview2627), rechecked 2
 
 | alternative | question / cost |
 |---|---|
+| regularize demonstrated weak player/spatial directions | choose the target from 04f's accounting; adds exchangeability assumptions. another spatial-band split or player-specific prior is not automatically selected |
+| positive total rate × normalized spatial allocation | valid complete rates by construction, at the cost of changed likelihood, priors and effect interpretation; does not explain away matched-gaussian failure |
+| narrower supported scalar/broad-regional increment | earlier useful ability analysis if independently supported, with less spatial detail; no current admission and no replacement of the agreed full spatial destination |
 | temporal borrowing, annual spatial/context effects | can older evidence help without imposing stationary relationships? greater model/specification cost; separate aging, league and recording change |
 | wrist/snap analytical pooling | does sharing their spatial surfaces improve transport despite recorded composition drift? loses a type distinction; preserve original labels and compare separately from mirror pooling |
 | stage-specific regularization | does a named support/shrinkage mismatch explain errors? more tuning; no blind copying of peer constants or blanket scaling |

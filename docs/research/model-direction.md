@@ -131,7 +131,7 @@ the [completed comparison](attribution-04g/decision.md) finds prediction improve
 
 ### approved recovery and selection direction — 2026-10-17
 
-after 04g, the user approved [04h's bounded recovery/selection question](../specs/04h-attribution-resolution.md) and an independent [05b observed comparison](../specs/05b-observed-comparison.md). 04h now has a full specification; 05b remains a stub. [the plan](../plan.md) owns progression; neither assigns execution or selects another estimator.
+after 04g, the user approved [04h's bounded recovery/selection question](../specs/04h-attribution-resolution.md) and an independent [05b observed comparison](../specs/05b-observed-comparison.md). their full specifications preserve these separate scopes. [the plan](../plan.md) owns progression; neither assigns execution or selects another estimator.
 
 04g's prediction gains mostly accompany suppressed player maps, with useful regional recovery still unsupported. prediction and attribution optimize different losses. the known truths redistribute attempts spatially with zero total-rate effects; their local-density amplitudes are not equal-sized changes in total offense. the 25% regional-error requirement preserves its frozen meaning, but neither it nor the 5% scalar contrast defines useful spatial resolution for the product. future criteria need that connection before another nomination campaign.
 
@@ -175,7 +175,7 @@ the september 2026 [preview](https://hockeyviz.com/txt/preview2627), rechecked 2
 | alternative origin/contact laws | do conclusions survive different measurement assumptions? varying one kernel's knobs cannot bracket all shared errors |
 | synthetic wrong-law and known-player experiments | can good prediction conceal wrong origins or attribution? behavior under assumptions, not real-world truth |
 | venue/type measurement portability | do patterns follow participants or recording context? confounding remains; evidence before correction |
-| observed comparison | compare two players using 05a's existing publication under the 05b stub; no new metrics, cohorts or fitted values. later ability views may use labeled fixtures during development, never withheld estimates labeled as observations |
+| observed comparison | compare two players using 05a's existing publication under the 05b specification; no new metrics, cohorts or fitted values. later ability views may use labeled fixtures during development, never withheld estimates labeled as observations |
 
 three independent reviews agreed on truthful evidence, bounded numerics, retained capabilities and testing the actual player question. they differed on the next model emphasis: pooling, temporal structure or additional context. the subsequent interview selected mirror pooling with 99% predictive-gain retention for 03p and five-season age-neutral borrowing with a meaningful 5% recorded-rate contrast for 04a. their frozen specifications and evidence preserve those decisions. no automatic sequence of alternatives is assigned.
 

@@ -40,6 +40,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | intermediate private product, approved 2026-10-16 | browse source-supported recorded 5v5 results while model research continues | table/search, player and season/game evidence can precede model admission; some schema/view rework may follow. no adjusted ability or xg is implied |
 | 05a access, confirmed 2026-10-16 | localhost only on this mac | no phone/other-computer access; browsing remains independent of the external drive |
 | 05a effect version, confirmed 2026-10-16 | narrow effect-4 cutover before server/frontend work | migrate and recheck existing capture commands now; exact compatible pins and unstable companion-api risks belong to the spec |
+| 05b comparison entry, confirmed 2026-10-17 | dedicated two-player comparison page plus a profile shortcut; no league-row selection controls | an extra step from the league table, with simpler selection state and less table clutter; compare existing observed evidence only |
 | first analytical scope | 5v5 skater chance creation/suppression | finishing, special teams, and dedicated goalie profiles follow separately; no claim of total player value |
 | blocked attempts | include blocked shots by imputing their shooting origins | retain observed block locations separately; location inference adds assumptions, validation and uncertainty |
 | first time horizon | completed season, then current season | establishes a fixed reference before ongoing updates and correction handling |

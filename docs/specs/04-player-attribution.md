@@ -16,6 +16,8 @@ python owns attribution and scientific assessment under `analysis/src/hockey_sta
 
 ## decisions for the full specification
 
+[04g](04g-attribution-regularization.md) now specifies one population constraint alongside historical borrowing and a broader identifiable-combination synthetic assessment. it can nominate a mean estimator only; calibrated uncertainty, real-deployment evidence, complete-rate behavior and supported chance valuation remain separate requirements below.
+
 - select the spatial attribution model, units, prior-season/aging treatment, regularization and uncertainty claims. correlated deployment limits isolation; prediction checks do not prove causality.
 - demonstrate useful recovery against zero/volume-only and established controls, with claim-specific uncertainty and real-data predictive/portability assessment. improvement over a noisy predecessor alone is insufficient. specify both recovery targets and prediction losses: within-pair regional differences do not establish full-map or lineup accuracy. native display resolution need not equal fitted dimension; neither a smoother nor scalar recovery proves complete-rate adequacy. the 5% meaningful scalar contrast does not require every player pair distinguishable.
 - evaluate age-informed historical borrowing after 04a's age-neutral benchmark. this is an explicit retained follow-up: consider age-related expected development/decline and changeability, compare against the age-neutral control, and address entry/exit selection, historical cutoffs and uncertainty. preserve prepared age facts; do not copy peer aging constants or claim career trajectories from the baseline. schedule its bounded study within attribution work when separately specified; it is not a new prerequisite for 04a.

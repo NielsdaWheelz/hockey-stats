@@ -117,6 +117,16 @@ reproduce the original losses first, then inspect low/high spatial directions, r
 
 the output should determine one next hypothesis. correct a demonstrated arithmetic inconsistency at its owner; target a supported context/deployment or regularization mechanism; or separately specify a different formulation or narrower supported claim. if exact accounting leaves the mechanism unresolved, report that and stop extending the same diagnostic indefinitely. additional features, seasons or looser margins do not by themselves explain this controlled failure. the cost is delayed candidate development in exchange for a decision that can distinguish remedies.
 
+### approved population-constraint comparison — 2026-10-17
+
+the user selected [04g](../specs/04g-attribution-regularization.md): one zero-centered population constraint alongside annual borrowing, retaining marginal-likelihood selection. the current innovation variance controls departure from the inherited estimate; it does not independently pull an inherited false map toward zero. a separate constraint can do that, but can also suppress persistent truth. this is a prospective hypothesis, not a remedy proved by 04f or an exact replication of hockeyviz's private priors.
+
+the original truth family needs a broader companion. its forced opposite pairs put all predictive truth in the tested pair span; zero complementary truth makes suppressing complementary maps unusually favorable. retain those research-exposed cases and add independently generated physical player fields, with positive generating rates and verified signal beyond the old pair span. neither truth construction nor fitting may select the candidate's preferred directions.
+
+the user selected primary regional recovery across all identifiable player combinations. the frozen design supports thirty individual players plus the average of inseparable players 26/31 per role; their individual difference remains unsupported. the original thirty pair differences remain secondary. the new score is prospective, not a recomputation of 04e's verdict under friendlier criteria.
+
+distinguish supported recovery/prediction progress over the unchanged control from nomination: nomination also needs at least 25% lower regional error than zero and positive candidate prediction gain over the noisy training-context baseline, across the specified non-null cells. the original 99% retention ratio cannot supply that policy when the control's gain is nonpositive. null false-map behavior remains visible diagnostic evidence. paired synthetic intervals include behavior across generated fits; they do not calibrate individual intervals. [the plan](../plan.md) owns assignment; no real fits, admission or automatic successor follow.
+
 ## software and verification judgment
 
 the existing effect-capture/python-analysis boundary is appropriate. 04c places shared attribution fitting, chronology, projection and artifact validation in their package owners; old study commands retain named read-only controls and assessment. study-specific selections, criteria and figures stay with the study. further mature shared mechanisms belong in their responsible modules when needed, without a framework or historical migration.

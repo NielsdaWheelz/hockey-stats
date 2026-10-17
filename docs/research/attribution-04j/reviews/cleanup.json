@@ -67,5 +67,12 @@
   ],
   "task_branch": "codex/04j-attribution-deployment",
   "task_worktree": "/Users/nnandal/Documents/code/hockey-stats-04j",
-  "task_branch_and_worktree_retained": true
+  "task_branch_and_worktree_retained": true,
+  "final_repository_format_check": {
+    "status": "passed",
+    "command": "git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --check 428822a HEAD",
+    "csv_format": "standard crlf record endings, matching prior study csv output; frozen report bytes remain exact",
+    "worktree_status": "clean at evidence commit92c1311",
+    "production_and_fixture_diff_from_clean_producer": "empty"
+  }
 }

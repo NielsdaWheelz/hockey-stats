@@ -1,0 +1,226 @@
+{
+  "status": "verified",
+  "scope": "new04h research documentation, named source/output/report/review digests, exact protocol archive, changed markdown links and preservation of historical fixture evidence; standard library only",
+  "baseline_commit": "0548c0f",
+  "final_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "final_assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+    "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+  },
+  "source_pins": {
+    "docs/research/attribution-04g/result.json": "84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6",
+    "docs/research/attribution-04g/protocol.json": "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2",
+    "docs/research/attribution-04a/result.json": "8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac"
+  },
+  "verified_reference_count": 35,
+  "verified_references": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04g/result.json",
+      "sha256": "84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/protocol.json",
+      "sha256": "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/prepared.json",
+      "sha256": "94cea5d922f21a3bb67a64504cb84e84b8ad07a09ede509a53ce4c448db7f6f7"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/assessment.json",
+      "sha256": "5f0f0433b48ef31bfa981ac805948ee3c58b3713869143c9e47da185b5bda7a4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04a/result.json",
+      "sha256": "8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+      "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+      "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/spec-snapshot.md",
+      "sha256": "7ed84b1cb1112dfec1d4fa98a14020a6fb87ad66558e76d8bb1c985cb5e13ce0"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/result.json",
+      "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+      "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/fit.json",
+      "sha256": "505d56b76fb0a1a568394d426b6b9c04872ba32bb0953146d36ee27ca5c4b4ae"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/cell.npz",
+      "sha256": "f97f3d73220bbd6e481f3f7cfafee981120fd4eabb16cd3b8933156bab1197ea"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+      "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/cell.npz",
+      "sha256": "aac9676b449b690f4fe70c1ed8866946d9b218d0a46b878ecd30db94daa69403"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/fit.json",
+      "sha256": "083bd46f1a2518681a31e581d44672a8605ee0f223bb9fedc757b886e6569c58"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/cell.npz",
+      "sha256": "5140758310a12499ca8fe142c212e5a30a2cdff1acca3c1d3998f48db1421b0d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+      "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/cell.npz",
+      "sha256": "c084230d64f2a96afd5c00a33d20538294eb56356bf92660c6a1b4057146aab3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+      "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/cell.npz",
+      "sha256": "1ae7f2aac3f4464aaaf29a759cd7d43df68c17d9d4a5cad63ab9e7cc94ce7e62"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+      "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/cell.npz",
+      "sha256": "a797462492907891f8fd33f67bacb234eeb17e4425b80d3efee49524732871f5"
+    },
+    {
+      "path": "docs/research/attribution-04h/result.json",
+      "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+    },
+    {
+      "path": "docs/research/attribution-04h/decision.md",
+      "sha256": "01b5af5dd9760b1d19171ded7973759e1cdd6a4858d59747ab0d9b581244339f"
+    },
+    {
+      "path": "docs/research/attribution-04h/comparison.csv",
+      "sha256": "0761b247e77009a952ec5d5d2b05e0d79a1c6a5060f5c466a2a450a5b9a0a6f3"
+    },
+    {
+      "path": "docs/research/attribution-04h/limits-context.md",
+      "sha256": "14706422e3627b02d03228231f2a94df357251d0ffdda8f1173f6ae52837895a"
+    },
+    {
+      "path": "docs/research/attribution-04h/resolution.png",
+      "sha256": "f45cb15bcf255e57eb1844eab799183ed5f204fce85c896ae607f8ee979ef7a2"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/content.json",
+      "sha256": "75d90db380972a90c73d9d70183446649550150265e3ce98a7a96049c9724b0f"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/input-access.json",
+      "sha256": "b7aa9588d12acb6a343875703a6c50c8af09e4545024d13d00f8ad04aca76060"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/numerical-probes.json",
+      "sha256": "b2d43d7cd773b9c220ef8be86b1ad850ed666730a944763cbdecf46491af7481"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/preservation-reviewed.json",
+      "sha256": "040ad0af538e905182566571d467082fe9f0acb88b5d5ea85c8fafc9b5ec5a8f"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/research-cleanup.json",
+      "sha256": "8e076a5e1555931f4f680bdc4d8c467cc100bf63a83784d5a8efab514b5e9674"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/source-systems.json",
+      "sha256": "404dfcdcb40e224b03d40463539065188a1867b41d6bd2d69bf94e5c5fb0245d"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/statistical-acceptance-reviewed.json",
+      "sha256": "e7b68ad906fef2d55874ad8da9f4998aa1f626a8d569781b30bec9d9f0646fe0"
+    },
+    {
+      "path": "docs/research/attribution-04h/research-reviews/truth-extraction-parity.json",
+      "sha256": "04c8892e8595d6d0b1e18519e21a93f12f7d27f450c0ba32b95d09c63d3496bb"
+    }
+  ],
+  "historical_fixture_files_preserved": [
+    "docs/research/attribution-04h/post-merge-cleanup.json",
+    "docs/research/attribution-04h/reviews/cleanup.json",
+    "docs/research/attribution-04h/reviews/cli.json",
+    "docs/research/attribution-04h/reviews/content.json",
+    "docs/research/attribution-04h/reviews/documentation.json",
+    "docs/research/attribution-04h/reviews/extraction-baseline.json",
+    "docs/research/attribution-04h/reviews/guarded-integration.json",
+    "docs/research/attribution-04h/reviews/known-law-moments.json",
+    "docs/research/attribution-04h/reviews/research-preflight.json",
+    "docs/research/attribution-04h/reviews/risk-curves.json",
+    "docs/research/attribution-04h/reviews/saved-assessment.json",
+    "docs/research/attribution-04h/reviews/source-eigensolve.json",
+    "docs/research/attribution-04h/reviews/source.json",
+    "docs/research/attribution-04h/reviews/study-mathematics.json",
+    "docs/research/attribution-04h/reviews/truth-parity.json",
+    "docs/research/attribution-04h/verification.json"
+  ],
+  "gzip": {
+    "compressed_bytes": 688319,
+    "uncompressed_bytes": 36523676,
+    "compressed_sha256": "921d35fcf74c37dfc7b8cf889ee7bb394c3780a026305f1e601cbfecb6d14b8b",
+    "uncompressed_sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1",
+    "mtime": 0,
+    "filename_present": false,
+    "decompression_and_independent_recompression": "byte_identical"
+  },
+  "markdown_documents": [
+    "docs/plan.md",
+    "docs/research/model-direction.md",
+    "docs/issues/attribution-spatial-recovery.md",
+    "docs/research/attribution-04h/verification.md",
+    "docs/research/attribution-04h/decision.md",
+    "docs/research/attribution-04h/limits-context.md"
+  ],
+  "local_links_verified": 176,
+  "external_historical_markdown_locators_not_reopened": [
+    {
+      "document": "docs/plan.md",
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/reviews/post-merge-cleanup.json"
+    },
+    {
+      "document": "docs/plan.md",
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/reviews/post-merge-cleanup.json"
+    },
+    {
+      "document": "docs/plan.md",
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04f-20261016/reviews/post-merge-cleanup.json"
+    },
+    {
+      "document": "docs/issues/attribution-spatial-recovery.md",
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/simulation/simulation.json"
+    }
+  ],
+  "removed_input_issue": "acceptance fulfilled; issue absent; original failed-preflight receipt preserved",
+  "scientific_status": {
+    "execution": "complete",
+    "numerical": "verified",
+    "study": "diagnosed",
+    "next_question": "penalty_selection",
+    "admission": "not_admitted"
+  },
+  "project_modules_imported": false,
+  "retained_script": false,
+  "production_changes": false
+}

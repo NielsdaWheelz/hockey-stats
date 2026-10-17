@@ -1,0 +1,276 @@
+{
+  "kind": "attribution_resolution_research_numerical_probe_review",
+  "status": "verified",
+  "purpose": "research",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+    "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+  },
+  "executing_producer": "a9269b491d71a6036fb94ce30e0542fdbe4e85d7",
+  "all_checks_atol": 1e-10,
+  "all_checks_rtol": 1e-08,
+  "equation_residual_max": 1e-08,
+  "method": "independent raw saved score reconstruction; eigh versus dense precision solve; direct physical row predictions and known-law dense exposure contractions",
+  "new_responses": 0,
+  "new_annual_fits": 0,
+  "expanded_search": false,
+  "cells": [
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/fit.json",
+        "sha256": "505d56b76fb0a1a568394d426b6b9c04872ba32bb0953146d36ee27ca5c4b4ae"
+      },
+      "annual_fit_equation_records": 200,
+      "largest_saved_equation_residual": 5.554041745191615e-13,
+      "probes": [
+        {
+          "outer": 100,
+          "condition": "base",
+          "spatial_modes": 40,
+          "winner": 1e-05,
+          "saved_winner": 1e-05,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 9.270362255620057e-14,
+          "physical_context_max": 0.0005202185765267175,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-gaussian-000-200/outer-100/statistics.npz",
+            "sha256": "81ec8a72444a1c084ab06ac9c2e4d1dbbf93e034268c155ddb9df050f9a938f9"
+          }
+        },
+        {
+          "outer": 199,
+          "condition": "broad",
+          "spatial_modes": 11,
+          "winner": 3.1622776601683795e-05,
+          "saved_winner": 3.1622776601683795e-05,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 8.915090887740007e-14,
+          "physical_context_max": 0.0006437961634807063,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-gaussian-000-200/outer-199/statistics.npz",
+            "sha256": "3d1ed776ce28b053ba3488e416555aaa1e6db6cf8fd679b0eb617270a76667cb"
+          }
+        }
+      ]
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/fit.json",
+        "sha256": "083bd46f1a2518681a31e581d44672a8605ee0f223bb9fedc757b886e6569c58"
+      },
+      "annual_fit_equation_records": 200,
+      "largest_saved_equation_residual": 5.554041745191615e-13,
+      "probes": [
+        {
+          "outer": 100,
+          "condition": "base",
+          "spatial_modes": 40,
+          "winner": 3.1622776601683795e-05,
+          "saved_winner": 3.1622776601683795e-05,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 1.7785772854495008e-13,
+          "physical_context_max": 0.000641961262837979,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-gaussian-000-200/outer-100/statistics.npz",
+            "sha256": "af5100af6f5be11c202aa0102c4cf8b45650f0108dacbfd870775ec31b449511"
+          }
+        },
+        {
+          "outer": 199,
+          "condition": "broad",
+          "spatial_modes": 11,
+          "winner": 0.0001,
+          "saved_winner": 0.0001,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 1.5681900222830336e-13,
+          "physical_context_max": 0.0008512055439265946,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-gaussian-000-200/outer-199/statistics.npz",
+            "sha256": "7ee9d892c8a3895877877c30826521993be2570220fec0d88396df1f26861a4f"
+          }
+        }
+      ]
+    },
+    {
+      "population": "null",
+      "law": "gaussian",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+        "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+      },
+      "annual_fit_equation_records": 200,
+      "largest_saved_equation_residual": 5.554041745191615e-13,
+      "probes": [
+        {
+          "outer": 100,
+          "condition": "base",
+          "spatial_modes": 40,
+          "winner": 3.162277660168379e-07,
+          "saved_winner": 3.162277660168379e-07,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 1.3197776205231548e-13,
+          "physical_context_max": 0.0,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-gaussian-000-200/outer-100/statistics.npz",
+            "sha256": "326c6624328da7329bd81e5aae177a86220e59c701cfbd1cbcfc64243921ad1a"
+          }
+        },
+        {
+          "outer": 199,
+          "condition": "broad",
+          "spatial_modes": 11,
+          "winner": 0.0,
+          "saved_winner": 0.0,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 7.971401316808624e-14,
+          "physical_context_max": 0.0,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-gaussian-000-200/outer-199/statistics.npz",
+            "sha256": "6761a12e9ceba855f93d45adb1b469f60136786acfdf7208787f24d650a91e6d"
+          }
+        }
+      ]
+    },
+    {
+      "population": "null",
+      "law": "game_pace",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+        "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+      },
+      "annual_fit_equation_records": 200,
+      "largest_saved_equation_residual": 5.554041745191615e-13,
+      "probes": [
+        {
+          "outer": 100,
+          "condition": "base",
+          "spatial_modes": 40,
+          "winner": 3.162277660168379e-06,
+          "saved_winner": 3.162277660168379e-06,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 1.613709166292665e-13,
+          "physical_context_max": 0.0,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-game_pace-000-200/outer-100/statistics.npz",
+            "sha256": "b28f83dac85511962290ff0c6b25c20a1fc619a781db9a0e9b45aeb36ec5ff0c"
+          }
+        },
+        {
+          "outer": 199,
+          "condition": "broad",
+          "spatial_modes": 11,
+          "winner": 0.0,
+          "saved_winner": 0.0,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 8.367612158721727e-14,
+          "physical_context_max": 0.0,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/null-game_pace-000-200/outer-199/statistics.npz",
+            "sha256": "b9f77f1b31580abeff68683a15db2062e9c5a573c6111bfebbdd71a7ae4cb519"
+          }
+        }
+      ]
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+        "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+      },
+      "annual_fit_equation_records": 200,
+      "largest_saved_equation_residual": 5.554041745191615e-13,
+      "probes": [
+        {
+          "outer": 100,
+          "condition": "base",
+          "spatial_modes": 40,
+          "winner": 1e-05,
+          "saved_winner": 1e-05,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 1.8010593016981602e-13,
+          "physical_context_max": 0.0005202185765267175,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-game_pace-000-200/outer-100/statistics.npz",
+            "sha256": "5534beb46ac6c03060b472ed47eb7da3364b64857636c9b2530c24dbf1e7a79e"
+          }
+        },
+        {
+          "outer": 199,
+          "condition": "broad",
+          "spatial_modes": 11,
+          "winner": 3.1622776601683795e-05,
+          "saved_winner": 3.1622776601683795e-05,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 9.064970996064403e-14,
+          "physical_context_max": 0.0006437961634807063,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-game_pace-000-200/outer-199/statistics.npz",
+            "sha256": "33d03cd56e8f62b3c4c9a57466d90d84a1be8df4bd70e308c6dac249801dee6f"
+          }
+        }
+      ]
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "fit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+        "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+      },
+      "annual_fit_equation_records": 200,
+      "largest_saved_equation_residual": 5.554041745191615e-13,
+      "probes": [
+        {
+          "outer": 100,
+          "condition": "base",
+          "spatial_modes": 40,
+          "winner": 1e-05,
+          "saved_winner": 1e-05,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 2.6718210976994783e-13,
+          "physical_context_max": 0.000641961262837979,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-game_pace-000-200/outer-100/statistics.npz",
+            "sha256": "8a0b6a10593d14d70963d2e4feae6265e09e692c9aa7214dfedd4cf3cd68c02d"
+          }
+        },
+        {
+          "outer": 199,
+          "condition": "broad",
+          "spatial_modes": 11,
+          "winner": 0.0001,
+          "saved_winner": 0.0001,
+          "changed_winner": false,
+          "original_equation_max": 1.3215837185164124e-12,
+          "maximum_all_grid_physical_prediction_difference": 1.295075158225245e-13,
+          "physical_context_max": 0.0008512055439265946,
+          "source_statistics": {
+            "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-game_pace-000-200/outer-199/statistics.npz",
+            "sha256": "03fa47b63b9aad7db32d125a21745a10d9c5f7d22936c7117c407f5470d5f1d0"
+          }
+        }
+      ]
+    }
+  ],
+  "probes": 12,
+  "comparisons": 8376,
+  "maximum_absolute_residual": 1.0550138540565968e-10,
+  "maximum_tolerance_fraction": 0.003387379111893009,
+  "elapsed_seconds": 13.856710874999408
+}

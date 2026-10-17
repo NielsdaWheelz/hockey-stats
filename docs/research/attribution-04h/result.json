@@ -1,0 +1,178 @@
+{
+  "schema_version": 5,
+  "kind": "attribution_resolution_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+      "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+      "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+      "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+    },
+    "source_result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04g/result.json",
+      "sha256": "84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6"
+    },
+    "fit_00": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/fit.json",
+      "sha256": "505d56b76fb0a1a568394d426b6b9c04872ba32bb0953146d36ee27ca5c4b4ae"
+    },
+    "fit_01": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+      "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+    },
+    "fit_02": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/fit.json",
+      "sha256": "083bd46f1a2518681a31e581d44672a8605ee0f223bb9fedc757b886e6569c58"
+    },
+    "fit_03": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+      "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+    },
+    "fit_04": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+      "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+    },
+    "fit_05": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+      "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+    },
+    "report_00": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/decision.md",
+      "sha256": "01b5af5dd9760b1d19171ded7973759e1cdd6a4858d59747ab0d9b581244339f"
+    },
+    "report_01": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/comparison.csv",
+      "sha256": "0761b247e77009a952ec5d5d2b05e0d79a1c6a5060f5c466a2a450a5b9a0a6f3"
+    },
+    "report_02": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/limits-context.md",
+      "sha256": "14706422e3627b02d03228231f2a94df357251d0ffdda8f1173f6ae52837895a"
+    },
+    "figure_00": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/resolution.png",
+      "sha256": "f45cb15bcf255e57eb1844eab799183ed5f204fce85c896ae607f8ee979ef7a2"
+    }
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/assessment.json",
+    "sha256": "221b2bac15fd2681fca117a47918f12bf65f25c019ed35339e056afb6e5a1b11"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+    "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+    "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+  },
+  "consumed_fits": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/fit.json",
+      "sha256": "505d56b76fb0a1a568394d426b6b9c04872ba32bb0953146d36ee27ca5c4b4ae"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+      "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/fit.json",
+      "sha256": "083bd46f1a2518681a31e581d44672a8605ee0f223bb9fedc757b886e6569c58"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+      "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+      "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+      "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+    }
+  ],
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "study_status": "diagnosed",
+  "next_question": "penalty_selection",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "exact_completeness": {
+    "nonnull_grid_records": 57600,
+    "analytic_null_grid_records": 108,
+    "pooled_point_fits": 1200,
+    "annual_control_histories": 600,
+    "annual_control_states": 3000,
+    "eigensolve_probes": 12,
+    "new_responses": 0,
+    "new_annual_fits": 0,
+    "cells": 6
+  },
+  "reports": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/decision.md",
+      "sha256": "01b5af5dd9760b1d19171ded7973759e1cdd6a4858d59747ab0d9b581244339f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/comparison.csv",
+      "sha256": "0761b247e77009a952ec5d5d2b05e0d79a1c6a5060f5c466a2a450a5b9a0a6f3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/limits-context.md",
+      "sha256": "14706422e3627b02d03228231f2a94df357251d0ffdda8f1173f6ae52837895a"
+    }
+  ],
+  "figures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/assessment-reviewed/resolution.png",
+      "sha256": "f45cb15bcf255e57eb1844eab799183ed5f204fce85c896ae607f8ee979ef7a2"
+    }
+  ],
+  "limits": [
+    "four teams with eight slots per team and randomized deployment are a conditional synthetic design",
+    "the inseparable players 26 and 31 contribute their identifiable average with weight two; their difference is not_estimable",
+    "player 8 returns in a different slot with a potentially changed physical field; constant pooling is misspecified",
+    "entrants 32 and 33 borrow no predecessor observations; retired players remain nuisance rows",
+    "eleven spatial modes omit physical detail; the player target remains the full identifiable space",
+    "annual and pooled contrasts change temporal assumptions and penalty selection; eleven modes also change representation",
+    "game doubling means independent complete game copies with independent pace, not longer exposure under shared pace",
+    "known-law fixed-family risks are conditional expected risks, not lower bounds for other estimators or player intervals",
+    "adaptive realized errors include response selection; fixed-variance formulas do not describe them",
+    "mean-risk intervals condition on the calibration set and selected reference; reference-selection uncertainty is omitted",
+    "these previously examined cases supply no fresh confirmation and no equivalence or noninferiority claim",
+    "real spatial deployment information is unavailable; similar minutes do not imply similar lineup information",
+    "spatial inverse-share-weighted prediction does not assess fitted volume or complete-intensity validity",
+    "no result admits chance valuation, calibrated uncertainty, real-player recovery or published player ability"
+  ],
+  "source_producer": {
+    "git_commit": "f17103c5be381c39a071c8f212a9a8c91484bf9f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "resources": {
+    "wall_seconds": 4.983913875003054,
+    "peak_memory_bytes": 934871040,
+    "process_seconds": 4.718629,
+    "output_bytes": 8359639,
+    "output_bytes_scope": "tree_before_current_manifest_serialization"
+  }
+}

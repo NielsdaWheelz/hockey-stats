@@ -1,0 +1,31 @@
+{
+  "review": "bound source-reference ownership across an ordinary path alias",
+  "status": "passed",
+  "cause": "a reader reconstructed canonical source identity after resolving a frozen reference; equal bytes through a symlink changed path identity",
+  "change": "the source reader consumes the existing explicit reference; fresh preparation alone creates its canonical input identity",
+  "red": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/source-reference-alias-red.json",
+    "sha256": "ae63c049daa59abb528f128cbed2692c63acd5c1ee67116ce5c0c8dc3ffd41d8"
+  },
+  "green": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/source-reference-alias-green.json",
+    "sha256": "873015c8e328aae37b9620c7f31490ead5f9952c05a6af5c61590102f9b1482f"
+  },
+  "source_reference": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04h/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "saved_research_files": 39,
+  "saved_research_bytes": 92966113,
+  "unchanged_research_inventory_sha256": "8d95083c06d81cb708061a9f07e0cbc994a87a4982215e5fd3f20c18427bca17",
+  "exact_bound_reference_comparisons": true,
+  "pinned_hash_purpose_schema_checks_preserved": true,
+  "ordinary_source_file_restored": true,
+  "source_file_bytes_and_mtime_preserved": true,
+  "new_fits": 0,
+  "new_responses": 0,
+  "new_assessment_runs": 0,
+  "frozen_artifact_rewrites": 0,
+  "temporary_check_deleted": true,
+  "scope": "three-line source-interface/caller correction; no alias-specific branch, fallback or compatibility adapter"
+}

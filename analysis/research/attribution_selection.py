@@ -108,8 +108,7 @@ def _operators(W):
     return W, (W @ near)[:, None], (W @ lateral)[:, None]
 
 
-def _source(path, purpose):
-    reference = identity(Path(path).resolve(strict=True))
+def _source(reference, purpose):
     require(purpose in ("research", "fixture_exercise"), "invalid study purpose")
     if purpose == "research":
         require(reference["sha256"] == SOURCE_RESULT_SHA256, "04h result differs from pinned research source")
@@ -148,7 +147,7 @@ def _inventory(source):
 
 def prepare(source_result, purpose, output):
     started, process_started = time.monotonic(), time.process_time()
-    source = _source(source_result, purpose)
+    source = _source(identity(Path(source_result).resolve(strict=True)), purpose)
     root = output_path(str(output), list(source.input_roots))
     require(root.is_relative_to(RESEARCH_ROOT) and any(part.startswith("attribution-04i-") for part in root.parts),
         "04i outputs require an external attribution-04i run directory")
@@ -181,7 +180,7 @@ def read_prepared(path):
     document = read_artifact(path, "attribution_selection_prepared", expected_schema=5)
     protocol = read_artifact(linked_path(document["protocol"]), "attribution_selection_protocol", expected_schema=5)
     purpose = document["purpose"]
-    source = _source(linked_path(document["source_result"]), purpose)
+    source = _source(document["source_result"], purpose)
     fields = dict(source_result=source.reference, source_producer=source.result["implementation"],
         statistic_producer=source.source.result["implementation"], geometry=_geometry(source),
         outer_ids=list(_ids(purpose)), budget=_budget(purpose),

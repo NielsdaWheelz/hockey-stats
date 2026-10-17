@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "cell": [
+    "sparse",
+    "game_pace"
+  ],
+  "outer": 100,
+  "independent_eigensolve_variances": 18,
+  "identity_permuted_years": 5,
+  "source_state_replay": "all five named arrays",
+  "rank": 60,
+  "maxima": {
+    "norm_term": 1.199040866595169e-14,
+    "cross_term": 2.90878432451791e-14,
+    "correction_term": 7.993605777301127e-15,
+    "scores": 2.4424906541753444e-14,
+    "Theta": 1.043470865269569e-13,
+    "V": 1.4940104554767041e-13,
+    "context": 2.2985086056692694e-17,
+    "centered_region_maps": 7.906435922633293e-15
+  },
+  "prohibited_annual_states_opened": 0,
+  "review": "independent source-order and native-grid numerical review",
+  "method": "direct identity-index accumulation and spectral inverses, independent of production factors and covariance arrays",
+  "tolerances": {
+    "atol": 1e-10,
+    "rtol": 1e-08
+  },
+  "concepts": [
+    "final-season native reference",
+    "retired nuisance identities",
+    "entry, absence and changed returner",
+    "union centering followed by final selection",
+    "separate annual contexts",
+    "five unchanged saved marginal control arrays"
+  ]
+}

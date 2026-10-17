@@ -1,0 +1,6 @@
+{
+  "study": "04i",
+  "stage": "red",
+  "expected_failure": "ImportError: regional_penalty_scores is absent",
+  "check": "explicit native-row covariance oracle; written before implementation"
+}

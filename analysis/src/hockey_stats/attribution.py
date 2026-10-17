@@ -31,6 +31,7 @@ from .attribution_data import (
     POOLING_STAT_FIELDS,
     PooledShapeLikelihood,
     RevisionPopulation,
+    likelihood_spectrum,
     pooling_population,
     read_recovery_prepared,
     read_revision_prepared,
@@ -732,10 +733,9 @@ class PooledShapeGrid:
 
 @dataclass(frozen=True)
 class PooledShapeState:
-    """one pooled fit; conditional covariance is not player uncertainty."""
+    """one fixed-grid state; working covariance is not player uncertainty."""
 
     a: float
-    objectives: np.ndarray
     Theta: np.ndarray
     V: np.ndarray
     A: np.ndarray
@@ -743,6 +743,13 @@ class PooledShapeState:
     K: np.ndarray
     basis_columns: tuple[int, ...]
     diagnostics: dict
+
+
+@dataclass(frozen=True)
+class PooledShapeFit(PooledShapeState):
+    """a marginal-likelihood selection and its actual grid objectives."""
+
+    objectives: np.ndarray
 
 
 def pooled_shape_grid(H: np.ndarray, variances: tuple[float, ...]) -> PooledShapeGrid:
@@ -779,40 +786,109 @@ def pooled_shape_grid(H: np.ndarray, variances: tuple[float, ...]) -> PooledShap
                                     covariance_equation_relative_residuals=residuals))
 
 
-def fit_pooled_shape(
-    pooled: PooledShapeLikelihood, variances: tuple[float, ...], *, grid: PooledShapeGrid | None = None,
-) -> PooledShapeState:
-    """select marginal likelihood using only pooled training moments."""
-    variances = tuple(float(value) for value in variances)
-    grid = pooled_shape_grid(pooled.H, variances) if grid is None else grid
-    require(grid.variances == variances and np.array_equal(grid.H, pooled.H)
-            and pooled.score.shape == (len(pooled.H), len(pooled.basis_columns))
-            and np.isfinite(pooled.score).all(), "pooled fit changed its fixed grid or score")
-    beta_grid = grid.covariances @ pooled.score
-    objectives = len(pooled.basis_columns)*grid.logdets - np.sum(pooled.score*beta_grid, axis=(1, 2))
-    require(np.isfinite(objectives).all(), "pooled grid has a nonfinite marginal objective")
-    selected = min(range(len(variances)), key=lambda index: (objectives[index], variances[index]))
-    variance, K, beta = variances[selected], grid.covariances[selected], beta_grid[selected]
+def _pooled_grid_means(score: np.ndarray, grid: PooledShapeGrid) -> tuple[np.ndarray, list[float]]:
+    require(score.ndim == 2 and len(score) == len(grid.H) and np.isfinite(score).all(),
+            "pooled score differs from its fixed grid")
+    beta_grid = grid.covariances @ score
+    identity_matrix = np.eye(len(grid.H))
+    score_norm = max(1., np.linalg.norm(score, ord="fro"))
+    residuals = [0. if a == 0 else float(np.linalg.norm((grid.H+identity_matrix/a)@beta-score,
+                   ord="fro") / score_norm)
+                 for a, beta in zip(grid.variances, beta_grid, strict=True)]
+    require(np.isfinite(beta_grid).all() and max(residuals) <= 1e-8,
+            "pooled mean equation residual exceeds 1e-8")
+    return beta_grid, residuals
+
+
+def pooled_shape_at(pooled: PooledShapeLikelihood, grid: PooledShapeGrid, index: int) -> PooledShapeState:
+    """materialize one declared variance with the pooled exposure/context gauge."""
+    require(isinstance(index, (int, np.integer)) and 0 <= index < len(grid.variances)
+            and np.array_equal(grid.H, pooled.H)
+            and pooled.score.shape == (len(pooled.H), len(pooled.basis_columns)),
+            "fixed pooled state changed its grid, index or score")
+    beta_grid, residuals = _pooled_grid_means(pooled.score, grid)
+    variance, K, beta = grid.variances[index], grid.covariances[index], beta_grid[index]
     if variance == 0:
         Theta, V = np.zeros_like(beta), np.zeros_like(K)
         diagnostics = dict(equation_relative_residual=0., centered_mean_residual=0.)
     else:
         update = fixed_shape_update(pooled.H, np.zeros_like(beta), variance*np.eye(len(K)),
-                                    pooled.score, pooled.u, factorization=grid.factorizations[selected])
+                                    pooled.score, pooled.u, factorization=grid.factorizations[index])
         Theta, V, diagnostics = update.mean, update.covariance, dict(update.diagnostics)
     target = pooled.target
     ybar_h = target.ybar - target.ybar.sum(axis=1, keepdims=True)*pooled.p
     A = ybar_h - target.xbar @ pooled.target_selection @ Theta @ pooled.R.T
-    residuals = [0. if a == 0 else float(np.linalg.norm((pooled.H+np.eye(len(K))/a)@b-pooled.score,
-                   ord="fro") / max(1., np.linalg.norm(pooled.score, ord="fro")))
-                 for a, b in zip(variances, beta_grid, strict=True)]
-    require(max(residuals) <= 1e-8 and np.isfinite(A).all(),
-            "pooled mean equation residual exceeds 1e-8")
+    require(np.isfinite(A).all(), "pooled final context is nonfinite")
     diagnostics.update(grid_equation_relative_residual=grid.diagnostics["equation_relative_residual"],
-        mean_equation_relative_residuals=residuals, selected_index=selected,
-        endpoint=selected in (0, len(variances)-1),
+        mean_equation_relative_residuals=residuals, selected_index=int(index),
+        endpoint=index in (0, len(grid.variances)-1),
         zero_map=variance == 0, covariance_meaning="working_conditional_not_validated_uncertainty")
-    return PooledShapeState(variance, objectives, Theta, V, A, beta, K, pooled.basis_columns, diagnostics)
+    return PooledShapeState(variance, Theta, V, A, beta, K, pooled.basis_columns, diagnostics)
+
+
+def fit_pooled_shape(
+    pooled: PooledShapeLikelihood, variances: tuple[float, ...], *, grid: PooledShapeGrid | None = None,
+) -> PooledShapeFit:
+    """select marginal likelihood using only pooled training moments."""
+    variances = tuple(float(value) for value in variances)
+    grid = pooled_shape_grid(pooled.H, variances) if grid is None else grid
+    require(grid.variances == variances and np.array_equal(grid.H, pooled.H)
+            and pooled.score.shape == (len(pooled.H), len(pooled.basis_columns)),
+            "pooled fit changed its fixed grid or score")
+    beta_grid, _ = _pooled_grid_means(pooled.score, grid)
+    objectives = len(pooled.basis_columns)*grid.logdets - np.sum(pooled.score*beta_grid, axis=(1, 2))
+    require(np.isfinite(objectives).all(), "pooled grid has a nonfinite marginal objective")
+    index = min(range(len(variances)), key=lambda i: (objectives[i], variances[i]))
+    state = pooled_shape_at(pooled, grid, index)
+    return PooledShapeFit(state.a, state.Theta, state.V, state.A, state.beta, state.K,
+                          state.basis_columns, state.diagnostics, objectives)
+
+
+def regional_penalty_scores(H5, T_h5, S, J, p, B, W, Q, grid, r) -> dict:
+    """signed fixed-candidate regional risk difference under working gaussian noise.
+
+    the reference uses native final-season regions, including omitted modes and
+    changed history. minimization does not make the selected score unbiased.
+    """
+    n, d = Q.shape
+    current, cells = H5.shape[0], len(p)
+    require(H5.shape == J.shape == (current, current) and T_h5.shape == (current, cells)
+            and S.shape == (current, n) and grid.H.shape == (n, n)
+            and B.shape == (cells, d) and W.ndim == 2 and W.shape[0] == cells and W.shape[1] > 0
+            and all(np.isfinite(value).all() for value in (H5, T_h5, S, J, p, B, W, Q))
+            and np.all(p > 0) and abs(float(p.sum())-1) <= 1e-12
+            and np.allclose(H5, H5.T, rtol=1e-10, atol=1e-10)
+            and np.max(np.abs(T_h5.sum(axis=1)), initial=0.) <= 1e-8
+            and np.allclose(p @ B, 0., atol=1e-10, rtol=0.)
+            and np.allclose(B.T @ (p[:, None]*B), np.eye(d), atol=1e-10, rtol=1e-8)
+            and np.isfinite(r) and r > 0,
+            "regional selector numeric arrays differ from their fixed geometry")
+    values, vectors, tau, masks = likelihood_spectrum(H5)
+    ranks = [int(mask.sum()) for mask in masks]
+    require(len(set(ranks)) == 1, "regional reference likelihood rank is cutoff-sensitive")
+    positive = masks[1]
+    Hplus = (vectors[:, positive]/values[positive]) @ vectors[:, positive].T
+    reference_residual = float(np.linalg.norm(J @ Hplus @ H5-J, ord="fro")
+                               / max(1., np.linalg.norm(J, ord="fro")))
+    require(reference_residual <= 1e-8, "regional reference is outside the final identifiable target")
+    beta_grid, residuals = _pooled_grid_means(Q, grid)
+    D = B.T @ (p[:, None]*W)
+    U = J @ Hplus @ T_h5 @ W
+    F = J @ S
+    A = F @ beta_grid @ D
+    scale = r**2/64
+    norm_term = scale*np.sum(A**2, axis=(1, 2))
+    cross_term = -2*scale*np.sum(A*U, axis=(1, 2))
+    correction_term = 2*scale*float(np.sum(D**2))*np.trace(
+        F @ grid.covariances @ F.T, axis1=1, axis2=2)
+    scores = norm_term+cross_term+correction_term
+    require(all(np.isfinite(value).all() for value in (norm_term, cross_term, correction_term, scores)),
+            "regional selector has a nonfinite score term")
+    return dict(scores=scores, norm_term=norm_term, cross_term=cross_term,
+        correction_term=correction_term, diagnostics=dict(rank=ranks[1], tau=tau,
+            cutoff_factors=[.1, 1., 10.], rank_at_tau_factors=ranks,
+            reference_equation_relative_residual=reference_residual,
+            mean_equation_relative_residuals=residuals))
 
 
 def _block_at_scale(

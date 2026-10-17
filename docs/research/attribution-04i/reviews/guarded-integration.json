@@ -1,0 +1,50 @@
+{
+  "study": "04i",
+  "review": "guarded live prepare-fit-assess and malformed boundary artifacts",
+  "status": "passed",
+  "purpose": "fixture_exercise",
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/guarded-integration-v2/assessment/result.json",
+    "sha256": "f65853170005ae7dee48b1621551d16f20549ed17d7214a9446c524da5f670ea"
+  },
+  "cli_commands": 8,
+  "cells": 6,
+  "candidate_grid_scores": 108,
+  "control_replays": 6,
+  "invalid_artifacts_rejected": [
+    "invalid-axes",
+    "invalid-outer-order",
+    "invalid-rule",
+    "invalid-equation",
+    "invalid-rank",
+    "invalid-replay",
+    "invalid-budget"
+  ],
+  "forbidden_work": [
+    "predecessor annual fitted states",
+    "unselected statistic archives",
+    "forty-mode/control-calibration array decoding",
+    "truth reconstruction during fit",
+    "assessment reads during fit",
+    "fitting or reselection during assess",
+    "new responses or known-law risk campaign"
+  ],
+  "decoded_control_names": [
+    "Theta_11",
+    "V_11",
+    "adaptive_coupling_11",
+    "adaptive_functional_error_11",
+    "adaptive_prediction_excess_11",
+    "adaptive_region_error_11",
+    "adaptive_risk_11",
+    "assessment_zero_risk",
+    "context_11",
+    "objectives_11",
+    "omitted_detail_11",
+    "projection_functional_error_11",
+    "projection_region_error_11",
+    "selected_a_11"
+  ],
+  "decoded_archive_count": 27,
+  "access_scope": "explicit fixture evidence; no research originals used"
+}

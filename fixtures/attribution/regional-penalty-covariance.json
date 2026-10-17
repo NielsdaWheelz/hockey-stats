@@ -1,0 +1,263 @@
+{
+  "meaning": "synthetic explicit native-row covariance oracle, not hockey observations or scientific acceptance",
+  "sha256": "d56027ad9ab0a23a25783363565f20e47fe6998a4a23fe65429c6c38871cadd7",
+  "array_shapes": [
+    {
+      "name": "H5",
+      "shape": [
+        8,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "T_h5",
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "S",
+      "shape": [
+        8,
+        10
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "J",
+      "shape": [
+        8,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "p",
+      "shape": [
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "B",
+      "shape": [
+        5,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "W",
+      "shape": [
+        5,
+        3
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Q",
+      "shape": [
+        10,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "H",
+      "shape": [
+        10,
+        10
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "variances",
+      "shape": [
+        18
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "r",
+      "shape": [],
+      "dtype": "<f8"
+    },
+    {
+      "name": "expected_signed_terms",
+      "shape": [
+        18,
+        3
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "expected_risk_difference",
+      "shape": [
+        18
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_X",
+      "shape": [
+        14,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_e",
+      "shape": [
+        14
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_G",
+      "shape": [
+        14,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_H",
+      "shape": [
+        8,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_raw",
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_means",
+      "shape": [
+        14,
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_noisy",
+      "shape": [
+        14,
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_X",
+      "shape": [
+        16,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_e",
+      "shape": [
+        16
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_G",
+      "shape": [
+        16,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_H",
+      "shape": [
+        8,
+        8
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_raw",
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_means",
+      "shape": [
+        16,
+        5
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_noisy",
+      "shape": [
+        16,
+        5
+      ],
+      "dtype": "<f8"
+    }
+  ],
+  "checks": {
+    "study": "04i",
+    "review": "independent explicit native-row gaussian covariance",
+    "status": "passed",
+    "checks": 165,
+    "max_term_difference": 1.4210854715202004e-14,
+    "annual_contexts": 2,
+    "nonuniform_shares": true,
+    "temporal_changes": true,
+    "omitted_physical_modes": true,
+    "inseparable_player_pair": [
+      1,
+      2
+    ],
+    "final_roster_vs_union": true,
+    "projection_order": "P E",
+    "null_game_pace_covariance": "exact agreement after native shape projection",
+    "normalization": "r^2/64",
+    "no_monte_carlo": true
+  },
+  "expected_signed_terms_order": [
+    "norm_term",
+    "cross_term",
+    "correction_term"
+  ],
+  "expected_risk_difference": "exact fixed-candidate gaussian expected regional error minus zero-map error",
+  "year_rosters": [
+    [
+      0,
+      1,
+      2,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ]
+  ],
+  "union_players": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "normalization": "r^2/64",
+  "expected_final_rank": 4
+}

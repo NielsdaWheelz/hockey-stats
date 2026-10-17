@@ -1,0 +1,67 @@
+{
+  "boundary": "study integration",
+  "status": "passed",
+  "red": {
+    "error": "ModuleNotFoundError: No module named attribution_selection",
+    "before_implementation": true
+  },
+  "green": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-integration-v4/assessment/result.json",
+      "sha256": "870e7b98c4423d40fd7b6bbd97b5e52c652632e4f97f2af44526b181916d1fdf"
+    },
+    "fixture_only": true,
+    "checks": 46,
+    "phase_guards": [
+      "fit_without_truth",
+      "assessment_without_solves_or_selection"
+    ]
+  },
+  "refactor": [
+    "strict numerical/control replay receipts",
+    "equivalent winning-index acceptance uses winning score and physical predictions",
+    "assessment selected penalties/scores in compact arrays and paired csv",
+    "grouped contrary findings beside conclusion",
+    "protocol binds statistic archive references; inherited array declarations are not duplicated"
+  ],
+  "invalid_artifacts": [
+    "missing cell",
+    "duplicate cell",
+    "axes",
+    "rank",
+    "equation residual",
+    "control replay",
+    "probe flag consistency",
+    "budget",
+    "index dtype",
+    "index range",
+    "signed score sum",
+    "exact zero"
+  ],
+  "content": {
+    "labels_fixed_before_implementation": true,
+    "rendered_fixture_figure_inspected": true,
+    "decision_grouped_deteriorations": true,
+    "mean_experiment_uncertainty": true
+  },
+  "files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/attribution_selection.py",
+      "sha256": "af00d7fd93ba24f9e0d2e1c9477cd23ae2ba29276cff9dcb5643103f5c464990"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/attribution_selection_report.py",
+      "sha256": "9d605aa629a16e3728d22c31ad0ac418a267ca53be24cf93f761d8e9b47406e8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/_04i_integration_check.py",
+      "sha256": "017347639f7455f649d7f2134c6e930cce3a3dd9fe9efb1eed93c0dd623bea8c"
+    }
+  ],
+  "temporary_checks": "deleted after independent source/systems and statistical review; no retained suite selected",
+  "cleanup": {
+    "temporary_integration_check_deleted": true,
+    "new_study_bytecode_deleted": true,
+    "test_only_dependencies_added": 0
+  }
+}

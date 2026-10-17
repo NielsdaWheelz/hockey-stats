@@ -478,12 +478,16 @@ def read_regularization_source_slice(
         dict(cells=6, truth_records=6*n, assessment_histories=6*len(assessment_ids),
              assessment_annual_states=30*len(assessment_ids)))
     from dataclasses import replace
-    return replace(source, fixed_populations=_regularization_source_populations(source, records[0])[0])
+    return replace(source, fixed_populations=read_regularization_source_populations(source, records[0])[0])
 
 
-def _regularization_source_populations(source: RegularizationSourceSlice, record: dict) -> tuple:
+def read_regularization_source_populations(
+    source: RegularizationSourceSlice, record: dict,
+) -> tuple[tuple[RevisionPopulation, ...], "PoolingStatistics"]:
+    """decode one selected annual-summary history without opening fitted states."""
     from .attribution import PoolingStatistics
 
+    require(record in source.records, "record is not in the selected assessment inventory")
     arrays = load_arrays(record["statistics"])
     require(list(arrays) == [season+"_"+name for season in RESEARCH_SEASONS for name in POOLING_STAT_FIELDS],
             "selected source sufficient-statistic names or annual order differs")
@@ -521,7 +525,7 @@ def read_regularization_source_record(
     from .attribution import read_pooling_annual, read_regularization_annual
 
     require(record in source.records, "record is not in the selected assessment inventory")
-    populations, statistics = _regularization_source_populations(source, record)
+    populations, statistics = read_regularization_source_populations(source, record)
     states, previous = [], None
     for year, population in enumerate(populations):
         reference = record["annual"]["history"][year]
@@ -545,6 +549,177 @@ def read_regularization_source_record(
         states.append(state)
         previous = (reference, state)
     return populations, tuple(states)
+
+
+@dataclass(frozen=True)
+class ResolutionSourceSlice:
+    """six named eleven-mode controls and their selected original summaries."""
+
+    reference: ArtifactReference
+    result: dict
+    prepared: dict
+    protocol: dict
+    source: RegularizationSourceSlice
+    controls: dict[tuple[str, str, str], dict]
+    consumed: dict
+    input_roots: tuple[str, ...]
+
+
+def read_resolution_source_slice(
+    result_ref: ArtifactReference, cells: tuple[tuple[str, str, str], ...], assessment_ids: tuple[int, ...],
+) -> ResolutionSourceSlice:
+    """bind selected 04h controls without annual-state or calibration-array reads."""
+    cells, assessment_ids = tuple(map(tuple, cells)), tuple(assessment_ids)
+    allowed = {("paired" if population == "null" else "independent", population, law)
+               for population in ("sparse", "diffuse", "null") for law in ("gaussian", "game_pace")}
+    require(len(cells) == 6 and set(cells) == allowed, "04h source requires six explicit distinct cells")
+    result = _read_selected_artifact(result_ref, "attribution_resolution_result", 5)
+    purpose = result["purpose"]
+    n = 100 if purpose == "research" else 1
+    fits = result.get("consumed_fits")
+    require(isinstance(fits, list) and len(fits) == 6
+            and all(isinstance(row, dict) and set(row) == {"path", "sha256"}
+                    and isinstance(row["path"], str) and isinstance(row["sha256"], str) for row in fits)
+            and len({(row["path"], row["sha256"]) for row in fits}) == 6,
+            "04h source requires six distinct control references")
+    require(assessment_ids == tuple(range(n, 2*n))
+            and all(type(outer) is int for outer in assessment_ids)
+            and result["execution_status"] == "complete"
+            and result["numerical_status"] in (("verified",) if purpose == "research" else ("verified", "unresolved"))
+            and result["nomination"] is None and result["admission"] == "not_admitted" and result["handoff"] is None
+            and all(result[name] == result["consumed"][name] for name in ("prepared", "protocol", "assessment")),
+            "04h result, assessment ids or six-control inventory differs")
+    if purpose == "research":
+        require(result_ref["sha256"] == "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+                and result["prepared"]["sha256"] == "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+                and result["protocol"]["sha256"] == "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1",
+                "research requires the committed 04h result, preparation and protocol")
+    prepared = _read_selected_artifact(result["prepared"], "attribution_resolution_prepared", 5)
+    protocol = _read_selected_artifact(result["protocol"], "attribution_resolution_protocol", 5)
+    variances = [0., *np.power(10., np.arange(-8., .25, .5)).tolist()]
+    split = dict(calibration=list(range(n)), assessment=list(assessment_ids))
+    require(prepared["purpose"] == protocol["purpose"] == purpose
+            and prepared["protocol"] == result["protocol"]
+            and prepared["consumed"] == dict(protocol=result["protocol"], **protocol["consumed"])
+            and all(prepared[name] == value for name, value in protocol["consumed"].items())
+            and all(prepared[name] == protocol[name] for name in
+                    ("source_result", "source_prepared", "source_protocol", "source_assessment", "source_producer",
+                     "geometry", "target_rank", "source_inventory"))
+            and all(prepared[name] == protocol[name] == value for name, value in
+                    dict(split=split, seasons=list(RESEARCH_SEASONS), prior_variances=variances, rate=40.,
+                         recovery_denominator=64).items())
+            and result["consumed"]["source_result"] == prepared["source_result"],
+            "04h selected source, chronology, grid, geometry or parent bindings differ")
+    source = read_regularization_source_slice(prepared["source_result"], cells, assessment_ids)
+    require(source.result["purpose"] == purpose
+            and prepared["source_prepared"] == source.result["prepared"]
+            and prepared["source_protocol"] == source.result["protocol"]
+            and prepared["source_assessment"] == source.result["assessment"]
+            and prepared["source_producer"] == result["source_producer"] == source.result["implementation"]
+            and prepared["target_rank"] == source.protocol["recovery_receipts"][-1]["rank"]
+            and (purpose != "research" or prepared["target_rank"] == prepared["final_player_rank"] == 60),
+            "04h original source producer, final rank or native reference differs")
+    from .attribution_simulation import shape_regions
+    _, region_names = shape_regions()
+    near = np.asarray([name.startswith(("in_zone_0_10_", "in_zone_10_20_")) for name in region_names], dtype=float)
+    lateral = np.asarray([.5 if name.endswith("positive_y") else -.5 for name in region_names])
+    geometry = dict(native=ordered_array_digest(dict(p=source.basis.p)), basis=source.basis.sha256,
+        regions=ordered_array_digest(dict(W=source.W, within_20_ft=(source.W@near)[:, None],
+                                         lateral_redistribution=(source.W@lateral)[:, None])),
+        entities=ordered_array_digest({RESEARCH_SEASONS[year]: np.asarray(design["players"], dtype=np.int64)
+                                       for year, design in enumerate(source.training)}))
+    require(prepared["geometry"] == geometry, "04h selected region operators or ordered player geometry differs")
+    inventory = prepared["source_inventory"]["assessment_records"]
+    selected_records = {tuple(row[name] for name in ("family", "population", "law", "outer")): row for row in inventory}
+    require(len(inventory) == len(selected_records) == 6*n
+            and all(selected_records[tuple(row[name] for name in ("family", "population", "law", "outer"))]
+                    == dict(family=row["family"], population=row["population"], law=row["law"], outer=row["outer"],
+                            statistics=row["statistics"], history=row["annual"]["history"],
+                            truth_sha256=row["truth_sha256"], saved_scores=row["saved_scores"])
+                    for row in source.records),
+            "04h selected source summaries, identities or assessment records differ")
+    players = list(source.training[-1]["players"])
+    union = sorted({player for design in source.training for player in design["players"]})
+    require(len(players) == 32 and len(union) == 34 and len(source.training[-1]["strata"]) == 6,
+            "04h selected current/union player or final context dimensions differ")
+    controls = {}
+    for reference in fits:
+        document = _read_selected_artifact(reference, "attribution_resolution_fit", 5)
+        cell = tuple(document[name] for name in ("family", "population", "law"))
+        require(cell in allowed and cell not in controls and document["purpose"] == purpose
+                and document["prepared"] == result["prepared"] and document["protocol"] == result["protocol"]
+                and document["source_result"] == source.reference
+                and document["source_producer"] == source.result["implementation"]
+                and document["geometry"] == prepared["geometry"] and document["split"] == split
+                and document["prior_variances"] == variances and document["basis_columns"]["11"] == list(range(11))
+                and document["current_player_ids"] == players and document["union_player_ids"] == union
+                and document["consumed"] == dict(prepared=result["prepared"], protocol=result["protocol"],
+                    source_result=source.reference, arrays=document["arrays"]["arrays"])
+                and reference in result["consumed"].values()
+                and document["nomination"] is None and document["admission"] == "not_admitted" and document["handoff"] is None,
+                "duplicate, foreign or mismatched selected eleven-mode control")
+        linked_path(document["arrays"]["arrays"])
+        controls[cell] = dict(reference=reference, document=document)
+    require(set(controls) == allowed, "04h selected control inventory is incomplete")
+    controls = {cell: controls[cell] for cell in cells}
+    consumed = dict(source_result=result_ref, source_prepared=result["prepared"], source_protocol=result["protocol"],
+                    **{f"control_{index}": controls[cell]["reference"] for index, cell in enumerate(cells)})
+    roots = {*source.input_roots, *(str(Path(ref["path"]).parent) for ref in consumed.values())}
+    return ResolutionSourceSlice(result_ref, result, prepared, protocol, source, controls, consumed, tuple(sorted(roots)))
+
+
+def _read_resolution_arrays(source: ResolutionSourceSlice, cell: tuple[str, str, str], axes: dict) -> dict:
+    """decode only explicitly named assessment arrays in the shared 04h archive."""
+    require(cell in source.controls, "control cell is not in the selected inventory")
+    document = source.controls[cell]["document"]
+    binding = document["arrays"]
+    require(isinstance(binding, dict) and set(binding) == {"arrays", "array_shapes"}
+            and isinstance(binding["array_shapes"], list), "selected control array binding differs")
+    shapes = binding["array_shapes"]
+    require(all(isinstance(row, dict) and set(row) == {"name", "shape", "dtype"}
+                and isinstance(row["name"], str) for row in shapes)
+            and len({row["name"] for row in shapes}) == len(shapes),
+            "selected control archive declares duplicate arrays")
+    declared = {row["name"]: row for row in shapes}
+    lengths = dict(assessment_outer=len(document["split"]["assessment"]), prior_variance=18, union_role_player=68,
+                   current_role_player=64, spatial_mode_11=11, final_context=6, native_cell=656,
+                   target=3, region=12, functional=2)
+    require(all(name in declared and document["axes"].get(name) == axis
+                and declared[name]["shape"] == [lengths[value] for value in axis]
+                and declared[name]["dtype"] == np.dtype("float64").str for name, axis in axes.items()),
+            "selected eleven-mode control fields, shapes, dtypes or declared axes differ")
+    with np.load(linked_path(binding["arrays"]), allow_pickle=False) as archive:
+        require(archive.files == [row["name"] for row in shapes], "selected archive array order differs")
+        arrays = {name: archive[name] for name in axes}
+    require(all(value.dtype == np.dtype("float64") and list(value.shape) == declared[name]["shape"]
+                and np.isfinite(value).all() for name, value in arrays.items()),
+            "selected eleven-mode control arrays differ from their declarations")
+    return arrays
+
+
+def read_resolution_control(source: ResolutionSourceSlice, cell: tuple[str, str, str]) -> dict:
+    """read only the five training-fit arrays; truth-derived assessment stays separate."""
+    arrays = _read_resolution_arrays(source, cell, dict(
+        objectives_11=["assessment_outer", "prior_variance"], selected_a_11=["assessment_outer"],
+        Theta_11=["assessment_outer", "union_role_player", "spatial_mode_11"],
+        V_11=["assessment_outer", "union_role_player", "union_role_player"],
+        context_11=["assessment_outer", "final_context", "native_cell"]))
+    variances = np.asarray(source.prepared["prior_variances"])
+    require(np.array_equal(arrays["selected_a_11"], variances[np.argmin(arrays["objectives_11"], axis=1)]),
+            "selected eleven-mode variance differs from the unchanged marginal selector")
+    return arrays
+
+
+def read_resolution_assessment(source: ResolutionSourceSlice, cell: tuple[str, str, str]) -> dict:
+    """read named eleven-mode realized diagnostics, never fixed-risk/calibration arrays."""
+    return _read_resolution_arrays(source, cell, dict(
+        adaptive_risk_11=["assessment_outer", "target"], adaptive_prediction_excess_11=["assessment_outer"],
+        adaptive_coupling_11=["assessment_outer"],
+        adaptive_region_error_11=["assessment_outer", "current_role_player", "region"],
+        adaptive_functional_error_11=["assessment_outer", "current_role_player", "functional"],
+        assessment_zero_risk=["assessment_outer", "target"], omitted_detail_11=["assessment_outer", "target"],
+        projection_region_error_11=["assessment_outer", "current_role_player", "region"],
+        projection_functional_error_11=["assessment_outer", "current_role_player", "functional"]))
 
 
 def group_observations(

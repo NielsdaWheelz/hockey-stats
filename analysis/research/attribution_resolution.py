@@ -25,7 +25,7 @@ from hockey_stats.attribution_data import (
 )
 from hockey_stats.attribution_prediction import (
     current_player_rows, deployment_gram, expected_excess_prediction_terms,
-    excess_prediction_terms, prediction_loss,
+    realized_shape_errors,
 )
 from hockey_stats.attribution_simulation import (
     independent_truths, known_shape_moments, paired_truths, shape_regions,
@@ -283,24 +283,6 @@ def _active(truth, players):
     return active
 
 
-def _realized(maps, context, population, truth, source, J, operators):
-    evaluation, p, raw = source.evaluation[-1], source.basis.p, truth["raw"]
-    gram = deployment_gram(evaluation["X"], evaluation["si"], evaluation["e"], len(population.strata))
-    yh = population.ybar-population.ybar.sum(axis=1, keepdims=True)*p
-    # raw truth keeps the physical law; the fitted maps use the final exposure gauge.
-    true_context, centered = truth["context"], truth["centered"]
-    noise = yh-true_context-population.xbar @ centered
-    terms = excess_prediction_terms(gram, population.xbar, noise, centered, maps, p=p)
-    P_zero = prediction_loss(gram, yh-true_context, -centered, p=p)
-    P = prediction_loss(gram, context-true_context, maps-centered, p=p)
-    require(np.isclose(P-P_zero, terms["delta"], rtol=1e-8, atol=1e-10), "realized spatial prediction excess differs")
-    errors = [40.*J @ (maps-raw) @ V for V in operators]
-    risks = np.asarray([np.sum(error**2)/64 for error in errors])
-    zero = np.asarray([np.sum((40.*J @ raw @ V)**2)/64 for V in operators])
-    return dict(risk=risks, zero_risk=zero, prediction_excess=P-P_zero, prediction=P, prediction_zero=P_zero,
-                region_error=errors[0], functional_error=np.hstack(errors[1:]), coupling=terms["coupling"])
-
-
 def _close(actual, expected, label):
     actual, expected = np.asarray(actual), np.asarray(expected)
     require(actual.shape == expected.shape and np.allclose(actual, expected, atol=1e-10, rtol=1e-8),
@@ -452,6 +434,9 @@ def fit(prepared, population, law, output):
             ("projection_region_error", (n, 64, 12)), ("projection_functional_error", (n, 64, 2)),
             ("omitted_detail", (n, 3)))})
     source_audit, probes, solve_receipts = [], [], []
+    evaluation = source.evaluation[-1]
+    gram = deployment_gram(evaluation["X"], evaluation["si"], evaluation["e"],
+                           len(source.training[-1]["strata"]))
     for index, record in enumerate(records):
         outer = record["outer"]
         populations, states = read_regularization_source_record(source, record)
@@ -466,7 +451,10 @@ def fit(prepared, population, law, output):
         current, truth = populations[-1], truths[-1]
         control = states[-1]
         maps = shape_mean(control)[current_player_rows(control, current.player_ids)]
-        annual = _realized(maps, control.shape.A, current, truth, source, J, operators)
+        scoring = dict(p=source.basis.p, xbar=current.xbar, ybar=current.ybar,
+            true_raw=truth["raw"], true_centered=truth["centered"], true_context=truth["context"],
+            J=J, operators=operators, gram=gram)
+        annual = realized_shape_errors(maps, control.shape.A, **scoring)
         saved = record["saved_scores"]
         source_audit.append(dict(outer=outer, annual=audit,
             residuals={name: _close(value, saved[name], "saved "+name) for name, value in (
@@ -486,7 +474,7 @@ def fit(prepared, population, law, output):
             solve_receipts.append(dict(outer=outer, spatial_modes=d, **state.diagnostics))
             B, R = source.basis.B[:, :d], source.basis.p[:, None]*source.basis.B[:, :d]
             maps = pool.selections[-1] @ state.Theta @ R.T
-            scored = _realized(maps, state.A, current, truth, source, J, operators)
+            scored = realized_shape_errors(maps, state.A, **scoring)
             for name, value in (("selected_a", state.a), ("objectives", state.objectives), ("Theta", state.Theta),
                                 ("V", state.V), ("context", state.A)):
                 arrays[f"{name}_{d}"][index] = value

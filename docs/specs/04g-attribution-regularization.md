@@ -1,6 +1,6 @@
 # pr04g — separate population shrinkage from annual borrowing
 
-status: full specification requested; **documentation only, execution unassigned**. [the plan](../plan.md) owns progression. preserve the frozen [04e failure](../research/attribution-04e/decision.md) and [04f accounting](../research/attribution-04f/decision.md). the user approved one population constraint, broader physical truths, separate progress/nomination criteria, and recovery across all identifiable player combinations. this is a synthetic mean-estimator comparison, not model admission.
+status: **implementation and bounded execution assigned on 2026-10-17** in branch `codex/04g-attribution-regularization`, worktree `/Users/nnandal/Documents/code/hockey-stats-04g`, with subagent implementation, independent adversarial review at each delivery boundary and temporary red/green/refactor integration checks deleted after verification. [the plan](../plan.md) owns progression. preserve the frozen [04e failure](../research/attribution-04e/decision.md) and [04f accounting](../research/attribution-04f/decision.md). the user approved one population constraint, broader physical truths, separate progress/nomination criteria, and recovery across all identifiable player combinations. this is a synthetic mean-estimator comparison, not model admission.
 
 ## question and boundary
 

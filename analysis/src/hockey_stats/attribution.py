@@ -149,9 +149,7 @@ class ShapeUpdate:
     mean: np.ndarray
     covariance: np.ndarray
     gain: np.ndarray
-    uncentered_mean: np.ndarray
     uncentered_covariance: np.ndarray
-    reference_shift: np.ndarray
     diagnostics: dict
 
 
@@ -494,9 +492,8 @@ def fixed_shape_update(
             and np.allclose(prior_covariance, prior_covariance.T, rtol=1e-10, atol=1e-10),
             "invalid fixed shape update contract")
     M, V, diagnostics = _posterior(H, score, prior_mean, prior_covariance)
-    uncentered_mean = M.copy()
-    M, centered, shift = _center(M, V, u, diagnostics)
-    return ShapeUpdate(M, centered, centered @ H, uncentered_mean, V, shift, diagnostics)
+    M, centered, _ = _center(M, V, u, diagnostics)
+    return ShapeUpdate(M, centered, centered @ H, V, diagnostics)
 
 
 def _block_at_scale(

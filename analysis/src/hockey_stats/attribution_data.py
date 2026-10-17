@@ -343,20 +343,32 @@ def weighted_population(
 
 
 def load_recovery_design(prepared: dict, model_protocol: dict) -> list[dict]:
+    """load the saved synthetic archive through its ordered array contract."""
+    return decode_recovery_design(prepared, model_protocol, load_arrays(prepared["synthetic_design"]))
+
+
+def decode_recovery_design(prepared: dict, model_protocol: dict, arrays: dict[str, np.ndarray]) -> list[dict]:
     """decode 04c's saved synthetic truth and design; never regenerate either.
 
     callers validate the enclosing evidence references. information is rebuilt
     once per year through the shared grouped residualization and independently
     checked against the complete row calculation. no responses are generated.
     """
-    require(prepared["schema_version"] == 3 and prepared["kind"] == "attribution_recovery_prepared"
+    require(type(prepared["schema_version"]) is int and prepared["schema_version"] == 3
+            and prepared["kind"] == "attribution_recovery_prepared"
             and prepared["seasons"] == list(RESEARCH_SEASONS)
             and prepared["purpose"] == model_protocol["purpose"]
             and prepared["source_prepared"] == model_protocol["source_prepared"]
             and prepared["source_protocol"] == model_protocol["source_protocol"]
             and prepared["request_sha256"] == model_protocol["request_sha256"],
             "fixed synthetic preparation differs from its original model protocol")
-    arrays = load_arrays(prepared["synthetic_design"])
+    shapes = prepared["synthetic_design"]["array_shapes"]
+    require(list(arrays) == [row["name"] for row in shapes]
+            and all(list(arrays[row["name"]].shape) == row["shape"]
+                    and arrays[row["name"]].dtype.str == row["dtype"]
+                    and arrays[row["name"]].dtype.kind in "biuf"
+                    and np.isfinite(arrays[row["name"]]).all() for row in shapes),
+            "fixed synthetic ordered array contract differs")
     names = ("offense", "defense", "seconds", "si", "u", "scalar_ticks", "truth_scalar", "truth_shape",
              "truth_map", "player_exposure", "home_teams", "away_teams")
     require(list(arrays) == [f"year_{year}_{name}" for year in range(5) for name in names] + ["p", "centers", "W"]

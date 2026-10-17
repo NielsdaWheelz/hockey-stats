@@ -47,6 +47,7 @@ def _figure(output, assessment):
             axis.plot([summary["upper"]]*2, [y-.06, y+.06], color="#255b83", linewidth=1)
         axis.set_title(title, fontsize=11)
         axis.set_xlabel("recorded unblocked (attempts/60)²\npositive favors candidate", fontsize=9)
+        axis.locator_params(axis="x", nbins=5)
         axis.grid(axis="x", alpha=.18)
         axis.tick_params(axis="both", labelsize=9)
     axes[0].set_yticks(range(4), [f"{row['population']} / {row['law'].replace('_', ' ')}" for row in rows])
@@ -70,7 +71,7 @@ def render_reports(output, assessment):
     output = Path(output)
     path = output/"comparison.csv"
     fields = ("record_type", "population", "law", "outer", "target", "partition", "arm", "arm_label",
-        "metric", "mean", "lower", "upper", "reason", "status", "prior_variance")
+        "metric", "mean", "lower", "upper", "reason", "status", "cell_progress_status", "prior_variance")
     with path.open("x", newline="", encoding="utf-8") as destination:
         writer = csv.DictWriter(destination, fieldnames=fields)
         writer.writeheader()
@@ -78,7 +79,7 @@ def render_reports(output, assessment):
             for metric, summary in row.items():
                 if isinstance(summary, dict) and "mean" in summary:
                     writer.writerow(dict(record_type="comparison", population=row["population"], law=row["law"],
-                        metric=metric, **summary, status=row["progress_status"]))
+                        metric=metric, **summary, cell_progress_status=row["progress_status"]))
             for criterion, status in row["criteria"].items():
                 writer.writerow(dict(record_type="criterion", population=row["population"], law=row["law"],
                     metric=criterion, status=status, reason=row["reason"]))

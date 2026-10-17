@@ -190,24 +190,26 @@ def load_arrays(document: dict) -> dict:
     return values
 
 
-def artifact(kind: str, purpose: str, consumed: dict, **fields) -> dict:
-    """one explicit producer and input identity boundary for active 04c artifacts."""
+def artifact(kind: str, purpose: str, consumed: dict, *, schema_version: int = 3, **fields) -> dict:
+    """bind a named schema to its producer and input identities."""
+    require(type(schema_version) is int and schema_version in (3, 4), "unsupported artifact schema")
     require(purpose in ("research", "fixture_exercise"), "invalid artifact purpose")
     producer = implementation()
     if purpose == "research":
         clean_implementation(producer)
-    return dict(schema_version=3, kind=kind, purpose=purpose, implementation=producer,
+    return dict(schema_version=schema_version, kind=kind, purpose=purpose, implementation=producer,
                 consumed=consumed, **fields)
 
 
-def read_artifact(path: Path | str, kind: str) -> dict:
+def read_artifact(path: Path | str, kind: str, *, expected_schema: int = 3) -> dict:
     from .chance_cli import read_json
 
+    require(type(expected_schema) is int and expected_schema in (3, 4), "unsupported artifact schema")
     document = read_json(Path(path).resolve(strict=True))
     require(isinstance(document, dict) and type(document.get("schema_version")) is int
-            and document["schema_version"] == 3 and document.get("kind") == kind
+            and document["schema_version"] == expected_schema and document.get("kind") == kind
             and document.get("purpose") in ("research", "fixture_exercise"),
-            "expected schema-3 " + kind)
+            f"expected schema-{expected_schema} " + kind)
     if document["purpose"] == "research":
         clean_implementation(document["implementation"])
     require(isinstance(document.get("consumed"), dict), "artifact consumed identities missing")

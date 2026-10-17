@@ -1,6 +1,6 @@
 # model direction
 
-updated 2026-10-16 after the post-04b review. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
+updated 2026-10-16 through the 04e specification. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
 
 ## approved direction and decision logic
 
@@ -77,6 +77,16 @@ the user selected diagnosis of existing known-truth simulations only. [04d](../s
 freeze existing scales for transmission diagnostics, explicitly treating them as response-dependent selections. a mean-response replay is not the expectation conditional on those selections. include observation noise when calculating the expected marginal objective; noiseless scale fitting would change that objective. a truth-informed variance that lowers one contrast's error cannot be adopted as an available estimator. several mechanisms may coexist, and an unresolved explanation is valid.
 
 the cost is one bounded diagnostic implementation and reading existing artifacts before another model decision. the benefit is separating representation, information and prior pressure without another speculative campaign. no new synthetic/real fits, prior replacement, real-deployment identification or uncertainty calibration is implied. these exposed synthetic cases cannot nominate a real model. the plan owns assignment; complete-rate accuracy, real-player evidence and publication remain separate.
+
+### selected 04e pooling question — 2026-10-16
+
+[04d's completed evidence](attribution-04d/decision.md) finds little omission of its broad targets, limited likelihood precision and substantial selected-scale suppression. annual carry supports those targets; changing the historical mechanism is not the next isolated hypothesis. a global criterion and sparse contrast risk prefer different scales, but oracle risk cannot select a deployable variance or prove that the global objective is wrong.
+
+the user selected [04e](../specs/04e-attribution-pooling.md): keep the same 40-dimensional shape representation, but learn separate entry/innovation strengths for its nominal 80-foot broad subspace and remaining detail. each band retains full player covariance; native context appears once. this tests spatial exchangeability while leaving player exchangeability within bands intact. player-specific adaptive pooling is retained as a distinct alternative, not bundled into this comparison.
+
+new physical-coordinate patterns, sparse/diffuse activation and a null population replace selection on familiar 04c examples. fixed training and independent evaluation deployments keep the question bounded; inference remains conditional on those designs and references. both arms fit identical responses. the user requires at least 25% lower mean regional squared error than zero, supported improvement over unchanged pooling, and at least 99% retention of control shape-prediction gain. all identifiable pairs count, including inactive ones. these are new prospective attribution policies, not inherited chance-model margins or a guarantee for every player.
+
+the user chose recovery/prediction first: no nested uncertainty or real fitting. null behavior is a mandatory diagnostic without an added veto; nomination is limited to tested non-null conditions. successful means would still leave individual intervals, complete-rate adequacy, real-player identification and chance valuation unresolved. two bands add one covariance/scale process and still cannot identify inseparable teammates or recover information absent from observations. no cutoff search, oracle tuning or automatic local-player prior follows a failure.
 
 the approved private observed product can develop independently, using counts, matched exposure and coverage only. it provides real utility and feedback without relabeling provisional fitted associations. later deployment, age and chance questions remain explicit alternatives chosen from evidence; adding all prepared features or more years is not the default response to this controlled failure.
 

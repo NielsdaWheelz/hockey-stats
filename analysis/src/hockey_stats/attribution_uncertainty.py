@@ -1,6 +1,6 @@
 """joint game-refit projections with fixed references and exact-null protection."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import json
 from pathlib import Path
@@ -8,7 +8,7 @@ import time
 
 import numpy as np
 
-from .artifacts import linked_path, require, resources
+from .artifacts import linked_path, ordered_array_digest, require, resources
 from .captures import InputContractError
 from .chance_cli import identity, read_json
 from .chance_evaluation import REGION_NAMES, compound_regions
@@ -223,11 +223,33 @@ def project_native_04b_requests(state, requests: list[dict], duplicate_groups: l
     return projected
 
 
+def _history_input_identity(grouped, references, multipliers: np.ndarray) -> str:
+    """bind grouped response, row order, references and weights; raw draws belong to the study."""
+    arrays = {name: np.asarray(getattr(references, name)) for name in
+              ("r", "u", "player_exposure", "response_counts")}
+    if references.p is not None:
+        arrays["p"] = references.p
+    arrays["game_weights"] = np.asarray(multipliers)
+    for name in ("stratum_e", "Q_t", "Q_h"):
+        value = getattr(grouped, name)
+        if value is not None:
+            arrays[name] = value
+    for name in ("H_e", "T_raw", "stratum_x", "stratum_n"):
+        value = getattr(grouped, name)
+        arrays.update({f"{name}_{part}": np.asarray(getattr(value, part)) for part in
+                       ("shape", "indptr", "indices", "data")})
+    metadata = [references.benchmark, references.season, references.season_index,
+                references.protocol_sha256, references.population_id, references.player_ids,
+                references.strata, grouped.game_ids, grouped.membership_signatures, grouped.row_count,
+                ordered_array_digest(arrays)]
+    return hashlib.sha256(json.dumps(metadata, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+
+
 def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchmarks: tuple[str, ...],
                 game_multipliers: dict[str, np.ndarray], representation: str, basis,
-                model_protocol_sha256: str) -> tuple[dict, dict]:
-    """one chronological fit owner for explicit unit weights and historical refits."""
-    from .attribution import fit_recovery_year
+                model_protocol_sha256: str, shared_volume: dict | None = None) -> tuple[dict, dict]:
+    """one chronology owner; paired arms share explicit same-evidence annual volume states."""
+    from .attribution import TwoBandShapeState, fit_recovery_year
     from .attribution_data import weighted_population
 
     seasons = inputs.document["seasons"]
@@ -243,6 +265,10 @@ def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchma
     require(len({request_key(request) for request in projection_requests}) == len(projection_requests)
             and all(request["benchmark"] in benchmarks and request["season"] in seasons
                     for request in projection_requests), "history projection requests are duplicated or outside its population")
+    require((representation == "graph_two_band_80ft" and shared_volume is not None
+                and set(shared_volume) == set(inputs.populations))
+            or (representation != "graph_two_band_80ft" and shared_volume is None),
+            "two-band history requires exactly its explicit control volume history")
     previous = {benchmark: None for benchmark in benchmarks}
     projections, annual, states = [], [], {}
     started = time.monotonic()
@@ -255,8 +281,24 @@ def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchma
             grouped, references = inputs.populations[(benchmark, season)]
             try:
                 population = weighted_population(grouped, multipliers, references)
+                input_sha256 = _history_input_identity(grouped, references, multipliers)
+                shared = None if shared_volume is None else shared_volume[(benchmark, season)]
+                if shared is not None:
+                    require(shared.representation == "graph_40ft"
+                            and shared.volume.diagnostics.get("history_input_sha256") == input_sha256,
+                            "shared volume history differs in grouped response, row order or fixed references")
+                    if previous[benchmark] is not None:
+                        require(previous[benchmark].volume is
+                                shared_volume[(benchmark, previous[benchmark].season)].volume,
+                                "shared volume history changed previous-volume lineage")
                 state = fit_recovery_year(population, previous[benchmark], representation=representation,
-                                          basis=basis, model_protocol_sha256=model_protocol_sha256)
+                                          basis=basis, model_protocol_sha256=model_protocol_sha256,
+                                          shared_volume=shared)
+                if shared is not None:
+                    require(state.volume is shared.volume, "paired history did not share its explicit volume block")
+                else:
+                    state = replace(state, volume=replace(state.volume, diagnostics=dict(
+                        state.volume.diagnostics, history_input_sha256=input_sha256)))
                 requests = [request for request in projection_requests
                             if request["benchmark"] == benchmark and request["season"] == season]
                 projected = project_requests(state, requests, inputs.duplicate_groups[(benchmark, season)])
@@ -267,10 +309,13 @@ def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchma
                             resources=resources(started)), states
             previous[benchmark] = state
             states[(benchmark, season)] = state
+            if isinstance(state.shape, TwoBandShapeState):
+                shape = dict(kind="two_band", low=dict(scale=state.shape.low.scale, diagnostics=state.shape.low.diagnostics),
+                             high=dict(scale=state.shape.high.scale, diagnostics=state.shape.high.diagnostics))
+            else:
+                shape = None if state.shape is None else dict(scale=state.shape.scale, diagnostics=state.shape.diagnostics)
             annual.append(dict(benchmark=benchmark, season=season, status="complete",
-                               volume=dict(scale=state.volume.scale, diagnostics=state.volume.diagnostics),
-                               shape=None if state.shape is None else
-                               dict(scale=state.shape.scale, diagnostics=state.shape.diagnostics)))
+                               volume=dict(scale=state.volume.scale, diagnostics=state.volume.diagnostics), shape=shape))
             projections.extend(projected)
     require(len(projections) == len(projection_requests), "history did not satisfy all projection requests")
     return dict(status="complete", error=None, failed=None, projections=projections, annual=annual,
@@ -297,6 +342,16 @@ def refit_history(inputs: RefitInputs, draw_id: int, projection_requests: list[d
     return result
 
 
+def _block_receipt(block: dict) -> dict:
+    receipt = {key: block["scale"][key] for key in
+               ("status", "selected", "own_reasons", "inherited_limitation")}
+    receipt["numerical"] = {key: block["diagnostics"][key] for key in (
+        "equation_relative_residual", "original_mean_equation_relative_residual",
+        "original_covariance_equation_relative_residual", "covariance_rounding_tolerance",
+        "centered_covariance_symmetry", "centered_mean_residual")}
+    return receipt
+
+
 def annual_receipts(annual: list[dict]) -> list[dict]:
     result = []
     for row in annual:
@@ -304,15 +359,15 @@ def annual_receipts(annual: list[dict]) -> list[dict]:
         if row["status"] != "complete":
             reduced["error"] = row["error"]
         else:
-            for name in ("volume", "shape"):
-                reduced[name] = (None if row[name] is None else
-                    {key: row[name]["scale"][key] for key in
-                     ("status", "selected", "own_reasons", "inherited_limitation")})
-                if reduced[name] is not None:
-                    reduced[name]["numerical"] = {key: row[name]["diagnostics"][key] for key in (
-                        "equation_relative_residual", "original_mean_equation_relative_residual",
-                        "original_covariance_equation_relative_residual", "covariance_rounding_tolerance",
-                        "centered_covariance_symmetry", "centered_mean_residual")}
+            reduced["volume"] = _block_receipt(row["volume"])
+            shape = row["shape"]
+            if shape is None:
+                reduced["shape"] = None
+            elif shape.get("kind") == "two_band":
+                reduced["shape"] = dict(kind="two_band", low=_block_receipt(shape["low"]),
+                                        high=_block_receipt(shape["high"]))
+            else:
+                reduced["shape"] = _block_receipt(shape)
         result.append(reduced)
     return result
 

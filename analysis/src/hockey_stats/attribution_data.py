@@ -10,7 +10,7 @@ import math
 from dataclasses import dataclass
 from itertools import groupby
 from pathlib import Path
-from typing import TypedDict
+from typing import TYPE_CHECKING, TypedDict
 
 import numpy as np
 from scipy import sparse
@@ -23,8 +23,13 @@ from .artifacts import (
 )
 from .chance_cli import read_json
 
+if TYPE_CHECKING:
+    from .attribution import PoolingSource, PoolingStatistics
+
 POPULATIONS = ("all_attempts", "unblocked_spatial")
 RESEARCH_SEASONS = tuple(f"{year}{year + 1}" for year in range(2021, 2026))
+POOLING_STAT_FIELDS = ("H", "T", "yy", "shape_yy", "xbar", "ybar", "stratum_weight", "player_exposure",
+                       "response_counts", "u", "p", "r", "player_ids")
 
 
 class ArtifactReference(TypedDict):
@@ -94,6 +99,39 @@ class RevisionPopulation:
     response_counts: np.ndarray
     u: np.ndarray
     p: np.ndarray | None
+
+
+def pooling_population(source: "PoolingSource", statistics: "PoolingStatistics", population: str,
+                       law: str, outer: int, season: str) -> RevisionPopulation:
+    """decode one bound schema-4 annual likelihood in its original reference/order."""
+    prepared = source.prepared
+    require(population in ("sparse", "diffuse", "null") and law in ("gaussian", "game_pace")
+            and type(outer) is int and 0 <= outer < source.protocol["budgets"]["outer_per_cell"],
+            "pooling annual population/law/outer differs")
+    require(statistics.prepared_sha256 == source.reference["sha256"]
+            and prepared["seasons"] == [row["season"] for row in prepared["years"]]
+            and list(statistics.arrays) == [annual["season"] + "_" + name
+                                           for annual in prepared["years"] for name in POOLING_STAT_FIELDS],
+            "pooling sufficient statistics changed preparation or annual field order")
+    years = [row for row in prepared["years"] if row["season"] == season]
+    require(len(years) == 1, "pooling annual season absent or duplicated")
+    annual = years[0]
+    players, strata = tuple(annual["players"]), tuple(map(tuple, annual["strata"]))
+    n, s = len(players), len(strata)
+    values = {name: statistics.arrays[season + "_" + name] for name in POOLING_STAT_FIELDS}
+    shapes = dict(H=(2*n, 2*n), T=(2*n, 656), yy=(), shape_yy=(), xbar=(s, 2*n), ybar=(s, 656),
+                  stratum_weight=(s,), player_exposure=(n,), response_counts=(656,), u=(n,), p=(656,),
+                  r=(), player_ids=(n,))
+    require(players == tuple(sorted(set(players))) and strata == tuple(sorted(set(strata)))
+            and all(values[name].shape == shape for name, shape in shapes.items())
+            and tuple(values["player_ids"].tolist()) == players
+            and float(values["r"]) == 40. and np.array_equal(values["p"], source.basis.p),
+            "pooling original sufficient-statistic shapes, players or references differ")
+    return RevisionPopulation("unblocked_spatial", season, prepared["seasons"].index(season),
+        prepared["protocol"]["sha256"], f"synthetic:04e:{population}:{law}:{outer}:unblocked_spatial",
+        players, strata, values["H"], values["T"], float(values["yy"]), float(values["shape_yy"]), 40.,
+        values["xbar"], values["ybar"], values["stratum_weight"], values["player_exposure"],
+        values["response_counts"], values["u"], values["p"])
 
 
 def group_observations(
@@ -465,13 +503,17 @@ def embed_recovery_information(design: dict, all_seen_player_ids: tuple[int, ...
 
 
 def synthetic_population(design: dict, responses: np.ndarray, season_index: int,
-                         source_protocol_sha: str, case_id: int, outer_id: int) -> tuple[GroupedPopulation, AnnualReferences]:
+                         source_protocol_sha: str, case_id: int, outer_id: int, *,
+                         population_id: str | None = None) -> tuple[GroupedPopulation, AnnualReferences]:
     """contract one existing synthetic annual response into shared game moments."""
     require(type(season_index) is int and 0 <= season_index < len(RESEARCH_SEASONS)
             and responses.shape == (len(design["seconds"]), 656) and np.isfinite(responses).all(),
             "invalid fixed synthetic annual response")
+    require(population_id is None or (isinstance(population_id, str) and population_id.startswith("synthetic:")),
+            "synthetic population requires an explicit synthetic identity")
     references = AnnualReferences("unblocked_spatial", RESEARCH_SEASONS[season_index], season_index,
-        source_protocol_sha, f"synthetic:04c:{case_id}:{outer_id}:unblocked_spatial", design["players"],
+        source_protocol_sha, population_id if population_id is not None else
+        f"synthetic:04c:{case_id}:{outer_id}:unblocked_spatial", design["players"],
         design["strata"], 40., design["u"].copy(), design["p"].copy(), design["player_exposure"].copy(), responses.sum(axis=0))
     rows = (dict(game_id=int(design["row_game_ids"][i]), offense=design["offense"][i], defense=design["defense"][i],
                  seconds=float(design["seconds"][i]), stratum=design["strata"][int(design["si"][i])], counts=responses[i])
@@ -483,6 +525,51 @@ def statistic_digest(population: RevisionPopulation) -> str:
     """the original 04c ordered unit-weight statistic identity."""
     return ordered_array_digest({name: np.asarray(getattr(population, name)) for name in
         ("H", "T", "yy", "shape_yy", "xbar", "ybar", "stratum_weight", "u", "p")})
+
+
+def exposure_centering(u: np.ndarray) -> np.ndarray:
+    """the role-wise exposure gauge; carried-only player rows have zero weight."""
+    require(u.ndim == 1 and len(u) > 0 and np.isfinite(u).all() and np.all(u >= 0)
+            and abs(float(u.sum()) - 1) <= 1e-12, "invalid exposure-centering reference")
+    return np.kron(np.eye(2), np.eye(len(u)) - np.ones((len(u), 1)) * u)
+
+
+def likelihood_spectrum(H: np.ndarray) -> tuple:
+    """04d's likelihood rank and declared cutoff-sensitivity calculation."""
+    require(H.ndim == 2 and H.shape[0] == H.shape[1] and len(H) > 0 and np.isfinite(H).all(),
+            "likelihood information must be a finite nonempty square matrix")
+    values, vectors = np.linalg.eigh((H + H.T) / 2)
+    tau = 100 * len(H) * np.finfo(float).eps * max(float(values[-1]), 0.)
+    require(float(values[0]) >= -tau, "likelihood information has a negative eigenvalue below -tau")
+    masks = [values > factor * tau for factor in (.1, 1., 10.)]
+    return values, vectors, tau, masks
+
+
+def centered_estimability(H: np.ndarray, P: np.ndarray, c: np.ndarray, *, spectrum=None) -> dict:
+    """test a centered functional against likelihood information, never its prior."""
+    require(P.shape == H.shape and c.shape == (len(H),)
+            and np.isfinite(P).all() and np.isfinite(c).all(),
+            "centered functional differs from ordered likelihood information")
+    values, vectors, tau, masks = likelihood_spectrum(H) if spectrum is None else spectrum
+    require(values.shape == (len(H),) and vectors.shape == H.shape,
+            "likelihood spectrum differs from ordered information")
+    d = P.T @ c
+    norm = float(np.linalg.norm(d))
+    statuses, nulls, precisions = [], [], []
+    for mask in masks:
+        null = float(np.linalg.norm(d - vectors[:, mask] @ (vectors[:, mask].T @ d)) / norm) if norm else 0.
+        statuses.append("zero_functional" if norm == 0 else "not_estimable" if null > 1e-8 else "available")
+        nulls.append(null)
+        precisions.append(float(np.sum((vectors[:, mask].T @ d) ** 2 / values[mask]))
+                          if norm and statuses[-1] == "available" else None)
+    stable = len(set(statuses)) == 1 and len({int(mask.sum()) for mask in masks}) == 1
+    status = statuses[1] if stable else "numerically_unresolved"
+    return dict(status=status, rank=int(masks[1].sum()), dimension=len(H),
+        nullity=int(len(H) - masks[1].sum()), tau=tau,
+        rank_at_tau_factors=[int(mask.sum()) for mask in masks], null_projection=nulls[1],
+        null_at_tau_factors=nulls, status_at_tau_factors=statuses,
+        centered_functional_norm=norm,
+        contrast_information_inverse=precisions[1] if status == "available" else None)
 
 
 REVISION_RULES = {

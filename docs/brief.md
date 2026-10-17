@@ -70,6 +70,9 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04g prior, approved 2026-10-17 | one population constraint alongside annual historical borrowing, retaining marginal-likelihood selection | may suppress inherited noise and genuine persistent effects; no simultaneous selection-method, age or spatial-band change |
 | 04g assessment, approved 2026-10-17 | retain original pair cases and add independently generated physical player fields; recover all identifiable player combinations | broader synthetic scope and more fits; the primary regional score changes prospectively. inseparable individual effects remain unavailable |
 | 04g progress and nomination, approved 2026-10-17 | distinguish supported recovery/prediction improvement over control from useful-estimator nomination; nomination also requires at least 25% lower regional error than zero and positive own prediction gain | the old negative-control-gain retention ratio is not reused. null behavior remains a mandatory diagnostic; neither progress nor nomination admits real-player ability |
+| 04h noise laws, confirmed 2026-10-17 | include both gaussian and game-dependent count noise | more covariance algebra and saved-response comparisons; no new research responses or annual fitting campaign |
+| 04h claim, confirmed 2026-10-17 | diagnostic recovery curves without a new absolute accuracy gate; retain the old 25% criterion as a labeled reference | guides a subsequent question; cannot select a publishable estimator or retrospectively rescue a failed study |
+| 04h temporal benchmark, confirmed 2026-10-17 | reuse the existing five-season histories, entrants and changed returner | preserves matched evidence and exposes constant-pooling bias; no new fully persistent population |
 
 ## initial product and scope
 
@@ -102,6 +105,8 @@ ingestion, analytical processing, and fitting run locally with the external hdd 
 the user approved bringing forward a private observed-results website alongside attribution research. [05a](specs/05a-observed-website.md) records the bounded target: the existing completed-season selection, league table/name search, player identity, recorded 5v5 attempts for/against, matched reconstructed exposure/rates and reconciled game evidence with visible gaps. source and aggregation checks still apply; chance-model admission is not a dependency for these observed quantities. omit ability panels rather than showing withheld fitted results as supported estimates.
 
 this is an intermediate delivery, not fulfillment or narrowing of the first analytical product below. it uses the same python → sqlite → effect → frontend boundary and explicit local publication. richer observed maps, comparisons, public hosting and analytical claims remain outside this initial slice. the accepted cost is possible schema/view adjustment when supported ability arrives; the benefit is earlier utility and design feedback. [the plan](plan.md) owns assignment; direction approval does not authorize implementation or activation.
+
+on 2026-10-17 the user approved a separate [05b observed-comparison direction](specs/05b-observed-comparison.md): two players' existing counts/rates, included minutes, coverage and profile/game evidence, from the same active publication. it remains localhost-only and descriptive; no new metrics, percentile cohorts, adjusted estimates or public hosting are implied. it advances comparison utility while supported ability remains unresolved.
 
 ## what interpretability requires
 
@@ -161,7 +166,7 @@ no further user preference is required to complete this brief. unresolved empiri
 |---|---|---|
 | concrete dependency pins and interface fields | engineering, relevant slice specification | selected architecture, current compatibility and the slice's actual inputs/outputs |
 | model family, within-season evidence weighting, xg/shot definitions, priors, contexts, uncertainty method | statistical design, before the relevant implementation slice | the settled season-level estimand and explicit evidence requirements; benchmarked candidates |
-| meaningful player resolution and representation cost | 04a/03p full specifications | declared effect sizes/units, bounded sensitivities and prospective claim-specific margins; no threshold chosen to rescue old failures |
+| meaningful player resolution and representation cost | preserve 04a/03p's choices; 04h full specification connects broad spatial recovery to hockey units | declared physical effects, attainable resolution within examined families and prospective claim-specific margins; no threshold chosen to rescue old failures |
 | detailed card reference versions and component expansion order | product/statistical design, as later components are specified | pinned examples and method descriptions; the long-term destination itself is settled |
 | trustworthy historical coverage and training horizon | data audit and statistical validation | actual source inventory, reconstruction checks, and held-out evidence |
 | offline evidence and lasting verification | each slice preserves distinct new failures; selected stable source/numerical checks can precede the website under 07 | attributable cases, independently checked expectations and a small practical offline selection; later browser checks follow their consumers |

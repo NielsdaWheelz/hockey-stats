@@ -6,6 +6,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 2026-10-16 amendment: [05a](specs/05a-observed-website.md) brings forward a private observed subset: league table/search, player identity, recorded 5v5 counts, matched reconstructed exposure/rates and reconciled game evidence with coverage. this does not promote the later descriptive-card family or fulfill the first analytical product. ability, xg, adjusted maps and comparisons remain outside that intermediate slice.
 
+2026-10-17 amendment: [05b](specs/05b-observed-comparison.md) selects a separate two-player comparison of those existing observed quantities. reuse the same publication and api; no new metric, percentile cohort or ability claim. richer comparison/distribution/card capabilities below remain later.
+
 ## analytical dependencies
 
 the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.

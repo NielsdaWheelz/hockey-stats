@@ -533,10 +533,11 @@ def fit(prepared, population, law, start, stop, output):
         inputs = RefitInputs(dict(seasons=list(SEASONS)), protocol, populations, None, groups, "synthetic")
         weights = {season: np.ones(len(populations[(BENCHMARK, season)][0].game_ids)) for season in SEASONS}
         control_receipt, control = fit_history(inputs, [], benchmarks=(BENCHMARK,), game_multipliers=weights,
-            representation=ARMS[0], basis=basis, model_protocol_sha256=document["protocol"]["sha256"])
+            representation=ARMS[0], basis=basis, model_protocol_sha256=document["protocol"]["sha256"], prior_policy="history")
         require(control_receipt["status"] == "complete", "control numerical execution incomplete: " + str(_numerical_failures(control_receipt)))
         candidate_receipt, candidate = fit_history(inputs, [], benchmarks=(BENCHMARK,), game_multipliers=weights,
-            representation=ARMS[1], basis=basis, model_protocol_sha256=document["protocol"]["sha256"], shared_volume=control)
+            representation=ARMS[1], basis=basis, model_protocol_sha256=document["protocol"]["sha256"],
+            prior_policy="history", shared_volume=control)
         require(candidate_receipt["status"] == "complete", "candidate numerical execution incomplete: " + str(_numerical_failures(candidate_receipt)))
         histories, losses, probes, probe_arrays = {arm: [] for arm in ARMS}, [], [], {}
         previous_refs = {arm: None for arm in ARMS}

@@ -852,7 +852,7 @@ def point_chains(inputs, model_protocol_sha256: str, basis) -> tuple[dict, dict]
     for representation in ("native_04b", "graph_40ft"):
         receipt, chain = fit_history(inputs, [], benchmarks=("unblocked_spatial",), game_multipliers=weights,
             representation=representation, basis=basis if representation == "graph_40ft" else None,
-            model_protocol_sha256=model_protocol_sha256)
+            model_protocol_sha256=model_protocol_sha256, prior_policy="history")
         states[representation], receipts[representation] = chain, receipt
     return states, receipts
 
@@ -1476,7 +1476,8 @@ def fit_real(prepared: Path | str, means: Path | str, intervals: Path | str, out
     inputs = RefitInputs(dict(seasons=list(SEASONS)), protocol, populations, document['source_prepared'], groups, 'recorded')
     weights = {season: np.ones(len(populations[('unblocked_spatial', season)][0].game_ids)) for season in SEASONS}
     receipt, states = fit_history(inputs, [], benchmarks=('unblocked_spatial',), game_multipliers=weights,
-        representation='graph_40ft', basis=basis, model_protocol_sha256=document['model_protocol']['sha256'])
+        representation='graph_40ft', basis=basis, model_protocol_sha256=document['model_protocol']['sha256'],
+        prior_policy='history')
     W, _ = shape_regions()
     annual, probes, replay, diagnostics, arrays = [], [], [], [], {}
     previous_path = previous_state = None

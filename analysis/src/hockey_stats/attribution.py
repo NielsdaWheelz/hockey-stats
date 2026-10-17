@@ -2710,7 +2710,7 @@ def write_regularization_annual(
         response_sha256=response_sha256, annual_input_sha256=annual_input_identity(population),
         historical_prior_sha256=historical, effective_prior_sha256=effective,
         volume=blocks["volume"], shape=blocks["shape"], numerical_probe=numerical_probe,
-        units=REGULARIZATION_UNITS, **arrays)
+        units=REGULARIZATION_UNITS, admission="not_admitted", handoff=None, **arrays)
     _validate_regularization_parents(document, previous, shared_volume)
     require(purpose != "research" or document["implementation"] == protocol_document["implementation"],
             "regularization annual producer differs from its frozen protocol")
@@ -2730,6 +2730,7 @@ def read_regularization_annual(
     require(document["consumed"] == parents and all(document[name] == reference for name, reference in parents.items())
         and document["source_kind"] == "synthetic" and document["representation"] == "graph_40ft"
         and document["model_protocol_sha256"] == protocol["sha256"] and document["basis_sha256"] == basis.sha256
+        and document["admission"] == "not_admitted" and document["handoff"] is None
         and document["units"] == REGULARIZATION_UNITS and document["annual_input_sha256"] == annual_input_identity(population)
         and document["strata"] == list(map(list, population.strata)), "regularization annual evidence binding differs")
     for reference in parents.values():

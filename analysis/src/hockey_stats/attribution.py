@@ -98,6 +98,11 @@ def build_shape_basis(geometry: tuple[np.ndarray, np.ndarray], p: np.ndarray) ->
 def read_shape_basis(prepared: dict) -> ShapeBasis:
     """read the one saved basis; do not recompute eigenvector signs in a history."""
     arrays = load_arrays(dict(arrays=prepared["basis"], array_shapes=prepared["basis_shapes"]))
+    return decode_shape_basis(arrays, basis_sha256=prepared["basis_sha256"])
+
+
+def decode_shape_basis(arrays: dict[str, np.ndarray], *, basis_sha256: str) -> ShapeBasis:
+    """validate the fixed graph geometry from one already loaded ordered archive."""
     require(list(arrays) == ["B", "p", "eigenvalues"], "saved shape basis array order differs")
     B, p, eigenvalues = arrays["B"], arrays["p"], arrays["eigenvalues"]
     require(
@@ -107,10 +112,10 @@ def read_shape_basis(prepared: dict) -> ShapeBasis:
         and eigenvalues[-1] < (2 * math.pi / 40) ** 2 - 1e-8
         and np.max(np.abs(p @ B)) <= 1e-10
         and np.max(np.abs(B.T @ (p[:, None] * B) - np.eye(40))) <= 1e-10
-        and _basis_identity(B, p, eigenvalues) == prepared["basis_sha256"],
+        and _basis_identity(B, p, eigenvalues) == basis_sha256,
         "saved shape basis geometry, whitening or identity differs",
     )
-    return ShapeBasis(B, p, eigenvalues, prepared["basis_sha256"])
+    return ShapeBasis(B, p, eigenvalues, basis_sha256)
 
 
 @dataclass(frozen=True)

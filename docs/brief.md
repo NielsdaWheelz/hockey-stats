@@ -67,6 +67,9 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04e prediction cost, confirmed 2026-10-16 | retain at least 99% of control prediction gain over no player shape effects, with uncertainty supporting the limit | at most 1% of the gain may be lost, not 1% of total error; positive control gain must be supported |
 | 04e null population, confirmed 2026-10-16 | mandatory diagnostic, without a separate nomination gate | nomination is limited to tested non-null populations; null/false-map behavior remains visible |
 | post-04e direction, approved 2026-10-16 | explain failed prediction from saved evidence before selecting another attribution revision | one bounded diagnosis, no new fits; compare recovery-tested differences with full-lineup prediction and preserve context/player interaction. no successor model or narrower product claim is selected |
+| 04g prior, approved 2026-10-17 | one population constraint alongside annual historical borrowing, retaining marginal-likelihood selection | may suppress inherited noise and genuine persistent effects; no simultaneous selection-method, age or spatial-band change |
+| 04g assessment, approved 2026-10-17 | retain original pair cases and add independently generated physical player fields; recover all identifiable player combinations | broader synthetic scope and more fits; the primary regional score changes prospectively. inseparable individual effects remain unavailable |
+| 04g progress and nomination, approved 2026-10-17 | distinguish supported recovery/prediction improvement over control from useful-estimator nomination; nomination also requires at least 25% lower regional error than zero and positive own prediction gain | the old negative-control-gain retention ratio is not reused. null behavior remains a mandatory diagnostic; neither progress nor nomination admits real-player ability |
 
 ## initial product and scope
 

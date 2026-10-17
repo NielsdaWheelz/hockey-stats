@@ -1,0 +1,134 @@
+{
+  "kind": "synthetic_attribution_population_history_algebra",
+  "purpose": "fixture_exercise",
+  "description": "deterministic gaussian oracle inputs and independently solved moments; no hockey capture, fitted annual state or research input",
+  "arrays": {
+    "path": "population-history.npz",
+    "sha256": "e92cc30c0cf84b2226a3266ed219519c1f4057c36e410a89ffc9b876999ade32",
+    "shapes": {
+      "design": [
+        13,
+        8
+      ],
+      "responses": [
+        13,
+        40
+      ],
+      "historical_mean": [
+        8,
+        40
+      ],
+      "historical_covariance": [
+        8,
+        8
+      ],
+      "u": [
+        4
+      ],
+      "population_precision": [
+        4
+      ],
+      "expected_prior_mean": [
+        4,
+        8,
+        40
+      ],
+      "expected_prior_covariance": [
+        4,
+        8,
+        8
+      ],
+      "expected_full_objective": [
+        4
+      ],
+      "expected_posterior_mean": [
+        4,
+        8,
+        40
+      ],
+      "expected_posterior_covariance": [
+        4,
+        8,
+        8
+      ],
+      "expected_centered_mean": [
+        4,
+        8,
+        40
+      ],
+      "expected_centered_covariance": [
+        4,
+        8,
+        8
+      ]
+    },
+    "dtype": "float64",
+    "order": [
+      "design",
+      "responses",
+      "historical_mean",
+      "historical_covariance",
+      "u",
+      "population_precision",
+      "expected_prior_mean",
+      "expected_prior_covariance",
+      "expected_full_objective",
+      "expected_posterior_mean",
+      "expected_posterior_covariance",
+      "expected_centered_mean",
+      "expected_centered_covariance"
+    ]
+  },
+  "random_source": {
+    "bit_generator": "PCG64",
+    "seed": 54821,
+    "draw_order": [
+      "design: normal(13,8)",
+      "Q: normal(8,8)",
+      "historical_mean: .2*normal(8,40)",
+      "responses: normal(13,40)"
+    ],
+    "additional_check_draw": "rotation=qr(normal(40,40))[0], after the listed input draws"
+  },
+  "dimensions": {
+    "player_role_rows": 8,
+    "players_per_role": 4,
+    "response_columns": 40,
+    "observation_rows": 13
+  },
+  "population_precision": [
+    0.0,
+    0.07,
+    3.0,
+    1000000.0
+  ],
+  "reconstruction": {
+    "historical_covariance": "Q @ Q.T / 20 + .02*I",
+    "likelihood_information": "design.T @ design",
+    "likelihood_score": "design.T @ responses",
+    "response_energy": "sum(responses**2)",
+    "centering": "P=block_diag(I4-ones(4,1)@u[None,:], I4-ones(4,1)@u[None,:])",
+    "effective_prior": "precision=solve(historical_covariance,I8)+lambda*I8; mean=solve(precision,solve(historical_covariance,historical_mean)); covariance=solve(precision,I8)",
+    "full_objective": "S=I13+design@effective_covariance@design.T; D=responses-design@effective_mean; 40*logdet(S)+sum(D*solve(S,D))",
+    "posterior": "precision_post=precision+design.T@design; mean=solve(precision_post,design.T@responses+solve(historical_covariance,historical_mean)); covariance=solve(precision_post,I8)",
+    "centered_moments": "P@posterior_mean; P@posterior_covariance@P.T",
+    "expected_array_order": "first dimension follows population_precision exactly"
+  },
+  "checks": {
+    "tolerance": "abs(actual-expected)<=1e-10*(1+max(abs(expected)))",
+    "maximum_absolute_residuals": {
+      "prior_mean": 1.0269562977782698e-15,
+      "prior_covariance": 3.0531133177191805e-16,
+      "full_objective": 1.1368683772161603e-13,
+      "posterior_mean": 6.38378239159465e-16,
+      "posterior_covariance": 6.938893903907228e-17,
+      "centered_mean": 6.765421556309548e-16,
+      "centered_covariance": 6.245004513516506e-17,
+      "basis_rotation": 1.1368683772161603e-13,
+      "centering": 4.240338366817675e-17
+    },
+    "lambda_zero_returns_input_prior_exactly": true,
+    "finite_float64_arrays": true
+  },
+  "limitation": "one correlated proper prior and dense gaussian likelihood exercise normalization, full marginal energy and complete centered moments; these forty abstract response columns have no graph or hockey interpretation, no selected q, and no scientific admission claim"
+}

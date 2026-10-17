@@ -8,7 +8,8 @@ import time
 
 import numpy as np
 
-from .artifacts import linked_path, ordered_array_digest, require, resources
+from .artifacts import digest, linked_path, ordered_array_digest, require, resources
+from .attribution_data import RevisionPopulation
 from .captures import InputContractError
 from .chance_cli import identity, read_json
 from .chance_evaluation import REGION_NAMES, compound_regions
@@ -245,11 +246,99 @@ def _history_input_identity(grouped, references, multipliers: np.ndarray) -> str
     return hashlib.sha256(json.dumps(metadata, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
 
 
+def fit_population_history(
+    populations: tuple[RevisionPopulation, ...], projection_requests: list[dict], *,
+    source_identity: dict, model_protocol_sha256: str, prior_policy: str,
+    representation: str, basis, shared_volume: dict | None = None,
+    control_references: dict | None = None, duplicate_groups: dict | None = None,
+) -> tuple[dict, dict]:
+    """one annual loop for prepared likelihoods; callers decode immutable control parents."""
+    from .attribution import TwoBandShapeState, annual_input_identity, fit_recovery_year
+
+    digest(model_protocol_sha256)
+    require(bool(populations) and all(isinstance(row, RevisionPopulation) for row in populations)
+            and isinstance(source_identity, dict) and bool(source_identity),
+            "population history requires ordered likelihoods and an explicit source identity")
+    json.dumps(source_identity, allow_nan=False)
+    seasons = list(dict.fromkeys(row.season for row in populations))
+    benchmarks = tuple(dict.fromkeys(row.benchmark for row in populations))
+    keys = [(row.benchmark, row.season) for row in populations]
+    require(keys == [(benchmark, season) for season in seasons for benchmark in benchmarks]
+            and all(row.season_index == seasons.index(row.season) for row in populations),
+            "population history must contain each benchmark in consecutive season-major order")
+    require(prior_policy in ("history", "population_history")
+            and ((prior_policy == "population_history" and representation == "graph_40ft")
+                 or prior_policy == "history"), "unsupported history prior policy or representation")
+    needs_control = prior_policy == "population_history" or representation == "graph_two_band_80ft"
+    require((needs_control and shared_volume is not None and set(shared_volume) == set(keys))
+            or (not needs_control and shared_volume is None),
+            "selected history requires exactly its explicit control volume history")
+    require(control_references is None or (shared_volume is not None and set(control_references) == set(keys)),
+            "control annual references differ from the shared volume selection")
+    if control_references is not None:
+        for reference in control_references.values():
+            require(isinstance(reference, dict) and set(reference) == {"path", "sha256"}
+                    and isinstance(reference["path"], str) and Path(reference["path"]).is_absolute(),
+                    "control annual reference requires an absolute path and sha256")
+            digest(reference["sha256"])
+    require(duplicate_groups is None or set(duplicate_groups) == set(keys),
+            "duplicate groups differ from selected history")
+    require(len({request_key(request) for request in projection_requests}) == len(projection_requests)
+            and all((request["benchmark"], request["season"]) in keys for request in projection_requests),
+            "history projection requests are duplicated or outside its population")
+    previous = {benchmark: None for benchmark in benchmarks}
+    projections, annual, states = [], [], {}
+    started = time.monotonic()
+    for population in populations:
+        benchmark, season = population.benchmark, population.season
+        key = (benchmark, season)
+        try:
+            shared = None if shared_volume is None else shared_volume[key]
+            if shared is not None:
+                require(shared.representation == "graph_40ft" and shared.prior_policy == "history"
+                        and shared.volume.diagnostics.get("population_sha256") == annual_input_identity(population),
+                        "shared volume history differs in source, population, statistic, order or references")
+                if previous[benchmark] is not None:
+                    prior_control = shared_volume[(benchmark, previous[benchmark].season)]
+                    require(previous[benchmark].volume is prior_control.volume
+                            and shared.model_protocol_sha256 == prior_control.model_protocol_sha256,
+                            "shared volume history changed previous-volume lineage")
+            state = fit_recovery_year(population, previous[benchmark], representation=representation,
+                basis=basis, model_protocol_sha256=model_protocol_sha256, prior_policy=prior_policy,
+                shared_volume=shared)
+            if shared is not None:
+                require(state.volume is shared.volume, "paired history did not share its explicit volume block")
+            requests = [request for request in projection_requests
+                        if request["benchmark"] == benchmark and request["season"] == season]
+            projected = project_requests(state, requests, [] if duplicate_groups is None else duplicate_groups[key])
+        except (InputContractError, np.linalg.LinAlgError, FloatingPointError) as error:
+            annual.append(dict(benchmark=benchmark, season=season, status="error", error=str(error)))
+            return dict(status="error", error=str(error), failed=dict(benchmark=benchmark, season=season),
+                        projections=projections, annual=annual, source_identity=source_identity,
+                        prior_policy=prior_policy, resources=resources(started)), states
+        previous[benchmark] = state
+        states[key] = state
+        if isinstance(state.shape, TwoBandShapeState):
+            shape = dict(kind="two_band", low=dict(scale=state.shape.low.scale, diagnostics=state.shape.low.diagnostics),
+                         high=dict(scale=state.shape.high.scale, diagnostics=state.shape.high.diagnostics))
+        else:
+            shape = None if state.shape is None else dict(scale=state.shape.scale, diagnostics=state.shape.diagnostics)
+        receipt = dict(benchmark=benchmark, season=season, status="complete",
+                       volume=dict(scale=state.volume.scale, diagnostics=state.volume.diagnostics), shape=shape)
+        if control_references is not None:
+            receipt["control_reference"] = control_references[key]
+        annual.append(receipt)
+        projections.extend(projected)
+    require(len(projections) == len(projection_requests), "history did not satisfy all projection requests")
+    return dict(status="complete", error=None, failed=None, projections=projections, annual=annual,
+                source_identity=source_identity, prior_policy=prior_policy, resources=resources(started)), states
+
+
 def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchmarks: tuple[str, ...],
                 game_multipliers: dict[str, np.ndarray], representation: str, basis,
-                model_protocol_sha256: str, shared_volume: dict | None = None) -> tuple[dict, dict]:
-    """one chronology owner; paired arms share explicit same-evidence annual volume states."""
-    from .attribution import TwoBandShapeState, fit_recovery_year
+                model_protocol_sha256: str, prior_policy: str,
+                shared_volume: dict | None = None) -> tuple[dict, dict]:
+    """prepare weighted grouped evidence, then delegate its annual chronology."""
     from .attribution_data import weighted_population
 
     seasons = inputs.document["seasons"]
@@ -262,64 +351,44 @@ def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchma
                 and all(references.population_id.startswith("synthetic:")
                         for _, references in inputs.populations.values())),
             "history source identity is absent or contradicts its declared kind")
-    require(len({request_key(request) for request in projection_requests}) == len(projection_requests)
-            and all(request["benchmark"] in benchmarks and request["season"] in seasons
-                    for request in projection_requests), "history projection requests are duplicated or outside its population")
-    require((representation == "graph_two_band_80ft" and shared_volume is not None
-                and set(shared_volume) == set(inputs.populations))
-            or (representation != "graph_two_band_80ft" and shared_volume is None),
-            "two-band history requires exactly its explicit control volume history")
-    previous = {benchmark: None for benchmark in benchmarks}
-    projections, annual, states = [], [], {}
+    populations, grouped_identities = [], {}
     started = time.monotonic()
     for season in seasons:
         groups = [inputs.populations[(benchmark, season)][0] for benchmark in benchmarks]
         require(all(group.game_ids == groups[0].game_ids for group in groups),
                 "selected populations differ in game inventory")
-        multipliers = game_multipliers[season]
         for benchmark in benchmarks:
-            grouped, references = inputs.populations[(benchmark, season)]
+            key = (benchmark, season)
+            grouped, references = inputs.populations[key]
             try:
-                population = weighted_population(grouped, multipliers, references)
-                input_sha256 = _history_input_identity(grouped, references, multipliers)
-                shared = None if shared_volume is None else shared_volume[(benchmark, season)]
-                if shared is not None:
-                    require(shared.representation == "graph_40ft"
-                            and shared.volume.diagnostics.get("history_input_sha256") == input_sha256,
+                populations.append(weighted_population(grouped, game_multipliers[season], references))
+                grouped_identities[key] = _history_input_identity(grouped, references, game_multipliers[season])
+                if shared_volume is not None:
+                    require(key in shared_volume and shared_volume[key].volume.diagnostics.get("history_input_sha256")
+                            == grouped_identities[key],
                             "shared volume history differs in grouped response, row order or fixed references")
-                    if previous[benchmark] is not None:
-                        require(previous[benchmark].volume is
-                                shared_volume[(benchmark, previous[benchmark].season)].volume,
-                                "shared volume history changed previous-volume lineage")
-                state = fit_recovery_year(population, previous[benchmark], representation=representation,
-                                          basis=basis, model_protocol_sha256=model_protocol_sha256,
-                                          shared_volume=shared)
-                if shared is not None:
-                    require(state.volume is shared.volume, "paired history did not share its explicit volume block")
-                else:
-                    state = replace(state, volume=replace(state.volume, diagnostics=dict(
-                        state.volume.diagnostics, history_input_sha256=input_sha256)))
-                requests = [request for request in projection_requests
-                            if request["benchmark"] == benchmark and request["season"] == season]
-                projected = project_requests(state, requests, inputs.duplicate_groups[(benchmark, season)])
             except (InputContractError, np.linalg.LinAlgError, FloatingPointError) as error:
-                annual.append(dict(benchmark=benchmark, season=season, status="error", error=str(error)))
                 return dict(status="error", error=str(error), failed=dict(benchmark=benchmark, season=season),
-                            projections=projections, annual=annual, weights=game_multipliers,
-                            resources=resources(started)), states
-            previous[benchmark] = state
-            states[(benchmark, season)] = state
-            if isinstance(state.shape, TwoBandShapeState):
-                shape = dict(kind="two_band", low=dict(scale=state.shape.low.scale, diagnostics=state.shape.low.diagnostics),
-                             high=dict(scale=state.shape.high.scale, diagnostics=state.shape.high.diagnostics))
-            else:
-                shape = None if state.shape is None else dict(scale=state.shape.scale, diagnostics=state.shape.diagnostics)
-            annual.append(dict(benchmark=benchmark, season=season, status="complete",
-                               volume=dict(scale=state.volume.scale, diagnostics=state.volume.diagnostics), shape=shape))
-            projections.extend(projected)
-    require(len(projections) == len(projection_requests), "history did not satisfy all projection requests")
-    return dict(status="complete", error=None, failed=None, projections=projections, annual=annual,
-                weights=game_multipliers, resources=resources(started)), states
+                            projections=[], annual=[dict(benchmark=benchmark, season=season,
+                            status="error", error=str(error))], weights=game_multipliers,
+                            resources=resources(started)), {}
+    source_identity = dict(kind=inputs.source_kind, reference=inputs.reference,
+                          grouped_input_sha256=[dict(benchmark=benchmark, season=season, sha256=value)
+                              for (benchmark, season), value in grouped_identities.items()])
+    result, states = fit_population_history(tuple(populations), projection_requests,
+        source_identity=source_identity, model_protocol_sha256=model_protocol_sha256, prior_policy=prior_policy,
+        representation=representation, basis=basis, shared_volume=shared_volume,
+        duplicate_groups=inputs.duplicate_groups)
+    if shared_volume is None:
+        for key, state in states.items():
+            volume = replace(state.volume, diagnostics=dict(state.volume.diagnostics,
+                             history_input_sha256=grouped_identities[key]))
+            states[key] = replace(state, volume=volume)
+        for row in result["annual"]:
+            if row["status"] == "complete":
+                row["volume"]["diagnostics"] = states[(row["benchmark"], row["season"])].volume.diagnostics
+    result.update(weights=game_multipliers, resources=resources(started))
+    return result, states
 
 
 def refit_history(inputs: RefitInputs, draw_id: int, projection_requests: list[dict], *,
@@ -336,7 +405,7 @@ def refit_history(inputs: RefitInputs, draw_id: int, projection_requests: list[d
                for season, seed in zip(seasons, year_seeds, strict=True)}
     result, _ = fit_history(inputs, projection_requests, benchmarks=benchmarks, game_multipliers=weights,
                             representation=representation, basis=basis,
-                            model_protocol_sha256=model_protocol_sha256)
+                            model_protocol_sha256=model_protocol_sha256, prior_policy="history")
     result.update(draw_id=draw_id, seeds=[dict(season=season, seed=seed)
                                        for season, seed in zip(seasons, year_seeds, strict=True)])
     return result

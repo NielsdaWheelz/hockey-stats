@@ -1,0 +1,903 @@
+{
+  "schema_version": 5,
+  "kind": "attribution_regularization_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "f17103c5be381c39a071c8f212a9a8c91484bf9f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/assessment.json",
+      "sha256": "5f0f0433b48ef31bfa981ac805948ee3c58b3713869143c9e47da185b5bda7a4"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/prepared.json",
+      "sha256": "94cea5d922f21a3bb67a64504cb84e84b8ad07a09ede509a53ce4c448db7f6f7"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/protocol.json",
+      "sha256": "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2"
+    },
+    "source_result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/assessment/result.json",
+      "sha256": "b2b1b2225221bc3297556229ca6fb548c78494f7cc843ba90cb3e3f28e006c32"
+    },
+    "source_prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/prepared.json",
+      "sha256": "986ddf180bce3606a264595afbf1d8635ef9f9ae21c4af8f186daea69c35eb1f"
+    },
+    "basis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+      "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+    },
+    "designs": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/designs.npz",
+      "sha256": "ad96e40169280c035f85853d92ec162f96bb88480ce38bf37e617aeb700804c2"
+    },
+    "operators": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/recovery-operators.npz",
+      "sha256": "9ab3e70576fb5ca1b5ea7fb6550133d2c0d5bacf7e1e8d5b0c379526b21b99d8"
+    },
+    "spec_snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/spec-snapshot.md",
+      "sha256": "13aa847b2a170613649d092edfcb88cbe3f5f7c8895a195cbaed9e4804f9ad1d"
+    },
+    "fit_000": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-game_pace-000-200/fit.json",
+      "sha256": "c4181ad60710eda3a7861e31ee84c691a00a2467dd870cf13be7ff7ce4c0124f"
+    },
+    "fit_001": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-gaussian-000-200/fit.json",
+      "sha256": "2090a03c258957fbb14f90bb8b7c77dc8ba6baf9a39f893c0bdc57e9595c9274"
+    },
+    "fit_002": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-game_pace-000-200/fit.json",
+      "sha256": "4d5e9ceef16b6a9feb67dd529fb6333cc1f48727c5449799a449cb219544a9a3"
+    },
+    "fit_003": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-gaussian-000-200/fit.json",
+      "sha256": "f5cc99497783f2891cf6b70f76eae842bde42c573809db97ac01dbf960fa4438"
+    },
+    "fit_004": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-diffuse-game_pace-000-200/fit.json",
+      "sha256": "63091b7594e44f146b0e6f48599e3396603cef97286c20db4c58d7fc075f1692"
+    },
+    "fit_005": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-diffuse-gaussian-000-200/fit.json",
+      "sha256": "dc172d9b8604d2a1f67e3c488e3d6079b4305c1e1ad6fb793c74285dc9f6b564"
+    },
+    "fit_006": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-null-game_pace-000-200/fit.json",
+      "sha256": "6cb091e00485526b0417752b10e43a054b50165b18bfa2882331a99ba2a0bdaa"
+    },
+    "fit_007": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-null-gaussian-000-200/fit.json",
+      "sha256": "1f04e03130c398e37e895fa3f9ce6517454553868f98bf8c3712a2d05aed0e64"
+    },
+    "fit_008": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-sparse-game_pace-000-200/fit.json",
+      "sha256": "c27175e98eb9d3a266617b86af6bc7d784a8dfb424fc7438b35e51c5909ea1b2"
+    },
+    "fit_009": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-sparse-gaussian-000-200/fit.json",
+      "sha256": "9e0d809bfec1ee136504dcab5de0e49c5d599e029c32279fb81a6acbd53ca470"
+    },
+    "report_00": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/decision.md",
+      "sha256": "74a3882452d973eb4b6c5079ca7316abc24ab80810b185f634cc8920ac114f3b"
+    },
+    "report_01": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/comparison-table.md",
+      "sha256": "7a42a0fe87b288869bd64c43ad016c2be773cc17abb5a2942c190ac35f1302bd"
+    },
+    "report_02": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/diagnostics-table.md",
+      "sha256": "e7efcdf8256c4c1475bbb2b1694c0d37cdf89ea0bce86dd181f648f99e5ebd2c"
+    },
+    "figure_00": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/recovery-prediction.png",
+      "sha256": "8fd94d248668fa42d11bd4884b1e1fcb7454d5fa72150de809d79612f9ed4ae9"
+    }
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/assessment.json",
+    "sha256": "5f0f0433b48ef31bfa981ac805948ee3c58b3713869143c9e47da185b5bda7a4"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/prepared.json",
+    "sha256": "94cea5d922f21a3bb67a64504cb84e84b8ad07a09ede509a53ce4c448db7f6f7"
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/protocol.json",
+    "sha256": "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2"
+  },
+  "consumed_fits": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-game_pace-000-200/fit.json",
+      "sha256": "c4181ad60710eda3a7861e31ee84c691a00a2467dd870cf13be7ff7ce4c0124f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-gaussian-000-200/fit.json",
+      "sha256": "2090a03c258957fbb14f90bb8b7c77dc8ba6baf9a39f893c0bdc57e9595c9274"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-game_pace-000-200/fit.json",
+      "sha256": "4d5e9ceef16b6a9feb67dd529fb6333cc1f48727c5449799a449cb219544a9a3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-sparse-gaussian-000-200/fit.json",
+      "sha256": "f5cc99497783f2891cf6b70f76eae842bde42c573809db97ac01dbf960fa4438"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-diffuse-game_pace-000-200/fit.json",
+      "sha256": "63091b7594e44f146b0e6f48599e3396603cef97286c20db4c58d7fc075f1692"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-diffuse-gaussian-000-200/fit.json",
+      "sha256": "dc172d9b8604d2a1f67e3c488e3d6079b4305c1e1ad6fb793c74285dc9f6b564"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-null-game_pace-000-200/fit.json",
+      "sha256": "6cb091e00485526b0417752b10e43a054b50165b18bfa2882331a99ba2a0bdaa"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-null-gaussian-000-200/fit.json",
+      "sha256": "1f04e03130c398e37e895fa3f9ce6517454553868f98bf8c3712a2d05aed0e64"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-sparse-game_pace-000-200/fit.json",
+      "sha256": "c27175e98eb9d3a266617b86af6bc7d784a8dfb424fc7438b35e51c5909ea1b2"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/paired-sparse-gaussian-000-200/fit.json",
+      "sha256": "9e0d809bfec1ee136504dcab5de0e49c5d599e029c32279fb81a6acbd53ca470"
+    }
+  ],
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "criterion_rows": [
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "recovery_progress",
+      "mean": -0.0008099750165731362,
+      "lower": -0.000993762030146647,
+      "upper": -0.0006223817483003522,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "prediction_progress",
+      "mean": 2.5102043712463455,
+      "lower": 2.158990192577727,
+      "upper": 2.8742044463646086,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "useful_recovery",
+      "mean": -0.0133349642334719,
+      "lower": -0.01380440008182701,
+      "upper": -0.012869922778252023,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        0,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "useful_prediction",
+      "mean": -0.45200092296704497,
+      "lower": -0.5920266723520342,
+      "upper": -0.3292867701991384,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "recovery_progress",
+      "mean": 0.005414713256673337,
+      "lower": 0.0035570981334748977,
+      "upper": 0.0075307181369502745,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "prediction_progress",
+      "mean": 10.491873761565785,
+      "lower": 9.01443301759113,
+      "upper": 12.095710961760432,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "useful_recovery",
+      "mean": -0.014314976151295088,
+      "lower": -0.014980468952834483,
+      "upper": -0.013692878701964511,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        0,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "useful_prediction",
+      "mean": -2.9152497789602876,
+      "lower": -3.957022226701099,
+      "upper": -2.0200769900994375,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "recovery_progress",
+      "mean": -0.009231402153067031,
+      "lower": -0.010158892787878984,
+      "upper": -0.008337834695563233,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "prediction_progress",
+      "mean": 2.1772241346920964,
+      "lower": 1.8854408302740011,
+      "upper": 2.485354905364863,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "useful_recovery",
+      "mean": -0.052494888718756294,
+      "lower": -0.053469610901468526,
+      "upper": -0.051548705297187934,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        0,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "useful_prediction",
+      "mean": -0.5710060094158962,
+      "lower": -0.7248473002211824,
+      "upper": -0.4302030107728854,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "recovery_progress",
+      "mean": -0.01727926557230869,
+      "lower": -0.019370277605411594,
+      "upper": -0.015309038558498758,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "prediction_progress",
+      "mean": 9.833041114753769,
+      "lower": 8.279676655752137,
+      "upper": 11.506434353992955,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "useful_recovery",
+      "mean": -0.051870279820447174,
+      "lower": -0.05286778520018684,
+      "upper": -0.05088624639607894,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        0,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "useful_prediction",
+      "mean": -2.295479854717314,
+      "lower": -3.057441453624443,
+      "upper": -1.616314607375273,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        0,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "recovery_progress",
+      "mean": -0.0016712460242608376,
+      "lower": -0.001908783476827877,
+      "upper": -0.0014268368708941614,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "prediction_progress",
+      "mean": 2.1991142144345304,
+      "lower": 1.9088530960832997,
+      "upper": 2.5029896969927448,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "useful_recovery",
+      "mean": -0.010363037283417934,
+      "lower": -0.010640230582406457,
+      "upper": -0.010090615828013688,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        1,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "gaussian",
+      "criterion": "useful_prediction",
+      "mean": -0.49164279623437324,
+      "lower": -0.7003404125055169,
+      "upper": -0.32155442084061875,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        0,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "recovery_progress",
+      "mean": 0.002681618941046203,
+      "lower": 0.0015911917964949924,
+      "upper": 0.003921182436392239,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "prediction_progress",
+      "mean": 7.944073658787374,
+      "lower": 6.908291269429645,
+      "upper": 9.01126906041689,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "useful_recovery",
+      "mean": -0.011005789065191812,
+      "lower": -0.011500042241421808,
+      "upper": -0.01056943004172039,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        1,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "game_pace",
+      "criterion": "useful_prediction",
+      "mean": -2.111118974716419,
+      "lower": -2.9850704912040045,
+      "upper": -1.3681416402357058,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        0,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "recovery_progress",
+      "mean": -0.013296233600003121,
+      "lower": -0.014350835610319754,
+      "upper": -0.012219845784884158,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "prediction_progress",
+      "mean": 1.255506164596909,
+      "lower": 0.975232775639688,
+      "upper": 1.5417518061300028,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "useful_recovery",
+      "mean": -0.03422110723248478,
+      "lower": -0.0352060629668352,
+      "upper": -0.0332265008802443,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        1,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "gaussian",
+      "criterion": "useful_prediction",
+      "mean": 0.9633196025888537,
+      "lower": 0.7252446894033711,
+      "upper": 1.2010529899443156,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        1,
+        0
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "recovery_progress",
+      "mean": -0.017326544179391,
+      "lower": -0.019134071022518517,
+      "upper": -0.015455154801645355,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "prediction_progress",
+      "mean": 6.951097710229988,
+      "lower": 5.572337432118258,
+      "upper": 8.480262412615417,
+      "status": "supported",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "useful_recovery",
+      "mean": -0.03590004685376008,
+      "lower": -0.03699953294345326,
+      "upper": -0.03481062965090473,
+      "status": "failed",
+      "strict_positive": false,
+      "seed": [
+        40805,
+        1,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "game_pace",
+      "criterion": "useful_prediction",
+      "mean": -2.188445571351167,
+      "lower": -3.2685044930113465,
+      "upper": -1.2580703028137692,
+      "status": "failed",
+      "strict_positive": true,
+      "seed": [
+        40805,
+        1,
+        1,
+        1
+      ],
+      "n": 200,
+      "resamples": 10000,
+      "quantile": "linear",
+      "units": "squared attempts per 60 team minutes"
+    }
+  ],
+  "progress_status": "failed",
+  "nomination_status": "failed",
+  "nomination": null,
+  "criterion_decision": {
+    "progress": "failed",
+    "nomination": "failed"
+  },
+  "admission": "not_admitted",
+  "handoff": null,
+  "exact_completeness": {
+    "datasets": 2000,
+    "annual_states": 20000,
+    "primary_denominator": 64,
+    "paired_records": 1200,
+    "independent_records": 800,
+    "null_datasets": 400,
+    "original_control_audit": 1200,
+    "probes": 20
+  },
+  "costs": {
+    "datasets": 2000,
+    "new_histories": 2800,
+    "new_annual_states": 14000,
+    "reused_control_states": 6000,
+    "fresh_shape_selections": 12000,
+    "fresh_volume_selections": 4000
+  },
+  "reports": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/decision.md",
+      "sha256": "74a3882452d973eb4b6c5079ca7316abc24ab80810b185f634cc8920ac114f3b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/comparison-table.md",
+      "sha256": "7a42a0fe87b288869bd64c43ad016c2be773cc17abb5a2942c190ac35f1302bd"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/diagnostics-table.md",
+      "sha256": "e7efcdf8256c4c1475bbb2b1694c0d37cdf89ea0bce86dd181f648f99e5ebd2c"
+    }
+  ],
+  "figures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/assessment/recovery-prediction.png",
+      "sha256": "8fd94d248668fa42d11bd4884b1e1fcb7454d5fa72150de809d79612f9ed4ae9"
+    }
+  ],
+  "limits": [
+    "population shrinkage can erase persistent truth as well as inherited false maps",
+    "retaining marginal likelihood isolates the prior change and leaves selector suitability open",
+    "the broader primary recovery target is not directly comparable with 04e's thirty-pair score",
+    "independent physical fields differ in amplitude; family comparisons are not causal decompositions",
+    "fixed deployments, training references, slot transitions and synthetic laws limit transport",
+    "bounded local numerical checks do not prove global optimality or downstream history stability",
+    "gaussian working moments are not calibrated individual-player intervals",
+    "no success establishes positive fitted intensities, chance valuation or real-hockey ability",
+    "the identifiable average of players 26 and 31 does not identify either individual effect",
+    "paired cases and their seasons remain research-exposed"
+  ],
+  "resources": {
+    "wall_seconds": 1855.782742084004,
+    "peak_memory_bytes": 1612414976,
+    "process_seconds": 1336.045168,
+    "output_bytes": 91668849,
+    "output_bytes_scope": "tree_before_current_manifest_serialization"
+  }
+}

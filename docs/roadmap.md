@@ -30,6 +30,8 @@ the post-04b direction prioritizes useful spatial signal recovery and scoped unc
 
 [04f](research/attribution-04f/decision.md) completes the bounded saved-output diagnosis before another attribution revision. its exact accounting separates regional pair recovery, native spatial weighting, complete-lineup combinations and context interaction. 04e's verdict remains unchanged; the remedy remains unresolved and no successor is proposed. [the plan](plan.md) owns further assignment. no new fits or successor model are bundled into this diagnosis.
 
+the subsequent [04g comparison](research/attribution-04g/decision.md) completes one separate population constraint while retaining annual borrowing and marginal-likelihood selection. it broadens physical truths beyond forced opposite pairs and scores all identifiable player combinations. prediction improves over the control in all eight non-null cells, but regional recovery worsens in six and every useful-recovery target fails. progress and nomination both fail; numerical checks pass. this preserves the old verdicts and admits no model. [the plan](plan.md) records closure; no real-player uncertainty campaign or successor is assigned.
+
 the remaining analytical responsibilities are distinct; their concrete next studies depend on evidence rather than a mandatory bundle:
 
 | responsibility | remaining claim / dependency |

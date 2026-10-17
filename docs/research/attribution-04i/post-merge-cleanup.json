@@ -1,0 +1,195 @@
+{
+  "kind": "attribution_selection_post_merge_cleanup",
+  "status": "verified",
+  "recorded_utc": "2026-10-17T21:50:03.259201+00:00",
+  "pull_request": {
+    "headRefOid": "a1b914a2c153f199f6c4f9b134acafde116b2511",
+    "mergeCommit": {
+      "oid": "75e46eebf41016ba19ef4d85426c90fd777ddca4"
+    },
+    "mergedAt": "2026-10-17T21:47:10Z",
+    "number": 32,
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-17T21:46:34Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://dashboard.gitguardian.com",
+        "name": "GitGuardian Security Checks",
+        "startedAt": "2026-10-17T21:46:33Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ],
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/32"
+  },
+  "reviewed_head": "a1b914a2c153f199f6c4f9b134acafde116b2511",
+  "merge_commit": "75e46eebf41016ba19ef4d85426c90fd777ddca4",
+  "reviewed_and_merged_tree": "347fdcabb1a4da2b3f54938fd776493661e3610e",
+  "producer_ancestry_preserved": [
+    "724b9b561dbfe136e4941398c7e1608fc905ff51",
+    "0b8ebcf552bfcf1bd209e02b0742cf21e7deef5e",
+    "ce25454c276b4fd8f597229c211b1c8204ec9770",
+    "ee8a5e100f47da7492f2dcfe3381a6761604431b",
+    "a1b914a2c153f199f6c4f9b134acafde116b2511"
+  ],
+  "primary_checkout": "/Users/nnandal/Documents/code/hockey-stats",
+  "primary_imports": {
+    "status": "verified",
+    "module_path": "/Users/nnandal/Documents/code/hockey-stats/analysis/research/attribution_selection.py",
+    "source_reference": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04h/result.json",
+      "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+    },
+    "canonical_lookup": "/Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04h/result.json",
+    "alias": "/Users/nnandal/Documents/code/hockey-stats-04i",
+    "target": "/Users/nnandal/Documents/code/hockey-stats",
+    "reference_identity": "exact frozen bound reference preserved",
+    "scientific_status": [
+      "complete",
+      "verified",
+      "failed"
+    ],
+    "numerical_rerun": false,
+    "fit_or_assessment_execution": false,
+    "publication_changes": false
+  },
+  "primary_draft_reconciliation": {
+    "snapshot_commit": "724b9b5",
+    "drafts": [
+      {
+        "path": "docs/brief.md",
+        "sha256": "32cd4ea78937240c6ce414c485874ba94d4c3b3fae6940d17ee6accd60ec574c",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/issues/attribution-spatial-recovery.md",
+        "sha256": "83ea0bad47dce511ea612d7ebee64a3ce335f19ca77c01b410cd02da847a1cab",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/plan.md",
+        "sha256": "4c699938180e12c7f260271a541438318807b167ee118f566d3760fe09780125",
+        "preservation": "exact initial plan after reversing two authorized assignment updates",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/research/council.md",
+        "sha256": "0cda1d88060c3fb16cc2ccb7d80946220b953186061906309098ba35acf30251",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/research/model-direction.md",
+        "sha256": "63d1beec48c7095643a0f634bc1e96f97ce2792cf851a324016faddd9330c5ac",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "sha256": "00376734c36440c2a6499c4cb84f9332f71fcf70c5d72a0c74c745a67f3e5ba5",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/specs/04-player-attribution.md",
+        "sha256": "99b0350e7387af40e751616df5bef9224cee8cd3e51e515da54f8b25acb24490",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      },
+      {
+        "path": "docs/specs/04i-attribution-selection.md",
+        "sha256": "1a0145c343010b548e52564218ae168f21b48a153b25c900f1c5e3092623e353",
+        "preservation": "byte-identical initial copied draft",
+        "snapshot_commit": "724b9b5"
+      }
+    ],
+    "temporary_stash": "78d35c277082f217bcb72eeb897d1e83b800d798",
+    "temporary_stash_removed": true,
+    "method": "temporarily stash the eight already-preserved drafts, fast-forward main, verify producer ancestry/tree and bound references, remove only the owned redundant stash"
+  },
+  "removed": {
+    "registered_worktree": "/Users/nnandal/Documents/code/hockey-stats-04i",
+    "local_branch": "codex/04i-attribution-selection",
+    "remote_branch": "origin/codex/04i-attribution-selection",
+    "temporary_metadata": [
+      {
+        "path": "/tmp/04i-independent-core-receipt.json",
+        "sha256": "bdcacf5ba6cd7f2b22402f438f24e49becaf985a1cecbccb7450ea6b3fbe6ef3",
+        "scope": "task-only temporary metadata; substantive reviews retained in git/external evidence"
+      },
+      {
+        "path": "/tmp/04i-source-receipt.json",
+        "sha256": "2f5eeb0149fc0c187226e577618c99a9b4d477ae950566d6a2cb86fe23138471",
+        "scope": "task-only temporary metadata; substantive reviews retained in git/external evidence"
+      },
+      {
+        "path": "/tmp/hockey-04i-pr.md",
+        "sha256": "a43066da4455a90c3586d8f9a45904fdfa1f95f3fd3578ea9fcee90c4b00c8c9",
+        "scope": "task-only temporary metadata; substantive reviews retained in git/external evidence"
+      },
+      {
+        "path": "/tmp/hockey-04i-post-merge-import.json",
+        "sha256": "a5170f23b6c6ede21d153558263b89db389b54dcb86498215762bb669d547558",
+        "scope": "task-only temporary metadata; substantive reviews retained in git/external evidence"
+      },
+      {
+        "path": "/tmp/hockey-04i-merge-state.json",
+        "sha256": "3f90ae0bbaf88c878275d50e7c0f1b8d449118e68737daa119741d0687c35f15",
+        "scope": "task-only temporary metadata; substantive reviews retained in git/external evidence"
+      }
+    ],
+    "duplicate_environment": "already deleted before merge"
+  },
+  "retained_path_alias": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i",
+    "target": "/Users/nnandal/Documents/code/hockey-stats",
+    "reason": "frozen source and evidence references use this absolute prefix; fixed reader preserves bound identity while digest-checking canonical lookup",
+    "second_checkout": false,
+    "second_environment": false
+  },
+  "source_reference_fix": {
+    "commit": "a1b914a2c153f199f6c4f9b134acafde116b2511",
+    "receipt": "docs/research/attribution-04i/reviews/prepared-reference.json",
+    "numerical_changes": false,
+    "immutable_artifact_rewrites": false
+  },
+  "final_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/result.json",
+    "sha256": "c32ac2c9b03584c0435e9be2a23d621ec80b1bb15ef748f64e1b4146584dfd19"
+  },
+  "research_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research",
+  "research_tree_bytes": 92966113,
+  "preservation": {
+    "original_non_task_paths_stat_checked": 3618,
+    "task_prefix_source_metadata": "same bytes through alias; canonical target is retained main copy",
+    "review_and_fixture_references": "all bound digests pass through retained alias",
+    "source_originals": "preserved",
+    "expensive_fits": "all six preserved",
+    "assessments": "both original/reviewed preserved",
+    "published_databases": "outside cleanup scope; no publication action",
+    "primary_environment": "preserved",
+    "archived_reference": "preserved",
+    "desktop_docker": "untouched"
+  },
+  "whitespace_check": {
+    "status": "passed",
+    "csv_bytes_preserved": true,
+    "git_whitespace": "blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol"
+  },
+  "new_environment_or_dependency_installation": false,
+  "numerical_rerun": false,
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "independent_cleanup_review": {
+    "reviewer": "/root/source_contracts",
+    "status": "passed",
+    "checks": 3662,
+    "findings": [],
+    "new_tests_or_numerical_runs": 0
+  }
+}

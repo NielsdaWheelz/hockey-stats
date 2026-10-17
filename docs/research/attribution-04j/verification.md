@@ -64,3 +64,9 @@ all-player native-shape information preserves awkward cases and avoids assuming 
 source captures, expensive fits, prior publications and historical scientific verdicts remain intact. useful recovery, complete rates, empirical player uncertainty and supported chance valuation remain separate requirements. 04j resolves its assigned information question; the existing recovery issue remains open.
 
 csv reports retain their standard crlf record endings. the final git whitespace check enables `cr-at-eol` to preserve exact frozen bytes; it passes with the other whitespace checks enabled. production code and fixtures remain byte-identical to the clean research producer, and the worktree is clean.
+
+## post-merge integration and cleanup
+
+[pr #33](https://github.com/NielsdaWheelz/hockey-stats/pull/33) merged in `ea23777` after its security check passed. the merge tree equals reviewed head `942d881`; the assignment snapshot and clean research producer remain in ancestry. primary-checkout imports and the saved preparation preserve all three parent-result identities through the retained `hockey-stats-04j` symlink. this checked saved evidence and source lookup, with no new spectra, fits, assessments or responses.
+
+the eight already-incorporated primary drafts were independently verified, temporarily stashed for the fast-forward and reconciled with the completed documents. the owned redundant stash, task local/remote branches, registered worktree and temporary pr body are removed. no second environment was created. source evidence, expensive fits, all frozen research outputs, publications, the primary environment, archived reference, desktop docker and older aliases remain intact. [post-merge cleanup receipt](post-merge-cleanup.json).

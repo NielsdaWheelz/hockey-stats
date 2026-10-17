@@ -289,7 +289,7 @@ def render_reports(output, assessment):
             f"the region-selected reference has a prediction cost: diffuse/base spatial prediction excess is "
             f"{reference_prediction} for gaussian/game pace, versus {adaptive_prediction} for training selection "
             "((attempts/60)^2, inverse-share-weighted). its regional potential is not a free or deployable gain.", "",
-            f"broad lateral mean recovery error increases in {lateral_worse}/2 game-pace cells. adaptive null regional rms remains "
+            f"eleven-mode adaptive lateral recovery risk exceeds annual borrowing in {lateral_worse}/2 game-pace cells. adaptive null regional rms remains "
             f"{_number(min(null_rms))}–{_number(max(null_rms))} attempts/60. fixed half-effect recovery/zero ratios are "
             f"{_number(min(half_ratios))}–{_number(max(half_ratios))}; independent double-game ratios are "
             f"{_number(min(double_ratios))}–{_number(max(double_ratios))}. neither condition has adaptive assessment.", "",

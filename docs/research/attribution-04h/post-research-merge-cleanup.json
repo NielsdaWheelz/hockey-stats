@@ -1,0 +1,97 @@
+{
+  "kind": "attribution_resolution_research_post_merge_cleanup",
+  "status": "verified",
+  "recorded_utc": "2026-10-17T20:02:18.733924+00:00",
+  "pull_request": {
+    "headRefOid": "59c3b06491c69d34c725459b20fd797d5acf799d",
+    "mergeCommit": {
+      "oid": "4418b6641424c3c55f6d371b16ee7626d63851cb"
+    },
+    "mergedAt": "2026-10-17T20:00:10Z",
+    "number": 30,
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-17T19:59:52Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://dashboard.gitguardian.com",
+        "name": "GitGuardian Security Checks",
+        "startedAt": "2026-10-17T19:59:50Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ],
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/30"
+  },
+  "reviewed_head": "59c3b06491c69d34c725459b20fd797d5acf799d",
+  "merge_commit": "4418b6641424c3c55f6d371b16ee7626d63851cb",
+  "reviewed_and_merged_tree": "382a3ad4359ff800d351038dd38a90418214e8ab",
+  "producer_ancestry_preserved": [
+    "a9269b491d71a6036fb94ce30e0542fdbe4e85d7",
+    "7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5",
+    "59c3b06491c69d34c725459b20fd797d5acf799d"
+  ],
+  "primary_checkout": "/Users/nnandal/Documents/code/hockey-stats",
+  "primary_imports": {
+    "status": "verified",
+    "bytecode_disabled": true,
+    "module_paths": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/research/attribution_resolution.py",
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/research/attribution_resolution_report.py"
+    ],
+    "numerical_rerun": false
+  },
+  "final_result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04h/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "research_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017",
+  "removed": {
+    "registered_worktree": "/Users/nnandal/Documents/code/hockey-stats-04h",
+    "local_branch": "codex/04h-attribution-resolution",
+    "remote_branch": "origin/codex/04h-attribution-resolution",
+    "temporary_pr_body": {
+      "path": "/tmp/hockey-04h-research-pr.md",
+      "sha256": "c8d9c7b8c362390fca65c6d026b83648ec078e5033328b3a1d9a04dea8074985"
+    },
+    "temporary_research_checks": "already deleted and recorded in research-reviews/research-cleanup.json"
+  },
+  "operational_path_review": "no operational source/output consumer requires the removed worktree; no alias needed; closed review prose paths remain historical provenance",
+  "whitespace_check": {
+    "status": "passed",
+    "command": [
+      "git",
+      "-c",
+      "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+      "diff",
+      "--check",
+      "0548c0f..59c3b06491c69d34c725459b20fd797d5acf799d"
+    ],
+    "csv_bytes_preserved": true,
+    "reason": "standard csv CRLF record separators are intentional, not trailing spaces"
+  },
+  "preserved": [
+    "source originals and frozen historical protocols/verdicts",
+    "all six expensive research fits and arrays",
+    "all three external assessment iterations",
+    "all review evidence and producer commits",
+    "primary environment and dependencies",
+    "published databases",
+    "existing path aliases",
+    "concurrent 05b worktree and branch"
+  ],
+  "new_environment_or_dependency_installation": false,
+  "other_task_worktrees_modified": false,
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "successor_campaign_assigned": false,
+  "concurrent_main_update": {
+    "commit": "2d8279d8febad08fb57839e1c11614a30bae4640",
+    "pull_request": 31,
+    "method": "fast-forward current main, then reapply only the three 04h cleanup bookkeeping paths",
+    "research_code_and_evidence_unchanged": true,
+    "shared_plan_merged_without_conflicts": true
+  }
+}

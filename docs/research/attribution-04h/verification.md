@@ -47,6 +47,10 @@ the full protocol is 36,523,676 bytes. [its deterministic gzip copy](protocol.js
 
 temporary integration/live/review scripts, disposable logs and worktree bytecode are deleted after acceptance. no test-only dependency or permanent harness was added. existing scientific tools, checked fixtures, expensive fits, source originals, frozen historical receipts, main environment and published databases remain intact.
 
+## research merge and task cleanup
+
+[pr #30](https://github.com/NielsdaWheelz/hockey-stats/pull/30) merged in `4418b6641424c3c55f6d371b16ee7626d63851cb` after its security check passed. merge tree `382a3ad4359ff800d351038dd38a90418214e8ab` equals reviewed head `59c3b06`; fit/reporting producer ancestry remains intact. primary-checkout imports and report digests pass without repeating numerical work. the task worktree, local/remote branch and pr scratch are removed; no operational reference requires a new path alias. source evidence, expensive fits, all assessment iterations, the existing environment/publication and the concurrent 05b worktree are preserved. [the research cleanup receipt](post-research-merge-cleanup.json) records scope and checks.
+
 ## historical implementation and detached verification
 
 the following sections record the earlier implementation, fixture verification, blocked preflight and first merge/cleanup. their then-pending research statements describe that stage. the original [verification receipt](verification.json), reviews and cleanup record remain unchanged; the completed research acceptance above supersedes their execution status without changing their evidence or scientific limits.

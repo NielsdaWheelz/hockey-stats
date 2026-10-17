@@ -69,6 +69,39 @@ def excess_prediction_terms(gram, xbar, noise_context, true_maps, fitted_maps, *
     return dict(error=E, signal=S, coupling=I, delta=E - S + I)
 
 
+def realized_shape_errors(maps, context, *, p, xbar, ybar, true_raw, true_centered,
+                          true_context, J, operators, gram, rate=40.) -> dict:
+    """realized native recovery and signed prediction in the training reference.
+
+    raw truth retains physical fields; centered truth and context use the final
+    exposure gauge. the fixed full-player denominator is 64 for every partition.
+    """
+    require(maps.shape == true_raw.shape == true_centered.shape
+            and context.shape == ybar.shape
+            and true_context.shape in ((maps.shape[1],), context.shape)
+            and xbar.shape == (len(context), len(maps))
+            and J.shape == (len(maps), len(maps))
+            and len(operators) == 3 and all(operator.ndim == 2
+                and operator.shape[0] == maps.shape[1] and operator.shape[1] > 0
+                and np.isfinite(operator).all() for operator in operators)
+            and all(np.isfinite(value).all() for value in
+                    (maps, context, ybar, xbar, true_raw, true_centered, true_context, J)),
+            "realized shape inputs differ from their native final-season reference")
+    yh = ybar-ybar.sum(axis=1, keepdims=True)*p
+    noise = yh-true_context-xbar @ true_centered
+    terms = excess_prediction_terms(gram, xbar, noise, true_centered, maps, p=p, rate=rate)
+    P_zero = prediction_loss(gram, yh-true_context, -true_centered, p=p, rate=rate)
+    P = prediction_loss(gram, context-true_context, maps-true_centered, p=p, rate=rate)
+    require(np.isclose(P-P_zero, terms["delta"], rtol=1e-8, atol=1e-10),
+            "realized spatial prediction excess differs")
+    errors = [rate*J @ (maps-true_raw) @ operator for operator in operators]
+    risks = np.asarray([np.sum(error**2)/64 for error in errors])
+    zero = np.asarray([np.sum((rate*J @ true_raw @ operator)**2)/64 for operator in operators])
+    return dict(risk=risks, zero_risk=zero, prediction_excess=P-P_zero, prediction=P,
+                prediction_zero=P_zero, region_error=errors[0],
+                functional_error=np.hstack(errors[1:]), coupling=terms["coupling"])
+
+
 def expected_excess_prediction_terms(gram, xbar, true_maps, selection, K, mean_score,
                                       covariance, context_cross_score, *, p, B, rate=40.):
     """fixed-penalty expected spatial excess over noisy training context.

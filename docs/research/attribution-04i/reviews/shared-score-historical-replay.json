@@ -1,0 +1,52 @@
+{
+  "status": "pass",
+  "source_result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04h/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "cells": [
+    {
+      "family": "independent",
+      "population": "sparse",
+      "law": "game_pace",
+      "records": 100,
+      "shared_scoring_maximum_absolute_differences": {
+        "risk": 0.0,
+        "prediction_excess": 0.0,
+        "coupling": 0.0,
+        "region_error": 0.0,
+        "functional_error": 0.0,
+        "zero_risk": 0.0
+      },
+      "physical_truth_digests_verified": true,
+      "source_control": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+        "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+      }
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "law": "gaussian",
+      "records": 100,
+      "shared_scoring_maximum_absolute_differences": {
+        "risk": 0.0,
+        "prediction_excess": 0.0,
+        "coupling": 0.0,
+        "region_error": 0.0,
+        "functional_error": 0.0,
+        "zero_risk": 0.0
+      },
+      "physical_truth_digests_verified": true,
+      "source_control": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+        "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+      }
+    }
+  ],
+  "new_responses": 0,
+  "new_fits": 0,
+  "wall_seconds": 24.135327249998227,
+  "process_seconds": 17.757739,
+  "statement": "the extracted shared scorer reproduces every saved eleven-mode field in both full cells"
+}

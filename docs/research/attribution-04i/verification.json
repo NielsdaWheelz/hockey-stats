@@ -1,0 +1,328 @@
+{
+  "study": "04i",
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "progress_status": "failed",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "branch": "codex/04i-attribution-selection",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-04i",
+  "numerical_producer": {
+    "git_commit": "0b8ebcf552bfcf1bd209e02b0742cf21e7deef5e",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "reporting_producer": {
+    "git_commit": "ce25454c276b4fd8f597229c211b1c8204ec9770",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "source_result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04h/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "source_prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+    "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+  },
+  "source_protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+    "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+  },
+  "source_producer": {
+    "git_commit": "7e2af4f0c5c7a7539b5a941bd0d78e84f6958ae5",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "statistic_producer": {
+    "git_commit": "f17103c5be381c39a071c8f212a9a8c91484bf9f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/result.json",
+    "sha256": "c32ac2c9b03584c0435e9be2a23d621ec80b1bb15ef748f64e1b4146584dfd19"
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/assessment.json",
+    "sha256": "3605250838eb5f59213f2ebf01cbd63c43d3cb0cb0a0b0cc96110d4917796f94"
+  },
+  "original_assessment_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/result.json",
+    "sha256": "cb17d55632ab19838ef96b4c1f3bc1648c4ff5aec3ec3c6cde020255f8ed87f5"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/prepared.json",
+    "sha256": "e76536186a21df31abf594158d6b7397eb7a08b8e83b4819b3592bb8062b5985"
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/protocol.json",
+    "sha256": "12c2b748b1ae2bbf075c9712cb09c854ffc0ce979a3e11547fec4153613645ae"
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/spec-snapshot.md",
+    "sha256": "1a0145c343010b548e52564218ae168f21b48a153b25c900f1c5e3092623e353"
+  },
+  "fits": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/sparse-gaussian/fit.json",
+      "sha256": "1c690712d3b94711ebe8c3f71691308754b3e69f77f1165fef1fd2fdf4b601ed"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/sparse-game_pace/fit.json",
+      "sha256": "d572529cdfdc486630be591cbd21f5c66e9a0192d6f828bc1fab3a5268cd187d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/diffuse-gaussian/fit.json",
+      "sha256": "ae8f7cdb4917c317a2070c8dfaf081e22a6a4524ddd3f4999339879e198d41a4"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/diffuse-game_pace/fit.json",
+      "sha256": "07e6a1e7e21a09a03c1a99458d6c59882b8b681e0c1c7dc25c8fc92106f7b705"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/null-gaussian/fit.json",
+      "sha256": "6845800d4162ce1efb1518e4e41f43479f1db91eaac9b6e52117f295e3b50ab7"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/null-game_pace/fit.json",
+      "sha256": "93c97c25bf46ac3bf0203f3650c79d930812c52840b0e5808ea3b137582e6178"
+    }
+  ],
+  "exact_completeness": {
+    "cells": 6,
+    "statistic_histories": 600,
+    "annual_likelihoods": 3000,
+    "candidate_grid_evaluations": 10800,
+    "candidate_fits": 600,
+    "control_replays": 600,
+    "eigensolve_probes": 12,
+    "new_responses": 0,
+    "new_annual_fits": 0
+  },
+  "primary_classifications": {
+    "failed": 6,
+    "supported": 4,
+    "inconclusive": 2
+  },
+  "null_criteria": "not_applicable / diagnostic_only",
+  "source_boundary": "600 selected assessment histories; saved eleven-mode states remain referenced through six control manifests",
+  "fixed_candidate_algebra": {
+    "checks": 165,
+    "max_signed_term_difference": 1.4210854715202004e-14,
+    "source": "independent explicit native-row covariance; no monte carlo"
+  },
+  "equations": {
+    "maximum_relative_residual": 5.317849671497429e-13,
+    "max_control_replay_absolute_difference": 0.0,
+    "probe_count": 12,
+    "all_probes_verified": true
+  },
+  "independent_assessment": {
+    "cells": [
+      "diffuse/game_pace",
+      "null/gaussian"
+    ],
+    "records": 200,
+    "numerical_comparisons": 2274,
+    "maximum_absolute_difference": 4.411049303598702e-11,
+    "bootstrap_resamples_per_cell": 10000
+  },
+  "reporting_parity": {
+    "arrays": 150,
+    "csv_records": 18540,
+    "unchanged_scientific_fields": true,
+    "corrected": "axis tick spacing and explicit csv cell_progress_status; no numerical policy change"
+  },
+  "verification_policy": "temporary red/green/refactor integration/live checks deleted after independent review; no lasting suite or new dependency",
+  "fixture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/fixtures/attribution/regional-penalty-covariance.npz",
+    "sha256": "d56027ad9ab0a23a25783363565f20e47fe6998a4a23fe65429c6c38871cadd7"
+  },
+  "reviews": {
+    "cleanup.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/cleanup.json",
+      "sha256": "62669c8e818433a0322962d43c099610b67726a4f6c135d10035386f090db042"
+    },
+    "content-initial.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/content-initial.json",
+      "sha256": "851bcbd0e9c4135a97e9b406b2330b6a4bc52588aa2213d04e2b584d3c342eb8"
+    },
+    "content-report-green.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/content-report-green.json",
+      "sha256": "a2c9bb3a89d7a7d6b3d555f29a90a5379bc6c4314ccabc37c4aa9ffc71355ce1"
+    },
+    "content.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/content.json",
+      "sha256": "fd5f6860fe4d19efbdcb51d9c46b7a7972b55b37a10caaa041e78984b11904ac"
+    },
+    "guarded-integration.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/guarded-integration.json",
+      "sha256": "de8e368bcc9dffe5ebec9045616af026ac5a5d05c2d3e50641f43bfdb0933513"
+    },
+    "independent-covariance-red.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/independent-covariance-red.json",
+      "sha256": "f9625135a9feb53bdc9e8ec83db25588e7a19db45d895521c11ea9a35ffdd52b"
+    },
+    "independent-covariance.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/independent-covariance.json",
+      "sha256": "d9a698337fa5c606561ae88ff58a74d5af1e888e254ac7f92c013dde2f1debb9"
+    },
+    "independent-final-report-reconciliation.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/independent-final-report-reconciliation.json",
+      "sha256": "25537394f496e407cb2276ec9e858e1a28ada6dad276bd5127ee68a2674e874b"
+    },
+    "independent-full-cell-assessment.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/independent-full-cell-assessment.json",
+      "sha256": "096f86a66420549b1fdeb61b43e71883efbd2a7a89cd571fc214a6a48360d075"
+    },
+    "independent-source-numerics.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/independent-source-numerics.json",
+      "sha256": "9cf9a628f80cceb0b5ddb53f5a266b4bbd676e6584b9d65227dbd3252576a8e5"
+    },
+    "independent-study-statistical-review.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/independent-study-statistical-review.json",
+      "sha256": "ddb728d9dba65bc15e2e893fae1584ca145f653da7bba51b482ff5d71e021d0d"
+    },
+    "numeric-core-green.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/numeric-core-green.json",
+      "sha256": "1d2fc88e8a50d385ada948075fbef21589aa957e9e395f5307ec73e8415da84c"
+    },
+    "numeric-core-red.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/numeric-core-red.json",
+      "sha256": "07b90133f0321e7dc6c43133aef0874d5424af4925c17fd8c5ab640374b4ad67"
+    },
+    "numeric-owned-check-cleanup.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/numeric-owned-check-cleanup.json",
+      "sha256": "2b494cfcb512e80797227045589ebd0b3104165d6eac64a2ac3e4ca61e04de1c"
+    },
+    "shared-score-historical-replay.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/shared-score-historical-replay.json",
+      "sha256": "f11984e26943c5fabf8de6d5e6195cc7f5103ef3582443fa128554f9f6f802de"
+    },
+    "source-boundary.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/source-boundary.json",
+      "sha256": "5cae184fc6db6458218b9a4ae0b70351127affafc595edde5c0ac31991f0b5a5"
+    },
+    "source-systems-final.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/source-systems-final.json",
+      "sha256": "ee0e9d4151211f9d55b7337d7baf875c992e31b97a46ff347a9df88a52cf4c1f"
+    },
+    "source-systems.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/source-systems.json",
+      "sha256": "1ee145c180ab3579ee5e2ce43b1145cf306c322fcb9b816f7f781dc803876500"
+    },
+    "study-integration-final.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/study-integration-final.json",
+      "sha256": "3e865e9b9e1bb1d74efe08d0997bb9f4ef1aa969c716d513fd341fa4b8248eb4"
+    },
+    "study-integration.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/study-integration.json",
+      "sha256": "aafa9e63a85153f8312473621e2ae9c2d3b8a3e6b4cd5ae923331b3dbc2211de"
+    },
+    "documentation.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04i/reviews/documentation.json",
+      "sha256": "d82275710d83f6bde0f3b7f854c434ec61f21bbca67759ff6e2cad6d03e0eb1c"
+    }
+  },
+  "resources": {
+    "prepare": {
+      "wall_seconds": 1.8556909159997304,
+      "peak_memory_bytes": 851034112,
+      "process_seconds": 1.803961,
+      "output_bytes": 250424,
+      "output_bytes_scope": "tree_before_current_manifest_serialization"
+    },
+    "fits": [
+      {
+        "population": "sparse",
+        "law": "gaussian",
+        "wall_seconds": 6.665735124999628,
+        "peak_memory_bytes": 851820544,
+        "process_seconds": 4.111384,
+        "output_bytes": 7508914,
+        "output_bytes_scope": "tree_before_current_manifest_serialization"
+      },
+      {
+        "population": "sparse",
+        "law": "game_pace",
+        "wall_seconds": 3.8284297500031244,
+        "peak_memory_bytes": 851918848,
+        "process_seconds": 3.737763,
+        "output_bytes": 7508914,
+        "output_bytes_scope": "tree_before_current_manifest_serialization"
+      },
+      {
+        "population": "diffuse",
+        "law": "gaussian",
+        "wall_seconds": 11.194802833000722,
+        "peak_memory_bytes": 851951616,
+        "process_seconds": 4.659708,
+        "output_bytes": 7508914,
+        "output_bytes_scope": "tree_before_current_manifest_serialization"
+      },
+      {
+        "population": "diffuse",
+        "law": "game_pace",
+        "wall_seconds": 11.220910749998438,
+        "peak_memory_bytes": 851935232,
+        "process_seconds": 4.606276,
+        "output_bytes": 7508914,
+        "output_bytes_scope": "tree_before_current_manifest_serialization"
+      },
+      {
+        "population": "null",
+        "law": "gaussian",
+        "wall_seconds": 3.7403646249986195,
+        "peak_memory_bytes": 851820544,
+        "process_seconds": 3.6498280000000003,
+        "output_bytes": 7508914,
+        "output_bytes_scope": "tree_before_current_manifest_serialization"
+      },
+      {
+        "population": "null",
+        "law": "game_pace",
+        "wall_seconds": 8.610391958001856,
+        "peak_memory_bytes": 851755008,
+        "process_seconds": 4.256704,
+        "output_bytes": 7508914,
+        "output_bytes_scope": "tree_before_current_manifest_serialization"
+      }
+    ],
+    "original_assessment": {
+      "wall_seconds": 50.43766779199723,
+      "peak_memory_bytes": 851509248,
+      "process_seconds": 50.180257999999995,
+      "output_bytes": 19642170,
+      "output_bytes_scope": "tree_before_current_manifest_serialization"
+    },
+    "reviewed_assessment": {
+      "wall_seconds": 51.48896287499883,
+      "peak_memory_bytes": 851738624,
+      "process_seconds": 51.140589,
+      "output_bytes": 19656737,
+      "output_bytes_scope": "tree_before_current_manifest_serialization"
+    },
+    "research_tree_bytes": 92966113
+  },
+  "operational_limits": [
+    "previously exposed simulated populations and fixed designs",
+    "gaussian working covariance may be misspecified under non-null game pace",
+    "selected minimum score is not post-selection unbiased risk",
+    "constant effects and eleven spatial modes retain bias",
+    "no real-player recovery, calibrated player uncertainty, chance admission or publication"
+  ]
+}

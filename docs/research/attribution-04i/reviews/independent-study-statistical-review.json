@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "producer": "0b8ebcf",
+  "reviewer": "numeric-core agent independently reviewing study author",
+  "files": [
+    "analysis/research/attribution_selection.py",
+    "analysis/research/attribution_selection_report.py"
+  ],
+  "checks": [
+    "fit selects only through explicit numeric final-reference covariance-penalty arrays; truth scoring is assessment-only",
+    "unchanged eleven-mode marginal controls replay all five selected fields before candidate output",
+    "final physical native truth, complete identifiable metric and denominator 64 remain fixed",
+    "prediction gain uses the same no-player training-context forecast for both arms; margin is candidate gain minus .99 control gain",
+    "whole outer records use shared PCG64/SeedSequence indices, 10000 draws and linear 2.5/97.5 percentiles; means precede roots and ratios",
+    "nonnull criteria use strict lower>0 / upper<0 and otherwise inconclusive; null diagnostics are not applicable and do not gate progress",
+    "functional, active/inactive, role, entrant/returner and omitted-detail diagnostics preserve full denominator and signed terms",
+    "selected-score optimism is compared to candidate regional error minus zero-map error",
+    "reports preserve exact arm labels, gain allowance and uncertainty meaning; partial contrary diagnostics are visible",
+    "artifact owner read_artifact verifies all consumed links, including the frozen spec snapshot"
+  ],
+  "unresolved_findings": [],
+  "scope": "independent source/code/policy review; full native-row assessment verification follows bounded research",
+  "withdrawn_finding": "suspected frozen-snapshot omission was disproved by read_artifact consumed-link verification; no redundant check added"
+}

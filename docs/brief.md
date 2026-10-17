@@ -74,6 +74,11 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04h noise laws, confirmed 2026-10-17 | include both gaussian and game-dependent count noise | more covariance algebra and saved-response comparisons; no new research responses or annual fitting campaign |
 | 04h claim, confirmed 2026-10-17 | diagnostic recovery curves without a new absolute accuracy gate; retain the old 25% criterion as a labeled reference | guides a subsequent question; cannot select a publishable estimator or retrospectively rescue a failed study |
 | 04h temporal benchmark, confirmed 2026-10-17 | reuse the existing five-season histories, entrants and changed returner | preserves matched evidence and exposes constant-pooling bias; no new fully persistent population |
+| 04i representation, confirmed 2026-10-17 | eleven-mode pooled models in both arms; change penalty selection only | retain lost detail and the existing lateral weakness in assessment against full physical truth |
+| 04i noise boundary, confirmed 2026-10-17 | saved annual summaries, same gaussian working assumption, assessment under both noise laws | the criterion is valid for fixed candidates under gaussian noise and may mislead under game dependence; no game-response reconstruction or new noise estimator |
+| 04i progress, confirmed 2026-10-17 | supported regional improvement over the unchanged selector, without another absolute recovery gate | developmental evidence only; the old 25% error-reduction target remains context, not a new nomination requirement |
+| 04i prediction cost, confirmed 2026-10-17 | retain at least 99% of the unchanged selector's gain over no player shape effects, supported in every non-null cell | a strict prospective policy, not 1% of total error; 100 histories can leave it inconclusive |
+| 04i contrary diagnostics, confirmed 2026-10-17 | null false maps, lateral recovery, entrants and changed returner are mandatory diagnostics without new vetoes | progress may coexist with deterioration; report it beside the result and claim no uniform recovery |
 
 ## initial product and scope
 

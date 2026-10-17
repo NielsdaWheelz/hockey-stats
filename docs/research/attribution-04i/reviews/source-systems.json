@@ -1,0 +1,99 @@
+{
+  "review": "independent full-study source, producer, selected-input and preservation audit",
+  "status": "passed",
+  "producer": "0b8ebcf552bfcf1bd209e02b0742cf21e7deef5e",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/prepared.json",
+    "sha256": "e76536186a21df31abf594158d6b7397eb7a08b8e83b4819b3592bb8062b5985"
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/protocol.json",
+    "sha256": "12c2b748b1ae2bbf075c9712cb09c854ffc0ce979a3e11547fec4153613645ae"
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/assessment.json",
+    "sha256": "deb79348ec41922aa2c4f2aef4bef3ce75964a5e17e4ba564edfab6b495c79ac"
+  },
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/result.json",
+    "sha256": "cb17d55632ab19838ef96b4c1f3bc1648c4ff5aec3ec3c6cde020255f8ed87f5"
+  },
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04h/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "source_parents": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/prepared.json",
+      "sha256": "d20303ab13bc2d4282f4498756bcf48d83a2326f9adc4a8d49f2b23b274b5f85"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/protocol.json",
+      "sha256": "a09a39d789274c0c4e3abb2814ce2ae67569c4da15839b2d54db74811c2f6fb1"
+    }
+  },
+  "source_controls": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-gaussian/fit.json",
+      "sha256": "505d56b76fb0a1a568394d426b6b9c04872ba32bb0953146d36ee27ca5c4b4ae"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/sparse-game_pace/fit.json",
+      "sha256": "4329b078fe1c4d9cb1b4c162f9c0bc5e81170efd7e366be810e542fad64f4213"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-gaussian/fit.json",
+      "sha256": "083bd46f1a2518681a31e581d44672a8605ee0f223bb9fedc757b886e6569c58"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/diffuse-game_pace/fit.json",
+      "sha256": "99f9eaceec5200338a15b66df8e751fcad69e564f305002a3f937329e432f6c5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-gaussian/fit.json",
+      "sha256": "0c1e684c6b4b33db73a25f66fd2422ae1e8983a1a4936f8714839aefd51146dd"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04h-20261017/null-game_pace/fit.json",
+      "sha256": "0c0b3e2326179cb916b6c2c62914308e8754e858ba646cbe1e5d95f76c8d668c"
+    }
+  ],
+  "checks": 4318,
+  "source_counts": {
+    "selected_control_manifest": 6,
+    "referenced_annual_metadata_unopened": 3000,
+    "metadata": 7,
+    "selected_control_archive": 6,
+    "selected_statistic_archive": 600
+  },
+  "exact_completeness": {
+    "cells": 6,
+    "statistic_histories": 600,
+    "annual_likelihoods": 3000,
+    "candidate_grid_evaluations": 10800,
+    "candidate_fits": 600,
+    "control_replays": 600,
+    "eigensolve_probes": 12,
+    "new_responses": 0,
+    "new_annual_fits": 0
+  },
+  "maximum_replay_tolerance_fraction": 0.0,
+  "maximum_equation_relative_residual": 5.317849671497429e-13,
+  "verified_original_content_digests": 619,
+  "stat_only_preserved_annual_metadata": 3000,
+  "annual_state_archives_opened": 0,
+  "calibration_statistic_archives_opened": 0,
+  "forty_mode_arrays_decoded": 0,
+  "source_preservation_baseline": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/source-preservation-baseline.json",
+    "sha256": "1a1cbe18275c8215a1be9f02a75417236420947280c6b86e774eaf4ef91f1e83"
+  },
+  "source_policy": "shared archives are hashed in full but only named selected eleven-mode arrays are decoded; original summaries retain their frozen absolute references",
+  "selection_policy": "explicit numeric arrays only; labels choose source records but truths, activation, law moments, control risk and prediction allowance cannot affect the candidate selector",
+  "output_policy": "new outputs stay under the external attribution-04i run; controls remain references, with no copies of saved control coefficients/covariances/contexts",
+  "annual_preservation_evidence": "original annual metadata size and mtime unchanged; no old annual-state read/write path is called by this study; annual fitted-state archives remain unopened",
+  "findings": [],
+  "limits": [
+    "the source audit verifies execution and preservation, not scientific support or player uncertainty"
+  ]
+}

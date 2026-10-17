@@ -1,0 +1,83 @@
+{
+  "status": "pass",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/prepared.json",
+    "sha256": "e76536186a21df31abf594158d6b7397eb7a08b8e83b4819b3592bb8062b5985"
+  },
+  "source_result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/docs/research/attribution-04h/result.json",
+    "sha256": "c962c9d4c38c86150fceff15036c1f19bc5bfea897127b7fd08d4f929cdcdbb7"
+  },
+  "cells": [
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "law": "game_pace",
+      "records": 100,
+      "truth_digests_verified": 100,
+      "independent_native_prediction_rows": 9600,
+      "criteria": {
+        "regional_benefit": "inconclusive",
+        "positive_control_gain": "supported",
+        "prediction_retention": "failed"
+      },
+      "summary_metrics": 19,
+      "diagnostic_records": 40,
+      "full_target_denominator": 64,
+      "rank": 60,
+      "entity_rows": 62,
+      "weighted_inseparable_entities": 2,
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": [
+        41001,
+        1,
+        1
+      ],
+      "units": "redistributed recorded unblocked attempts/60; squared full-lineup inverse-share prediction",
+      "selected_score_baseline": "candidate regional error minus zero-map error"
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "law": "gaussian",
+      "records": 100,
+      "truth_digests_verified": 100,
+      "independent_native_prediction_rows": 9600,
+      "criteria": {
+        "regional_benefit": "not_applicable",
+        "positive_control_gain": "not_applicable",
+        "prediction_retention": "not_applicable"
+      },
+      "summary_metrics": 19,
+      "diagnostic_records": 40,
+      "full_target_denominator": 64,
+      "rank": 60,
+      "entity_rows": 62,
+      "weighted_inseparable_entities": 2,
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": [
+        41001,
+        2,
+        0
+      ],
+      "units": "redistributed recorded unblocked attempts/60; squared full-lineup inverse-share prediction",
+      "selected_score_baseline": "candidate regional error minus zero-map error"
+    }
+  ],
+  "numeric_comparisons": 2274,
+  "maximum_absolute_difference": 4.411049303598702e-11,
+  "new_fits": 0,
+  "new_responses": 0,
+  "wall_seconds": 27.42462420800075,
+  "process_seconds": 27.30439,
+  "independent_boundaries": [
+    "explicit identity selection and final likelihood projector",
+    "native physical truth and exposure/context compensation",
+    "direct evaluation-row native prediction",
+    "signed context coupling",
+    "region/function/omitted-detail/transition/active partitions",
+    "direct record-resampling means/ratios/roots and linear quantiles",
+    "99% gain budget and null criteria",
+    "comparison csv"
+  ]
+}

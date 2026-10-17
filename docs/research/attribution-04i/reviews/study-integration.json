@@ -1,0 +1,61 @@
+{
+  "boundary": "study integration",
+  "status": "passed",
+  "red": {
+    "error": "ModuleNotFoundError: No module named attribution_selection",
+    "before_implementation": true
+  },
+  "green": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-integration-v3/assessment/result.json",
+      "sha256": "0c516c9bc6c1cadbe3fd480cafd82effaa11c80828d48005c656743de2c35743"
+    },
+    "fixture_only": true,
+    "checks": 46,
+    "phase_guards": [
+      "fit_without_truth",
+      "assessment_without_solves_or_selection"
+    ]
+  },
+  "refactor": [
+    "strict numerical/control replay receipts",
+    "equivalent winning-index acceptance uses winning score and physical predictions",
+    "assessment selected penalties/scores in compact arrays and paired csv",
+    "grouped contrary findings beside conclusion"
+  ],
+  "invalid_artifacts": [
+    "missing cell",
+    "duplicate cell",
+    "axes",
+    "rank",
+    "equation residual",
+    "control replay",
+    "probe flag consistency",
+    "budget",
+    "index dtype",
+    "index range",
+    "signed score sum",
+    "exact zero"
+  ],
+  "content": {
+    "labels_fixed_before_implementation": true,
+    "rendered_fixture_figure_inspected": true,
+    "decision_grouped_deteriorations": true,
+    "mean_experiment_uncertainty": true
+  },
+  "files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/attribution_selection.py",
+      "sha256": "1ef5d5e858399974b243164c25d8a1b898a0504bf4db1f201e9183365ff8145b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/attribution_selection_report.py",
+      "sha256": "31bf55d3ae2aeb52d24df30c592a9536aa2364ef97eda499a2d1caedde7ed3f6"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/_04i_integration_check.py",
+      "sha256": "017347639f7455f649d7f2134c6e930cce3a3dd9fe9efb1eed93c0dd623bea8c"
+    }
+  ],
+  "temporary_checks": "delete after independent review; no retained suite selected"
+}

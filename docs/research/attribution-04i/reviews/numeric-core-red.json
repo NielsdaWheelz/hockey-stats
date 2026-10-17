@@ -1,0 +1,13 @@
+{
+  "stage": "red",
+  "status": "expected_failure",
+  "command": "PYTHONPATH=analysis/src:analysis/research PYTHONDONTWRITEBYTECODE=1 /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python .scratch/04i-numeric-core.py",
+  "exit_code": 1,
+  "failure": "ImportError: cannot import name pooled_shape_at from hockey_stats.attribution",
+  "scope": [
+    "fixed-index solve extraction",
+    "numeric-only regional penalty scores",
+    "explicit row covariance oracle",
+    "shared realized map/context scoring"
+  ]
+}

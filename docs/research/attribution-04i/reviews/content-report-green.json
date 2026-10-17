@@ -1,0 +1,114 @@
+{
+  "boundary": "reporting correction",
+  "status": "passed",
+  "source_assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/assessment.json",
+    "sha256": "deb79348ec41922aa2c4f2aef4bef3ce75964a5e17e4ba564edfab6b495c79ac"
+  },
+  "red": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-initial.json",
+    "sha256": "851bcbd0e9c4135a97e9b406b2330b6a4bc52588aa2213d04e2b584d3c342eb8"
+  },
+  "corrected_reports": {
+    "reports": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-report-check/decision.md",
+        "sha256": "eb6bf1781687ba5de22269a89b42421167947a14f84b4ce0cb981c0d2d5a07db"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-report-check/comparison.csv",
+        "sha256": "4b47f1235e24de0341eba056f6258a2c51eaed9b647bfbece5362098eea06d23"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-report-check/diagnostics.md",
+        "sha256": "b7b28fbb1a53de72adc179324520049218a806a78fc90c2d955169144162479b"
+      }
+    ],
+    "figures": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-report-check/selection.png",
+        "sha256": "91975134501574e41a67008cdb3f4e710b5d23e11058deeae1b7340970fae10a"
+      }
+    ]
+  },
+  "table_scalar_comparisons": 342,
+  "plotted_scalars": 24,
+  "criterion_labels_checked": 18,
+  "contrary_diagnostics": 158,
+  "metrics": {
+    "plotted_values": [
+      {
+        "population": "sparse",
+        "law": "gaussian",
+        "metric": "regional_benefit",
+        "mean": -0.01226634954190274,
+        "lower": -0.01857956494104709,
+        "upper": -0.006740419046797706
+      },
+      {
+        "population": "sparse",
+        "law": "game_pace",
+        "metric": "regional_benefit",
+        "mean": -0.01056329840498861,
+        "lower": -0.018345070366113086,
+        "upper": -0.0047707322483919535
+      },
+      {
+        "population": "diffuse",
+        "law": "gaussian",
+        "metric": "regional_benefit",
+        "mean": -0.006544002604030047,
+        "lower": -0.014487579963235605,
+        "upper": 0.000261387280785118
+      },
+      {
+        "population": "diffuse",
+        "law": "game_pace",
+        "metric": "regional_benefit",
+        "mean": -0.0037739239435552858,
+        "lower": -0.008640776150874361,
+        "upper": 0.0009689006226222689
+      },
+      {
+        "population": "sparse",
+        "law": "gaussian",
+        "metric": "retention_margin",
+        "mean": -2.979584153377728,
+        "lower": -4.046952491443306,
+        "upper": -2.0049478495541146
+      },
+      {
+        "population": "sparse",
+        "law": "game_pace",
+        "metric": "retention_margin",
+        "mean": -2.660478216580677,
+        "lower": -3.910960475432703,
+        "upper": -1.6562674477787496
+      },
+      {
+        "population": "diffuse",
+        "law": "gaussian",
+        "metric": "retention_margin",
+        "mean": -4.657244948981278,
+        "lower": -6.101981336760777,
+        "upper": -3.3566229408882053
+      },
+      {
+        "population": "diffuse",
+        "law": "game_pace",
+        "metric": "retention_margin",
+        "mean": -4.245313917026442,
+        "lower": -5.401729606653742,
+        "upper": -3.151252549521143
+      }
+    ],
+    "panel_0_adjacent_tick_overlaps": 0,
+    "panel_1_adjacent_tick_overlaps": 0
+  },
+  "scope": "saved assessment report rendering only; no fits, selection, responses or new scientific assessments",
+  "temporary_checks_removed": true,
+  "reporting_source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/research/attribution_selection_report.py",
+    "sha256": "cc0095111df2f33e19c1bceebe6acb91a237788b88aedc4e5e6d47efbc839f09"
+  }
+}

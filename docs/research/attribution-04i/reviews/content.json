@@ -1,0 +1,130 @@
+{
+  "boundary": "actual final research content review",
+  "status": "passed",
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/result.json",
+    "sha256": "c32ac2c9b03584c0435e9be2a23d621ec80b1bb15ef748f64e1b4146584dfd19"
+  },
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/assessment.json",
+    "sha256": "3605250838eb5f59213f2ebf01cbd63c43d3cb0cb0a0b0cc96110d4917796f94"
+  },
+  "reports": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/decision.md",
+      "sha256": "eb6bf1781687ba5de22269a89b42421167947a14f84b4ce0cb981c0d2d5a07db"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/comparison.csv",
+      "sha256": "4b47f1235e24de0341eba056f6258a2c51eaed9b647bfbece5362098eea06d23"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/diagnostics.md",
+      "sha256": "b7b28fbb1a53de72adc179324520049218a806a78fc90c2d955169144162479b"
+    }
+  ],
+  "figures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/selection.png",
+      "sha256": "91975134501574e41a67008cdb3f4e710b5d23e11058deeae1b7340970fae10a"
+    }
+  ],
+  "content_contract": "fixed before implementation; final saved-state assessment reviewed after reporting-only corrections",
+  "red": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-initial.json",
+    "sha256": "851bcbd0e9c4135a97e9b406b2330b6a4bc52588aa2213d04e2b584d3c342eb8"
+  },
+  "correction_green": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-report-green.json",
+    "sha256": "a2c9bb3a89d7a7d6b3d555f29a90a5379bc6c4314ccabc37c4aa9ffc71355ce1"
+  },
+  "table_scalar_comparisons": 342,
+  "plotted_mean_and_endpoints": [
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "metric": "regional_benefit",
+      "mean": -0.01226634954190274,
+      "lower": -0.01857956494104709,
+      "upper": -0.006740419046797706
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "metric": "regional_benefit",
+      "mean": -0.01056329840498861,
+      "lower": -0.018345070366113086,
+      "upper": -0.0047707322483919535
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "metric": "regional_benefit",
+      "mean": -0.006544002604030047,
+      "lower": -0.014487579963235605,
+      "upper": 0.000261387280785118
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "metric": "regional_benefit",
+      "mean": -0.0037739239435552858,
+      "lower": -0.008640776150874361,
+      "upper": 0.0009689006226222689
+    },
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "metric": "retention_margin",
+      "mean": -2.979584153377728,
+      "lower": -4.046952491443306,
+      "upper": -2.0049478495541146
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "metric": "retention_margin",
+      "mean": -2.660478216580677,
+      "lower": -3.910960475432703,
+      "upper": -1.6562674477787496
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "metric": "retention_margin",
+      "mean": -4.657244948981278,
+      "lower": -6.101981336760777,
+      "upper": -3.3566229408882053
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "metric": "retention_margin",
+      "mean": -4.245313917026442,
+      "lower": -5.401729606653742,
+      "upper": -3.151252549521143
+    }
+  ],
+  "plotted_scalar_comparisons": 24,
+  "criterion_labels_checked": 18,
+  "adjacent_tick_overlaps": 0,
+  "contrary_diagnostics": 158,
+  "checks": {
+    "rendered_final_png_inspected": true,
+    "exact_arm_labels": true,
+    "correct_squared_units": true,
+    "mean_experiment_uncertainty": true,
+    "null_absolute_risks_and_unavailable_ratios": true,
+    "strict_99_percent_gain_policy": true,
+    "historical_margins_not_gates": true,
+    "diagnostics_not_vetoes": true,
+    "post_selection_optimism_explicit": true,
+    "all_report_links_valid": true,
+    "no_nomination_admission_or_handoff": true,
+    "scientific_failure_plainly_reported": true,
+    "final_report_bytes_equal_independently_checked_preview": true
+  },
+  "scientific_conclusion": "all four control gains supported; sparse regional benefits fail; diffuse regional benefits inconclusive; all four retention margins fail",
+  "scope": "content and saved-report reconciliation only; no fits, responses, reselection or new scientific campaign",
+  "temporary_scripts_retained": 0
+}

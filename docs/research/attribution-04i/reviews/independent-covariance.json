@@ -1,0 +1,20 @@
+{
+  "study": "04i",
+  "review": "independent explicit native-row gaussian covariance",
+  "status": "passed",
+  "checks": 165,
+  "max_term_difference": 1.4210854715202004e-14,
+  "annual_contexts": 2,
+  "nonuniform_shares": true,
+  "temporal_changes": true,
+  "omitted_physical_modes": true,
+  "inseparable_player_pair": [
+    1,
+    2
+  ],
+  "final_roster_vs_union": true,
+  "projection_order": "P E",
+  "null_game_pace_covariance": "exact agreement after native shape projection",
+  "normalization": "r^2/64",
+  "no_monte_carlo": true
+}

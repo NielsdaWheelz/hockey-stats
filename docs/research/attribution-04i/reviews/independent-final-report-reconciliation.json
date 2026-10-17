@@ -1,0 +1,91 @@
+{
+  "status": "pass",
+  "original": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/assessment.json",
+    "sha256": "deb79348ec41922aa2c4f2aef4bef3ce75964a5e17e4ba564edfab6b495c79ac"
+  },
+  "reviewed": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/assessment.json",
+    "sha256": "3605250838eb5f59213f2ebf01cbd63c43d3cb0cb0a0b0cc96110d4917796f94"
+  },
+  "equal_assessment_fields": [
+    "prepared",
+    "protocol",
+    "source_result",
+    "fits",
+    "execution_status",
+    "numerical_status",
+    "progress_status",
+    "cells",
+    "diagnostics",
+    "selections",
+    "exact_completeness",
+    "reconciliation",
+    "numerical",
+    "target_rank",
+    "units",
+    "limits",
+    "interval_meaning",
+    "costs",
+    "source_producer",
+    "nomination",
+    "admission",
+    "handoff"
+  ],
+  "archives": [
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "arrays": 25,
+      "byte_identical_array_values": true
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "arrays": 25,
+      "byte_identical_array_values": true
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "arrays": 25,
+      "byte_identical_array_values": true
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "arrays": 25,
+      "byte_identical_array_values": true
+    },
+    {
+      "population": "null",
+      "law": "gaussian",
+      "arrays": 25,
+      "byte_identical_array_values": true
+    },
+    {
+      "population": "null",
+      "law": "game_pace",
+      "arrays": 25,
+      "byte_identical_array_values": true
+    }
+  ],
+  "csv_records": 18540,
+  "csv_criterion_statuses": 18,
+  "noncriterion_csv_status_is_empty": true,
+  "csv_summary_cell_progress_is_separate": true,
+  "numerical_evidence_unchanged": true,
+  "independent_native_review": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/independent-full-cell-assessment.json",
+  "final_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/result.json",
+    "sha256": "c32ac2c9b03584c0435e9be2a23d621ec80b1bb15ef748f64e1b4146584dfd19"
+  },
+  "reporting_producer": {
+    "git_commit": "ce25454c276b4fd8f597229c211b1c8204ec9770",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  }
+}

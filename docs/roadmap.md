@@ -24,6 +24,8 @@ the post-04b direction prioritizes useful spatial signal recovery and uncertaint
 
 the selected representation trades fine spatial freedom for shared evidence across rink geometry. assess broad/local and deliberately poorly represented patterns, annual transitions and inseparable linemates against actual truths. synthetic means gate refit uncertainty; scoped support permits only one five-season real point chain. new real-player refit intervals remain later work. native-grid rendering supplies no independent cell precision, and the 5% meaningful scalar contrast supplies no spatial error budget. no automatic follow-on campaign is assigned.
 
+[04c's completed decision](research/attribution-04c/decision.md) fails the mean-recovery gate after all 800 paired datasets. gated uncertainty and real fitting are not reached. its fixed geometric candidate is not nominated; the useful-recovery and uncertainty requirements remain open. the observed website remains independent, and the next model question still requires selection.
+
 the remaining analytical responsibilities are distinct; their concrete next studies depend on evidence rather than a mandatory bundle:
 
 | responsibility | remaining claim / dependency |

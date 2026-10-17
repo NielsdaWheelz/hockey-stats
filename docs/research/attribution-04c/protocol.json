@@ -1,0 +1,131 @@
+{
+  "schema_version": 3,
+  "kind": "attribution_recovery_protocol",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "481a9e36138e0d143efe4009d2733c53a941a35b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/diagnosis.json",
+      "sha256": "d44615cd5b8243c1182aada82f8fca3fed7ac672cc011e341c26c930e30af142"
+    },
+    "spec_snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/spec-snapshot.md",
+      "sha256": "acfaadf53f7b78c1278c8fc1430788f929331f7b5ce0f5198ae7436922ea813f"
+    },
+    "source_prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+      "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"
+    }
+  },
+  "diagnosis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/diagnosis.json",
+    "sha256": "d44615cd5b8243c1182aada82f8fca3fed7ac672cc011e341c26c930e30af142"
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/spec-snapshot.md",
+    "sha256": "acfaadf53f7b78c1278c8fc1430788f929331f7b5ce0f5198ae7436922ea813f"
+  },
+  "source_prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+    "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"
+  },
+  "source_protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/inputs/protocol.json",
+    "sha256": "32c4edf30c7cc8d5f1c844c7ee048991465d9066019e434ddefc0746ccedc7d6"
+  },
+  "old_evidence": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+      "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"
+    },
+    "fits": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/fits/fits.json",
+      "sha256": "356fe332cd0c8d3786140db41c99e739ba4a807c519ddb7c1ab6a876a7a580fc"
+    },
+    "simulation": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/simulation/simulation.json",
+      "sha256": "6075a4de7ca5449a2e66e2b7b6bd7caca7d81e6c4dedc29a12d328f627250863"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/assessment-02/assessment.json",
+      "sha256": "a2a3347f29d1c0cde218e4ddec2175946f45c71a4a7306d7b441966d48d6319b"
+    }
+  },
+  "grid": {
+    "sha256": "bfb80a4a3dd5b5b764f3811b7a14def76399b14c667b391ded0a9bc9663d1ca2",
+    "cells": 656,
+    "width_feet": 5,
+    "coordinate_frame": "native attacking"
+  },
+  "reference": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20212022-references.npz",
+    "sha256": "8008bb5c70f242c401bb9f4fa0ed5d105e1180d10760ea010d41a2d257612357"
+  },
+  "request_sha256": "d64369aac73f42a80f52072500cb32ec2600d55fd3d87a1c0cfc2b78eddadc05",
+  "synthetic_design_sha256": "f8d5e8dd770a8b4e16f3e16217ea6975db8942a83595e36725c17202db64bb69",
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016",
+  "budgets": {
+    "outer_per_case": 400,
+    "inner_refits": 200,
+    "paired_error_resamples": 10000,
+    "workers": 4
+  },
+  "seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "populations": [
+    "unblocked_spatial"
+  ],
+  "basis_rule": {
+    "name": "graph_40ft",
+    "spacing_feet": 5,
+    "cutoff": 0.024674011002723394,
+    "rank": 40,
+    "geometry": "cardinal adjacency, one constant mode excluded",
+    "response_selection": false
+  },
+  "seeds": {
+    "design": 40400,
+    "response": 40430,
+    "refit": 40431,
+    "paired_error": 40432,
+    "bit_generator": "PCG64"
+  },
+  "generator": {
+    "design": "unchanged paired after mixed",
+    "games": 96,
+    "stints": 50,
+    "cases": [
+      "gaussian",
+      "game_pace"
+    ],
+    "annual_rate": 40,
+    "truth": "fixed 04c spec table, separately exposure centered"
+  },
+  "criteria": {
+    "mean": "all_eight_paired_error_95_percentile_lower_gt_zero",
+    "coverage": "all_four_95_wilson_lower_ge_0.90",
+    "nominal_coverage": 0.95,
+    "developmental_floor": 0.9,
+    "numerical_tolerance": 1e-08,
+    "resolution_movement_max": 0.0001
+  },
+  "interval": {
+    "kind": "basic_game_refit",
+    "quantile": "linear",
+    "no_working_variance": true
+  },
+  "admission": "not_admitted",
+  "handoff": null
+}

@@ -98,6 +98,11 @@ def build_shape_basis(geometry: tuple[np.ndarray, np.ndarray], p: np.ndarray) ->
 def read_shape_basis(prepared: dict) -> ShapeBasis:
     """read the one saved basis; do not recompute eigenvector signs in a history."""
     arrays = load_arrays(dict(arrays=prepared["basis"], array_shapes=prepared["basis_shapes"]))
+    return decode_shape_basis(arrays, basis_sha256=prepared["basis_sha256"])
+
+
+def decode_shape_basis(arrays: dict[str, np.ndarray], *, basis_sha256: str) -> ShapeBasis:
+    """validate the fixed graph geometry from one already loaded ordered archive."""
     require(list(arrays) == ["B", "p", "eigenvalues"], "saved shape basis array order differs")
     B, p, eigenvalues = arrays["B"], arrays["p"], arrays["eigenvalues"]
     require(
@@ -107,10 +112,10 @@ def read_shape_basis(prepared: dict) -> ShapeBasis:
         and eigenvalues[-1] < (2 * math.pi / 40) ** 2 - 1e-8
         and np.max(np.abs(p @ B)) <= 1e-10
         and np.max(np.abs(B.T @ (p[:, None] * B) - np.eye(40))) <= 1e-10
-        and _basis_identity(B, p, eigenvalues) == prepared["basis_sha256"],
+        and _basis_identity(B, p, eigenvalues) == basis_sha256,
         "saved shape basis geometry, whitening or identity differs",
     )
-    return ShapeBasis(B, p, eigenvalues, prepared["basis_sha256"])
+    return ShapeBasis(B, p, eigenvalues, basis_sha256)
 
 
 @dataclass(frozen=True)
@@ -136,6 +141,15 @@ class GraphShapeState:
     a: float
     q: float | None
     scale: dict
+    diagnostics: dict
+
+
+@dataclass(frozen=True)
+class ShapeUpdate:
+    mean: np.ndarray
+    covariance: np.ndarray
+    gain: np.ndarray
+    uncentered_covariance: np.ndarray
     diagnostics: dict
 
 
@@ -287,6 +301,40 @@ def _prior(
     return M0, covariance, selected
 
 
+def shape_objective_terms(
+    H: np.ndarray, prior_covariance: np.ndarray, signal_contraction: np.ndarray,
+    *, response_rank: int, response_metric: Literal["graph_identity", "native_inverse_share"],
+    noise_contraction: np.ndarray | None = None,
+) -> dict:
+    """fixed-prior determinant and response-metric contractions, without scale selection.
+
+    the caller supplies Q Q' for graph coefficients or (Q / p) Q' for native
+    zero-sum responses. expected gaussian criteria additionally supply q H as
+    noise_contraction. the response-energy constant is deliberately excluded.
+    callers own their existing numerical acceptance policy for the returned
+    terms and equation residual; this function makes no scale decision.
+    """
+    n = len(H)
+    require(type(response_rank) is int and response_rank > 0
+            and response_metric in ("graph_identity", "native_inverse_share")
+            and H.shape == prior_covariance.shape == signal_contraction.shape == (n, n)
+            and all(np.isfinite(value).all() and np.allclose(value, value.T, rtol=1e-10, atol=1e-10)
+                    for value in (H, prior_covariance, signal_contraction))
+            and (noise_contraction is None or (
+                noise_contraction.shape == (n, n) and np.isfinite(noise_contraction).all()
+                and np.allclose(noise_contraction, noise_contraction.T, rtol=1e-10, atol=1e-10))),
+            "invalid fixed shape objective contract")
+    L, K, factor = _factor(H, prior_covariance)
+    covariance, residual = _covariance(L, K, factor)
+    determinant = float(response_rank * 2 * np.log(np.diag(factor)).sum())
+    signal = float(np.sum(covariance * signal_contraction.T))
+    noise = 0.0 if noise_contraction is None else float(np.sum(covariance * noise_contraction.T))
+    return dict(determinant=determinant, signal=signal, noise=noise,
+                objective=float(determinant - signal - noise),
+                equation_relative_residual=residual,
+                response_rank=response_rank, response_metric=response_metric)
+
+
 class _ScaleProblem:
     """cache response contractions once; each scale candidate solves row space."""
 
@@ -314,18 +362,22 @@ class _ScaleProblem:
         variance = 10.0 ** float(exponent)
         error, residual = None, None
         try:
-            L, K, factor = _factor(self.H, self.covariance(variance))
             if self.B is None:
+                L, K, factor = _factor(self.H, self.covariance(variance))
                 rhs = L.T @ self.b[:, 0]
                 solution = cho_solve((factor, True), rhs, check_finite=False)
                 residual = _equation_residual(K, solution, rhs)
                 contraction = rhs @ solution
+                logdet = self.rank * 2 * np.log(np.diag(factor)).sum()
             else:
-                V, residual = _covariance(L, K, factor)
-                contraction = np.sum(V * self.B.T)
+                terms = shape_objective_terms(
+                    self.H, self.covariance(variance), self.B, response_rank=self.rank,
+                    response_metric="graph_identity" if self.reduced else "native_inverse_share",
+                )
+                logdet, contraction = terms["determinant"], terms["signal"]
+                residual = terms["equation_relative_residual"]
             if not math.isfinite(residual) or residual > 1e-8:
                 error = "scale objective equation residual exceeds 1e-8"
-            logdet = self.rank * 2 * np.log(np.diag(factor)).sum()
             # native 04b retains its original addition/selection arithmetic.
             value = float(logdet - contraction if self.reduced else logdet + self.zz - contraction)
             if not math.isfinite(value):
@@ -399,13 +451,12 @@ def _select_scale(problem: _ScaleProblem, inherited: bool) -> tuple[float, dict]
     )
 
 
-def _center(M, V, A, weights, response_map=None):
+def _center(M, V, weights, diagnostics):
     n = len(weights)
     off_mean, def_mean = weights @ M[:n], weights @ M[n:]
     M[:n] -= off_mean
     M[n:] -= def_mean
     compensation = off_mean + def_mean
-    A += 5 * (compensation if response_map is None else compensation @ response_map.T)
     centered = np.empty_like(V)
     for start in (0, n):
         for stop in (0, n):
@@ -414,7 +465,35 @@ def _center(M, V, A, weights, response_map=None):
             centered[start : start + n, stop : stop + n] = (
                 block - left[None, :] - right[:, None] + weights @ right
             )
-    return M, centered, A
+    symmetry = float(np.max(np.abs(centered - centered.T)))
+    tolerance = float(1e-10 * max(1, np.linalg.norm(centered, ord=np.inf)))
+    require(symmetry <= tolerance and np.min(np.diag(centered)) >= -tolerance,
+            "invalid centered covariance")
+    diagnostics.update(
+        centered_covariance_symmetry=symmetry,
+        covariance_rounding_tolerance=tolerance,
+        centered_mean_residual=float(max(np.max(np.abs(weights @ M[:n])), np.max(np.abs(weights @ M[n:])))),
+    )
+    return M, centered, compensation
+
+
+def fixed_shape_update(
+    H: np.ndarray, prior_mean: np.ndarray, prior_covariance: np.ndarray,
+    score: np.ndarray, u: np.ndarray,
+) -> ShapeUpdate:
+    """one proper-prior update and exposure reference; no fitted scale decision."""
+    n = len(u)
+    require(n > 0 and H.shape == prior_covariance.shape == (2 * n, 2 * n)
+            and prior_mean.ndim == 2 and prior_mean.shape == score.shape
+            and len(prior_mean) == 2 * n and np.all(u >= 0)
+            and math.isclose(float(u.sum()), 1, rel_tol=0, abs_tol=1e-12)
+            and all(np.isfinite(value).all() for value in (H, prior_mean, prior_covariance, score, u))
+            and np.allclose(H, H.T, rtol=1e-10, atol=1e-10)
+            and np.allclose(prior_covariance, prior_covariance.T, rtol=1e-10, atol=1e-10),
+            "invalid fixed shape update contract")
+    M, V, diagnostics = _posterior(H, score, prior_mean, prior_covariance)
+    M, centered, _ = _center(M, V, u, diagnostics)
+    return ShapeUpdate(M, centered, centered @ H, V, diagnostics)
 
 
 def _block_at_scale(
@@ -423,17 +502,10 @@ def _block_at_scale(
     M, V, diagnostics = _posterior(H, T, M0, covariance)
     response_map = None if basis is None else basis.R
     native = M if response_map is None else M @ response_map.T
-    M, V, A = _center(M, V, ybar - xbar @ native, weights, response_map)
-    symmetry = float(np.max(np.abs(V - V.T)))
-    tolerance = float(1e-10 * max(1, np.linalg.norm(V, ord=np.inf)))
-    require(symmetry <= tolerance and np.min(np.diag(V)) >= -tolerance, "invalid centered covariance")
-    n = len(weights)
-    diagnostics.update(
-        centered_covariance_symmetry=symmetry,
-        covariance_rounding_tolerance=tolerance,
-        centered_mean_residual=float(max(np.max(np.abs(weights @ M[:n])), np.max(np.abs(weights @ M[n:])))),
-        resources=resources(started),
-    )
+    A = ybar - xbar @ native
+    M, V, shift = _center(M, V, weights, diagnostics)
+    A += 5 * (shift if response_map is None else shift @ response_map.T)
+    diagnostics["resources"] = resources(started)
     if p is not None:
         native = M if response_map is None else M @ response_map.T
         diagnostics["zero_sum_mean_residual"] = float(np.max(np.abs(native.sum(axis=1))))
@@ -1370,6 +1442,131 @@ def annual_arrays(state: AnnualState) -> tuple[dict, dict[str, np.ndarray]]:
             values[name + "_" + field] = getattr(block, field)
         blocks[name] = dict(a=block.a, q=block.q, scale=block.scale, diagnostics=block.diagnostics)
     return blocks, values
+
+
+def read_recovery_embedded_annual(
+    record: dict, arrays: dict[str, np.ndarray], *,
+    representation: Literal["native_04b", "graph_40ft"], basis: ShapeBasis | None,
+    source_prepared: dict, source_protocol: dict, model_protocol: dict, basis_reference: dict | None,
+    population_id: str, season_index: int, season: str, current_player_ids: tuple[int, ...],
+    current_u: np.ndarray, p: np.ndarray, strata: tuple, previous: AnnualState | None,
+) -> AnnualState:
+    """decode one explicitly synthetic schema-3 row from an already loaded outer.
+
+    the caller validates the enclosing artifact and referenced files once. this
+    boundary checks its complete reference bindings, saved array order and exact
+    annual prior carry; it never reads a standalone annual or guesses a format.
+    """
+    require(set(record) == {
+        "schema_version", "kind", "representation", "source_kind", "season", "season_index",
+        "benchmark", "source_prepared", "source_protocol", "model_protocol", "population_id",
+        "basis", "basis_sha256", "player_ids", "current_player_ids", "entrant_ids",
+        "carried_only_ids", "previous", "array_prefix", "r", "strata", "volume", "shape",
+    } and type(record["schema_version"]) is int and record["schema_version"] == 3
+            and record["kind"] == "attribution_recovery_annual" and record["source_kind"] == "synthetic"
+            and record["representation"] == representation
+            and record["benchmark"] == "unblocked_spatial"
+            and record["source_prepared"] == source_prepared
+            and record["source_protocol"] == source_protocol and record["model_protocol"] == model_protocol
+            and record["population_id"] == population_id
+            and type(season_index) is int and season_index >= 0
+            and type(record["season_index"]) is int and record["season_index"] == season_index
+            and record["season"] == season
+            and len(season) == 8 and season.isdigit() and int(season[4:]) == int(season[:4]) + 1
+            and record["r"] == 40 and tuple(map(tuple, record["strata"])) == tuple(map(tuple, strata)),
+            "embedded recovery annual source/model identity differs")
+    graph = representation == "graph_40ft"
+    require((graph and basis is not None and record["basis"] == basis_reference
+             and basis_reference is not None and record["basis_sha256"] == basis.sha256
+             and basis.B.shape == (656, 40) and np.array_equal(basis.p, p))
+            or (representation == "native_04b" and basis is None and basis_reference is None
+                and record["basis"] is None and record["basis_sha256"] is None),
+            "embedded recovery annual representation/basis differs")
+    current = tuple(record["current_player_ids"])
+    players = tuple(record["player_ids"])
+    prior_players = () if previous is None else previous.player_ids
+    require(bool(current) and current == current_player_ids == tuple(sorted(set(current)))
+            and players == tuple(sorted(set(players)))
+            and all(type(player) is int for player in (*players, *current,
+                                                     *record["entrant_ids"], *record["carried_only_ids"]))
+            and players == tuple(sorted(set(current) | set(prior_players)))
+            and record["entrant_ids"] == sorted(set(current) - set(prior_players))
+            and record["carried_only_ids"] == sorted(set(players) - set(current))
+            and ((previous is None and season_index == 0 and record["previous"] is None)
+                 or (previous is not None and season_index == previous.season_index + 1
+                     and int(season[:4]) == int(previous.season[:4]) + 1
+                     and record["previous"] == dict(representation=representation, season=previous.season)
+                     and previous.benchmark == record["benchmark"]
+                     and previous.source_protocol_sha256 == source_protocol["sha256"]
+                     and previous.model_protocol_sha256 == model_protocol["sha256"]
+                     and previous.population_id == population_id and previous.representation == representation
+                     and np.array_equal(previous.p, p)
+                     and ((basis is None and previous.basis is None)
+                          or (basis is not None and previous.basis is not None
+                              and basis.sha256 == previous.basis.sha256)))),
+            "embedded recovery annual row order or chronology differs")
+    n, s = len(players), len(strata)
+    positions = {player: i for i, player in enumerate(players)}
+    u = np.zeros(n)
+    require(current_u.shape == (len(current),) and np.isfinite(current_u).all() and np.all(current_u > 0)
+            and abs(float(current_u.sum()) - 1) <= 1e-12
+            and p.shape == (656,) and np.isfinite(p).all() and np.all(p > 0)
+            and abs(float(p.sum()) - 1) <= 1e-12,
+            "embedded recovery annual original references differ")
+    u[[positions[player] for player in current]] = current_u
+    prefix = representation + "_" + season + "_"
+    shapes = dict(u=(n,), response_counts=(656,), p=(656,))
+    for name in ("volume", "shape"):
+        width = 1 if name == "volume" else (40 if graph else 656)
+        mean_name = "Theta" if name == "shape" and graph else "M"
+        shapes[name + "_" + mean_name] = (2 * n, width)
+        shapes[name + "_V"] = (2 * n, 2 * n)
+        shapes[name + "_A"] = (s, 1 if name == "volume" else 656)
+        shapes[name + "_prior_mean"] = (2 * n, width)
+        shapes[name + "_prior_covariance"] = (2 * n, 2 * n)
+    names = [prefix + name for name in shapes]
+    require(record["array_prefix"] == prefix
+            and [name for name in arrays if name.startswith(prefix)] == names
+            and all(arrays[prefix + name].shape == shape and arrays[prefix + name].dtype.kind in "biuf"
+                    and np.isfinite(arrays[prefix + name]).all() for name, shape in shapes.items())
+            and np.array_equal(arrays[prefix + "u"], u) and np.array_equal(arrays[prefix + "p"], p),
+            "embedded recovery annual ordered arrays or references differ")
+    blocks = {}
+    for name in ("volume", "shape"):
+        metadata = record[name]
+        require(isinstance(metadata, dict) and set(metadata) == {"a", "q", "scale", "diagnostics"},
+                "embedded recovery annual block metadata differs")
+        prior = None if previous is None else getattr(previous, name)
+        width = 1 if name == "volume" else (40 if graph else 656)
+        M0, covariance, selected = _prior(players, previous, prior, width)
+        variance = metadata["scale"]["selected"]["variance"]
+        require(math.isfinite(variance) and 1e-8 <= variance <= 1
+                and metadata["a"] == (variance if prior is None else prior.a)
+                and metadata["q"] == (None if prior is None else variance),
+                "embedded recovery annual scale lineage differs")
+        covariance[selected, selected] += variance
+        block_prefix = prefix + name + "_"
+        require(np.array_equal(arrays[block_prefix + "prior_mean"], M0)
+                and np.array_equal(arrays[block_prefix + "prior_covariance"], covariance),
+                "embedded recovery annual prior carry differs")
+        M = arrays[block_prefix + ("Theta" if name == "shape" and graph else "M")]
+        V, A = arrays[block_prefix + "V"], arrays[block_prefix + "A"]
+        tolerance = metadata["diagnostics"]["covariance_rounding_tolerance"]
+        require(math.isfinite(tolerance) and tolerance >= 0
+                and np.max(np.abs(V - V.T)) <= tolerance and np.min(np.diag(V)) >= -tolerance
+                and np.max(np.abs(u @ M[:n])) <= 1e-8 and np.max(np.abs(u @ M[n:])) <= 1e-8,
+                "embedded recovery annual covariance or centering differs")
+        if name == "shape":
+            native = M @ basis.R.T if graph else M
+            require(np.max(np.abs(native.sum(axis=1))) <= 1e-8 and np.max(np.abs(A.sum(axis=1))) <= 1e-8,
+                    "embedded recovery annual shape/context is not zero sum")
+        state_type = GraphShapeState if name == "shape" and graph else BlockState
+        blocks[name] = state_type(M, V, A, M0, covariance, metadata["a"], metadata["q"],
+                                  metadata["scale"], metadata["diagnostics"])
+    return AnnualState(record["benchmark"], season, season_index, source_protocol["sha256"],
+                       model_protocol["sha256"], representation, basis, population_id, players, current,
+                       tuple(record["entrant_ids"]), tuple(record["carried_only_ids"]),
+                       blocks["volume"], blocks["shape"], 40, u, p, arrays[prefix + "response_counts"])
 
 
 def write_recovery_annual(

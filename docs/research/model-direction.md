@@ -70,6 +70,14 @@ the tradeoff is deliberate spatial bias and lost fine detail in exchange for sha
 
 the completed [04c decision](attribution-04c/decision.md) is `mean_recovery_failed`: the saved diagnosis is bias dominated and all 800 paired datasets complete, but only six of eight gains support improvement. game-pace radial versus native 04b is inconclusive and lateral versus native 04b fails. broad regional error remains `0.84–0.93` of zero-prediction error with strong mean attenuation; nominal geometric pooling did not establish the proposed recovery claim. nested uncertainty and real fitting are not reached. this rules out nomination of this candidate under its fixed criteria, not every possible spatial model; numerical correctness does not repair the scientific failure. no alternate cutoff, additional draws or next model is assigned.
 
+### selected 04d diagnosis — 2026-10-16
+
+the user selected diagnosis of existing known-truth simulations only. [04d](../specs/04d-attribution-diagnosis.md) asks whether broad signal is unavailable in deployment, weak relative to observation noise, suppressed by the shared scale criterion, or propagated through annual inheritance. representability does not establish estimability; attenuation alone does not establish overregularization. saved states permit operator checks, and first-year fixed-scale gaussian expectations permit criterion/risk comparison without a new selected fit.
+
+freeze existing scales for transmission diagnostics, explicitly treating them as response-dependent selections. a mean-response replay is not the expectation conditional on those selections. include observation noise when calculating the expected marginal objective; noiseless scale fitting would change that objective. a truth-informed variance that lowers one contrast's error cannot be adopted as an available estimator. several mechanisms may coexist, and an unresolved explanation is valid.
+
+the cost is one bounded diagnostic implementation and reading existing artifacts before another model decision. the benefit is separating representation, information and prior pressure without another speculative campaign. no new synthetic/real fits, prior replacement, real-deployment identification or uncertainty calibration is implied. these exposed synthetic cases cannot nominate a real model. the plan owns assignment; complete-rate accuracy, real-player evidence and publication remain separate.
+
 the approved private observed product can develop independently, using counts, matched exposure and coverage only. it provides real utility and feedback without relabeling provisional fitted associations. later deployment, age and chance questions remain explicit alternatives chosen from evidence; adding all prepared features or more years is not the default response to this controlled failure.
 
 ## software and verification judgment

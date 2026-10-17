@@ -37,7 +37,7 @@ the [plan](plan.md) owns order and assignments. the dependency graph distinguish
 
 1. source captures and interpretation support separate reported event membership, elapsed exposure and feature facts.
 2. chance research defines target populations, fits probabilities and assesses calibration/measurement assumptions. [03p](specs/03p-chance-structure.md) owns one structural experiment with its bounded numerical check.
-3. attribution research can independently assess recorded-rate associations, synthetic recovery and provisional sensitivity. [04c](specs/04c-attribution-recovery.md) implements one bounded recovery question; research supplies no admitted chance-valued player result.
+3. attribution research can independently assess recorded-rate associations, synthetic recovery and provisional sensitivity. [04c](specs/04c-attribution-recovery.md) owns its completed recovery question; [04d](specs/04d-attribution-diagnosis.md) specifies a known-truth information/shrinkage diagnosis using the same numerical owners. research supplies no admitted chance-valued player result.
 4. [05a](specs/05a-observed-website.md) uses the source/reconstruction boundary for a private observed-results website, independently of chance/attribution admission. source-supported counts, matched exposure and coverage need their own checks. fitted effects and xg are absent.
 5. supported opportunity values and robust player attribution are required for 04 ability outputs. 05–06 extend 05a's same publication/view owners with those quantities; labeled fixtures can exercise their design earlier.
 

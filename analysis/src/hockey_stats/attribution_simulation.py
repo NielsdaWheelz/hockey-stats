@@ -5,6 +5,24 @@ from itertools import combinations
 import numpy as np
 from scipy import sparse
 
+from .artifacts import require
+
+
+def synthetic_counts(design: dict, case_id: int, outer_id: int, year_index: int) -> np.ndarray:
+    """the original 04c response stream; callers supply its fixed design and ids."""
+    require(type(case_id) is int and case_id in (0, 1) and type(outer_id) is int and outer_id >= 0,
+            "invalid synthetic response identity")
+    rng = np.random.Generator(np.random.PCG64(np.random.SeedSequence([40430, case_id, outer_id, year_index])))
+    means = design["e"][:, None] * design["mu"]
+    if case_id == 0:
+        return rng.normal(means, np.sqrt(design["e"][:, None] * 40 * design["p"]))
+    responses = np.empty_like(means)
+    for game in range(96):
+        pace = rng.gamma(shape=2, scale=.5)
+        rows = slice(100 * game, 100 * (game + 1))
+        responses[rows] = rng.poisson(pace * means[rows])
+    return responses
+
 
 def synthetic_designs() -> dict[str, list[dict]]:
     """the original 04a lineup stream; its mixed pass precedes the paired pass."""

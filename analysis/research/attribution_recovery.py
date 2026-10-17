@@ -15,8 +15,9 @@ import numpy as np
 
 from hockey_stats.artifacts import (
     clean_implementation, implementation, json_values, linked_path, require, resources,
-    write_json, write_arrays, load_arrays, artifact, read_artifact,
+    write_json, write_arrays, load_arrays, artifact, read_artifact, ordered_array_digest,
 )
+from hockey_stats.attribution_simulation import synthetic_counts
 from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.chance_evaluation import REGION_NAMES, compound_regions
 from hockey_stats.shot_origins import grid
@@ -603,62 +604,27 @@ def native_designs(p: np.ndarray) -> list[dict]:
     return designs
 
 
-def synthetic_counts(design: dict, case_id: int, outer_id: int, year_index: int) -> np.ndarray:
-    require(type(case_id) is int and case_id in (0, 1) and type(outer_id) is int and outer_id >= 0,
-            "invalid synthetic response identity")
-    rng = np.random.Generator(np.random.PCG64(np.random.SeedSequence([40430, case_id, outer_id, year_index])))
-    means = design["e"][:, None] * design["mu"]
-    if case_id == 0:
-        return rng.normal(means, np.sqrt(design["e"][:, None] * 40 * design["p"]))
-    responses = np.empty_like(means)
-    for game in range(96):
-        pace = rng.gamma(shape=2, scale=.5)
-        rows = slice(100 * game, 100 * (game + 1))
-        responses[rows] = rng.poisson(pace * means[rows])
-    return responses
-
-
-def _array_digest(arrays: dict) -> str:
-    import hashlib
-    import json
-
-    digest = hashlib.sha256()
-    for name, value in arrays.items():
-        value = np.ascontiguousarray(value)
-        digest.update(json.dumps([name, value.dtype.str, list(value.shape)], separators=(",", ":")).encode())
-        digest.update(value.tobytes(order="C"))
-    return digest.hexdigest()
-
-
 def synthetic_populations(designs: list[dict], case_id: int, outer_id: int,
                           source_protocol_sha: str) -> tuple[dict, list[dict]]:
-    from hockey_stats.attribution_data import AnnualReferences, group_observations
+    from hockey_stats.attribution_data import synthetic_population
 
     populations, digests = {}, []
     for year, design in enumerate(designs):
         responses = synthetic_counts(design, case_id, outer_id, year)
-        digests.append(dict(season=SEASONS[year], sha256=_array_digest(dict(responses=responses))))
-        references = AnnualReferences("unblocked_spatial", SEASONS[year], year, source_protocol_sha,
-            f"synthetic:04c:{case_id}:{outer_id}:unblocked_spatial", design["players"], design["strata"],
-            40., design["u"].copy(), design["p"].copy(), design["player_exposure"].copy(), responses.sum(axis=0))
-        rows = (dict(game_id=int(design["row_game_ids"][i]), offense=design["offense"][i],
-                     defense=design["defense"][i], seconds=float(design["seconds"][i]),
-                     stratum=design["strata"][int(design["si"][i])], counts=responses[i]) for i in range(len(responses)))
-        populations[("unblocked_spatial", SEASONS[year])] = (
-            group_observations(rows, references, design["game_ids"]), references)
+        digests.append(dict(season=SEASONS[year], sha256=ordered_array_digest(dict(responses=responses))))
+        populations[("unblocked_spatial", SEASONS[year])] = synthetic_population(
+            design, responses, year, source_protocol_sha, case_id, outer_id)
     return populations, digests
 
 
 def statistic_digests(populations: dict) -> list[dict]:
-    from hockey_stats.attribution_data import weighted_population
+    from hockey_stats.attribution_data import statistic_digest, weighted_population
 
     result = []
     for season in SEASONS:
         grouped, references = populations[("unblocked_spatial", season)]
         population = weighted_population(grouped, np.ones(len(grouped.game_ids)), references)
-        values = {name: np.asarray(getattr(population, name)) for name in
-                  ("H", "T", "yy", "shape_yy", "xbar", "ybar", "stratum_weight", "u", "p")}
-        result.append(dict(season=season, sha256=_array_digest(values)))
+        result.append(dict(season=season, sha256=statistic_digest(population)))
     return result
 
 
@@ -779,7 +745,7 @@ def freeze_protocol(baseline_prepared: Path | str, diagnosis: Path | str, out: P
         source_prepared=identity(source_path), source_protocol=source["protocol"], old_evidence=diagnosed["old_evidence"],
         grid=source["grid"], reference=reference["references"],
         request_sha256=request_identity(recovery_requests(designs, p, W)),
-        synthetic_design_sha256=_array_digest(synthetic_design_arrays(designs, W)),
+        synthetic_design_sha256=ordered_array_digest(synthetic_design_arrays(designs, W)),
         output_root=str(root), budgets=selected_budgets, **PROTOCOL_RULES)
     validate_protocol(document)
     write_json(path, json_values(document))
@@ -824,7 +790,7 @@ def prepare(baseline_prepared: Path | str, diagnosis: Path | str, protocol: Path
     requests = recovery_requests(designs, p, W)
     design_arrays = synthetic_design_arrays(designs, W)
     require(request_identity(requests) == frozen["request_sha256"]
-            and _array_digest(design_arrays) == frozen["synthetic_design_sha256"],
+            and ordered_array_digest(design_arrays) == frozen["synthetic_design_sha256"],
             "prepared design, truth or requests differ from the frozen protocol")
     output.mkdir()
     basis_arrays = write_arrays(output, "basis.npz", dict(B=basis.B, p=basis.p, eigenvalues=basis.eigenvalues))
@@ -873,7 +839,7 @@ def read_prepared(path: Path | str) -> tuple[dict, dict, object, list[dict]]:
     require(requests == recovery_requests(designs, basis.p, W) and request_identity(requests) == document["request_sha256"],
             "prepared joint projection request identity changed")
     require(document["request_sha256"] == protocol["request_sha256"]
-            and _array_digest(saved_design) == protocol["synthetic_design_sha256"],
+            and ordered_array_digest(saved_design) == protocol["synthetic_design_sha256"],
             "prepared design or requests differ from frozen protocol identities")
     return document, protocol, basis, designs
 

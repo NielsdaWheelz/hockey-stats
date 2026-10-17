@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## specification review after 04c — 2026-10-16
+
+statistical, systems and content reviewers recommend diagnosing the existing controlled failure before choosing another model. the user selected known-truth diagnosis without a real-deployment identification pass. [04d](../specs/04d-attribution-diagnosis.md) owns the exact finite contract; [the plan](../plan.md) owns assignment.
+
+agreement: distinguish geometric representation, likelihood information, response-dependent pooling and annual inheritance. use saved matrices and first-year analytic objective/risk calculations; no new fit or nominally better-looking penalty. noiseless scale fitting omits a noise term and does not reproduce the expected criterion. frozen-scale transmission is a computational intervention, not the adaptive estimator's expectation or uncertainty.
+
+the content review rejects a percentage-of-blame waterfall: mechanisms interact, signed contributions can oppose one another, and several explanations may remain. the systems review keeps shared decoding/update arithmetic with the existing owners and saves compact diagnostics rather than copied histories. the tradeoff is a bounded explanation of synthetic behavior, leaving real-player identification, game-pace precision and model choice unresolved. no reviewer claims to speak for a private peer model.
+
 ## approved review after 04b — 2026-10-16
 
 independent statistical, public-method and product/systems reviews recommend bounded spatial recovery/uncertainty work and a private observed-results website. the user approved that direction; [the plan](../plan.md) owns assignments. the [post-study zero-baseline comparison](../issues/attribution-spatial-recovery.md) qualifies 04b's relative error improvement without revising its frozen verdict.

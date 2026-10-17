@@ -54,6 +54,18 @@ def json_values(value):
     return value
 
 
+def ordered_array_digest(arrays: dict) -> str:
+    """bind array names, order, dtype, shape and c-order numerical bytes."""
+    import numpy as np
+
+    digest = hashlib.sha256()
+    for name, value in arrays.items():
+        value = np.ascontiguousarray(value)
+        digest.update(json.dumps([name, value.dtype.str, list(value.shape)], separators=(",", ":")).encode())
+        digest.update(value.tobytes(order="C"))
+    return digest.hexdigest()
+
+
 def require(condition, message):
     if not condition:
         raise InputContractError(message)

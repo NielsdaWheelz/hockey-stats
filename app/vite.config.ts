@@ -38,6 +38,18 @@ export default defineConfig({
         }
       },
     },
+    {
+      name: "development-server",
+      configureServer(server) {
+        if (server.config.server.host !== "127.0.0.1")
+          throw new Error("development server must bind to 127.0.0.1");
+        // router html bypasses vite's static-response header setting.
+        server.middlewares.use((_request, response, next) => {
+          response.setHeader("Cache-Control", "no-store");
+          next();
+        });
+      },
+    },
     reactRouter(),
   ],
   server: {

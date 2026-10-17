@@ -1,0 +1,45 @@
+{
+  "kind": "independent_04j_final_units_and_result",
+  "reviewer": "root",
+  "status": "passed",
+  "producer": {
+    "git_commit": "f7e36a9321aca75d92f6bdb01784d914f9312b8f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "study_status": "diagnosed",
+  "counts": {
+    "spectra": 12,
+    "annual_player_contrasts": 9776,
+    "historical_player_contrasts": 1944,
+    "case_labels": 20,
+    "contrast_rows": 11740,
+    "distinct_calculations": 11736,
+    "absent_case_labels": 0,
+    "svd_probes": 12,
+    "svd_decompositions": 2,
+    "new_responses": 0,
+    "new_fits": 0
+  },
+  "available_values": 11712,
+  "status_counts": {
+    "available": 11712,
+    "not_estimable": 28
+  },
+  "checks": [
+    "all covariance factors independently reconstructed from categorical cell probabilities and region mass products",
+    "all11740contrast rows preserve available-only covariance-to-sd and annual q/r geometry units",
+    "all46saved closure selectors/means/interval endpoints match independent preimplementation extraction",
+    "every completed report/figure matches result hash; proposed benchmark is explicitly unassigned",
+    "rendered research figure independently inspected with all four shared panels,940/940 and30/32 denominators,42/6contexts"
+  ],
+  "maximum_eigen_residual": 4.5792266942818824e-15,
+  "maximum_gauge_residual": 1.9362496327250027e-14,
+  "maximum_solve_residual": 3.605865662256888e-11,
+  "temporary_controller": "none retained; one-off verification only"
+}

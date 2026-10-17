@@ -79,6 +79,8 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04i progress, confirmed 2026-10-17 | supported regional improvement over the unchanged selector, without another absolute recovery gate | developmental evidence only; the old 25% error-reduction target remains context, not a new nomination requirement |
 | 04i prediction cost, confirmed 2026-10-17 | retain at least 99% of the unchanged selector's gain over no player shape effects, supported in every non-null cell | a strict prospective policy, not 1% of total error; 100 histories can leave it inconclusive |
 | 04i contrary diagnostics, confirmed 2026-10-17 | null false maps, lateral recovery, entrants and changed returner are mandatory diagnostics without new vetoes | progress may coexist with deterioration; report it beside the result and claim no uniform recovery |
+| post-04i direction, approved 2026-10-17 | connect attribution research to actual five-season deployment before another estimator; close selector findings from saved evidence | real-design assembly and conditional information analysis precede a new empirical benchmark. no new selector, relaxed historical criteria, ability admission or automatic campaign; constant pooling remains a diagnostic assumption |
+| 04j noise boundary, confirmed 2026-10-17 | deployment information under the existing working-noise reference; no empirical game-noise estimation | contrasts and precision are conditional on fixed context/reference assumptions; this cannot validate real-player uncertainty or discover actual effect magnitudes |
 
 ## initial product and scope
 

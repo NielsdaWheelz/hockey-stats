@@ -2,6 +2,36 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04j implementation review — 2026-10-17
+
+source/mathematics, study-command and content/fixture agents implemented [04j](../specs/04j-attribution-deployment.md), with independent cross-review and root review at each boundary. [verification](attribution-04j/verification.md) records the temporary red/green/refactor checks, independently checked fixture algebra, exact original-source reads and their cleanup. the full clean-producer research run reconciles twelve spectra, 11,740 labels, 46 saved closure rows, twelve independent svd probes and every persistence check. rendered content and all table/covariance units pass independent reproduction.
+
+all real annual player/reference contrasts and the final historical target are conditionally estimable; exact synthetic pair inseparability does not describe this real population. real precision remains more heterogeneous, especially below 300 minutes. constant physical history improves working precision without establishing that effects persisted. equal offense/attempts-allowed precision follows paired-design symmetry, not equal ability. the 42/six context difference and unestimated empirical noise remain material limits.
+
+implementation corrections retained full union identity alignment, exact overlap accounting, unavailable values and bound source paths; no fallback, jitter, changed cutoff or source substitution was introduced. accepted costs are rereading frozen originals instead of copying source matrices, explicit dense identity selections, and a complete 9.6 mb contrast table. source evidence, expensive fits, historical verdicts and the observed website remain intact. the resulting actual-deployment benchmark proposal is not an assignment or an admitted estimator.
+
+## 04j specification review — 2026-10-17
+
+statistical, systems and hockey/content reviewers designed [04j's bounded real-deployment specification](../specs/04j-attribution-deployment.md). the user selected information under the existing working-noise model, without empirical game-noise estimation. the study retains all admitted players, native zero-sum shape and twelve regions; constant physical history is a diagnostic reference against final-season-only information, with identical final exposure centering. [the plan](../plan.md) owns assignment.
+
+the decisive mathematical boundary is `H_y/r_y²`: identity-aligned physical information must preserve varying annual rates and separate unknown context means. pseudoinverse numbers require estimable contrasts; projections cannot silently turn an individual into a group target. real and synthetic designs have 42 and six contexts, so even a common spatial reference does not isolate teammate mixing. conditional sampling precision supplies neither calibrated player uncertainty nor a universal recovery bound. no further product preference or spatial-accuracy threshold is required.
+
+systems favors twelve reused spectra and a narrow selected-design reader over reopening response/fitted-state chains. small manifests and source contracts support the inventory; execution still verifies bulk arrays and exact shared-reference equality. review required explicit spectrum rescaling, direct null residuals, integer-second overlap reconciliation, deterministic case selection, finite available-only array storage and a detached fixture path that does not reconstruct historical campaigns. these corrections belong to existing data/numerical owners, without a framework.
+
+content uses complete player tables, a small frozen pair gallery and one exposure/conditional-precision figure. unavailable counts, context differences and persistence assumptions remain beside the comparison. saved truth-inspected selector improvements stay descriptive; the next empirical benchmark remains a proposal, not an assigned estimator campaign. the cost is source/matrix analysis before further modeling; the intended ability product and observed website remain intact.
+
+final independent reviews clear the scientific, numerical, source, fixture and content contracts after these corrections. no material preference remains unresolved. implementation and research execution remain separately assigned.
+
+## approved review after 04i — 2026-10-17
+
+independent statistical, hockey/product and systems reviews recommend [04j's real-deployment benchmark](../specs/04j-attribution-deployment.md), with a small closure of saved selector evidence. the user approved the direction; [the plan](../plan.md) owns assignment and [model direction](model-direction.md#approved-real-deployment-direction--2026-10-17) the scientific rationale. 04i's failed comparison and the control's unadmitted status remain intact.
+
+systems favored inspecting the existing joint recovery/prediction grid before abandoning its family; statistical and hockey reviews opposed another full selector-diagnosis campaign. the tables already contain small descriptive joint improvements, and 04i already measures selection optimism. the agreed priority is actual deployment: matched minutes do not establish matched separation of teammates. reuse saved real statistics and shared estimability calculations, with explicit context, noise, temporal and physical-unit assumptions. no new framework or model is justified by this review.
+
+content must distinguish unidentifiable contrasts, weak conditional information and actual recovery, and state what a subsequent empirical benchmark would settle. the cost is real-design assembly before another candidate; the benefit is a decision relevant to the intended population. design information alone cannot validate latent ability, uncertainty or complete rates.
+
+[magnus 9](https://hockeyviz.com/txt/magnus9EV) motivates attention to actual deployment and the hockey meaning of historical/structural penalties, with out-of-sample and annual-behavior checks. it supplies no private recommendation or justification for copying constants. no reviewer claims micah would select our next algorithm. the observed website remains independently useful; it does not replace the ability destination.
+
 ## 04i specification review — 2026-10-17
 
 statistical, source/systems and hockey/content reviewers recommend one observable regional-error selector within 04h's unchanged eleven-mode pooled family. the user selected that representation, saved summaries with a gaussian working assumption, developmental improvement subject to 99% predictive-gain retention, and contrary diagnostics without additional vetoes. [04i](../specs/04i-attribution-selection.md) owns the exact contract; [the plan](../plan.md) owns assignment.

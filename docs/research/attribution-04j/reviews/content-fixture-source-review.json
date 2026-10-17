@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_deployment_content_fixture_source_review",
+  "reviewed_at": "2026-10-17T22:23:13.573166+00:00",
+  "reviewer": "content/fixture agent, independent of shared arithmetic and cli implementation",
+  "status": "passed",
+  "production_hashes": {
+    "analysis/research/attribution_deployment_report.py": "dcb5d5f39eb8f6f4c6ee143f10faa963df594cb30caba807a9f021f97abfc966",
+    "analysis/research/attribution_deployment.py": "09d2fd27b734a98d8f88c3e248c10b3fe4876d50c6a5171827e25d33ea160617",
+    "analysis/src/hockey_stats/attribution_data.py": "e344f1a757419911c614bf2f0ea19ca83041d236894f2d29c8d990a157f94f02",
+    "fixtures/attribution/deployment-information.json": "8e202fcffaa176ae3d06300c291ea69152aa6007e6d26f71fff0434a97297761",
+    "fixtures/attribution/deployment-information.npz": "bbf725b61b1a374e48cd60d893452479415a85fa7824946f483aaac4859c87c1",
+    "fixtures/attribution/README.md": "34d518c5a8c83223b16e52a8d04ecd3d8038fd4cdc991a14750f04d0e761bba8"
+  },
+  "layout_contract_fixed_before_implementation": {
+    "panels": "rows final annual/constant physical history; columns offense/attempts allowed",
+    "x": "included final-season minutes",
+    "y": "within-20-ft, in-front-of-goal sampling sd; redistributed recorded unblocked attempts/60",
+    "markers": "real dots; distinct synthetic hollow diamonds; shared linear axes",
+    "conditioning": "individual player-reference distributions only; unavailable/all denominators visible; exact rates/reference/context labels; persistence and working-noise limitations"
+  },
+  "red": {
+    "integration_controller_written_before_report_implementation": true,
+    "initial_failure": "modulenotfounderror: no module named 'attribution_deployment_report'",
+    "first_cli_failure": "attribution_deployment.py did not exist",
+    "fixture_source_red": "local-index row arrays and unsorted strata rejected; fixture was corrected to actual ids/sorted contexts without adding loader compatibility"
+  },
+  "green_before_refactor": {
+    "independent_hand_quantiles_denominators": true,
+    "fixture_prepare_analyze_report": true
+  },
+  "refactor": {
+    "changes": [
+      "newly_estimable counts only structural annual nonestimability becoming available",
+      "every fixture csv has explicit purpose and synthetic deployment semantics; closure uses one nonnumeric status row",
+      "history caption states every annual rate is preserved; weak-minute groups shown explicitly",
+      "functional label says in front of goal; regional sd columns use region names"
+    ]
+  },
+  "green_after_refactor": {
+    "temporary_integration_tests": 3,
+    "all_passed": true,
+    "independent_full_nuisance_gls": {
+      "contrast_rows": 216,
+      "method": "svd of sqrt(e/r)*[Z,X] with separate annual contexts, identity-aligned union columns",
+      "atol": 1e-10,
+      "rtol": 1e-08,
+      "maximum_absolute_residuals": {
+        "q": 2.0605739337042905e-12,
+        "near_sd": 2.7977620220553945e-14,
+        "lateral_sd": 5.595524044110789e-14
+      }
+    },
+    "independently_reproduced_summary_rows": 40,
+    "linear_quantiles": true,
+    "all_player_denominators": true,
+    "matched_ratios": true,
+    "unavailable_values_null": true,
+    "finite_available_arrays_with_explicit_indices": true,
+    "common_covariance_and_cross_terms": true,
+    "exact_saved_selector_closure_rows": 46,
+    "selector_closure_check": "literal predicates independently selected source rows and compared means, original intervals and source csv line numbers"
+  },
+  "source_and_command_boundaries": {
+    "rejected_live_cases": [
+      "missing archive",
+      "wrong archive hash",
+      "duplicate ids",
+      "wrong h axis",
+      "asymmetric directed pair",
+      "nonintegral seconds",
+      "unequal spatial reference",
+      "wrong saved moment",
+      "mixed fixture/research inputs",
+      "wrong pinned research source"
+    ],
+    "completed_result_written_on_rejection": false,
+    "prepare_and_report_forbid_eigh_svd": true,
+    "report_succeeds_after_fixture_originals_removed": true,
+    "frozen_original_archive_decodes": {
+      "total": 68,
+      "real_selected": 30,
+      "basis_p": 1,
+      "synthetic_training": 35,
+      "centers_and_regions": 2,
+      "allowlist_enforced": true,
+      "response_truth_evaluation_fit_members_decoded": 0
+    },
+    "original_annual_populations": {
+      "real": [
+        1003,
+        951,
+        924,
+        910,
+        940
+      ],
+      "synthetic": [
+        32,
+        32,
+        32,
+        32,
+        32
+      ]
+    }
+  },
+  "rendered_review": {
+    "fixture_figure": "/tmp/hockey-04j-fixture-reported-1/information.png",
+    "reviewed_by": [
+      "content/fixture agent",
+      "root"
+    ],
+    "status": "passed",
+    "semantic_follow_up": "in-front-of-goal wording applied before producer freeze; actual research render remains separately reviewed"
+  },
+  "independent_adversarial_review": "root accepted source/math/cli/content checks and inspected rendered fixture before temporary-check deletion",
+  "retained": {
+    "fixtures": [
+      "fixtures/attribution/deployment-information.json",
+      "fixtures/attribution/deployment-information.npz"
+    ],
+    "checked_facts": "fixtures/attribution/README.md",
+    "first_fixture_outputs": [
+      "/tmp/hockey-04j-fixture-prepared-1",
+      "/tmp/hockey-04j-fixture-analyzed-1",
+      "/tmp/hockey-04j-fixture-reported-1"
+    ]
+  },
+  "temporary_check_cleanup": {
+    "deleted": true,
+    "source_sha256": {
+      "/tmp/04j-build-fixture.py": "c495eebe86b1e854764b6d8efc03c813faa124ddba827e9fda19724b618e0f1e",
+      "/tmp/04j-content-check.py": "69f68ac1533401ed1201e8fd6304ad883b2dd66e8dbaf85df606a192f5ce86e5",
+      "/tmp/04j-independent-content.py": "5fe92f7a0a196b677954052ac7b01c348cc678331a0610d6394613d8a6218fc5",
+      "/tmp/04j-boundary-check.py": "899abbecaa78c6e395bd032909b5788580a7dcbd796db1eefa8e586a1327f11e"
+    },
+    "test_only_dependencies_added": []
+  },
+  "documentation_follow_up": "lowercased two fixture description acronyms; arrays, numerical expectations and production code unchanged"
+}

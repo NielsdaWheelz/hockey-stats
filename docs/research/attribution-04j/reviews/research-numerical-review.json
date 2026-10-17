@@ -1,0 +1,243 @@
+{
+  "kind": "attribution_deployment_independent_numerical_review",
+  "status": "verified",
+  "analysis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017/prepared/analysis/analysis.json",
+    "sha256": "b06c76e4beb8eafa733e7b7b20af93b9c037ad9c0642a8b8709fef27425899c7"
+  },
+  "producer": {
+    "git_commit": "f7e36a9321aca75d92f6bdb01784d914f9312b8f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "method": "read saved json/finite numerical arrays and independently reconcile algebra, counts, cutoff masks, diagnostics and source-row identities; no source-array decoding, eigensolve, svd, fitting or response scoring",
+  "exact_completeness": {
+    "spectra": 12,
+    "annual_player_contrasts": 9776,
+    "historical_player_contrasts": 1944,
+    "case_labels": 20,
+    "contrast_rows": 11740,
+    "distinct_calculations": 11736,
+    "absent_case_labels": 0,
+    "svd_probes": 12,
+    "svd_decompositions": 2,
+    "new_responses": 0,
+    "new_fits": 0
+  },
+  "spectra": [
+    {
+      "design": "real",
+      "season": "20212022",
+      "assumption": "annual",
+      "rank": 2004,
+      "nullity": 2,
+      "dimension": 2006,
+      "rank_at_tau_factors": [
+        2004,
+        2004,
+        2004
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20222023",
+      "assumption": "annual",
+      "rank": 1900,
+      "nullity": 2,
+      "dimension": 1902,
+      "rank_at_tau_factors": [
+        1900,
+        1900,
+        1900
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20232024",
+      "assumption": "annual",
+      "rank": 1846,
+      "nullity": 2,
+      "dimension": 1848,
+      "rank_at_tau_factors": [
+        1846,
+        1846,
+        1846
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20242025",
+      "assumption": "annual",
+      "rank": 1818,
+      "nullity": 2,
+      "dimension": 1820,
+      "rank_at_tau_factors": [
+        1818,
+        1818,
+        1818
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20252026",
+      "assumption": "annual",
+      "rank": 1878,
+      "nullity": 2,
+      "dimension": 1880,
+      "rank_at_tau_factors": [
+        1878,
+        1878,
+        1878
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20252026",
+      "assumption": "constant_history",
+      "rank": 2952,
+      "nullity": 2,
+      "dimension": 2954,
+      "rank_at_tau_factors": [
+        2952,
+        2952,
+        2952
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20212022",
+      "assumption": "annual",
+      "rank": 60,
+      "nullity": 4,
+      "dimension": 64,
+      "rank_at_tau_factors": [
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20222023",
+      "assumption": "annual",
+      "rank": 60,
+      "nullity": 4,
+      "dimension": 64,
+      "rank_at_tau_factors": [
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20232024",
+      "assumption": "annual",
+      "rank": 60,
+      "nullity": 4,
+      "dimension": 64,
+      "rank_at_tau_factors": [
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20242025",
+      "assumption": "annual",
+      "rank": 60,
+      "nullity": 4,
+      "dimension": 64,
+      "rank_at_tau_factors": [
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20252026",
+      "assumption": "annual",
+      "rank": 60,
+      "nullity": 4,
+      "dimension": 64,
+      "rank_at_tau_factors": [
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20252026",
+      "assumption": "constant_history",
+      "rank": 64,
+      "nullity": 4,
+      "dimension": 68,
+      "rank_at_tau_factors": [
+        64,
+        64,
+        64
+      ]
+    }
+  ],
+  "available_rows": 11712,
+  "unavailable_rows": 28,
+  "equation_checks": 36,
+  "svd_probes": 12,
+  "svd_decompositions": 2,
+  "persistence_comparisons": 1948,
+  "maximum_saved_svd_eigen_q_difference": 5.263700586510822e-11,
+  "checks": [
+    "clean identified producer and pinned preparation; all consumed hashes agree",
+    "twelve ordered spectra, original absolute cutoff masks and stable measured ranks/nullities",
+    "all 36 eigen/gauge/solve residual bounds and 12 independent reduced-known-gauge probes pass",
+    "all 1948 annual/history availability and information-monotonicity checks pass",
+    "complete 11740 row axes, exact final population/reference identities and duplicate-case reuse",
+    "finite indexed npz values reproduce every available contrast q and covariance-to-sd value; unavailable values remain null",
+    "common nonuniform p, native C, full regional/functional covariance and zero total-shape variance reconcile",
+    "annual geometry q/r and historical physical-unit convention remain distinct",
+    "26/31 individual difference unavailable, pair mean available, excluded from individual axes",
+    "all 46 closure source-row identities and saved interval endpoints exactly match independent extraction"
+  ],
+  "new_numerical_decompositions": 0,
+  "findings": [],
+  "role_symmetry": {
+    "matched_role_pairs": 5870,
+    "statuses_identical": true,
+    "maximum_q_difference": 1.3114913599565625e-09,
+    "maximum_near_sd_difference": 5.027089855502709e-12,
+    "explanation": "paired attacking directions and their paired context residualization give equal same-role information blocks and a symmetric cross-role block. swapping offense and attempts-allowed axes therefore preserves L and the common exposure reference, so matching contrasts have equal conditional q and sampling sd up to floating arithmetic. this is deployment geometry symmetry under the common working-noise reference, not evidence of equal player effects, empirical noise, or actual offensive and defensive ability."
+  },
+  "report_boundary": {
+    "status": "verified",
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017/prepared/report/result.json",
+      "sha256": "c59f54cdc9256e5dcb198b916f175d90a45b59944dbd2ef3c67abb524c397e3e"
+    },
+    "producer": {
+      "git_commit": "f7e36a9321aca75d92f6bdb01784d914f9312b8f",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    },
+    "csv_rows": {
+      "designs.csv": 12,
+      "contrasts.csv": 11740,
+      "summary.csv": 40,
+      "selector-closure.csv": 46
+    },
+    "report_and_figure_hashes": "all verified",
+    "execution_status": "complete",
+    "numerical_status": "verified",
+    "study_status": "diagnosed",
+    "next_benchmark": "structured proposal only; required design, groups, independently justified physical magnitudes, scenarios, noise and one estimator question present",
+    "unavailable_csv_values": "blank, never zero"
+  }
+}

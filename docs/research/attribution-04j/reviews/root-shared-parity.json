@@ -1,0 +1,14 @@
+{
+  "kind": "independent_04j_shared_historical_parity",
+  "status": "passed",
+  "old_commit": "428822a",
+  "scalar_cases": 113,
+  "scalar_atol": 1e-12,
+  "scalar_rtol": 1e-12,
+  "maximum_absolute_numeric_change": 8.881784197001252e-16,
+  "operator_consumers": [
+    "attribution_resolution",
+    "attribution_selection"
+  ],
+  "operators": "exact array equality; original near/lateral conventions retained"
+}

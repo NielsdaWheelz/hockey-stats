@@ -40,6 +40,263 @@ class ArtifactReference(TypedDict):
 
 
 @dataclass(frozen=True)
+class DeploymentDesign:
+    """response-free annual information in current-player offense/defense order."""
+
+    season: str
+    player_ids: tuple[int, ...]
+    strata: tuple[tuple, ...]
+    H: np.ndarray
+    xbar: np.ndarray
+    stratum_weight: np.ndarray
+    player_exposure: np.ndarray
+    u: np.ndarray
+    p: np.ndarray
+    r: float
+    source_refs: dict
+
+    def __post_init__(self):
+        n, s = len(self.player_ids), len(self.strata)
+        shapes = ((self.H, (2*n, 2*n)), (self.xbar, (s, 2*n)),
+                  (self.stratum_weight, (s,)), (self.player_exposure, (n,)),
+                  (self.u, (n,)), (self.p, (656,)))
+        require(isinstance(self.season, str) and len(self.season) == 8 and self.season.isdigit()
+                and int(self.season[4:]) == int(self.season[:4])+1
+                and n > 0 and self.player_ids == tuple(sorted(set(self.player_ids)))
+                and all(type(player) is int for player in self.player_ids)
+                and s > 0 and self.strata == tuple(sorted(set(self.strata)))
+                and math.isfinite(self.r) and self.r > 0 and isinstance(self.source_refs, dict)
+                and all(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
+                        and value.shape == shape and np.isfinite(value).all() for value, shape in shapes),
+                "deployment design identity, axes or finite float64 arrays differ")
+        require(np.all(self.player_exposure > 0) and np.all(self.stratum_weight > 0)
+                and np.all(self.u > 0) and abs(float(self.u.sum())-1) <= 1e-12
+                and np.allclose(self.u, self.player_exposure/self.player_exposure.sum(), rtol=1e-12, atol=1e-12)
+                and np.all(self.p > 0) and abs(float(self.p.sum())-1) <= 1e-12
+                and np.allclose(self.H, self.H.T, rtol=1e-10, atol=1e-10)
+                and np.allclose(self.xbar[:, :n].sum(axis=1), 5., rtol=0, atol=1e-10)
+                and np.allclose(self.xbar[:, n:].sum(axis=1), 5., rtol=0, atol=1e-10),
+                "deployment exposure, reference, context means or information differ")
+
+
+def _selected_deployment_arrays(reference: ArtifactReference, shapes: dict,
+                                names: tuple[str, ...]) -> dict[str, np.ndarray]:
+    """verify the whole archive while decoding only named design members."""
+    with np.load(linked_path(reference), allow_pickle=False) as source:
+        require(set(source.files) == set(shapes) and set(names).issubset(shapes),
+                "deployment archive names differ from bound axes")
+        arrays = {name: source[name] for name in names}
+    require(all(list(value.shape) == shapes[name] and value.dtype.kind in "biuf"
+                and np.isfinite(value).all() for name, value in arrays.items()),
+            "selected deployment array shape or finite values differ")
+    return arrays
+
+
+def read_real_deployment_designs(result_ref: ArtifactReference,
+                               seasons: tuple[str, ...]) -> tuple[DeploymentDesign, ...]:
+    """select corrected real spatial geometry; response/fit references are not followed."""
+    result = read_json(linked_path(result_ref))
+    require(result["kind"] == "attribution_revision_result" and result["schema_version"] == 2
+            and result["purpose"] == "research" and result["completion"] == "complete",
+            "real deployment requires the completed corrected revision result")
+    clean_implementation(result["implementation"])
+    prepared_ref = result["evidence"]["prepared"]
+    prepared = read_json(linked_path(prepared_ref))
+    require(prepared["kind"] == "attribution_revision_prepared" and prepared["schema_version"] == 2
+            and prepared["purpose"] == "research" and tuple(prepared["seasons"]) == tuple(seasons),
+            "real deployment preparation differs from selected seasons")
+    clean_implementation(prepared["implementation"])
+    baseline_ref = prepared["baseline_prepared"]
+    baseline = read_json(linked_path(baseline_ref))
+    require(baseline["kind"] == "attribution_prepared" and baseline["schema_version"] == 1
+            and baseline["purpose"] == "research" and baseline["seasons"] == prepared["seasons"]
+            and baseline["design"] == prepared["design"]
+            and all(prepared["design"][name] is True for name in
+                    ("paired_team_direction_masks", "zero_event_segments", "matched_spatial_exclusion")),
+            "real deployment changed corrected source populations or direction masks")
+    clean_implementation(baseline["implementation"])
+    annual = [row for row in prepared["annual"] if row["population"] == "unblocked_spatial"]
+    original = [row for row in baseline["annual"] if row["population"] == "unblocked_spatial"]
+    require([row["season"] for row in annual] == list(seasons)
+            and [row["season"] for row in original] == list(seasons),
+            "real deployment annual spatial inventory differs")
+    designs, reference = [], None
+    for row, source in zip(annual, original, strict=True):
+        require(all(row[name] == value for name, value in source.items())
+                and row["status"] == "prepared" and row["reason"] is None
+                and type(row["row_count"]) is int and row["row_count"] > 0,
+                "real deployment changed corrected annual identity or coverage")
+        statistics = _selected_deployment_arrays(row["statistics"], row["statistic_shapes"],
+                                                ("H", "xbar", "stratum_weight"))
+        references = _selected_deployment_arrays(row["references"], row["reference_shapes"],
+                                               ("u", "player_exposure", "p"))
+        p = references["p"]
+        if reference is None:
+            reference = p
+        require(np.array_equal(p, reference), "real annual deployment native references differ")
+        design = DeploymentDesign(row["season"], tuple(row["players"]), tuple(map(tuple, row["strata"])),
+            statistics["H"], statistics["xbar"], statistics["stratum_weight"],
+            references["player_exposure"], references["u"], p, row["r"],
+            dict(result=result_ref, prepared=prepared_ref, baseline_prepared=baseline_ref,
+                 statistics=row["statistics"], references=row["references"], row_count=row["row_count"],
+                 coverage=row["coverage"], masks=prepared["design"], team_seconds=row["team_seconds"],
+                 population_id=prepared["population_ids"]["unblocked_spatial"]))
+        deployment_accounting(design)
+        designs.append(design)
+    return tuple(designs)
+
+
+def deployment_design_from_rows(*, season: str, player_ids: tuple[int, ...], strata: tuple[tuple, ...],
+                                arrays: dict[str, np.ndarray], p: np.ndarray, r: float,
+                                source_refs: dict) -> DeploymentDesign:
+    """contract paired training rows without responses or a likelihood-fit adapter."""
+    offense, defense, seconds, si = (arrays[name] for name in ("offense", "defense", "seconds", "si"))
+    row_games, m, n = arrays["row_game_ids"], len(seconds), len(player_ids)
+    require(n > 0 and player_ids == tuple(sorted(set(player_ids)))
+            and all(type(player) is int for player in player_ids)
+            and bool(strata) and strata == tuple(sorted(set(strata)))
+            and m > 0 and m % 2 == 0 and offense.shape == defense.shape == (m, 5)
+            and offense.dtype == defense.dtype == si.dtype == row_games.dtype == np.dtype("int64")
+            and seconds.shape == si.shape == row_games.shape == (m,)
+            and seconds.dtype == np.dtype("float64") and np.isfinite(seconds).all()
+            and np.all(seconds > 0) and np.array_equal(seconds, np.rint(seconds))
+            and np.all((0 <= si) & (si < len(strata)))
+            and np.all(row_games[1:] >= row_games[:-1])
+            and tuple(np.unique(np.r_[offense.ravel(), defense.ravel()]).tolist()) == player_ids
+            and np.all(np.diff(np.sort(offense, axis=1), axis=1) > 0)
+            and np.all(np.diff(np.sort(defense, axis=1), axis=1) > 0)
+            and not np.any(offense[:, :, None] == defense[:, None, :])
+            and np.array_equal(offense[::2], defense[1::2])
+            and np.array_equal(defense[::2], offense[1::2])
+            and np.array_equal(seconds[::2], seconds[1::2])
+            and np.array_equal(row_games[::2], row_games[1::2]),
+            "deployment rows changed paired direction, integral duration, player or context axes")
+    columns = np.column_stack((np.searchsorted(player_ids, offense), n+np.searchsorted(player_ids, defense)))
+    X = sparse.csr_matrix((np.ones(columns.size), (np.repeat(np.arange(m), 10), columns.ravel())),
+                          shape=(m, 2*n))
+    exposure = np.asarray(X.T @ seconds).ravel()
+    require(np.array_equal(exposure[:n], arrays["player_exposure"])
+            and np.array_equal(exposure[n:], arrays["player_exposure"])
+            and np.array_equal(arrays["u"], exposure[:n]/exposure[:n].sum()),
+            "deployment rows changed saved exposure or exposure reference")
+    weights = r*seconds/3600
+    stratum_weight = np.bincount(si, weights=weights, minlength=len(strata))
+    require(np.all(stratum_weight > 0), "deployment context has no training exposure")
+    Z = sparse.csr_matrix((np.ones(m), (np.arange(m), si)), shape=(m, len(strata)))
+    xbar = (Z.T @ X.multiply(weights[:, None])).toarray()/stratum_weight[:, None]
+    H = (X.T @ X.multiply(weights[:, None])).toarray()-xbar.T @ (stratum_weight[:, None]*xbar)
+    return DeploymentDesign(season, player_ids, strata, H, xbar, stratum_weight,
+                            arrays["player_exposure"], arrays["u"], p, r, source_refs)
+
+
+def read_synthetic_deployment_designs(result_ref: ArtifactReference, seasons: tuple[str, ...],
+                                    expected_p: np.ndarray) -> tuple[DeploymentDesign, ...]:
+    """follow the selected resolution ancestry to its single original training design."""
+    result = _read_selected_artifact(result_ref, "attribution_resolution_result", 5)
+    require(result["purpose"] == "research" and result["execution_status"] == "complete"
+            and result["numerical_status"] == "verified" and result["prepared"] == result["consumed"]["prepared"],
+            "synthetic deployment requires the completed selected resolution result")
+    resolution = _read_selected_artifact(result["prepared"], "attribution_resolution_prepared", 5)
+    regularization_ref = result["consumed"]["source_result"]
+    require(resolution["source_result"] == regularization_ref,
+            "synthetic resolution changed its selected regularization source")
+    regularization = _read_selected_artifact(regularization_ref, "attribution_regularization_result", 5)
+    require(regularization["purpose"] == "research" and regularization["execution_status"] == "complete"
+            and regularization["numerical_status"] == "verified"
+            and resolution["source_prepared"] == regularization["prepared"],
+            "synthetic deployment regularization binding differs")
+    selected = _read_selected_artifact(regularization["prepared"], "attribution_regularization_prepared", 5)
+    prepared_ref = selected["source_prepared"]
+    prepared = _read_selected_artifact(prepared_ref, "attribution_pooling_prepared", 4)
+    require(prepared["purpose"] == selected["purpose"] == resolution["purpose"] == "research"
+            and tuple(prepared["seasons"]) == tuple(seasons)
+            and [row["season"] for row in prepared["years"]] == list(seasons)
+            and selected["designs"] == prepared["designs"]["arrays"] and selected["basis"] == prepared["basis"]
+            and selected["source_design_sha256"] == prepared["design_sha256"],
+            "synthetic deployment changed original design, basis or annual identity")
+    digest(prepared["design_sha256"])
+    basis_shapes = {row["name"]: row["shape"] for row in prepared["basis_shapes"]}
+    p = _selected_deployment_arrays(prepared["basis"], basis_shapes, ("p",))["p"]
+    require(np.array_equal(p, expected_p), "synthetic deployment differs from the first-real native reference")
+    names = ("offense", "defense", "seconds", "si", "u", "player_exposure", "row_game_ids")
+    selected_names = tuple(f"train_{year}_{name}" for year in range(len(seasons)) for name in names)+("centers", "W")
+    shapes = {row["name"]: row["shape"] for row in prepared["designs"]["array_shapes"]}
+    require(len(shapes) == len(prepared["designs"]["array_shapes"]), "synthetic design member names repeat")
+    arrays = _selected_deployment_arrays(prepared["designs"]["arrays"], shapes, selected_names)
+    from .attribution_simulation import shape_operators
+    from .shot_origins import grid
+
+    require(np.array_equal(arrays["centers"], grid()[0]), "synthetic deployment changed native cell centers")
+    shape_operators(arrays["W"])
+    training_digest = ordered_array_digest(arrays)
+    designs = []
+    for year, row in enumerate(prepared["years"]):
+        current = {name: arrays[f"train_{year}_{name}"] for name in names}
+        source_refs = dict(result=result_ref, resolution_prepared=result["prepared"],
+            regularization_result=regularization_ref, regularization_prepared=regularization["prepared"],
+            prepared=prepared_ref, designs=prepared["designs"]["arrays"], basis=prepared["basis"],
+            full_design_identity=prepared["design_sha256"], selected_training_digest=training_digest,
+            row_count=len(current["seconds"]), games=len(np.unique(current["row_game_ids"])),
+            coverage=dict(training_deployment_only=True), masks=dict(paired_team_direction_masks=True,
+                zero_event_segments=True), population_id="synthetic:training:unblocked_spatial")
+        design = deployment_design_from_rows(season=row["season"], player_ids=tuple(row["players"]),
+            strata=tuple(map(tuple, row["strata"])), arrays=current, p=p, r=resolution["rate"], source_refs=source_refs)
+        deployment_accounting(design)
+        designs.append(design)
+    return tuple(designs)
+
+
+def deployment_accounting(design: DeploymentDesign) -> dict:
+    """recover checked integer overlap; directed exposure includes both team rows."""
+    n = len(design.player_ids)
+    seconds = 3600*(design.H+design.xbar.T @ (design.stratum_weight[:, None]*design.xbar))/design.r
+    rounded = np.rint(seconds)
+    residual = float(np.max(np.abs(seconds-rounded)))
+    require(residual <= 1e-6 and np.all(rounded >= 0),
+            "deployment overlap does not recover nonnegative integral source seconds")
+    seconds = rounded.astype(np.int64)
+    same, opponent = seconds[:n, :n], seconds[:n, n:]
+    require(np.array_equal(seconds[n:, n:], same) and np.array_equal(same, same.T)
+            and np.array_equal(opponent, opponent.T) and np.all(np.diag(opponent) == 0)
+            and np.array_equal(seconds[n:, :n], opponent.T)
+            and np.array_equal(np.diag(seconds), np.tile(design.player_exposure, 2))
+            and np.all(same <= design.player_exposure[:, None])
+            and np.all(opponent <= design.player_exposure[:, None])
+            and np.array_equal(same.sum(axis=1), 5*design.player_exposure)
+            and np.array_equal(opponent.sum(axis=1), 5*design.player_exposure),
+            "deployment overlap violates paired-role or player-exposure accounting")
+    directed = int(design.player_exposure.sum())/5
+    require(directed.is_integer() and int(directed) % 2 == 0
+            and math.isclose(float(design.stratum_weight.sum())*3600/design.r, directed,
+                             rel_tol=1e-10, abs_tol=1e-10)
+            and ("team_seconds" not in design.source_refs or design.source_refs["team_seconds"] == directed),
+            "deployment total exposure disagrees with directed team time")
+    return dict(same_team_seconds=same, opponent_seconds=opponent,
+                directed_team_seconds=int(directed), physical_elapsed_seconds=int(directed)//2,
+                reconstruction_residuals=dict(maximum_integer_seconds=residual,
+                    total_seconds=abs(float(design.stratum_weight.sum())*3600/design.r-directed)))
+
+
+def physical_history_information(designs: tuple[DeploymentDesign, ...]) -> tuple:
+    """sum annual physical information with separate context nuisance means."""
+    require(bool(designs) and all(int(a.season[:4])+1 == int(b.season[:4])
+                                for a, b in zip(designs, designs[1:]))
+            and all(np.array_equal(design.p, designs[0].p) for design in designs),
+            "physical history requires chronological annual designs and one native reference")
+    players = tuple(sorted({player for design in designs for player in design.player_ids}))
+    positions, n = {player: i for i, player in enumerate(players)}, len(players)
+    L, selections = np.zeros((2*n, 2*n)), []
+    for design in designs:
+        current = np.array([positions[player] for player in design.player_ids])
+        columns = np.r_[current, n+current]
+        S = np.zeros((len(columns), 2*n))
+        S[np.arange(len(columns)), columns] = 1
+        L[np.ix_(columns, columns)] += design.H/design.r**2
+        selections.append(S)
+    return players, tuple(selections), L
+
+
+@dataclass(frozen=True)
 class AnnualReferences:
     """fixed source design and annual references, never reestimated in a refit."""
 
@@ -1133,31 +1390,51 @@ def likelihood_spectrum(H: np.ndarray) -> tuple:
     return values, vectors, tau, masks
 
 
+def contrast_information(L: np.ndarray, D: np.ndarray, spectrum=None) -> list[dict]:
+    """evaluate columns of already centered/aligned contrasts in one eigensystem."""
+    require(L.ndim == 2 and L.shape[0] == L.shape[1] and len(L) > 0 and np.isfinite(L).all()
+            and D.ndim == 2 and D.shape[0] == len(L) and np.isfinite(D).all(),
+            "contrasts differ from ordered finite likelihood information")
+    values, vectors, tau, masks = likelihood_spectrum(L) if spectrum is None else spectrum
+    require(values.shape == (len(L),) and vectors.shape == L.shape and len(masks) == 3
+            and all(mask.shape == values.shape and mask.dtype == np.dtype(bool) for mask in masks),
+            "likelihood spectrum differs from ordered information")
+    norms = np.linalg.norm(D, axis=0)
+    statuses, nulls, precisions = [], [], []
+    for index, mask in enumerate(masks):
+        if index and np.array_equal(mask, masks[index-1]):
+            statuses.append(statuses[-1])
+            nulls.append(nulls[-1])
+            precisions.append(precisions[-1])
+            continue
+        retained = vectors[:, mask]
+        projected = retained.T @ D
+        residuals = np.linalg.norm(D-retained @ projected, axis=0)
+        null = np.divide(residuals, norms, out=np.zeros_like(norms), where=norms != 0)
+        statuses.append(["zero_functional" if norm == 0 else "not_estimable" if value > 1e-8 else "available"
+                         for norm, value in zip(norms, null, strict=True)])
+        nulls.append(null)
+        precisions.append(np.sum(projected**2/values[mask, None], axis=0))
+    ranks = [int(mask.sum()) for mask in masks]
+    results = []
+    for column, norm in enumerate(norms):
+        cutoff_statuses = [status[column] for status in statuses]
+        stable = len(set(cutoff_statuses)) == 1 and len(set(ranks)) == 1
+        status = cutoff_statuses[1] if stable else "numerically_unresolved"
+        results.append(dict(status=status, rank=ranks[1], dimension=len(L), nullity=len(L)-ranks[1],
+            tau=tau, rank_at_tau_factors=ranks, null_projection=float(nulls[1][column]),
+            null_at_tau_factors=[float(null[column]) for null in nulls], status_at_tau_factors=cutoff_statuses,
+            centered_functional_norm=float(norm),
+            contrast_information_inverse=float(precisions[1][column]) if status == "available" else None))
+    return results
+
+
 def centered_estimability(H: np.ndarray, P: np.ndarray, c: np.ndarray, *, spectrum=None) -> dict:
     """test a centered functional against likelihood information, never its prior."""
     require(P.shape == H.shape and c.shape == (len(H),)
             and np.isfinite(P).all() and np.isfinite(c).all(),
             "centered functional differs from ordered likelihood information")
-    values, vectors, tau, masks = likelihood_spectrum(H) if spectrum is None else spectrum
-    require(values.shape == (len(H),) and vectors.shape == H.shape,
-            "likelihood spectrum differs from ordered information")
-    d = P.T @ c
-    norm = float(np.linalg.norm(d))
-    statuses, nulls, precisions = [], [], []
-    for mask in masks:
-        null = float(np.linalg.norm(d - vectors[:, mask] @ (vectors[:, mask].T @ d)) / norm) if norm else 0.
-        statuses.append("zero_functional" if norm == 0 else "not_estimable" if null > 1e-8 else "available")
-        nulls.append(null)
-        precisions.append(float(np.sum((vectors[:, mask].T @ d) ** 2 / values[mask]))
-                          if norm and statuses[-1] == "available" else None)
-    stable = len(set(statuses)) == 1 and len({int(mask.sum()) for mask in masks}) == 1
-    status = statuses[1] if stable else "numerically_unresolved"
-    return dict(status=status, rank=int(masks[1].sum()), dimension=len(H),
-        nullity=int(len(H) - masks[1].sum()), tau=tau,
-        rank_at_tau_factors=[int(mask.sum()) for mask in masks], null_projection=nulls[1],
-        null_at_tau_factors=nulls, status_at_tau_factors=statuses,
-        centered_functional_norm=norm,
-        contrast_information_inverse=precisions[1] if status == "available" else None)
+    return contrast_information(H, (P.T @ c)[:, None], spectrum)[0]
 
 
 def identifiable_recovery_operator(

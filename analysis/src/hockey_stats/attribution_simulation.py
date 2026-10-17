@@ -265,6 +265,16 @@ def shape_regions() -> tuple[np.ndarray, tuple[str, ...]]:
     return W, names
 
 
+def shape_operators(W: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """the original partition, within-20-ft sum and signed lateral redistribution."""
+    expected, names = shape_regions()
+    require(np.array_equal(W, expected), "shape operators require the original twelve-region partition")
+    near = np.asarray([name.startswith(("in_zone_0_10_", "in_zone_10_20_")) for name in names], dtype=float)
+    lateral = np.asarray([.5 if name.endswith("positive_y") else -.5 for name in names])
+    require(int(near.sum()) == 4, "within-20-ft functional needs both sides of the two in-front regions")
+    return W, (W @ near)[:, None], (W @ lateral)[:, None]
+
+
 def _residual_noise_gram(X, Z, xbar, weights):
     """contract scalar row variances against the original residualized design."""
     raw = (X.T @ X.multiply(weights[:, None])).toarray()

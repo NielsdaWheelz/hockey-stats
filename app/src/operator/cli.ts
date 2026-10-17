@@ -1,5 +1,5 @@
 import * as NodeFileSystem from "@effect/platform-node/NodeFileSystem";
-import * as FetchHttpClient from "@effect/platform/FetchHttpClient";
+import * as FetchHttpClient from "effect/http/FetchHttpClient";
 import * as Effect from "effect/Effect";
 import { parseArgs } from "node:util";
 import { captureGame, captureLanding } from "./capture.js";

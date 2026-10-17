@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import resource
+import sqlite3
 import stat
 import sys
 import time
@@ -144,6 +145,28 @@ def main() -> int:
 
 def reconstruct_main() -> int:
     return invoke(reconstruct=True)
+
+
+def observed_main() -> int:
+    parser = argparse.ArgumentParser(
+        description="build one checked observed-5v5 sqlite publication from an explicit native corpus",
+        allow_abbrev=False,
+    )
+    parser.add_argument("--corpus", required=True, action=Once, metavar="FILE")
+    parser.add_argument("--purpose", required=True, action=Once, choices=("real", "fixture"))
+    parser.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    args = parser.parse_args()
+    from .publication import build_publication
+
+    try:
+        verification = build_publication(Path(args.corpus), args.purpose, Path(args.out))
+    except (InputContractError, OSError, ValueError, sqlite3.Error) as error:
+        print(f"observed publication failed: {error}", file=sys.stderr)
+        return 1
+    print(f"observed publication {verification['publication_id']}: {verification['season']}, {args.purpose}")
+    print(f"included: {verification['checks']['physical_seconds']}s, {verification['checks']['physical_attempts']} attempts")
+    print(f"output: {Path(args.out).absolute() / 'observed.sqlite'}; scientific admission not performed")
+    return 0
 
 
 def corpus_main() -> int:

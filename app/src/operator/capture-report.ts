@@ -1,13 +1,13 @@
-import type { PlatformError } from "@effect/platform/Error";
+import { isPlatformError, type PlatformError } from "effect/PlatformError";
 import type { CaptureRecord } from "./capture.js";
 
 const landingReplacement = "for a replacement, use an explicitly prepared new game-directory copy with no landing leaf; preserve the original directory and any landing leaf";
 
 export const reportCaptureFailure = (error: PlatformError | Error, outDirectory: string, source?: "landing"): 1 => {
-  const platformError = "_tag" in error ? error : undefined;
-  const path = platformError?._tag === "SystemError" ? platformError.pathOrDescriptor ?? outDirectory : outDirectory;
+  const platformError = isPlatformError(error) ? error.reason : undefined;
+  const path = platformError !== undefined && "pathOrDescriptor" in platformError ? platformError.pathOrDescriptor ?? outDirectory : outDirectory;
   const action = source === "landing" ? `check the path and core receipt; ${landingReplacement}`
-    : platformError?._tag === "SystemError" && platformError.reason === "AlreadyExists"
+    : platformError?._tag === "AlreadyExists"
     ? "choose a new --out directory"
     : "check the parent directory, path permissions and disk space; retry with a new --out directory";
   console.error(`local capture failure at ${path}: ${platformError?.description ?? error.message}; ${action}`);

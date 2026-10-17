@@ -93,9 +93,9 @@ def schema(value, location, version, fields):
 def _game_identity(game, location):
     object_fields(game, location, IDENTITY_FIELDS)
     require(
-        type(game["game_id"]) is str and re.fullmatch(r"[0-9]{10}", game["game_id"]),
+        type(game["game_id"]) is str and re.fullmatch(r"[1-9][0-9]{9}", game["game_id"]),
         location,
-        "expected ten-digit game id",
+        "expected canonical ten-digit game id",
     )
     require(
         type(game["season"]) is str and re.fullmatch(r"[0-9]{8}", game["season"]),
@@ -150,7 +150,7 @@ def _issues(rows, location):
     return rows
 
 
-def _provenance(rows, location, sources):
+def validate_provenance(rows, location, sources):
     seen = set()
     for i, receipt in enumerate(array(rows, location)):
         loc = f"{location}/{i}"
@@ -324,7 +324,7 @@ def validate_envelope(value, path, entry):
     require(
         not conflicts, path, "inventory/game disagreement: " + ", ".join(conflicts)
     )
-    _provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
+    validate_provenance(interpreted["inputs"], f"{path}/interpreted/inputs", SOURCES)
     _issues(interpreted["issues"], f"{path}/interpreted/issues")
     result_sources = set()
     for i, result in enumerate(array(interpreted["reported_results"],
@@ -788,7 +788,7 @@ def load_corpus(path, inputs):
     reference = document["reference"]
     schema(reference, f"{path}/reference", 2,
             ("requested_season", "inventory", "inputs", "bio_observations", "bio_collections"))
-    _provenance(reference["inputs"], f"{path}/reference/inputs", REFERENCE_SOURCES)
+    validate_provenance(reference["inputs"], f"{path}/reference/inputs", REFERENCE_SOURCES)
     require(reference["inventory"] is not None and document["games"] is not None,
              path, "admitted inventory and corpus game ledger required")
     for i, observation in enumerate(array(reference["bio_observations"],

@@ -2,7 +2,7 @@
 
 a hockey statistics website grounded in explicit statistical meaning, inspectable evidence, and reproducible analysis.
 
-the project preserves source evidence and implements offline hockey reconstruction, feature preparation and chance-model research. the [implementation plan](docs/plan.md) owns current status, assignments and next steps; scientific completion and software completion are distinct.
+the project preserves source evidence and implements offline hockey reconstruction, feature preparation, chance-model research and a private observed-results website. the [implementation plan](docs/plan.md) owns current status, assignments and next steps; scientific completion and software completion are distinct.
 
 - [project brief](docs/brief.md): settled player question, scope and user choices.
 - [architecture](docs/architecture.md): responsibilities, contracts and one-operator operation.
@@ -18,6 +18,64 @@ the predecessor is preserved at [hockey-stats-legacy](https://github.com/Nielsda
 the product direction is settled: interpretable, history-informed estimates of 5v5 skater chance creation and suppression, with observed results alongside. begin with a completed regular season; add current-season analysis afterward. processing and fitting run locally with the hdd whenever the user chooses; the website independently serves the last valid publication with its evidence cutoff. effect owns application behavior; python owns numerical work.
 
 the long-term goal is to replicate hockeyviz's player-card and component-analysis capabilities and jfresh's player cards, built piece by piece. [card references](docs/research/player-card-references.md) record the distinction between that destination and the initial target.
+
+## private observed results
+
+the localhost-only website shows included 2025–26 regular-season recorded on-ice attempts, matched genuine-5v5 time, rates and coverage. search/sort the league table, open a player, then inspect listed-game evidence. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [contract](docs/specs/05a-observed-website.md) · [verification](docs/research/observed-05a/verification.md)
+
+use node `24.21.0`, pinned in `app/.node-version`. on this mac, explicitly put its installed executable first so npm's children use the same runtime:
+
+```sh
+export PATH="$HOME/.local/share/mise/installs/node/24.21.0/bin:$PATH"
+cd app
+node --version
+npm ci --include=dev
+npm run typecheck
+npm run build
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+```
+
+open `http://127.0.0.1:3000/`. `--port 3001` explicitly chooses another local port. the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
+
+development uses two terminals, each in `app/` with the pinned node executable first:
+
+```sh
+npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+```
+
+```sh
+npm run dev:web
+```
+
+open `http://127.0.0.1:5173/`; `/api` proxies to `http://127.0.0.1:3000`. development api mode omits asset serving. both listeners bind only to loopback. browser and server have separate type checks; the build rejects browser imports of node/sqlite or server/operator implementations.
+
+to build a new candidate, prepare the locked python environment from the repository root and choose a new output directory whose parent exists:
+
+```sh
+cd analysis
+uv sync --locked
+.venv/bin/hockey-stats-observed --corpus /Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20252026/corpus.json --purpose real --out /Users/nnandal/Documents/code/hockey-stats-local/observed-candidate-01
+```
+
+the exact corpus and all named envelopes must exist; there is no acquisition or regeneration. `--purpose fixture` requires an explicitly marked fixture corpus and cannot satisfy real acceptance. argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder writes one sqlite transaction, independently reads it back, then writes `verification.json` before renaming `observed.sqlite.incomplete` to `observed.sqlite`. an incomplete file is not a candidate. receipts retain exact consumed digests, source producers, exclusions and reductions; only the database is needed for serving.
+
+from `app/`, check the candidate, stop any serving process, then activate explicitly:
+
+```sh
+npm run publication -- check --candidate /Users/nnandal/Documents/code/hockey-stats-local/observed-candidate-01/observed.sqlite
+npm run publication -- activate --candidate /Users/nnandal/Documents/code/hockey-stats-local/observed-candidate-01/observed.sqlite --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+```
+
+activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for rollback, stop serving, run the following, restart and reload:
+
+```sh
+npm run publication -- restore --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
+```
+
+if replacement is interrupted, inspect the intact `active.sqlite`, `previous.sqlite` and `incoming.sqlite` with `publication check`, repair the names manually, then restart. an existing incoming file stops another copy. use compatible code from git when needed. there is no hot switching, release manager or automatic cleanup.
+
+matched counts and time lose the same uncertain segments. valid zero-event time survives; missing counts remain missing, while supported zero counts remain zero. incomplete player associations limit every season summary and are listed in coverage details. included minutes are not official full ice time; `covered` means no known relevant gap in source-supported listed evidence. conservative exclusions, source selection and manual publication interruptions are accepted costs. source/model verdicts are unchanged by website completion.
 
 ## capture
 

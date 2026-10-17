@@ -17,13 +17,12 @@ from hockey_stats.artifacts import (
     artifact, implementation, json_values, linked_path, load_arrays,
     ordered_array_digest, read_artifact, require, resources, write_arrays, write_json,
 )
-from hockey_stats.chance_cli import identity, output_path, read_json
+from hockey_stats.chance_cli import identity, output_path
 from hockey_stats.captures import InputContractError
 from hockey_stats.attribution_data import POOLING_STAT_FIELDS as STAT_FIELDS
 from hockey_stats.attribution_prediction import current_player_rows, deployment_gram, prediction_loss
-from hockey_stats.attribution_simulation import synthetic_rosters
+from hockey_stats.attribution_simulation import PAIR_SLOTS, paired_truths, shape_regions, truth_digest
 from hockey_stats.shot_origins import grid
-from attribution_recovery import shape_regions
 
 SPEC = Path(__file__).resolve().parents[2] / "docs/specs/04e-attribution-pooling.md"
 OLD_ROOT = Path("/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016")
@@ -40,7 +39,6 @@ DESIGN_FIELDS = ("offense", "defense", "seconds", "si", "u", "player_exposure", 
 UPDATES_PER_DATASET = dict(datasets=1, histories=2, annual_states=10, volume_updates=5, shape_updates=15)
 ARRAY_UNITS = dict(statistics="original residualized count-unit sufficient statistics; ordered current offense/defense rows",
                    probe_means="relative league team rate; original all-seen offense/defense rows; one native context")
-PAIR_SLOTS = (((0, 1), (2, 3), (4, 5), (6, 7)),) * 3 + (((0, 1), (2, 7), (3, 4), (5, 6)),)
 RULES = dict(
     seasons=list(SEASONS), populations=list(POPULATIONS), laws=list(LAWS), representations=list(ARMS),
     source_kind="synthetic", annual_rate=40.,
@@ -82,65 +80,6 @@ LIMITATIONS = [
 def _rng(seed):
     return np.random.Generator(np.random.PCG64(np.random.SeedSequence(seed)))
 
-
-def physical_truths(designs, p, population, outer):
-    """physical fields precede response draws and have no basis-dependent selection."""
-    require(population in POPULATIONS and type(outer) is int and outer >= 0, "invalid truth identity")
-    centers = grid()[0]
-    fields, active = {}, {}
-    for team in range(4):
-        for role in range(2):
-            selected = int(_rng([40603, outer, team, role]).integers(0, 4))
-            for pair in range(4):
-                rng = _rng([40602, outer, team, role, pair])
-                x1, y1, w1 = rng.uniform(0, 80), rng.uniform(-30, 30), rng.uniform(20, 40)
-                x2, y2, w2 = rng.uniform(0, 80), rng.uniform(-30, 30), rng.uniform(20, 40)
-                g0 = (np.exp(-np.sum((centers - [x1, y1]) ** 2, axis=1) / (2 * w1 ** 2))
-                      - np.exp(-np.sum((centers - [x2, y2]) ** 2, axis=1) / (2 * w2 ** 2)))
-                centered = g0 - p @ g0
-                normalizer = float(np.max(np.abs(centered)))
-                require(np.isfinite(normalizer) and normalizer > 0, "invalid physical lobe normalization")
-                fields[(team, role, pair)] = .10 * p * centered / normalizer
-                active[(team, role, pair)] = population == "diffuse" or (population == "sparse" and pair == selected)
-    truths = []
-    for year, design in enumerate(designs):
-        rosters = synthetic_rosters(year)
-        players = design["players"]
-        positions, n = {player: i for i, player in enumerate(players)}, len(players)
-        require(players == tuple(sorted(player for team in rosters for player in team)),
-                "physical truth roster differs from fixed design")
-        raw = np.zeros((2 * n, len(p)))
-        pairs = []
-        for team, roster in enumerate(rosters):
-            for role in range(2):
-                for pair, slots in enumerate(PAIR_SLOTS[team]):
-                    first, second = (roster[slot] for slot in slots)
-                    is_active = active[(team, role, pair)]
-                    if is_active:
-                        raw[role * n + positions[first]] = fields[(team, role, pair)]
-                        raw[role * n + positions[second]] = -fields[(team, role, pair)]
-                    pairs.append(dict(team=team, role=("offense", "defense")[role], pair=pair,
-                                      players=[first, second], active=is_active,
-                                      expected_estimable=[first, second] != [26, 31]))
-        centered = raw.copy()
-        means = np.array([design["u"] @ raw[role * n:(role + 1) * n] for role in range(2)])
-        for role in range(2):
-            centered[role * n:(role + 1) * n] -= means[role]
-        context = 5 * means.sum(axis=0)
-        rates = 40 * (p + design["X"] @ raw)
-        floor = dict(sparse=.8, diffuse=.4, null=1.)[population]
-        require(np.isfinite(raw).all() and np.max(np.abs(raw.sum(axis=1))) <= 1e-12
-                and np.max(np.abs(centered.sum(axis=1))) <= 1e-12
-                and np.all(rates > 0) and np.all(rates >= floor * 40 * p - 1e-12)
-                and np.max(np.abs(rates - 40 * (p + context + design["X"] @ centered))) <= 1e-12,
-                "physical truth positivity, zero sums or reference compensation failed")
-        truths.append(dict(raw=raw, centered=centered, context=context, pairs=pairs))
-    return truths
-
-
-def truth_digest(truths):
-    return ordered_array_digest({f"{year}_{name}": truth[name] for year, truth in enumerate(truths)
-                                 for name in ("raw", "centered", "context")})
 
 
 def example_pairs(truth):
@@ -311,7 +250,7 @@ def prepare(purpose, output):
         designs=bindings, design_sha256=protocol["design_sha256"], seasons=list(SEASONS),
         years=[dict(season=season, players=list(design["players"]), strata=design["strata"])
                for season, design in zip(SEASONS, train, strict=True)], regions=list(regions),
-        examples=_example_identities(physical_truths(train, basis.p, "sparse", 0)[-1]),
+        examples=_example_identities(paired_truths(train, basis.p, "sparse", 0)[-1]),
         units=dict(response="count units; gaussian may be signed/fractional", shape="relative league team rate",
                    risk="squared attempts per 60 team minutes", rate="attempts per 60 team minutes"),
         resources=_cost(started, process_started), admission="not_admitted", handoff=None)
@@ -353,7 +292,7 @@ def read_prepared(path, *, source=None):
             and document["years"] == json_values([dict(season=season, players=list(design["players"]), strata=design["strata"])
                                                     for season, design in zip(SEASONS, train, strict=True)]),
             "saved train/evaluation design, player order or region operator changed")
-    require(document["examples"] == _example_identities(physical_truths(train, basis.p, "sparse", 0)[-1]),
+    require(document["examples"] == _example_identities(paired_truths(train, basis.p, "sparse", 0)[-1]),
             "frozen example identities differ from response-independent activation")
     require(protocol["design"] == dict(
         name="paired_direct_research" if document["purpose"] == "research" else "paired_12_games_6_stints_fixture",
@@ -522,7 +461,7 @@ def fit(prepared, population, law, start, stop, output):
         outer_started, outer_process = time.monotonic(), time.process_time()
         directory = root / f"outer-{outer:03d}"
         directory.mkdir()
-        truths = physical_truths(train, basis.p, population, outer)
+        truths = paired_truths(train, basis.p, population, outer)
         # evaluation uses the training-centered truth and its compensated context.
         for design, truth in zip(evaluation, truths, strict=True):
             require(np.all(40 * (basis.p + design["X"] @ truth["raw"]) > 0), "evaluation truth has invalid rates")
@@ -767,7 +706,7 @@ def assess(prepared, fits, output):
     primary, secondary, probe_records, examples = [], [], [], []
     for record in originals:
         population, law, outer = (record[name] for name in ("population", "law", "outer"))
-        truths = physical_truths(train, basis.p, population, outer)
+        truths = paired_truths(train, basis.p, population, outer)
         require(record["truth_sha256"] == truth_digest(truths) and record["activation_sha256"] == _activation_digest(truths)
                 and record["activation"] == [truth["pairs"] for truth in truths]
                 and list(record["annual"]) == list(ARMS) and all(len(record["annual"][arm]) == 5 for arm in ARMS)

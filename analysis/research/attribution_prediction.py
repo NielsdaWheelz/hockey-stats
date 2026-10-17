@@ -24,11 +24,12 @@ from hockey_stats.attribution_data import pooling_population, statistic_digest
 from hockey_stats.attribution_prediction import (
     current_player_rows, deployment_gram, excess_prediction_terms, prediction_inner, prediction_loss,
 )
+from hockey_stats.attribution_simulation import paired_truths, truth_digest
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance_cli import identity, output_path, read_json
 from attribution_pooling import (
-    ARMS, LAWS, POPULATIONS, SEASONS, _activation_digest, fit_inventory, physical_truths,
-    read_prepared, truth_digest,
+    ARMS, LAWS, POPULATIONS, SEASONS, _activation_digest, fit_inventory,
+    read_prepared,
 )
 
 SPEC = Path(__file__).resolve().parents[2] / "docs/specs/04f-attribution-prediction.md"
@@ -132,7 +133,7 @@ def iter_final_states(source: PredictionSource):
     datasets, annual_states = 0, 0
     for record in source.records:
         population, law, outer = (record[name] for name in ("population", "law", "outer"))
-        truths = physical_truths(source.training, source.basis.p, population, outer)
+        truths = paired_truths(source.training, source.basis.p, population, outer)
         require(record["truth_sha256"] == truth_digest(truths)
                 and record["activation_sha256"] == _activation_digest(truths)
                 and record["activation"] == [truth["pairs"] for truth in truths],

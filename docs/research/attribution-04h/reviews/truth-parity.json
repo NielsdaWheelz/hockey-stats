@@ -1,0 +1,99 @@
+{
+  "status": "verified",
+  "reference": "nonuniform synthetic shares; original research shares blocked by external i/o",
+  "histories": 15,
+  "annual_truths": 75,
+  "rows": [
+    {
+      "family": "independent",
+      "population": "sparse",
+      "outer": 0,
+      "sha256": "50ba76e92b5f562977124842b10bcd629ff9b165828326097be4459a71219018"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "outer": 0,
+      "sha256": "2deea1f841c041e88eb3a58057dda1af668055158cd2395adc31851f581ba902"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "outer": 0,
+      "sha256": "ded5eeadd3eeb0cea201f9b788ac65d298decc1c7fef51c0db68ad27dbb86c0c"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "outer": 0,
+      "sha256": "6e3ede55919f2f7ba4998994b0eb7448e2e67ef9b31cf61765af5204f5146c3f"
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "outer": 0,
+      "sha256": "ddf04931c6ee37f70d64f3e1d195560e19472837de097e325b1f811563749a7c"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "outer": 51,
+      "sha256": "ea883873af7afc7357b230aae50196c86bccbf26f6a0b833018926e4d99bc5aa"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "outer": 51,
+      "sha256": "c81a6fd47e336d99724bd3729fc18c39ac519b07147ab62a32b1a1f4b3b0fb60"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "outer": 51,
+      "sha256": "c33c49454eca1728b74d9593693786d8ebc354ed101692c9886039c68c875e09"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "outer": 51,
+      "sha256": "337501d829f7023a1c8f2525ae8bad6def6daeaa12bfbf457361472ca80d112f"
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "outer": 51,
+      "sha256": "ddf04931c6ee37f70d64f3e1d195560e19472837de097e325b1f811563749a7c"
+    },
+    {
+      "family": "independent",
+      "population": "sparse",
+      "outer": 199,
+      "sha256": "58c412be3a46523841479c6a2fc235f5fdfa1e0e3768c6eb802836849f1bc676"
+    },
+    {
+      "family": "independent",
+      "population": "diffuse",
+      "outer": 199,
+      "sha256": "88140a31bebf94f7aab944d25c943a682ae64bed4b26e686e10d9fe1738edd9c"
+    },
+    {
+      "family": "paired",
+      "population": "sparse",
+      "outer": 199,
+      "sha256": "565096af48fb78539e6716a8b48ac8c5d4587b4d6b1f30c4522ad384c39844a9"
+    },
+    {
+      "family": "paired",
+      "population": "diffuse",
+      "outer": 199,
+      "sha256": "7a16657d18db1c2106ed04dcee0a1c9698b459fd2d80b53ae7e53f8e075d90d4"
+    },
+    {
+      "family": "paired",
+      "population": "null",
+      "outer": 199,
+      "sha256": "ddf04931c6ee37f70d64f3e1d195560e19472837de097e325b1f811563749a7c"
+    }
+  ],
+  "region_sha256": "1d8a2c4d0db2cba2884a66a2aa25a41fbfd1ba24f7544c584788432dcafb5dfe"
+}

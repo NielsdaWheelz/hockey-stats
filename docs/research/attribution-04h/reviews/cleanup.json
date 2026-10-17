@@ -1,0 +1,90 @@
+{
+  "status": "verified",
+  "scope": "only temporary task tests/controllers, generated fixture runs and worktree bytecode",
+  "removed": [
+    {
+      "path": "/tmp/hockey-04h-review-20261017",
+      "files": 776,
+      "bytes": 204163084
+    },
+    {
+      "path": "/tmp/hockey04h-extract.py",
+      "files": 1,
+      "bytes": 3784
+    },
+    {
+      "path": "/tmp/hockey04h-original-truths.py",
+      "files": 1,
+      "bytes": 7270
+    },
+    {
+      "path": "/tmp/hockey04h-risk-fixture.py",
+      "files": 1,
+      "bytes": 5134
+    },
+    {
+      "path": "/tmp/hockey04h-risk-history.py",
+      "files": 1,
+      "bytes": 1081
+    },
+    {
+      "path": "/tmp/hockey04h-risk-test.py",
+      "files": 1,
+      "bytes": 8787
+    },
+    {
+      "path": "/tmp/hockey04h-source-review.py",
+      "files": 1,
+      "bytes": 4098
+    },
+    {
+      "path": "/tmp/hockey04h-study-math-review.py",
+      "files": 1,
+      "bytes": 7892
+    },
+    {
+      "path": "/tmp/hockey04h-truth-parity.py",
+      "files": 1,
+      "bytes": 2601
+    },
+    {
+      "path": "/tmp/hockey04h-risk-green.json",
+      "files": 1,
+      "bytes": 6484
+    },
+    {
+      "path": "/tmp/hockey04h-risk-history.json",
+      "files": 1,
+      "bytes": 877
+    },
+    {
+      "path": "/tmp/hockey04h-study-math-review.json",
+      "files": 1,
+      "bytes": 19759
+    },
+    {
+      "path": "/tmp/hockey04h-truth-parity.json",
+      "files": 1,
+      "bytes": 2863
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04h/analysis/research/__pycache__",
+      "files": 6,
+      "bytes": 670466
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04h/analysis/src/hockey_stats/__pycache__",
+      "files": 19,
+      "bytes": 1195509
+    }
+  ],
+  "files": 813,
+  "bytes": 206099689,
+  "retained": "compact reviews, checked known-law fixture, scientific cli, source evidence, expensive fits, environment and primary checkout",
+  "research_outputs_created": false,
+  "owned_external_read_sessions": {
+    "primary_78415": "terminated_exit143",
+    "source_50319": "interrupted_exit130",
+    "risk_25669": "interrupted_exit130"
+  }
+}

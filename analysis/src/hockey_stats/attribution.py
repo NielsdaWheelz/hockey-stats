@@ -29,6 +29,7 @@ from .captures import InputContractError
 from .attribution_data import (
     POPULATIONS,
     POOLING_STAT_FIELDS,
+    PooledShapeLikelihood,
     RevisionPopulation,
     pooling_population,
     read_recovery_prepared,
@@ -326,10 +327,11 @@ def _covariance(L: np.ndarray, K: np.ndarray, factor: np.ndarray) -> tuple[np.nd
 
 
 def _posterior(
-    H: np.ndarray, T: np.ndarray, M0: np.ndarray, V0: np.ndarray
+    H: np.ndarray, T: np.ndarray, M0: np.ndarray, V0: np.ndarray,
+    *, factorization: tuple[np.ndarray, np.ndarray, np.ndarray] | None = None,
 ) -> tuple[np.ndarray, np.ndarray, dict]:
     """a proper prior is factored, never a centered posterior covariance."""
-    L, K, factor = _factor(H, V0)
+    L, K, factor = _factor(H, V0) if factorization is None else factorization
     V, residual = _covariance(L, K, factor)
     M = M0 + V @ (T - H @ M0)
     require(np.isfinite(M).all() and np.isfinite(V).all(), "nonfinite annual posterior")
@@ -699,6 +701,7 @@ def _center(M, V, weights, diagnostics):
 def fixed_shape_update(
     H: np.ndarray, prior_mean: np.ndarray, prior_covariance: np.ndarray,
     score: np.ndarray, u: np.ndarray,
+    *, factorization: tuple[np.ndarray, np.ndarray, np.ndarray] | None = None,
 ) -> ShapeUpdate:
     """one proper-prior update and exposure reference; no fitted scale decision."""
     n = len(u)
@@ -710,9 +713,106 @@ def fixed_shape_update(
             and np.allclose(H, H.T, rtol=1e-10, atol=1e-10)
             and np.allclose(prior_covariance, prior_covariance.T, rtol=1e-10, atol=1e-10),
             "invalid fixed shape update contract")
-    M, V, diagnostics = _posterior(H, score, prior_mean, prior_covariance)
+    M, V, diagnostics = _posterior(H, score, prior_mean, prior_covariance, factorization=factorization)
     M, centered, _ = _center(M, V, u, diagnostics)
     return ShapeUpdate(M, centered, centered @ H, V, diagnostics)
+
+
+@dataclass(frozen=True)
+class PooledShapeGrid:
+    """explicit fixed-design factorizations shared across response records."""
+
+    H: np.ndarray
+    variances: tuple[float, ...]
+    factorizations: tuple[tuple[np.ndarray, np.ndarray, np.ndarray] | None, ...]
+    covariances: np.ndarray
+    logdets: np.ndarray
+    diagnostics: dict
+
+
+@dataclass(frozen=True)
+class PooledShapeState:
+    """one pooled fit; conditional covariance is not player uncertainty."""
+
+    a: float
+    objectives: np.ndarray
+    Theta: np.ndarray
+    V: np.ndarray
+    A: np.ndarray
+    beta: np.ndarray
+    K: np.ndarray
+    basis_columns: tuple[int, ...]
+    diagnostics: dict
+
+
+def pooled_shape_grid(H: np.ndarray, variances: tuple[float, ...]) -> PooledShapeGrid:
+    """factor each finite prior once, retaining the exact zero-map endpoint."""
+    variances = tuple(float(value) for value in variances)
+    require(H.ndim == 2 and H.shape[0] == H.shape[1] and len(H) > 0
+            and np.isfinite(H).all() and np.allclose(H, H.T, rtol=1e-10, atol=1e-10)
+            and bool(variances) and variances[0] == 0
+            and variances == tuple(sorted(set(variances)))
+            and all(math.isfinite(value) and value >= 0 for value in variances),
+            "pooled grid requires finite symmetric information and ordered nonnegative variances")
+    identity_matrix = np.eye(len(H))
+    factors, covariances, determinants, residuals = [], [], [], []
+    for variance in variances:
+        if variance == 0:
+            factors.append(None)
+            covariances.append(np.zeros_like(H))
+            determinants.append(0.)
+            residuals.append(0.)
+            continue
+        factorization = _factor(H, variance*identity_matrix)
+        L, normal, factor = factorization
+        covariance, _ = _covariance(L, normal, factor)
+        residual = float(np.linalg.norm((H+identity_matrix/variance)@covariance-identity_matrix, ord="fro")
+                         / max(1., np.linalg.norm(identity_matrix, ord="fro")))
+        require(residual <= 1e-8 and np.isfinite(covariance).all(),
+                "pooled covariance equation residual exceeds 1e-8")
+        factors.append(factorization)
+        covariances.append(covariance)
+        determinants.append(float(2*np.log(np.diag(factor)).sum()))
+        residuals.append(residual)
+    return PooledShapeGrid(H, variances, tuple(factors), np.stack(covariances),
+        np.array(determinants), dict(equation_relative_residual=max(residuals),
+                                    covariance_equation_relative_residuals=residuals))
+
+
+def fit_pooled_shape(
+    pooled: PooledShapeLikelihood, variances: tuple[float, ...], *, grid: PooledShapeGrid | None = None,
+) -> PooledShapeState:
+    """select marginal likelihood using only pooled training moments."""
+    variances = tuple(float(value) for value in variances)
+    grid = pooled_shape_grid(pooled.H, variances) if grid is None else grid
+    require(grid.variances == variances and np.array_equal(grid.H, pooled.H)
+            and pooled.score.shape == (len(pooled.H), len(pooled.basis_columns))
+            and np.isfinite(pooled.score).all(), "pooled fit changed its fixed grid or score")
+    beta_grid = grid.covariances @ pooled.score
+    objectives = len(pooled.basis_columns)*grid.logdets - np.sum(pooled.score*beta_grid, axis=(1, 2))
+    require(np.isfinite(objectives).all(), "pooled grid has a nonfinite marginal objective")
+    selected = min(range(len(variances)), key=lambda index: (objectives[index], variances[index]))
+    variance, K, beta = variances[selected], grid.covariances[selected], beta_grid[selected]
+    if variance == 0:
+        Theta, V = np.zeros_like(beta), np.zeros_like(K)
+        diagnostics = dict(equation_relative_residual=0., centered_mean_residual=0.)
+    else:
+        update = fixed_shape_update(pooled.H, np.zeros_like(beta), variance*np.eye(len(K)),
+                                    pooled.score, pooled.u, factorization=grid.factorizations[selected])
+        Theta, V, diagnostics = update.mean, update.covariance, dict(update.diagnostics)
+    target = pooled.target
+    ybar_h = target.ybar - target.ybar.sum(axis=1, keepdims=True)*pooled.p
+    A = ybar_h - target.xbar @ pooled.target_selection @ Theta @ pooled.R.T
+    residuals = [0. if a == 0 else float(np.linalg.norm((pooled.H+np.eye(len(K))/a)@b-pooled.score,
+                   ord="fro") / max(1., np.linalg.norm(pooled.score, ord="fro")))
+                 for a, b in zip(variances, beta_grid, strict=True)]
+    require(max(residuals) <= 1e-8 and np.isfinite(A).all(),
+            "pooled mean equation residual exceeds 1e-8")
+    diagnostics.update(grid_equation_relative_residual=grid.diagnostics["equation_relative_residual"],
+        mean_equation_relative_residuals=residuals, selected_index=selected,
+        endpoint=selected in (0, len(variances)-1),
+        zero_map=variance == 0, covariance_meaning="working_conditional_not_validated_uncertainty")
+    return PooledShapeState(variance, objectives, Theta, V, A, beta, K, pooled.basis_columns, diagnostics)
 
 
 def _block_at_scale(

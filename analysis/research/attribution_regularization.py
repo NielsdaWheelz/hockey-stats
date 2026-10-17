@@ -25,14 +25,15 @@ from hockey_stats.attribution_data import (
 from hockey_stats.attribution_prediction import (
     current_player_rows, deployment_gram, excess_prediction_terms, prediction_inner, prediction_loss,
 )
-from hockey_stats.attribution_simulation import synthetic_response, synthetic_rosters
+from hockey_stats.attribution_simulation import (
+    PAIR_SLOTS, independent_truths, paired_truths, synthetic_response, synthetic_rosters, truth_digest,
+)
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance_cli import identity, output_path
-from hockey_stats.shot_origins import grid
 from attribution_pooling import (
     ARMS as OLD_ARMS, BASIS_SHA, LAWS, POPULATIONS, SEASONS, _activation_digest,
-    criterion_status, fit_inventory as pooling_fit_inventory, physical_truths as paired_truths,
-    read_prepared as read_pooling_prepared, truth_digest,
+    criterion_status, fit_inventory as pooling_fit_inventory,
+    read_prepared as read_pooling_prepared,
 )
 from attribution_prediction import PredictionSource, read_source
 
@@ -101,56 +102,6 @@ def case_identity(family, population, law):
             and (family == "paired" or population != "null"),
             "invalid case or duplicate independent/null inventory")
     return family, population, law
-
-
-def independent_truths(designs, p, population, outer):
-    """draw physical slot fields before any response; no fitted directions enter."""
-    require(population in POPULATIONS[:2] and type(outer) is int and outer >= 0,
-            "invalid independent truth identity")
-    centers, fields, activation = grid()[0], {}, []
-    for team in range(4):
-        for role in range(2):
-            slots = sorted(_rng([40803, outer, team, role]).choice(8, 2, replace=False).tolist())
-            if population == "diffuse":
-                slots = list(range(8))
-            activation.append(dict(team=team, role=("offense", "defense")[role], slots=slots))
-            for slot in range(8):
-                rng = _rng([40802, outer, team, role, slot])
-                x1, y1, w1 = rng.uniform(0, 80), rng.uniform(-30, 30), rng.uniform(20, 40)
-                x2, y2, w2 = rng.uniform(0, 80), rng.uniform(-30, 30), rng.uniform(20, 40)
-                g0 = (np.exp(-np.sum((centers - [x1, y1]) ** 2, axis=1) / (2 * w1 ** 2))
-                      - np.exp(-np.sum((centers - [x2, y2]) ** 2, axis=1) / (2 * w2 ** 2)))
-                centered = g0 - p @ g0
-                normalizer = float(np.max(np.abs(centered)))
-                require(np.isfinite(normalizer) and normalizer > 0, "invalid independent lobe normalization")
-                fields[(team, role, slot)] = .09 * p * centered / normalizer
-    truths = []
-    for year, design in enumerate(designs):
-        rosters, players = synthetic_rosters(year), design["players"]
-        require(players == tuple(sorted(player for team in rosters for player in team)),
-                "independent physical roster differs from fixed deployment")
-        positions, n = {player: i for i, player in enumerate(players)}, len(players)
-        raw, active = np.zeros((2 * n, len(p))), np.zeros(2 * n, dtype=bool)
-        for row in activation:
-            role, team = int(row["role"] == "defense"), row["team"]
-            for slot in row["slots"]:
-                index = role * n + positions[rosters[team][slot]]
-                raw[index], active[index] = fields[(team, role, slot)], True
-        means = np.array([design["u"] @ raw[role * n:(role + 1) * n] for role in range(2)])
-        centered = raw - np.repeat(means, n, axis=0)
-        context = 5 * means.sum(axis=0)
-        floor = RULES["truth"]["positivity_floor"][population]
-        rates = 40 * (p + design["X"] @ raw)
-        require(np.isfinite(raw).all() and np.isfinite(centered).all() and np.isfinite(context).all()
-                and np.max(np.abs(raw.sum(axis=1))) <= 1e-12
-                and np.max(np.abs(centered.sum(axis=1))) <= 1e-12
-                and all(np.max(np.abs(design["u"] @ centered[role*n:(role+1)*n])) <= 1e-12
-                        for role in range(2))
-                and np.all(rates > 0) and np.all(rates >= floor * 40 * p - 1e-12)
-                and np.max(np.abs(rates - 40 * (p + context + design["X"] @ centered))) <= 1e-12,
-                "independent truth positivity, normalization or role compensation failed")
-        truths.append(dict(raw=raw, centered=centered, context=context, activation=activation, active=active))
-    return truths
 
 
 def _truths(source, family, population, outer):
@@ -503,7 +454,6 @@ def annual_risks(control, candidate, population, training, evaluation, truth, ba
     # the old pair grouping is fixed by team slots, independent of family activation.
     pairs = []
     positions = {player: i for i, player in enumerate(population.player_ids)}
-    from attribution_pooling import PAIR_SLOTS
     rosters = synthetic_rosters(population.season_index)
     for team, roster in enumerate(rosters):
         for role in range(2):

@@ -38,6 +38,8 @@ the explicit long-term destination is to replicate the substantive player-card a
 | first evidence drill-down | game-by-game breakdown | publish recorded counts, reconstructed 5v5 exposure, and coverage; individual-event investigation remains in local analytical tools initially |
 | first audience | the user, then a public audience | one operator; no first-release subscription, account, or multi-user administration system |
 | intermediate private product, approved 2026-10-16 | browse source-supported recorded 5v5 results while model research continues | table/search, player and season/game evidence can precede model admission; some schema/view rework may follow. no adjusted ability or xg is implied |
+| 05a access, confirmed 2026-10-16 | localhost only on this mac | no phone/other-computer access; browsing remains independent of the external drive |
+| 05a effect version, confirmed 2026-10-16 | narrow effect-4 cutover before server/frontend work | migrate and recheck existing capture commands now; exact compatible pins and unstable companion-api risks belong to the spec |
 | first analytical scope | 5v5 skater chance creation/suppression | finishing, special teams, and dedicated goalie profiles follow separately; no claim of total player value |
 | blocked attempts | include blocked shots by imputing their shooting origins | retain observed block locations separately; location inference adds assumptions, validation and uncertainty |
 | first time horizon | completed season, then current season | establishes a fixed reference before ongoing updates and correction handling |
@@ -59,6 +61,11 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04c research claim, confirmed 2026-10-16 | broad spatial shape first; complete rates and fine-cell behavior remain secondary diagnostics | where attempts are allocated is assessed separately from volume; success would not establish complete player-map accuracy |
 | 04c uncertainty boundary, confirmed 2026-10-16 | full historical refits in simulations; one real five-season point chain only if the pilot supports progression | avoids repeating 200 expensive real histories; new real-player refit intervals remain deferred |
 | 04d diagnosis boundary, confirmed 2026-10-16 | diagnose existing known-truth simulations only | separates controlled information/shrinkage mechanisms; does not establish which real players are estimable |
+| 04e hypothesis, confirmed 2026-10-16 | separate pooling for broad spatial patterns and finer retained detail | one additional shape covariance/scale process; players still share pooling within each band |
+| 04e claim boundary, confirmed 2026-10-16 | recovery and prediction first; no nested uncertainty campaign | success nominates a synthetic mean estimator only; player intervals and real-data support remain unvalidated |
+| 04e useful recovery, confirmed 2026-10-16 | at least 25% lower regional mean squared error than zero, plus supported improvement over unchanged pooling | a new prospective research target, about 13% lower root mean squared error; not the 5% scalar band or a guarantee per player |
+| 04e prediction cost, confirmed 2026-10-16 | retain at least 99% of control prediction gain over no player shape effects, with uncertainty supporting the limit | at most 1% of the gain may be lost, not 1% of total error; positive control gain must be supported |
+| 04e null population, confirmed 2026-10-16 | mandatory diagnostic, without a separate nomination gate | nomination is limited to tested non-null populations; null/false-map behavior remains visible |
 
 ## initial product and scope
 

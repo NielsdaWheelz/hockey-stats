@@ -2,6 +2,22 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## private observed-website specification review — 2026-10-16
+
+source, systems and content reviewers agree on [05a](../specs/05a-observed-website.md): one local table/search → player → game-evidence path, independent of model admission. the user selected localhost only and an effect-4 cutover. python owns matched observed quantities, sqlite carries finalized results, effect owns reads/publication and react presents them. no reviewer attributes these recommendations to a private peer implementation.
+
+review fixed four consequential boundaries: unassigned roster evidence prevents a complete season label; all retained skaters reconcile to physical counts/time; the exporter finalizes only after its receipt succeeds; and rotation cannot replace a valid backup with an invalid active file. content distinguishes recorded on-ice rates from player contribution and exposes included minutes, nulls and coverage beside the numbers. a dense accessible table serves this question better than prematurely filling ability cards.
+
+the costs are conservative exposure loss, source-selected subsets, manual publication interruptions and possible later view/schema changes. the confirmed effect-4 cutover adds five capture-file migrations and preserves explicit http/sql instability risk. these reviews settle the proposed contract, not implementation verification or publication authority.
+
+## specification review after 04d — 2026-10-16
+
+statistical, systems and content reviewers recommend one two-band pooling comparison within the existing spatial representation. [04e](../specs/04e-attribution-pooling.md) owns the exact contract; [the plan](../plan.md) owns assignment. 04d motivates a scale-allocation question but does not establish that its global objective is defective or that another prior will recover unavailable information.
+
+the user selected means/prediction before player-interval calibration, two spatial bands, 25% regional error reduction against zero, 99% control prediction-gain retention and null diagnostics without a separate null gate. review makes false maps consume the same all-pair recovery budget, uses physical truths independent of the basis, and evaluates new deployment with training-fitted context. each band retains full row covariance; context and response energy appear once. shared numerical owners and strict new artifacts avoid a parallel fitter or experiment framework.
+
+the substantive alternative is player-specific pooling: it addresses sparse player signals, but changes prior/fitting assumptions beyond this spatial question. two bands still pool players within each band. fixed designs limit deployment generalization; mean recovery supplies no interval calibration. the content review requires null/false-map behavior beside primary criteria and rejects per-player guarantees from average gains. numerical probes assess sensitivity of the declared decision as well as raw map movement. no reviewer claims private hockeyviz parity or prescribes a follow-on fit regardless of the result.
+
 ## specification review after 04c — 2026-10-16
 
 statistical, systems and content reviewers recommend diagnosing the existing controlled failure before choosing another model. the user selected known-truth diagnosis without a real-deployment identification pass. [04d](../specs/04d-attribution-diagnosis.md) owns the exact finite contract; [the plan](../plan.md) owns assignment.

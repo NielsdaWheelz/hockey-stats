@@ -1,0 +1,61 @@
+{
+  "status": "verified",
+  "pr": "https://github.com/NielsdaWheelz/hockey-stats/pull/29",
+  "merged_at": "2026-10-17T15:19:49Z",
+  "merge_commit": "4a0720b5881d85fb342b038ab3f4c4606c476d0f",
+  "reviewed_head": "18f1cf88a0bf7fe41665f8839d3722f06ba60198",
+  "merged_tree": "02b64195500d2026b664929d58edc1608719e02f",
+  "reviewed_tree": "02b64195500d2026b664929d58edc1608719e02f",
+  "preserved_commits": [
+    "fbdc47016478fdbed257ae43e43891743df37c47",
+    "f4ebb7128d6236a7e8d2f397dff78e007c99618e",
+    "b62fa983b232f23d8dee6c9736e53690e22d7cc0",
+    "18f1cf88a0bf7fe41665f8839d3722f06ba60198"
+  ],
+  "security_checks": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-17T15:19:27Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://dashboard.gitguardian.com",
+      "name": "GitGuardian Security Checks",
+      "startedAt": "2026-10-17T15:19:26Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "deleted": {
+    "local_branch": "codex/04h-attribution-resolution",
+    "remote_branch": "codex/04h-attribution-resolution",
+    "worktree": "/Users/nnandal/Documents/code/hockey-stats-04h",
+    "temporary_pr_body": {
+      "path": "/tmp/hockey-stats-04h-pr-body.md",
+      "sha256": "ecdea2ce0a1c7cf09230b760c77615ebe3d05ee346e62b2e17965e87b9de8dcb"
+    }
+  },
+  "worktree_clean_before_removal": true,
+  "task_alias_needed": false,
+  "alias_review": {
+    "reviewer": "independent source/pooling agent",
+    "conclusion": "all 04h worktree locators are closed verification provenance; no operational artifact depends on the path; no research outputs were created"
+  },
+  "preserved_existing_aliases": {
+    "/Users/nnandal/Documents/code/hockey-stats-04a": "/Users/nnandal/Documents/code/hockey-stats",
+    "/Users/nnandal/Documents/code/hockey-stats-04b": "/Users/nnandal/Documents/code/hockey-stats",
+    "/Users/nnandal/Documents/code/hockey-stats-04c": "/Users/nnandal/Documents/code/hockey-stats",
+    "/Users/nnandal/Documents/code/hockey-stats-04f": "/Users/nnandal/Documents/code/hockey-stats"
+  },
+  "primary_environment_preserved": true,
+  "primary_imports_and_cli": "verified from primary checkout; no bytecode created",
+  "review_digest_verification": "passed",
+  "relative_links_checked": 90,
+  "external_drive_accessed": false,
+  "external_or_published_data_modified": false,
+  "additional_tests_or_dependencies": false,
+  "research_execution_status": "not_run",
+  "research_acceptance_fulfilled": false,
+  "research_issue": "docs/issues/04h-research-inputs.md",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null
+}

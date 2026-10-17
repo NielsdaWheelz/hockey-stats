@@ -1,6 +1,6 @@
 # 04h implementation verification
 
-status: implementation and detached verification complete; **research execution blocked by selected external input reads**. this is not completion of the full [04h specification](../../specs/04h-attribution-resolution.md). [the plan](../../plan.md) owns progression; the [input issue](../../issues/04h-research-inputs.md) records the blocker and closure criteria. no research protocol/result, scientific decision, nomination, admission or handoff is issued.
+status: implementation and detached verification merged; task cleanup complete. **research execution remains blocked by selected external input reads**. this is not completion of the full [04h specification](../../specs/04h-attribution-resolution.md). [the plan](../../plan.md) owns progression; the [input issue](../../issues/04h-research-inputs.md) records the blocker and closure criteria. no research protocol/result, scientific decision, nomination, admission or handoff is issued.
 
 ## implementation and ownership
 
@@ -69,3 +69,11 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=analysis/src:analysis/research \
 run `fit` once for each explicit sparse/diffuse/null × gaussian/game-pace cell, with that `prepared.json` and a new output subdirectory. pass the six exact `fit.json` paths to `assess`. no controller, resume engine, new response generation or search expansion is needed. completion still requires the full 57,600/108 grid records, 1,200 pooled fits, 600 original histories/3,000 states, twelve research probes, independent full-cell assessments and reviewed research reports. acceptance does not follow from the fixture result.
 
 temporary integration/live scripts, generated fixture trees and bytecode are removed after final review; compact receipts and useful checked fixtures remain. the verification receipt records cleanup and final document checks. current source evidence, expensive fits, published databases, frozen paths and the main environment remain untouched.
+
+## merge and task cleanup
+
+the user subsequently assigned pr, merge and cleanup. [pr #29](https://github.com/NielsdaWheelz/hockey-stats/pull/29) merged in `4a0720b5881d85fb342b038ab3f4c4606c476d0f`, with its security check passed. the merge commit preserves producer `fbdc470`, initial draft snapshot `f4ebb71`, concurrent specification commit `b62fa98` and reviewed head `18f1cf8`. merged tree `02b64195500d2026b664929d58edc1608719e02f` equals the reviewed tree. primary-checkout module paths, cli and frozen review references pass; no research rerun is performed.
+
+local/remote task branches, the registered worktree and temporary pr description are removed. independent path review finds no alias needed: surviving 04h worktree references describe closed assignment/verification provenance, not operational source or fitted artifacts. future research commands run from the primary repository root. no duplicate environment, archive or ignored scratch remains in the removed worktree. the primary environment, older aliases, external source/fit evidence and observed publication remain untouched.
+
+the [post-merge receipt](post-merge-cleanup.json) records verified scope. this merge delivers the implementation and closes its integration/cleanup; the full research assignment and external-input issue remain open. no scientific result, nominee, model admission or publication follows.

@@ -192,7 +192,7 @@ def load_arrays(document: dict) -> dict:
 
 def artifact(kind: str, purpose: str, consumed: dict, *, schema_version: int = 3, **fields) -> dict:
     """bind a named schema to its producer and input identities."""
-    require(type(schema_version) is int and schema_version in (3, 4), "unsupported artifact schema")
+    require(type(schema_version) is int and schema_version in (3, 4, 5), "unsupported artifact schema")
     require(purpose in ("research", "fixture_exercise"), "invalid artifact purpose")
     producer = implementation()
     if purpose == "research":
@@ -204,7 +204,7 @@ def artifact(kind: str, purpose: str, consumed: dict, *, schema_version: int = 3
 def read_artifact(path: Path | str, kind: str, *, expected_schema: int = 3) -> dict:
     from .chance_cli import read_json
 
-    require(type(expected_schema) is int and expected_schema in (3, 4), "unsupported artifact schema")
+    require(type(expected_schema) is int and expected_schema in (3, 4, 5), "unsupported artifact schema")
     document = read_json(Path(path).resolve(strict=True))
     require(isinstance(document, dict) and type(document.get("schema_version")) is int
             and document["schema_version"] == expected_schema and document.get("kind") == kind

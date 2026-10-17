@@ -1,0 +1,27 @@
+{
+  "study": "04i",
+  "review": "final documentation and receipt consistency",
+  "reviewer": "/root/source_contracts",
+  "status": "passed",
+  "checks": 311,
+  "primary_document_links_checked": 237,
+  "substantive_findings": [],
+  "copy_precision": "plan and verification use numeric values in 18,540 csv rows",
+  "checked_documents": [
+    "docs/architecture.md",
+    "docs/plan.md",
+    "docs/issues/attribution-spatial-recovery.md",
+    "docs/research/model-direction.md",
+    "docs/research/attribution-04i/verification.md",
+    "docs/research/attribution-04i/verification.json",
+    "docs/research/attribution-04i/protocol.json",
+    "docs/research/attribution-04i/result.json"
+  ],
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment-reviewed/result.json",
+    "sha256": "c32ac2c9b03584c0435e9be2a23d621ec80b1bb15ef748f64e1b4146584dfd19"
+  },
+  "live_operational_statistics": 600,
+  "closed_verification_locators": "explicit historical scope; generated fixture/preview trees removed",
+  "new_tests_or_numerical_runs": 0
+}

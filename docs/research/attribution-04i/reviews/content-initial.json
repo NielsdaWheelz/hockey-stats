@@ -1,0 +1,28 @@
+{
+  "boundary": "actual research content review",
+  "status": "changes_requested",
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/assessment.json",
+    "sha256": "deb79348ec41922aa2c4f2aef4bef3ce75964a5e17e4ba564edfab6b495c79ac"
+  },
+  "figure": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/selection.png",
+    "sha256": "c8a145a96d29230f5d55623db2d98086def2f3fbb7dcce893c01d57a510068c1"
+  },
+  "comparison": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research/assessment/comparison.csv",
+    "sha256": "730cc605d92ff454778cc4e721f570451e7cdd6f54da03381725012f93fd15ec"
+  },
+  "rendered_output_inspected": true,
+  "findings": [
+    {
+      "issue": "left axis decimal tick labels visibly overlap",
+      "fix": "limit x axis to five tick bins"
+    },
+    {
+      "issue": "summary csv status conflates cell progress with metric criterion status",
+      "evidence": "all four positive control_gain rows say failed although criterion rows say supported",
+      "fix": "explicit cell_progress_status column; status reserved for criterion rows"
+    }
+  ]
+}

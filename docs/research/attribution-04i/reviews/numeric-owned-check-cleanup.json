@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "temporary_checks_deleted": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-numeric-core.py",
+      "sha256": "42dd8942e0b79b10e23a9aac42134896d515f8dd5a956205d86fcd3d9ee0a36d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-shared-score-replay.py",
+      "sha256": "9d20df3420b38df28f950e12a863fe075760735d869df9f974843d321e501c41"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-independent-assessment.py",
+      "sha256": "eb299c7eba6a6be63d62f3a7bd11a65fd9ff0b3fe2aac6839ee22afea97e1baf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-final-report-reconciliation.py",
+      "sha256": "0d9e8ac1f5d0f1fd13fb61e4af3ee35c90208f84aae3ab41ba65345978df415f"
+    }
+  ],
+  "temporary_environment_deleted": "/Users/nnandal/Documents/code/hockey-stats-04i/analysis/.venv",
+  "retained_consumer_environment": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv",
+  "test_only_dependencies_added": [],
+  "review_receipts_preserved": true,
+  "scientific_fixture_preserved": "fixtures/attribution/regional-penalty-covariance.npz"
+}

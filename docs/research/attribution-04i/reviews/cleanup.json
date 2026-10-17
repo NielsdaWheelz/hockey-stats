@@ -1,0 +1,73 @@
+{
+  "study": "04i",
+  "status": "passed",
+  "deleted_own_temporary_checks": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-guarded-integration.py",
+      "sha256": "7693f79ee6ec16acf62d2d55fa2590859c34ac1874490dec74ba131285042540"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-fixture-inputs.py",
+      "sha256": "3e56624b78fbf9ed45f4e5233f1b70e9bf1e5fd5c4bfc0c6bf8077a435be3cdb"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04i/var/04i-verification/04i-independent-covariance.py",
+      "sha256": "bc7d61c3f0c31e0dd7146558f7748632b24973a845dfe4b8c19e03f3994961a4"
+    }
+  ],
+  "deleted_generated_fixture_trees": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-inputs",
+      "bytes": 163637923,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-integration-v1",
+      "bytes": 640006,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-integration-v2",
+      "bytes": 1652013,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-integration-v3",
+      "bytes": 2074208,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/fixture-integration-v4",
+      "bytes": 2021944,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/guarded-integration-v1",
+      "bytes": 1722434,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/guarded-integration-v2",
+      "bytes": 1732791,
+      "scope": "generated temporary synthetic verification evidence"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews/content-report-check",
+      "bytes": 2259365,
+      "scope": "generated temporary synthetic verification evidence"
+    }
+  ],
+  "deleted_worktree_bytecode": [
+    "analysis/research/__pycache__",
+    "analysis/src/hockey_stats/__pycache__"
+  ],
+  "duplicate_environment": "removed by numerical owner; original main environment preserved",
+  "test_only_dependencies": "none added; lockfile unchanged",
+  "original_paths_preserved": 3619,
+  "research_outputs_preserved": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/research",
+  "reference_policy": "closed fixture/preview receipt locators describe historical verification; operational research references remain live",
+  "retained_fixture": "fixtures/attribution/regional-penalty-covariance.npz",
+  "retained_review_evidence": "/Volumes/Expansion/hockey-stats/runs/attribution-04i-20261017/reviews",
+  "new_worktree_and_branch": "retained as requested",
+  "research_tree_bytes": 92966113
+}

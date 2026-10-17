@@ -4,19 +4,21 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 **status:** **first** = agreed first product; **later** = part of the agreed destination, implemented incrementally; **candidate** = reference detail worth considering, not yet selected; **optional** = enrichment outside the public-data core. a later family does not commit us to every competitor field or formula. nothing here expands the current slice or requires a universal card framework.
 
+2026-10-16 amendment: [05a](specs/05a-observed-website.md) brings forward a private observed subset: league table/search, player identity, recorded 5v5 counts, matched reconstructed exposure/rates and reconciled game evidence with coverage. this does not promote the later descriptive-card family or fulfill the first analytical product. ability, xg, adjusted maps and comparisons remain outside that intermediate slice.
+
 ## analytical dependencies
 
-the post-03o capability review separates available facts from supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
+the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
 
 | capability boundary | remaining work |
 |---|---|
 | chance measurement | supported recorded probabilities, block-origin/avoidance composition, tip sensitivity and reference-standardized opportunity; q × g alone supplies none of these admissions |
-| temporal structure | justified annual information borrowing, aging, entrants and cutoffs; current joint annual actor penalties do not reproduce hockeyviz's annual prior propagation |
-| spatial player contribution | aligned stints/exposure including zero-event time, offense/defense attribution, teammate/opponent/deployment context, uncertainty and map-to-scalar accounting |
+| temporal structure | 04a/04b implement five-season chronological age-neutral borrowing; useful recovery, justified aging/entrant priors, changeability and historical selection remain to assess |
+| spatial player contribution | aligned stints, zero-event exposure, annual offense/defense and volume/shape mechanisms exist; useful recovery beyond trivial baselines, uncertainty, complete-rate adequacy and richer justified deployment adjustment remain |
 | later skills | setting inference, validated freeze/rebound targets, dedicated goalie effects, special teams, penalties, shootiness, territory and nonoverlapping totals |
-| player experience | publication/read contract, profiles/maps/cards, tables/search/comparisons, history, distributions and downloads |
+| player experience | 05a first delivers observed publication/table/search/profile/game evidence; supported ability maps/comparisons and later cards/history/distributions/downloads extend the same path |
 
-[04a feasibility](specs/04a-attribution-feasibility.md) may investigate recorded-rate attribution and sensitivities before chance admission. those provisional outputs do not fulfill the promised chance-valued profile. a few useful components can justify a bounded predictive cost under a prospective claim-specific rule; identical private-model numbers remain outside acceptance.
+attribution research can investigate recorded-rate associations and sensitivities before chance admission; [04c](research/attribution-04c/decision.md) records one completed recovery question. those provisional fitted outputs do not fulfill the promised chance-valued profile or belong in 05a's observed-only publication. a few useful components can justify a bounded predictive cost under a prospective claim-specific rule; identical private-model numbers remain outside acceptance.
 
 public [xg8](https://hockeyviz.com/txt/xg8) supplies reference distinctions in outcome layers, symmetry/type geometry, tip treatment, setters, coaches and historical priors. precise current hockeyviz implementation remains unknown after its announced rewrite; the reference caveat below governs. available local proxies, unadmitted sources and unsupported physical tracking must remain distinct.
 

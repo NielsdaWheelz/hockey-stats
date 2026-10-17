@@ -1,12 +1,14 @@
 # pr06 — website
 
-status: **stub; not ready for implementation.** expand against the [05 publication contract](05-publication.md) and the settled [brief](../brief.md). labeled fixtures can exercise the interface; a real analytical release additionally requires supported 03–04 results. [plan](../plan.md)
+status: **stub; not ready for implementation.** [05a](05a-observed-website.md) first delivers the private observed table/search/profile/game path. expand this same application against the [05 publication contract](05-publication.md) and settled [brief](../brief.md) for supported ability maps and comparisons. fixtures can exercise analytical views; a real ability release additionally requires supported 03–04 results. [plan](../plan.md)
 
 ## purpose and ownership
 
 support the published question: who creates or suppresses genuine 5v5 opportunities, where, and with what evidence? inputs are complete published view responses. outputs are a compact sortable league table with name search, player profiles and adjusted maps, selected-player comparisons, complete-season observed summaries and game-by-game evidence.
 
 use the selected react/router frontend and effect operations within `app/src/`. route/browser modules own presentation and meaningful url selections; effect owns response validation and application effects. server queries remain in 05. defer concrete files and interfaces; preserve one state owner.
+
+reuse the observed views and publication client established in 05a. adding supported analytical panels does not authorize a second frontend, duplicate summaries or a generic card system. 05a's narrower observed slice is useful independently and does not satisfy this analytical contract.
 
 ## settled behavior and exclusions
 

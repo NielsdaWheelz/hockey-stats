@@ -1,0 +1,4699 @@
+{
+  "schema_version": 3,
+  "kind": "attribution_recovery_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "481a9e36138e0d143efe4009d2733c53a941a35b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/diagnosis.json",
+      "sha256": "d44615cd5b8243c1182aada82f8fca3fed7ac672cc011e341c26c930e30af142"
+    },
+    "spec_snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/spec-snapshot.md",
+      "sha256": "acfaadf53f7b78c1278c8fc1430788f929331f7b5ce0f5198ae7436922ea813f"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/prepared.json",
+      "sha256": "59261bd10f874bb0d19146e7f22948a9a6b2dac511e00d73d4842dca8529f724"
+    },
+    "means": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/means/means.json",
+      "sha256": "88a8d36fc492a4c891c3c8471b83be62976245aac93cf82b128f392485d30f48"
+    }
+  },
+  "model_implementation": {
+    "git_commit": "481a9e36138e0d143efe4009d2733c53a941a35b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "model_protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/inputs/protocol.json",
+    "sha256": "d1e0cd64c7395527adc2da744380974fab7288900ee32618b9d679dbaf116f56"
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/spec-snapshot.md",
+    "sha256": "acfaadf53f7b78c1278c8fc1430788f929331f7b5ce0f5198ae7436922ea813f"
+  },
+  "evidence": {
+    "diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/diagnosis/diagnosis.json",
+      "sha256": "d44615cd5b8243c1182aada82f8fca3fed7ac672cc011e341c26c930e30af142"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/prepared.json",
+      "sha256": "59261bd10f874bb0d19146e7f22948a9a6b2dac511e00d73d4842dca8529f724"
+    },
+    "means": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/means/means.json",
+      "sha256": "88a8d36fc492a4c891c3c8471b83be62976245aac93cf82b128f392485d30f48"
+    }
+  },
+  "completion": "complete",
+  "stages": {
+    "diagnosis": {
+      "status": "complete",
+      "reason": "bias_dominated_broad_failure"
+    },
+    "prepared": {
+      "status": "complete",
+      "reason": "fixed_basis_and_truth_bound_before_responses"
+    },
+    "means": {
+      "status": "complete",
+      "reason": "mean_recovery_failed"
+    },
+    "intervals": {
+      "status": "not_run",
+      "reason": "mean_recovery_failed"
+    },
+    "real": {
+      "status": "not_run",
+      "reason": "mean_recovery_failed"
+    }
+  },
+  "rule_matrix": [
+    {
+      "phase": "means",
+      "case": "gaussian",
+      "case_id": 0,
+      "contrast": "radial",
+      "baseline": "zero_shape",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        0,
+        0,
+        0
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 6.187808120767409,
+      "mean_candidate_error": 5.771227496471998,
+      "mean_gain": 0.41658062429541104,
+      "percentile_95": [
+        0.3876922719293446,
+        0.4458346984183935
+      ],
+      "status": "supported"
+    },
+    {
+      "phase": "means",
+      "case": "gaussian",
+      "case_id": 0,
+      "contrast": "radial",
+      "baseline": "native_04b",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        0,
+        0,
+        1
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 6.09685430879154,
+      "mean_candidate_error": 5.771227496471998,
+      "mean_gain": 0.32562681231954316,
+      "percentile_95": [
+        0.29873420922264526,
+        0.35278575209669
+      ],
+      "status": "supported"
+    },
+    {
+      "phase": "means",
+      "case": "gaussian",
+      "case_id": 0,
+      "contrast": "lateral",
+      "baseline": "zero_shape",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        0,
+        1,
+        0
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 1.7817157225762872,
+      "mean_candidate_error": 1.663637586879851,
+      "mean_gain": 0.11807813569643645,
+      "percentile_95": [
+        0.10767503321857866,
+        0.12875427176439375
+      ],
+      "status": "supported"
+    },
+    {
+      "phase": "means",
+      "case": "gaussian",
+      "case_id": 0,
+      "contrast": "lateral",
+      "baseline": "native_04b",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        0,
+        1,
+        1
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 1.7548406487724901,
+      "mean_candidate_error": 1.663637586879851,
+      "mean_gain": 0.09120306189263933,
+      "percentile_95": [
+        0.08169992837493921,
+        0.10133488066391924
+      ],
+      "status": "supported"
+    },
+    {
+      "phase": "means",
+      "case": "game_pace",
+      "case_id": 1,
+      "contrast": "radial",
+      "baseline": "zero_shape",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        1,
+        0,
+        0
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 6.187808120767409,
+      "mean_candidate_error": 5.197894523419052,
+      "mean_gain": 0.9899135973483574,
+      "percentile_95": [
+        0.9114238124126058,
+        1.0700415143644646
+      ],
+      "status": "supported"
+    },
+    {
+      "phase": "means",
+      "case": "game_pace",
+      "case_id": 1,
+      "contrast": "radial",
+      "baseline": "native_04b",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        1,
+        0,
+        1
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 5.158920341301114,
+      "mean_candidate_error": 5.197894523419052,
+      "mean_gain": -0.038974182117938225,
+      "percentile_95": [
+        -0.10499836971952198,
+        0.027489553265474337
+      ],
+      "status": "inconclusive"
+    },
+    {
+      "phase": "means",
+      "case": "game_pace",
+      "case_id": 1,
+      "contrast": "lateral",
+      "baseline": "zero_shape",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        1,
+        1,
+        0
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 1.7817157225762872,
+      "mean_candidate_error": 1.5311685802123562,
+      "mean_gain": 0.2505471423639311,
+      "percentile_95": [
+        0.22534035162158708,
+        0.2759314106891305
+      ],
+      "status": "supported"
+    },
+    {
+      "phase": "means",
+      "case": "game_pace",
+      "case_id": 1,
+      "contrast": "lateral",
+      "baseline": "native_04b",
+      "n": 400,
+      "resamples": 10000,
+      "seed": [
+        40432,
+        1,
+        1,
+        1
+      ],
+      "estimand": "twelve_region_shape_squared_error",
+      "units": "squared attempts/60 team minutes",
+      "mean_baseline_error": 1.512428013415539,
+      "mean_candidate_error": 1.5311685802123562,
+      "mean_gain": -0.01874056679681715,
+      "percentile_95": [
+        -0.03722280637028534,
+        -0.0009165235379221735
+      ],
+      "status": "failed"
+    },
+    {
+      "phase": "intervals",
+      "status": "not_run",
+      "reason": "mean_recovery_failed",
+      "expected_rules": 4
+    }
+  ],
+  "recommendation": "mean_recovery_failed",
+  "nomination": null,
+  "claim_scope": "developmental broad offensive relative-shape recovery under fixed synthetic assumptions",
+  "real_refit_intervals": null,
+  "figures": [
+    {
+      "name": "diagnosis",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/assessment/diagnosis.png",
+        "sha256": "687c0f74ac898b6f3535ef824260b6fda3b497e845fa964b6af86f00f02dc23f"
+      }
+    },
+    {
+      "name": "recovery",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/assessment/recovery.png",
+        "sha256": "f5408cac9266c903477a66324d2218915295ac151c93e831f74169e86207af75"
+      }
+    },
+    {
+      "name": "representation_limits",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/assessment/representation-limits.png",
+        "sha256": "aa8c2e4a64bda5b38d8134cc8095f5ce568155a3692006a10bcb15a77ec6a568"
+      }
+    }
+  ],
+  "figure_contracts": {
+    "diagnosis": {
+      "maps": "actual shape truth, outer-mean fitted shape and bias on one shared scale; attempts/60 team minutes",
+      "accounting": "native volume, shape and signed cross-term squared-error contributions; same fitted volume-only comparator",
+      "mechanism": "twelve-region squared bias versus sampling variation, all saved outer datasets; point versus weighted scale/interval behavior"
+    },
+    "recovery": {
+      "means": "eight paired broad-shape error comparisons with denominators and monte carlo intervals",
+      "intervals": "four primary coverage cells; nominal .95 distinct from developmental .90 floor; transition/null/stress limits visible",
+      "early_stop": "unreached claims labeled not_run with the exact stopping reason; no fabricated candidate maps"
+    },
+    "representation_limits": {
+      "maps": "actual truth, geometric projection and fitted broad/local/rough shapes; gaussian outer zero, year five; shared scales",
+      "real": "only conditional fixed real examples; research point associations, no real refit intervals"
+    }
+  },
+  "point_diagnostics": {
+    "patterns": [
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "lateral",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.0577631928963256,
+          "sampling_variation": 4.407336284094715e-05,
+          "mean_squared_error": 0.05780726625916656,
+          "decomposition_absolute_residual": 1.015761910347357e-17,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 0.9947134381696308,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0030278184370979887,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.7712685766650442,
+          "sampling_variation": 0.0003381368201557687,
+          "mean_squared_error": 1.7716067134852,
+          "decomposition_absolute_residual": 5.231275482242559e-17,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.9943262502749484,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.002936134625938915,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.057763190855967074,
+          "sampling_variation": 0.012535940172043115,
+          "mean_squared_error": 0.07029913102801018,
+          "decomposition_absolute_residual": 1.0408340855860843e-17,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.2096660999623192,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0030278372821212107,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.07060934501513527,
+        "shape_rmse_native": 0.24043141695536913,
+        "shape_rmse_regions": 1.3310171724982365,
+        "complete_rmse_native": 0.26513983297122706
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "lateral",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.05804551156309249,
+          "sampling_variation": 2.0814454152875694e-05,
+          "mean_squared_error": 0.058066326017245366,
+          "decomposition_absolute_residual": 2.778268066994105e-19,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 0.9991711861194242,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0005941162333727046,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.7794579228721272,
+          "sampling_variation": 1.7809399435529633e-05,
+          "mean_squared_error": 1.7794757322715629,
+          "decomposition_absolute_residual": 1.0134579807308253e-16,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.9987427902912112,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0006338129281237281,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.05804550934324408,
+          "sampling_variation": 0.012514001625140105,
+          "mean_squared_error": 0.0705595109683842,
+          "decomposition_absolute_residual": 1.214306433183765e-17,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.214146564832577,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0005941350783959274,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.07060934501513527,
+        "shape_rmse_native": 0.24096955412924131,
+        "shape_rmse_regions": 1.3339699143052526,
+        "complete_rmse_native": 0.26563040294436213
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "local",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.07346760519667883,
+          "sampling_variation": 4.73320751523191e-05,
+          "mean_squared_error": 0.07351493727183116,
+          "decomposition_absolute_residual": 6.8575787409708155e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 0.9959991460403087,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0023241592493521332,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5948573763618559,
+          "sampling_variation": 0.0003162758138425478,
+          "mean_squared_error": 0.5951736521756983,
+          "decomposition_absolute_residual": 1.3292318634672284e-16,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9953645600129264,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0025862505862594342,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.07346647989908657,
+          "sampling_variation": 0.011597418350797526,
+          "mean_squared_error": 0.0850638982498841,
+          "decomposition_absolute_residual": 1.734723475976807e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.1524674190017699,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.002379153720100551,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.08536328493060413,
+        "shape_rmse_native": 0.27113638131359497,
+        "shape_rmse_regions": 0.771474984802293,
+        "complete_rmse_native": 0.291657158749591
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "local",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.07372883208987163,
+          "sampling_variation": 2.0953165338273608e-05,
+          "mean_squared_error": 0.07374978525520991,
+          "decomposition_absolute_residual": 1.3518645838178633e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 0.999180926499831,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0005519647032685244,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5971902237715959,
+          "sampling_variation": 1.7627477381316276e-05,
+          "mean_squared_error": 0.5972078512489771,
+          "decomposition_absolute_residual": 1.0609934697307366e-16,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9987665413643373,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0006317225347996428,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.07372749309994522,
+          "sampling_variation": 0.01156861019589722,
+          "mean_squared_error": 0.08529610329584245,
+          "decomposition_absolute_residual": 1.734723475976807e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.1556133922701084,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0006069591740169437,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.08536328493060413,
+        "shape_rmse_native": 0.2715691169025114,
+        "shape_rmse_regions": 0.7727922432639818,
+        "complete_rmse_native": 0.29205496622355603
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "radial",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.5020915994101485,
+          "sampling_variation": 5.803432237899746e-05,
+          "mean_squared_error": 0.5021496337325274,
+          "decomposition_absolute_residual": 5.59990422088763e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.994630115909124,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0027465546189202874,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 6.150531713454548,
+          "sampling_variation": 0.00045653075207125057,
+          "mean_squared_error": 6.150988244206619,
+          "decomposition_absolute_residual": 1.6512399086954233e-16,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.9940496091924351,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.003016692572434586,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.5085682345923028,
+          "sampling_variation": 0.011606138542163089,
+          "mean_squared_error": 0.520174373134466,
+          "decomposition_absolute_residual": 1.0234868508263162e-16,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 1.030332519010211,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": -0.0035995860430701864,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.5229124220595092,
+        "shape_rmse_native": 0.7086251715346608,
+        "shape_rmse_regions": 2.4801185947866724,
+        "complete_rmse_native": 0.7212311509734352
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "radial",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.5043210112276393,
+          "sampling_variation": 2.1297912153291806e-05,
+          "mean_squared_error": 0.5043423091397926,
+          "decomposition_absolute_residual": 3.674090112010253e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9989732456218122,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0005346758715203685,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 6.180738648620892,
+          "sampling_variation": 2.3629631962930883e-05,
+          "mean_squared_error": 6.180762278252856,
+          "decomposition_absolute_residual": 1.07525411643071e-15,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.9988613346798997,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0005714077280769105,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.5108138029432747,
+          "sampling_variation": 0.011578320391103824,
+          "mean_squared_error": 0.5223921233343785,
+          "decomposition_absolute_residual": 8.847089727481716e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 1.0347253154800604,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": -0.005811464790470106,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.5229124220595092,
+        "shape_rmse_native": 0.7101706197385194,
+        "shape_rmse_regions": 2.4861138908450786,
+        "complete_rmse_native": 0.7227669910381758
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "rough",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.063251462502966,
+          "sampling_variation": 4.693807375856408e-05,
+          "mean_squared_error": 0.06329840057672456,
+          "decomposition_absolute_residual": 9.893344823930228e-19,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.0002188616134906,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00026247393406263317,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.01636801989007103,
+          "sampling_variation": 0.00028520072004663505,
+          "mean_squared_error": 0.01665322061011766,
+          "decomposition_absolute_residual": 2.2768245622195593e-18,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 1.0176198509076957,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": -6.373251928768691e-05,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06272736080685792,
+          "sampling_variation": 0.012343160724794492,
+          "mean_squared_error": 0.07507052153165243,
+          "decomposition_absolute_residual": 1.5612511283791264e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.1862377390737837,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00498749678275995,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.075024845154812,
+        "shape_rmse_native": 0.25159173391970685,
+        "shape_rmse_regions": 0.1290473580129313,
+        "complete_rmse_native": 0.27399000261259976
+      },
+      {
+        "case": "gaussian",
+        "year": 1,
+        "contrast": "rough",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.06320530453798873,
+          "sampling_variation": 2.062800129993901e-05,
+          "mean_squared_error": 0.06322593253928867,
+          "decomposition_absolute_residual": 2.0125502826762176e-18,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 0.9990737474044888,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0006266623631629811,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.016352980690402995,
+          "sampling_variation": 1.4959956450546225e-05,
+          "mean_squared_error": 0.016367940646853544,
+          "decomposition_absolute_residual": 2.896852679609707e-18,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 1.00018739381844,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00036401940207648055,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.0626804505182626,
+          "sampling_variation": 0.01229059388029057,
+          "mean_squared_error": 0.07497104439855316,
+          "decomposition_absolute_residual": 5.204170427930421e-18,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.1846658367205083,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0053516852118603,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.075024845154812,
+        "shape_rmse_native": 0.2514476735610983,
+        "shape_rmse_regions": 0.12793725277202705,
+        "complete_rmse_native": 0.2738084081954993
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "lateral",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.054018751765417705,
+          "sampling_variation": 0.0006180214181099931,
+          "mean_squared_error": 0.054636773183527707,
+          "decomposition_absolute_residual": 8.239936510889834e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 0.9401574580645927,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.03589480574387749,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.6589764645979819,
+          "sampling_variation": 0.004661122281868918,
+          "mean_squared_error": 1.663637586879851,
+          "decomposition_absolute_residual": 1.8301332671555315e-16,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.9337278477142805,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.035060139223188534,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.05405770505631573,
+          "sampling_variation": 0.01563249496401988,
+          "mean_squared_error": 0.06969020002033562,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.1991879733279185,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.03591987494205339,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.07321633067378105,
+        "shape_rmse_native": 0.2337451030150743,
+        "shape_rmse_regions": 1.2898207576558267,
+        "complete_rmse_native": 0.26398901496148586
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "lateral",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.05720825261068413,
+          "sampling_variation": 0.0003018386471687121,
+          "mean_squared_error": 0.05751009125785284,
+          "decomposition_absolute_residual": 1.0842021724855044e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 0.9895998255319123,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00783589438516916,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.7545536057501594,
+          "sampling_variation": 0.000287043022330796,
+          "mean_squared_error": 1.7548406487724901,
+          "decomposition_absolute_residual": 6.08237418764368e-17,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.9849161830570047,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.007651805336189154,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.057242892745218155,
+          "sampling_variation": 0.015345189238662576,
+          "mean_squared_error": 0.07258808198388073,
+          "decomposition_absolute_residual": 5.204170427930421e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.2490530217535674,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00786096358334506,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.07321633067378105,
+        "shape_rmse_native": 0.23981261696969333,
+        "shape_rmse_regions": 1.3247039853387965,
+        "complete_rmse_native": 0.2694217548452254
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "local",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.06929589870551003,
+          "sampling_variation": 0.0006046875502154133,
+          "mean_squared_error": 0.06990058625572544,
+          "decomposition_absolute_residual": 5.7462715141731735e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 0.94703099536067,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.031077437204664642,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5593376842490323,
+          "sampling_variation": 0.004032569248307859,
+          "mean_squared_error": 0.56337025349734,
+          "decomposition_absolute_residual": 1.1015494072452725e-16,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9421767621044015,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0328294877871484,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06931587799675153,
+          "sampling_variation": 0.017489112589297532,
+          "mean_squared_error": 0.08680499058604906,
+          "decomposition_absolute_residual": 3.469446951953614e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.1760561826510603,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.031010414111017025,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.09074814200004093,
+        "shape_rmse_native": 0.26438719003712235,
+        "shape_rmse_regions": 0.7505799447742659,
+        "complete_rmse_native": 0.29462686670778865
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "local",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.07281854798374447,
+          "sampling_variation": 0.00029694198368115487,
+          "mean_squared_error": 0.0731154899674256,
+          "decomposition_absolute_residual": 2.3310346708438345e-17,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 0.9905873319404757,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.006745352893649637,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5893581032746058,
+          "sampling_variation": 0.0002550153923026741,
+          "mean_squared_error": 0.5896131186669085,
+          "decomposition_absolute_residual": 1.4203048459560108e-17,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9860651597972396,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.007207277717250738,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.07283866225255403,
+          "sampling_variation": 0.017209313321368987,
+          "mean_squared_error": 0.09004797557392301,
+          "decomposition_absolute_residual": 1.0408340855860843e-17,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.21999297153249,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.006678329800002018,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.09074814200004093,
+        "shape_rmse_native": 0.2703987610316024,
+        "shape_rmse_regions": 0.7678626951916003,
+        "complete_rmse_native": 0.30007994863689746
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "radial",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.47235195891237947,
+          "sampling_variation": 0.0008407529844860841,
+          "mean_squared_error": 0.4731927118968655,
+          "decomposition_absolute_residual": 3.5670251474773096e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9372738527815537,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.03278226336981154,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 5.764275071495888,
+          "sampling_variation": 0.006952424976110001,
+          "mean_squared_error": 5.771227496471998,
+          "decomposition_absolute_residual": 3.712308238590367e-16,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.9326771909915419,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.03483490688482406,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.4710271731016655,
+          "sampling_variation": 0.01630428996587644,
+          "mean_squared_error": 0.48733146306754194,
+          "decomposition_absolute_residual": 2.0816681711721685e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9652791061383466,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.034147608517183806,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.5187546666978082,
+        "shape_rmse_native": 0.6878900434639722,
+        "shape_rmse_regions": 2.4023379230391377,
+        "complete_rmse_native": 0.6980912999511897
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "radial",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.49735663701587474,
+          "sampling_variation": 0.0003206050097134355,
+          "mean_squared_error": 0.49767724202558816,
+          "decomposition_absolute_residual": 9.432558900623889e-18,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9857714507164427,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.007460452316745662,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 6.096443239934773,
+          "sampling_variation": 0.00041106885676745196,
+          "mean_squared_error": 6.096854308791542,
+          "decomposition_absolute_residual": 1.4405252164728655e-15,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.9853011259882786,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.007410164186750409,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.4959923173225075,
+          "sampling_variation": 0.015615275834665257,
+          "mean_squared_error": 0.5116075931571727,
+          "decomposition_absolute_residual": 8.673617379884035e-18,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 1.0133639168458575,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.008825797464117923,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.5187546666978082,
+        "shape_rmse_native": 0.7054624313353534,
+        "shape_rmse_regions": 2.469180898353043,
+        "complete_rmse_native": 0.7152674976239118
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "rough",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.06306115576920024,
+          "sampling_variation": 0.0005768191488252878,
+          "mean_squared_error": 0.06363797491802553,
+          "decomposition_absolute_residual": 3.7947076036992655e-18,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.0055846948414173,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0017869002658010952,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.01594749317316826,
+          "sampling_variation": 0.0033403729955761513,
+          "mean_squared_error": 0.01928786616874441,
+          "decomposition_absolute_residual": 8.673617379884035e-19,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 1.1786137921598459,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.013013908929683835,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06289725332278126,
+          "sampling_variation": 0.015748404008970637,
+          "mean_squared_error": 0.0786456573317519,
+          "decomposition_absolute_residual": 0.0,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.2427307661883427,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0031570901729102803,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.07824558695130446,
+        "shape_rmse_native": 0.2522656831953675,
+        "shape_rmse_regions": 0.1388807624141818,
+        "complete_rmse_native": 0.2804383307106072
+      },
+      {
+        "case": "gaussian",
+        "year": 5,
+        "contrast": "rough",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.06228006943074726,
+          "sampling_variation": 0.00030302274073133116,
+          "mean_squared_error": 0.06258309217147859,
+          "decomposition_absolute_residual": 7.047314121155779e-19,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 0.9889158120533288,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.007974301138501358,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.01614664175014973,
+          "sampling_variation": 0.00025808025032016715,
+          "mean_squared_error": 0.0164047220004699,
+          "decomposition_absolute_residual": 1.0299920638612292e-18,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 1.002434973218218,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.006702851400939728,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06211411254563338,
+          "sampling_variation": 0.015447007645128607,
+          "mean_squared_error": 0.077561120190762,
+          "decomposition_absolute_residual": 1.5612511283791264e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.2255932951834696,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.009344491045610548,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.07824558695130446,
+        "shape_rmse_native": 0.25016612914517145,
+        "shape_rmse_regions": 0.12808091973619606,
+        "complete_rmse_native": 0.2784979716097803
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "lateral",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.05705114640576117,
+          "sampling_variation": 0.00036424899257013585,
+          "mean_squared_error": 0.057415395398331306,
+          "decomposition_absolute_residual": 1.0842021724855044e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 0.9879703548770851,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.009194753535440537,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.7504611656080464,
+          "sampling_variation": 0.0026354326115870406,
+          "mean_squared_error": 1.7530965982196336,
+          "decomposition_absolute_residual": 1.222980050563649e-16,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.9839373228882597,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.008810432250992034,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.057280178631672056,
+          "sampling_variation": 0.04002223535437543,
+          "mean_squared_error": 0.09730241398604748,
+          "decomposition_absolute_residual": 0.0,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.6743227109951473,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.009133940637215721,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.09797096529555883,
+        "shape_rmse_native": 0.23961509843566056,
+        "shape_rmse_regions": 1.3240455423510302,
+        "complete_rmse_native": 0.3119333486276315
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "lateral",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.056870148136214244,
+          "sampling_variation": 0.006332798729611551,
+          "mean_squared_error": 0.0632029468658258,
+          "decomposition_absolute_residual": 1.734723475976807e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.0875591365538566,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.010870054867559894,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.739969609721382,
+          "sampling_variation": 0.005782782264941357,
+          "mean_squared_error": 1.7457523919863234,
+          "decomposition_absolute_residual": 8.673617379884035e-17,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.979815337466988,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.011785877963732106,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.05709948830160991,
+          "sampling_variation": 0.04585719961481417,
+          "mean_squared_error": 0.10295668791642405,
+          "decomposition_absolute_residual": 2.7755575615628914e-17,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.7716181312010097,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.010809241969335073,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.09797096529555883,
+        "shape_rmse_native": 0.25140196273264415,
+        "shape_rmse_regions": 1.3212692352379674,
+        "complete_rmse_native": 0.32086864589177927
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "local",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.07293170850105016,
+          "sampling_variation": 0.00038001738509585117,
+          "mean_squared_error": 0.07331172588614601,
+          "decomposition_absolute_residual": 3.198396408832238e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 0.993245986286398,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0059729598776900985,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5908927090182211,
+          "sampling_variation": 0.0025531115007626213,
+          "mean_squared_error": 0.5934458205189838,
+          "decomposition_absolute_residual": 2.905661822261152e-17,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9924749455441488,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.005917297354695733,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.07293201039307416,
+          "sampling_variation": 0.039511463218606775,
+          "mean_squared_error": 0.11244347361168092,
+          "decomposition_absolute_residual": 2.0816681711721685e-17,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.523412898808974,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.005971098576568537,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.11278836948294554,
+        "shape_rmse_native": 0.27076138182197623,
+        "shape_rmse_regions": 0.7703543473746246,
+        "complete_rmse_native": 0.3353259214729469
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "local",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.07251280186803521,
+          "sampling_variation": 0.0062329226509892435,
+          "mean_squared_error": 0.07874572451902445,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.0668671876201976,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.008941817656393063,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5853908411951536,
+          "sampling_variation": 0.005000801573828315,
+          "mean_squared_error": 0.5903916427689818,
+          "decomposition_absolute_residual": 1.0842021724855044e-16,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9873671584618091,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.010556515296692132,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.0725131072645995,
+          "sampling_variation": 0.04522769263815734,
+          "mean_squared_error": 0.11774079990275683,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.5951824283496072,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.008939956355271499,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.11278836948294554,
+        "shape_rmse_native": 0.280616686102278,
+        "shape_rmse_regions": 0.768369470221834,
+        "complete_rmse_native": 0.34313379300610547
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "radial",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.49650757899904985,
+          "sampling_variation": 0.000482184186720556,
+          "mean_squared_error": 0.4969897631857704,
+          "decomposition_absolute_residual": 3.144186300207963e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9844097307983171,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00831122762350431,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 6.076811643834866,
+          "sampling_variation": 0.0036080155471581786,
+          "mean_squared_error": 6.080419659382024,
+          "decomposition_absolute_residual": 1.1752751549742868e-16,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.9826451532934627,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00901007223510092,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.5085245676904454,
+          "sampling_variation": 0.03365941483536543,
+          "mean_squared_error": 0.5421839825258108,
+          "decomposition_absolute_residual": 4.163336342344337e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 1.0739279313523584,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": -0.003401017213148859,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.5502520888999092,
+        "shape_rmse_native": 0.7049750089086636,
+        "shape_rmse_regions": 2.4658506968959055,
+        "complete_rmse_native": 0.7363314352421814
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "radial",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.4953657699702502,
+          "sampling_variation": 0.006054606748293836,
+          "mean_squared_error": 0.501420376718544,
+          "decomposition_absolute_residual": 5.811323644522304e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9931856441030722,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.009464374084493049,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 6.060500488569616,
+          "sampling_variation": 0.007134478877885327,
+          "mean_squared_error": 6.0676349674475,
+          "decomposition_absolute_residual": 1.5612511283791264e-15,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.9805790433422481,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.01034127442449401,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.5073764679946162,
+          "sampling_variation": 0.03922190055270478,
+          "mean_squared_error": 0.546598368547321,
+          "decomposition_absolute_residual": 2.0816681711721685e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 1.0826717021037298,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": -0.002247870752160123,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.5502520888999092,
+        "shape_rmse_native": 0.7081104269240385,
+        "shape_rmse_regions": 2.4632569836392424,
+        "complete_rmse_native": 0.7393229122293729
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "rough",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.0632744166842649,
+          "sampling_variation": 0.00036179474148564336,
+          "mean_squared_error": 0.06363621142575054,
+          "decomposition_absolute_residual": 5.908901840045999e-18,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.0055568287623429,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 8.40156017645331e-05,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.016181784868265315,
+          "sampling_variation": 0.002174305543816228,
+          "mean_squared_error": 0.01835609041208154,
+          "decomposition_absolute_residual": 1.734723475976807e-18,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 1.1216762466379542,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.005744645532231119,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06283054888165142,
+          "sampling_variation": 0.03174875175225579,
+          "mean_squared_error": 0.0945793006339072,
+          "decomposition_absolute_residual": 1.3877787807814457e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.4945085428751272,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00399268779731967,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.0941103932576448,
+        "shape_rmse_native": 0.2522621878636403,
+        "shape_rmse_regions": 0.1354846500976459,
+        "complete_rmse_native": 0.3075374784215855
+      },
+      {
+        "case": "game_pace",
+        "year": 1,
+        "contrast": "rough",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.06173574537955094,
+          "sampling_variation": 0.005768677214235545,
+          "mean_squared_error": 0.06750442259378647,
+          "decomposition_absolute_residual": 1.3010426069826053e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.0666809288299863,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.012424293053647872,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.015716257626263434,
+          "sampling_variation": 0.004629816718610418,
+          "mean_squared_error": 0.020346074344873854,
+          "decomposition_absolute_residual": 1.734723475976807e-18,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 1.2432771789985395,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.020193632486238216,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.061297124202844715,
+          "sampling_variation": 0.037197695132689966,
+          "mean_squared_error": 0.09849481933553467,
+          "decomposition_absolute_residual": 1.3877787807814457e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.5563801797993666,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.016332965249203003,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.0941103932576448,
+        "shape_rmse_native": 0.259816132281632,
+        "shape_rmse_regions": 0.14263966609913897,
+        "complete_rmse_native": 0.31383884293620296
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "lateral",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.048840893098556215,
+          "sampling_variation": 0.004767159812676815,
+          "mean_squared_error": 0.05360805291123303,
+          "decomposition_absolute_residual": 0.0,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 0.9224558446656582,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08340042780540739,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.4959992761963523,
+          "sampling_variation": 0.03516930401600431,
+          "mean_squared_error": 1.5311685802123562,
+          "decomposition_absolute_residual": 3.7470027081099033e-16,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.8593787217628353,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08369264788945745,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.049125314664979505,
+          "sampling_variation": 0.06155098460808318,
+          "mean_squared_error": 0.11067629927306269,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.904452663099977,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08346650256702622,
+          "bias_dominates_variation": false
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.11545888247071692,
+        "shape_rmse_native": 0.23153412904199033,
+        "shape_rmse_regions": 1.237403968076859,
+        "complete_rmse_native": 0.3326804762426895
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "lateral",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.04812192588580648,
+          "sampling_variation": 0.05772742275028655,
+          "mean_squared_error": 0.10584934863609304,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 1.8213933355329377,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.09122802974244067,
+          "bias_dominates_variation": false
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 1.4497811439399637,
+          "sampling_variation": 0.06264686947557553,
+          "mean_squared_error": 1.512428013415539,
+          "decomposition_absolute_residual": 2.3592239273284576e-16,
+          "truth_energy": 1.7817157225762874,
+          "normalized_mean_squared_error": 0.8488604518955641,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.09796880769574902,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.048400146874260044,
+          "sampling_variation": 0.11453922029445725,
+          "mean_squared_error": 0.16293936716871726,
+          "decomposition_absolute_residual": 2.7755575615628914e-17,
+          "truth_energy": 0.05811449211497287,
+          "normalized_mean_squared_error": 2.8037647966768837,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.09129410450405949,
+          "bias_dominates_variation": false
+        },
+        "complete_zero_baseline_native_squared_error": 0.05811449211497287,
+        "same_fitted_volume_only_native_squared_error": 0.11545888247071692,
+        "shape_rmse_native": 0.3253449686657119,
+        "shape_rmse_regions": 1.2298081205682205,
+        "complete_rmse_native": 0.40365748744290286
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "local",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.0639908729643967,
+          "sampling_variation": 0.003872867541091039,
+          "mean_squared_error": 0.06786374050548774,
+          "decomposition_absolute_residual": 3.903127820947816e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 0.9194352889214302,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.06898407387216857,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5140183497936179,
+          "sampling_variation": 0.02356592811815946,
+          "mean_squared_error": 0.5375842779117774,
+          "decomposition_absolute_residual": 3.469446951953614e-17,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.8990524635918545,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.07287517473136115,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06414020683491503,
+          "sampling_variation": 0.049698070054205894,
+          "mean_squared_error": 0.11383827688912092,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.5423100498476483,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.06876299636611018,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.11957815656719355,
+        "shape_rmse_native": 0.26050669954050654,
+        "shape_rmse_regions": 0.7332013897366654,
+        "complete_rmse_native": 0.3373992840672916
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "local",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.06127618108550892,
+          "sampling_variation": 0.053255153055000816,
+          "mean_squared_error": 0.1145313341405097,
+          "decomposition_absolute_residual": 3.469446951953614e-17,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 1.5516997664978556,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08974399946161613,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.5040127457017358,
+          "sampling_variation": 0.042280785446266726,
+          "mean_squared_error": 0.5462935311480025,
+          "decomposition_absolute_residual": 4.85722573273506e-17,
+          "truth_energy": 0.5979453921565874,
+          "normalized_mean_squared_error": 0.9136177622804417,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08197766521056468,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06144115511732979,
+          "sampling_variation": 0.09899440426240826,
+          "mean_squared_error": 0.16043555937973802,
+          "decomposition_absolute_residual": 1.3877787807814457e-17,
+          "truth_energy": 0.0738102412678735,
+          "normalized_mean_squared_error": 2.173621934082051,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08952292195555774,
+          "bias_dominates_variation": false
+        },
+        "complete_zero_baseline_native_squared_error": 0.0738102412678735,
+        "same_fitted_volume_only_native_squared_error": 0.11957815656719355,
+        "shape_rmse_native": 0.33842478357902467,
+        "shape_rmse_regions": 0.739116723628956,
+        "complete_rmse_native": 0.40054407919695684
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "radial",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.4258395121672969,
+          "sampling_variation": 0.006446039066002023,
+          "mean_squared_error": 0.4322855512332989,
+          "decomposition_absolute_residual": 2.862293735361732e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.8562472200428574,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08191635343799385,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 5.142026188733937,
+          "sampling_variation": 0.05586833468511493,
+          "mean_squared_error": 5.197894523419052,
+          "decomposition_absolute_residual": 3.885780586188048e-16,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.8400219305401493,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08843290638874048,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.4215481816367193,
+          "sampling_variation": 0.06079743177917904,
+          "mean_squared_error": 0.4823456134158984,
+          "decomposition_absolute_residual": 2.7755575615628914e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9554034119552036,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08664232628476426,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.553886403582236,
+        "shape_rmse_native": 0.6574842593045851,
+        "shape_rmse_regions": 2.279889147177786,
+        "complete_rmse_native": 0.694511060686508
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "radial",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.4135188184624346,
+          "sampling_variation": 0.06479680369262454,
+          "mean_squared_error": 0.47831562215505913,
+          "decomposition_absolute_residual": 1.3877787807814457e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 0.9474210290047534,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.09513001433972834,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 5.06523363886984,
+          "sampling_variation": 0.09368670243127436,
+          "mean_squared_error": 5.158920341301114,
+          "decomposition_absolute_residual": 3.885780586188048e-16,
+          "truth_energy": 6.187808120767409,
+          "normalized_mean_squared_error": 0.8337233864745804,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.09524630523838178,
+          "bias_dominates_variation": true
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.4092494094414441,
+          "sampling_variation": 0.11813424889285366,
+          "mean_squared_error": 0.5273836583342978,
+          "decomposition_absolute_residual": 1.3877787807814457e-17,
+          "truth_energy": 0.5048606770503289,
+          "normalized_mean_squared_error": 1.0446122708854262,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0998559871864988,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.5048606770503289,
+        "same_fitted_volume_only_native_squared_error": 0.553886403582236,
+        "shape_rmse_native": 0.6916036597322625,
+        "shape_rmse_regions": 2.271325679267752,
+        "complete_rmse_native": 0.7262118549943245
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "rough",
+        "representation": "graph_40ft",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.063047273184677,
+          "sampling_variation": 0.0036970993887780077,
+          "mean_squared_error": 0.06674437257345503,
+          "decomposition_absolute_residual": 2.5153490401663703e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.0546708881468294,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.00200148570383332,
+          "bias_dominates_variation": true
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.015337479430618535,
+          "sampling_variation": 0.0244979221312885,
+          "mean_squared_error": 0.039835401561907034,
+          "decomposition_absolute_residual": 0.0,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 2.434201548597008,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.033919740765995327,
+          "bias_dominates_variation": false
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.06355278595011683,
+          "sampling_variation": 0.05455859900820336,
+          "mean_squared_error": 0.11811138495832019,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.8663541879452161,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": -0.0017575254879734243,
+          "bias_dominates_variation": true
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.11488571179590448,
+        "shape_rmse_native": 0.258349322765621,
+        "shape_rmse_regions": 0.19958807970895215,
+        "complete_rmse_native": 0.3436733695797802
+      },
+      {
+        "case": "game_pace",
+        "year": 5,
+        "contrast": "rough",
+        "representation": "native_04b",
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "status": "complete",
+        "shape_native": {
+          "n": 400,
+          "bias_squared": 0.052498130829100945,
+          "sampling_variation": 0.05503266791199286,
+          "mean_squared_error": 0.10753079874109378,
+          "decomposition_absolute_residual": 2.0816681711721685e-17,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 1.6991635195400967,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.0903845442932906,
+          "bias_dominates_variation": false
+        },
+        "shape_regions": {
+          "n": 400,
+          "bias_squared": 0.013411987467648974,
+          "sampling_variation": 0.04083103834858601,
+          "mean_squared_error": 0.05424302581623499,
+          "decomposition_absolute_residual": 6.938893903907228e-18,
+          "truth_energy": 0.016364873970631896,
+          "normalized_mean_squared_error": 3.3146008892936503,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.09925880114177779,
+          "bias_dominates_variation": false
+        },
+        "complete_native": {
+          "n": 400,
+          "bias_squared": 0.052974164945781395,
+          "sampling_variation": 0.10598733785518083,
+          "mean_squared_error": 0.15896150280096222,
+          "decomposition_absolute_residual": 0.0,
+          "truth_energy": 0.0632845500179986,
+          "normalized_mean_squared_error": 2.511853252583014,
+          "normalized_unavailable_reason": null,
+          "mean_pattern_attenuation": 0.08662553310148387,
+          "bias_dominates_variation": false
+        },
+        "complete_zero_baseline_native_squared_error": 0.0632845500179986,
+        "same_fitted_volume_only_native_squared_error": 0.11488571179590448,
+        "shape_rmse_native": 0.32791889049137407,
+        "shape_rmse_regions": 0.23290132205772252,
+        "complete_rmse_native": 0.3986997652381579
+      }
+    ],
+    "transitions_and_matched_volume": [
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/behind_goal_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "behind_goal_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.0013864469212715343,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.001351316566577554,
+        "point_rmse": 0.0014228055324057168,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/behind_goal_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "behind_goal_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.001287832901934835,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0012884492329871167,
+        "point_rmse": 0.001357519205823691,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_0_10_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.007730926652349084,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.007595841649708094,
+        "point_rmse": 0.007883549690580208,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_0_10_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.005819323292874324,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.005780218185646271,
+        "point_rmse": 0.006144966566331982,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_10_20_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.034915280762877615,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.034842321045764214,
+        "point_rmse": 0.03512364288041187,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_10_20_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.030270700699517424,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.02979659396007761,
+        "point_rmse": 0.030168180057441606,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_20_40_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.11329015388108969,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.11315750428672437,
+        "point_rmse": 0.11329271483389254,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_20_40_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.11223967524488082,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.11107930460065116,
+        "point_rmse": 0.11130845336280745,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_40_plus_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.19190655452616817,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.18985079543929761,
+        "point_rmse": 0.18998482375274076,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_40_plus_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.20012299648733506,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.1994182150306246,
+        "point_rmse": 0.19954020590892452,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/lateral",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "lateral",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.6989698913702985,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.6941605599980585,
+        "point_rmse": 0.6944873538116558,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/outside_attacking_zone_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.0002506686007866461,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.0002992191697296091,
+        "point_rmse": 0.0028591402463842832,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/outside_attacking_zone_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.0002604972819997269,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.0002657828521853265,
+        "point_rmse": 0.002458712591212887,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_volume/scalar",
+        "request": {
+          "name": "defense_entrant_33_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.1211489898989899,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.09563399495199489,
+        "point_rmse": 0.8566014068083652,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          1919,
+          633600
+        ],
+        "relative_truth": 0.0030287247474747475,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/behind_goal_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "behind_goal_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.004417541767706212,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.00443090507053984,
+        "point_rmse": 0.004447689998441346,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/behind_goal_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "behind_goal_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.00410431692543124,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.004112473160847394,
+        "point_rmse": 0.004134734826036381,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_0_10_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.07497818953202778,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.07478295972340518,
+        "point_rmse": 0.07482941434071423,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_0_10_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.06722356564005072,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0669887578831983,
+        "point_rmse": 0.06703581049352461,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_10_20_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.2008342586708854,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.19966569977196258,
+        "point_rmse": 0.19971651785421515,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_10_20_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.19655245663463194,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.19504280425755277,
+        "point_rmse": 0.19511382212033768,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_20_40_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.12139133843373559,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.12087351742594177,
+        "point_rmse": 0.1210224653538206,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_20_40_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.10624368843838748,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.10504133061066266,
+        "point_rmse": 0.10527372200043766,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_40_plus_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.3413944356436086,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.33926430595974616,
+        "point_rmse": 0.33936971306074354,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_40_plus_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.35827826054976897,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.3558705350358582,
+        "point_rmse": 0.35595902494737225,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/outside_attacking_zone_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.03730496859167991,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.03726128890033185,
+        "point_rmse": 0.03735935221088892,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/outside_attacking_zone_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.03876769125779882,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.038542318008174196,
+        "point_rmse": 0.038648600351190894,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/radial",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "radial",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.5460304479404285,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.5429457887511371,
+        "point_rmse": 0.5430606792964948,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_volume/scalar",
+        "request": {
+          "name": "offense_entrant_32_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 1.6829335016835016,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -1.0193024658526555,
+        "point_rmse": 1.3577110404369264,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          79973,
+          1900800
+        ],
+        "relative_truth": 0.042073337542087544,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/behind_goal_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "behind_goal_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.004275576531248755,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.004248814732846142,
+        "point_rmse": 0.004355196936558639,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/behind_goal_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "behind_goal_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.003969448819426527,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.003913513652330365,
+        "point_rmse": 0.004039953909173272,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_0_10_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.07253898727982261,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.07202870591544473,
+        "point_rmse": 0.07226596798863029,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_0_10_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.06504012959113037,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.06436580266914628,
+        "point_rmse": 0.06460809784937674,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_10_20_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.19433080646070333,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.19185952322104555,
+        "point_rmse": 0.19214395367783144,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_10_20_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.19018643294419008,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.18697854974574707,
+        "point_rmse": 0.18726478281353803,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_20_40_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.11759711198232001,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.11698622977125674,
+        "point_rmse": 0.11802746119960275,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_20_40_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.10264974123843976,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.10065924658746024,
+        "point_rmse": 0.10160813057414933,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_40_plus_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.32999179809628615,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.3242403069909859,
+        "point_rmse": 0.324675467246526,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_40_plus_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.3469930631264581,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.3442622618370574,
+        "point_rmse": 0.3447060246815084,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/outside_attacking_zone_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.03609406515748502,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.0356737800251605,
+        "point_rmse": 0.03627387954799876,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/outside_attacking_zone_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.037509308467052103,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.03686403744207326,
+        "point_rmse": 0.03735710674537358,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/radial",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "radial",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.5283288416174441,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.5214217283105866,
+        "point_rmse": 0.5219174898170716,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20242025/offense_returner_8_volume/scalar",
+        "request": {
+          "name": "offense_returner_8_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -4.276683501683501,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 1.385148519416184,
+        "point_rmse": 1.820230679737641,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          -50807,
+          475200
+        ],
+        "relative_truth": -0.10691708754208754,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20252026/offense_pair_2_minus_5_volume/scalar",
+        "request": {
+          "name": "offense_pair_2_minus_5_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "role": "offense",
+          "coefficients": [
+            [
+              2,
+              1
+            ],
+            [
+              5,
+              -1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.0,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.056005271658940294,
+        "point_rmse": 1.4733658383983912,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          0,
+          1
+        ],
+        "relative_truth": 0.0,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20252026/offense_pair_6_minus_2_volume/scalar",
+        "request": {
+          "name": "offense_pair_6_minus_2_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "role": "offense",
+          "coefficients": [
+            [
+              6,
+              1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 2.0,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.5004021531348727,
+        "point_rmse": 1.490267486111302,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          1,
+          20
+        ],
+        "relative_truth": 0.05,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "gaussian",
+        "key": "unblocked_spatial/20252026/offense_pair_7_minus_2_volume/scalar",
+        "request": {
+          "name": "offense_pair_7_minus_2_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "role": "offense",
+          "coefficients": [
+            [
+              7,
+              1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 4.0,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.9957149345667518,
+        "point_rmse": 1.7806221095289085,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          1,
+          10
+        ],
+        "relative_truth": 0.1,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/behind_goal_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "behind_goal_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.0013864469212715343,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.0012807125609766011,
+        "point_rmse": 0.0015692527203887933,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/behind_goal_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "behind_goal_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.001287832901934835,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0012974561378281668,
+        "point_rmse": 0.001667093998561344,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_0_10_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.007730926652349084,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.006872904651197485,
+        "point_rmse": 0.009610181794001168,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_0_10_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.005819323292874324,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.005966265774182284,
+        "point_rmse": 0.007838962039237039,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_10_20_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.034915280762877615,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.03447014824688652,
+        "point_rmse": 0.035765075177434796,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_10_20_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.030270700699517424,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.028771319786330567,
+        "point_rmse": 0.03040632738307893,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_20_40_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.11329015388108969,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.11305324348850367,
+        "point_rmse": 0.11442170020532628,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_20_40_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.11223967524488082,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.11045283184271014,
+        "point_rmse": 0.11146345890490754,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_40_plus_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.19190655452616817,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.18835845675014426,
+        "point_rmse": 0.1890969919781841,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/in_zone_40_plus_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.20012299648733506,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.19661852189678,
+        "point_rmse": 0.19746949778007597,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/lateral",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "lateral",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.6989698913702985,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.6871418611355397,
+        "point_rmse": 0.6890161918074383,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/outside_attacking_zone_negative_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.0002506686007866461,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0008693389950835867,
+        "point_rmse": 0.007495016686057818,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_shape/outside_attacking_zone_positive_y",
+        "request": {
+          "name": "defense_entrant_33_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.0002604972819997269,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -5.973126479377765e-05,
+        "point_rmse": 0.00554621622423508,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/defense_entrant_33_volume/scalar",
+        "request": {
+          "name": "defense_entrant_33_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "defense",
+          "coefficients": [
+            [
+              33,
+              1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.1211489898989899,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.183797322536328,
+        "point_rmse": 1.5814962081407498,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          1919,
+          633600
+        ],
+        "relative_truth": 0.0030287247474747475,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/behind_goal_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "behind_goal_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.004417541767706212,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0043242419237708865,
+        "point_rmse": 0.0044257446084588386,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/behind_goal_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "behind_goal_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.00410431692543124,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.004053553184373013,
+        "point_rmse": 0.004184456233258316,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_0_10_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.07497818953202778,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.07377438490772441,
+        "point_rmse": 0.07403103711175876,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_0_10_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.06722356564005072,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0662869831211606,
+        "point_rmse": 0.06659278315301487,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_10_20_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.2008342586708854,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.19703589934454463,
+        "point_rmse": 0.19748414517549967,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_10_20_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.19655245663463194,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.1932406972308114,
+        "point_rmse": 0.1936435187274996,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_20_40_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.12139133843373559,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.11985925324943222,
+        "point_rmse": 0.1215354723799727,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_20_40_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.10624368843838748,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.1040092535505015,
+        "point_rmse": 0.10567413830479849,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_40_plus_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.3413944356436086,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.3358306190528876,
+        "point_rmse": 0.3364543402763004,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/in_zone_40_plus_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.35827826054976897,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.35267244575419054,
+        "point_rmse": 0.3531705313379506,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/outside_attacking_zone_negative_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.03730496859167991,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.035970360493260405,
+        "point_rmse": 0.03657490032206597,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/outside_attacking_zone_positive_y",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.03876769125779882,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.03811084121198012,
+        "point_rmse": 0.03868065856697771,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_shape/radial",
+        "request": {
+          "name": "offense_entrant_32_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "radial",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.5460304479404285,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.5366844964327658,
+        "point_rmse": 0.5373383767352046,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20232024/offense_entrant_32_volume/scalar",
+        "request": {
+          "name": "offense_entrant_32_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20232024",
+          "role": "offense",
+          "coefficients": [
+            [
+              32,
+              1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 1.6829335016835016,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.7663490572991077,
+        "point_rmse": 1.9491231609521151,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          79973,
+          1900800
+        ],
+        "relative_truth": 0.042073337542087544,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/behind_goal_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "behind_goal_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.004275576531248755,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.0040686338119658525,
+        "point_rmse": 0.004689088700843548,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/behind_goal_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "behind_goal_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.003969448819426527,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.00376314842366817,
+        "point_rmse": 0.004468328624897496,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_0_10_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.07253898727982261,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.06985137280042024,
+        "point_rmse": 0.07116905674573427,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_0_10_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_0_10_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.06504012959113037,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.06258560912859738,
+        "point_rmse": 0.0639823531714426,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_10_20_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.19433080646070333,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.18693810624279672,
+        "point_rmse": 0.18903017937802394,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_10_20_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_10_20_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.19018643294419008,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.18353760963746957,
+        "point_rmse": 0.18542815164328513,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_20_40_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.11759711198232001,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.11112722206071186,
+        "point_rmse": 0.11828482701976524,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_20_40_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_20_40_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.10264974123843976,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.10099760155613392,
+        "point_rmse": 0.10825543614816527,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_40_plus_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.32999179809628615,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.3178904564695875,
+        "point_rmse": 0.3211433168067075,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/in_zone_40_plus_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "in_zone_40_plus_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.3469930631264581,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.3348647438605128,
+        "point_rmse": 0.33757439738795836,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/outside_attacking_zone_negative_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_negative_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.03609406515748502,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.034754573231660126,
+        "point_rmse": 0.037929565121249426,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/outside_attacking_zone_positive_y",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "outside_attacking_zone_positive_y",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -0.037509308467052103,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.03535953010000328,
+        "point_rmse": 0.038187599523026604,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_shape/radial",
+        "request": {
+          "name": "offense_returner_8_shape",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "radial",
+          "estimand": "shape",
+          "group": "annual_transition",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.5283288416174441,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.508841630434754,
+        "point_rmse": 0.5115337258192699,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage"
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20242025/offense_returner_8_volume/scalar",
+        "request": {
+          "name": "offense_returner_8_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20242025",
+          "role": "offense",
+          "coefficients": [
+            [
+              8,
+              1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": -4.276683501683501,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.5052182864682178,
+        "point_rmse": 2.151707227905566,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          -50807,
+          475200
+        ],
+        "relative_truth": -0.10691708754208754,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20252026/offense_pair_2_minus_5_volume/scalar",
+        "request": {
+          "name": "offense_pair_2_minus_5_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "role": "offense",
+          "coefficients": [
+            [
+              2,
+              1
+            ],
+            [
+              5,
+              -1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 0.0,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": -0.032500234163885436,
+        "point_rmse": 2.8151620931353136,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          0,
+          1
+        ],
+        "relative_truth": 0.0,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20252026/offense_pair_6_minus_2_volume/scalar",
+        "request": {
+          "name": "offense_pair_6_minus_2_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "role": "offense",
+          "coefficients": [
+            [
+              6,
+              1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 2.0,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.038690137245792275,
+        "point_rmse": 2.706324236798478,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          1,
+          20
+        ],
+        "relative_truth": 0.05,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      },
+      {
+        "case": "game_pace",
+        "key": "unblocked_spatial/20252026/offense_pair_7_minus_2_volume/scalar",
+        "request": {
+          "name": "offense_pair_7_minus_2_volume",
+          "benchmark": "unblocked_spatial",
+          "season": "20252026",
+          "role": "offense",
+          "coefficients": [
+            [
+              7,
+              1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "functional": "scalar",
+          "estimand": "volume",
+          "group": "volume",
+          "primary_coverage": false,
+          "negate": false
+        },
+        "expected_outer": 400,
+        "observed_outer": 400,
+        "truth": 4.0,
+        "units": "attempts per 60 team minutes",
+        "status": "complete",
+        "point_bias": 0.04886481190762927,
+        "point_rmse": 2.8209606467282473,
+        "interval_recovery": "see refit stage; point diagnostics do not establish coverage",
+        "exact_relative_truth": [
+          1,
+          10
+        ],
+        "relative_truth": 0.1,
+        "meaningful_scalar_band": 0.05,
+        "scalar_nomination": null
+      }
+    ],
+    "expected_outer_per_case": 400,
+    "observed_datasets": 800,
+    "estimands": "actual shape and complete rates; geometric projected truth is not the assessment target"
+  },
+  "limitations": [
+    "shape allocation is separated from attempt volume; directional gain is not a practical accuracy margin",
+    "40 feet is a nominal basis wavelength, not demonstrated cell accuracy; omitted directions have no model variance",
+    "original native shares remain estimated but conditioned on and can imprint texture",
+    "refits vary fitted histories and scales, not sources, reference estimation, topology or cross-game dependence",
+    "two offensive patterns do not validate every player, defense shape, entrant, local or rough signal",
+    "nominal .95 pointwise intervals are assessed against a .90 developmental floor, not simultaneous calibration",
+    "inseparable individual players and their difference remain not_data_identified",
+    "native additive complete rates remain unconstrained; no clipping, intensity-model or causal claim",
+    "new real-player refit intervals, source/deployment robustness and supported chance valuation remain pending",
+    "no scientific result is a publication handoff"
+  ],
+  "admission": "not_admitted",
+  "handoff": null,
+  "costs": {
+    "diagnosis": {
+      "wall_seconds": 122.3320136249531,
+      "peak_memory_bytes": 349863936,
+      "process_seconds": 30.021150000000002
+    },
+    "prepared": {
+      "wall_seconds": 1.0666372501291335,
+      "peak_memory_bytes": 488325120,
+      "process_seconds": 0.8530900000000001
+    },
+    "means": {
+      "wall_seconds": 557.9355049580336,
+      "peak_memory_bytes": 2153742336,
+      "process_seconds": 10.757173000000002,
+      "worker_process_seconds": 1917.4818150000006
+    }
+  },
+  "resources": {
+    "wall_seconds": 122.3189525839407,
+    "peak_memory_bytes": 896188416,
+    "process_seconds": 17.865806
+  }
+}

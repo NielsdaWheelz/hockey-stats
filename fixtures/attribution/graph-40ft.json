@@ -1,0 +1,53 @@
+{
+  "kind": "synthetic_attribution_graph_basis_fixture",
+  "purpose": "fixture_exercise",
+  "implementation": {
+    "git_commit": "d0e6d227e261eede3df2adceda1e2cab4211ed38",
+    "git_dirty": true,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "reference": "synthetic uniform native shares; not an original season reference",
+  "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
+  "expected": {
+    "cells": 656,
+    "modes": 40,
+    "spacing_feet": 5,
+    "cutoff": 0.024674011002723394,
+    "last_retained_eigenvalue": 0.02386537305547037,
+    "next_eigenvalue": 0.025523070026710316,
+    "centering_maximum": 1e-10,
+    "whitening_maximum": 1e-10
+  },
+  "independent_evidence": "read-only graph eigenspace and rotation audit, retained in external 04c prefreeze reviews",
+  "arrays": {
+    "file": "graph-40ft.npz",
+    "sha256": "96185eedb638c58000345a483d7996d3f99dc7da0bb407099680ebad6c3a2722",
+    "ordered_shapes": [
+      {
+        "name": "B",
+        "shape": [
+          656,
+          40
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "p",
+        "shape": [
+          656
+        ],
+        "dtype": "<f8"
+      },
+      {
+        "name": "eigenvalues",
+        "shape": [
+          40
+        ],
+        "dtype": "<f8"
+      }
+    ]
+  }
+}

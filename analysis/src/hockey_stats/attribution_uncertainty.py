@@ -8,9 +8,9 @@ import time
 
 import numpy as np
 
-from .artifacts import clean_implementation, implementation, linked_path, require, resources, write_json
+from .artifacts import linked_path, require, resources
 from .captures import InputContractError
-from .chance_cli import identity, output_path, read_json
+from .chance_cli import identity, read_json
 from .chance_evaluation import REGION_NAMES, compound_regions
 from .shot_origins import grid
 
@@ -24,6 +24,7 @@ class RefitInputs:
     populations: dict
     reference: dict | None
     duplicate_groups: dict
+    source_kind: str
 
 
 def game_weights(game_ids, seed: list[int]) -> np.ndarray:
@@ -71,12 +72,15 @@ def null_component(role: str, coefficients, groups: list[dict]) -> bool:
     return False
 
 
-def exact_duplicate_groups(populations: dict, seasons: list[str]) -> dict:
+def exact_duplicate_groups(populations: dict, seasons: list[str], *, benchmarks: tuple[str, ...]) -> dict:
     """compare exact membership prefixes, then independently check their likelihood nulls."""
     from .attribution_data import weighted_population
 
     result = {}
-    for benchmark in ("all_attempts", "unblocked_spatial"):
+    require(bool(benchmarks) and len(set(benchmarks)) == len(benchmarks)
+            and set(populations) == {(benchmark, season) for benchmark in benchmarks for season in seasons},
+            "duplicate checks require exactly the selected population history")
+    for benchmark in benchmarks:
         signatures = {}
         prefix = []
         for season in seasons:
@@ -127,7 +131,7 @@ def exact_duplicate_groups(populations: dict, seasons: list[str]) -> dict:
     return result
 
 
-def load_refit_inputs(prepared: Path | str) -> RefitInputs:
+def load_native_04b_refit_inputs(prepared: Path | str) -> RefitInputs:
     from .attribution_data import load_grouped_population, read_revision_prepared
 
     path = Path(prepared).resolve(strict=True)
@@ -137,7 +141,8 @@ def load_refit_inputs(prepared: Path | str) -> RefitInputs:
                    for season in document["seasons"]
                    for benchmark in ("all_attempts", "unblocked_spatial")}
     return RefitInputs(document, protocol, populations, identity(path),
-                       exact_duplicate_groups(populations, document["seasons"]))
+                       exact_duplicate_groups(populations, document["seasons"],
+                                              benchmarks=("all_attempts", "unblocked_spatial")), "recorded")
 
 
 def request_key(request: dict) -> str:
@@ -149,7 +154,7 @@ def request_identity(requests: list[dict]) -> str:
                                      allow_nan=False).encode()).hexdigest()
 
 
-def projection_requests(states: dict, pairs: dict, target_season: str) -> list[dict]:
+def native_04b_projection_requests(states: dict, pairs: dict, target_season: str) -> list[dict]:
     """all current scalar/region claims; native projections only for frozen examples/pairs."""
     pairs = {name: pairs[name] for name in ("greatest_shared", "greatest_disjoint")}
     selected = sorted({player for pair in pairs.values() if pair is not None for player in pair})
@@ -193,12 +198,13 @@ def project_requests(state, requests: list[dict], duplicate_groups: list[dict]) 
             c[offset + positions[player]] += coefficient * (-1 if request.get("negate", False) else 1)
         if request["functional"] == "native":
             require(state.p is not None, "native projections require the spatial population")
-            working = project_native(state, c)
+            working = project_native(state, c, estimand=request["estimand"])
         else:
             functional = request["functional"]
-            v = (np.ones(1 if state.p is None else len(state.p)) if functional == "scalar" else
+            v = (np.asarray(request["weights"], dtype=float) if "weights" in request else
+                 np.ones(1 if state.p is None else len(state.p)) if functional == "scalar" else
                  (regions == REGION_NAMES.index(functional)).astype(float))
-            working = project_interval(state, c, v)
+            working = project_interval(state, c, v, estimand=request["estimand"])
         unidentified = null_component(request["role"], request["coefficients"], duplicate_groups)
         row.update(status="not_data_identified" if unidentified else "available", reason=
                    "persistent_same_role_co_deployment_null_component" if unidentified else None,
@@ -208,142 +214,122 @@ def project_requests(state, requests: list[dict], duplicate_groups: list[dict]) 
     return result
 
 
-def refit_history(prepared: RefitInputs | Path | str, protocol: dict, draw_id: int,
-                  projection_requests: list[dict], *, seed_prefix: list[int] | None = None) -> dict:
-    """refit every scale and covariance in chronological order; retain completed projections on failure."""
-    from .attribution import fit_revision_year
+def project_native_04b_requests(state, requests: list[dict], duplicate_groups: list[dict]) -> list[dict]:
+    """read-only native-04b control projections under its original request contract."""
+    projected = project_requests(state, [dict(request, estimand="complete_rate") for request in requests],
+                                 duplicate_groups)
+    for row, request in zip(projected, requests, strict=True):
+        row["request"] = request
+    return projected
+
+
+def fit_history(inputs: RefitInputs, projection_requests: list[dict], *, benchmarks: tuple[str, ...],
+                game_multipliers: dict[str, np.ndarray], representation: str, basis,
+                model_protocol_sha256: str) -> tuple[dict, dict]:
+    """one chronological fit owner for explicit unit weights and historical refits."""
+    from .attribution import fit_recovery_year
     from .attribution_data import weighted_population
 
-    inputs = prepared if isinstance(prepared, RefitInputs) else load_refit_inputs(prepared)
-    require(protocol == inputs.protocol and type(draw_id) is int and draw_id >= 0,
-            "refit source/protocol/draw identity differs")
-    require(len({request_key(request) for request in projection_requests}) == len(projection_requests),
-            "refit projection requests must be unique")
-    synthetic = inputs.reference is None
-    if synthetic:
-        require(isinstance(seed_prefix, list) and len(seed_prefix) == 3 and seed_prefix[0] == 40421
-                and type(seed_prefix[1]) is int and 0 <= seed_prefix[1] < 2
-                and type(seed_prefix[2]) is int and 0 <= seed_prefix[2] < protocol["budgets"]["outer_per_case"],
-                "synthetic refit requires its fixed case/outer seed stream")
-    else:
-        require(seed_prefix is None, "real refits require the fixed real weight seed stream")
-    require(draw_id < protocol["budgets"]["inner_refits" if synthetic else "real_refits"],
-            "refit draw exceeds the frozen budget")
-    prefix = list(seed_prefix) if synthetic else [40422]
-    previous = {benchmark: None for benchmark in ("all_attempts", "unblocked_spatial")}
-    projections, annual, weights, seeds = [], [], {}, []
+    seasons = inputs.document["seasons"]
+    require(bool(benchmarks) and len(set(benchmarks)) == len(benchmarks)
+            and set(inputs.populations) == {(benchmark, season) for benchmark in benchmarks for season in seasons}
+            and set(game_multipliers) == set(seasons), "fit history differs from selected population years")
+    require(inputs.source_kind in ("recorded", "synthetic"), "unknown history source kind")
+    require((inputs.source_kind == "recorded" and inputs.reference is not None)
+            or (inputs.source_kind == "synthetic" and inputs.reference is None
+                and all(references.population_id.startswith("synthetic:")
+                        for _, references in inputs.populations.values())),
+            "history source identity is absent or contradicts its declared kind")
+    require(len({request_key(request) for request in projection_requests}) == len(projection_requests)
+            and all(request["benchmark"] in benchmarks and request["season"] in seasons
+                    for request in projection_requests), "history projection requests are duplicated or outside its population")
+    previous = {benchmark: None for benchmark in benchmarks}
+    projections, annual, states = [], [], {}
     started = time.monotonic()
-    for year_index, season in enumerate(inputs.document["seasons"]):
-        groups = [inputs.populations[(benchmark, season)][0]
-                  for benchmark in ("all_attempts", "unblocked_spatial")]
-        require(groups[0].game_ids == groups[1].game_ids, "paired populations differ in game inventory")
-        seed = [*prefix, draw_id, year_index]
-        multipliers = game_weights(groups[0].game_ids, seed)
-        weights[season] = multipliers
-        seeds.append(dict(season=season, seed=seed))
-        for benchmark in ("all_attempts", "unblocked_spatial"):
+    for season in seasons:
+        groups = [inputs.populations[(benchmark, season)][0] for benchmark in benchmarks]
+        require(all(group.game_ids == groups[0].game_ids for group in groups),
+                "selected populations differ in game inventory")
+        multipliers = game_multipliers[season]
+        for benchmark in benchmarks:
             grouped, references = inputs.populations[(benchmark, season)]
             try:
                 population = weighted_population(grouped, multipliers, references)
-                state = fit_revision_year(population, previous[benchmark])
+                state = fit_recovery_year(population, previous[benchmark], representation=representation,
+                                          basis=basis, model_protocol_sha256=model_protocol_sha256)
+                requests = [request for request in projection_requests
+                            if request["benchmark"] == benchmark and request["season"] == season]
+                projected = project_requests(state, requests, inputs.duplicate_groups[(benchmark, season)])
             except (InputContractError, np.linalg.LinAlgError, FloatingPointError) as error:
                 annual.append(dict(benchmark=benchmark, season=season, status="error", error=str(error)))
                 return dict(status="error", error=str(error), failed=dict(benchmark=benchmark, season=season),
-                            draw_id=draw_id, projections=projections, annual=annual,
-                            weights=weights, seeds=seeds, resources=resources(started))
+                            projections=projections, annual=annual, weights=game_multipliers,
+                            resources=resources(started)), states
             previous[benchmark] = state
+            states[(benchmark, season)] = state
             annual.append(dict(benchmark=benchmark, season=season, status="complete",
                                volume=dict(scale=state.volume.scale, diagnostics=state.volume.diagnostics),
                                shape=None if state.shape is None else
                                dict(scale=state.shape.scale, diagnostics=state.shape.diagnostics)))
-            requests = [request for request in projection_requests
-                        if request["benchmark"] == benchmark and request["season"] == season]
-            projections.extend(project_requests(state, requests, inputs.duplicate_groups[(benchmark, season)]))
-    require(len(projections) == len(projection_requests), "refit did not satisfy all projection requests")
-    return dict(status="complete", error=None, failed=None, draw_id=draw_id, projections=projections,
-                annual=annual, weights=weights, seeds=seeds, resources=resources(started))
+            projections.extend(projected)
+    require(len(projections) == len(projection_requests), "history did not satisfy all projection requests")
+    return dict(status="complete", error=None, failed=None, projections=projections, annual=annual,
+                weights=game_multipliers, resources=resources(started)), states
 
 
-def _write_refit(output: Path, result: dict, inputs: RefitInputs, fits: dict, requests: list[dict]) -> dict:
-    arrays = {f"weights_{season}": value for season, value in result["weights"].items()}
-    projections = []
-    for index, row in enumerate(result["projections"]):
-        record = {name: row[name] for name in ("key", "request", "status", "reason")}
-        if row["mean"] is not None:
-            name = f"projection_{index}"
-            arrays[name] = np.asarray(row["mean"])
-            record.update(array=name, shape=list(arrays[name].shape))
+def refit_history(inputs: RefitInputs, draw_id: int, projection_requests: list[dict], *,
+                  benchmarks: tuple[str, ...], year_seeds: list[list[int]], representation: str,
+                  basis, model_protocol_sha256: str) -> dict:
+    """one positive game draw per year; policy and budgets belong to the study caller."""
+    seasons = inputs.document["seasons"]
+    require(type(draw_id) is int and draw_id >= 0 and bool(benchmarks)
+            and len(year_seeds) == len(seasons)
+            and all(isinstance(seed, list) and bool(seed)
+                    and all(type(value) is int and value >= 0 for value in seed) for seed in year_seeds),
+            "refit requires explicit draw identity and annual seeds")
+    weights = {season: game_weights(inputs.populations[(benchmarks[0], season)][0].game_ids, seed)
+               for season, seed in zip(seasons, year_seeds, strict=True)}
+    result, _ = fit_history(inputs, projection_requests, benchmarks=benchmarks, game_multipliers=weights,
+                            representation=representation, basis=basis,
+                            model_protocol_sha256=model_protocol_sha256)
+    result.update(draw_id=draw_id, seeds=[dict(season=season, seed=seed)
+                                       for season, seed in zip(seasons, year_seeds, strict=True)])
+    return result
+
+
+def annual_receipts(annual: list[dict]) -> list[dict]:
+    result = []
+    for row in annual:
+        reduced = {key: row[key] for key in ("benchmark", "season", "status")}
+        if row["status"] != "complete":
+            reduced["error"] = row["error"]
         else:
-            record.update(array=None, shape=None)
-        projections.append(record)
-    array_path = output / f"refit-{result['draw_id']:03d}.npz"
-    with array_path.open("xb") as destination:
-        np.savez(destination, **arrays)
-    document = dict(schema_version=2, kind="attribution_refit", purpose=inputs.document["purpose"],
-                    implementation=implementation(), protocol=inputs.document["protocol"], prepared=inputs.reference,
-                    fits=fits, request_sha256=request_identity(requests), draw_id=result["draw_id"],
-                    status=result["status"], error=result["error"], failed=result["failed"],
-                    seeds=result["seeds"], annual=result["annual"], projections=projections,
-                    arrays=identity(array_path), shapes={name: list(value.shape) for name, value in arrays.items()},
-                    reference_binding="original annual prepared r,u,p,player ordering and context design",
-                    resources=result["resources"])
-    path = output / f"refit-{result['draw_id']:03d}.json"
-    write_json(path, document)
-    return identity(path)
+            for name in ("volume", "shape"):
+                reduced[name] = (None if row[name] is None else
+                    {key: row[name]["scale"][key] for key in
+                     ("status", "selected", "own_reasons", "inherited_limitation")})
+                if reduced[name] is not None:
+                    reduced[name]["numerical"] = {key: row[name]["diagnostics"][key] for key in (
+                        "equation_relative_residual", "original_mean_equation_relative_residual",
+                        "original_covariance_equation_relative_residual", "covariance_rounding_tolerance",
+                        "centered_covariance_symmetry", "centered_mean_residual")}
+        result.append(reduced)
+    return result
 
 
-def refit_range(prepared: Path | str, fits: Path | str, start: int, stop: int, out: Path | str) -> dict:
-    """one explicit manual range; no replacement draws or hidden continuation."""
-    from .attribution import read_fits
-
-    started = time.monotonic()
-    inputs = load_refit_inputs(prepared)
-    current_implementation = implementation()
-    if inputs.document["purpose"] == "research":
-        clean_implementation(current_implementation)
-        require(current_implementation == inputs.protocol["implementation"],
-                "refit implementation differs from frozen protocol")
-    fit_path = Path(fits).resolve(strict=True)
-    fit_document, states = read_fits(fit_path)
-    require(fit_document["prepared"] == inputs.reference and fit_document["protocol"] == inputs.document["protocol"],
-            "refit point fits differ from preparation")
-    budget = inputs.protocol["budgets"]["real_refits"]
-    require(type(start) is int and type(stop) is int and 0 <= start < stop <= budget,
-            "invalid half-open refit range")
-    requests = projection_requests(states, inputs.document["pairs"], inputs.document["target_season"])
-    output = output_path(str(out), [str(Path(prepared).resolve().parent), str(fit_path.parent)])
-    require(output.is_relative_to(Path(inputs.protocol["output_root"]).resolve()), "refit output differs from frozen root")
-    if inputs.document["purpose"] == "research":
-        require(output.is_relative_to(Path("/Volumes/Expansion/hockey-stats")), "research refits must remain external")
-    output.mkdir()
-    refs, errors = [], []
-    for draw_id in range(start, stop):
-        result = refit_history(inputs, inputs.protocol, draw_id, requests)
-        refs.append(_write_refit(output, result, inputs, identity(fit_path), requests))
-        if result["status"] != "complete":
-            errors.append(draw_id)
-    path = output / "refits.json"
-    write_json(path, dict(schema_version=2, kind="attribution_refit_range", purpose=inputs.document["purpose"],
-                         implementation=implementation(), protocol=inputs.document["protocol"], prepared=inputs.reference,
-                         fits=identity(fit_path), requested_range=[start, stop], requests=requests,
-                         request_sha256=request_identity(requests), draws=refs, missing_ids=[], error_ids=errors,
-                         status="complete" if not errors else "incomplete", resources=resources(started)))
-    return identity(path)
-
-
-def summarize_refits(prepared: Path | str, fits: Path | str, ranges: list[Path | str]) -> dict:
+def summarize_native_04b_refits(prepared: Path | str, fits: Path | str, ranges: list[Path | str]) -> dict:
     """validate explicit ranges and produce no empirical interval unless every assigned draw completed."""
-    from .attribution import read_fits
+    from .attribution import read_native_04b_fits
 
-    inputs = load_refit_inputs(prepared)
+    inputs = load_native_04b_refit_inputs(prepared)
     fit_reference = identity(Path(fits).resolve(strict=True))
-    _, states = read_fits(fits)
-    requests = projection_requests(states, inputs.document["pairs"], inputs.document["target_season"])
+    _, states = read_native_04b_fits(fits)
+    requests = native_04b_projection_requests(states, inputs.document["pairs"], inputs.document["target_season"])
     request_sha = request_identity(requests)
     base = []
     for benchmark in ("all_attempts", "unblocked_spatial"):
         season = inputs.document["target_season"]
-        base.extend(project_requests(states[(benchmark, season)],
+        base.extend(project_native_04b_requests(states[(benchmark, season)],
                     [request for request in requests if request["benchmark"] == benchmark],
                     inputs.duplicate_groups[(benchmark, season)]))
     base_by_key = {row["key"]: row for row in base}

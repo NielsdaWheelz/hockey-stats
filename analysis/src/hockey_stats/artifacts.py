@@ -146,3 +146,60 @@ def artifact_roots(value):
     if isinstance(value, list):
         return [root for item in value for root in artifact_roots(item)]
     return []
+
+
+def write_arrays(output: Path, name: str, arrays: dict) -> dict:
+    import numpy as np
+    from .chance_cli import identity
+
+    require(bool(arrays) and all(value.dtype.kind in "biuf" and np.isfinite(value).all()
+                                for value in arrays.values()), "artifact arrays must be finite numeric data")
+    path = output / name
+    with path.open("xb") as destination:
+        np.savez(destination, **arrays)
+    return dict(arrays=identity(path), array_shapes=[dict(name=key, shape=list(value.shape), dtype=value.dtype.str)
+                for key, value in arrays.items()])
+
+
+def load_arrays(document: dict) -> dict:
+    import numpy as np
+
+    shapes = document["array_shapes"]
+    require(isinstance(shapes, list) and len({row["name"] for row in shapes}) == len(shapes),
+            "array order contains duplicate names")
+    with np.load(linked_path(document["arrays"]), allow_pickle=False) as arrays:
+        require(arrays.files == [row["name"] for row in shapes], "artifact array order differs")
+        values = {name: arrays[name] for name in arrays.files}
+    require(all(list(values[row["name"]].shape) == row["shape"]
+                and values[row["name"]].dtype.str == row["dtype"]
+                and values[row["name"]].dtype.kind in "biuf"
+                and np.isfinite(values[row["name"]]).all() for row in shapes),
+            "artifact arrays differ from ordered shape/dtype contract")
+    return values
+
+
+def artifact(kind: str, purpose: str, consumed: dict, **fields) -> dict:
+    """one explicit producer and input identity boundary for active 04c artifacts."""
+    require(purpose in ("research", "fixture_exercise"), "invalid artifact purpose")
+    producer = implementation()
+    if purpose == "research":
+        clean_implementation(producer)
+    return dict(schema_version=3, kind=kind, purpose=purpose, implementation=producer,
+                consumed=consumed, **fields)
+
+
+def read_artifact(path: Path | str, kind: str) -> dict:
+    from .chance_cli import read_json
+
+    document = read_json(Path(path).resolve(strict=True))
+    require(isinstance(document, dict) and type(document.get("schema_version")) is int
+            and document["schema_version"] == 3 and document.get("kind") == kind
+            and document.get("purpose") in ("research", "fixture_exercise"),
+            "expected schema-3 " + kind)
+    if document["purpose"] == "research":
+        clean_implementation(document["implementation"])
+    require(isinstance(document.get("consumed"), dict), "artifact consumed identities missing")
+    for reference in document["consumed"].values():
+        if reference is not None:
+            linked_path(reference)
+    return document

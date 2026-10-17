@@ -572,9 +572,9 @@ def assess(
     out: Path | str,
 ) -> dict:
     """reconcile explicit artifacts and report scoped results; never fit or publish."""
-    from hockey_stats.attribution import read_fits
+    from hockey_stats.attribution import read_native_04b_fits
     from hockey_stats.attribution_data import read_revision_prepared
-    from hockey_stats.attribution_uncertainty import summarize_refits
+    from hockey_stats.attribution_uncertainty import summarize_native_04b_refits
 
     started = time.monotonic()
     prepared_path, fits_path, simulation_path = [
@@ -585,7 +585,7 @@ def assess(
     current_implementation = implementation()
     if document["purpose"] == "research":
         clean_implementation(current_implementation)
-    fit_document, states = read_fits(fits_path)
+    fit_document, states = read_native_04b_fits(fits_path)
     recovery = read_json(simulation_path)
     require(
         recovery["schema_version"] == 2
@@ -622,7 +622,7 @@ def assess(
             recovery["implementation"] == protocol["implementation"],
             "recovery producer differs from frozen implementation",
         )
-    summary = summarize_refits(prepared_path, fits_path, refits)
+    summary = summarize_native_04b_refits(prepared_path, fits_path, refits)
     output = output_path(
         str(out),
         [str(path.parent) for path in (prepared_path, fits_path, simulation_path)]
@@ -787,63 +787,20 @@ def assess(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="manual research-only attribution revision", allow_abbrev=False
+        description="read-only native-04b assessment", allow_abbrev=False
     )
     commands = parser.add_subparsers(dest="command", required=True)
-    options = {
-        "prepare": ("baseline-prepared", "protocol", "out"),
-        "fit": ("prepared", "out"),
-        "refit": ("prepared", "fits", "draw-start", "draw-stop", "out"),
-        "simulate": ("prepared", "out"),
-        "assess": ("prepared", "fits", "simulation", "out"),
-    }
-    for name, fields in options.items():
-        child = commands.add_parser(name, allow_abbrev=False)
-        for field in fields:
-            child.add_argument(
-                "--" + field,
-                required=True,
-                action=Once,
-                type=int if field in ("draw-start", "draw-stop") else str,
-            )
-        if name == "assess":
-            child.add_argument("--refits", action="append", required=True)
+    child = commands.add_parser("assess", allow_abbrev=False)
+    for field in ("prepared", "fits", "simulation", "out"):
+        child.add_argument("--" + field, required=True, action=Once)
+    child.add_argument("--refits", action="append", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "prepare":
-            from hockey_stats.attribution_data import prepare_revision
-
-            reference = prepare_revision(
-                args.baseline_prepared, args.protocol, args.out
-            )
-        elif args.command == "fit":
-            from hockey_stats.attribution import fit_prepared
-
-            reference = fit_prepared(args.prepared, args.out)
-        elif args.command == "refit":
-            from hockey_stats.attribution_uncertainty import refit_range
-
-            reference = refit_range(
-                args.prepared, args.fits, args.draw_start, args.draw_stop, args.out
-            )
-        elif args.command == "simulate":
-            from attribution_revision_recovery import simulate
-
-            reference = simulate(args.prepared, args.out)
-        else:
-            reference = assess(
-                args.prepared, args.fits, args.refits, args.simulation, args.out
-            )
+        reference = assess(args.prepared, args.fits, args.refits, args.simulation, args.out)
         print(json.dumps(reference, allow_nan=False))
         return 0
-    except (
-        InputContractError,
-        OSError,
-        ValueError,
-        KeyError,
-        np.linalg.LinAlgError,
-    ) as failure:
-        print(str(failure), file=sys.stderr)
+    except (InputContractError, OSError, ValueError, np.linalg.LinAlgError) as error:
+        print(f"assessment failed: {error}", file=sys.stderr)
         return 1
 
 

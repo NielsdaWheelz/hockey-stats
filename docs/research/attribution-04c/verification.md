@@ -1,0 +1,57 @@
+# 04c verification
+
+status: **complete** on 2026-10-16. implementation, all reachable research stages and independent source/numerical/statistical/content reviews pass. the scientific result is [mean_recovery_failed](decision.md), with no nomination, admission or handoff. the plan owns assignment. fixture checks establish software behavior, never scientific nomination.
+
+## implementation boundaries
+
+the work uses `work/04c-attribution-recovery` in `/Users/nnandal/Documents/code/hockey-stats-04c`. subagents implemented the model, diagnosis, preparation/means and interval stage; the primary agent integrated shared history/artifact owners, conditional real fitting and reporting. an independent adversary reviewed each delivery boundary before progression. the spec snapshot, source protocols and historical studies remain unchanged.
+
+one model owner builds the fixed graph basis, fits independent volume/shape priors, compensates unrestricted native context and projects full row covariance. one history owner handles explicit unit weights and full game refits. study policy supplies populations, streams, budgets and requests. active schema 3 separates source preparation and model protocol; named schema-1/2 readers preserve controls. obsolete 04b preparation/fit/refit/simulation write paths are removed; historical execution remains in its frozen git revision. no compatibility dispatcher or artifact migration is added.
+
+## temporary red, green and refactor evidence
+
+- evidence/geometry: missing diagnosis/basis contracts fail first. independent replay reconciles 847 original artifact hashes, all 400 saved outer ids, full annual state/error accounting and the volume–shape cross term. maximum normalized decomposition discrepancy is `7.61e-16`. the original source inventory retains all 6,560 games. forty modes lie below the fixed cutoff; the next eigenvalue is separated. whitening, centering and rotation residuals are below `1.3e-14`.
+- model: independent prior-space and observation-space gaussian equations check means, full covariance, native context, full/reduced objectives and projections. interior entry/innovation scales and nonzero cross-player covariance exercise carry, absence, entry and return. maximum normalized discrepancy is `2.66e-13`; the tolerance is `1e-8`. the original scipy triangular-factor reproducer remains retained.
+- native control: original 04b gaussian outer zero is regenerated from its original stream solely for control verification. all fifty saved mean/covariance/context/prior arrays and full scale dictionaries replay bitwise. no 04c response or scientific result is reused from that replay.
+- artifacts: all five graph annual files roundtrip every array bitwise. schema-2 input to the active reader, changed basis/request identity, changed seeds, changed original shares and absent/changed original files are rejected. a missing recorded source cannot activate synthetic input.
+- statistics: independent order-statistic interpolation reproduces basic quantiles; score-quadratic inversion reproduces all 401 possible 400-denominator wilson intervals within `1.2e-14`. all eight fixed-seed paired percentile intervals reproduce exactly. supports/fails/inconclusive boundaries remain those specified prospectively.
+- full fixture path: diagnosis proceed/stop, means failure, interval refusal, full conditional refits, real refusal, conditional real fitting and reporting run through the same owners/commands. twelve small inner histories verify sixty exact weight arrays, 772 basic intervals and 840 null abstentions. a separate final-year failure leaves 284 prefix projections but withholds every non-null empirical interval; partial spread and working diagnostics remain. missing/duplicate/error ids keep their assigned denominators.
+- real fixture path: five ordered annual files, all eight fixed player/role examples, unchanged scalar/volume/control diagnostics and both bounded probes complete. this source is explicitly synthetic. conditional later stages use visibly tagged counterfactual fixture gates because the actual small fixture mean/coverage rules fail; these exercises cannot satisfy research acceptance.
+- content: the three figure contracts precede generation. independent visual review checks shared scales, units, actual versus projected truth, outer means versus one fit, pointwise nominal `.95` versus the `.90` developmental floor, secondary stresses, null abstention and defense sign meaning. incomplete stages receive explicit reasons and no substitute maps.
+
+source and numerical review receipts are retained under `/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/prefreeze/`. their original temporary paths describe verification exercises; copied receipt bytes and a consolidated external index preserve the findings after temporary controllers are deleted. no lasting checks are selected by this slice. `fixtures/attribution/graph-40ft.npz` retains a bounded synthetic basis and checked expectations; it is not a research season reference.
+
+## frozen research execution
+
+the clean model and reporting producer is `481a9e36138e0d143efe4009d2733c53a941a35b`, python `3.14.8`, numpy `2.5.3`, scipy `1.18.1`, lockfile sha256 `bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd`. no implementation or head changes occurred between diagnosis, protocol freeze, preparation, paired means and assessment. closure documentation follows that frozen producer.
+
+| artifact | sha256 |
+|---|---|
+| diagnosis | `d44615cd5b8243c1182aada82f8fca3fed7ac672cc011e341c26c930e30af142` |
+| [protocol](protocol.json) | `d1e0cd64c7395527adc2da744380974fab7288900ee32618b9d679dbaf116f56` |
+| preparation | `59261bd10f874bb0d19146e7f22948a9a6b2dac511e00d73d4842dca8529f724` |
+| means | `88a8d36fc492a4c891c3c8471b83be62976245aac93cf82b128f392485d30f48` |
+| [result](result.json) | `a87d04c30205eb707b9dbf6ee3fd83f44da73617e12d674a445c228d65c9e747` |
+
+- diagnosis: all 400 original outer datasets, 8,000 saved annual states, 4,000 point scale receipts and 800,000 weighted scale receipts reconcile. all 104 shape interval summaries and 56 historical complete-rate summaries match, with exact coverage counts and maximum normalized interval discrepancy `2.40e-16`. final broad regional squared bias exceeds variation in both cases, so the prescribed mechanism gate proceeds.
+- preparation: independent graph-subspace reconstruction, all five truths, original lineup arrays, 403 request vectors and 210 null requests pass. all generating rates are strictly positive. the fixed `400/200/10000/4` budgets, seed families, source identities and criteria agree exactly before new responses.
+- means: all 800 unique datasets complete, each with both five-year estimators. independent review checks 4,000 response and 4,000 unit-statistic digest entries, all 644,800 scalar projections, 336,000 null abstentions and 12,800 map-error records. candidate/control responses, references and volume blocks agree exactly. all eight 10,000-resample bootstrap intervals reproduce bitwise; six support, one is inconclusive and one fails. every dataset remains in its denominator.
+- numerics: all 8,000 annual states and 16,000 posterior blocks pass the saved original-equation checks. independent response-free design/covariance equations, exposure centering, context/count accounting, chronological priors and entry/absence/return contracts pass. maximum independent centered-covariance discrepancy is `5.06e-16`; maximum accounting residual is `2.80e-14`. all saved scalar means, variances and working intervals match exactly. maximum saved original-mean residual is `2.71e-15`; tolerance remains `1e-8`.
+- bounded resolution: all four candidate outer-zero first/final probes pass, preserving existing brackets and inherited scale flags. maximum tested mean movement is `8.86e-9` of the reference rate; maximum working-interval movement is `4.50e-8`. neither scale range nor nominal search settings change. conditional real probes are `not_run` because the mean gate fails.
+- assessment: all 32 pattern summaries and 90 transition/matched-volume summaries reproduce independently, with maximum normalized discrepancy `9.90e-16`. the result marks both refits and real fitting `not_run / mean_recovery_failed`, with `nomination:null,admission:not_admitted,handoff:null`. costs include preparation. all three actual rendered figures pass content review; weak attenuation, rough-pattern error and poor complete maps remain explicit secondary evidence.
+
+the execution audit independently reconstructs response-free design and covariance quantities. response-dependent mean right-hand sides, raw scale objectives and alternative probe means are checked through production receipts; they were not independently regenerated after the stop. the independent prefreeze gaussian oracle, bitwise native replay and unchanged clean producer validate that numerical implementation. this boundary avoids claiming a raw-response audit that the saved digest-only evidence cannot provide.
+
+accepted receipts: [diagnosis](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/diagnosis-review.json), [preparation](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/preparation-review.json), [all saved numerical states](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/model-state-audit.json), [means](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/means-review.json), [assessment](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/assessment-review.json) and [content](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/content-review.json).
+
+## closure
+
+all 23 remaining temporary test/audit controllers are deleted after their processes exit; earlier repository temporary checks were deleted before the clean model freeze. the [cleanup receipt](/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/reviews/cleanup.json) preserves exact removed-file identities and retained evidence. no test-only dependency or lasting harness remains. bounded fixtures, checked facts and scientific assessment commands remain.
+
+the plan, current scientific rationale and existing issue records are updated. the original specification, historical study evidence, source captures, lockfile and main checkout remain unchanged. protocol/result/figure copies retain their exact external bytes. no nested or real study was run after the failed mean rule. this satisfies the specification's scientific-stop completion condition; the unexecuted conditional paths are verified software, not research evidence.
+
+## material implementation prices
+
+the fixed basis loses local/rough directions and conditions on estimated native shares. full-history refits reselect scales, while sources, references and topology stay fixed. two offensive patterns support only the stated broad-shape question. complete additive rates remain unconstrained and new real-player refit uncertainty is deferred.
+
+the derived fixed matrix `R` is cached once per immutable basis, retaining 210 kb. a bounded component benchmark reduces 403 projection calls from `23.01` to `18.87` ms per fixture history, with bitwise identical records. this measures that component, not campaign duration. there is no general cache, runner, checkpoint engine, local fit mirror or new dependency.

@@ -1,0 +1,1790 @@
+{
+  "schema_version": 3,
+  "kind": "attribution_information_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "adda1e2e817c079652cf5b9b1630882fb24c137c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+      "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+    },
+    "diagnostic_arrays": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnostics.npz",
+      "sha256": "e485684e486ce93105a0c223f50f1d8fbae3a440924e4e24291463b485e138cf"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/inputs/protocol.json",
+      "sha256": "61199ffadc5b68d361ec5d12f11b99126a3b51a55c2f21f7d7d3feb5af1653bc"
+    },
+    "spec_snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/inputs/spec-snapshot.md",
+      "sha256": "170e58ab897a3c58c627e2854b855e2d4427e2b6fbb70c151b22325265bc5a6f"
+    }
+  },
+  "protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/inputs/protocol.json",
+    "sha256": "61199ffadc5b68d361ec5d12f11b99126a3b51a55c2f21f7d7d3feb5af1653bc"
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/inputs/spec-snapshot.md",
+    "sha256": "170e58ab897a3c58c627e2854b855e2d4427e2b6fbb70c151b22325265bc5a6f"
+  },
+  "model_implementation": {
+    "git_commit": "481a9e36138e0d143efe4009d2733c53a941a35b",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "model_protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/inputs/protocol.json",
+    "sha256": "d1e0cd64c7395527adc2da744380974fab7288900ee32618b9d679dbaf116f56"
+  },
+  "source_kind": "synthetic",
+  "units": {
+    "shape": "attempts/60 team minutes",
+    "squared_error": "squared attempts/60 team minutes"
+  },
+  "array_shapes": [],
+  "reference_truth_identity": {
+    "grid": {
+      "sha256": "bfb80a4a3dd5b5b764f3811b7a14def76399b14c667b391ded0a9bc9663d1ca2",
+      "cells": 656,
+      "width_feet": 5,
+      "coordinate_frame": "native attacking"
+    },
+    "basis_sha256": "649a49ecba19de5df609d6980d9de76491afa13e9108df0d8e6500659886cc51",
+    "reference": "original positive native shares",
+    "truth": "saved annual truth_shape arrays",
+    "regions": [
+      "behind_goal_negative_y",
+      "behind_goal_positive_y",
+      "outside_attacking_zone_negative_y",
+      "outside_attacking_zone_positive_y",
+      "in_zone_0_10_negative_y",
+      "in_zone_0_10_positive_y",
+      "in_zone_10_20_negative_y",
+      "in_zone_10_20_positive_y",
+      "in_zone_20_40_negative_y",
+      "in_zone_20_40_positive_y",
+      "in_zone_40_plus_negative_y",
+      "in_zone_40_plus_positive_y"
+    ]
+  },
+  "execution_status": "complete",
+  "findings": [
+    {
+      "mechanism": "representation",
+      "evidence_refs": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+          "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+        }
+      ],
+      "observation": "weighted graph projection preserves broad truth with the measured omitted component; local and rough residuals remain separately reported",
+      "metrics": {
+        "primary_regional_normalized_error_range": [
+          0.00011022760625738846,
+          0.005532683272579044
+        ]
+      },
+      "contrary_evidence": "representability alone supplies neither observation information nor achieved recovery",
+      "scope": "original native truth and fixed graph geometry",
+      "limitations": [
+        "projection need not minimize regional error"
+      ]
+    },
+    {
+      "mechanism": "likelihood_information",
+      "evidence_refs": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+          "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+        }
+      ],
+      "observation": "contrast-specific null projections and gaussian likelihood variances separate deployment identification from exposure-reference constraints",
+      "metrics": {
+        "status_counts": {
+          "available": 56,
+          "not_estimable": 10,
+          "zero_functional": 0,
+          "numerically_unresolved": 0
+        },
+        "primary_contrast_precision": [
+          {
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.4425896568190487e-15,
+            "regional_total_variance": 8.715401982467435,
+            "variance_to_actual_truth_energy": 1.4084796768692556
+          },
+          {
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.5474260912128447e-15,
+            "regional_total_variance": 8.718005774358216,
+            "variance_to_actual_truth_energy": 1.4089004707658928
+          },
+          {
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.4425896568190487e-15,
+            "regional_total_variance": 11.976305924253996,
+            "variance_to_actual_truth_energy": 1.9354682127358371
+          },
+          {
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.5474260912128447e-15,
+            "regional_total_variance": 11.979883935722638,
+            "variance_to_actual_truth_energy": 1.9360464484210442
+          },
+          {
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.5158451700760017e-15,
+            "regional_total_variance": 8.619135952625879,
+            "variance_to_actual_truth_energy": 4.837548349274801
+          },
+          {
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.8714399911979286e-15,
+            "regional_total_variance": 8.63148332444563,
+            "variance_to_actual_truth_energy": 4.84447839522057
+          },
+          {
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.5158451700760017e-15,
+            "regional_total_variance": 11.844021558505274,
+            "variance_to_actual_truth_energy": 6.647537207214688
+          },
+          {
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.8714399911979286e-15,
+            "regional_total_variance": 11.860988750904585,
+            "variance_to_actual_truth_energy": 6.657060158707072
+          },
+          {
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.513012192303719e-15,
+            "regional_total_variance": 9.071794052213098,
+            "variance_to_actual_truth_energy": 1.4660755270944017
+          },
+          {
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.5938303849522517e-15,
+            "regional_total_variance": 9.076386671036273,
+            "variance_to_actual_truth_energy": 1.4668177315605941
+          },
+          {
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.513012192303719e-15,
+            "regional_total_variance": 12.466043570875286,
+            "variance_to_actual_truth_energy": 2.0146137901459773
+          },
+          {
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.5938303849522517e-15,
+            "regional_total_variance": 12.472354537154349,
+            "variance_to_actual_truth_energy": 2.015633693503659
+          },
+          {
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.2356544804595159e-15,
+            "regional_total_variance": 8.797751579760131,
+            "variance_to_actual_truth_energy": 4.937797578077689
+          },
+          {
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.265424037759618e-15,
+            "regional_total_variance": 8.802750779518833,
+            "variance_to_actual_truth_energy": 4.940603412754544
+          },
+          {
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.2356544804595159e-15,
+            "regional_total_variance": 12.089466966269091,
+            "variance_to_actual_truth_energy": 6.785295102401758
+          },
+          {
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.265424037759618e-15,
+            "regional_total_variance": 12.09633663743367,
+            "variance_to_actual_truth_energy": 6.789150751806167
+          },
+          {
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.4746175852972908e-15,
+            "regional_total_variance": 8.723810829300138,
+            "variance_to_actual_truth_energy": 1.4098386147465438
+          },
+          {
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 2.176026158172655e-15,
+            "regional_total_variance": 8.725833592397297,
+            "variance_to_actual_truth_energy": 1.410165509675682
+          },
+          {
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.4746175852972908e-15,
+            "regional_total_variance": 11.987860976142736,
+            "variance_to_actual_truth_energy": 1.9373356028783917
+          },
+          {
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 2.176026158172655e-15,
+            "regional_total_variance": 11.990640564475276,
+            "variance_to_actual_truth_energy": 1.937784806906424
+          },
+          {
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.5202664958160833e-15,
+            "regional_total_variance": 8.670795767317717,
+            "variance_to_actual_truth_energy": 4.866542769673775
+          },
+          {
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.8394862186952344e-15,
+            "regional_total_variance": 8.67260496893512,
+            "variance_to_actual_truth_energy": 4.867558196318148
+          },
+          {
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.5202664958160833e-15,
+            "regional_total_variance": 11.915010107970271,
+            "variance_to_actual_truth_energy": 6.687380010735752
+          },
+          {
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.8394862186952344e-15,
+            "regional_total_variance": 11.91749622990616,
+            "variance_to_actual_truth_energy": 6.688775363487252
+          },
+          {
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.6681118161442046e-15,
+            "regional_total_variance": 8.545291520182158,
+            "variance_to_actual_truth_energy": 1.3809884458929174
+          },
+          {
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.7301854680708318e-15,
+            "regional_total_variance": 8.549606426711431,
+            "variance_to_actual_truth_energy": 1.3816857697990663
+          },
+          {
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.6681118161442046e-15,
+            "regional_total_variance": 11.742547924182038,
+            "variance_to_actual_truth_energy": 1.8976910232190154
+          },
+          {
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.7301854680708318e-15,
+            "regional_total_variance": 11.748477270956073,
+            "variance_to_actual_truth_energy": 1.8986492537682362
+          },
+          {
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.6970012123402856e-15,
+            "regional_total_variance": 8.755412258205027,
+            "variance_to_actual_truth_energy": 4.914034347491227
+          },
+          {
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 2.831316374223853e-15,
+            "regional_total_variance": 8.762431271679738,
+            "variance_to_actual_truth_energy": 4.917973816277281
+          },
+          {
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 1.6970012123402856e-15,
+            "regional_total_variance": 12.031286211257521,
+            "variance_to_actual_truth_energy": 6.752640760143699
+          },
+          {
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 2.831316374223853e-15,
+            "regional_total_variance": 12.040931417850251,
+            "variance_to_actual_truth_energy": 6.758054197579601
+          },
+          {
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 2.1672666271646454e-15,
+            "regional_total_variance": 8.31838710554724,
+            "variance_to_actual_truth_energy": 1.344318851392502
+          },
+          {
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.802697874082068e-15,
+            "regional_total_variance": 8.32161629745209,
+            "variance_to_actual_truth_energy": 1.3448407150058892
+          },
+          {
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 2.1672666271646454e-15,
+            "regional_total_variance": 11.430746278004591,
+            "variance_to_actual_truth_energy": 1.8473013472478128
+          },
+          {
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.802697874082068e-15,
+            "regional_total_variance": 11.435183685506665,
+            "variance_to_actual_truth_energy": 1.8480184683051353
+          },
+          {
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 2.1419451282419837e-15,
+            "regional_total_variance": 8.583364319698031,
+            "variance_to_actual_truth_energy": 4.817471278351207
+          },
+          {
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "graph_40ft",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.772773355351851e-15,
+            "regional_total_variance": 8.591996050311103,
+            "variance_to_actual_truth_energy": 4.822315895538842
+          },
+          {
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_known",
+            "status": "available",
+            "null_projection": 2.1419451282419837e-15,
+            "regional_total_variance": 11.794865820168036,
+            "variance_to_actual_truth_energy": 6.619948216606153
+          },
+          {
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "representation": "native_04b",
+            "probe": "context_adjusted",
+            "status": "available",
+            "null_projection": 1.772773355351851e-15,
+            "regional_total_variance": 11.806727148731637,
+            "variance_to_actual_truth_energy": 6.6266054674870345
+          }
+        ]
+      },
+      "contrary_evidence": "an estimable paired sum does not identify either individual; known context is an oracle",
+      "scope": "five separate annual fixed designs; no constant-effect five-year pooling",
+      "limitations": [
+        "precision is conditional on the gaussian law and the represented component; omitted truth bias remains"
+      ]
+    },
+    {
+      "mechanism": "selected_scale_transmission",
+      "evidence_refs": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+          "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+        }
+      ],
+      "observation": "saved means, recursive frozen interventions and actual-incoming one-step interventions reconcile under all selected covariance histories",
+      "metrics": {
+        "primary_transmission": [
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9943262502749484,
+              "mean_regional_truth_alignment": 0.0029361346259389144
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9936768584146666,
+              "mean_regional_truth_alignment": 0.0031782841744942922
+            },
+            "signed_scalar_means": {
+              "fitted": 0.008412927435905626,
+              "frozen": 0.00917269431762032,
+              "carry": 0.0,
+              "current": 0.00917269431762032,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.00917269431762032,
+              "incoming_to_updated": 0.00917269431762032,
+              "one_step_minus_saved_incoming": 0.00917269431762032,
+              "actual_minus_frozen": -0.0007597668817147335
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9834636200945036,
+              "mean_regional_truth_alignment": 0.008585260237331017
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9828042557436959,
+              "mean_regional_truth_alignment": 0.008678068216004134
+            },
+            "signed_scalar_means": {
+              "fitted": 0.025080489347480334,
+              "frozen": 0.02504955315405407,
+              "carry": 0.009070400744963398,
+              "current": 0.015979152409090636,
+              "incoming": 0.00917269431762032,
+              "saved_incoming": 0.008412927435905626,
+              "one_step": 0.0242905839932135,
+              "incoming_to_updated": 0.015876858836433624,
+              "one_step_minus_saved_incoming": 0.015877656557307905,
+              "actual_minus_frozen": 3.0936193426335126e-05
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9694091890761781,
+              "mean_regional_truth_alignment": 0.015948756101862006
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9688811633306864,
+              "mean_regional_truth_alignment": 0.015779489757536593
+            },
+            "signed_scalar_means": {
+              "fitted": 0.04580969092196639,
+              "frozen": 0.04555272022490505,
+              "carry": 0.024755419740419074,
+              "current": 0.020797300484485918,
+              "incoming": 0.02504955315405407,
+              "saved_incoming": 0.025080489347480334,
+              "one_step": 0.04558146987985036,
+              "incoming_to_updated": 0.02050316707085105,
+              "one_step_minus_saved_incoming": 0.020500980532370053,
+              "actual_minus_frozen": 0.00025697069706136894
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9511349798588252,
+              "mean_regional_truth_alignment": 0.0256583274564479
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9523113940608945,
+              "mean_regional_truth_alignment": 0.024304520359780316
+            },
+            "signed_scalar_means": {
+              "fitted": 0.07295297528330563,
+              "frozen": 0.07016628896429059,
+              "carry": 0.04499047989424258,
+              "current": 0.02517580907004795,
+              "incoming": 0.04555272022490505,
+              "saved_incoming": 0.04580969092196639,
+              "one_step": 0.0704089719906968,
+              "incoming_to_updated": 0.024613568739385503,
+              "one_step_minus_saved_incoming": 0.024599281068730387,
+              "actual_minus_frozen": 0.0027866863190151477
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9337278477142806,
+              "mean_regional_truth_alignment": 0.03506013922318853
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9334717736314607,
+              "mean_regional_truth_alignment": 0.03410023170929124
+            },
+            "signed_scalar_means": {
+              "fitted": 0.10032075381773833,
+              "frozen": 0.09844064381202608,
+              "carry": 0.06920638390140449,
+              "current": 0.029234259910621604,
+              "incoming": 0.07016628896429059,
+              "saved_incoming": 0.07295297528330563,
+              "one_step": 0.10119468723919328,
+              "incoming_to_updated": 0.028274354847735546,
+              "one_step_minus_saved_incoming": 0.02824171195588752,
+              "actual_minus_frozen": 0.001880110005712315
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9940496091924351,
+              "mean_regional_truth_alignment": 0.0030166925724345855
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9935059014761074,
+              "mean_regional_truth_alignment": 0.0032647637620730773
+            },
+            "signed_scalar_means": {
+              "fitted": 0.006888873243478355,
+              "frozen": 0.007576945851958856,
+              "carry": 0.0,
+              "current": 0.0075769458519588575,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.0075769458519588575,
+              "incoming_to_updated": 0.007576945851958856,
+              "one_step_minus_saved_incoming": 0.0075769458519588575,
+              "actual_minus_frozen": -0.0006880726084805118
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9833046619664327,
+              "mean_regional_truth_alignment": 0.008491478028005142
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9825622727614021,
+              "mean_regional_truth_alignment": 0.008801938888851685
+            },
+            "signed_scalar_means": {
+              "fitted": 0.020059846764690633,
+              "frozen": 0.02042783722352611,
+              "carry": 0.0074948095178881315,
+              "current": 0.012933027705637928,
+              "incoming": 0.007576945851958856,
+              "saved_incoming": 0.006888873243478355,
+              "one_step": 0.019747263703031235,
+              "incoming_to_updated": 0.01285089137156719,
+              "one_step_minus_saved_incoming": 0.01285839045955287,
+              "actual_minus_frozen": -0.000367990458835431
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9693493598370962,
+              "mean_regional_truth_alignment": 0.015674907341884068
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9681733099068895,
+              "mean_regional_truth_alignment": 0.016144653658623307
+            },
+            "signed_scalar_means": {
+              "fitted": 0.03619058900004484,
+              "frozen": 0.037470828751025295,
+              "carry": 0.020188442895031536,
+              "current": 0.017282385855993714,
+              "incoming": 0.02042783722352611,
+              "saved_incoming": 0.020059846764690633,
+              "one_step": 0.03710851084382525,
+              "incoming_to_updated": 0.017042991527499142,
+              "one_step_minus_saved_incoming": 0.01704866407913463,
+              "actual_minus_frozen": -0.0012802397509803665
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9514052948848019,
+              "mean_regional_truth_alignment": 0.024979960882946822
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9506228451157884,
+              "mean_regional_truth_alignment": 0.02518365620022027
+            },
+            "signed_scalar_means": {
+              "fitted": 0.05795599568355685,
+              "frozen": 0.058450242764684905,
+              "carry": 0.036988628181472784,
+              "current": 0.021461614583212052,
+              "incoming": 0.037470828751025295,
+              "saved_incoming": 0.03619058900004484,
+              "one_step": 0.05718437305874775,
+              "incoming_to_updated": 0.020979414013659606,
+              "one_step_minus_saved_incoming": 0.020993784058702874,
+              "actual_minus_frozen": -0.0004942470811279731
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "graph_40ft",
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9326771909915418,
+              "mean_regional_truth_alignment": 0.03483490688482405
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9303521621137366,
+              "mean_regional_truth_alignment": 0.035743614036545746
+            },
+            "signed_scalar_means": {
+              "fitted": 0.08255182389742607,
+              "frozen": 0.08295741709308911,
+              "carry": 0.057617477832973225,
+              "current": 0.02533993926011586,
+              "incoming": 0.058450242764684905,
+              "saved_incoming": 0.05795599568355685,
+              "one_step": 0.08246454381010175,
+              "incoming_to_updated": 0.024507174328404272,
+              "one_step_minus_saved_incoming": 0.024508548126544807,
+              "actual_minus_frozen": -0.00040559319566302023
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9987427902912112,
+              "mean_regional_truth_alignment": 0.0006338129281237281
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9987461063167011,
+              "mean_regional_truth_alignment": 0.0006276550079976733
+            },
+            "signed_scalar_means": {
+              "fitted": 0.0016507839844684007,
+              "frozen": 0.0018105340221116057,
+              "carry": 0.0,
+              "current": 0.0018105340221116057,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.0018105340221116057,
+              "incoming_to_updated": 0.0018105340221116057,
+              "one_step_minus_saved_incoming": 0.0018105340221116057,
+              "actual_minus_frozen": -0.00015975003764320472
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9964642895216399,
+              "mean_regional_truth_alignment": 0.001785380543537563
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.996462871708434,
+              "mean_regional_truth_alignment": 0.0017722061450028415
+            },
+            "signed_scalar_means": {
+              "fitted": 0.005109643820282356,
+              "frozen": 0.00511301927300573,
+              "carry": 0.0018061214789454288,
+              "current": 0.003306897794060299,
+              "incoming": 0.0018105340221116057,
+              "saved_incoming": 0.0016507839844684007,
+              "one_step": 0.004953742458616909,
+              "incoming_to_updated": 0.0033024852508941353,
+              "one_step_minus_saved_incoming": 0.0033029584741485134,
+              "actual_minus_frozen": -3.375452723379333e-06
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9931740937141922,
+              "mean_regional_truth_alignment": 0.003449927242298867
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9932214748579006,
+              "mean_regional_truth_alignment": 0.003399829628373622
+            },
+            "signed_scalar_means": {
+              "fitted": 0.009895266223837393,
+              "frozen": 0.009809932799109506,
+              "carry": 0.005099412115985937,
+              "current": 0.004710520683123572,
+              "incoming": 0.00511301927300573,
+              "saved_incoming": 0.005109643820282356,
+              "one_step": 0.00980690198728958,
+              "incoming_to_updated": 0.004696913526103772,
+              "one_step_minus_saved_incoming": 0.004697258167007231,
+              "actual_minus_frozen": 8.533342472788846e-05
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9891883788394344,
+              "mean_regional_truth_alignment": 0.005474602914209837
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9894268716650139,
+              "mean_regional_truth_alignment": 0.005309172973258829
+            },
+            "signed_scalar_means": {
+              "fitted": 0.015744717438502552,
+              "frozen": 0.015319866998154696,
+              "carry": 0.009783024783902349,
+              "current": 0.005536842214252335,
+              "incoming": 0.009809932799109506,
+              "saved_incoming": 0.009895266223837393,
+              "one_step": 0.015405036407887622,
+              "incoming_to_updated": 0.005509934199045171,
+              "one_step_minus_saved_incoming": 0.00550977018405022,
+              "actual_minus_frozen": 0.0004248504403478735
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9849161830570048,
+              "mean_regional_truth_alignment": 0.007651805336189159
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9850259264086055,
+              "mean_regional_truth_alignment": 0.007528718328650021
+            },
+            "signed_scalar_means": {
+              "fitted": 0.022040647987641795,
+              "frozen": 0.02172366848750862,
+              "carry": 0.015273367388241992,
+              "current": 0.006450301099266622,
+              "incoming": 0.015319866998154696,
+              "saved_incoming": 0.015744717438502552,
+              "one_step": 0.02214943134068903,
+              "incoming_to_updated": 0.006403801489353925,
+              "one_step_minus_saved_incoming": 0.006404713902186453,
+              "actual_minus_frozen": 0.0003169795001332081
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9988613346798997,
+              "mean_regional_truth_alignment": 0.0005714077280769104
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9987589005245503,
+              "mean_regional_truth_alignment": 0.0006212435237158419
+            },
+            "signed_scalar_means": {
+              "fitted": 0.0012713343277386117,
+              "frozen": 0.0014005811509764552,
+              "carry": 0.0,
+              "current": 0.0014005811509764554,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.0014005811509764554,
+              "incoming_to_updated": 0.0014005811509764552,
+              "one_step_minus_saved_incoming": 0.0014005811509764554,
+              "actual_minus_frozen": -0.0001292468232378482
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9965287286708695,
+              "mean_regional_truth_alignment": 0.0017436190271486274
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.99654411721115,
+              "mean_regional_truth_alignment": 0.0017314248690297619
+            },
+            "signed_scalar_means": {
+              "fitted": 0.003948847479577716,
+              "frozen": 0.003903479601773269,
+              "carry": 0.001397266433954983,
+              "current": 0.0025062131678182807,
+              "incoming": 0.0014005811509764552,
+              "saved_incoming": 0.0012713343277386117,
+              "one_step": 0.0037744239178018014,
+              "incoming_to_updated": 0.0025028984507968117,
+              "one_step_minus_saved_incoming": 0.002503089590063191,
+              "actual_minus_frozen": 4.5367877804441204e-05
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9935873214675901,
+              "mean_regional_truth_alignment": 0.0032247682412626026
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9933158588290442,
+              "mean_regional_truth_alignment": 0.0033523337413751053
+            },
+            "signed_scalar_means": {
+              "fitted": 0.007547010618182536,
+              "frozen": 0.007558205173391594,
+              "carry": 0.0038931118260567277,
+              "current": 0.003665093347334849,
+              "incoming": 0.003903479601773269,
+              "saved_incoming": 0.003948847479577716,
+              "one_step": 0.00760311323105437,
+              "incoming_to_updated": 0.003654725571618303,
+              "one_step_minus_saved_incoming": 0.0036542657514766546,
+              "actual_minus_frozen": -1.1194555209043657e-05
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9896075931211377,
+              "mean_regional_truth_alignment": 0.0052314757397980225
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.989437200065072,
+              "mean_regional_truth_alignment": 0.005303898031211787
+            },
+            "signed_scalar_means": {
+              "fitted": 0.012200051097480527,
+              "frozen": 0.011958325005275052,
+              "carry": 0.007536396418068145,
+              "current": 0.004421928587206893,
+              "incoming": 0.007558205173391594,
+              "saved_incoming": 0.007547010618182536,
+              "one_step": 0.011946803916893303,
+              "incoming_to_updated": 0.004400119831883472,
+              "one_step_minus_saved_incoming": 0.004399793298710767,
+              "actual_minus_frozen": 0.00024172609220548223
+            }
+          },
+          {
+            "case": "gaussian",
+            "representation": "native_04b",
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9853011259882785,
+              "mean_regional_truth_alignment": 0.007410164186750407
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9848621425530272,
+              "mean_regional_truth_alignment": 0.00761137538114196
+            },
+            "signed_scalar_means": {
+              "fitted": 0.01730434697022524,
+              "frozen": 0.017160369502314428,
+              "carry": 0.011920357268000536,
+              "current": 0.005240012234313885,
+              "incoming": 0.011958325005275052,
+              "saved_incoming": 0.012200051097480527,
+              "one_step": 0.01740200017594598,
+              "incoming_to_updated": 0.0052020444970393735,
+              "one_step_minus_saved_incoming": 0.00520194907846545,
+              "actual_minus_frozen": 0.0001439774679108286
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9839373228882596,
+              "mean_regional_truth_alignment": 0.008810432250992033
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9842916521400307,
+              "mean_regional_truth_alignment": 0.007977143156098892
+            },
+            "signed_scalar_means": {
+              "fitted": 0.02561023919964445,
+              "frozen": 0.023023039753719002,
+              "carry": 0.0,
+              "current": 0.023023039753719002,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.023023039753719002,
+              "incoming_to_updated": 0.023023039753719002,
+              "one_step_minus_saved_incoming": 0.023023039753719002,
+              "actual_minus_frozen": 0.002587199445925556
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9634867366360943,
+              "mean_regional_truth_alignment": 0.020897031854825485
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9595004516433964,
+              "mean_regional_truth_alignment": 0.02083127791396412
+            },
+            "signed_scalar_means": {
+              "fitted": 0.060990638411545194,
+              "frozen": 0.060130539093511855,
+              "carry": 0.02227695026345054,
+              "current": 0.03785358883006121,
+              "incoming": 0.023023039753719002,
+              "saved_incoming": 0.02561023919964445,
+              "one_step": 0.0626132576676771,
+              "incoming_to_updated": 0.037107499339792856,
+              "one_step_minus_saved_incoming": 0.037003018468032625,
+              "actual_minus_frozen": 0.0008600993180335022
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9347156169344902,
+              "mean_regional_truth_alignment": 0.03737717676030284
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.926850819448433,
+              "mean_regional_truth_alignment": 0.03810287131458682
+            },
+            "signed_scalar_means": {
+              "fitted": 0.10986196769687936,
+              "frozen": 0.10999768555337087,
+              "carry": 0.058044186437756856,
+              "current": 0.05195349911561392,
+              "incoming": 0.060130539093511855,
+              "saved_incoming": 0.060990638411545194,
+              "one_step": 0.11053139935731095,
+              "incoming_to_updated": 0.04986714645985926,
+              "one_step_minus_saved_incoming": 0.04954076094576585,
+              "actual_minus_frozen": -0.00013571785649143706
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8978589826081326,
+              "mean_regional_truth_alignment": 0.05912429668166161
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8895661876004405,
+              "mean_regional_truth_alignment": 0.05830870809671955
+            },
+            "signed_scalar_means": {
+              "fitted": 0.17272094058653104,
+              "frozen": 0.16833467170700112,
+              "carry": 0.10603420696039238,
+              "current": 0.06230046474660881,
+              "incoming": 0.10999768555337087,
+              "saved_incoming": 0.10986196769687936,
+              "one_step": 0.16809954718828568,
+              "incoming_to_updated": 0.05833698615363029,
+              "one_step_minus_saved_incoming": 0.05823757949140629,
+              "actual_minus_frozen": 0.004386268879529995
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8593787217628353,
+              "mean_regional_truth_alignment": 0.08369264788945749
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8462122848827396,
+              "mean_regional_truth_alignment": 0.08242399775854616
+            },
+            "signed_scalar_means": {
+              "fitted": 0.2453768321274716,
+              "frozen": 0.23794107706034967,
+              "carry": 0.16156512434572917,
+              "current": 0.0763759527146206,
+              "incoming": 0.16833467170700112,
+              "saved_incoming": 0.17272094058653104,
+              "one_step": 0.24212603108995864,
+              "incoming_to_updated": 0.06960640535334874,
+              "one_step_minus_saved_incoming": 0.06940509050342734,
+              "actual_minus_frozen": 0.007435755067121655
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9826451532934627,
+              "mean_regional_truth_alignment": 0.00901007223510092
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9838673291541165,
+              "mean_regional_truth_alignment": 0.008196786813271486
+            },
+            "signed_scalar_means": {
+              "fitted": 0.020301779727984484,
+              "frozen": 0.019023312173445807,
+              "carry": 0.0,
+              "current": 0.019023312173445807,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.019023312173445807,
+              "incoming_to_updated": 0.019023312173445807,
+              "one_step_minus_saved_incoming": 0.019023312173445807,
+              "actual_minus_frozen": 0.001278467554538795
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9567459757261177,
+              "mean_regional_truth_alignment": 0.022780879168511552
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9589080880952378,
+              "mean_regional_truth_alignment": 0.021149447596985293
+            },
+            "signed_scalar_means": {
+              "fitted": 0.05212581423837658,
+              "frozen": 0.0490843623879764,
+              "carry": 0.018423117185747268,
+              "current": 0.030661245202229032,
+              "incoming": 0.019023312173445807,
+              "saved_incoming": 0.020301779727984484,
+              "one_step": 0.05030010719338473,
+              "incoming_to_updated": 0.03006105021453077,
+              "one_step_minus_saved_incoming": 0.029998327465400213,
+              "actual_minus_frozen": 0.003041451850400187
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9232149261226072,
+              "mean_regional_truth_alignment": 0.041105825717075835
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9251525579080047,
+              "mean_regional_truth_alignment": 0.03903445405484485
+            },
+            "signed_scalar_means": {
+              "fitted": 0.09484942247929704,
+              "frozen": 0.09059669332910643,
+              "carry": 0.0473843687780152,
+              "current": 0.043212324551091356,
+              "incoming": 0.0490843623879764,
+              "saved_incoming": 0.05212581423837658,
+              "one_step": 0.09353014486945668,
+              "incoming_to_updated": 0.04151233094113005,
+              "one_step_minus_saved_incoming": 0.041404330631080066,
+              "actual_minus_frozen": 0.0042527291501905425
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8855279567323485,
+              "mean_regional_truth_alignment": 0.062056278866754425
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8857588211022773,
+              "mean_regional_truth_alignment": 0.060450326923038346
+            },
+            "signed_scalar_means": {
+              "fitted": 0.14546493767112859,
+              "frozen": 0.14030214238561073,
+              "carry": 0.08721329555306255,
+              "current": 0.053088846832548366,
+              "incoming": 0.09059669332910643,
+              "saved_incoming": 0.09484942247929704,
+              "one_step": 0.14435814803535194,
+              "incoming_to_updated": 0.04970544905650442,
+              "one_step_minus_saved_incoming": 0.04950872555605496,
+              "actual_minus_frozen": 0.005162795285517678
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "graph_40ft",
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8400219305401493,
+              "mean_regional_truth_alignment": 0.08843290638874052
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8393301743497006,
+              "mean_regional_truth_alignment": 0.08641715675975645
+            },
+            "signed_scalar_means": {
+              "fitted": 0.2052611916416135,
+              "frozen": 0.20056512029278417,
+              "carry": 0.13445358437401878,
+              "current": 0.06611153591876558,
+              "incoming": 0.14030214238561073,
+              "saved_incoming": 0.14546493767112859,
+              "one_step": 0.2056997394554668,
+              "incoming_to_updated": 0.06026297790717338,
+              "one_step_minus_saved_incoming": 0.060234801784338245,
+              "actual_minus_frozen": 0.0046960713488291995
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 1,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9798153374669879,
+              "mean_regional_truth_alignment": 0.01178587796373211
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9819756812984892,
+              "mean_regional_truth_alignment": 0.00919675109351042
+            },
+            "signed_scalar_means": {
+              "fitted": 0.0333271700060383,
+              "frozen": 0.026530240540468597,
+              "carry": 0.0,
+              "current": 0.026530240540468597,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.026530240540468597,
+              "incoming_to_updated": 0.026530240540468597,
+              "one_step_minus_saved_incoming": 0.026530240540468597,
+              "actual_minus_frozen": 0.006796929465569671
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 2,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9576011791923349,
+              "mean_regional_truth_alignment": 0.02568406632265349
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9536188066143114,
+              "mean_regional_truth_alignment": 0.024066072295399966
+            },
+            "signed_scalar_means": {
+              "fitted": 0.07421694605484973,
+              "frozen": 0.06943418755621768,
+              "carry": 0.02537952352081658,
+              "current": 0.04405466403540112,
+              "incoming": 0.026530240540468597,
+              "saved_incoming": 0.0333271700060383,
+              "one_step": 0.0757952144108247,
+              "incoming_to_updated": 0.042903947015749136,
+              "one_step_minus_saved_incoming": 0.042468044404786444,
+              "actual_minus_frozen": 0.004782758498632079
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 3,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9258231508507015,
+              "mean_regional_truth_alignment": 0.046349981071775945
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9168890339372939,
+              "mean_regional_truth_alignment": 0.043791490726780784
+            },
+            "signed_scalar_means": {
+              "fitted": 0.1323943955936,
+              "frozen": 0.12635830831595413,
+              "carry": 0.06635978433271743,
+              "current": 0.05999852398323653,
+              "incoming": 0.06943418755621768,
+              "saved_incoming": 0.07421694605484973,
+              "one_step": 0.1304537187773929,
+              "incoming_to_updated": 0.05692412075973627,
+              "one_step_minus_saved_incoming": 0.05623677272254312,
+              "actual_minus_frozen": 0.006036087277646036
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 4,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8857900443218583,
+              "mean_regional_truth_alignment": 0.0718417824496335
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8764668739360547,
+              "mean_regional_truth_alignment": 0.06608503613798723
+            },
+            "signed_scalar_means": {
+              "fitted": 0.2050677493377269,
+              "frozen": 0.19068996916025507,
+              "carry": 0.12078722276672071,
+              "current": 0.06990274639353428,
+              "incoming": 0.12635830831595413,
+              "saved_incoming": 0.1323943955936,
+              "one_step": 0.1961880832768268,
+              "incoming_to_updated": 0.06433166084430102,
+              "one_step_minus_saved_incoming": 0.06379368768322691,
+              "actual_minus_frozen": 0.014377780177472108
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 5,
+            "request": "offense_lateral_10_minus_11_shape",
+            "functional": "lateral",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8488604518955642,
+              "mean_regional_truth_alignment": 0.09796880769574899
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8308197168639032,
+              "mean_regional_truth_alignment": 0.09196342664091393
+            },
+            "signed_scalar_means": {
+              "fitted": 0.2784675463243137,
+              "frozen": 0.2653540053913245,
+              "carry": 0.1817348196134666,
+              "current": 0.0836191857778579,
+              "incoming": 0.19068996916025507,
+              "saved_incoming": 0.2050677493377269,
+              "one_step": 0.27862543973518766,
+              "incoming_to_updated": 0.07466403623106967,
+              "one_step_minus_saved_incoming": 0.07355769039746074,
+              "actual_minus_frozen": 0.01311354093298904
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 1,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9805790433422483,
+              "mean_regional_truth_alignment": 0.010341274424494014
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9821460161323989,
+              "mean_regional_truth_alignment": 0.009108153776050364
+            },
+            "signed_scalar_means": {
+              "fitted": 0.022606562789588322,
+              "frozen": 0.0205341576640829,
+              "carry": 0.0,
+              "current": 0.0205341576640829,
+              "incoming": 0.0,
+              "saved_incoming": 0.0,
+              "one_step": 0.0205341576640829,
+              "incoming_to_updated": 0.0205341576640829,
+              "one_step_minus_saved_incoming": 0.0205341576640829,
+              "actual_minus_frozen": 0.0020724051255053806
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 2,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9540704535588114,
+              "mean_regional_truth_alignment": 0.02487202595166166
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9545761838024923,
+              "mean_regional_truth_alignment": 0.0235530534821265
+            },
+            "signed_scalar_means": {
+              "fitted": 0.05634579237401296,
+              "frozen": 0.053100132472016136,
+              "carry": 0.019666305752870164,
+              "current": 0.033433826719145854,
+              "incoming": 0.0205341576640829,
+              "saved_incoming": 0.022606562789588322,
+              "one_step": 0.05500479137347735,
+              "incoming_to_updated": 0.032565974807933176,
+              "one_step_minus_saved_incoming": 0.032398228583889084,
+              "actual_minus_frozen": 0.003245659901996868
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 3,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.9182693074358901,
+              "mean_regional_truth_alignment": 0.04532965625527983
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.9178672766609742,
+              "mean_regional_truth_alignment": 0.04324884870896968
+            },
+            "signed_scalar_means": {
+              "fitted": 0.10265088978330202,
+              "frozen": 0.09750876691036739,
+              "carry": 0.05075117173838321,
+              "current": 0.04675759517198414,
+              "incoming": 0.053100132472016136,
+              "saved_incoming": 0.05634579237401296,
+              "one_step": 0.10062348574818071,
+              "incoming_to_updated": 0.04440863443835128,
+              "one_step_minus_saved_incoming": 0.0442776933741677,
+              "actual_minus_frozen": 0.005142122872934641
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 4,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8786595870472026,
+              "mean_regional_truth_alignment": 0.06842045948489611
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8765598325272076,
+              "mean_regional_truth_alignment": 0.066020223539527
+            },
+            "signed_scalar_means": {
+              "fitted": 0.15606097079330666,
+              "frozen": 0.14884942964368675,
+              "carry": 0.09305694628077771,
+              "current": 0.05579248336290909,
+              "incoming": 0.09750876691036739,
+              "saved_incoming": 0.10265088978330202,
+              "one_step": 0.15372602283957934,
+              "incoming_to_updated": 0.0513406627333193,
+              "one_step_minus_saved_incoming": 0.0510751330562775,
+              "actual_minus_frozen": 0.0072115411496199745
+            }
+          },
+          {
+            "case": "game_pace",
+            "representation": "native_04b",
+            "year": 5,
+            "request": "offense_radial_3_minus_4_shape",
+            "functional": "radial",
+            "units": "attempts/60 team minutes",
+            "fitted": {
+              "mean_normalized_regional_squared_error": 0.8337233864745803,
+              "mean_regional_truth_alignment": 0.09524630523838176
+            },
+            "frozen": {
+              "mean_normalized_regional_squared_error": 0.8292301239701976,
+              "mean_regional_truth_alignment": 0.09287194686122818
+            },
+            "signed_scalar_means": {
+              "fitted": 0.21516185664138893,
+              "frozen": 0.2093847736395663,
+              "carry": 0.14160901658268502,
+              "current": 0.06777575705688106,
+              "incoming": 0.14884942964368675,
+              "saved_incoming": 0.15606097079330666,
+              "one_step": 0.2162949080993518,
+              "incoming_to_updated": 0.0605353439958794,
+              "one_step_minus_saved_incoming": 0.06023393730604515,
+              "actual_minus_frozen": 0.005777083001822995
+            }
+          }
+        ],
+        "annual_states": 8000,
+        "maximum_covariance_reconciliation_residual": 3.7396530966865633e-16,
+        "maximum_posterior_equation_residual": 8.093237744514825e-17
+      },
+      "contrary_evidence": "selected scales depend on noisy responses; actual-minus-frozen remainders need not average to zero",
+      "scope": "conditional computational contrasts, with signed carry/current and all-year distributions",
+      "limitations": [
+        "these are not conditional expectations given scales or a percentage-of-blame decomposition"
+      ]
+    },
+    {
+      "mechanism": "first_year_scale_pressure",
+      "evidence_refs": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+          "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+        }
+      ],
+      "observation": "the exact gaussian determinant/signal/noise expectation and paired saved coarse-curve differences are compared at the existing 34 fixed states",
+      "metrics": {
+        "grid_descriptions": [
+          {
+            "representation": "graph_40ft",
+            "request": "offense_radial_3_minus_4_shape",
+            "criterion_grid_minimum": 3.162277660168379e-07,
+            "oracle_risk_grid_minimum": 0.0031622776601683794,
+            "different_grid_locations": true
+          },
+          {
+            "representation": "graph_40ft",
+            "request": "offense_lateral_10_minus_11_shape",
+            "criterion_grid_minimum": 3.162277660168379e-07,
+            "oracle_risk_grid_minimum": 0.001,
+            "different_grid_locations": true
+          },
+          {
+            "representation": "native_04b",
+            "request": "offense_radial_3_minus_4_shape",
+            "criterion_grid_minimum": 3.162277660168379e-08,
+            "oracle_risk_grid_minimum": 0.0031622776601683794,
+            "different_grid_locations": true
+          },
+          {
+            "representation": "native_04b",
+            "request": "offense_lateral_10_minus_11_shape",
+            "criterion_grid_minimum": 3.162277660168379e-08,
+            "oracle_risk_grid_minimum": 0.001,
+            "different_grid_locations": true
+          }
+        ]
+      },
+      "contrary_evidence": "a global criterion can rationally sacrifice sparse primary contrasts; monte carlo differences are not an equivalence test",
+      "scope": "first year only; actual truth enters oracle risk; game-pace curves are observations only",
+      "limitations": [
+        "later priors are response-dependent; no variance is selected and game-pace sampling precision remains unresolved"
+      ]
+    }
+  ],
+  "unresolved": [
+    "game-pace sampling precision and the reason for its comparative failure are not established by gaussian moment diagnostics",
+    "real-deployment identification, adaptive-selection uncertainty and unconditional annual-borrowing risk remain outside this known-truth diagnosis"
+  ],
+  "recommended_next_question": {
+    "question": "does the global shared-scale objective sacrifice broad primary contrasts through pooling, and would that tradeoff persist across prospectively chosen independent patterns?",
+    "evidence_refs": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+        "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/diagnosis/diagnosis.json",
+        "sha256": "d798edc0050d238f645b3e408e81bb0e1a0a86f19775f2160ceb3ad36068432f"
+      }
+    ],
+    "contrary_evidence": "global prediction can rationally favor a different risk tradeoff; current risk is truth-informed and sparse",
+    "discriminating_check": "prospectively specify a practical prediction-cost budget and independent synthetic broad-pattern population; compare global objective pressure with their contrast risks without retrospectively choosing thresholds"
+  },
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "figures": [
+    {
+      "name": "representation_information",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/assessment/representation-information.png",
+        "sha256": "939928c38a53384aac9ef8ae2526a09905bcd61d35cc4012ed9d26e05bd22a64"
+      }
+    },
+    {
+      "name": "transmission_scale_pressure",
+      "reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/assessment/transmission-scale-pressure.png",
+        "sha256": "9f57c5c7c7ff1231ab206d9e82565d5f6fc57dc15f551b3faa8da1d2e22ddf22"
+      }
+    }
+  ],
+  "figure_contracts": {
+    "representation_information": "actual and projected broad/local/rough native truth; shared within-pattern scale; graph/native likelihood precision and null statuses distinct from exposure constraints",
+    "transmission_scale_pressure": "five-year saved and frozen-path broad diagnostics; entrant/returner/null controls outer zero; paired fixed-grid objective differences and gaussian regional risk"
+  },
+  "limitations": [
+    "known-truth synthetic results do not identify real players",
+    "gaussian likelihood precision and risk do not validate game-pace uncertainty",
+    "frozen-path mean-response interventions hold adaptive selected covariance paths fixed; they are not conditional expectations given scales",
+    "actual minus frozen-path values need not average to zero and are not an independent error source",
+    "global pooling may rationally sacrifice sparse contrasts; oracle risk cannot select deployable scales",
+    "reference shares remain conditioned on; additive-rate, volume, positivity, source robustness and chance valuation remain separate",
+    "no nomination, admission, handoff or automatic next study follows"
+  ],
+  "accounting": {
+    "outer_manifests": 800,
+    "outer_archives": 800,
+    "annual_states": 8000,
+    "annual_designs": 5,
+    "analytic_states": 34,
+    "response_arrays": 10,
+    "new_draws": 0,
+    "fits": 0,
+    "scale_selections": 0,
+    "bootstrap": 0
+  },
+  "resources": {
+    "wall_seconds": 2.7188581249210984,
+    "peak_memory_bytes": 476069888,
+    "process_seconds": 1.955857,
+    "bytes_read": 171678768,
+    "bytes_read_scope": "diagnosis identity hash, diagnosis json and compact diagnosis archive only"
+  }
+}

@@ -36,6 +36,24 @@ export const playerName = (player: PlayerSummary) =>
   player.display_name ?? `player ${player.player_id}`;
 export const teamName = (team: Team) => team.abbreviation ?? `team ${team.id}`;
 
+const normalizedName = (value: string) =>
+  value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
+
+export function matchingPlayers(players: readonly PlayerSummary[], query: string) {
+  const tokens = normalizedName(query).trim().split(/\s+/).filter(Boolean);
+  return players.filter((player) =>
+    tokens.every((token) => normalizedName(playerName(player)).includes(token)),
+  );
+}
+
+export const nameOrder = (a: PlayerSummary, b: PlayerSummary) =>
+  playerName(a).localeCompare(playerName(b), "en") ||
+  a.player_id.length - b.player_id.length ||
+  a.player_id.localeCompare(b.player_id);
+
+export const historySearch = (value: unknown) =>
+  typeof value === "string" && value.startsWith("?") ? value : "";
+
 export function Minutes({ seconds }: { readonly seconds: number }) {
   return (
     <span>
@@ -103,7 +121,7 @@ export function GlobalGap({ coverage }: { readonly coverage: Coverage }) {
           ? "game"
           : "games"}
         . every season summary carries this gap; included results may omit games
-        for this player.
+        for any player.
       </p>
       <details>
         <summary>view every unassigned game</summary>

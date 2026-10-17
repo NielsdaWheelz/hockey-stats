@@ -12,6 +12,7 @@ import {
   LoadError,
   Minutes,
   Quantity,
+  historySearch,
   playerName,
   teamName,
 } from "../presentation";
@@ -24,15 +25,21 @@ export default function Player() {
   const { publication, coverage, player, games } =
     useLoaderData<typeof clientLoader>();
   const location = useLocation();
-  const leagueSearch =
-    typeof location.state?.leagueSearch === "string"
-      ? location.state.leagueSearch
-      : "";
+  const leagueSearch = historySearch(location.state?.leagueSearch);
+  const comparisonSearch = historySearch(location.state?.comparisonSearch);
   const metrics = player.metrics;
   return (
     <>
       <nav className="back-link">
         <Link to={`/${leagueSearch}`}>back to players</Link>
+        {comparisonSearch && (
+          <Link to={`/compare${comparisonSearch}`} state={{ leagueSearch }}>
+            back to comparison
+          </Link>
+        )}
+        <Link to={`/compare?a=${player.player_id}`} state={{ leagueSearch }}>
+          compare this player
+        </Link>
       </nav>
       <section className="player-heading">
         <h2>{playerName(player)}</h2>

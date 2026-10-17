@@ -21,7 +21,7 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 ## private observed results
 
-the localhost-only website shows included 2025–26 regular-season recorded on-ice attempts, matched genuine-5v5 time, rates and coverage. search/sort the league table, open a player, then inspect listed-game evidence. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [contract](docs/specs/05a-observed-website.md) · [verification](docs/research/observed-05a/verification.md)
+the localhost-only website shows the active completed regular season's included recorded on-ice attempts, matched genuine-5v5 time, rates and coverage. search/sort the league table, open a player, inspect listed-game evidence or compare two players. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md)
 
 use node `24.21.0`, pinned in `app/.node-version`. on this mac, explicitly put its installed executable first so npm's children use the same runtime:
 
@@ -36,6 +36,10 @@ npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/
 ```
 
 open `http://127.0.0.1:3000/`. `--port 3001` explicitly chooses another local port. the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
+
+use `compare players` above the league table, or `compare this player` on a profile. each comparison slot has a name search and explicit result buttons; typing does not change the selected player. choose two distinct skaters to see their existing counts, rates, matched minutes and coverage side by side. `clear first player` and `clear second player` repair either selection. a direct `/compare?a=<first-player-id>&b=<second-player-id>` link preserves slot order on reload.
+
+each column describes that player's own included evidence; the players need not share games, teammates, opponents or gaps. attempts for are the player's team's attempts while on ice, not personal shots. the comparison calculates no differences, adjustments or ability estimates. profile links open listed-game evidence with `back to comparison`; `back to players` restores the originating league search/sort. return context lives only in browser history: a copied or new-tab profile link returns to the unfiltered league page.
 
 development uses two terminals, each in `app/` with the pinned node executable first:
 

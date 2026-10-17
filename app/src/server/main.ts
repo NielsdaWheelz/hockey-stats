@@ -52,7 +52,7 @@ try {
       if (path === "/api" || path.startsWith("/api/")) return HttpServerResponse.jsonUnsafe({ message: "api route not found" }, { status: 404 });
       if (values["api-only"] || request.method !== "GET" && request.method !== "HEAD") return HttpServerResponse.text("not found", { status: 404 });
       let filename: string;
-      if (path === "/" || /^\/players\/[^/]+\/?$/.test(path)) filename = resolve(assets, "index.html");
+      if (path === "/" || /^\/compare\/?$/.test(path) || /^\/players\/[^/]+\/?$/.test(path)) filename = resolve(assets, "index.html");
       else if (path.startsWith("/assets/")) {
         const decoded = yield* Effect.try(() => decodeURIComponent(path));
         filename = resolve(assets, `.${decoded}`);

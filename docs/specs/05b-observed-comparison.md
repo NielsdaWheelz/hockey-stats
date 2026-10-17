@@ -1,6 +1,6 @@
 # pr05b — two-player observed comparison
 
-status: **full specification; ready for handoff.** independent statistical, systems and content reviews cleared. docs only; [the plan](../plan.md) owns implementation assignment. confirmed on 2026-10-17: a dedicated comparison page plus a profile shortcut, without league-row selection controls. independent of 04h and model admission. [brief](../brief.md) · [architecture](../architecture.md) · [05a contract](05a-observed-website.md)
+status: **full implementation contract.** independent statistical, systems and content reviews cleared. [the plan](../plan.md) owns assignment and completion; [verification](../research/observed-05b/verification.md) records acceptance. confirmed on 2026-10-17: a dedicated comparison page plus a profile shortcut, without league-row selection controls. independent of 04h and model admission. [brief](../brief.md) · [architecture](../architecture.md) · [05a contract](05a-observed-website.md)
 
 ## target and boundary
 

@@ -16,6 +16,8 @@ import {
   LoadError,
   Minutes,
   Quantity,
+  matchingPlayers,
+  nameOrder,
   playerName,
   teamName,
 } from "../presentation";
@@ -72,16 +74,7 @@ export default function League() {
     if (next.toString() !== search.toString())
       setSearch(next, { replace: true, preventScrollReset: true });
   }, [search, rawSort, setSearch]);
-  const normalized = (value: string) =>
-    value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
-  const tokens = normalized(q).trim().split(/\s+/).filter(Boolean);
-  const players = data.players.filter((player) =>
-    tokens.every((token) => normalized(playerName(player)).includes(token)),
-  );
-  const nameOrder = (a: PlayerSummary, b: PlayerSummary) =>
-    playerName(a).localeCompare(playerName(b), "en") ||
-    a.player_id.length - b.player_id.length ||
-    a.player_id.localeCompare(b.player_id);
+  const players = matchingPlayers(data.players, q);
   const value = (player: PlayerSummary) =>
     sort === "games"
       ? player.games_with_included_time
@@ -153,6 +146,9 @@ export default function League() {
           matched counts and time, with source coverage alongside. rate ordering
           describes recorded results.
         </p>
+        <Link to="/compare" state={{ leagueSearch: location.search }}>
+          compare players
+        </Link>
       </section>
       <GlobalGap coverage={data.coverage} />
       <div className="search-row">

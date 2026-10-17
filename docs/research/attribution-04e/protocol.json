@@ -1,0 +1,356 @@
+{
+  "schema_version": 4,
+  "kind": "attribution_pooling_protocol",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "b86f61fe0dedc516e622efdb05db07b63c503559",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "original_protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/inputs/protocol.json",
+      "sha256": "d1e0cd64c7395527adc2da744380974fab7288900ee32618b9d679dbaf116f56"
+    },
+    "original_result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/assessment/result.json",
+      "sha256": "a87d04c30205eb707b9dbf6ee3fd83f44da73617e12d674a445c228d65c9e747"
+    },
+    "original_prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/prepared.json",
+      "sha256": "59261bd10f874bb0d19146e7f22948a9a6b2dac511e00d73d4842dca8529f724"
+    },
+    "basis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+      "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+    },
+    "spec_snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/spec-snapshot.md",
+      "sha256": "6ce63e7efe31925c7ea3b1566ed85d5459e8da310852ecff19c25a4e19092e69"
+    }
+  },
+  "spec_snapshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/spec-snapshot.md",
+    "sha256": "6ce63e7efe31925c7ea3b1566ed85d5459e8da310852ecff19c25a4e19092e69"
+  },
+  "original_protocol": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/inputs/protocol.json",
+    "sha256": "d1e0cd64c7395527adc2da744380974fab7288900ee32618b9d679dbaf116f56"
+  },
+  "original_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/assessment/result.json",
+    "sha256": "a87d04c30205eb707b9dbf6ee3fd83f44da73617e12d674a445c228d65c9e747"
+  },
+  "original_prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/prepared.json",
+    "sha256": "59261bd10f874bb0d19146e7f22948a9a6b2dac511e00d73d4842dca8529f724"
+  },
+  "basis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+    "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+  },
+  "seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "populations": [
+    "sparse",
+    "diffuse",
+    "null"
+  ],
+  "laws": [
+    "gaussian",
+    "game_pace"
+  ],
+  "representations": [
+    "graph_40ft",
+    "graph_two_band_80ft"
+  ],
+  "source_kind": "synthetic",
+  "annual_rate": 40.0,
+  "seeds": {
+    "design_train": 40600,
+    "design_eval": 40601,
+    "physical_fields": 40602,
+    "activation": 40603,
+    "responses": 40604,
+    "paired_bootstrap": 40605,
+    "bit_generator": "PCG64",
+    "index_base": 0
+  },
+  "bands": {
+    "low": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "high": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "nominal_wavelength_feet": 80,
+    "cutoff": 0.006168502750680848,
+    "ranks": [
+      11,
+      29
+    ]
+  },
+  "truths": {
+    "pair_slots": [
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    ],
+    "role_order": [
+      "offense",
+      "defense"
+    ],
+    "amplitude": 0.1,
+    "lobe_draw_order": [
+      "x1",
+      "y1",
+      "w1",
+      "x2",
+      "y2",
+      "w2"
+    ],
+    "x_bounds": [
+      0,
+      80
+    ],
+    "y_bounds": [
+      -30,
+      30
+    ],
+    "width_bounds": [
+      20,
+      40
+    ],
+    "centering": "separately by role under training u; one compensated native context",
+    "absent": "no truth for carried-only rows",
+    "scalar_effect": 0.0
+  },
+  "criteria": {
+    "recovery_fraction": 0.75,
+    "prediction_gain_cost": 0.01,
+    "interval": [
+      0.025,
+      0.975
+    ],
+    "quantile": "linear",
+    "bootstrap_resamples": 10000,
+    "denominator": 30,
+    "primary_year": 5,
+    "strict_positive": [
+      false,
+      true,
+      true,
+      false
+    ],
+    "null_gate": false
+  },
+  "rank_policy": {
+    "tau": "100*n*eps*lambda_max",
+    "sensitivity": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "null_tolerance": 1e-08
+  },
+  "numerical": {
+    "relative_tolerance": 1e-08,
+    "movement_max": 0.0001,
+    "probe_outer": 0,
+    "probe_years": [
+      1,
+      5
+    ],
+    "refinement": {
+      "xatol": 1e-06,
+      "maxiter": 80
+    },
+    "history_rerun": false
+  },
+  "examples": {
+    "year": 5,
+    "outer": 0,
+    "both_laws": true,
+    "identities": [
+      "sparse_team0_offense_first_active",
+      "sparse_team0_offense_first_inactive",
+      "diffuse_team0_defense_first_pair",
+      "diffuse_team3_offense_inseparable"
+    ]
+  },
+  "figure_contracts": {
+    "recovery_prediction": "all sixteen bounds; adjacent inactive/null absolute risks",
+    "spatial": "actual truth/control/candidate common native scales; low/high regional contributions"
+  },
+  "admission": "not_admitted",
+  "handoff": null,
+  "budgets": {
+    "outer_per_cell": 200,
+    "datasets": 1200,
+    "fitted_histories": 2400,
+    "annual_states": 12000,
+    "volume_updates": 6000,
+    "shape_updates": 18000,
+    "annual_probes": 24,
+    "shape_block_probes": 36,
+    "bootstrap_resamples": 10000,
+    "replacements": 0,
+    "nested_refits": 0
+  },
+  "design": {
+    "name": "paired_direct_research",
+    "games_per_year": 96,
+    "stints_per_game": 50,
+    "train_sha256": "db7168449ff0140df75bb11c83310078e2adc5a1b1b3a9d93bf7c4f0c307b096",
+    "evaluation_sha256": "a64960112c01a3d8f46e872dcc568b6ba538df8381cb6941356ae525e6351b42"
+  },
+  "design_sha256": "dc208c9254b7046a643c123a1561d9e98b53438b567b08e6c553f736e4c83f5e",
+  "basis_sha256": "649a49ecba19de5df609d6980d9de76491afa13e9108df0d8e6500659886cc51",
+  "basis_source": "original_04c",
+  "regions": [
+    "behind_goal_negative_y",
+    "behind_goal_positive_y",
+    "outside_attacking_zone_negative_y",
+    "outside_attacking_zone_positive_y",
+    "in_zone_0_10_negative_y",
+    "in_zone_0_10_positive_y",
+    "in_zone_10_20_negative_y",
+    "in_zone_10_20_positive_y",
+    "in_zone_20_40_negative_y",
+    "in_zone_20_40_positive_y",
+    "in_zone_40_plus_negative_y",
+    "in_zone_40_plus_positive_y"
+  ],
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016",
+  "limitations": [
+    "one additional covariance and scale process; gaussian band independence is a working assumption",
+    "fixed training/evaluation deployment designs and training exposure references limit generalization",
+    "broad physical lobe families do not establish useful recovery for every hockey effect",
+    "slot-based entry/return transitions stress changing player truth",
+    "working player uncertainty is unvalidated; monte carlo intervals concern mean risks only",
+    "additive complete fitted rates may be negative and are never clipped",
+    "synthetic nomination does not establish real-hockey identification, chance valuation or admission",
+    "native pixels and an 80-foot nominal cutoff do not establish native precision",
+    "inseparable player differences remain unsupported by the likelihood despite finite prior estimates"
+  ],
+  "resources": {
+    "wall_seconds": 14.680498250061646,
+    "peak_memory_bytes": 126435328,
+    "process_seconds": 0.5057699999999999
+  }
+}

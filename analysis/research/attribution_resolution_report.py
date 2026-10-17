@@ -254,8 +254,49 @@ def render_reports(output, assessment):
         "prediction is spatial/inverse-share-weighted; positive annual-minus-pooled favors pooling. "
         "the complete [comparison table](comparison.csv) includes every fixed condition, target, signed term, "
         "paired interval and transition partition. [limits and real context](limits-context.md) identify the claim boundaries. "
-        "[the figure](resolution.png) separates fixed curves from adaptive aggregate errors.", "",
-        f"next question: `{question}`. "
+        "[the figure](resolution.png) separates fixed curves from adaptive aggregate errors.", ""])
+    if question == "penalty_selection":
+        nonnull = [row for row in assessment["comparisons"] if row["population"] != "null"
+                   and row["target"] == primary and row["arm"] == "adaptive"]
+        reference_lower = sum(row["adaptive_minus_reference"]["mean"] > 0 for row in nonnull)
+        broad = [row for row in nonnull if row["condition"] == "broad"]
+        broad_recovery = sum(row["annual_minus_pooled"]["mean"] > 0 for row in broad)
+        broad_prediction = sum(row["annual_minus_pooled_prediction"]["mean"] > 0 for row in broad)
+        diffuse_base = {(row["law"], row["arm"]): row for row in assessment["comparisons"]
+                        if row["population"] == "diffuse" and row["condition"] == "base"
+                        and row["target"] == primary}
+        reference_prediction = "/".join(_number(diffuse_base[(law, "fixed_reference")]["prediction_excess"]["mean"])
+                                        for law in ("gaussian", "game_pace"))
+        adaptive_prediction = "/".join(_number(diffuse_base[(law, "adaptive")]["prediction_excess"]["mean"])
+                                       for law in ("gaussian", "game_pace"))
+        lateral_worse = sum(row["annual_minus_pooled"]["mean"] < 0 for row in assessment["comparisons"]
+                            if row["law"] == "game_pace" and row["population"] != "null"
+                            and row["condition"] == "broad" and row["target"] == "lateral_redistribution"
+                            and row["arm"] == "adaptive")
+        null_rms = [row["rms"]["mean"] for row in assessment["comparisons"]
+                    if row["population"] == "null" and row["target"] == primary and row["arm"] == "adaptive"]
+        selected_curves = [row for row in assessment["curves"] if row["population"] != "null"
+                           and row["target"] == primary and row["calibration_selected"]]
+        half_ratios = [row["ratio"]["mean"] for row in selected_curves if row["condition"] == "half_effect"]
+        double_ratios = [row["ratio"]["mean"] for row in selected_curves if row["condition"] == "double_games"]
+        lines.extend([
+            "next question: `penalty_selection`. which observable selection/prior assumptions can improve "
+            "twelve-region recovery at a prospectively justified spatial prediction cost?", "",
+            f"fixed-reference expected recovery risk is below adaptive realized recovery risk in {reference_lower}/{len(nonnull)} "
+            f"non-null base/broad comparisons. eleven-mode adaptive pooling improves mean recovery in {broad_recovery}/{len(broad)} "
+            f"and spatial prediction in {broad_prediction}/{len(broad)}. these contrasts change temporal assumptions, selector "
+            "and sometimes representation; they do not isolate a causal mechanism.", "",
+            f"the region-selected reference has a prediction cost: diffuse/base spatial prediction excess is "
+            f"{reference_prediction} for gaussian/game pace, versus {adaptive_prediction} for training selection "
+            "((attempts/60)^2, inverse-share-weighted). its regional potential is not a free or deployable gain.", "",
+            f"broad lateral mean recovery error increases in {lateral_worse}/2 game-pace cells. adaptive null regional rms remains "
+            f"{_number(min(null_rms))}–{_number(max(null_rms))} attempts/60. fixed half-effect recovery/zero ratios are "
+            f"{_number(min(half_ratios))}–{_number(max(half_ratios))}; independent double-game ratios are "
+            f"{_number(min(double_ratios))}–{_number(max(double_ratios))}. neither condition has adaptive assessment.", "",
+        ])
+    else:
+        lines.extend([f"next question: `{question}`.", ""])
+    lines.extend([
         "no new campaign, narrower supported product claim or admission follows. "
         "constant pooling can bias changing players; eleven modes lose spatial detail; "
         "the finite grid and conditional intervals do not establish universal information limits.", ""])

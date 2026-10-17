@@ -2,6 +2,16 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## approved review after 04g — 2026-10-17
+
+independent statistical, hockey/public-method and systems reviews recommend establishing recoverable player resolution and selection behavior before another estimator campaign. the user approved the direction; [the plan](../plan.md) owns progression, [04h](../specs/04h-attribution-resolution.md) records the full research specification and [05b](../specs/05b-observed-comparison.md) the independent observed-comparison specification. no reviewer claims to speak for micah or to know his private current implementation.
+
+agreement: improved lineup prediction does not establish useful player recovery. the synthetic truths isolate spatial redistribution, so their risk thresholds need an explicit connection to hockey units. statistics favors a five-season attainable-risk reference within a declared family; hockey review requires existing real exposure/deployment context; systems favors shared algebra and a finite decision-sized study. 04d already answers the narrower first-year question. a constant-history reference adds a persistence assumption and cannot establish changing-player performance; truth-informed choices remain diagnostic only.
+
+the useful disagreement concerns cost and reach: a small conditional penalty grid is cheaper, but cannot answer full-history selection. the full spec uses one five-season benchmark and bounded information/resolution conditions. the user chose both noise laws, diagnostic curves without a new absolute gate, and existing transitions; no easier fully persistent population is substituted. analytical fixed-penalty risks avoid new research responses; saved-response fits measure adaptive behavior separately. no automatic large campaign, new prior, real fit or narrower product claim follows. failure within an examined family proves no universal information limit.
+
+content review requires physical magnitudes, contrary conditions and the difference between recoverable potential and a usable estimator. 05b should show existing counts/rates/time/coverage side by side, using the current publication and api. it adds descriptive utility while leaving ability unresolved. no architecture rewrite is indicated. [model direction](model-direction.md#approved-recovery-and-selection-direction--2026-10-17) retains the scientific rationale; the published magnus method motivates scrutiny of penalty meaning and hockey consequences, not copying private constants.
+
 ## approved review after 04e — 2026-10-16
 
 independent statistical, systems and public-method reviews recommend a bounded explanation of 04e's prediction failure before another estimator. the user approved that direction and requested [04f's full specification](../specs/04f-attribution-prediction.md); [the plan](../plan.md) owns assignment and [model direction](model-direction.md#approved-post-04e-diagnosis--2026-10-16) owns the accounting rationale. no new model or scientific support follows.
@@ -15,6 +25,10 @@ the useful disagreement concerns the next remedy: regularization of demonstrated
 the [published magnus 9](https://hockeyviz.com/txt/magnus9EV) uses weighted linear maps and differentiated historical/structural penalties; the [2026–27 preview](https://hockeyviz.com/txt/preview2627) announces later rewrites without supplying their full method there. these support attention to component meaning and prior structure, not a claim about micah's private recommendation or exact current parity.
 
 ## private observed-website specification review — 2026-10-16
+
+2026-10-17 comparison amendment: the user chose [05b](../specs/05b-observed-comparison.md)'s dedicated page plus profile shortcut. statistical, systems and content reviews agree on one league response for both players, distinct included evidence, existing coverage/formatting, and no new metrics or endpoint. explicit route fallback and comparison-derived season metadata are necessary integration changes; another exporter or cache is not.
+
+the selector disagreement was native filtered selects versus bounded native-button results. the specification chooses buttons, separating draft search from committed url selection without keeping filtered-out options alive. cost: up to ten tab stops per result list. product review requires aligned rows, exposure/coverage beside the values and a preserved profile-return path; statistical review forbids interpreting common publication as matched games or ability. one implementation slice and one bounded verification effort suffice. the actual publication lacks several null/zero cases, so explicitly synthetic responses remain necessary for those checks.
 
 source, systems and content reviewers agree on [05a](../specs/05a-observed-website.md): one local table/search → player → game-evidence path, independent of model admission. the user selected localhost only and an effect-4 cutover. python owns matched observed quantities, sqlite carries finalized results, effect owns reads/publication and react presents them. no reviewer attributes these recommendations to a private peer implementation.
 

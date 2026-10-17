@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_deployment_research_content_review",
+  "reviewed_at": "2026-10-17T22:26:12.725852+00:00",
+  "reviewer": "content/fixture agent, independent of cli and numerical arithmetic",
+  "status": "passed",
+  "analysis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017/prepared/analysis/analysis.json",
+    "sha256": "b06c76e4beb8eafa733e7b7b20af93b9c037ad9c0642a8b8709fef27425899c7"
+  },
+  "result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017/prepared/report/result.json",
+    "sha256": "c59f54cdc9256e5dcb198b916f175d90a45b59944dbd2ef3c67abb524c397e3e"
+  },
+  "clean_producer": {
+    "git_commit": "f7e36a9321aca75d92f6bdb01784d914f9312b8f",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "checks": {
+    "summary_rows": 40,
+    "linear_quantiles_independent_formula": true,
+    "all_denominators_unavailable_reasons_and_matched_ratios": true,
+    "summary_maximum_absolute_error": 0.0,
+    "matched_ratio_maximum_absolute_error": 0.0,
+    "complete_exported_contrast_rows": 11740,
+    "available_finite_indexed_rows": 11712,
+    "regional_and_functional_covariance_retained": true,
+    "covariance_to_sd_maximum_absolute_error": 0.0,
+    "annual_geometry_rate_identity": true,
+    "unavailable_values_null": true,
+    "exact_literal_saved_closure_rows": 46,
+    "source_selectors_means_and_original_intervals": true,
+    "scatter_series": 8,
+    "scatter_points_match_saved_contrasts": true,
+    "shared_zero_based_linear_axes": true,
+    "distinct_markers": true,
+    "report_eigh_svd_forbidden": true,
+    "reproduced_png_sha256": "b99e3d5333de52130eeaaf79619a651d6ea01e81058cb2562c65dc3ba81b17ff",
+    "reproduced_png_matches_original": true,
+    "all_report_references_verified": true
+  },
+  "rendered_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017/prepared/report/information.png",
+    "status": "passed",
+    "observations": [
+      "shared axes expose the real low-minute tail and narrower synthetic deployment without clipping any points",
+      "role and temporal labels, distinct design markers, availability denominators, units, context difference, exact final rates and shared reference are legible",
+      "constant physical effects, annual rates and conditional working-noise limitations remain visible; no estimated effects or favorable-result lines"
+    ]
+  },
+  "scientific_facts": {
+    "real_final_current_players": 940,
+    "all_real_annual_individual_contrasts_available": true,
+    "real_nullity_each_design": 2,
+    "synthetic_current_players": 32,
+    "synthetic_available_individuals_per_role": 30,
+    "synthetic_nullity_each_design": 4,
+    "synthetic_inseparable_ids": [
+      26,
+      31
+    ],
+    "synthetic_pair_difference": "not_estimable",
+    "synthetic_pair_mean": "available",
+    "final_near_sd_medians": {
+      "real_annual": 1.5653907889499319,
+      "real_history": 0.5091338250477047,
+      "synthetic_annual": 1.1624133512113888,
+      "synthetic_history": 0.5190541165973406
+    },
+    "lowest_real_minutes_bin": {
+      "minutes": "[0,300)",
+      "players": 264,
+      "annual_median": 3.2554862946212295,
+      "history_median": 1.4863708986819615,
+      "annual_p90": 6.6917189789158735,
+      "history_p90": 4.637365172995067
+    },
+    "no_newly_estimable_final_individuals": true,
+    "interpretation": "observed conditional precision and persistence assumptions; no actual ability, calibrated uncertainty, complete-rate validity or universal bound"
+  },
+  "decision_review": {
+    "required_questions_answered": true,
+    "coverage_and_exposure_limits_visible": true,
+    "one_proposal_only": true,
+    "actual_five_season_design_and_coverage_bound": true,
+    "contrast_exposure_overlap_groups": true,
+    "independent_counting_scale_magnitudes": true,
+    "stable_entry_change_scenarios": true,
+    "noise_assumptions_explicit": true,
+    "one_estimator_question": true,
+    "no_inferred_actual_noise_or_ability": true,
+    "historical_selector_failures_preserved": true
+  },
+  "follow_up": "optional explanation: offense and attempts-allowed precisions coincide because the deployment retains both paired directions; this does not assert equal player ability",
+  "temporary_controller": "one-shot review command; no test/controller file retained; temporary rerender removed"
+}

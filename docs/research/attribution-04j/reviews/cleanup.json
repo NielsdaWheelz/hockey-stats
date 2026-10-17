@@ -1,0 +1,71 @@
+{
+  "kind": "attribution_deployment_cleanup",
+  "schema_version": 1,
+  "status": "complete",
+  "at": "2026-10-17T22:29:16.665648+00:00",
+  "checks": [
+    "temporary red/green/refactor checks deleted after independent acceptance",
+    "retained compact synthetic designs, independent expectations, scientific commands and review receipts",
+    "no bytecode, temporary test controller, test-only dependency or duplicate environment remains",
+    "all production code and locked dependencies are byte-identical to clean research producer",
+    "both historical consumers and deployment import the same shared operator owner",
+    "original checkout head and eight pending documentation paths remain untouched"
+  ],
+  "absent_temporary_tests_and_controllers": [
+    "analysis/tmp_04j_data_math.py",
+    "/tmp/hockey-04j-cli-integration.py",
+    "/tmp/hockey-04j-e2e.py",
+    "/tmp/04j-build-fixture.py",
+    "/tmp/04j-content-check.py",
+    "/tmp/04j-independent-content.py",
+    "/tmp/04j-boundary-check.py",
+    "/tmp/hockey_04j_source_audit.py",
+    "/tmp/hockey_04j_closure_audit.py"
+  ],
+  "removed_after_final_review": [
+    "analysis/research/__pycache__",
+    "analysis/src/hockey_stats/__pycache__",
+    "/tmp/hockey-04j-fixture-analyzed-1",
+    "/tmp/hockey-04j-fixture-reported-1",
+    "/tmp/hockey-04j-fixture-prepared-1",
+    "/tmp/hockey-04j-research-numerical-review.json",
+    "/tmp/hockey-04j-e2e-green.json",
+    "/tmp/hockey-04j-cli-red.txt"
+  ],
+  "producer": "f7e36a9321aca75d92f6bdb01784d914f9312b8f",
+  "production_sha256": {
+    "analysis/research/attribution_deployment.py": "09d2fd27b734a98d8f88c3e248c10b3fe4876d50c6a5171827e25d33ea160617",
+    "analysis/research/attribution_deployment_report.py": "dcb5d5f39eb8f6f4c6ee143f10faa963df594cb30caba807a9f021f97abfc966",
+    "analysis/research/attribution_resolution.py": "7f4f6e9892278e4831f2e7f2991b7ea701803e63a137505e514dab89f8ae552a",
+    "analysis/research/attribution_selection.py": "ec3aed7b74e577d5c946c6a5598c2ad875bf147cdc7091da70f3d0ba66a7d4e2",
+    "analysis/src/hockey_stats/artifacts.py": "a47a9783d324c1d46172a0f7d8fd7d0e94f54e18c6c92ff386c3935c480d1e56",
+    "analysis/src/hockey_stats/attribution_data.py": "e344f1a757419911c614bf2f0ea19ca83041d236894f2d29c8d990a157f94f02",
+    "analysis/src/hockey_stats/attribution_simulation.py": "78de55b6496564311425b1ab55cee3988b11d5047d758843de8f344e2ccf339c",
+    "analysis/pyproject.toml": "8b734aec7f36b506b9b06f47f64d38c4b1b6753b487c7cfc76d8af42a0dff309",
+    "analysis/uv.lock": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "retained_external_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017",
+  "protected": [
+    "all current-project source captures and expensive fits",
+    "prior publications",
+    "main analysis environment",
+    "archived repository reference",
+    "existing frozen absolute-path aliases",
+    "desktop docker"
+  ],
+  "test_only_dependencies_added": [],
+  "retained_permanent_tests": [],
+  "original_checkout_status": [
+    " M docs/brief.md",
+    " M docs/issues/attribution-spatial-recovery.md",
+    " M docs/plan.md",
+    " M docs/research/council.md",
+    " M docs/research/model-direction.md",
+    " M docs/roadmap.md",
+    " M docs/specs/04-player-attribution.md",
+    "?? docs/specs/04j-attribution-deployment.md"
+  ],
+  "task_branch": "codex/04j-attribution-deployment",
+  "task_worktree": "/Users/nnandal/Documents/code/hockey-stats-04j",
+  "task_branch_and_worktree_retained": true
+}

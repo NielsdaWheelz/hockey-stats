@@ -1,6 +1,6 @@
 # pr04j — real-deployment attribution benchmark
 
-status: full specification; implementation and execution require assignment in [the plan](../plan.md). [rationale](../research/model-direction.md#approved-real-deployment-direction--2026-10-17) · [council](../research/council.md#04j-specification-review--2026-10-17) · [recovery issue](../issues/attribution-spatial-recovery.md).
+status: **implemented and bounded execution complete on 2026-10-17** in branch `codex/04j-attribution-deployment`, worktree `/Users/nnandal/Documents/code/hockey-stats-04j`. [decision](../research/attribution-04j/decision.md), [result](../research/attribution-04j/result.json) and [verification](../research/attribution-04j/verification.md) record `complete,verified,diagnosed,nomination:null,admission:not_admitted,handoff:null`. clean producer `f7e36a9` completes the twelve-spectrum information diagnosis and all acceptance checks; the next benchmark is proposed only. [the plan](../plan.md) owns assignment and sequencing. [rationale](../research/model-direction.md#approved-real-deployment-direction--2026-10-17) · [council](../research/council.md#04j-specification-review--2026-10-17) · [recovery issue](../issues/attribution-spatial-recovery.md).
 
 ## target and boundary
 

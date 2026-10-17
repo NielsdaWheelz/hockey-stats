@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04j implementation review — 2026-10-17
+
+source/mathematics, study-command and content/fixture agents implemented [04j](../specs/04j-attribution-deployment.md), with independent cross-review and root review at each boundary. [verification](attribution-04j/verification.md) records the temporary red/green/refactor checks, independently checked fixture algebra, exact original-source reads and their cleanup. the full clean-producer research run reconciles twelve spectra, 11,740 labels, 46 saved closure rows, twelve independent svd probes and every persistence check. rendered content and all table/covariance units pass independent reproduction.
+
+all real annual player/reference contrasts and the final historical target are conditionally estimable; exact synthetic pair inseparability does not describe this real population. real precision remains more heterogeneous, especially below 300 minutes. constant physical history improves working precision without establishing that effects persisted. equal offense/attempts-allowed precision follows paired-design symmetry, not equal ability. the 42/six context difference and unestimated empirical noise remain material limits.
+
+implementation corrections retained full union identity alignment, exact overlap accounting, unavailable values and bound source paths; no fallback, jitter, changed cutoff or source substitution was introduced. accepted costs are rereading frozen originals instead of copying source matrices, explicit dense identity selections, and a complete 9.6 mb contrast table. source evidence, expensive fits, historical verdicts and the observed website remain intact. the resulting actual-deployment benchmark proposal is not an assignment or an admitted estimator.
+
 ## 04j specification review — 2026-10-17
 
 statistical, systems and hockey/content reviewers designed [04j's bounded real-deployment specification](../specs/04j-attribution-deployment.md). the user selected information under the existing working-noise model, without empirical game-noise estimation. the study retains all admitted players, native zero-sum shape and twelve regions; constant physical history is a diagnostic reference against final-season-only information, with identical final exposure centering. [the plan](../plan.md) owns assignment.

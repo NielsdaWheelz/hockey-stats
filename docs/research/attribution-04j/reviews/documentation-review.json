@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_deployment_documentation_review",
+  "reviewed_at": "2026-10-17T22:29:33.522798+00:00",
+  "reviewer": "content/fixture agent, independent of final documentation edits",
+  "status": "passed",
+  "checks": {
+    "frozen_repository_copies_byte_identical_to_external_sources": {
+      "decision.md": "979b297fb4df518514b27ee504f62a16672540888ad11cdeeb3929d013a8acb4",
+      "designs.csv": "d4fa2d30f76d15dfef0f9f648e8de1a855d3499cbd1cee03877898b57b5a7980",
+      "contrasts.csv": "7a46cd40fb4f72d063da1c60fb66fce6c528b329c7c5c2f170ba6693bea5cb3e",
+      "summary.csv": "de146f56ef8f6573aa4a29f9e4d8d31034a83d865631bba6204c072605b0be44",
+      "selector-closure.csv": "3c259fac179c437470295ec1b60859a395ec5a3ca8e4101511ccca5e08368ea8",
+      "information.png": "b99e3d5333de52130eeaaf79619a651d6ea01e81058cb2562c65dc3ba81b17ff",
+      "result.json": "c59f54cdc9256e5dcb198b916f175d90a45b59944dbd2ef3c67abb524c397e3e",
+      "protocol.json": "8ac27e12b36487ad4e59f557083dfebaf8a4126f07c9126269cbde52474ddf5a",
+      "execution-verification.md": "c5e149b9cbe9df68e91bc45d6281c6a082065979ec1cc7b91442de0d0e8819f2"
+    },
+    "current_spec_change": "status line only; scientific and acceptance body unchanged",
+    "historical_04a_through_04i_and_legacy_copies_unchanged": true,
+    "relative_links_checked": 338,
+    "all_relative_link_targets_exist": true,
+    "all_checked_anchors_resolve": true,
+    "new_prose_lowercase_with_exact_identifiers_preserved": true,
+    "current_plan_owns_completion_status": true,
+    "architecture_owners_match_implementation": true,
+    "scientific_claims": "conditional information and fixed working-noise precision only; no actual ability, calibrated uncertainty, recovery or universal limit claim",
+    "next_benchmark": "one independently motivated counting-scale proposal; no subsequent specification, estimator change, fitting, noise estimation, acquisition or publication assigned",
+    "historical_verdicts_preserved": true,
+    "cleanup_receipt_present": true,
+    "numerical_reruns": 0,
+    "code_imports": 0
+  },
+  "findings": [
+    {
+      "problem": "verification called all40 combined report groups real",
+      "resolution": "root corrected to all40 report groups; both designs retained"
+    },
+    {
+      "problem": "recovery issue retained pre-execution arrays/reference equality wording as future work",
+      "resolution": "root explicitly marked original pre-execution requirement and completed verification"
+    }
+  ],
+  "unresolved_findings": [],
+  "reviewed_current_documents": {
+    "docs/architecture.md": "4957171cc8df54a2a9af8e0454be76eff9d0720639499d46d07cd32a575c53e9",
+    "docs/issues/attribution-spatial-recovery.md": "e810a4005e618ecd710945904e12661c5ed9ea40bb0793dde65352ba44d21c00",
+    "docs/plan.md": "fd091599791747a6072b32f19473c1eb24bb82e4759002dd96d221ccf2e38571",
+    "docs/research/council.md": "8af7769622902f981219bef2916c86ca50c6683754eaf4756e904d2e7789662e",
+    "docs/research/model-direction.md": "7e4778acadd14ae997b02d043c6d31d1fce5179187b7971bc3a8af293f0ae319",
+    "docs/roadmap.md": "e2b51d5af747a23ce238bd8d8ca59d99c615f26f9d71d1197a4d061f3290c5de",
+    "docs/specs/04j-attribution-deployment.md": "6c0bf10d47d238bdf80896d1c9a8042286fd8f64a166854d6358907a4ccd046a",
+    "docs/research/attribution-04j/verification.md": "40c13607c472c70bce3a466a23ae0f0f46be766976bb374776ecf8b80cc23975",
+    "docs/research/attribution-04j/reviews/cleanup.json": "a24ebf128231a80a0fcc9c3822fd79cf55bdad912b8542b5d6d84d0798d601a7"
+  },
+  "cleanup": "reviewed root cleanup receipt; retained frozen external sources/results, repository fixtures and evidence; original checkout and production/lock bytes remain protected"
+}

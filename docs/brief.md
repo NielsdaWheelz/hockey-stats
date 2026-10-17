@@ -58,6 +58,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | first comparison resolution, approved 2026-10-14 | meaningful player magnitudes, defensible comparisons and coherent spatial explanations before fine ranking precision | exact quantitative resolution remains a scientific/product specification decision; adjacent ranks need not imply distinguishable ability |
 | 04c research claim, confirmed 2026-10-16 | broad spatial shape first; complete rates and fine-cell behavior remain secondary diagnostics | where attempts are allocated is assessed separately from volume; success would not establish complete player-map accuracy |
 | 04c uncertainty boundary, confirmed 2026-10-16 | full historical refits in simulations; one real five-season point chain only if the pilot supports progression | avoids repeating 200 expensive real histories; new real-player refit intervals remain deferred |
+| 04d diagnosis boundary, confirmed 2026-10-16 | diagnose existing known-truth simulations only | separates controlled information/shrinkage mechanisms; does not establish which real players are estimable |
 
 ## initial product and scope
 

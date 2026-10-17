@@ -12,7 +12,7 @@ inputs for supported chance-valued outputs: a supported chance-study decision an
 
 python owns attribution and scientific assessment under `analysis/src/hockey_stats/`; reuse reconstruction, corpus, reference and numerical primitives. effect serving owns no duplicate hockey calculation. no public refitting, forecast, replacement-level total or generalized player-model framework.
 
-04a's independently specified observed-rate/synthetic populations need not inherit chance exclusions or accepted weights. [04b](04b-attribution-revision.md) tests separate native shape borrowing; [04c](04c-attribution-recovery.md) records the next bounded recovery/uncertainty question. their evidence can inform this model and its tolerances, but recorded-rate associations cannot be relabeled supported opportunity ability. [05a](05a-observed-website.md) serves observed evidence independently; final all-attempt scope, physical-origin limits and ability-release requirements remain.
+04a's independently specified observed-rate/synthetic populations need not inherit chance exclusions or accepted weights. [04b](04b-attribution-revision.md) tests separate native shape borrowing; [04c](04c-attribution-recovery.md) records its bounded recovery/uncertainty question, and [04d](04d-attribution-diagnosis.md) diagnoses known-truth information/shrinkage before another model choice. their evidence can inform this model and its tolerances, but recorded-rate associations cannot be relabeled supported opportunity ability. [05a](05a-observed-website.md) serves observed evidence independently; final all-attempt scope, physical-origin limits and ability-release requirements remain.
 
 ## decisions for the full specification
 

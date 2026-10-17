@@ -1,0 +1,195 @@
+{
+  "status": "verified",
+  "producer": "fbdc47016478fdbed257ae43e43891743df37c47",
+  "result": {
+    "path": "/tmp/hockey-04h-review-20261017/resolution-final/assessment/result.json",
+    "sha256": "b8ebf827708c7d3427903776c9d2ab2dd6f91d91f483582a214bf893ba1b399b"
+  },
+  "checks": {
+    "csv_calibration_flag": 9504,
+    "csv_analytic_null": 9504,
+    "csv_spatial_modes": 12852,
+    "csv_calculation": 10692,
+    "csv_target_label": 12852,
+    "csv_numeric": 38556,
+    "csv_absence_reason": 12852,
+    "csv_selection_variance": 22,
+    "csv_selection_numeric": 262,
+    "csv_selection_interval": 524,
+    "csv_not_run": 20,
+    "csv_not_run_reason": 20,
+    "csv_not_run_numeric": 20,
+    "csv_null_alias": 2,
+    "csv_null_alias_reason": 2,
+    "csv_completeness": 1,
+    "decision_completeness": 1,
+    "decision_numeric": 48,
+    "decision_descriptive_counts": 1,
+    "decision_status_labels": 3,
+    "context_summary_numeric": 4,
+    "context_annual_numeric": 20,
+    "context_quartile_numeric": 6,
+    "source_status_numeric": 47,
+    "context_scope": 2,
+    "figure_axes": 1,
+    "figure_curve_x": 432,
+    "figure_curve_y": 432,
+    "figure_calibration_markers": 24,
+    "figure_calibration_coordinates": 48,
+    "figure_mean_interval": 16,
+    "figure_interval_numeric": 576,
+    "figure_zero_origin": 24,
+    "figure_categorical_points": 6,
+    "figure_categorical_x": 36,
+    "figure_categorical_y": 36,
+    "figure_annual_repeated": 6,
+    "figure_null_no_interval": 8,
+    "figure_meaning_labels": 10,
+    "fixture_no_conclusion": 1
+  },
+  "numeric_and_label_checks": 109473,
+  "csv_rows": 13136,
+  "curve_records": 1188,
+  "comparison_records": 144,
+  "partition_records": 720,
+  "status_counts": [
+    {
+      "population": "sparse",
+      "law": "gaussian",
+      "annual": 5,
+      "final": 1,
+      "statuses": {
+        "resolved": 1,
+        "scale_unresolved": 4
+      },
+      "final_statuses": {
+        "scale_unresolved": 1
+      },
+      "inherited_annual": 3,
+      "inherited_final": 1,
+      "own_reasons": {
+        "endpoint_winner": 3
+      }
+    },
+    {
+      "population": "sparse",
+      "law": "game_pace",
+      "annual": 5,
+      "final": 1,
+      "statuses": {
+        "resolved": 1,
+        "scale_unresolved": 4
+      },
+      "final_statuses": {
+        "scale_unresolved": 1
+      },
+      "inherited_annual": 3,
+      "inherited_final": 1,
+      "own_reasons": {
+        "endpoint_winner": 3
+      }
+    },
+    {
+      "population": "diffuse",
+      "law": "gaussian",
+      "annual": 5,
+      "final": 1,
+      "statuses": {
+        "resolved": 1,
+        "scale_unresolved": 4
+      },
+      "final_statuses": {
+        "scale_unresolved": 1
+      },
+      "inherited_annual": 3,
+      "inherited_final": 1,
+      "own_reasons": {
+        "endpoint_winner": 3
+      }
+    },
+    {
+      "population": "diffuse",
+      "law": "game_pace",
+      "annual": 5,
+      "final": 1,
+      "statuses": {
+        "resolved": 1,
+        "scale_unresolved": 4
+      },
+      "final_statuses": {
+        "scale_unresolved": 1
+      },
+      "inherited_annual": 3,
+      "inherited_final": 1,
+      "own_reasons": {
+        "endpoint_winner": 3
+      }
+    },
+    {
+      "population": "null",
+      "law": "gaussian",
+      "annual": 5,
+      "final": 1,
+      "statuses": {
+        "resolved": 3,
+        "scale_unresolved": 2
+      },
+      "final_statuses": {
+        "scale_unresolved": 1
+      },
+      "inherited_annual": 1,
+      "inherited_final": 1,
+      "own_reasons": {
+        "endpoint_winner": 2
+      }
+    },
+    {
+      "population": "null",
+      "law": "game_pace",
+      "annual": 5,
+      "final": 1,
+      "statuses": {
+        "scale_unresolved": 5
+      },
+      "final_statuses": {
+        "scale_unresolved": 1
+      },
+      "inherited_annual": 4,
+      "inherited_final": 1,
+      "own_reasons": {
+        "endpoint_winner": 3
+      }
+    }
+  ],
+  "exact_completeness": {
+    "nonnull_grid_records": 576,
+    "analytic_null_grid_records": 108,
+    "pooled_point_fits": 12,
+    "annual_control_histories": 6,
+    "annual_control_states": 30,
+    "eigensolve_probes": 12,
+    "new_responses": 0,
+    "new_annual_fits": 0,
+    "cells": 6
+  },
+  "costs": {
+    "fit_wall_seconds": 1.8708460429988918,
+    "fit_process_seconds": 1.8665460000000003,
+    "fit_peak_memory_bytes": 155942912,
+    "fit_output_bytes_before_manifests": 1395452,
+    "run_files": 21,
+    "run_output_bytes": 8104731,
+    "report_files": 4,
+    "report_bytes": 3294451
+  },
+  "visual_review": "verified actual final png: all 30 panels readable; no clipping, label/legend overlap or hidden contrary cells; fixed/adaptive separation and analytic-null alias labels clear",
+  "temporary_script": "/tmp/hockey-04h-review-20261017/study-report-review.py",
+  "owned_temporary_directories": [
+    "/tmp/hockey-04h-review-20261017/resolution-1",
+    "/tmp/hockey-04h-review-20261017/resolution-2",
+    "/tmp/hockey-04h-review-20261017/resolution-3",
+    "/tmp/hockey-04h-review-20261017/resolution-4"
+  ],
+  "bytecode_created": false,
+  "findings": []
+}

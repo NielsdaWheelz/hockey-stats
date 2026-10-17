@@ -1,0 +1,73 @@
+{
+  "kind": "implementation_verification",
+  "study": "04h",
+  "status": "implementation_and_detached_verification_complete_research_blocked",
+  "research_execution_status": "not_run",
+  "research_acceptance_fulfilled": false,
+  "branch": "codex/04h-attribution-resolution",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-04h",
+  "fixture_producer": {
+    "git_commit": "fbdc47016478fdbed257ae43e43891743df37c47",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "later_code_change": "remove two unused imports; imported all affected study modules successfully",
+  "local_pinned_metadata": {
+    "docs/research/attribution-04g/result.json": "84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6",
+    "docs/research/attribution-04g/protocol.json": "9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2",
+    "docs/research/attribution-04a/result.json": "8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac"
+  },
+  "source_originals": "unverified; ordinary selected external reads stalled and were interrupted",
+  "fixture_exact_completeness": {
+    "nonnull_grid_records": 576,
+    "analytic_null_grid_records": 108,
+    "pooled_point_fits": 12,
+    "annual_control_histories": 6,
+    "annual_control_states": 30,
+    "eigensolve_probes": 12,
+    "new_responses": 0,
+    "new_annual_fits": 0,
+    "cells": 6
+  },
+  "fixture_numerical_status": "verified",
+  "fixture_purpose": "fixture_exercise",
+  "fixture_result_historical_identity": {
+    "path": "/tmp/hockey-04h-review-20261017/resolution-final/assessment/result.json",
+    "sha256": "b8ebf827708c7d3427903776c9d2ab2dd6f91d91f483582a214bf893ba1b399b"
+  },
+  "source_fixture_numerical_status": "numerically_unresolved",
+  "fixture_conditional_intervals": "one assessment record; no research conclusion",
+  "reviews": {
+    "source.json": "e67e90f1cc57f4ad0390fbeced7ad2ee4ec222a4e2a4cdb3832de50102062bd7",
+    "source-eigensolve.json": "482250f7b7dc7617d5cab790b4a0c80c2a54474a43cfa6ec55e280d44708861a",
+    "known-law-moments.json": "c842905b8d32097e4b04893ffbfdfeb456b8262e390d5b0bcf24c5c812492af2",
+    "risk-curves.json": "2552fe33db47078d01bc97f5ec5b88688d874fef97e49c62677d7399f1edf6dd",
+    "study-mathematics.json": "606305e60d58e8fb5d2e29f1e5fc0b7e6861da35d780bf958ad51f151456327c",
+    "truth-parity.json": "05994d023bba1945f18ed1d9eb533d21375c03a328c454e70ba15832067a1831",
+    "saved-assessment.json": "a4095722dcf84b18356729ebd7b12dfa8d1caca288c7c86839910cdfd9d3cdf2",
+    "guarded-integration.json": "f375811b3c2afe47204b16b570b9223d96dea71abb545a1a91bc95b20407602b",
+    "cli.json": "a061eb8edd566e41d324af2dbd6880a2b7e7bf833f07fc0489a337a35004e984",
+    "content.json": "417882f7525c425d89a21e70c0dda18ae8de4709ce39dbe38908a3f728e539c7",
+    "extraction-baseline.json": "5e59d8516fa1164b384b7137dc98d605873f59ccf7bf98f15e44a573732f0988",
+    "cleanup.json": "f5efdde21c70e6eb1c3055a06b65930c472c08490cc6904a418c1952e4aad4eb",
+    "documentation.json": "32b71f17e55e097c7563d2b2be4c120aae63aaa9ebde3aac0564708465f9f9a0"
+  },
+  "cleanup": "verified; temporary task tests/controllers/generated fixtures/bytecode removed",
+  "acceptance": {
+    "source_pooling": "verified on explicit fixture with independent direct equations",
+    "risk_algebra": "verified with independent full count covariance",
+    "bounded_research_execution": "blocked; 57600 nonnull/108 null records,1200 pooledfits,600 control histories and12 research probes unexecuted",
+    "research_assessment_and_content": "blocked; fixture reports independently reconciled"
+  },
+  "historical_locator_meaning": "temporary verification paths in closed receipts are historical provenance; their generated outputs and scripts are deleted after verification",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "parallel_primary_change": {
+    "commit": "b62fa983b232f23d8dee6c9736e53690e22d7cc0",
+    "meaning": "primary independently advanced with completed 05b specification; initial drafts no longer byte-identical; no primary files were edited by this task"
+  }
+}

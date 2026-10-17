@@ -1,0 +1,7 @@
+{
+  "status": "verified",
+  "checks": 2592,
+  "maximum_absolute_residual": 4.796163466380676e-14,
+  "cases": "both laws, alpha 1/.5, independent copies 1/2, two/one modes, all18 variances and exactzero",
+  "oracle": "full recorded-count covariance; Kronecker pushforward before independent target contraction"
+}

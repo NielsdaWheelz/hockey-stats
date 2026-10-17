@@ -17,11 +17,11 @@ from hockey_stats.artifacts import (
     artifact, implementation, json_values, linked_path, load_arrays,
     ordered_array_digest, read_artifact, require, resources, write_arrays, write_json,
 )
-from hockey_stats.chance_cli import identity, output_path, read_json
+from hockey_stats.chance_cli import identity, output_path
 from hockey_stats.captures import InputContractError
 from hockey_stats.attribution_data import POOLING_STAT_FIELDS as STAT_FIELDS
 from hockey_stats.attribution_prediction import current_player_rows, deployment_gram, prediction_loss
-from hockey_stats.attribution_simulation import PAIR_SLOTS, paired_truths, shape_regions, synthetic_rosters, truth_digest
+from hockey_stats.attribution_simulation import PAIR_SLOTS, paired_truths, shape_regions, truth_digest
 from hockey_stats.shot_origins import grid
 
 SPEC = Path(__file__).resolve().parents[2] / "docs/specs/04e-attribution-pooling.md"

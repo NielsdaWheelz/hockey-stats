@@ -2,6 +2,16 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04i specification review — 2026-10-17
+
+statistical, source/systems and hockey/content reviewers recommend one observable regional-error selector within 04h's unchanged eleven-mode pooled family. the user selected that representation, saved summaries with a gaussian working assumption, developmental improvement subject to 99% predictive-gain retention, and contrary diagnostics without additional vetoes. [04i](../specs/04i-attribution-selection.md) owns the exact contract; [the plan](../plan.md) owns assignment.
+
+the key statistical correction is to use a noisy final-season native-region reference, not pooled historical least squares or projected truth. its covariance correction is exact for each fixed candidate under the working gaussian law; minimization introduces selection, and non-null game pace generally violates that covariance assumption. exact-null shape covariance agrees while higher moments may differ. realized independent-record assessment remains necessary. no reviewer claims this is micah's private method.
+
+the main alternative was reconstructing discarded per-game responses for clustered-noise estimation or validation. that adds a second modeling question and source work; the chosen boundary tests the selector under explicit misspecification instead. systems requires a numeric-only selector interface because ordinary source objects carry population/law labels, shared fixed-grid execution, and 600 saved-control replays rather than reopening 3,000 historical fits. content requires the prediction cost and every contrary lateral/null/transition result beside the regional benefit. a strict prediction budget can leave the outcome unresolved; diagnostics are not permission to claim uniform recovery or real-player support.
+
+final review cleared the formula, source/assessment boundaries, artifact contracts and content after making non-null-only criteria, whole-record uncertainty, the positive prediction-gain anchor and score-versus-zero baseline explicit. no material preference remains unresolved; execution is still separately assigned.
+
 ## approved review after 04g — 2026-10-17
 
 independent statistical, hockey/public-method and systems reviews recommend establishing recoverable player resolution and selection behavior before another estimator campaign. the user approved the direction; [the plan](../plan.md) owns progression, [04h](../specs/04h-attribution-resolution.md) records the full research specification and [05b](../specs/05b-observed-comparison.md) the independent observed-comparison specification. no reviewer claims to speak for micah or to know his private current implementation.

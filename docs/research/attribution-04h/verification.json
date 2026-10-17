@@ -53,7 +53,8 @@
     "content.json": "417882f7525c425d89a21e70c0dda18ae8de4709ce39dbe38908a3f728e539c7",
     "extraction-baseline.json": "5e59d8516fa1164b384b7137dc98d605873f59ccf7bf98f15e44a573732f0988",
     "cleanup.json": "f5efdde21c70e6eb1c3055a06b65930c472c08490cc6904a418c1952e4aad4eb",
-    "documentation.json": "32b71f17e55e097c7563d2b2be4c120aae63aaa9ebde3aac0564708465f9f9a0"
+    "documentation.json": "96ab338dc8c9d731bc06132858b1252e33f641b28d39f189bb7b06caf328880d",
+    "research-preflight.json": "3149b3da7e3fc110574e4f10316a7e475f500e366ae7665c0223f86e03d906f1"
   },
   "cleanup": "verified; temporary task tests/controllers/generated fixtures/bytecode removed",
   "acceptance": {
@@ -69,5 +70,6 @@
   "parallel_primary_change": {
     "commit": "b62fa983b232f23d8dee6c9736e53690e22d7cc0",
     "meaning": "primary independently advanced with completed 05b specification; initial drafts no longer byte-identical; no primary files were edited by this task"
-  }
+  },
+  "final_research_prepare": "attempted on clean merged branch; interrupted while opening pinned external prepared metadata before output creation"
 }

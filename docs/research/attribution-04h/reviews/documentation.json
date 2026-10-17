@@ -1,6 +1,6 @@
 {
   "status": "verified",
-  "relative_links": 88,
+  "relative_links": 90,
   "links": [
     {
       "document": "docs/plan.md",
@@ -332,6 +332,10 @@
     },
     {
       "document": "docs/issues/04h-research-inputs.md",
+      "target": "../research/attribution-04h/reviews/research-preflight.json"
+    },
+    {
+      "document": "docs/issues/04h-research-inputs.md",
       "target": "../research/attribution-04h/verification.md"
     },
     {
@@ -353,6 +357,10 @@
     {
       "document": "docs/research/attribution-04h/verification.md",
       "target": "verification.json"
+    },
+    {
+      "document": "docs/research/attribution-04h/verification.md",
+      "target": "reviews/research-preflight.json"
     }
   ],
   "primary_change": {
@@ -361,5 +369,10 @@
   },
   "primary_worktree_status": "",
   "lockfile_and_dependencies_unchanged": true,
-  "research_claim": "no completed research artifact; assignment remains open"
+  "research_claim": "no completed research artifact; assignment remains open",
+  "concurrent_main_merged": "b62fa983b232f23d8dee6c9736e53690e22d7cc0",
+  "merge_commit": "08c31b5",
+  "concurrent_specifications_preserved": true,
+  "final_preflight": "blocked on pinned external prepared open; interrupted; no research outputs",
+  "temporary_paths_removed": true
 }

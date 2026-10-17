@@ -1,0 +1,21 @@
+{
+  "status": "blocked_on_selected_external_input",
+  "purpose": "research",
+  "producer": "08c31b52fa0fdef07110e52c49323b68bbc6a5e1",
+  "selected_input": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/prepared.json",
+    "sha256": "94cea5d922f21a3bb67a64504cb84e84b8ad07a09ede509a53ce4c448db7f6f7"
+  },
+  "operation": "ordinary rb open in linked_path before reading named 04g prepared metadata",
+  "observed_running_at": "2026-10-17 15:14:11 UTC",
+  "interrupted_at": "2026-10-17 15:14:55 UTC",
+  "manual_interrupt": true,
+  "terminal_exit_code": 1,
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/research/attribution_resolution.py\", line 870, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/research/attribution_resolution.py\", line 860, in main\n    reference = {\"prepare\": prepare, \"fit\": fit, \"assess\": assess}[command](**arguments)\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/research/attribution_resolution.py\", line 182, in prepare\n    source = _source(source_result, purpose)\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/research/attribution_resolution.py\", line 152, in _source\n    source = read_regularization_source_slice(reference, CELLS, _split(purpose)[\"assessment\"])\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/src/hockey_stats/attribution_data.py\", line 310, in read_regularization_source_slice\n    prepared = _read_selected_artifact(result[\"prepared\"], \"attribution_regularization_prepared\", 5)\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/src/hockey_stats/attribution_data.py\", line 277, in _read_selected_artifact\n    document = read_json(linked_path(reference))\n                         ~~~~~~~~~~~^^^^^^^^^^^\n  File \"/Users/nnandal/Documents/code/hockey-stats-04h/analysis/src/hockey_stats/artifacts.py\", line 117, in linked_path\n    with path.open(\"rb\") as source:\n         ~~~~~~~~~^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.8_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py\", line 771, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyboardInterrupt\n",
+  "research_output_directory_created": false,
+  "research_result_created": false,
+  "source_evidence_modified": false,
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null
+}

@@ -52,7 +52,7 @@ the guarded final pipeline completed in about 3.49 seconds. fixture intervals ha
 
 ## research execution
 
-the committed 04g result/protocol sha256 values are `84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6` and `9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2`; the 04a contextual result is `8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac`. these local metadata digests pass. external basis/design/operators, six fit manifests, selected statistic/control originals and the assessment reference remain unverified in this execution. ordinary reads stalled and were interrupted. no source was modified and no research run directory was created.
+the committed 04g result/protocol sha256 values are `84bb4d034bb2213ce8b1cf0cf91fe54713fa7ba797e684f329838b16d05266a6` and `9e8266d1b0f7883d284e677be1e607f3cd8593264c3a5e95e9909acbfb3b8ef2`; the 04a contextual result is `8b1f9bfd2ba48acf81f7c23db97d5e37c81bc2e17cec86666f0aece4551a49ac`. these local metadata digests pass. external basis/design/operators, six fit manifests, selected statistic/control originals and the assessment reference remain unverified in this execution. ordinary reads stalled and were interrupted. no source was modified and no research run directory was created. the final [research preflight](reviews/research-preflight.json) on clean merged branch `08c31b5` locates the block at opening the pinned 04g prepared metadata. the concurrent 05b specification is incorporated without changing the reviewed numerical code or closing the research assignment.
 
 once those files are readable, invoke the existing cli from this worktree with the existing environment:
 

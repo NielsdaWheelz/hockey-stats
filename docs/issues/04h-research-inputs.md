@@ -8,6 +8,7 @@ evidence, 2026-10-17:
 
 - an ordinary read of `/Volumes/Expansion/hockey-stats/runs/attribution-04g-20261017/independent-diffuse-game_pace-000-200/fit.json` did not return after more than ten minutes and was interrupted. its expected sha256 is `c4181ad60710eda3a7861e31ee84c691a00a2467dd870cf13be7ff7ce4c0124f`.
 - independent source/numerical readers also stalled on the named external prepared/basis files. paths exist; that does not verify their contents. the committed 04g result/protocol and 04a contextual result retain the specification's pinned digests locally.
+- the final research `prepare` command on clean merged branch `08c31b5` was interrupted while opening the pinned 04g `prepared.json`, before creating an output directory. the [preflight receipt](../research/attribution-04h/reviews/research-preflight.json) retains the located traceback and producer.
 - the detached six-cell fixture pipeline passes while external-drive access is forbidden. this establishes software behavior, not research acceptance. [verification](../research/attribution-04h/verification.md) records its scope.
 
 resolution: restore ordinary access to the selected originals, run 04h's existing `prepare`, six `fit` commands and `assess` from a clean identified producer, then independently verify the entire research inventory, probes, two full assessment cells and reports. preserve the source evidence and expensive fits. delete this issue only after the research execution and its acceptance checks finish.

@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "method": "production selected readers versus root independent source audit; original training rows directly residualized",
+  "real_statistics_digests": "all five exact matches",
+  "synthetic_reconstruction": [
+    {
+      "season": "20212022",
+      "H": 4.501998773775995e-11,
+      "xbar": 4.85722573273506e-15,
+      "stratum_weight": 2.2168933355715126e-11
+    },
+    {
+      "season": "20222023",
+      "H": 4.672529030358419e-11,
+      "xbar": 4.6629367034256575e-15,
+      "stratum_weight": 2.2168933355715126e-11
+    },
+    {
+      "season": "20232024",
+      "H": 4.75210981676355e-11,
+      "xbar": 4.6629367034256575e-15,
+      "stratum_weight": 2.2168933355715126e-11
+    },
+    {
+      "season": "20242025",
+      "H": 4.0472514228895307e-11,
+      "xbar": 4.801714581503802e-15,
+      "stratum_weight": 2.2168933355715126e-11
+    },
+    {
+      "season": "20252026",
+      "H": 3.745981302927248e-11,
+      "xbar": 4.801714581503802e-15,
+      "stratum_weight": 2.2168933355715126e-11
+    }
+  ],
+  "archive_members_decoded": 68,
+  "unselected_members_decoded": 0,
+  "real_union": 1477,
+  "synthetic_union": 34,
+  "integer_seconds_residual_max": 4.132743924856186e-09,
+  "wall_seconds": 0.8222627080031089
+}

@@ -1,0 +1,74 @@
+{
+  "boundary": "prepare/analyze/report cli and source rejection",
+  "checks": [
+    "fixture command pipeline, schema1 producer/source/report bindings",
+    "8 spectra,224 labeled contrasts,208 distinct calculations,8 absent cases",
+    "individual nonestimability vs available pair mean; duplicate labels reuse arithmetic",
+    "all12 independent svd probes and numerical/persistence checks",
+    "finite npz axes and explicit available-row indices",
+    "all report hashes and no scientific nomination"
+  ],
+  "negative_checks": [
+    {
+      "case": "wrong_axes",
+      "reason": "deployment rows changed paired direction, integral duration, player or context axes"
+    },
+    {
+      "case": "missing_archive",
+      "reason": "missing bound fixture archive stops before prepared/result publication"
+    },
+    {
+      "case": "wrong_archive_hash",
+      "reason": "linked artifact digest mismatch before prepared/result publication"
+    },
+    {
+      "case": "duplicate_ids",
+      "reason": "deployment rows changed paired direction, integral duration, player or context axes"
+    },
+    {
+      "case": "asymmetric_rows",
+      "reason": "deployment rows changed paired direction, integral duration, player or context axes"
+    },
+    {
+      "case": "different_p",
+      "reason": "annual native spatial references differ; substitution is forbidden"
+    },
+    {
+      "case": "mutually_exclusive_fixture_and_research",
+      "reason": "fixture input and three research parents are mutually exclusive"
+    },
+    {
+      "case": "missing_research_parent",
+      "reason": "fixture input and three research parents are mutually exclusive"
+    }
+  ],
+  "status": "green",
+  "red": {
+    "temporary_check": "/tmp/hockey-04j-cli-integration.py",
+    "observed": "ModuleNotFoundError: No module named 'attribution_deployment'"
+  },
+  "selector_closure": {
+    "rows": 46,
+    "source_04h": 24,
+    "source_04i": 22,
+    "verification": "every saved mean and interval endpoint exactly matches its bound csv source row"
+  },
+  "refactor": [
+    "shared schema-1 artifact primitives instead of a parallel writer",
+    "one batched arithmetic owner for scalar and batched contrasts",
+    "full union dimension for historical gauge removal",
+    "one reduced svd per final real annual/history target, with all three absolute cutoff masks",
+    "canonical member ordering for duplicate-case count; history exposure explicit",
+    "selected originals reopened instead of redundant source-array copies; unique full-archive input bytes recorded",
+    "historical context/coverage/mask/reconstruction metadata keyed by season, final-target entry/return scope explicit",
+    "output containment compares canonical filesystem paths while retaining original bound prepared references"
+  ],
+  "independent_review": {
+    "source_and_mathematics": "data_math cross-review found no blocking issue after fixture contract correction",
+    "content": "content_review matched all 216 non-absent fixture contrasts to augmented-row generalized least squares and 40 summary groups; historical metadata finding fixed, repeated pipeline green"
+  },
+  "green_after_refactor": true,
+  "temporary_checks_deleted": true,
+  "green_after_metadata_review": true,
+  "deletion": "the two temporary cli controllers and owned bytecode were deleted after repeated green and independent source/math/content review; compact receipts and retained synthetic fixture remain"
+}

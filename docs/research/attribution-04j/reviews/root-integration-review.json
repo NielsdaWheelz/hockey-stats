@@ -1,0 +1,39 @@
+{
+  "boundary": "independent implementation review before bounded research",
+  "reviewer": "root",
+  "status": "passed",
+  "verified": [
+    "read all shared/study/report code and relevant specification/ownership contracts",
+    "independently checked all ten original designs and exact common p without production source readers",
+    "independently reran six temporary source/math integration checks",
+    "113 scalar historical parity cases at atol/rtol1e-12; old operators exact for both consumers",
+    "independent saved closure extraction:46rows with exact source line selection",
+    "fixture first rendered four-panel figure inspected; shared axes, distinct markers, availability and semantic captions legible",
+    "fixture counts8spectra/144annual+48historical individuals/224labels/208distinct/8absent;216 nonabsent direct GLS expectations reviewed"
+  ],
+  "resolved_findings": [
+    "historical SVD must remove known gauges in full union dimension",
+    "prediction excess units retain squared physical units and inverse-share weighting",
+    "newly estimable counts exclude annual numerical uncertainty",
+    "each fixture CSV labels both designs synthetic; fixture closure has only a typed nonnumeric status row",
+    "within20ft functional explicitly means in front of goal",
+    "historical strata/coverage/masks stay season-keyed",
+    "canonical output containment retains bound alias references"
+  ],
+  "evidence": [
+    "root-source-accounting.json",
+    "root-shared-parity.json",
+    "root-closure-selection.json",
+    "data-math-integration.json",
+    "data-math-live-sources.json",
+    "data-math-cli-review.json",
+    "study-cli-integration.json"
+  ],
+  "tradeoffs": [
+    "preparation freezes source references without copying original matrices; analysis rereads and hashes the frozen originals",
+    "dense identity selections favor an explicit physical-history contract; indexed information accumulation avoids cubic embedding",
+    "aggregate floating sums use the existing relative equality; per-overlap integer tolerance and integer exposure identities stay strict",
+    "conditional native-shape information costs all-player matrix analysis while leaving real noise and false persistence unresolved"
+  ],
+  "final_metadata_green": "study-cli-integration.json records final green after per-season historical metadata and canonical alias containment fixes"
+}

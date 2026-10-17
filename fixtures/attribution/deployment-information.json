@@ -1,0 +1,3521 @@
+{
+  "kind": "attribution_deployment_fixture",
+  "schema_version": 1,
+  "purpose": "fixture_exercise",
+  "description": "both real and synthetic design labels are synthetic; explicit paired training rows and independent full nuisance gls expectations",
+  "arrays": {
+    "path": "deployment-information.npz",
+    "sha256": "bbf725b61b1a374e48cd60d893452479415a85fa7824946f483aaac4859c87c1"
+  },
+  "array_shapes": [
+    {
+      "name": "real_0_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_xbar",
+      "shape": [
+        2,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_stratum_weight",
+      "shape": [
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_p",
+      "shape": [
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_0_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_0_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_0_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_0_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_1_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_xbar",
+      "shape": [
+        2,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_stratum_weight",
+      "shape": [
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_p",
+      "shape": [
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_1_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_1_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_1_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_1_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_2_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_xbar",
+      "shape": [
+        2,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_stratum_weight",
+      "shape": [
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_p",
+      "shape": [
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_2_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_2_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "real_2_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "real_2_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_0_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_xbar",
+      "shape": [
+        4,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_stratum_weight",
+      "shape": [
+        4
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_p",
+      "shape": [
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_0_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_0_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_0_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_0_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_1_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_xbar",
+      "shape": [
+        4,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_stratum_weight",
+      "shape": [
+        4
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_p",
+      "shape": [
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_1_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_1_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_1_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_1_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_2_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_xbar",
+      "shape": [
+        4,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_stratum_weight",
+      "shape": [
+        4
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_p",
+      "shape": [
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_2_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_2_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "synthetic_2_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "synthetic_2_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    }
+  ],
+  "seasons": [
+    "20302031",
+    "20312032",
+    "20322033"
+  ],
+  "designs": {
+    "real": [
+      {
+        "season": "20302031",
+        "player_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "strata": [
+          [
+            "away"
+          ],
+          [
+            "home"
+          ]
+        ],
+        "r": 31.0,
+        "prefix": "real_0",
+        "description": "explicit paired synthetic training rows; both fixture design labels are synthetic"
+      },
+      {
+        "season": "20312032",
+        "player_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          13,
+          14
+        ],
+        "strata": [
+          [
+            "away"
+          ],
+          [
+            "home"
+          ]
+        ],
+        "r": 47.0,
+        "prefix": "real_1",
+        "description": "explicit paired synthetic training rows; both fixture design labels are synthetic"
+      },
+      {
+        "season": "20322033",
+        "player_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13
+        ],
+        "strata": [
+          [
+            "away"
+          ],
+          [
+            "home"
+          ]
+        ],
+        "r": 38.0,
+        "prefix": "real_2",
+        "description": "explicit paired synthetic training rows; both fixture design labels are synthetic"
+      }
+    ],
+    "synthetic": [
+      {
+        "season": "20302031",
+        "player_ids": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112
+        ],
+        "strata": [
+          [
+            "early",
+            "away"
+          ],
+          [
+            "early",
+            "home"
+          ],
+          [
+            "late",
+            "away"
+          ],
+          [
+            "late",
+            "home"
+          ]
+        ],
+        "r": 29.0,
+        "prefix": "synthetic_0",
+        "description": "explicit paired synthetic training rows; both fixture design labels are synthetic"
+      },
+      {
+        "season": "20312032",
+        "player_ids": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          113,
+          114
+        ],
+        "strata": [
+          [
+            "early",
+            "away"
+          ],
+          [
+            "early",
+            "home"
+          ],
+          [
+            "late",
+            "away"
+          ],
+          [
+            "late",
+            "home"
+          ]
+        ],
+        "r": 43.0,
+        "prefix": "synthetic_1",
+        "description": "explicit paired synthetic training rows; both fixture design labels are synthetic"
+      },
+      {
+        "season": "20322033",
+        "player_ids": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          111,
+          112,
+          113
+        ],
+        "strata": [
+          [
+            "early",
+            "away"
+          ],
+          [
+            "early",
+            "home"
+          ],
+          [
+            "late",
+            "away"
+          ],
+          [
+            "late",
+            "home"
+          ]
+        ],
+        "r": 37.0,
+        "prefix": "synthetic_2",
+        "description": "explicit paired synthetic training rows; both fixture design labels are synthetic"
+      }
+    ]
+  },
+  "cases": {
+    "real": [
+      {
+        "label": "inseparable_difference",
+        "members": [
+          1,
+          2
+        ],
+        "coefficients": [
+          1.0,
+          -1.0
+        ]
+      },
+      {
+        "label": "inseparable_mean",
+        "members": [
+          1,
+          2
+        ],
+        "coefficients": [
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "label": "duplicate_mean_label",
+        "members": [
+          1,
+          2
+        ],
+        "coefficients": [
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "label": "absent_final_member",
+        "members": [
+          1,
+          14
+        ],
+        "coefficients": [
+          1.0,
+          -1.0
+        ]
+      }
+    ],
+    "synthetic": [
+      {
+        "label": "inseparable_difference",
+        "members": [
+          101,
+          102
+        ],
+        "coefficients": [
+          1.0,
+          -1.0
+        ]
+      },
+      {
+        "label": "inseparable_mean",
+        "members": [
+          101,
+          102
+        ],
+        "coefficients": [
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "label": "duplicate_mean_label",
+        "members": [
+          101,
+          102
+        ],
+        "coefficients": [
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "label": "absent_final_member",
+        "members": [
+          101,
+          114
+        ],
+        "coefficients": [
+          1.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "expected_inventory": {
+    "spectra": 8,
+    "annual_player_contrasts": 144,
+    "historical_player_contrasts": 48,
+    "case_labels": 32,
+    "contrast_rows": 224,
+    "distinct_calculations": 208,
+    "absent_case_labels": 8,
+    "current_players_per_season": 12,
+    "union_players_per_design": 14
+  },
+  "expected_designs": [
+    {
+      "design": "real",
+      "season": "20302031",
+      "current_players": 12,
+      "rows": 96,
+      "context_count": 2,
+      "exposure_seconds": [
+        8839.0,
+        8839.0,
+        6976.0,
+        7185.0,
+        6819.0,
+        7486.0,
+        6735.0,
+        6640.0,
+        6609.0,
+        7285.0,
+        7766.0,
+        7211.0
+      ],
+      "directed_team_seconds": 17678.0,
+      "physical_elapsed_seconds": 8839.0,
+      "first_observed_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "return_after_absence_ids": [],
+      "information_rank": 18,
+      "inseparable_ids": [
+        1,
+        2
+      ],
+      "strongest_partner_ids": [
+        2,
+        1,
+        6,
+        10,
+        11,
+        3,
+        4,
+        10,
+        1,
+        11,
+        10,
+        6
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20312032",
+      "current_players": 12,
+      "rows": 96,
+      "context_count": 2,
+      "exposure_seconds": [
+        7889.0,
+        7889.0,
+        6745.0,
+        6706.0,
+        6887.0,
+        7511.0,
+        6723.0,
+        6208.0,
+        7292.0,
+        6739.0,
+        7184.0,
+        6707.0
+      ],
+      "directed_team_seconds": 16896.0,
+      "physical_elapsed_seconds": 8448.0,
+      "first_observed_ids": [
+        13,
+        14
+      ],
+      "return_after_absence_ids": [],
+      "information_rank": 20,
+      "inseparable_ids": [
+        1,
+        2
+      ],
+      "strongest_partner_ids": [
+        2,
+        1,
+        6,
+        13,
+        6,
+        5,
+        10,
+        4,
+        14,
+        7,
+        4,
+        9
+      ]
+    },
+    {
+      "design": "real",
+      "season": "20322033",
+      "current_players": 12,
+      "rows": 96,
+      "context_count": 2,
+      "exposure_seconds": [
+        8025.0,
+        8025.0,
+        7112.0,
+        6998.0,
+        6680.0,
+        8223.0,
+        6745.0,
+        6314.0,
+        6949.0,
+        8217.0,
+        6258.0,
+        7004.0
+      ],
+      "directed_team_seconds": 17310.0,
+      "physical_elapsed_seconds": 8655.0,
+      "first_observed_ids": [],
+      "return_after_absence_ids": [
+        11,
+        12
+      ],
+      "information_rank": 20,
+      "inseparable_ids": [
+        1,
+        2
+      ],
+      "strongest_partner_ids": [
+        2,
+        1,
+        9,
+        13,
+        6,
+        11,
+        3,
+        6,
+        3,
+        6,
+        9,
+        11
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20302031",
+      "current_players": 12,
+      "rows": 96,
+      "context_count": 4,
+      "exposure_seconds": [
+        7962.0,
+        7962.0,
+        6529.0,
+        6530.0,
+        7210.0,
+        6408.0,
+        6289.0,
+        6654.0,
+        6887.0,
+        6250.0,
+        7155.0,
+        6724.0
+      ],
+      "directed_team_seconds": 16512.0,
+      "physical_elapsed_seconds": 8256.0,
+      "first_observed_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "return_after_absence_ids": [],
+      "information_rank": 20,
+      "inseparable_ids": [
+        101,
+        102
+      ],
+      "strongest_partner_ids": [
+        102,
+        101,
+        108,
+        105,
+        109,
+        107,
+        106,
+        103,
+        105,
+        101,
+        101,
+        109
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20312032",
+      "current_players": 12,
+      "rows": 96,
+      "context_count": 4,
+      "exposure_seconds": [
+        8332.0,
+        8332.0,
+        7452.0,
+        7247.0,
+        7824.0,
+        7283.0,
+        7210.0,
+        6514.0,
+        7715.0,
+        7725.0,
+        7327.0,
+        7649.0
+      ],
+      "directed_team_seconds": 18122.0,
+      "physical_elapsed_seconds": 9061.0,
+      "first_observed_ids": [
+        113,
+        114
+      ],
+      "return_after_absence_ids": [],
+      "information_rank": 20,
+      "inseparable_ids": [
+        101,
+        102
+      ],
+      "strongest_partner_ids": [
+        102,
+        101,
+        110,
+        105,
+        110,
+        107,
+        106,
+        114,
+        107,
+        114,
+        103,
+        110
+      ]
+    },
+    {
+      "design": "synthetic",
+      "season": "20322033",
+      "current_players": 12,
+      "rows": 96,
+      "context_count": 4,
+      "exposure_seconds": [
+        8323.0,
+        8323.0,
+        7221.0,
+        7089.0,
+        6984.0,
+        6724.0,
+        7081.0,
+        6768.0,
+        6879.0,
+        7025.0,
+        6751.0,
+        7532.0
+      ],
+      "directed_team_seconds": 17340.0,
+      "physical_elapsed_seconds": 8670.0,
+      "first_observed_ids": [],
+      "return_after_absence_ids": [
+        111,
+        112
+      ],
+      "information_rank": 20,
+      "inseparable_ids": [
+        101,
+        102
+      ],
+      "strongest_partner_ids": [
+        102,
+        101,
+        108,
+        105,
+        113,
+        107,
+        109,
+        103,
+        112,
+        108,
+        113,
+        112
+      ]
+    }
+  ],
+  "independent_oracle": {
+    "method": "full explicit-row physical gls with separate context columns, then svd of sqrt(e/r)*[Z,X]; no production information pooling or contrast helper",
+    "near_definition": "euclidean distance <20 feet from (89,0), center x<=89",
+    "lateral_definition": "region weight -.5 negative-y,+.5 positive-y with original center-line half allocation",
+    "functional_covariance": [
+      [
+        0.05712802445603317,
+        0.0058634506019582845
+      ],
+      [
+        0.00586345060195829,
+        0.22618261241397694
+      ]
+    ],
+    "count_to_shape_covariance_max_absolute_residual": 1.691355389077387e-17,
+    "absolute_tolerance": 1e-10,
+    "relative_tolerance": 1e-08,
+    "contrasts": [
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:3",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:4",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:5",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:6",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:7",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:8",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:9",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:10",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:11",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:12",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:3",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:4",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:5",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:6",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:7",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:8",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:9",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:10",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:11",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:12",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:3",
+        "status": "available",
+        "q": 69.58632301709095,
+        "near_sd": 1.993822751180705,
+        "lateral_sd": 3.9672681190320986
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:4",
+        "status": "available",
+        "q": 78.99467081516744,
+        "near_sd": 2.124337422874524,
+        "lateral_sd": 4.226963568775665
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:5",
+        "status": "available",
+        "q": 78.59130163229779,
+        "near_sd": 2.11890674681105,
+        "lateral_sd": 4.216157719560306
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:6",
+        "status": "available",
+        "q": 109.49018173722098,
+        "near_sd": 2.5009913594371884,
+        "lateral_sd": 4.976421941415915
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:7",
+        "status": "available",
+        "q": 72.54881933613605,
+        "near_sd": 2.0358218795589935,
+        "lateral_sd": 4.050837133852322
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:8",
+        "status": "available",
+        "q": 69.25534713214665,
+        "near_sd": 1.9890754547468381,
+        "lateral_sd": 3.9578220447596877
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:9",
+        "status": "available",
+        "q": 99.64786592352361,
+        "near_sd": 2.385934978466633,
+        "lateral_sd": 4.747485085396296
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:10",
+        "status": "available",
+        "q": 80.33500508832982,
+        "near_sd": 2.1422838596604454,
+        "lateral_sd": 4.262673025129721
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:13",
+        "status": "available",
+        "q": 90.31205876275392,
+        "near_sd": 2.2714201508468905,
+        "lateral_sd": 4.519625801263229
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:14",
+        "status": "available",
+        "q": 75.3226043482678,
+        "near_sd": 2.0743749861825735,
+        "lateral_sd": 4.127549324395239
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:3",
+        "status": "available",
+        "q": 69.586323017091,
+        "near_sd": 1.9938227511807058,
+        "lateral_sd": 3.9672681190321
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:4",
+        "status": "available",
+        "q": 78.99467081516744,
+        "near_sd": 2.124337422874524,
+        "lateral_sd": 4.226963568775665
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:5",
+        "status": "available",
+        "q": 78.59130163229781,
+        "near_sd": 2.1189067468110503,
+        "lateral_sd": 4.216157719560307
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:6",
+        "status": "available",
+        "q": 109.49018173722094,
+        "near_sd": 2.500991359437188,
+        "lateral_sd": 4.976421941415914
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:7",
+        "status": "available",
+        "q": 72.54881933613615,
+        "near_sd": 2.035821879558995,
+        "lateral_sd": 4.050837133852324
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:8",
+        "status": "available",
+        "q": 69.25534713214687,
+        "near_sd": 1.989075454746841,
+        "lateral_sd": 3.957822044759694
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:9",
+        "status": "available",
+        "q": 99.64786592352354,
+        "near_sd": 2.385934978466632,
+        "lateral_sd": 4.747485085396295
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:10",
+        "status": "available",
+        "q": 80.33500508832975,
+        "near_sd": 2.1422838596604445,
+        "lateral_sd": 4.262673025129719
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:13",
+        "status": "available",
+        "q": 90.31205876275392,
+        "near_sd": 2.2714201508468905,
+        "lateral_sd": 4.519625801263229
+      },
+      {
+        "design": "real",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:14",
+        "status": "available",
+        "q": 75.32260434826777,
+        "near_sd": 2.0743749861825735,
+        "lateral_sd": 4.127549324395238
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:3",
+        "status": "available",
+        "q": 62.3476959637333,
+        "near_sd": 1.8872733505757655,
+        "lateral_sd": 3.7552582802078427
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:4",
+        "status": "available",
+        "q": 65.70850809590974,
+        "near_sd": 1.9374718726919844,
+        "lateral_sd": 3.8551422825828126
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:5",
+        "status": "available",
+        "q": 64.16338945141463,
+        "near_sd": 1.9145567846795237,
+        "lateral_sd": 3.8095463046741367
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:6",
+        "status": "available",
+        "q": 153.35370154288557,
+        "near_sd": 2.9598638502750725,
+        "lateral_sd": 5.889477127752784
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:7",
+        "status": "available",
+        "q": 58.83874342212053,
+        "near_sd": 1.833396076460611,
+        "lateral_sd": 3.6480543716302973
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:8",
+        "status": "available",
+        "q": 51.86980001015559,
+        "near_sd": 1.7214003611913524,
+        "lateral_sd": 3.4252075662195303
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:9",
+        "status": "available",
+        "q": 66.7463777313019,
+        "near_sd": 1.9527131636227177,
+        "lateral_sd": 3.8854690945156105
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:11",
+        "status": "available",
+        "q": 157.28510873715916,
+        "near_sd": 2.997563600410551,
+        "lateral_sd": 5.964491326843144
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:12",
+        "status": "available",
+        "q": 56.737136680075466,
+        "near_sd": 1.8003556681457826,
+        "lateral_sd": 3.582311236504771
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:13",
+        "status": "available",
+        "q": 65.05732741146903,
+        "near_sd": 1.9278476577277988,
+        "lateral_sd": 3.8359922146163825
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:3",
+        "status": "available",
+        "q": 62.34769596373327,
+        "near_sd": 1.887273350575765,
+        "lateral_sd": 3.755258280207842
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:4",
+        "status": "available",
+        "q": 65.70850809590968,
+        "near_sd": 1.9374718726919835,
+        "lateral_sd": 3.8551422825828108
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:5",
+        "status": "available",
+        "q": 64.16338945141463,
+        "near_sd": 1.9145567846795237,
+        "lateral_sd": 3.8095463046741367
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:6",
+        "status": "available",
+        "q": 153.35370154288535,
+        "near_sd": 2.9598638502750707,
+        "lateral_sd": 5.88947712775278
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:7",
+        "status": "available",
+        "q": 58.838743422120515,
+        "near_sd": 1.8333960764606108,
+        "lateral_sd": 3.648054371630297
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:8",
+        "status": "available",
+        "q": 51.869800010155636,
+        "near_sd": 1.721400361191353,
+        "lateral_sd": 3.425207566219532
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:9",
+        "status": "available",
+        "q": 66.74637773130196,
+        "near_sd": 1.9527131636227186,
+        "lateral_sd": 3.8854690945156127
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:11",
+        "status": "available",
+        "q": 157.28510873715925,
+        "near_sd": 2.997563600410552,
+        "lateral_sd": 5.964491326843146
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:12",
+        "status": "available",
+        "q": 56.73713668007546,
+        "near_sd": 1.8003556681457826,
+        "lateral_sd": 3.582311236504771
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:13",
+        "status": "available",
+        "q": 65.05732741146898,
+        "near_sd": 1.9278476577277979,
+        "lateral_sd": 3.8359922146163807
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:3",
+        "status": "available",
+        "q": 17.73116670213994,
+        "near_sd": 1.00645244547065,
+        "lateral_sd": 2.002618687078929
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:4",
+        "status": "available",
+        "q": 21.401349524075307,
+        "near_sd": 1.1057200454922973,
+        "lateral_sd": 2.200139346618749
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:5",
+        "status": "available",
+        "q": 19.11890363565877,
+        "near_sd": 1.0450957824383638,
+        "lateral_sd": 2.079510416132697
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:6",
+        "status": "available",
+        "q": 28.329402916017074,
+        "near_sd": 1.2721646208769684,
+        "lateral_sd": 2.5313273908510685
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:7",
+        "status": "available",
+        "q": 17.84979463426784,
+        "near_sd": 1.0098135988397179,
+        "lateral_sd": 2.009306641961771
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:8",
+        "status": "available",
+        "q": 16.748209224661014,
+        "near_sd": 0.978157505814475,
+        "lateral_sd": 1.9463179893557208
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:9",
+        "status": "available",
+        "q": 20.38528428990064,
+        "near_sd": 1.0791529175499794,
+        "lateral_sd": 2.1472766136414116
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:11",
+        "status": "available",
+        "q": 43.79108198010555,
+        "near_sd": 1.581675694418936,
+        "lateral_sd": 3.147186254846526
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:12",
+        "status": "available",
+        "q": 23.41912012908757,
+        "near_sd": 1.156671114653294,
+        "lateral_sd": 2.3015207518581664
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:13",
+        "status": "available",
+        "q": 32.82463558164769,
+        "near_sd": 1.3693818255945804,
+        "lateral_sd": 2.7247682153522446
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:1",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:2",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:3",
+        "status": "available",
+        "q": 17.731166702139948,
+        "near_sd": 1.00645244547065,
+        "lateral_sd": 2.002618687078929
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:4",
+        "status": "available",
+        "q": 21.40134952407529,
+        "near_sd": 1.1057200454922969,
+        "lateral_sd": 2.200139346618748
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:5",
+        "status": "available",
+        "q": 19.11890363565877,
+        "near_sd": 1.0450957824383638,
+        "lateral_sd": 2.079510416132697
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:6",
+        "status": "available",
+        "q": 28.329402916017095,
+        "near_sd": 1.272164620876969,
+        "lateral_sd": 2.5313273908510694
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:7",
+        "status": "available",
+        "q": 17.84979463426784,
+        "near_sd": 1.0098135988397179,
+        "lateral_sd": 2.009306641961771
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:8",
+        "status": "available",
+        "q": 16.748209224661,
+        "near_sd": 0.9781575058144746,
+        "lateral_sd": 1.9463179893557199
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:9",
+        "status": "available",
+        "q": 20.385284289900646,
+        "near_sd": 1.0791529175499794,
+        "lateral_sd": 2.147276613641412
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:11",
+        "status": "available",
+        "q": 43.79108198010558,
+        "near_sd": 1.5816756944189365,
+        "lateral_sd": 3.1471862548465275
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:12",
+        "status": "available",
+        "q": 23.41912012908757,
+        "near_sd": 1.156671114653294,
+        "lateral_sd": 2.3015207518581664
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:13",
+        "status": "available",
+        "q": 32.824635581647726,
+        "near_sd": 1.369381825594581,
+        "lateral_sd": 2.724768215352246
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 47.730248326355586,
+        "near_sd": 1.6512827721745837,
+        "lateral_sd": 3.28568900805036
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 24.863875140128318,
+        "near_sd": 1.1918154500915843,
+        "lateral_sd": 2.3714502385521734
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 47.730248326355586,
+        "near_sd": 1.6512827721745837,
+        "lateral_sd": 3.28568900805036
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 24.863875140128318,
+        "near_sd": 1.1918154500915843,
+        "lateral_sd": 2.3714502385521734
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 47.730248326355586,
+        "near_sd": 1.6512827721745837,
+        "lateral_sd": 3.28568900805036
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 24.863875140128336,
+        "near_sd": 1.1918154500915847,
+        "lateral_sd": 2.3714502385521743
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 47.730248326355586,
+        "near_sd": 1.6512827721745837,
+        "lateral_sd": 3.28568900805036
+      },
+      {
+        "design": "real",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 24.863875140128336,
+        "near_sd": 1.1918154500915847,
+        "lateral_sd": 2.3714502385521743
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:103",
+        "status": "available",
+        "q": 43.96370431818152,
+        "near_sd": 1.5847900729960687,
+        "lateral_sd": 3.1533831822475897
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:104",
+        "status": "available",
+        "q": 57.8537374753798,
+        "near_sd": 1.817985074021902,
+        "lateral_sd": 3.617389871176979
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:105",
+        "status": "available",
+        "q": 68.17720974189875,
+        "near_sd": 1.973532190129995,
+        "lateral_sd": 3.926894371703713
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:106",
+        "status": "available",
+        "q": 50.43900025735893,
+        "near_sd": 1.69749239769734,
+        "lateral_sd": 3.3776359847915374
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:107",
+        "status": "available",
+        "q": 50.76136101523182,
+        "near_sd": 1.702908181171167,
+        "lateral_sd": 3.388412201033714
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:108",
+        "status": "available",
+        "q": 54.80980969076466,
+        "near_sd": 1.769512969278419,
+        "lateral_sd": 3.520941059116165
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:109",
+        "status": "available",
+        "q": 55.53807836913316,
+        "near_sd": 1.7812301084680007,
+        "lateral_sd": 3.544255585307403
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:110",
+        "status": "available",
+        "q": 47.544235160039946,
+        "near_sd": 1.6480619615069556,
+        "lateral_sd": 3.2792803042317518
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:111",
+        "status": "available",
+        "q": 75.63451930101824,
+        "near_sd": 2.078665598009666,
+        "lateral_sd": 4.136086696888699
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:112",
+        "status": "available",
+        "q": 49.46343083140785,
+        "near_sd": 1.6809961588938782,
+        "lateral_sd": 3.3448121030045734
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:103",
+        "status": "available",
+        "q": 43.963704318181556,
+        "near_sd": 1.5847900729960696,
+        "lateral_sd": 3.153383182247591
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:104",
+        "status": "available",
+        "q": 57.853737475379695,
+        "near_sd": 1.8179850740219001,
+        "lateral_sd": 3.617389871176976
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:105",
+        "status": "available",
+        "q": 68.1772097418987,
+        "near_sd": 1.973532190129994,
+        "lateral_sd": 3.9268943717037113
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:106",
+        "status": "available",
+        "q": 50.439000257358856,
+        "near_sd": 1.6974923976973388,
+        "lateral_sd": 3.3776359847915347
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:107",
+        "status": "available",
+        "q": 50.761361015231834,
+        "near_sd": 1.7029081811711673,
+        "lateral_sd": 3.3884122010337143
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:108",
+        "status": "available",
+        "q": 54.809809690764546,
+        "near_sd": 1.7695129692784173,
+        "lateral_sd": 3.520941059116161
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:109",
+        "status": "available",
+        "q": 55.53807836913327,
+        "near_sd": 1.7812301084680024,
+        "lateral_sd": 3.5442555853074063
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:110",
+        "status": "available",
+        "q": 47.544235160039776,
+        "near_sd": 1.6480619615069527,
+        "lateral_sd": 3.279280304231746
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:111",
+        "status": "available",
+        "q": 75.63451930101817,
+        "near_sd": 2.078665598009665,
+        "lateral_sd": 4.136086696888697
+      },
+      {
+        "design": "synthetic",
+        "season": "20302031",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:112",
+        "status": "available",
+        "q": 49.46343083140766,
+        "near_sd": 1.680996158893875,
+        "lateral_sd": 3.344812103004567
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:103",
+        "status": "available",
+        "q": 69.73415710619297,
+        "near_sd": 1.9959395363045072,
+        "lateral_sd": 3.971480055189176
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:104",
+        "status": "available",
+        "q": 76.71916073542745,
+        "near_sd": 2.0935171579759837,
+        "lateral_sd": 4.165638030043751
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:105",
+        "status": "available",
+        "q": 84.56523841249144,
+        "near_sd": 2.197963832313691,
+        "lateral_sd": 4.373463906738926
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:106",
+        "status": "available",
+        "q": 74.24045150210303,
+        "near_sd": 2.0594199010981433,
+        "lateral_sd": 4.097791999057398
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:107",
+        "status": "available",
+        "q": 65.92997599791401,
+        "near_sd": 1.9407342118885087,
+        "lateral_sd": 3.861633619026925
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:108",
+        "status": "available",
+        "q": 59.41496943565188,
+        "near_sd": 1.842351710986364,
+        "lateral_sd": 3.6658741117845732
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:109",
+        "status": "available",
+        "q": 84.79695812829368,
+        "near_sd": 2.2009731251767666,
+        "lateral_sd": 4.379451736715006
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:110",
+        "status": "available",
+        "q": 79.24639095168803,
+        "near_sd": 2.1277193800735095,
+        "lateral_sd": 4.233692918697829
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:113",
+        "status": "available",
+        "q": 73.01800042566018,
+        "near_sd": 2.042394211225579,
+        "lateral_sd": 4.063914626258861
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:114",
+        "status": "available",
+        "q": 80.82136706011983,
+        "near_sd": 2.1487589520419825,
+        "lateral_sd": 4.2755570327767645
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:103",
+        "status": "available",
+        "q": 69.73415710619288,
+        "near_sd": 1.9959395363045058,
+        "lateral_sd": 3.971480055189174
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:104",
+        "status": "available",
+        "q": 76.7191607354273,
+        "near_sd": 2.0935171579759815,
+        "lateral_sd": 4.165638030043747
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:105",
+        "status": "available",
+        "q": 84.56523841249141,
+        "near_sd": 2.1979638323136905,
+        "lateral_sd": 4.373463906738925
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:106",
+        "status": "available",
+        "q": 74.24045150210316,
+        "near_sd": 2.059419901098145,
+        "lateral_sd": 4.0977919990574
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:107",
+        "status": "available",
+        "q": 65.92997599791401,
+        "near_sd": 1.9407342118885087,
+        "lateral_sd": 3.861633619026925
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:108",
+        "status": "available",
+        "q": 59.41496943565189,
+        "near_sd": 1.8423517109863645,
+        "lateral_sd": 3.6658741117845737
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:109",
+        "status": "available",
+        "q": 84.79695812829368,
+        "near_sd": 2.2009731251767666,
+        "lateral_sd": 4.379451736715006
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:110",
+        "status": "available",
+        "q": 79.246390951688,
+        "near_sd": 2.127719380073509,
+        "lateral_sd": 4.2336929186978285
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:113",
+        "status": "available",
+        "q": 73.0180004256602,
+        "near_sd": 2.0423942112255795,
+        "lateral_sd": 4.063914626258862
+      },
+      {
+        "design": "synthetic",
+        "season": "20312032",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:114",
+        "status": "available",
+        "q": 80.82136706011973,
+        "near_sd": 2.148758952041981,
+        "lateral_sd": 4.275557032776761
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:103",
+        "status": "available",
+        "q": 67.0721597480555,
+        "near_sd": 1.9574728561096009,
+        "lateral_sd": 3.8949398342031913
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:104",
+        "status": "available",
+        "q": 74.18070004476981,
+        "near_sd": 2.058590985680077,
+        "lateral_sd": 4.096142639950866
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:105",
+        "status": "available",
+        "q": 63.93434688617088,
+        "near_sd": 1.9111365551665005,
+        "lateral_sd": 3.8027408012768293
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:106",
+        "status": "available",
+        "q": 58.63298557705644,
+        "near_sd": 1.8301875952962636,
+        "lateral_sd": 3.641670200807544
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:107",
+        "status": "available",
+        "q": 57.36699946019277,
+        "near_sd": 1.8103213383626493,
+        "lateral_sd": 3.6021407252157163
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:108",
+        "status": "available",
+        "q": 62.392080534093175,
+        "near_sd": 1.8879449945945104,
+        "lateral_sd": 3.75659470387004
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:109",
+        "status": "available",
+        "q": 67.75284900223278,
+        "near_sd": 1.9673805973337941,
+        "lateral_sd": 3.914654056978052
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:111",
+        "status": "available",
+        "q": 72.77034644688398,
+        "near_sd": 2.0389276915799623,
+        "lateral_sd": 4.057017015693474
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:112",
+        "status": "available",
+        "q": 60.11450759020348,
+        "near_sd": 1.8531656860020735,
+        "lateral_sd": 3.687391540199124
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "player:113",
+        "status": "available",
+        "q": 80.19069770526758,
+        "near_sd": 2.1403588810414225,
+        "lateral_sd": 4.258842741670198
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:103",
+        "status": "available",
+        "q": 67.07215974805544,
+        "near_sd": 1.9574728561096,
+        "lateral_sd": 3.8949398342031896
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:104",
+        "status": "available",
+        "q": 74.18070004476967,
+        "near_sd": 2.058590985680075,
+        "lateral_sd": 4.0961426399508625
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:105",
+        "status": "available",
+        "q": 63.93434688617085,
+        "near_sd": 1.9111365551664998,
+        "lateral_sd": 3.8027408012768285
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:106",
+        "status": "available",
+        "q": 58.63298557705644,
+        "near_sd": 1.8301875952962636,
+        "lateral_sd": 3.641670200807544
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:107",
+        "status": "available",
+        "q": 57.36699946019281,
+        "near_sd": 1.81032133836265,
+        "lateral_sd": 3.602140725215717
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:108",
+        "status": "available",
+        "q": 62.392080534093175,
+        "near_sd": 1.8879449945945104,
+        "lateral_sd": 3.75659470387004
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:109",
+        "status": "available",
+        "q": 67.75284900223267,
+        "near_sd": 1.9673805973337926,
+        "lateral_sd": 3.9146540569780486
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:111",
+        "status": "available",
+        "q": 72.77034644688389,
+        "near_sd": 2.0389276915799615,
+        "lateral_sd": 4.0570170156934715
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:112",
+        "status": "available",
+        "q": 60.114507590203466,
+        "near_sd": 1.8531656860020733,
+        "lateral_sd": 3.687391540199124
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "player:113",
+        "status": "available",
+        "q": 80.19069770526761,
+        "near_sd": 2.1403588810414225,
+        "lateral_sd": 4.258842741670199
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:103",
+        "status": "available",
+        "q": 18.234938913913787,
+        "near_sd": 1.020649810771715,
+        "lateral_sd": 2.030868316941871
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:104",
+        "status": "available",
+        "q": 21.626405254931445,
+        "near_sd": 1.1115186945345579,
+        "lateral_sd": 2.211677381012826
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:105",
+        "status": "available",
+        "q": 22.062721596381767,
+        "near_sd": 1.1226752419665933,
+        "lateral_sd": 2.2338764530814803
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:106",
+        "status": "available",
+        "q": 18.1143717982009,
+        "near_sd": 1.0172700109082635,
+        "lateral_sd": 2.024143259642249
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:107",
+        "status": "available",
+        "q": 17.904567127195488,
+        "near_sd": 1.0113617299053348,
+        "lateral_sd": 2.012387081793781
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:108",
+        "status": "available",
+        "q": 18.14435874452215,
+        "near_sd": 1.0181116687751401,
+        "lateral_sd": 2.025817973415284
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:109",
+        "status": "available",
+        "q": 20.628568776634204,
+        "near_sd": 1.0855732962653977,
+        "lateral_sd": 2.160051753144012
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:111",
+        "status": "available",
+        "q": 30.013365098096163,
+        "near_sd": 1.3094289806369377,
+        "lateral_sd": 2.6054752589924677
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:112",
+        "status": "available",
+        "q": 25.021309765225276,
+        "near_sd": 1.1955827015266536,
+        "lateral_sd": 2.3789462391399274
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "player:113",
+        "status": "available",
+        "q": 33.47574161082444,
+        "near_sd": 1.3828965924562204,
+        "lateral_sd": 2.751659624668637
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:101",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:102",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:103",
+        "status": "available",
+        "q": 18.23493891391374,
+        "near_sd": 1.0206498107717137,
+        "lateral_sd": 2.030868316941868
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:104",
+        "status": "available",
+        "q": 21.626405254931413,
+        "near_sd": 1.111518694534557,
+        "lateral_sd": 2.2116773810128243
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:105",
+        "status": "available",
+        "q": 22.06272159638175,
+        "near_sd": 1.1226752419665929,
+        "lateral_sd": 2.2338764530814794
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:106",
+        "status": "available",
+        "q": 18.114371798200892,
+        "near_sd": 1.0172700109082633,
+        "lateral_sd": 2.0241432596422486
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:107",
+        "status": "available",
+        "q": 17.904567127195474,
+        "near_sd": 1.0113617299053344,
+        "lateral_sd": 2.01238708179378
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:108",
+        "status": "available",
+        "q": 18.14435874452215,
+        "near_sd": 1.0181116687751401,
+        "lateral_sd": 2.025817973415284
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:109",
+        "status": "available",
+        "q": 20.628568776634204,
+        "near_sd": 1.0855732962653977,
+        "lateral_sd": 2.160051753144012
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:111",
+        "status": "available",
+        "q": 30.013365098096173,
+        "near_sd": 1.309428980636938,
+        "lateral_sd": 2.605475258992468
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:112",
+        "status": "available",
+        "q": 25.02130976522527,
+        "near_sd": 1.1955827015266534,
+        "lateral_sd": 2.378946239139927
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "player:113",
+        "status": "available",
+        "q": 33.47574161082442,
+        "near_sd": 1.38289659245622,
+        "lateral_sd": 2.7516596246686365
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 75.96214254255514,
+        "near_sd": 2.0831627725417348,
+        "lateral_sd": 4.145035083667932
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 19.212831535708812,
+        "near_sd": 1.0476598254403087,
+        "lateral_sd": 2.084612296955062
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "offense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 75.96214254255514,
+        "near_sd": 2.0831627725417348,
+        "lateral_sd": 4.145035083667932
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "offense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 19.212831535708812,
+        "near_sd": 1.0476598254403087,
+        "lateral_sd": 2.084612296955062
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "inseparable_difference",
+        "status": "not_estimable",
+        "q": null,
+        "near_sd": null,
+        "lateral_sd": null
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 75.96214254255496,
+        "near_sd": 2.0831627725417325,
+        "lateral_sd": 4.145035083667927
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "inseparable_mean",
+        "status": "available",
+        "q": 19.212831535708812,
+        "near_sd": 1.0476598254403087,
+        "lateral_sd": 2.084612296955062
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "annual",
+        "role": "defense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 75.96214254255496,
+        "near_sd": 2.0831627725417325,
+        "lateral_sd": 4.145035083667927
+      },
+      {
+        "design": "synthetic",
+        "season": "20322033",
+        "assumption": "constant_history",
+        "role": "defense",
+        "label": "duplicate_mean_label",
+        "status": "available",
+        "q": 19.212831535708812,
+        "near_sd": 1.0476598254403087,
+        "lateral_sd": 2.084612296955062
+      }
+    ]
+  },
+  "checked_facts": [
+    "each interval retains both directed attacks with identical integral seconds",
+    "roles share exposures and same-team overlap; opponent overlap is symmetric with zero diagonal",
+    "first two identities always move together, so individual/reference and pair difference are unavailable; final pair mean is available",
+    "season two introduces ids 13/14; season three returns ids 11/12 and retains id14 as history-only nuisance",
+    "nonuniform 656-cell reference is exactly shared across all six entries",
+    "varying annual rates require physical e/r information, never a final-rate rescaling of summed H",
+    "absent-final case remains unavailable and duplicate-mean labels reuse one calculation"
+  ]
+}

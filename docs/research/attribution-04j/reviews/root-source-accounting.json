@@ -1,0 +1,240 @@
+{
+  "kind": "independent_04j_source_accounting",
+  "status": "passed",
+  "method": "direct selected archive reads; no production readers, eigensolves, responses, truth or evaluation members",
+  "real": [
+    {
+      "season": "20212022",
+      "players": 1003,
+      "contexts": 42,
+      "row_count": 698940,
+      "r": 41.70845581877918,
+      "physical_seconds": 3758950,
+      "directed_seconds": 7517900,
+      "exposure_sum": 37589500,
+      "max_integer_residual": 3.4779077395796776e-09,
+      "max_pair": [
+        8476885,
+        8480817
+      ],
+      "max_shared_seconds": 75134,
+      "selected_statistics_digest": "c3c9c9331d32b3fd486983cece9f16946796f5d02a563075cd3ddb8d961554fd"
+    },
+    {
+      "season": "20222023",
+      "players": 951,
+      "contexts": 42,
+      "row_count": 881742,
+      "r": 41.94727099385311,
+      "physical_seconds": 3773938,
+      "directed_seconds": 7547876,
+      "exposure_sum": 37739380,
+      "max_integer_residual": 4.0745362639427185e-09,
+      "max_pair": [
+        8476457,
+        8478407
+      ],
+      "max_shared_seconds": 81846,
+      "selected_statistics_digest": "dbcd8d2f16e4022f4b3c1d58955370fa7098e0d1d7fbe092743c62fb9f342603"
+    },
+    {
+      "season": "20232024",
+      "players": 924,
+      "contexts": 42,
+      "row_count": 864050,
+      "r": 42.17476420252795,
+      "physical_seconds": 3703390,
+      "directed_seconds": 7406780,
+      "exposure_sum": 37033900,
+      "max_integer_residual": 4.132743924856186e-09,
+      "max_pair": [
+        8475181,
+        8476892
+      ],
+      "max_shared_seconds": 75382,
+      "selected_statistics_digest": "062df5e94a0ad4fc3dc5ae575d1d8d812bef582bd360412be1fb0661c97b846c"
+    },
+    {
+      "season": "20242025",
+      "players": 910,
+      "contexts": 42,
+      "row_count": 857462,
+      "r": 41.367292979989884,
+      "physical_seconds": 3658499,
+      "directed_seconds": 7316998,
+      "exposure_sum": 36584990,
+      "max_integer_residual": 4.118192009627819e-09,
+      "max_pair": [
+        8476331,
+        8477504
+      ],
+      "max_shared_seconds": 70975,
+      "selected_statistics_digest": "c351f086a22ef5b2b2320bf55a053440f7d68a7ffb9050274b9dde7631d16d33"
+    },
+    {
+      "season": "20252026",
+      "players": 940,
+      "contexts": 42,
+      "row_count": 881612,
+      "r": 40.97895462965676,
+      "physical_seconds": 3787959,
+      "directed_seconds": 7575918,
+      "exposure_sum": 37879590,
+      "max_integer_residual": 4.1254679672420025e-09,
+      "max_pair": [
+        8476460,
+        8478398
+      ],
+      "max_shared_seconds": 72948,
+      "selected_statistics_digest": "99cfcd8c1ec68d122845e3855a626ed9505029ab2f170209526570a9cfd476c5"
+    }
+  ],
+  "real_union": 1477,
+  "synthetic": [
+    {
+      "season": "20212022",
+      "players": 32,
+      "contexts": 6,
+      "rows": 9600,
+      "games": 96,
+      "exposure_sum": 1425600,
+      "directed_seconds": 285120,
+      "r": 40,
+      "max_integer_residual": 3.9726728573441505e-09,
+      "H_digest": "c199b63343f5454a0d4c553fefb80a1f9e26e62f9915af0bd887247c97f1fb27",
+      "xbar_digest": "625555f08c1655dad2cf9d3e1b9459a78ad787b842d4cdd540ee0ef1f8838f4e",
+      "stratum_weight_digest": "bad21c0770734cb06729d10e65914a3824d732d3c8f0228d4fb1815cb1afaf6c"
+    },
+    {
+      "season": "20222023",
+      "players": 32,
+      "contexts": 6,
+      "rows": 9600,
+      "games": 96,
+      "exposure_sum": 1425600,
+      "directed_seconds": 285120,
+      "r": 40,
+      "max_integer_residual": 4.198227543383837e-09,
+      "H_digest": "14564f3764761b3c3146962476ff0f42b44a10c3f1d3a7f56cb7a9e537278213",
+      "xbar_digest": "4e681bb5f91f4e8972619ca6530ddc0bb1e5b20f17046758566d4b4009f8f9fc",
+      "stratum_weight_digest": "bad21c0770734cb06729d10e65914a3824d732d3c8f0228d4fb1815cb1afaf6c"
+    },
+    {
+      "season": "20232024",
+      "players": 32,
+      "contexts": 6,
+      "rows": 9600,
+      "games": 96,
+      "exposure_sum": 1425600,
+      "directed_seconds": 285120,
+      "r": 40,
+      "max_integer_residual": 4.20550350099802e-09,
+      "H_digest": "215ef19a11453547b922a3ad7c0c344f0144974dbc7e73bdeb99d04bbed659e6",
+      "xbar_digest": "1ca449031c648f3a37fe9e06be691e399d40ab9473bdf98c8806ed33df2eaa38",
+      "stratum_weight_digest": "bad21c0770734cb06729d10e65914a3824d732d3c8f0228d4fb1815cb1afaf6c"
+    },
+    {
+      "season": "20242025",
+      "players": 32,
+      "contexts": 6,
+      "rows": 9600,
+      "games": 96,
+      "exposure_sum": 1425600,
+      "directed_seconds": 285120,
+      "r": 40,
+      "max_integer_residual": 3.7834979593753815e-09,
+      "H_digest": "a054ace535b92cab2bfdc64ff53d631e075d1a32b22a8671a92593b2651f8ba3",
+      "xbar_digest": "311106fe6b9fd910725bfa889708c5cd7df1402d6a223bc86a88c950e4a45f3f",
+      "stratum_weight_digest": "bad21c0770734cb06729d10e65914a3824d732d3c8f0228d4fb1815cb1afaf6c"
+    },
+    {
+      "season": "20252026",
+      "players": 32,
+      "contexts": 6,
+      "rows": 9600,
+      "games": 96,
+      "exposure_sum": 1425600,
+      "directed_seconds": 285120,
+      "r": 40,
+      "max_integer_residual": 3.41970007866621e-09,
+      "H_digest": "3b03e357206cd26e2deb2b258a681d6a1d56153b67cca6817aff9fbcf21d3523",
+      "xbar_digest": "29ea054f0d4e21ac11fc1a022787fba973fab9fe1a42978fe54ccf1a10e2c0e8",
+      "stratum_weight_digest": "bad21c0770734cb06729d10e65914a3824d732d3c8f0228d4fb1815cb1afaf6c"
+    }
+  ],
+  "synthetic_union": 34,
+  "common_p_digest": "d31332886c1a12258e60a19da907710f583b4df302e3ede7a8440c749537910e",
+  "sources": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+      "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b",
+      "bytes": 3411460
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20212022-statistics.npz",
+      "sha256": "422ff14392dc093c12eeaab412cc006e90e244a2f0eddb96a8a23646b689b871",
+      "bytes": 43616274
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20212022-references.npz",
+      "sha256": "8008bb5c70f242c401bb9f4fa0ed5d105e1180d10760ea010d41a2d257612357",
+      "bytes": 27558
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20222023-statistics.npz",
+      "sha256": "fecdd6d37f0cbc51dac4fc9f574ac969792d4877e5d11d544fb699410f54409f",
+      "bytes": 39784082
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20222023-references.npz",
+      "sha256": "d4d806f6c69987211edae2464a90913e1b7cc50aefc6100f2ccf26a48a62cc17",
+      "bytes": 26726
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20232024-statistics.npz",
+      "sha256": "ba5bcde83158afa4970d00ee2dfdf57915b29e8a6392837145ddd79e81270182",
+      "bytes": 37862546
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20232024-references.npz",
+      "sha256": "13ba686bef62a7b3ab22453f70cad05a139ced9bff0d69d8c61236a429895a36",
+      "bytes": 26294
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20242025-statistics.npz",
+      "sha256": "ff8b05cd3cd957518ef519a8a1c3ba228b6e706cb4f44dbaa73f627c7302735f",
+      "bytes": 36884562
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20242025-references.npz",
+      "sha256": "d2519bf446a07f9f94d18042a8f40801cf7ae4031790c69f5a2cf764fe8c518e",
+      "bytes": 26070
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20252026-statistics.npz",
+      "sha256": "92c5b28f3721459a57b5c1b6ac2a767262fcb59ed75901ad85efc2c18f256d7a",
+      "bytes": 38995602
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20252026-references.npz",
+      "sha256": "0d44671b8ba586a527a9505f46104fa9d3e39c56b919edc9a0d3c1bae0fd4f96",
+      "bytes": 26550
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/prepared.json",
+      "sha256": "986ddf180bce3606a264595afbf1d8635ef9f9ae21c4af8f186daea69c35eb1f",
+      "bytes": 20396
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+      "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc",
+      "bytes": 216232
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/designs.npz",
+      "sha256": "ad96e40169280c035f85853d92ec162f96bb88480ce38bf37e617aeb700804c2",
+      "bytes": 10102644
+    }
+  ],
+  "wall_seconds": 1.7860020000007353
+}

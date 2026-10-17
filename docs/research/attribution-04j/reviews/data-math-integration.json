@@ -1,0 +1,60 @@
+{
+  "boundary": "selected design readers, integer deployment accounting and physical contrast information",
+  "temporary_check": "analysis/tmp_04j_data_math.py",
+  "environment": "primary analysis/.venv, locked numpy/scipy, PYTHONPATH=src",
+  "red": {
+    "command": "PYTHONPATH=src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python tmp_04j_data_math.py",
+    "observed": "ImportError: cannot import name 'DeploymentDesign' from 'hockey_stats.attribution_data'"
+  },
+  "coverage": [
+    "bound archive hashes and source aliases; no decoding of poisoned unselected response/evaluation/truth members",
+    "paired explicit rows, integral overlap accounting, duplicate identities and missing/changed inputs",
+    "three seasons, twelve current/fourteen union identities, entry/absence/return, separate contexts and unequal rates",
+    "independent augmented-row generalized least squares for two nonuniform-reference physical functionals",
+    "direct covariance transformation, scalar/batch agreement, zero functionals and cutoff/null-boundary cases"
+  ],
+  "green": {
+    "status": "passed",
+    "checks": 6,
+    "final_runtime_seconds": 0.061,
+    "independent_repeat_runtime_seconds": 0.055,
+    "refactor": "one batch arithmetic owner serves scalar and column contracts; identical cutoff masks reuse their projection; two historical consumers use shared shape operators"
+  },
+  "independent_review": {
+    "reviewer": "root",
+    "status": "passed",
+    "evidence": [
+      "root-source-accounting.json",
+      "root-shared-parity.json"
+    ],
+    "scalar_historical_cases": 113,
+    "maximum_scalar_absolute_change": 8.881784197001252e-16,
+    "operators": "exact historical arrays for both consumers",
+    "temporary_integration_checks": "all six independently rerun and passed"
+  },
+  "temporary_check_deleted": true,
+  "live_source_review": "data-math-live-sources.json",
+  "live_red_and_correction": {
+    "observed": "an unnecessary absolute 1e-6-second aggregate context-weight sum assertion rejected a 1.01e-6-second floating summation discrepancy across 7.5 million seconds",
+    "correction": "aggregate weight equality uses the existing 1e-10 relative/absolute comparison; required per-overlap 1e-6-second integer tolerance and exact checked-integer exposure/role totals remain unchanged"
+  },
+  "tradeoffs": [
+    "dense annual identity selections retain an explicit inspectable contract; indexed accumulation avoids cubic dense embedding",
+    "source archive hashes bind all bytes while only selected geometry members are decoded",
+    "no response, fitted-control, evaluation or truth decoding; common native p requires exact equality"
+  ],
+  "source_rate_owner": "synthetic reader consumes rate from bound resolution preparation; research study checks exact 40",
+  "final_source_rate_recheck": {
+    "status": "passed",
+    "annual_real_designs": 5,
+    "annual_synthetic_designs": 5,
+    "synthetic_rates": [
+      40.0,
+      40.0,
+      40.0,
+      40.0,
+      40.0
+    ],
+    "selected_training_digest": "b922d6737ed00b7180e03be1c84522d87e15e60338fa7f90793bd8d5b3590e06"
+  }
+}

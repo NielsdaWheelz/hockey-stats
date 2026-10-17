@@ -27,7 +27,7 @@ from hockey_stats.attribution_data import (
     read_resolution_control, read_resolution_source_slice,
 )
 from hockey_stats.attribution_prediction import deployment_gram, realized_shape_errors
-from hockey_stats.attribution_simulation import independent_truths, paired_truths, shape_regions, truth_digest
+from hockey_stats.attribution_simulation import independent_truths, paired_truths, shape_operators, truth_digest
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance_cli import identity, output_path
 
@@ -99,15 +99,6 @@ def _cost(started, process_started, root):
         output_bytes_scope="tree_before_current_manifest_serialization")
 
 
-def _operators(W):
-    expected, names = shape_regions()
-    require(np.array_equal(W, expected), "native twelve-region operator differs")
-    near = np.asarray([name.startswith(("in_zone_0_10_", "in_zone_10_20_")) for name in names], dtype=float)
-    lateral = np.asarray([.5 if name.endswith("positive_y") else -.5 for name in names])
-    require(near.sum() == 4, "within-20-ft operator differs")
-    return W, (W @ near)[:, None], (W @ lateral)[:, None]
-
-
 def _source(reference, purpose):
     require(purpose in ("research", "fixture_exercise"), "invalid study purpose")
     if purpose == "research":
@@ -118,13 +109,13 @@ def _source(reference, purpose):
         require(source.result["prepared"]["sha256"] == SOURCE_PREPARED_SHA256
             and source.result["protocol"]["sha256"] == SOURCE_PROTOCOL_SHA256,
             "04h prepared/protocol identities differ")
-    _operators(source.source.W)
+    shape_operators(source.source.W)
     return source
 
 
 def _geometry(source):
     data = source.source
-    W, near, lateral = _operators(data.W)
+    W, near, lateral = shape_operators(data.W)
     return dict(native=ordered_array_digest(dict(p=data.basis.p)), basis=data.basis.sha256,
         regions=ordered_array_digest(dict(W=W, within_20_ft=near, lateral_redistribution=lateral)),
         recovery=ordered_array_digest(dict(J=data.recovery[-1])),
@@ -608,7 +599,7 @@ def assess(prepared, fits, output):
     require(root.is_relative_to(Path(prepared.document["protocol"]["path"]).parent), "assessment output must be beneath its prepared run")
     root.mkdir()
     cells, diagnostics, selections, bindings, reconciliation = [], [], [], [], []
-    operators, J, p = _operators(source.W), source.recovery[-1], source.basis.p
+    operators, J, p = shape_operators(source.W), source.recovery[-1], source.basis.p
     gram = deployment_gram(source.evaluation[-1]["X"], source.evaluation[-1]["si"], source.evaluation[-1]["e"], 6)
     B, R = source.basis.B[:, :11], source.basis.p[:, None]*source.basis.B[:, :11]
     fixed_pool = pool_shape_likelihood(source.fixed_populations, source.basis, tuple(range(11)), SEASONS[-1])

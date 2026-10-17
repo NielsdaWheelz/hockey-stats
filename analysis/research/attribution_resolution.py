@@ -28,7 +28,7 @@ from hockey_stats.attribution_prediction import (
     realized_shape_errors,
 )
 from hockey_stats.attribution_simulation import (
-    independent_truths, known_shape_moments, paired_truths, shape_regions,
+    independent_truths, known_shape_moments, paired_truths, shape_operators,
 )
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance_cli import identity, output_path, read_json
@@ -118,15 +118,6 @@ def _split(purpose):
     return dict(calibration=list(range(n)), assessment=list(range(n, 2*n)))
 
 
-def _operators(W):
-    expected, names = shape_regions()
-    require(np.array_equal(W, expected), "source twelve-region operator differs from its native definition")
-    near = np.asarray([name.startswith(("in_zone_0_10_", "in_zone_10_20_")) for name in names], dtype=float)
-    lateral = np.asarray([.5 if name.endswith("positive_y") else -.5 for name in names])
-    require(int(near.sum()) == 4, "within-20-ft functional needs both sides of the two in-front regions")
-    return W, (W @ near)[:, None], (W @ lateral)[:, None]
-
-
 def _context(path):
     reference = identity(Path(path).resolve(strict=True))
     require(reference["sha256"] == CONTEXT_SHA256, "04a contextual result digest differs")
@@ -155,7 +146,7 @@ def _source(source_result, purpose):
         require(source.result["protocol"]["sha256"] == SOURCE_PROTOCOL_SHA256
                 and source.basis.sha256 == BASIS_SHA256, "04g source protocol or semantic basis differs")
     validate_pooling_basis(source.basis)
-    _operators(source.W)
+    shape_operators(source.W)
     return source
 
 
@@ -168,7 +159,7 @@ def _inventory(source):
 
 
 def _geometry(source):
-    W, near, lateral = _operators(source.W)
+    W, near, lateral = shape_operators(source.W)
     return dict(native=ordered_array_digest(dict(p=source.basis.p)),
                 basis=source.basis.sha256,
                 regions=ordered_array_digest(dict(W=W, within_20_ft=near, lateral_redistribution=lateral)),
@@ -379,7 +370,7 @@ def fit(prepared, population, law, output):
     if document["purpose"] == "research":
         require(root.is_relative_to(Path(document["protocol"]["path"]).parent), "fit output must be beneath its prepared run")
     root.mkdir()
-    operators, J = _operators(source.W), source.recovery[-1]
+    operators, J = shape_operators(source.W), source.recovery[-1]
     fixed_populations = source.fixed_populations
     pools = {d: pool_shape_likelihood(fixed_populations, source.basis, tuple(range(d)), SEASONS[-1]) for d in (40, 11)}
     grids = {(40, copies): pooled_shape_grid(copies*pools[40].H, VARIANCES) for copies in (1, 2)}

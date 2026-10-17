@@ -17,6 +17,8 @@ from scipy import sparse
 
 from .artifacts import (
     linked_path,
+    load_arrays,
+    ordered_array_digest,
     require,
 )
 from .chance_cli import read_json
@@ -338,6 +340,137 @@ def weighted_population(
         references.u,
         references.p,
     )
+
+
+def load_recovery_design(prepared: dict, model_protocol: dict) -> list[dict]:
+    """decode 04c's saved synthetic truth and design; never regenerate either.
+
+    callers validate the enclosing evidence references. information is rebuilt
+    once per year through the shared grouped residualization and independently
+    checked against the complete row calculation. no responses are generated.
+    """
+    require(prepared["schema_version"] == 3 and prepared["kind"] == "attribution_recovery_prepared"
+            and prepared["seasons"] == list(RESEARCH_SEASONS)
+            and prepared["purpose"] == model_protocol["purpose"]
+            and prepared["source_prepared"] == model_protocol["source_prepared"]
+            and prepared["source_protocol"] == model_protocol["source_protocol"]
+            and prepared["request_sha256"] == model_protocol["request_sha256"],
+            "fixed synthetic preparation differs from its original model protocol")
+    arrays = load_arrays(prepared["synthetic_design"])
+    names = ("offense", "defense", "seconds", "si", "u", "scalar_ticks", "truth_scalar", "truth_shape",
+             "truth_map", "player_exposure", "home_teams", "away_teams")
+    require(list(arrays) == [f"year_{year}_{name}" for year in range(5) for name in names] + ["p", "centers", "W"]
+            and ordered_array_digest(arrays) == model_protocol["synthetic_design_sha256"],
+            "fixed synthetic design/truth order or identity changed")
+    p, centers, W = (arrays[name] for name in ("p", "centers", "W"))
+    from .shot_origins import grid
+
+    require(p.shape == (656,) and np.all(p > 0) and abs(float(p.sum()) - 1) <= 1e-12
+            and np.array_equal(centers, grid()[0]) and W.shape == (656, 12)
+            and np.array_equal(W.sum(axis=1), np.ones(656)) and np.all(W >= 0),
+            "fixed synthetic geometry, native shares or regions changed")
+    require(len(prepared["synthetic_years"]) == 5, "fixed synthetic annual denominator changed")
+    designs = []
+    for year, annual in enumerate(prepared["synthetic_years"]):
+        players = tuple(annual["players"])
+        strata = tuple(tuple(value) for value in annual["strata"])
+        require(annual["season"] == RESEARCH_SEASONS[year]
+                and players == tuple(sorted(set(players))) and len(players) == 32
+                and strata == tuple(sorted(set(strata))) and len(strata) == 6,
+                "fixed synthetic player, context or annual order changed")
+        design = {name: arrays[f"year_{year}_{name}"] for name in names}
+        expected_shapes = dict(offense=(9600, 5), defense=(9600, 5), seconds=(9600,), si=(9600,),
+            u=(32,), scalar_ticks=(64,), truth_scalar=(64,), truth_shape=(64, 656), truth_map=(64, 656),
+            player_exposure=(32,), home_teams=(96,), away_teams=(96,))
+        require(all(value.shape == expected_shapes[name]
+                    and value.dtype.str == ("<i8" if name in ("offense", "defense", "si", "scalar_ticks", "home_teams", "away_teams") else "<f8")
+                    for name, value in design.items()), "fixed synthetic array shapes or dtypes changed")
+        offense, defense, seconds, si = (design[name] for name in ("offense", "defense", "seconds", "si"))
+        require(np.all(seconds > 0) and np.all((0 <= si) & (si < len(strata)))
+                and tuple(sorted(set(offense.ravel()) | set(defense.ravel()))) == players
+                and all(len(set(attacking)) == len(set(defending)) == 5
+                        and not set(attacking) & set(defending)
+                        for attacking, defending in zip(offense, defense, strict=True)),
+                "fixed synthetic lineup or context rows invalid")
+        positions = {player: index for index, player in enumerate(players)}
+        indices = np.array([[positions[player] for player in attacking]
+                            + [len(players) + positions[player] for player in defending]
+                            for attacking, defending in zip(offense, defense, strict=True)])
+        X = sparse.csr_matrix((np.ones(indices.size), (np.repeat(np.arange(len(indices)), 10), indices.ravel())),
+                              shape=(len(indices), 2 * len(players)))
+        exposure = np.asarray(X[:, :len(players)].T @ seconds).ravel()
+        require(np.array_equal(exposure, design["player_exposure"])
+                and np.array_equal(np.asarray(X[:, len(players):].T @ seconds).ravel(), exposure)
+                and np.array_equal(design["u"], exposure / exposure.sum())
+                and np.array_equal(design["truth_map"], design["truth_scalar"][:, None] * p + design["truth_shape"])
+                and np.max(np.abs(design["truth_shape"].sum(axis=1))) <= 1e-12
+                and all(np.max(np.abs(design["u"] @ design["truth_shape"][offset:offset + len(players)])) <= 1e-12
+                        for offset in (0, len(players))), "fixed synthetic exposure, reference or truth contract changed")
+        mu = 40 * (p + X @ design["truth_map"])
+        require(np.all(mu > 0) and float(mu.min()) == annual["minimum_generating_rate"],
+                "fixed synthetic generating rate changed")
+        del mu
+        design.update(players=players, strata=strata, X=X, e=seconds / 3600, p=p, W=W, centers=centers,
+                      game_ids=tuple(range(96)), row_game_ids=np.repeat(np.arange(96), 100))
+        # empty sparse response cells recover design information without
+        # generating or materializing a native response matrix.
+        references = AnnualReferences("unblocked_spatial", RESEARCH_SEASONS[year], year,
+            prepared["source_protocol"]["sha256"], "synthetic:04c:information", players, strata,
+            40., design["u"], p, exposure, np.zeros(656))
+        rows = (dict(game_id=int(design["row_game_ids"][i]), offense=offense[i], defense=defense[i],
+                     seconds=float(seconds[i]), stratum=strata[int(si[i])], counts=[])
+                for i in range(len(seconds)))
+        grouped = group_observations(rows, references, design["game_ids"])
+        population = weighted_population(grouped, np.ones(len(grouped.game_ids)), references)
+        H_raw = 40 * np.asarray(np.ones(len(grouped.game_ids)) @ grouped.H_e).reshape(X.shape[1], X.shape[1])
+        dense = X.toarray()
+        E = np.bincount(si, weights=design["e"], minlength=len(strata))
+        direct_xbar = np.stack([design["e"][si == index] @ dense[si == index] / E[index]
+                               for index in range(len(strata))])
+        centered = dense - direct_xbar[si]
+        residuals = dict(raw_information=float(np.max(np.abs(H_raw - 40 * dense.T @ (design["e"][:, None] * dense)))),
+            information=float(np.max(np.abs(population.H - 40 * centered.T @ (design["e"][:, None] * centered)))),
+            context_means=float(np.max(np.abs(population.xbar - direct_xbar))))
+        require(max(residuals.values()) <= 1e-8, "grouped and direct fixed-design context information disagree")
+        design.update(H_raw=H_raw, H=population.H, xbar=population.xbar, information_reconciliation=residuals)
+        designs.append(design)
+    return designs
+
+
+def embed_recovery_information(design: dict, all_seen_player_ids: tuple[int, ...]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """embed current information/reference weights; absent rows have no evidence."""
+    players = design["players"]
+    require(all_seen_player_ids == tuple(sorted(set(all_seen_player_ids)))
+            and set(players).issubset(all_seen_player_ids), "saved all-seen player order changed")
+    n = len(all_seen_player_ids)
+    current = [all_seen_player_ids.index(player) for player in players]
+    rows = current + [n + index for index in current]
+    H_raw, H = np.zeros((2 * n, 2 * n)), np.zeros((2 * n, 2 * n))
+    H_raw[np.ix_(rows, rows)], H[np.ix_(rows, rows)] = design["H_raw"], design["H"]
+    u = np.zeros(n)
+    u[current] = design["u"]
+    return H_raw, H, u
+
+
+def synthetic_population(design: dict, responses: np.ndarray, season_index: int,
+                         source_protocol_sha: str, case_id: int, outer_id: int) -> tuple[GroupedPopulation, AnnualReferences]:
+    """contract one existing synthetic annual response into shared game moments."""
+    require(type(season_index) is int and 0 <= season_index < len(RESEARCH_SEASONS)
+            and responses.shape == (len(design["seconds"]), 656) and np.isfinite(responses).all(),
+            "invalid fixed synthetic annual response")
+    references = AnnualReferences("unblocked_spatial", RESEARCH_SEASONS[season_index], season_index,
+        source_protocol_sha, f"synthetic:04c:{case_id}:{outer_id}:unblocked_spatial", design["players"],
+        design["strata"], 40., design["u"].copy(), design["p"].copy(), design["player_exposure"].copy(), responses.sum(axis=0))
+    rows = (dict(game_id=int(design["row_game_ids"][i]), offense=design["offense"][i], defense=design["defense"][i],
+                 seconds=float(design["seconds"][i]), stratum=design["strata"][int(design["si"][i])], counts=responses[i])
+            for i in range(len(responses)))
+    return group_observations(rows, references, design["game_ids"]), references
+
+
+def statistic_digest(population: RevisionPopulation) -> str:
+    """the original 04c ordered unit-weight statistic identity."""
+    return ordered_array_digest({name: np.asarray(getattr(population, name)) for name in
+        ("H", "T", "yy", "shape_yy", "xbar", "ybar", "stratum_weight", "u", "p")})
 
 
 REVISION_RULES = {

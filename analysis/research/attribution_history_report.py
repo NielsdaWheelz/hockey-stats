@@ -52,6 +52,15 @@ def _write_table(output, name, rows, purpose):
     return identity(path)
 
 
+def _study_resources(assessment):
+    costs = assessment["fit_resources"]
+    return dict(preparation=assessment["preparation_resources"],
+        primary_fits=dict(pairs=len(costs), wall_seconds=sum(row["wall_seconds"] for row in costs),
+            peak_memory_bytes=max(row["peak_memory_bytes"] for row in costs),
+            output_bytes=sum(row["output_bytes"] for row in costs)),
+        preflight_gaussian_base_0=assessment["preflight_resources"], assessment=assessment["resources"])
+
+
 def _figure(output, assessment):
     import matplotlib
     matplotlib.use("Agg")
@@ -235,16 +244,10 @@ def render_reports(output, assessment, assessment_reference):
                      f"inherited: {limits['inherited_limitation']} | "
                      f"{_number(movement['native_cells'])} / {_number(movement['regions'])} | "
                      f"{_number(max(shifts)) if shifts else 'unavailable; no nonzero mc se'} |")
-    fit_costs = assessment["fit_resources"]
-    fit_resources = dict(pairs=len(fit_costs), wall_seconds=sum(row["wall_seconds"] for row in fit_costs),
-                         peak_memory_bytes=max(row["peak_memory_bytes"] for row in fit_costs),
-                         output_bytes=sum(row["output_bytes"] for row in fit_costs))
     lines.extend(["", "probe map changes are bounded by 1e-4 times the relevant season rate. "
                   "incoming priors stay fixed; these are conditional numerical checks. no primary state is replaced. "
                   "missing mc se ratios remain unavailable; exact metric movements and reasons remain in the assessment.", "",
-             "resources:", "", "```json", json.dumps(dict(preparation=assessment["preparation_resources"],
-                 primary_fits=fit_resources, preflight_gaussian_base_0=assessment["preflight_resources"],
-                 assessment=assessment["resources"]), indent=2), "```", "",
+             "resources:", "", "```json", json.dumps(_study_resources(assessment), indent=2), "```", "",
              "reports read saved assessment rows only. no recorded responses or fitted arrays are decoded. "
              "unexpected missing pairs prevent assessment completion; no scientific gate is introduced.", "",
              "`nomination:null, admission:not_admitted, handoff:null`.", ""])
@@ -275,9 +278,7 @@ def report(assessment, output):
         nomination=None, admission="not_admitted", handoff=None,
         next_question=None if fixture or not verified else assessment["next_question"],
         unresolved_reason=assessment.get("unresolved_reason") if not verified else None,
-        inventory=assessment["inventory"], resources=dict(preparation=assessment["preparation_resources"],
-            primary_fits=assessment["fit_resources"], preflight_gaussian_base_0=assessment["preflight_resources"],
-            assessment=assessment["resources"], report=resources(started)),
+        inventory=assessment["inventory"], resources=dict(_study_resources(assessment), report=resources(started)),
         **reports)
     path = output / "result.json"
     write_json(path, result)

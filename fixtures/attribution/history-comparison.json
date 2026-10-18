@@ -1,0 +1,1482 @@
+{
+  "kind": "attribution_history_fixture",
+  "schema_version": 1,
+  "purpose": "fixture_exercise",
+  "description": "simulated effects on observed deployment \u2014 not player ability estimates; detached synthetic geometry only, both source design labels are synthetic",
+  "sources": {
+    "deployment_fixture": {
+      "path": "deployment-information.json",
+      "sha256": "8e202fcffaa176ae3d06300c291ea69152aa6007e6d26f71fff0434a97297761"
+    },
+    "basis_fixture": {
+      "path": "graph-40ft.json",
+      "sha256": "fbe395f0eca8d62fc41d956cfa6989b6ba4b8e4646dc4eb9c2b872491f583380"
+    }
+  },
+  "arrays": {
+    "path": "history-comparison.npz",
+    "sha256": "9775576950fa29b2fb51eafd1fa94241a19db9c5a4649d6d71cf31ed79d5daaa"
+  },
+  "array_shapes": [
+    {
+      "name": "year_0_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_2_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_2_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_player_exposure",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_2_u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_xbar",
+      "shape": [
+        2,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_stratum_weight",
+      "shape": [
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_unit_raw",
+      "shape": [
+        24,
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_score_mean",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_game_score_record0",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_gaussian_covariance",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_theta_probe",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_arbitrary_context",
+      "shape": [
+        2,
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_0_prediction_excess",
+      "shape": [],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_xbar",
+      "shape": [
+        2,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_stratum_weight",
+      "shape": [
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_unit_raw",
+      "shape": [
+        24,
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_score_mean",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_game_score_record0",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_gaussian_covariance",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_theta_probe",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_arbitrary_context",
+      "shape": [
+        2,
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_1_prediction_excess",
+      "shape": [],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_H",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_xbar",
+      "shape": [
+        2,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_stratum_weight",
+      "shape": [
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_unit_raw",
+      "shape": [
+        24,
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_score_mean",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_game_score_record0",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_gaussian_covariance",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_theta_probe",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_arbitrary_context",
+      "shape": [
+        2,
+        656
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_2_prediction_excess",
+      "shape": [],
+      "dtype": "<f8"
+    },
+    {
+      "name": "oracle_templates",
+      "shape": [
+        2,
+        656
+      ],
+      "dtype": "<f8"
+    }
+  ],
+  "seasons": [
+    "20302031",
+    "20312032",
+    "20322033"
+  ],
+  "years": [
+    {
+      "season": "20302031",
+      "player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "r": 50.0,
+      "prefix": "year_0"
+    },
+    {
+      "season": "20312032",
+      "player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "r": 60.0,
+      "prefix": "year_1"
+    },
+    {
+      "season": "20322033",
+      "player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "r": 70.0,
+      "prefix": "year_2"
+    }
+  ],
+  "expected": {
+    "annual_ranks": [
+      18,
+      20,
+      20
+    ],
+    "current_players": [
+      12,
+      12,
+      12
+    ],
+    "union_players": 15,
+    "history_only_ids": [
+      10,
+      13,
+      14
+    ],
+    "returner_ids": [
+      11,
+      12
+    ],
+    "no_prior_ids": [
+      15
+    ],
+    "inseparable_pair": [
+      1,
+      2
+    ],
+    "cells": [
+      "gaussian_half",
+      "gaussian_base",
+      "gaussian_double",
+      "gaussian_null",
+      "game_shared_base"
+    ],
+    "records": [
+      0,
+      1
+    ],
+    "pairs": 10,
+    "scores": 30,
+    "states": 40,
+    "probes": 10,
+    "interval_degrees_of_freedom": 1,
+    "annual": [
+      {
+        "season": "20302031",
+        "rank": 18,
+        "rows": 96,
+        "games": 12,
+        "directed_team_seconds": 17678.0,
+        "physical_elapsed_seconds": 8839.0,
+        "prediction_excess": 43.27186978741134,
+        "pair_columns_identical": true
+      },
+      {
+        "season": "20312032",
+        "rank": 20,
+        "rows": 96,
+        "games": 12,
+        "directed_team_seconds": 16896.0,
+        "physical_elapsed_seconds": 8448.0,
+        "prediction_excess": 51.70673894943926,
+        "pair_columns_identical": true
+      },
+      {
+        "season": "20322033",
+        "rank": 20,
+        "rows": 96,
+        "games": 12,
+        "directed_team_seconds": 17310.0,
+        "physical_elapsed_seconds": 8655.0,
+        "prediction_excess": 81.85685535500009,
+        "pair_columns_identical": true
+      }
+    ],
+    "partitions": [
+      {
+        "template": "radial",
+        "prefix_size": 328,
+        "prefix_mass": 0.5000000000000003,
+        "prefix_cells": [
+          624,
+          638,
+          623,
+          625,
+          637,
+          639,
+          608,
+          607,
+          609,
+          650,
+          649,
+          651,
+          622,
+          626,
+          636,
+          640,
+          591,
+          606,
+          610,
+          590,
+          592,
+          648,
+          652,
+          621,
+          627,
+          589,
+          593,
+          635,
+          641,
+          605,
+          611,
+          574,
+          573,
+          575,
+          647,
+          653,
+          588,
+          594,
+          572,
+          576,
+          620,
+          628,
+          634,
+          642,
+          604,
+          612,
+          557,
+          646,
+          654,
+          556,
+          558,
+          571,
+          577,
+          587,
+          595,
+          555,
+          559,
+          619,
+          629,
+          633,
+          643,
+          603,
+          613,
+          570,
+          578,
+          554,
+          560,
+          645,
+          655,
+          540,
+          539,
+          541,
+          586,
+          596,
+          538,
+          542,
+          553,
+          561,
+          569,
+          579,
+          618,
+          630,
+          632,
+          644,
+          537,
+          543,
+          602,
+          614,
+          523,
+          522,
+          524,
+          585,
+          597,
+          552,
+          562,
+          521,
+          525,
+          536,
+          544,
+          568,
+          580,
+          520,
+          526,
+          617,
+          631,
+          601,
+          615,
+          535,
+          545,
+          506,
+          505,
+          507,
+          584,
+          598,
+          551,
+          563,
+          519,
+          527,
+          504,
+          508,
+          567,
+          581,
+          503,
+          509,
+          534,
+          546,
+          518,
+          528,
+          600,
+          616,
+          550,
+          564,
+          489,
+          502,
+          510,
+          583,
+          599,
+          488,
+          490,
+          487,
+          491,
+          566,
+          582,
+          517,
+          529,
+          533,
+          547,
+          486,
+          492,
+          501,
+          511,
+          549,
+          565,
+          485,
+          493,
+          472,
+          471,
+          473,
+          516,
+          530,
+          500,
+          512,
+          470,
+          474,
+          532,
+          548,
+          484,
+          494,
+          469,
+          475,
+          499,
+          513,
+          468,
+          476,
+          515,
+          531,
+          483,
+          495,
+          455,
+          454,
+          456,
+          453,
+          457,
+          467,
+          477,
+          452,
+          458,
+          498,
+          514,
+          482,
+          496,
+          451,
+          459,
+          466,
+          478,
+          438,
+          437,
+          439,
+          450,
+          460,
+          436,
+          440,
+          481,
+          497,
+          465,
+          479,
+          435,
+          441,
+          449,
+          461,
+          434,
+          442,
+          464,
+          480,
+          421,
+          420,
+          422,
+          433,
+          443,
+          448,
+          462,
+          419,
+          423,
+          418,
+          424,
+          432,
+          444,
+          417,
+          425,
+          447,
+          463,
+          416,
+          426,
+          431,
+          445,
+          404,
+          403,
+          405,
+          402,
+          406,
+          401,
+          407,
+          415,
+          427,
+          430,
+          446,
+          400,
+          408,
+          414,
+          428,
+          399,
+          409,
+          387,
+          386,
+          388,
+          385,
+          389,
+          398,
+          410,
+          384,
+          390,
+          413,
+          429,
+          383,
+          391,
+          397,
+          411,
+          382,
+          392,
+          370,
+          369,
+          371,
+          368,
+          372,
+          381,
+          393,
+          396,
+          412,
+          367,
+          373,
+          366,
+          374,
+          380,
+          394,
+          365,
+          375,
+          353,
+          352,
+          354,
+          379,
+          395,
+          351,
+          355,
+          364,
+          376,
+          350,
+          356,
+          349,
+          357,
+          363,
+          377,
+          348,
+          358,
+          362,
+          378,
+          336,
+          335,
+          337,
+          347,
+          359,
+          334,
+          338,
+          333,
+          339,
+          346,
+          360,
+          332,
+          340,
+          331,
+          341,
+          345,
+          361,
+          319,
+          330,
+          342,
+          318,
+          320,
+          317
+        ]
+      },
+      {
+        "template": "lateral",
+        "prefix_size": 328,
+        "prefix_mass": 0.5000000000000003,
+        "prefix_cells": [
+          39,
+          56,
+          73,
+          90,
+          107,
+          124,
+          141,
+          158,
+          175,
+          192,
+          209,
+          226,
+          243,
+          260,
+          277,
+          294,
+          311,
+          328,
+          345,
+          362,
+          379,
+          396,
+          413,
+          430,
+          447,
+          464,
+          481,
+          498,
+          515,
+          532,
+          549,
+          566,
+          583,
+          600,
+          24,
+          40,
+          57,
+          74,
+          91,
+          108,
+          125,
+          142,
+          159,
+          176,
+          193,
+          210,
+          227,
+          244,
+          261,
+          278,
+          295,
+          312,
+          329,
+          346,
+          363,
+          380,
+          397,
+          414,
+          431,
+          448,
+          465,
+          482,
+          499,
+          516,
+          533,
+          550,
+          567,
+          584,
+          601,
+          617,
+          11,
+          25,
+          41,
+          58,
+          75,
+          92,
+          109,
+          126,
+          143,
+          160,
+          177,
+          194,
+          211,
+          228,
+          245,
+          262,
+          279,
+          296,
+          313,
+          330,
+          347,
+          364,
+          381,
+          398,
+          415,
+          432,
+          449,
+          466,
+          483,
+          500,
+          517,
+          534,
+          551,
+          568,
+          585,
+          602,
+          618,
+          632,
+          0,
+          12,
+          26,
+          42,
+          59,
+          76,
+          93,
+          110,
+          127,
+          144,
+          161,
+          178,
+          195,
+          212,
+          229,
+          246,
+          263,
+          280,
+          297,
+          314,
+          331,
+          348,
+          365,
+          382,
+          399,
+          416,
+          433,
+          450,
+          467,
+          484,
+          501,
+          518,
+          535,
+          552,
+          569,
+          586,
+          603,
+          619,
+          633,
+          645,
+          1,
+          13,
+          27,
+          43,
+          60,
+          77,
+          94,
+          111,
+          128,
+          145,
+          162,
+          179,
+          196,
+          213,
+          230,
+          247,
+          264,
+          281,
+          298,
+          315,
+          332,
+          349,
+          366,
+          383,
+          400,
+          417,
+          434,
+          451,
+          468,
+          485,
+          502,
+          519,
+          536,
+          553,
+          570,
+          587,
+          604,
+          620,
+          634,
+          646,
+          2,
+          14,
+          28,
+          44,
+          61,
+          78,
+          95,
+          112,
+          129,
+          146,
+          163,
+          180,
+          197,
+          214,
+          231,
+          248,
+          265,
+          282,
+          299,
+          316,
+          333,
+          350,
+          367,
+          384,
+          401,
+          418,
+          435,
+          452,
+          469,
+          486,
+          503,
+          520,
+          537,
+          554,
+          571,
+          588,
+          605,
+          621,
+          635,
+          647,
+          3,
+          15,
+          29,
+          45,
+          62,
+          79,
+          96,
+          113,
+          130,
+          147,
+          164,
+          181,
+          198,
+          215,
+          232,
+          249,
+          266,
+          283,
+          300,
+          317,
+          334,
+          351,
+          368,
+          385,
+          402,
+          419,
+          436,
+          453,
+          470,
+          487,
+          504,
+          521,
+          538,
+          555,
+          572,
+          589,
+          606,
+          622,
+          636,
+          648,
+          4,
+          16,
+          30,
+          46,
+          63,
+          80,
+          97,
+          114,
+          131,
+          148,
+          165,
+          182,
+          199,
+          216,
+          233,
+          250,
+          267,
+          284,
+          301,
+          318,
+          335,
+          352,
+          369,
+          386,
+          403,
+          420,
+          437,
+          454,
+          471,
+          488,
+          505,
+          522,
+          539,
+          556,
+          573,
+          590,
+          607,
+          623,
+          637,
+          649,
+          5,
+          17,
+          31,
+          47,
+          64,
+          81,
+          98,
+          115,
+          132,
+          149,
+          166,
+          183,
+          200,
+          217,
+          234,
+          251,
+          268,
+          285,
+          302,
+          319
+        ]
+      }
+    ],
+    "assignments": [
+      {
+        "role": "offense",
+        "player_id": 1,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 2,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "onset"
+      },
+      {
+        "role": "offense",
+        "player_id": 3,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 4,
+        "template": "lateral",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 5,
+        "template": "lateral",
+        "sign": -1,
+        "trajectory": "reversal"
+      },
+      {
+        "role": "offense",
+        "player_id": 6,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 7,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 8,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 9,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 10,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 11,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 12,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 13,
+        "template": "lateral",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 14,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "offense",
+        "player_id": 15,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "no_prior_observation"
+      },
+      {
+        "role": "defense",
+        "player_id": 1,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 2,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 3,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "onset"
+      },
+      {
+        "role": "defense",
+        "player_id": 4,
+        "template": "lateral",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 5,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 6,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "reversal"
+      },
+      {
+        "role": "defense",
+        "player_id": 7,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 8,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 9,
+        "template": "lateral",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 10,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 11,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 12,
+        "template": "lateral",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 13,
+        "template": "lateral",
+        "sign": -1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 14,
+        "template": "radial",
+        "sign": 1,
+        "trajectory": "stable"
+      },
+      {
+        "role": "defense",
+        "player_id": 15,
+        "template": "radial",
+        "sign": -1,
+        "trajectory": "no_prior_observation"
+      }
+    ],
+    "positivity_floor_rate": 9.999999999999972,
+    "projection_discrepancy_l2": [
+      0.016283798172450722,
+      0.024292174361219936
+    ]
+  },
+  "independent_oracle": {
+    "method": "literal dense explicit rows, scalar context/exposure sums and row-by-row physical contractions; no production deployment, truth, score or prediction helpers",
+    "score_mean": "sum_rows e*z*(X*F*B)",
+    "game_score_record0": "sum_rows e*xi_game*z*(X*F*B), raw F retained, xi seed [404110,2,0,year_index] and variance .5",
+    "gaussian_covariance": "L*L.transpose where L=transpose(z*sqrt(r*e)); one iid basis coefficient",
+    "prediction_excess": "explicit native inverse-share loss difference with arbitrary context noise and directed sum(e) normalization",
+    "absolute_tolerance": 1e-10,
+    "relative_tolerance": 1e-08
+  },
+  "checked_facts": [
+    "only original real_0..2 explicit deployment rows are selected; final id 13 becomes id 15 in both role memberships",
+    "rates 50,60,70 and uniform p/graph basis belong to this fixture; old nonuniform annual statistics are not relabeled",
+    "all original source fixtures and historical producer metadata remain byte-for-byte unchanged",
+    "the pair 1,2 has identical deployment columns in each role and remains unidentifiable despite finite posterior covariance",
+    "raw stable truth stays physical through changing rates; onset is zero before final season and reversal changes sign at final-season start",
+    "covariance, gaussian mean, raw shared-game score and arbitrary-context prediction cancellation are independently contracted over complete explicit rows"
+  ]
+}

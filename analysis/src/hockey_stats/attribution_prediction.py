@@ -69,6 +69,38 @@ def excess_prediction_terms(gram, xbar, noise_context, true_maps, fitted_maps, *
     return dict(error=E, signal=S, coupling=I, delta=E - S + I)
 
 
+def shape_recovery(maps, truth, selected_rows, operator, denominator) -> dict:
+    """native physical errors with a caller-declared population and normalization."""
+    rows = np.asarray(selected_rows)
+    require(maps.ndim == truth.ndim == 2 and maps.shape == truth.shape
+            and rows.ndim == 1 and rows.dtype.kind in "iu" and len(np.unique(rows)) == len(rows)
+            and np.all((0 <= rows) & (rows < len(maps)))
+            and operator.ndim == 2 and operator.shape[0] == maps.shape[1] and operator.shape[1] > 0
+            and all(value.dtype == np.dtype("float64") and np.isfinite(value).all()
+                    for value in (maps, truth, operator))
+            and np.isfinite(denominator) and ((len(rows) > 0 and denominator > 0)
+                                             or (len(rows) == 0 and denominator == 0)),
+            "shape recovery requires finite native maps, explicit rows, operator and denominator")
+    error, target = (maps[rows]-truth[rows]) @ operator, truth[rows] @ operator
+    return dict(mse=float(np.sum(error**2)/denominator) if len(rows) else None,
+                zero_mse=float(np.sum(target**2)/denominator) if len(rows) else None,
+                error=error, target=target, count=len(rows), denominator=denominator,
+                reason=None if len(rows) else "empty_population")
+
+
+def same_deployment_excess(H, r, total_hours, Theta, F, B) -> float:
+    """signed known-mean excess over the same fitted-context, zero-player predictor."""
+    require(H.ndim == Theta.ndim == F.ndim == B.ndim == 2
+            and H.shape == (len(Theta), len(Theta)) and F.shape == (len(Theta), len(B))
+            and Theta.shape[1] == B.shape[1] and np.isfinite(r) and r > 0
+            and np.isfinite(total_hours) and total_hours > 0
+            and all(value.dtype == np.dtype("float64") and np.isfinite(value).all()
+                    for value in (H, Theta, F, B)),
+            "same-deployment excess requires matched finite current-player coefficient axes")
+    G = H/(r*total_hours)
+    return prediction_inner(G, Theta, Theta, rate=r)-2*r*prediction_inner(G, Theta, F @ B, rate=1.)
+
+
 def realized_shape_errors(maps, context, *, p, xbar, ybar, true_raw, true_centered,
                           true_context, J, operators, gram, rate=40.) -> dict:
     """realized native recovery and signed prediction in the training reference.

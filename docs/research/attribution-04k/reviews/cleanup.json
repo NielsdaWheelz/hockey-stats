@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_temporary_cleanup",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/result.json",
+      "sha256": "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+    }
+  },
+  "status": "verified",
+  "absent_temporary_paths": [
+    "/tmp/hockey-04k-boundary1-review.py",
+    "/tmp/hockey-04k-boundary2-review.py",
+    "/tmp/hockey-04k-boundary3-review.py",
+    "/tmp/hockey-04k-empty-game-review.py",
+    "/tmp/hockey-04k-prepare-standalone-patch.py",
+    "/tmp/hockey-04k-report-integration.py",
+    "/tmp/hockey-04k-report-live-review.py",
+    "/tmp/hockey-04k-research-recompute.py",
+    "/tmp/hockey-04k-standalone-content-regression.py",
+    "/tmp/hockey-04k-standalone-content-final-regression.py",
+    "/tmp/hockey-04k-verify-standalone-candidate.py",
+    "/tmp/hockey-04k-verify-standalone-final-candidate.py",
+    "/tmp/04k-build-fixture.py",
+    "/tmp/04k-generation-check.py",
+    "/tmp/04k-live-source-check.py",
+    "/tmp/04k-independent-retained-audit.py",
+    "/tmp/04k-content-preview.py",
+    "/tmp/04k-research-content-review.py",
+    "/tmp/04k-final-numerical-audit.py",
+    "/tmp/04k-coefficients",
+    "/tmp/04k-truth-ownership",
+    "/tmp/04k-truth-ownership-final",
+    "/tmp/04k-review-end-to-end",
+    "/tmp/04k-review-end-to-end-final",
+    "/tmp/hockey-04k-checks",
+    "/tmp/hockey-04k-independent-assessment5",
+    "/tmp/hockey-04k-independent-fixture-prepared",
+    "/tmp/hockey-04k-independent-report5",
+    "/tmp/hockey-04k-standalone-candidate",
+    "/tmp/hockey-04k-standalone-patch",
+    "/tmp/hockey-04k-standalone-patch-final",
+    "/tmp/hockey-04k-report-review.png",
+    "/tmp/04k-live-source-receipt.json",
+    "/tmp/04k-source-allowlist-review.json",
+    "/tmp/04k-source-independent-review.json"
+  ],
+  "temporary_bytecode_absent": true,
+  "earlier_controller_deletion": "shared-fitting and final-numerical receipts retain prior deletion facts",
+  "removed_review_environment": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04k/analysis/.venv",
+    "files": 4409,
+    "bytes": 168230449,
+    "purpose": "temporary duplicate created by review commands; primary research used the existing main environment"
+  },
+  "retained": [
+    "all primary expensive fits and research artifacts",
+    "original captures and publications",
+    "committed fixtures and checked expected facts",
+    "scientific commands and compact verification receipts",
+    "external reviewed patch and candidate evidence",
+    "primary environment"
+  ],
+  "retained_test_dependencies": 0
+}

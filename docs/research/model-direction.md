@@ -1,6 +1,6 @@
 # model direction
 
-updated 2026-10-17 through the completed 04j real-deployment information diagnosis and specified 04k comparison. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
+updated 2026-10-17 through the completed 04k annual-borrowing diagnostic on real deployment. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
 
 ## approved direction and decision logic
 
@@ -178,6 +178,10 @@ cost: real-artifact assembly and conditional matrix analysis before another cand
 known native transfers supply interpretable magnitudes independently of fitted values. their assignment is fixed, with changed final-season effects and actual corpus entry/return treated separately. the study compares five annual borrowing updates with one final-season independent fit. no recorded responses select truth or penalties. twenty noise records per condition limit precision and generality; null false maps and temporal harm remain beside the average. simulated success would establish neither true player effects nor useful calibrated uncertainty.
 
 same-deployment prediction excess has a useful exact simplification: context error cancels against the same fitted-context zero-player baseline. projected scores and selected design/game moments suffice. this avoids generating irrelevant context/volume responses but confines the claim to fixed covariates. the declared game-shared gaussian perturbation is not the earlier gamma-poisson generator or an empirical hockey-noise model. full native truths retain representation error, and their broad transfer amplitude is not automatically a within-20-ft effect. these bounds prevent an efficient computation from acquiring a broader interpretation than its equations support.
+
+completed 04k evidence: [the diagnostic](attribution-04k/decision.md) is `complete,verified,diagnosed` after 100 pairs, 500 scores, 600 states, twelve probes and independent source/numerical/statistical/content reviews. base regional rms falls from `0.18209/0.18234` independently to `0.17800/0.17876` with borrowing, versus `0.18659/0.18656` for zero effects, offense/attempts allowed in recorded unblocked attempts/60. these are modest fixed-population recovery gains. stable players benefit, while reversals and players without prior observations worsen; offense onset remains inconclusive and attempts-allowed onset worsens. null false maps increase. prediction cost favors borrowing under base, double and game-shared conditions, remains imprecise at half amplitude and increases under null truth. neither a useful-estimator gate nor equivalence is inferred.
+
+the single next question is whether an empirically justified annual prior can preserve gains for stable players while reducing harm under reversals, first observations and null effects within a prospectively chosen prediction-cost budget. this identifies a question, not a selected prior or assigned campaign. arbitrary mixture proportions and uncalibrated gaussian noise cannot select empirical persistence, establish real ability or rescue earlier failed criteria. the observed website and the complete season-level ability destination remain unchanged.
 
 ## software and verification judgment
 

@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04k implementation review — 2026-10-17
+
+native source/generation, numerical-fitting and study/report agents implemented [04k](../specs/04k-attribution-history.md), with independent adversarial cross-review at every boundary. [verification](attribution-04k/verification.md) reconciles all 100 pairs, 500 scores, 600 states, twelve conditional probes and 34,000 metric rows. all 39 affected historical arrays and prior numerical receipts preserve their values exactly. final source review confirms 21 selected original hashes and zero recorded-response decoding. temporary controllers and the duplicate review environment are deleted.
+
+review corrected response-free source boundaries, zero-exposure inventory games, raw-versus-centered game truth, standalone sign/unit/axis meaning and the ownership of study seeds/cohorts. one shared coefficient kernel preserves existing context arithmetic. no alternate prior, scale grid, source substitution, hidden response fields, fallback or runner was introduced. exact frozen truth preservation verifies the hard cut from the old package history helper to one private study owner.
+
+all independent numerical, statistical and rendered-content reviews pass. the result shows modest aggregate recovery and stable-player gains beside reversal, first-observation and null harm; offense onset and half-amplitude prediction cost remain imprecise. these qualify the fixed mixture rather than establish an empirical estimator or recoverability limit. accepted costs are about 30 gb of external evidence, dense covariance work, one arbitrary truth population and twenty shared histories per condition. same-deployment prediction, forty-mode omission, relative-rate carry and uncalibrated gaussian noise remain explicit limits. one empirically justified prior question is proposed; no next study, nomination, model admission or publication is assigned. historical verdicts and the observed website remain intact.
+
 ## 04k specification review — 2026-10-17
 
 statistical, systems and hockey/content reviewers designed [04k's annual-borrowing comparison](../specs/04k-attribution-history.md). the user approved retaining existing league-relative carry, a diagnostic comparison without a new gate, and working gaussian noise with a separate game-shared gaussian sensitivity. forty-mode geometry and selection stay fixed. the question is whether history improves known-effect recovery on actual deployment, including the cost of false persistence; it cannot establish actual player ability.

@@ -1,6 +1,6 @@
 # pr04k — annual borrowing on real deployment
 
-status: **implementation and bounded research execution assigned**. the user approved the three choices below and assigned the entire specification on 2026-10-17. [the plan](../plan.md) owns progression; [04j](../research/attribution-04j/decision.md) supplies the completed information diagnosis. no model is admitted.
+status: **complete, verified, diagnosed**. [decision](../research/attribution-04k/decision.md) · [verification](../research/attribution-04k/verification.md). the user approved the three choices below and assigned the entire specification on 2026-10-17. all 100 pairs, 500 scores, 600 states and twelve probes reconcile with independent source, numerical, statistical and content reviews. the original assigned specification remains frozen with the prepared protocol. [the plan](../plan.md) owns progression; no model is admitted.
 
 ## question and boundary
 

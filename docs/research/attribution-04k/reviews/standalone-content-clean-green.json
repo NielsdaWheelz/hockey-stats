@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_content_regression",
+  "purpose": "fixture_exercise",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/report/result.json",
+      "sha256": "df607e2b45548120615b3bace33f828d55ab53f07c6e1c7f83626e35dc28b50c"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/assessment/assessment.json",
+      "sha256": "9cdd280e117a35ab51de341e0cfffec60871ef31df0da7f327180806b612ba97"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/prepared/prepared.json",
+      "sha256": "d3bb599c30851ab70ed69ce1765ba6f8109427d1336bdb5887099f7d6f4c0548"
+    }
+  },
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "status": "green",
+  "checks": [
+    {
+      "check": "saved assessment binds ordered twelve-region names",
+      "passed": true
+    },
+    {
+      "check": "players use 36 named regional scalar columns",
+      "passed": true
+    },
+    {
+      "check": "players remove unlabeled regional vectors",
+      "passed": true
+    },
+    {
+      "check": "exports remove ambiguous sign field",
+      "passed": true
+    },
+    {
+      "check": "players expose assigned sign, actual raw sign, amplitude and physical units",
+      "passed": true
+    },
+    {
+      "check": "players name squared-error units explicitly",
+      "passed": true
+    },
+    {
+      "check": "truth supplies one exact regional axis",
+      "passed": true
+    },
+    {
+      "check": "truth supplies the exact five physical cell amplitudes",
+      "passed": true
+    },
+    {
+      "check": "null cell names bookkeeping trajectories and zero effects",
+      "passed": true
+    },
+    {
+      "check": "unit-amplitude partitions state physical and squared projection units",
+      "passed": true
+    },
+    {
+      "check": "base player truths have explicit amplitude reference and physical units",
+      "passed": true
+    },
+    {
+      "check": "standalone truth roles agree with attempts-allowed interpretation",
+      "passed": true
+    },
+    {
+      "check": "assigned and observed annual raw signs remain distinct, with absent=null and onset=zero",
+      "passed": true
+    },
+    {
+      "check": "raw regional truths remain mathematically unchanged",
+      "passed": true
+    },
+    {
+      "check": "player signs and amplitudes follow actual final cell law, including zero null",
+      "passed": true
+    },
+    {
+      "check": "flattened player numeric values preserve all saved arrays",
+      "passed": true
+    },
+    {
+      "check": "source prepared sign contract remains frozen",
+      "passed": true
+    },
+    {
+      "check": "every standalone row retains the study boundary",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/report/result.json",
+    "sha256": "df607e2b45548120615b3bace33f828d55ab53f07c6e1c7f83626e35dc28b50c"
+  }
+}

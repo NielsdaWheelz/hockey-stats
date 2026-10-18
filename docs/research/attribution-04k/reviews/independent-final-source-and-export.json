@@ -1,0 +1,173 @@
+{
+  "kind": "attribution_history_independent_final_source_and_export_review",
+  "schema_version": 1,
+  "status": "verified",
+  "producer": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+  "scope": "read-only applied hard-cut/export and selected immutable-source verification; no fitting, broad ancestor traversal, source archive decoding or 600-state revalidation",
+  "references": {
+    "research_prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+      "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+    },
+    "clean_fixture_assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/assessment/assessment.json",
+      "sha256": "9cdd280e117a35ab51de341e0cfffec60871ef31df0da7f327180806b612ba97"
+    },
+    "clean_fixture_result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/report/result.json",
+      "sha256": "df607e2b45548120615b3bace33f828d55ab53f07c6e1c7f83626e35dc28b50c"
+    },
+    "clean_fixture_players_csv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/report/players.csv",
+      "sha256": "1eba050eb9442bfe357f577195822427ff1017571bd9a1b0665cffb814a10472"
+    }
+  },
+  "source_checks": {
+    "exact_selected_sources": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/docs/research/attribution-04j/result.json",
+        "sha256": "c59f54cdc9256e5dcb198b916f175d90a45b59944dbd2ef3c67abb524c397e3e"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04j-20261017/prepared/prepared.json",
+        "sha256": "94247ec3244c0fd35b886bfaae041cd01491af908752756a833805b970b7b91c"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04j/docs/research/attribution-04b/result.json",
+        "sha256": "d0c0f6a7af3888cd0d0920d152f322447a984cbc20edac596aa70f60dbb0f2de"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+        "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+        "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/prepared/prepared.json",
+        "sha256": "b771cdc1784a72cf0db6be47b9eb0f597af542bb9cace1f339ba40002265cd8a"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20212022-statistics.npz",
+        "sha256": "422ff14392dc093c12eeaab412cc006e90e244a2f0eddb96a8a23646b689b871"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20212022-references.npz",
+        "sha256": "8008bb5c70f242c401bb9f4fa0ed5d105e1180d10760ea010d41a2d257612357"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20212022-grouped.npz",
+        "sha256": "cf9033c00a76316f4aa4b2ad75ec22c1b9bc60cb4f2d97669e9f5cdf7a44025d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20222023-statistics.npz",
+        "sha256": "fecdd6d37f0cbc51dac4fc9f574ac969792d4877e5d11d544fb699410f54409f"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20222023-references.npz",
+        "sha256": "d4d806f6c69987211edae2464a90913e1b7cc50aefc6100f2ccf26a48a62cc17"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20222023-grouped.npz",
+        "sha256": "715db77c0a379e9bfc361998cae80df77423b74c0ec796510438260d43c9f627"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20232024-statistics.npz",
+        "sha256": "ba5bcde83158afa4970d00ee2dfdf57915b29e8a6392837145ddd79e81270182"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20232024-references.npz",
+        "sha256": "13ba686bef62a7b3ab22453f70cad05a139ced9bff0d69d8c61236a429895a36"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20232024-grouped.npz",
+        "sha256": "dd83cdd56b1f9fa9d1b8c2ac040a87048a98d10c0d319ae1ed4359a0ab5b292a"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20242025-statistics.npz",
+        "sha256": "ff8b05cd3cd957518ef519a8a1c3ba228b6e706cb4f44dbaa73f627c7302735f"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20242025-references.npz",
+        "sha256": "d2519bf446a07f9f94d18042a8f40801cf7ae4031790c69f5a2cf764fe8c518e"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20242025-grouped.npz",
+        "sha256": "eff24694446c83789e8be7580651513975109afa9024ead6c7221d44cab53653"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20252026-statistics.npz",
+        "sha256": "92c5b28f3721459a57b5c1b6ac2a767262fcb59ed75901ad85efc2c18f256d7a"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20252026-references.npz",
+        "sha256": "0d44671b8ba586a527a9505f46104fa9d3e39c56b919edc9a0d3c1bae0fd4f96"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/unblocked_spatial-20252026-grouped.npz",
+        "sha256": "00cc141e3b6a21ecaf5b2859750c8babf13b816a6e914d160ef183289feec5a7"
+      }
+    ],
+    "selected_annual_archives": 15,
+    "full_archive_hashes_match": true,
+    "recorded_response_decodes": 0,
+    "source_archive_member_decodes": 0,
+    "fixture_originals": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/deployment-information.json",
+        "sha256": "8e202fcffaa176ae3d06300c291ea69152aa6007e6d26f71fff0434a97297761",
+        "bit_equal_to_original_0a": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/deployment-information.npz",
+        "sha256": "bbf725b61b1a374e48cd60d893452479415a85fa7824946f483aaac4859c87c1",
+        "bit_equal_to_original_0a": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/graph-40ft.json",
+        "sha256": "fbe395f0eca8d62fc41d956cfa6989b6ba4b8e4646dc4eb9c2b872491f583380",
+        "bit_equal_to_original_0a": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/graph-40ft.npz",
+        "sha256": "96185eedb638c58000345a483d7996d3f99dc7da0bb407099680ebad6c3a2722",
+        "bit_equal_to_original_0a": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/history-comparison.json",
+        "sha256": "01f4bab9a5dedbed3fab530a675fd097a1d7c4548e1fbf93b3de78ea05cd38f7",
+        "bit_equal_to_original_0a": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/history-comparison.npz",
+        "sha256": "9775576950fa29b2fb51eafd1fa94241a19db9c5a4649d6d71cf31ed79d5daaa",
+        "bit_equal_to_original_0a": true
+      }
+    ]
+  },
+  "applied_contract": {
+    "package_transfer_history_entry_removed": true,
+    "no_import_alias_or_compatibility_path": true,
+    "one_private_two_argument_definition_and_one_prepare_consumer": true,
+    "private_policy_matches_independently_reviewed_final_candidate": true,
+    "package_kernels_unchanged_from_reviewed_candidate": true
+  },
+  "clean_fixture": {
+    "pairs": 10,
+    "scores": 30,
+    "states": 40,
+    "probes": 10,
+    "new_artifacts_clean_producer": true,
+    "metric_rows_exactly_unchanged": 3400,
+    "comparison_rows_exactly_unchanged": 2060,
+    "player_rows": 240,
+    "player_regional_vectors_and_named_csv_values_exactly_unchanged": true,
+    "assigned_and_final_raw_sign_semantics_correct": true,
+    "squared_error_units_field_present_and_correct": true,
+    "all_six_csv_study_labels_and_fixture_purpose_present": true
+  },
+  "remaining_concerns": [],
+  "new_fits": 0,
+  "tracked_edits": false
+}

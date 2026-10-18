@@ -1,0 +1,145 @@
+{
+  "kind": "attribution_history_independent_final_ownership_review",
+  "schema_version": 1,
+  "status": "verified",
+  "applied": false,
+  "reviewed_baseline_commit": "0a5f9a8734f655da930a16d5e13a7fab7dcbd6c7",
+  "scope": "final private unit-truth simplification only; direct candidate import and frozen truth reproduction; no fitting or tracked edits",
+  "references": {
+    "final_patch": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/reviews/ownership-move-final.patch",
+      "sha256": "f797babd53b649adc3abb1b832fb2831e42ec64e900c4238fc2b73ec423ebe71"
+    },
+    "final_preservation": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/reviews/ownership-preservation-final.json",
+      "sha256": "7573de15dc4dbe2489759c4cfed788d0c02bd34b3fed8cc78dac7d468108ea74"
+    },
+    "candidate_study": {
+      "path": "/tmp/04k-truth-ownership-final/candidate/analysis/research/attribution_history.py",
+      "sha256": "24d111b30f4bcc14b234af916cfd1777461bfd04f99544569368f2327c28e710"
+    },
+    "candidate_simulation": {
+      "path": "/tmp/04k-truth-ownership-final/candidate/analysis/src/hockey_stats/attribution_simulation.py",
+      "sha256": "4ae54fba3a6e4c01a49c8e7032d7753ab7ae729db1d09e39e9aae0e33a194b04"
+    },
+    "previous_independent_review": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/reviews/independent-ownership-and-final-export.json",
+      "sha256": "693cc1f1019d714558eeabd87772246f5df79c634514a4411e47944a35c2fdc1"
+    }
+  },
+  "checks": {
+    "entire_study_ast_diff_is_only_expected_simplification": true,
+    "removed": [
+      "always-one amplitude argument",
+      "one multiply by one",
+      "two redundant validation blocks"
+    ],
+    "source_and_template_validation_owner": "selected readers and native_transfer_templates, called by prepare before private construction",
+    "positivity_owner": "prepare validates computed double-amplitude ten-skater positivity before the sole call",
+    "private_validated_input_contract_explicit": true,
+    "one_private_definition_and_one_two_argument_prepare_consumer": true,
+    "fixed_design_lengths": "research five and fixture three are established by selected source readers",
+    "package_source_identical_to_previous_reviewed_hard_cut": true,
+    "seed_cohort_and_temporal_arithmetic_unchanged": true,
+    "all_earlier_bound_review_files_preserved": true,
+    "frozen_truth_reproduction": [
+      {
+        "purpose": "research",
+        "prepared": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+          "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+        },
+        "ordered_assignments_exact": true,
+        "assignment_count": 2954,
+        "years": [
+          {
+            "season": "20212022",
+            "shape": [
+              2006,
+              656
+            ],
+            "raw_sha256": "ba51bf68616bbc03ee2f0fd24fe4b4b69a27585041d522b5ca4c1ceadb640665",
+            "bit_equal": true
+          },
+          {
+            "season": "20222023",
+            "shape": [
+              1902,
+              656
+            ],
+            "raw_sha256": "88b8af4645bda7c1017cedf349555a2bdde6c6d0594d0214dcae93f8e024eb3c",
+            "bit_equal": true
+          },
+          {
+            "season": "20232024",
+            "shape": [
+              1848,
+              656
+            ],
+            "raw_sha256": "0f7b8f1e260faf66574520ec687de1a8ebb9b998cb036a52edf8a1b90681e3c8",
+            "bit_equal": true
+          },
+          {
+            "season": "20242025",
+            "shape": [
+              1820,
+              656
+            ],
+            "raw_sha256": "9a9eef38fd9fc2fd73d7ce0690adaacb7037172744fc1ba7c048ff76bc5fe40a",
+            "bit_equal": true
+          },
+          {
+            "season": "20252026",
+            "shape": [
+              1880,
+              656
+            ],
+            "raw_sha256": "d373ae17fabe488a41ae0eea4d9b56c2eec13f92dadd2cf116b0fec79df1728e",
+            "bit_equal": true
+          }
+        ]
+      },
+      {
+        "purpose": "fixture_exercise",
+        "prepared": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/prepared/prepared.json",
+          "sha256": "b10246877d276b1fa9cb47d5db727f1ac5ed8ef8dc0c630db2319819ca7eb42c"
+        },
+        "ordered_assignments_exact": true,
+        "assignment_count": 30,
+        "years": [
+          {
+            "season": "20302031",
+            "shape": [
+              24,
+              656
+            ],
+            "raw_sha256": "14e0384ef11c562f3f777f9c8683179ff7585d15aefc390d689e2e2775472568",
+            "bit_equal": true
+          },
+          {
+            "season": "20312032",
+            "shape": [
+              24,
+              656
+            ],
+            "raw_sha256": "86a2d31c7ae67bfde36b1e993fb82b0fe5c2c0f60f2a9c8a63310e7fb981887f",
+            "bit_equal": true
+          },
+          {
+            "season": "20322033",
+            "shape": [
+              24,
+              656
+            ],
+            "raw_sha256": "4ff8febcd850530edaa911f2aa781544b0c39df08a58159e60a4a36231300485",
+            "bit_equal": true
+          }
+        ]
+      }
+    ]
+  },
+  "remaining_concerns": [],
+  "new_fits": 0,
+  "tracked_analysis_edits": false
+}

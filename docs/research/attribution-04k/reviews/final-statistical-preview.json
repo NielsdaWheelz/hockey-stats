@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_independent_review",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "preview": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/provisional-content-preview.json",
+      "sha256": "e9015788d8d4a6df7a9eaa04fca5cb18100dd41074855b21f2f097d913297ec0"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+      "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+    },
+    "statistical_review": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/reviews/final-statistical.json",
+      "sha256": "c6002a294246b17d550eb6a466ba1d6c0823ab0f7b70c1184194c56ecc71c319"
+    }
+  },
+  "status": "verified",
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "review": "independent preview reconciliation",
+  "checks": {
+    "preview_record_rows": 460,
+    "preview_record_values": 1540,
+    "preview_summaries": 77,
+    "maximum_absolute_difference": 3.197442310920451e-14,
+    "verdict": "all provisional content numbers reconcile with the complete independently verified final assessment"
+  }
+}

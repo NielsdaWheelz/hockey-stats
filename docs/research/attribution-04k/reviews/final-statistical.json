@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_independent_review",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+      "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+      "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+    }
+  },
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "review": "independent full final-metric and interval replay",
+  "reviewer": "review_and_reports",
+  "status": "verified",
+  "checks": {
+    "status": "verified",
+    "records_per_cell": 20,
+    "interval_df": 19,
+    "pairs": 100,
+    "scores": 500,
+    "states": 600,
+    "probes": 12,
+    "metric_rows": 34000,
+    "summary_rows": 2060,
+    "player_rows": 18800,
+    "maximum_absolute_metric_residual": 7.815970093361102e-14,
+    "maximum_absolute_interval_residual": 4.263256414560601e-14,
+    "score_identity": "all saved Q finite; each generating annual state and both final arms bind exactly the same Q",
+    "mathematics": "literal native physical row errors, exact group denominators, inverse-share same-deployment signed traces, record-unit sample sd/se/t intervals",
+    "records": "all expected pairs addressed explicitly; no resimulation, refitting, bootstrap or source-response decoding",
+    "wall_seconds": 7.652070208001533
+  }
+}

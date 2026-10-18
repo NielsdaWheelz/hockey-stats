@@ -1,0 +1,68 @@
+{
+  "status": "verified",
+  "boundary": "shared_fitting",
+  "purpose": "fixture_exercise",
+  "affected_entrypoint": "fit_recovery_year(...,representation=\"graph_40ft\",prior_policy=\"history\")",
+  "baseline_captured_before_refactor": true,
+  "full_state_array_count": 39,
+  "full_state_arrays_bit_exact": true,
+  "full_state_non_resource_metadata_byte_exact": true,
+  "existing_probe_non_resource_receipts_byte_exact": true,
+  "independent_dense_marginal_objective": true,
+  "independent_dense_posterior": true,
+  "actual_season_independent": true,
+  "changing_rate_relative_carry": true,
+  "entry_absence_return_full_covariance": true,
+  "missing_response_energy_stays_absent": true,
+  "fixed_update_retained_oracle_cases": 4,
+  "fixed_update_oracle_max_absolute": 6.106226635438361e-16,
+  "commands": [
+    "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/04k-coefficients/baseline.py before",
+    "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/04k-coefficients/integration.py",
+    "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/04k-coefficients/baseline.py after",
+    "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/04k-coefficients/probe_preservation.py before",
+    "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/04k-coefficients/probe_preservation.py after"
+  ],
+  "files": {
+    "before.npz": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/before.npz",
+      "sha256": "6aa1b1e74d56f02b611215165dc02e389b4f5382c8361f2971134112388f28b3"
+    },
+    "after.npz": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/after.npz",
+      "sha256": "6aa1b1e74d56f02b611215165dc02e389b4f5382c8361f2971134112388f28b3"
+    },
+    "before.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/before.json",
+      "sha256": "0bde34ccf0c06e75c4976ae087872013251e52798f06306cbf4fa8eaa3b7c649"
+    },
+    "after.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/after.json",
+      "sha256": "0bde34ccf0c06e75c4976ae087872013251e52798f06306cbf4fa8eaa3b7c649"
+    },
+    "probe_before.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/probe_before.json",
+      "sha256": "746539f1df93e587e4f641d15e73fb297564522ac336bff428270cd8f31f53b2"
+    },
+    "probe_after.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/probe_after.json",
+      "sha256": "746539f1df93e587e4f641d15e73fb297564522ac336bff428270cd8f31f53b2"
+    },
+    "red.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/red.txt",
+      "sha256": "2e6fe11f42479679cc94f419b68180574fc3eba5aa3219fd8fff8ee250d472b2"
+    },
+    "green.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/shared-fitting/green.json",
+      "sha256": "8e83ecff1edba4a4ee982f2ff4443684a2179f024a297f6f27498a6d4608fde1"
+    }
+  },
+  "temporary_controllers": "deleted after red/green/refactor/green verification and independent boundary review; no retained test harness",
+  "deleted_controllers": [
+    "/tmp/04k-coefficients/baseline.py",
+    "/tmp/04k-coefficients/integration.py",
+    "/tmp/04k-coefficients/probe_preservation.py",
+    "/tmp/04k-source-independent-review.py",
+    "/tmp/04k-source-allowlist-review.py"
+  ]
+}

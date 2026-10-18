@@ -36,6 +36,8 @@ the [04h diagnosis](research/attribution-04h/decision.md) connects regional reco
 
 [04j's completed real-deployment information diagnosis](research/attribution-04j/decision.md) closes selector findings from saved evidence, compares actual player separation with the simulations, and proposes the next empirical evaluation. the user selected working-noise information without empirical game-noise estimation. real design and temporal assumptions precede another candidate; no new algorithm or narrower product destination is selected. this costs real-artifact assembly and conditional matrix analysis, without establishing recovery or calibrated intervals. [the plan](plan.md) owns assignment; the completed information study does not assign its proposed empirical benchmark.
 
+[04k](specs/04k-attribution-history.md) specifies that next comparison: existing league-relative annual borrowing versus a final-season-only fit, with known native physical effects on actual deployment. stable/change/null scenarios expose benefits and persistence costs. the user selected diagnostic evidence without a new gate and a gaussian game-shared sensitivity rather than count-response simulation. this does not nominate an estimator or establish real-player uncertainty; [the plan](plan.md) owns execution assignment.
+
 the remaining analytical responsibilities are distinct; their concrete next studies depend on evidence rather than a mandatory bundle:
 
 | responsibility | remaining claim / dependency |

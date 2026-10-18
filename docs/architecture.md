@@ -43,6 +43,8 @@ the [plan](plan.md) owns order and assignments. the dependency graph distinguish
 
 full specs own exact formulas, interfaces, populations, cutoffs, uncertainty, numeric budgets and verification. new work remains separately assigned; research branches do not weaken release claims. [07](specs/07-lightweight-testing.md) permits a few selected lasting source/numerical checks with their owning work; publication/browser checks follow their consumers. no entire testing slice must finish before a study starts.
 
+[04k](specs/04k-attribution-history.md) reuses those attribution owners for generated projected scores and a coefficient-only annual fit. data owns selected design/game moments; simulation owns the declared generator; numerical attribution owns chronology, selection, posterior and centering; prediction owns shared assessment arithmetic. the study owns selections, fixed budget and reporting. no response/context/volume placeholders or experiment framework are needed; source evidence, generated truth, fitted coefficients and diagnostic reports remain distinct artifacts.
+
 ## settled inputs
 
 the first target remains league-wide 2025–26 regular-season 5v5 skater chance creation and suppression, with observed results alongside history-informed ability estimates. hockeyviz's interpretability and components guide the models; hockeyviz and jfresh cards are the long-term destination. the user is the initial audience. current-season analysis follows the fixed-season result, with local runs initiated whenever the user wants. effect owns application behavior; python owns numerical work. raw captures remain intact. paid inputs are optional later enrichment.

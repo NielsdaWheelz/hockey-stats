@@ -1,6 +1,6 @@
 # model direction
 
-updated 2026-10-17 through the completed 04j real-deployment information diagnosis. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
+updated 2026-10-17 through the completed 04j real-deployment information diagnosis and specified 04k comparison. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
 
 ## approved direction and decision logic
 
@@ -170,6 +170,14 @@ keep annual season-level targets. older seasons help the current target only thr
 completed 04j evidence: [the information diagnosis](attribution-04j/decision.md) is `complete,verified,diagnosed`, with twelve spectra and 11,740 labeled contrasts independently verified. all 940 final real players are conditionally estimable in each role; the synthetic 26/31 individual ambiguity remains absent from that real population. real near-goal median sampling sd changes from `1.56539` annually to `0.509134` under constant physical history, with substantially weaker low-minute precision. this separates structural estimability from finite precision and false-persistence risk; it establishes neither actual effect magnitudes nor useful recovery. the single proposal now asks about annual borrowing on actual deployment, with independently declared broad counting-scale transfers and stable/entry/change scenarios. it assigns no benchmark execution or estimator change. saved selector closure retains the small truth-inspected gains, observable-selection optimism and all historical failed verdicts.
 
 cost: real-artifact assembly and conditional matrix analysis before another candidate. benefit: subsequent evidence concerns the intended population. execution requires the external originals, with no acquisition, generated responses or ability refits. historical verdicts, the observed website, chance valuation, complete-rate adequacy and uncertainty requirements remain unchanged. broader deployment/age features remain available for justified later activation; they cannot explain failures in generators that omit those mechanisms.
+
+## 04k — test the current borrowing rule
+
+[04k](../specs/04k-attribution-history.md) asks whether annual history improves recovery on actual deployment when physical effects persist or change. the user approved preserving existing league-relative carry, diagnostic evidence without another gate, and a gaussian game-shared sensitivity. keeping the forty-mode representation and selector isolates borrowing; changing physical units, priors or representation simultaneously would ask a different question. age-informed borrowing remains a later hypothesis.
+
+known native transfers supply interpretable magnitudes independently of fitted values. their assignment is fixed, with changed final-season effects and actual corpus entry/return treated separately. the study compares five annual borrowing updates with one final-season independent fit. no recorded responses select truth or penalties. twenty noise records per condition limit precision and generality; null false maps and temporal harm remain beside the average. simulated success would establish neither true player effects nor useful calibrated uncertainty.
+
+same-deployment prediction excess has a useful exact simplification: context error cancels against the same fitted-context zero-player baseline. projected scores and selected design/game moments suffice. this avoids generating irrelevant context/volume responses but confines the claim to fixed covariates. the declared game-shared gaussian perturbation is not the earlier gamma-poisson generator or an empirical hockey-noise model. full native truths retain representation error, and their broad transfer amplitude is not automatically a within-20-ft effect. these bounds prevent an efficient computation from acquiring a broader interpretation than its equations support.
 
 ## software and verification judgment
 

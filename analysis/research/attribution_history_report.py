@@ -165,7 +165,16 @@ def render_reports(output, assessment, assessment_reference):
     reports = [_write_table(output, name + ".csv", assessment[key], assessment["purpose"])
                for name, key in (("design", "design_rows"), ("truth", "truth_rows"),
                                 ("metrics", "metric_rows"), ("comparison", "comparison_rows"),
-                                ("diagnostics", "diagnostic_rows"), ("players", "player_rows"))]
+                                ("diagnostics", "diagnostic_rows"))]
+    player_rows = []
+    for row in assessment["player_rows"]:
+        exported = {key: value for key, value in row.items()
+                    if key not in ("target", "mean_error", "mean_squared_error")}
+        for metric in ("target", "mean_error", "mean_squared_error"):
+            exported.update({metric + "_" + region: value for region, value in
+                             zip(assessment["region_names"], row[metric], strict=True)})
+        player_rows.append(exported)
+    reports.append(_write_table(output, "players.csv", player_rows, assessment["purpose"]))
     figure = _figure(output, assessment)
     fixture = assessment["purpose"] == "fixture_exercise"
     lines = ["# annual borrowing on observed deployment", "", STUDY_LABEL, "",
@@ -241,7 +250,7 @@ def render_reports(output, assessment, assessment_reference):
                   if row["movement_in_mc_se"] is not None]
         lines.append(f"| {probe['cell']} / {probe['arm']} / {probe['season']} | {probe['status']} | "
                      f"{limits['status']}; {', '.join(limits['own_reasons']) or 'no own limits'}; "
-                     f"inherited: {limits['inherited_limitation']} | "
+                     f"inherited: {str(limits['inherited_limitation']).lower()} | "
                      f"{_number(movement['native_cells'])} / {_number(movement['regions'])} | "
                      f"{_number(max(shifts)) if shifts else 'unavailable; no nonzero mc se'} |")
     lines.extend(["", "probe map changes are bounded by 1e-4 times the relevant season rate. "

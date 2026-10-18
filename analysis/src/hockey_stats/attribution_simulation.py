@@ -42,58 +42,6 @@ def native_transfer_templates(centers: np.ndarray, p: np.ndarray) -> tuple[np.nd
     return np.asarray(fields), boundaries
 
 
-def transfer_history(designs, templates: np.ndarray, amplitude: float) -> tuple[tuple[np.ndarray, ...], list[dict]]:
-    """freeze native fields by identity before noise, retaining raw physical time paths."""
-    require(len(designs) > 1 and templates.shape == (2, len(designs[0].p))
-            and np.isfinite(templates).all() and np.isfinite(amplitude) and 0 <= amplitude <= 2
-            and all(np.array_equal(design.p, designs[0].p) for design in designs),
-            "native transfer history differs from its finite common-reference design")
-    require(min(design.r for design in designs)-20*float(np.max(np.abs(templates/designs[0].p))) > 0,
-            "double-amplitude ten-skater native means are not strictly positive")
-    players = tuple(sorted(set().union(*(design.player_ids for design in designs))))
-    previous = set().union(*(design.player_ids for design in designs[:-1]))
-    final = set(designs[-1].player_ids)
-    eligible = np.asarray(sorted(final & previous), dtype=np.int64)
-    assignments, positions = [], {player: i for i, player in enumerate(players)}
-    labels = np.zeros((2, len(players)), dtype=np.int64)
-    trajectories = np.zeros_like(labels)
-    for role in range(2):
-        permutation = _truth_rng([404110, 0, role]).permutation(players)
-        for index, player in enumerate(permutation):
-            labels[role, positions[int(player)]] = index % 4
-        changed = _truth_rng([404110, 3, role]).permutation(eligible)
-        k = len(eligible)//6
-        for player in changed[:k]:
-            trajectories[role, positions[int(player)]] = 1
-        for player in changed[k:2*k]:
-            trajectories[role, positions[int(player)]] = 2
-        for player in players:
-            code = int(labels[role, positions[player]])
-            trajectory = int(trajectories[role, positions[player]])
-            observed = [design.season for design in designs if player in design.player_ids]
-            assignments.append(dict(role=("offense", "defense")[role], player_id=player,
-                template=("radial", "lateral")[code//2], sign=1 if code % 2 == 0 else -1,
-                trajectory=("no_prior_observation" if player in final-previous else
-                            ("stable", "reversal", "onset")[trajectory]),
-                current=player in final, prior_observation=player in previous,
-                return_after_absence=player in final & previous and player not in designs[-2].player_ids,
-                first_observed_season=observed[0], observed_seasons=observed))
-    truths = []
-    for year, design in enumerate(designs):
-        raw, n = np.zeros((2*len(design.player_ids), templates.shape[1])), len(design.player_ids)
-        for role in range(2):
-            for row, player in enumerate(design.player_ids):
-                index = positions[player]
-                code, trajectory = labels[role, index], trajectories[role, index]
-                sign = 1 if code % 2 == 0 else -1
-                if trajectory == 1 and year == len(designs)-1:
-                    sign = -sign
-                if trajectory != 2 or year == len(designs)-1:
-                    raw[role*n+row] = amplitude*sign*templates[code//2]
-        truths.append(raw)
-    return tuple(truths), assignments
-
-
 def generate_shape_score(design, score_factor, physical_truth, basis, gaussian_draw,
                          grouped_design=None, game_draw=None) -> tuple[np.ndarray, dict]:
     """project a gaussian score and optional shared-game physical mean perturbation.

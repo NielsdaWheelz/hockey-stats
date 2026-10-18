@@ -29,7 +29,7 @@ from hockey_stats.attribution_data import (
 )
 from hockey_stats.attribution_prediction import shape_recovery, same_deployment_excess
 from hockey_stats.attribution_simulation import (
-    generate_shape_score, native_transfer_templates, shape_operators, shape_regions, transfer_history,
+    generate_shape_score, native_transfer_templates, shape_operators, shape_regions,
 )
 from hockey_stats.captures import InputContractError
 from hockey_stats.chance_cli import identity, output_path, read_json
@@ -180,6 +180,52 @@ def _research(reference):
         real_result=real_ref,real_prepared=designs[0].source_refs['prepared'],basis=BASIS_REF),[2004,1900,1846,1818,1878]
 
 
+def _truth_history(designs, templates: np.ndarray) -> tuple[tuple[np.ndarray, ...], list[dict]]:
+    """construct unit-amplitude history from validated designs and transfer templates."""
+    players = tuple(sorted(set().union(*(design.player_ids for design in designs))))
+    previous = set().union(*(design.player_ids for design in designs[:-1]))
+    final = set(designs[-1].player_ids)
+    eligible = np.asarray(sorted(final & previous), dtype=np.int64)
+    assignments, positions = [], {player: i for i, player in enumerate(players)}
+    labels = np.zeros((2, len(players)), dtype=np.int64)
+    trajectories = np.zeros_like(labels)
+    for role in range(2):
+        permutation = np.random.Generator(np.random.PCG64(np.random.SeedSequence([404110, 0, role]))).permutation(players)
+        for index, player in enumerate(permutation):
+            labels[role, positions[int(player)]] = index % 4
+        changed = np.random.Generator(np.random.PCG64(np.random.SeedSequence([404110, 3, role]))).permutation(eligible)
+        k = len(eligible)//6
+        for player in changed[:k]:
+            trajectories[role, positions[int(player)]] = 1
+        for player in changed[k:2*k]:
+            trajectories[role, positions[int(player)]] = 2
+        for player in players:
+            code = int(labels[role, positions[player]])
+            trajectory = int(trajectories[role, positions[player]])
+            observed = [design.season for design in designs if player in design.player_ids]
+            assignments.append(dict(role=("offense", "defense")[role], player_id=player,
+                template=("radial", "lateral")[code//2], sign=1 if code % 2 == 0 else -1,
+                trajectory=("no_prior_observation" if player in final-previous else
+                            ("stable", "reversal", "onset")[trajectory]),
+                current=player in final, prior_observation=player in previous,
+                return_after_absence=player in final & previous and player not in designs[-2].player_ids,
+                first_observed_season=observed[0], observed_seasons=observed))
+    truths = []
+    for year, design in enumerate(designs):
+        raw, n = np.zeros((2*len(design.player_ids), templates.shape[1])), len(design.player_ids)
+        for role in range(2):
+            for row, player in enumerate(design.player_ids):
+                index = positions[player]
+                code, trajectory = labels[role, index], trajectories[role, index]
+                sign = 1 if code % 2 == 0 else -1
+                if trajectory == 1 and year == len(designs)-1:
+                    sign = -sign
+                if trajectory != 2 or year == len(designs)-1:
+                    raw[role*n+row] = sign*templates[code//2]
+        truths.append(raw)
+    return tuple(truths), assignments
+
+
 def prepare(deployment_result, fixture, purpose, output):
     started, process_started = time.monotonic(),time.process_time()
     require(purpose in ('research','fixture_exercise') and (deployment_result is not None)==(purpose=='research')
@@ -193,7 +239,7 @@ def prepare(deployment_result, fixture, purpose, output):
     templates,boundaries = native_transfer_templates(grid()[0],basis.p)
     positivity = min(d.r for d in designs)-20*float(np.max(np.abs(templates/basis.p)))
     require(positivity>0,'fixed unperturbed native means fail the prospectively selected positivity bound')
-    truths,assignments = transfer_history(designs,templates,1.)
+    truths,assignments = _truth_history(designs,templates)
     W,names = shape_regions()
     _,near,lateral = shape_operators(W)
     arrays = dict(B=basis.B,p=basis.p,eigenvalues=basis.eigenvalues,templates=templates,W=W,near=near,lateral=lateral)
@@ -491,6 +537,42 @@ def _summaries(rows,n_records):
     return result
 
 
+def _diagnostic_answer(index, purpose, numerical_status):
+    """describe saved summaries without a threshold, gate or model choice."""
+    if purpose == 'fixture_exercise':
+        return 'the detached fixture verifies software behavior; it supplies no research conclusion'
+    if numerical_status != 'verified':
+        return 'conditional numerical movement remains unresolved; no substantive recovery or prediction conclusion is assigned'
+    def summary(cell, role, cohort, arm, metric, operator='twelve_region_vector'):
+        return index[(cell, role, cohort, operator, arm, metric)]
+    def interval(row):
+        return f"{row['mean']:.5g} [{row['ci_low']:.5g}, {row['ci_high']:.5g}]"
+    clauses = []
+    for role in ('offense', 'attempts_allowed'):
+        independent = summary('gaussian_base', role, 'all', 'independent', 'regional_rms')
+        borrowing = summary('gaussian_base', role, 'all', 'borrowing', 'regional_rms')
+        benefit = summary('gaussian_base', role, 'all', 'paired_benefit', 'recovery_benefit')
+        cohorts = '; '.join(cohort + ' ' + interval(summary('gaussian_base', role, cohort,
+            'paired_benefit', 'recovery_benefit')) for cohort in ('stable', 'reversal', 'onset'))
+        null_borrowing = summary('gaussian_null', role, 'all', 'borrowing', 'regional_rms')
+        null_independent = summary('gaussian_null', role, 'all', 'independent', 'regional_rms')
+        null_benefit = summary('gaussian_null', role, 'all', 'paired_benefit', 'recovery_benefit')
+        clauses.append(f"{role.replace('_', ' ')}: on the fixed gaussian_base mixture, regional rms changes "
+            f"from {independent['mean']:.5g} independently to {borrowing['mean']:.5g} with borrowing; "
+            f"paired mse benefit is {interval(benefit)}. cohort benefits are {cohorts}. "
+            f"under null truth, borrowing / independent false-map rms is {null_borrowing['mean']:.5g} / "
+            f"{null_independent['mean']:.5g}; paired mse benefit is {interval(null_benefit)}.")
+    prediction = '; '.join(cell + ' ' + interval(summary(cell, 'both', 'all', 'paired_cost',
+        'prediction_cost', 'same_deployment')) for cell in CELLS)
+    clauses.append('same-deployment prediction cost, borrowing minus independent: ' + prediction + '.')
+    clauses.append('positive mse benefit favors borrowing; negative benefit is borrowing harm. '
+        'positive prediction cost is borrowing harm. rms uses recorded unblocked attempts/60; '
+        'benefits and costs use its square. brackets are 95% monte carlo t intervals for paired means, '
+        'conditional on this truth, deployment and shared noise histories. crossing zero establishes '
+        'neither equivalence nor acceptable cost; no winner or scientific gate is assigned.')
+    return '\n\n'.join(clauses)
+
+
 def assess(prepared,fits,output):
     started,process_started=time.monotonic(),time.process_time()
     source=read_prepared(prepared)
@@ -561,40 +643,68 @@ def assess(prepared,fits,output):
                 assignment=assignment_index[('offense' if role_index==0 else 'defense',player)]
                 player_rows.append(dict(cell=cell,arm=arm,role=role,player_id=player,
                     n_records=len(records),minutes=float(final.player_exposure[i]/60),
+                    physical_amplitude=AMPLITUDES[cell],physical_units='recorded unblocked attempts/60',
+                    squared_error_units=UNITS,
+                    assigned_template_sign=assignment['sign'],
+                    final_raw_template_sign=(0 if AMPLITUDES[cell]==0 else
+                        assignment['sign']*(-1 if assignment['trajectory']=='reversal' else 1)),
+                    target_reference='final exposure-centered physical truth',
                     target=targets[j],mean_error=mean_error[j],mean_squared_error=mse[j],
                     **{key:value for key,value in source.document['years'][-1]['overlap'][i].items() if key!='player_id'},
-                    **{key:assignment[key] for key in ('template','sign','trajectory','prior_observation',
+                    **{key:assignment[key] for key in ('template','trajectory','prior_observation',
                         'return_after_absence','first_observed_season','observed_seasons')}))
     design_rows=[]
     for year,design in enumerate(source.designs):
         entry=source.document['years'][year]
         design_rows.append(dict(season=design.season,source_refs=design.source_refs,rate=design.r,
+            player_ids=design.player_ids,strata=design.strata,
             coverage=design.source_refs['coverage'],contexts=len(design.strata),directed_rows=design.source_refs['row_count'],
             players=len(design.player_ids),games=len(entry['game_ids']),directed_hours=entry['directed_hours'],
             rank=entry['rank'],exposure_seconds=float(design.player_exposure.sum()),reference_u=design.u))
-    truth_rows=[]
+    truth_rows=[dict(record_type='region_axis',region_names=source.document['region_names'])]
+    for cell in RULES['cells']:
+        truth_rows.append(dict(record_type='cell',cell=cell['id'],physical_amplitude=cell['amplitude'],
+            noise_law=cell['noise'],amplitude_reference=1.0,physical_units='recorded unblocked attempts/60',
+            squared_projection_units=UNITS,
+            amplitude_scaling='physical targets and l1 transfers multiply by amplitude; squared projection discrepancies multiply by amplitude squared',
+            trajectory_interpretation=('bookkeeping only; zero raw and centered effects' if cell['amplitude']==0 else
+                'injected raw physical trajectories; centered targets retain the annual exposure reference')))
     templates=source.arrays['templates']
     for boundary,template in zip(source.document['partitions'],templates,strict=True):
         projection=(template@source.basis.B)@source.basis.R.T
-        truth_rows.append(dict(record_type='partition',**boundary,
+        truth_rows.append(dict(record_type='partition',**boundary,amplitude_reference=1.0,
+            physical_units='recorded unblocked attempts/60',squared_projection_units=UNITS,
             raw_l1_transfer=float(np.abs(template).sum()/2),
             projection_native_inverse_share_squared=float(np.sum((template-projection)**2/source.basis.p)),
             projection_regional_squared=float(np.sum(((template-projection)@source.arrays['W'])**2)),
             projection_limitation='native representation discrepancy; not a regional error floor'))
-    truth_rows.extend(dict(record_type='cohort_template_sign_count',**row) for row in source.document['truth_counts'])
+    for row in source.document['truth_counts']:
+        exported=dict(row)
+        exported['assigned_template_sign']=exported.pop('sign')
+        if exported['role']=='defense':
+            exported['role']='attempts_allowed'
+        truth_rows.append(dict(record_type='cohort_template_sign_count',**exported))
     for row in source.document['assignments']:
         annual=[]
         for year,design in enumerate(source.designs):
-            values=None
+            values,raw_sign=None,None
             if row['player_id'] in design.player_ids:
                 raw=source.arrays[f'year_{year}_truth']
                 centered=source.arrays[f'year_{year}_centered_truth']
                 i=design.player_ids.index(row['player_id'])+(0 if row['role']=='offense' else len(design.player_ids))
+                template=templates[0 if row['template']=='radial' else 1]
+                raw_sign=int(np.sign(raw[i]@template))
                 values=dict(raw_l1_transfer=float(np.abs(raw[i]).sum()/2),
                     centered_native_l1_transfer=float(np.abs(centered[i]).sum()/2),
                     raw_regional_target=raw[i]@source.arrays['W'],centered_regional_target=centered[i]@source.arrays['W'])
-            annual.append(dict(season=design.season,present=values is not None,magnitudes=values))
-        truth_rows.append(dict(record_type='player_assignment',**row,annual_physical_targets=annual))
+            annual.append(dict(season=design.season,present=values is not None,
+                raw_template_sign_at_unit_amplitude=raw_sign,magnitudes=values))
+        exported=dict(row)
+        exported['assigned_template_sign']=exported.pop('sign')
+        if exported['role']=='defense':
+            exported['role']='attempts_allowed'
+        truth_rows.append(dict(record_type='player_assignment',**exported,amplitude_reference=1.0,
+            physical_units='recorded unblocked attempts/60',annual_physical_targets=annual))
     diagnostic_rows=[row for row in summaries if row['cohort']!='all' or row['operator']!='twelve_region_vector']
     for cell in CELLS:
         if cell=='gaussian_null':
@@ -621,10 +731,12 @@ def assess(prepared,fits,output):
         inventory=dict(**source.document['budget'],pair_paths=list(refs),
             scale_objective_evaluations=objective_evaluations),
         design_rows=design_rows,truth_rows=truth_rows,partitions=source.document['partitions'],
+        region_names=source.document['region_names'],
         metric_rows=rows,comparison_rows=summaries,diagnostic_rows=diagnostic_rows,player_rows=player_rows,
-        probes=probes,limits=LIMITS,diagnostic_answer='annual borrowing is compared with independent final-season fitting; stable, change and null outcomes are descriptive conditional results, with no winner or scientific gate',
+        probes=probes,limits=LIMITS,
+        diagnostic_answer=_diagnostic_answer(index,source.document['purpose'],numerical_status),
         next_question=None if source.document['purpose']=='fixture_exercise' or numerical_status!='verified' else
-            'how should annual borrowing represent changing physical effects without relying on stable-history assumptions?',
+            'can an empirically justified annual prior preserve gains for stable players while reducing harm under reversals, first observations and null effects within a prospectively chosen prediction-cost budget?',
         unresolved_reason=None if numerical_status=='verified' else 'bounded conditional numerical probes did not resolve all movements',
         verification_checks=[dict(boundary='source_and_generation',status='verified',checks=source.document['factor_checks']),
             dict(boundary='inventory',status='verified',pairs=len(refs),scores=source.document['budget']['scores'],states=source.document['budget']['states']),

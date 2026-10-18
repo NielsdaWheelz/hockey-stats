@@ -121,7 +121,11 @@ def _fixture(reference):
             basis_sha256=basis_document['basis_sha256'])
     original_ref=_relative_ref(path.parent,original['arrays'])
     parents['deployment_arrays']=original_ref
-    originals=load_arrays(dict(original,arrays=original_ref))
+    selected=tuple(f'real_{year}_{name}' for year in range(3) for name in ROW_FIELDS)
+    with np.load(linked_path(original_ref),allow_pickle=False) as archive:
+        require(archive.files==[row['name'] for row in original['array_shapes']],
+            'original fixture archive inventory differs')
+        originals={name:archive[name] for name in selected}
     arrays = load_arrays(dict(document,arrays=_relative_ref(path.parent,document['arrays'])))
     require(document['seasons']==original['seasons']
         and [e['season'] for e in document['years']]==document['seasons']

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_documentation_verification",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/result.json",
+      "sha256": "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+    }
+  },
+  "status": "verified",
+  "changed_markdown_files": 12,
+  "local_file_links_checked": 388,
+  "copied_report_files_byte_exact_in_worktree_and_git_index": 9,
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "study_status": "diagnosed",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "whitespace": "git diff --cached --check passed with cr-at-eol preserving standard csv record endings",
+  "method": "inline bounded documentation check; no retained controller or application tests"
+}

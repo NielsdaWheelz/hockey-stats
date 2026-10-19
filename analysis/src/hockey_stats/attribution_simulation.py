@@ -13,6 +13,72 @@ from .shot_origins import grid
 PAIR_SLOTS = (((0, 1), (2, 3), (4, 5), (6, 7)),) * 3 + (((0, 1), (2, 7), (3, 4), (5, 6)),)
 
 
+def native_transfer_templates(centers: np.ndarray, p: np.ndarray) -> tuple[np.ndarray, list[dict]]:
+    """unit physical transfers across the nearest half-reference-mass prefixes."""
+    require(centers.shape == (len(p), 2) and len(p) > 1 and np.isfinite(centers).all()
+            and p.dtype == np.dtype("float64") and np.isfinite(p).all() and np.all(p > 0)
+            and abs(float(p.sum())-1) <= 1e-12,
+            "native transfer geometry or positive reference differs")
+    distance = np.linalg.norm(centers-[89., 0.], axis=1)
+    orderings = (np.lexsort((centers[:, 1], centers[:, 0], distance)),
+                 np.lexsort((centers[:, 0], centers[:, 1])))
+    fields, boundaries = [], []
+    for name, order in zip(("radial", "lateral"), orderings, strict=True):
+        prefix_size = int(np.argmin(np.abs(np.cumsum(p[order])[:-1]-.5)))+1
+        prefix = order[:prefix_size]
+        member = np.zeros(len(p), dtype=bool)
+        member[prefix] = True
+        mass = float(p[member].sum())
+        field = np.where(member, p/mass, -p/(1-mass))
+        require(abs(float(field.sum())) <= 1e-12
+                and abs(float(np.abs(field).sum())/2-1) <= 1e-12,
+                "native transfer must conserve volume and transfer one physical unit")
+        fields.append(field)
+        boundaries.append(dict(template=name, prefix_cells=prefix.tolist(), prefix_size=prefix_size,
+            prefix_mass=mass, last_center=centers[order[prefix_size-1]].tolist(),
+            first_outside_center=centers[order[prefix_size]].tolist(),
+            last_distance=float(distance[order[prefix_size-1]]) if name == "radial" else None,
+            first_outside_distance=float(distance[order[prefix_size]]) if name == "radial" else None))
+    return np.asarray(fields), boundaries
+
+
+def generate_shape_score(design, score_factor, physical_truth, basis, gaussian_draw,
+                         grouped_design=None, game_draw=None) -> tuple[np.ndarray, dict]:
+    """project a gaussian score and optional shared-game physical mean perturbation.
+
+    physical_truth remains raw: removing its exposure mean without compensating
+    context would alter the shared-game law. grouped columns are contracted
+    before either global moment is materialized.
+    """
+    n, d = len(design.H), basis.shape[1]
+    require(basis.ndim == 2 and basis.shape[0] == len(design.p)
+            and score_factor.ndim == 2 and score_factor.shape[0] == n
+            and physical_truth.shape == (n, len(design.p))
+            and gaussian_draw.shape == (score_factor.shape[1], d)
+            and all(value.dtype == np.dtype("float64") and np.isfinite(value).all()
+                    for value in (score_factor, physical_truth, basis, gaussian_draw))
+            and (grouped_design is None) == (game_draw is None),
+            "generated score requires matched finite physical truth, factor, basis and draw axes")
+    projected = physical_truth @ basis
+    mean = (design.H/design.r) @ projected
+    gaussian = score_factor @ gaussian_draw
+    game = np.zeros_like(mean)
+    if grouped_design is not None:
+        s = len(design.strata)
+        require(game_draw.shape == (len(grouped_design.game_ids),)
+                and game_draw.dtype == np.dtype("float64") and np.isfinite(game_draw).all()
+                and grouped_design.H_e.shape == (len(game_draw), n*n)
+                and grouped_design.stratum_x.shape == (len(game_draw), s*n),
+                "shared-game score requires matched inventory draws and grouped design axes")
+        A = np.asarray(game_draw @ grouped_design.H_e).reshape(n, n)
+        context = np.asarray(game_draw @ grouped_design.stratum_x).reshape(s, n)
+        game = (A-design.xbar.T @ context) @ projected
+    Q = mean+gaussian+game
+    require(np.isfinite(Q).all(), "generated shape score is nonfinite")
+    return Q, dict(mean_frobenius=float(np.linalg.norm(mean)), gaussian_frobenius=float(np.linalg.norm(gaussian)),
+                   game_frobenius=float(np.linalg.norm(game)), score_frobenius=float(np.linalg.norm(Q)))
+
+
 def synthetic_counts(design: dict, case_id: int, outer_id: int, year_index: int) -> np.ndarray:
     """the original 04c response stream; callers supply its fixed design and ids."""
     require(type(case_id) is int and case_id in (0, 1) and type(outer_id) is int and outer_id >= 0,

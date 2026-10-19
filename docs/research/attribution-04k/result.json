@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+      "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+      "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/protocol.json",
+      "sha256": "6f72e59b9d8d8e1899b7e1632f09d7c3795e8365b97baffe4070fd2dd6cff5d9"
+    }
+  },
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "study_status": "diagnosed",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "next_question": "can an empirically justified annual prior preserve gains for stable players while reducing harm under reversals, first observations and null effects within a prospectively chosen prediction-cost budget?",
+  "unresolved_reason": null,
+  "inventory": {
+    "pairs": 100,
+    "scores": 500,
+    "states": 600,
+    "probes": 12,
+    "scale_objective_evaluations_max": 34200,
+    "pair_paths": [
+      "gaussian_half/0/fit.json",
+      "gaussian_half/1/fit.json",
+      "gaussian_half/2/fit.json",
+      "gaussian_half/3/fit.json",
+      "gaussian_half/4/fit.json",
+      "gaussian_half/5/fit.json",
+      "gaussian_half/6/fit.json",
+      "gaussian_half/7/fit.json",
+      "gaussian_half/8/fit.json",
+      "gaussian_half/9/fit.json",
+      "gaussian_half/10/fit.json",
+      "gaussian_half/11/fit.json",
+      "gaussian_half/12/fit.json",
+      "gaussian_half/13/fit.json",
+      "gaussian_half/14/fit.json",
+      "gaussian_half/15/fit.json",
+      "gaussian_half/16/fit.json",
+      "gaussian_half/17/fit.json",
+      "gaussian_half/18/fit.json",
+      "gaussian_half/19/fit.json",
+      "gaussian_base/0/fit.json",
+      "gaussian_base/1/fit.json",
+      "gaussian_base/2/fit.json",
+      "gaussian_base/3/fit.json",
+      "gaussian_base/4/fit.json",
+      "gaussian_base/5/fit.json",
+      "gaussian_base/6/fit.json",
+      "gaussian_base/7/fit.json",
+      "gaussian_base/8/fit.json",
+      "gaussian_base/9/fit.json",
+      "gaussian_base/10/fit.json",
+      "gaussian_base/11/fit.json",
+      "gaussian_base/12/fit.json",
+      "gaussian_base/13/fit.json",
+      "gaussian_base/14/fit.json",
+      "gaussian_base/15/fit.json",
+      "gaussian_base/16/fit.json",
+      "gaussian_base/17/fit.json",
+      "gaussian_base/18/fit.json",
+      "gaussian_base/19/fit.json",
+      "gaussian_double/0/fit.json",
+      "gaussian_double/1/fit.json",
+      "gaussian_double/2/fit.json",
+      "gaussian_double/3/fit.json",
+      "gaussian_double/4/fit.json",
+      "gaussian_double/5/fit.json",
+      "gaussian_double/6/fit.json",
+      "gaussian_double/7/fit.json",
+      "gaussian_double/8/fit.json",
+      "gaussian_double/9/fit.json",
+      "gaussian_double/10/fit.json",
+      "gaussian_double/11/fit.json",
+      "gaussian_double/12/fit.json",
+      "gaussian_double/13/fit.json",
+      "gaussian_double/14/fit.json",
+      "gaussian_double/15/fit.json",
+      "gaussian_double/16/fit.json",
+      "gaussian_double/17/fit.json",
+      "gaussian_double/18/fit.json",
+      "gaussian_double/19/fit.json",
+      "gaussian_null/0/fit.json",
+      "gaussian_null/1/fit.json",
+      "gaussian_null/2/fit.json",
+      "gaussian_null/3/fit.json",
+      "gaussian_null/4/fit.json",
+      "gaussian_null/5/fit.json",
+      "gaussian_null/6/fit.json",
+      "gaussian_null/7/fit.json",
+      "gaussian_null/8/fit.json",
+      "gaussian_null/9/fit.json",
+      "gaussian_null/10/fit.json",
+      "gaussian_null/11/fit.json",
+      "gaussian_null/12/fit.json",
+      "gaussian_null/13/fit.json",
+      "gaussian_null/14/fit.json",
+      "gaussian_null/15/fit.json",
+      "gaussian_null/16/fit.json",
+      "gaussian_null/17/fit.json",
+      "gaussian_null/18/fit.json",
+      "gaussian_null/19/fit.json",
+      "game_shared_base/0/fit.json",
+      "game_shared_base/1/fit.json",
+      "game_shared_base/2/fit.json",
+      "game_shared_base/3/fit.json",
+      "game_shared_base/4/fit.json",
+      "game_shared_base/5/fit.json",
+      "game_shared_base/6/fit.json",
+      "game_shared_base/7/fit.json",
+      "game_shared_base/8/fit.json",
+      "game_shared_base/9/fit.json",
+      "game_shared_base/10/fit.json",
+      "game_shared_base/11/fit.json",
+      "game_shared_base/12/fit.json",
+      "game_shared_base/13/fit.json",
+      "game_shared_base/14/fit.json",
+      "game_shared_base/15/fit.json",
+      "game_shared_base/16/fit.json",
+      "game_shared_base/17/fit.json",
+      "game_shared_base/18/fit.json",
+      "game_shared_base/19/fit.json"
+    ],
+    "scale_objective_evaluations": 18593
+  },
+  "resources": {
+    "preparation": {
+      "wall_seconds": 4.987227833000361,
+      "peak_memory_bytes": 953270272,
+      "process_seconds": 2.882993,
+      "output_bytes": 391662192,
+      "output_bytes_scope": "tree before current manifest serialization"
+    },
+    "primary_fits": {
+      "pairs": 100,
+      "wall_seconds": 12797.312960378003,
+      "peak_memory_bytes": 3495116800,
+      "output_bytes": 29371599800
+    },
+    "preflight_gaussian_base_0": {
+      "wall_seconds": 102.00864591600111,
+      "peak_memory_bytes": 2844868608,
+      "process_seconds": 100.033083,
+      "output_bytes": 293715998,
+      "output_bytes_scope": "tree before current manifest serialization"
+    },
+    "assessment": {
+      "wall_seconds": 562.3141697079991,
+      "peak_memory_bytes": 2863087616,
+      "process_seconds": 421.08270999999996,
+      "output_bytes": 37906722,
+      "output_bytes_scope": "tree before current manifest serialization"
+    },
+    "report": {
+      "wall_seconds": 1.9865926249985932,
+      "peak_memory_bytes": 528351232
+    }
+  },
+  "reports": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/design.csv",
+      "sha256": "92f5f4a8d86f5093c5464152f75459febb08d0ad1d3cd48a46e053bad7523520"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/truth.csv",
+      "sha256": "f658fe96e61c8804d7a33e37dcf0603852dfea29ad0a9c28d2ef0f2fef2ac7b8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/metrics.csv",
+      "sha256": "e09066e95ff3617c2b3211e998044d73e74006a81e3172eb33e4a1000b85be9a"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/comparison.csv",
+      "sha256": "a5e07f8a532c3ad988e667c9c226bbea371bfc1dd21ad69de4e6b83b98239160"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/diagnostics.csv",
+      "sha256": "1d9260df234bd28dddb1d5b264735564456e42af21642bbdaf958fd6ddbd86aa"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/players.csv",
+      "sha256": "1f3fdbdb012d6875a5c6a3af87f90f713e028ff740f2e887a4d396b08e3b799f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/decision.md",
+      "sha256": "6af1d9a24659ffc7cb4c0cf1329a6bb4a218d03067a0d205afe4f7cebcec3a27"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/verification.md",
+      "sha256": "648e172257924f6875b90d9b1c82c1e3bd5bb01d6fc4cd36f2bea1738d1c4883"
+    }
+  ],
+  "figures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/comparison.png",
+      "sha256": "9056ba54043b47ef63abcb639aa2309e6bb27dda777b761d6e588740599c9481"
+    }
+  ]
+}

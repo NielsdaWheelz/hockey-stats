@@ -81,6 +81,9 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04i contrary diagnostics, confirmed 2026-10-17 | null false maps, lateral recovery, entrants and changed returner are mandatory diagnostics without new vetoes | progress may coexist with deterioration; report it beside the result and claim no uniform recovery |
 | post-04i direction, approved 2026-10-17 | connect attribution research to actual five-season deployment before another estimator; close selector findings from saved evidence | real-design assembly and conditional information analysis precede a new empirical benchmark. no new selector, relaxed historical criteria, ability admission or automatic campaign; constant pooling remains a diagnostic assumption |
 | 04j noise boundary, confirmed 2026-10-17 | deployment information under the existing working-noise reference; no empirical game-noise estimation | contrasts and precision are conditional on fixed context/reference assumptions; this cannot validate real-player uncertainty or discover actual effect magnitudes |
+| 04k borrowing, confirmed 2026-10-17 | test the existing league-relative annual carry against an independent final-season fit | isolates current behavior; constant physical effects change normalized size with league rate. physical-unit carry remains a different model revision |
+| 04k claim, confirmed 2026-10-17 | diagnostic recovery/prediction comparison on actual deployment, without a new gate | simulated effects and changing-player harm inform a later question; no nominee, ability admission or calibrated player intervals |
+| 04k noise boundary, confirmed 2026-10-17 | working gaussian plus a declared game-shared gaussian sensitivity | saved design summaries suffice; correlated mean perturbations omit count-dependent shot noise and do not reproduce the earlier gamma-poisson law |
 
 ## initial product and scope
 

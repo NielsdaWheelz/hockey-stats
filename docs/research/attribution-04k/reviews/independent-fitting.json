@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_independent_review",
+  "purpose": "fixture_exercise",
+  "implementation": {
+    "git_commit": "0a5f9a8734f655da930a16d5e13a7fab7dcbd6c7",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "fixture_result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/report/result.json",
+      "sha256": "d93ea360bdfc1cd2dee278670cbb9fe594e3a86f116517f99be8fb2d9b2fff35"
+    },
+    "source_fixture": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/deployment-information.json",
+      "sha256": "8e202fcffaa176ae3d06300c291ea69152aa6007e6d26f71fff0434a97297761"
+    },
+    "history_fixture": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/history-comparison.json",
+      "sha256": "01f4bab9a5dedbed3fab530a675fd097a1d7c4548e1fbf93b3de78ea05cd38f7"
+    }
+  },
+  "review": "independent-fitting",
+  "reviewer": "independent review_and_reports agent",
+  "status": "verified",
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "checks": {
+    "status": "verified",
+    "dense_marginal_max_absolute": 2.5579538487363607e-13,
+    "states": [
+      {
+        "season": "20302031",
+        "current": 12,
+        "seen": 12,
+        "a": 0.0013707081836561766,
+        "q": null
+      },
+      {
+        "season": "20312032",
+        "current": 12,
+        "seen": 14,
+        "a": 0.0013707081836561766,
+        "q": 1e-08
+      },
+      {
+        "season": "20322033",
+        "current": 12,
+        "seen": 15,
+        "a": 0.0013707081836561766,
+        "q": 1e-08
+      }
+    ],
+    "preserved_full_state_arrays": 39,
+    "legacy_probe_receipts": "exact",
+    "unidentified_pair_retains_variance": true
+  },
+  "scope": "software and fixed synthetic algebra; no research conclusion or player ability claim"
+}

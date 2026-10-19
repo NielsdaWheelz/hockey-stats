@@ -1,0 +1,113 @@
+{
+  "kind": "attribution_history_independent_research_content_review",
+  "schema_version": 1,
+  "status": "verified",
+  "purpose": "research",
+  "scope": "saved research content, visual inspection and saved-only replay; no native or fitted array decoding, fitting, selector or primary artifact mutation",
+  "references": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/result.json",
+      "sha256": "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+      "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+    },
+    "previous_source_review": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/reviews/independent-final-source-and-export.json",
+      "sha256": "f7ee2e2504075f0378ac11bf9ff568189ac9c49d6407e86a4400689dac7bc287"
+    },
+    "replay_result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/independent-research-content-replay/result.json",
+      "sha256": "c95df4b3d8365281c2f100726f7b423cc60ed5aa9d908dd02f6cdacaf2d6e52c"
+    },
+    "controller": {
+      "path": "/tmp/04k-research-content-review.py",
+      "sha256": "b070c6814e89f48133ca95f4cbc1734203badd6a3a19f931dbffde70ec20e2dd"
+    }
+  },
+  "checks": {
+    "inventory": {
+      "pairs": 100,
+      "scores": 500,
+      "states": 600,
+      "probes": 12
+    },
+    "csv_rows": {
+      "design.csv": 5,
+      "truth.csv": 3026,
+      "metrics.csv": 34000,
+      "comparison.csv": 2060,
+      "diagnostics.csv": 2572,
+      "players.csv": 18800
+    },
+    "all_csv_study_labels_and_purpose_present": true,
+    "csv_axes_units_denominators_null_reasons_and_saved_values_verified": true,
+    "final_player_role_populations": {
+      "players_per_role": 940,
+      "cell_role_arm_groups": 20,
+      "total_rows": 18800
+    },
+    "assigned_sign_final_raw_sign_onset_reversal_null_and_absence_semantics_correct": true,
+    "all_five_cells_and_paired_record_counts_visible": true,
+    "negative_prediction_excess_retained": true,
+    "visual_inspection": "original-resolution comparison.png: both940-player recovery panels share axes, allfive cells/zero references/monte carlo intervals visible, base stable/reversal/onset/no-prior harms adjacent with counts and matched axes; labels readable without clipping",
+    "decision_and_result": "one grounded next question; stable/reversal/onset/null and first-observation harms visible; no player ability, nomination, admission, gate or equivalence claim",
+    "saved_only_replay": {
+      "np_load_call_count": 0,
+      "byte_identical_reports": [
+        {
+          "name": "design.csv",
+          "sha256": "92f5f4a8d86f5093c5464152f75459febb08d0ad1d3cd48a46e053bad7523520",
+          "byte_equal": true
+        },
+        {
+          "name": "truth.csv",
+          "sha256": "f658fe96e61c8804d7a33e37dcf0603852dfea29ad0a9c28d2ef0f2fef2ac7b8",
+          "byte_equal": true
+        },
+        {
+          "name": "metrics.csv",
+          "sha256": "e09066e95ff3617c2b3211e998044d73e74006a81e3172eb33e4a1000b85be9a",
+          "byte_equal": true
+        },
+        {
+          "name": "comparison.csv",
+          "sha256": "a5e07f8a532c3ad988e667c9c226bbea371bfc1dd21ad69de4e6b83b98239160",
+          "byte_equal": true
+        },
+        {
+          "name": "diagnostics.csv",
+          "sha256": "1d9260df234bd28dddb1d5b264735564456e42af21642bbdaf958fd6ddbd86aa",
+          "byte_equal": true
+        },
+        {
+          "name": "players.csv",
+          "sha256": "1f3fdbdb012d6875a5c6a3af87f90f713e028ff740f2e887a4d396b08e3b799f",
+          "byte_equal": true
+        },
+        {
+          "name": "decision.md",
+          "sha256": "6af1d9a24659ffc7cb4c0cf1329a6bb4a218d03067a0d205afe4f7cebcec3a27",
+          "byte_equal": true
+        },
+        {
+          "name": "verification.md",
+          "sha256": "648e172257924f6875b90d9b1c82c1e3bd5bb01d6fc4cd36f2bea1738d1c4883",
+          "byte_equal": true
+        },
+        {
+          "name": "comparison.png",
+          "sha256": "9056ba54043b47ef63abcb639aa2309e6bb27dda777b761d6e588740599c9481",
+          "byte_equal": true
+        }
+      ],
+      "excluded": "result.json measured resources and output locators"
+    },
+    "original_source_artifacts_unchanged": true,
+    "selected_immutable_sources_rehashed_unchanged": 21
+  },
+  "remaining_concerns": [],
+  "new_fits": 0,
+  "tracked_analysis_edits": false
+}

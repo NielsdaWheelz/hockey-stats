@@ -79,6 +79,17 @@ class DeploymentDesign:
                 "deployment exposure, reference, context means or information differ")
 
 
+@dataclass(frozen=True)
+class GroupedDeploymentDesign:
+    """response-free game moments; sparse columns are flattened in c order."""
+
+    game_ids: tuple
+    H_e: sparse.csr_matrix
+    stratum_x: sparse.csr_matrix
+    stratum_e: np.ndarray
+    source_refs: dict
+
+
 def _selected_deployment_arrays(reference: ArtifactReference, shapes: dict,
                                 names: tuple[str, ...]) -> dict[str, np.ndarray]:
     """verify the whole archive while decoding only named design members."""
@@ -144,6 +155,95 @@ def read_real_deployment_designs(result_ref: ArtifactReference,
         deployment_accounting(design)
         designs.append(design)
     return tuple(designs)
+
+
+def read_grouped_deployment_design(design: DeploymentDesign) -> GroupedDeploymentDesign:
+    """verify the selected archive and decode only its three design moments."""
+    prepared = read_json(linked_path(design.source_refs["prepared"]))
+    matches = [row for row in prepared["annual"]
+               if row["population"] == "unblocked_spatial" and row["season"] == design.season]
+    require(len(matches) == 1, "grouped deployment annual identity is unavailable")
+    annual = matches[0]
+    require(annual["status"] == "prepared" and annual["reason"] is None
+            and tuple(annual["players"]) == design.player_ids
+            and tuple(map(tuple, annual["strata"])) == design.strata
+            and annual["r"] == design.r and annual["statistics"] == design.source_refs["statistics"]
+            and annual["references"] == design.source_refs["references"],
+            "grouped deployment changed its selected annual design")
+    names = ("H_e_data", "H_e_indices", "H_e_indptr", "stratum_x_data",
+             "stratum_x_indices", "stratum_x_indptr", "stratum_e")
+    arrays = _selected_deployment_arrays(annual["grouped"], annual["grouped_shapes"], names)
+    g, n, s = len(annual["game_ids"]), 2*len(design.player_ids), len(design.strata)
+    matrices = {}
+    for name, width in (("H_e", n*n), ("stratum_x", s*n)):
+        data, indices, indptr = (arrays[name+suffix] for suffix in ("_data", "_indices", "_indptr"))
+        require(data.dtype == np.dtype("float64") and indices.dtype.kind in "iu"
+                and indptr.dtype.kind in "iu" and data.ndim == indices.ndim == indptr.ndim == 1
+                and len(data) == len(indices) and indptr.shape == (g+1,)
+                and indptr[0] == 0 and indptr[-1] == len(data)
+                and np.all(indptr[1:] >= indptr[:-1])
+                and np.all((0 <= indices) & (indices < width)),
+                "grouped deployment sparse storage differs from its declared axes")
+        matrices[name] = sparse.csr_matrix((data, indices, indptr), shape=(g, width))
+    grouped = GroupedDeploymentDesign(tuple(annual["game_ids"]), matrices["H_e"],
+        matrices["stratum_x"], arrays["stratum_e"],
+        dict(prepared=design.source_refs["prepared"], grouped=annual["grouped"], decoded_members=list(names)))
+    grouped_deployment_accounting(design, grouped)
+    return grouped
+
+
+def grouped_deployment_accounting(design: DeploymentDesign, grouped: GroupedDeploymentDesign) -> dict:
+    """reconcile game exposure and residualization with the selected annual data."""
+    g, n, s = len(grouped.game_ids), 2*len(design.player_ids), len(design.strata)
+    require(g > 0 and grouped.game_ids == tuple(sorted(set(grouped.game_ids)))
+            and sparse.isspmatrix_csr(grouped.H_e) and sparse.isspmatrix_csr(grouped.stratum_x)
+            and grouped.H_e.shape == (g, n*n) and grouped.stratum_x.shape == (g, s*n)
+            and grouped.H_e.dtype == grouped.stratum_x.dtype == np.dtype("float64")
+            and grouped.stratum_e.shape == (g, s) and grouped.stratum_e.dtype == np.dtype("float64")
+            and all(np.isfinite(value).all() and np.all(value >= 0) for value in
+                    (grouped.H_e.data, grouped.stratum_x.data, grouped.stratum_e)),
+            "grouped deployment game inventory, finite moments or axes differ")
+    A = np.asarray(grouped.H_e.sum(axis=0)).reshape(n, n)
+    context = np.asarray(grouped.stratum_x.sum(axis=0)).reshape(s, n)
+    exposure = grouped.stratum_e.sum(axis=0)
+    require(np.all(exposure > 0), "grouped deployment context has no exposure")
+    xbar = context/exposure[:, None]
+    H = design.r*(A-xbar.T @ context)
+    errors = dict(information_relative=float(np.linalg.norm(H-design.H)/max(1., np.linalg.norm(design.H))),
+        xbar_max_absolute=float(np.max(np.abs(xbar-design.xbar))),
+        stratum_weight_relative=float(np.linalg.norm(design.r*exposure-design.stratum_weight)
+                                      /max(1., np.linalg.norm(design.stratum_weight))),
+        player_exposure_max_absolute=float(np.max(np.abs(3600*np.diag(A)
+                                         -np.tile(design.player_exposure, 2)))))
+    require(errors["information_relative"] <= 1e-10 and errors["xbar_max_absolute"] <= 1e-10
+            and errors["stratum_weight_relative"] <= 1e-10
+            and errors["player_exposure_max_absolute"] <= 1e-6,
+            "grouped deployment totals differ from annual information, context or exposure")
+    return errors
+
+
+def grouped_deployment_from_rows(design: DeploymentDesign, arrays: dict[str, np.ndarray]
+                                 ) -> GroupedDeploymentDesign:
+    """contract explicit synthetic rows into the same response-free game boundary."""
+    offense, defense, seconds, si, row_games = (arrays[name] for name in
+        ("offense", "defense", "seconds", "si", "row_game_ids"))
+    n, s, m = 2*len(design.player_ids), len(design.strata), len(seconds)
+    columns = np.column_stack((np.searchsorted(design.player_ids, offense),
+                               n//2+np.searchsorted(design.player_ids, defense)))
+    X = sparse.csr_matrix((np.ones(columns.size), (np.repeat(np.arange(m), 10), columns.ravel())),
+                          shape=(m, n))
+    Z = sparse.csr_matrix((np.ones(m), (np.arange(m), si)), shape=(m, s))
+    game_ids, moments, context, exposure = tuple(np.unique(row_games).tolist()), [], [], []
+    for game in game_ids:
+        rows = row_games == game
+        e = seconds[rows]/3600
+        moments.append((X[rows].T @ X[rows].multiply(e[:, None])).reshape((1, n*n)))
+        context.append((Z[rows].T @ X[rows].multiply(e[:, None])).reshape((1, s*n)))
+        exposure.append(np.asarray(Z[rows].T @ e).ravel())
+    grouped = GroupedDeploymentDesign(game_ids, sparse.vstack(moments, format="csr"),
+        sparse.vstack(context, format="csr"), np.asarray(exposure), design.source_refs)
+    grouped_deployment_accounting(design, grouped)
+    return grouped
 
 
 def deployment_design_from_rows(*, season: str, player_ids: tuple[int, ...], strata: tuple[tuple, ...],

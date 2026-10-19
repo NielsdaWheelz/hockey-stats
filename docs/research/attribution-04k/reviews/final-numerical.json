@@ -1,0 +1,634 @@
+{
+  "status": "verified",
+  "purpose": "research",
+  "scope": "independent fixed-prior audit of the twelve retained conditional probes",
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+    "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+  },
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+    "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+  },
+  "fit_producer": "0a5f9a8734f655da930a16d5e13a7fab7dcbd6c7",
+  "checked_probes": 12,
+  "independently_evaluated_fixed_candidates": 42,
+  "method": "independent pivoted-lu equations at saved winner, exact nearest coarse candidates and saved alternative only; no selector, refinement, additional fit chain or model-owner calls; final metrics contracted directly from saved native truth and deployment",
+  "probes": [
+    {
+      "cell": "gaussian_base",
+      "record": 0,
+      "state_index": 0,
+      "season": "20212022",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "resolved",
+        "own_reasons": [],
+        "inherited_limitation": false
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -4.348097331762309,
+          "variance": 4.486448307792227e-05,
+          "independent_objective": -44.23573135125184,
+          "saved_objective": -44.23573135125139,
+          "saved_difference": 4.547473508864641e-13
+        },
+        {
+          "exponent": -4.5,
+          "variance": 3.1622776601683795e-05,
+          "independent_objective": -40.7235233183535,
+          "saved_objective": -40.723523318353955,
+          "saved_difference": 4.547473508864641e-13
+        },
+        {
+          "exponent": -4.0,
+          "variance": 0.0001,
+          "independent_objective": 6.982084050971025,
+          "saved_objective": 6.982084050971025,
+          "saved_difference": 0.0
+        }
+      ],
+      "selected_alternative_exponent": -4.348087488983483,
+      "alternative_objective_difference": 0.0,
+      "raw_mean_absolute_difference": 5.0306980803327406e-17,
+      "centered_mean_absolute_difference": 4.9439619065339e-17,
+      "posterior_equation_relative": 2.4439365404754477e-16,
+      "covariance_equation_relative": 1.610107177498911e-18,
+      "alternative_equation_relative": 2.543778853839432e-16,
+      "league_relative_map_movement": {
+        "native_cells": 6.9387495803772275e-09,
+        "regions": 3.8017455976151214e-08
+      },
+      "metric_claims": 0,
+      "maximum_metric_movement_claim_difference": 0.0,
+      "maximum_absolute_movement_in_mc_se": 0.0,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_base",
+      "record": 0,
+      "state_index": 1,
+      "season": "20222023",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [
+          "endpoint_winner"
+        ],
+        "inherited_limitation": false
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -8.0,
+          "variance": 1e-08,
+          "independent_objective": -32.62170772976424,
+          "saved_objective": -32.62170772976424,
+          "saved_difference": 0.0
+        },
+        {
+          "exponent": -7.5,
+          "variance": 3.162277660168379e-08,
+          "independent_objective": -32.61768777926022,
+          "saved_objective": -32.61768777925181,
+          "saved_difference": 8.412825991399586e-12
+        },
+        {
+          "exponent": -7.0,
+          "variance": 1e-07,
+          "independent_objective": -32.60485892853376,
+          "saved_objective": -32.60485892852785,
+          "saved_difference": 5.9117155615240335e-12
+        }
+      ],
+      "selected_alternative_exponent": -8.0,
+      "alternative_objective_difference": 0.0,
+      "raw_mean_absolute_difference": 5.551115123125783e-17,
+      "centered_mean_absolute_difference": 5.551115123125783e-17,
+      "posterior_equation_relative": 2.79879747228921e-16,
+      "covariance_equation_relative": 2.3729609903994385e-18,
+      "alternative_equation_relative": 2.79879747228921e-16,
+      "league_relative_map_movement": {
+        "native_cells": 3.652621782795298e-18,
+        "regions": 1.8854309334766758e-17
+      },
+      "metric_claims": 0,
+      "maximum_metric_movement_claim_difference": 0.0,
+      "maximum_absolute_movement_in_mc_se": 0.0,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_base",
+      "record": 0,
+      "state_index": 2,
+      "season": "20232024",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [
+          "endpoint_winner"
+        ],
+        "inherited_limitation": true
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -8.0,
+          "variance": 1e-08,
+          "independent_objective": -33.50299106334637,
+          "saved_objective": -33.502991063316585,
+          "saved_difference": 2.97859514830634e-11
+        },
+        {
+          "exponent": -7.5,
+          "variance": 3.162277660168379e-08,
+          "independent_objective": -33.50015833350449,
+          "saved_objective": -33.5001583334863,
+          "saved_difference": 1.8189894035458565e-11
+        },
+        {
+          "exponent": -7.0,
+          "variance": 1e-07,
+          "independent_objective": -33.49108211489556,
+          "saved_objective": -33.491082114877145,
+          "saved_difference": 1.8417267710901797e-11
+        }
+      ],
+      "selected_alternative_exponent": -8.0,
+      "alternative_objective_difference": 2.97859514830634e-11,
+      "raw_mean_absolute_difference": 6.158268339717665e-17,
+      "centered_mean_absolute_difference": 6.201636426617085e-17,
+      "posterior_equation_relative": 3.0252420454391155e-16,
+      "covariance_equation_relative": 2.5208997678982455e-18,
+      "alternative_equation_relative": 3.0252420454391155e-16,
+      "league_relative_map_movement": {
+        "native_cells": 2.905989876333453e-18,
+        "regions": 2.5428430249364565e-17
+      },
+      "metric_claims": 0,
+      "maximum_metric_movement_claim_difference": 0.0,
+      "maximum_absolute_movement_in_mc_se": 0.0,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_base",
+      "record": 0,
+      "state_index": 3,
+      "season": "20242025",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [
+          "endpoint_winner"
+        ],
+        "inherited_limitation": true
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -8.0,
+          "variance": 1e-08,
+          "independent_objective": 2.3564990970769486,
+          "saved_objective": 2.3564990971190127,
+          "saved_difference": 4.206412995699793e-11
+        },
+        {
+          "exponent": -7.5,
+          "variance": 3.162277660168379e-08,
+          "independent_objective": 2.3734098791626366,
+          "saved_objective": 2.373409879203791,
+          "saved_difference": 4.1154635255225e-11
+        },
+        {
+          "exponent": -7.0,
+          "variance": 1e-07,
+          "independent_objective": 2.426992233928331,
+          "saved_objective": 2.426992233973124,
+          "saved_difference": 4.4792614062316716e-11
+        }
+      ],
+      "selected_alternative_exponent": -8.0,
+      "alternative_objective_difference": 4.206412995699793e-11,
+      "raw_mean_absolute_difference": 6.765421556309548e-17,
+      "centered_mean_absolute_difference": 6.765421556309548e-17,
+      "posterior_equation_relative": 2.474557930118028e-16,
+      "covariance_equation_relative": 2.3439730999944916e-18,
+      "alternative_equation_relative": 2.474557930118028e-16,
+      "league_relative_map_movement": {
+        "native_cells": 3.048312227203105e-18,
+        "regions": 1.8835219746505923e-17
+      },
+      "metric_claims": 0,
+      "maximum_metric_movement_claim_difference": 0.0,
+      "maximum_absolute_movement_in_mc_se": 0.0,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_base",
+      "record": 0,
+      "state_index": 4,
+      "season": "20252026",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [],
+        "inherited_limitation": true
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -4.817400658023606,
+          "variance": 1.5226473885188568e-05,
+          "independent_objective": -63.76548479258349,
+          "saved_objective": -63.76548479252051,
+          "saved_difference": 6.298250809777528e-11
+        },
+        {
+          "exponent": -5.0,
+          "variance": 1e-05,
+          "independent_objective": -63.27815837423918,
+          "saved_objective": -63.278158374168015,
+          "saved_difference": 7.116796041373163e-11
+        },
+        {
+          "exponent": -4.5,
+          "variance": 3.1622776601683795e-05,
+          "independent_objective": -59.22577058089155,
+          "saved_objective": -59.22577058080651,
+          "saved_difference": 8.503775461576879e-11
+        }
+      ],
+      "selected_alternative_exponent": -4.817386849176326,
+      "alternative_objective_difference": 6.707523425575346e-11,
+      "raw_mean_absolute_difference": 7.806255641895632e-17,
+      "centered_mean_absolute_difference": 7.827939685345342e-17,
+      "posterior_equation_relative": 3.7647081798986135e-16,
+      "covariance_equation_relative": 3.633646942543775e-18,
+      "alternative_equation_relative": 2.559109885997456e-16,
+      "league_relative_map_movement": {
+        "native_cells": 3.3787183524137014e-09,
+        "regions": 2.1566868504073712e-08
+      },
+      "metric_claims": 340,
+      "maximum_metric_movement_claim_difference": 8.881784197001252e-16,
+      "maximum_absolute_movement_in_mc_se": 1.6989894372951007e-05,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_base",
+      "record": 0,
+      "state_index": 5,
+      "season": "20252026",
+      "arm": "independent",
+      "saved_scale_status": {
+        "status": "resolved",
+        "own_reasons": [],
+        "inherited_limitation": false
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -4.248274671699863,
+          "variance": 5.64579790582982e-05,
+          "independent_objective": -68.10587735908871,
+          "saved_objective": -68.10587735908848,
+          "saved_difference": 2.2737367544323206e-13
+        },
+        {
+          "exponent": -4.0,
+          "variance": 0.0001,
+          "independent_objective": -36.98241382951346,
+          "saved_objective": -36.98241382951346,
+          "saved_difference": 0.0
+        },
+        {
+          "exponent": -4.5,
+          "variance": 3.1622776601683795e-05,
+          "independent_objective": -56.0898985418346,
+          "saved_objective": -56.08989854183437,
+          "saved_difference": 2.2737367544323206e-13
+        }
+      ],
+      "selected_alternative_exponent": -4.248289020668283,
+      "alternative_objective_difference": 0.0,
+      "raw_mean_absolute_difference": 4.2500725161431774e-17,
+      "centered_mean_absolute_difference": 4.2500725161431774e-17,
+      "posterior_equation_relative": 3.3538934056920997e-16,
+      "covariance_equation_relative": 2.514859547261897e-18,
+      "alternative_equation_relative": 2.6614922095794347e-16,
+      "league_relative_map_movement": {
+        "native_cells": 1.2395907267611277e-08,
+        "regions": 8.023813792668504e-08
+      },
+      "metric_claims": 340,
+      "maximum_metric_movement_claim_difference": 2.220446049250313e-15,
+      "maximum_absolute_movement_in_mc_se": 7.050638719857872e-05,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_double",
+      "record": 0,
+      "state_index": 4,
+      "season": "20252026",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [],
+        "inherited_limitation": true
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -3.996051012474236,
+          "variance": 0.00010091343456267969,
+          "independent_objective": -795.0856026394576,
+          "saved_objective": -795.0856026394276,
+          "saved_difference": 3.001332515850663e-11
+        },
+        {
+          "exponent": -4.0,
+          "variance": 0.0001,
+          "independent_objective": -795.0762129245804,
+          "saved_objective": -795.0762129245622,
+          "saved_difference": 1.8189894035458565e-11
+        },
+        {
+          "exponent": -3.5,
+          "variance": 0.00031622776601683794,
+          "independent_objective": -414.4804190109826,
+          "saved_objective": -414.4804190109462,
+          "saved_difference": 3.637978807091713e-11
+        }
+      ],
+      "selected_alternative_exponent": -3.996051012474236,
+      "alternative_objective_difference": 3.001332515850663e-11,
+      "raw_mean_absolute_difference": 3.365363543395006e-16,
+      "centered_mean_absolute_difference": 3.365363543395006e-16,
+      "posterior_equation_relative": 6.151125263450307e-16,
+      "covariance_equation_relative": 5.499729904758186e-17,
+      "alternative_equation_relative": 6.151125263450307e-16,
+      "league_relative_map_movement": {
+        "native_cells": 1.4046259096049573e-17,
+        "regions": 8.983293299770665e-17
+      },
+      "metric_claims": 340,
+      "maximum_metric_movement_claim_difference": 7.105427357601002e-15,
+      "maximum_absolute_movement_in_mc_se": 1.644604887182266e-14,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_double",
+      "record": 0,
+      "state_index": 5,
+      "season": "20252026",
+      "arm": "independent",
+      "saved_scale_status": {
+        "status": "resolved",
+        "own_reasons": [],
+        "inherited_limitation": false
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -3.638323816011469,
+          "variance": 0.00022997264699243023,
+          "independent_objective": -945.7398456706396,
+          "saved_objective": -945.7398456706378,
+          "saved_difference": 1.8189894035458565e-12
+        },
+        {
+          "exponent": -3.5,
+          "variance": 0.00031622776601683794,
+          "independent_objective": -873.8217600694334,
+          "saved_objective": -873.8217600694315,
+          "saved_difference": 1.8189894035458565e-12
+        },
+        {
+          "exponent": -4.0,
+          "variance": 0.0001,
+          "independent_objective": -709.3705944134881,
+          "saved_objective": -709.3705944134881,
+          "saved_difference": 0.0
+        }
+      ],
+      "selected_alternative_exponent": -3.6383344628180327,
+      "alternative_objective_difference": 9.094947017729282e-13,
+      "raw_mean_absolute_difference": 2.8102520310824275e-16,
+      "centered_mean_absolute_difference": 2.8102520310824275e-16,
+      "posterior_equation_relative": 5.088567126344987e-16,
+      "covariance_equation_relative": 3.255508491557746e-17,
+      "alternative_equation_relative": 5.577454863252636e-16,
+      "league_relative_map_movement": {
+        "native_cells": 3.244418402610113e-08,
+        "regions": 2.0907597722909505e-07
+      },
+      "metric_claims": 340,
+      "maximum_metric_movement_claim_difference": 7.105427357601002e-15,
+      "maximum_absolute_movement_in_mc_se": 0.0001471370181467329,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_null",
+      "record": 0,
+      "state_index": 4,
+      "season": "20252026",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [
+          "endpoint_winner"
+        ],
+        "inherited_limitation": true
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -8.0,
+          "variance": 1e-08,
+          "independent_objective": 2.216403718182221,
+          "saved_objective": 2.216403718377535,
+          "saved_difference": 1.9531398720573634e-10
+        },
+        {
+          "exponent": -7.5,
+          "variance": 3.162277660168379e-08,
+          "independent_objective": 2.2274026611400473,
+          "saved_objective": 2.227402661317541,
+          "saved_difference": 1.7749357539287303e-10
+        },
+        {
+          "exponent": -7.0,
+          "variance": 1e-07,
+          "independent_objective": 2.2623071607571887,
+          "saved_objective": 2.262307160915867,
+          "saved_difference": 1.5867840374994557e-10
+        }
+      ],
+      "selected_alternative_exponent": -8.0,
+      "alternative_objective_difference": 1.9531398720573634e-10,
+      "raw_mean_absolute_difference": 1.1275702593849246e-17,
+      "centered_mean_absolute_difference": 1.1275702593849246e-17,
+      "posterior_equation_relative": 4.191554282207236e-17,
+      "covariance_equation_relative": 4.595903706048411e-19,
+      "alternative_equation_relative": 4.191554282207236e-17,
+      "league_relative_map_movement": {
+        "native_cells": 7.3738528469788745e-19,
+        "regions": 2.2443698906613746e-18
+      },
+      "metric_claims": 292,
+      "maximum_metric_movement_claim_difference": 5.551115123125783e-17,
+      "maximum_absolute_movement_in_mc_se": 3.4500263949374225e-15,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "gaussian_null",
+      "record": 0,
+      "state_index": 5,
+      "season": "20252026",
+      "arm": "independent",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [
+          "endpoint_winner"
+        ],
+        "inherited_limitation": false
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -8.0,
+          "variance": 1e-08,
+          "independent_objective": 0.0018327660515053967,
+          "saved_objective": 0.0018327660518271949,
+          "saved_difference": 3.217981436876016e-13
+        },
+        {
+          "exponent": -7.5,
+          "variance": 3.162277660168379e-08,
+          "independent_objective": 0.005811154677009878,
+          "saved_objective": 0.0058111546770638345,
+          "saved_difference": 5.395683899678261e-14
+        },
+        {
+          "exponent": -7.0,
+          "variance": 1e-07,
+          "independent_objective": 0.018530844528337198,
+          "saved_objective": 0.01853084452826348,
+          "saved_difference": 7.37188088351104e-14
+        }
+      ],
+      "selected_alternative_exponent": -8.0,
+      "alternative_objective_difference": 3.217981436876016e-13,
+      "raw_mean_absolute_difference": 1.5246593050577406e-20,
+      "centered_mean_absolute_difference": 1.5246593050577406e-20,
+      "posterior_equation_relative": 1.621091510520987e-19,
+      "covariance_equation_relative": 5.640409507229863e-22,
+      "alternative_equation_relative": 1.621091510520987e-19,
+      "league_relative_map_movement": {
+        "native_cells": 4.708767938267733e-22,
+        "regions": 2.833901654106301e-21
+      },
+      "metric_claims": 292,
+      "maximum_metric_movement_claim_difference": 6.749793798432706e-22,
+      "maximum_absolute_movement_in_mc_se": 1.2282013713032156e-20,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "game_shared_base",
+      "record": 0,
+      "state_index": 4,
+      "season": "20252026",
+      "arm": "borrowing",
+      "saved_scale_status": {
+        "status": "scale_unresolved",
+        "own_reasons": [],
+        "inherited_limitation": true
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -4.759510280222995,
+          "variance": 1.739761515502556e-05,
+          "independent_objective": -68.11782478017517,
+          "saved_objective": -68.11782478010309,
+          "saved_difference": 7.207745511550456e-11
+        },
+        {
+          "exponent": -5.0,
+          "variance": 1e-05,
+          "independent_objective": -67.14498675174787,
+          "saved_objective": -67.14498675167829,
+          "saved_difference": 6.957634468562901e-11
+        },
+        {
+          "exponent": -4.5,
+          "variance": 3.1622776601683795e-05,
+          "independent_objective": -64.71208034332813,
+          "saved_objective": -64.71208034324218,
+          "saved_difference": 8.594724931754172e-11
+        }
+      ],
+      "selected_alternative_exponent": -4.7595063150427706,
+      "alternative_objective_difference": 6.798472895752639e-11,
+      "raw_mean_absolute_difference": 6.505213034913027e-17,
+      "centered_mean_absolute_difference": 6.505213034913027e-17,
+      "posterior_equation_relative": 2.8000251118012e-16,
+      "covariance_equation_relative": 4.595540232502031e-18,
+      "alternative_equation_relative": 3.2598374110447414e-16,
+      "league_relative_map_movement": {
+        "native_cells": 1.0648213236246049e-09,
+        "regions": 7.16238123755751e-09
+      },
+      "metric_claims": 340,
+      "maximum_metric_movement_claim_difference": 2.6645352591003757e-15,
+      "maximum_absolute_movement_in_mc_se": 5.350321899908455e-06,
+      "probe_status": "verified"
+    },
+    {
+      "cell": "game_shared_base",
+      "record": 0,
+      "state_index": 5,
+      "season": "20252026",
+      "arm": "independent",
+      "saved_scale_status": {
+        "status": "resolved",
+        "own_reasons": [],
+        "inherited_limitation": false
+      },
+      "independently_checked_points": [
+        {
+          "exponent": -4.232917568668905,
+          "variance": 5.849010908510506e-05,
+          "independent_objective": -72.84596493032814,
+          "saved_objective": -72.84596493032791,
+          "saved_difference": 2.2737367544323206e-13
+        },
+        {
+          "exponent": -4.0,
+          "variance": 0.0001,
+          "independent_objective": -44.6499010252237,
+          "saved_objective": -44.6499010252237,
+          "saved_difference": 0.0
+        },
+        {
+          "exponent": -4.5,
+          "variance": 3.1622776601683795e-05,
+          "independent_objective": -58.82893213332136,
+          "saved_objective": -58.828932133320905,
+          "saved_difference": 4.547473508864641e-13
+        }
+      ],
+      "selected_alternative_exponent": -4.232922911682445,
+      "alternative_objective_difference": 0.0,
+      "raw_mean_absolute_difference": 4.9439619065339e-17,
+      "centered_mean_absolute_difference": 4.85722573273506e-17,
+      "posterior_equation_relative": 4.444741043970496e-16,
+      "covariance_equation_relative": 2.67752022543682e-18,
+      "alternative_equation_relative": 4.1840425908858337e-16,
+      "league_relative_map_movement": {
+        "native_cells": 4.6966497055001785e-09,
+        "regions": 3.13078488222885e-08
+      },
+      "metric_claims": 340,
+      "maximum_metric_movement_claim_difference": 1.1102230246251565e-16,
+      "maximum_absolute_movement_in_mc_se": 2.597207633098693e-05,
+      "probe_status": "verified"
+    }
+  ],
+  "resources": {
+    "wall_seconds": 12.825133667000046,
+    "peak_memory_bytes": 2730049536
+  },
+  "temporary_controller": "deleted after successful verification"
+}

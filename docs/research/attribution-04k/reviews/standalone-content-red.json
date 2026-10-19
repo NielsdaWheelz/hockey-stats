@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_content_regression",
+  "purpose": "fixture_exercise",
+  "implementation": {
+    "git_commit": "0a5f9a8734f655da930a16d5e13a7fab7dcbd6c7",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/report/result.json",
+      "sha256": "d93ea360bdfc1cd2dee278670cbb9fe594e3a86f116517f99be8fb2d9b2fff35"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/assessment/assessment.json",
+      "sha256": "f26b7a070aafc93efdfa95ce2efbb21b2ecf1c0db19769a34feeb5fa869e924a"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/prepared/prepared.json",
+      "sha256": "b10246877d276b1fa9cb47d5db727f1ac5ed8ef8dc0c630db2319819ca7eb42c"
+    }
+  },
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "status": "red",
+  "checks": [
+    {
+      "check": "saved assessment binds ordered twelve-region names",
+      "passed": false
+    },
+    {
+      "check": "players use 36 named regional scalar columns",
+      "passed": false
+    },
+    {
+      "check": "players remove unlabeled regional vectors",
+      "passed": false
+    },
+    {
+      "check": "exports remove ambiguous sign field",
+      "passed": false
+    },
+    {
+      "check": "players expose assigned sign, actual raw sign, amplitude and physical units",
+      "passed": false
+    },
+    {
+      "check": "truth supplies one exact regional axis",
+      "passed": false
+    },
+    {
+      "check": "truth supplies the exact five physical cell amplitudes",
+      "passed": false
+    },
+    {
+      "check": "null cell names bookkeeping trajectories and zero effects",
+      "passed": false
+    },
+    {
+      "check": "unit-amplitude partitions state physical and squared projection units",
+      "passed": false
+    },
+    {
+      "check": "base player truths have explicit amplitude reference and physical units",
+      "passed": false
+    },
+    {
+      "check": "standalone truth roles agree with attempts-allowed interpretation",
+      "passed": false
+    },
+    {
+      "check": "assigned and observed annual raw signs remain distinct, with absent=null and onset=zero",
+      "passed": false
+    },
+    {
+      "check": "raw regional truths remain mathematically unchanged",
+      "passed": true
+    },
+    {
+      "check": "player signs and amplitudes follow actual final cell law, including zero null",
+      "passed": false
+    },
+    {
+      "check": "flattened player numeric values preserve all saved arrays",
+      "passed": false
+    },
+    {
+      "check": "source prepared sign contract remains frozen",
+      "passed": true
+    },
+    {
+      "check": "every standalone row retains the study boundary",
+      "passed": true
+    }
+  ],
+  "failures": [
+    "saved assessment binds ordered twelve-region names",
+    "players use 36 named regional scalar columns",
+    "players remove unlabeled regional vectors",
+    "exports remove ambiguous sign field",
+    "players expose assigned sign, actual raw sign, amplitude and physical units",
+    "truth supplies one exact regional axis",
+    "truth supplies the exact five physical cell amplitudes",
+    "null cell names bookkeeping trajectories and zero effects",
+    "unit-amplitude partitions state physical and squared projection units",
+    "base player truths have explicit amplitude reference and physical units",
+    "standalone truth roles agree with attempts-allowed interpretation",
+    "assigned and observed annual raw signs remain distinct, with absent=null and onset=zero",
+    "player signs and amplitudes follow actual final cell law, including zero null",
+    "flattened player numeric values preserve all saved arrays"
+  ],
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/report/result.json",
+    "sha256": "d93ea360bdfc1cd2dee278670cbb9fe594e3a86f116517f99be8fb2d9b2fff35"
+  }
+}

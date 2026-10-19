@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_independent_review",
+  "purpose": "fixture_exercise",
+  "implementation": {
+    "git_commit": "0a5f9a8734f655da930a16d5e13a7fab7dcbd6c7",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "fixture_result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-clean/report/result.json",
+      "sha256": "d93ea360bdfc1cd2dee278670cbb9fe594e3a86f116517f99be8fb2d9b2fff35"
+    },
+    "source_fixture": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/deployment-information.json",
+      "sha256": "8e202fcffaa176ae3d06300c291ea69152aa6007e6d26f71fff0434a97297761"
+    },
+    "history_fixture": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/history-comparison.json",
+      "sha256": "01f4bab9a5dedbed3fab530a675fd097a1d7c4548e1fbf93b3de78ea05cd38f7"
+    }
+  },
+  "review": "independent-fixture-assessment",
+  "reviewer": "independent review_and_reports agent",
+  "status": "verified",
+  "study_label": "simulated effects on observed deployment \u2014 not player ability estimates",
+  "checks": {
+    "status": "verified",
+    "metric_rows": 3400,
+    "summary_rows": 2060,
+    "players": 240,
+    "metric_max_absolute": 2.1316282072803006e-14,
+    "interval_df": 1,
+    "negative_checks": {
+      "missing": "[Errno 2] No such file or directory: '/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/04k-b3-negative-oq9sgz0q/missing/game_shared_base/1/fit.json'",
+      "changed_parent": "paired selected state identity, order or numeric digest differs",
+      "nonfinite": "artifact arrays differ from ordered shape/dtype contract"
+    }
+  },
+  "scope": "software and fixed synthetic algebra; no research conclusion or player ability claim"
+}

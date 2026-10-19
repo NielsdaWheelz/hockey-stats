@@ -1,0 +1,930 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_history_retained_inventory",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+      "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+    },
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+      "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+    },
+    "result": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/result.json",
+      "sha256": "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+    }
+  },
+  "status": "verified",
+  "pairs": 100,
+  "scores": 500,
+  "states": 600,
+  "probes": 12,
+  "scale_objective_evaluations": 18593,
+  "scale_objective_evaluations_max": 34200,
+  "fit_wall_seconds": 12797.312960378003,
+  "fit_process_seconds": 12376.271075,
+  "fit_peak_memory_bytes": 3495116800,
+  "preflight_included_in_primary_inventory": true,
+  "retained": {
+    "prepared": {
+      "files": 4,
+      "bytes": 394144745,
+      "inventory": [
+        {
+          "path": "prepared/geometry.npz",
+          "bytes": 389149218
+        },
+        {
+          "path": "prepared/prepared.json",
+          "bytes": 2482553
+        },
+        {
+          "path": "prepared/protocol.json",
+          "bytes": 2484673
+        },
+        {
+          "path": "prepared/spec-snapshot.md",
+          "bytes": 28301
+        }
+      ]
+    },
+    "fits": {
+      "files": 200,
+      "bytes": 29407378535,
+      "inventory": [
+        {
+          "path": "fits/game_shared_base/0/fit.json",
+          "bytes": 359841
+        },
+        {
+          "path": "fits/game_shared_base/0/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/1/fit.json",
+          "bytes": 357275
+        },
+        {
+          "path": "fits/game_shared_base/1/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/10/fit.json",
+          "bytes": 356737
+        },
+        {
+          "path": "fits/game_shared_base/10/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/11/fit.json",
+          "bytes": 353841
+        },
+        {
+          "path": "fits/game_shared_base/11/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/12/fit.json",
+          "bytes": 353840
+        },
+        {
+          "path": "fits/game_shared_base/12/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/13/fit.json",
+          "bytes": 353853
+        },
+        {
+          "path": "fits/game_shared_base/13/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/14/fit.json",
+          "bytes": 357570
+        },
+        {
+          "path": "fits/game_shared_base/14/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/15/fit.json",
+          "bytes": 356417
+        },
+        {
+          "path": "fits/game_shared_base/15/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/16/fit.json",
+          "bytes": 354467
+        },
+        {
+          "path": "fits/game_shared_base/16/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/17/fit.json",
+          "bytes": 355577
+        },
+        {
+          "path": "fits/game_shared_base/17/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/18/fit.json",
+          "bytes": 357018
+        },
+        {
+          "path": "fits/game_shared_base/18/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/19/fit.json",
+          "bytes": 356150
+        },
+        {
+          "path": "fits/game_shared_base/19/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/2/fit.json",
+          "bytes": 357285
+        },
+        {
+          "path": "fits/game_shared_base/2/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/3/fit.json",
+          "bytes": 356437
+        },
+        {
+          "path": "fits/game_shared_base/3/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/4/fit.json",
+          "bytes": 358755
+        },
+        {
+          "path": "fits/game_shared_base/4/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/5/fit.json",
+          "bytes": 357308
+        },
+        {
+          "path": "fits/game_shared_base/5/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/6/fit.json",
+          "bytes": 356421
+        },
+        {
+          "path": "fits/game_shared_base/6/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/7/fit.json",
+          "bytes": 356755
+        },
+        {
+          "path": "fits/game_shared_base/7/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/8/fit.json",
+          "bytes": 350663
+        },
+        {
+          "path": "fits/game_shared_base/8/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/game_shared_base/9/fit.json",
+          "bytes": 359620
+        },
+        {
+          "path": "fits/game_shared_base/9/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/0/fit.json",
+          "bytes": 359495
+        },
+        {
+          "path": "fits/gaussian_base/0/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/1/fit.json",
+          "bytes": 357796
+        },
+        {
+          "path": "fits/gaussian_base/1/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/10/fit.json",
+          "bytes": 359546
+        },
+        {
+          "path": "fits/gaussian_base/10/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/11/fit.json",
+          "bytes": 353169
+        },
+        {
+          "path": "fits/gaussian_base/11/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/12/fit.json",
+          "bytes": 354042
+        },
+        {
+          "path": "fits/gaussian_base/12/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/13/fit.json",
+          "bytes": 354060
+        },
+        {
+          "path": "fits/gaussian_base/13/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/14/fit.json",
+          "bytes": 356349
+        },
+        {
+          "path": "fits/gaussian_base/14/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/15/fit.json",
+          "bytes": 356082
+        },
+        {
+          "path": "fits/gaussian_base/15/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/16/fit.json",
+          "bytes": 359259
+        },
+        {
+          "path": "fits/gaussian_base/16/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/17/fit.json",
+          "bytes": 354935
+        },
+        {
+          "path": "fits/gaussian_base/17/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/18/fit.json",
+          "bytes": 357519
+        },
+        {
+          "path": "fits/gaussian_base/18/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/19/fit.json",
+          "bytes": 356651
+        },
+        {
+          "path": "fits/gaussian_base/19/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/2/fit.json",
+          "bytes": 356955
+        },
+        {
+          "path": "fits/gaussian_base/2/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/3/fit.json",
+          "bytes": 357234
+        },
+        {
+          "path": "fits/gaussian_base/3/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/4/fit.json",
+          "bytes": 360137
+        },
+        {
+          "path": "fits/gaussian_base/4/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/5/fit.json",
+          "bytes": 356388
+        },
+        {
+          "path": "fits/gaussian_base/5/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/6/fit.json",
+          "bytes": 356387
+        },
+        {
+          "path": "fits/gaussian_base/6/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/7/fit.json",
+          "bytes": 356070
+        },
+        {
+          "path": "fits/gaussian_base/7/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/8/fit.json",
+          "bytes": 351139
+        },
+        {
+          "path": "fits/gaussian_base/8/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_base/9/fit.json",
+          "bytes": 359263
+        },
+        {
+          "path": "fits/gaussian_base/9/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/0/fit.json",
+          "bytes": 353762
+        },
+        {
+          "path": "fits/gaussian_double/0/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/1/fit.json",
+          "bytes": 354352
+        },
+        {
+          "path": "fits/gaussian_double/1/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/10/fit.json",
+          "bytes": 356395
+        },
+        {
+          "path": "fits/gaussian_double/10/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/11/fit.json",
+          "bytes": 353499
+        },
+        {
+          "path": "fits/gaussian_double/11/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/12/fit.json",
+          "bytes": 353815
+        },
+        {
+          "path": "fits/gaussian_double/12/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/13/fit.json",
+          "bytes": 353759
+        },
+        {
+          "path": "fits/gaussian_double/13/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/14/fit.json",
+          "bytes": 357240
+        },
+        {
+          "path": "fits/gaussian_double/14/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/15/fit.json",
+          "bytes": 356394
+        },
+        {
+          "path": "fits/gaussian_double/15/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/16/fit.json",
+          "bytes": 355834
+        },
+        {
+          "path": "fits/gaussian_double/16/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/17/fit.json",
+          "bytes": 351190
+        },
+        {
+          "path": "fits/gaussian_double/17/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/18/fit.json",
+          "bytes": 353213
+        },
+        {
+          "path": "fits/gaussian_double/18/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/19/fit.json",
+          "bytes": 356380
+        },
+        {
+          "path": "fits/gaussian_double/19/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/2/fit.json",
+          "bytes": 355541
+        },
+        {
+          "path": "fits/gaussian_double/2/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/3/fit.json",
+          "bytes": 353475
+        },
+        {
+          "path": "fits/gaussian_double/3/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/4/fit.json",
+          "bytes": 356637
+        },
+        {
+          "path": "fits/gaussian_double/4/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/5/fit.json",
+          "bytes": 353508
+        },
+        {
+          "path": "fits/gaussian_double/5/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/6/fit.json",
+          "bytes": 356402
+        },
+        {
+          "path": "fits/gaussian_double/6/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/7/fit.json",
+          "bytes": 356657
+        },
+        {
+          "path": "fits/gaussian_double/7/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/8/fit.json",
+          "bytes": 351164
+        },
+        {
+          "path": "fits/gaussian_double/8/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_double/9/fit.json",
+          "bytes": 356648
+        },
+        {
+          "path": "fits/gaussian_double/9/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/0/fit.json",
+          "bytes": 362118
+        },
+        {
+          "path": "fits/gaussian_half/0/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/1/fit.json",
+          "bytes": 359773
+        },
+        {
+          "path": "fits/gaussian_half/1/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/10/fit.json",
+          "bytes": 354291
+        },
+        {
+          "path": "fits/gaussian_half/10/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/11/fit.json",
+          "bytes": 356653
+        },
+        {
+          "path": "fits/gaussian_half/11/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/12/fit.json",
+          "bytes": 354154
+        },
+        {
+          "path": "fits/gaussian_half/12/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/13/fit.json",
+          "bytes": 354605
+        },
+        {
+          "path": "fits/gaussian_half/13/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/14/fit.json",
+          "bytes": 363265
+        },
+        {
+          "path": "fits/gaussian_half/14/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/15/fit.json",
+          "bytes": 359797
+        },
+        {
+          "path": "fits/gaussian_half/15/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/16/fit.json",
+          "bytes": 360220
+        },
+        {
+          "path": "fits/gaussian_half/16/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/17/fit.json",
+          "bytes": 360428
+        },
+        {
+          "path": "fits/gaussian_half/17/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/18/fit.json",
+          "bytes": 359523
+        },
+        {
+          "path": "fits/gaussian_half/18/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/19/fit.json",
+          "bytes": 362112
+        },
+        {
+          "path": "fits/gaussian_half/19/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/2/fit.json",
+          "bytes": 356875
+        },
+        {
+          "path": "fits/gaussian_half/2/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/3/fit.json",
+          "bytes": 360432
+        },
+        {
+          "path": "fits/gaussian_half/3/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/4/fit.json",
+          "bytes": 363024
+        },
+        {
+          "path": "fits/gaussian_half/4/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/5/fit.json",
+          "bytes": 357212
+        },
+        {
+          "path": "fits/gaussian_half/5/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/6/fit.json",
+          "bytes": 356294
+        },
+        {
+          "path": "fits/gaussian_half/6/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/7/fit.json",
+          "bytes": 359237
+        },
+        {
+          "path": "fits/gaussian_half/7/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/8/fit.json",
+          "bytes": 357483
+        },
+        {
+          "path": "fits/gaussian_half/8/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_half/9/fit.json",
+          "bytes": 360364
+        },
+        {
+          "path": "fits/gaussian_half/9/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/0/fit.json",
+          "bytes": 364825
+        },
+        {
+          "path": "fits/gaussian_null/0/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/1/fit.json",
+          "bytes": 362837
+        },
+        {
+          "path": "fits/gaussian_null/1/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/10/fit.json",
+          "bytes": 365321
+        },
+        {
+          "path": "fits/gaussian_null/10/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/11/fit.json",
+          "bytes": 365303
+        },
+        {
+          "path": "fits/gaussian_null/11/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/12/fit.json",
+          "bytes": 358885
+        },
+        {
+          "path": "fits/gaussian_null/12/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/13/fit.json",
+          "bytes": 352931
+        },
+        {
+          "path": "fits/gaussian_null/13/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/14/fit.json",
+          "bytes": 362270
+        },
+        {
+          "path": "fits/gaussian_null/14/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/15/fit.json",
+          "bytes": 365205
+        },
+        {
+          "path": "fits/gaussian_null/15/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/16/fit.json",
+          "bytes": 362999
+        },
+        {
+          "path": "fits/gaussian_null/16/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/17/fit.json",
+          "bytes": 362729
+        },
+        {
+          "path": "fits/gaussian_null/17/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/18/fit.json",
+          "bytes": 359707
+        },
+        {
+          "path": "fits/gaussian_null/18/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/19/fit.json",
+          "bytes": 359681
+        },
+        {
+          "path": "fits/gaussian_null/19/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/2/fit.json",
+          "bytes": 356603
+        },
+        {
+          "path": "fits/gaussian_null/2/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/3/fit.json",
+          "bytes": 365960
+        },
+        {
+          "path": "fits/gaussian_null/3/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/4/fit.json",
+          "bytes": 365446
+        },
+        {
+          "path": "fits/gaussian_null/4/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/5/fit.json",
+          "bytes": 359382
+        },
+        {
+          "path": "fits/gaussian_null/5/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/6/fit.json",
+          "bytes": 365293
+        },
+        {
+          "path": "fits/gaussian_null/6/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/7/fit.json",
+          "bytes": 365853
+        },
+        {
+          "path": "fits/gaussian_null/7/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/8/fit.json",
+          "bytes": 362673
+        },
+        {
+          "path": "fits/gaussian_null/8/states.npz",
+          "bytes": 293715998
+        },
+        {
+          "path": "fits/gaussian_null/9/fit.json",
+          "bytes": 362801
+        },
+        {
+          "path": "fits/gaussian_null/9/states.npz",
+          "bytes": 293715998
+        }
+      ]
+    },
+    "assessment": {
+      "files": 2,
+      "bytes": 107948540,
+      "inventory": [
+        {
+          "path": "assessment/assessment.json",
+          "bytes": 70041818
+        },
+        {
+          "path": "assessment/player-errors.npz",
+          "bytes": 37906722
+        }
+      ]
+    },
+    "report": {
+      "files": 10,
+      "bytes": 39466166,
+      "inventory": [
+        {
+          "path": "report/comparison.csv",
+          "bytes": 677778
+        },
+        {
+          "path": "report/comparison.png",
+          "bytes": 194049
+        },
+        {
+          "path": "report/decision.md",
+          "bytes": 6942
+        },
+        {
+          "path": "report/design.csv",
+          "bytes": 171137
+        },
+        {
+          "path": "report/diagnostics.csv",
+          "bytes": 788400
+        },
+        {
+          "path": "report/metrics.csv",
+          "bytes": 8173436
+        },
+        {
+          "path": "report/players.csv",
+          "bytes": 20886105
+        },
+        {
+          "path": "report/result.json",
+          "bytes": 8177
+        },
+        {
+          "path": "report/truth.csv",
+          "bytes": 8551323
+        },
+        {
+          "path": "report/verification.md",
+          "bytes": 8819
+        }
+      ]
+    }
+  },
+  "total_retained_bytes": 29948937986,
+  "scope": "finalized primary prepared/fits/assessment/report trees including manifests; review and fixture evidence separate"
+}

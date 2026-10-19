@@ -1,0 +1,310 @@
+{
+  "kind": "attribution_history_post_merge_cleanup",
+  "schema_version": 1,
+  "status": "verified",
+  "recorded_utc": "2026-10-19T05:30:43.199533+00:00",
+  "pull_request": {
+    "headRefOid": "f62b3968e9d4daa765555755eade884120dad849",
+    "mergeCommit": {
+      "oid": "256467166a8e6556961d20da97b478d05ab76d27"
+    },
+    "mergedAt": "2026-10-19T05:24:58Z",
+    "number": 34,
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-19T05:24:18Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://dashboard.gitguardian.com",
+        "name": "GitGuardian Security Checks",
+        "startedAt": "2026-10-19T05:24:16Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ],
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/34"
+  },
+  "reviewed_head": "f62b3968e9d4daa765555755eade884120dad849",
+  "merge_commit": "256467166a8e6556961d20da97b478d05ab76d27",
+  "reviewed_and_merged_tree": "cf35586b74bee15d005ff8ad1f62eea6d1d190b2",
+  "producer_ancestry_preserved": [
+    "aa8c97ddb2add192d2105c7e9b0bff45fffb848b",
+    "0a5f9a8734f655da930a16d5e13a7fab7dcbd6c7",
+    "cf7e08a79913511be1051083c3ddfecb20bac47c",
+    "5c651fa321b010b3a0ae7317ff5029239e83fc01",
+    "f62b3968e9d4daa765555755eade884120dad849"
+  ],
+  "primary_checkout": "/Users/nnandal/Documents/code/hockey-stats",
+  "primary_imports_and_frozen_paths": {
+    "status": "verified",
+    "alias": "/Users/nnandal/Documents/code/hockey-stats-04k",
+    "target": "/Users/nnandal/Documents/code/hockey-stats",
+    "bound_source_hashes": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/docs/research/attribution-04j/result.json",
+        "relative_path": "docs/research/attribution-04j/result.json",
+        "sha256": "c59f54cdc9256e5dcb198b916f175d90a45b59944dbd2ef3c67abb524c397e3e",
+        "bytes": 117159
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/deployment-information.json",
+        "relative_path": "fixtures/attribution/deployment-information.json",
+        "sha256": "8e202fcffaa176ae3d06300c291ea69152aa6007e6d26f71fff0434a97297761",
+        "bytes": 84877
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/deployment-information.npz",
+        "relative_path": "fixtures/attribution/deployment-information.npz",
+        "sha256": "bbf725b61b1a374e48cd60d893452479415a85fa7824946f483aaac4859c87c1",
+        "bytes": 33720
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/graph-40ft.json",
+        "relative_path": "fixtures/attribution/graph-40ft.json",
+        "sha256": "fbe395f0eca8d62fc41d956cfa6989b6ba4b8e4646dc4eb9c2b872491f583380",
+        "bytes": 1449
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/graph-40ft.npz",
+        "relative_path": "fixtures/attribution/graph-40ft.npz",
+        "sha256": "96185eedb638c58000345a483d7996d3f99dc7da0bb407099680ebad6c3a2722",
+        "bytes": 216232
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/history-comparison.json",
+        "relative_path": "fixtures/attribution/history-comparison.json",
+        "sha256": "01f4bab9a5dedbed3fab530a675fd097a1d7c4548e1fbf93b3de78ea05cd38f7",
+        "bytes": 25562
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04k/fixtures/attribution/history-comparison.npz",
+        "relative_path": "fixtures/attribution/history-comparison.npz",
+        "sha256": "9775576950fa29b2fb51eafd1fa94241a19db9c5a4649d6d71cf31ed79d5daaa",
+        "bytes": 119339
+      }
+    ],
+    "unchanged_retained_manifest_hashes": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/prepared/prepared.json",
+        "sha256": "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/assessment/assessment.json",
+        "sha256": "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017/report/result.json",
+        "sha256": "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/prepared/prepared.json",
+        "sha256": "d3bb599c30851ab70ed69ce1765ba6f8109427d1336bdb5887099f7d6f4c0548"
+      }
+    ],
+    "research_budget": {
+      "pairs": 100,
+      "scores": 500,
+      "states": 600,
+      "probes": 12,
+      "scale_objective_evaluations_max": 34200
+    },
+    "fixture_budget": {
+      "pairs": 10,
+      "scores": 30,
+      "states": 40,
+      "probes": 10,
+      "scale_objective_evaluations_max": 2280
+    },
+    "primary_import_paths": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/research/attribution_history.py",
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/research/attribution_history_report.py",
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/src/hockey_stats/attribution.py"
+    ],
+    "retained_primary_file_count": 216,
+    "retained_primary_bytes": 29948937986,
+    "old04j_alias_unchanged": true,
+    "new_fits": 0,
+    "new_scores": 0,
+    "new_assessments": 0,
+    "new_eigensolves": 0,
+    "scope": "ordinary imports, saved preparation reads, compact bound hashes and existing output sizes; no numerical rerun"
+  },
+  "primary_draft_reconciliation": {
+    "snapshot_commit": "aa8c97d",
+    "snapshot_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-implementation/verification/integration-20261018/primary-drafts",
+    "assignment_normalization": {
+      "status": "verified",
+      "assignment_commit": "aa8c97d",
+      "records": [
+        {
+          "path": "docs/architecture.md",
+          "pending_sha256": "9c50596923dcd26ea576854a9cbc5c23731b3c8e137fe8070832a99af6ec27e4",
+          "assignment_sha256": "9c50596923dcd26ea576854a9cbc5c23731b3c8e137fe8070832a99af6ec27e4",
+          "normalized_assignment_sha256": "9c50596923dcd26ea576854a9cbc5c23731b3c8e137fe8070832a99af6ec27e4",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/brief.md",
+          "pending_sha256": "096fa8e075057ed3afde6b89a58aaaee327a993f2709da70ab252f66bdd29af5",
+          "assignment_sha256": "096fa8e075057ed3afde6b89a58aaaee327a993f2709da70ab252f66bdd29af5",
+          "normalized_assignment_sha256": "096fa8e075057ed3afde6b89a58aaaee327a993f2709da70ab252f66bdd29af5",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/issues/attribution-spatial-recovery.md",
+          "pending_sha256": "ca11d09a9ac757356f29528c457f4f79ab9dfe5468268b37ddf5eff15f5acb88",
+          "assignment_sha256": "ca11d09a9ac757356f29528c457f4f79ab9dfe5468268b37ddf5eff15f5acb88",
+          "normalized_assignment_sha256": "ca11d09a9ac757356f29528c457f4f79ab9dfe5468268b37ddf5eff15f5acb88",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/plan.md",
+          "pending_sha256": "6129aad0998ad6ccefaa16f8473fd562af1b71af6a6888bb8ece91d4b5a2c861",
+          "assignment_sha256": "08cbbb8e2a09c5607d84867f1c1770eac99084d0520ca6dcad108d3e8ffc01bc",
+          "normalized_assignment_sha256": "6129aad0998ad6ccefaa16f8473fd562af1b71af6a6888bb8ece91d4b5a2c861",
+          "comparison": "exact after reversing assignment-only status changes"
+        },
+        {
+          "path": "docs/research/council.md",
+          "pending_sha256": "d66783ca3d8a1d424fd240f61dc823618d6600a809ac0e268f719adf70a195b0",
+          "assignment_sha256": "d66783ca3d8a1d424fd240f61dc823618d6600a809ac0e268f719adf70a195b0",
+          "normalized_assignment_sha256": "d66783ca3d8a1d424fd240f61dc823618d6600a809ac0e268f719adf70a195b0",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/research/model-direction.md",
+          "pending_sha256": "2eac9d94b6b24c777a994bbf20240f231127c4f57582d6014ea63765666c86db",
+          "assignment_sha256": "2eac9d94b6b24c777a994bbf20240f231127c4f57582d6014ea63765666c86db",
+          "normalized_assignment_sha256": "2eac9d94b6b24c777a994bbf20240f231127c4f57582d6014ea63765666c86db",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/roadmap.md",
+          "pending_sha256": "d50136c96ccf35508ca5333330a0ff2d057dc0c22faa781d6db36fc612b51228",
+          "assignment_sha256": "d50136c96ccf35508ca5333330a0ff2d057dc0c22faa781d6db36fc612b51228",
+          "normalized_assignment_sha256": "d50136c96ccf35508ca5333330a0ff2d057dc0c22faa781d6db36fc612b51228",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/specs/04-player-attribution.md",
+          "pending_sha256": "c764c7f9a307fe3b112ef46b31906b588e2617c3dc362cd3372699b165538ace",
+          "assignment_sha256": "c764c7f9a307fe3b112ef46b31906b588e2617c3dc362cd3372699b165538ace",
+          "normalized_assignment_sha256": "c764c7f9a307fe3b112ef46b31906b588e2617c3dc362cd3372699b165538ace",
+          "comparison": "exact"
+        },
+        {
+          "path": "docs/specs/04k-attribution-history.md",
+          "pending_sha256": "1c8af3f74bfefcf87ab31b9ef111c5d6f88be8a6530babd11f5246e41fa6979a",
+          "assignment_sha256": "7ef981bf5d672273ab49248c93cc4af350b0fb98f117ec6688d629282689322a",
+          "normalized_assignment_sha256": "1c8af3f74bfefcf87ab31b9ef111c5d6f88be8a6530babd11f5246e41fa6979a",
+          "comparison": "exact after reversing assignment-only status changes"
+        }
+      ]
+    },
+    "merged_versions": [
+      {
+        "path": "docs/architecture.md",
+        "pending_sha256": "9c50596923dcd26ea576854a9cbc5c23731b3c8e137fe8070832a99af6ec27e4",
+        "merged_sha256": "1bd74ec7a79bc5a7df6e43c45f4af7e31248c29aa372b0f118adfb3b09755152",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/brief.md",
+        "pending_sha256": "096fa8e075057ed3afde6b89a58aaaee327a993f2709da70ab252f66bdd29af5",
+        "merged_sha256": "096fa8e075057ed3afde6b89a58aaaee327a993f2709da70ab252f66bdd29af5",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/issues/attribution-spatial-recovery.md",
+        "pending_sha256": "ca11d09a9ac757356f29528c457f4f79ab9dfe5468268b37ddf5eff15f5acb88",
+        "merged_sha256": "8ef026606d78c4a081aca6c3f32a76d33fd5f900eec14bdf5bdb9208c818000b",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/plan.md",
+        "pending_sha256": "6129aad0998ad6ccefaa16f8473fd562af1b71af6a6888bb8ece91d4b5a2c861",
+        "merged_sha256": "070efbf6e9848c2a77051b9ae55a24df2acc96afaa8c8052bdaa0d757cf209db",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/research/council.md",
+        "pending_sha256": "d66783ca3d8a1d424fd240f61dc823618d6600a809ac0e268f719adf70a195b0",
+        "merged_sha256": "f6ecbe226573d0e8c69b0b28f5687a0544b5e6d39516734a45f1412c930ed388",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/research/model-direction.md",
+        "pending_sha256": "2eac9d94b6b24c777a994bbf20240f231127c4f57582d6014ea63765666c86db",
+        "merged_sha256": "14ed87f2a1523314f2d84bc8a53444fe50ab2bc75a740f8270a978a0dc17d3b0",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "pending_sha256": "d50136c96ccf35508ca5333330a0ff2d057dc0c22faa781d6db36fc612b51228",
+        "merged_sha256": "c0dfdaad42bfcc2684feaa934956e5ee317a3362e077980fd00e0766cf8f4157",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/specs/04-player-attribution.md",
+        "pending_sha256": "c764c7f9a307fe3b112ef46b31906b588e2617c3dc362cd3372699b165538ace",
+        "merged_sha256": "53a83f597e8d48716ef4898380c84d0f36c2249d9dd2a4fc66cbabbd29e23cc5",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      },
+      {
+        "path": "docs/specs/04k-attribution-history.md",
+        "pending_sha256": "1c8af3f74bfefcf87ab31b9ef111c5d6f88be8a6530babd11f5246e41fa6979a",
+        "merged_sha256": "012811fc4d49ad3f8dee975819a8bc0765f7cae67ba1a8919ab5eacb47203af1",
+        "resolution": "preserved assignment content with approved completion/integration updates"
+      }
+    ]
+  },
+  "removed": {
+    "local_branch": "codex/04k-attribution-history",
+    "remote_branch": "origin/codex/04k-attribution-history",
+    "remote_absence_check": "git ls-remote --heads origin codex/04k-attribution-history returned no refs",
+    "registered_worktree": "/Users/nnandal/Documents/code/hockey-stats-04k",
+    "task_bytecode_files": 21,
+    "task_bytecode_bytes": 1430889,
+    "owned_stash": "97cd2bd7e98e5f24044797c760c176688884155d",
+    "temporary_pr_body": {
+      "path": "/tmp/hockey-04k-pr-body.md",
+      "sha256": "5a4b2a748151c76b48765a7685e37dc94a442cc0db2a9d38c86d3b63a8a05569",
+      "bytes": 1100
+    }
+  },
+  "retained_alias": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04k",
+    "target": "/Users/nnandal/Documents/code/hockey-stats",
+    "reason": "frozen research and fixture references require this original path; no second checkout or environment"
+  },
+  "preservation": {
+    "primary_output_files": 216,
+    "primary_output_bytes": 29948937986,
+    "compact_source_hashes": 7,
+    "retained_manifest_hashes": 4,
+    "raw_captures_publications_primary_environment_archived_reference_and_older_aliases": "not changed"
+  },
+  "new_fits": 0,
+  "new_scores": 0,
+  "new_assessments": 0,
+  "new_eigensolves": 0,
+  "independent_cleanup_review": {
+    "status": "verified",
+    "reviewer": "native coefficient and cleanup reviewer",
+    "checks": [
+      "merged pr and exact reviewed tree",
+      "scientific producer ancestry",
+      "local and actual remote branch removal",
+      "single registered primary worktree",
+      "04k and old04j alias targets",
+      "seven compact source and four retained manifest hashes",
+      "216 existing output sizes",
+      "nine exact primary draft snapshots and approved status normalization",
+      "no task scratch, owned stash or duplicate environment"
+    ],
+    "arrays_decoded": 0,
+    "new_fits": 0,
+    "new_eigensolves": 0
+  }
+}

@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05g specification review — 2026-10-21
+
+independent source/statistical, systems and product/content reviewers clear [05g's historical observed-profile contract](../specs/05g-observed-history.md). the user chose three recent seasons and table-only history. local raw/reference presence supports this boundary without acquisition or the hdd; the third season still needs fresh native preparation, and all three need observed-publication verification. historical roster identity, separate supports, annual peers and map references remain seasonal. absence means no published record, not zero or retirement.
+
+systems review retains one sqlite file and two endpoints, adds a season evidence table and composite keys, and bounds construction/validation by season. a three-row history avoids transferring three league lists. review resolves historical home/back links, omitted-season canonicalization without duplicate fetches, duplicate query handling and typed season-error recovery. one code-paired schema cutover suffices; no compatibility reader or publication manager is needed.
+
+costs are third-season preparation, all-season source checks, a larger database, manual incompatible-schema rollback, season-scoped discovery and slower visual recognition without a trajectory plot. table rows expose raw magnitude, minutes and coverage; percentiles remain within the selected season. the source inspection and reviews are specification evidence, not implementation acceptance. [the plan](../plan.md) owns assignment; 04m and model admission remain separate.
+
 ## 05f delivery and activation review — 2026-10-21
 
 independent review clears [pr #39](https://github.com/NielsdaWheelz/hockey-stats/pull/39), the exact merged tree/producer ancestry, preservation of all seven primary drafts and task cleanup. the checked 27-file application build is installed only after isolated preflight and task ref/worktree removal. live values, comparisons, maps, reload, narrow layouts and an actual png pass. both databases retain identical bytes and nanosecond mtimes; all 940 summaries agree. [activation evidence](observed-05f/verification.md#explicit-activation) records the live identities and cleanup.

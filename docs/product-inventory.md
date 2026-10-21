@@ -16,6 +16,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 2026-10-21 comparative-card contract: [05f](specs/05f-comparative-observed-cards.md) brings forward observed percentiles for the five existing rates, with raw magnitudes, separate personal/on-ice peer eligibility and one detail distribution. profile, comparison and one-player png share the same content. higher means higher recorded rate; outside-cohort selections retain raw values without percentile standing. this extends descriptive comparison without admitting an ability component.
 
+2026-10-21 historical-observation contract: [05g](specs/05g-observed-history.md) specifies 2023–24 through 2025–26 across existing views, with a three-row raw-rate/minute/coverage history table and seasonal detail links. each year's identity, peers and spatial league reference remain distinct. history has no percentile or trajectory chart; absence is not zero. analytical history, longer careers, personal maps and deployment detail remain separate capabilities.
+
 ## analytical dependencies
 
 the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
@@ -91,7 +93,7 @@ a card presents quantities; it is not a new statistical model. several rows can 
 | isolated skater summary | coherent offense/defense maps and scalar effects; add validated components individually | first 5v5 subset; later full family |
 | compact comparative skater card | component magnitudes and percentiles, clear cohort, identity, evidence and context; readable download | 05f supplies an observed five-rate subset; analytical components remain later |
 | descriptive skater card | scoring, usage and on/off results; distinguish experience from estimated ability | 05d/05f cover personal scoring and on-ice summaries/comparison; richer usage and off-ice panels remain later |
-| career and historical profiles | navigable season cards, maps, results, explanations and ability/subskill trajectories; common-value history where supported | later; source coverage determines the historical range |
+| career and historical profiles | navigable season cards, maps, results, explanations and ability/subskill trajectories; common-value history where supported | 05g specifies a three-season observed subset and table-only history; longer careers and analytical trajectories remain later |
 | detailed 5v5 view | inspect spatial differences hidden by the summary | first maps; richer drill-down later |
 | finishing/setting detail | results, estimated subskills, shot-type/danger breakdowns and history | later; exact panel composition and bins specified with the models |
 | goalie summary and detail | compact comparisons, stopping evidence, maps, subskills and history | later family; exact panels candidates |

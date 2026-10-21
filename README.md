@@ -23,7 +23,7 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. spatial views add matched recorded unblocked attempts for/against, shown against the included league average or as absolute rates. these are unadjusted observations; no fitted ability or xg enters this publication. comparative cards place the five recorded rates among explicitly selected peers; higher percentile always means a higher recorded rate, including opponent attempts. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md) · [spatial contract](docs/specs/05e-spatial-views.md) · [05e verification](docs/research/observed-05e/verification.md) · [comparative-card contract](docs/specs/05f-comparative-observed-cards.md) · [05f verification](docs/research/observed-05f/verification.md)
 
-the verified 05e schema-3 publication is active at `http://127.0.0.1:3000/`, with compatible application code. reload existing tabs to load the spatial views. `publication/previous.sqlite` preserves the former schema-2 active database; rollback requires matching code `074799a` and the manual procedure below. current schema-3 code cannot read that previous file. [activation evidence](docs/research/observed-05e/verification.md#explicit-activation) records exact identities and live checks.
+05f comparative cards are active at `http://127.0.0.1:3000/`, using the unchanged 05e schema-3 publication. reload existing tabs to load the new cards. both publication databases retain their exact bytes and timestamps; this activation replaces application code only. `publication/previous.sqlite` still holds schema 2 and requires matching code `074799a` for database rollback. [activation evidence](docs/research/observed-05f/verification.md#explicit-activation) records exact identities and live checks.
 
 use node `24.21.0`, pinned in `app/.node-version`. stop the running server before rebuilding its assets or replacing its publication. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
 
@@ -37,16 +37,17 @@ npm run build
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
 ```
 
-05f comparative cards are implemented and verified in the separate `feat/05f-comparative-observed-cards` branch; the running site above remains 05e until explicit activation. to review 05f without interrupting it, use the pinned node path above and run in the 05f worktree:
+to review another revision, build a separate checkout with the pinned node path above and serve it on a separate port:
 
 ```sh
-cd /Users/nnandal/Documents/code/hockey-stats-05f/app
+cd /absolute/review-checkout/app
+npm ci --include=dev
 npm run typecheck
 npm run build
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. this reads the existing publication; no database rebuild or rotation is needed. rebuild the application from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. the review revision must read schema 3 to use this publication; no database rebuild or rotation is needed for an application-only change. rebuild the application from git; no archived build is needed.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
@@ -112,7 +113,9 @@ the current implementation reads schema **3** only, with unchanged `matched_atte
 
 ### manual cross-version cutover and rollback
 
-the explicitly assigned schema-2 → schema-3 cutover is complete. the current rollback pair is active schema 3 at application revision `fc437ef` and previous schema 2 at `074799a`. recreate old code with `git worktree add --detach <old-checkout> 074799a`; use its lockfile, install pinned dependencies and rebuild before rollback. current main supplies compatible schema-3 code. validate each database with its matching reader before changing either file.
+the explicitly assigned schema-2 → schema-3 cutover is complete. active schema 3 now runs 05f application code merged in `33a1e4d`; previous schema 2 still requires `074799a`. recreate that old code with `git worktree add --detach <old-checkout> 074799a`; use its lockfile, install pinned dependencies and rebuild before database rollback. validate each database with its matching reader before changing either file.
+
+for a code-only rollback of 05f, rebuild 05e revision `14b7a67` in a separate checkout, stop the server and serve that build against the same schema-3 `active.sqlite`. neither database needs rotation. startup validates the publication before listening; wait for the listening message before opening the site.
 
 the forward example below applies to a schema-2 active and schema-3 candidate, as used in the completed activation. it is not a command to run against today’s schema-3 active. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
 

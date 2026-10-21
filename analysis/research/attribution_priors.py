@@ -86,10 +86,11 @@ def _record(source, cell, record, saved, checks):
     truth = AMPLITUDES[cell]*g['centered_truth']
     _check(checks, f'{cell}/{record}/native_truth_centering', P@raw, truth)
     Qbar = H@(raw@B/rate)
-    parts, theta, native = {}, {}, {}
+    parts, theta, native, fitted_maps = {}, {}, {}, {}
     for arm in ('borrowing', 'independent'):
         state, indices = saved[arm], saved['current_indices'][arm]
         theta[arm] = state.Theta[indices]
+        fitted_maps[arm] = rate*theta[arm]@R.T
         V = state.V[np.ix_(indices, indices)]
         union_n = len(state.player_ids)
         off = state.u@state.uncentered_Theta[:union_n]
@@ -112,7 +113,7 @@ def _record(source, cell, record, saved, checks):
             ('signal', 'noise', 'carry_reference', 'carry_update')}
         native[arm]['carry'] = native[arm]['carry_reference']+native[arm]['carry_update']
         _check(checks, f'{cell}/{record}/{arm}/native_component_sum',
-            native[arm]['signal']+native[arm]['noise']+native[arm]['carry'], rate*theta[arm]@R.T)
+            native[arm]['signal']+native[arm]['noise']+native[arm]['carry'], fitted_maps[arm])
     _check(checks, f'{cell}/{record}/independent_zero_carry', native['independent']['carry'],
         np.zeros_like(native['independent']['carry']))
     # source means are masked before applying the same fixed selected update.
@@ -130,7 +131,8 @@ def _record(source, cell, record, saved, checks):
             indices = np.asarray([i+role_index*n for i, player in enumerate(year['player_ids'])
                 if assignments[(source_name, player)]['trajectory'] == group], dtype=np.int64)
             covered[indices] = True
-            mean = np.zeros_like(saved['m0']); mean[indices] = saved['m0'][indices]
+            mean = np.zeros_like(saved['m0'])
+            mean[indices] = saved['m0'][indices]
             carry = shape_history_carry(H, V, u, mean)
             reference = rate*(P@carry['reference'])@R.T
             update = rate*(P@carry['update'])@R.T
@@ -166,7 +168,7 @@ def _record(source, cell, record, saved, checks):
             count = len(selected)
             for operator, W in operators.items():
                 denominator = count*(12 if operator=='twelve_region_vector' else 1)
-                recoveries = {arm:shape_recovery(rate*theta[arm]@R.T, truth, selected, W, denominator)
+                recoveries = {arm:shape_recovery(fitted_maps[arm], truth, selected, W, denominator)
                     for arm in ('borrowing', 'independent')}
                 values = {arm:value['mse'] for arm,value in recoveries.items()}
                 values['zero'] = recoveries['borrowing']['zero_mse']
@@ -177,7 +179,8 @@ def _record(source, cell, record, saved, checks):
                 if operator != 'twelve_region_vector':
                     continue
                 target = (truth@W)[selected]
-                norm = np.linalg.norm(target,axis=1); nonzero = norm>0
+                norm = np.linalg.norm(target,axis=1)
+                nonzero = norm>0
                 for arm in ('borrowing', 'independent'):
                     value = None if not nonzero.any() else float(np.mean(np.sum(
                         recoveries[arm]['error'][nonzero]*target[nonzero],axis=1)/norm[nonzero]))
@@ -275,7 +278,9 @@ def _summaries(rows, records):
             result.append(dict(common,mean=None,sd=None,mc_se=None,ci_low=None,ci_high=None))
             continue
         require(all(value is not None and np.isfinite(value) for value in numbers),'nonfinite summary inputs')
-        mean = float(np.mean(numbers)); sd = float(np.std(numbers,ddof=1)); se = sd/np.sqrt(len(records))
+        mean = float(np.mean(numbers))
+        sd = float(np.std(numbers,ddof=1))
+        se = sd/np.sqrt(len(records))
         margin = float(t.ppf(.975,len(records)-1)*se)
         result.append(dict(common,mean=mean,sd=sd,mc_se=se,ci_low=mean-margin,ci_high=mean+margin))
     # rms is a transform of the mean mse; its dispersion remains explicitly mse dispersion.
@@ -355,7 +360,8 @@ def _validate_saved(rows, summaries, records, checks):
         numbers = [row['value'] for row in selected]
         mean = sum(numbers)/len(numbers)
         sd = (sum((value-mean)**2 for value in numbers)/(len(numbers)-1))**.5
-        se = sd/len(numbers)**.5; margin = float(t.ppf(.975,len(numbers)-1))*se
+        se = sd/len(numbers)**.5
+        margin = float(t.ppf(.975,len(numbers)-1))*se
         _check(checks,'summary/'+summary['summary_key'],
             [summary[name] for name in ('mean','sd','mc_se','ci_low','ci_high')], [mean,sd,se,mean-margin,mean+margin])
 
@@ -478,7 +484,7 @@ def diagnose(history_result, output):
         scales=len(scales),record_rows=len(rows),summary_rows=len(summaries),frozen_comparisons=len(source.assessment['metric_rows']),
         frozen_summaries=compared)
     cost = dict(**resources(started),process_seconds=time.process_time()-process_started,
-        research_solves=0,scale_evaluations=0)
+        research_solves=0,scale_evaluations=0,measurement_scope='source reads and numerical checks; before diagnosis serialization')
     diagnosis = artifact('attribution_prior_diagnosis',purpose,dict(protocol=protocol_ref),schema_version=1,
         execution_status='complete',numerical_status='verified',
         study_status='fixture_verified' if purpose=='fixture_exercise' else 'diagnosed',
@@ -489,7 +495,7 @@ def diagnose(history_result, output):
     result = artifact('attribution_prior_result',purpose,dict(protocol=protocol_ref,diagnosis=identity(root/'diagnosis.json')),
         schema_version=1,execution_status='complete',numerical_status='verified',
         study_status=diagnosis['study_status'],inventory=inventory,**decision,nomination=None,admission='not_admitted',
-        handoff=None,resources=cost)
+        handoff=None,resources=dict(cost,**resources(started),process_seconds=time.process_time()-process_started,measurement_scope='through diagnosis serialization; before result serialization'))
     write_json(root/'result.json',json_values(result))
     return identity(root/'result.json')
 
@@ -498,9 +504,11 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command',required=True)
     diagnosis_parser = sub.add_parser('diagnose')
-    diagnosis_parser.add_argument('--history-result',required=True); diagnosis_parser.add_argument('--output',required=True)
+    diagnosis_parser.add_argument('--history-result',required=True)
+    diagnosis_parser.add_argument('--output',required=True)
     report_parser = sub.add_parser('report')
-    report_parser.add_argument('--diagnosis',required=True); report_parser.add_argument('--output',required=True)
+    report_parser.add_argument('--diagnosis',required=True)
+    report_parser.add_argument('--output',required=True)
     args = parser.parse_args(argv)
     try:
         if args.command=='diagnose': result = diagnose(args.history_result,args.output)

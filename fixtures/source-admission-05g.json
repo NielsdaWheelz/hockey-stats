@@ -1,0 +1,700 @@
+{
+  "schema_version": 1,
+  "purpose": "one complete original successful-but-empty shift-source bundle; unsupported elapsed membership remains unresolved; no source repair",
+  "copies": [
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/boxscore/body.bin",
+      "fixture": "captures/2024021235/boxscore/body.bin",
+      "bytes": 13182,
+      "sha256": "21a6f45b3a201756e804d6e06233304fc3d2c46a35f05277677b33b30c634258"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/boxscore/capture.json",
+      "fixture": "captures/2024021235/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "4042b5531d229a086da1d9e52529f8d8c4b54f7285d26f73478681ec479c52bc"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/game-summary/body.bin",
+      "fixture": "captures/2024021235/game-summary/body.bin",
+      "bytes": 31206,
+      "sha256": "ca0f9e38e8d33799f66509f798a93348fa02bd6f91c1411dd14ebcbea19989a0"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/game-summary/capture.json",
+      "fixture": "captures/2024021235/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "27fc045ec112590912c55f6e16f5630d5aeb040c89c5fd995bc3f1c617f15a3b"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/landing/body.bin",
+      "fixture": "captures/2024021235/landing/body.bin",
+      "bytes": 7423,
+      "sha256": "147680bf21ad316384ea61dbd2bb69b1d63c7176b87338659ec7e6c462eb4a76"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/landing/capture.json",
+      "fixture": "captures/2024021235/landing/capture.json",
+      "bytes": 659,
+      "sha256": "61cab853726810c4bde1f1c78f6cb9a64ab0f2f7516ff109acc00425a42c9a20"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/play-by-play/body.bin",
+      "fixture": "captures/2024021235/play-by-play/body.bin",
+      "bytes": 119385,
+      "sha256": "fd82963468a4a21df15fe037460ee717e3a2a2b5374c541d53a6df29da59cfb4"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/play-by-play/capture.json",
+      "fixture": "captures/2024021235/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "92969d2ef257021b7c3dc049acb49462e6026d95db5d382bf6ef5c482201ec22"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/play-report/body.bin",
+      "fixture": "captures/2024021235/play-report/body.bin",
+      "bytes": 1132138,
+      "sha256": "7e9f70103a74421257f99995bee26624eefde74e2296ea50f8dc87bd1408f45c"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/play-report/capture.json",
+      "fixture": "captures/2024021235/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "e6d41cfa109d2ae66888fb241a7f86e1fe29980626470d308898d9430bccaada"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/shifts/body.bin",
+      "fixture": "captures/2024021235/shifts/body.bin",
+      "bytes": 21,
+      "sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024021235/shifts/capture.json",
+      "fixture": "captures/2024021235/shifts/capture.json",
+      "bytes": 645,
+      "sha256": "8448c5b9a86aacd136963c6350f1be4c4f7466adb1bc4c97f9140a450bdf6298"
+    }
+  ],
+  "preserved_season_references": [
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/goalie-bios/body.bin",
+      "fixture": "references/20242025/goalie-bios/body.bin",
+      "bytes": 47171,
+      "sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/goalie-bios/capture.json",
+      "fixture": "references/20242025/goalie-bios/capture.json",
+      "bytes": 711,
+      "sha256": "0fd86d0b478df2e7e156fb718543ab5cdc3eab900a6dce945849ee2846ef1c38"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-games/body.bin",
+      "fixture": "references/20242025/season-games/body.bin",
+      "bytes": 327490,
+      "sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-games/capture.json",
+      "fixture": "references/20242025/season-games/capture.json",
+      "bytes": 671,
+      "sha256": "5b862c889a8ec496b75955591001d8fb3c4f719daf59eb6c6cde743b323bd349"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-summary/body.bin",
+      "fixture": "references/20242025/season-summary/body.bin",
+      "bytes": 634,
+      "sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-summary/capture.json",
+      "fixture": "references/20242025/season-summary/capture.json",
+      "bytes": 676,
+      "sha256": "03aed697f50917a45a98b20facc8c8a336d3264dea1b32f15d4da76c1638d525"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/skater-bios/body.bin",
+      "fixture": "references/20242025/skater-bios/body.bin",
+      "bytes": 448170,
+      "sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/skater-bios/capture.json",
+      "fixture": "references/20242025/skater-bios/capture.json",
+      "bytes": 712,
+      "sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a"
+    }
+  ],
+  "source_receipts": [
+    {
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:27:50.688Z",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024021235/boxscore",
+      "http_status": 200,
+      "body_sha256": "21a6f45b3a201756e804d6e06233304fc3d2c46a35f05277677b33b30c634258"
+    },
+    {
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:27:51.117Z",
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/GS021235.HTM",
+      "http_status": 200,
+      "body_sha256": "ca0f9e38e8d33799f66509f798a93348fa02bd6f91c1411dd14ebcbea19989a0"
+    },
+    {
+      "source": "landing",
+      "requested_at": "2026-09-30T19:27:51.716Z",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024021235/landing",
+      "http_status": 200,
+      "body_sha256": "147680bf21ad316384ea61dbd2bb69b1d63c7176b87338659ec7e6c462eb4a76"
+    },
+    {
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:27:50.441Z",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024021235/play-by-play",
+      "http_status": 200,
+      "body_sha256": "fd82963468a4a21df15fe037460ee717e3a2a2b5374c541d53a6df29da59cfb4"
+    },
+    {
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:27:51.334Z",
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/PL021235.HTM",
+      "http_status": 200,
+      "body_sha256": "7e9f70103a74421257f99995bee26624eefde74e2296ea50f8dc87bd1408f45c"
+    },
+    {
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:27:51.028Z",
+      "url": "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D2024021235&limit=-1",
+      "http_status": 200,
+      "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868"
+    }
+  ],
+  "checked_facts": {
+    "game_id": "2024021235",
+    "season": "20242025",
+    "date": "2025-04-08",
+    "away": "CAR",
+    "home": "BUF",
+    "away_team_id": "12",
+    "home_team_id": "7",
+    "venue": "KeyBank Center",
+    "shifts": {
+      "http_status": 200,
+      "locator": "/data,/total",
+      "exact_body": "{\"data\":[],\"total\":0}",
+      "parsed_shift_rows": 0
+    },
+    "native_envelope": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20242025/games/2024021235.json",
+      "bytes": 1452014,
+      "sha256": "7690571fb2b34dff2b8a597af9768550fcf7f8d0dfe76b822f0216f60c5f3501"
+    },
+    "native_time_coverage": {
+      "expected_periods": [
+        1,
+        2,
+        3
+      ],
+      "supported_periods": [
+        1,
+        2,
+        3
+      ],
+      "known_seconds": 3600,
+      "five_on_five_seconds": 0,
+      "other_seconds": 0,
+      "unresolved_seconds": 3600
+    },
+    "native_attempt_coverage": {
+      "known_timed_attempts": 110,
+      "five_on_five": 102,
+      "other": 8,
+      "unresolved": 0,
+      "linked_five_on_five": 0,
+      "unclassified_events": 0
+    },
+    "native_location_coverage": {
+      "known_timed_attempts": 110,
+      "normalized": 110,
+      "missing_coordinates": 0,
+      "unresolved_frame": 0
+    },
+    "example_reported_5v5_event": {
+      "play_locator": "/plays/4",
+      "event_id": 201,
+      "type_key": "shot-on-goal",
+      "period": 1,
+      "time_in_period": "00:48",
+      "situation_code": "1551",
+      "report_locator": "/rows/7[PL-8]",
+      "away_skaters": [
+        8473533,
+        8475200,
+        8476921,
+        8478970,
+        8480830
+      ],
+      "home_skaters": [
+        8477365,
+        8480802,
+        8481524,
+        8482097,
+        8482175
+      ],
+      "away_goalies": [
+        8481611
+      ],
+      "home_goalies": [
+        8473503
+      ],
+      "shift_relation": "unavailable",
+      "interval_indices": []
+    },
+    "observed": {
+      "game": {
+        "game_id": "2024021235",
+        "game_date": "2025-04-08",
+        "away_team_id": "12",
+        "home_team_id": "7",
+        "away_abbreviation": "CAR",
+        "home_abbreviation": "BUF",
+        "included_seconds": 0,
+        "known_excluded_seconds": 0,
+        "known_unresolved_seconds": 3600,
+        "horizon_unavailable": false,
+        "away_attempts": null,
+        "home_attempts": null,
+        "coverage_status": "unavailable",
+        "reason_codes": [
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved"
+        ],
+        "personal_included_seconds": 0,
+        "personal_known_excluded_seconds": 0,
+        "spatial_included_seconds": 0,
+        "spatial_known_excluded_seconds": 0,
+        "spatial_away_unblocked": null,
+        "spatial_home_unblocked": null,
+        "spatial_coverage_status": "unavailable",
+        "spatial_reason_codes": [
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved"
+        ]
+      },
+      "listed_skaters": 36,
+      "unassigned_player_associations": false,
+      "sparse_spatial_rows": 0
+    },
+    "full_20242025_inventory_scan": {
+      "inventory_games": 1312,
+      "empty_shift_games": 57,
+      "first_game": "2024021235",
+      "last_game": "2024021291",
+      "first_date": "2025-04-08",
+      "last_date": "2025-04-15",
+      "games": [
+        {
+          "game_id": "2024021235",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:51.028Z"
+        },
+        {
+          "game_id": "2024021236",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:52.105Z"
+        },
+        {
+          "game_id": "2024021237",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:52.647Z"
+        },
+        {
+          "game_id": "2024021238",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:52.680Z"
+        },
+        {
+          "game_id": "2024021239",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:52.767Z"
+        },
+        {
+          "game_id": "2024021240",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:53.882Z"
+        },
+        {
+          "game_id": "2024021241",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:54.378Z"
+        },
+        {
+          "game_id": "2024021242",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:54.486Z"
+        },
+        {
+          "game_id": "2024021243",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:54.581Z"
+        },
+        {
+          "game_id": "2024021244",
+          "game_date": "2025-04-08",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:55.579Z"
+        },
+        {
+          "game_id": "2024021245",
+          "game_date": "2025-04-09",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:56.319Z"
+        },
+        {
+          "game_id": "2024021246",
+          "game_date": "2025-04-09",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:56.215Z"
+        },
+        {
+          "game_id": "2024021247",
+          "game_date": "2025-04-09",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:56.206Z"
+        },
+        {
+          "game_id": "2024021248",
+          "game_date": "2025-04-09",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:57.512Z"
+        },
+        {
+          "game_id": "2024021249",
+          "game_date": "2025-04-09",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:57.932Z"
+        },
+        {
+          "game_id": "2024021250",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:57.971Z"
+        },
+        {
+          "game_id": "2024021251",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:58.066Z"
+        },
+        {
+          "game_id": "2024021252",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:59.219Z"
+        },
+        {
+          "game_id": "2024021253",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:59.591Z"
+        },
+        {
+          "game_id": "2024021254",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:59.674Z"
+        },
+        {
+          "game_id": "2024021255",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:27:59.726Z"
+        },
+        {
+          "game_id": "2024021256",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:00.821Z"
+        },
+        {
+          "game_id": "2024021257",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:01.304Z"
+        },
+        {
+          "game_id": "2024021258",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:01.348Z"
+        },
+        {
+          "game_id": "2024021259",
+          "game_date": "2025-04-10",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:01.367Z"
+        },
+        {
+          "game_id": "2024021260",
+          "game_date": "2025-04-11",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:02.605Z"
+        },
+        {
+          "game_id": "2024021261",
+          "game_date": "2025-04-11",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:03.024Z"
+        },
+        {
+          "game_id": "2024021262",
+          "game_date": "2025-04-11",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:03.071Z"
+        },
+        {
+          "game_id": "2024021263",
+          "game_date": "2025-04-11",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:03.092Z"
+        },
+        {
+          "game_id": "2024021264",
+          "game_date": "2025-04-11",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:04.362Z"
+        },
+        {
+          "game_id": "2024021265",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:04.825Z"
+        },
+        {
+          "game_id": "2024021266",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:04.855Z"
+        },
+        {
+          "game_id": "2024021267",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:05.040Z"
+        },
+        {
+          "game_id": "2024021268",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:06.291Z"
+        },
+        {
+          "game_id": "2024021269",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:06.584Z"
+        },
+        {
+          "game_id": "2024021270",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:06.552Z"
+        },
+        {
+          "game_id": "2024021271",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:06.714Z"
+        },
+        {
+          "game_id": "2024021272",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:08.021Z"
+        },
+        {
+          "game_id": "2024021273",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:08.418Z"
+        },
+        {
+          "game_id": "2024021274",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:08.305Z"
+        },
+        {
+          "game_id": "2024021275",
+          "game_date": "2025-04-12",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:08.525Z"
+        },
+        {
+          "game_id": "2024021276",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:09.823Z"
+        },
+        {
+          "game_id": "2024021277",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:10.037Z"
+        },
+        {
+          "game_id": "2024021278",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:10.256Z"
+        },
+        {
+          "game_id": "2024021279",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:10.293Z"
+        },
+        {
+          "game_id": "2024021280",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:11.643Z"
+        },
+        {
+          "game_id": "2024021281",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:11.772Z"
+        },
+        {
+          "game_id": "2024021282",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:12.095Z"
+        },
+        {
+          "game_id": "2024021283",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:12.017Z"
+        },
+        {
+          "game_id": "2024021284",
+          "game_date": "2025-04-13",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:13.410Z"
+        },
+        {
+          "game_id": "2024021285",
+          "game_date": "2025-04-14",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:13.619Z"
+        },
+        {
+          "game_id": "2024021286",
+          "game_date": "2025-04-14",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:13.736Z"
+        },
+        {
+          "game_id": "2024021287",
+          "game_date": "2025-04-14",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:13.817Z"
+        },
+        {
+          "game_id": "2024021288",
+          "game_date": "2025-04-14",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:15.065Z"
+        },
+        {
+          "game_id": "2024021289",
+          "game_date": "2025-04-14",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:15.409Z"
+        },
+        {
+          "game_id": "2024021290",
+          "game_date": "2025-04-14",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:15.536Z"
+        },
+        {
+          "game_id": "2024021291",
+          "game_date": "2025-04-15",
+          "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868",
+          "requested_at": "2026-09-30T19:28:15.641Z"
+        }
+      ]
+    },
+    "bounded_native_replay": {
+      "status": "exact reconstruction and all interpreted non-provenance fields",
+      "producer": {
+        "git_commit": "dc9ee364436c7c0f8962e965ce2c3e5b86e6ea1c",
+        "git_dirty": false,
+        "python_version": "3.14.8"
+      }
+    },
+    "independent_raw_report_and_clock_checks": {
+      "report_row_id": "PL-8",
+      "report_description": "BUF ONGOAL - #77 PETERKA, Tip-In , Neu. Zone, 65 ft.",
+      "reported_membership_from_raw_report_fonts_and_raw_pbp_roster": {
+        "away_skaters": [
+          8473533,
+          8475200,
+          8476921,
+          8478970,
+          8480830
+        ],
+        "away_goalies": [
+          8481611
+        ],
+        "home_skaters": [
+          8477365,
+          8480802,
+          8481524,
+          8482097,
+          8482175
+        ],
+        "home_goalies": [
+          8473503
+        ]
+      },
+      "period_endpoints": [
+        {
+          "source_index": 115,
+          "period": 1,
+          "type_key": "period-end",
+          "time_in_period": "20:00",
+          "time_remaining": "00:00"
+        },
+        {
+          "source_index": 203,
+          "period": 2,
+          "type_key": "period-end",
+          "time_in_period": "20:00",
+          "time_remaining": "00:00"
+        },
+        {
+          "source_index": 290,
+          "period": 3,
+          "type_key": "period-end",
+          "time_in_period": "20:00",
+          "time_remaining": "00:00"
+        }
+      ],
+      "raw_attempts": 110,
+      "raw_situation_1551_attempts": 102
+    }
+  }
+}

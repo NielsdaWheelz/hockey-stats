@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "review": "independent finite fixture accounting",
+  "status": "verified",
+  "source_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/report/result.json",
+    "sha256": "df607e2b45548120615b3bace33f828d55ab53f07c6e1c7f83626e35dc28b50c"
+  },
+  "diagnosis": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/tmpodmatej6/diagnosis/diagnosis.json",
+    "sha256": "6309110b981372ef651e74a8f22e21f0cb592ae704222d7333d69511b3115784"
+  },
+  "scope": "software evidence only; no research fits or scientific admission",
+  "method": "separate raw-archive oracle; no production decomposition, recovery or prediction helpers",
+  "checks": {
+    "record_rows": 9520,
+    "independently_checked_record_rows": 9520,
+    "scale_rows": 40,
+    "maximum_absolute_difference": 1.4210854715202004e-14,
+    "negative_cross_terms_preserved": 328
+  },
+  "recomputed": [
+    "identity-aligned immediate predecessor means",
+    "current principal covariance retaining cross-role entries",
+    "role exposure centering and current signal/noise/carry",
+    "six quadratic terms",
+    "three symmetric paired allocations",
+    "eight source-mask allocations",
+    "entrant reference and update allocations",
+    "all frozen 04k record quantities and availability",
+    "scale metadata against every saved source row"
+  ],
+  "source_adversarial_checks": {
+    "malformed_source_cases": 10,
+    "malformed_pair_cases": 8,
+    "hash_once_instrumentation": "16 distinct reads for 14 manifests and two archives; no repeated file hash",
+    "selected_decoding": "npz member access equals exact allowlist; no earlier score/covariance access",
+    "numerical_contract": "shape mismatch, nonfinite, symmetry, role gauges and mean closure rejected"
+  },
+  "end_to_end_negative_checks": [
+    "wrong source status rejects before output creation",
+    "wrong final parent rejects after protocol and before completed result"
+  ],
+  "compatibility": "original 04k read_prepared and _restore validate four saved fixture states after public scale-receipt refactor",
+  "mathematical_review": "current principal centered covariance correctly acts on gauge-annihilating scores; history-only incoming mean rows vanish on current receivers; source allocations remain convention-dependent",
+  "limitations": [
+    "root independently checks saved summaries and a dense proper-prior reference",
+    "the existing fixture supplies software evidence only; fixed truth/noise assumptions remain unchanged"
+  ],
+  "temporary_checks": "red import failure, green all-pair checks, refactor green, adversarial checks and independent raw-row oracle retained until acceptance"
+}

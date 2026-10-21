@@ -372,7 +372,14 @@ def _answer(summaries, purpose):
         return 'the detached fixture verifies software accounting only; it supplies no scientific diagnosis or next hypothesis'
     index = {tuple(row[name] for name in ('cell','role','receiver','arm','metric')):row for row in summaries
         if row['operator']=='twelve_region_vector' and row['source_group'] is None and row['source_role'] is None}
-    clauses = []
+    clauses = [
+        'under the frozen symmetric allocation, base stable-player gains and reversal harm accompany '
+        'the largest absolute mean historical-carry terms in both roles. base first-observation harm '
+        'instead accompanies changed current-signal weighting, offset by realized noise and with small net carry. '
+        'under null truth, signal is exactly zero while mean noise and carry allocations are positive. '
+        'these are signed realized allocations under the saved convention, not identified causes or evidence '
+        'that resetting entry variance would help.'
+    ]
     for role in ROLES:
         for cell, receiver in [('gaussian_base',name) for name in ('stable','reversal','onset','no_prior_observation')]+[('gaussian_null','all')]:
             values = [index[(cell,role,receiver,'paired_change',metric)]['mean'] for metric in
@@ -381,7 +388,7 @@ def _answer(summaries, purpose):
             largest = labels[int(np.argmax(np.abs(values[1:])))]
             directions = ', '.join(label+(' toward harm' if value>0 else ' toward benefit' if value<0 else ' exactly zero')
                 for label,value in zip(labels,values[1:],strict=True))
-            clauses.append(f"{cell}, {role}, {receiver}: paired mse change {values[0]:.6g}; "
+            clauses.append(f"{cell}, {role}, {receiver}: mean paired mse change {values[0]:.6g}; "
                 f"symmetric signal/noise/carry allocations {values[1]:.6g}, {values[2]:.6g}, {values[3]:.6g}. "
                 f"the largest absolute mean allocation is {largest}; {directions}.")
     clauses.append('positive means borrowing harm, in squared recorded unblocked attempts/60. '

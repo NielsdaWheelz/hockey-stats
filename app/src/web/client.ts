@@ -18,6 +18,8 @@ async function read<A, E>(
   if (typeof error === "object" && error !== null && "_tag" in error) {
     if (error._tag === "PlayerNotFound")
       throw new Response("player not found", { status: 404 });
+    if (error._tag === "InvalidSpatialSelection")
+      throw new Response("invalid spatial selection", { status: 400 });
     if (error._tag === "InvalidPlayerId")
       throw new Response("invalid player id", { status: 400 });
   }
@@ -26,9 +28,9 @@ async function read<A, E>(
   });
 }
 
-export const loadLeague = (signal: AbortSignal) =>
+export const loadLeague = (signal: AbortSignal, spatialIds?: readonly string[]) =>
   read(
-    Effect.flatMap(client, (api) => api.observed.league()),
+    Effect.flatMap(client, (api) => api.observed.league({ query: spatialIds?.length ? { spatial: spatialIds.join(",") } : {} })),
     signal,
   );
 export const loadPlayer = (playerId: string, signal: AbortSignal) =>

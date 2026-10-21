@@ -11,7 +11,7 @@ import { stat } from "node:fs/promises";
 import { resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
-import { HockeyId, ObservedApi } from "../shared/observed.js";
+import { HockeyId, ObservedApi, parseSpatialSelection } from "../shared/observed.js";
 import { Publication, publicationLayer } from "./publication.js";
 
 try {
@@ -38,7 +38,13 @@ try {
       return { _tag: "ReadFailure", message: "results could not be loaded. please retry." } as const;
     };
     const handlers = HttpApiBuilder.group(ObservedApi, "observed", (handlers) => handlers
-      .handle("league", () => publication.league.pipe(Effect.mapError(readFailure)))
+      .handle("league", ({ request }) => Effect.gen(function* () {
+        const ids = yield* Effect.try({
+          try: () => parseSpatialSelection(new URL(request.url, "http://127.0.0.1").searchParams),
+          catch: () => ({ _tag: "InvalidSpatialSelection", message: "select one or two distinct player ids" } as const),
+        });
+        return yield* publication.league(ids).pipe(Effect.mapError(readFailure));
+      }))
       .handle("player", ({ params }) => Effect.gen(function* () {
         if (!Schema.is(HockeyId)(params.playerId)) return yield* Effect.fail({ _tag: "InvalidPlayerId", message: "invalid player id" } as const);
         const player = yield* publication.player(params.playerId).pipe(Effect.mapError(readFailure));

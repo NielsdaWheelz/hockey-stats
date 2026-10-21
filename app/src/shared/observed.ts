@@ -72,6 +72,76 @@ export const PersonalMetrics = Schema.Struct({
 }));
 export type PersonalMetrics = typeof PersonalMetrics.Type;
 
+export const SpatialReasonCode = Schema.Literals([
+  "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
+  "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
+  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  "spatial_coordinates_missing", "spatial_frame_unresolved", "spatial_location_outside_rink", "no_spatial_5v5_exposure",
+]);
+export type SpatialReasonCode = typeof SpatialReasonCode.Type;
+export const SpatialReasonCodes = Schema.Array(SpatialReasonCode).check(Schema.makeFilter((codes) => codes.every((code, index) => index === 0 || codes[index - 1] < code)));
+const spatialSupport = (value: { included_seconds: number; known_excluded_seconds: number; coverage_status: typeof CoverageStatus.Type; reason_codes: readonly SpatialReasonCode[] }, counts: readonly (number | null)[], rates: readonly (number | null)[]) => {
+  if (value.coverage_status === "complete" && value.known_excluded_seconds !== 0) return false;
+  const noExposure = value.reason_codes.includes("no_spatial_5v5_exposure");
+  if (value.included_seconds > 0) return counts.every((v) => v !== null) && rates.every((v) => v !== null) && !noExposure && value.coverage_status === (value.reason_codes.length ? "partial" : "complete");
+  if (value.coverage_status === "complete") return counts.every((v) => v === 0) && rates.every((v) => v === null) && value.reason_codes.length === 1 && noExposure;
+  return value.coverage_status === "unavailable" && counts.every((v) => v === null) && rates.every((v) => v === null) && value.reason_codes.length > 0 && !noExposure;
+};
+export const SpatialMetrics = Schema.Struct({
+  included_seconds: Count, known_excluded_seconds: Count,
+  unblocked_for: Schema.NullOr(Count), unblocked_against: Schema.NullOr(Count),
+  for_per60: Schema.NullOr(Rate), against_per60: Schema.NullOr(Rate),
+  coverage_status: CoverageStatus, reason_codes: SpatialReasonCodes,
+}).check(Schema.makeFilter((value) => spatialSupport(value, [value.unblocked_for, value.unblocked_against], [value.for_per60, value.against_per60])));
+export type SpatialMetrics = typeof SpatialMetrics.Type;
+export const SpatialCoverage = Schema.Struct({
+  included_seconds: Count, known_excluded_seconds: Count,
+  unblocked_attempts: Schema.NullOr(Count), unblocked_per60: Schema.NullOr(Rate),
+  coverage_status: CoverageStatus, reason_codes: SpatialReasonCodes,
+  inventory_games: Count, games_with_included_time: Count, partial_games: Count, unavailable_games: Count,
+  reason_game_counts: Schema.Array(Schema.Struct({ code: SpatialReasonCode, games: Count })),
+}).check(Schema.makeFilter((value) => spatialSupport(value, [value.unblocked_attempts], [value.unblocked_per60]) &&
+  value.partial_games <= value.games_with_included_time && value.games_with_included_time + value.unavailable_games <= value.inventory_games &&
+  value.reason_game_counts.every((reason, index) => reason.games > 0 && reason.games <= value.inventory_games && (index === 0 || value.reason_game_counts[index - 1].code < reason.code))));
+export type SpatialCoverage = typeof SpatialCoverage.Type;
+export const SpatialCell = Schema.Struct({
+  cell_id: Count, x_min: Schema.Finite, x_max: Schema.Finite, y_min: Schema.Finite, y_max: Schema.Finite,
+  center_x: Schema.Finite, center_y: Schema.Finite, area_sqft: Rate.check(Schema.isGreaterThan(0)),
+  league_count: Schema.NullOr(Count), league_raw_per60: Schema.NullOr(Rate), league_density: Schema.NullOr(Rate),
+});
+export type SpatialCell = typeof SpatialCell.Type;
+export const PlayerSpatialCell = Schema.Struct({
+  cell_id: Count, for_count: Count, against_count: Count,
+  for_raw_per60: Rate, against_raw_per60: Rate, for_density: Rate, against_density: Rate,
+  for_difference: Schema.Finite, against_difference: Schema.Finite,
+});
+export type PlayerSpatialCell = typeof PlayerSpatialCell.Type;
+export const SpatialSelection = Schema.Struct({
+  definition: Schema.Struct({
+    population_version: Schema.Literal("matched_unblocked_locations_v1"), display_version: Schema.Literal("rect5_gaussian10_v1"), sigma_ft: Schema.Literal(10),
+    rink: Schema.Struct({length_ft: Schema.Literal(200), width_ft: Schema.Literal(85), corner_radius_ft: Schema.Literal(28), goal_x: Schema.Literal(89)}),
+    units: Schema.Literal("attempts_per60_per100sqft"), orientation: Schema.Literal("shooting_team_positive_x"),
+  }),
+  league_support: SpatialCoverage, cells: Schema.Array(SpatialCell).check(Schema.makeFilter((cells) => cells.length === 668 && cells.every((cell, index) => index === 0 || cells[index - 1].cell_id < cell.cell_id))),
+  players: Schema.Array(Schema.Struct({player_id: HockeyId, data: Schema.NullOr(Schema.Struct({metrics: SpatialMetrics, cells: Schema.NullOr(Schema.Array(PlayerSpatialCell))}))})),
+}).check(Schema.makeFilter((selection) => selection.players.length > 0 && selection.players.length <= 2 &&
+  new Set(selection.players.map((player) => player.player_id)).size === selection.players.length &&
+  selection.cells.every((cell) => selection.league_support.included_seconds > 0
+    ? cell.league_count !== null && cell.league_raw_per60 !== null && cell.league_density !== null
+    : cell.league_count === (selection.league_support.coverage_status === "complete" ? 0 : null) && cell.league_raw_per60 === null && cell.league_density === null) &&
+  selection.players.every(({data}) => data === null || (data.metrics.included_seconds === 0 ? data.cells === null :
+    selection.league_support.included_seconds > 0 && data.cells !== null && data.cells.length === selection.cells.length && data.cells.every((cell,index) => cell.cell_id === selection.cells[index].cell_id)))));
+export type SpatialSelection = typeof SpatialSelection.Type;
+
+export const parseSpatialSelection = (query: URLSearchParams): readonly string[] | undefined => {
+  if ([...query.keys()].some((key) => key !== "spatial")) throw new Error("only spatial selection is supported");
+  const values = query.getAll("spatial");
+  if (values.length === 0) return undefined;
+  const ids = values[0].split(",");
+  if (values.length !== 1 || ids.length < 1 || ids.length > 2 || new Set(ids).size !== ids.length || ids.some((id) => !Schema.is(HockeyId)(id))) throw new Error("select one or two distinct player ids");
+  return ids;
+};
+
 const matchedPersonalSupport = ({ metrics, personal }: { metrics: Metrics; personal: PersonalMetrics }) =>
   personal.included_seconds <= metrics.included_seconds &&
   personal.known_excluded_seconds - metrics.known_excluded_seconds === metrics.included_seconds - personal.included_seconds &&
@@ -88,6 +158,8 @@ export const Publication = Schema.Struct({
   undated_sources: Count,
   population_version: Schema.Literal("matched_attempts_v1"),
   personal_population_version: Schema.Literal("matched_personal_credits_v1"),
+  spatial_population_version: Schema.Literal("matched_unblocked_locations_v1"),
+  spatial_display_version: Schema.Literal("rect5_gaussian10_v1"),
   corpus_sha256: Schema.String.check(Schema.isPattern(/^[a-f0-9]{64}$/)),
   git_commit: GitCommit,
 }).check(Schema.makeFilter((publication) => (publication.source_requested_min === null) === (publication.source_requested_max === null) && (publication.source_requested_min === null || publication.source_requested_max === null || Date.parse(publication.source_requested_min) <= Date.parse(publication.source_requested_max))));
@@ -133,20 +205,25 @@ export const PlayerGame = Schema.Struct({
   venue: Schema.Literals(["home", "away"]),
   metrics: Metrics,
   personal: PersonalMetrics,
-}).check(Schema.makeFilter((game) => matchedPersonalSupport(game)));
+  spatial: SpatialMetrics,
+}).check(Schema.makeFilter((game) => matchedPersonalSupport(game) &&
+  game.spatial.included_seconds <= game.metrics.included_seconds &&
+  game.spatial.known_excluded_seconds === game.metrics.known_excluded_seconds + game.metrics.included_seconds - game.spatial.included_seconds &&
+  game.metrics.reason_codes.every((code) => code === "no_5v5_exposure" || game.spatial.reason_codes.includes(code))));
 export type PlayerGame = typeof PlayerGame.Type;
 
-export const LeagueResponse = Schema.Struct({ publication: Publication, coverage: Coverage, players: Schema.Array(PlayerSummary) });
+export const LeagueResponse = Schema.Struct({ publication: Publication, coverage: Coverage, players: Schema.Array(PlayerSummary), spatial: Schema.NullOr(SpatialSelection) });
 export type LeagueResponse = typeof LeagueResponse.Type;
 export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, games: Schema.Array(PlayerGame) });
 export type PlayerResponse = typeof PlayerResponse.Type;
 
 export const InvalidPlayerId = Schema.Struct({ _tag: Schema.Literal("InvalidPlayerId"), message: Schema.String }).pipe(HttpApiSchema.status(400));
+export const InvalidSpatialSelection = Schema.Struct({ _tag: Schema.Literal("InvalidSpatialSelection"), message: Schema.String }).pipe(HttpApiSchema.status(400));
 export const PlayerNotFound = Schema.Struct({ _tag: Schema.Literal("PlayerNotFound"), message: Schema.String }).pipe(HttpApiSchema.status(404));
 export const ReadFailure = Schema.Struct({ _tag: Schema.Literal("ReadFailure"), message: Schema.String }).pipe(HttpApiSchema.status(500));
 
 export const ObservedApi = HttpApi.make("observed").add(HttpApiGroup.make("observed").add(
-  HttpApiEndpoint.get("league", "/api/league", { success: LeagueResponse, error: ReadFailure }),
+  HttpApiEndpoint.get("league", "/api/league", { query: { spatial: Schema.optional(Schema.Union([Schema.String, Schema.Array(Schema.String)])) }, success: LeagueResponse, error: [InvalidSpatialSelection, ReadFailure] }),
   HttpApiEndpoint.get("player", "/api/players/:playerId", {
     params: { playerId: Schema.String }, success: PlayerResponse, error: [InvalidPlayerId, PlayerNotFound, ReadFailure],
   }),

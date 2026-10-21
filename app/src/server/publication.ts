@@ -6,12 +6,17 @@ import * as Schema from "effect/Schema";
 import type { SqlError } from "effect/sql/SqlError";
 import {
   Count, Coverage, CoverageStatus, DateString, GameId, GitCommit, HockeyId, LeagueResponse, Metrics,
-  PersonalMetrics, PersonalReasonCodes, PlayerGame, PlayerResponse, PlayerSummary, Publication as PublicationSchema, ReasonCodes,
+  PersonalMetrics, PersonalReasonCodes, PlayerGame, PlayerResponse, PlayerSummary, Publication as PublicationSchema, ReasonCodes, SpatialCoverage,
 } from "../shared/observed.js";
+
+import { spatialColumns, spatialGameColumns, spatialTables, spatialIntegerColumns, spatialNullableColumns, spatialRealColumns, spatialMetrics, readSpatial } from "./spatial-publication.js";
 
 const Locator = Schema.Struct({ game_id: GameId, source_index: Count });
 const Implementation = Schema.Struct({ git_commit: GitCommit, git_dirty: Schema.NullOr(Schema.Boolean), python_version: Schema.String });
-const Producer = Schema.Struct({ ...Implementation.fields, sqlite_version: Schema.String, source_implementations: Schema.Array(Implementation) });
+const Producer = Schema.Struct({ ...Implementation.fields, sqlite_version: Schema.String, source_implementations: Schema.Array(Implementation), spatial_consumed_fields: Schema.Tuple([
+  Schema.Literal("interpreted.events.reported_x"), Schema.Literal("interpreted.events.reported_y"), Schema.Literal("interpreted.events.home_team_defending_side"),
+  Schema.Literal("reconstruction.events.attacking_x"), Schema.Literal("reconstruction.events.attacking_y"), Schema.Literal("reconstruction.events.coordinate_status"),
+]) });
 const { reason_codes, ...metricValues } = Metrics.fields;
 const { git_commit, ...publicationFields } = PublicationSchema.fields;
 const metricColumns = { ...metricValues, reason_codes_json: Schema.fromJsonString(reason_codes) };
@@ -24,9 +29,9 @@ const personalColumns = {
   personal_coverage_status: CoverageStatus, personal_reason_codes_json: Schema.fromJsonString(PersonalReasonCodes),
 };
 const PublicationRow = Schema.Struct({
-  id: Schema.Literal(1), schema_version: Schema.Literal(2),
+  id: Schema.Literal(1), schema_version: Schema.Literal(3),
   ...publicationFields,
-  game_type: Schema.Literal(2), producer_json: Schema.fromJsonString(Producer), coverage_json: Schema.fromJsonString(Coverage),
+  game_type: Schema.Literal(2), producer_json: Schema.fromJsonString(Producer), coverage_json: Schema.fromJsonString(Coverage), spatial_coverage_json: Schema.fromJsonString(SpatialCoverage),
 });
 const PlayerRow = Schema.Struct({
   player_id: HockeyId, display_name: Schema.NullOr(Schema.String), reported_position: PlayerSummary.fields.reported_position,
@@ -38,37 +43,38 @@ const GameRow = Schema.Struct({
   included_seconds: Count, known_excluded_seconds: Count,
   personal_included_seconds: Count, personal_known_excluded_seconds: Count, known_unresolved_seconds: Count,
   horizon_unavailable: Schema.Literals([0, 1]), away_attempts: Schema.NullOr(Count), home_attempts: Schema.NullOr(Count),
-  coverage_status: CoverageStatus, reason_codes_json: Schema.fromJsonString(ReasonCodes),
+  coverage_status: CoverageStatus, reason_codes_json: Schema.fromJsonString(ReasonCodes), ...spatialGameColumns,
 }).check(Schema.makeFilter((game) => {
   if (game.personal_included_seconds > game.included_seconds || game.personal_known_excluded_seconds - game.known_excluded_seconds !== game.included_seconds - game.personal_included_seconds || game.away_team_id === game.home_team_id || game.coverage_status === "complete" && game.known_excluded_seconds !== 0) return false;
   if (game.included_seconds > 0) return game.away_attempts !== null && game.home_attempts !== null && (game.coverage_status === "complete" ? game.reason_codes_json.length === 0 : game.coverage_status === "partial" && game.reason_codes_json.length > 0 && !game.reason_codes_json.includes("no_5v5_exposure"));
   if (game.coverage_status === "complete") return game.away_attempts === 0 && game.home_attempts === 0 && game.reason_codes_json.length === 1 && game.reason_codes_json[0] === "no_5v5_exposure";
   return game.coverage_status === "unavailable" && game.away_attempts === null && game.home_attempts === null && game.reason_codes_json.length > 0 && !game.reason_codes_json.includes("no_5v5_exposure");
 }));
-const PlayerGameRow = Schema.Struct({ player_id: HockeyId, game_id: GameId, team_id: HockeyId, ...metricColumns, ...personalColumns });
+const PlayerGameRow = Schema.Struct({ player_id: HockeyId, game_id: GameId, team_id: HockeyId, ...metricColumns, ...personalColumns, ...spatialColumns });
 const PlayerSeasonRow = Schema.Struct({
   player_id: HockeyId, teams_json: Schema.fromJsonString(PlayerSummary.fields.teams),
   listed_games: PlayerSummary.fields.listed_games, games_with_included_time: Count, partial_games: Count, unavailable_games: Count,
-  ...metricColumns, ...personalColumns,
+  ...metricColumns, ...personalColumns, ...spatialColumns,
 });
 const strict = { onExcessProperty: "error" } as const;
 const tables = {
-  publication: PublicationRow, player: PlayerRow, game: GameRow, player_game: PlayerGameRow, player_season: PlayerSeasonRow,
+  publication: PublicationRow, player: PlayerRow, game: GameRow, player_game: PlayerGameRow, player_season: PlayerSeasonRow, ...spatialTables,
 };
 const physicalColumns = {
-  publication: ["id", "schema_version", "kind", "publication_id", "purpose", "season", "game_type", "generated_at", "source_requested_min", "source_requested_max", "undated_sources", "population_version", "personal_population_version", "corpus_sha256", "producer_json", "coverage_json"],
+  publication: ["id", "schema_version", "kind", "publication_id", "purpose", "season", "game_type", "generated_at", "source_requested_min", "source_requested_max", "undated_sources", "population_version", "personal_population_version", "corpus_sha256", "producer_json", "coverage_json", "spatial_population_version", "spatial_display_version", "spatial_coverage_json"],
   player: ["player_id", "display_name", "reported_position", "name_source_json", "position_source_json"],
   game: Object.keys(GameRow.fields), player_game: Object.keys(PlayerGameRow.fields), player_season: Object.keys(PlayerSeasonRow.fields),
+  spatial_cell: Object.keys(spatialTables.spatial_cell.fields), player_game_spatial: Object.keys(spatialTables.player_game_spatial.fields), player_season_spatial: Object.keys(spatialTables.player_season_spatial.fields),
 };
-const integerColumns = new Set(["id", "schema_version", "game_type", "undated_sources", "included_seconds", "known_excluded_seconds", "known_unresolved_seconds", "horizon_unavailable", "away_attempts", "home_attempts", "listed_games", "games_with_included_time", "partial_games", "unavailable_games", "attempts_for", "attempts_against", "personal_included_seconds", "personal_known_excluded_seconds", "personal_shots_on_goal", "personal_goals", "personal_primary_assists"]);
-const nullableColumns = new Set(["id", "display_name", "name_source_json", "source_requested_min", "source_requested_max", "away_abbreviation", "home_abbreviation", "away_attempts", "home_attempts", "attempts_for", "attempts_against", "for_per60", "against_per60", "personal_shots_on_goal", "personal_goals", "personal_primary_assists", "personal_shots_on_goal_per60", "personal_goals_per60", "personal_primary_assists_per60"]);
-const primaryKeys = { publication: ["id"], player: ["player_id"], game: ["game_id"], player_game: ["player_id", "game_id"], player_season: ["player_id"] };
-const foreignKeyDefinitions = { publication: [], player: [], game: [], player_game: ["game:game_id:game_id", "player:player_id:player_id"], player_season: ["player:player_id:player_id"] };
+const integerColumns = new Set([...spatialIntegerColumns, "id", "schema_version", "game_type", "undated_sources", "included_seconds", "known_excluded_seconds", "known_unresolved_seconds", "horizon_unavailable", "away_attempts", "home_attempts", "listed_games", "games_with_included_time", "partial_games", "unavailable_games", "attempts_for", "attempts_against", "personal_included_seconds", "personal_known_excluded_seconds", "personal_shots_on_goal", "personal_goals", "personal_primary_assists"]);
+const nullableColumns = new Set([...spatialNullableColumns, "id", "display_name", "name_source_json", "source_requested_min", "source_requested_max", "away_abbreviation", "home_abbreviation", "away_attempts", "home_attempts", "attempts_for", "attempts_against", "for_per60", "against_per60", "personal_shots_on_goal", "personal_goals", "personal_primary_assists", "personal_shots_on_goal_per60", "personal_goals_per60", "personal_primary_assists_per60"]);
+const primaryKeys = { publication: ["id"], player: ["player_id"], game: ["game_id"], player_game: ["player_id", "game_id"], player_season: ["player_id"], spatial_cell: ["cell_id"], player_game_spatial: ["player_id","game_id","cell_id"], player_season_spatial:["player_id","cell_id"] };
+const foreignKeyDefinitions = { publication: [], player: [], game: [], player_game: ["game:game_id:game_id", "player:player_id:player_id"], player_season: ["player:player_id:player_id"], spatial_cell: [], player_game_spatial: ["player_game:player_id:player_id,game_id:game_id", "spatial_cell:cell_id:cell_id"], player_season_spatial: ["player_season:player_id:player_id", "spatial_cell:cell_id:cell_id"] };
 
 export interface PublicationReader {
   readonly metadata: PublicationSchema;
   readonly coverage: Coverage;
-  readonly league: Effect.Effect<LeagueResponse, Error | SqlError>;
+  readonly league: (spatialIds?: readonly string[]) => Effect.Effect<LeagueResponse, Error | SqlError>;
   readonly player: (playerId: string) => Effect.Effect<PlayerResponse | undefined, Error | SqlError>;
 }
 export const Publication = Context.Service<PublicationReader>("hockey-stats/Publication");
@@ -82,23 +88,30 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   const tableList = yield* sql.unsafe<{ name: string; type: string; strict: number }>("PRAGMA table_list");
   yield* Effect.try(() => {
     if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreignKeys.length !== 0) throw new Error("publication integrity or foreign-key check failed");
-    if (JSON.stringify(version) !== '[{"user_version":2}]' || JSON.stringify(journal) !== '[{"journal_mode":"delete"}]') throw new Error("incompatible publication version or journal mode");
+    if (JSON.stringify(version) !== '[{"user_version":3}]' || JSON.stringify(journal) !== '[{"journal_mode":"delete"}]') throw new Error("incompatible publication version or journal mode");
     const actual = tableList.filter((table) => !table.name.startsWith("sqlite_"));
-    if (actual.length !== 5 || actual.some((table) => table.type !== "table" || table.strict !== 1 || !(table.name in tables))) throw new Error("publication requires exactly five strict tables");
+    if (actual.length !== 8 || actual.some((table) => table.type !== "table" || table.strict !== 1 || !(table.name in tables))) throw new Error("publication requires exactly eight strict tables");
   });
   for (const [table, schema] of Object.entries(tables)) {
     const columns = yield* sql.unsafe<{ name: string; type: string; notnull: number; pk: number; dflt_value: unknown }>(`PRAGMA table_info(${table})`);
-    const foreignKeys = yield* sql.unsafe<{ seq: number; table: string; from: string; to: string; on_update: string; on_delete: string; match: string }>(`PRAGMA foreign_key_list(${table})`);
-    const rows = yield* sql.unsafe(`SELECT * FROM ${table}`);
+    const foreignKeys = yield* sql.unsafe<{ id: number; seq: number; table: string; from: string; to: string; on_update: string; on_delete: string; match: string }>(`PRAGMA foreign_key_list(${table})`);
+    const rows = table in spatialTables ? [] : yield* sql.unsafe(`SELECT * FROM ${table}`);
     yield* Effect.try(() => {
       if (JSON.stringify(columns.map((column) => column.name)) !== JSON.stringify(physicalColumns[table as keyof typeof tables])) throw new Error(`${table}: incompatible columns`);
       for (const column of columns) {
-        const type = integerColumns.has(column.name) ? "INTEGER" : column.name === "for_per60" || column.name === "against_per60" || column.name.endsWith("_per60") ? "REAL" : "TEXT";
+        const type = integerColumns.has(column.name) ? "INTEGER" : column.name === "for_per60" || column.name === "against_per60" || column.name.endsWith("_per60") || spatialRealColumns.includes(column.name) ? "REAL" : "TEXT";
         const key = table as keyof typeof tables;
-        if (column.type !== type || column.notnull !== (nullableColumns.has(column.name) ? 0 : 1) || column.pk !== primaryKeys[key].indexOf(column.name) + 1 || column.dflt_value !== null) throw new Error(`${table}.${column.name}: incompatible physical column`);
+        if (column.type !== type || column.notnull !== (nullableColumns.has(column.name) || table === "spatial_cell" && column.name === "cell_id" ? 0 : 1) || column.pk !== primaryKeys[key].indexOf(column.name) + 1 || column.dflt_value !== null) throw new Error(`${table}.${column.name}: incompatible physical column`);
       }
       const key = table as keyof typeof tables;
-      if (JSON.stringify(foreignKeys.map((key) => `${key.table}:${key.from}:${key.to}`).sort()) !== JSON.stringify(foreignKeyDefinitions[key]) || foreignKeys.some((key) => key.seq !== 0 || key.on_update !== "NO ACTION" || key.on_delete !== "NO ACTION" || key.match !== "NONE")) throw new Error(`${table}: incompatible foreign keys`);
+      const relations = new Map<number, typeof foreignKeys[number][]>();
+      for (const relation of foreignKeys) relations.set(relation.id, [...(relations.get(relation.id) ?? []), relation]);
+      const definitions = [...relations.values()].map((parts) => {
+        parts.sort((a,b) => a.seq-b.seq);
+        if (parts.some((part,index) => part.seq !== index || part.table !== parts[0].table)) throw new Error(`${table}: invalid composite relation`);
+        return `${parts[0].table}:${parts.map((part) => `${part.from}:${part.to}`).join(",")}`;
+      }).sort();
+      if (JSON.stringify(definitions) !== JSON.stringify(foreignKeyDefinitions[key]) || foreignKeys.some((key) => key.on_update !== "NO ACTION" || key.on_delete !== "NO ACTION" || key.match !== "NONE")) throw new Error(`${table}: incompatible foreign keys`);
       for (const row of rows) Schema.decodeUnknownSync(schema, strict)(row);
     });
   }
@@ -110,7 +123,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   const metadata = yield* Effect.try(() => Schema.decodeUnknownSync(PublicationSchema, strict)({
     publication_id: stored.publication_id, kind: stored.kind, purpose: stored.purpose, season: stored.season,
     generated_at: stored.generated_at, source_requested_min: stored.source_requested_min, source_requested_max: stored.source_requested_max,
-    undated_sources: stored.undated_sources, population_version: stored.population_version, personal_population_version: stored.personal_population_version, corpus_sha256: stored.corpus_sha256, git_commit: stored.producer_json.git_commit,
+    undated_sources: stored.undated_sources, population_version: stored.population_version, personal_population_version: stored.personal_population_version, spatial_population_version: stored.spatial_population_version, spatial_display_version: stored.spatial_display_version, corpus_sha256: stored.corpus_sha256, git_commit: stored.producer_json.git_commit,
   }));
   const coverage = stored.coverage_json;
   const JoinedPlayer = Schema.Struct({ ...PlayerSeasonRow.fields, display_name: PlayerRow.fields.display_name, reported_position: PlayerRow.fields.reported_position });
@@ -151,7 +164,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
         game_id: row.game_id, game_date: row.game_date, venue: home ? "home" : "away",
         team: { id: row.team_id, abbreviation: home ? row.home_abbreviation : row.away_abbreviation },
         opponent: { id: home ? row.away_team_id : row.home_team_id, abbreviation: home ? row.away_abbreviation : row.home_abbreviation },
-        metrics: metrics(row), personal: personal(row),
+        metrics: metrics(row), personal: personal(row), spatial: spatialMetrics(row),
       });
     }));
   });
@@ -221,14 +234,18 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   });
   const missingSeasons = yield* sql.unsafe("SELECT player_id FROM player EXCEPT SELECT player_id FROM player_season");
   if (missingSeasons.length !== 0) return yield* Effect.fail(new Error("player missing season summary"));
+  const spatial = yield* readSpatial(sql, stored.spatial_coverage_json, coverage.games_with_unassigned_player_associations);
   return {
     metadata, coverage,
-    league: Effect.map(readPlayers(), (players) => ({ publication: metadata, coverage, players })),
+    league: (ids?: readonly string[]) => Effect.gen(function* () {
+      const players = yield* readPlayers();
+      return { publication: metadata, coverage, players, spatial: yield* spatial(ids) };
+    }),
     player: (playerId: string) => Effect.gen(function* () {
       const players = yield* readPlayers();
       if (!players.some((player) => player.player_id === playerId)) return undefined;
       const games = yield* readGames(playerId);
-      return { publication: metadata, coverage, players, games };
+      return { publication: metadata, coverage, players, games, spatial: yield* spatial([playerId]) };
     }),
   } satisfies PublicationReader;
 })).pipe(Layer.provide(SqliteClient.layer({ filename, readonly: true, disableWAL: true })));

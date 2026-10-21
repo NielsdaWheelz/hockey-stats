@@ -1,0 +1,221 @@
+{
+  "kind": "checked_synthetic_prior_accounting",
+  "purpose": "fixture_exercise",
+  "schema_version": 1,
+  "arrays": {
+    "file": "prior-accounting.npz",
+    "sha256": "556fc113cd63da56deb45388a90da6fa83b69b2f48aa703905acff68e89971a3"
+  },
+  "array_shapes": [
+    {
+      "name": "current",
+      "shape": [
+        3
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "rows",
+      "shape": [
+        6
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "u",
+      "shape": [
+        3
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "P",
+      "shape": [
+        6,
+        6
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "G",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "X",
+      "shape": [
+        11,
+        6
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "H",
+      "shape": [
+        6,
+        6
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Qbar",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Q",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "C",
+      "shape": [
+        10,
+        10
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "prior",
+      "shape": [
+        10,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Hu",
+      "shape": [
+        10,
+        10
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Qu",
+      "shape": [
+        10,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "K",
+      "shape": [
+        10,
+        10
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "mu",
+      "shape": [
+        10,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Pu",
+      "shape": [
+        10,
+        10
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "V",
+      "shape": [
+        6,
+        6
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "Theta",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "m0",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "expected_signal",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "expected_noise",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "expected_reference",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "expected_update",
+      "shape": [
+        6,
+        2
+      ],
+      "dtype": "<f8"
+    }
+  ],
+  "derivation": "independent full union proper-prior precision solve, then current exposure centering; no production update or selection used for expected moments",
+  "union_players": 5,
+  "current_player_indices": [
+    0,
+    2,
+    4
+  ],
+  "entrant_index": 4,
+  "history_only_indices": [
+    1,
+    3
+  ],
+  "role_order": [
+    "offense",
+    "attempts_allowed"
+  ],
+  "coefficient_columns": 2,
+  "checks": {
+    "unequal_exposure": true,
+    "entrant_reference_nonzero": true,
+    "entrant_update_nonzero": true,
+    "cross_role_covariance_retained": true,
+    "history_only_direct_mean": "exact_zero",
+    "negative_quadratic_cross_terms": true,
+    "role_gauge_shift_invariant": true,
+    "zero_incoming_mean": "exact_zero_carry"
+  },
+  "rtol": 1e-08,
+  "atol": 1e-10
+}

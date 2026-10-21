@@ -1,0 +1,115 @@
+{
+  "boundary": "finite_diagnosis",
+  "status": "verified",
+  "implementation_commit": "1bea5b5",
+  "controllers": [
+    "/tmp/04l-diagnosis-check.py",
+    "/tmp/04l-detached-check.py",
+    "/tmp/04l-diagnosis-failures.py"
+  ],
+  "red": {
+    "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/04l-diagnosis-check.py",
+    "observed": "FileNotFoundError: attribution_priors.py did not exist before implementation"
+  },
+  "green": {
+    "output": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/tmpy82_l5ky/diagnosis",
+    "inventory": {
+      "pairs": 10,
+      "scores": 10,
+      "decompositions": 20,
+      "previous_means": 10,
+      "scales": 40,
+      "record_rows": 9520,
+      "summary_rows": 5120,
+      "frozen_comparisons": 3400,
+      "frozen_summaries": 2060
+    },
+    "closure_summary": {
+      "check_count": 17162,
+      "coefficient_decompositions": 20,
+      "maximum_normalized_residual": 7.993605777301127e-15,
+      "maximum_coefficient_mean_relative_residual": 9.243964038308562e-17,
+      "maximum_coefficient_mean_absolute_residual": 1.5612511283791264e-17,
+      "maximum_gauge_relative_residual": 3.4798892296387293e-15,
+      "maximum_covariance_centering_relative_residual": 7.959436701749016e-20,
+      "status": "verified"
+    },
+    "measured_scope": "internal resources through numerical checks before artifact serialization",
+    "resources": {
+      "wall_seconds": 0.7272154160309583,
+      "peak_memory_bytes": 149028864,
+      "process_seconds": 0.5140990000000001,
+      "research_solves": 0,
+      "scale_evaluations": 0
+    }
+  },
+  "refactor": {
+    "change": "use shared public validate_shape_history_identity",
+    "preserved": [
+      "record_rows",
+      "summary_rows",
+      "scale_rows",
+      "inventory",
+      "decision"
+    ]
+  },
+  "detached": {
+    "output": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/04l-detached-1toavk2n/diagnosis",
+    "original_parent_opens": "denied during command",
+    "pairs": 10
+  },
+  "rejection_checks": {
+    "count": 8,
+    "mutations": [
+      "record signed allocation",
+      "record quadratic term",
+      "record source allocation",
+      "record entrant allocation",
+      "record frozen mse",
+      "summary mean",
+      "summary rms",
+      "summary mse dispersion"
+    ],
+    "failed_commands_wrote_completed_artifacts": false
+  },
+  "controls": {
+    "exclusive_output_rejected": true,
+    "research_solves": 0,
+    "scale_evaluations": 0,
+    "original_inputs_mutated": false
+  },
+  "final_refactor": {
+    "output": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/tmp58un7jsd/diagnosis",
+    "changes": [
+      "reuse fitted native maps once per arm",
+      "explicit numerical/serialization resource scopes",
+      "one statement per line"
+    ],
+    "unchanged_fields": [
+      "record_rows",
+      "summary_rows",
+      "scale_rows",
+      "checks",
+      "closure_summary",
+      "inventory",
+      "decision",
+      "diagnostic_answer"
+    ],
+    "diagnosis_resources": {
+      "wall_seconds": 0.8482737090089358,
+      "peak_memory_bytes": 149209088,
+      "process_seconds": 0.500774,
+      "research_solves": 0,
+      "scale_evaluations": 0,
+      "measurement_scope": "source reads and numerical checks; before diagnosis serialization"
+    },
+    "result_resources": {
+      "wall_seconds": 0.9760574590181932,
+      "peak_memory_bytes": 186335232,
+      "process_seconds": 0.610331,
+      "research_solves": 0,
+      "scale_evaluations": 0,
+      "measurement_scope": "through diagnosis serialization; before result serialization"
+    }
+  }
+}

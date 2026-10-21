@@ -1157,6 +1157,73 @@ def _annual_inputs(population: "RevisionPopulation", previous: AnnualState | Non
     return players, H, T, xbar, weights
 
 
+def validate_shape_history_identity(left: np.ndarray, right: np.ndarray, name: str) -> dict:
+    """both elementwise and whole-array closure are required before aggregation."""
+    require(isinstance(left, np.ndarray) and isinstance(right, np.ndarray)
+            and left.shape == right.shape and left.size > 0
+            and np.isfinite(left).all() and np.isfinite(right).all(),
+            "shape history identity axes or finite values differ: " + name)
+    difference = left - right
+    residual = float(np.linalg.norm(difference) / max(1., np.linalg.norm(left), np.linalg.norm(right)))
+    require(np.allclose(left, right, rtol=1e-8, atol=1e-10) and residual <= 1e-8,
+            "shape history identity failed: " + name)
+    return dict(relative_residual=residual, maximum_absolute_residual=float(np.max(np.abs(difference))))
+
+
+def shape_history_carry(H: np.ndarray, V: np.ndarray, u: np.ndarray, m0: np.ndarray) -> dict:
+    """conditional current-axis carry; the covariance is the saved centered posterior."""
+    require(isinstance(u, np.ndarray) and u.ndim == 1 and len(u) > 0
+            and np.isfinite(u).all() and np.all(u >= 0) and abs(float(u.sum()) - 1) <= 1e-12,
+            "invalid shape history exposure reference")
+    n = len(u)
+    require(isinstance(m0, np.ndarray) and m0.ndim == 2 and m0.shape[0] == 2*n and m0.shape[1] > 0
+            and np.isfinite(m0).all()
+            and all(isinstance(value, np.ndarray) and value.shape == (2*n, 2*n)
+                    and np.isfinite(value).all() for value in (H, V)),
+            "shape history current axes or finite values differ")
+    require(np.allclose(H, H.T, rtol=1e-8, atol=1e-10)
+            and np.allclose(V, V.T, rtol=1e-8, atol=1e-10)
+            and np.min(np.diag(V)) >= -1e-10 * max(1., np.linalg.norm(V)),
+            "shape history information or centered covariance differs")
+    gauges = np.kron(np.eye(2), np.ones((n, 1)))
+    h_gauge = float(np.linalg.norm(H @ gauges) / max(1., np.linalg.norm(H)))
+    v_reference = np.vstack((u @ V[:n], u @ V[n:]))
+    v_residual = float(np.linalg.norm(v_reference) / max(1., np.linalg.norm(V)))
+    require(max(h_gauge, v_residual) <= 1e-8,
+            "shape history information gauge or covariance exposure centering differs")
+    reference = np.vstack((m0[:n] - u @ m0[:n], m0[n:] - u @ m0[n:]))
+    update = -(V @ (H @ m0))
+    return dict(reference=reference, update=update,
+                closure=dict(information_gauge_relative_residual=h_gauge,
+                             covariance_centering_relative_residual=v_residual))
+
+
+def decompose_shape_history(H: np.ndarray, Q: np.ndarray, Qbar: np.ndarray, m0: np.ndarray,
+                            V: np.ndarray, u: np.ndarray, Theta: np.ndarray) -> dict:
+    """account for one saved final mean without refitting or inverting its covariance.
+
+    selections remain response-dependent; realized noise is neither independent
+    of the other terms nor a sampling-variance estimate.
+    """
+    carry = shape_history_carry(H, V, u, m0)
+    require(all(isinstance(value, np.ndarray) and value.shape == m0.shape
+                and np.isfinite(value).all() for value in (Q, Qbar, Theta)),
+            "shape history score or saved mean axes differ")
+    n = len(u)
+    closure = dict(carry["closure"])
+    for name, score in (("score", Q), ("signal_score", Qbar)):
+        residual = float(np.linalg.norm(np.vstack((score[:n].sum(axis=0), score[n:].sum(axis=0))))
+                         / max(1., np.linalg.norm(score)))
+        require(residual <= 1e-8, "shape history " + name + " does not annihilate role gauges")
+        closure[name + "_gauge_relative_residual"] = residual
+    signal = V @ Qbar
+    noise = V @ (Q - Qbar)
+    closure["saved_mean"] = validate_shape_history_identity(
+        signal + noise + carry["reference"] + carry["update"], Theta, "saved_mean")
+    return dict(signal=signal, noise=noise, carry_reference=carry["reference"],
+                carry_update=carry["update"], closure=closure)
+
+
 def _shape_coefficient_inputs(likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None):
     current, basis = likelihood.player_ids, likelihood.basis
     n = len(current)
@@ -1239,7 +1306,7 @@ def validate_shape_coefficient_state(
         require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
                 and value.shape == shape and np.isfinite(value).all(),
                 "shape coefficient state axes or finite float64 arrays differ")
-    _validate_scale_receipt(state.scale, previous)
+    validate_shape_scale_receipt(state.scale, None if previous is None else previous.scale)
     require(all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
                 and row["objective"] is not None and row["equation_relative_residual"] is not None
                 and 0 <= row["equation_relative_residual"] <= 1e-8 for row in state.scale["curve"]),
@@ -2414,7 +2481,8 @@ def _pooling_blocks(state: AnnualState) -> tuple[tuple[str, BlockState | GraphSh
     return (("volume", state.volume, 1), ("shape_low", state.shape.low, 11), ("shape_high", state.shape.high, 29))
 
 
-def _validate_scale_receipt(scale: dict, previous) -> None:
+def validate_shape_scale_receipt(scale: dict, previous_scale: dict | None) -> None:
+    """validate a saved scale search and its explicit incoming limitation metadata."""
     require(set(scale) == {"status", "own_reasons", "inherited_limitation", "curve", "competing_coarse_minima",
                            "refinement", "selected"}, "pooling scale receipt fields differ")
     curve = scale["curve"]
@@ -2438,7 +2506,7 @@ def _validate_scale_receipt(scale: dict, previous) -> None:
         own.append("refinement_failed")
     if any(row["phase"] == "refinement" and row["objective"] is None for row in curve):
         own.append("nonfinite_refinement")
-    inherited = previous is not None and previous.scale["status"] == "scale_unresolved"
+    inherited = previous_scale is not None and previous_scale["status"] == "scale_unresolved"
     require(scale["own_reasons"] == own and scale["inherited_limitation"] is inherited
             and scale["status"] == ("scale_unresolved" if own or inherited else "resolved"),
             "pooling selected scale dropped its own or inherited numerical limitation")
@@ -2451,7 +2519,7 @@ def _validate_scale_receipt(scale: dict, previous) -> None:
 
 
 def _validate_pooling_scale(scale: dict, problem: _ScaleProblem, previous) -> None:
-    _validate_scale_receipt(scale, previous)
+    validate_shape_scale_receipt(scale, None if previous is None else previous.scale)
     value = problem.objective(scale["selected"]["exponent"], "saved_state_recheck")
     objective_field = "band_objective" if problem.band else "full_objective"
     require(math.isfinite(value) and math.isclose(value, scale["selected"]["objective"], rel_tol=1e-8, abs_tol=1e-10)

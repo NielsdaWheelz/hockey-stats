@@ -1,6 +1,6 @@
 # pr05f comparative observed cards
 
-status: **full specification; independent statistical, systems and content reviews clear, 2026-10-21.** confirmed: raw rates plus observed percentiles; higher percentile means higher rate for every row; withhold percentiles outside the reference cohort. [the plan](../plan.md) owns assignment. documentation only; implementation and activation remain separate. independent of 04m and model admission. extend [05c](05c-player-explorer.md), [05d](05d-descriptive-cards.md) and [05e](05e-spatial-views.md); preserve their contracts except the presentation changes named here.
+status: **implemented and verified, 2026-10-21; [acceptance and independent review](../research/observed-05f/verification.md) complete.** confirmed: raw rates plus observed percentiles; higher percentile means higher rate for every row; withhold percentiles outside the reference cohort. [the plan](../plan.md) owns assignment. implementation and verification complete; activation remains separate. independent of 04m and model admission. extend [05c](05c-player-explorer.md), [05d](05d-descriptive-cards.md) and [05e](05e-spatial-views.md); preserve their contracts except the presentation changes named here.
 
 ## target and boundary
 

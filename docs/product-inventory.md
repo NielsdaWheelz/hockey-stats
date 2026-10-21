@@ -89,7 +89,7 @@ a card presents quantities; it is not a new statistical model. several rows can 
 | family | contents / purpose | status |
 |---|---|---|
 | isolated skater summary | coherent offense/defense maps and scalar effects; add validated components individually | first 5v5 subset; later full family |
-| compact comparative skater card | component magnitudes and percentiles, clear cohort, identity, evidence and context; readable download | 05f specifies an observed five-rate subset; analytical components remain later |
+| compact comparative skater card | component magnitudes and percentiles, clear cohort, identity, evidence and context; readable download | 05f supplies an observed five-rate subset; analytical components remain later |
 | descriptive skater card | scoring, usage and on/off results; distinguish experience from estimated ability | 05d/05f cover personal scoring and on-ice summaries/comparison; richer usage and off-ice panels remain later |
 | career and historical profiles | navigable season cards, maps, results, explanations and ability/subskill trajectories; common-value history where supported | later; source coverage determines the historical range |
 | detailed 5v5 view | inspect spatial differences hidden by the summary | first maps; richer drill-down later |
@@ -126,9 +126,9 @@ the hockeyviz [descriptive guide](https://hockeyviz.com/howto/skaterCard) motiva
 | league table, name search, sorting and player navigation | first; unavailable estimates remain distinguishable from poor ones |
 | compact player comparison | first; same state, units, baseline and comparable evidence |
 | complete-season summary and game evidence | first; observed aggregates reconcile; game rows are not fitted ability contributions |
-| distribution with selected player, percentile and rank | 05c supplies observed raw-unit distributions; 05f specifies numeric percentile standing for five rates with exact family cohorts and tie rules. ability distributions and other ranking contracts remain later; retain magnitude |
+| distribution with selected player, percentile and rank | 05c supplies observed raw-unit distributions; 05f supplies numeric percentile standing for five rates with exact family cohorts and tie rules. ability distributions and other ranking contracts remain later; retain magnitude |
 | richer comparisons and history | later; same-method comparisons or explicit method differences; no arbitrary date-window fitting |
-| readable downloadable cards | 05d supplies one descriptive png; 05f specifies compact comparative content, preserving identity, raw rates, both supports, coverage and explicit cohort/percentile meaning. ability cards remain conditional on supported components |
+| readable downloadable cards | 05d supplies one descriptive png; 05f supplies compact comparative content, preserving identity, raw rates, both supports, coverage and explicit cohort/percentile meaning. ability cards remain conditional on supported components |
 | specialist component tables | later; reuse selected quantities, not independent recalculation |
 | descriptive statistics workspace and downloads | later; individual/on-ice/workload tables, season rows, game evidence and useful count/rate views; publish supported derived outputs |
 | inspectable definitions and evidence limits | first, expanded with each component; units, sign, baseline, time meaning, provenance, uncertainty and missingness |

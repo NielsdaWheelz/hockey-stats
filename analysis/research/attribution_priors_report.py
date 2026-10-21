@@ -140,8 +140,7 @@ def _decision(output, diagnosis, index):
     fixture = diagnosis["purpose"] == "fixture_exercise"
     lines = ["# saved annual-prior accounting", "", LABEL, "",
         "this fixture supplies software evidence only; it cannot recommend scientific work." if fixture else
-        "the saved fits admit an exact signed account of current-signal, realized-noise and historical-mean terms. "
-        "this account does not independently identify a prior intervention.", "",
+        diagnosis["diagnostic_answer"], "",
         "positive loss change means borrowing harms recovery; negative means improvement. "
         "brackets are two-sided 95% monte carlo intervals across paired histories.", "",
         "| primary cell | role | receiver | players | borrowing − independent mse | signal | noise | carry |",
@@ -270,9 +269,11 @@ def render(diagnosis_path: Path, output: Path):
         "reporting reads only this compact diagnosis and its bound protocol. original arrays, source manifests, "
         "fitted states and parent assessment are not opened. tables copy saved record/summary/scale rows; "
         "rendering computes no scientific scores, intervals, rms or recommendations.", ""]
-    for name in ("inventory", "read_accounting", "checks", "preflight_resources", "resources"):
+    for name in ("inventory", "read_accounting", "closure_summary", "preflight_resources", "resources"):
         lines += [name.replace("_", " ") + ":", "", "```json", json.dumps(diagnosis[name], indent=2), "```", ""]
-    lines += ["the bounded base-record-zero preflight belongs to the same frozen inventory. no research solve "
+    lines += ["the complete record-level receipts remain in the saved diagnosis; the summary above is copied "
+        "from that diagnosis, without recalculation.", "",
+        "the bounded base-record-zero preflight belongs to the same frozen inventory. no research solve "
         "or scale evaluation is authorized. numerical completion establishes accounting closure, not a "
         "scientific pass/fail, acceptable cost or model admission.", "",
         "`nomination:null, admission:not_admitted, handoff:null`.", ""]

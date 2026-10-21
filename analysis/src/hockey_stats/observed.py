@@ -331,16 +331,8 @@ def _validate_native(interpreted, native, events, recon, reports, loc):
                 object_fields(member, here, ("player_id", "reported_position"))
                 integer(member["player_id"], here + "/member/player_id", nullable=True, minimum=1)
                 text(member["reported_position"], here + "/member/reported_position", nullable=True)
-    period_sides = defending_sides(events.values())
     for index, event in events.items():
         row = recon[index]
-        if event["kind_valid"] and event["type_key"] in _ATTEMPTS and event["timed_period"] is True:
-            x, y, error = attacking_coordinates(event, game, event["shooting_team_id"], period_sides)
-            missing = any(type(event[field]) not in (int, float) or not math.isfinite(event[field])
-                          for field in ("reported_x", "reported_y"))
-            status = "missing_coordinates" if missing else "unresolved_frame" if error else "normalized"
-            require((row["attacking_x"], row["attacking_y"], row["coordinate_status"]) == (x, y, status),
-                    loc + f"/events/{index}", "native derived spatial coordinates differ")
         here = loc + f"/events/{index}"
         object_fields(row, here, ("match_status", "shift_relation", *_MEMBERS))
         require(row["match_status"] in ("matched", "unmatched", "ambiguous", "unavailable", "untimed"), here, "invalid native match status")
@@ -524,6 +516,7 @@ def _game(entry, value, path, consumed):
                     seconds_by_player[pid] += seconds
                     for_by_player[pid] += per_segment[i, team]
                     against_by_player[pid] += per_segment[i, opponent]
+    period_sides = defending_sides(events.values())
     spatial_mask = set(mask)
     spatial_reasons = set()
     spatial_events = []
@@ -532,6 +525,12 @@ def _game(entry, value, path, consumed):
         if disposition["status"] != "included" or event["type_key"] not in ("goal", "shot-on-goal", "missed-shot"):
             continue
         row = recon[disposition["source_index"]]
+        x, y, error = attacking_coordinates(event, game, event["shooting_team_id"], period_sides)
+        missing = any(type(event[field]) not in (int, float) or not math.isfinite(event[field])
+                      for field in ("reported_x", "reported_y"))
+        status = "missing_coordinates" if missing else "unresolved_frame" if error else "normalized"
+        require((row["attacking_x"], row["attacking_y"], row["coordinate_status"]) == (x, y, status),
+                str(path) + f"/events/{disposition['source_index']}", "native derived spatial coordinates differ")
         reason = {"missing_coordinates": "spatial_coordinates_missing", "unresolved_frame": "spatial_frame_unresolved"}.get(row["coordinate_status"])
         if reason is None and not in_rink(row["attacking_x"], row["attacking_y"]):
             reason = "spatial_location_outside_rink"

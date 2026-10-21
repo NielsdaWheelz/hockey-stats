@@ -56,7 +56,8 @@ def _row(index, cell, role, receiver, metric, arm="paired_change"):
 
 def _table(output, name, rows, purpose):
     require(bool(rows), "empty saved report table: " + name)
-    metadata = dict(study_label=LABEL, purpose=purpose)
+    metadata = dict(study_label=LABEL, purpose=purpose,
+        null_convention="blank fields represent saved json null; unavailable scientific values retain reason")
     if name == "scales.csv":
         metadata["scale_interpretation"] = (
             "a and q are relative-rate coefficient variances; selected_exponent is "

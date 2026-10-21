@@ -1,6 +1,6 @@
 # pr06 — website
 
-status: **stub; not ready for implementation.** [05a](05a-observed-website.md)/[05b](05b-observed-comparison.md) deliver the private observed path. [05c](05c-player-explorer.md) is its next independently specified table/card/distribution slice; [05d](05d-descriptive-cards.md)/[05e](05e-spatial-views.md) retain later descriptive and spatial contracts. expand this same application against the [05 publication contract](05-publication.md) and settled [brief](../brief.md) for supported ability maps and comparisons. fixtures can exercise analytical views when assigned; a real ability release additionally requires supported 03–04 results. [plan](../plan.md)
+status: **stub; not ready for implementation.** [05a](05a-observed-website.md)/[05b](05b-observed-comparison.md) deliver the private observed path. [05c](05c-player-explorer.md) delivers table/card/distribution exploration; [05d](05d-descriptive-cards.md) specifies richer descriptive facts/export, with observed spatial views recorded next in [05e](05e-spatial-views.md). expand this same application against the [05 publication contract](05-publication.md) and settled [brief](../brief.md) for supported ability maps and comparisons. fixtures can exercise analytical views when assigned; a real ability release additionally requires supported 03–04 results. [plan](../plan.md)
 
 ## purpose and ownership
 

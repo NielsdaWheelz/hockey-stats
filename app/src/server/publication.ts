@@ -191,20 +191,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   });
   for (const evidence of seasons) {
     const season = evidence.season, coverage = evidence.coverage;
-    for (const [table, schema] of Object.entries({player: PlayerRow, game: GameRow, player_game: PlayerGameRow, player_season: PlayerSeasonRow})) {
-      const rows = yield* sql.unsafe(`SELECT * FROM ${table} WHERE season=?`, [season]);
-      yield* Effect.try(() => {
-        for (const row of rows) {
-          Schema.decodeUnknownSync(schema, strict)(row);
-          if (table === "player") {
-            const player = Schema.decodeUnknownSync(PlayerRow, strict)(row);
-            for (const locator of [player.name_source_json, player.position_source_json]) {
-              if (locator !== null && (locator.game_id.slice(0, 4) !== season.slice(0, 4) || locator.game_id.slice(4, 6) !== "02")) throw new Error("seasonal player source locator differs from its season");
-            }
-          }
-        }
-      });
-    }
+    const identityInputs = yield* sql.unsafe("SELECT * FROM player WHERE season=?", [season]);
     const players = yield* readPlayers(season);
     yield* readGames(season);
     const gameInputs = yield* sql.unsafe("SELECT * FROM game WHERE season=?", [season]);
@@ -223,6 +210,8 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
         if (game === undefined || gap.date !== game.game_date || gap.away_team_id !== game.away_team_id || gap.home_team_id !== game.home_team_id ||
           game.reason_codes_json.some((reason) => !gap.reason_codes.includes(reason)) || gap.reason_codes.some((reason) => reason !== "roster_identity_unresolved" && !game.reason_codes_json.includes(reason))) throw new Error("unassigned game evidence differs from its physical game");
       }
+      const gameById = new Map(games.map((game) => [game.game_id, game]));
+      const identities = identityInputs.map((row) => Schema.decodeUnknownSync(PlayerRow, strict)(row));
       const byGame = new Map<string, typeof playerGames>();
       const byPlayer = new Map<string, typeof playerGames>();
       const checkRates = (value: Metrics | PersonalMetrics) => {
@@ -247,6 +236,12 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
         checkRates(metrics(row));
         checkRates(personal(row));
       }
+      for (const player of identities) {
+        const games = new Set((byPlayer.get(player.player_id) ?? []).map((row) => row.game_id));
+        for (const locator of [player.name_source_json, player.position_source_json]) {
+          if (locator !== null && !games.has(locator.game_id)) throw new Error("seasonal player source locator is absent from their listed games");
+        }
+      }
       for (const game of games) {
         const rows = byGame.get(game.game_id) ?? [];
         const seconds = rows.reduce((sum, row) => sum + row.included_seconds, 0);
@@ -259,6 +254,16 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
       for (const player of players) {
         const rows = byPlayer.get(player.player_id) ?? [];
         if (rows.length !== player.listed_games || rows.filter((row) => row.included_seconds > 0).length !== player.games_with_included_time || rows.filter((row) => row.coverage_status === "partial").length !== player.partial_games || rows.filter((row) => row.coverage_status === "unavailable").length !== player.unavailable_games) throw new Error(`${player.player_id}: stored season frequencies differ`);
+        const teams = new Map<string, PlayerSummary["teams"][number]>();
+        for (const row of [...rows].sort((a,b) => {
+          const left = gameById.get(a.game_id)!, right = gameById.get(b.game_id)!;
+          return left.game_date.localeCompare(right.game_date) || left.game_id.localeCompare(right.game_id);
+        })) {
+          const game = gameById.get(row.game_id)!;
+          teams.set(row.team_id, {id:row.team_id,abbreviation:row.team_id === game.away_team_id ? game.away_abbreviation : game.home_abbreviation});
+        }
+        const expectedTeams = [...teams.values()].sort((a,b) => a.id.length - b.id.length || a.id.localeCompare(b.id));
+        if (JSON.stringify(player.teams) !== JSON.stringify(expectedTeams)) throw new Error(`${player.player_id}: seasonal teams differ from their listed games`);
         const values = rows.map((row) => ({ metrics: metrics(row), personal: personal(row) }));
         for (const group of ["metrics", "personal"] as const) {
           const season = player[group];

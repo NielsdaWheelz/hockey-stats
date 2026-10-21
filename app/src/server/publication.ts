@@ -114,8 +114,8 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
     attempts_for: row.attempts_for, attempts_against: row.attempts_against, for_per60: row.for_per60,
     against_per60: row.against_per60, coverage_status: row.coverage_status, reason_codes: row.reason_codes_json,
   });
-  const readPlayers = (playerId?: string) => Effect.gen(function* () {
-    const rows = yield* sql.unsafe(`SELECT s.*, p.display_name, p.reported_position FROM player_season s JOIN player p USING(player_id)${playerId === undefined ? "" : " WHERE s.player_id = ?"} ORDER BY s.player_id`, playerId === undefined ? [] : [playerId]);
+  const readPlayers = () => Effect.gen(function* () {
+    const rows = yield* sql.unsafe("SELECT s.*, p.display_name, p.reported_position FROM player_season s JOIN player p USING(player_id) ORDER BY s.player_id");
     return yield* Effect.try(() => rows.map((input) => {
       const row = Schema.decodeUnknownSync(JoinedPlayer, strict)(input);
       return Schema.decodeUnknownSync(PlayerSummary, strict)({
@@ -147,10 +147,10 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
     metadata, coverage,
     league: Effect.map(readPlayers(), (players) => ({ publication: metadata, coverage, players })),
     player: (playerId: string) => Effect.gen(function* () {
-      const players = yield* readPlayers(playerId);
-      if (players.length === 0) return undefined;
+      const players = yield* readPlayers();
+      if (!players.some((player) => player.player_id === playerId)) return undefined;
       const games = yield* readGames(playerId);
-      return { publication: metadata, coverage, player: players[0], games };
+      return { publication: metadata, coverage, players, games };
     }),
   } satisfies PublicationReader;
 })).pipe(Layer.provide(SqliteClient.layer({ filename, readonly: true, disableWAL: true })));

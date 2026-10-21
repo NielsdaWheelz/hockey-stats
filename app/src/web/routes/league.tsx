@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Link,
   useLoaderData,
@@ -7,8 +7,14 @@ import {
   type ClientLoaderFunctionArgs,
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
-import type { PlayerSummary } from "../../shared/observed";
 import { loadLeague } from "../client";
+import {
+  parseMinutes,
+  readDiscovery,
+  selectDiscovery,
+  teamOptions,
+  type Sort,
+} from "../explorer";
 import {
   CoverageDetail,
   Evidence,
@@ -16,20 +22,9 @@ import {
   LoadError,
   Minutes,
   Quantity,
-  matchingPlayers,
-  nameOrder,
   playerName,
   teamName,
 } from "../presentation";
-
-type Sort = "name" | "games" | "minutes" | "for60" | "against60";
-const sorts: readonly Sort[] = [
-  "name",
-  "games",
-  "minutes",
-  "for60",
-  "against60",
-];
 
 export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
   loadLeague(request.signal);
@@ -46,7 +41,7 @@ export function shouldRevalidate({
   ) {
     const current = new URLSearchParams(currentUrl.search);
     const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["q", "sort", "dir"]) {
+    for (const key of ["q", "sort", "dir", "position", "team", "min"]) {
       current.delete(key);
       next.delete(key);
     }
@@ -59,47 +54,39 @@ export default function League() {
   const data = useLoaderData<typeof clientLoader>();
   const location = useLocation();
   const [search, setSearch] = useSearchParams();
-  const q = search.get("q") ?? "";
-  const rawSort = search.get("sort");
-  const sort: Sort = sorts.includes(rawSort as Sort)
-    ? (rawSort as Sort)
-    : "minutes";
-  const dir = search.get("dir") === "asc" ? "asc" : "desc";
-  useEffect(() => {
-    const next = new URLSearchParams(search);
-    if (rawSort !== null && !sorts.includes(rawSort as Sort))
-      next.delete("sort");
-    if (search.has("dir") && !["asc", "desc"].includes(search.get("dir")!))
-      next.delete("dir");
-    if (next.toString() !== search.toString())
-      setSearch(next, { replace: true, preventScrollReset: true });
-  }, [search, rawSort, setSearch]);
-  const players = matchingPlayers(data.players, q);
-  const value = (player: PlayerSummary) =>
-    sort === "games"
-      ? player.games_with_included_time
-      : sort === "minutes"
-        ? player.metrics.included_seconds
-        : sort === "for60"
-          ? player.metrics.for_per60
-          : player.metrics.against_per60;
-  players.sort((a, b) => {
-    if (sort === "name")
-      return (
-        (dir === "asc" ? 1 : -1) *
-          playerName(a).localeCompare(playerName(b), "en") || nameOrder(a, b)
-      );
-    const left = value(a),
-      right = value(b);
-    if (left === null) return right === null ? nameOrder(a, b) : 1;
-    if (right === null) return -1;
-    return (dir === "asc" ? left - right : right - left) || nameOrder(a, b);
+  const { discovery, search: normalized } = readDiscovery(search);
+  const { q, sort, dir, position, team, min } = discovery;
+  const [minute, setMinute] = useState({
+    committed: min,
+    draft: String(min),
+    error: "",
   });
-  const updateQuery = (query: string) => {
+  if (minute.committed !== min)
+    setMinute({ committed: min, draft: String(min), error: "" });
+  useEffect(() => {
+    if (normalized.toString() !== search.toString())
+      setSearch(normalized, {
+        replace: true,
+        preventScrollReset: true,
+        state: location.state,
+      });
+  }, [normalized.toString(), search, setSearch, location.state]);
+  const players = selectDiscovery(data.players, discovery);
+  const teams = teamOptions(data.players);
+  const commit = (next: URLSearchParams, replace = false) => {
+    if (next.toString() !== search.toString())
+      setSearch(next, {
+        replace,
+        preventScrollReset: true,
+        state: location.state,
+      });
+  };
+  const clear = () => {
+    setMinute({ committed: 0, draft: "0", error: "" });
+    if (q === "" && position === "all" && team === null && min === 0) return;
     const next = new URLSearchParams(search);
-    if (query) next.set("q", query);
-    else next.delete("q");
-    setSearch(next, { replace: true, preventScrollReset: true });
+    for (const key of ["q", "position", "team", "min"]) next.delete(key);
+    commit(next);
   };
   const header = (key: Sort, label: string, accessible: string) => (
     <th
@@ -125,7 +112,7 @@ export default function League() {
                 ? "asc"
                 : "desc",
           );
-          setSearch(next, { preventScrollReset: true });
+          commit(next);
         }}
       >
         {label}
@@ -141,7 +128,7 @@ export default function League() {
   return (
     <>
       <section className="league-heading">
-        <h2>included results</h2>
+        <h2>explore included results</h2>
         <p>
           matched counts and time, with source coverage alongside. rate ordering
           describes recorded results.
@@ -151,27 +138,144 @@ export default function League() {
         </Link>
       </section>
       <GlobalGap coverage={data.coverage} />
-      <div className="search-row">
-        <div>
+      <div className="discovery-controls">
+        <div className="search-control">
           <label htmlFor="player-search">search players</label>
           <input
             id="player-search"
             type="search"
             value={q}
-            onChange={(event) => updateQuery(event.currentTarget.value)}
+            onChange={(event) => {
+              const next = new URLSearchParams(search);
+              if (event.currentTarget.value)
+                next.set("q", event.currentTarget.value);
+              else next.delete("q");
+              commit(next, true);
+            }}
             autoComplete="off"
             spellCheck={false}
           />
         </div>
-        <button type="button" onClick={() => updateQuery("")} disabled={!q}>
-          clear search
+        <div>
+          <label htmlFor="discovery-position">reported position group</label>
+          <select
+            id="discovery-position"
+            value={position}
+            onChange={(event) => {
+              const next = new URLSearchParams(search);
+              if (event.currentTarget.value === "all") next.delete("position");
+              else next.set("position", event.currentTarget.value);
+              commit(next);
+            }}
+          >
+            <option value="all">all skaters</option>
+            <option value="f">reported forwards</option>
+            <option value="d">reported defense</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="discovery-team">listed season team</label>
+          <select
+            id="discovery-team"
+            value={team ?? ""}
+            onChange={(event) => {
+              const next = new URLSearchParams(search);
+              if (event.currentTarget.value)
+                next.set("team", event.currentTarget.value);
+              else next.delete("team");
+              commit(next);
+            }}
+          >
+            <option value="">all season teams</option>
+            {team && !teams.some((row) => row.id === team) && (
+              <option value={team}>
+                team {team} — not in this publication
+              </option>
+            )}
+            {teams.map((row) => (
+              <option key={row.id} value={row.id}>
+                {teamName(row)}
+              </option>
+            ))}
+          </select>
+        </div>
+        <form
+          className="minute-control"
+          noValidate
+          onSubmit={(event) => {
+            event.preventDefault();
+            const value = parseMinutes(minute.draft);
+            if (value === undefined) {
+              setMinute({
+                ...minute,
+                error:
+                  "enter nonnegative whole minutes without leading zeros; minutes × 60 must be a safe integer.",
+              });
+              return;
+            }
+            setMinute({ committed: value, draft: String(value), error: "" });
+            if (value === min) return;
+            const next = new URLSearchParams(search);
+            if (value === 0) next.delete("min");
+            else next.set("min", String(value));
+            commit(next);
+          }}
+        >
+          <label htmlFor="discovery-min">minimum included 5v5 minutes</label>
+          <div className="minute-input">
+            <input
+              id="discovery-min"
+              inputMode="numeric"
+              value={minute.draft}
+              aria-invalid={Boolean(minute.error)}
+              aria-describedby={
+                minute.error ? "discovery-min-error" : undefined
+              }
+              onChange={(event) =>
+                setMinute({
+                  ...minute,
+                  draft: event.currentTarget.value,
+                  error: "",
+                })
+              }
+            />
+            <button type="submit">apply minimum</button>
+          </div>
+          {minute.error && (
+            <p
+              id="discovery-min-error"
+              className="selection-error"
+              role="alert"
+            >
+              {minute.error}
+            </p>
+          )}
+        </form>
+        <button type="button" onClick={clear}>
+          clear filters
         </button>
-        <p role="status">
-          {players.length} {players.length === 1 ? "player" : "players"}
-        </p>
       </div>
+      <p className="control-note">
+        matches listed season teams; results still cover all included season
+        games.
+      </p>
+      <p role="status" className="result-count">
+        {players.length} of {data.players.length} published players
+      </p>
       {players.length === 0 ? (
-        <p className="empty-search">no players match this search.</p>
+        <p className="empty-search">
+          no players match the active filters: name {q ? `“${q}”` : "any"};
+          position{" "}
+          {position === "all"
+            ? "all skaters"
+            : position === "f"
+              ? "reported forwards"
+              : "reported defense"}
+          ; team {team ?? "all"}; at least {min} included minutes.{" "}
+          <button type="button" onClick={clear}>
+            clear filters
+          </button>
+        </p>
       ) : (
         <div
           className="table-scroll"

@@ -2,6 +2,28 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05c implementation review — 2026-10-20
+
+independent transport/selection, statistical/systems and content reviews clear the completed [05c player explorer](observed-05c/verification.md), application producer `05e7dc4`. exact-second peer membership, one-response coherence, mixed-position lanes, linked numeric alternatives and full keyboard/return journeys pass. review repairs native-anchor history loss, missing destination focus, unchanged-default history entries and unreadable axis endpoints. native 200% zoom is measured through the browser zoom api, including 320 css pixels; final compositor captures show readable figures. temporary checks are deleted after final green; the existing publication is unchanged.
+
+the larger profile response, independent discovery/reference controls, partial/related equal-weight observations, overlap and axis compression remain accepted costs. the viewing cutoff supplies no reliability guarantee; observed distributions imply no ability or model admission. no later slice is assigned.
+
+## 05c specification review — 2026-10-20
+
+independent statistical/semantic, systems and product/content reviewers clear [05c's full player-explorer contract](../specs/05c-player-explorer.md). the user chose reported forward/defense reference groups and an adjustable 300-included-minute default. the main alternative was one common all-skater reference; the selected default gives role context but mixed pairs have distinct populations. an explicit all-skater option remains. minute selection is a viewing convention, not reliability evidence.
+
+review separates discovery filters from peer settings on different pages: all players remain discoverable by default, while each profile/pair names its reference. partial records remain visible; zero and missing rates remain distinct. one expanded profile response supplies its selected identity, peers and games through the existing reader. this costs payload size, without another endpoint, database contract or client revision mechanism. direct rug marks and expandable values preserve numerical access; overlap and extreme-value compression remain accepted limitations.
+
+adversarial review corrected reset/draft synchronization, route-owned peer-table links, mixed-group marker placement and rounded-display wording. concrete shared helpers own membership, while routes own url/history and one shared component owns figures. independent final reviews found no remaining contract blocker. these are specification reviews, not browser verification or scientific acceptance; implementation remains unassigned in [the plan](../plan.md).
+
+## approved parallel player-experience direction — 2026-10-20
+
+the user approved advancing the jfresh/hockeyviz/table experience alongside 04l. source inspection and independent product/content review find a useful next slice in [05c](../specs/05c-player-explorer.md): existing published rates, positions, minutes and coverage already support peer plots, cohort controls and compact observed cards. this is missing capability, not a claim of a newly demonstrated application defect. [05d](../specs/05d-descriptive-cards.md)/[05e](../specs/05e-spatial-views.md) retain later descriptive/export and spatial dependencies.
+
+the reference roles differ: [tables](https://hockeystats.com/stats/skaters) support discovery/filtering, [jfresh cards](https://hockeystats.com/cards/player-cards) emphasize compact component/cohort comparison, and hockeyviz separates [descriptive context](https://hockeyviz.com/howto/skaterCard) from [isolated spatial impacts](https://hockeyviz.com/howto/isolate). public pages were rechecked on 2026-10-20; authenticated behavior was not exercised. the direction borrows these capabilities while preserving our observed-versus-ability and season-level meanings.
+
+review keeps search/team visibility separate from the reference cohort; season-team filtering cannot imply team-specific totals. partial coverage stays visible, and numeric percentiles require an explicit later contract. one player per plotted observation avoids silent exposure weighting. profile and league currently load different responses, so a combined view must preserve publication identity. no raw acquisition, hdd dependency or new fit is needed for 05c's existing quantities. richer facts/maps cost new producer/publication work; synthetic analytical design can precede evidence but may require rework. direction approval updates the plan/stubs only, without assigning implementation or changing scientific verdicts.
+
 ## 04l implementation review — 2026-10-20
 
 non-astra source/algebra, finite-diagnosis and content agents implemented [04l](../specs/04l-attribution-prior-diagnosis.md), with independent cross-review and root review before each boundary. [verification](attribution-04l/verification.md) binds the clean producer, temporary red/green/refactor checks, direct proper-prior oracle, detached fixture and final 100-pair execution. source instrumentation verifies one hash per input and the exact selected member allowlist. public numerical validators replace private cross-module coupling without changing the original 04k fixture's saved-state validation. no optimizer, generator, historical replay, new dependency or artifact framework enters the diagnosis.

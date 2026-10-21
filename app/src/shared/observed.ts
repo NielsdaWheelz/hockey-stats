@@ -98,7 +98,7 @@ export type PlayerGame = typeof PlayerGame.Type;
 
 export const LeagueResponse = Schema.Struct({ publication: Publication, coverage: Coverage, players: Schema.Array(PlayerSummary) });
 export type LeagueResponse = typeof LeagueResponse.Type;
-export const PlayerResponse = Schema.Struct({ publication: Publication, coverage: Coverage, player: PlayerSummary, games: Schema.Array(PlayerGame) });
+export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, games: Schema.Array(PlayerGame) });
 export type PlayerResponse = typeof PlayerResponse.Type;
 
 export const InvalidPlayerId = Schema.Struct({ _tag: Schema.Literal("InvalidPlayerId"), message: Schema.String }).pipe(HttpApiSchema.status(400));

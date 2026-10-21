@@ -1,4 +1,5 @@
 import * as Schema from "effect/Schema";
+import { useEffect } from "react";
 import {
   Link,
   useLoaderData,
@@ -10,6 +11,8 @@ import {
 import { HockeyId, type PlayerSummary } from "../../shared/observed";
 import { loadLeague } from "../client";
 import PlayerPicker from "../player-picker";
+import { readPeerSettings, type PeerSettings } from "../explorer";
+import PeerDistributions from "../peer-distributions";
 import {
   CoverageDetail,
   Evidence,
@@ -37,7 +40,7 @@ export function shouldRevalidate({
   ) {
     const current = new URLSearchParams(currentUrl.search);
     const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["a", "b"]) {
+    for (const key of ["a", "b", "peers", "peerMin"]) {
       current.delete(key);
       next.delete(key);
     }
@@ -51,7 +54,8 @@ function selection(
   slot: "first" | "second",
   players: readonly PlayerSummary[],
 ): { readonly player?: PlayerSummary; readonly error?: string } {
-  if (values.length === 0 || (values.length === 1 && values[0] === "")) return {};
+  if (values.length === 0 || (values.length === 1 && values[0] === ""))
+    return {};
   if (values.length !== 1 || !Schema.is(HockeyId)(values[0]))
     return { error: `invalid ${slot} player selection; choose a player below` };
   const player = players.find((row) => row.player_id === values[0]);
@@ -65,20 +69,50 @@ export default function Compare() {
   const location = useLocation();
   const [search, setSearch] = useSearchParams();
   const leagueSearch = historySearch(location.state?.leagueSearch);
+  const { settings, search: normalized } = readPeerSettings(search);
+  useEffect(() => {
+    if (normalized.toString() !== search.toString())
+      setSearch(normalized, {
+        replace: true,
+        preventScrollReset: true,
+        state: location.state,
+      });
+  }, [normalized.toString(), search, setSearch, location.state]);
+  const peerQuery = new URLSearchParams();
+  if (settings.peers !== "position") peerQuery.set("peers", settings.peers);
+  if (settings.peerMin !== 300)
+    peerQuery.set("peerMin", String(settings.peerMin));
+  const changePeers = (nextSettings: PeerSettings) => {
+    if (
+      nextSettings.peers === settings.peers &&
+      nextSettings.peerMin === settings.peerMin
+    )
+      return;
+    const next = new URLSearchParams(search);
+    if (nextSettings.peers === "position") next.delete("peers");
+    else next.set("peers", nextSettings.peers);
+    if (nextSettings.peerMin === 300) next.delete("peerMin");
+    else next.set("peerMin", String(nextSettings.peerMin));
+    if (next.toString() !== search.toString())
+      setSearch(next, { preventScrollReset: true, state: location.state });
+  };
   const first = selection(search.getAll("a"), "first", data.players);
   const second = selection(search.getAll("b"), "second", data.players);
   const secondError =
     first.player && first.player.player_id === second.player?.player_id
       ? "choose a different player"
       : second.error;
-  const committedPair = JSON.stringify([search.getAll("a"), search.getAll("b")]);
+  const committedPair = JSON.stringify([
+    search.getAll("a"),
+    search.getAll("b"),
+  ]);
   const commit = (slot: "first" | "second", player?: PlayerSummary) => {
     const next = new URLSearchParams(search);
     const key = slot === "first" ? "a" : "b";
     if (player) next.set(key, player.player_id);
     else next.delete(key);
     if (next.toString() !== search.toString())
-      setSearch(next, { preventScrollReset: true, state: { leagueSearch } });
+      setSearch(next, { preventScrollReset: true, state: location.state });
   };
   const pair =
     first.player && second.player && !secondError
@@ -93,15 +127,18 @@ export default function Compare() {
         <h2>compare included results</h2>
         <p>
           each player's own included evidence and matched 5v5 time; these are
-          unadjusted on-ice observations, not estimates of individual contribution.
+          unadjusted on-ice observations, not estimates of individual
+          contribution.
         </p>
         <p>
-          attempts “for” are by the player's team while on ice, not personal shots.
-          attempts include scored, saved, missed and blocked shots.
+          attempts “for” are by the player's team while on ice, not personal
+          shots. attempts include scored, saved, missed and blocked shots.
         </p>
       </section>
       {data.players.length === 0 && (
-        <p className="empty-search">no players are available in this publication</p>
+        <p className="empty-search">
+          no players are available in this publication
+        </p>
       )}
       <div className="comparison-pickers">
         <PlayerPicker
@@ -158,9 +195,11 @@ export default function Compare() {
                   </th>
                   {pair.map((player, index) => (
                     <th scope="col" key={player.player_id}>
-                      <span>{index === 0 ? "first player" : "second player"}</span>
+                      <span>
+                        {index === 0 ? "first player" : "second player"}
+                      </span>
                       <Link
-                        to={`/players/${player.player_id}`}
+                        to={`/players/${player.player_id}${peerQuery.size ? `?${peerQuery}` : ""}`}
                         state={{
                           comparisonSearch: location.search,
                           leagueSearch,
@@ -295,11 +334,23 @@ export default function Compare() {
             </table>
           </div>
           <p className="comparison-note">
-            partial games are a subset of games with included time; roster listing
-            is not an appearance claim; known excluded time is not a complete
-            missing-time denominator.
+            partial games are a subset of games with included time; roster
+            listing is not an appearance claim; known excluded time is not a
+            complete missing-time denominator.
           </p>
         </section>
+      )}
+      {pair && (
+        <PeerDistributions
+          players={data.players}
+          selected={pair}
+          settings={settings}
+          onChange={changePeers}
+          profileLink={(playerId) => ({
+            to: `/players/${playerId}${peerQuery.size ? `?${peerQuery}` : ""}`,
+            state: { leagueSearch, comparisonSearch: location.search },
+          })}
+        />
       )}
       <Evidence publication={data.publication} coverage={data.coverage} />
     </>

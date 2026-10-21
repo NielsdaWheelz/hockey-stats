@@ -18,6 +18,8 @@ independent review checked predecessor identity alignment, unchanged relative-ra
 
 temporary saved-only checks verify exact numeric csv copying, identical numeric-table rerenders, missing scientific parents, unavailable cohorts, duplicate/incomplete diagnosis rejection and fixture recommendation rejection. synthetic rendered output was inspected; an unavailable-label overflow was corrected. these checks establish software behavior, not scientific evidence.
 
+the actual ten-pair fixture was then rendered and independently rerendered with `np.load` and all external scientific-parent file opens forbidden. every comparison/accounting field matched its saved row exactly; all three csv files were byte-identical across rerenders. the figure was visually inspected: primary cells, both roles, counts, intervals, signed terms, units and captions are visible. decision and verification retain software-only meaning and no next hypothesis. no blocking report issue remains from the fixture exercise.
+
 ## rendered research review
 
 pending full saved-fit execution and independent inspection of its rendered decision, tables and figure.

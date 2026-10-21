@@ -220,5 +220,47 @@
     "failure": "ERR_MODULE_NOT_FOUND: app/src/web/spatial-views before implementation",
     "status": "red"
   },
-  "native_zoom_capture_limit": "native zoom/dimensions/keyboard verified through chrome.tabs.setZoom; synthetic native-zoom image captures were blank and do not establish visual review"
+  "native_zoom_capture_limit": "native zoom/dimensions/keyboard verified through chrome.tabs.setZoom; synthetic native-zoom image captures were blank and do not establish visual review",
+  "content-reselect-red": {
+    "checks": [],
+    "cases": [
+      {
+        "action": "replace",
+        "requests": [
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422"
+        ],
+        "final": "http://127.0.0.1:3067/compare?a=8473507&b=8473422"
+      }
+    ],
+    "status": "red",
+    "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '8473507'\n- '8473419'\n       ^\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-local/05e-verification/temporary/content-reselect.mjs:13:9"
+  },
+  "content-reselect-green": {
+    "checks": [
+      "reselect original player cancels pending replace, retaining original identities and maps",
+      "reselect original player cancels pending clear, retaining original identities and maps"
+    ],
+    "cases": [
+      {
+        "action": "replace",
+        "requests": [
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422"
+        ],
+        "final": "http://127.0.0.1:3067/compare?a=8473419&b=8473422"
+      },
+      {
+        "action": "clear",
+        "requests": [
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422"
+        ],
+        "final": "http://127.0.0.1:3067/compare?b=8473422&a=8473419"
+      }
+    ],
+    "status": "green"
+  }
 }

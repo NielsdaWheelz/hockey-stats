@@ -155,10 +155,11 @@ export default function Compare() {
   // expose the pending target before another control can compose its url edit.
   const commit = (slot: "first" | "second", player?: PlayerSummary) => {
     const next = viewSearch(location, navigation.location);
+    const previous = next.toString();
     const key = slot === "first" ? "a" : "b";
     if (player) next.set(key, player.player_id);
     else next.delete(key);
-    if (next.toString() !== search.toString())
+    if (next.toString() !== previous)
       setSearch(next, {
         preventScrollReset: true,
         state: location.state,

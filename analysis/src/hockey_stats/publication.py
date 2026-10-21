@@ -367,6 +367,7 @@ def _check_season(connection, result, purpose):
         WHERE p.season=? AND p.team_id NOT IN(g.away_team_id,g.home_team_id) LIMIT 1""", (season,)).fetchall(),
         f"{season}: player team absent from game")
     seconds = exposure = attempts = for_count = against_count = personal_seconds = personal_exposure = 0
+    league_counts = {}
     receipt_by_game = {row["game_id"]: row for row in result.receipt["games"]}
     for game in connection.execute("SELECT * FROM game WHERE season=? ORDER BY game_id", (season,)):
         gid = game["game_id"]
@@ -385,6 +386,8 @@ def _check_season(connection, result, purpose):
                     f"{season}/{gid}: stored personal {field} differs from source credit")
         sparse = connection.execute("SELECT * FROM player_game_spatial WHERE season=? AND game_id=?", (season, gid)).fetchall()
         physical_cells = {(r["team_id"], r["cell_id"]): r["count"] for r in receipt_by_game[gid].get("spatial_team_cells", [])}
+        for (_, cell_id), count in physical_cells.items():
+            league_counts[cell_id] = league_counts.get(cell_id, 0) + count
         for team, field in ((game["away_team_id"], "spatial_away_unblocked"), (game["home_team_id"], "spatial_home_unblocked")):
             require(sum(count for (team_id, _), count in physical_cells.items() if team_id == team) == (game[field] or 0),
                     f"{season}/{gid}: spatial physical team total differs")
@@ -422,6 +425,8 @@ def _check_season(connection, result, purpose):
             f"{season}: physical league spatial counts differ")
     league_mass = 0.0
     for cell in references.values():
+        expected_count = league_counts.get(cell["cell_id"], 0) if support["included_seconds"] or support["coverage_status"] == "complete" else None
+        require(cell["league_count"] == expected_count, f"{season}: league cell differs from physical game cells")
         if support["included_seconds"]:
             require(cell["league_raw_per60"] == 3600 * cell["league_count"] / (2 * support["included_seconds"]),
                     f"{season}: league cell rate differs")

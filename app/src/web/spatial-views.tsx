@@ -21,13 +21,6 @@ function spatialNumber(value: number | null): string {
   return value.toLocaleString("en", { maximumSignificantDigits: 4 });
 }
 
-function color(value: number, extent: number, mode: MapMode) {
-  const amount = (100 * Math.abs(value)) / extent;
-  const endpoint =
-    mode === "absolute" ? "#084594" : value < 0 ? "#2166ac" : "#b2182b";
-  return `color-mix(in oklab, ${endpoint} ${amount}%, #f7f7f2)`;
-}
-
 function Rink({
   geometry,
   cells,
@@ -71,6 +64,9 @@ function Rink({
             cell[
               `${direction}_${mode === "absolute" ? "density" : "difference"}`
             ];
+          const amount = (100 * Math.abs(value)) / extent;
+          const endpoint =
+            mode === "absolute" ? "#084594" : value < 0 ? "#2166ac" : "#b2182b";
           return (
             <rect
               key={cell.cell_id}
@@ -78,7 +74,7 @@ function Rink({
               y={100 - bounds.x_max}
               width={bounds.y_max - bounds.y_min}
               height={bounds.x_max - bounds.x_min}
-              fill={color(value, extent, mode)}
+              fill={`color-mix(in oklab, ${endpoint} ${amount}%, #f7f7f2)`}
             />
           );
         })}

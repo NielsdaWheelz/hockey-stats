@@ -1,0 +1,193 @@
+{
+  "status": "complete",
+  "pr": {
+    "number": 35,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/35",
+    "merged_commit": "10cdbeaeb6775663e9ffc73815537b6484c92b15",
+    "reviewed_head": "788f27a37470461fe2dc4962a7076b3b5b1f363e",
+    "security_check": "success",
+    "merge_tree_equals_reviewed_head": true,
+    "scientific_producer": "8dc26566d3c142368f57d4a02eb5930ee53d4cd8",
+    "scientific_producer_retained_in_ancestry": true
+  },
+  "primary_reconciliation": {
+    "assignment_baseline": "bca42cb",
+    "snapshot_head": "88e3e7f9dc062a4b850360a0f9b380117c3e69b2",
+    "independent_review": "all fifteen original hashes and exact concurrent sections checked before integration",
+    "files": [
+      {
+        "path": "docs/architecture.md",
+        "original_sha256": "174e6b7e1d71dd5cfac211fbda40982744a101a76e2bf80c6c0a5c80d159fac1",
+        "reconciled_sha256": "174e6b7e1d71dd5cfac211fbda40982744a101a76e2bf80c6c0a5c80d159fac1",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/brief.md",
+        "original_sha256": "196a3fe597d30552b9b148c57465b15197798e70f5742c511fb4423608572c34",
+        "reconciled_sha256": "196a3fe597d30552b9b148c57465b15197798e70f5742c511fb4423608572c34",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/issues/attribution-spatial-recovery.md",
+        "original_sha256": "00c46944bfe421fc8aa7664340e524eea70868eec2f495c3fc3cf06198367e9c",
+        "reconciled_sha256": "9c720cc306b379df0d25e806ca45d5f1f668821cc9420fe32a1d3e6aeeb644a4",
+        "method": "already_in_completed_assignment",
+        "resolution": null
+      },
+      {
+        "path": "docs/plan.md",
+        "original_sha256": "60d8562f0a6109fb3bab6bead19496aecdc41726dda8f23f2f9ffc42b6410cbc",
+        "reconciled_sha256": "18d36a9023179839b74e7e6a841958b0a7aaf3d1616c3dcc31fca0f199356415",
+        "method": "three_way",
+        "resolution": "retain exact concurrent 05c sections and nonconflicting changes; use completed 04l authoritative status instead of redundant pre-merge summary"
+      },
+      {
+        "path": "docs/product-inventory.md",
+        "original_sha256": "a1013dd840e20cab39218979e21d35f7a5e7eb531478f68f1d2c6a1b1c7f77ab",
+        "reconciled_sha256": "a1013dd840e20cab39218979e21d35f7a5e7eb531478f68f1d2c6a1b1c7f77ab",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/research/council.md",
+        "original_sha256": "5c5841630fec95fb5b0d43ab5bfc93d86483c274dd6cd26e591e13706d2f4728",
+        "reconciled_sha256": "9f25b91ad70d25b7c7061b6a385e340328cca9a6fd5686622e3624d8ec2b80e6",
+        "method": "three_way",
+        "resolution": "retain exact concurrent 05c sections and nonconflicting changes; use completed 04l authoritative status instead of redundant pre-merge summary"
+      },
+      {
+        "path": "docs/research/model-direction.md",
+        "original_sha256": "9880b6fe13bba0bfe42c16cf527a68432f4f8ac02c0d02d03804b4125054434a",
+        "reconciled_sha256": "cd9b53e72a8c90c6dacaf04108a00e8d9d6a6242d0c4d728d4003c869caa04b5",
+        "method": "already_in_completed_assignment",
+        "resolution": null
+      },
+      {
+        "path": "docs/roadmap.md",
+        "original_sha256": "27a6150c263a83b92330a34426a96d5a3278519b53e6158f4aa74372ebdd9e04",
+        "reconciled_sha256": "27a6150c263a83b92330a34426a96d5a3278519b53e6158f4aa74372ebdd9e04",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/specs/04-player-attribution.md",
+        "original_sha256": "4440185d0ca6ee213340aaa6669b9ec68dacdcd6ebc16b638a4bd1043ac5a497",
+        "reconciled_sha256": "4440185d0ca6ee213340aaa6669b9ec68dacdcd6ebc16b638a4bd1043ac5a497",
+        "method": "already_in_completed_assignment",
+        "resolution": null
+      },
+      {
+        "path": "docs/specs/06-website.md",
+        "original_sha256": "1350a9fa79549d8f6bcd5fa73888a00d2e1f73564846215155653439271b02cd",
+        "reconciled_sha256": "1350a9fa79549d8f6bcd5fa73888a00d2e1f73564846215155653439271b02cd",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/issues/historical-artifact-relocation.md",
+        "original_sha256": "7a8ccd177d3c04f8e5f1e4cb4a76bcaa32bf8a0994fcf98a4c566c856dbd7c96",
+        "reconciled_sha256": "7a8ccd177d3c04f8e5f1e4cb4a76bcaa32bf8a0994fcf98a4c566c856dbd7c96",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/specs/04l-attribution-prior-diagnosis.md",
+        "original_sha256": "eb7a518148bc8ddee19fac01967a542da5c3858ec78d88af9a3c0cf5f621face",
+        "reconciled_sha256": "aad777cf1431266ea1ca87ad3ef56edbe2ff04b8018c190dde06afb35651835d",
+        "method": "already_in_completed_assignment",
+        "resolution": null
+      },
+      {
+        "path": "docs/specs/05c-player-explorer.md",
+        "original_sha256": "c7457caeff0f797312f4cbc6b42027a7c20ca3beccf59449f08e92cbc8670b68",
+        "reconciled_sha256": "c7457caeff0f797312f4cbc6b42027a7c20ca3beccf59449f08e92cbc8670b68",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/specs/05d-descriptive-cards.md",
+        "original_sha256": "308cf15601d82a7da6e8530a239acc2a989263fc3b4099798c8b433249007b4c",
+        "reconciled_sha256": "308cf15601d82a7da6e8530a239acc2a989263fc3b4099798c8b433249007b4c",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      },
+      {
+        "path": "docs/specs/05e-spatial-views.md",
+        "original_sha256": "7fd5a04da4df4f998e5fe4f6704f62719065511700660acd2a861aadfd429a46",
+        "reconciled_sha256": "7fd5a04da4df4f998e5fe4f6704f62719065511700660acd2a861aadfd429a46",
+        "method": "concurrent_only_exact",
+        "resolution": null
+      }
+    ],
+    "concurrent_work_left_uncommitted": true
+  },
+  "path_verification": {
+    "status": "verified",
+    "primary_import": "/Users/nnandal/Documents/code/hockey-stats/analysis/src/hockey_stats/attribution.py",
+    "alias": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04l",
+      "target": "/Users/nnandal/Documents/code/hockey-stats",
+      "registered_worktree": false,
+      "duplicate_environment": false
+    },
+    "frozen_path_references_verified": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04l/docs/specs/04l-attribution-prior-diagnosis.md",
+        "sha256": "aad777cf1431266ea1ca87ad3ef56edbe2ff04b8018c190dde06afb35651835d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/diagnosis-final/spec.md",
+        "sha256": "aad777cf1431266ea1ca87ad3ef56edbe2ff04b8018c190dde06afb35651835d"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04l/docs/research/attribution-04k/result.json",
+        "sha256": "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-04l/docs/specs/04l-attribution-prior-diagnosis.md",
+        "sha256": "aad777cf1431266ea1ca87ad3ef56edbe2ff04b8018c190dde06afb35651835d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/fixture-final/diagnosis/spec.md",
+        "sha256": "aad777cf1431266ea1ca87ad3ef56edbe2ff04b8018c190dde06afb35651835d"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04k-20261017-fixture-cutover-cf7e08a/report/result.json",
+        "sha256": "df607e2b45548120615b3bace33f828d55ab53f07c6e1c7f83626e35dc28b50c"
+      }
+    ],
+    "array_decodes": 0,
+    "deterministic_report_files_identical": [
+      "comparison.csv",
+      "accounting.csv",
+      "scales.csv",
+      "decision.md",
+      "verification.md",
+      "accounting.png"
+    ],
+    "report_scientific_fields_identical": true,
+    "research_solves": 0,
+    "scale_evaluations": 0
+  },
+  "removed": {
+    "local_task_branch": true,
+    "remote_task_branch": true,
+    "registered_task_worktree": true,
+    "owned_stash": true,
+    "merge_scratch": true
+  },
+  "preservation": {
+    "external_artifacts_removed": 0,
+    "source_captures_removed": 0,
+    "fits_or_scale_evaluations": 0,
+    "publications_written_or_removed": 0,
+    "other_worktrees_removed": 0,
+    "other_aliases_removed": 0,
+    "shared_environment_removed": false
+  },
+  "retained_task_alias": "/Users/nnandal/Documents/code/hockey-stats-04l -> /Users/nnandal/Documents/code/hockey-stats",
+  "owned_stash_commit": "944272c3a30bec824b029a26ffa44fdf032187b6",
+  "independent_final_review": "actual primary hashes, frozen references, alias, merge tree, scientific ancestry and staged-only cleanup plan independently verified; concurrent drafts and unrelated worktree preserved"
+}

@@ -84,8 +84,9 @@ export const validateSpatial = (sql: SqliteClient, selectedSeason: Season, leagu
   const gameReasons = new Map<string, number>();
   let totalSeconds = 0, totalExcluded = 0, totalAttempts = 0;
   for (const game of games) {
-    const playerInputs = yield* sql.unsafe(`SELECT player_id,team_id,${selectScalars} FROM player_game WHERE season=? AND game_id=? ORDER BY player_id`, [selectedSeason, game.game_id]);
-    const sparseInputs = yield* sql.unsafe("SELECT * FROM player_game_spatial WHERE season=? AND game_id=? ORDER BY player_id,cell_id", [selectedSeason, game.game_id]);
+    // reductions use identities, not row order; sorting can bypass the game indexes.
+    const playerInputs = yield* sql.unsafe(`SELECT player_id,team_id,${selectScalars} FROM player_game WHERE season=? AND game_id=?`, [selectedSeason, game.game_id]);
+    const sparseInputs = yield* sql.unsafe("SELECT * FROM player_game_spatial WHERE season=? AND game_id=?", [selectedSeason, game.game_id]);
     yield* Effect.try(() => {
       const metrics = support({...game, spatial_unblocked_for: game.spatial_away_unblocked, spatial_unblocked_against: game.spatial_home_unblocked,
         spatial_for_per60: game.spatial_included_seconds > 0 ? 3600 * game.spatial_away_unblocked! / game.spatial_included_seconds : null,

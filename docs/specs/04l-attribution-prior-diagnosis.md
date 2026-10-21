@@ -1,6 +1,6 @@
 # pr04l — account for annual-prior gains and harm
 
-status: **specified; saved-fit scope confirmed 2026-10-19**. the user selected diagnosis only, without an entry-prior intervention. [the plan](../plan.md) owns assignment. implementation, execution and any successor experiment remain unassigned.
+status: **specified; saved-fit scope confirmed 2026-10-19**. the user selected diagnosis only, without an entry-prior intervention. [the plan](../plan.md) owns assignment. the user assigned full implementation, bounded saved-fit execution and verification on 2026-10-20. any successor experiment remains unassigned.
 
 ## question and scope
 

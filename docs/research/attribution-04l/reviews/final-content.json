@@ -1,0 +1,44 @@
+{
+  "status": "verified",
+  "diagnosis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/diagnosis-final/diagnosis.json",
+    "sha256": "82861a5592ddee01e59477d326d0242da99e9f32bbba6620812f790059840bd5"
+  },
+  "report_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/result.json",
+    "sha256": "c137816c620e4e0f2c619291b570c57e0951d0fe54a76eb0d2a8841e605dd8a4"
+  },
+  "checks": {
+    "original_archive_loads": 0,
+    "scientific_parent_opens": 0,
+    "exact_saved_csv_row_counts": {
+      "comparison.csv": 36060,
+      "accounting.csv": 64260,
+      "scales.csv": 600
+    },
+    "deterministic_content_files_byte_identical": {
+      "comparison.csv": true,
+      "accounting.csv": true,
+      "scales.csv": true,
+      "decision.md": true,
+      "verification.md": true,
+      "accounting.png": true
+    },
+    "result_scientific_fields_identical": true,
+    "analysis_tree_unchanged_between_clean_producers": true,
+    "result_expected_differences": [
+      "report output paths and resulting file identities",
+      "measured report resources",
+      "clean producer commit after documentation-only updates"
+    ]
+  },
+  "interpretation": {
+    "next_hypothesis": null,
+    "unresolved_reason": "mechanism_interaction_unresolved",
+    "no_model_admission": true,
+    "no_causal_or_entry_variance_claim": true
+  },
+  "visual_review": "base/null both roles; paired intervals, own counts, signed matrix and common color scale; cell-specific interval scales explicitly labeled; no clipping",
+  "fixture_review": "ten pairs, software evidence only; saved-only rerender and exact-field copying verified",
+  "temporary_checks": "deleted after acceptance; no permanent test harness or dependency introduced"
+}

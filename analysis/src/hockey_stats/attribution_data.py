@@ -631,7 +631,10 @@ class RegularizationSourceSlice:
 
 def _read_selected_artifact(reference: ArtifactReference, kind: str, schema: int) -> dict:
     """bind named metadata without traversing unrelated historical consumed links."""
-    document = read_json(linked_path(reference))
+    return _selected_artifact_metadata(read_json(linked_path(reference)), kind, schema)
+
+
+def _selected_artifact_metadata(document: dict, kind: str, schema: int) -> dict:
     require(isinstance(document, dict) and type(document.get("schema_version")) is int
             and document["schema_version"] == schema and document.get("kind") == kind
             and document.get("purpose") in ("research", "fixture_exercise")
@@ -639,6 +642,305 @@ def _read_selected_artifact(reference: ArtifactReference, kind: str, schema: int
     if document["purpose"] == "research":
         clean_implementation(document["implementation"])
     return document
+
+
+@dataclass(frozen=True)
+class HistoryPrecedingMean:
+    """a verified archive's selected mean and metadata, never a reconstructed state."""
+
+    player_ids: tuple[int, ...]
+    current_player_ids: tuple[int, ...]
+    Theta: np.ndarray
+    metadata: dict
+
+
+@dataclass(frozen=True)
+class HistorySourceSlice:
+    reference: ArtifactReference
+    result: dict
+    prepared: dict
+    protocol: dict
+    assessment: dict
+    basis: "ShapeBasis"
+    geometry: dict
+    final_year: dict
+    final_arrays: dict
+    cells: tuple[str, ...]
+    records: tuple[int, ...]
+    fits: dict
+    fit_metadata: dict
+    consumed: dict
+    read_accounting: dict
+
+
+def _history_selected_arrays(document: dict, names: tuple[str, ...], accounting: dict) -> dict:
+    """hash one archive once, then decode only allowlisted complete members."""
+    shapes = document["array_shapes"]
+    require(isinstance(shapes, list) and len({row["name"] for row in shapes}) == len(shapes)
+            and len(set(names)) == len(names) and set(names).issubset(row["name"] for row in shapes),
+            "history selected member inventory differs")
+    path = linked_path(document["arrays"])
+    accounting["verified_bytes"] += path.stat().st_size
+    accounting["archive_count"] += 1
+    with np.load(path, allow_pickle=False) as archive:
+        require(archive.files == [row["name"] for row in shapes], "history archive member order differs")
+        arrays = {name: archive[name] for name in names}
+    declarations = {row["name"]: row for row in shapes}
+    require(all(list(value.shape) == declarations[name]["shape"]
+                and value.dtype.str == declarations[name]["dtype"] and value.dtype.kind in "biuf"
+                and np.isfinite(value).all() for name, value in arrays.items()),
+            "history selected member axes, dtype or finite values differ")
+    accounting["decoded_bytes"] += sum(value.nbytes for value in arrays.values())
+    accounting["decoded_members"].extend(names)
+    return arrays
+
+
+def read_history_source_slice(result_ref: ArtifactReference | Path | str) -> HistorySourceSlice:
+    """bind 04k's finite saved inventory without following generators or old fits."""
+    from .attribution import decode_shape_basis, validate_shape_history_identity
+
+    if isinstance(result_ref, (Path, str)):
+        from .chance_cli import identity
+
+        result_path = Path(result_ref).resolve(strict=True)
+        result_ref = identity(result_path)
+        result = _selected_artifact_metadata(read_json(result_path), "attribution_history_result", 1)
+    else:
+        result = _read_selected_artifact(result_ref, "attribution_history_result", 1)
+    purpose = result["purpose"]
+    require(result["execution_status"] == "complete" and result["numerical_status"] == "verified"
+            and result["study_status"] == ("diagnosed" if purpose == "research" else "fixture_verified")
+            and result["nomination"] is None and result["admission"] == "not_admitted"
+            and result["handoff"] is None and set(result["consumed"]) == {"prepared", "protocol", "assessment"},
+            "history source result is not the completed bound diagnosis")
+    refs = result["consumed"]
+    if purpose == "research":
+        require(result_ref["sha256"] == "88404a3f624f741e316f251f9fa0b928f6850c2460044f66e2ae3322a32d95fa"
+                and refs["prepared"]["sha256"] == "9878ef0d199997976327ad5c9ec1e615a956b4bc84458431cc0c85fc57e943cd"
+                and refs["protocol"]["sha256"] == "6f72e59b9d8d8e1899b7e1632f09d7c3795e8365b97baffe4070fd2dd6cff5d9"
+                and refs["assessment"]["sha256"] == "1275fc420b2eb80dfa936a8f2e95ce3329724598aab5fb6a3f98fa2cb619e96e",
+                "research history source differs from the pinned 04k evidence")
+    prepared = _read_selected_artifact(refs["prepared"], "attribution_history_prepared", 1)
+    protocol = _read_selected_artifact(refs["protocol"], "attribution_history_protocol", 1)
+    assessment = _read_selected_artifact(refs["assessment"], "attribution_history_assessment", 1)
+    fields = ("sources", "seasons", "years", "basis_sha256", "records", "inventory", "assignments",
+              "truth_counts", "partitions", "positivity_lower_bound", "region_names", "factor_checks",
+              "geometry_sha256", "budget", "arrays", "array_shapes")
+    require(all(document["purpose"] == purpose for document in (prepared, protocol, assessment))
+            and prepared["protocol"] == refs["protocol"]
+            and all(prepared[name] == protocol[name] for name in fields)
+            and prepared["consumed"] == dict(prepared["sources"], protocol=refs["protocol"], geometry=prepared["arrays"])
+            and {name: protocol["consumed"][name] for name in prepared["sources"]} == prepared["sources"]
+            and assessment["prepared"] == assessment["consumed"]["prepared"] == refs["prepared"]
+            and assessment["protocol"] == assessment["consumed"]["protocol"] == refs["protocol"]
+            and assessment["execution_status"] == "complete" and assessment["numerical_status"] == "verified"
+            and all(result["inventory"][name] == assessment["inventory"][name] for name in assessment["inventory"]),
+            "history source purpose, parent or preparation/protocol/assessment binding differs")
+    cells = ("gaussian_half", "gaussian_base", "gaussian_double", "gaussian_null", "game_shared_base")
+    records = tuple(range(20 if purpose == "research" else 2))
+    years = prepared["years"]
+    seasons = prepared["seasons"]
+    require(len(years) == (5 if purpose == "research" else 3)
+            and seasons == [row["season"] for row in years]
+            and all(isinstance(season, str) and len(season) == 8 and season.isdigit()
+                    and int(season[4:]) == int(season[:4]) + 1 for season in seasons)
+            and all(int(right[:4]) == int(left[:4]) + 1 for left, right in zip(seasons, seasons[1:]))
+            and (purpose != "research" or tuple(seasons) == RESEARCH_SEASONS)
+            and tuple(prepared["records"]) == records
+            and protocol["rules"]["cells"] == [dict(id=cell, amplitude=amplitude,
+                noise="working_gaussian_plus_game_shared_mean" if cell == "game_shared_base" else "working_gaussian")
+                for cell, amplitude in zip(cells, (.5, 1., 2., 0., 1.), strict=True)]
+            and protocol["rules"]["carry"] == "unchanged centered relative-rate mean and covariance; no rate rescaling",
+            "history source chronology, records, cell amplitudes or carry convention differs")
+    expected = [dict(cell=cell, record=record, path=f"{cell}/{record}/fit.json")
+                for cell in cells for record in records]
+    require(prepared["inventory"] == expected
+            and assessment["inventory"]["pair_paths"] == [row["path"] for row in expected]
+            and set(assessment["consumed"]) == {"prepared", "protocol", *(f"fit_{i:03d}" for i in range(len(expected)))}
+            and prepared["budget"]["pairs"] == len(expected)
+            and prepared["budget"]["scores"] == len(expected)*len(years)
+            and prepared["budget"]["states"] == len(expected)*(len(years)+1),
+            "history source finite pair inventory differs")
+    for index, year in enumerate(years):
+        players = year["player_ids"]
+        require(players == sorted(set(players)) and players and all(type(player) is int for player in players)
+                and year["prefix"] == f"year_{index}" and math.isfinite(year["r"]) and year["r"] > 0
+                and year["strata"] == sorted(map(list, set(map(tuple, year["strata"])))),
+                "history source annual identity axes or rate differ")
+    final = years[-1]
+    n, prefix = len(final["player_ids"]), final["prefix"]
+    names = ("B", "p", "eigenvalues", "W", "near", "lateral") + tuple(prefix+"_"+name for name in
+        ("H", "u", "p", "truth", "centered_truth", "stratum_weight", "player_exposure"))
+    accounting = dict(verified_bytes=sum(Path(ref["path"]).stat().st_size for ref in (result_ref, *refs.values())),
+                      decoded_bytes=0, archive_count=0, manifest_count=4, decoded_members=[], pairs_read=[])
+    geometry = _history_selected_arrays(prepared, names, accounting)
+    basis = decode_shape_basis({name: geometry[name] for name in ("B", "p", "eigenvalues")},
+                               basis_sha256=prepared["basis_sha256"])
+    arrays = {name.removeprefix(prefix+"_"): value for name, value in geometry.items() if name.startswith(prefix+"_")}
+    required_shapes = dict(H=(2*n, 2*n), u=(n,), p=(656,), truth=(2*n, 656), centered_truth=(2*n, 656),
+                           stratum_weight=(len(final["strata"]),), player_exposure=(n,))
+    require(all(value.shape == required_shapes[name] and value.dtype == np.dtype("float64") for name, value in arrays.items())
+            and geometry["W"].shape == (656, 12) and geometry["near"].shape == geometry["lateral"].shape == (656, 1)
+            and np.array_equal(arrays["p"], basis.p) and np.all(arrays["u"] > 0)
+            and np.all(arrays["player_exposure"] > 0) and np.all(arrays["stratum_weight"] > 0)
+            and np.allclose(arrays["u"], arrays["player_exposure"]/arrays["player_exposure"].sum(), rtol=1e-12, atol=1e-12)
+            and np.allclose(arrays["H"], arrays["H"].T, rtol=1e-8, atol=1e-10)
+            and math.isclose(final["directed_hours"], float(arrays["stratum_weight"].sum()/final["r"]), rel_tol=1e-12)
+            and (purpose != "research" or n == 940),
+            "history final geometry, native reference or current population differs")
+    validate_shape_history_identity(exposure_centering(arrays["u"]) @ arrays["truth"], arrays["centered_truth"], "source_centered_truth")
+    union = sorted({player for year in years for player in year["player_ids"]})
+    assignments = prepared["assignments"]
+    require(len(assignments) == 2*len(union)
+            and {(row["role"], row["player_id"]) for row in assignments} ==
+                {(role, player) for role in ("offense", "defense") for player in union}
+            and all(row["trajectory"] in ("stable", "reversal", "onset", "no_prior_observation")
+                    and row["template"] in ("radial", "lateral")
+                    and row["current"] is (row["player_id"] in final["player_ids"]) for row in assignments),
+            "history final/union assignment axes differ")
+    for row in assignments:
+        observed = [year["season"] for year in years if row["player_id"] in year["player_ids"]]
+        prior = row["player_id"] in {player for year in years[:-1] for player in year["player_ids"]}
+        require(row["observed_seasons"] == observed and row["first_observed_season"] == observed[0]
+                and row["prior_observation"] is prior
+                and row["return_after_absence"] is (row["current"] and prior and row["player_id"] not in years[-2]["player_ids"])
+                and (row["trajectory"] == "no_prior_observation") is (row["current"] and not prior),
+                "history saved observation flags differ from declared chronology")
+    fits = {(row["cell"], row["record"]): assessment["consumed"][f"fit_{i:03d}"] for i, row in enumerate(expected)}
+    require(len({(ref["path"], ref["sha256"]) for ref in fits.values()}) == len(expected),
+            "history paired fit references are duplicated")
+    fit_metadata = {key: _read_selected_artifact(ref, "attribution_history_fit", 1) for key, ref in fits.items()}
+    accounting["manifest_count"] += len(fits)
+    accounting["verified_bytes"] += sum(Path(ref["path"]).stat().st_size for ref in fits.values())
+    require(all(document["purpose"] == purpose and (document["cell"], document["record"]) == key
+                and document["prepared"] == refs["prepared"] and document["protocol"] == refs["protocol"]
+                and document["consumed"] == dict(prepared=refs["prepared"], protocol=refs["protocol"],
+                                                   geometry=prepared["arrays"])
+                for key, document in fit_metadata.items()),
+            "history named fit manifest source or pair identity differs")
+    require(len({document["arrays"]["path"] for document in fit_metadata.values()}) == len(fits),
+            "history named fit archives are duplicated")
+    consumed = dict(source_result=result_ref, source_prepared=refs["prepared"], source_protocol=refs["protocol"],
+                    source_assessment=refs["assessment"], geometry=prepared["arrays"])
+    return HistorySourceSlice(result_ref, result, prepared, protocol, assessment, basis, geometry,
+                              final, arrays, cells, records, fits, fit_metadata, consumed, accounting)
+
+
+def read_history_final_record(source: HistorySourceSlice, cell: str, record: int) -> dict:
+    """decode final pairs and one preceding mean; earlier covariances/scores stay closed."""
+    from .attribution import ShapeCoefficientState, validate_shape_history_identity, validate_shape_scale_receipt
+
+    require(cell in source.cells and type(record) is int and record in source.records,
+            "history pair is outside the bound finite inventory")
+    require([cell, record] not in source.read_accounting["pairs_read"],
+            "history pair was already read in this command")
+    reference = source.fits[cell, record]
+    document = source.fit_metadata[cell, record]
+    accounting = source.read_accounting
+    years = source.prepared["years"]
+    final, previous_index, independent = len(years)-1, len(years)-2, len(years)
+    require(document["purpose"] == source.result["purpose"] and document["cell"] == cell and document["record"] == record
+            and document["prepared"] == source.consumed["source_prepared"]
+            and document["protocol"] == source.consumed["source_protocol"]
+            and document["consumed"] == dict(prepared=document["prepared"], protocol=document["protocol"],
+                                               geometry=source.prepared["arrays"])
+            and document["score_count"] == len(years) and document["state_count"] == len(years)+1
+            and len(document["states"]) == len(years)+1 and len(document["generation"]) == len(years),
+            "history selected pair source or finite state inventory differs")
+    rows = document["states"]
+    shape_rows, scales = [], []
+    for year, annual in enumerate(years):
+        shape_rows.append(dict(name=f"year_{year}_Q", shape=[2*len(annual["player_ids"]), 40], dtype="<f8"))
+    for index, row in enumerate(rows):
+        annual = years[min(index, final)]
+        old_ids = () if index in (0, independent) else tuple(rows[index-1]["player_ids"])
+        players = sorted(set(annual["player_ids"]) | set(old_ids))
+        parent = None if index in (0, independent) else dict(index=index-1, sha256=rows[index-1]["sha256"])
+        digest(row["sha256"])
+        require(row["index"] == index and row["season"] == annual["season"]
+                and row["arm"] == ("independent" if index == independent else "borrowing")
+                and row["player_ids"] == players and row["current_player_ids"] == annual["player_ids"]
+                and row["entrant_ids"] == sorted(set(annual["player_ids"]) - set(old_ids))
+                and row["carried_only_ids"] == sorted(set(players) - set(annual["player_ids"]))
+                and row["parent"] == parent and row["r"] == annual["r"] and row["basis_sha256"] == source.basis.sha256
+                and row["source_identity"]["prepared"] == source.consumed["source_prepared"]
+                and row["source_identity"]["season"] == annual["season"],
+                "history selected state identity, chronology, parent or role axes differ")
+        digest(row["source_identity"]["score_sha256"])
+        previous_receipt = None if index in (0, independent) else rows[index-1]["scale"]
+        validate_shape_scale_receipt(row["scale"], previous_receipt)
+        variance = row["scale"]["selected"]["variance"]
+        require(row["a"] == (variance if index in (0, independent) else rows[index-1]["a"])
+                and row["q"] == (None if index in (0, independent) else variance)
+                and all(set(point) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
+                        and point["objective"] is not None and point["equation_relative_residual"] is not None
+                        and 0 <= point["equation_relative_residual"] <= 1e-8 for point in row["scale"]["curve"]),
+                "history selected scale lineage or numerical receipt differs")
+        n = len(players)
+        for name, shape in (("Theta", [2*n, 40]), ("V", [2*n, 2*n]), ("uncentered_Theta", [2*n, 40]),
+                            ("centering_shift", [40]), ("u", [n])):
+            shape_rows.append(dict(name=f"state_{index}_{name}", shape=shape, dtype="<f8"))
+        scales.append(dict(cell=cell, record=record, state_index=index, season=row["season"], arm=row["arm"],
+            a=row["a"], q=row["q"], selected_exponent=row["scale"]["selected"]["exponent"],
+            **{name: row["scale"][name] for name in ("status", "own_reasons", "inherited_limitation")}))
+    require(document["array_shapes"] == shape_rows
+            and document["scale_objective_evaluations"] == sum(len(row["scale"]["curve"]) for row in rows),
+            "history pair ordered archive axes or scale-read accounting differs")
+    names = (f"year_{final}_Q", f"state_{previous_index}_Theta") + tuple(
+        f"state_{index}_{name}" for index in (final, independent)
+        for name in ("Theta", "V", "uncentered_Theta", "centering_shift", "u"))
+    arrays = _history_selected_arrays(document, names, accounting)
+    accounting["pairs_read"].append([cell, record])
+    Q = arrays[f"year_{final}_Q"]
+    score_digest = ordered_array_digest(dict(Q=Q))
+    states, indices, metadata = {}, {}, {}
+    for index in (final, independent):
+        row = rows[index]
+        values = {name: arrays[f"state_{index}_{name}"] for name in
+                  ("Theta", "V", "uncentered_Theta", "centering_shift", "u")}
+        require(ordered_array_digest(values) == row["sha256"]
+                and row["source_identity"] == dict(prepared=source.consumed["source_prepared"],
+                    season=source.final_year["season"], score_sha256=score_digest),
+                "history final state compound digest or final score identity differs")
+        players = tuple(row["player_ids"])
+        current = [players.index(player) for player in source.final_year["player_ids"]]
+        expected_u = np.zeros(len(players))
+        expected_u[current] = source.final_arrays["u"]
+        require(np.array_equal(values["u"], expected_u), "history final exposure reference differs")
+        raw = values["uncentered_Theta"]
+        n = len(players)
+        off, defense = expected_u @ raw[:n], expected_u @ raw[n:]
+        validate_shape_history_identity(np.vstack((raw[:n]-off, raw[n:]-defense)), values["Theta"], "saved_centered_mean")
+        validate_shape_history_identity(off+defense, values["centering_shift"], "saved_centering_compensation")
+        V = values["V"]
+        covariance_reference = np.vstack((expected_u @ V[:n], expected_u @ V[n:]))
+        require(np.allclose(V, V.T, rtol=1e-8, atol=1e-10)
+                and np.min(np.diag(V)) >= -1e-10*max(1., np.linalg.norm(V))
+                and np.linalg.norm(covariance_reference)/max(1., np.linalg.norm(V)) <= 1e-8,
+                "history saved covariance symmetry or exposure centering differs")
+        arm = row["arm"]
+        states[arm] = ShapeCoefficientState(season=row["season"], player_ids=players,
+            current_player_ids=tuple(row["current_player_ids"]), entrant_ids=tuple(row["entrant_ids"]),
+            carried_only_ids=tuple(row["carried_only_ids"]), r=row["r"], a=row["a"], q=row["q"],
+            basis_sha256=row["basis_sha256"], source_identity=row["source_identity"], scale=row["scale"],
+            diagnostics=row["diagnostics"], **values)
+        indices[arm] = np.asarray(current + [n+i for i in current], dtype=np.int64)
+        metadata[arm] = row
+    previous_row = rows[previous_index]
+    previous = HistoryPrecedingMean(tuple(previous_row["player_ids"]), tuple(previous_row["current_player_ids"]),
+                                   arrays[f"state_{previous_index}_Theta"], previous_row)
+    m0 = np.zeros_like(Q)
+    n, old_n = len(source.final_year["player_ids"]), len(previous.player_ids)
+    for position, player in enumerate(source.final_year["player_ids"]):
+        if player in previous.player_ids:
+            old = previous.player_ids.index(player)
+            m0[position], m0[n+position] = previous.Theta[old], previous.Theta[old_n+old]
+    # its compound digest is bound by the verified archive and final parent;
+    # theta alone cannot recompute the predecessor's complete state digest.
+    require(metadata["borrowing"]["parent"] == dict(index=previous_index, sha256=previous_row["sha256"]),
+            "history preceding mean is not the declared final parent")
+    return dict(**states, previous=previous, Q=Q, m0=m0, current_indices=indices,
+                final_metadata=metadata, scales=scales, reference=reference, arrays=document["arrays"])
 
 
 def read_regularization_source_slice(

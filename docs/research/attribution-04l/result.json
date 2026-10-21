@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_prior_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "8dc26566d3c142368f57d4a02eb5930ee53d4cd8",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/diagnosis-final/diagnosis.json",
+      "sha256": "82861a5592ddee01e59477d326d0242da99e9f32bbba6620812f790059840bd5"
+    },
+    "protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/diagnosis-final/protocol.json",
+      "sha256": "786b2b2ac72ae9c130141db8dafb415c3d7b15c7714346f632f7d957f10f3861"
+    }
+  },
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "study_status": "diagnosed",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "next_hypothesis": null,
+  "unresolved_reason": "mechanism_interaction_unresolved",
+  "inventory": {
+    "pairs": 100,
+    "scores": 100,
+    "decompositions": 200,
+    "previous_means": 100,
+    "scales": 600,
+    "record_rows": 95200,
+    "summary_rows": 5120,
+    "frozen_comparisons": 34000,
+    "frozen_summaries": 2060
+  },
+  "reports": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/comparison.csv",
+      "sha256": "6d7ac7bd9d41c12fc1584a1af70a419be774e0f846c5fa19053b98f3158c9c11"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/accounting.csv",
+      "sha256": "196ceb68b6bf67f8b2cfac1dab28b688dd48edf9cca16fdd5978107684c7b713"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/scales.csv",
+      "sha256": "defee0d64a17f9c7c226954a7c1a673dc9e4b8a4c33ef2d290434b1a5b7febe7"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/decision.md",
+      "sha256": "e66cd92fdfa2118532b90637f733d58959b6196cf98484607cc07be547e32264"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/verification.md",
+      "sha256": "d731137ac9cdab0b76df4c686c4c57f14881fbf32d3af59525a3546720ea37d9"
+    }
+  ],
+  "figures": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/report-final/accounting.png",
+      "sha256": "2d32960577a9a30fa3a129b338ec287f6dcc38fea6b46ba0795a5cc0486b6e16"
+    }
+  ],
+  "resources": {
+    "wall_seconds": 3.002009125018958,
+    "peak_memory_bytes": 504774656
+  }
+}

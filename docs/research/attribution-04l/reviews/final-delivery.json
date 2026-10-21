@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "checked_local_markdown_links": 400,
+  "primary_checkout_writes_by_task": 0,
+  "assignment_baseline": "bca42cb",
+  "primary_files_still_equal_to_baseline": [
+    "docs/issues/attribution-spatial-recovery.md",
+    "docs/research/model-direction.md",
+    "docs/specs/04-player-attribution.md",
+    "docs/specs/04l-attribution-prior-diagnosis.md"
+  ],
+  "concurrent_primary_documentation_changes_observed": [
+    "docs/architecture.md",
+    "docs/brief.md",
+    "docs/plan.md",
+    "docs/research/council.md",
+    "docs/roadmap.md"
+  ],
+  "concurrent_changes": "left untouched; not imported into this isolated assignment",
+  "assigned_spec_unchanged": true,
+  "exact_external_delivery_copies": 6,
+  "local_verification": "saved report plus human acceptance evidence",
+  "temporary_checks_deleted": true,
+  "dependencies_added": 0
+}

@@ -183,6 +183,12 @@ completed 04k evidence: [the diagnostic](attribution-04k/decision.md) is `comple
 
 the single next question is whether an empirically justified annual prior can preserve gains for stable players while reducing harm under reversals, first observations and null effects within a prospectively chosen prediction-cost budget. this identifies a question, not a selected prior or assigned campaign. arbitrary mixture proportions and uncalibrated gaussian noise cannot select empirical persistence, establish real ability or rescue earlier failed criteria. the observed website and the complete season-level ability destination remain unchanged.
 
+## 04l — explain the retained estimates before changing the prior
+
+[04l](../specs/04l-attribution-prior-diagnosis.md) is a saved-fit diagnosis, as selected by the user on 2026-10-19. retain all 04k cells/records and decompose only final-season estimates into transmitted current signal, realized score noise and retained historical means. source masks and an explicit reference/update split explain how players without personal history can receive a historical contribution. currently absent players' own mean-channel contribution is zero; their earlier information can still affect retained covariance and scale selection.
+
+the covariance is response-selected. exact squared-error accounting therefore retains signed interactions and cannot be called independent bias/variance or unique causal blame. changed current-score weighting bundles entry variance, historical covariance, innovation and deployment; it does not isolate inherited entry shrinkage. the tradeoff is a smaller analysis with no new research solves, but no evidence that a changed prior would improve performance. name at most one testable next hypothesis and its contrary evidence, or stop with an unresolved mechanism. no automatic intervention, additional diagnosis, new recovery gate or admission follows. [the plan](../plan.md) owns assignment; historical verdicts remain frozen.
+
 ## software and verification judgment
 
 the existing effect-capture/python-analysis boundary is appropriate. 04c places shared attribution fitting, chronology, projection and artifact validation in their package owners; old study commands retain named read-only controls and assessment. study-specific selections, criteria and figures stay with the study. further mature shared mechanisms belong in their responsible modules when needed, without a framework or historical migration.

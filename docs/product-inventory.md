@@ -8,6 +8,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 2026-10-17 amendment: [05b](specs/05b-observed-comparison.md) selects a separate two-player comparison of those existing observed quantities. reuse the same publication and api; no new metric, percentile cohort or ability claim. richer comparison/distribution/card capabilities below remain later.
 
+2026-10-20 amendment: [05c's full player-explorer contract](specs/05c-player-explorer.md) adds table discovery, compact observed cards and raw-rate peer plots alongside 04l. the user chose reported forward/defense peers and an adjustable 300-included-minute default; table filtering remains separate. magnitude, included minutes and coverage stay visible; numeric percentiles and new facts are not bundled. [05d](specs/05d-descriptive-cards.md) records later richer descriptive/export work; [05e](specs/05e-spatial-views.md) records the separate spatial contract. these bring forward observed presentation capabilities without promoting unsupported skill components.
+
 ## analytical dependencies
 
 the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
@@ -118,9 +120,9 @@ the hockeyviz [descriptive guide](https://hockeyviz.com/howto/skaterCard) motiva
 | league table, name search, sorting and player navigation | first; unavailable estimates remain distinguishable from poor ones |
 | compact player comparison | first; same state, units, baseline and comparable evidence |
 | complete-season summary and game evidence | first; observed aggregates reconcile; game rows are not fitted ability contributions |
-| distribution with selected player, percentile and rank | later; identify cohort, eligibility, season and state; retain magnitude |
+| distribution with selected player, percentile and rank | observed raw-unit distributions selected for 05c; numeric percentiles/ranks and ability distributions remain later with explicit cohort/eligibility/season/state contracts. retain magnitude |
 | richer comparisons and history | later; same-method comparisons or explicit method differences; no arbitrary date-window fitting |
-| readable downloadable cards | later; include player, season, component scope, cohort, units and method/evidence context |
+| readable downloadable cards | 05d later stub for descriptive export; ability cards remain conditional on supported components. include player, season, scope, cohort, units and method/evidence context |
 | specialist component tables | later; reuse selected quantities, not independent recalculation |
 | descriptive statistics workspace and downloads | later; individual/on-ice/workload tables, season rows, game evidence and useful count/rate views; publish supported derived outputs |
 | inspectable definitions and evidence limits | first, expanded with each component; units, sign, baseline, time meaning, provenance, uncertainty and missingness |

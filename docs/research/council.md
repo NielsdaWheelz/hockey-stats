@@ -2,6 +2,32 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05c specification review — 2026-10-20
+
+independent statistical/semantic, systems and product/content reviewers clear [05c's full player-explorer contract](../specs/05c-player-explorer.md). the user chose reported forward/defense reference groups and an adjustable 300-included-minute default. the main alternative was one common all-skater reference; the selected default gives role context but mixed pairs have distinct populations. an explicit all-skater option remains. minute selection is a viewing convention, not reliability evidence.
+
+review separates discovery filters from peer settings on different pages: all players remain discoverable by default, while each profile/pair names its reference. partial records remain visible; zero and missing rates remain distinct. one expanded profile response supplies its selected identity, peers and games through the existing reader. this costs payload size, without another endpoint, database contract or client revision mechanism. direct rug marks and expandable values preserve numerical access; overlap and extreme-value compression remain accepted limitations.
+
+adversarial review corrected reset/draft synchronization, route-owned peer-table links, mixed-group marker placement and rounded-display wording. concrete shared helpers own membership, while routes own url/history and one shared component owns figures. independent final reviews found no remaining contract blocker. these are specification reviews, not browser verification or scientific acceptance; implementation remains unassigned in [the plan](../plan.md).
+
+## approved parallel player-experience direction — 2026-10-20
+
+the user approved advancing the jfresh/hockeyviz/table experience alongside 04l. source inspection and independent product/content review find a useful next slice in [05c](../specs/05c-player-explorer.md): existing published rates, positions, minutes and coverage already support peer plots, cohort controls and compact observed cards. this is missing capability, not a claim of a newly demonstrated application defect. [05d](../specs/05d-descriptive-cards.md)/[05e](../specs/05e-spatial-views.md) retain later descriptive/export and spatial dependencies.
+
+the reference roles differ: [tables](https://hockeystats.com/stats/skaters) support discovery/filtering, [jfresh cards](https://hockeystats.com/cards/player-cards) emphasize compact component/cohort comparison, and hockeyviz separates [descriptive context](https://hockeyviz.com/howto/skaterCard) from [isolated spatial impacts](https://hockeyviz.com/howto/isolate). public pages were rechecked on 2026-10-20; authenticated behavior was not exercised. the direction borrows these capabilities while preserving our observed-versus-ability and season-level meanings.
+
+review keeps search/team visibility separate from the reference cohort; season-team filtering cannot imply team-specific totals. partial coverage stays visible, and numeric percentiles require an explicit later contract. one player per plotted observation avoids silent exposure weighting. profile and league currently load different responses, so a combined view must preserve publication identity. no raw acquisition, hdd dependency or new fit is needed for 05c's existing quantities. richer facts/maps cost new producer/publication work; synthetic analytical design can precede evidence but may require rework. direction approval updates the plan/stubs only, without assigning implementation or changing scientific verdicts.
+
+## 04l specification review — 2026-10-19
+
+statistical, systems and hockey/content reviewers designed [04l's saved-fit diagnosis](../specs/04l-attribution-prior-diagnosis.md). the user chose exact accounting without an entry-prior intervention. the useful question is what accounts for 04k's existing gains/harm, not whether the same subgroup differences can be reported again.
+
+the central corrections are interpretive: the response-selected covariance makes signal/noise terms dependent; entrant carry includes a league-reference shift; changed current-evidence weighting does not isolate entry variance; currently absent identities have zero direct mean contribution but can affect retained covariance/selection. signed interactions and the fixed allocation convention stay visible. source means trace saved rows rather than causal credit. the content contract requires contrary cases beside stable gains and at most one subsequent hypothesis, or an explicit unresolved conclusion.
+
+the systems boundary selects two final states and one preceding mean per pair, reuses package owners and avoids dense gains or posterior solves. whole-archive hashing still reads about 29.4 gb; selective decoding saves memory and work, not all i/o. the drive was unavailable during specification, so bulk verification remains execution work. no new gate, candidate, test harness, framework, real-player uncertainty or publication is assigned. this sacrifices a direct intervention test in exchange for a bounded diagnosis; it cannot establish the proposed repair.
+
+final statistical, systems and content specification reviews clear after correcting monte carlo conditioning, gauge wording, fixture-only status/counts, source-mask arithmetic ownership and explicit row/denominator contracts. these are document reviews, not implementation or scientific acceptance.
+
 ## 04k implementation review — 2026-10-17
 
 native source/generation, numerical-fitting and study/report agents implemented [04k](../specs/04k-attribution-history.md), with independent adversarial cross-review at every boundary. [verification](attribution-04k/verification.md) reconciles all 100 pairs, 500 scores, 600 states, twelve conditional probes and 34,000 metric rows. all 39 affected historical arrays and prior numerical receipts preserve their values exactly. final source review confirms 21 selected original hashes and zero recorded-response decoding. temporary controllers and the duplicate review environment are deleted.

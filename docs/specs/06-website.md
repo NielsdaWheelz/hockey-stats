@@ -1,6 +1,6 @@
 # pr06 — website
 
-status: **stub; not ready for implementation.** [05a](05a-observed-website.md) first delivers the private observed table/search/profile/game path. expand this same application against the [05 publication contract](05-publication.md) and settled [brief](../brief.md) for supported ability maps and comparisons. fixtures can exercise analytical views; a real ability release additionally requires supported 03–04 results. [plan](../plan.md)
+status: **stub; not ready for implementation.** [05a](05a-observed-website.md)/[05b](05b-observed-comparison.md) deliver the private observed path. [05c](05c-player-explorer.md) is its next independently specified table/card/distribution slice; [05d](05d-descriptive-cards.md)/[05e](05e-spatial-views.md) retain later descriptive and spatial contracts. expand this same application against the [05 publication contract](05-publication.md) and settled [brief](../brief.md) for supported ability maps and comparisons. fixtures can exercise analytical views when assigned; a real ability release additionally requires supported 03–04 results. [plan](../plan.md)
 
 ## purpose and ownership
 
@@ -14,7 +14,7 @@ reuse the observed views and publication client established in 05a. adding suppo
 
 present offense and defense separately. distinguish estimated ability from observed counts, reconstructed exposure and inferred locations. game rows explain observed season totals; they do not decompose adjusted season effects. show units, baseline, uncertainty meaning, evidence coverage and publication identity. unavailable values need reasons, not zeros.
 
-support local/private browsing, direct links and reloads. no browser-triggered fits, arbitrary date windows, full event explorer or historical-release browser. public hosting, richer cards, percentile/distribution charts and new analytical components have separate consumers in the roadmap.
+support local/private browsing, direct links and reloads. no browser-triggered fits, arbitrary date windows, full event explorer or historical-release browser. observed raw-unit distributions and compact cards now have a separate consumer in 05c; percentile policy, supported analytical distributions/cards, public hosting and new components keep their own contracts in the roadmap.
 
 ## full specification and completion
 

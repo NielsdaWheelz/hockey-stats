@@ -14,6 +14,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 2026-10-21 spatial contract: [05e](specs/05e-spatial-views.md) now specifies observed unblocked for/against maps on profiles/comparison, league differences plus absolute rates, fixed descriptive smoothing and inspectable raw evidence. its separate matched spatial support preserves existing populations; source locations are not verified releases. replacement valuation, personal-shot maps, adjusted effects and map downloads remain distinct later capabilities. this advances observed spatial explanation, not admitted skill or private-model parity.
 
+2026-10-21 comparative-card contract: [05f](specs/05f-comparative-observed-cards.md) brings forward observed percentiles for the five existing rates, with raw magnitudes, separate personal/on-ice peer eligibility and one detail distribution. profile, comparison and one-player png share the same content. higher means higher recorded rate; outside-cohort selections retain raw values without percentile standing. this extends descriptive comparison without admitting an ability component.
+
 ## analytical dependencies
 
 the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
@@ -87,8 +89,8 @@ a card presents quantities; it is not a new statistical model. several rows can 
 | family | contents / purpose | status |
 |---|---|---|
 | isolated skater summary | coherent offense/defense maps and scalar effects; add validated components individually | first 5v5 subset; later full family |
-| compact comparative skater card | component magnitudes and percentiles, clear cohort, identity, evidence and context; readable download | later |
-| descriptive skater card | scoring, usage and on/off results; distinguish experience from estimated ability | later family; individual panels remain candidates |
+| compact comparative skater card | component magnitudes and percentiles, clear cohort, identity, evidence and context; readable download | 05f specifies an observed five-rate subset; analytical components remain later |
+| descriptive skater card | scoring, usage and on/off results; distinguish experience from estimated ability | 05d/05f cover personal scoring and on-ice summaries/comparison; richer usage and off-ice panels remain later |
 | career and historical profiles | navigable season cards, maps, results, explanations and ability/subskill trajectories; common-value history where supported | later; source coverage determines the historical range |
 | detailed 5v5 view | inspect spatial differences hidden by the summary | first maps; richer drill-down later |
 | finishing/setting detail | results, estimated subskills, shot-type/danger breakdowns and history | later; exact panel composition and bins specified with the models |
@@ -124,9 +126,9 @@ the hockeyviz [descriptive guide](https://hockeyviz.com/howto/skaterCard) motiva
 | league table, name search, sorting and player navigation | first; unavailable estimates remain distinguishable from poor ones |
 | compact player comparison | first; same state, units, baseline and comparable evidence |
 | complete-season summary and game evidence | first; observed aggregates reconcile; game rows are not fitted ability contributions |
-| distribution with selected player, percentile and rank | observed raw-unit distributions selected for 05c; numeric percentiles/ranks and ability distributions remain later with explicit cohort/eligibility/season/state contracts. retain magnitude |
+| distribution with selected player, percentile and rank | 05c supplies observed raw-unit distributions; 05f specifies numeric percentile standing for five rates with exact family cohorts and tie rules. ability distributions and other ranking contracts remain later; retain magnitude |
 | richer comparisons and history | later; same-method comparisons or explicit method differences; no arbitrary date-window fitting |
-| readable downloadable cards | 05d specifies one descriptive png with identity, season, scope, units, both populations and evidence context; no exported cohort claim. ability cards remain conditional on supported components |
+| readable downloadable cards | 05d supplies one descriptive png; 05f specifies compact comparative content, preserving identity, raw rates, both supports, coverage and explicit cohort/percentile meaning. ability cards remain conditional on supported components |
 | specialist component tables | later; reuse selected quantities, not independent recalculation |
 | descriptive statistics workspace and downloads | later; individual/on-ice/workload tables, season rows, game evidence and useful count/rate views; publish supported derived outputs |
 | inspectable definitions and evidence limits | first, expanded with each component; units, sign, baseline, time meaning, provenance, uncertainty and missingness |

@@ -25,11 +25,12 @@ the localhost-only website shows included recorded 5v5 results: personal shots o
 
 the verified 05d schema-2 publication remains active at `http://127.0.0.1:3000/`, with compatible code. reload an existing tab to load the new player cards. `publication/previous.sqlite` preserves the former schema-1 active database; restoring it uses the stop/check/copy/restart pattern below with old code `e335b59` and current schema-2 code `074799a`; schema-3 code cannot read either file.
 
-this branch reads schema **3** only. review its separate candidate on port 3065; the active schema-2 site on port 3000 keeps its compatible code. activation is a separate operator action. use node `24.21.0`, pinned in `app/.node-version`. build in this worktree without replacing the active site’s assets. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
+this branch reads schema **3** only. review its separate candidate on port 3065; the active schema-2 site on port 3000 keeps its compatible code. activation is a separate operator action. use node `24.21.0`, pinned in `app/.node-version`. build in a separate checkout; do not rebuild the primary application while its schema-2 build is serving. the command below recreates the verified application source from git without an archived build. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
 
 ```sh
 export PATH="$HOME/.local/share/mise/installs/node/24.21.0/bin:$PATH"
-cd app
+git worktree add --detach ../hockey-stats-candidate fc437ef
+cd ../hockey-stats-candidate/app
 node --version
 npm ci --include=dev
 npm run typecheck

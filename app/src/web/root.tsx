@@ -38,7 +38,14 @@ export function Layout({ children }: { readonly children: ReactNode }) {
         <Links />
       </head>
       <body>
-        <a className="skip-link" href="#main">
+        <a
+          className="skip-link"
+          href="#main"
+          onClick={(event) => {
+            event.preventDefault();
+            document.getElementById("main")?.focus();
+          }}
+        >
           skip to results
         </a>
         <div className="sheet">

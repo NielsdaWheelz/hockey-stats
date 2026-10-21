@@ -313,7 +313,19 @@ export function Definitions() {
       {quantityDefinitions.map((definition) => (
         <p key={definition}>{definition}</p>
       ))}
-      <p>existing peers describe only on-ice rates.</p>
+      <p>
+        observed-rate percentiles count reference members with lower rates plus
+        half of exact ties, divided by the number of members. calculations use
+        unrounded published values; equal displayed rates can have different
+        standings.
+      </p>
+      <p>
+        higher percentile means higher recorded rate throughout; against: higher
+        = more opponent attempts. these are descriptive, correlated
+        observations, not ability, uncertainty or reliability. personal and
+        on-ice references use their own included minutes; the cutoff is a
+        viewing rule.
+      </p>
     </details>
   );
 }

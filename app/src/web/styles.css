@@ -297,24 +297,8 @@ thead .identity {
   min-width: 0;
   max-width: none;
 }
-.comparison-note {
-  max-width: 55rem;
-  margin-top: 0.8rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
 .player-heading {
   margin-bottom: 1.5rem;
-}
-.profile-coverage {
-  max-width: 55rem;
-}
-.profile-coverage > p {
-  font-size: 0.875rem;
-  color: var(--muted);
-}
-.profile-coverage .metric-coverage {
-  max-width: none;
 }
 .game-table {
   min-width: 48rem;
@@ -475,7 +459,6 @@ footer {
 }
 .control-note,
 .result-count,
-.peer-counts,
 .chart-description {
   color: var(--muted);
   font-size: 0.8rem;
@@ -492,48 +475,9 @@ footer {
 .observed-card h3 {
   margin-top: 1rem;
 }
-.observed-rates,
-.observed-facts {
-  display: grid;
-  gap: 1rem 2rem;
-  margin: 1rem 0;
-  font-variant-numeric: tabular-nums;
-}
-.observed-rates {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.observed-facts {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.observed-rates dt,
-.observed-facts dt {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-.observed-rates dd,
-.observed-facts dd {
-  margin: 0.25rem 0 0;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-.observed-rates dd {
-  font-size: 2.5rem;
-}
-.observed-facts dd {
-  font-size: 1.2rem;
-}
 .peer-context {
   margin: 2rem 0;
   border-top: 1px solid var(--rule);
-}
-.peer-counts p {
-  margin: 0.4rem 0;
-}
-.peer-figures {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 .peer-figure {
   min-width: 0;
@@ -541,8 +485,7 @@ footer {
   padding: 1rem 0;
   border-top: 1px solid var(--rule);
 }
-.peer-figure h4,
-.selected-peer-values h4 {
+.peer-figure h4 {
   font-size: 1rem;
   margin: 0 0 0.5rem;
 }
@@ -597,26 +540,11 @@ footer {
   margin-top: 1rem;
   color: var(--muted);
 }
-.selected-peer-values {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-.selected-peer-values > div {
-  min-width: 0;
-}
-.selected-peer-values h4,
-.player-heading,
-.peer-counts {
+.player-heading {
   overflow-wrap: anywhere;
 }
-.selected-peer-values p,
 .outside-reference {
   font-size: 0.8rem;
-}
-.selected-peer-values .metric-coverage {
-  min-width: 0;
 }
 .peer-values {
   margin: 1rem 0;
@@ -668,31 +596,15 @@ footer {
   .evidence-facts dd {
     margin-bottom: 0.6rem;
   }
-  .peer-figures,
-  .selected-peer-values {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .observed-facts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .discovery-controls > div,
   .peer-controls > div,
   .minute-control {
     flex-basis: 100%;
   }
-  .observed-rates {
-    gap: 1rem;
-  }
-  .observed-rates dd {
-    font-size: 2rem;
-  }
 }
 .observed-card h4 {
   margin: 1.4rem 0 0.6rem;
   font-size: 1rem;
-}
-.personal-table {
-  min-width: 27rem;
 }
 .population-coverage {
   display: grid;
@@ -913,5 +825,142 @@ footer {
 @media (max-width: 550px) {
   .spatial-panels {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.observed-overview {
+  margin: 0 0 1.2rem;
+  font-variant-numeric: tabular-nums;
+}
+.observed-overview > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--rule);
+}
+.observed-overview dt {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.observed-overview dd {
+  margin: 0;
+  min-width: 0;
+}
+.observed-rate-value {
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.observed-rate-value p {
+  margin: 0 0 0.3rem;
+}
+.rate-primary strong {
+  font-size: 1.45rem;
+  font-weight: 650;
+}
+.rate-primary span,
+.rate-count,
+.rate-direction,
+.standing-label,
+.standing-unavailable,
+.reference-summary {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.standing-label strong {
+  color: #242b2d;
+  font-weight: 650;
+}
+.percentile-strip {
+  position: relative;
+  height: 2rem;
+  max-width: 25rem;
+  margin: 0.55rem 0.35rem 0;
+}
+.percentile-track {
+  position: absolute;
+  inset: 0.2rem 0 auto;
+  border-top: 1px solid #677575;
+}
+.percentile-marker {
+  position: absolute;
+  top: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  background: #242b2d;
+  transform: translateX(-50%);
+}
+.percentile-ticks {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 0.65rem;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+.observed-support {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.observed-support h4 {
+  font-size: 0.9rem;
+  margin: 1.2rem 0 0.5rem;
+}
+.observed-support .population-coverage {
+  margin-bottom: 0.8rem;
+}
+.observed-support .population-coverage p {
+  margin: 0.4rem 0;
+  font-size: 0.8rem;
+}
+.comparison-support {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 1.2rem 0;
+}
+.comparison-support > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.comparison-support .population-coverage {
+  grid-template-columns: minmax(0, 1fr);
+}
+.metric-control {
+  max-width: 26rem;
+  margin: 1rem 0;
+}
+.metric-control label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 650;
+  margin-bottom: 0.3rem;
+}
+.metric-control select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  color: inherit;
+  font: inherit;
+  border: 1px solid #9ca8a5;
+  border-radius: 3px;
+  background: var(--paper);
+}
+.peer-lane .reference-summary {
+  margin: 0.3rem 0;
+}
+@media (max-width: 700px) {
+  .comparison-support {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+}
+@media (max-width: 400px) {
+  .observed-overview > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
   }
 }

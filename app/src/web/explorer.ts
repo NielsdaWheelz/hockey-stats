@@ -1,5 +1,6 @@
 import * as Schema from "effect/Schema";
 import { HockeyId, type PlayerSummary, type Team } from "../shared/observed";
+import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
 import {
   matchingPlayers,
   nameOrder,
@@ -28,14 +29,6 @@ export type Discovery = {
 export type PeerSettings = {
   readonly peers: "position" | "all";
   readonly peerMin: number;
-};
-export type PeerGroup = {
-  readonly key: "all" | "f" | "d";
-  readonly members: readonly PlayerSummary[];
-  readonly selected: readonly {
-    readonly player: PlayerSummary;
-    readonly slot: 0 | 1;
-  }[];
 };
 
 export function parseMinutes(value: string): number | undefined {
@@ -116,6 +109,20 @@ export function readPeerSettings(search: URLSearchParams): {
   return { settings: { peers, peerMin: minimum ?? 300 }, search: next };
 }
 
+export function readRateMetric(search: URLSearchParams): {
+  readonly metric: ObservedRateKey;
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const values = search.getAll("metric");
+  const metric =
+    values.length === 1
+      ? observedMetrics.find((definition) => definition.key === values[0])?.key
+      : undefined;
+  if (values.length && metric === undefined) next.delete("metric");
+  return { metric: metric ?? "sog60", search: next };
+}
+
 export function selectDiscovery(
   players: readonly PlayerSummary[],
   discovery: Discovery,
@@ -159,43 +166,6 @@ export function selectDiscovery(
       (discovery.dir === "asc" ? left - right : right - left) || nameOrder(a, b)
     );
   });
-}
-
-export function selectPeerGroups(
-  players: readonly PlayerSummary[],
-  selected: readonly PlayerSummary[],
-  settings: PeerSettings,
-): PeerGroup[] {
-  const selections = ([0, 1] as const).flatMap((slot) =>
-    selected[slot] ? [{ player: selected[slot], slot }] : [],
-  );
-  const keys: PeerGroup["key"][] =
-    settings.peers === "all"
-      ? ["all"]
-      : (["f", "d"] as const).filter((key) =>
-          selections.some(
-            ({ player }) =>
-              (player.reported_position === "D" ? "d" : "f") === key,
-          ),
-        );
-  return keys.map((key) => ({
-    key,
-    members: players
-      .filter(
-        (player) =>
-          (key === "all" ||
-            (player.reported_position === "D" ? "d" : "f") === key) &&
-          player.metrics.included_seconds > 0 &&
-          player.metrics.included_seconds >= settings.peerMin * 60 &&
-          player.metrics.for_per60 !== null &&
-          player.metrics.against_per60 !== null,
-      )
-      .sort(nameOrder),
-    selected: selections.filter(
-      ({ player }) =>
-        key === "all" || (player.reported_position === "D" ? "d" : "f") === key,
-    ),
-  }));
 }
 
 export function teamOptions(players: readonly PlayerSummary[]): Team[] {

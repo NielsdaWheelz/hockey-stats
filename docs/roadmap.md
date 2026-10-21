@@ -38,6 +38,8 @@ the [04h diagnosis](research/attribution-04h/decision.md) connects regional reco
 
 [04k's completed comparison](research/attribution-04k/decision.md) tests existing league-relative annual borrowing against a final-season-only fit, with known native physical effects on actual deployment. all 100 pairs and twelve probes pass independent review. aggregate/stable gains coexist with reversal, first-observation and null harm; half-amplitude prediction cost remains imprecise. the diagnostic has no scientific gate, nominee or real-player uncertainty claim. its single prior question is a proposal; [the plan](plan.md) owns progression.
 
+[04l's specification](specs/04l-attribution-prior-diagnosis.md) explains those saved estimates before selecting a prior revision. current signal/noise and retained mean contributions, their interactions and entrant reference shifts are conditional accounting, not a repaired model. the user chose no counterfactual update. the output may motivate one next hypothesis or leave the remedy unresolved; no further fitting campaign is automatically scheduled.
+
 the remaining analytical responsibilities are distinct; their concrete next studies depend on evidence rather than a mandatory bundle:
 
 | responsibility | remaining claim / dependency |

@@ -84,6 +84,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04k borrowing, confirmed 2026-10-17 | test the existing league-relative annual carry against an independent final-season fit | isolates current behavior; constant physical effects change normalized size with league rate. physical-unit carry remains a different model revision |
 | 04k claim, confirmed 2026-10-17 | diagnostic recovery/prediction comparison on actual deployment, without a new gate | simulated effects and changing-player harm inform a later question; no nominee, ability admission or calibrated player intervals |
 | 04k noise boundary, confirmed 2026-10-17 | working gaussian plus a declared game-shared gaussian sensitivity | saved design summaries suffice; correlated mean perturbations omit count-dependent shot noise and do not reproduce the earlier gamma-poisson law |
+| 04l diagnosis boundary, confirmed 2026-10-19 | explain saved final fits only; no entry-prior intervention | exact conditional accounting can locate retained-history and current-evidence contributions, but cannot establish that resetting entry shrinkage improves recovery. no new scientific gate or model admission |
 
 ## initial product and scope
 

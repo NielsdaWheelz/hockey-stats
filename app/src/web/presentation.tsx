@@ -203,6 +203,8 @@ export function Evidence({
         </dd>
         <dt>publication id</dt>
         <dd className="identifier">{publication.publication_id}</dd>
+        <dt>source corpus sha-256</dt>
+        <dd className="identifier">{publication.corpus_sha256}</dd>
         <dt>source retrieval</dt>
         <dd>
           {publication.source_requested_min !== null &&

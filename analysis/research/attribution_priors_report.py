@@ -56,7 +56,16 @@ def _row(index, cell, role, receiver, metric, arm="paired_change"):
 
 def _table(output, name, rows, purpose):
     require(bool(rows), "empty saved report table: " + name)
-    fields = ["study_label", "purpose", "sign_convention"]
+    metadata = dict(study_label=LABEL, purpose=purpose)
+    if name == "scales.csv":
+        metadata["scale_interpretation"] = (
+            "a and q are relative-rate coefficient variances; selected_exponent is "
+            "log10(selected variance), not a physical attempt-rate scale")
+    else:
+        metadata["sign_convention"] = (
+            "paired_change and prediction_cost: positive harm; recovery_benefit: "
+            "positive improvement; cross terms retain signs")
+    fields = list(metadata)
     for row in rows:
         fields.extend(key for key in row if key not in fields)
     path = output / name
@@ -66,9 +75,7 @@ def _table(output, name, rows, purpose):
         for row in rows:
             values = {key: json.dumps(value, allow_nan=False, ensure_ascii=False)
                       if isinstance(value, (dict, list, tuple)) else value for key, value in row.items()}
-            writer.writerow(dict(values, study_label=LABEL, purpose=purpose,
-                sign_convention="paired_change and prediction_cost: positive harm; "
-                                "recovery_benefit: positive improvement; cross terms retain signs"))
+            writer.writerow(dict(values, **metadata))
     return identity(path)
 
 

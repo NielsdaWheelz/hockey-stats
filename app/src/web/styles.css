@@ -66,6 +66,25 @@ h1 {
   margin-bottom: 0;
   color: var(--muted);
 }
+.season-control {
+  max-width: 14rem;
+  margin-top: 1.2rem;
+}
+.season-control label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+.season-control select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  color: inherit;
+  border: 1px solid #9ca8a5;
+  border-radius: 3px;
+  background: var(--paper);
+}
 main {
   min-width: 0;
   padding: 1.5rem 0;
@@ -299,6 +318,40 @@ thead .identity {
 }
 .player-heading {
   margin-bottom: 1.5rem;
+}
+.player-history {
+  margin: 2rem 0;
+}
+.history-scroll {
+  scroll-padding-inline-start: 7.5rem;
+}
+.history-table {
+  min-width: 72rem;
+}
+.history-table .identity {
+  width: 7.5rem;
+  min-width: 7.5rem;
+  max-width: 7.5rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.history-table .identity a {
+  white-space: nowrap;
+}
+.history-identity {
+  min-width: 9rem;
+  max-width: 15rem;
+  overflow-wrap: anywhere;
+}
+.history-name {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.history-context {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 .game-table {
   min-width: 48rem;

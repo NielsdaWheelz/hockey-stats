@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Link,
   useLoaderData,
   useLocation,
+  useNavigation,
   useSearchParams,
   type ClientLoaderFunctionArgs,
   type ShouldRevalidateFunctionArgs,
@@ -13,6 +14,10 @@ import {
   readDiscovery,
   selectDiscovery,
   teamOptions,
+  seasonSearch,
+  shouldRevalidateView,
+  useCanonicalSearch,
+  viewSearch,
   type Sort,
 } from "../explorer";
 import {
@@ -27,32 +32,16 @@ import {
 } from "../presentation";
 
 export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
-  loadLeague(request.signal);
+  loadLeague(request.signal, new URL(request.url).searchParams);
 export const ErrorBoundary = LoadError;
 
-export function shouldRevalidate({
-  currentUrl,
-  nextUrl,
-  defaultShouldRevalidate,
-}: ShouldRevalidateFunctionArgs) {
-  if (
-    currentUrl.pathname === nextUrl.pathname &&
-    currentUrl.search !== nextUrl.search
-  ) {
-    const current = new URLSearchParams(currentUrl.search);
-    const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["q", "sort", "dir", "position", "team", "min"]) {
-      current.delete(key);
-      next.delete(key);
-    }
-    if (current.toString() === next.toString()) return false;
-  }
-  return defaultShouldRevalidate;
-}
+export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
+  shouldRevalidateView(args, ["q", "sort", "dir", "position", "team", "min"]);
 
 export default function League() {
   const data = useLoaderData<typeof clientLoader>();
   const location = useLocation();
+  const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
   const { discovery, search: normalized } = readDiscovery(search);
   const { q, sort, dir, position, team, min } = discovery;
@@ -63,28 +52,22 @@ export default function League() {
   });
   if (minute.committed !== min)
     setMinute({ committed: min, draft: String(min), error: "" });
-  useEffect(() => {
-    if (normalized.toString() !== search.toString())
-      setSearch(normalized, {
-        replace: true,
-        preventScrollReset: true,
-        state: location.state,
-      });
-  }, [normalized.toString(), search, setSearch, location.state]);
+  useCanonicalSearch(data.season.season, normalized);
   const players = selectDiscovery(data.players, discovery);
   const teams = teamOptions(data.players);
   const commit = (next: URLSearchParams, replace = false) => {
-    if (next.toString() !== search.toString())
+    if (next.toString() !== viewSearch(location, navigation.location).toString())
       setSearch(next, {
         replace,
         preventScrollReset: true,
         state: location.state,
+        flushSync: true,
       });
   };
   const clear = () => {
     setMinute({ committed: 0, draft: "0", error: "" });
     if (q === "" && position === "all" && team === null && min === 0) return;
-    const next = new URLSearchParams(search);
+    const next = viewSearch(location, navigation.location);
     for (const key of ["q", "position", "team", "min"]) next.delete(key);
     commit(next);
   };
@@ -100,7 +83,7 @@ export default function League() {
         type="button"
         aria-label={`sort by ${accessible}`}
         onClick={() => {
-          const next = new URLSearchParams(search);
+          const next = viewSearch(location, navigation.location);
           next.set("sort", key);
           next.set(
             "dir",
@@ -133,11 +116,14 @@ export default function League() {
           personal production and team attempts while on ice, with separate
           matched time and coverage. unadjusted observations, not ability.
         </p>
-        <Link to="/compare" state={{ leagueSearch: location.search }}>
+        <Link
+          to={`/compare?${seasonSearch("", data.season.season)}`}
+          state={{ leagueSearch: `?${seasonSearch(search, data.season.season)}` }}
+        >
           compare players
         </Link>
       </section>
-      <GlobalGap coverage={data.coverage} />
+      <GlobalGap season={data.season} />
       <div className="discovery-controls">
         <div className="search-control">
           <label htmlFor="player-search">search players</label>
@@ -146,7 +132,7 @@ export default function League() {
             type="search"
             value={q}
             onChange={(event) => {
-              const next = new URLSearchParams(search);
+              const next = viewSearch(location, navigation.location);
               if (event.currentTarget.value)
                 next.set("q", event.currentTarget.value);
               else next.delete("q");
@@ -162,7 +148,7 @@ export default function League() {
             id="discovery-position"
             value={position}
             onChange={(event) => {
-              const next = new URLSearchParams(search);
+              const next = viewSearch(location, navigation.location);
               if (event.currentTarget.value === "all") next.delete("position");
               else next.set("position", event.currentTarget.value);
               commit(next);
@@ -179,7 +165,7 @@ export default function League() {
             id="discovery-team"
             value={team ?? ""}
             onChange={(event) => {
-              const next = new URLSearchParams(search);
+              const next = viewSearch(location, navigation.location);
               if (event.currentTarget.value)
                 next.set("team", event.currentTarget.value);
               else next.delete("team");
@@ -189,7 +175,7 @@ export default function League() {
             <option value="">all season teams</option>
             {team && !teams.some((row) => row.id === team) && (
               <option value={team}>
-                team {team} — not in this publication
+                team {team} — not in this season
               </option>
             )}
             {teams.map((row) => (
@@ -215,7 +201,7 @@ export default function League() {
             }
             setMinute({ committed: value, draft: String(value), error: "" });
             if (value === min) return;
-            const next = new URLSearchParams(search);
+            const next = viewSearch(location, navigation.location);
             if (value === 0) next.delete("min");
             else next.set("min", String(value));
             commit(next);
@@ -327,8 +313,8 @@ export default function League() {
                 <tr key={player.player_id}>
                   <th scope="row" className="identity">
                     <Link
-                      to={`/players/${player.player_id}`}
-                      state={{ leagueSearch: location.search }}
+                      to={`/players/${player.player_id}?${seasonSearch("", data.season.season)}`}
+                      state={{ leagueSearch: `?${seasonSearch(search, data.season.season)}` }}
                     >
                       {playerName(player)}
                     </Link>
@@ -392,7 +378,7 @@ export default function League() {
           </table>
         </div>
       )}
-      <Evidence publication={data.publication} coverage={data.coverage} />
+      <Evidence publication={data.publication} season={data.season} />
     </>
   );
 }

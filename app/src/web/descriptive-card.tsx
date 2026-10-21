@@ -1,5 +1,5 @@
 import { useRef, useState, type ReactNode } from "react";
-import type { Coverage, PlayerSummary, Publication } from "../shared/observed";
+import type { PlayerSummary, Publication, SeasonEvidence } from "../shared/observed";
 import type { PeerSettings } from "./explorer";
 import {
   formatPercentile,
@@ -21,12 +21,13 @@ import {
   playerName,
   reasons,
   teamName,
+  seasonLabel,
 } from "./presentation";
 
 type Card = {
   readonly comparison: ObservedComparison;
   readonly publication: Publication;
-  readonly coverage: Coverage;
+  readonly season: SeasonEvidence;
 };
 
 const familyName = (population: ObservedRateRow["population"]) =>
@@ -195,7 +196,7 @@ export function ObservedSupport({
 }
 
 // measured text nodes preserve source names safely and let genuine content grow.
-export function cardSvg({ comparison, publication, coverage }: Card): string {
+export function cardSvg({ comparison, publication, season }: Card): string {
   const card = comparison.cards[0]!;
   const player = card.player;
   const namespace = "http://www.w3.org/2000/svg";
@@ -274,7 +275,7 @@ export function cardSvg({ comparison, publication, coverage }: Card): string {
     };
     paragraph(playerName(player), 42, "650");
     paragraph(
-      `${publication.season.slice(0, 4)}–${publication.season.slice(4)} regular season · player ${player.player_id} · reported position ${player.reported_position}`,
+      `${seasonLabel(season.season)} regular season · player ${player.player_id} · reported position ${player.reported_position}`,
     );
     paragraph(`season teams: ${player.teams.map(teamName).join(" / ")}`);
     y += 10;
@@ -418,11 +419,22 @@ export function cardSvg({ comparison, publication, coverage }: Card): string {
       "each rate uses its own population’s included 5v5 time. membership uses exact seconds; displayed minutes are rounded. covered means no known relevant gap in listed evidence; included results are not certified complete-season totals. known excluded time is not all missing time.",
       21,
     );
-    if (coverage.games_with_unassigned_player_associations > 0)
+    if (season.coverage.games_with_unassigned_player_associations > 0)
       paragraph(
-        `global gap: player associations unresolved in ${coverage.games_with_unassigned_player_associations} inventory games; any player may have omitted games.`,
+        `season gap: player associations unresolved in ${season.coverage.games_with_unassigned_player_associations} inventory games; any player may have omitted games.`,
         21,
       );
+    paragraph(
+      `season inventory: ${season.coverage.games_with_included_time} games with included time of ${season.coverage.inventory_games}; ${season.coverage.partial_games} partial, ${season.coverage.unavailable_games} unavailable.`,
+      20,
+    );
+    paragraph(
+      season.source_requested_min !== null && season.source_requested_max !== null
+        ? `season source retrieval: ${season.source_requested_min} to ${season.source_requested_max}; ${season.undated_sources} undated receipts.`
+        : `season source retrieval interval unavailable; ${season.undated_sources} undated receipts.`,
+      20,
+    );
+    paragraph(`season corpus sha-256: ${season.corpus_sha256}`, 20);
     paragraph(`publication time: ${publication.generated_at}`, 20);
     paragraph(`publication id: ${publication.publication_id}`, 20);
     if (publication.purpose === "fixture")
@@ -473,7 +485,7 @@ export async function cardPng(card: Card): Promise<Blob> {
 export default function DescriptiveCard({
   comparison,
   publication,
-  coverage,
+  season,
   controls,
 }: Card & { readonly controls?: ReactNode }) {
   const [state, setState] = useState<"idle" | "rendering" | "saved" | "failed">(
@@ -531,13 +543,13 @@ export default function DescriptiveCard({
             rendering.current = true;
             setState("rendering");
             try {
-              const snapshot = { comparison, publication, coverage };
+              const snapshot = { comparison, publication, season };
               const blob = await cardPng(snapshot);
               const url = URL.createObjectURL(blob);
               try {
                 const link = document.createElement("a");
                 link.href = url;
-                link.download = `hockey-stats-${snapshot.publication.season}-${snapshot.comparison.cards[0]!.player.player_id}-5v5.png`;
+                link.download = `hockey-stats-${snapshot.season.season}-${snapshot.comparison.cards[0]!.player.player_id}-5v5.png`;
                 document.body.append(link);
                 try {
                   link.click();

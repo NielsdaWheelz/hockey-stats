@@ -12,7 +12,8 @@ import {
   useRouteLoaderData,
 } from "react-router";
 import stylesheet from "./styles.css?url";
-import { LoadError } from "./presentation";
+import { LoadError, SeasonSelector, seasonLabel } from "./presentation";
+import { pendingSeasonChange, seasonSearch } from "./explorer";
 
 export const links = () => [{ rel: "stylesheet", href: stylesheet }];
 export const meta = () => [
@@ -27,8 +28,13 @@ export function Layout({ children }: { readonly children: ReactNode }) {
   const league = useRouteLoaderData<LeagueResponse>("routes/league");
   const player = useRouteLoaderData<PlayerResponse>("routes/player");
   const comparison = useRouteLoaderData<LeagueResponse>("routes/compare");
-  const season = (player ?? league ?? comparison)?.publication.season;
-  const seasonLabel = season ? `${season.slice(0, 4)}–${season.slice(6)}` : "";
+  const data = player ?? league ?? comparison;
+  const season = data?.season.season;
+  const location = useLocation();
+  const navigation = useNavigation();
+  const changingSeason =
+    navigation.state !== "idle" &&
+    pendingSeasonChange(location, navigation.location);
   return (
     <html lang="en">
       <head>
@@ -51,16 +57,24 @@ export function Layout({ children }: { readonly children: ReactNode }) {
         <div className="sheet">
           <header className="site-heading">
             <p className="eyebrow">
-              <Link to="/">hockey statistics / included results</Link>
+              <Link to={season ? `/?${seasonSearch("", season)}` : "/"}>
+                hockey statistics / included results
+              </Link>
             </p>
             <h1>
-              {seasonLabel && `${seasonLabel} · `}regular season · 5v5 recorded
+              {season && !changingSeason && `${seasonLabel(season)} · `}regular season · 5v5 recorded
               results
             </h1>
             <p>
               personal production and team attempts while on ice; unadjusted for
               teammates, opponents, score or deployment.
             </p>
+            {data && (
+              <SeasonSelector
+                season={data.season.season}
+                availableSeasons={data.available_seasons}
+              />
+            )}
           </header>
           {children}
           <footer>
@@ -91,7 +105,8 @@ export default function App() {
   }, [location.pathname]);
   const changingPage =
     navigation.state !== "idle" &&
-    navigation.location?.pathname !== location.pathname;
+    (navigation.location?.pathname !== location.pathname ||
+      pendingSeasonChange(location, navigation.location));
   return (
     <main id="main" ref={main} tabIndex={-1}>
       {changingPage ? (

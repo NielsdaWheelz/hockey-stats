@@ -1,4 +1,11 @@
 import * as Schema from "effect/Schema";
+import { useEffect } from "react";
+import {
+  useLocation,
+  useNavigation,
+  useSearchParams,
+  type ShouldRevalidateFunctionArgs,
+} from "react-router";
 import { HockeyId, type PlayerSummary, type Team } from "../shared/observed";
 import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
 import {
@@ -214,5 +221,79 @@ export function viewSearch(
 ): URLSearchParams {
   return new URLSearchParams(
     pending?.pathname === current.pathname ? pending.search : current.search,
+  );
+}
+
+export function seasonSearch(search: URLSearchParams | string, season: string) {
+  const next = new URLSearchParams(search);
+  next.set("season", season);
+  return next;
+}
+
+// only the idle normalization below may skip an omitted-season reload.
+let canonicalization: { readonly from: string; readonly to: string } | undefined;
+
+export function useCanonicalSearch(
+  season: string,
+  normalized: URLSearchParams,
+) {
+  const location = useLocation();
+  const navigation = useNavigation();
+  const [search, setSearch] = useSearchParams();
+  const next = new URLSearchParams(normalized);
+  if (!search.has("season")) next.set("season", season);
+  useEffect(() => {
+    if (navigation.state !== "idle") return;
+    canonicalization = undefined;
+    if (next.toString() === search.toString()) return;
+    if (!search.has("season"))
+      canonicalization = {
+        from: location.pathname + location.search,
+        to: `${location.pathname}?${next}`,
+      };
+    setSearch(next, {
+      replace: true,
+      preventScrollReset: true,
+      state: location.state,
+    });
+  }, [next.toString(), search.toString(), navigation.state, location]);
+}
+
+export function shouldRevalidateView(
+  { currentUrl, nextUrl, defaultShouldRevalidate }: ShouldRevalidateFunctionArgs,
+  presentationKeys: readonly string[],
+) {
+  if (
+    canonicalization?.from === currentUrl.pathname + currentUrl.search &&
+    canonicalization.to === nextUrl.pathname + nextUrl.search
+  ) {
+    // the router can ask twice for one navigation; keep the answer stable
+    // until the idle hook sees the committed location.
+    return false;
+  }
+  if (pendingSeasonChange(currentUrl, nextUrl)) return true;
+  if (
+    currentUrl.pathname === nextUrl.pathname &&
+    currentUrl.search !== nextUrl.search
+  ) {
+    const current = new URLSearchParams(currentUrl.search);
+    const next = new URLSearchParams(nextUrl.search);
+    for (const key of presentationKeys) {
+      current.delete(key);
+      next.delete(key);
+    }
+    if (current.toString() === next.toString()) return false;
+  }
+  return defaultShouldRevalidate;
+}
+
+export function pendingSeasonChange(
+  current: { readonly search: string },
+  pending?: { readonly search: string },
+) {
+  return (
+    pending !== undefined &&
+    JSON.stringify(new URLSearchParams(current.search).getAll("season")) !==
+      JSON.stringify(new URLSearchParams(pending.search).getAll("season"))
   );
 }

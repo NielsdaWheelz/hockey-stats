@@ -1,5 +1,5 @@
 import * as Schema from "effect/Schema";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import {
   Link,
   useLoaderData,
@@ -17,6 +17,9 @@ import {
   readPeerSettings,
   readRateMetric,
   viewSearch,
+  seasonSearch,
+  shouldRevalidateView,
+  useCanonicalSearch,
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
@@ -34,6 +37,7 @@ import {
   historySearch,
   playerName,
   teamName,
+  seasonLabel,
 } from "../presentation";
 
 export const clientLoader = ({ request }: ClientLoaderFunctionArgs) => {
@@ -48,35 +52,25 @@ export const clientLoader = ({ request }: ClientLoaderFunctionArgs) => {
     )
       ids.push(values[0]);
   }
-  return loadLeague(request.signal, ids);
+  search.delete("spatial");
+  if (ids.length) search.set("spatial", ids.join(","));
+  return loadLeague(request.signal, search);
 };
 export const ErrorBoundary = LoadError;
 
-export function shouldRevalidate({
-  currentUrl,
-  nextUrl,
-  defaultShouldRevalidate,
-}: ShouldRevalidateFunctionArgs) {
-  if (
-    currentUrl.pathname === nextUrl.pathname &&
-    currentUrl.search !== nextUrl.search
-  ) {
-    const current = new URLSearchParams(currentUrl.search);
-    const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["peers", "peerMin", "map", "metric"]) {
-      current.delete(key);
-      next.delete(key);
-    }
-    if (current.toString() === next.toString()) return false;
-  }
-  return defaultShouldRevalidate;
-}
+export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
+  shouldRevalidateView(args, ["peers", "peerMin", "map", "metric"]);
 
 function selection(
   values: string[],
   slot: "first" | "second",
   players: readonly PlayerSummary[],
-): { readonly player?: PlayerSummary; readonly error?: string } {
+  season: string,
+): {
+  readonly player?: PlayerSummary;
+  readonly error?: string;
+  readonly absentId?: string;
+} {
   if (values.length === 0 || (values.length === 1 && values[0] === ""))
     return {};
   if (values.length !== 1 || !Schema.is(HockeyId)(values[0]))
@@ -84,7 +78,10 @@ function selection(
   const player = players.find((row) => row.player_id === values[0]);
   return player
     ? { player }
-    : { error: `player ${values[0]} is not in this publication` };
+    : {
+        error: `no published player record for player ${values[0]} in ${seasonLabel(season)}`,
+        absentId: values[0],
+      };
 }
 
 export default function Compare() {
@@ -92,28 +89,14 @@ export default function Compare() {
   const location = useLocation();
   const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
-  const leagueSearch = historySearch(location.state?.leagueSearch);
+  const leagueSearch =
+    historySearch(location.state?.leagueSearch) ||
+    `?${seasonSearch("", data.season.season)}`;
   const { settings, search: peerNormalized } = readPeerSettings(search);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
   const { metric, search: normalized } = readRateMetric(mapNormalized);
-  useEffect(() => {
-    if (
-      navigation.state === "idle" &&
-      normalized.toString() !== search.toString()
-    )
-      setSearch(normalized, {
-        replace: true,
-        preventScrollReset: true,
-        state: location.state,
-      });
-  }, [
-    normalized.toString(),
-    search,
-    setSearch,
-    location.state,
-    navigation.state,
-  ]);
-  const viewQuery = new URLSearchParams();
+  useCanonicalSearch(data.season.season, normalized);
+  const viewQuery = seasonSearch("", data.season.season);
   if (metric !== "sog60") viewQuery.set("metric", metric);
   if (mode === "absolute") viewQuery.set("map", "absolute");
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
@@ -159,13 +142,18 @@ export default function Compare() {
       flushSync: true,
     });
   };
-  const first = selection(search.getAll("a"), "first", data.players);
-  const second = selection(search.getAll("b"), "second", data.players);
+  const first = selection(
+    search.getAll("a"), "first", data.players, data.season.season,
+  );
+  const second = selection(
+    search.getAll("b"), "second", data.players, data.season.season,
+  );
   const secondError =
     first.player && first.player.player_id === second.player?.player_id
       ? "choose a different player"
       : second.error;
   const committedPair = JSON.stringify([
+    data.season.season,
     search.getAll("a"),
     search.getAll("b"),
   ]);
@@ -200,8 +188,11 @@ export default function Compare() {
     ],
   );
   const profileLink = (playerId: string) => ({
-    to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
-    state: { leagueSearch, comparisonSearch: location.search },
+    to: `/players/${playerId}?${viewQuery}`,
+    state: {
+      leagueSearch,
+      comparisonSearch: `?${seasonSearch(search, data.season.season)}`,
+    },
   });
   return (
     <>
@@ -219,10 +210,11 @@ export default function Compare() {
           attempts “for” are by the player's team while on ice, not personal
           shots. attempts include scored, saved, missed and blocked shots.
         </p>
+        <p>both player searches use this season's published records.</p>
       </section>
       {data.players.length === 0 && (
         <p className="empty-search">
-          no players are available in this publication
+          no players are available in this season
         </p>
       )}
       <div className="comparison-pickers">
@@ -260,7 +252,18 @@ export default function Compare() {
             : "unselected")}
         .
       </p>
-      <GlobalGap coverage={data.coverage} />
+      {(first.absentId || second.absentId) && (
+        <nav className="back-link" aria-label="absent player histories">
+          {[first.absentId, second.absentId]
+            .filter((id): id is string => id !== undefined)
+            .map((id, index) => (
+              <Link key={`${index}-${id}`} {...profileLink(id)}>
+                player {id}: profile and published history
+              </Link>
+            ))}
+        </nav>
+      )}
+      <GlobalGap season={data.season} />
       {comparison && (
         <section aria-label="included player comparison">
           <PeerControls settings={settings} onChange={changePeers} />
@@ -358,19 +361,16 @@ export default function Compare() {
           profileLink={profileLink}
         />
       )}
-      {(first.player || (second.player && !secondError)) && (
+      {comparison && pair && (
         <SpatialViews
           spatial={data.spatial}
-          players={[
-            first.player,
-            secondError ? undefined : second.player,
-          ].filter((player): player is PlayerSummary => player !== undefined)}
-          season={data.publication.season}
+          players={pair}
+          season={data.season.season}
           mode={mode}
           onModeChange={changeMode}
         />
       )}
-      <Evidence publication={data.publication} coverage={data.coverage} />
+      <Evidence publication={data.publication} season={data.season} />
     </>
   );
 }

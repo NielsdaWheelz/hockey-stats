@@ -1,0 +1,32 @@
+{
+  "status": "verified",
+  "source_algebra_producer": "a44b43ba0639c65b2025c98ff5914878ce74bbab",
+  "diagnosis_producer": "1bea5b5",
+  "source_review": {
+    "selected_inputs": "exact pinned research identities; fixture bound parents",
+    "once_per_input_hashes": 16,
+    "selected_decode_allowlist": "instrumented exact match; no earlier score/covariance",
+    "malformed_source_cases": 18,
+    "fixtures_pairs": 10,
+    "shared_validator_cutover": "all four existing 04k fixture states validated without solves"
+  },
+  "finite_review": {
+    "record_rows": 9520,
+    "summary_rows": 5120,
+    "selected_scores": 10,
+    "decompositions": 20,
+    "preceding_means": 10,
+    "scale_rows": 40,
+    "closure_receipts": 17162,
+    "detached_original_parent_opens": "forbidden; complete ten-pair diagnosis passes",
+    "exclusive_output": "existing output rejected",
+    "refactor_preservation": "record,summary,scale row json exactly unchanged"
+  },
+  "red_green": {
+    "source": "missing reader import failed before implementation; source/refactor/adversarial suites green",
+    "diagnosis": "missing command failed before implementation; ten-pair fixture green; public-validator refactor green",
+    "report": "missing report boundary failed before implementation; detached exact-copy and fixture-only guards green"
+  },
+  "temporary_controller_policy": "delete after final research/content acceptance; keep this receipt and synthetic checked facts",
+  "root_review": "source/algebra before finite fixture; finite saved-row audit independently verifies 20350 scalar equalities; full research and content still pending"
+}

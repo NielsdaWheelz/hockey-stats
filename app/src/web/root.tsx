@@ -10,10 +10,11 @@ import {
   useLocation,
   useNavigation,
   useRouteLoaderData,
+  useSearchParams,
 } from "react-router";
 import stylesheet from "./styles.css?url";
-import { LoadError, SeasonSelector, seasonLabel } from "./presentation";
-import { pendingSeasonChange, seasonSearch } from "./explorer";
+import { LoadError, seasonLabel } from "./presentation";
+import { pendingSeasonChange, seasonSearch, viewSearch } from "./explorer";
 
 export const links = () => [{ rel: "stylesheet", href: stylesheet }];
 export const meta = () => [
@@ -32,6 +33,12 @@ export function Layout({ children }: { readonly children: ReactNode }) {
   const season = data?.season.season;
   const location = useLocation();
   const navigation = useNavigation();
+  const [, setSearch] = useSearchParams();
+  const pending = viewSearch(location, navigation.location).getAll("season");
+  const selected =
+    pending.length === 1 && data?.available_seasons.includes(pending[0]!)
+      ? pending[0]!
+      : season;
   const changingSeason =
     navigation.state !== "idle" &&
     pendingSeasonChange(location, navigation.location);
@@ -70,10 +77,33 @@ export function Layout({ children }: { readonly children: ReactNode }) {
               teammates, opponents, score or deployment.
             </p>
             {data && (
-              <SeasonSelector
-                season={data.season.season}
-                availableSeasons={data.available_seasons}
-              />
+              <div className="season-control">
+                <label htmlFor="season-selection">season</label>
+                <select
+                  id="season-selection"
+                  value={selected}
+                  onChange={(event) => {
+                    const next = viewSearch(location, navigation.location);
+                    if (
+                      next.getAll("season").length === 1 &&
+                      next.get("season") === event.currentTarget.value
+                    )
+                      return;
+                    next.set("season", event.currentTarget.value);
+                    setSearch(next, {
+                      preventScrollReset: true,
+                      state: location.state,
+                      flushSync: true,
+                    });
+                  }}
+                >
+                  {data.available_seasons.map((value) => (
+                    <option key={value} value={value}>
+                      {seasonLabel(value)}
+                    </option>
+                  ))}
+                </select>
+              </div>
             )}
           </header>
           {children}

@@ -4,10 +4,7 @@ import {
   useRevalidator,
   useRouteError,
   useLocation,
-  useNavigation,
-  useSearchParams,
 } from "react-router";
-import { seasonSearch, viewSearch } from "./explorer";
 import type {
   Metrics,
   PlayerSummary,
@@ -60,52 +57,6 @@ export const playerName = (player: PlayerSummary) =>
 export const teamName = (team: Team) => team.abbreviation ?? `team ${team.id}`;
 export const seasonLabel = (season: string) =>
   `${season.slice(0, 4)}–${season.slice(6)}`;
-
-export function SeasonSelector({
-  season,
-  availableSeasons,
-}: {
-  readonly season: string;
-  readonly availableSeasons: readonly string[];
-}) {
-  const location = useLocation();
-  const navigation = useNavigation();
-  const [, setSearch] = useSearchParams();
-  const pending = viewSearch(location, navigation.location).getAll("season");
-  const selected =
-    pending.length === 1 && availableSeasons.includes(pending[0]!)
-      ? pending[0]!
-      : season;
-  return (
-    <div className="season-control">
-      <label htmlFor="season-selection">season</label>
-      <select
-        id="season-selection"
-        value={selected}
-        onChange={(event) => {
-          const next = viewSearch(location, navigation.location);
-          if (
-            next.getAll("season").length === 1 &&
-            next.get("season") === event.currentTarget.value
-          )
-            return;
-          next.set("season", event.currentTarget.value);
-          setSearch(next, {
-            preventScrollReset: true,
-            state: location.state,
-            flushSync: true,
-          });
-        }}
-      >
-        {availableSeasons.map((value) => (
-          <option key={value} value={value}>
-            {seasonLabel(value)}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
 
 const normalizedName = (value: string) =>
   value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
@@ -346,8 +297,9 @@ export function LoadError() {
     ? data.available_seasons
     : [];
   const selected = new URLSearchParams(location.search).getAll("season");
-  const leagueSearch =
-    selected.length === 1 ? `?${seasonSearch("", selected[0]!)}` : "";
+  const leagueQuery = new URLSearchParams();
+  if (selected.length === 1) leagueQuery.set("season", selected[0]!);
+  const leagueSearch = leagueQuery.size ? `?${leagueQuery}` : "";
   return (
     <section className="load-error">
       <h2>
@@ -376,16 +328,17 @@ export function LoadError() {
         <nav aria-label="available seasons">
           <p>choose a published season:</p>
           <ul>
-            {available.map((season) => (
-              <li key={season}>
-                <Link
-                  to={`${location.pathname}?${seasonSearch(location.search, season)}`}
-                  state={location.state}
-                >
-                  {seasonLabel(season)}
-                </Link>
-              </li>
-            ))}
+            {available.map((season) => {
+              const next = new URLSearchParams(location.search);
+              next.set("season", season);
+              return (
+                <li key={season}>
+                  <Link to={`${location.pathname}?${next}`} state={location.state}>
+                    {seasonLabel(season)}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}

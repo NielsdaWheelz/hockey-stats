@@ -1,0 +1,29 @@
+# producer boundary evidence
+
+`observed.py` retains event assignment and masks; `observed_spatial.py` owns only the display partition, fixed pooling and finalized cell reductions. on-ice and personal populations keep their existing calculations. a spatial failure removes an entire coalesced segment, preserving both teams' matched time and all zero-event segments.
+
+the physical league reference reduces game spatial support. an unassigned roster association outside supported intervals does not invent additional physical time loss. global unassigned games still make player-season coverage partial or unavailable through the existing owner and remain disclosed by the publication's global gap.
+
+the initial temporary geometry/kernel/projection controller produced an import red before the new contract existed. ten final checks pass after refactoring: geometry, pooling, all support projections, native-coordinate drift, collateral segment masks, negative/rounded-outside coordinates, sqlite reductions, zero-event time, global unassigned player-season gaps and synthetic own/awarded admission. the controller and red/green logs remain temporarily at `/Users/nnandal/Documents/code/hockey-stats-local/05e-verification/producer-tests.py`, `producer-red.log`, `producer-green.log` and `producer-refactor-green.log` for independent rerun; they are not a retained regression harness.
+
+independent perpendicular integration checks all 668 areas/centroids against the producer's x integration: maximum area disagreement `4.62e-14 ft²`; centroid disagreement at most `7.11e-14 ft`. the total clipped area is `16327.008640414399 ft²`. independent boundary assignments, impulses, zeros, uniform input, linearity and mass conservation pass. the full kernel preserves mass rather than uniform boundary density. the ordered little-endian float64 geometry digest, fields `cell_id,x_min,x_max,y_min,y_max,center_x,center_y,area_sqft`, is `8341cd20c143701e38bc054301c6bca42ed74d7006ef73f8105913d81ce57aa9`.
+
+[original checked facts](producer-original-facts.json) retain exact source locators and dispositions for eight complete fixture bundles. `2025021094 /plays/164` is excluded as a penalty shot; `2023020955 /plays/342` is a known failed attempt outside the selected kinds. conflicting sides in `2023020078` remove every assigned unblocked-event segment; the ordered p3 switch in `2021020942` removes p3 event segments while retaining p1–2 support. no side inference, majority repair or special switch exception is added.
+
+original own/awarded games `2025020184`, `2025020282` and `2025020307` already lose all on-ice support through inherited count-accounting conflicts. they therefore cannot prove positive spatial admission. an explicit synthetic control removes only those accounting checks: the original credited events at `/plays/158`, `/plays/282`, `/plays/14` then enter cells `637`, `621`, `622`, respectively. this tests the absence of an additional physical-shooter restriction; it does not repair or relabel the original evidence.
+
+three temporary sqlite scenarios additionally exercise zero time without gaps, zero spatial time with a missing-coordinate gap, and positive partial support produced by an actual missing-coordinate segment mask. all survive producer validation, strict sqlite and independent read-back. these are synthetic candidates, not source observations.
+
+# full pinned candidate
+
+clean analytical producer `60b258b` builds all 1,312 pinned games at `/Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-01/observed.sqlite`; its complete receipt is adjacent. publication id `7535d321-8f86-498f-b204-209886436b5c`, database sha-256 `cc31faada58b39f70298b013d14ec30d2e2989d6336bb3de625fe6547f9a0987`. [candidate comparison](producer-candidate.json) records exact costs, source locators and equality checks against the preceding schema-2 candidate.
+
+all old fields match exactly: 940 player rows, 1,312 game rows, 47,231 player-game rows and 940 season rows. old population versions, coverage, source dates, corpus identity, all 6,561 consumed-file receipts and original producer identities remain identical. no source acquisition or fitted artifact is used.
+
+spatial support retains 1,280 games and all 940 players, with 3,700,910 physical seconds, 90,109 known excluded seconds and 84,180 recorded unblocked attempts. 382 games are partial and 32 unavailable; these describe included time. publication stores 778,894 sparse player-game cells and 627,920 dense player-season cells.
+
+the only new real support loss is 24 physical seconds in `2025020614`: api `/plays/160`, event `639`, a p2 `14:17` missed shot at recorded `(79,-42)`. its rounded-corner calculation is `7² + 27.5² = 805.25 > 28²`. source-derived normalization remains consistent; the location is outside the declared rink. the assigned p2 `[853,877]` segment is excluded for both teams, with one event and no collateral unblocked event. existing on-ice/personal support remains intact. this newly distinct original focal-location case requires its complete capture bundle and receipts to remain preserved; it is not repaired by clipping.
+
+complete build cost, including receipt serialization/finalization: `73.88 s` wall, `2,045,886,464` bytes maximum resident memory. the receipt's narrower measurement through sqlite read-back is `71.9075 s` and `1,321,844,736` bytes maximum resident memory; serialization raises the complete-process peak. consumed input bytes: `3,018,908,088`. database bytes: `133,038,080`. the detailed receipt is about 366 mib and is not served to the application. these are measured costs, not runtime promises.
+
+no activation or scientific admission occurs. strict reader, api, browser, detached serving and code-paired rollback checks are owned by the integrated application verification.

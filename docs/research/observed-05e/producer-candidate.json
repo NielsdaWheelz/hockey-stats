@@ -1,0 +1,222 @@
+{
+  "old_candidate": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05d-candidate-01",
+  "candidate": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-01",
+  "database_sha256": "cc31faada58b39f70298b013d14ec30d2e2989d6336bb3de625fe6547f9a0987",
+  "old_columns_equal": {
+    "player": 940,
+    "game": 1312,
+    "player_game": 47231,
+    "player_season": 940
+  },
+  "old_metadata_equal": true,
+  "input_receipts_equal": true,
+  "source_implementations_equal": true,
+  "consumed_files": 6561,
+  "spatial_coverage": {
+    "included_seconds": 3700910,
+    "known_excluded_seconds": 90109,
+    "unblocked_attempts": 84180,
+    "unblocked_per60": 40.942362824278355,
+    "coverage_status": "partial",
+    "reason_codes": [
+      "count_accounting_conflict",
+      "elapsed_membership_unresolved",
+      "event_evidence_unresolved",
+      "roster_identity_unresolved",
+      "spatial_location_outside_rink",
+      "unpaired_report_attempt"
+    ],
+    "inventory_games": 1312,
+    "games_with_included_time": 1280,
+    "partial_games": 382,
+    "unavailable_games": 32,
+    "reason_game_counts": [
+      {
+        "code": "count_accounting_conflict",
+        "games": 30
+      },
+      {
+        "code": "elapsed_membership_unresolved",
+        "games": 297
+      },
+      {
+        "code": "event_evidence_unresolved",
+        "games": 310
+      },
+      {
+        "code": "roster_identity_unresolved",
+        "games": 1
+      },
+      {
+        "code": "spatial_location_outside_rink",
+        "games": 1
+      },
+      {
+        "code": "unpaired_report_attempt",
+        "games": 74
+      }
+    ]
+  },
+  "outside": [
+    {
+      "game_id": "2025020614",
+      "source_locator": "/plays/160",
+      "event_id": 639,
+      "event": {
+        "source_index": 160,
+        "event_id": 639,
+        "sort_order": 434,
+        "type_code": 507,
+        "type_key": "missed-shot",
+        "kind_valid": true,
+        "period_number": 2,
+        "period_type": "REG",
+        "time_in_period": "14:17",
+        "time_remaining": "05:43",
+        "elapsed_seconds": 857,
+        "timed_period": true,
+        "situation_code": "1551",
+        "home_team_defending_side": "left",
+        "zone_code": "O",
+        "owner_team_id": 54,
+        "reported_x": 79,
+        "reported_y": -42,
+        "roles": {
+          "shooter": 8476925,
+          "goalie": 8479406
+        },
+        "shooting_team_id": 54,
+        "shot_type": "wrist",
+        "reason": "wide-right",
+        "secondary_reason": null,
+        "penalty_type": null,
+        "penalty_description": null,
+        "penalty_duration_minutes": null,
+        "away_score": null,
+        "home_score": null
+      },
+      "spatial": {
+        "source_index": 160,
+        "segment_index": 157,
+        "team_id": "54",
+        "reason": "spatial_location_outside_rink",
+        "cell_id": null,
+        "status": "masked"
+      },
+      "segment": {
+        "period_number": 2,
+        "start_seconds": 853,
+        "end_seconds": 877,
+        "interval_indices": [
+          218
+        ],
+        "excluded_reasons": []
+      },
+      "source_inputs": [
+        {
+          "source": "play-by-play",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2025020614/play-by-play/capture.json",
+          "requested_at": "2026-09-30T19:32:50.841Z",
+          "http_status": 200,
+          "body_sha256": "d9eeeb6ec312a84af70fd28447838521ee8d3e08d3ce834753bebab7f31b0c7c",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "boxscore",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2025020614/boxscore/capture.json",
+          "requested_at": "2026-09-30T19:32:51.105Z",
+          "http_status": 200,
+          "body_sha256": "e797c18abbd8e754992ca2ae8a5a02a55fa774ff0efb7832b64f0173dceabb64",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "shifts",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2025020614/shifts/capture.json",
+          "requested_at": "2026-09-30T19:32:51.204Z",
+          "http_status": 200,
+          "body_sha256": "ae04d3e805ba81ce2d26354b25a4bb43821f66fc541db7f524b77838c1df3b73",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "game-summary",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2025020614/game-summary/capture.json",
+          "requested_at": "2026-09-30T19:32:51.313Z",
+          "http_status": 200,
+          "body_sha256": "a54a123687b9134e672f32c6239114f4aebc43220db17cd25d7fa9c40db7fdff",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "play-report",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2025020614/play-report/capture.json",
+          "requested_at": "2026-09-30T19:32:51.534Z",
+          "http_status": 200,
+          "body_sha256": "37efe93e8776d9e26aa6c03e2946576668e0c039d762d8794aca17679da48d69",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "landing",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2025020614/landing/capture.json",
+          "requested_at": "2026-09-30T19:32:51.912Z",
+          "http_status": 200,
+          "body_sha256": "a8126d003e7e508bd8f14c1e6db22731fc5dafaee9fb729d12128d1a277dd05f",
+          "status": "parsed",
+          "reason": null
+        }
+      ],
+      "spatial_identities": {
+        "physical_included_seconds": 2888,
+        "player_included_seconds": 28880,
+        "known_excluded_seconds": 24,
+        "additional_excluded_seconds": 24,
+        "physical_unblocked": 61,
+        "player_unblocked_for": 305,
+        "player_unblocked_against": 305
+      },
+      "collateral": [
+        {
+          "source_index": 160,
+          "segment_index": 157,
+          "team_id": "54",
+          "reason": "spatial_location_outside_rink",
+          "cell_id": null,
+          "status": "masked"
+        }
+      ]
+    }
+  ],
+  "positive_spatial_players": 940,
+  "season_cell_rows": 627920,
+  "game_cell_rows": 778894,
+  "producer": {
+    "git_commit": "11925f113b84885399b0c62664e657d06faf64ef",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "spatial_consumed_fields": [
+      "interpreted.events.reported_x",
+      "interpreted.events.reported_y",
+      "interpreted.events.home_team_defending_side",
+      "reconstruction.events.attacking_x",
+      "reconstruction.events.attacking_y",
+      "reconstruction.events.coordinate_status"
+    ],
+    "sqlite_version": "3.54.1",
+    "source_implementations": [
+      {
+        "git_commit": "af3e876bd35dd054a0eb46ca1f0924eea779b8d3",
+        "git_dirty": true,
+        "python_version": "3.14.7"
+      }
+    ]
+  },
+  "cost": {
+    "wall_seconds": 71.90749516698997,
+    "peak_rss_bytes": 1321844736,
+    "consumed_bytes": 3018908088,
+    "database_bytes": 133038080
+  }
+}

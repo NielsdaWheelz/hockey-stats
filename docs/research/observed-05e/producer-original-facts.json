@@ -1,0 +1,628 @@
+[
+  {
+    "game_id": "2025020001",
+    "metrics": {
+      "game_id": "2025020001",
+      "game_date": "2025-10-07",
+      "away_team_id": "16",
+      "home_team_id": "13",
+      "away_abbreviation": "CHI",
+      "home_abbreviation": "FLA",
+      "included_seconds": 2962,
+      "known_excluded_seconds": 0,
+      "known_unresolved_seconds": 0,
+      "horizon_unavailable": false,
+      "away_attempts": 40,
+      "home_attempts": 59,
+      "coverage_status": "complete",
+      "reason_codes": [],
+      "personal_included_seconds": 2962,
+      "personal_known_excluded_seconds": 0,
+      "spatial_included_seconds": 2962,
+      "spatial_known_excluded_seconds": 0,
+      "spatial_away_unblocked": 27,
+      "spatial_home_unblocked": 42,
+      "spatial_coverage_status": "complete",
+      "spatial_reason_codes": []
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/2",
+        "kind": "blocked-shot",
+        "timed": true,
+        "coordinates": [
+          -61,
+          3
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 2,
+          "report_source_index": 5,
+          "shift_relation": "both",
+          "status": "included",
+          "segment_index": 0
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/66",
+        "kind": "goal",
+        "timed": true,
+        "coordinates": [
+          66,
+          -1
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 66,
+          "report_source_index": 69,
+          "shift_relation": "before",
+          "status": "included",
+          "segment_index": 58
+        },
+        "spatial": {
+          "source_index": 66,
+          "segment_index": 58,
+          "team_id": "16",
+          "reason": null,
+          "cell_id": 569,
+          "status": "included"
+        }
+      },
+      {
+        "source_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/356",
+        "kind": "blocked-shot",
+        "timed": true,
+        "coordinates": [
+          83,
+          3
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 356,
+          "report_source_index": 359,
+          "shift_relation": "both",
+          "status": "outside_population"
+        },
+        "spatial": null
+      }
+    ]
+  },
+  {
+    "game_id": "2025021094",
+    "metrics": {
+      "game_id": "2025021094",
+      "game_date": "2026-03-20",
+      "away_team_id": "12",
+      "home_team_id": "10",
+      "away_abbreviation": "CAR",
+      "home_abbreviation": "TOR",
+      "included_seconds": 2713,
+      "known_excluded_seconds": 26,
+      "known_unresolved_seconds": 118,
+      "horizon_unavailable": false,
+      "away_attempts": 52,
+      "home_attempts": 32,
+      "coverage_status": "partial",
+      "reason_codes": [
+        "elapsed_membership_unresolved",
+        "event_evidence_unresolved"
+      ],
+      "personal_included_seconds": 2713,
+      "personal_known_excluded_seconds": 26,
+      "spatial_included_seconds": 2713,
+      "spatial_known_excluded_seconds": 26,
+      "spatial_away_unblocked": 35,
+      "spatial_home_unblocked": 22,
+      "spatial_coverage_status": "partial",
+      "spatial_reason_codes": [
+        "elapsed_membership_unresolved",
+        "event_evidence_unresolved"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2025021094/play-by-play/body.bin#/plays/164",
+        "kind": "goal",
+        "timed": true,
+        "coordinates": [
+          -78,
+          2
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 164,
+          "report_source_index": 167,
+          "shift_relation": "neither",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2025021094/play-by-play/body.bin#/plays/168",
+        "kind": "shot-on-goal",
+        "timed": true,
+        "coordinates": [
+          -83,
+          -1
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 168,
+          "report_source_index": 171,
+          "shift_relation": "both",
+          "status": "included",
+          "segment_index": 164
+        },
+        "spatial": {
+          "source_index": 168,
+          "segment_index": 164,
+          "team_id": "12",
+          "reason": null,
+          "cell_id": 620,
+          "status": "included"
+        }
+      },
+      {
+        "source_locator": "fixtures/captures/2025021094/play-by-play/body.bin#/plays/169",
+        "kind": "shot-on-goal",
+        "timed": true,
+        "coordinates": [
+          -84,
+          -2
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 169,
+          "report_source_index": 172,
+          "shift_relation": "both",
+          "status": "included",
+          "segment_index": 164
+        },
+        "spatial": {
+          "source_index": 169,
+          "segment_index": 164,
+          "team_id": "12",
+          "reason": null,
+          "cell_id": 620,
+          "status": "included"
+        }
+      }
+    ]
+  },
+  {
+    "game_id": "2023020078",
+    "metrics": {
+      "game_id": "2023020078",
+      "game_date": "2023-10-21",
+      "away_team_id": "3",
+      "home_team_id": "55",
+      "away_abbreviation": "NYR",
+      "home_abbreviation": "SEA",
+      "included_seconds": 3138,
+      "known_excluded_seconds": 0,
+      "known_unresolved_seconds": 0,
+      "horizon_unavailable": false,
+      "away_attempts": 44,
+      "home_attempts": 42,
+      "coverage_status": "complete",
+      "reason_codes": [],
+      "personal_included_seconds": 3138,
+      "personal_known_excluded_seconds": 0,
+      "spatial_included_seconds": 2009,
+      "spatial_known_excluded_seconds": 1129,
+      "spatial_away_unblocked": 0,
+      "spatial_home_unblocked": 0,
+      "spatial_coverage_status": "partial",
+      "spatial_reason_codes": [
+        "spatial_frame_unresolved"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2023020078/play-by-play/body.bin#/plays/0",
+        "kind": "period-start",
+        "timed": true,
+        "coordinates": [
+          null,
+          null
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 0,
+          "report_source_index": 3,
+          "shift_relation": "after",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2023020078/play-by-play/body.bin#/plays/50",
+        "kind": "faceoff",
+        "timed": true,
+        "coordinates": [
+          -20,
+          22
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 50,
+          "report_source_index": 53,
+          "shift_relation": "after",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2023020078/play-by-play/body.bin#/plays/106",
+        "kind": "period-start",
+        "timed": true,
+        "coordinates": [
+          null,
+          null
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 106,
+          "report_source_index": 109,
+          "shift_relation": "unavailable",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2023020078/play-by-play/body.bin#/plays/112",
+        "kind": "hit",
+        "timed": true,
+        "coordinates": [
+          95,
+          -20
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 112,
+          "report_source_index": 115,
+          "shift_relation": "both",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2023020078/play-by-play/body.bin#/plays/201",
+        "kind": "stoppage",
+        "timed": true,
+        "coordinates": [
+          null,
+          null
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 201,
+          "report_source_index": 204,
+          "shift_relation": "unavailable",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2023020078/play-by-play/body.bin#/plays/202",
+        "kind": "period-start",
+        "timed": true,
+        "coordinates": [
+          null,
+          null
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 202,
+          "report_source_index": 205,
+          "shift_relation": "unavailable",
+          "status": "outside_population"
+        },
+        "spatial": null
+      }
+    ]
+  },
+  {
+    "game_id": "2021020942",
+    "metrics": {
+      "game_id": "2021020942",
+      "game_date": "2022-03-13",
+      "away_team_id": "10",
+      "home_team_id": "7",
+      "away_abbreviation": "TOR",
+      "home_abbreviation": "BUF",
+      "included_seconds": 2550,
+      "known_excluded_seconds": 93,
+      "known_unresolved_seconds": 54,
+      "horizon_unavailable": false,
+      "away_attempts": 54,
+      "home_attempts": 41,
+      "coverage_status": "partial",
+      "reason_codes": [
+        "elapsed_membership_unresolved",
+        "event_evidence_unresolved"
+      ],
+      "personal_included_seconds": 2550,
+      "personal_known_excluded_seconds": 93,
+      "spatial_included_seconds": 2266,
+      "spatial_known_excluded_seconds": 377,
+      "spatial_away_unblocked": 32,
+      "spatial_home_unblocked": 24,
+      "spatial_coverage_status": "partial",
+      "spatial_reason_codes": [
+        "elapsed_membership_unresolved",
+        "event_evidence_unresolved",
+        "spatial_frame_unresolved"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2021020942/play-by-play/body.bin#/plays/255",
+        "kind": "goal",
+        "timed": true,
+        "coordinates": [
+          84,
+          22
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 255,
+          "report_source_index": 258,
+          "shift_relation": "before",
+          "status": "included",
+          "segment_index": 169
+        },
+        "spatial": {
+          "source_index": 255,
+          "segment_index": 169,
+          "team_id": "7",
+          "reason": "spatial_frame_unresolved",
+          "cell_id": null,
+          "status": "masked"
+        }
+      },
+      {
+        "source_locator": "fixtures/captures/2021020942/play-by-play/body.bin#/plays/281",
+        "kind": "stoppage",
+        "timed": true,
+        "coordinates": [
+          null,
+          null
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 281,
+          "report_source_index": 284,
+          "shift_relation": "before",
+          "status": "outside_population"
+        },
+        "spatial": null
+      },
+      {
+        "source_locator": "fixtures/captures/2021020942/play-by-play/body.bin#/plays/282",
+        "kind": "faceoff",
+        "timed": true,
+        "coordinates": [
+          69,
+          22
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 282,
+          "report_source_index": 285,
+          "shift_relation": "after",
+          "status": "outside_population"
+        },
+        "spatial": null
+      }
+    ]
+  },
+  {
+    "game_id": "2025020184",
+    "metrics": {
+      "game_id": "2025020184",
+      "game_date": "2025-11-01",
+      "away_team_id": "21",
+      "home_team_id": "28",
+      "away_abbreviation": "COL",
+      "home_abbreviation": "SJS",
+      "included_seconds": 0,
+      "known_excluded_seconds": 2804,
+      "known_unresolved_seconds": 240,
+      "horizon_unavailable": false,
+      "away_attempts": null,
+      "home_attempts": null,
+      "coverage_status": "unavailable",
+      "reason_codes": [
+        "count_accounting_conflict",
+        "elapsed_membership_unresolved",
+        "event_evidence_unresolved"
+      ],
+      "personal_included_seconds": 0,
+      "personal_known_excluded_seconds": 2804,
+      "spatial_included_seconds": 0,
+      "spatial_known_excluded_seconds": 2804,
+      "spatial_away_unblocked": null,
+      "spatial_home_unblocked": null,
+      "spatial_coverage_status": "unavailable",
+      "spatial_reason_codes": [
+        "count_accounting_conflict",
+        "elapsed_membership_unresolved",
+        "event_evidence_unresolved"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2025020184/play-by-play/body.bin#/plays/158",
+        "kind": "goal",
+        "timed": true,
+        "coordinates": [
+          85,
+          2
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 158,
+          "report_source_index": 161,
+          "shift_relation": "before",
+          "status": "masked",
+          "segment_index": 132
+        },
+        "spatial": null
+      }
+    ]
+  },
+  {
+    "game_id": "2025020282",
+    "metrics": {
+      "game_id": "2025020282",
+      "game_date": "2025-11-14",
+      "away_team_id": "2",
+      "home_team_id": "68",
+      "away_abbreviation": "NYI",
+      "home_abbreviation": "UTA",
+      "included_seconds": 0,
+      "known_excluded_seconds": 2582,
+      "known_unresolved_seconds": 0,
+      "horizon_unavailable": false,
+      "away_attempts": null,
+      "home_attempts": null,
+      "coverage_status": "unavailable",
+      "reason_codes": [
+        "count_accounting_conflict"
+      ],
+      "personal_included_seconds": 0,
+      "personal_known_excluded_seconds": 2582,
+      "spatial_included_seconds": 0,
+      "spatial_known_excluded_seconds": 2582,
+      "spatial_away_unblocked": null,
+      "spatial_home_unblocked": null,
+      "spatial_coverage_status": "unavailable",
+      "spatial_reason_codes": [
+        "count_accounting_conflict"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2025020282/play-by-play/body.bin#/plays/282",
+        "kind": "goal",
+        "timed": true,
+        "coordinates": [
+          -84,
+          -4
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 282,
+          "report_source_index": 285,
+          "shift_relation": "before",
+          "status": "masked",
+          "segment_index": 270
+        },
+        "spatial": null
+      }
+    ]
+  },
+  {
+    "game_id": "2025020307",
+    "metrics": {
+      "game_id": "2025020307",
+      "game_date": "2025-11-18",
+      "away_team_id": "19",
+      "home_team_id": "10",
+      "away_abbreviation": "STL",
+      "home_abbreviation": "TOR",
+      "included_seconds": 0,
+      "known_excluded_seconds": 2928,
+      "known_unresolved_seconds": 0,
+      "horizon_unavailable": false,
+      "away_attempts": null,
+      "home_attempts": null,
+      "coverage_status": "unavailable",
+      "reason_codes": [
+        "count_accounting_conflict"
+      ],
+      "personal_included_seconds": 0,
+      "personal_known_excluded_seconds": 2928,
+      "spatial_included_seconds": 0,
+      "spatial_known_excluded_seconds": 2928,
+      "spatial_away_unblocked": null,
+      "spatial_home_unblocked": null,
+      "spatial_coverage_status": "unavailable",
+      "spatial_reason_codes": [
+        "count_accounting_conflict"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2025020307/play-by-play/body.bin#/plays/14",
+        "kind": "goal",
+        "timed": true,
+        "coordinates": [
+          83,
+          8
+        ],
+        "side": "right",
+        "on_ice": {
+          "source_index": 14,
+          "report_source_index": 17,
+          "shift_relation": "before",
+          "status": "masked",
+          "segment_index": 8
+        },
+        "spatial": null
+      }
+    ]
+  },
+  {
+    "game_id": "2023020955",
+    "metrics": {
+      "game_id": "2023020955",
+      "game_date": "2024-03-01",
+      "away_team_id": "1",
+      "home_team_id": "24",
+      "away_abbreviation": "NJD",
+      "home_abbreviation": "ANA",
+      "included_seconds": 2848,
+      "known_excluded_seconds": 0,
+      "known_unresolved_seconds": 2,
+      "horizon_unavailable": false,
+      "away_attempts": 64,
+      "home_attempts": 35,
+      "coverage_status": "partial",
+      "reason_codes": [
+        "elapsed_membership_unresolved"
+      ],
+      "personal_included_seconds": 2848,
+      "personal_known_excluded_seconds": 0,
+      "spatial_included_seconds": 2848,
+      "spatial_known_excluded_seconds": 0,
+      "spatial_away_unblocked": 49,
+      "spatial_home_unblocked": 26,
+      "spatial_coverage_status": "partial",
+      "spatial_reason_codes": [
+        "elapsed_membership_unresolved"
+      ]
+    },
+    "facts": [
+      {
+        "source_locator": "fixtures/captures/2023020955/play-by-play/body.bin#/plays/342",
+        "kind": "failed-shot-attempt",
+        "timed": true,
+        "coordinates": [
+          -80,
+          0
+        ],
+        "side": "left",
+        "on_ice": {
+          "source_index": 342,
+          "report_source_index": null,
+          "shift_relation": "unavailable",
+          "status": "outside_population"
+        },
+        "spatial": null
+      }
+    ]
+  }
+]

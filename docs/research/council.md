@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05e implementation and delivery review — 2026-10-21
+
+independent source/statistical, systems and content reviews clear [05e implementation and acceptance](observed-05e/verification.md). an independent raw-source scan and perpendicular geometry oracle verify population masks, shooting-team orientation, all 668 clipped cells and physical/player/league conservation. all preceding fields/input receipts remain exact. selected profile/comparison maps, numerical alternatives, pending selections/cancellation, native zoom and detached browsing pass; temporary checks are deleted after final green. source-located own/awarded semantics and selective coverage remain explicit, without ability or physical-release claims.
+
+[pr #38](https://github.com/NielsdaWheelz/hockey-stats/pull/38) merges the reviewed tree with clean producer ancestry. independent delivery review preserves eight original primary drafts and two concurrent handoff updates, the final candidate/receipt and existing schema-2 active/schema-1 previous publication. primary imports/typechecking and separate-candidate reads pass; task refs/worktree and owned scratch are removed without an alias. compiled schema-2 assets remain serving while source moves to schema 3. costs remain the third spatial denominator, fixed display quantization/blur, 133 mb publication, explicit code-paired activation/rollback and one restarted pending request when controls overlap. activation and scientific admission remain separate.
+
 ## 05e specification review — 2026-10-21
 
 independent source/statistical, systems and content reviewers clear [05e's observed spatial contract](../specs/05e-spatial-views.md) after league-denominator, zero-time and visible-reference-coverage clarifications. the user selected league differences plus absolute rates and fixed descriptive smoothing. this is specification review, not implemented acceptance, publication or scientific admission; [the plan](../plan.md) owns assignment.

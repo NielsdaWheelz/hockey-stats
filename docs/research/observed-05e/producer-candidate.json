@@ -1,7 +1,16 @@
 {
   "old_candidate": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05d-candidate-01",
-  "candidate": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-01",
-  "database_sha256": "cc31faada58b39f70298b013d14ec30d2e2989d6336bb3de625fe6547f9a0987",
+  "candidate": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02",
+  "database_sha256": "dafb90d595bf68b6361652ca1536e442fa1c00332d498751bc4c43fadb9c2fed",
+  "development_candidate_all_fact_rows_equal": {
+    "player": 940,
+    "game": 1312,
+    "player_game": 47231,
+    "player_season": 940,
+    "spatial_cell": 668,
+    "player_game_spatial": 778894,
+    "player_season_spatial": 627920
+  },
   "old_columns_equal": {
     "player": 940,
     "game": 1312,
@@ -193,7 +202,7 @@
   "season_cell_rows": 627920,
   "game_cell_rows": 778894,
   "producer": {
-    "git_commit": "11925f113b84885399b0c62664e657d06faf64ef",
+    "git_commit": "0ccc3a0090aff963168d93d2fec08f7c07f2e312",
     "git_dirty": false,
     "python_version": "3.14.8",
     "spatial_consumed_fields": [
@@ -214,8 +223,8 @@
     ]
   },
   "cost": {
-    "wall_seconds": 71.90749516698997,
-    "peak_rss_bytes": 1321844736,
+    "wall_seconds": 75.20293816598132,
+    "peak_rss_bytes": 1325318144,
     "consumed_bytes": 3018908088,
     "database_bytes": 133038080
   }

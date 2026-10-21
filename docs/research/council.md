@@ -10,6 +10,8 @@ review repairs raw/derived landing completeness and clocks, shared identity owne
 
 costs remain the separate common personal denominator and collateral exclusions when needed, wider tables, added original-source reads/detailed receipt, manual incompatible-schema cutover/rollback and noneditable height-growing pngs. source-selected observations establish neither ability nor official full totals. active/previous publication bytes remain intact; activation, fitting, acquisition, personal peer plots and later 05e remain separate assignments. historical scientific verdicts are unchanged.
 
+the subsequently assigned pr, merge and cleanup is complete: [pr #37](https://github.com/NielsdaWheelz/hockey-stats/pull/37), merge `f2bab51`, preserves the reviewed tree and clean producers. primary imports/typechecking and candidate api checks pass; the schema-1 publication and compatible old build remain intact. task refs/worktree, redundant owned stash and scratch are removed after preserving all thirteen primary drafts; no alias is required. [verification](observed-05d/verification.md) and its delivery receipts record the ordinary restart of the identical old build, preservation and independent final review.
+
 ## 05d specification review — 2026-10-21
 
 independent source/statistical, systems and content reviewers clear [05d's descriptive-card contract](../specs/05d-descriptive-cards.md). the user chose a single-player png and separate personal support, preserving existing on-ice results. recorded shots on goal, goals and primary assists extend the existing publication and views; 04m supplies no dependency or release authority. [the plan](../plan.md) owns assignment.

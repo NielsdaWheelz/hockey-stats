@@ -2,6 +2,20 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05f implementation review — 2026-10-21
+
+independent statistical, systems and rendered-content reviews clear [05f implementation and acceptance](observed-05f/verification.md). exact family-specific membership and midpoint ties agree with independent typed-response arithmetic and real cohort/table enumeration. one prepared model supplies all five overview rows, one detail and the png; invalid/overlapping route edits retain coherent settings and publication facts. actual exports, failure/retry/cleanup, keyboard paths, native 200% zoom and detached browsing pass.
+
+review resolves rounded-minute eligibility ambiguity, moves against direction beside its image row, removes redundant cloning/obsolete presentation paths, and exposes the existing source corpus hash through the authoritative evidence panel. no source, database, api, dependency or scientific contract changes. all temporary checks/controllers/tool dependencies are removed after final green; the active 05e site and both databases remain unchanged. accepted costs remain cohort-sensitive ordinal compression, distinct supports, withheld excluded-player standings, one detail metric and compact exports with fuller page evidence. native select typeahead is verified; mac browser automation did not exercise popup arrows. [the plan](../plan.md) owns completion and separate activation.
+
+## 05f specification review — 2026-10-21
+
+independent product/content, statistical and systems reviewers clear [05f's comparative observed-card contract](../specs/05f-comparative-observed-cards.md). the user chose raw rates plus numeric percentiles, increasing with the rate throughout, with standing withheld outside the reference cohort. all five rates already exist in coherent responses; personal/on-ice minute eligibility must remain separate. the exact midpoint empirical convention resolves tied values without a statistical library or new publication contract.
+
+content review favors five compact rows and one detail distribution, with neutral direction and raw magnitudes retained. repeated coverage/outside notices belong once per family, while every unavailable row stays intelligible. systems review separates shared reference controls from detail and reusable rate presentation from profile-only actions. html/png share prepared facts; route state remains explicit. these refinements avoid duplicate controls, arithmetic and comparison-only broken anchors.
+
+the accepted costs are percentile compression, cohort sensitivity, distinct support populations, withheld low-minute standings and essential-context-only pngs backed by full page evidence. implementation uses bounded temporary integration/live checks and existing owners; no source acquisition, fitting, api/schema change or model claim. this is specification review, not implemented acceptance or activation; [the plan](../plan.md) owns assignment and 04m remains independent.
+
 ## 05e activation review — 2026-10-21
 
 the user explicitly authorizes the verified schema-3 candidate's activation with compatible code. independent systems/content review checks matching old/new readers, isolated pinned build/typechecking, real preflight maps/comparison/reload/png and exact installed-build identity. stopped copy/check/rotation/restart succeeds; live checks pass, all 940 prior summaries agree, active equals the candidate and previous preserves the old active's bytes/mtime. [activation evidence](observed-05e/verification.md#explicit-activation) records identities, cleanup and code-paired rollback.

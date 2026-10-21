@@ -1,192 +1,24 @@
 import { useId, useState } from "react";
 import { Link } from "react-router";
-import type { PlayerSummary } from "../shared/observed";
+import { parseMinutes, type PeerSettings } from "./explorer";
 import {
-  parseMinutes,
-  selectPeerGroups,
-  type PeerGroup,
-  type PeerSettings,
-} from "./explorer";
+  observedMetrics,
+  metricDefinition,
+  observedStanding,
+  formatPercentile,
+  peerGroupName,
+  populationSupport,
+  type ObservedComparison,
+  type ObservedRateKey,
+} from "./observed-comparison";
 import { CoverageDetail, Minutes, Quantity, playerName } from "./presentation";
 
-const groupName = (key: PeerGroup["key"]) =>
-  key === "all"
-    ? "all skaters"
-    : key === "f"
-      ? "reported forwards"
-      : "reported defense";
-type RateKey = "for_per60" | "against_per60";
-type Domain = readonly [number, number];
-
-function RateFigure({
-  groups,
-  metric,
-  title,
-  domain,
-}: {
-  readonly groups: readonly PeerGroup[];
-  readonly metric: RateKey;
-  readonly title: string;
-  readonly domain: Domain | undefined;
-}) {
-  const id = useId();
-  const x = (value: number) =>
-    `${8 + 84 * ((value - domain![0]) / (domain![1] - domain![0]))}%`;
-  return (
-    <figure
-      className="peer-figure"
-      data-metric={metric}
-      data-domain-min={domain?.[0]}
-      data-domain-max={domain?.[1]}
-      aria-labelledby={`${id}-title`}
-      aria-describedby={`${id}-description`}
-    >
-      <h4 id={`${id}-title`}>{title}</h4>
-      <p id={`${id}-description`} className="chart-description">
-        {groups.map((group) => groupName(group.key)).join("; ")} · attempts per
-        60 included 5v5 minutes. numeric selected values and peer tables follow.
-      </p>
-      {!domain ? (
-        <p>
-          no published rate values are available for this reference or
-          selection.
-        </p>
-      ) : (
-        <>
-          {groups.map((group) => (
-            <div className="peer-lane" key={group.key} data-group={group.key}>
-              <h5>{groupName(group.key)}</h5>
-              {group.members.length === 0 && (
-                <p className="control-note">no players meet this peer rule</p>
-              )}
-              <svg
-                className="peer-rug"
-                width="100%"
-                height="32"
-                role="img"
-                aria-label={`${groupName(group.key)}: ${group.members.length} player marks; numeric values in the peer table`}
-                data-domain-min={domain[0]}
-                data-domain-max={domain[1]}
-              >
-                {group.members.map((player) => (
-                  <line
-                    key={player.player_id}
-                    data-player-id={player.player_id}
-                    data-value={player.metrics[metric]!}
-                    x1={x(player.metrics[metric]!)}
-                    x2={x(player.metrics[metric]!)}
-                    y1="8"
-                    y2="26"
-                    className="peer-mark"
-                  />
-                ))}
-              </svg>
-              {group.selected.map(({ player, slot }) => (
-                <div className="selected-band" key={player.player_id}>
-                  <p>
-                    {slot === 0 ? "circle" : "diamond"} ·{" "}
-                    {group.selected.length === 1 && groups.length === 1
-                      ? "selected"
-                      : slot === 0
-                        ? "first"
-                        : "second"}
-                    : {playerName(player)} ·{" "}
-                    <Quantity
-                      value={player.metrics[metric]}
-                      metrics={player.metrics}
-                      rate
-                    />
-                  </p>
-                  {player.metrics[metric] !== null && (
-                    <svg
-                      width="100%"
-                      height="24"
-                      role="img"
-                      aria-label={`${playerName(player)}: ${player.metrics[metric]} attempts per 60 included minutes`}
-                      data-domain-min={domain[0]}
-                      data-domain-max={domain[1]}
-                    >
-                      {slot === 0 ? (
-                        <circle
-                          className="selected-mark"
-                          data-selected-slot={slot}
-                          data-player-id={player.player_id}
-                          data-value={player.metrics[metric]}
-                          cx={x(player.metrics[metric])}
-                          cy="12"
-                          r="5"
-                        />
-                      ) : (
-                        <svg
-                          x={x(player.metrics[metric])}
-                          y="12"
-                          overflow="visible"
-                          width="1"
-                          height="1"
-                        >
-                          <path
-                            className="selected-mark"
-                            data-selected-slot={slot}
-                            data-player-id={player.player_id}
-                            data-value={player.metrics[metric]}
-                            data-x={x(player.metrics[metric])}
-                            d="M 0 -6 L 6 0 L 0 6 L -6 0 Z"
-                          />
-                        </svg>
-                      )}
-                    </svg>
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
-          <svg
-            className="peer-axis"
-            width="100%"
-            height="16"
-            role="img"
-            aria-label={`shared rate scale from ${domain[0]} to ${domain[1]}, increasing rightward`}
-            data-domain-min={domain[0]}
-            data-domain-max={domain[1]}
-          >
-            <line x1="8%" x2="92%" y1="6" y2="6" />
-            {domain.map((value, index) => (
-              <line key={index} x1={x(value)} x2={x(value)} y1="6" y2="12" />
-            ))}
-          </svg>
-          <div className="axis-endpoints">
-            <span>
-              minimum <span>{domain[0]}</span>
-            </span>
-            <span>
-              maximum <span>{domain[1]}</span>
-            </span>
-          </div>
-        </>
-      )}
-      <figcaption>
-        marks overlap; values are available below. spread describes observed
-        player results, not uncertainty about ability.
-      </figcaption>
-    </figure>
-  );
-}
-
-export default function PeerDistributions({
-  players,
-  selected,
+export function PeerControls({
   settings,
   onChange,
-  profileLink,
 }: {
-  readonly players: readonly PlayerSummary[];
-  readonly selected: readonly PlayerSummary[];
   readonly settings: PeerSettings;
   readonly onChange: (settings: Partial<PeerSettings>) => void;
-  readonly profileLink: (playerId: string) => {
-    readonly to: string;
-    readonly state: unknown;
-  };
 }) {
   const id = useId();
   const [minute, setMinute] = useState({
@@ -200,38 +32,8 @@ export default function PeerDistributions({
       draft: String(settings.peerMin),
       error: "",
     });
-  const groups = selectPeerGroups(players, selected, settings);
-  let low = Infinity;
-  let high = -Infinity;
-  for (const group of groups) {
-    for (const player of [
-      ...group.members,
-      ...group.selected.map((entry) => entry.player),
-    ]) {
-      for (const value of [
-        player.metrics.for_per60,
-        player.metrics.against_per60,
-      ]) {
-        if (value !== null) {
-          low = Math.min(low, value);
-          high = Math.max(high, value);
-        }
-      }
-    }
-  }
-  let domain: Domain | undefined;
-  if (Number.isFinite(low)) {
-    if (low === high) {
-      const padding = Math.max(1, low * 0.05);
-      const upper = high + padding;
-      low = Math.max(0, low - padding);
-      high = Number.isFinite(upper) ? upper : high;
-    }
-    domain = [Math.floor(low), Math.ceil(high)];
-  }
   return (
-    <section className="peer-context" aria-labelledby={`${id}-heading`}>
-      <h3 id={`${id}-heading`}>observed peer context</h3>
+    <div className="reference-controls">
       <div className="peer-controls">
         <div>
           <label htmlFor={`${id}-group`}>reference group</label>
@@ -302,124 +104,289 @@ export default function PeerDistributions({
           reset peers
         </button>
       </div>
-      <div className="peer-counts" role="status">
-        {groups.map((group) => (
-          <p key={group.key}>
-            {groupName(group.key)} · at least {settings.peerMin} included 5v5
-            minutes · {group.members.length} players,{" "}
-            {
-              group.members.filter(
-                (player) => player.metrics.coverage_status === "partial",
-              ).length
-            }{" "}
-            partial
-            {group.members.length === 0 && (
-              <> · no players meet this peer rule</>
-            )}
-          </p>
-        ))}
-      </div>
       <p className="control-note">
-        one mark per player; shared play means these are related observations.
-        the cutoff is a viewing rule, not a reliability threshold. reported
-        position groups do not verify deployment or equal exposure.
+        the minimum applies separately to personal and on-ice included time.
+        membership uses exact seconds; displayed minutes are rounded. it is a
+        viewing rule, not a reliability threshold. reported groups do not verify
+        deployment or equal exposure.
       </p>
-      <div className="peer-figures">
-        <RateFigure
-          groups={groups}
-          metric="for_per60"
-          title="on-ice attempts for/60"
-          domain={domain}
-        />
-        <RateFigure
-          groups={groups}
-          metric="against_per60"
-          title="on-ice attempts against/60"
-          domain={domain}
-        />
+    </div>
+  );
+}
+
+export default function PeerDistributions({
+  comparison,
+  metric,
+  onMetricChange,
+  profileLink,
+}: {
+  readonly comparison: ObservedComparison;
+  readonly metric: ObservedRateKey;
+  readonly onMetricChange: (metric: ObservedRateKey) => void;
+  readonly profileLink: (playerId: string) => {
+    readonly to: string;
+    readonly state: unknown;
+  };
+}) {
+  const id = useId();
+  const definition = metricDefinition(metric);
+  const groups = comparison.groups[definition.population];
+  let low = Infinity;
+  let high = -Infinity;
+  for (const group of groups) {
+    for (const player of [
+      ...group.members,
+      ...group.selected.map((entry) => entry.player),
+    ]) {
+      const value = definition.rate(player);
+      if (value !== null) {
+        low = Math.min(low, value);
+        high = Math.max(high, value);
+      }
+    }
+  }
+  // rates are nonnegative; expand constants while retaining finite bounds.
+  if (low === high && Number.isFinite(low)) {
+    const padding = Math.max(1, Math.abs(low) * 0.05);
+    low = Math.max(0, low - padding);
+    high = Number.isFinite(high + padding) ? high + padding : high;
+  }
+  const domain = Number.isFinite(low) ? ([low, high] as const) : undefined;
+  const x = (value: number) => `${8 + 84 * ((value - low) / (high - low))}%`;
+  const family = definition.population === "personal" ? "personal" : "on-ice";
+  return (
+    <section className="peer-context" aria-labelledby={`${id}-heading`}>
+      <h3 id={`${id}-heading`}>observed raw-rate detail</h3>
+      <div className="metric-control">
+        <label htmlFor={`${id}-metric`}>detail metric</label>
+        <select
+          id={`${id}-metric`}
+          value={metric}
+          onChange={(event) =>
+            onMetricChange(event.currentTarget.value as ObservedRateKey)
+          }
+        >
+          {observedMetrics.map((entry) => (
+            <option key={entry.key} value={entry.key}>
+              {entry.label}
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="selected-peer-values" aria-label="selected player values">
-        {selected.map((player, slot) => {
-          const member = groups.some((group) =>
-            group.members.some((row) => row.player_id === player.player_id),
-          );
-          return (
-            <div key={player.player_id}>
-              <h4>
-                {selected.length === 1
-                  ? "selected"
-                  : slot === 0
-                    ? "first"
-                    : "second"}
-                : {playerName(player)}
-              </h4>
-              <p>
-                for/60:{" "}
-                <Quantity
-                  value={player.metrics.for_per60}
-                  metrics={player.metrics}
-                  rate
-                />{" "}
-                · against/60:{" "}
-                <Quantity
-                  value={player.metrics.against_per60}
-                  metrics={player.metrics}
-                  rate
-                />{" "}
-                · <Minutes seconds={player.metrics.included_seconds} /> included
-                minutes
+      <figure
+        className="peer-figure"
+        data-metric={metric}
+        data-domain-min={domain?.[0]}
+        data-domain-max={domain?.[1]}
+        aria-labelledby={`${id}-title`}
+        aria-describedby={`${id}-description`}
+      >
+        <h4 id={`${id}-title`}>{definition.label} per 60</h4>
+        <p id={`${id}-description`} className="chart-description">
+          {groups.map((group) => peerGroupName(group.key)).join("; ")} · per 60
+          included {family} 5v5 minutes. each player has one mark; selected
+          circles and diamonds annotate that distribution. exact numerical
+          tables follow.{" "}
+          {metric === "against60" && "higher = more opponent attempts."}
+        </p>
+        {!domain && (
+          <p>
+            no published rate values are available for this reference or
+            selection.
+          </p>
+        )}
+        {groups.map((group) => (
+          <div className="peer-lane" key={group.key} data-group={group.key}>
+            <h5>
+              {peerGroupName(group.key)} · {family} reference
+            </h5>
+            <p className="reference-summary">
+              at least {comparison.settings.peerMin} included 5v5 minutes · n ={" "}
+              {group.members.length}; partial n = {group.partialCount}
+            </p>
+            {group.members.length === 0 && (
+              <p className="control-note">no players meet this peer rule</p>
+            )}
+            {group.members.length === 1 && (
+              <p className="control-note">
+                one eligible player; no between-player comparison
               </p>
-              {!member && (
-                <p className="outside-reference">
-                  outside reference:{" "}
-                  {player.metrics.included_seconds === 0
-                    ? "no included exposure"
-                    : player.metrics.included_seconds < settings.peerMin * 60
-                      ? `under ${settings.peerMin} included minutes`
-                      : "published rates unavailable"}
-                </p>
-              )}
-              <CoverageDetail metrics={player.metrics} />
+            )}
+            {domain && (
+              <svg
+                className="peer-rug"
+                width="100%"
+                height="32"
+                role="img"
+                aria-label={`${peerGroupName(group.key)}: ${group.members.length} player marks; numeric values in the peer table`}
+              >
+                {group.members.map((player) => (
+                  <line
+                    key={player.player_id}
+                    data-player-id={player.player_id}
+                    data-value={definition.rate(player)!}
+                    x1={x(definition.rate(player)!)}
+                    x2={x(definition.rate(player)!)}
+                    y1="8"
+                    y2="26"
+                    className="peer-mark"
+                  />
+                ))}
+              </svg>
+            )}
+            {group.selected.map(({ player, slot }) => {
+              const row = comparison.cards
+                .find((card) => card.slot === slot)!
+                .rows.find((row) => row.metric === metric)!;
+              const support = populationSupport(player, definition.population);
+              return (
+                <div className="selected-band" key={player.player_id}>
+                  <p>
+                    {slot === 0 ? "circle" : "diamond"} ·{" "}
+                    {comparison.cards.length === 1
+                      ? "selected"
+                      : slot === 0
+                        ? "first"
+                        : "second"}
+                    : {playerName(player)} ·{" "}
+                    <Quantity
+                      value={row.rate}
+                      metrics={support}
+                      rate
+                      precision={definition.precision}
+                    />{" "}
+                    per 60 ·{" "}
+                    {row.standing.kind === "ranked"
+                      ? `${formatPercentile(row.standing.percentile)} observed-rate percentile`
+                      : row.standing.kind === "unavailable"
+                        ? "rate unavailable"
+                        : support.included_seconds <
+                            comparison.settings.peerMin * 60
+                          ? `outside reference: under ${comparison.settings.peerMin} ${family} minutes`
+                          : "outside reference"}
+                  </p>
+                  {domain && row.rate !== null && (
+                    <svg
+                      width="100%"
+                      height="24"
+                      role="img"
+                      aria-label={`${playerName(player)}: ${row.rate} per 60 included ${family} minutes`}
+                    >
+                      {slot === 0 ? (
+                        <circle
+                          className="selected-mark"
+                          data-selected-slot={slot}
+                          data-player-id={player.player_id}
+                          data-value={row.rate}
+                          cx={x(row.rate)}
+                          cy="12"
+                          r="5"
+                        />
+                      ) : (
+                        <svg
+                          x={x(row.rate)}
+                          y="12"
+                          overflow="visible"
+                          width="1"
+                          height="1"
+                        >
+                          <path
+                            className="selected-mark"
+                            data-selected-slot={slot}
+                            data-player-id={player.player_id}
+                            data-value={row.rate}
+                            data-x={x(row.rate)}
+                            d="M 0 -6 L 6 0 L 0 6 L -6 0 Z"
+                          />
+                        </svg>
+                      )}
+                    </svg>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        ))}
+        {domain && (
+          <>
+            <svg
+              className="peer-axis"
+              width="100%"
+              height="16"
+              role="img"
+              aria-label={`shared rate scale from ${domain[0]} to ${domain[1]}, increasing rightward`}
+            >
+              <line x1="8%" x2="92%" y1="6" y2="6" />
+              {domain.map((value, index) => (
+                <line key={index} x1={x(value)} x2={x(value)} y1="6" y2="12" />
+              ))}
+            </svg>
+            <div className="axis-endpoints">
+              <span>
+                minimum <span>{domain[0]}</span>
+              </span>
+              <span>
+                maximum <span>{domain[1]}</span>
+              </span>
             </div>
-          );
-        })}
-      </div>
+          </>
+        )}
+        <figcaption>
+          marks overlap; separate selection labels and numerical tables retain
+          tied values. shared play makes these related observations. spread
+          describes recorded results, not uncertainty about ability.
+        </figcaption>
+      </figure>
       {groups.map((group) => (
         <details className="peer-values" key={group.key}>
           <summary>
-            {groupName(group.key)} · numeric peer values ({group.members.length}{" "}
-            players)
+            {peerGroupName(group.key)} · numeric peer values (
+            {group.members.length} players)
           </summary>
           <div
             className="table-scroll"
             tabIndex={0}
-            aria-label={`${groupName(group.key)} peer values table, scroll horizontally for all columns`}
+            aria-label={`${peerGroupName(group.key)} peer values table, scroll horizontally for all columns`}
           >
             <table className="peer-table">
               <caption>
-                one row per reference member; exact membership uses unrounded
-                included seconds, displayed rates use one decimal.
+                exactly one row per reference member, ordered by name and id.
+                standing uses unrounded published rates; equal displayed rates
+                can have different percentiles. ties count half.
               </caption>
               <thead>
                 <tr>
                   <th scope="col">player</th>
                   <th scope="col">reported position</th>
                   <th scope="col" className="numeric">
-                    included min
+                    count
                   </th>
                   <th scope="col" className="numeric">
-                    for/60
+                    {family} included min
                   </th>
                   <th scope="col" className="numeric">
-                    against/60
+                    rate per 60
+                  </th>
+                  <th scope="col" className="numeric">
+                    observed-rate percentile
                   </th>
                   <th scope="col">coverage</th>
                 </tr>
               </thead>
               <tbody>
                 {group.members.map((player) => {
+                  const support = populationSupport(
+                    player,
+                    definition.population,
+                  );
+                  const standing = observedStanding(
+                    definition.rate(player),
+                    player.player_id,
+                    group,
+                    metric,
+                  );
                   const entry = group.selected.find(
-                    (row) => row.player.player_id === player.player_id,
+                    (entry) => entry.player.player_id === player.player_id,
                   );
                   return (
                     <tr
@@ -432,7 +399,7 @@ export default function PeerDistributions({
                         </Link>
                         {entry && (
                           <span className="peer-selection-label">
-                            {selected.length === 1
+                            {comparison.cards.length === 1
                               ? "selected"
                               : entry.slot === 0
                                 ? "first"
@@ -442,24 +409,29 @@ export default function PeerDistributions({
                       </th>
                       <td>{player.reported_position}</td>
                       <td className="numeric">
-                        <Minutes seconds={player.metrics.included_seconds} />
-                      </td>
-                      <td className="numeric">
                         <Quantity
-                          value={player.metrics.for_per60}
-                          metrics={player.metrics}
-                          rate
+                          value={definition.count(player)}
+                          metrics={support}
                         />
                       </td>
                       <td className="numeric">
+                        <Minutes seconds={support.included_seconds} />
+                      </td>
+                      <td className="numeric">
                         <Quantity
-                          value={player.metrics.against_per60}
-                          metrics={player.metrics}
+                          value={definition.rate(player)}
+                          metrics={support}
                           rate
+                          precision={definition.precision}
                         />
+                      </td>
+                      <td className="numeric">
+                        {standing.kind === "ranked"
+                          ? formatPercentile(standing.percentile)
+                          : "unavailable"}
                       </td>
                       <td>
-                        <CoverageDetail metrics={player.metrics} />
+                        <CoverageDetail metrics={support} />
                       </td>
                     </tr>
                   );

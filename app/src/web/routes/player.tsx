@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import {
   Link,
   useLoaderData,
@@ -13,12 +13,17 @@ import { loadPlayer } from "../client";
 import {
   readMapMode,
   readPeerSettings,
+  readRateMetric,
   viewSearch,
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
-import PeerDistributions from "../peer-distributions";
+import PeerDistributions, { PeerControls } from "../peer-distributions";
 import DescriptiveCard from "../descriptive-card";
+import {
+  buildObservedComparison,
+  type ObservedRateKey,
+} from "../observed-comparison";
 import {
   CoverageDetail,
   Evidence,
@@ -55,7 +60,7 @@ export function shouldRevalidate({
   ) {
     const current = new URLSearchParams(currentUrl.search);
     const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["peers", "peerMin", "map"]) {
+    for (const key of ["peers", "peerMin", "map", "metric"]) {
       current.delete(key);
       next.delete(key);
     }
@@ -73,7 +78,8 @@ export default function Player() {
   const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
   const { settings, search: peerNormalized } = readPeerSettings(search);
-  const { mode, search: normalized } = readMapMode(peerNormalized);
+  const { mode, search: mapNormalized } = readMapMode(peerNormalized);
+  const { metric, search: normalized } = readRateMetric(mapNormalized);
   useEffect(() => {
     if (
       navigation.state === "idle" &&
@@ -94,6 +100,7 @@ export default function Player() {
   const leagueSearch = historySearch(location.state?.leagueSearch);
   const comparisonSearch = historySearch(location.state?.comparisonSearch);
   const viewQuery = new URLSearchParams();
+  if (metric !== "sog60") viewQuery.set("metric", metric);
   if (mode === "absolute") viewQuery.set("map", "absolute");
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
@@ -116,6 +123,17 @@ export default function Player() {
         flushSync: true,
       });
   };
+  const changeMetric = (nextMetric: ObservedRateKey) => {
+    const next = viewSearch(location, navigation.location);
+    if (nextMetric === readRateMetric(next).metric) return;
+    if (nextMetric === "sog60") next.delete("metric");
+    else next.set("metric", nextMetric);
+    setSearch(next, {
+      preventScrollReset: true,
+      state: location.state,
+      flushSync: true,
+    });
+  };
   const changeMode = (nextMode: "difference" | "absolute") => {
     const next = viewSearch(location, navigation.location);
     if (nextMode === readMapMode(next).mode) return;
@@ -130,6 +148,10 @@ export default function Player() {
   const returnComparison = new URLSearchParams(comparisonSearch);
   if (mode === "absolute") returnComparison.set("map", "absolute");
   else returnComparison.delete("map");
+  const comparison = useMemo(
+    () => buildObservedComparison(players, [player], settings),
+    [players, player, settings.peers, settings.peerMin],
+  );
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", player.player_id);
   return (
@@ -153,27 +175,27 @@ export default function Player() {
         </p>
       </section>
       <DescriptiveCard
-        player={player}
+        comparison={comparison}
         publication={publication}
         coverage={coverage}
+        controls={<PeerControls settings={settings} onChange={changePeers} />}
       />
       <GlobalGap coverage={coverage} />
+      <PeerDistributions
+        comparison={comparison}
+        metric={metric}
+        onMetricChange={changeMetric}
+        profileLink={(playerId) => ({
+          to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
+          state: { leagueSearch, comparisonSearch },
+        })}
+      />
       <SpatialViews
         spatial={spatial}
         players={[player]}
         season={publication.season}
         mode={mode}
         onModeChange={changeMode}
-      />
-      <PeerDistributions
-        players={players}
-        selected={[player]}
-        settings={settings}
-        onChange={changePeers}
-        profileLink={(playerId) => ({
-          to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
-          state: { leagueSearch, comparisonSearch },
-        })}
       />
       <section aria-labelledby="games-heading">
         <h3 id="games-heading" tabIndex={-1}>

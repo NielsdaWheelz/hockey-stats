@@ -1,5 +1,5 @@
 import * as Schema from "effect/Schema";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import {
   Link,
   useLoaderData,
@@ -15,18 +15,22 @@ import PlayerPicker from "../player-picker";
 import {
   readMapMode,
   readPeerSettings,
+  readRateMetric,
   viewSearch,
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
-import PeerDistributions from "../peer-distributions";
+import PeerDistributions, { PeerControls } from "../peer-distributions";
+import { ObservedRateValue, ObservedSupport } from "../descriptive-card";
 import {
-  CoverageDetail,
+  buildObservedComparison,
+  observedMetrics,
+  type ObservedRateKey,
+} from "../observed-comparison";
+import {
   Evidence,
   GlobalGap,
   LoadError,
-  Minutes,
-  Quantity,
   historySearch,
   playerName,
   teamName,
@@ -59,7 +63,7 @@ export function shouldRevalidate({
   ) {
     const current = new URLSearchParams(currentUrl.search);
     const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["peers", "peerMin", "map"]) {
+    for (const key of ["peers", "peerMin", "map", "metric"]) {
       current.delete(key);
       next.delete(key);
     }
@@ -90,7 +94,8 @@ export default function Compare() {
   const [search, setSearch] = useSearchParams();
   const leagueSearch = historySearch(location.state?.leagueSearch);
   const { settings, search: peerNormalized } = readPeerSettings(search);
-  const { mode, search: normalized } = readMapMode(peerNormalized);
+  const { mode, search: mapNormalized } = readMapMode(peerNormalized);
+  const { metric, search: normalized } = readRateMetric(mapNormalized);
   useEffect(() => {
     if (
       navigation.state === "idle" &&
@@ -109,6 +114,7 @@ export default function Compare() {
     navigation.state,
   ]);
   const viewQuery = new URLSearchParams();
+  if (metric !== "sog60") viewQuery.set("metric", metric);
   if (mode === "absolute") viewQuery.set("map", "absolute");
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
@@ -130,6 +136,17 @@ export default function Compare() {
         state: location.state,
         flushSync: true,
       });
+  };
+  const changeMetric = (nextMetric: ObservedRateKey) => {
+    const next = viewSearch(location, navigation.location);
+    if (nextMetric === readRateMetric(next).metric) return;
+    if (nextMetric === "sog60") next.delete("metric");
+    else next.set("metric", nextMetric);
+    setSearch(next, {
+      preventScrollReset: true,
+      state: location.state,
+      flushSync: true,
+    });
   };
   const changeMode = (nextMode: "difference" | "absolute") => {
     const next = viewSearch(location, navigation.location);
@@ -170,6 +187,22 @@ export default function Compare() {
     first.player && second.player && !secondError
       ? [first.player, second.player]
       : undefined;
+  const comparison = useMemo(
+    () =>
+      pair ? buildObservedComparison(data.players, pair, settings) : undefined,
+    [
+      data.players,
+      first.player,
+      second.player,
+      secondError,
+      settings.peers,
+      settings.peerMin,
+    ],
+  );
+  const profileLink = (playerId: string) => ({
+    to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
+    state: { leagueSearch, comparisonSearch: location.search },
+  });
   return (
     <>
       <nav className="back-link">
@@ -228,8 +261,9 @@ export default function Compare() {
         .
       </p>
       <GlobalGap coverage={data.coverage} />
-      {pair && (
+      {comparison && (
         <section aria-label="included player comparison">
+          <PeerControls settings={settings} onChange={changePeers} />
           <div
             className="table-scroll comparison-scroll"
             tabIndex={0}
@@ -237,26 +271,21 @@ export default function Compare() {
           >
             <table className="comparison-table">
               <caption>
-                each player's counts and time come from their own included
-                evidence; included games can differ.
+                regular season · unadjusted observations. higher observed-rate
+                percentile means more of the recorded rate, including against.
+                each player's counts and time use their own included evidence.
               </caption>
               <thead>
                 <tr>
                   <th scope="col" className="identity">
                     metric
                   </th>
-                  {pair.map((player, index) => (
+                  {comparison.cards.map(({ player, slot }) => (
                     <th scope="col" key={player.player_id}>
                       <span>
-                        {index === 0 ? "first player" : "second player"}
+                        {slot === 0 ? "first player" : "second player"}
                       </span>
-                      <Link
-                        to={`/players/${player.player_id}${viewQuery.size ? `?${viewQuery}` : ""}`}
-                        state={{
-                          comparisonSearch: location.search,
-                          leagueSearch,
-                        }}
-                      >
+                      <Link {...profileLink(player.player_id)}>
                         {playerName(player)}
                       </Link>
                       <span>
@@ -267,250 +296,67 @@ export default function Compare() {
                   ))}
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" className="identity">
-                    personal production
-                  </th>
-                  {pair.map((player) => (
-                    <td key={player.player_id}>recorded credits</td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    shots on goal
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.personal.shots_on_goal}
-                        metrics={player.personal}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    shots on goal/60
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.personal.shots_on_goal_per60}
-                        metrics={player.personal}
-                        rate
-                        precision={2}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    goals
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.personal.goals}
-                        metrics={player.personal}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    goals/60
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.personal.goals_per60}
-                        metrics={player.personal}
-                        rate
-                        precision={2}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    primary assists
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.personal.primary_assists}
-                        metrics={player.personal}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    primary assists/60
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.personal.primary_assists_per60}
-                        metrics={player.personal}
-                        rate
-                        precision={2}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    personal included 5v5 minutes
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Minutes seconds={player.personal.included_seconds} />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    personal coverage and reasons
-                  </th>
-                  {pair.map((player) => (
-                    <td key={player.player_id}>
-                      <CoverageDetail metrics={player.personal} />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    team attempts while on ice
-                  </th>
-                  {pair.map((player) => (
-                    <td key={player.player_id}>recorded team attempts</td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    on-ice included 5v5 minutes
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Minutes seconds={player.metrics.included_seconds} />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    games with included time
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      {player.games_with_included_time}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    on-ice attempts for/60
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.metrics.for_per60}
-                        metrics={player.metrics}
-                        rate
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    on-ice attempts against/60
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.metrics.against_per60}
-                        metrics={player.metrics}
-                        rate
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    on-ice attempts for
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.metrics.attempts_for}
-                        metrics={player.metrics}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    on-ice attempts against
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      <Quantity
-                        value={player.metrics.attempts_against}
-                        metrics={player.metrics}
-                      />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    on-ice coverage and reasons
-                  </th>
-                  {pair.map((player) => (
-                    <td key={player.player_id}>
-                      <CoverageDetail metrics={player.metrics} />
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    listed games
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      {player.listed_games}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    partial games with included time
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      {player.partial_games}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th scope="row" className="identity">
-                    unavailable listed games
-                  </th>
-                  {pair.map((player) => (
-                    <td className="numeric" key={player.player_id}>
-                      {player.unavailable_games}
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
+              {(["personal", "onIce"] as const).map((population) => (
+                <tbody key={population}>
+                  <tr>
+                    <th scope="rowgroup" colSpan={3}>
+                      {population === "personal"
+                        ? "personal production"
+                        : "team attempts while on ice"}
+                    </th>
+                  </tr>
+                  {observedMetrics
+                    .filter((definition) => definition.population === population)
+                    .map((definition) => (
+                      <tr key={definition.key}>
+                        <th scope="row" className="identity">
+                          {definition.label}
+                        </th>
+                        {comparison.cards.map((card) => {
+                          const row = card.rows.find(
+                            (entry) => entry.metric === definition.key,
+                          )!;
+                          const group = comparison.groups[row.population].find(
+                            (entry) => entry.key === row.groupKey,
+                          )!;
+                          return (
+                            <td key={card.player.player_id}>
+                              <ObservedRateValue
+                                row={row}
+                                group={group}
+                                player={card.player}
+                              />
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                </tbody>
+              ))}
             </table>
           </div>
-          <p className="comparison-note">
-            partial games are a subset of games with included time; roster
-            listing is not an appearance claim; known excluded time is not a
-            complete missing-time denominator.
-          </p>
+          <div className="comparison-support">
+            {comparison.cards.map((card) => (
+              <section
+                key={card.player.player_id}
+                aria-label={`${playerName(card.player)} support`}
+              >
+                <h3>
+                  {card.slot === 0 ? "first" : "second"}: {playerName(card.player)}
+                </h3>
+                <ObservedSupport card={card} comparison={comparison} />
+              </section>
+            ))}
+          </div>
         </section>
+      )}
+      {comparison && (
+        <PeerDistributions
+          comparison={comparison}
+          metric={metric}
+          onMetricChange={changeMetric}
+          profileLink={profileLink}
+        />
       )}
       {(first.player || (second.player && !secondError)) && (
         <SpatialViews
@@ -522,18 +368,6 @@ export default function Compare() {
           season={data.publication.season}
           mode={mode}
           onModeChange={changeMode}
-        />
-      )}
-      {pair && (
-        <PeerDistributions
-          players={data.players}
-          selected={pair}
-          settings={settings}
-          onChange={changePeers}
-          profileLink={(playerId) => ({
-            to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
-            state: { leagueSearch, comparisonSearch: location.search },
-          })}
         />
       )}
       <Evidence publication={data.publication} coverage={data.coverage} />

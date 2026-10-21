@@ -1,0 +1,924 @@
+{
+  "meaning": "independently enumerated typed-response arithmetic, before application rendering; synthetic cases are labeled fixtures",
+  "publication_id": "84a9da75-2cdf-44e7-a463-21e79a02929e",
+  "settings": {
+    "peers": "position",
+    "peerMin": 300
+  },
+  "facts": {
+    "real": [
+      {
+        "id": "8478402",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 168,
+            "rate": 7.535321821036106,
+            "decimals": 2,
+            "percentile": 83.9041095890411,
+            "partial": 438,
+            "included_seconds": 80262,
+            "excluded_seconds": 2217,
+            "coverage": "partial",
+            "member_count": 438
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 21,
+            "rate": 0.9419152276295133,
+            "decimals": 2,
+            "percentile": 80.47945205479452,
+            "partial": 438,
+            "included_seconds": 80262,
+            "excluded_seconds": 2217,
+            "coverage": "partial",
+            "member_count": 438
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 19,
+            "rate": 0.8522090154743216,
+            "decimals": 2,
+            "percentile": 88.6986301369863,
+            "partial": 438,
+            "included_seconds": 80262,
+            "excluded_seconds": 2217,
+            "coverage": "partial",
+            "member_count": 438
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 1412,
+            "rate": 63.33258578156537,
+            "decimals": 1,
+            "percentile": 85.27397260273973,
+            "partial": 438,
+            "included_seconds": 80262,
+            "excluded_seconds": 2217,
+            "coverage": "partial",
+            "member_count": 438
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 1193,
+            "rate": 53.509755550571874,
+            "decimals": 1,
+            "percentile": 23.858447488584474,
+            "partial": 438,
+            "included_seconds": 80262,
+            "excluded_seconds": 2217,
+            "coverage": "partial",
+            "member_count": 438
+          }
+        ]
+      },
+      {
+        "id": "8478882",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 97,
+            "rate": 3.7004853442977343,
+            "decimals": 2,
+            "percentile": 51.483050847457626,
+            "partial": 236,
+            "included_seconds": 94366,
+            "excluded_seconds": 71,
+            "coverage": "partial",
+            "member_count": 236
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 10,
+            "rate": 0.38149333446368394,
+            "decimals": 2,
+            "percentile": 88.34745762711864,
+            "partial": 236,
+            "included_seconds": 94366,
+            "excluded_seconds": 71,
+            "coverage": "partial",
+            "member_count": 236
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 6,
+            "rate": 0.22889600067821037,
+            "decimals": 2,
+            "percentile": 31.14406779661017,
+            "partial": 236,
+            "included_seconds": 94366,
+            "excluded_seconds": 71,
+            "coverage": "partial",
+            "member_count": 236
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 1454,
+            "rate": 55.46913083101965,
+            "decimals": 1,
+            "percentile": 47.24576271186441,
+            "partial": 236,
+            "included_seconds": 94366,
+            "excluded_seconds": 71,
+            "coverage": "partial",
+            "member_count": 236
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 1447,
+            "rate": 55.202085496895066,
+            "decimals": 1,
+            "percentile": 39.19491525423729,
+            "partial": 236,
+            "included_seconds": 94366,
+            "excluded_seconds": 71,
+            "coverage": "partial",
+            "member_count": 236
+          }
+        ]
+      },
+      {
+        "id": "8482479",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 0,
+            "rate": 0,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 438,
+            "included_seconds": 312,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 438
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 0,
+            "rate": 0,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 438,
+            "included_seconds": 312,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 438
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 0,
+            "rate": 0,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 438,
+            "included_seconds": 312,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 438
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 2,
+            "rate": 23.076923076923077,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 438,
+            "included_seconds": 312,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 438
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 12,
+            "rate": 138.46153846153845,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 438,
+            "included_seconds": 312,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 438
+          }
+        ]
+      }
+    ],
+    "synthetic": [
+      {
+        "id": "1",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 10,
+            "rate": 1,
+            "decimals": 2,
+            "percentile": 10,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 1,
+            "rate": 0.1,
+            "decimals": 2,
+            "percentile": 10,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 2,
+            "rate": 0.2,
+            "decimals": 2,
+            "percentile": 10,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 100,
+            "rate": 10,
+            "decimals": 1,
+            "percentile": 8.333333333333334,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 150,
+            "rate": 15,
+            "decimals": 1,
+            "percentile": 8.333333333333334,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 20,
+            "rate": 2,
+            "decimals": 2,
+            "percentile": 30,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 60,
+            "coverage": "partial",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 2,
+            "rate": 0.2,
+            "decimals": 2,
+            "percentile": 30,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 60,
+            "coverage": "partial",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 4,
+            "rate": 0.4,
+            "decimals": 2,
+            "percentile": 30,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 60,
+            "coverage": "partial",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 200,
+            "rate": 20,
+            "decimals": 1,
+            "percentile": 25,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 60,
+            "coverage": "partial",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 300,
+            "rate": 30,
+            "decimals": 1,
+            "percentile": 25,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 60,
+            "coverage": "partial",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 30,
+            "rate": 3,
+            "decimals": 2,
+            "percentile": 60,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 3,
+            "rate": 0.3,
+            "decimals": 2,
+            "percentile": 60,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 6,
+            "rate": 0.6,
+            "decimals": 2,
+            "percentile": 60,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 300,
+            "rate": 30,
+            "decimals": 1,
+            "percentile": 50,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 450,
+            "rate": 45,
+            "decimals": 1,
+            "percentile": 50,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 30,
+            "rate": 3,
+            "decimals": 2,
+            "percentile": 60,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 3,
+            "rate": 0.3,
+            "decimals": 2,
+            "percentile": 60,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 6,
+            "rate": 0.6,
+            "decimals": 2,
+            "percentile": 60,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 300,
+            "rate": 30,
+            "decimals": 1,
+            "percentile": 50,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 450,
+            "rate": 45,
+            "decimals": 1,
+            "percentile": 50,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 40,
+            "rate": 4,
+            "decimals": 2,
+            "percentile": 90,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 4,
+            "rate": 0.4,
+            "decimals": 2,
+            "percentile": 90,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 8,
+            "rate": 0.8,
+            "decimals": 2,
+            "percentile": 90,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 400,
+            "rate": 40,
+            "decimals": 1,
+            "percentile": 91.66666666666667,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 600,
+            "rate": 60,
+            "decimals": 1,
+            "percentile": 91.66666666666667,
+            "partial": 1,
+            "included_seconds": 36000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 10,
+            "rate": 2,
+            "decimals": 2,
+            "percentile": 50,
+            "partial": 0,
+            "included_seconds": 18000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 1
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 1,
+            "rate": 0.2,
+            "decimals": 2,
+            "percentile": 50,
+            "partial": 0,
+            "included_seconds": 18000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 1
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 2,
+            "rate": 0.4,
+            "decimals": 2,
+            "percentile": 50,
+            "partial": 0,
+            "included_seconds": 18000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 1
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 100,
+            "rate": 20,
+            "decimals": 1,
+            "percentile": 50,
+            "partial": 0,
+            "included_seconds": 18000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 1
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 150,
+            "rate": 30,
+            "decimals": 1,
+            "percentile": 50,
+            "partial": 0,
+            "included_seconds": 18000,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 1
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 10,
+            "rate": 2.0001111172842934,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 1,
+            "rate": 0.20001111172842936,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 2,
+            "rate": 0.4000222234568587,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 100,
+            "rate": 20.001111172842936,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 150,
+            "rate": 30.001666759264403,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 0,
+            "rate": null,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 0,
+            "rate": null,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 2,
+            "rate": null,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 0,
+            "rate": null,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 0,
+            "rate": null,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": null,
+            "rate": null,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 60,
+            "coverage": "unavailable",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": null,
+            "rate": null,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 60,
+            "coverage": "unavailable",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": null,
+            "rate": null,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 60,
+            "coverage": "unavailable",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": null,
+            "rate": null,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 60,
+            "coverage": "unavailable",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": null,
+            "rate": null,
+            "decimals": 1,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 0,
+            "excluded_seconds": 60,
+            "coverage": "unavailable",
+            "member_count": 6
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "rows": [
+          {
+            "key": "sog60",
+            "population": "personal",
+            "count": 20,
+            "rate": 4.000222234568587,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 2,
+            "coverage": "partial",
+            "member_count": 5
+          },
+          {
+            "key": "goals60",
+            "population": "personal",
+            "count": 2,
+            "rate": 0.4000222234568587,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 2,
+            "coverage": "partial",
+            "member_count": 5
+          },
+          {
+            "key": "primaryAssists60",
+            "population": "personal",
+            "count": 4,
+            "rate": 0.8000444469137175,
+            "decimals": 2,
+            "percentile": null,
+            "partial": 1,
+            "included_seconds": 17999,
+            "excluded_seconds": 2,
+            "coverage": "partial",
+            "member_count": 5
+          },
+          {
+            "key": "for60",
+            "population": "onIce",
+            "count": 200,
+            "rate": 39.99777790122771,
+            "decimals": 1,
+            "percentile": 75,
+            "partial": 1,
+            "included_seconds": 18001,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          },
+          {
+            "key": "against60",
+            "population": "onIce",
+            "count": 300,
+            "rate": 59.99666685184157,
+            "decimals": 1,
+            "percentile": 75,
+            "partial": 1,
+            "included_seconds": 18001,
+            "excluded_seconds": 0,
+            "coverage": "complete",
+            "member_count": 6
+          }
+        ]
+      }
+    ]
+  }
+}

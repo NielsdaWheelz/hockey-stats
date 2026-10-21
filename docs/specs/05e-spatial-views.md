@@ -1,6 +1,6 @@
 # pr05e — observed spatial views
 
-status: **full specification; implementation and activation unassigned.** confirmed 2026-10-21: league differences by default, absolute rates available, fixed descriptive smoothing with unsmoothed evidence retained. [the plan](../plan.md) owns progression. extend [05d](05d-descriptive-cards.md) independently of 04m/model admission; unchanged observed/publication contracts still apply.
+status: **implemented and verified 2026-10-21; activation unassigned.** [acceptance evidence](../research/observed-05e/verification.md). confirmed 2026-10-21: league differences by default, absolute rates available, fixed descriptive smoothing with unsmoothed evidence retained. [the plan](../plan.md) owns progression. extend [05d](05d-descriptive-cards.md) independently of 04m/model admission; unchanged observed/publication contracts still apply.
 
 ## target and boundary
 

@@ -1,0 +1,34 @@
+{
+  "scope": "schema-3 sqlite reader, selected spatial api and typed client",
+  "runtime": "node 24.21.0; effect 4.0.5; tsx 4.23.15",
+  "fixture_candidate": "/Users/nnandal/Documents/code/hockey-stats-local/05e-verification/producer-small-candidate/observed.sqlite",
+  "temporary_checks": {
+    "shared_contract": "red: absent spatial schema; green: support projections and strict canonical one/two-id selection",
+    "sqlite_reader": "green: selected-only maps, unknown ids, profile maps; rejected schema 1/2, changed geometry, missing geometry, league raw rate/mass, missing dense cell, dense count/raw/difference, sparse count, season time, split composite foreign key",
+    "synthetic_support": "green: all-zero complete, all-zero unavailable and positive partial candidates through strict league/player response schemas; synthetic candidates are not observed evidence",
+    "live_http": "green: default null maps, one/two selected ids, unknown nullable selection; typed 400 for empty/malformed/duplicate/repeated/excess/unknown query fields; unchanged player 400/404",
+    "typed_client": "green: league, selected league and player decoding; already-aborted signal rejects without returning maps",
+    "pinned_typescript": "green"
+  },
+  "geometry_identity": {
+    "encoding": "668 rows ordered by cell_id; fields cell_id,x_min,x_max,y_min,y_max,center_x,center_y,area_sqft; fixed 8 decimal places joined with commas and rows with newline; no trailing newline",
+    "sha256": "f92426d41ebfb482313c31c758871fd4f4ac3fca008ee097ae8bed6f8129207c",
+    "independent_evidence": "root independently checked all clipped areas/centroids against analytical integration; fingerprint verified in python and javascript; no gaussian kernel in effect"
+  },
+  "bounded_validation": "at most one game's sparse cells or one player's dense 668 cells decoded per validation read; only geometry and scalar season summaries retained for selections",
+  "query_plans": [
+    "SEARCH player_game_spatial USING INDEX player_game_spatial_game (game_id=?)",
+    "SEARCH player_game USING INDEX player_game_game (game_id=?)"
+  ],
+  "fixture_cost": {
+    "scope": "one tsx process; service initialization includes sqlite integrity and schema checks; rss after league/pair reads",
+    "startup_validation_ms": 69.229958,
+    "players": 36,
+    "league_json_bytes": 24661,
+    "selected_pair_json_bytes": 486659,
+    "rss_bytes": 193708032,
+    "limits": "single warm local measurement; full real-candidate costs belong to integrated verification"
+  },
+  "cross_review": "python source/population/numerics/storage review found no substantive defect; whole-segment masks, shooting-team orientation, independent personal support, physical league counts and double denominator, destination-area kernel and receipts agree with the specification",
+  "activation": "not performed"
+}

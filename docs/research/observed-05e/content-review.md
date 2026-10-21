@@ -18,4 +18,4 @@ synthetic browser checks pass at 1,440, 768 and 320 css pixels without document 
 
 independent cross-reading of the transport owner found no blocker in selected-only requests, response identity, strict 668-cell rowsets/null support, matched physical/player time, league `2*T` denominators, mass/difference validation or abort propagation. numerical production remains in python; presentation calculates only geometry/color placement and minute formatting.
 
-temporary controllers and their standalone fixture/vite files remain available for root review. they must be deleted after final integrated green; useful receipts remain. the content server uses task port 3067 and the small candidate only; the primary server/publications are untouched.
+root final integrated green is complete. temporary controllers/standalone fixture/vite files and task listener 3067 are removed; useful receipts remain, as recorded in [the final verification](verification.md#final-detached-acceptance-and-cleanup). the primary server/publications are untouched.

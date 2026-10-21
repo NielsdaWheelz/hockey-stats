@@ -696,5 +696,584 @@
       "raw_attempts": 110,
       "raw_situation_1551_attempts": 102
     }
-  }
+  },
+  "additional_admissions": [
+    {
+      "purpose": "one complete original non-5v5 reported event inside retained shift-5v5 exposure; preserve present disposition and unresolved source/policy question without statistical changes",
+      "copies": [
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/boxscore/body.bin",
+          "fixture": "captures/2024020186/boxscore/body.bin",
+          "bytes": 13534,
+          "sha256": "8ea0980e79193564548ade44ae1f2a5567f465538bebafce9b22f63c71e380d3"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/boxscore/capture.json",
+          "fixture": "captures/2024020186/boxscore/capture.json",
+          "bytes": 662,
+          "sha256": "1e1935ad110bb40de09aa220259584c69cc7edea75c6b539b3fe01fd9fc99d05"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/game-summary/body.bin",
+          "fixture": "captures/2024020186/game-summary/body.bin",
+          "bytes": 42282,
+          "sha256": "058e241ea1b3fcf8e9eae6d051fb8d6fdbb45716f9628849f0598501a8bc92a1"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/game-summary/capture.json",
+          "fixture": "captures/2024020186/game-summary/capture.json",
+          "bytes": 694,
+          "sha256": "41c0cdd087e6cebf83578fcfb439f0b0f3176d8d604bb5bdce18cd0db339ac68"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/landing/body.bin",
+          "fixture": "captures/2024020186/landing/body.bin",
+          "bytes": 18061,
+          "sha256": "bf6e3e20407df5349c8dd5417cb0bf952b092a802eea5fddc3aa3cc2d7e3eb47"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/landing/capture.json",
+          "fixture": "captures/2024020186/landing/capture.json",
+          "bytes": 660,
+          "sha256": "fe5df0a0a890556b67474185f83c095ee5e514c491bd364e588271e2c3a40f19"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/play-by-play/body.bin",
+          "fixture": "captures/2024020186/play-by-play/body.bin",
+          "bytes": 136889,
+          "sha256": "e0f9d79d12a58c7c8d6f9c11e699dcbcf8b20f499061a8008b42c3093e58452f"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/play-by-play/capture.json",
+          "fixture": "captures/2024020186/play-by-play/capture.json",
+          "bytes": 671,
+          "sha256": "130cd8ccf104900650ee2acef57a4a2a86daf73ee318f91e7cd421ba44d3a9da"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/play-report/body.bin",
+          "fixture": "captures/2024020186/play-report/body.bin",
+          "bytes": 1283510,
+          "sha256": "6a27b0edd0f35b595937526a1c651dfe9f26697b4732bf54ba74633a4f673f1b"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/play-report/capture.json",
+          "fixture": "captures/2024020186/play-report/capture.json",
+          "bytes": 695,
+          "sha256": "733f0e81f0f59a33132b1f76b4dc3a6ed67166f9e651d84b94a8fbd0ff424f60"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/shifts/body.bin",
+          "fixture": "captures/2024020186/shifts/body.bin",
+          "bytes": 286965,
+          "sha256": "0b1bc109998e6fa9ba3fd4bb40981b72beb45b57b19892b7d0d75783eeb8190a"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/captures/2024020186/shifts/capture.json",
+          "fixture": "captures/2024020186/shifts/capture.json",
+          "bytes": 653,
+          "sha256": "0656a7497d5cf6544e0baf5b79f28e5bc3a7acc6cfed9faf136c0596950d1471"
+        }
+      ],
+      "preserved_season_references": [
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/goalie-bios/body.bin",
+          "fixture": "references/20242025/goalie-bios/body.bin",
+          "bytes": 47171,
+          "sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/goalie-bios/capture.json",
+          "fixture": "references/20242025/goalie-bios/capture.json",
+          "bytes": 711,
+          "sha256": "0fd86d0b478df2e7e156fb718543ab5cdc3eab900a6dce945849ee2846ef1c38"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-games/body.bin",
+          "fixture": "references/20242025/season-games/body.bin",
+          "bytes": 327490,
+          "sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-games/capture.json",
+          "fixture": "references/20242025/season-games/capture.json",
+          "bytes": 671,
+          "sha256": "5b862c889a8ec496b75955591001d8fb3c4f719daf59eb6c6cde743b323bd349"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-summary/body.bin",
+          "fixture": "references/20242025/season-summary/body.bin",
+          "bytes": 634,
+          "sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-summary/capture.json",
+          "fixture": "references/20242025/season-summary/capture.json",
+          "bytes": 676,
+          "sha256": "03aed697f50917a45a98b20facc8c8a336d3264dea1b32f15d4da76c1638d525"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/skater-bios/body.bin",
+          "fixture": "references/20242025/skater-bios/body.bin",
+          "bytes": 448170,
+          "sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+        },
+        {
+          "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/skater-bios/capture.json",
+          "fixture": "references/20242025/skater-bios/capture.json",
+          "bytes": 712,
+          "sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a"
+        }
+      ],
+      "source_receipts": [
+        {
+          "source": "boxscore",
+          "requested_at": "2026-09-30T19:19:32.788Z",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024020186/boxscore",
+          "http_status": 200,
+          "body_sha256": "8ea0980e79193564548ade44ae1f2a5567f465538bebafce9b22f63c71e380d3"
+        },
+        {
+          "source": "game-summary",
+          "requested_at": "2026-09-30T19:19:33.251Z",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/GS020186.HTM",
+          "http_status": 200,
+          "body_sha256": "058e241ea1b3fcf8e9eae6d051fb8d6fdbb45716f9628849f0598501a8bc92a1"
+        },
+        {
+          "source": "landing",
+          "requested_at": "2026-09-30T19:19:33.880Z",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024020186/landing",
+          "http_status": 200,
+          "body_sha256": "bf6e3e20407df5349c8dd5417cb0bf952b092a802eea5fddc3aa3cc2d7e3eb47"
+        },
+        {
+          "source": "play-by-play",
+          "requested_at": "2026-09-30T19:19:32.538Z",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024020186/play-by-play",
+          "http_status": 200,
+          "body_sha256": "e0f9d79d12a58c7c8d6f9c11e699dcbcf8b20f499061a8008b42c3093e58452f"
+        },
+        {
+          "source": "play-report",
+          "requested_at": "2026-09-30T19:19:33.471Z",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/PL020186.HTM",
+          "http_status": 200,
+          "body_sha256": "6a27b0edd0f35b595937526a1c651dfe9f26697b4732bf54ba74633a4f673f1b"
+        },
+        {
+          "source": "shifts",
+          "requested_at": "2026-09-30T19:19:33.119Z",
+          "url": "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D2024020186&limit=-1",
+          "http_status": 200,
+          "body_sha256": "0b1bc109998e6fa9ba3fd4bb40981b72beb45b57b19892b7d0d75783eeb8190a"
+        }
+      ],
+      "checked_facts": {
+        "game_id": "2024020186",
+        "season": "20242025",
+        "date": "2024-11-03",
+        "away": "TBL",
+        "home": "WPG",
+        "away_team_id": "14",
+        "home_team_id": "52",
+        "venue": "Canada Life Centre",
+        "native_envelope": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20242025/games/2024020186.json",
+          "bytes": 2226897,
+          "sha256": "a9c0cb10fed370f7e4e53fbea1c2f1ce5a2fd0af325532d97f4ac6c12bd25405"
+        },
+        "events": [
+          {
+            "source_index": 276,
+            "event_id": 985,
+            "type_key": "shot-on-goal",
+            "period": 3,
+            "time_in_period": "10:59",
+            "situation_code": "1451",
+            "report_source_index": 280,
+            "report_row_id": "PL-281",
+            "report_description": "WPG ONGOAL - #55 SCHEIFELE, Slap , Off. Zone, 23 ft.",
+            "reported_membership": {
+              "away_skaters": [
+                8474151,
+                8478416,
+                8478519,
+                8479542
+              ],
+              "away_goalies": [
+                8477992
+              ],
+              "home_skaters": [
+                8476460,
+                8477504,
+                8477940,
+                8478398,
+                8480014
+              ],
+              "home_goalies": [
+                8476945
+              ]
+            },
+            "native_classification": "other",
+            "native_shift_relation": "neither",
+            "native_issue_codes": [
+              "event_exposure_disagreement"
+            ]
+          },
+          {
+            "source_index": 277,
+            "event_id": 108,
+            "type_key": "missed-shot",
+            "period": 3,
+            "time_in_period": "11:37",
+            "situation_code": "1451",
+            "report_source_index": 281,
+            "report_row_id": "PL-282",
+            "report_description": "WPG #44 MORRISSEY, Slap, Short, Off. Zone, 43 ft. Flub",
+            "reported_membership": {
+              "away_skaters": [
+                8474151,
+                8478416,
+                8478519,
+                8479542
+              ],
+              "away_goalies": [
+                8477992
+              ],
+              "home_skaters": [
+                8476460,
+                8477504,
+                8477940,
+                8478398,
+                8480014
+              ],
+              "home_goalies": [
+                8476945
+              ]
+            },
+            "native_classification": "other",
+            "native_shift_relation": "neither",
+            "native_issue_codes": [
+              "event_exposure_disagreement"
+            ]
+          }
+        ],
+        "containing_native_interval": {
+          "index": 325,
+          "period_number": 3,
+          "start_seconds": 657,
+          "end_seconds": 703,
+          "away_skaters": [
+            8474151,
+            8476878,
+            8478416,
+            8478519,
+            8479542
+          ],
+          "home_skaters": [
+            8476460,
+            8477504,
+            8477940,
+            8478398,
+            8480014
+          ],
+          "away_goalies": [
+            8477992
+          ],
+          "home_goalies": [
+            8476945
+          ],
+          "shift_source_indices": [
+            24,
+            187,
+            264,
+            267,
+            347,
+            371,
+            376,
+            425,
+            450,
+            477,
+            543,
+            588
+          ],
+          "classification": "five_on_five",
+          "issue_indices": []
+        },
+        "independent_raw_shift_sweep": {
+          "at_period_seconds": 659,
+          "active_records": [
+            {
+              "source_index": 24,
+              "player_id": 8474151,
+              "team_id": 14,
+              "first_name": "Ryan",
+              "last_name": "McDonagh",
+              "start_time": "10:49",
+              "end_time": "11:54"
+            },
+            {
+              "source_index": 187,
+              "player_id": 8476460,
+              "team_id": 52,
+              "first_name": "Mark",
+              "last_name": "Scheifele",
+              "start_time": "10:17",
+              "end_time": "11:52"
+            },
+            {
+              "source_index": 264,
+              "player_id": 8476878,
+              "team_id": 14,
+              "first_name": "Zemgus",
+              "last_name": "Girgensons",
+              "start_time": "10:57",
+              "end_time": "11:43"
+            },
+            {
+              "source_index": 267,
+              "player_id": 8476945,
+              "team_id": 52,
+              "first_name": "Connor",
+              "last_name": "Hellebuyck",
+              "start_time": "00:00",
+              "end_time": "20:00"
+            },
+            {
+              "source_index": 347,
+              "player_id": 8477504,
+              "team_id": 52,
+              "first_name": "Josh",
+              "last_name": "Morrissey",
+              "start_time": "10:49",
+              "end_time": "11:47"
+            },
+            {
+              "source_index": 371,
+              "player_id": 8477940,
+              "team_id": 52,
+              "first_name": "Nikolaj",
+              "last_name": "Ehlers",
+              "start_time": "10:49",
+              "end_time": "12:01"
+            },
+            {
+              "source_index": 376,
+              "player_id": 8477992,
+              "team_id": 14,
+              "first_name": "Jonas",
+              "last_name": "Johansson",
+              "start_time": "00:00",
+              "end_time": "16:41"
+            },
+            {
+              "source_index": 425,
+              "player_id": 8478398,
+              "team_id": 52,
+              "first_name": "Kyle",
+              "last_name": "Connor",
+              "start_time": "10:17",
+              "end_time": "11:53"
+            },
+            {
+              "source_index": 450,
+              "player_id": 8478416,
+              "team_id": 14,
+              "first_name": "Erik",
+              "last_name": "Cernak",
+              "start_time": "10:49",
+              "end_time": "11:45"
+            },
+            {
+              "source_index": 477,
+              "player_id": 8478519,
+              "team_id": 14,
+              "first_name": "Anthony",
+              "last_name": "Cirelli",
+              "start_time": "10:49",
+              "end_time": "11:43"
+            },
+            {
+              "source_index": 543,
+              "player_id": 8479542,
+              "team_id": 14,
+              "first_name": "Brandon",
+              "last_name": "Hagel",
+              "start_time": "10:49",
+              "end_time": "11:56"
+            },
+            {
+              "source_index": 588,
+              "player_id": 8480014,
+              "team_id": 52,
+              "first_name": "Gabriel",
+              "last_name": "Vilardi",
+              "start_time": "10:17",
+              "end_time": "11:51"
+            }
+          ],
+          "extra_tampa_record": {
+            "source_index": 264,
+            "player_id": 8476878,
+            "team_id": 14,
+            "first_name": "Zemgus",
+            "last_name": "Girgensons",
+            "start_time": "10:57",
+            "end_time": "11:43"
+          }
+        },
+        "surrounding_raw_penalty_observations": [
+          {
+            "source_index": 221,
+            "event_id": 870,
+            "time_in_period": "02:23",
+            "details": {
+              "xCoord": 62,
+              "yCoord": -21,
+              "zoneCode": "O",
+              "typeCode": "MIN",
+              "descKey": "instigator",
+              "duration": 2,
+              "committedByPlayerId": 8476878,
+              "drawnByPlayerId": 8479378,
+              "servedByPlayerId": 8479591,
+              "eventOwnerTeamId": 14
+            }
+          },
+          {
+            "source_index": 222,
+            "event_id": 866,
+            "time_in_period": "02:23",
+            "details": {
+              "xCoord": 65,
+              "yCoord": -24,
+              "zoneCode": "D",
+              "typeCode": "MAJ",
+              "descKey": "fighting",
+              "duration": 5,
+              "committedByPlayerId": 8479378,
+              "drawnByPlayerId": 8476878,
+              "eventOwnerTeamId": 52
+            }
+          },
+          {
+            "source_index": 223,
+            "event_id": 710,
+            "time_in_period": "02:23",
+            "details": {
+              "xCoord": 57,
+              "yCoord": -25,
+              "zoneCode": "O",
+              "typeCode": "MAJ",
+              "descKey": "fighting",
+              "duration": 5,
+              "committedByPlayerId": 8476878,
+              "drawnByPlayerId": 8479378,
+              "eventOwnerTeamId": 14
+            }
+          },
+          {
+            "source_index": 224,
+            "event_id": 712,
+            "time_in_period": "02:23",
+            "details": {
+              "xCoord": 59,
+              "yCoord": -20,
+              "zoneCode": "O",
+              "typeCode": "MIS",
+              "descKey": "instigator-misconduct",
+              "duration": 10,
+              "committedByPlayerId": 8476878,
+              "eventOwnerTeamId": 14
+            }
+          },
+          {
+            "source_index": 274,
+            "event_id": 980,
+            "time_in_period": "10:49",
+            "details": {
+              "xCoord": -86,
+              "yCoord": -35,
+              "zoneCode": "D",
+              "typeCode": "MIN",
+              "descKey": "tripping",
+              "duration": 2,
+              "committedByPlayerId": 8475167,
+              "drawnByPlayerId": 8480014,
+              "eventOwnerTeamId": 14
+            }
+          }
+        ],
+        "observed": {
+          "game": {
+            "game_id": "2024020186",
+            "game_date": "2024-11-03",
+            "away_team_id": "14",
+            "home_team_id": "52",
+            "away_abbreviation": "TBL",
+            "home_abbreviation": "WPG",
+            "included_seconds": 2951,
+            "known_excluded_seconds": 0,
+            "known_unresolved_seconds": 125,
+            "horizon_unavailable": false,
+            "away_attempts": 42,
+            "home_attempts": 41,
+            "coverage_status": "partial",
+            "reason_codes": [
+              "elapsed_membership_unresolved",
+              "event_evidence_unresolved"
+            ],
+            "personal_included_seconds": 2951,
+            "personal_known_excluded_seconds": 0,
+            "spatial_included_seconds": 2951,
+            "spatial_known_excluded_seconds": 0,
+            "spatial_away_unblocked": 32,
+            "spatial_home_unblocked": 36,
+            "spatial_coverage_status": "partial",
+            "spatial_reason_codes": [
+              "elapsed_membership_unresolved",
+              "event_evidence_unresolved"
+            ]
+          },
+          "event_dispositions": [
+            {
+              "source_index": 276,
+              "report_source_index": 280,
+              "shift_relation": "neither",
+              "status": "outside_population"
+            },
+            {
+              "source_index": 277,
+              "report_source_index": 281,
+              "shift_relation": "neither",
+              "status": "outside_population"
+            }
+          ],
+          "segment_index": 295,
+          "retained_segment": {
+            "period_number": 3,
+            "start_seconds": 657,
+            "end_seconds": 703,
+            "interval_indices": [
+              325
+            ],
+            "excluded_reasons": []
+          },
+          "segment_seconds": 46,
+          "personal_segment_masked": false,
+          "spatial_segment_masked": false,
+          "personal_or_spatial_event_rows_for_two_outside_events": 0
+        },
+        "interpretation": "the current rule skips known other-strength events before matching observed counts/time and retains this elapsed segment; physical source truth and any prospective whole-segment exclusion policy remain unresolved; this is not an established count deficit",
+        "bounded_native_replay": {
+          "status": "exact reconstruction and all interpreted non-provenance fields",
+          "producer": {
+            "git_commit": "3a9901781a49d4a3553c902ad67115ce80c528ee",
+            "git_dirty": false,
+            "python_version": "3.14.8"
+          }
+        }
+      }
+    }
+  ]
 }

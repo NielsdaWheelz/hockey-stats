@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "gameId": "2024020186",
+  "source": "play-by-play",
+  "request": {
+    "method": "GET",
+    "url": "https://api-web.nhle.com/v1/gamecenter/2024020186/play-by-play",
+    "requestedAt": "2026-09-30T19:19:32.538Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Wed, 30 Sep 2026 19:19:32 GMT",
+    "etag": "W/\"6abd60cc--gzip\""
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 136889,
+    "sha256": "e0f9d79d12a58c7c8d6f9c11e699dcbcf8b20f499061a8008b42c3093e58452f"
+  },
+  "failure": null
+}

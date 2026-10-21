@@ -8,7 +8,12 @@ import { Publication, publicationLayer } from "../server/publication.js";
 
 const check = (filename: string) => Effect.runPromise(Effect.gen(function* () {
   const publication = yield* Publication;
-  return { publication: publication.metadata, coverage: publication.coverage, path: filename };
+  const seasons = [];
+  for (const evidence of publication.seasons) {
+    const league = yield* publication.league(evidence.season);
+    seasons.push({ ...league.season, players: league.players.length });
+  }
+  return { publication: publication.metadata, available_seasons: seasons.map((evidence) => evidence.season), seasons, path: filename };
 }).pipe(Effect.provide(publicationLayer(filename))));
 
 try {

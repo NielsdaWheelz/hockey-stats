@@ -3,7 +3,7 @@ import * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
 import { createHash } from "node:crypto";
 import {
-  Count, CoverageStatus, GameId, HockeyId, PlayerSpatialCell, SpatialCell, SpatialCoverage,
+  Count, CoverageStatus, GameId, HockeyId, Season, PlayerSpatialCell, SpatialCell, SpatialCoverage,
   SpatialMetrics, SpatialReasonCodes, SpatialSelection,
 } from "../shared/observed.js";
 
@@ -19,10 +19,10 @@ export const spatialGameColumns = {
   spatial_coverage_status: CoverageStatus, spatial_reason_codes_json: Schema.fromJsonString(SpatialReasonCodes),
 };
 export const PlayerGameSpatialRow = Schema.Struct({
-  player_id: HockeyId, game_id: GameId, cell_id: Count, for_count: Count, against_count: Count,
+  season: Season, player_id: HockeyId, game_id: GameId, cell_id: Count, for_count: Count, against_count: Count,
 }).check(Schema.makeFilter((row) => row.for_count + row.against_count > 0));
-export const PlayerSeasonSpatialRow = Schema.Struct({ player_id: HockeyId, ...PlayerSpatialCell.fields });
-export const spatialTables = { spatial_cell: SpatialCell, player_game_spatial: PlayerGameSpatialRow, player_season_spatial: PlayerSeasonSpatialRow };
+export const PlayerSeasonSpatialRow = Schema.Struct({ season: Season, player_id: HockeyId, ...PlayerSpatialCell.fields });
+export const spatialTables = { spatial_cell: Schema.Struct({season: Season, ...SpatialCell.fields}), player_game_spatial: PlayerGameSpatialRow, player_season_spatial: PlayerSeasonSpatialRow };
 export const spatialIntegerColumns = ["cell_id", "league_count", "for_count", "against_count", "spatial_included_seconds", "spatial_known_excluded_seconds", "spatial_unblocked_for", "spatial_unblocked_against", "spatial_away_unblocked", "spatial_home_unblocked"];
 export const spatialNullableColumns = ["league_count", "league_raw_per60", "league_density", "spatial_unblocked_for", "spatial_unblocked_against", "spatial_for_per60", "spatial_against_per60", "spatial_away_unblocked", "spatial_home_unblocked"];
 export const spatialRealColumns = ["x_min", "x_max", "y_min", "y_max", "center_x", "center_y", "area_sqft", "league_density", "for_density", "against_density", "for_difference", "against_difference"];
@@ -57,8 +57,8 @@ const GameRow = Schema.Struct({
 const PlayerGameRow = Schema.Struct({ player_id: HockeyId, team_id: HockeyId, ...ScalarRow.fields });
 const selectScalars = Object.keys(ScalarRow.fields).join(",");
 
-export const readSpatial = (sql: SqliteClient, leagueSupport: SpatialCoverage, unassignedGames: number) => Effect.gen(function* () {
-  const cellInputs = yield* sql.unsafe("SELECT * FROM spatial_cell ORDER BY cell_id");
+export const validateSpatial = (sql: SqliteClient, selectedSeason: Season, leagueSupport: SpatialCoverage, unassignedGames: number) => Effect.gen(function* () {
+  const cellInputs = yield* sql.unsafe(`SELECT ${Object.keys(SpatialCell.fields).join(",")} FROM spatial_cell WHERE season=? ORDER BY cell_id`, [selectedSeason]);
   const cells = yield* Effect.try(() => cellInputs.map((row) => Schema.decodeUnknownSync(SpatialCell, strict)(row)));
   yield* Effect.try(() => {
     if (cells.length !== 668) throw new Error("spatial geometry requires 668 cells");
@@ -78,14 +78,14 @@ export const readSpatial = (sql: SqliteClient, leagueSupport: SpatialCoverage, u
       close(cells.reduce((sum, cell) => sum + cell.league_density! * cell.area_sqft / 100, 0), leagueSupport.unblocked_per60!, "league density mass");
     }
   });
-  const gameInputs = yield* sql.unsafe(`SELECT ${Object.keys(GameRow.fields).join(",")} FROM game ORDER BY game_id`);
+  const gameInputs = yield* sql.unsafe(`SELECT ${Object.keys(GameRow.fields).join(",")} FROM game WHERE season=? ORDER BY game_id`, [selectedSeason]);
   const games = yield* Effect.try(() => gameInputs.map((row) => Schema.decodeUnknownSync(GameRow, strict)(row)));
   const leagueCounts = new Map<number, number>();
   const gameReasons = new Map<string, number>();
   let totalSeconds = 0, totalExcluded = 0, totalAttempts = 0;
   for (const game of games) {
-    const playerInputs = yield* sql.unsafe(`SELECT player_id,team_id,${selectScalars} FROM player_game WHERE game_id=? ORDER BY player_id`, [game.game_id]);
-    const sparseInputs = yield* sql.unsafe("SELECT * FROM player_game_spatial WHERE game_id=? ORDER BY player_id,cell_id", [game.game_id]);
+    const playerInputs = yield* sql.unsafe(`SELECT player_id,team_id,${selectScalars} FROM player_game WHERE season=? AND game_id=? ORDER BY player_id`, [selectedSeason, game.game_id]);
+    const sparseInputs = yield* sql.unsafe("SELECT * FROM player_game_spatial WHERE season=? AND game_id=? ORDER BY player_id,cell_id", [selectedSeason, game.game_id]);
     yield* Effect.try(() => {
       const metrics = support({...game, spatial_unblocked_for: game.spatial_away_unblocked, spatial_unblocked_against: game.spatial_home_unblocked,
         spatial_for_per60: game.spatial_included_seconds > 0 ? 3600 * game.spatial_away_unblocked! / game.spatial_included_seconds : null,
@@ -96,7 +96,7 @@ export const readSpatial = (sql: SqliteClient, leagueSupport: SpatialCoverage, u
       const teams = new Map(players.map((row) => [row.player_id, row.team_id]));
       const teamCells = new Map<string, [number, number]>();
       for (const row of sparse) {
-        if (row.game_id !== game.game_id || !teams.has(row.player_id)) throw new Error("spatial sparse identity differs");
+        if (row.season !== selectedSeason || row.game_id !== game.game_id || !teams.has(row.player_id)) throw new Error("spatial sparse identity differs");
         const count = counts.get(row.player_id) ?? [0, 0];
         count[0] += row.for_count; count[1] += row.against_count; counts.set(row.player_id, count);
         const key = `${teams.get(row.player_id)}:${row.cell_id}`;
@@ -133,12 +133,12 @@ export const readSpatial = (sql: SqliteClient, leagueSupport: SpatialCoverage, u
       JSON.stringify(leagueSupport.reason_codes) !== JSON.stringify(reasons.sort()) || JSON.stringify(leagueSupport.reason_game_counts) !== JSON.stringify([...gameReasons].sort(([a],[b]) => a.localeCompare(b)).map(([code,games]) => ({code,games})))) throw new Error("spatial league coverage differs from games");
     for (const cell of cells) if (cell.league_count !== null && cell.league_count !== (leagueCounts.get(cell.cell_id) ?? 0)) throw new Error("spatial league cell differs from player counts");
   });
-  const seasonInputs = yield* sql.unsafe(`SELECT player_id,${selectScalars} FROM player_season ORDER BY player_id`);
+  const seasonInputs = yield* sql.unsafe(`SELECT player_id,${selectScalars} FROM player_season WHERE season=? ORDER BY player_id`, [selectedSeason]);
   const seasons = yield* Effect.try(() => seasonInputs.map((row) => Schema.decodeUnknownSync(SeasonRow, strict)(row)));
   for (const season of seasons) {
-    const denseInputs = yield* sql.unsafe("SELECT * FROM player_season_spatial WHERE player_id=? ORDER BY cell_id", [season.player_id]);
-    const reduced = yield* sql.unsafe<{cell_id:number; for_count:number; against_count:number}>("SELECT cell_id,SUM(for_count) AS for_count,SUM(against_count) AS against_count FROM player_game_spatial WHERE player_id=? GROUP BY cell_id ORDER BY cell_id", [season.player_id]);
-    const contributions = yield* sql.unsafe(`SELECT ${selectScalars} FROM player_game WHERE player_id=?`, [season.player_id]);
+    const denseInputs = yield* sql.unsafe("SELECT * FROM player_season_spatial WHERE season=? AND player_id=? ORDER BY cell_id", [selectedSeason, season.player_id]);
+    const reduced = yield* sql.unsafe<{cell_id:number; for_count:number; against_count:number}>("SELECT cell_id,SUM(for_count) AS for_count,SUM(against_count) AS against_count FROM player_game_spatial WHERE season=? AND player_id=? GROUP BY cell_id ORDER BY cell_id", [selectedSeason, season.player_id]);
+    const contributions = yield* sql.unsafe(`SELECT ${selectScalars} FROM player_game WHERE season=? AND player_id=?`, [selectedSeason, season.player_id]);
     yield* Effect.try(() => {
       const metrics = support(season);
       const rows = denseInputs.map((row) => Schema.decodeUnknownSync(PlayerSeasonSpatialRow, strict)(row));
@@ -159,7 +159,7 @@ export const readSpatial = (sql: SqliteClient, leagueSupport: SpatialCoverage, u
       let forCount = 0, againstCount = 0, forMass = 0, againstMass = 0, forDifference = 0, againstDifference = 0;
       for (const [index,row] of rows.entries()) {
         const cell = cells[index], count = sparse.get(row.cell_id);
-        if (row.player_id !== season.player_id || row.cell_id !== cell.cell_id || row.for_count !== (count?.for_count ?? 0) || row.against_count !== (count?.against_count ?? 0)) throw new Error("spatial dense identity/count reduction differs");
+        if (row.season !== selectedSeason || row.player_id !== season.player_id || row.cell_id !== cell.cell_id || row.for_count !== (count?.for_count ?? 0) || row.against_count !== (count?.against_count ?? 0)) throw new Error("spatial dense identity/count reduction differs");
         if (cell.league_density === null) throw new Error("player map requires positive league reference");
         close(row.for_raw_per60, 3600 * row.for_count / metrics.included_seconds, "raw for");
         close(row.against_raw_per60, 3600 * row.against_count / metrics.included_seconds, "raw against");
@@ -174,19 +174,22 @@ export const readSpatial = (sql: SqliteClient, leagueSupport: SpatialCoverage, u
       close(forDifference, metrics.for_per60! - leagueSupport.unblocked_per60!, "for difference mass"); close(againstDifference, metrics.against_per60! - leagueSupport.unblocked_per60!, "against difference mass");
     });
   }
-  const definition: SpatialSelection["definition"] = { population_version: "matched_unblocked_locations_v1", display_version: "rect5_gaussian10_v1", sigma_ft: 10,
-    rink: {length_ft:200,width_ft:85,corner_radius_ft:28,goal_x:89}, units:"attempts_per60_per100sqft",orientation:"shooting_team_positive_x" };
-  return (ids?: readonly string[]) => Effect.gen(function* () {
-    if (ids === undefined) return null;
-    const players: Array<SpatialSelection["players"][number]> = [];
-    for (const player_id of ids) {
-      const season = seasons.find((row) => row.player_id === player_id);
-      if (season === undefined) { players.push({player_id,data:null}); continue; }
-      const metrics = spatialMetrics(season);
-      const inputs = metrics.included_seconds > 0 ? yield* sql.unsafe(`SELECT ${Object.keys(PlayerSpatialCell.fields).join(",")} FROM player_season_spatial WHERE player_id=? ORDER BY cell_id`, [player_id]) : null;
-      const selected = yield* Effect.try(() => inputs === null ? null : inputs.map((row) => Schema.decodeUnknownSync(PlayerSpatialCell, strict)(row)));
-      players.push({player_id,data:{metrics,cells:selected}});
-    }
-    return {definition,league_support:leagueSupport,cells,players} satisfies SpatialSelection;
-  });
+});
+
+const definition: SpatialSelection["definition"] = { population_version: "matched_unblocked_locations_v1", display_version: "rect5_gaussian10_v1", sigma_ft: 10,
+  rink: {length_ft:200,width_ft:85,corner_radius_ft:28,goal_x:89}, units:"attempts_per60_per100sqft",orientation:"shooting_team_positive_x" };
+export const readSpatial = (sql: SqliteClient, season: Season, leagueSupport: SpatialCoverage, ids?: readonly string[]) => Effect.gen(function* () {
+  if (ids === undefined) return null;
+  const cellInputs = yield* sql.unsafe(`SELECT ${Object.keys(SpatialCell.fields).join(",")} FROM spatial_cell WHERE season=? ORDER BY cell_id`, [season]);
+  const cells = yield* Effect.try(() => cellInputs.map((row) => Schema.decodeUnknownSync(SpatialCell, strict)(row)));
+  const players: Array<SpatialSelection["players"][number]> = [];
+  for (const player_id of ids) {
+    const scalarInputs = yield* sql.unsafe(`SELECT ${selectScalars} FROM player_season WHERE season=? AND player_id=?`, [season, player_id]);
+    if (scalarInputs.length === 0) { players.push({player_id,data:null}); continue; }
+    const metrics = yield* Effect.try(() => spatialMetrics(Schema.decodeUnknownSync(ScalarRow, strict)(scalarInputs[0])));
+    const inputs = metrics.included_seconds > 0 ? yield* sql.unsafe(`SELECT ${Object.keys(PlayerSpatialCell.fields).join(",")} FROM player_season_spatial WHERE season=? AND player_id=? ORDER BY cell_id`, [season, player_id]) : null;
+    const selected = yield* Effect.try(() => inputs === null ? null : inputs.map((row) => Schema.decodeUnknownSync(PlayerSpatialCell, strict)(row)));
+    players.push({player_id,data:{metrics,cells:selected}});
+  }
+  return yield* Effect.try(() => Schema.decodeUnknownSync(SpatialSelection, strict)({definition,league_support:leagueSupport,cells,players}));
 });

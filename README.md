@@ -23,7 +23,7 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. spatial views add matched recorded unblocked attempts for/against, shown against the included league average or as absolute rates. these are unadjusted observations; no fitted ability or xg enters this publication. comparative cards place the five recorded rates among explicitly selected peers; higher percentile always means a higher recorded rate, including opponent attempts. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md) · [spatial contract](docs/specs/05e-spatial-views.md) · [05e verification](docs/research/observed-05e/verification.md) · [comparative-card contract](docs/specs/05f-comparative-observed-cards.md) · [05f verification](docs/research/observed-05f/verification.md)
 
-05f comparative cards are active at `http://127.0.0.1:3000/`, using the unchanged 05e schema-3 publication. reload existing tabs to load the new cards. both publication databases retain their exact bytes and timestamps; this activation replaces application code only. `publication/previous.sqlite` still holds schema 2 and requires matching code `074799a` for database rollback. [activation evidence](docs/research/observed-05f/verification.md#explicit-activation) records exact identities and live checks.
+05g adds 2023–24 through 2025–26 in one schema-4 candidate, with a shared season selector and three-row player history. [history contract](docs/specs/05g-observed-history.md) · [verification and candidate identity](docs/research/observed-05g/verification.md). activation is unassigned. the existing site at `http://127.0.0.1:3000/` still runs 05f with schema 3; `publication/previous.sqlite` still holds schema 2 and requires code `074799a`. both databases and the active build remain unchanged. [05f activation evidence](docs/research/observed-05f/verification.md#explicit-activation) records their identities.
 
 use node `24.21.0`, pinned in `app/.node-version`. stop the running server before rebuilding its assets or replacing its publication. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
 
@@ -34,7 +34,7 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/observed.sqlite --port 3067
 ```
 
 to review another revision, build a separate checkout with the pinned node path above and serve it on a separate port:
@@ -44,18 +44,22 @@ cd /absolute/review-checkout/app
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite --port 3067
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/observed.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. the review revision must read schema 3 to use this publication; no database rebuild or rotation is needed for an application-only change. rebuild the application from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. this revision reads schema 4 only. use the checked 05g candidate; rebuilding its application does not activate it. schema-3 code can be reconstructed from `d3dee76`. rebuild applications from git; no archived build is needed.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
 discovery filters intersect and start with every published player, including low-minute names. choose a reported forward/defense group or a listed season team; type a nonnegative whole-minute minimum, then press enter or apply. the team filter matches season membership and keeps whole-season values, including other teams. `clear filters` preserves sorting. invalid minute drafts leave displayed results unchanged.
 
-use `compare players` above the league table, or `compare this player` on a profile. each comparison slot has a name search and explicit result buttons; typing does not change the selected player. choose two distinct skaters to see their existing counts, rates, matched minutes and coverage side by side. `clear first player` and `clear second player` repair either selection. a direct `/compare?a=<first-player-id>&b=<second-player-id>` link preserves slot order on reload.
+the season selector changes the league list, seasonal identities, peers, maps and game evidence together. it preserves committed discovery/reference/detail/map settings and comparison ids. a team filter absent from another season remains visible with zero matches. searches and pickers use the selected season only. omitted direct links resolve to the newest published season and record it in the url without a second request; explicit invalid or unpublished seasons show recovery links. browser loading hides the previous year's facts until the response arrives.
 
-each column describes that player's own included evidence; the players need not share games, teammates, opponents or gaps. attempts for are the player's team's attempts while on ice, not personal shots. the summary table supplies no adjusted comparisons or ability estimates. spatial maps show descriptive rate differences from their declared league reference. profile links open listed-game evidence with `back to comparison`; `back to players` restores the originating league filters and sort. return context lives only in browser history: a copied or new-tab profile link returns to the unfiltered league page.
+profiles place a linked, newest-first history table between the selected-season card and its detail. each row retains that year's name, teams/reported position, five raw rates, separate personal/on-ice minutes and coverage, and any global unassigned-game gap. missing records stay explicit; a present record with unavailable support retains its reasons. history has no percentiles, pooled totals or trajectory claim. raw annual differences can reflect league environment, missingness or deployment. `no published player record` establishes neither zero production nor whether the player played.
+
+use `compare players` above the league table, or `compare this player` on a profile. each comparison slot has a name search and explicit result buttons; typing does not change the selected player. choose two distinct skaters to see their existing counts, rates, matched minutes and coverage side by side. `clear first player` and `clear second player` repair either selection. a direct `/compare?season=20242025&a=<first-player-id>&b=<second-player-id>` link preserves season and slot order on reload. an absent selection keeps its id and profile/history link; the pair card, distributions and maps wait for both seasonal records.
+
+each column describes that player's own included evidence; the players need not share games, teammates, opponents or gaps. attempts for are the player's team's attempts while on ice, not personal shots. the summary table supplies no adjusted comparisons or ability estimates. spatial maps show descriptive rate differences from that season's physical league reference. profile links open listed-game evidence with `back to comparison`; `back to players` restores the recorded originating league destination, including its season, filters and sort. return context lives only in browser history: a copied or new-tab profile link returns to the selected season's unfiltered league. site home also uses the selected season.
 
 profiles and complete comparisons show five rows: personal shots on goal, goals and primary assists, then on-ice attempts for and against. each pairs a raw rate per 60 included minutes with an observed-rate percentile. the percentile counts lower rates plus half of exact ties, using unrounded published rates. higher always means more of the recorded rate; against is not reversed into a defense rating.
 
@@ -69,14 +73,14 @@ profiles and comparisons show where recorded unblocked attempts occurred during 
 
 spatial minutes can differ from on-ice and personal minutes: a missing coordinate, unresolved frame or outside-rink event removes its whole assigned segment’s counts and time for both teams. zero-event time remains. positive-time zero attempts give zero absolute density; no time gives no rate map. expandable tables retain integer recorded counts, raw bin rates and displayed densities/differences for every cell. game rows reconcile spatial counts/time with the season. smoothing is descriptive pooling, not statistical precision or isolated ability; maps stay in the browser.
 
-from a loaded profile, `download player png` saves one compact 1200-pixel-wide image with all five counts/rates/percentiles, both support and reference summaries, identity, season teams, concise definitions and publication time/id. settings and facts are captured at the click; later controls do not change that image. it uses browser rendering without a request or reaggregation. long names grow the image; full reasons, source corpus hash, raw-rate detail and maps remain on the page. failed export permits retry.
+from a loaded, present profile, `download player png` saves one compact 1200-pixel-wide image with all five counts/rates/percentiles, both support and reference summaries, seasonal identity, source/coverage context and publication time/id. the image and filename name the selected season. facts and settings are captured synchronously at the click; navigation during export does not change that snapshot. it uses browser rendering without a request or reaggregation. long names grow the image; full reasons, raw-rate detail, maps and history remain on the page. failed export permits retry.
 
 the peer minute cutoff is a viewing rule, not evidence of reliability. each eligible player contributes one mark, including partial records; shared play makes these related observations. discovery filters do not change peers. `/players/<id>?peers=all&peerMin=0&metric=goals60` and `/compare?a=<id>&b=<id>&peers=all&peerMin=0&metric=against60` retain reference and detail settings on reload. `metric` accepts `sog60`, `goals60`, `primaryAssists60`, `for60` or `against60`, defaulting to `sog60`. invalid, empty or repeated metric keys normalize by history replacement while preserving unrelated keys. profile/comparison/peer links carry committed settings; return links restore the recorded destination context and retain existing map-mode behavior. plots describe observed results, not uncertainty or ability.
 
 development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
-npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02/observed.sqlite
+npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/observed.sqlite
 ```
 
 ```sh
@@ -90,40 +94,42 @@ to build a new candidate, prepare the locked python environment from the reposit
 ```sh
 cd analysis
 uv sync --locked
-.venv/bin/hockey-stats-observed --corpus /Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20252026/corpus.json --purpose real --out /Users/nnandal/Documents/code/hockey-stats-local/observed-candidate-01
+.venv/bin/hockey-stats-observed --selection /Users/nnandal/Documents/code/hockey-stats-local/observed-05g-inputs-01/selection.json --out /Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-02
 ```
 
-the exact corpus and all named envelopes must exist; there is no acquisition or regeneration. `--purpose fixture` requires an explicitly marked fixture corpus and cannot satisfy real acceptance. argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder writes one sqlite transaction, independently reads it back, then writes `verification.json` before renaming `observed.sqlite.incomplete` to `observed.sqlite`. an incomplete file is not a candidate. receipts retain exact consumed digests, source producers, exclusions and reductions; only the database is needed for serving.
+the selection has exactly `schema_version:1`, `purpose:"real"|"fixture"` and an ascending `corpora` list of `{season,path,sha256}`. corpus paths are absolute existing files with distinct resolved identities; digests bind their exact bytes. real selections require all three declared seasons and both pinned 2024–25/2025–26 corpus identities. 2023–24 uses the freshly prepared, frozen corpus recorded in verification; preparation uses the existing native command and local originals specified in the history contract. fixtures select one to three explicitly marked fixture corpora and cannot become real. no implicit discovery, acquisition or subset selector exists.
+
+argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates, writes, reads back and receipts each season independently before releasing its heavy results. `seasons/<season>/verification.json` retains complete consumed sources, exclusions and reductions. the top-level receipt binds the original selection copy, each season receipt and final database digest/cost. only complete all-season validation permits the final rename from `observed.sqlite.incomplete` to `observed.sqlite`. failed work stays incomplete and never touches active/previous files. only the completed database is needed for serving.
+
+the api retains two endpoints: `/api/league?season=20242025` optionally adds `&spatial=<id>[,<id>]`; `/api/players/<id>?season=20242025` adds that player's compact history. responses separate global `publication` from seasonal `season` evidence and list ordered `available_seasons`. empty/repeated/malformed season values return `InvalidSeasonSelection` (400); well-formed unpublished values return `SeasonNotFound` (404), both with recovery catalogs. a globally known player absent from the selected year returns its selected-season league, empty games, a null selected map and real history; globally unknown ids remain 404.
 
 for a separately assigned same-schema publication, from `app/`, check the candidate, stop any serving process, then activate explicitly:
 
 ```sh
-npm run publication -- check --candidate /Users/nnandal/Documents/code/hockey-stats-local/observed-candidate-01/observed.sqlite
-npm run publication -- activate --candidate /Users/nnandal/Documents/code/hockey-stats-local/observed-candidate-01/observed.sqlite --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+npm run publication -- check --candidate /absolute/schema-4-candidate/observed.sqlite
+npm run publication -- activate --candidate /absolute/schema-4-candidate/observed.sqlite --directory /absolute/schema-4-publication
+npm run serve -- --publication /absolute/schema-4-publication/active.sqlite
 ```
 
-activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. this command requires a schema-3 previous file. it cannot read today’s schema-2 previous; use compatible code and the manual cross-version procedure instead:
+activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. this command requires schema-4 active/previous files. it cannot rotate today's schema-3/schema-2 files; use compatible code and the manual cross-version procedure instead:
 
 ```sh
-npm run publication -- restore --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
+npm run publication -- restore --directory /absolute/schema-4-publication
 ```
 
-the current implementation reads schema **3** only, with unchanged `matched_attempts_v1` / `matched_personal_credits_v1`, plus `matched_unblocked_locations_v1` / `rect5_gaussian10_v1`. the actual active is schema 3; its previous is schema 2 and needs compatible old code. `activate` deliberately rejects an incompatible active file. building or checking a candidate does not activate it.
+the current implementation reads schema **4** only, retaining `matched_attempts_v1` / `matched_personal_credits_v1` and `matched_unblocked_locations_v1` / `rect5_gaussian10_v1`. every fact/reference belongs to its season; no former mixed metadata adapter or schema-3 reader remains. building or checking a candidate does not activate it.
 
 ### manual cross-version cutover and rollback
 
-the explicitly assigned schema-2 → schema-3 cutover is complete. active schema 3 now runs 05f application code merged in `33a1e4d`; previous schema 2 still requires `074799a`. recreate that old code with `git worktree add --detach <old-checkout> 074799a`; use its lockfile, install pinned dependencies and rebuild before database rollback. validate each database with its matching reader before changing either file.
+05g activation is unassigned. when explicitly assigned, a schema-3 → schema-4 cutover must pair each database with compatible code. recreate schema-3 code with `git worktree add --detach <old-checkout> d3dee76`; install its pinned lockfile and rebuild. the current schema-2 previous still requires `074799a` until an assigned rotation replaces it with the schema-3 active.
 
-for a code-only rollback of 05f, rebuild 05e revision `14b7a67` in a separate checkout, stop the server and serve that build against the same schema-3 `active.sqlite`. neither database needs rotation. startup validates the publication before listening; wait for the listening message before opening the site.
-
-the forward example below applies to a schema-2 active and schema-3 candidate, as used in the completed activation. it is not a command to run against today’s schema-3 active. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
+the forward example is a manual procedure for a separately assigned cutover, verified only in disposable publication directories. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
 
 ```sh
 (
 set -eu
-old_app=/absolute/old-schema-2-checkout/app
-new_app=/absolute/schema-3-checkout/app
+old_app=/absolute/schema-3-checkout/app
+new_app=/absolute/schema-4-checkout/app
 publication_directory=/absolute/publication
 candidate=/absolute/candidate/observed.sqlite
 (cd "$old_app" && npm run publication -- check --candidate "$publication_directory/active.sqlite")
@@ -143,8 +149,8 @@ this replaces the previous backup with the validated old active. if interrupted,
 ```sh
 (
 set -eu
-old_app=/absolute/old-schema-2-checkout/app
-new_app=/absolute/schema-3-checkout/app
+old_app=/absolute/schema-3-checkout/app
+new_app=/absolute/schema-4-checkout/app
 publication_directory=/absolute/publication
 (cd "$new_app" && npm run publication -- check --candidate "$publication_directory/active.sqlite")
 (cd "$old_app" && npm run publication -- check --candidate "$publication_directory/previous.sqlite")
@@ -187,7 +193,7 @@ npm run capture -- --game 2025020001 --source landing --out /absolute/existing/g
 
 the parent must contain a readable version-1 `play-by-play/capture.json` naming this game and source. `--source` accepts only `landing`, once. an existing landing leaf fails before network access. for replacement, explicitly prepare a new game-directory copy without its landing leaf, preserving the original directory and any existing landing evidence. the command neither overwrites nor resumes. new retrieval dates remain distinct from the five earlier responses.
 
-downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains thirty-three complete game bundles across five seasons, one interrupted bundle and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. this slice's temporary integration/live checks were deleted after verification. new work follows the prospective [lasting-check policy](docs/specs/07-lightweight-testing.md).
+downloads under `var/` are ignored. [the offline corpus](fixtures/README.md) contains thirty-six complete game bundles across five seasons, one interrupted bundle and their season references, with explicit evidence limits; it is not a training dataset. run `npm run typecheck` from `app/` to check application types. this slice's temporary integration/live checks were deleted after verification. new work follows the prospective [lasting-check policy](docs/specs/07-lightweight-testing.md).
 
 ## interpretation
 

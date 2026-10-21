@@ -222,3 +222,27 @@ export function teamOptions(players: readonly PlayerSummary[]): Team[] {
         a.id.localeCompare(b.id),
     );
 }
+
+export type MapMode = "difference" | "absolute";
+
+export function readMapMode(search: URLSearchParams): {
+  readonly mode: MapMode;
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const values = search.getAll("map");
+  const mode =
+    values.length === 1 && values[0] === "absolute" ? "absolute" : "difference";
+  if (values.length && mode === "difference") next.delete("map");
+  return { mode, search: next };
+}
+
+// compose another edit with an in-flight same-page selection, not its old view.
+export function viewSearch(
+  current: { readonly pathname: string; readonly search: string },
+  pending?: { readonly pathname: string; readonly search: string },
+): URLSearchParams {
+  return new URLSearchParams(
+    pending?.pathname === current.pathname ? pending.search : current.search,
+  );
+}

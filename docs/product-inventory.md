@@ -12,6 +12,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 2026-10-21 amendment: [05d](specs/05d-descriptive-cards.md) specifies personal shots on goal, goals and primary assists, separate personal exposure/coverage, and a single-player png. existing on-ice distributions remain; new percentiles/personal distributions and usage enrichment remain later. [05e](specs/05e-spatial-views.md) next targets source-supported observed rink views independently of 04m. descriptive capabilities do not admit player ability.
 
+2026-10-21 spatial contract: [05e](specs/05e-spatial-views.md) now specifies observed unblocked for/against maps on profiles/comparison, league differences plus absolute rates, fixed descriptive smoothing and inspectable raw evidence. its separate matched spatial support preserves existing populations; source locations are not verified releases. replacement valuation, personal-shot maps, adjusted effects and map downloads remain distinct later capabilities. this advances observed spatial explanation, not admitted skill or private-model parity.
+
 ## analytical dependencies
 
 the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.

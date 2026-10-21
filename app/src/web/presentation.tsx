@@ -12,10 +12,15 @@ import type {
   ReasonCode,
   PersonalMetrics,
   PersonalReasonCode,
+  SpatialMetrics,
+  SpatialReasonCode,
   Team,
 } from "../shared/observed";
 
-export const reasons: Record<ReasonCode | PersonalReasonCode, string> = {
+export const reasons: Record<
+  ReasonCode | PersonalReasonCode | SpatialReasonCode,
+  string
+> = {
   required_source_unavailable:
     "required event or report evidence is unavailable",
   count_accounting_conflict:
@@ -35,6 +40,14 @@ export const reasons: Record<ReasonCode | PersonalReasonCode, string> = {
     "some personal scoring credit is unresolved; its segment is excluded from personal counts and time",
   no_personal_5v5_exposure:
     "no personal 5v5 exposure; rates are undefined even when a credited assist remains",
+  spatial_coordinates_missing:
+    "recorded coordinates are missing; the assigned segment is excluded from spatial counts and time",
+  spatial_frame_unresolved:
+    "the shooting team's attacking frame is unresolved; its segment is excluded from spatial counts and time",
+  spatial_location_outside_rink:
+    "a recorded location lies outside the rink; its segment is excluded from spatial counts and time",
+  no_spatial_5v5_exposure:
+    "no spatial 5v5 exposure; rates and maps are undefined",
   no_5v5_exposure: "no 5v5 exposure in the supported listed evidence",
 };
 
@@ -76,7 +89,7 @@ export const formatQuantity = (value: number | null, decimals = 0) =>
         : String(value);
 
 type CoverageFields = Pick<
-  Metrics | PersonalMetrics,
+  Metrics | PersonalMetrics | SpatialMetrics,
   "coverage_status" | "known_excluded_seconds" | "reason_codes"
 >;
 

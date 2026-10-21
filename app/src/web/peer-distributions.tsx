@@ -182,7 +182,7 @@ export default function PeerDistributions({
   readonly players: readonly PlayerSummary[];
   readonly selected: readonly PlayerSummary[];
   readonly settings: PeerSettings;
-  readonly onChange: (settings: PeerSettings) => void;
+  readonly onChange: (settings: Partial<PeerSettings>) => void;
   readonly profileLink: (playerId: string) => {
     readonly to: string;
     readonly state: unknown;
@@ -240,7 +240,6 @@ export default function PeerDistributions({
             value={settings.peers}
             onChange={(event) =>
               onChange({
-                ...settings,
                 peers: event.currentTarget.value as PeerSettings["peers"],
               })
             }
@@ -264,7 +263,7 @@ export default function PeerDistributions({
               return;
             }
             setMinute({ committed: value, draft: String(value), error: "" });
-            onChange({ ...settings, peerMin: value });
+            onChange({ peerMin: value });
           }}
         >
           <label htmlFor={`${id}-minimum`}>

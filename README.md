@@ -21,27 +21,24 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 ## private observed results
 
-the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md)
+the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. spatial views add matched recorded unblocked attempts for/against, shown against the included league average or as absolute rates. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md) · [spatial contract](docs/specs/05e-spatial-views.md) · [05e verification](docs/research/observed-05e/verification.md)
 
-the verified 05d schema-2 publication is active at `http://127.0.0.1:3000/`, with compatible code. reload an existing tab to load the new player cards. `publication/previous.sqlite` preserves the former schema-1 active database; restoring it requires the matching old code and the manual rollback below.
+the verified 05d schema-2 publication remains active at `http://127.0.0.1:3000/`, with compatible code. reload an existing tab to load the new player cards. `publication/previous.sqlite` preserves the former schema-1 active database; restoring it uses the stop/check/copy/restart pattern below with old code `e335b59` and current schema-2 code `074799a`; schema-3 code cannot read either file.
 
-use node `24.21.0`, pinned in `app/.node-version`. stop the running server before rebuilding or replacing its publication. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
+this branch reads schema **3** only. review its separate candidate on port 3065; the active schema-2 site on port 3000 keeps its compatible code. activation is a separate operator action. use node `24.21.0`, pinned in `app/.node-version`. build in a separate checkout; do not rebuild the primary application while its schema-2 build is serving. the command below recreates the verified application source from git without an archived build. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
 
 ```sh
 export PATH="$HOME/.local/share/mise/installs/node/24.21.0/bin:$PATH"
-cd app
+git worktree add --detach ../hockey-stats-candidate fc437ef
+cd ../hockey-stats-candidate/app
 node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02/observed.sqlite --port 3065
 ```
 
-open `http://127.0.0.1:3000/`. for separate candidate review, build in a disposable checkout and serve the candidate on another loopback port:
-
-```sh
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05d-candidate-01/observed.sqlite --port 3060
-```
+open `http://127.0.0.1:3065/` for the candidate. the active site remains `http://127.0.0.1:3000/`.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
@@ -49,20 +46,24 @@ discovery filters intersect and start with every published player, including low
 
 use `compare players` above the league table, or `compare this player` on a profile. each comparison slot has a name search and explicit result buttons; typing does not change the selected player. choose two distinct skaters to see their existing counts, rates, matched minutes and coverage side by side. `clear first player` and `clear second player` repair either selection. a direct `/compare?a=<first-player-id>&b=<second-player-id>` link preserves slot order on reload.
 
-each column describes that player's own included evidence; the players need not share games, teammates, opponents or gaps. attempts for are the player's team's attempts while on ice, not personal shots. the comparison calculates no differences, adjustments or ability estimates. profile links open listed-game evidence with `back to comparison`; `back to players` restores the originating league filters and sort. return context lives only in browser history: a copied or new-tab profile link returns to the unfiltered league page.
+each column describes that player's own included evidence; the players need not share games, teammates, opponents or gaps. attempts for are the player's team's attempts while on ice, not personal shots. the summary table supplies no adjusted comparisons or ability estimates. spatial maps show descriptive rate differences from their declared league reference. profile links open listed-game evidence with `back to comparison`; `back to players` restores the originating league filters and sort. return context lives only in browser history: a copied or new-tab profile link returns to the unfiltered league page.
 
 profiles and complete comparisons show on-ice attempts for/60 and against/60 as horizontal rug plots. the default reference uses the selected player's reported forward/defense group and at least 300 included 5v5 minutes; mixed-position pairs have separate groups on the same scale. choose all skaters or apply another minute floor to change only the reference. `reset peers` restores position/300. below-floor players keep their observed values and highlights; unavailable rates have no mark. expandable peer tables provide linked names, numeric values, exposure and coverage.
 
 the league also sorts personal shots on goal/60, goals/60, primary assists/60 and personal included minutes. discovery minimums, games and peer membership continue to use **on-ice** time. profiles and comparisons show personal counts and rates; game rows expose their contributions and coverage. shots on goal include scored and saved shots; goals are already included. primary assists are first credited assists, not all assists or measured passing. goal strength selects credit even after an assister changes off. personal support can be smaller than on-ice support; its common denominator excludes a whole segment when credit is unresolved. neither population is an official complete total.
 
+profiles and comparisons show where recorded unblocked attempts occurred during independently matched spatial time. the default difference from the included league average and `map=absolute` use the same fixed display smoothing: five-foot bins; gaussian standard deviation ten feet. both for/against maps use the shooting team’s frame, attacking toward the top; right is positive y. every available panel shares one scale, which changes with selection. red means more attempts, not better performance. the included league reference shows its own selective coverage and two team-directions per physical minute; peer controls do not alter it.
+
+spatial minutes can differ from on-ice and personal minutes: a missing coordinate, unresolved frame or outside-rink event removes its whole assigned segment’s counts and time for both teams. zero-event time remains. positive-time zero attempts give zero absolute density; no time gives no rate map. expandable tables retain integer recorded counts, raw bin rates and displayed densities/differences for every cell. game rows reconcile spatial counts/time with the season. smoothing is descriptive pooling, not statistical precision or isolated ability; maps stay in the browser.
+
 from a loaded profile, `download player png` saves one 1200-pixel-wide image with identity, all season teams, both populations, coverage, definitions and publication identity. it uses the loaded response and browser rendering, with no request or reaggregation; peer plots stay on the page. long content grows the image. a failed export leaves the action available to retry. the image supplements the page's semantic text.
 
 the peer minute cutoff is a viewing rule, not evidence of reliability. each eligible player contributes one mark, including partial records; shared play makes these related observations. discovery filters do not change peers. `/players/<id>?peers=all&peerMin=0` and `/compare?a=<id>&b=<id>&peers=all&peerMin=0` retain reference settings on reload. profile/comparison/peer links carry those settings; return links restore the recorded destination context. plots describe observed results, not uncertainty or ability.
 
-stop any existing server on port 3000 before development. development uses two terminals, each in `app/` with the pinned node executable first:
+development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review above leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
-npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05d-candidate-01/observed.sqlite
+npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02/observed.sqlite
 ```
 
 ```sh
@@ -89,25 +90,25 @@ npm run publication -- activate --candidate /Users/nnandal/Documents/code/hockey
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
 ```
 
-activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. the current previous file is schema 1, so use the manual cross-version rollback below instead:
+activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. this command requires a schema-3 previous file. it cannot read today’s schema-1 previous or a later schema-2 rollback; use compatible code and the manual cross-version procedure instead:
 
 ```sh
 npm run publication -- restore --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
 ```
 
-the current implementation reads schema **2** only, with `matched_attempts_v1` and `matched_personal_credits_v1`. a schema-1 active database needs the manual cross-version cutover below; `activate` deliberately rejects an incompatible active file. building or checking a candidate does not activate it.
+the current implementation reads schema **3** only, with unchanged `matched_attempts_v1` / `matched_personal_credits_v1`, plus `matched_unblocked_locations_v1` / `rect5_gaussian10_v1`. the actual active is schema 2; its previous is schema 1. either needs compatible old code. a schema-2 → schema-3 cutover uses the manual procedure below; `activate` deliberately rejects an incompatible active file. building or checking a candidate does not activate it.
 
 ### manual cross-version cutover and rollback
 
-activation requires an explicit operator assignment. the user assigned and completed the initial schema-1 → schema-2 cutover on 2026-10-21; the following procedure also describes recovery and future cross-version operations. stop the serving process first. use the old schema-1 checkout at revision `e335b59` (and its lockfile) to check the existing active file; use the schema-2 checkout to check the new candidate. keep both checks distinct. the old checkout can be recreated with `git worktree add --detach <old-checkout> e335b59`; install its pinned dependencies and rebuild when that code is needed.
+activation requires an explicit operator assignment; 05e candidate verification does not activate it. for a later schema-2 → schema-3 cutover, check today’s active with schema-2 revision `074799a` and its lockfile, and check the candidate with this branch’s schema-3 code. recreate old code with `git worktree add --detach <old-checkout> 074799a`; install pinned dependencies and rebuild when needed. the actual previous schema-1 file still requires `e335b59`, as recorded in [05d activation](docs/research/observed-05d/verification.md#explicit-activation).
 
 set the paths below and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
 
 ```sh
 (
 set -eu
-old_app=/absolute/old-schema-1-checkout/app
-new_app=/absolute/schema-2-checkout/app
+old_app=/absolute/old-schema-2-checkout/app
+new_app=/absolute/schema-3-checkout/app
 publication_directory=/absolute/publication
 candidate=/absolute/candidate/observed.sqlite
 (cd "$old_app" && npm run publication -- check --candidate "$publication_directory/active.sqlite")
@@ -127,8 +128,8 @@ this replaces the previous backup with the validated old active. if interrupted,
 ```sh
 (
 set -eu
-old_app=/absolute/old-schema-1-checkout/app
-new_app=/absolute/schema-2-checkout/app
+old_app=/absolute/old-schema-2-checkout/app
+new_app=/absolute/schema-3-checkout/app
 publication_directory=/absolute/publication
 (cd "$new_app" && npm run publication -- check --candidate "$publication_directory/active.sqlite")
 (cd "$old_app" && npm run publication -- check --candidate "$publication_directory/previous.sqlite")

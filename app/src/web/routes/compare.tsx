@@ -4,6 +4,7 @@ import {
   Link,
   useLoaderData,
   useLocation,
+  useNavigation,
   useSearchParams,
   type ClientLoaderFunctionArgs,
   type ShouldRevalidateFunctionArgs,
@@ -11,7 +12,13 @@ import {
 import { HockeyId, type PlayerSummary } from "../../shared/observed";
 import { loadLeague } from "../client";
 import PlayerPicker from "../player-picker";
-import { readPeerSettings, type PeerSettings } from "../explorer";
+import {
+  readMapMode,
+  readPeerSettings,
+  viewSearch,
+  type PeerSettings,
+} from "../explorer";
+import SpatialViews from "../spatial-views";
 import PeerDistributions from "../peer-distributions";
 import {
   CoverageDetail,
@@ -25,8 +32,20 @@ import {
   teamName,
 } from "../presentation";
 
-export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
-  loadLeague(request.signal);
+export const clientLoader = ({ request }: ClientLoaderFunctionArgs) => {
+  const search = new URL(request.url).searchParams;
+  const ids: string[] = [];
+  for (const key of ["a", "b"]) {
+    const values = search.getAll(key);
+    if (
+      values.length === 1 &&
+      Schema.is(HockeyId)(values[0]) &&
+      !ids.includes(values[0])
+    )
+      ids.push(values[0]);
+  }
+  return loadLeague(request.signal, ids);
+};
 export const ErrorBoundary = LoadError;
 
 export function shouldRevalidate({
@@ -40,7 +59,7 @@ export function shouldRevalidate({
   ) {
     const current = new URLSearchParams(currentUrl.search);
     const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["a", "b", "peers", "peerMin"]) {
+    for (const key of ["peers", "peerMin", "map"]) {
       current.delete(key);
       next.delete(key);
     }
@@ -67,34 +86,61 @@ function selection(
 export default function Compare() {
   const data = useLoaderData<typeof clientLoader>();
   const location = useLocation();
+  const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
   const leagueSearch = historySearch(location.state?.leagueSearch);
-  const { settings, search: normalized } = readPeerSettings(search);
+  const { settings, search: peerNormalized } = readPeerSettings(search);
+  const { mode, search: normalized } = readMapMode(peerNormalized);
   useEffect(() => {
-    if (normalized.toString() !== search.toString())
+    if (
+      navigation.state === "idle" &&
+      normalized.toString() !== search.toString()
+    )
       setSearch(normalized, {
         replace: true,
         preventScrollReset: true,
         state: location.state,
       });
-  }, [normalized.toString(), search, setSearch, location.state]);
-  const peerQuery = new URLSearchParams();
-  if (settings.peers !== "position") peerQuery.set("peers", settings.peers);
+  }, [
+    normalized.toString(),
+    search,
+    setSearch,
+    location.state,
+    navigation.state,
+  ]);
+  const viewQuery = new URLSearchParams();
+  if (mode === "absolute") viewQuery.set("map", "absolute");
+  if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
-    peerQuery.set("peerMin", String(settings.peerMin));
-  const changePeers = (nextSettings: PeerSettings) => {
-    if (
-      nextSettings.peers === settings.peers &&
-      nextSettings.peerMin === settings.peerMin
-    )
-      return;
-    const next = new URLSearchParams(search);
-    if (nextSettings.peers === "position") next.delete("peers");
-    else next.set("peers", nextSettings.peers);
-    if (nextSettings.peerMin === 300) next.delete("peerMin");
-    else next.set("peerMin", String(nextSettings.peerMin));
-    if (next.toString() !== search.toString())
-      setSearch(next, { preventScrollReset: true, state: location.state });
+    viewQuery.set("peerMin", String(settings.peerMin));
+  const changePeers = (nextSettings: Partial<PeerSettings>) => {
+    const next = viewSearch(location, navigation.location);
+    const previous = next.toString();
+    if (nextSettings.peers !== undefined) {
+      if (nextSettings.peers === "position") next.delete("peers");
+      else next.set("peers", nextSettings.peers);
+    }
+    if (nextSettings.peerMin !== undefined) {
+      if (nextSettings.peerMin === 300) next.delete("peerMin");
+      else next.set("peerMin", String(nextSettings.peerMin));
+    }
+    if (next.toString() !== previous)
+      setSearch(next, {
+        preventScrollReset: true,
+        state: location.state,
+        flushSync: true,
+      });
+  };
+  const changeMode = (nextMode: "difference" | "absolute") => {
+    const next = viewSearch(location, navigation.location);
+    if (nextMode === readMapMode(next).mode) return;
+    if (nextMode === "absolute") next.set("map", "absolute");
+    else next.delete("map");
+    setSearch(next, {
+      preventScrollReset: true,
+      state: location.state,
+      flushSync: true,
+    });
   };
   const first = selection(search.getAll("a"), "first", data.players);
   const second = selection(search.getAll("b"), "second", data.players);
@@ -106,13 +152,19 @@ export default function Compare() {
     search.getAll("a"),
     search.getAll("b"),
   ]);
+  // expose the pending target before another control can compose its url edit.
   const commit = (slot: "first" | "second", player?: PlayerSummary) => {
-    const next = new URLSearchParams(search);
+    const next = viewSearch(location, navigation.location);
+    const previous = next.toString();
     const key = slot === "first" ? "a" : "b";
     if (player) next.set(key, player.player_id);
     else next.delete(key);
-    if (next.toString() !== search.toString())
-      setSearch(next, { preventScrollReset: true, state: location.state });
+    if (next.toString() !== previous)
+      setSearch(next, {
+        preventScrollReset: true,
+        state: location.state,
+        flushSync: true,
+      });
   };
   const pair =
     first.player && second.player && !secondError
@@ -199,7 +251,7 @@ export default function Compare() {
                         {index === 0 ? "first player" : "second player"}
                       </span>
                       <Link
-                        to={`/players/${player.player_id}${peerQuery.size ? `?${peerQuery}` : ""}`}
+                        to={`/players/${player.player_id}${viewQuery.size ? `?${viewQuery}` : ""}`}
                         state={{
                           comparisonSearch: location.search,
                           leagueSearch,
@@ -460,6 +512,18 @@ export default function Compare() {
           </p>
         </section>
       )}
+      {(first.player || (second.player && !secondError)) && (
+        <SpatialViews
+          spatial={data.spatial}
+          players={[
+            first.player,
+            secondError ? undefined : second.player,
+          ].filter((player): player is PlayerSummary => player !== undefined)}
+          season={data.publication.season}
+          mode={mode}
+          onModeChange={changeMode}
+        />
+      )}
       {pair && (
         <PeerDistributions
           players={data.players}
@@ -467,7 +531,7 @@ export default function Compare() {
           settings={settings}
           onChange={changePeers}
           profileLink={(playerId) => ({
-            to: `/players/${playerId}${peerQuery.size ? `?${peerQuery}` : ""}`,
+            to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
             state: { leagueSearch, comparisonSearch: location.search },
           })}
         />

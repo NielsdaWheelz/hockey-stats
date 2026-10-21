@@ -209,31 +209,44 @@ export function CoverageDetail({
 
 export function GlobalGap({ season }: { readonly season: SeasonEvidence }) {
   const coverage = season.coverage;
-  if (coverage.games_with_unassigned_player_associations === 0) return null;
   return (
-    <aside className="global-gap" aria-label="unassigned player evidence">
-      <p>
-        player associations are unresolved in{" "}
-        {coverage.games_with_unassigned_player_associations} inventory{" "}
-        {coverage.games_with_unassigned_player_associations === 1
-          ? "game"
-          : "games"}
-        . every {seasonLabel(season.season)} summary carries this gap; included
-        results may omit games for any player.
-      </p>
-      <details>
-        <summary>view every unassigned game</summary>
-        <ul>
-          {coverage.unassigned_games.map((game) => (
-            <li key={game.game_id}>
-              <time dateTime={game.date}>{game.date}</time> · {game.game_id} ·
-              team {game.away_team_id} at team {game.home_team_id}:{" "}
-              {game.reason_codes.map((code) => reasons[code]).join("; ")}
-            </li>
-          ))}
-        </ul>
-      </details>
-    </aside>
+    <>
+      {(coverage.partial_games > 0 || coverage.unavailable_games > 0) && (
+        <aside className="global-gap" aria-label="season inventory coverage">
+          <p>
+            {seasonLabel(season.season)} on-ice evidence: {coverage.games_with_included_time}{" "}
+            of {coverage.inventory_games} inventory games have included 5v5
+            time; {coverage.partial_games} partial, {coverage.unavailable_games}{" "}
+            unavailable. included observations may omit games or parts of games.
+          </p>
+        </aside>
+      )}
+      {coverage.games_with_unassigned_player_associations > 0 && (
+        <aside className="global-gap" aria-label="unassigned player evidence">
+          <p>
+            player associations are unresolved in{" "}
+            {coverage.games_with_unassigned_player_associations} inventory{" "}
+            {coverage.games_with_unassigned_player_associations === 1
+              ? "game"
+              : "games"}
+            . every {seasonLabel(season.season)} summary carries this gap; included
+            results may omit games for any player.
+          </p>
+          <details>
+            <summary>view every unassigned game</summary>
+            <ul>
+              {coverage.unassigned_games.map((game) => (
+                <li key={game.game_id}>
+                  <time dateTime={game.date}>{game.date}</time> · {game.game_id} ·
+                  team {game.away_team_id} at team {game.home_team_id}:{" "}
+                  {game.reason_codes.map((code) => reasons[code]).join("; ")}
+                </li>
+              ))}
+            </ul>
+          </details>
+        </aside>
+      )}
+    </>
   );
 }
 

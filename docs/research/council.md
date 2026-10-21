@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05c implementation review — 2026-10-20
+
+independent transport/selection, statistical/systems and content reviews clear the completed [05c player explorer](observed-05c/verification.md), application producer `05e7dc4`. exact-second peer membership, one-response coherence, mixed-position lanes, linked numeric alternatives and full keyboard/return journeys pass. review repairs native-anchor history loss, missing destination focus, unchanged-default history entries and unreadable axis endpoints. native 200% zoom is measured through the browser zoom api, including 320 css pixels; final compositor captures show readable figures. temporary checks are deleted after final green; the existing publication is unchanged.
+
+the larger profile response, independent discovery/reference controls, partial/related equal-weight observations, overlap and axis compression remain accepted costs. the viewing cutoff supplies no reliability guarantee; observed distributions imply no ability or model admission. no later slice is assigned.
+
 ## 05c specification review — 2026-10-20
 
 independent statistical/semantic, systems and product/content reviewers clear [05c's full player-explorer contract](../specs/05c-player-explorer.md). the user chose reported forward/defense reference groups and an adjustable 300-included-minute default. the main alternative was one common all-skater reference; the selected default gives role context but mixed pairs have distinct populations. an explicit all-skater option remains. minute selection is a viewing convention, not reliability evidence.

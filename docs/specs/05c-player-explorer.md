@@ -1,6 +1,6 @@
 # pr05c — observed player explorer
 
-status: **full specification; implementation unassigned.** user choices confirmed 2026-10-20: reported forward/defense peers by default, including separate groups for a mixed-position pair; adjustable peer minimum of 300 included minutes. [the plan](../plan.md) owns progression. independent of 04l and model admission. [brief](../brief.md) · [architecture](../architecture.md) · [05b contract](05b-observed-comparison.md)
+status: **implemented and verified; [acceptance receipt](../research/observed-05c/verification.md).** user choices confirmed 2026-10-20: reported forward/defense peers by default, including separate groups for a mixed-position pair; adjustable peer minimum of 300 included minutes. [the plan](../plan.md) owns progression. independent of 04l and model admission. [brief](../brief.md) · [architecture](../architecture.md) · [05b contract](05b-observed-comparison.md)
 
 ## target and boundary
 

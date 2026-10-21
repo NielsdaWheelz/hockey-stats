@@ -23,22 +23,21 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. spatial views add matched recorded unblocked attempts for/against, shown against the included league average or as absolute rates. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md) · [spatial contract](docs/specs/05e-spatial-views.md) · [05e verification](docs/research/observed-05e/verification.md)
 
-the verified 05d schema-2 publication remains active at `http://127.0.0.1:3000/`, with compatible code. reload an existing tab to load the new player cards. `publication/previous.sqlite` preserves the former schema-1 active database; restoring it uses the stop/check/copy/restart pattern below with old code `e335b59` and current schema-2 code `074799a`; schema-3 code cannot read either file.
+the verified 05e schema-3 publication is active at `http://127.0.0.1:3000/`, with compatible application code. reload existing tabs to load the spatial views. `publication/previous.sqlite` preserves the former schema-2 active database; rollback requires matching code `074799a` and the manual procedure below. current schema-3 code cannot read that previous file. [activation evidence](docs/research/observed-05e/verification.md#explicit-activation) records exact identities and live checks.
 
-this branch reads schema **3** only. review its separate candidate on port 3065; the active schema-2 site on port 3000 keeps its compatible code. activation is a separate operator action. use node `24.21.0`, pinned in `app/.node-version`. build in a separate checkout; do not rebuild the primary application while its schema-2 build is serving. the command below recreates the verified application source from git without an archived build. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
+use node `24.21.0`, pinned in `app/.node-version`. stop the running server before rebuilding its assets or replacing its publication. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
 
 ```sh
 export PATH="$HOME/.local/share/mise/installs/node/24.21.0/bin:$PATH"
-git worktree add --detach ../hockey-stats-candidate fc437ef
-cd ../hockey-stats-candidate/app
+cd app
 node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02/observed.sqlite --port 3065
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
 ```
 
-open `http://127.0.0.1:3065/` for the candidate. the active site remains `http://127.0.0.1:3000/`.
+to review the retained candidate without interrupting the site, build a separate checkout of `fc437ef` and serve `/Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02/observed.sqlite` on port 3065. rebuild from git; no archived build is needed.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
@@ -60,7 +59,7 @@ from a loaded profile, `download player png` saves one 1200-pixel-wide image wit
 
 the peer minute cutoff is a viewing rule, not evidence of reliability. each eligible player contributes one mark, including partial records; shared play makes these related observations. discovery filters do not change peers. `/players/<id>?peers=all&peerMin=0` and `/compare?a=<id>&b=<id>&peers=all&peerMin=0` retain reference settings on reload. profile/comparison/peer links carry those settings; return links restore the recorded destination context. plots describe observed results, not uncertainty or ability.
 
-development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review above leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
+development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
 npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05e-candidate-02/observed.sqlite
@@ -90,19 +89,19 @@ npm run publication -- activate --candidate /Users/nnandal/Documents/code/hockey
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
 ```
 
-activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. this command requires a schema-3 previous file. it cannot read today’s schema-1 previous or a later schema-2 rollback; use compatible code and the manual cross-version procedure instead:
+activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. this command requires a schema-3 previous file. it cannot read today’s schema-2 previous; use compatible code and the manual cross-version procedure instead:
 
 ```sh
 npm run publication -- restore --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
 ```
 
-the current implementation reads schema **3** only, with unchanged `matched_attempts_v1` / `matched_personal_credits_v1`, plus `matched_unblocked_locations_v1` / `rect5_gaussian10_v1`. the actual active is schema 2; its previous is schema 1. either needs compatible old code. a schema-2 → schema-3 cutover uses the manual procedure below; `activate` deliberately rejects an incompatible active file. building or checking a candidate does not activate it.
+the current implementation reads schema **3** only, with unchanged `matched_attempts_v1` / `matched_personal_credits_v1`, plus `matched_unblocked_locations_v1` / `rect5_gaussian10_v1`. the actual active is schema 3; its previous is schema 2 and needs compatible old code. `activate` deliberately rejects an incompatible active file. building or checking a candidate does not activate it.
 
 ### manual cross-version cutover and rollback
 
-activation requires an explicit operator assignment; 05e candidate verification does not activate it. for a later schema-2 → schema-3 cutover, check today’s active with schema-2 revision `074799a` and its lockfile, and check the candidate with this branch’s schema-3 code. recreate old code with `git worktree add --detach <old-checkout> 074799a`; install pinned dependencies and rebuild when needed. the actual previous schema-1 file still requires `e335b59`, as recorded in [05d activation](docs/research/observed-05d/verification.md#explicit-activation).
+the explicitly assigned schema-2 → schema-3 cutover is complete. the current rollback pair is active schema 3 at application revision `fc437ef` and previous schema 2 at `074799a`. recreate old code with `git worktree add --detach <old-checkout> 074799a`; use its lockfile, install pinned dependencies and rebuild before rollback. current main supplies compatible schema-3 code. validate each database with its matching reader before changing either file.
 
-set the paths below and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
+the forward example below applies to a schema-2 active and schema-3 candidate, as used in the completed activation. it is not a command to run against today’s schema-3 active. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
 
 ```sh
 (

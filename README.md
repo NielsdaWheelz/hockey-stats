@@ -23,7 +23,9 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md)
 
-use node `24.21.0`, pinned in `app/.node-version`. on this mac, explicitly put its installed executable first so npm's children use the same runtime:
+05d is verified without activation. the active database remains schema 1, served by its compatible existing build on port 3000. the current source reads schema 2 only. **do not rebuild the primary checkout while that old server is running:** it reads browser assets from disk on each request. review the candidate from a separate disposable checkout; stop and rebuild the primary server only during a separately assigned compatible cutover.
+
+use node `24.21.0`, pinned in `app/.node-version`. in the separate checkout, explicitly put its installed executable first so npm's children use the same runtime:
 
 ```sh
 export PATH="$HOME/.local/share/mise/installs/node/24.21.0/bin:$PATH"
@@ -32,16 +34,10 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
-```
-
-05d is verified without activation. the existing active file remains schema 1, served with its compatible old code. to review the checked schema-2 candidate from this checkout, use this separate loopback command instead of the active-file command above:
-
-```sh
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05d-candidate-01/observed.sqlite --port 3060
 ```
 
-open `http://127.0.0.1:3060/`. after a separately assigned activation, open `http://127.0.0.1:3000/`. `--port 3001` explicitly chooses another local port. the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
+open `http://127.0.0.1:3060/`. after a separately assigned schema-2 activation, serve `publication/active.sqlite` with compatible code on the ordinary port 3000. `--port 3001` explicitly chooses another local port. the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
 discovery filters intersect and start with every published player, including low-minute names. choose a reported forward/defense group or a listed season team; type a nonnegative whole-minute minimum, then press enter or apply. the team filter matches season membership and keeps whole-season values, including other teams. `clear filters` preserves sorting. invalid minute drafts leave displayed results unchanged.
 

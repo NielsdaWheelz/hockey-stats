@@ -13,7 +13,8 @@ import time
 import uuid
 
 from .artifacts import implementation_identity, require, write_json
-from .observed import PERSONAL_REASON_CODES, aggregate
+from .observed import PERSONAL_REASON_CODES, SPATIAL_REASON_CODES, aggregate
+from .observed_spatial import POPULATION_VERSION, DISPLAY_VERSION
 
 
 _METRICS = """
@@ -35,6 +36,22 @@ _METRICS = """
     personal_primary_assists_per60 REAL CHECK(personal_primary_assists_per60 BETWEEN 0 AND 1.7976931348623157e308),
     personal_coverage_status TEXT NOT NULL CHECK(personal_coverage_status IN ('complete','partial','unavailable')),
     personal_reason_codes_json TEXT NOT NULL CHECK(json_valid(personal_reason_codes_json) AND json_type(personal_reason_codes_json)='array'),
+    spatial_included_seconds INTEGER NOT NULL CHECK(spatial_included_seconds BETWEEN 0 AND included_seconds),
+    spatial_known_excluded_seconds INTEGER NOT NULL CHECK(spatial_known_excluded_seconds BETWEEN known_excluded_seconds AND 9007199254740991),
+    spatial_unblocked_for INTEGER CHECK(spatial_unblocked_for BETWEEN 0 AND 9007199254740991),
+    spatial_unblocked_against INTEGER CHECK(spatial_unblocked_against BETWEEN 0 AND 9007199254740991),
+    spatial_for_per60 REAL CHECK(spatial_for_per60 BETWEEN 0 AND 1.7976931348623157e308),
+    spatial_against_per60 REAL CHECK(spatial_against_per60 BETWEEN 0 AND 1.7976931348623157e308),
+    spatial_coverage_status TEXT NOT NULL CHECK(spatial_coverage_status IN ('complete','partial','unavailable')),
+    spatial_reason_codes_json TEXT NOT NULL CHECK(json_valid(spatial_reason_codes_json) AND json_type(spatial_reason_codes_json)='array'),
+    CHECK(spatial_known_excluded_seconds - known_excluded_seconds = included_seconds - spatial_included_seconds),
+    CHECK(spatial_coverage_status != 'complete' OR spatial_known_excluded_seconds = 0),
+    CHECK((spatial_included_seconds>0 AND spatial_unblocked_for IS NOT NULL AND spatial_unblocked_against IS NOT NULL
+            AND spatial_for_per60 IS NOT NULL AND spatial_against_per60 IS NOT NULL AND spatial_coverage_status IN ('complete','partial'))
+       OR (spatial_included_seconds=0 AND spatial_unblocked_for IS 0 AND spatial_unblocked_against IS 0
+            AND spatial_for_per60 IS NULL AND spatial_against_per60 IS NULL AND spatial_coverage_status='complete')
+       OR (spatial_included_seconds=0 AND spatial_unblocked_for IS NULL AND spatial_unblocked_against IS NULL
+            AND spatial_for_per60 IS NULL AND spatial_against_per60 IS NULL AND spatial_coverage_status='unavailable')),
     CHECK((included_seconds > 0 AND attempts_for IS NOT NULL AND attempts_against IS NOT NULL
             AND for_per60 IS NOT NULL AND against_per60 IS NOT NULL AND coverage_status IN ('complete','partial'))
        OR (included_seconds = 0 AND attempts_for IS 0 AND attempts_against IS 0
@@ -60,7 +77,7 @@ _METRICS = """
 _SCHEMA = """
 CREATE TABLE publication (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    schema_version INTEGER NOT NULL CHECK(schema_version=2),
+    schema_version INTEGER NOT NULL CHECK(schema_version=3),
     kind TEXT NOT NULL CHECK(kind='observed_5v5'),
     publication_id TEXT NOT NULL,
     purpose TEXT NOT NULL CHECK(purpose IN ('real','fixture')),
@@ -74,7 +91,10 @@ CREATE TABLE publication (
     personal_population_version TEXT NOT NULL CHECK(personal_population_version='matched_personal_credits_v1'),
     corpus_sha256 TEXT NOT NULL CHECK(length(corpus_sha256)=64 AND corpus_sha256 NOT GLOB '*[^0-9a-f]*'),
     producer_json TEXT NOT NULL CHECK(json_valid(producer_json) AND json_type(producer_json)='object'),
-    coverage_json TEXT NOT NULL CHECK(json_valid(coverage_json) AND json_type(coverage_json)='object')
+    coverage_json TEXT NOT NULL CHECK(json_valid(coverage_json) AND json_type(coverage_json)='object'),
+    spatial_population_version TEXT NOT NULL CHECK(spatial_population_version='matched_unblocked_locations_v1'),
+    spatial_display_version TEXT NOT NULL CHECK(spatial_display_version='rect5_gaussian10_v1'),
+    spatial_coverage_json TEXT NOT NULL CHECK(json_valid(spatial_coverage_json) AND json_type(spatial_coverage_json)='object')
 ) STRICT;
 CREATE TABLE player (
     player_id TEXT PRIMARY KEY CHECK(player_id GLOB '[1-9]*' AND player_id NOT GLOB '*[^0-9]*'),
@@ -100,6 +120,17 @@ CREATE TABLE game (
     home_attempts INTEGER CHECK(home_attempts BETWEEN 0 AND 9007199254740991),
     coverage_status TEXT NOT NULL CHECK(coverage_status IN ('complete','partial','unavailable')),
     reason_codes_json TEXT NOT NULL CHECK(json_valid(reason_codes_json) AND json_type(reason_codes_json)='array'),
+    spatial_included_seconds INTEGER NOT NULL CHECK(spatial_included_seconds BETWEEN 0 AND included_seconds),
+    spatial_known_excluded_seconds INTEGER NOT NULL CHECK(spatial_known_excluded_seconds BETWEEN known_excluded_seconds AND 9007199254740991),
+    spatial_away_unblocked INTEGER CHECK(spatial_away_unblocked BETWEEN 0 AND 9007199254740991),
+    spatial_home_unblocked INTEGER CHECK(spatial_home_unblocked BETWEEN 0 AND 9007199254740991),
+    spatial_coverage_status TEXT NOT NULL CHECK(spatial_coverage_status IN ('complete','partial','unavailable')),
+    spatial_reason_codes_json TEXT NOT NULL CHECK(json_valid(spatial_reason_codes_json) AND json_type(spatial_reason_codes_json)='array'),
+    CHECK(spatial_known_excluded_seconds - known_excluded_seconds = included_seconds - spatial_included_seconds),
+    CHECK(spatial_coverage_status != 'complete' OR spatial_known_excluded_seconds = 0),
+    CHECK((spatial_included_seconds>0 AND spatial_away_unblocked IS NOT NULL AND spatial_home_unblocked IS NOT NULL AND spatial_coverage_status IN ('complete','partial'))
+       OR (spatial_included_seconds=0 AND spatial_away_unblocked IS 0 AND spatial_home_unblocked IS 0 AND spatial_coverage_status='complete')
+       OR (spatial_included_seconds=0 AND spatial_away_unblocked IS NULL AND spatial_home_unblocked IS NULL AND spatial_coverage_status='unavailable')),
     CHECK(away_team_id != home_team_id),
     CHECK(personal_known_excluded_seconds - known_excluded_seconds = included_seconds - personal_included_seconds),
     CHECK((included_seconds > 0 AND away_attempts IS NOT NULL AND home_attempts IS NOT NULL AND coverage_status IN ('complete','partial'))
@@ -123,6 +154,74 @@ CREATE TABLE player_season (
 """ + _METRICS + """
 ) STRICT;
 """
+
+
+_SPATIAL_SCHEMA = """
+CREATE TABLE spatial_cell (
+    cell_id INTEGER PRIMARY KEY CHECK(cell_id BETWEEN 0 AND 679),
+    x_min REAL NOT NULL CHECK(x_min BETWEEN -100 AND 100),
+    x_max REAL NOT NULL CHECK(x_max BETWEEN -100 AND 100 AND x_max=x_min+5),
+    y_min REAL NOT NULL CHECK(y_min BETWEEN -42.5 AND 42.5),
+    y_max REAL NOT NULL CHECK(y_max BETWEEN -42.5 AND 42.5 AND y_max=y_min+5),
+    center_x REAL NOT NULL CHECK(center_x BETWEEN x_min AND x_max),
+    center_y REAL NOT NULL CHECK(center_y BETWEEN y_min AND y_max),
+    area_sqft REAL NOT NULL CHECK(area_sqft>0 AND area_sqft<=25.0000000001),
+    league_count INTEGER CHECK(league_count BETWEEN 0 AND 9007199254740991),
+    league_raw_per60 REAL CHECK(league_raw_per60 BETWEEN 0 AND 1.7976931348623157e308),
+    league_density REAL CHECK(league_density BETWEEN 0 AND 1.7976931348623157e308),
+    CHECK((league_count IS NULL AND league_raw_per60 IS NULL AND league_density IS NULL)
+       OR (league_count IS NOT NULL AND ((league_raw_per60 IS NULL AND league_density IS NULL) OR (league_raw_per60 IS NOT NULL AND league_density IS NOT NULL))))
+) STRICT;
+CREATE TABLE player_game_spatial (
+    player_id TEXT NOT NULL,
+    game_id TEXT NOT NULL,
+    cell_id INTEGER NOT NULL REFERENCES spatial_cell(cell_id),
+    for_count INTEGER NOT NULL CHECK(for_count BETWEEN 0 AND 9007199254740991),
+    against_count INTEGER NOT NULL CHECK(against_count BETWEEN 0 AND 9007199254740991),
+    PRIMARY KEY(player_id,game_id,cell_id),
+    FOREIGN KEY(player_id,game_id) REFERENCES player_game(player_id,game_id),
+    CHECK(for_count>0 OR against_count>0)
+) STRICT;
+CREATE INDEX player_game_spatial_game ON player_game_spatial(game_id);
+CREATE INDEX player_game_game ON player_game(game_id);
+CREATE TABLE player_season_spatial (
+    player_id TEXT NOT NULL REFERENCES player_season(player_id),
+    cell_id INTEGER NOT NULL REFERENCES spatial_cell(cell_id),
+    for_count INTEGER NOT NULL CHECK(for_count BETWEEN 0 AND 9007199254740991),
+    against_count INTEGER NOT NULL CHECK(against_count BETWEEN 0 AND 9007199254740991),
+    for_raw_per60 REAL NOT NULL CHECK(for_raw_per60 BETWEEN 0 AND 1.7976931348623157e308),
+    against_raw_per60 REAL NOT NULL CHECK(against_raw_per60 BETWEEN 0 AND 1.7976931348623157e308),
+    for_density REAL NOT NULL CHECK(for_density BETWEEN 0 AND 1.7976931348623157e308),
+    against_density REAL NOT NULL CHECK(against_density BETWEEN 0 AND 1.7976931348623157e308),
+    for_difference REAL NOT NULL CHECK(for_difference BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308),
+    against_difference REAL NOT NULL CHECK(against_difference BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308),
+    PRIMARY KEY(player_id,cell_id)
+) STRICT;
+"""
+
+
+def _validate_spatial(metrics, on_ice, loc):
+    seconds, excluded = metrics["included_seconds"], metrics["known_excluded_seconds"]
+    reasons = metrics["reason_codes"]
+    counts = [metrics[k] for k in ("unblocked_for", "unblocked_against")]
+    rates = [metrics[k] for k in ("for_per60", "against_per60")]
+    require(list(reasons) == sorted(set(reasons)) and set(reasons) <= SPATIAL_REASON_CODES, f"{loc}: invalid spatial reasons")
+    require(all(type(v) is int and 0 <= v <= 9007199254740991 for v in (seconds,excluded)), f"{loc}: invalid spatial seconds")
+    require(seconds <= on_ice["included_seconds"] and excluded == on_ice["known_excluded_seconds"] + on_ice["included_seconds"] - seconds,
+            f"{loc}: invalid spatial support")
+    require(set(on_ice["reason_codes"]) - {"no_5v5_exposure"} <= set(reasons), f"{loc}: missing inherited spatial reasons")
+    require(all(v is None or type(v) is int and 0 <= v <= 9007199254740991 for v in counts), f"{loc}: invalid spatial counts")
+    require(all(v is None or type(v) in (int,float) and math.isfinite(v) and v >= 0 for v in rates), f"{loc}: invalid spatial rates")
+    gaps = set(reasons) - {"no_spatial_5v5_exposure"}
+    if seconds:
+        valid = (all(v is not None for v in counts+rates) and "no_spatial_5v5_exposure" not in reasons
+            and metrics["coverage_status"] == ("partial" if gaps else "complete")
+            and all(rate == 3600*count/seconds for count,rate in zip(counts,rates)))
+    elif gaps:
+        valid = all(v is None for v in counts+rates) and metrics["coverage_status"] == "unavailable" and "no_spatial_5v5_exposure" not in reasons
+    else:
+        valid = counts == [0,0] and rates == [None,None] and metrics["coverage_status"] == "complete" and reasons == ("no_spatial_5v5_exposure",)
+    require(valid and (metrics["coverage_status"] != "complete" or excluded == 0), f"{loc}: inconsistent spatial projection")
 
 
 def _validate_personal(metrics, on_ice, loc):
@@ -173,18 +272,22 @@ def build_publication(corpus_path: Path, purpose: str, output: Path) -> dict:
     output.mkdir()
     result = aggregate(corpus_path, purpose)
     producer = implementation_identity() | {
+        "spatial_consumed_fields": ["interpreted.events.reported_x", "interpreted.events.reported_y", "interpreted.events.home_team_defending_side",
+            "reconstruction.events.attacking_x", "reconstruction.events.attacking_y", "reconstruction.events.coordinate_status"],
         "sqlite_version": sqlite3.sqlite_version,
         "source_implementations": list(result.source_implementations),
     }
     publication_id = str(uuid.uuid4())
     metadata = {
-        "id": 1, "schema_version": 2, "kind": "observed_5v5",
+        "id": 1, "schema_version": 3, "kind": "observed_5v5",
         "publication_id": publication_id, "purpose": purpose, "season": result.season,
         "game_type": 2, "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "source_requested_min": result.source_requested_min,
         "source_requested_max": result.source_requested_max,
         "undated_sources": result.undated_sources, "population_version": "matched_attempts_v1",
         "personal_population_version": "matched_personal_credits_v1",
+        "spatial_population_version": POPULATION_VERSION, "spatial_display_version": DISPLAY_VERSION,
+        "spatial_coverage_json": json.dumps(result.spatial_coverage, allow_nan=False, sort_keys=True, separators=(",", ":")),
         "corpus_sha256": result.corpus_sha256,
         "producer_json": json.dumps(producer, allow_nan=False, sort_keys=True, separators=(",", ":")),
         "coverage_json": json.dumps(result.coverage, allow_nan=False, sort_keys=True, separators=(",", ":")),
@@ -195,11 +298,15 @@ def build_publication(corpus_path: Path, purpose: str, output: Path) -> dict:
         stored = []
         for row in rows:
             fields = asdict(row)
+            if "spatial" in fields:
+                spatial = fields.pop("spatial")
+                _validate_spatial(spatial, fields, name)
+                fields.update({"spatial_" + key: value for key,value in spatial.items()})
             if "personal" in fields:
                 personal = fields.pop("personal")
                 _validate_personal(personal, fields, name)
                 fields.update({"personal_" + key: value for key, value in personal.items()})
-            for field in ("name_source", "position_source", "teams", "reason_codes", "personal_reason_codes"):
+            for field in ("name_source", "position_source", "teams", "reason_codes", "personal_reason_codes", "spatial_reason_codes"):
                 if field in fields:
                     value = fields.pop(field)
                     fields[field + "_json"] = None if value is None else json.dumps(
@@ -213,19 +320,28 @@ def build_publication(corpus_path: Path, purpose: str, output: Path) -> dict:
                     require(math.isfinite(value), f"{name}.{field}: nonfinite number")
             stored.append(fields)
         tables[name] = stored
+    spatial_tables = {"spatial_cell": result.spatial_cells, "player_game_spatial": result.player_game_spatial,
+                      "player_season_spatial": result.player_season_spatial}
     incomplete = output / "observed.sqlite.incomplete"
     connection = sqlite3.connect(incomplete)
     try:
         connection.execute("PRAGMA foreign_keys=ON")
         connection.execute("PRAGMA journal_mode=DELETE")
-        connection.executescript("BEGIN;\n" + _SCHEMA)
-        connection.execute("PRAGMA user_version=2")
+        connection.executescript("BEGIN;\n" + _SCHEMA + _SPATIAL_SCHEMA)
+        connection.execute("PRAGMA user_version=3")
         with connection:
             for table, rows in tables.items():
                 for row in rows:
                     columns = ",".join(row)
                     placeholders = ",".join("?" for _ in row)
                     connection.execute(f"INSERT INTO {table} ({columns}) VALUES ({placeholders})", tuple(row.values()))
+            for table, rows in spatial_tables.items():
+                if not rows:
+                    continue
+                columns = tuple(rows[0]) if isinstance(rows[0],dict) else tuple(rows[0].__dataclass_fields__)
+                placeholders = ",".join("?" for _ in columns)
+                connection.executemany(f"INSERT INTO {table} ({','.join(columns)}) VALUES ({placeholders})",
+                    (tuple(row[c] for c in columns) if isinstance(row,dict) else tuple(getattr(row,c) for c in columns) for row in rows))
     finally:
         connection.close()
 
@@ -234,11 +350,18 @@ def build_publication(corpus_path: Path, purpose: str, output: Path) -> dict:
         require(connection.execute("PRAGMA integrity_check").fetchall() == [("ok",)], "sqlite integrity check failed")
         require(not connection.execute("PRAGMA foreign_key_check").fetchall(), "sqlite foreign key check failed")
         require(connection.execute("PRAGMA journal_mode").fetchone() == ("delete",), "publication requires delete journal mode")
-        require(connection.execute("PRAGMA user_version").fetchone() == (2,), "publication requires schema 2")
+        require(connection.execute("PRAGMA user_version").fetchone() == (3,), "publication requires schema 3")
         connection.row_factory = sqlite3.Row
         for table, expected in tables.items():
             actual = [dict(row) for row in connection.execute(f"SELECT * FROM {table} ORDER BY rowid")]
             require(actual == expected, f"{table}: read-back differs from authoritative observed rows")
+        for table, expected in spatial_tables.items():
+            cursor = connection.execute(f"SELECT * FROM {table} ORDER BY rowid")
+            for row in expected:
+                actual = cursor.fetchone()
+                wanted = row if isinstance(row,dict) else asdict(row)
+                require(actual is not None and dict(actual) == wanted, f"{table}: spatial read-back differs")
+            require(cursor.fetchone() is None, f"{table}: extra spatial rows")
         connection.row_factory = None
         require(connection.execute("SELECT count(*) FROM player").fetchone()
                 == connection.execute("SELECT count(*) FROM player_season").fetchone(), "player/season rows differ")
@@ -304,6 +427,7 @@ def build_publication(corpus_path: Path, purpose: str, output: Path) -> dict:
         "purpose": purpose, "season": result.season, "producer": producer,
         **result.receipt,
         "coverage": result.coverage,
+        "spatial_coverage": result.spatial_coverage,
         "database": {"path": str(output / "observed.sqlite"), "sha256": database_sha256},
         "checks": {"integrity": "passed", "foreign_keys": "passed", "read_back": "passed",
                    "physical_seconds": seconds, "player_seconds": exposure, "physical_attempts": attempts,

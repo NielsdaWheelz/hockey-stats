@@ -4,6 +4,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
+import math
 import re
 from typing import Literal
 
@@ -13,7 +14,9 @@ from .corpus_inputs import (
 )
 from .captures import SOURCES
 from .feature_data import ATTEMPT_KINDS
-from .reconstruct import REPORT_CODES, lineup_classification
+from .reconstruct import REPORT_CODES, lineup_classification, attacking_coordinates, defending_sides
+from .shot_origins import in_rink
+from . import observed_spatial
 from .interpret import clock_seconds
 from .scoring_credits import scoring_credits
 
@@ -33,6 +36,8 @@ REASON_CODES = frozenset((
     "unassigned_player_games", "no_5v5_exposure",
 ))
 PERSONAL_REASON_CODES = (REASON_CODES - {"no_5v5_exposure"}) | {"personal_credit_unresolved", "no_personal_5v5_exposure"}
+
+SPATIAL_REASON_CODES = (REASON_CODES - {"no_5v5_exposure"}) | {"spatial_coordinates_missing", "spatial_frame_unresolved", "spatial_location_outside_rink", "no_spatial_5v5_exposure"}
 
 
 @dataclass(frozen=True)
@@ -62,6 +67,12 @@ class Game:
     reason_codes: tuple[str, ...]
     personal_included_seconds: int
     personal_known_excluded_seconds: int
+    spatial_included_seconds: int
+    spatial_known_excluded_seconds: int
+    spatial_away_unblocked: int | None
+    spatial_home_unblocked: int | None
+    spatial_coverage_status: Status
+    spatial_reason_codes: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -91,8 +102,21 @@ class PersonalMetrics:
 
 
 @dataclass(frozen=True)
+class SpatialMetrics:
+    included_seconds: int
+    known_excluded_seconds: int
+    unblocked_for: int | None
+    unblocked_against: int | None
+    for_per60: float | None
+    against_per60: float | None
+    coverage_status: Status
+    reason_codes: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class PlayerGame(Metrics):
     personal: PersonalMetrics
+    spatial: SpatialMetrics
     player_id: str
     game_id: str
     team_id: str
@@ -101,6 +125,7 @@ class PlayerGame(Metrics):
 @dataclass(frozen=True)
 class PlayerSeason(Metrics):
     personal: PersonalMetrics
+    spatial: SpatialMetrics
     player_id: str
     teams: tuple[dict, ...]
     listed_games: int
@@ -123,6 +148,10 @@ class ObservedResult:
     undated_sources: int
     source_implementations: tuple[dict, ...]
     receipt: dict
+    spatial_cells: tuple[dict, ...]
+    player_game_spatial: tuple[observed_spatial.GameCell, ...]
+    player_season_spatial: tuple[observed_spatial.SeasonCell, ...]
+    spatial_coverage: dict
 
 
 def _metrics(seconds, excluded, attempts_for, attempts_against, reasons):
@@ -139,6 +168,22 @@ def _metrics(seconds, excluded, attempts_for, attempts_against, reasons):
         return Metrics(seconds, excluded, None, None, None, None, "unavailable", tuple(sorted(reasons)))
     require(attempts_for == attempts_against == 0, "observed", "attempt without exposure")
     return Metrics(0, excluded, 0, 0, None, None, "complete", ("no_5v5_exposure",))
+
+
+def _spatial_metrics(seconds, excluded, for_count, against_count, reasons):
+    reasons = set(reasons) - {"no_5v5_exposure", "no_spatial_5v5_exposure"}
+    require(reasons <= SPATIAL_REASON_CODES, "spatial", "unknown spatial reason")
+    require(all(type(v) is int and 0 <= v <= _MAX_INTEGER for v in (seconds, excluded, for_count, against_count)),
+            "spatial", "invalid spatial quantities")
+    require(seconds > 0 or for_count == against_count == 0, "spatial", "spatial count without exposure")
+    if seconds:
+        return SpatialMetrics(seconds, excluded, for_count, against_count, 3600*for_count/seconds,
+            3600*against_count/seconds, "partial" if reasons else "complete", tuple(sorted(reasons)))
+    unavailable = bool(reasons)
+    if not unavailable:
+        reasons.add("no_spatial_5v5_exposure")
+    return SpatialMetrics(0, excluded, None if unavailable else 0, None if unavailable else 0,
+        None, None, "unavailable" if unavailable else "complete", tuple(sorted(reasons)))
 
 
 def _personal_metrics(seconds, excluded, shots, goals, assists, reasons):
@@ -286,8 +331,16 @@ def _validate_native(interpreted, native, events, recon, reports, loc):
                 object_fields(member, here, ("player_id", "reported_position"))
                 integer(member["player_id"], here + "/member/player_id", nullable=True, minimum=1)
                 text(member["reported_position"], here + "/member/reported_position", nullable=True)
+    period_sides = defending_sides(events.values())
     for index, event in events.items():
         row = recon[index]
+        if event["kind_valid"] and event["type_key"] in _ATTEMPTS and event["timed_period"] is True:
+            x, y, error = attacking_coordinates(event, game, event["shooting_team_id"], period_sides)
+            missing = any(type(event[field]) not in (int, float) or not math.isfinite(event[field])
+                          for field in ("reported_x", "reported_y"))
+            status = "missing_coordinates" if missing else "unresolved_frame" if error else "normalized"
+            require((row["attacking_x"], row["attacking_y"], row["coordinate_status"]) == (x, y, status),
+                    loc + f"/events/{index}", "native derived spatial coordinates differ")
         here = loc + f"/events/{index}"
         object_fields(row, here, ("match_status", "shift_relation", *_MEMBERS))
         require(row["match_status"] in ("matched", "unmatched", "ambiguous", "unavailable", "untimed"), here, "invalid native match status")
@@ -471,6 +524,51 @@ def _game(entry, value, path, consumed):
                     seconds_by_player[pid] += seconds
                     for_by_player[pid] += per_segment[i, team]
                     against_by_player[pid] += per_segment[i, opponent]
+    spatial_mask = set(mask)
+    spatial_reasons = set()
+    spatial_events = []
+    for disposition in dispositions:
+        event = events[disposition["source_index"]]
+        if disposition["status"] != "included" or event["type_key"] not in ("goal", "shot-on-goal", "missed-shot"):
+            continue
+        row = recon[disposition["source_index"]]
+        reason = {"missing_coordinates": "spatial_coordinates_missing", "unresolved_frame": "spatial_frame_unresolved"}.get(row["coordinate_status"])
+        if reason is None and not in_rink(row["attacking_x"], row["attacking_y"]):
+            reason = "spatial_location_outside_rink"
+        if reason:
+            spatial_mask.add(disposition["segment_index"])
+            spatial_reasons.add(reason)
+        spatial_events.append(dict(source_index=disposition["source_index"], segment_index=disposition["segment_index"],
+            team_id=str(event["shooting_team_id"]), reason=reason,
+            cell_id=None if reason else observed_spatial.cell_id(row["attacking_x"], row["attacking_y"])))
+    spatial_seconds, spatial_excluded = Counter(), Counter()
+    spatial_for, spatial_against = Counter(), Counter()
+    physical_cells, player_cells = Counter(), Counter()
+    for event in spatial_events:
+        event["status"] = "masked" if event["segment_index"] in spatial_mask else "included"
+        if event["status"] != "included":
+            continue
+        physical_cells[event["team_id"], event["cell_id"]] += 1
+        segment = segments[event["segment_index"]]
+        for side, team in ((0, game["away_team_id"]), (1, game["home_team_id"])):
+            for pid in segment["members"][side]:
+                direction = "for" if str(team) == event["team_id"] else "against"
+                player_cells[pid, event["cell_id"], direction] += 1
+                (spatial_for if direction == "for" else spatial_against)[pid] += 1
+    for i, segment in enumerate(segments):
+        target = spatial_excluded if i in spatial_mask else spatial_seconds
+        for pid in segment["members"][0] + segment["members"][1]:
+            target[pid] += segment["end"] - segment["start"]
+    spatial_included = sum(s["end"]-s["start"] for i,s in enumerate(segments) if i not in spatial_mask)
+    spatial_known_excluded = excluded + included - spatial_included
+    spatial_team_counts = Counter()
+    for (team, identity), count in physical_cells.items():
+        spatial_team_counts[team] += count
+    spatial_game_metric = _spatial_metrics(spatial_included, spatial_known_excluded,
+        spatial_team_counts[str(game["away_team_id"])], spatial_team_counts[str(game["home_team_id"])], reasons | spatial_reasons)
+    spatial_rows = [observed_spatial.GameCell(str(pid), game["game_id"], identity,
+        player_cells[pid,identity,"for"],player_cells[pid,identity,"against"])
+        for pid,identity in sorted({(pid,identity) for pid,identity,direction in player_cells})]
     selected = [events[d["source_index"]] for d in dispositions
                 if d["status"] == "included" and events[d["source_index"]]["type_key"] in ("goal", "shot-on-goal")]
     credits = scoring_credits(interpreted, selected, identities, consumed)
@@ -513,14 +611,17 @@ def _game(entry, value, path, consumed):
         metric = _metrics(seconds_by_player[pid], excluded_by_player[pid], for_by_player[pid], against_by_player[pid], player_reasons)
         personal = _personal_metrics(personal_seconds[pid], personal_excluded[pid], shots[pid], goals[pid], assists[pid], player_reasons | personal_reasons)
         require(personal.included_seconds <= metric.included_seconds, path, "personal exposure exceeds on-ice exposure")
-        player_rows.append(PlayerGame(**_metric_fields(metric), personal=personal, player_id=str(pid), game_id=game["game_id"], team_id=str(identity["team_id"])))
+        spatial = _spatial_metrics(spatial_seconds[pid], spatial_excluded[pid], spatial_for[pid], spatial_against[pid], player_reasons | spatial_reasons)
+        player_rows.append(PlayerGame(**_metric_fields(metric), personal=personal, spatial=spatial, player_id=str(pid), game_id=game["game_id"], team_id=str(identity["team_id"])))
     require(sum(row.included_seconds for row in player_rows) == 10 * included, path, "player exposure conservation failed")
     require(sum(row.attempts_for or 0 for row in player_rows) == sum(row.attempts_against or 0 for row in player_rows) == 5 * sum(attempts.values()), path, "player attempt conservation failed")
     game_metric = _metrics(included, excluded, attempts[game["away_team_id"]], attempts[game["home_team_id"]], reasons)
     output = Game(game["game_id"], game["game_date"], str(game["away_team_id"]), str(game["home_team_id"]),
                   game.get("away_team_abbrev"), game.get("home_team_abbrev"), included, excluded, unresolved,
                   horizon_unavailable, game_metric.attempts_for, game_metric.attempts_against,
-                  game_metric.coverage_status, game_metric.reason_codes, personal_included, personal_known_excluded)
+                  game_metric.coverage_status, game_metric.reason_codes, personal_included, personal_known_excluded,
+                  spatial_included, spatial_known_excluded, spatial_game_metric.unblocked_for, spatial_game_metric.unblocked_against,
+                  spatial_game_metric.coverage_status, spatial_game_metric.reason_codes)
     require(sum(row.personal.included_seconds for row in player_rows) == 10 * personal_included, path, "personal exposure conservation failed")
     retained = [c for c in credits if c["personal_status"] == "included"]
     personal_totals = dict(shots_on_goal=len(retained),
@@ -544,11 +645,21 @@ def _game(entry, value, path, consumed):
             known_excluded_seconds=personal_known_excluded, additional_excluded_seconds=included - personal_included,
             included_credits=personal_totals, goalie_credits=goalie_credits,
             skater_credits={name: sum(getattr(r.personal, name) or 0 for r in player_rows) for name in personal_totals}),
+        spatial_event_dispositions=spatial_events,
+        spatial_masks=[dict(segment_index=i, inherited=i in mask,
+            source_indices=[e["source_index"] for e in spatial_events if e["reason"] and e["segment_index"] == i]) for i in sorted(spatial_mask)],
+        spatial_team_cells=[dict(game_id=game["game_id"], team_id=team, cell_id=identity, count=count)
+            for (team,identity),count in sorted(physical_cells.items())],
+        spatial_identities=dict(physical_included_seconds=spatial_included,
+            player_included_seconds=sum(r.spatial.included_seconds for r in player_rows),
+            known_excluded_seconds=spatial_known_excluded, additional_excluded_seconds=included-spatial_included,
+            physical_unblocked=sum(physical_cells.values()), player_unblocked_for=sum(spatial_for.values()),
+            player_unblocked_against=sum(spatial_against.values())),
         native_checks=interpreted["checks"], native_issues=interpreted["issues"] + native["issues"],
         identities=dict(physical_included_seconds=included, player_included_seconds=sum(r.included_seconds for r in player_rows),
                         included_attempts=sum(attempts.values()), player_attempts_for=sum(r.attempts_for or 0 for r in player_rows),
                         player_attempts_against=sum(r.attempts_against or 0 for r in player_rows)))
-    return output, player_rows, listed, unassigned, receipt
+    return output, player_rows, listed, unassigned, receipt, spatial_rows
 
 
 def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
@@ -565,6 +676,7 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         require(path == _REAL_CORPUS and inputs[0]["sha256"] == _REAL_DIGEST
                 and season == "20252026" and len(inventory) == 1312, path, "real publication requires the specified 2025–26 corpus")
     games, player_games, receipts, unassigned_games = [], [], [], []
+    sparse = []
     players = {}
     observations = []
     implementations = []
@@ -607,7 +719,8 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         if row["status"] != "reconstructed":
             reasons = ("required_source_unavailable",)
             game = Game(gid, entry["game_date"], str(entry["away_team_id"]), str(entry["home_team_id"]), None, None,
-                        0, 0, 0, True, None, None, "unavailable", reasons, 0, 0)
+                        0, 0, 0, True, None, None, "unavailable", reasons, 0, 0, 0, 0, None, None, "unavailable",
+                        reasons)
             games.append(game)
             receipts.append(dict(game_id=gid, status=row["status"], reason=row["reason"],
                                  source_inputs=value["interpreted"]["inputs"] if value is not None else [],
@@ -615,9 +728,10 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
             unassigned_games.append(dict(game_id=gid, date=entry["game_date"], away_team_id=game.away_team_id,
                                          home_team_id=game.home_team_id, reason_codes=list(reasons)))
             continue
-        game, rows, listed, unassigned, receipt = _game(entry, value, envelope_path, inputs)
+        game, rows, listed, unassigned, receipt, spatial_rows = _game(entry, value, envelope_path, inputs)
         games.append(game)
         player_games.extend(rows)
+        sparse.extend(spatial_rows)
         receipts.append(receipt)
         receipt["source_implementation"] = value["implementation"]
         receipt["interpretation_implementation"] = value["interpreted"].get("interpretation")
@@ -660,7 +774,13 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
                            for name in ("shots_on_goal", "goals", "primary_assists")}
         personal = _personal_metrics(sum(row.personal.included_seconds for row in rows),
             sum(row.personal.known_excluded_seconds for row in rows), *personal_counts.values(), personal_reasons)
-        seasons.append(PlayerSeason(**_metric_fields(metric), personal=personal, player_id=pid,
+        spatial_reasons = {reason for row in rows for reason in row.spatial.reason_codes if reason != "no_spatial_5v5_exposure"}
+        if unassigned_games:
+            spatial_reasons.add("unassigned_player_games")
+        spatial = _spatial_metrics(sum(r.spatial.included_seconds for r in rows),
+            sum(r.spatial.known_excluded_seconds for r in rows), sum(r.spatial.unblocked_for or 0 for r in rows),
+            sum(r.spatial.unblocked_against or 0 for r in rows), spatial_reasons)
+        seasons.append(PlayerSeason(**_metric_fields(metric), personal=personal, spatial=spatial, player_id=pid,
             teams=tuple(teams[key] for key in sorted(teams, key=int)), listed_games=len(rows),
             games_with_included_time=sum(row.included_seconds > 0 for row in rows),
             partial_games=sum(row.coverage_status == "partial" for row in rows),
@@ -669,7 +789,11 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
             known_excluded_seconds=excluded, available_attempts_for=for_count, available_attempts_against=against_count,
             projected_attempts_for=metric.attempts_for, projected_attempts_against=metric.attempts_against,
             personal=dict(included_seconds=personal.included_seconds, known_excluded_seconds=personal.known_excluded_seconds,
-                available_counts=personal_counts, projected_counts={name: getattr(personal, name) for name in personal_counts})))
+                available_counts=personal_counts, projected_counts={name: getattr(personal, name) for name in personal_counts}),
+            spatial=dict(included_seconds=spatial.included_seconds,known_excluded_seconds=spatial.known_excluded_seconds,
+                available_unblocked_for=sum(r.spatial.unblocked_for or 0 for r in rows),
+                available_unblocked_against=sum(r.spatial.unblocked_against or 0 for r in rows),
+                projected_unblocked_for=spatial.unblocked_for,projected_unblocked_against=spatial.unblocked_against)))
         require(sum(row.included_seconds for row in rows) == metric.included_seconds
                 and (metric.attempts_for is None or metric.attempts_for == for_count)
                 and (metric.attempts_against is None or metric.attempts_against == against_count), path, "season reduction failed")
@@ -689,6 +813,8 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         partial_games=sum(row.coverage_status == "partial" for row in games), unavailable_games=sum(row.coverage_status == "unavailable" for row in games),
         games_with_unassigned_player_associations=len(unassigned_games),
         reason_game_counts=[dict(code=code, games=count) for code, count in sorted(reason_counts.items())], unassigned_games=unassigned_games)
+    physical_cells = [cell for receipt in receipts for cell in receipt.get("spatial_team_cells", [])]
+    spatial_cells, dense, spatial_coverage = observed_spatial.finalize(games, player_games, seasons, physical_cells, sparse)
     dated = [value for value in observations if value is not None]
     receipt = dict(consumed=inputs, games=receipts, player_reductions=player_reductions, aggregate_identities=dict(
         physical_included_seconds=sum(row.included_seconds for row in games),
@@ -705,8 +831,15 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         personal_included_credits={name: sum(r["included_credits"][name] for r in personal_receipts)
                                   for name in ("shots_on_goal", "goals", "primary_assists")},
         personal_goalie_credits={name: sum(r["goalie_credits"][name] for r in personal_receipts)
-                                for name in ("shots_on_goal", "goals", "primary_assists")}))
+                                for name in ("shots_on_goal", "goals", "primary_assists")},
+        spatial_physical_included_seconds=spatial_coverage["included_seconds"],
+        spatial_player_included_seconds=sum(row.spatial.included_seconds for row in player_games),
+        spatial_known_excluded_seconds=spatial_coverage["known_excluded_seconds"],
+        spatial_additional_excluded_seconds=sum(row.included_seconds-row.spatial_included_seconds for row in games),
+        spatial_unblocked_attempts=spatial_coverage["unblocked_attempts"],
+        spatial_player_unblocked_for=sum(row.spatial.unblocked_for or 0 for row in player_games),
+        spatial_player_unblocked_against=sum(row.spatial.unblocked_against or 0 for row in player_games)))
     return ObservedResult(season, inputs[0]["sha256"], tuple(players[pid] for pid in sorted(players)), tuple(games),
         tuple(sorted(player_games, key=lambda row: (int(row.player_id), game_index[row.game_id].game_date, row.game_id))),
         tuple(seasons), coverage, min(dated) if dated else None, max(dated) if dated else None,
-        sum(value is None for value in observations), tuple(implementations), receipt)
+        sum(value is None for value in observations), tuple(implementations), receipt, spatial_cells, tuple(sparse), dense, spatial_coverage)

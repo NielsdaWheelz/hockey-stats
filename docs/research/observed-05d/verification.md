@@ -1,6 +1,6 @@
 # 05d descriptive-card verification
 
-status: complete; all six acceptance boundaries and independent source/statistical, systems and content reviews pass. temporary integration/live checks are deleted after final green. [the plan](../../plan.md) owns progression. these are recorded results and software checks, not ability, model admission or activation.
+status: complete; all six acceptance boundaries and independent source/statistical, systems and content reviews pass. temporary integration/live checks are deleted after final green. [the plan](../../plan.md) owns progression. these are recorded results and software checks, not ability or model admission. the later explicitly authorized activation is recorded below.
 
 ## delivery and ownership
 
@@ -69,3 +69,19 @@ the 05d worktree occurs only as historical verification provenance; no retained 
 the old serving process exits during integration for an unknown reason. every preserved build-file digest and the active database's bytes/mtime remain exact. restarting that identical compatible build restores port 3000; independent review verifies the old api, profile, routes and all six html-linked assets. no new source build, schema migration or candidate activation is involved.
 
 the task worktree and its disposable dependencies/build outputs, local/remote task branches, owned redundant stash `589e2bec89713c1946b83066294f69a429c66052` and temporary pr body are removed. port 3062 is stopped. all thirteen primary drafts are compared with their input commit and retained snapshot: ten remain byte-identical; plan, council and 05d status include completed implementation/integration. no alias is needed. `pr-merge-cleanup.json` and independent `pr-delivery-review.json` record exact identities, checks, preservation, removed resources and remaining compatible service. the final primary status record is documentation only; analytical/application source remains the reviewed merged tree.
+
+## explicit activation
+
+the user subsequently authorizes activation of the verified schema-2 candidate with compatible code, preserving the running site until cutover. code source is clean main `65339728c49fdb1ab54d0512ae8a08afd0d2f8e7`; application/numerical source remains the reviewed 05d implementation. no fit, source acquisition, candidate regeneration or schema migration occurs.
+
+the schema-1 active is checked with exact old git revision `e335b59`; the schema-2 candidate is checked with current code. candidate sha-256 remains `202bddb309f25c1ab14101413fff602fdd845f4b369c57ca80444255df179ce5`. current code is built and typechecked in a disposable source checkout, then its actual production build passes league/profile/comparison/reload and png checks on separate port 3063. all 26 staged build files are copied and compared by inventory/digest before stopping the original site. its api, html, database and every build-file byte/mtime remain exact during preparation.
+
+the old process stops at `2026-10-21T17:56:58.823539Z`. the candidate is copied exclusively to incoming, hash-checked and fully validated through the schema-2 reader. old active moves to previous, incoming to active, and the verified build replaces the primary build. the compatible server launches at `17:57:00.261947Z` and reports listening at `17:57:01.522Z`. the copy is byte-identical to the verified candidate; its publication id and original publication/source timestamps are unchanged.
+
+active publication is now `088565f5-3446-4c83-9ab3-6e1ed2961905`, schema 2, at `http://127.0.0.1:3000/`. live checks reconcile all 940 summaries, the 72-game traded profile, both personal/on-ice values, comparison/reload and an actual 1200×2302 player png. all new html-linked assets return 200; no export request or external asset is needed. browsers with old loaded scripts require a reload under the existing explicit publication contract.
+
+the previous database is the original schema-1 publication `ae011202-6e2f-41d6-9528-ef02d73b477e`: sha-256 `d49d2b8f3342c03d8ce4430330e9df2a9368671b6eefab399f40a7a02946ecb0`, 5,873,664 bytes, with original nanosecond mtime preserved. cross-version rollback validates both files with compatible code and rebuilds revision `e335b59`; current schema-2 `restore` cannot read that old previous file. same-schema rotation commands remain unchanged for later compatible pairs.
+
+external evidence: `activation-before.json`, `activation-staged.json`, old/candidate/incoming/active reader logs, pinned install/typecheck/build logs, `activation-preflight.json`, `activation-live.json` and their actual png/profile images. `activation.json` records the complete cutover, physical file identities and cleanup; `activation-review.json` records independent systems/content checks. initial live red demonstrates the old publication; one preflight request before the new listener was ready is retained as a verification setup failure, followed by passing preflight/live checks. no production code changes or retry system are introduced.
+
+temporary source checkouts, browser tests/dependencies, preflight listener and old build are removed after green. only the ordinary primary build and active/previous databases remain for service, alongside preserved candidate/receipt and checked evidence. no archived builds, new runner, compatibility path, research admission or hdd dependency enters activation.

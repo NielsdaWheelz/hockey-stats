@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05d activation review — 2026-10-21
+
+the user explicitly authorizes the separately verified schema-2 candidate's activation with compatible code. independent systems/content review checks distinct old/new typed readers, isolated build/typechecking, preflight browser/png behavior and exact staged-build identity before the site changes. stopped copy/validate/rename/restart succeeds; the active file equals the verified candidate and the old active remains byte-identical as previous. live league/profile/comparison/reload, actual png and all new assets pass. [activation evidence](observed-05d/verification.md#explicit-activation) records exact identities, temporary cleanup and the code-paired rollback requirement.
+
+the operating cost is a brief explicit interruption and a browser reload. previous schema 1 requires compatible old code from git; no archived build, compatibility reader, new source processing or model admission is added. candidate/source evidence and scientific verdicts remain intact.
+
 ## 05d implementation review — 2026-10-21
 
 non-astra source/statistical, systems and content reviewers clear [05d's implementation and acceptance](observed-05d/verification.md), analytical/application producer `8378417` and final presentation `7e35956`. the full 1,312-game candidate retains 1,280 supported games, with no additional personal exclusions in this corpus. every old on-ice field and native fixture output is preserved. synthetic boundaries verify unresolved credit masks, off-ice/zero-time assists, goalie credit and own/awarded-goal meaning; the real retained goalie credits are six saved shots only.

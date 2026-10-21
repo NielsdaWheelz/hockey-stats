@@ -23,9 +23,9 @@ the long-term goal is to replicate hockeyviz's player-card and component-analysi
 
 the localhost-only website shows included recorded 5v5 results: personal shots on goal, goals and primary assists alongside team attempts while on ice. each population has its own matched time, rates and coverage. search/sort the league table, filter by reported position, listed season team and minimum included minutes, then open a compact observed profile, inspect peer distributions and game evidence, or compare two players. these are unadjusted observations; no fitted ability, xg or ranking claim enters this publication. [observed-results contract](docs/specs/05a-observed-website.md) · [05a verification](docs/research/observed-05a/verification.md) · [comparison contract](docs/specs/05b-observed-comparison.md) · [05b verification](docs/research/observed-05b/verification.md) · [explorer contract](docs/specs/05c-player-explorer.md) · [05c verification](docs/research/observed-05c/verification.md) · [descriptive-card contract](docs/specs/05d-descriptive-cards.md) · [05d verification](docs/research/observed-05d/verification.md)
 
-05d is verified without activation. the active database remains schema 1, served by its compatible existing build on port 3000. the current source reads schema 2 only. **do not rebuild the primary checkout while that old server is running:** it reads browser assets from disk on each request. review the candidate from a separate disposable checkout; stop and rebuild the primary server only during a separately assigned compatible cutover.
+the verified 05d schema-2 publication is active at `http://127.0.0.1:3000/`, with compatible code. reload an existing tab to load the new player cards. `publication/previous.sqlite` preserves the former schema-1 active database; restoring it requires the matching old code and the manual rollback below.
 
-use node `24.21.0`, pinned in `app/.node-version`. in the separate checkout, explicitly put its installed executable first so npm's children use the same runtime:
+use node `24.21.0`, pinned in `app/.node-version`. stop the running server before rebuilding or replacing its publication. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
 
 ```sh
 export PATH="$HOME/.local/share/mise/installs/node/24.21.0/bin:$PATH"
@@ -34,10 +34,16 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
+npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
+```
+
+open `http://127.0.0.1:3000/`. for separate candidate review, build in a disposable checkout and serve the candidate on another loopback port:
+
+```sh
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05d-candidate-01/observed.sqlite --port 3060
 ```
 
-open `http://127.0.0.1:3060/`. after a separately assigned schema-2 activation, serve `publication/active.sqlite` with compatible code on the ordinary port 3000. `--port 3001` explicitly chooses another local port. the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
+the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
 discovery filters intersect and start with every published player, including low-minute names. choose a reported forward/defense group or a listed season team; type a nonnegative whole-minute minimum, then press enter or apply. the team filter matches season membership and keeps whole-season values, including other teams. `clear filters` preserves sorting. invalid minute drafts leave displayed results unchanged.
 
@@ -83,7 +89,7 @@ npm run publication -- activate --candidate /Users/nnandal/Documents/code/hockey
 npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite
 ```
 
-activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for rollback, stop serving, run the following, restart and reload:
+activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. the current previous file is schema 1, so use the manual cross-version rollback below instead:
 
 ```sh
 npm run publication -- restore --directory /Users/nnandal/Documents/code/hockey-stats-local/publication
@@ -93,7 +99,7 @@ the current implementation reads schema **2** only, with `matched_attempts_v1` a
 
 ### manual cross-version cutover and rollback
 
-activation is a separate operator assignment. stop the serving process first. use the old schema-1 checkout at revision `e335b59` (and its lockfile) to check the existing active file; use the schema-2 checkout to check the new candidate. keep both checks distinct. the old checkout can be recreated with `git worktree add --detach <old-checkout> e335b59`; install its pinned dependencies and rebuild when that code is needed.
+activation requires an explicit operator assignment. the user assigned and completed the initial schema-1 → schema-2 cutover on 2026-10-21; the following procedure also describes recovery and future cross-version operations. stop the serving process first. use the old schema-1 checkout at revision `e335b59` (and its lockfile) to check the existing active file; use the schema-2 checkout to check the new candidate. keep both checks distinct. the old checkout can be recreated with `git worktree add --detach <old-checkout> e335b59`; install its pinned dependencies and rebuild when that code is needed.
 
 set the paths below and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation.
 

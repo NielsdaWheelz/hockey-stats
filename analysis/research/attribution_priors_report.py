@@ -92,10 +92,14 @@ def _figure(output, diagnosis, index):
                  for receiver in RECEIVERS] for cell, role in panels]
     bound = max((abs(value) for matrix in matrices for row in matrix for value in row
                  if value is not None), default=1.) or 1.
-    endpoints = [row[key] for panel in selected for row in panel for key in ("ci_low", "ci_high")
-                 if row[key] is not None]
-    lower, upper = min([0., *endpoints]), max([0., *endpoints])
-    margin = max((upper - lower) * .07, 1e-12)
+    limits = {}
+    for cell in ("gaussian_base", "gaussian_null"):
+        endpoints = [row[key] for (panel_cell, _), rows in zip(panels, selected, strict=True)
+                     if panel_cell == cell for row in rows for key in ("ci_low", "ci_high")
+                     if row[key] is not None]
+        lower, upper = min([0., *endpoints]), max([0., *endpoints])
+        margin = max((upper - lower) * .07, 1e-12)
+        limits[cell] = (lower - margin, upper + margin)
     figure, axes = plt.subplots(4, 2, figsize=(14.5, 13), gridspec_kw={"width_ratios": (1.3, 1.)})
     for (cell, role), rows, matrix, (interval_axis, matrix_axis) in zip(
             panels, selected, matrices, axes, strict=True):
@@ -108,7 +112,7 @@ def _figure(output, diagnosis, index):
                                    color="#384f65", linewidth=1.5)
                 interval_axis.plot(row["mean"], position, "o", color="#384f65", markersize=4)
         interval_axis.axvline(0, color="#777777", linewidth=.8)
-        interval_axis.set_xlim(lower - margin, upper + margin)
+        interval_axis.set_xlim(*limits[cell])
         interval_axis.set_yticks(range(len(RECEIVERS)),
             [f"{_label(receiver)} (n={row['n_players']})" for receiver, row in zip(RECEIVERS, rows, strict=True)])
         interval_axis.set_ylim(len(RECEIVERS) - .5, -.5)
@@ -134,7 +138,8 @@ def _figure(output, diagnosis, index):
     figure.suptitle(fixture + LABEL, fontsize=12, y=.985)
     count = selected[0][0]["n_records"]
     figure.text(.02, .025, f"{count} paired records; 95% t intervals measure monte carlo error under fixed truth/design/noise. "
-        "no player intervals.\nall five cells remain in decision.md and csv; cells share histories. "
+        "no player intervals.\ninterval axes share scales within each cell; base and null scales differ. "
+        "the signed matrix uses one common color scale.\nall five cells remain in decision.md and csv; cells share histories. "
         "allocations interact and are not causal shares. positive attempts allowed means more allowed.", fontsize=8)
     figure.subplots_adjust(left=.22, right=.88, top=.93, bottom=.10, wspace=.66, hspace=.60)
     path = output / "accounting.png"

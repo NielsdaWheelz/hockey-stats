@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04l implementation review — 2026-10-20
+
+non-astra source/algebra, finite-diagnosis and content agents implemented [04l](../specs/04l-attribution-prior-diagnosis.md), with independent cross-review and root review before each boundary. [verification](attribution-04l/verification.md) binds the clean producer, temporary red/green/refactor checks, direct proper-prior oracle, detached fixture and final 100-pair execution. source instrumentation verifies one hash per input and the exact selected member allowlist. public numerical validators replace private cross-module coupling without changing the original 04k fixture's saved-state validation. no optimizer, generator, historical replay, new dependency or artifact framework enters the diagnosis.
+
+independent reviewers rebuild all 9,520 fixture rows from raw arrays and reconcile every research row/summary/scale/closure receipt, including negative cross terms and unavailable cohorts. final reporting copies saved tables; blocked-parent rerenders reproduce deterministic content. separate labeled base/null interval scales keep small null effects visible, while the signed matrix retains a common color scale and exact values. the completed account distinguishes retained-mean stable/reversal behavior from entrant current-signal weighting; aggregate null harm and contrary no-prior behavior remain visible. no unique prior intervention is identified, so the remedy remains unresolved without a next hypothesis, nomination or admission. the tradeoff is about 29.9 gb of verified input reads per command, plus one retained verification rerun after resource/map corrections, rather than a copied fit store or new fits.
+
 ## 04l specification review — 2026-10-19
 
 statistical, systems and hockey/content reviewers designed [04l's saved-fit diagnosis](../specs/04l-attribution-prior-diagnosis.md). the user chose exact accounting without an entry-prior intervention. the useful question is what accounts for 04k's existing gains/harm, not whether the same subgroup differences can be reported again.

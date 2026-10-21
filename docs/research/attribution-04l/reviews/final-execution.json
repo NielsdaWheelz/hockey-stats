@@ -1,0 +1,88 @@
+{
+  "status": "verified",
+  "producer": "8dc26566d3c142368f57d4a02eb5930ee53d4cd8",
+  "final_diagnosis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/diagnosis-final/diagnosis.json",
+    "sha256": "82861a5592ddee01e59477d326d0242da99e9f32bbba6620812f790059840bd5"
+  },
+  "inventory": {
+    "pairs": 100,
+    "scores": 100,
+    "decompositions": 200,
+    "previous_means": 100,
+    "scales": 600,
+    "record_rows": 95200,
+    "summary_rows": 5120,
+    "frozen_comparisons": 34000,
+    "frozen_summaries": 2060
+  },
+  "closure_summary": {
+    "check_count": 76512,
+    "coefficient_decompositions": 200,
+    "maximum_normalized_residual": 9.420193454511183e-14,
+    "maximum_coefficient_mean_relative_residual": 9.539656133240947e-14,
+    "maximum_coefficient_mean_absolute_residual": 2.204887748075146e-15,
+    "maximum_gauge_relative_residual": 3.387254653875505e-12,
+    "maximum_covariance_centering_relative_residual": 1.5699310255511287e-20,
+    "status": "verified"
+  },
+  "measured_full_command": {
+    "wall_seconds": 251.21,
+    "peak_memory_bytes": 1412202496,
+    "source": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/command-final.log"
+  },
+  "numerical_resources": {
+    "wall_seconds": 249.55258241697447,
+    "peak_memory_bytes": 1254227968,
+    "process_seconds": 109.82520000000001,
+    "research_solves": 0,
+    "scale_evaluations": 0,
+    "measurement_scope": "source reads and numerical checks; before diagnosis serialization"
+  },
+  "post_serialization_resources": {
+    "wall_seconds": 250.60857766697882,
+    "peak_memory_bytes": 1412202496,
+    "process_seconds": 110.553815,
+    "research_solves": 0,
+    "scale_evaluations": 0,
+    "measurement_scope": "through diagnosis serialization; before result serialization"
+  },
+  "read_accounting": {
+    "verified_bytes": 29871544974,
+    "decoded_bytes": 10315239664,
+    "archive_count": 101,
+    "manifest_count": 104
+  },
+  "preflight": {
+    "wall_seconds": 3.061977625009604,
+    "included_in_inventory": true
+  },
+  "exact_initial_final_preservation": [
+    "record_rows",
+    "summary_rows",
+    "scale_rows",
+    "checks",
+    "closure_summary",
+    "inventory",
+    "decision",
+    "read_accounting"
+  ],
+  "initial_execution": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04l-20261020/diagnosis",
+    "purpose": "preserved first execution; final resource sampling and reused-map implementation supersede its cost receipt; scientific rows unchanged"
+  },
+  "nominal_source_archive_reads": 101,
+  "verified_source_manifests": 104,
+  "research_solves": 0,
+  "scale_evaluations": 0,
+  "rendered_report_sha256": {
+    "result.json": "c137816c620e4e0f2c619291b570c57e0951d0fe54a76eb0d2a8841e605dd8a4",
+    "accounting.png": "2d32960577a9a30fa3a129b338ec287f6dcc38fea6b46ba0795a5cc0486b6e16",
+    "verification.md": "d731137ac9cdab0b76df4c686c4c57f14881fbf32d3af59525a3546720ea37d9",
+    "accounting.csv": "196ceb68b6bf67f8b2cfac1dab28b688dd48edf9cca16fdd5978107684c7b713",
+    "comparison.csv": "6d7ac7bd9d41c12fc1584a1af70a419be774e0f846c5fa19053b98f3158c9c11",
+    "scales.csv": "defee0d64a17f9c7c226954a7c1a673dc9e4b8a4c33ef2d290434b1a5b7febe7",
+    "decision.md": "e66cd92fdfa2118532b90637f733d58959b6196cf98484607cc07be547e32264"
+  },
+  "rendered_report_scope": "exact external report-final content; local verification.md adds independent human acceptance and cleanup evidence"
+}

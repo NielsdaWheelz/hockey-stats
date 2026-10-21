@@ -128,10 +128,10 @@ export default function League() {
   return (
     <>
       <section className="league-heading">
-        <h2>explore included results</h2>
+        <h2>recorded 5v5 results</h2>
         <p>
-          matched counts and time, with source coverage alongside. rate ordering
-          describes recorded results.
+          personal production and team attempts while on ice, with separate
+          matched time and coverage. unadjusted observations, not ability.
         </p>
         <Link to="/compare" state={{ leagueSearch: location.search }}>
           compare players
@@ -221,7 +221,9 @@ export default function League() {
             commit(next);
           }}
         >
-          <label htmlFor="discovery-min">minimum included 5v5 minutes</label>
+          <label htmlFor="discovery-min">
+            minimum on-ice included 5v5 minutes
+          </label>
           <div className="minute-input">
             <input
               id="discovery-min"
@@ -271,7 +273,7 @@ export default function League() {
             : position === "f"
               ? "reported forwards"
               : "reported defense"}
-          ; team {team ?? "all"}; at least {min} included minutes.{" "}
+          ; team {team ?? "all"}; at least {min} on-ice included minutes.{" "}
           <button type="button" onClick={clear}>
             clear filters
           </button>
@@ -284,8 +286,8 @@ export default function League() {
         >
           <table className="league-table">
             <caption>
-              included season results · games means games with included time;
-              minutes are matched 5v5 exposure
+              included season results · games means games with on-ice included
+              time; each population has its own matched 5v5 minutes
             </caption>
             <thead>
               <tr>
@@ -293,10 +295,31 @@ export default function League() {
                 <th scope="col">season teams</th>
                 <th scope="col">position</th>
                 {header("games", "games", "games with included time")}
-                {header("minutes", "matched min", "matched minutes")}
-                {header("for60", "for/60", "attempts for/60")}
-                {header("against60", "against/60", "attempts against/60")}
-                <th scope="col">coverage</th>
+                {header("minutes", "on-ice min", "on-ice included minutes")}
+                {header("for60", "on-ice for/60", "on-ice attempts for/60")}
+                {header(
+                  "against60",
+                  "on-ice against/60",
+                  "on-ice attempts against/60",
+                )}
+                <th scope="col">on-ice coverage</th>
+                {header(
+                  "sog60",
+                  "shots on goal/60",
+                  "personal shots on goal/60",
+                )}
+                {header("goals60", "goals/60", "personal goals/60")}
+                {header(
+                  "primaryAssists60",
+                  "primary assists/60",
+                  "personal primary assists/60",
+                )}
+                {header(
+                  "personalMinutes",
+                  "personal min",
+                  "personal included minutes",
+                )}
+                <th scope="col">personal coverage</th>
               </tr>
             </thead>
             <tbody>
@@ -332,6 +355,36 @@ export default function League() {
                   </td>
                   <td>
                     <CoverageDetail metrics={player.metrics} />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={player.personal.shots_on_goal_per60}
+                      metrics={player.personal}
+                      rate
+                      precision={2}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={player.personal.goals_per60}
+                      metrics={player.personal}
+                      rate
+                      precision={2}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={player.personal.primary_assists_per60}
+                      metrics={player.personal}
+                      rate
+                      precision={2}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Minutes seconds={player.personal.included_seconds} />
+                  </td>
+                  <td>
+                    <CoverageDetail metrics={player.personal} />
                   </td>
                 </tr>
               ))}

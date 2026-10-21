@@ -15,6 +15,7 @@ from .captures import SOURCES
 from .feature_data import ATTEMPT_KINDS
 from .reconstruct import REPORT_CODES, lineup_classification
 from .interpret import clock_seconds
+from .scoring_credits import scoring_credits
 
 Purpose = Literal["real", "fixture"]
 Status = Literal["complete", "partial", "unavailable"]
@@ -31,6 +32,7 @@ REASON_CODES = frozenset((
     "player_toi_conflict", "roster_identity_unresolved",
     "unassigned_player_games", "no_5v5_exposure",
 ))
+PERSONAL_REASON_CODES = (REASON_CODES - {"no_5v5_exposure"}) | {"personal_credit_unresolved", "no_personal_5v5_exposure"}
 
 
 @dataclass(frozen=True)
@@ -58,6 +60,8 @@ class Game:
     home_attempts: int | None
     coverage_status: Status
     reason_codes: tuple[str, ...]
+    personal_included_seconds: int
+    personal_known_excluded_seconds: int
 
 
 @dataclass(frozen=True)
@@ -73,7 +77,22 @@ class Metrics:
 
 
 @dataclass(frozen=True)
+class PersonalMetrics:
+    included_seconds: int
+    known_excluded_seconds: int
+    shots_on_goal: int | None
+    goals: int | None
+    primary_assists: int | None
+    shots_on_goal_per60: float | None
+    goals_per60: float | None
+    primary_assists_per60: float | None
+    coverage_status: Status
+    reason_codes: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class PlayerGame(Metrics):
+    personal: PersonalMetrics
     player_id: str
     game_id: str
     team_id: str
@@ -81,6 +100,7 @@ class PlayerGame(Metrics):
 
 @dataclass(frozen=True)
 class PlayerSeason(Metrics):
+    personal: PersonalMetrics
     player_id: str
     teams: tuple[dict, ...]
     listed_games: int
@@ -119,6 +139,26 @@ def _metrics(seconds, excluded, attempts_for, attempts_against, reasons):
         return Metrics(seconds, excluded, None, None, None, None, "unavailable", tuple(sorted(reasons)))
     require(attempts_for == attempts_against == 0, "observed", "attempt without exposure")
     return Metrics(0, excluded, 0, 0, None, None, "complete", ("no_5v5_exposure",))
+
+
+def _personal_metrics(seconds, excluded, shots, goals, assists, reasons):
+    reasons = set(reasons) - {"no_5v5_exposure", "no_personal_5v5_exposure"}
+    require(reasons <= PERSONAL_REASON_CODES, "personal", "unknown coverage reason")
+    require(all(type(value) is int and 0 <= value <= _MAX_INTEGER
+                for value in (seconds, excluded, shots, goals, assists)) and goals <= shots,
+            "personal", "invalid personal quantities")
+    require(seconds > 0 or shots == goals == 0, "personal", "scored/saved credit without personal exposure")
+    counts = (shots, goals, assists)
+    status = "partial" if reasons else "complete"
+    if seconds:
+        rates = tuple(3600 * count / seconds for count in counts)
+    else:
+        rates = (None, None, None)
+        if not assists and reasons:
+            counts = (None, None, None)
+            status = "unavailable"
+        reasons.add("no_personal_5v5_exposure")
+    return PersonalMetrics(seconds, excluded, *counts, *rates, status, tuple(sorted(reasons)))
 
 
 def _metric_fields(metrics):
@@ -312,7 +352,7 @@ def _validate_native(interpreted, native, events, recon, reports, loc):
     return identities, unassigned, intervals, interval_members, periods, exposures
 
 
-def _game(entry, value, path):
+def _game(entry, value, path, consumed):
     interpreted, native, events, recon, reports = validate_envelope(value, path, entry)
     identities, unassigned, intervals, members, periods, exposures = _validate_native(
         interpreted, native, events, recon, reports, str(path))
@@ -431,6 +471,35 @@ def _game(entry, value, path):
                     seconds_by_player[pid] += seconds
                     for_by_player[pid] += per_segment[i, team]
                     against_by_player[pid] += per_segment[i, opponent]
+    selected = [events[d["source_index"]] for d in dispositions
+                if d["status"] == "included" and events[d["source_index"]]["type_key"] in ("goal", "shot-on-goal")]
+    credits = scoring_credits(interpreted, selected, identities, consumed)
+    assignment = {d["source_index"]: d["segment_index"] for d in dispositions if d["status"] == "included"}
+    personal_mask = set(mask)
+    for credit in credits:
+        credit["segment_index"] = assignment[credit["source_index"]]
+        if credit["status"] == "unresolved":
+            personal_mask.add(credit["segment_index"])
+    personal_reasons = {"personal_credit_unresolved"} if any(c["status"] == "unresolved" for c in credits) else set()
+    personal_seconds, personal_excluded = Counter(), Counter()
+    for i, segment in enumerate(segments):
+        seconds = segment["end"] - segment["start"]
+        target = personal_excluded if i in personal_mask else personal_seconds
+        for pid in segment["members"][0] + segment["members"][1]:
+            target[pid] += seconds
+    shots, goals, assists = Counter(), Counter(), Counter()
+    for credit in credits:
+        credit["personal_status"] = "unresolved" if credit["status"] == "unresolved" else "masked" if credit["segment_index"] in personal_mask else "included"
+        if credit["personal_status"] != "included":
+            continue
+        scorer = credit["scorer_or_shooter_id"]
+        shots[scorer] += 1
+        if events[credit["source_index"]]["type_key"] == "goal":
+            goals[scorer] += 1
+            if credit["primary_assister_id"] is not None:
+                assists[credit["primary_assister_id"]] += 1
+    personal_included = sum(s["end"] - s["start"] for i, s in enumerate(segments) if i not in personal_mask)
+    personal_known_excluded = sum(s["end"] - s["start"] for i, s in enumerate(segments) if i in personal_mask)
     listed = {pid: row for pid, row in identities.items() if row["reported_position"] in _SKATERS}
     for pid, identity in sorted(listed.items()):
         player_reasons = set(reasons)
@@ -442,19 +511,39 @@ def _game(entry, value, path):
             elif not player_reasons & {"elapsed_membership_unresolved", "period_horizon_unavailable"}:
                 player_reasons.add("elapsed_membership_unresolved")
         metric = _metrics(seconds_by_player[pid], excluded_by_player[pid], for_by_player[pid], against_by_player[pid], player_reasons)
-        player_rows.append(PlayerGame(**_metric_fields(metric), player_id=str(pid), game_id=game["game_id"], team_id=str(identity["team_id"])))
+        personal = _personal_metrics(personal_seconds[pid], personal_excluded[pid], shots[pid], goals[pid], assists[pid], player_reasons | personal_reasons)
+        require(personal.included_seconds <= metric.included_seconds, path, "personal exposure exceeds on-ice exposure")
+        player_rows.append(PlayerGame(**_metric_fields(metric), personal=personal, player_id=str(pid), game_id=game["game_id"], team_id=str(identity["team_id"])))
     require(sum(row.included_seconds for row in player_rows) == 10 * included, path, "player exposure conservation failed")
     require(sum(row.attempts_for or 0 for row in player_rows) == sum(row.attempts_against or 0 for row in player_rows) == 5 * sum(attempts.values()), path, "player attempt conservation failed")
     game_metric = _metrics(included, excluded, attempts[game["away_team_id"]], attempts[game["home_team_id"]], reasons)
     output = Game(game["game_id"], game["game_date"], str(game["away_team_id"]), str(game["home_team_id"]),
                   game.get("away_team_abbrev"), game.get("home_team_abbrev"), included, excluded, unresolved,
                   horizon_unavailable, game_metric.attempts_for, game_metric.attempts_against,
-                  game_metric.coverage_status, game_metric.reason_codes)
+                  game_metric.coverage_status, game_metric.reason_codes, personal_included, personal_known_excluded)
+    require(sum(row.personal.included_seconds for row in player_rows) == 10 * personal_included, path, "personal exposure conservation failed")
+    retained = [c for c in credits if c["personal_status"] == "included"]
+    personal_totals = dict(shots_on_goal=len(retained),
+        goals=sum(events[c["source_index"]]["type_key"] == "goal" for c in retained),
+        primary_assists=sum(c["primary_assister_id"] is not None for c in retained))
+    goalie_credits = {name: sum(counts[pid] for pid, identity in identities.items() if identity["reported_position"] == "G")
+                      for name, counts in (("shots_on_goal", shots), ("goals", goals), ("primary_assists", assists))}
+    for name, counts in (("shots_on_goal", shots), ("goals", goals), ("primary_assists", assists)):
+        require(sum(getattr(row.personal, name) or 0 for row in player_rows) + goalie_credits[name] == personal_totals[name]
+                == sum(counts.values()), path, f"personal {name} conservation failed")
     receipt = dict(game_id=game["game_id"], status="reconstructed", source_inputs=interpreted["inputs"],
         unassigned_player_associations=unassigned, masks=masks,
         segments=[dict(period_number=s["period"], start_seconds=s["start"], end_seconds=s["end"],
                        interval_indices=s["indices"], excluded_reasons=sorted(mask.get(i, ()))) for i, s in enumerate(segments)],
         event_dispositions=dispositions, report_dispositions=report_dispositions,
+        personal_credit_dispositions=credits,
+        personal_masks=[dict(segment_index=i, inherited=i in mask,
+            source_indices=[c["source_index"] for c in credits if c["status"] == "unresolved" and c["segment_index"] == i]) for i in sorted(personal_mask)],
+        personal_identities=dict(physical_included_seconds=personal_included,
+            player_included_seconds=sum(r.personal.included_seconds for r in player_rows),
+            known_excluded_seconds=personal_known_excluded, additional_excluded_seconds=included - personal_included,
+            included_credits=personal_totals, goalie_credits=goalie_credits,
+            skater_credits={name: sum(getattr(r.personal, name) or 0 for r in player_rows) for name in personal_totals}),
         native_checks=interpreted["checks"], native_issues=interpreted["issues"] + native["issues"],
         identities=dict(physical_included_seconds=included, player_included_seconds=sum(r.included_seconds for r in player_rows),
                         included_attempts=sum(attempts.values()), player_attempts_for=sum(r.attempts_for or 0 for r in player_rows),
@@ -518,7 +607,7 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         if row["status"] != "reconstructed":
             reasons = ("required_source_unavailable",)
             game = Game(gid, entry["game_date"], str(entry["away_team_id"]), str(entry["home_team_id"]), None, None,
-                        0, 0, 0, True, None, None, "unavailable", reasons)
+                        0, 0, 0, True, None, None, "unavailable", reasons, 0, 0)
             games.append(game)
             receipts.append(dict(game_id=gid, status=row["status"], reason=row["reason"],
                                  source_inputs=value["interpreted"]["inputs"] if value is not None else [],
@@ -526,7 +615,7 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
             unassigned_games.append(dict(game_id=gid, date=entry["game_date"], away_team_id=game.away_team_id,
                                          home_team_id=game.home_team_id, reason_codes=list(reasons)))
             continue
-        game, rows, listed, unassigned, receipt = _game(entry, value, envelope_path)
+        game, rows, listed, unassigned, receipt = _game(entry, value, envelope_path, inputs)
         games.append(game)
         player_games.extend(rows)
         receipts.append(receipt)
@@ -563,20 +652,37 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         for row in rows:
             game = game_index[row.game_id]
             teams[row.team_id] = dict(id=row.team_id, abbreviation=game.away_abbreviation if row.team_id == game.away_team_id else game.home_abbreviation)
-        seasons.append(PlayerSeason(**_metric_fields(metric), player_id=pid,
+        personal_reasons = {reason for row in rows for reason in row.personal.reason_codes
+                            if reason != "no_personal_5v5_exposure"}
+        if unassigned_games:
+            personal_reasons.add("unassigned_player_games")
+        personal_counts = {name: sum(getattr(row.personal, name) or 0 for row in rows)
+                           for name in ("shots_on_goal", "goals", "primary_assists")}
+        personal = _personal_metrics(sum(row.personal.included_seconds for row in rows),
+            sum(row.personal.known_excluded_seconds for row in rows), *personal_counts.values(), personal_reasons)
+        seasons.append(PlayerSeason(**_metric_fields(metric), personal=personal, player_id=pid,
             teams=tuple(teams[key] for key in sorted(teams, key=int)), listed_games=len(rows),
             games_with_included_time=sum(row.included_seconds > 0 for row in rows),
             partial_games=sum(row.coverage_status == "partial" for row in rows),
             unavailable_games=sum(row.coverage_status == "unavailable" for row in rows)))
         player_reductions.append(dict(player_id=pid, listed_games=len(rows), included_seconds=seconds,
             known_excluded_seconds=excluded, available_attempts_for=for_count, available_attempts_against=against_count,
-            projected_attempts_for=metric.attempts_for, projected_attempts_against=metric.attempts_against))
+            projected_attempts_for=metric.attempts_for, projected_attempts_against=metric.attempts_against,
+            personal=dict(included_seconds=personal.included_seconds, known_excluded_seconds=personal.known_excluded_seconds,
+                available_counts=personal_counts, projected_counts={name: getattr(personal, name) for name in personal_counts})))
         require(sum(row.included_seconds for row in rows) == metric.included_seconds
                 and (metric.attempts_for is None or metric.attempts_for == for_count)
                 and (metric.attempts_against is None or metric.attempts_against == against_count), path, "season reduction failed")
     require(sum(row.included_seconds for row in player_games) == 10 * sum(row.included_seconds for row in games), path, "corpus exposure conservation failed")
     require(sum(row.attempts_for or 0 for row in player_games) == sum(row.attempts_against or 0 for row in player_games)
             == 5 * sum((row.away_attempts or 0) + (row.home_attempts or 0) for row in games), path, "corpus attempt conservation failed")
+    require(sum(row.personal.included_seconds for row in player_games) == 10 * sum(row.personal_included_seconds for row in games),
+            path, "corpus personal exposure conservation failed")
+    personal_receipts = [r["personal_identities"] for r in receipts if "personal_identities" in r]
+    for name in ("shots_on_goal", "goals", "primary_assists"):
+        require(sum(getattr(row.personal, name) or 0 for row in player_games)
+                == sum(getattr(row.personal, name) or 0 for row in seasons)
+                == sum(r["skater_credits"][name] for r in personal_receipts), path, "corpus personal count conservation failed")
     require(purpose != "real" or any(row.included_seconds > 0 for row in games), path, "real candidate has no supported positive exposure")
     reason_counts = Counter(code for row in games for code in row.reason_codes)
     coverage = dict(inventory_games=len(games), games_with_included_time=sum(row.included_seconds > 0 for row in games),
@@ -591,7 +697,15 @@ def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
         known_unresolved_seconds=sum(row.known_unresolved_seconds for row in games),
         included_attempts=sum((row.away_attempts or 0) + (row.home_attempts or 0) for row in games),
         player_attempts_for=sum(row.attempts_for or 0 for row in player_games),
-        player_attempts_against=sum(row.attempts_against or 0 for row in player_games)))
+        player_attempts_against=sum(row.attempts_against or 0 for row in player_games),
+        personal_physical_included_seconds=sum(row.personal_included_seconds for row in games),
+        personal_player_included_seconds=sum(row.personal.included_seconds for row in player_games),
+        personal_known_excluded_seconds=sum(row.personal_known_excluded_seconds for row in games),
+        personal_additional_excluded_seconds=sum(row.included_seconds - row.personal_included_seconds for row in games),
+        personal_included_credits={name: sum(r["included_credits"][name] for r in personal_receipts)
+                                  for name in ("shots_on_goal", "goals", "primary_assists")},
+        personal_goalie_credits={name: sum(r["goalie_credits"][name] for r in personal_receipts)
+                                for name in ("shots_on_goal", "goals", "primary_assists")}))
     return ObservedResult(season, inputs[0]["sha256"], tuple(players[pid] for pid in sorted(players)), tuple(games),
         tuple(sorted(player_games, key=lambda row: (int(row.player_id), game_index[row.game_id].game_date, row.game_id))),
         tuple(seasons), coverage, min(dated) if dated else None, max(dated) if dated else None,

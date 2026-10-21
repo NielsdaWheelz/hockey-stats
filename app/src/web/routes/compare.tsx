@@ -124,11 +124,11 @@ export default function Compare() {
         <Link to={`/${leagueSearch}`}>back to players</Link>
       </nav>
       <section className="comparison-heading">
-        <h2>compare included results</h2>
+        <h2>compare recorded 5v5 results</h2>
         <p>
           each player's own included evidence and matched 5v5 time; these are
-          unadjusted on-ice observations, not estimates of individual
-          contribution.
+          unadjusted observations, not ability. personal production and team
+          attempts while on ice use separate matched populations.
         </p>
         <p>
           attempts “for” are by the player's team while on ice, not personal
@@ -218,7 +218,127 @@ export default function Compare() {
               <tbody>
                 <tr>
                   <th scope="row" className="identity">
-                    matched 5v5 minutes
+                    personal production
+                  </th>
+                  {pair.map((player) => (
+                    <td key={player.player_id}>recorded credits</td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    shots on goal
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Quantity
+                        value={player.personal.shots_on_goal}
+                        metrics={player.personal}
+                      />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    shots on goal/60
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Quantity
+                        value={player.personal.shots_on_goal_per60}
+                        metrics={player.personal}
+                        rate
+                        precision={2}
+                      />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    goals
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Quantity
+                        value={player.personal.goals}
+                        metrics={player.personal}
+                      />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    goals/60
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Quantity
+                        value={player.personal.goals_per60}
+                        metrics={player.personal}
+                        rate
+                        precision={2}
+                      />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    primary assists
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Quantity
+                        value={player.personal.primary_assists}
+                        metrics={player.personal}
+                      />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    primary assists/60
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Quantity
+                        value={player.personal.primary_assists_per60}
+                        metrics={player.personal}
+                        rate
+                        precision={2}
+                      />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    personal included 5v5 minutes
+                  </th>
+                  {pair.map((player) => (
+                    <td className="numeric" key={player.player_id}>
+                      <Minutes seconds={player.personal.included_seconds} />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    personal coverage and reasons
+                  </th>
+                  {pair.map((player) => (
+                    <td key={player.player_id}>
+                      <CoverageDetail metrics={player.personal} />
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    team attempts while on ice
+                  </th>
+                  {pair.map((player) => (
+                    <td key={player.player_id}>recorded team attempts</td>
+                  ))}
+                </tr>
+                <tr>
+                  <th scope="row" className="identity">
+                    on-ice included 5v5 minutes
                   </th>
                   {pair.map((player) => (
                     <td className="numeric" key={player.player_id}>
@@ -292,7 +412,7 @@ export default function Compare() {
                 </tr>
                 <tr>
                   <th scope="row" className="identity">
-                    coverage and reasons
+                    on-ice coverage and reasons
                   </th>
                   {pair.map((player) => (
                     <td key={player.player_id}>

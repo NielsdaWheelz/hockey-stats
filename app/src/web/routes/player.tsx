@@ -11,6 +11,7 @@ import {
 import { loadPlayer } from "../client";
 import { readPeerSettings, type PeerSettings } from "../explorer";
 import PeerDistributions from "../peer-distributions";
+import DescriptiveCard from "../descriptive-card";
 import {
   CoverageDetail,
   Evidence,
@@ -94,7 +95,6 @@ export default function Player() {
   };
   const comparisonQuery = new URLSearchParams(peerQuery);
   comparisonQuery.set("a", player.player_id);
-  const metrics = player.metrics;
   return (
     <>
       <nav className="back-link">
@@ -115,77 +115,12 @@ export default function Player() {
           {player.reported_position} · player {player.player_id}
         </p>
       </section>
-      <section className="observed-card" aria-labelledby="included-heading">
-        <h3 id="included-heading">observed on-ice results</h3>
-        <dl className="observed-rates">
-          <div>
-            <dt>on-ice attempts for/60</dt>
-            <dd>
-              <Quantity value={metrics.for_per60} metrics={metrics} rate />
-            </dd>
-          </div>
-          <div>
-            <dt>on-ice attempts against/60</dt>
-            <dd>
-              <Quantity value={metrics.against_per60} metrics={metrics} rate />
-            </dd>
-          </div>
-        </dl>
-        <dl className="observed-facts">
-          <div>
-            <dt>matched 5v5 minutes</dt>
-            <dd>
-              <Minutes seconds={metrics.included_seconds} />
-            </dd>
-          </div>
-          <div>
-            <dt>on-ice attempts for</dt>
-            <dd>
-              <Quantity value={metrics.attempts_for} metrics={metrics} />
-            </dd>
-          </div>
-          <div>
-            <dt>on-ice attempts against</dt>
-            <dd>
-              <Quantity value={metrics.attempts_against} metrics={metrics} />
-            </dd>
-          </div>
-          <div>
-            <dt>games with included time</dt>
-            <dd>{player.games_with_included_time}</dd>
-          </div>
-        </dl>
-        <p className="control-note">
-          team attempts while on ice, not personal shots; includes scored,
-          saved, missed and blocked shots; unadjusted observations, not
-          estimates of individual contribution.
-        </p>
-        <a
-          href="#games-heading"
-          onClick={(event) => {
-            event.preventDefault();
-            const heading = document.getElementById("games-heading");
-            heading?.focus();
-            heading?.scrollIntoView();
-          }}
-        >
-          view game evidence
-        </a>
-        <GlobalGap coverage={coverage} />
-      </section>
-      <section className="profile-coverage" aria-labelledby="coverage-heading">
-        <h3 id="coverage-heading">coverage</h3>
-        <p>
-          {player.games_with_included_time} games with included time;{" "}
-          {player.listed_games} listed games, {player.partial_games} partial and{" "}
-          {player.unavailable_games} unavailable.
-        </p>
-        <CoverageDetail metrics={metrics} />
-        <p>
-          roster listing is not an appearance claim. included minutes are not
-          full official ice time.
-        </p>
-      </section>
+      <DescriptiveCard
+        player={player}
+        publication={publication}
+        coverage={coverage}
+      />
+      <GlobalGap coverage={coverage} />
       <PeerDistributions
         players={players}
         selected={[player]}
@@ -207,8 +142,8 @@ export default function Player() {
         >
           <table className="game-table">
             <caption>
-              date order · matched minutes and recorded attempts in the included
-              population
+              date order · personal and on-ice counts have their own matched
+              minutes and coverage
             </caption>
             <thead>
               <tr>
@@ -218,15 +153,28 @@ export default function Player() {
                 <th scope="col">player's team</th>
                 <th scope="col">opponent</th>
                 <th scope="col" className="numeric">
-                  matched min
+                  on-ice min
                 </th>
                 <th scope="col" className="numeric">
-                  for
+                  on-ice for
                 </th>
                 <th scope="col" className="numeric">
-                  against
+                  on-ice against
                 </th>
-                <th scope="col">coverage / reasons</th>
+                <th scope="col">on-ice coverage / reasons</th>
+                <th scope="col" className="numeric">
+                  shots on goal
+                </th>
+                <th scope="col" className="numeric">
+                  goals
+                </th>
+                <th scope="col" className="numeric">
+                  primary assists
+                </th>
+                <th scope="col" className="numeric">
+                  personal min
+                </th>
+                <th scope="col">personal coverage / reasons</th>
               </tr>
             </thead>
             <tbody>
@@ -258,6 +206,30 @@ export default function Player() {
                   </td>
                   <td>
                     <CoverageDetail metrics={game.metrics} />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={game.personal.shots_on_goal}
+                      metrics={game.personal}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={game.personal.goals}
+                      metrics={game.personal}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={game.personal.primary_assists}
+                      metrics={game.personal}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Minutes seconds={game.personal.included_seconds} />
+                  </td>
+                  <td>
+                    <CoverageDetail metrics={game.personal} />
                   </td>
                 </tr>
               ))}

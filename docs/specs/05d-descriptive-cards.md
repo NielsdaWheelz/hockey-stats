@@ -1,6 +1,6 @@
 # pr05d — richer descriptive cards
 
-status: **full specification; ready for handoff, implementation unassigned.** confirmed 2026-10-21: one single-player png download; a separate personal population preserves existing on-ice results. [the plan](../plan.md) owns progression. independent of 04m and model admission. extend [05a's publication](05a-observed-website.md) and [05c's explorer](05c-player-explorer.md); their unchanged contracts still apply.
+status: **full specification; implemented and verified 2026-10-21. [acceptance](../research/observed-05d/verification.md) records the real candidate and independent reviews; activation remains unassigned.** confirmed 2026-10-21: one single-player png download; a separate personal population preserves existing on-ice results. [the plan](../plan.md) owns progression. independent of 04m and model admission. extend [05a's publication](05a-observed-website.md) and [05c's explorer](05c-player-explorer.md); their unchanged contracts still apply.
 
 ## target and scope
 

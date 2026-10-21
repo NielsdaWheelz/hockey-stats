@@ -307,3 +307,13 @@ the correct attribution disposition is `segment_assignment_unresolved`. both adj
 ## attribution numerical evidence
 
 [the synthetic attribution fixture](attribution/README.md) preserves the exact 64-dimensional positive-definite matrix that exposes the pinned scipy public cholesky triangle defect, with an independently derived expected lower factor and checked facts. it is separate from captured hockey evidence and fitted outputs.
+
+## 05d personal-credit checks
+
+[05d verification](../docs/research/observed-05d/verification.md) checks all 33 complete original fixture bundles against the preceding reconstruction and on-ice aggregation; all native outputs and old on-ice fields agree exactly. an explicit eight-game `20252026` fixture corpus exercises native audit → observed aggregation → schema-2 sqlite separately from the real candidate.
+
+original `2025020001` play-by-play `/plays/66` is a scored-event example: scorer `8483493` and primary assister `8477479` corroborate landing credit. original `2021020942` play-by-play `/plays/255`, event `671`, scorer `8476994`, agrees with landing `/summary/scoring/2/goals/0/assists: []`; both play assist keys are absent. this establishes explicit unassisted credit, rather than inferring zero from a missing array. original body hashes and receipt locators remain authoritative.
+
+separate synthetic copies cover null/malformed/duplicate/scorer-as-assister lists, conflicting primary, diagnostic secondary-only disagreement, off-ice and zero-time assists, goalie credit, collateral masks, unavailable landing with retained goal-free time, own/awarded goals and missing modifiers. synthetic alterations are not new source observations or replacement originals. checked facts remain under `/Users/nnandal/Documents/code/hockey-stats-local/05d-verification/`; temporary modified bundles and controllers are deleted after green.
+
+an independent full-candidate raw audit additionally checks retained goalie saved-shot credit in original local game `2025020171`, play-by-play `/plays/195`, player `8479496`, against its bound capture and landing evidence. that original local game is not a committed fixture. no new distinct broken source bundle was encountered; no new fixture copy or source regeneration was needed.

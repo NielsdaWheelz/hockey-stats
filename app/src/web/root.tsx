@@ -58,7 +58,7 @@ export function Layout({ children }: { readonly children: ReactNode }) {
               results
             </h1>
             <p>
-              recorded while each player was on the ice; unadjusted for
+              personal production and team attempts while on ice; unadjusted for
               teammates, opponents, score or deployment.
             </p>
           </header>

@@ -40,6 +40,43 @@ export const Metrics = Schema.Struct({
 }));
 export type Metrics = typeof Metrics.Type;
 
+export const PersonalReasonCode = Schema.Literals([
+  "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
+  "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
+  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  "personal_credit_unresolved", "no_personal_5v5_exposure",
+]);
+export type PersonalReasonCode = typeof PersonalReasonCode.Type;
+export const PersonalReasonCodes = Schema.Array(PersonalReasonCode).check(Schema.makeFilter((codes) => codes.every((code, index) => index === 0 || codes[index - 1] < code)));
+export const PersonalMetrics = Schema.Struct({
+  included_seconds: Count,
+  known_excluded_seconds: Count,
+  shots_on_goal: Schema.NullOr(Count),
+  goals: Schema.NullOr(Count),
+  primary_assists: Schema.NullOr(Count),
+  shots_on_goal_per60: Schema.NullOr(Rate),
+  goals_per60: Schema.NullOr(Rate),
+  primary_assists_per60: Schema.NullOr(Rate),
+  coverage_status: CoverageStatus,
+  reason_codes: PersonalReasonCodes,
+}).check(Schema.makeFilter((metrics) => {
+  const counts = [metrics.shots_on_goal, metrics.goals, metrics.primary_assists];
+  const rates = [metrics.shots_on_goal_per60, metrics.goals_per60, metrics.primary_assists_per60];
+  const noExposure = metrics.reason_codes.includes("no_personal_5v5_exposure");
+  const gaps = metrics.reason_codes.some((code) => code !== "no_personal_5v5_exposure");
+  if (metrics.coverage_status === "complete" && metrics.known_excluded_seconds !== 0) return false;
+  if (metrics.goals !== null && metrics.shots_on_goal !== null && metrics.goals > metrics.shots_on_goal) return false;
+  if (metrics.included_seconds > 0) return counts.every((value) => value !== null) && rates.every((value) => value !== null) && !noExposure && metrics.coverage_status === (gaps ? "partial" : "complete");
+  if (counts.every((value) => value === null)) return rates.every((value) => value === null) && metrics.coverage_status === "unavailable" && gaps && noExposure;
+  return metrics.shots_on_goal === 0 && metrics.goals === 0 && metrics.primary_assists !== null && (metrics.primary_assists > 0 || !gaps) && rates.every((value) => value === null) && noExposure && metrics.coverage_status === (gaps ? "partial" : "complete");
+}));
+export type PersonalMetrics = typeof PersonalMetrics.Type;
+
+const matchedPersonalSupport = ({ metrics, personal }: { metrics: Metrics; personal: PersonalMetrics }) =>
+  personal.included_seconds <= metrics.included_seconds &&
+  personal.known_excluded_seconds - metrics.known_excluded_seconds === metrics.included_seconds - personal.included_seconds &&
+  metrics.reason_codes.every((code) => code === "no_5v5_exposure" || personal.reason_codes.includes(code));
+
 export const Publication = Schema.Struct({
   publication_id: Schema.String.check(Schema.isUUID()),
   kind: Schema.Literal("observed_5v5"),
@@ -50,6 +87,7 @@ export const Publication = Schema.Struct({
   source_requested_max: Schema.NullOr(Timestamp),
   undated_sources: Count,
   population_version: Schema.Literal("matched_attempts_v1"),
+  personal_population_version: Schema.Literal("matched_personal_credits_v1"),
   corpus_sha256: Schema.String.check(Schema.isPattern(/^[a-f0-9]{64}$/)),
   git_commit: GitCommit,
 }).check(Schema.makeFilter((publication) => (publication.source_requested_min === null) === (publication.source_requested_max === null) && (publication.source_requested_min === null || publication.source_requested_max === null || Date.parse(publication.source_requested_min) <= Date.parse(publication.source_requested_max))));
@@ -83,7 +121,8 @@ export const PlayerSummary = Schema.Struct({
   partial_games: Count,
   unavailable_games: Count,
   metrics: Metrics,
-}).check(Schema.makeFilter((player) => player.partial_games <= player.games_with_included_time && player.games_with_included_time + player.unavailable_games <= player.listed_games));
+  personal: PersonalMetrics,
+}).check(Schema.makeFilter((player) => player.partial_games <= player.games_with_included_time && player.games_with_included_time + player.unavailable_games <= player.listed_games && matchedPersonalSupport(player)));
 export type PlayerSummary = typeof PlayerSummary.Type;
 
 export const PlayerGame = Schema.Struct({
@@ -93,7 +132,8 @@ export const PlayerGame = Schema.Struct({
   opponent: Team,
   venue: Schema.Literals(["home", "away"]),
   metrics: Metrics,
-});
+  personal: PersonalMetrics,
+}).check(Schema.makeFilter((game) => matchedPersonalSupport(game)));
 export type PlayerGame = typeof PlayerGame.Type;
 
 export const LeagueResponse = Schema.Struct({ publication: Publication, coverage: Coverage, players: Schema.Array(PlayerSummary) });

@@ -253,6 +253,27 @@ def _attempt_group(api, reports, event_ids, sort_orders, report_ids, report_numb
     return "matched", solutions[0], "unique complete assignment from supported team/shooter/type"
 
 
+def goal_identity_status(row, goal, issues):
+    """corroborate supplied goal identity independently of modifier presence."""
+    api_path = f"/plays/{row['source_index']}"
+    path = goal["source_path"]
+    period_path = path.rsplit("/goals/", 1)[0] + "/periodDescriptor"
+    facts = ((row["period_number"], goal["period_number"]), (row["period_type"], goal["period_type"]),
+             (clock_seconds(row["time_in_period"], "play-by-play", api_path + "/timeInPeriod", []),
+              clock_seconds(goal["time_in_period"], "landing", path + "/timeInPeriod", [])),
+             (row["shooting_team_id"], goal["team_id"]),
+             (row["roles"].get("scorer"), goal["credited_scorer_id"]))
+    if any(a is None or b is None for a, b in facts) or (row["timed_period"] is True and goal["elapsed_seconds"] is None):
+        return "unavailable"
+    if (any(a != b for a, b in facts)
+            or row["owner_team_id"] is not None and row["owner_team_id"] != goal["team_id"]
+            or any(issue["source"] == "landing" and issue["code"] == "goal_team_disagreement"
+                   and (issue["path"] == path or issue["path"].startswith(path + "/") or issue["path"] == period_path or issue["path"].startswith(period_path + "/"))
+                   for issue in issues)):
+        return "conflict"
+    return "matched"
+
+
 def _goal_modifier(row, document, event_ids, landing_ids) -> GoalModifierEvidence:
     evidence: GoalModifierEvidence = {"source_path": None, "reported_value": None, "status": "unavailable"}
     goals = document["landing_goals"]
@@ -291,18 +312,9 @@ def _goal_modifier(row, document, event_ids, landing_ids) -> GoalModifierEvidenc
                      "invalid_goal_team_abbreviation", "unavailable_goal_team_abbreviation"}
     if any(issue["code"] in invalid_codes for issue in located):
         return evidence
-    facts = ((row["period_number"], goal["period_number"]), (row["period_type"], goal["period_type"]),
-             (clock_seconds(row["time_in_period"], "play-by-play", api_path + "/timeInPeriod", []),
-              clock_seconds(goal["time_in_period"], "landing", path + "/timeInPeriod", [])), (row["shooting_team_id"], goal["team_id"]),
-             (row["roles"].get("scorer"), goal["credited_scorer_id"]))
-    if any(a is None or b is None for a, b in facts):
-        return evidence
-    if row["timed_period"] is True and goal["elapsed_seconds"] is None:
-        return evidence
-    if (any(a != b for a, b in facts)
-            or row["owner_team_id"] is not None and row["owner_team_id"] != goal["team_id"]
-            or any(issue["code"] == "goal_team_disagreement" for issue in located)):
-        evidence["status"] = "conflict"
+    status = goal_identity_status(row, goal, document["issues"])
+    if status != "matched":
+        evidence["status"] = status
     elif goal["goal_modifier"] is None:
         evidence["status"] = "missing"
     elif goal["goal_modifier"] in ("none", "own-goal", "awarded", "penalty-shot"):

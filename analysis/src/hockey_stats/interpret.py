@@ -448,7 +448,8 @@ def _report_player(sweaters: dict[tuple[int, int], list[RosterRecord]], unresolv
     return player if player not in unresolved else None
 
 
-def _identity(body: dict[str, Any], requested: str) -> tuple[Game | None, str | None]:
+def game_identity(body: dict[str, Any], requested: str) -> tuple[Game | None, str | None]:
+    """admit completed regular-season identity, or return its source limitation."""
     if type(body.get("id")) is not int or str(body["id"]) != requested:
         return None, "/id does not identify the requested game; source unavailable"
     if type(body.get("gameType")) is not int or body["gameType"] != 2 or body.get("gameState") != "OFF":
@@ -503,7 +504,7 @@ def interpret_game(directory: Path) -> GameDocument:
             entry["reason"] = "source json must be an object; source unavailable"
             continue
         if capture.source in ("play-by-play", "boxscore", "landing"):
-            identity, reason = _identity(parsed, requested)
+            identity, reason = game_identity(parsed, requested)
             if identity is None:
                 entry["reason"] = reason
                 continue

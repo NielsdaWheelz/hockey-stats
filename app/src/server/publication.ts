@@ -6,7 +6,7 @@ import * as Schema from "effect/Schema";
 import type { SqlError } from "effect/sql/SqlError";
 import {
   Count, Coverage, CoverageStatus, DateString, GameId, GitCommit, HockeyId, LeagueResponse, Metrics,
-  PlayerGame, PlayerResponse, PlayerSummary, Publication as PublicationSchema, ReasonCodes,
+  PersonalMetrics, PersonalReasonCodes, PlayerGame, PlayerResponse, PlayerSummary, Publication as PublicationSchema, ReasonCodes,
 } from "../shared/observed.js";
 
 const Locator = Schema.Struct({ game_id: GameId, source_index: Count });
@@ -15,8 +15,16 @@ const Producer = Schema.Struct({ ...Implementation.fields, sqlite_version: Schem
 const { reason_codes, ...metricValues } = Metrics.fields;
 const { git_commit, ...publicationFields } = PublicationSchema.fields;
 const metricColumns = { ...metricValues, reason_codes_json: Schema.fromJsonString(reason_codes) };
+const personalColumns = {
+  personal_included_seconds: Count, personal_known_excluded_seconds: Count,
+  personal_shots_on_goal: Schema.NullOr(Count), personal_goals: Schema.NullOr(Count), personal_primary_assists: Schema.NullOr(Count),
+  personal_shots_on_goal_per60: PersonalMetrics.fields.shots_on_goal_per60,
+  personal_goals_per60: PersonalMetrics.fields.goals_per60,
+  personal_primary_assists_per60: PersonalMetrics.fields.primary_assists_per60,
+  personal_coverage_status: CoverageStatus, personal_reason_codes_json: Schema.fromJsonString(PersonalReasonCodes),
+};
 const PublicationRow = Schema.Struct({
-  id: Schema.Literal(1), schema_version: Schema.Literal(1),
+  id: Schema.Literal(1), schema_version: Schema.Literal(2),
   ...publicationFields,
   game_type: Schema.Literal(2), producer_json: Schema.fromJsonString(Producer), coverage_json: Schema.fromJsonString(Coverage),
 });
@@ -27,32 +35,33 @@ const PlayerRow = Schema.Struct({
 const GameRow = Schema.Struct({
   game_id: GameId, game_date: DateString, away_team_id: HockeyId, home_team_id: HockeyId,
   away_abbreviation: Schema.NullOr(Schema.String), home_abbreviation: Schema.NullOr(Schema.String),
-  included_seconds: Count, known_excluded_seconds: Count, known_unresolved_seconds: Count,
+  included_seconds: Count, known_excluded_seconds: Count,
+  personal_included_seconds: Count, personal_known_excluded_seconds: Count, known_unresolved_seconds: Count,
   horizon_unavailable: Schema.Literals([0, 1]), away_attempts: Schema.NullOr(Count), home_attempts: Schema.NullOr(Count),
   coverage_status: CoverageStatus, reason_codes_json: Schema.fromJsonString(ReasonCodes),
 }).check(Schema.makeFilter((game) => {
-  if (game.away_team_id === game.home_team_id || game.coverage_status === "complete" && game.known_excluded_seconds !== 0) return false;
+  if (game.personal_included_seconds > game.included_seconds || game.personal_known_excluded_seconds - game.known_excluded_seconds !== game.included_seconds - game.personal_included_seconds || game.away_team_id === game.home_team_id || game.coverage_status === "complete" && game.known_excluded_seconds !== 0) return false;
   if (game.included_seconds > 0) return game.away_attempts !== null && game.home_attempts !== null && (game.coverage_status === "complete" ? game.reason_codes_json.length === 0 : game.coverage_status === "partial" && game.reason_codes_json.length > 0 && !game.reason_codes_json.includes("no_5v5_exposure"));
   if (game.coverage_status === "complete") return game.away_attempts === 0 && game.home_attempts === 0 && game.reason_codes_json.length === 1 && game.reason_codes_json[0] === "no_5v5_exposure";
   return game.coverage_status === "unavailable" && game.away_attempts === null && game.home_attempts === null && game.reason_codes_json.length > 0 && !game.reason_codes_json.includes("no_5v5_exposure");
 }));
-const PlayerGameRow = Schema.Struct({ player_id: HockeyId, game_id: GameId, team_id: HockeyId, ...metricColumns });
+const PlayerGameRow = Schema.Struct({ player_id: HockeyId, game_id: GameId, team_id: HockeyId, ...metricColumns, ...personalColumns });
 const PlayerSeasonRow = Schema.Struct({
   player_id: HockeyId, teams_json: Schema.fromJsonString(PlayerSummary.fields.teams),
   listed_games: PlayerSummary.fields.listed_games, games_with_included_time: Count, partial_games: Count, unavailable_games: Count,
-  ...metricColumns,
+  ...metricColumns, ...personalColumns,
 });
 const strict = { onExcessProperty: "error" } as const;
 const tables = {
   publication: PublicationRow, player: PlayerRow, game: GameRow, player_game: PlayerGameRow, player_season: PlayerSeasonRow,
 };
 const physicalColumns = {
-  publication: ["id", "schema_version", "kind", "publication_id", "purpose", "season", "game_type", "generated_at", "source_requested_min", "source_requested_max", "undated_sources", "population_version", "corpus_sha256", "producer_json", "coverage_json"],
+  publication: ["id", "schema_version", "kind", "publication_id", "purpose", "season", "game_type", "generated_at", "source_requested_min", "source_requested_max", "undated_sources", "population_version", "personal_population_version", "corpus_sha256", "producer_json", "coverage_json"],
   player: ["player_id", "display_name", "reported_position", "name_source_json", "position_source_json"],
   game: Object.keys(GameRow.fields), player_game: Object.keys(PlayerGameRow.fields), player_season: Object.keys(PlayerSeasonRow.fields),
 };
-const integerColumns = new Set(["id", "schema_version", "game_type", "undated_sources", "included_seconds", "known_excluded_seconds", "known_unresolved_seconds", "horizon_unavailable", "away_attempts", "home_attempts", "listed_games", "games_with_included_time", "partial_games", "unavailable_games", "attempts_for", "attempts_against"]);
-const nullableColumns = new Set(["id", "display_name", "name_source_json", "source_requested_min", "source_requested_max", "away_abbreviation", "home_abbreviation", "away_attempts", "home_attempts", "attempts_for", "attempts_against", "for_per60", "against_per60"]);
+const integerColumns = new Set(["id", "schema_version", "game_type", "undated_sources", "included_seconds", "known_excluded_seconds", "known_unresolved_seconds", "horizon_unavailable", "away_attempts", "home_attempts", "listed_games", "games_with_included_time", "partial_games", "unavailable_games", "attempts_for", "attempts_against", "personal_included_seconds", "personal_known_excluded_seconds", "personal_shots_on_goal", "personal_goals", "personal_primary_assists"]);
+const nullableColumns = new Set(["id", "display_name", "name_source_json", "source_requested_min", "source_requested_max", "away_abbreviation", "home_abbreviation", "away_attempts", "home_attempts", "attempts_for", "attempts_against", "for_per60", "against_per60", "personal_shots_on_goal", "personal_goals", "personal_primary_assists", "personal_shots_on_goal_per60", "personal_goals_per60", "personal_primary_assists_per60"]);
 const primaryKeys = { publication: ["id"], player: ["player_id"], game: ["game_id"], player_game: ["player_id", "game_id"], player_season: ["player_id"] };
 const foreignKeyDefinitions = { publication: [], player: [], game: [], player_game: ["game:game_id:game_id", "player:player_id:player_id"], player_season: ["player:player_id:player_id"] };
 
@@ -73,7 +82,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   const tableList = yield* sql.unsafe<{ name: string; type: string; strict: number }>("PRAGMA table_list");
   yield* Effect.try(() => {
     if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreignKeys.length !== 0) throw new Error("publication integrity or foreign-key check failed");
-    if (JSON.stringify(version) !== '[{"user_version":1}]' || JSON.stringify(journal) !== '[{"journal_mode":"delete"}]') throw new Error("incompatible publication version or journal mode");
+    if (JSON.stringify(version) !== '[{"user_version":2}]' || JSON.stringify(journal) !== '[{"journal_mode":"delete"}]') throw new Error("incompatible publication version or journal mode");
     const actual = tableList.filter((table) => !table.name.startsWith("sqlite_"));
     if (actual.length !== 5 || actual.some((table) => table.type !== "table" || table.strict !== 1 || !(table.name in tables))) throw new Error("publication requires exactly five strict tables");
   });
@@ -84,7 +93,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
     yield* Effect.try(() => {
       if (JSON.stringify(columns.map((column) => column.name)) !== JSON.stringify(physicalColumns[table as keyof typeof tables])) throw new Error(`${table}: incompatible columns`);
       for (const column of columns) {
-        const type = integerColumns.has(column.name) ? "INTEGER" : column.name === "for_per60" || column.name === "against_per60" ? "REAL" : "TEXT";
+        const type = integerColumns.has(column.name) ? "INTEGER" : column.name === "for_per60" || column.name === "against_per60" || column.name.endsWith("_per60") ? "REAL" : "TEXT";
         const key = table as keyof typeof tables;
         if (column.type !== type || column.notnull !== (nullableColumns.has(column.name) ? 0 : 1) || column.pk !== primaryKeys[key].indexOf(column.name) + 1 || column.dflt_value !== null) throw new Error(`${table}.${column.name}: incompatible physical column`);
       }
@@ -101,7 +110,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   const metadata = yield* Effect.try(() => Schema.decodeUnknownSync(PublicationSchema, strict)({
     publication_id: stored.publication_id, kind: stored.kind, purpose: stored.purpose, season: stored.season,
     generated_at: stored.generated_at, source_requested_min: stored.source_requested_min, source_requested_max: stored.source_requested_max,
-    undated_sources: stored.undated_sources, population_version: stored.population_version, corpus_sha256: stored.corpus_sha256, git_commit: stored.producer_json.git_commit,
+    undated_sources: stored.undated_sources, population_version: stored.population_version, personal_population_version: stored.personal_population_version, corpus_sha256: stored.corpus_sha256, git_commit: stored.producer_json.git_commit,
   }));
   const coverage = stored.coverage_json;
   const JoinedPlayer = Schema.Struct({ ...PlayerSeasonRow.fields, display_name: PlayerRow.fields.display_name, reported_position: PlayerRow.fields.reported_position });
@@ -114,6 +123,13 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
     attempts_for: row.attempts_for, attempts_against: row.attempts_against, for_per60: row.for_per60,
     against_per60: row.against_per60, coverage_status: row.coverage_status, reason_codes: row.reason_codes_json,
   });
+  const personal = (row: typeof PlayerGameRow.Type | typeof PlayerSeasonRow.Type): PersonalMetrics => ({
+    included_seconds: row.personal_included_seconds, known_excluded_seconds: row.personal_known_excluded_seconds,
+    shots_on_goal: row.personal_shots_on_goal, goals: row.personal_goals, primary_assists: row.personal_primary_assists,
+    shots_on_goal_per60: row.personal_shots_on_goal_per60, goals_per60: row.personal_goals_per60,
+    primary_assists_per60: row.personal_primary_assists_per60, coverage_status: row.personal_coverage_status,
+    reason_codes: row.personal_reason_codes_json,
+  });
   const readPlayers = () => Effect.gen(function* () {
     const rows = yield* sql.unsafe("SELECT s.*, p.display_name, p.reported_position FROM player_season s JOIN player p USING(player_id) ORDER BY s.player_id");
     return yield* Effect.try(() => rows.map((input) => {
@@ -121,7 +137,7 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
       return Schema.decodeUnknownSync(PlayerSummary, strict)({
         player_id: row.player_id, display_name: row.display_name, reported_position: row.reported_position,
         teams: row.teams_json, listed_games: row.listed_games, games_with_included_time: row.games_with_included_time,
-        partial_games: row.partial_games, unavailable_games: row.unavailable_games, metrics: metrics(row),
+        partial_games: row.partial_games, unavailable_games: row.unavailable_games, metrics: metrics(row), personal: personal(row),
       });
     }));
   });
@@ -135,12 +151,74 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
         game_id: row.game_id, game_date: row.game_date, venue: home ? "home" : "away",
         team: { id: row.team_id, abbreviation: home ? row.home_abbreviation : row.away_abbreviation },
         opponent: { id: home ? row.away_team_id : row.home_team_id, abbreviation: home ? row.away_abbreviation : row.home_abbreviation },
-        metrics: metrics(row),
+        metrics: metrics(row), personal: personal(row),
       });
     }));
   });
-  yield* readPlayers();
+  const players = yield* readPlayers();
   yield* readGames();
+  const gameInputs = yield* sql.unsafe("SELECT * FROM game");
+  const playerGameInputs = yield* sql.unsafe("SELECT * FROM player_game");
+  yield* Effect.try(() => {
+    const games = gameInputs.map((row) => Schema.decodeUnknownSync(GameRow, strict)(row));
+    const playerGames = playerGameInputs.map((row) => Schema.decodeUnknownSync(PlayerGameRow, strict)(row));
+    const byGame = new Map<string, typeof playerGames>();
+    const byPlayer = new Map<string, typeof playerGames>();
+    const checkRates = (value: Metrics | PersonalMetrics) => {
+      if (value.included_seconds === 0) return;
+      const pairs = "shots_on_goal" in value
+        ? [[value.shots_on_goal, value.shots_on_goal_per60], [value.goals, value.goals_per60], [value.primary_assists, value.primary_assists_per60]]
+        : [[value.attempts_for, value.for_per60], [value.attempts_against, value.against_per60]];
+      for (const [count, rate] of pairs) {
+        if (count === null || rate === null) throw new Error("stored rate lacks its matched count/time");
+        // python rounds the integer product at division; javascript rounds it before division.
+        const expected = 3600 * count / value.included_seconds;
+        if (Math.abs(rate - expected) > 4 * Number.EPSILON * Math.max(rate, expected)) throw new Error("stored rate differs from its matched count/time");
+      }
+    };
+    for (const row of playerGames) {
+      const gameRows = byGame.get(row.game_id) ?? [];
+      gameRows.push(row);
+      byGame.set(row.game_id, gameRows);
+      const playerRows = byPlayer.get(row.player_id) ?? [];
+      playerRows.push(row);
+      byPlayer.set(row.player_id, playerRows);
+      checkRates(metrics(row));
+      checkRates(personal(row));
+    }
+    for (const game of games) {
+      const rows = byGame.get(game.game_id) ?? [];
+      const seconds = rows.reduce((sum, row) => sum + row.included_seconds, 0);
+      const personalSeconds = rows.reduce((sum, row) => sum + row.personal_included_seconds, 0);
+      const attemptsFor = rows.reduce((sum, row) => sum + (row.attempts_for ?? 0), 0);
+      const attemptsAgainst = rows.reduce((sum, row) => sum + (row.attempts_against ?? 0), 0);
+      const attempts = (game.away_attempts ?? 0) + (game.home_attempts ?? 0);
+      if (seconds !== 10 * game.included_seconds || personalSeconds !== 10 * game.personal_included_seconds || attemptsFor !== 5 * attempts || attemptsAgainst !== 5 * attempts) throw new Error(`${game.game_id}: stored game conservation failed`);
+    }
+    for (const player of players) {
+      const rows = byPlayer.get(player.player_id) ?? [];
+      if (rows.length !== player.listed_games || rows.filter((row) => row.included_seconds > 0).length !== player.games_with_included_time || rows.filter((row) => row.coverage_status === "partial").length !== player.partial_games || rows.filter((row) => row.coverage_status === "unavailable").length !== player.unavailable_games) throw new Error(`${player.player_id}: stored season frequencies differ`);
+      const values = rows.map((row) => ({ metrics: metrics(row), personal: personal(row) }));
+      for (const group of ["metrics", "personal"] as const) {
+        const season = player[group];
+        const contributions = values.map((value) => value[group]);
+        const quantities = (value: Metrics | PersonalMetrics) => "shots_on_goal" in value
+          ? [value.included_seconds, value.known_excluded_seconds, value.shots_on_goal, value.goals, value.primary_assists]
+          : [value.included_seconds, value.known_excluded_seconds, value.attempts_for, value.attempts_against];
+        const reductions = contributions.map(quantities);
+        for (const [index, stored] of quantities(season).entries()) {
+          const reduced = reductions.reduce((sum, row) => sum + (row[index] ?? 0), 0);
+          if (stored !== null && stored !== reduced) throw new Error(`${player.player_id}: stored ${group} season reduction failed`);
+        }
+        const zeroReason = group === "personal" ? "no_personal_5v5_exposure" : "no_5v5_exposure";
+        const reasons = new Set<string>(contributions.flatMap((value) => value.reason_codes).filter((code) => code !== zeroReason));
+        if (coverage.games_with_unassigned_player_associations > 0) reasons.add("unassigned_player_games");
+        if (season.included_seconds === 0 && (group === "personal" || season.coverage_status === "complete")) reasons.add(zeroReason);
+        if (JSON.stringify([...reasons].sort()) !== JSON.stringify(season.reason_codes)) throw new Error(`${player.player_id}: stored ${group} season reasons differ`);
+        checkRates(season);
+      }
+    }
+  });
   const missingSeasons = yield* sql.unsafe("SELECT player_id FROM player EXCEPT SELECT player_id FROM player_season");
   if (missingSeasons.length !== 0) return yield* Effect.fail(new Error("player missing season summary"));
   return {

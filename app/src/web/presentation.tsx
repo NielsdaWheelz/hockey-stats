@@ -10,10 +10,12 @@ import type {
   PlayerSummary,
   Publication,
   ReasonCode,
+  PersonalMetrics,
+  PersonalReasonCode,
   Team,
 } from "../shared/observed";
 
-const reasons: Record<ReasonCode, string> = {
+export const reasons: Record<ReasonCode | PersonalReasonCode, string> = {
   required_source_unavailable:
     "required event or report evidence is unavailable",
   count_accounting_conflict:
@@ -29,6 +31,10 @@ const reasons: Record<ReasonCode, string> = {
     "some roster identities or team associations are unresolved",
   unassigned_player_games:
     "some inventory games have unassigned player associations",
+  personal_credit_unresolved:
+    "some personal scoring credit is unresolved; its segment is excluded from personal counts and time",
+  no_personal_5v5_exposure:
+    "no personal 5v5 exposure; rates are undefined even when a credited assist remains",
   no_5v5_exposure: "no 5v5 exposure in the supported listed evidence",
 };
 
@@ -39,7 +45,10 @@ export const teamName = (team: Team) => team.abbreviation ?? `team ${team.id}`;
 const normalizedName = (value: string) =>
   value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
 
-export function matchingPlayers(players: readonly PlayerSummary[], query: string) {
+export function matchingPlayers(
+  players: readonly PlayerSummary[],
+  query: string,
+) {
   const tokens = normalizedName(query).trim().split(/\s+/).filter(Boolean);
   return players.filter((player) =>
     tokens.every((token) => normalizedName(playerName(player)).includes(token)),
@@ -54,10 +63,27 @@ export const nameOrder = (a: PlayerSummary, b: PlayerSummary) =>
 export const historySearch = (value: unknown) =>
   typeof value === "string" && value.startsWith("?") ? value : "";
 
+export const formatMinutes = (seconds: number) =>
+  seconds > 0 && seconds < 6 ? "<0.1" : (seconds / 60).toFixed(1);
+
+export const formatQuantity = (value: number | null, decimals = 0) =>
+  value === null
+    ? "—"
+    : value === 0
+      ? "0"
+      : decimals
+        ? value.toFixed(decimals)
+        : String(value);
+
+type CoverageFields = Pick<
+  Metrics | PersonalMetrics,
+  "coverage_status" | "known_excluded_seconds" | "reason_codes"
+>;
+
 export function Minutes({ seconds }: { readonly seconds: number }) {
   return (
     <span>
-      {seconds > 0 && seconds < 6 ? "<0.1" : (seconds / 60).toFixed(1)}
+      {formatMinutes(seconds)}
       <span className="visually-hidden"> minutes ({seconds} seconds)</span>
     </span>
   );
@@ -67,10 +93,12 @@ export function Quantity({
   value,
   metrics,
   rate = false,
+  precision = 1,
 }: {
   readonly value: number | null;
-  readonly metrics: Metrics;
+  readonly metrics: CoverageFields;
   readonly rate?: boolean;
+  readonly precision?: 1 | 2;
 }) {
   if (value === null)
     return (
@@ -82,10 +110,14 @@ export function Quantity({
         </span>
       </span>
     );
-  return <>{rate ? value.toFixed(1) : value}</>;
+  return <>{formatQuantity(value, rate ? precision : 0)}</>;
 }
 
-export function CoverageDetail({ metrics }: { readonly metrics: Metrics }) {
+export function CoverageDetail({
+  metrics,
+}: {
+  readonly metrics: CoverageFields;
+}) {
   return (
     <details className="metric-coverage">
       <summary>
@@ -182,10 +214,14 @@ export function Evidence({
           {coverage.inventory_games} inventory games; {coverage.partial_games}{" "}
           partial, {coverage.unavailable_games} unavailable
         </dd>
-        <dt>population</dt>
+        <dt>on-ice definition</dt>
+        <dd>{publication.population_version}</dd>
+        <dt>personal definition</dt>
+        <dd>{publication.personal_population_version}</dd>
+        <dt>populations</dt>
         <dd>
-          matched recorded attempts and genuine 5v5 elapsed time. counts and
-          time satisfy the same published population.
+          team attempts while on ice and personal production have separate
+          matched counts and genuine 5v5 time. personal support can be smaller.
         </dd>
       </dl>
       {coverage.reason_game_counts.length > 0 && (
@@ -202,7 +238,8 @@ export function Evidence({
         included results are admitted subtotals, not certified complete-season
         totals.
       </p>
-      <p>attempts include scored, saved, missed and blocked shots.</p>
+      <p>publication time is not a source observation time.</p>
+      <Definitions />
       {publication.purpose === "fixture" && (
         <p className="fixture-notice">
           fixture publication · development evidence
@@ -245,5 +282,25 @@ export function LoadError() {
         <Link to="/">back to players</Link>
       </div>
     </section>
+  );
+}
+
+export const quantityDefinitions = [
+  "shots on goal include scored and saved shots, excluding misses and blocks; goals are already included in shots on goal.",
+  "primary assists are first credited assists, not all assists or measured passing. goal strength determines credit even after an assister changes off.",
+  "personal support can be smaller than on-ice support. each rate uses its own population’s included time.",
+  "team attempts while on ice include scored, saved, missed and blocked shots.",
+  "covered means no known relevant gap in listed evidence; included results are not certified complete-season totals. known excluded time is not a complete missing-time denominator.",
+] as const;
+
+export function Definitions() {
+  return (
+    <details className="quantity-definitions">
+      <summary>quantity definitions and limits</summary>
+      {quantityDefinitions.map((definition) => (
+        <p key={definition}>{definition}</p>
+      ))}
+      <p>existing peers describe only on-ice rates.</p>
+    </details>
   );
 }

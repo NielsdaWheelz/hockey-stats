@@ -155,6 +155,7 @@ tbody tr:last-child > * {
   min-width: 58rem;
 }
 .league-table .identity {
+  overflow-wrap: anywhere;
   min-width: 13rem;
   max-width: 20rem;
 }
@@ -684,5 +685,58 @@ footer {
   }
   .observed-rates dd {
     font-size: 2rem;
+  }
+}
+.observed-card h4 {
+  margin: 1.4rem 0 0.6rem;
+  font-size: 1rem;
+}
+.personal-table {
+  min-width: 27rem;
+}
+.population-coverage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+  margin-bottom: 1.4rem;
+}
+.population-coverage > div {
+  min-width: 0;
+}
+.population-coverage .metric-coverage {
+  min-width: 0;
+  max-width: none;
+}
+.quantity-definitions {
+  max-width: 60rem;
+  margin: 1rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.quantity-definitions summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 1.2rem;
+  margin: 1.4rem 0;
+}
+.card-actions button {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #a8b3b0;
+  border-radius: 3px;
+  background: transparent;
+}
+.card-actions p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+@media (max-width: 700px) {
+  .population-coverage {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

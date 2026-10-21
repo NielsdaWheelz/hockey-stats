@@ -1,0 +1,224 @@
+{
+  "content-synthetic-live": {
+    "checks": [
+      "four panels and one signed oklab scale; svg cell color rendered",
+      "absolute mode one shared nonnegative scale",
+      "missing player preserves available player maps and legend",
+      "available zero maps retain explicit fixed positive legend",
+      "no-time support has reasons and no map or legend",
+      "keyboard opens semantic numerical evidence; single labeled scrolling region, no cell keyboard stops"
+    ],
+    "errors": [],
+    "viewport": [
+      {
+        "width": 1440,
+        "document": 1440,
+        "panels": [
+          {
+            "x": 32,
+            "width": 326
+          },
+          {
+            "x": 382,
+            "width": 326
+          },
+          {
+            "x": 732,
+            "width": 326
+          },
+          {
+            "x": 1082,
+            "width": 326
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "document": 768,
+        "panels": [
+          {
+            "x": 32,
+            "width": 340
+          },
+          {
+            "x": 396,
+            "width": 340
+          },
+          {
+            "x": 32,
+            "width": 340
+          },
+          {
+            "x": 396,
+            "width": 340
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "document": 320,
+        "panels": [
+          {
+            "x": 16,
+            "width": 288
+          },
+          {
+            "x": 16,
+            "width": 288
+          },
+          {
+            "x": 16,
+            "width": 288
+          },
+          {
+            "x": 16,
+            "width": 288
+          }
+        ]
+      }
+    ],
+    "status": "green"
+  },
+  "content-native-zoom": {
+    "checks": [
+      "actual chrome.tabs.setZoom 2: 1280 physical viewport ->640 css pixels, dpr2; no page overflow",
+      "native200% at320 css pixels: panels stack, one heading, no document overflow; keyboard numerical table"
+    ],
+    "before": {
+      "width": 1280,
+      "dpr": 1
+    },
+    "zoom": 2,
+    "after": {
+      "width": 640,
+      "dpr": 2,
+      "document": 640
+    },
+    "narrow": {
+      "width": 320,
+      "dpr": 2,
+      "document": 320,
+      "headings": 1
+    },
+    "status": "green"
+  },
+  "content-routes": {
+    "checks": [
+      "direct repeated-map normalization keeps selections/peers and performs one selected-only load",
+      "map and peer mode changes do not fetch",
+      "profile/comparison links carry current map mode and coherent selected requests",
+      "back history restores profile mode",
+      "a/b selection fetches; aborted delayed selection never mixes new identities with old maps or overwrites later response",
+      "actual668-cell evidence stays behind single keyboard scroll region at320; reload mode preserved"
+    ],
+    "requests": [
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/players/8473419",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/players/8473419",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473507",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8475179",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8475179"
+    ],
+    "errors": [],
+    "ids": [
+      "8473419",
+      "8473422",
+      "8473507",
+      "8475179"
+    ],
+    "status": "green"
+  },
+  "content-pending-red": {
+    "checks": [],
+    "requests": [
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8475179"
+    ],
+    "final": "http://127.0.0.1:3067/compare?a=8473419&b=8475179",
+    "status": "red",
+    "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '8473419'\n- '8473507'\n       ^\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-local/05e-verification/temporary/content-pending.mjs:13:31\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:541:9)"
+  },
+  "content-pending-green": {
+    "checks": [
+      "rapid first then second selection retains both pending ids"
+    ],
+    "requests": [
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8475179"
+    ],
+    "final": "http://127.0.0.1:3067/compare?a=8473507&b=8475179",
+    "status": "green"
+  },
+  "content-pending-controls": {
+    "checks": [
+      "pending first selection retained through map; one router restart of pending request",
+      "pending first selection retained through peers; one router restart of pending request"
+    ],
+    "cases": [
+      {
+        "control": "map",
+        "requests": [
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422"
+        ],
+        "final": "http://127.0.0.1:3067/compare?a=8473507&b=8473422&map=absolute"
+      },
+      {
+        "control": "peers",
+        "requests": [
+          "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+          "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422"
+        ],
+        "final": "http://127.0.0.1:3067/compare?a=8473507&b=8473422&peers=all"
+      }
+    ],
+    "status": "green"
+  },
+  "content-pending-peers-red": {
+    "checks": [
+      "independent pending peer edits compose without dropping one another or pending player"
+    ],
+    "requests": [
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422"
+    ],
+    "status": "red",
+    "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'all' !== null\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-local/05e-verification/temporary/content-peer-pending.mjs:14:9\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:541:9)"
+  },
+  "content-pending-peers": {
+    "checks": [
+      "independent pending peer edits compose without dropping one another or pending player",
+      "reset peers clears pending field changes without reverting pending player"
+    ],
+    "requests": [
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473419%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422",
+      "http://127.0.0.1:3067/api/league?spatial=8473507%2C8473422"
+    ],
+    "status": "green"
+  },
+  "first_red": {
+    "controller": "app/.tmp-05e-content.tsx",
+    "failure": "ERR_MODULE_NOT_FOUND: app/src/web/spatial-views before implementation",
+    "status": "red"
+  },
+  "native_zoom_capture_limit": "native zoom/dimensions/keyboard verified through chrome.tabs.setZoom; synthetic native-zoom image captures were blank and do not establish visual review"
+}

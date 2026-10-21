@@ -3,13 +3,20 @@ import {
   Link,
   useLoaderData,
   useLocation,
+  useNavigation,
   useParams,
   useSearchParams,
   type ClientLoaderFunctionArgs,
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
 import { loadPlayer } from "../client";
-import { readPeerSettings, type PeerSettings } from "../explorer";
+import {
+  readMapMode,
+  readPeerSettings,
+  viewSearch,
+  type PeerSettings,
+} from "../explorer";
+import SpatialViews from "../spatial-views";
 import PeerDistributions from "../peer-distributions";
 import DescriptiveCard from "../descriptive-card";
 import {
@@ -48,7 +55,7 @@ export function shouldRevalidate({
   ) {
     const current = new URLSearchParams(currentUrl.search);
     const next = new URLSearchParams(nextUrl.search);
-    for (const key of ["peers", "peerMin"]) {
+    for (const key of ["peers", "peerMin", "map"]) {
       current.delete(key);
       next.delete(key);
     }
@@ -58,49 +65,79 @@ export function shouldRevalidate({
 }
 
 export default function Player() {
-  const { publication, coverage, players, games } =
+  const { publication, coverage, players, games, spatial } =
     useLoaderData<typeof clientLoader>();
   const params = useParams();
   const player = players.find((row) => row.player_id === params.playerId)!;
   const location = useLocation();
+  const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
-  const { settings, search: normalized } = readPeerSettings(search);
+  const { settings, search: peerNormalized } = readPeerSettings(search);
+  const { mode, search: normalized } = readMapMode(peerNormalized);
   useEffect(() => {
-    if (normalized.toString() !== search.toString())
+    if (
+      navigation.state === "idle" &&
+      normalized.toString() !== search.toString()
+    )
       setSearch(normalized, {
         replace: true,
         preventScrollReset: true,
         state: location.state,
       });
-  }, [normalized.toString(), search, setSearch, location.state]);
+  }, [
+    normalized.toString(),
+    search,
+    setSearch,
+    location.state,
+    navigation.state,
+  ]);
   const leagueSearch = historySearch(location.state?.leagueSearch);
   const comparisonSearch = historySearch(location.state?.comparisonSearch);
-  const peerQuery = new URLSearchParams();
-  if (settings.peers !== "position") peerQuery.set("peers", settings.peers);
+  const viewQuery = new URLSearchParams();
+  if (mode === "absolute") viewQuery.set("map", "absolute");
+  if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
-    peerQuery.set("peerMin", String(settings.peerMin));
-  const changePeers = (nextSettings: PeerSettings) => {
-    if (
-      nextSettings.peers === settings.peers &&
-      nextSettings.peerMin === settings.peerMin
-    )
-      return;
-    const next = new URLSearchParams(search);
-    if (nextSettings.peers === "position") next.delete("peers");
-    else next.set("peers", nextSettings.peers);
-    if (nextSettings.peerMin === 300) next.delete("peerMin");
-    else next.set("peerMin", String(nextSettings.peerMin));
-    if (next.toString() !== search.toString())
-      setSearch(next, { preventScrollReset: true, state: location.state });
+    viewQuery.set("peerMin", String(settings.peerMin));
+  const changePeers = (nextSettings: Partial<PeerSettings>) => {
+    const next = viewSearch(location, navigation.location);
+    const previous = next.toString();
+    if (nextSettings.peers !== undefined) {
+      if (nextSettings.peers === "position") next.delete("peers");
+      else next.set("peers", nextSettings.peers);
+    }
+    if (nextSettings.peerMin !== undefined) {
+      if (nextSettings.peerMin === 300) next.delete("peerMin");
+      else next.set("peerMin", String(nextSettings.peerMin));
+    }
+    if (next.toString() !== previous)
+      setSearch(next, {
+        preventScrollReset: true,
+        state: location.state,
+        flushSync: true,
+      });
   };
-  const comparisonQuery = new URLSearchParams(peerQuery);
+  const changeMode = (nextMode: "difference" | "absolute") => {
+    const next = viewSearch(location, navigation.location);
+    if (nextMode === readMapMode(next).mode) return;
+    if (nextMode === "absolute") next.set("map", "absolute");
+    else next.delete("map");
+    setSearch(next, {
+      preventScrollReset: true,
+      state: location.state,
+      flushSync: true,
+    });
+  };
+  const returnComparison = new URLSearchParams(comparisonSearch);
+  if (mode === "absolute") returnComparison.set("map", "absolute");
+  else returnComparison.delete("map");
+  const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", player.player_id);
   return (
     <>
       <nav className="back-link">
         <Link to={`/${leagueSearch}`}>back to players</Link>
         {comparisonSearch && (
-          <Link to={`/compare${comparisonSearch}`} state={{ leagueSearch }}>
+          <Link to={`/compare?${returnComparison}`} state={{ leagueSearch }}>
             back to comparison
           </Link>
         )}
@@ -121,13 +158,20 @@ export default function Player() {
         coverage={coverage}
       />
       <GlobalGap coverage={coverage} />
+      <SpatialViews
+        spatial={spatial}
+        players={[player]}
+        season={publication.season}
+        mode={mode}
+        onModeChange={changeMode}
+      />
       <PeerDistributions
         players={players}
         selected={[player]}
         settings={settings}
         onChange={changePeers}
         profileLink={(playerId) => ({
-          to: `/players/${playerId}${peerQuery.size ? `?${peerQuery}` : ""}`,
+          to: `/players/${playerId}${viewQuery.size ? `?${viewQuery}` : ""}`,
           state: { leagueSearch, comparisonSearch },
         })}
       />
@@ -142,8 +186,9 @@ export default function Player() {
         >
           <table className="game-table">
             <caption>
-              date order · personal and on-ice counts have their own matched
-              minutes and coverage
+              date order · personal, on-ice and spatial counts have their own
+              matched minutes and coverage; spatial season counts and time
+              reduce from these rows
             </caption>
             <thead>
               <tr>
@@ -175,6 +220,16 @@ export default function Player() {
                   personal min
                 </th>
                 <th scope="col">personal coverage / reasons</th>
+                <th scope="col" className="numeric">
+                  spatial unblocked for
+                </th>
+                <th scope="col" className="numeric">
+                  spatial unblocked against
+                </th>
+                <th scope="col" className="numeric">
+                  spatial min
+                </th>
+                <th scope="col">spatial coverage / reasons</th>
               </tr>
             </thead>
             <tbody>
@@ -230,6 +285,24 @@ export default function Player() {
                   </td>
                   <td>
                     <CoverageDetail metrics={game.personal} />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={game.spatial.unblocked_for}
+                      metrics={game.spatial}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Quantity
+                      value={game.spatial.unblocked_against}
+                      metrics={game.spatial}
+                    />
+                  </td>
+                  <td className="numeric">
+                    <Minutes seconds={game.spatial.included_seconds} />
+                  </td>
+                  <td>
+                    <CoverageDetail metrics={game.spatial} />
                   </td>
                 </tr>
               ))}

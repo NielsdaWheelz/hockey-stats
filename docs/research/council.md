@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04m delivery review — 2026-10-21
+
+independent review clears [pr #43](https://github.com/NielsdaWheelz/hockey-stats/pull/43), its successful security check and exact reviewed/merged tree equality. all scientific producers and twelve primary input blobs survive in ancestry; concurrent source/deployment specifications retain their meaning. primary imports, command entry and saved-preparation/alias reads pass without another numerical run.
+
+the task branch/worktree, duplicate environment, redundant owned stash and scratch are removed. one symlink preserves the frozen parent-result path; 02d/05h worktrees remain. all 63 prior external files and 29 serving build/database files retain exact bytes, with unchanged serving mtimes and listener. [delivery evidence](attribution-04m/verification.md#source-integration-and-task-cleanup) records the boundary. scientific verdicts, ability requirements and activation status remain unchanged.
+
 ## 05h specification review — 2026-10-21
 
 independent source/statistical, systems and content review clears the [05h full specification](../specs/05h-observed-deployment.md). all final retained on-ice segments contribute, including zero-event time; personal/spatial masks and peer filters do not redefine deployment. one canonical seasonal-pair table serves either endpoint, with existing per-game receipts supplying exact reductions. trades can produce both relations. independent membership checks complement conservation, which alone cannot detect swapped identities.
@@ -17,6 +23,12 @@ independent source/statistical, systems and content review supports the [full 02
 one schema-5 observed candidate verifies the consumer consequences. the comparison separates the original publication, changed policy on original inputs, and selected recovered inputs. frozen research ledgers supply their own support consequences; neither website seconds nor source differences establish fitted impact. verified different frozen evidence can complete the bounded comparison with hypothetical reprocessing still unassessed; missing required evidence leaves execution incomplete.
 
 review clarified initial/final recovery receipt binding, selection-tree ownership, provider absence versus invariant failure, a recovered fixture from whichever game succeeds, and explicit cell/cohort report identities. whole-run exclusion loses possibly valid play; edges remain unresolved; new bundles may change collateral facts. these costs are declared rather than hidden. this is specification review only; acquisition, implementation, audit execution, fitting and activation are not assigned. [the plan](../plan.md) owns progression.
+
+## 04m implementation and empirical review — 2026-10-21
+
+independent source/training, numerical/statistical and rendered-content review clears [04m](attribution-04m/verification.md). the four-state counted fixture passes direct posterior and per-stint loss oracles, leakage mutations, unseen/carried identity checks, explicit unavailable contexts, fractional denominators and empty calendar blocks. the shared ratio kernel preserves old chance outputs exactly. the real execution reconciles six fresh states, six fixed-history probes, 1,312 inventory games, 261 assessment games, 126 comparison rows and all 10,356 diagnostic rows; 9,008 independent checks reproduce saved contractions and intervals. report rendering works with original reads and scientific computation denied. temporary controllers are deleted after final green.
+
+borrowing has supported lower regional loss than independent fitting, and both beat context under all three conditional resampling schemes. native inverse-share evidence is narrower: borrowing–independent has a contrary positive point estimate with unresolved direction; borrowing–context also remains unresolved. regional point harm remains visible beside gains. review makes directed versus physical time, exact native regions, historical source gaps and contrary native evidence explicit. source bytes, historical fits/verdicts and the observed website remain intact; concurrent source-specification drafts are preserved independently. the result is a joint recorded-shape diagnostic, without latent recovery, player intervals, nomination, admission or a selected successor.
 
 ## approved direction after 05g — 2026-10-21
 

@@ -1,6 +1,6 @@
 # pr04m — empirical attribution benchmark
 
-status: **full specification; implementation and research execution not assigned.** [the plan](../plan.md) owns progression. [model direction](../research/model-direction.md#04m--test-the-current-family-on-recorded-games) owns rationale; completed studies retain their verdicts. this is a research command and report, not a website release or ability handoff.
+status: **implemented and verified under the user’s 2026-10-21 assignment.** [decision](../research/attribution-04m/decision.md) · [verification](../research/attribution-04m/verification.md). the external protocol retains the exact prespecified snapshot. [the plan](../plan.md) owns progression. [model direction](../research/model-direction.md#04m--test-the-current-family-on-recorded-games) owns rationale; completed studies retain their verdicts. this is a research command and report, not a website release or ability handoff.
 
 ## target and settled choices
 

@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04m delivery review — 2026-10-21
+
+independent review clears [pr #43](https://github.com/NielsdaWheelz/hockey-stats/pull/43), its successful security check and exact reviewed/merged tree equality. all scientific producers and twelve primary input blobs survive in ancestry; concurrent source/deployment specifications retain their meaning. primary imports, command entry and saved-preparation/alias reads pass without another numerical run.
+
+the task branch/worktree, duplicate environment, redundant owned stash and scratch are removed. one symlink preserves the frozen parent-result path; 02d/05h worktrees remain. all 63 prior external files and 29 serving build/database files retain exact bytes, with unchanged serving mtimes and listener. [delivery evidence](attribution-04m/verification.md#source-integration-and-task-cleanup) records the boundary. scientific verdicts, ability requirements and activation status remain unchanged.
+
 ## 05h specification review — 2026-10-21
 
 independent source/statistical, systems and content review clears the [05h full specification](../specs/05h-observed-deployment.md). all final retained on-ice segments contribute, including zero-event time; personal/spatial masks and peer filters do not redefine deployment. one canonical seasonal-pair table serves either endpoint, with existing per-game receipts supplying exact reductions. trades can produce both relations. independent membership checks complement conservation, which alone cannot detect swapped identities.

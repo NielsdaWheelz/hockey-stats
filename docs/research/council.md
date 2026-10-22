@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05h implementation review — 2026-10-21
+
+independent source/statistical, systems and rendered-content reviews clear [05h implementation and acceptance](observed-05h/verification.md). hash-bound native player timelines intersect independently of the production pair counter and exactly reproduce all 2,313,650 game-pair rows and 710,765 seasonal rows. all 4,354,474 pre-existing table rows and prior game-receipt fields remain exact against the reviewed 02d baseline. every player, including zero-time records, satisfies the shared-time identities and combined trade bounds. source gaps retain their existing meanings.
+
+strict schema-6 storage and selected-profile transport reject malformed, missing and inconsistent facts; both endpoint indexes serve the profile query. normal/detached browser, rapid changes, native 200% zoom, actual png and disposable code-paired rollback pass. content shows selected-player denominators, overlapping shares, zero-event time and coverage without chemistry, quality or ability claims. review repairs one batched expansion-state overwrite; corrected controller/mock failures remain distinguished from product defects.
+
+the real build takes 615.65 seconds, 3.22 gb peak resident memory and 611 mb. a controlled same-disk 100-game profile measures about 14% additional wall time for required pair work; the larger historical full-run difference is not reproduced and remains confounded by execution conditions. a subsecond index-order gain does not justify speculative production changes. larger receipts, two endpoint reads, collapsed tails and loss of stint detail remain explicit costs. detached browsing uses only compiled application files and the identical local database; the actual serving files/listener and research remain untouched. final cleanup/preservation is recorded with [verification](observed-05h/verification.md); activation, pr and merge remain unassigned, with no model admission.
+
 ## 04m delivery review — 2026-10-21
 
 independent review clears [pr #43](https://github.com/NielsdaWheelz/hockey-stats/pull/43), its successful security check and exact reviewed/merged tree equality. all scientific producers and twelve primary input blobs survive in ancestry; concurrent source/deployment specifications retain their meaning. primary imports, command entry and saved-preparation/alias reads pass without another numerical run.

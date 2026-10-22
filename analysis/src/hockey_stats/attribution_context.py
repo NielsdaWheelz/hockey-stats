@@ -390,10 +390,13 @@ def validate_context_game(game):
 
 def _game_groups(iterator, inventory):
     """stream frozen ledger groups once; empty inventory games remain explicit."""
+    require(len(inventory) == len(set(inventory)), "source-order inventory repeats a game")
+    positions = {game: index for index, game in enumerate(inventory)}
     groups = iter(groupby(iterator, key=lambda row: row["game_id"]))
     current = next(groups, None)
     for game in inventory:
-        require(current is None or current[0] >= game, "source ledger game order or inventory differs")
+        require(current is None or (current[0] in positions and positions[current[0]] >= positions[game]),
+                "source ledger game order or inventory differs at "+game)
         if current is not None and current[0] == game:
             yield list(current[1])
             current = next(groups, None)
@@ -423,7 +426,13 @@ def iter_context_rows(source, metadata, season=None, game_ids=None):
 
 def prepare_context_source(source, metadata):
     """integrate all corrected games and reconcile coarse frozen A/C/E/N/K first."""
-    inventory = tuple(game for grouped in source.grouped for game in grouped.game_ids)
+    canonical = tuple(game for grouped in source.grouped for game in grouped.game_ids)
+    inventory = tuple(metadata["ledger_game_ids"])
+    season_for = {game: refs.season for grouped, refs in zip(source.grouped, source.references, strict=True)
+                  for game in grouped.game_ids}
+    require(len(inventory) == len(canonical) and set(inventory) == set(canonical)
+            and tuple(season for season, _ in groupby(season_for[game] for game in inventory)) == source.seasons,
+            "frozen ledger order differs from complete contiguous season inventory")
     if "events" in metadata:
         event_iterator = iter(metadata["events"])
         segment_iterator = iter(metadata["segments"])
@@ -434,11 +443,15 @@ def prepare_context_source(source, metadata):
     segment_groups = iter(_game_groups(segment_iterator, inventory))
     populations = []
     for grouped, refs in zip(source.grouped, source.references, strict=True):
-        row_groups = _game_groups(iter_context_rows(source, metadata, refs.season), grouped.game_ids)
-        js, ls, ps, qs, event_count, row_count = [], [], [], [], 0, 0
+        positions = {game: index for index, game in enumerate(grouped.game_ids)}
+        traversal = tuple(game for game in inventory if game in positions)
+        row_groups = _game_groups(iter_context_rows(source, metadata, refs.season), traversal)
+        js, ls, ps, qs = ([None]*len(grouped.game_ids) for _ in range(4))
+        event_count, row_count = 0, 0
         endpoints = goals = simultaneous = 0
         errors = {name: 0. for name in ("H_e", "T_raw", "stratum_x", "stratum_n", "stratum_e", "Q_t", "Q_h")}
-        for game, batch in zip(grouped.game_ids, row_groups, strict=True):
+        for game, batch in zip(traversal, row_groups, strict=True):
+            gi = positions[game]
             events, segments = next(event_groups), next(segment_groups)
             j, l, p, q, receipt = integrate_context_game(batch, events, segments, refs)
             if batch:
@@ -446,18 +459,21 @@ def prepare_context_source(source, metadata):
                 actual = verify_grouped_game(replay, grouped, refs, game)
                 for name, value in actual.items(): errors[name] = max(errors[name], value)
             else:
-                gi = grouped.game_ids.index(game)
                 require(not grouped.H_e[gi].nnz and not grouped.T_raw[gi].nnz
                         and not grouped.stratum_x[gi].nnz and not grouped.stratum_n[gi].nnz
                         and not np.any(grouped.stratum_e[gi]) and grouped.Q_t[gi] == grouped.Q_h[gi] == 0,
-                        "zero-row inventory game contains frozen moments")
-            js.append(j); ls.append(l); ps.append(p); qs.append(q)
+                        "zero-row inventory game contains frozen moments at "+refs.season+"/"+game
+                        +": exposure_hours="+str(float(grouped.stratum_e[gi].sum()))
+                        +", stored_entries="+str([getattr(grouped, name)[gi].nnz for name in
+                            ("H_e", "T_raw", "stratum_x", "stratum_n")]))
+            js[gi], ls[gi], ps[gi], qs[gi] = j, l, p, q
             event_count += receipt["retained_events"]; row_count += len(batch)
             endpoints += receipt["inclusive_endpoint_events"]; goals += receipt["goals"]
             simultaneous += receipt["simultaneous_extra_events"]
         require(row_count == grouped.row_count and event_count == int(grouped.stratum_n.sum()),
                 "temporal source changes corrected row or retained event support")
-        receipt = dict(status="verified", game_count=len(grouped.game_ids), directed_rows=row_count,
+        receipt = dict(status="verified", game_count=len(grouped.game_ids), ledger_game_ids=list(traversal),
+            output_game_ids=list(grouped.game_ids), directed_rows=row_count,
             retained_events=event_count, inclusive_endpoint_events=endpoints, goals=goals,
             simultaneous_extra_events=simultaneous, coarse_moment_max_absolute_errors=errors)
         source_identity = dict(source=source.source_identity, correction=metadata["correction_reference"],

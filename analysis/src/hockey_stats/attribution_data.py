@@ -3719,6 +3719,7 @@ def read_context_source(result_ref):
     require({key: value for key, value in correction.items() if key != "corrected_archives"} == rebuilt_correction,
             "accepted finite correction differs from frozen 04n")
     from dataclasses import replace
+    from .artifacts import rows
 
     frozen_grouped = list(source.grouped)
     corrected_receipts = []
@@ -3744,7 +3745,8 @@ def read_context_source(result_ref):
         controls_assessment_reference=assessment_ref, source_result=result_ref, source_prepared=prepared,
         source_prepared_reference=prepared_ref, correction=correction, correction_reference=prepared["correction"],
         events_reference=baseline["ledgers"]["events"], segments_reference=baseline["ledgers"]["segments"],
-        corrected_archive_receipts=corrected_receipts)
+        corrected_archive_receipts=corrected_receipts,
+        ledger_game_ids=[row["game_id"] for row in rows(linked_path(source.source_identity["coverage_ledger"]))])
     return source, metadata
 
 
@@ -3813,7 +3815,8 @@ def read_context_fixture(path, *, require_controls=True):
         events_reference=events_ref, segments_reference=segments_ref,
         row_references={year["season"]: rows_ref for year in document["years"]},
         correction=correction, correction_reference=dict(path=str(path), sha256=identity(path)["sha256"]),
-        inventory=document["inventory"], train_ids=document["train_ids"], assessment_ids=document["assessment_ids"],
+        ledger_game_ids=document["ledger_game_ids"], inventory=document["inventory"],
+        train_ids=document["train_ids"], assessment_ids=document["assessment_ids"],
         months=document["months"], expected_arrays=arrays, fixture_document=document)
     if require_controls:
         control_ref = ref(document["controls"])

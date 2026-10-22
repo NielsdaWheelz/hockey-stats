@@ -1,6 +1,6 @@
 # model direction
 
-updated 2026-10-21 through completed 04n and the 04o contextual specification. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
+updated 2026-10-22 through completed 04o. this living record owns rationale and alternatives; [the plan](../plan.md) owns current status/assignment, [the brief](../brief.md) product meaning, and completed study folders their frozen evidence. this direction supersedes the earlier purely serial ordering without changing any historical scientific verdict.
 
 ## approved direction and decision logic
 
@@ -246,6 +246,12 @@ the resulting continuous least-squares working contrast preserves the old contro
 the negative-rate limitation remains open. borrowing's integrated negative mass is `0.8977247` predicted attempts regionally and `278.7205` natively: `0.0052026%` and `1.6152684%` of training league rate × held-out directed hours. these are not error rates or player-bias bounds. aggregation can conceal fine-scale negatives; some are substantive, not rounding. these quantities motivate proportionate interpretation, not clipping, retrospective admission or an automatic positive-link campaign.
 
 shift-start context is a separate candidate: attempt-indexed extraction, distinct skater ages and uncertain on-the-fly evidence require an exposure contract. age, coaches and other retained families are not bundled into 04o. tradeoff: another design/fit comparison postpones calibrated player uncertainty, while testing what the reported adjustment means. include source reconciliation, candidate comparison, numerical checks and player consequences in one bounded assignment. then decide recovery and uncertainty work for specific scalar/broad-region claims; do not automatically repeat an entire native-map campaign. prior recovery failures, chance valuation and publication requirements remain intact.
+
+[completed 04o](attribution-04o/decision.md) finds no supported complete-regional gain: candidate minus control is `+0.00665404 (recorded unblocked attempts/60)²`, with all three conditional intervals crossing zero. this is unresolved prediction evidence, not equivalence. native inverse-share complete loss is higher (`+18.5442`) under all three schemes, driven by shape (`+19.9262`); weighted volume and regional interaction remain unresolved. one individual regional comparison supports higher loss, retained as an unadjusted descriptive diagnostic. all sixteen bounded final-component variants preserve the primary direction.
+
+among 935 current-training players, exposure-weighted scalar change rms is `0.05404` offensively and `0.05153` defensively; regional change-size rms is `0.006259` and `0.005999` attempts/60. four carried-only and one unseen source-reference player remain separately labeled. these small point movements describe this fixed adjustment in the common gauge. they neither establish recovery nor exclude omitted contextual mechanisms outside its restriction.
+
+candidate regional/native negative mass rises to `1.61888` / `312.94669` predicted attempts, versus control `0.89772` / `278.72046`; regional negative location-time fraction rises from `0.2273%` to `0.3276%`; native negative location-time fraction slightly falls while mass and worst magnitude increase. total held-out rates remain positive. [verification](attribution-04o/verification.md) retains exact frozen-control replay, independent source/posterior/assessment audits and one-sided physical witnesses. adoption remains undecided, and no unique next revision is identified. preserve the implemented family without a new feature search, automatic positive-link campaign or ability release.
 
 ## software and verification judgment
 

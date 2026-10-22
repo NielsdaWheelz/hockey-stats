@@ -1,5 +1,25 @@
 # council synthesis
 
+## v1-13 typed-publication specification review — 2026-10-22
+
+three independent storage, interface and content reviewers clear [v1-13](../specs/v1-13-typed-publication.md), after root integrated code inspection and their adversarial repairs. the settled product choices needed no new preference question. this is specification/code review, not implementation, corpus execution or scientific verification. official sqlite documentation confirms the existing strict-table, explicit-foreign-key and readonly primitives; no new dependency is selected.
+
+the foundation owns one canonical result exchange, schema7, finite family payloads, resolving source/method/support catalogs and typed API reads. missing computation, missing observation, failed fit and absent player-season remain different states. `person` replaces duplicated skater identity; unchanged observed reducers remain authoritative. current observed routes adapt to the new API while new cards wait for their assigned owners. fixture-backed acceptance can finish detached beside v1-01; their only coordinated edits are the shared command/entry point.
+
+review corrected several consequential ambiguities: nullable/duplicated native event IDs cannot be join keys, so event results bind prepared identity plus source index; interval joins need period-local half-open bounds and consistent membership; unknown goalie/source types cannot be silently grouped; coaching execution is one joint context share; actor-conditioned unblocked probability cannot replace a neutral-goalie paired expectation. explicit source purpose/origin enforces declared fixture isolation. whole pending families use envelopes rather than invented numerical/support/method records.
+
+accepted costs: more explicit schemas/metadata now, a coordinated API cutover, route-loader composition and one verification boundary in each language. fixtures prove faithful transport and current-view continuity, not complete real cards or accurate models. producer prs own real serialization; v1-14 onward owns new presentation. source/model/publication identities stay separate, cross-schema rollback uses its matching git build, and live activation remains unassigned. documentation link/anchor and whitespace checks accompany the handoff; pre-existing drafts, source code, fits and serving files remain preserved.
+
+## v1-01 shared-evidence specification review — 2026-10-22
+
+three independent source/reconstruction, context/identity and systems/consumer reviewers clear the [v1-01 handoff](../specs/v1-01-shared-evidence.md). root inspected the existing owners and integrated their findings. this is documentation/code inspection, not implemented behavior, a corpus audit or scientific verification. no settled product choice needed reopening.
+
+native reconstruction already retains other strengths; the extension belongs in shared preparation. review fixes actual-unit shift/workload summaries, normalized non-attempt locations, goalie faced prefixes, episode censoring, immediate outcome labels and separate event/elapsed snapshots. source-supported events can survive missing elapsed time; rate consumers require paired counts/time. saved masks cover missing collections, accounting conflicts, unresolved events and lineup contradictions without rewriting existing observed 5v5 populations. the new product's incoming-goal/pre-score exception stays distinct from frozen research exclusions.
+
+systems review closes strict selection/member schemas, cardinality, unavailable collections, reader boundaries and persisted support decisions. base preparation is independent of v1-02 coaching; later fits/scoring bind that separate input. factual reductions and additional actor-specific masks remain v1-03 work. content owns truthful coverage receipts and source/elapsed/model distinctions, not a premature card or calibration claim.
+
+accepted costs: wider prepared data, complete five-season acceptance, conservative run-level exclusions, fixed elapsed-workload approximation and one explicit coach input later. optional height stays unavailable pending [unit evidence](../issues/bio-height-units.md); existing fields remain usable. fixtures permit detached development, not full acceptance. no acquisition, fitting, application rebuild, publication, persistent harness or execution assignment follows. documentation link/anchor and whitespace checks pass; historical source/research artifacts and serving files remain untouched.
+
 ## v1 field and source contract review — 2026-10-22
 
 the user assigned one coordinated documentation task with three bounded independent audits: microstats; goalie/descriptive cards; modeled skater cards. root inspected shared code/source/reference evidence, integrated their findings and returned the amended contracts for adversarial review. all three final reviews clear the [five-card crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance), shared definitions and [twenty proposed handoffs](../plan.md#proposed-pr-boundaries-and-dependencies). this establishes definition/source/owner coverage, not implementation or scientific support.

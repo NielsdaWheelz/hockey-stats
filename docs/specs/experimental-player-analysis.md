@@ -45,7 +45,7 @@ the ten-term total is a defined component index, not war, a forecast or credit f
 
 ## a. evidence and preparation
 
-use the five admitted selections and corrected 02d support. preserve raw bytes, existing observed meanings and frozen research ledgers. product artifacts use a new strict contract; reuse native facts instead of reimplementing interpretation per model.
+use the five admitted selections and corrected 02d support. preserve raw bytes, existing observed meanings and frozen research ledgers. product artifacts use a new strict contract; reuse native facts instead of reimplementing interpretation per model. [v1-01](v1-01-shared-evidence.md) specifies base preparation, including separate event-supported and matched-elapsed populations; missing elapsed support does not erase otherwise usable execution evidence.
 
 | input | initial implementation / authoritative owner |
 |---|---|
@@ -72,16 +72,18 @@ optional circumstances use training-only centering and explicit missing indicato
 preparation produces identified `attempt`, `exposure`, `penalty`, `transition`, `person-season` and `game-context` records: game/event/interval locators, half-open time bounds, actual membership/strength, applicability, observed/inferred meaning and source identity. interfaces are ordinary functions, not plugins:
 
 ```
-prepare_analysis(corpus_selection, coach_selection, output) -> prepared_manifest
-fit_chance(prepared, annual_recipe, previous_state, output) -> chance_state
-score_chance(prepared, chance_state, reference) -> valued_attempts
-fit_spatial(prepared, valued_attempts, annual_recipe, previous_state, output) -> spatial_state
-fit_mechanisms(prepared, spatial_state, chance_state, previous_states, output) -> mechanism_states
+prepare_analysis(corpus_selection, output) -> prepared_manifest
+fit_chance(prepared, coaches, annual_recipe, previous_state, output) -> chance_state
+score_chance(prepared, coaches, chance_state, reference) -> valued_attempts
+fit_spatial(prepared, coaches, valued_attempts, annual_recipe, previous_state, output) -> spatial_state
+fit_mechanisms(prepared, coaches, spatial_state, chance_state, previous_states, output) -> mechanism_states
 summarize_players(states, valued_attempts, reference, output) -> family_results
 build_publication(observed_seasons, family_results, output) -> checked_candidate
 ```
 
 these name responsibility, not mandatory files. saved states bind implementation, selection, response/support, ordered feature/identity axes, recipe/reference, predecessor and solver result. reuse exclusive finite-JSON/array artifact helpers. fixed output payloads are defined in the application appendix; the publisher must not infer provenance from filenames.
+
+base preparation and coach evidence have separate identities. v1-02 binds dated coach records/explicit absence to the selected games; fitting and scoring join that selection and validate its game/season identities. later state consumers follow the exact bound selection, never a newly discovered feed. this permits independent preparation/acquisition and avoids rebuilding base facts when coaching evidence changes; it adds one explicit input at numerical execution. no unknown-coach fallback feed or silent change to a fitted state's input follows.
 
 ### operator interface and artifact schema
 
@@ -89,15 +91,15 @@ add one ordinary `hockey-stats-analysis` entry point in `analysis_cli.py`, regis
 
 | subcommand | required selections and result |
 |---|---|
-| `prepare --selection FILE --out DIR` | identified five-corpus/coach selection → prepared manifest and per-season facts/arrays |
-| `fit --family execution|spatial|mechanisms --prepared DIR --season ID --out DIR` | one annual family state; `--previous DIR` required for a returning annual chain; spatial also requires `--valued DIR`; mechanisms require `--execution DIR --spatial DIR` |
-| `score --prepared DIR --execution DIR --season ID --out DIR` | frozen chance state → valued attempts and common opportunity panel |
+| `prepare --selection FILE --out DIR` | identified five-corpus selection → prepared manifest and game/season facts, under v1-01; no coach dependency |
+| `fit --family execution\|spatial\|mechanisms --prepared DIR --coaches FILE --season ID --out DIR` | one annual family state; `--previous DIR` required for a returning annual chain; spatial also requires `--valued DIR`; mechanisms require `--execution DIR --spatial DIR` |
+| `score --prepared DIR --coaches FILE --execution DIR --season ID --out DIR` | frozen chance state and its bound coach selection → valued attempts and common opportunity panel |
 | `summarize --prepared DIR --models FILE --out DIR` | explicit compatible annual state/panel selection → three-season family results, references and evidence |
-| `publish --observed FILE --results DIR --out FILE` | existing observed selections plus analytical results → one candidate, through the existing publication builder |
+| `publish --observed FILE --results DIR --out DIR` | existing observed selections plus [v1-13's strict family results](v1-13-typed-publication.md#exchange-and-command) → one candidate and receipts, through the existing publication builder |
 
-`selection.json` is schema 1: `purpose`, ordered `seasons[{season,corpus_manifest,sha256}]`, `coach_captures[{game_id,receipt,sha256}]`, `display_seasons`, and fixed `recipe_id='experimental-v1'`. files use explicit paths; validate internal receipt/source hashes through existing readers. `models.json` lists `{family,season,state_manifest,sha256}` and valued-panel manifests; no globbing for the newest result. reject omitted prerequisites, ignored flags, duplicate years and incompatible identities. the first annual state has no predecessor; later states cannot silently restart from zero.
+base `selection.json` follows [v1-01's strict schema 1](v1-01-shared-evidence.md#selection-artifacts-and-operation), separate from the v1-02 coach capture/binding selection. the fixed `recipe_id='experimental-v1'` and three display seasons belong to later model/result identities, not factual preparation. files use explicit paths; validate internal receipt/source hashes through existing readers. `models.json` lists `{family,season,state_manifest,sha256}` and valued-panel manifests; no globbing for the newest result. reject omitted prerequisites, ignored flags, duplicate years and incompatible identities. the first annual state has no predecessor; later states cannot silently restart from zero.
 
-each output directory contains `manifest.json` with `schema_version=1`, `kind`, input/recipe identities, ordered axes, numerical status and `{path,sha256}` members. use existing JSON/array writers: JSON for finite typed facts/metadata, numpy archives for numerical arrays; partition large facts by game/year. completed annual families are the reuse unit. no automatic old-artifact migration, new storage service or serialized python objects. dry command examples in the verification receipt identify the actual chosen paths; no costly job starts merely by importing a module.
+each output directory contains `manifest.json` with `schema_version=1`, `kind`, input identities and `{path,sha256}` members; numerical artifacts additionally bind recipe, ordered axes and numerical status. v1-01 fixes the exact factual manifest. use existing JSON/array writers: JSON for finite typed facts/metadata, numpy archives for numerical arrays; partition large facts by game/year. completed annual families are the numerical reuse unit. no automatic old-artifact migration, new storage service or serialized python objects. dry command examples in the verification receipt identify the actual chosen paths; no costly job starts merely by importing a module. add subcommands with their owning prs; v1-01 implements only `prepare`.
 
 ## b. baseline and accounting
 
@@ -130,6 +132,8 @@ each batch pairs its domain/numerical owner with a content reviewer. labels, den
 | integration | manifests, receipts, docs and real journeys; no runner | checked family paths in one candidate; activation separately assigned |
 
 these are ownership packages, each deliverable across multiple prs under the plan's proposed boundaries. preparation and application/publication proceed in parallel once their contracts are settled; chance supplies valued responses; spatial rates supply mechanism valuation. integrate actual families as they arrive, then accept complete card compositions. 5v5 alone, fixtures alone or unexplained prior zeros do not complete v1. 05i personal geography belongs here rather than in another prerequisite slice. partial-family development must preserve explicit unfinished status and the current active publication.
+
+[v1-13](v1-13-typed-publication.md) implements the fixed exchange/storage/read boundary with detached fixtures; later producers serialize real rows through it. it does not consume incomplete fit internals or require v1-01's corpus run. only the shared `analysis_cli.py`/entry-point edits need coordination. whole pending families have explicit availability envelopes; source gaps and failed computations remain separately attributable. existing observed views adapt to schema7; analytical card rendering and activation remain later assignments.
 
 ## d. operation and acceptance
 

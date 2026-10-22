@@ -223,7 +223,9 @@ def validate_recovery(path, *, corpus_path=None, audit_sources=True):
     require(tree == path.parent / "selected-games" and tree.is_dir()
             and {item.name for item in tree.iterdir()} == set(ordered), "recovery selection tree differs")
     requested = TARGETS if consumed["probe_receipt"] is not None else PROBES
-    require({item.name for item in Path(document["capture_root"]).iterdir()} == set(requested), "recovery capture budget differs")
+    present = {item.name for item in Path(document["capture_root"]).iterdir()}
+    require(present == set(requested) or consumed["probe_receipt"] is None and present == set(TARGETS),
+            "recovery capture budget differs")
     for row in rows:
         game_id = row["game_id"]
         require(row["original_path"] == str(Path(ledger[game_id]["capture_path"]).resolve(strict=True)), "recovery original path differs")

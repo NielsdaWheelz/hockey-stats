@@ -1,0 +1,37 @@
+FAIL  league: one fixed observed cohort request, url season verbatim, no spatial selector
+      [object Response]
+pass  league: duplicate url seasons reach the server; typed 400 keeps tag and available seasons
+FAIL  profile: detail and cohort start together, then one selected-player observed map
+      client.loadProfile is not a function
+FAIL  profile: absolute map mode requests the complete view
+      client.loadProfile is not a function
+FAIL  profile: goalie requests no skater map and yields no skater values
+      client.loadProfile is not a function
+FAIL  profile: absent selected season keeps real history and requests no map
+      client.loadProfile is not a function
+FAIL  profile: present skater identity without observed facts is not a 500 and requests no map
+      client.loadProfile is not a function
+FAIL  profile: unknown person is a typed 404
+      client.loadProfile is not a function
+FAIL  composition: publication, season, map order, map view and join mismatches are logged 500s
+      client.loadProfile is not a function
+FAIL  comparison: cohort only until a valid distinct pair; one ordered map request
+      client.loadComparison is not a function
+pass  abort: route signal reaches fetch and the load does not resolve
+FAIL  render: present skater profile uses server scale, descending history and existing sections
+      name
+FAIL  render: goalie profile shows identity, history and required copy, never skater values
+      name
+FAIL  render: absent season keeps existing absence copy and historical name
+      absence copy
+FAIL  render: present identity without observed facts shows identity and explicit no observed results
+      name
+FAIL  render: comparison names a non-skater selection without substitution; pair renders maps
+      goalie/absent copy
+FAIL  render: league table lists the observed cohort
+      count
+2/17 checks passed
+/Users/nnandal/Documents/code/hockey-stats-v1-13/app/src/web/v113-check.tsx:365
+if (failed) throw new Error(`${failed} checks failed`);
+                  ^
+Error: 15 checks failed

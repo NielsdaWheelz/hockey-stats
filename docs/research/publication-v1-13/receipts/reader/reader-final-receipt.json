@@ -1,0 +1,51 @@
+{
+  "candidate": "var/v1-13/candidate-chronology/player-analysis.sqlite",
+  "publication_id": "cfed52ea-954b-4d6d-87e6-dc5d8d118476",
+  "sha256": "9ba58c11a8c430098b74eff35b47bbe797f8d345c8911fbc71ae5f432a85c10c",
+  "bytes": 20299776,
+  "manifest_sha256": "f768b285ea529a07f9a683e54878d8f9ec42c758f899cfefcec3018c59c66078",
+  "checks": [
+    "reader-http-green.json",
+    "reader-full-http-green.json",
+    "reader-final-amendments-green.json",
+    "reader-error-tags-green.json",
+    "reader-rejections-green.json",
+    "reader-extra-rejections-green.json",
+    "reader-repeated-rejections-green.json",
+    "reader-prior-rejections-green.json",
+    "operator-green.json",
+    "reader-selfcontained-green.json",
+    "reader-runtime-green.json",
+    "reader-row-json-green.txt",
+    "reader-prototype-green.txt",
+    "reader-constructor-green.txt",
+    "reader-before-cutover-red.json",
+    "reader-compiled-resources.txt",
+    "reader-chronology-red.json",
+    "reader-chronology-rejections-green.json",
+    "reader-chronology-refinement-red.json",
+    "reader-chronology-refinement-green.json",
+    "reader-chronology-final-green.json",
+    "reader-chronology-compiled-resources.txt"
+  ],
+  "specific_corruption_rejections": 31,
+  "source_bytes_unchanged": true,
+  "no_wal_shm": true,
+  "all_operator_actions_disposable": true,
+  "batching": "the pinned sqlite adapter has no row streaming cursor; validation reads keyset batches of 128, including negative and zero rowids. metadata/person catalogs and necessary scalar closure totals remain in memory.",
+  "scope": "compact three-season fixture publication; these timings and response sizes are not full-production capacity claims",
+  "compiled_check": {
+    "wall_seconds": 1.22,
+    "maximum_resident_bytes": 292274176,
+    "node": "24.21.0",
+    "command": "node app/dist/node/operator/publication-cli.js check --candidate var/v1-13/candidate-chronology/player-analysis.sqlite"
+  },
+  "live_startup_to_first_200_seconds": 1.4742839999962598,
+  "previous_candidate": {
+    "candidate": "var/v1-13/candidate-reviewed/player-analysis.sqlite",
+    "publication_id": "a141f80d-7236-4abd-8789-68211d3c1fc4",
+    "sha256": "0a39537e8ed2b8c3b289c8bad22d5fe038cc4bb7967757d68dc000e4e099082c",
+    "manifest_sha256": "e84219662eed38fd76b2c78f919028d08348078e9ce516a0618a01b8e5e3693d"
+  },
+  "earlier_boundary_receipts": "the original 26 rejection and numerical receipts retain their reviewed-candidate identity. ../chronology-equivalence.json proves unchanged facts and quantities; final chronology checks reran the affected reader/API/operator/sandbox/runtime boundaries on the candidate above."
+}

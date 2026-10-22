@@ -2,6 +2,9 @@
 
 status: settled system responsibilities and statistical meanings, with dated interview evidence below. [the brief](brief.md) owns product choices and [the plan](plan.md) current progression. observed facts and checked experimental model outputs may be published privately before scientific admission. stronger claims retain their specific evidence requirements; every activation remains explicit. the 2026-10-22 contract below supersedes earlier observed-only product restrictions, not frozen study protocols.
 
+
+the 2026-10-22 [v1 field audit](product-inventory.md#v1-field-crosswalk-and-card-acceptance) preserves these owners. [card facts](specs/experimental-card-facts.md) adds cohesive factual reductions under python; [application](specs/experimental-application.md#v1-payload-additions) supplies strict named transport and five compositions. one authoritative value can serve multiple cards. source-dependent fields stay separate from model outputs; native mass, physical display density and nonadditive ratios have different explicit invariants. no additional service, generic metric platform or release machinery follows.
+
 ## operating scale
 
 this is a website run by one person. retain work according to its replacement cost: source evidence and hours-long fits are worth saving; cheap transformations and website builds are worth rerunning. a local analysis command produces a sqlite file; the website reads it. publication can stop the server, replace the file, restart and require a page reload. one previous database is enough for data rollback; git supplies code history.
@@ -12,6 +15,8 @@ the scope review removed hot publication switching, client revision pinning, exp
 
 extend the existing source → python model/aggregation → sqlite publication → effect readers → react views path. [the complete experimental program](specs/experimental-player-analysis.md) owns the finite delivery scope. numerical family producers own target, preparation, fit/score semantics, exposure, references and map/scalar composition. the existing publisher owns concrete result tables; effect owns typed coherent reads; presentation owns interaction, layout and shared display calculations. no second dashboard, inference service or generic metric registry.
 
+comprehensive feature preparation remains separate from recipe activation. shared evidence owners interpret sources and retain ordered event histories once; family encoders consume those facts under explicit timing/population contracts rather than reparsing sources. derived tip/rink corrections retain separate identities and unchanged source observations. recipes select compatible encoders, including retained alternatives, with exact design identities. the documentation inventories track coverage; no runtime feature platform, automatic search or second ingestion pipeline is needed. [feature contract](model-features.md#comprehensive-coverage-contract--2026-10-22)
+
 share only necessary metadata: person/season/strength, component and quantity meaning, units/sign/reference, input/design/model identity, coverage and inferred inputs, experimental/support statement and uncertainty availability. concrete family schemas remain explicit. claim strength is separate from availability: an experimental estimate can be present, a failed calculation must be identified, and a missing source is not zero. synthetic fixtures retain a distinct meaning and never masquerade as fitted player results.
 
 computational contracts block wrong joins, mismatched exposure, leakage under the declared cutoff, invalid probability mass, nonfinite results and undefined component accounting. poor calibration, weak recovery, prior sensitivity and absent calibrated intervals are evidence limitations, not universal experimental-publication vetoes. signed effects may be negative; complete physical rates require a coherent nonnegative construction. old negative predictions can be shown as diagnostics, never secretly clipped or labeled valid expected rates.
@@ -19,6 +24,14 @@ computational contracts block wrong joins, mismatched exposure, leakage under th
 chance scoring distinguishes actor-conditioned predictions from reference-standardized opportunity. integrate the full conditional probability product under one declared joint reference. chance attribution aggregates valued events into matched responses; average-cell weighting of old attempt effects must retain that narrower meaning. a component ledger identifies additive contributions, conditional stages, explanations and interactions so maps, scalars and totals close without double counting.
 
 publication checks establish the candidate's declared construction and honest status; they do not certify every model claim. observed results remain separate. fixtures permit publication/view development before expensive fits, followed by actual-output checks. no new activation workflow or global admission state machine. [05](specs/05-publication.md) and [06](specs/06-website.md) specify the concrete extension.
+
+### concrete experimental implementation
+
+the [full program](specs/experimental-player-analysis.md) and its numerical/application appendices now own the concrete baseline. preserve the 656-cell geometry and forty retained modes, but use positive rate/probability constructions rather than clipping the old quadratic model. chronology, sparse identities and source support are reusable; incompatible fitted coefficients are not. five chronological annual states supply three displayed seasons.
+
+reference execution sets residual actor execution to a virtual neutral state. it is not the old empirical joint-matchup average; frozen 03d and subsequent studies retain that definition. a common shot-context distribution supplies headline finishing/setting, while actual-opportunity attribution remains separate evidence. ten named terms compose the common-workload index; shootiness, conditional stages and territorial subskills explain it rather than add more value.
+
+schema 7 extends the existing publisher/read service and three routes with explicit family payloads. structured payloads have fixed schemas, not arbitrary metric keys. keyed relational facts support readonly on/off and selected-teammate aggregation, followed by the existing per60 arithmetic; no request fits or scores a model. the strict new reader validates incoming candidates; rotation preserves the previous database opaquely, with its matching code rebuilt from git for restore. no old-schema serving fallback or second application follows.
 
 ## method
 
@@ -328,7 +341,7 @@ the alternative puts hockey canonicalization in effect and passes numerical tabl
 
 ### shared analytical mechanisms and study policy
 
-keep source facts, target applicability, prediction applicability, design, objective and assessment separate. for example, a conditional goal stage can train on on-net attempts while predicting every unblocked attempt; recorded goal labels must remain intact. opportunity standardization averages the probability product over a common joint actor reference, not a product of independently averaged layers.
+keep source facts, target applicability, prediction applicability, design, objective and assessment separate. for example, a conditional goal stage can train on on-net attempts while predicting every unblocked attempt; recorded goal labels must remain intact. opportunity standardization evaluates the full probability product under its declared reference, never a product of independently averaged layers. the experimental product uses virtual neutral execution; frozen research uses its recorded joint-matchup reference.
 
 as assigned work next needs shared component setup/execution, artifact validation or paired numerical comparison, put the mature mechanism in its responsible `analysis/src/hockey_stats/` module. keep frozen selections, thresholds, decisions and figures in `analysis/research/`. preserve behavior at affected boundaries; historical studies remain reproducible at recorded revisions. no blanket migration, compatibility layer or generic experiment framework.
 

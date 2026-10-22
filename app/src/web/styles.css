@@ -328,6 +328,9 @@ thead .identity {
 .history-table {
   min-width: 72rem;
 }
+.identity-history {
+  min-width: 0;
+}
 .history-table .identity {
   width: 7.5rem;
   min-width: 7.5rem;
@@ -409,6 +412,13 @@ thead .identity {
 }
 .fixture-notice {
   font-weight: 650;
+}
+.fixture-banner {
+  margin: 1rem 0 0;
+  padding: 0.5rem 1rem;
+  border: 2px solid #8a5a00;
+  background: #fff4d6;
+  font-weight: 700;
 }
 .empty-search,
 .load-error {

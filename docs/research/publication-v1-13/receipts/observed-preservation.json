@@ -1,0 +1,21 @@
+{
+  "identity": {
+    "publication_id": "a141f80d-7236-4abd-8789-68211d3c1fc4",
+    "database_sha256": "0a39537e8ed2b8c3b289c8bad22d5fe038cc4bb7967757d68dc000e4e099082c",
+    "manifest_sha256": "e84219662eed38fd76b2c78f919028d08348078e9ce516a0618a01b8e5e3693d"
+  },
+  "result": {
+    "identity": "exact",
+    "integrity": "ok",
+    "observed_tables_equal": {
+      "game": 3936,
+      "player_game": 216,
+      "player_game_spatial": 3560,
+      "player_season": 216,
+      "player_season_pair": 3625,
+      "player_season_spatial": 144288,
+      "season": 3,
+      "spatial_cell": 2004
+    }
+  }
+}

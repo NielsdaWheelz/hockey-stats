@@ -1,0 +1,475 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "construction": "synthetic",
+  "attribution": "root independent arithmetic; these constants exercise transport, not actual player ability",
+  "observed_selection": {
+    "seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "games": [
+      "2023020001",
+      "2023020012",
+      "2024020001",
+      "2024020022",
+      "2025020001",
+      "2025020006"
+    ],
+    "meaning": "captured fixture facts retain the unchanged observed reducer; analytical constants below are synthetic"
+  },
+  "ledger": {
+    "component_order": [
+      "five_on_five_offense",
+      "five_on_five_defense",
+      "power_play_offense",
+      "penalty_kill_defense",
+      "finishing",
+      "setting",
+      "penalties_drawn",
+      "penalties_taken",
+      "ice_won",
+      "ice_lost"
+    ],
+    "league_components": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "replacement_components": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20
+    ],
+    "league_total": 55,
+    "replacement_total": 110,
+    "penalties_combined": {
+      "league_goals": 15,
+      "replacement_goals": 30
+    },
+    "reference_minutes": {
+      "five_on_five": 1000,
+      "power_play": 100,
+      "penalty_kill": 100
+    }
+  },
+  "map": {
+    "native_masses": [
+      {
+        "cell_id": 0,
+        "value": 1
+      },
+      {
+        "cell_id": 1,
+        "value": 2
+      }
+    ],
+    "all_other_native_masses": 0,
+    "native_cells": 656,
+    "display_cells": 668,
+    "integrated_value": 3,
+    "display_rule": "map each native center into its containing physical rectangle; distribute that rectangle mass by area-weighted gaussian centroid weights exp(-distance_squared/200), normalized per source rectangle; density=100*mass/area"
+  },
+  "goalie_evidence": {
+    "native_cell_0": {
+      "goals": 1,
+      "expected_goals": 2,
+      "attempts": 3
+    },
+    "all_other_native_masses": 0,
+    "unmapped": {
+      "goals": 1,
+      "expected_goals": 0.5,
+      "attempts": 2
+    },
+    "totals": {
+      "goals": 2,
+      "expected_goals": 2.5,
+      "attempts": 5
+    },
+    "league_goals": 2,
+    "league_expected_goals": 4,
+    "mapped_mass_saved": 1,
+    "unmapped_mass_saved": -0.5,
+    "total_mass_saved": 0.5,
+    "display_ratio_percent": 0,
+    "whole_population_ratio_percent": 60,
+    "meaning": "pool goals and expectations separately before dividing; ratios do not sum to saved goals"
+  },
+  "context": {
+    "intervals": [
+      {
+        "start_seconds": 0,
+        "end_seconds": 10,
+        "focal": true,
+        "teammate_1": true,
+        "teammate_2": true,
+        "for_mass": 2,
+        "against_mass": 1
+      },
+      {
+        "start_seconds": 10,
+        "end_seconds": 30,
+        "focal": true,
+        "teammate_1": true,
+        "teammate_2": false,
+        "for_mass": 0,
+        "against_mass": 0
+      },
+      {
+        "start_seconds": 30,
+        "end_seconds": 60,
+        "focal": true,
+        "teammate_1": false,
+        "teammate_2": false,
+        "for_mass": 3,
+        "against_mass": 2
+      },
+      {
+        "start_seconds": 60,
+        "end_seconds": 100,
+        "focal": false,
+        "teammate_1": true,
+        "teammate_2": true,
+        "for_mass": 4,
+        "against_mass": 2
+      }
+    ],
+    "on": {
+      "seconds": 60,
+      "for_mass": 5,
+      "against_mass": 3,
+      "for_per60": 300,
+      "against_per60": 180
+    },
+    "off": {
+      "seconds": 40,
+      "for_mass": 4,
+      "against_mass": 2,
+      "for_per60": 360,
+      "against_per60": 180
+    },
+    "together": {
+      "seconds": 10,
+      "for_mass": 2,
+      "against_mass": 1,
+      "for_per60": 720,
+      "against_per60": 360
+    },
+    "apart": {
+      "seconds": 50,
+      "for_mass": 3,
+      "against_mass": 2,
+      "for_per60": 216,
+      "against_per60": 144
+    },
+    "known_excluded_seconds": 3500,
+    "meaning": "two-teammate together means intersection; zero-event time remains in apart; full five-per-side filler memberships do not alter these selections",
+    "populations": {
+      "recorded_all_attempts": {
+        "interval_masses": [
+          [
+            2,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "on": {
+          "seconds": 60,
+          "for_mass": 5,
+          "against_mass": 3,
+          "for_per60": 300,
+          "against_per60": 180
+        },
+        "off": {
+          "seconds": 40,
+          "for_mass": 4,
+          "against_mass": 2,
+          "for_per60": 360,
+          "against_per60": 180
+        },
+        "together": {
+          "seconds": 10,
+          "for_mass": 2,
+          "against_mass": 1,
+          "for_per60": 720,
+          "against_per60": 360
+        },
+        "apart": {
+          "seconds": 50,
+          "for_mass": 3,
+          "against_mass": 2,
+          "for_per60": 216,
+          "against_per60": 144
+        }
+      },
+      "recorded_locatable_unblocked": {
+        "interval_masses": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "on": {
+          "seconds": 60,
+          "for_mass": 3,
+          "against_mass": 2,
+          "for_per60": 180,
+          "against_per60": 120
+        },
+        "off": {
+          "seconds": 40,
+          "for_mass": 3,
+          "against_mass": 1,
+          "for_per60": 270,
+          "against_per60": 90
+        },
+        "together": {
+          "seconds": 10,
+          "for_mass": 1,
+          "against_mass": 1,
+          "for_per60": 360,
+          "against_per60": 360
+        },
+        "apart": {
+          "seconds": 50,
+          "for_mass": 2,
+          "against_mass": 1,
+          "for_per60": 144,
+          "against_per60": 72
+        }
+      },
+      "recorded_goals": {
+        "interval_masses": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "interval_on_net": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "on": {
+          "seconds": 60,
+          "for_mass": 1,
+          "against_mass": 1,
+          "for_per60": 60,
+          "against_per60": 60
+        },
+        "off": {
+          "seconds": 40,
+          "for_mass": 1,
+          "against_mass": 0,
+          "for_per60": 90,
+          "against_per60": 0
+        },
+        "together": {
+          "seconds": 10,
+          "for_mass": 1,
+          "against_mass": 0,
+          "for_per60": 360,
+          "against_per60": 0
+        },
+        "apart": {
+          "seconds": 50,
+          "for_mass": 0,
+          "against_mass": 1,
+          "for_per60": 0,
+          "against_per60": 72
+        }
+      }
+    }
+  },
+  "evidence_keys": {
+    "focus_source_indices": [
+      0,
+      1,
+      2
+    ],
+    "focus_event_ids": [
+      10,
+      10,
+      null
+    ],
+    "modeled_source_indices": [
+      0
+    ],
+    "meaning": "source_index determines identity; additional source events exercise context, blocked contact, unknown types and extra-attacker support; unmatched source events remain present with typed unavailable model values"
+  },
+  "observed_preservation": {
+    "season": 3,
+    "game": 3936,
+    "player_game": 216,
+    "player_season": 216,
+    "player_game_spatial": 3560,
+    "player_season_spatial": 144288,
+    "spatial_cell": 2004,
+    "player_season_pair": 3625,
+    "check": "all rows and factual columns exactly equal the independently built schema-6 baseline; original observed identities remain exact"
+  },
+  "goalie_danger": {
+    "probabilities": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "bin_indices": [
+      0,
+      25,
+      50,
+      75,
+      99
+    ],
+    "attempt_counts_at_these_bins": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "expected_goal_masses_at_these_bins": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "goal_masses_at_these_bins": [
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "totals": {
+      "attempts": 5,
+      "expected_goals": 2.5,
+      "goals": 2
+    },
+    "meaning": "half-open .01 bins except final bin includes exactly one; array counts and masses reconcile"
+  },
+  "scenarios": {
+    "failed_solve": "synthetic failed-solve record; fit failed; this fixture performs no scientific solve",
+    "unwritten_family": "not computed",
+    "tracked_primary_pass": "tracked primary-pass observations are not available",
+    "skating_access": "historical skating source access is unverified",
+    "zero_time": "no eligible exposure",
+    "uncertainty": "uncertainty not estimated",
+    "prior_only_specialty": "hypothetical; available reference-panel estimate with zero current-season role information",
+    "absent_goalie": "fixture person 4 appears in 20232024 and 20242025; selected identity is null in 20252026",
+    "trade": "fixture person 1 has two actual game-team identities in 20242025; synthetic dressed records determine the focal team per game"
+  },
+  "goalie_covered_all": {
+    "base_state": {
+      "attacking_skaters": 5,
+      "defending_skaters": 5,
+      "attacking_goalie_present": true,
+      "defending_goalie_present": true
+    },
+    "extra_state": {
+      "attacking_skaters": 6,
+      "defending_skaters": 5,
+      "attacking_goalie_present": false,
+      "defending_goalie_present": true
+    },
+    "extra_unlocated": {
+      "attempts": 2,
+      "expected_goals": 0.5,
+      "goals": 1
+    },
+    "extra_probabilities": [
+      0.2,
+      0.3
+    ],
+    "extra_goal_masses": [
+      1,
+      0
+    ],
+    "unmapped": {
+      "attempts": 4,
+      "expected_goals": 1,
+      "goals": 2
+    },
+    "totals": {
+      "attempts": 7,
+      "expected_goals": 3,
+      "goals": 3
+    },
+    "mapped_mass_saved": 1,
+    "unmapped_mass_saved": -1,
+    "total_mass_saved": 0,
+    "league_attempts": 20,
+    "league_goals": 3,
+    "league_expected_goals": 12,
+    "display_ratio_percent": 100,
+    "whole_population_ratio_percent": 300,
+    "meaning": "actual state records preserve extra-attacker support; own-team goalie strength is defending versus attacking; fixed \u00b125 percent legend does not clip stored ratios"
+  }
+}

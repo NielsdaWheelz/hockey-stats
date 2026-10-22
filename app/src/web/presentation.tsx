@@ -56,7 +56,7 @@ export const reasons: Record<
   no_5v5_exposure: "no 5v5 exposure in the supported listed evidence",
 };
 
-export const playerName = (player: PlayerSummary) =>
+export const playerName = (player: Pick<PlayerSummary, "display_name" | "player_id">) =>
   player.display_name ?? `player ${player.player_id}`;
 export const teamName = (team: Team) => team.abbreviation ?? `team ${team.id}`;
 export const seasonLabel = (season: string) =>
@@ -296,7 +296,7 @@ export function LoadError() {
   const location = useLocation();
   const seasonError =
     data?._tag === "InvalidSeasonSelection" || data?._tag === "SeasonNotFound";
-  const spatialError = data?._tag === "InvalidSpatialSelection";
+  const selectionError = data?._tag === "InvalidSelection";
   const available: readonly string[] = Array.isArray(data?.available_seasons)
     ? data.available_seasons
     : [];
@@ -309,8 +309,8 @@ export function LoadError() {
       <h2>
         {seasonError
           ? "season could not be selected"
-          : spatialError
-            ? "invalid spatial selection"
+          : selectionError
+            ? "invalid selection"
             : status === 404
               ? "player not found"
               : status === 400
@@ -320,7 +320,7 @@ export function LoadError() {
       <p>
         {seasonError
           ? data.message
-          : spatialError
+          : selectionError
             ? data.message
             : status === 404
               ? "this player has no published record in any available season."

@@ -1,0 +1,97 @@
+{
+  "source_unchanged": true,
+  "no_wal_shm": true,
+  "cases": [
+    {
+      "case": "duplicate_json_key",
+      "rejected": true,
+      "expected_error": "duplicate stored JSON key",
+      "actual_error": "Error: duplicate stored JSON key\n      at strictJson (/Users/nnandal/Documents/code/hockey-stats-v1-13/app/src/server/sql-rows.ts:38:36)\n      at parseObject (/Users/nnandal/Documents/code/hockey-stats-v1-13/app/src/server/analysis-publication.ts:77:27)\n      at factFromRow (/Users/nnandal/Documents/code/hockey-stats-v1-13/app/src/server/analysis-publication.ts:100:19)",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "missing_family",
+      "rejected": true,
+      "expected_error": "family disposition inventory differs",
+      "actual_error": "Error: family disposition inventory differs",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "missing_promised_row",
+      "rejected": true,
+      "expected_error": "skater_execution: missing or unexpected promised person/selector row",
+      "actual_error": "Error: skater_execution: missing or unexpected promised person/selector row",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "method_input_digest",
+      "rejected": true,
+      "expected_error": "method purpose or composite input identity differs",
+      "actual_error": "Error: method purpose or composite input identity differs",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "probability_outside_unit_interval",
+      "rejected": true,
+      "expected_error": "[\"data\"][\"probability\"]",
+      "actual_error": "{\n    _tag: 'SchemaError',\n    message: 'Expected <filter>\\n  at [\"data\"][\"probability\"]'\n  },\n  _tag: 'UnknownError',\n  '",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "wrong_map_units",
+      "rejected": true,
+      "expected_error": "map grid or unit differs",
+      "actual_error": "Error: map grid or unit differs",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "map_mass_closure",
+      "rejected": true,
+      "expected_error": "[\"data\"]",
+      "actual_error": "{ _tag: 'SchemaError', message: 'Expected <filter>\\n  at [\"data\"]' },\n  _tag: 'UnknownError',\n  '",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "overlapping_context",
+      "rejected": true,
+      "expected_error": "overlapping context partition",
+      "actual_error": "publication command failed; active/previous are unchanged unless rotation began; inspect any incoming.sqlite before retrying Error: overlapping context partition",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "inconsistent_source_horizon",
+      "rejected": true,
+      "expected_error": "context source period horizon differs",
+      "actual_error": "publication command failed; active/previous are unchanged unless rotation began; inspect any incoming.sqlite before retrying Error: context source period horizon differs",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "incomplete_membership",
+      "rejected": true,
+      "expected_error": "context needs full five-on-five membership",
+      "actual_error": "publication command failed; active/previous are unchanged unless rotation began; inspect any incoming.sqlite before retrying Error: context needs full five-on-five membership",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "wrong_prepared_base",
+      "rejected": true,
+      "expected_error": "method prepared identity differs from publication base",
+      "actual_error": "Error: method prepared identity differs from publication base",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "available_fitted_output_no_design",
+      "rejected": true,
+      "expected_error": "available fitted output lacks design/cutoff identity",
+      "actual_error": "Error: available fitted output lacks design/cutoff identity\n      at checkReferences (/Users/nnandal/Documents/code/hockey-stats-v1-13/app/src/server/analysis-publication.ts:378:17)\n      at Object.checkReferences (/Users/nnandal/Documents/code/hockey-stats-v1-13/app/src/server/analysis-publication.ts:381:9)",
+      "specific_validator_confirmed": true
+    },
+    {
+      "case": "unsafe_id",
+      "rejected": true,
+      "expected_error": "[\"player_id\"]",
+      "actual_error": "{\n    _tag: 'SchemaError',\n    message: 'Expected <filter>\\n  at [\"player_id\"]'\n  },\n  _tag: 'UnknownError',\n  '",
+      "specific_validator_confirmed": true
+    }
+  ]
+}

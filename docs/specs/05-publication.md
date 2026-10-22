@@ -1,6 +1,6 @@
 # pr05 — analytical publication
 
-status: **stub; not ready for implementation.** extend the existing 05a–05h publication boundary for the [complete experimental program](experimental-player-analysis.md). [the plan](../plan.md) owns assignments. historical study handoffs/verdicts remain unchanged; checked experimental use is a new explicit contract, not retroactive admission.
+status: **scope index; concrete implementation contract is the [experimental application appendix](experimental-application.md) and its [parent specification](experimental-player-analysis.md).** extend the existing 05a–05h publication boundary for the [complete experimental program](experimental-player-analysis.md). [the plan](../plan.md) owns assignments. historical study handoffs/verdicts remain unchanged; checked experimental use is a new explicit contract, not retroactive admission.
 
 ## target and ownership
 
@@ -22,6 +22,6 @@ finalize a fresh database; validate it before separately assigned stop/copy/rest
 
 ## full specification and acceptance
 
-define concrete tables, array encodings, typed responses, producer/reader files and compatibility cutover with 06 and numerical owners. use labeled fixtures while fitting runs; complete with real numerical outputs and detached reads. verify maps/scalars/totals and observed game/season closure, explicit unavailable states, incompatible-reader rejection and ordinary manual restore. content design owns useful operator language, with model semantics supplied by numerical owners.
+the application appendix defines concrete tables, array encodings, typed responses, producer/reader files and the strict schema-7 cutover with numerical owners. use labeled fixtures while fitting runs; complete with real numerical outputs and detached reads. verify maps/scalars/totals and observed game/season closure, explicit unavailable states, incompatible-reader rejection and ordinary manual restore. content design owns useful operator language, with model semantics supplied by numerical owners.
 
-use temporary integration/live red → green → refactor → green checks, then delete campaign-only checks/dependencies; retain fixtures and only separately selected stable regressions under [07](07-lightweight-testing.md). database validity, experimental availability and scientific support are separate conclusions. no implementation or activation follows from this stub.
+use temporary integration/live red → green → refactor → green checks, then delete campaign-only checks/dependencies; retain fixtures and only separately selected stable regressions under [07](07-lightweight-testing.md). database validity, experimental availability and scientific support are separate conclusions. implementation and activation remain separately assigned.

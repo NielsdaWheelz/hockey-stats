@@ -1,0 +1,14 @@
+{
+  "checks": 9,
+  "passed": [
+    "unbound historical season",
+    "current season is not a prior",
+    "future season is not a prior",
+    "prior-only without historical support",
+    "fit season binding",
+    "input season binding",
+    "rectangle corner outside physical rink",
+    "exact rounded corner boundary remains available",
+    "valid independently defined breakdown probability retained"
+  ]
+}

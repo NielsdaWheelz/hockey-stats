@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/api/league?season=19001901&kind=skater&family=observed&strength=5v5",
+    "status": 404,
+    "body": {
+      "_tag": "SeasonNotFound",
+      "message": "season 19001901 is not published",
+      "available_seasons": [
+        "20252026",
+        "20242025",
+        "20232024"
+      ]
+    }
+  },
+  {
+    "path": "/api/league?season=20252026&season=20242025",
+    "status": 400,
+    "body": {
+      "_tag": "InvalidSeasonSelection",
+      "message": "select one canonical season",
+      "available_seasons": [
+        "20252026",
+        "20242025",
+        "20232024"
+      ]
+    }
+  },
+  {
+    "path": "/api/players/nope?season=20252026",
+    "status": 400,
+    "body": {
+      "_tag": "InvalidPlayerId",
+      "message": "invalid player id"
+    }
+  },
+  {
+    "path": "/api/players/999999999?season=20252026",
+    "status": 404,
+    "body": {
+      "_tag": "PlayerNotFound",
+      "message": "player not found in this publication"
+    }
+  }
+]

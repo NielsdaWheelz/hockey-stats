@@ -1,0 +1,14 @@
+{
+  "input_read_denial_proven": true,
+  "denial_message": "cat: /Users/nnandal/Documents/code/hockey-stats-v1-13/var/v1-13/observed-selection.json: Operation not permitted",
+  "denied_directories": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-13/fixtures",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-13/var",
+    "/Users/nnandal/Documents/code/hockey-stats/fixtures",
+    "/Users/nnandal/Documents/code/hockey-stats/var",
+    "/Volumes/Expansion/hockey-stats"
+  ],
+  "standalone_check_succeeded": true,
+  "all_five_api_endpoints_succeeded": true,
+  "database_copy_has_no_adjacent_inputs": true
+}

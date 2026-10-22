@@ -1,0 +1,23 @@
+{
+  "checks": 18,
+  "passed": [
+    "map and scalar mismatch",
+    "physical team context masses must mirror",
+    "context intervals cannot overlap",
+    "period source horizons must agree",
+    "dressed team conflicts reject",
+    "native map closure",
+    "physical display area normalization",
+    "failed fit cannot support numerical map",
+    "goalie evidence ratio cannot clip",
+    "actual state masses close to totals",
+    "danger expected mass must lie in its fixed bin",
+    "danger fixed edges are exact",
+    "extra attacker cannot enter a 5v5 row",
+    "block contact cannot become release location",
+    "failed_fit requires matching evidence kind",
+    "missing_source requires matching evidence kind",
+    "valid point outside ordered equal-tail interval remains available",
+    "finite ledger leaves cannot hide derived arithmetic overflow"
+  ]
+}

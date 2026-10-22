@@ -1,0 +1,135 @@
+# experimental chance, execution and goalies
+
+status: implementation appendix to [the complete program](experimental-player-analysis.md), not a new admission campaign. the plan owns assignments; the parent specification owns scope, publication, common workloads, replacement and the complete component ledger. historical protocols remain unchanged. this appendix defines a new recipe, not automatic promotion of an old fitted artifact.
+
+the parent's [coverage amendment](experimental-player-analysis.md#input-and-feature-completeness) additionally requires retained event-history/decay/attention and tip/rink alternatives. the equations below still define the initial recipe. the new alternatives need concrete prefix/objective/masking/reference and bounded-exercise contracts here before implementation; this appendix does not yet implement or fully specify them, and their absence keeps expanded coverage open.
+
+## target and populations
+
+fit annual states in order, 2021–22 through 2025–26; expose the last three seasons. each state uses that season and preceding fitted states only. later seasons never revise an earlier displayed estimate. these are retrospective seasonal estimates on research-exposed data, not live shot forecasts.
+
+one shared per-attempt model covers supported regular-season states with three through six attacking and defending skaters, exactly one opposing goalie, and zero or one attacking goalie. actual counts and goalie presence remain categorical inputs; extra-attacker evidence does not become power-play exposure. exclude shootouts, penalty shots and attempts without a supported ordinary physical shooting action. source/coordinate/type/actor contradictions remain explicit. the parent selects separate 5v5/pp/pk attribution populations; goalie evidence identifies its actual covered states.
+
+extend `chance_data`'s present 5v5-only selection at its owner. reuse reported event membership, corrected elapsed support and source identities; do not derive special-team membership from boxscore labels. change `shift_age` and `workload` opposing-five summaries to actual supported units and actual member counts; preserve each strength-transition fact's explicit population rather than silently extrapolating its 5v5 return rule. unvalued attempts require the parent attribution population's matched count/time handling; descriptive observations remain unchanged.
+
+[v1-01](v1-01-shared-evidence.md) owns the shared evidence, actual-unit facts and exact immediate-stop/reattempt labels. event-trained execution can retain supported shots without matched elapsed time, with declared missing shift context; rate consumers cannot. new labels do not inherit the old longer-span stop or predecessor-geometry restrictions. separate v1-02 coaching binds to these facts at fit/score time; base preparation has no coaching dependency.
+
+## origin and outcome construction
+
+reuse the native 656-cell grid, coordinate rotation, nearest-cell rule and `shot_origins.forward_kernel`. pin distance `20` feet and direction strength `4`. for a recorded block at cell `b`, use fixed imputation weights
+
+```text
+w_i(h) = K(b|h) / sum_k K(b|k)
+```
+
+this is a uniform-origin, fixed-contact-law assumption. it does not fit an origin distribution or block-selection process. keep every cell; no pruning or contact-as-release substitution. unblocked attempts have point mass at their recorded proxy cell. retain tip proxies without automatic relocation; mask residual shooter terms on tips in this initial recipe. source identity remains available for personal counts and interpretation.
+
+the old kernel's goal-plane limitation remains real. neither normalized weights nor product completion establishes physical accuracy. retaining this explicit imputer avoids another coupled origin/avoidance em campaign; the existing learned-origin path and alternative geometry remain retained alternatives. call the fitted objective **imputation-conditioned**, not the marginalized likelihood of measured releases.
+
+four logistic stages share physical covariates but have distinct coefficients:
+
+| stage | probability | observed training target |
+|---|---|---|
+| `u` | unblocked given an attempt | block `0`; ordinary miss/save/goal `1` |
+| `q` | on net given unblocked | miss `0`; save/goal `1` |
+| `r` | not a recorded immediate goalie stop, given on net | goal `1`; supported stopped save `0`; other supported save `1` |
+| `g` | goal given on net and not stopped | goal `1`; supported continuing save `0` |
+
+a stopped save means the immediately following valid event is a stoppage, elapsed delay `0..2` seconds, with recorded reason `goalie-stopped-after-sog`. an intervening live action precludes this label. supported other next events or a validated period terminal establish the negative label; missing/contradictory ordering or timing leaves it unavailable. this deliberately measures a recorded closure proxy, not all physical freezes or goalie deflections out of play. do not reuse `feature_data._outcomes`'s longer-span boolean as this target without the stricter check. future events supply labels only.
+
+unknown `r` leaves both downstream training targets unknown; it does not become a continuing save. applicable upstream labels remain usable. prediction evaluates every stage without requiring its realized downstream label. terminal probabilities are
+
+```text
+block       = 1-u
+miss        = u*(1-q)
+stopped     = u*q*(1-r)
+continuing  = u*q*r*(1-g)
+goal        = u*q*r*g
+```
+
+they sum to one at each origin and setter state. a continuing save is not necessarily a rebound. standardized opportunity integrates the goal product over `w_i`; a blocked attempt may have positive opportunity. it is not a factual goal forecast conditional on observing that block. the all-attempt actor-conditioned counterpart is also an opportunity quantity, because the imputer uses block outcome evidence. conditional unblocked and on-net predictions omit the already-known earlier factors; report their calibration separately from imputation-conditioned diagnostics.
+
+## selected inputs and missingness
+
+retain 03p's mirrored type-specific spatial structure and six model shot types. the four stages select `game_additive,recent_additive,recent_interactions,recent_geometry,off_wing,sequence,shift_age,shift_start,workload,calendar_rest,strength_transition`, plus actual strength, dated attacking/defending coaches and the annual terms below. candidate geometry is evaluated at each candidate origin, never the block contact. `off_wing` retains the declared reported-hand-stability assumption. role, hand and observed circumstances remain fixed when execution is standardized.
+
+retain inactive `game_detail`, `recent_detail`, `action_windows`, `zone_run` and `historical`: respectively finer clock detail, duplicate recent encoding, overlapping pressure summaries, and count-history proxies alongside actual coefficient borrowing. 04o's fine clock curves remain an available alternative; this baseline retains coarse game context. no unrestricted feature cross-products.
+
+`q/r/g` additionally use goalie prefix toi/shots faced, preceding-7/14-day shots faced and calendar rest from the same history owner. no postgame total substitutes for a prefix. `u` has no goalie identity or goalie-workload term. shooter effects appear at all four stages; goalie effects at `q/r/g`; setter effects at `g`; dated offensive/defensive coach effects at all four.
+
+optional numerical facts use training-mean centering, a zero centered value when unavailable, and an explicit unavailable indicator. categorical inputs have an explicit unavailable level. supported structural absence remains distinct. source facts and reasons are never overwritten; outcome-label availability is never a predictor. all-missing columns have no learned effect and retain unavailable status. this is declared statistical imputation, not recovered evidence. core invalid identity, location, type or outcome remains unavailable, not a new predictive category. missing coaches are not assigned the team's current coach. the parent source contract owns dated coach acquisition.
+
+## setter inference
+
+construct candidates identically before outcomes are consulted: attacking teammates, excluding the shooter, with supported presence in the pre-event unit or earlier in the current uninterrupted play. the play begins at the last faceoff or validated live-play start; include teammates who have since left the ice. use the existing chronology and membership owners. incomplete membership gives a separately recorded incomplete candidate universe, not an invented pass. retain any directly observed assist evidence independently.
+
+pin a `0.2` no-setter probability. distribute the remaining `0.8` among candidates by role: for a forward shooter, forward weight `2`, other weight `1`; for a defense shooter, forward weight `3`, other weight `1`; otherwise equal weights. normalize over actual candidates. when the candidate universe is incomplete, retain `0.2` none and `0.8` unknown-setter, with neutral setter deviation and explicit missingness; never declare the play unassisted. goalie candidates likewise use the common setup term without an individual setting deviation. these [xg8-inspired weights](https://hockeyviz.com/txt/xg8) are assumptions, not a new empirical measurement; expanding candidates to earlier participants is our source-motivated modification.
+
+write `g_i(h,s)=sigmoid(base_i(h)+setup*1[s≠none]+setter[s])`. no-setter contributes no actor term. for an unknown/goalie setter use the fixed training-candidate-weighted mean of the current skater setter coefficients in both fitting and scoring; this linear term has exactly zero centered deviation. with no supported candidate weights it is explicitly prior-only zero. the setup term distinguishes absence of a pass from neutral setter skill. source-supported primary assists on goals are auxiliary observations of `s`. a verified unassisted goal observes `none`; missing credit does not. an assistant outside the supported candidate universe leaves that auxiliary label unusable, while retaining the marginalized goal likelihood and the source discrepancy.
+
+```text
+known goal setter s: pi_i(s) * g_i(h,s)
+goal, setter unknown: sum_s pi_i(s) * g_i(h,s)
+continuing non-goal: sum_s pi_i(s) * (1-g_i(h,s))
+```
+
+fit by deterministic mixture em with these responsibilities and the same penalized logistic solver. factual predictions always marginalize using the common pre-outcome candidate distribution; never use observed goal assists or outcome-conditioned responsibilities in their predictors. saved retrospective setter responsibilities are labeled inference and remain separate from observed primary assists. they do not establish pass tracking or causal passing skill.
+
+## fitting, history and neutral execution
+
+minimize summed imputation-weighted negative log likelihood plus explicit half-quadratic penalties. geometry coefficients share 03p mirror orbits; evaluate expanded native-cell probabilities. initial constants are spatial base/type ridge `.25/1`, neighbor smoothing `4`, circumstance ridge `4`, shooter/setter level/carry `4/16`, goalie `16/64`, coach `256/1024`. global stage intercepts are unpenalized. these are initial recipe choices, not scientifically selected winners.
+
+for each returning actor, the annual prior mean is
+
+```text
+m_y = b_previous + (z(age_y)-z(age_previous)) dot gamma_role
+z(a) = ((a-27)/10, ((a-27)/10)^2)
+```
+
+use age on february 1 of the season's ending year and separate `F/D/G` age curves per relevant actor/stage, with ridge `64` on `gamma`. jointly optimize the annual coefficients and age terms under the quadratic prior; without preceding observations the age terms remain zero. coaches have no age drift. absent birth dates/roles give a recorded age-neutral transition; never an invented age. source-first appearances start at zero with the static penalty, not a claim of true rookie status. carry uses the most recent earlier fitted state; intervening years remain explicit. carry raw fitting coordinates, keeping reference centers separate. point-prior borrowing omits prior-fit uncertainty and can lag real changes.
+
+use `chance.solve_logistic`, analytic gradients and stable log probability arithmetic: `maxiter=2000`, `ftol=1e-10`, `gtol=1e-6`. setter em has at most `100` outer updates, requiring relative objective change `≤1e-8` and maximum responsibility change `≤1e-6`; each accepted update preserves the penalized observed-mixture objective. initialize from zero and the prior state, retain the better completed solve. failed solves supply unavailable estimates; finite unfinished endpoints are diagnostic only. declared solver completion and the parent's numerical checks are both required, not substitutes for each other. no parameter sweep or bootstrap-refit campaign.
+
+save each family's seasonal execution center using its training opportunity weights: shooter attempts, goalie applicable faced attempts, pre-outcome setter weights, coach applicable attempts. define residual execution as raw actor coefficient minus that center. factual logits stay exact; coefficient centering must transfer the corresponding offset to the intercept, setup term or applicability indicator. never change predictions merely to obtain a pleasing zero.
+
+the user selected **virtual neutral execution**, superseding the old product recipe's empirical joint-actor average. set shooter, setter, goalie and coach residuals to zero, preserve circumstances, and average only the declared no-setter/setup mixture. multiply conditional probabilities within that state, then integrate origin mass. zeroing coaching execution prevents that residual from entering player chance-creation credit; spatial coaching context remains separately modeled. label it reference-execution xg. it is neither average probability over real matchups nor proof of causal isolation.
+
+## execution accounting and goalie views
+
+freeze one common panel per year/exact strength from that year's supported training attempts. each source attempt has equal total weight; its origin × pre-outcome setup branches have joint weight `w_i(h)*pi_i(b)`, normalized across attempts. save all four neutral logits and eligibility/tip/role tags. every player sees this same weighted distribution; only the focal execution residuals change. multiply the conditional stages within each branch before averaging. use exact streamed evaluation, not separate marginal-stage averages or sampled actual actors; the origin expansion costs computation and is retained explicitly.
+
+`finishing_goals_per100_attempts` is `100*E[P(focal shooter)-P(neutral)]`. `setting_goals_per100_assisted_opportunities` is `100*E[P(focal setter)-P(neutral) | setup]`. all other residuals stay neutral; tip shooter masking still applies. deposit branch-weighted contrasts in origin cells; maps sum to these per100 scalars. the attribution appendix combines these contrasts with neutral team-attempt rates, normalized modeled shooter/setter participation and the common minute basket. the player's realized opportunities never choose their headline reference. this index deliberately omits creation × execution interactions.
+
+for displayed outcome probabilities, integrate prefixes: `U=E[u]`, `Q=E[u*q]/E[u]`, `R=E[u*q*r]/E[u*q]`, `G=E[u*q*r*g]/E[u*q*r]`. publish `U,Q,1-R,G` and their focal-minus-neutral differences with the stated conditioning. unavailable denominators remain unavailable. these are common-panel quantities, not a player's observed success fractions.
+
+retain actual-event evidence separately. partition actor-conditioned minus neutral opportunity by exact four-group shapley averaging over shooter, setter, goalie and coaching execution: sixteen subsets sharing the same neutral reference. compute per candidate setter, then weight by the pre-outcome probability and allocate its setting share to that candidate; unknown shares stay unattributed. signed shares close exactly. this interaction allocation is model evidence, not the headline ten-term index. chance creation uses neutral values; coaching is context, not skater credit. goals minus actor-conditioned opportunity is a descriptive model discrepancy, not automatically luck. no retrospective setter posterior enters either accounting path.
+
+goalie evidence includes covered shots, saves, goals, toi, save percentage, starts/relief and workload. core ev combines `5v5/4v4/3v3`; pk combines `4v5/3v5/3v4`, with both goalies present. retain counts by exact state. other covered states, including extra attackers, remain separate evidence rather than entering those map aggregates. conditional on on-net attempts, expected goals against integrates `r*g` with the actual offensive circumstances and neutral goalie; goals saved above expected is that expectation minus observed goals. it is a recorded-results residual, separate from the fitted goalie contrast. provide type, location and fixed danger bins `<.05`, `[.05,.15)`, `≥.15` using neutral on-net goal probability. identical counts/masses reconcile to the summary.
+
+for modeled goalie stopping, reweight the common panel by neutral `u*q` and normalize: `stopping_goals_per100_on_net=100*E_onnet[r0*g0-r_goalie*g_goalie]`. modeled ev/pk aggregates pool their annual common training panels before normalizing neutral on-net mass; a goalie's actual state usage cannot choose these weights. observed aggregates instead sum actual evidence. exclude the goalie's miss-stage effect from this on-net contrast; display it separately. all-attempt event credit may include that effect. miss, recorded-stop and conversion panels retain their own conditioning. spatial saving maps show observed expected-minus-actual evidence separately from modeled contrasts; scalar identity does not make every location an independently estimated goalie skill.
+
+fit one additional annual penalized logistic model for the existing **immediate next recorded same-team attempt within five seconds** after a supported save, before a stoppage/reset. use the `q/r` design, actor/coach terms and penalties, not future predictors. fit the same design with a bounded fractional-logistic response for that next attempt's neutral opportunity, conditional on its existence. first complete the four annual outcome heads, then derive these neutral targets from that frozen substate and fit the two follow-up heads. bind the target's base-head identity; neither follow-up head feeds back into its target or the four base heads. their product describes expected immediate follow-up danger. unknown terminal spans remain unknown. this is recorded continuation/rebound behavior; it neither recovers every physical rebound nor supplies another additive goal-value component.
+
+## goalie card evidence and conditional summaries
+
+the [v1 card crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance) adds summaries, not fit heads. retain separate actual-source, paired model-valued and standardized-model populations. publish `unblocked=misses+saves+goals`, `on_net=saves+goals` and save fraction on their declared source support; boxscore totals are separately labeled corroboration. new values never erase otherwise valid source counts.
+
+for paired **on-net** evidence, score actual offensive circumstances/execution with neutral goalie: `p_i=E[u*q*r*g]/E[u*q]`. for paired **unblocked** evidence use `p_i=E[u*q*r*g]/E[u]`. each expectation integrates the same pre-outcome origin/setup branch prior with actual offense and neutral goalie. in the point-origin case the known earlier factors cancel; do not add another inference step. each record contains eligible attempts, goals, sum p, `goals_saved_above_expected=sum(p)-goals`, `goals_per100_expected=100*goals/sum(p)` and coverage. paired means use their own eligible counts; absent model values withhold that event from both paired expected and observed totals, not from raw counts. zero expected mass makes the ratio null. default goalie evidence uses unblocked attempts; on-net evidence stays separately selectable. neither residual is isolated goalie ability.
+
+unblocked difficulty is `sum(p)/eligible_attempts`; compare to the same season/strength/population league mean, counting each physical attempt once. publish that reference and `100*(own_mean/league_mean-1)`. covered-all evidence pools actual supported states, including allowed extra-attacker/own-pp situations; it is neither ev+pk nor complete all-situations coverage when source gaps exist.
+
+type evidence groups `wrist+snap`, `slap`, `tip`, `backhand`, `other`; retain the six modeled types underneath and source-unclassified counts outside valued support. type groups partition paired counts/mass. additive saving maps deposit `p_i-y_i` at the supported origin; retain location support and any unmapped mass explicitly. three danger tiers keep their existing neutral-on-net thresholds. an additional fixed histogram for the danger comparison uses the selected paired population's own `p_i`, edges `0,.01,...,1` (last bin includes1), actual goal mass and expected mass. densities divide each bin's mass by its width in probability percentage points; their integrals recover the corresponding totals. no private signed-centering formula or fitted density curve is inferred from a reference image.
+
+modeled miss/recorded-stop/conversion levels use the existing conditional prefix rule and publish `1-Q`, `1-R`, `G`, with focal-minus-neutral differences. for continuation, normalize the common panel by neutral saved-shot weight `u0*q0*(1-r0*g0)`. with fitted reattempt probability `h` and conditional next-attempt neutral danger `d`, publish `E[h]`, `E[h*d]/E[h]`, and `E[h*d]` on that panel; never multiply independently averaged heads. evaluate focal goalie residuals with other execution residuals neutral. if `E[h]=0`, conditional danger is unavailable while follow-up danger is zero. observed stage evidence retains its own known-label numerator/denominator and matched expected sum under actual offense/neutral goalie with the corresponding stage conditioning; continuation uses neutral-goalie heads bound to the same frozen target state; unknown terminal spans cannot become negative labels.
+
+the goalie headline remains stopping goals per100 common on-net opportunities. no goalie sG, war, replacement total or inferred all-component value is introduced. annual stopping/subskill histories reuse these exact quantities. checks cover probability complements, paired support, type/bin/mass closure, reference ratios, zero denominators and continuation conditioning; source dependence and uncalibrated uncertainty remain visible.
+
+## owners, artifacts and acceptance
+
+reuse `shot_origins`, `chance_targets`, `chance_features`, `chance`, `chance_components`, `chance_data`, `feature_data` and `feature_history`; add a cohesive `execution.py` for setter mixtures, neutral references, credit accounting and goalie summaries. no generic model registry or second source parser.
+
+concrete interfaces: `prepare_execution(base_prepared, coaches, recipe) -> prepared`; `fit_execution_year(prepared, year, previous_state, recipe) -> state`; `reference_goal_probability(state, circumstances, origin_cells) -> probabilities`; `score_execution(prepared, state) -> event_values`; `summarize_execution(event_values, exposures, reference) -> component_results`. this execution preparation selects/encodes v1-01 facts and separately bound coaching, without parsing sources again. the reference accessor evaluates the full neutral joint product at each requested origin; attribution supplies its own event circumstances, not an averaged shot scalar. state binds source/design/coach identity, actual training cutoff, coefficients/priors/centers, origin law and numerical status. event rows bind game/event/person/strength, source and label status, origin/value mass, neutral/actor-conditioned opportunity, applicable conditional goal predictions and allocated contributions. summaries carry units, reference, support and experimental limitations; missing intervals are absent.
+
+five annual chains contain twenty outcome states plus five continuation and five conditional-danger states. report both initializations and mixture inner solves as actual computation; they are not extra scientific recipes. the parent's bounded final-state continuation covers all six distinct heads, including continuation and conditional danger. retain fits, figures and lightweight receipts; do not mirror expensive outputs locally.
+
+verify probability and mass closure, finite objectives/gradients, known-assist likelihood versus outcome-blind scoring, off-ice candidates, missing/terminal labels, mirrored geometry, changing annual references/age, map/scalar/credit closure and detached publication reads. report probability diagnostics and source-selective coverage without a pass/fail scientific gate. inspect real skaters/goalies and retain adverse cases. temporary campaign checks are deleted under the parent policy; this baseline does not claim calibrated player intervals or supported ability.

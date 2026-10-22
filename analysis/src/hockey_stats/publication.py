@@ -284,7 +284,7 @@ def _validate_personal(metrics, on_ice, loc):
     require(valid and (status != "complete" or excluded == 0), f"{loc}: inconsistent personal null/status/rate contract")
 
 
-def _selection(selection_path):
+def read_selection(selection_path):
     """decode the bounded publication selection, independently of research selections."""
     path = Path(selection_path).resolve(strict=True)
     data = path.read_bytes()
@@ -314,7 +314,8 @@ def _selection(selection_path):
     return path, data, value, paths
 
 
-def _stored(row, season):
+def stored_row(row, season):
+    """validate and flatten one observed result row for sqlite storage."""
     fields = dict(row) if isinstance(row, dict) else asdict(row)
     if "attempts_for" in fields:
         expected = asdict(_metrics(fields["included_seconds"], fields["known_excluded_seconds"],
@@ -343,7 +344,7 @@ def _insert(connection, table, row):
     connection.execute(f"INSERT INTO {table} ({','.join(row)}) VALUES ({','.join('?' for _ in row)})", tuple(row.values()))
 
 
-def _check_season(connection, result, purpose):
+def check_season(connection, result, purpose):
     """independently reduce stored facts within one season, one game/player at a time."""
     season = result.season
     connection.row_factory = sqlite3.Row
@@ -475,7 +476,7 @@ def _check_season(connection, result, purpose):
 def build_publication(selection_path: Path, output: Path) -> dict:
     """finalize after each season's independent read-back and the complete database checks."""
     started = time.monotonic()
-    selection_path, selection_bytes, selection, paths = _selection(selection_path)
+    selection_path, selection_bytes, selection, paths = read_selection(selection_path)
     output = output.absolute()
     require(not output.exists() and not output.is_symlink(), f"{output}: output already exists")
     parent = output.parent.resolve(strict=True)
@@ -526,7 +527,7 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                 _insert(connection, "season", evidence)
                 for table, rows in tables:
                     for row in rows:
-                        _insert(connection, table, _stored(row, result.season))
+                        _insert(connection, table, stored_row(row, result.season))
             with closing(sqlite3.connect(incomplete.as_uri() + "?mode=ro", uri=True)) as readback:
                 readback.row_factory = sqlite3.Row
                 require(dict(readback.execute("SELECT * FROM season WHERE season=?", (result.season,)).fetchone()) == evidence,
@@ -535,9 +536,9 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                     cursor = readback.execute(f"SELECT * FROM {table} WHERE season=? ORDER BY rowid", (result.season,))
                     for row in rows:
                         actual = cursor.fetchone()
-                        require(actual is not None and dict(actual) == _stored(row, result.season), f"{result.season}/{table}: read-back differs")
+                        require(actual is not None and dict(actual) == stored_row(row, result.season), f"{result.season}/{table}: read-back differs")
                     require(cursor.fetchone() is None, f"{result.season}/{table}: extra stored rows")
-                checks = _check_season(readback, result, selection["purpose"])
+                checks = check_season(readback, result, selection["purpose"])
             season_output = output / "seasons" / result.season
             season_output.mkdir(parents=True)
             season_verification = {"schema_version": 1, "kind": "observed_season_verification",

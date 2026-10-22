@@ -1611,6 +1611,7 @@ def _validate_scalar_state_at_variance(likelihood, previous, state, variance, in
                 "scalar coefficient state axes or finite float64 arrays differ")
     require(state.a == (variance if previous is None else previous.a)
             and state.q == (None if previous is None else variance), "scalar coefficient prior scale lineage differs")
+    base = base.copy()
     base[indices, indices] += variance
     _validate_coefficient_posterior(H, score, u, mean, base, state.uncentered_beta,
                                     state.beta, state.V, state.centering_shift)
@@ -1676,8 +1677,6 @@ def scalar_score_control_equivalence(
     _, H, score, _, mean, base, indices = inputs
     _validate_scalar_state_at_variance(score_likelihood, previous, state,
         state.scale["selected"]["variance"], inputs)
-    # use the unmodified incoming covariance; posterior validation adds its variance.
-    _, H, score, _, mean, base, indices = _scalar_score_inputs(score_likelihood, previous)
     problem = _ScaleProblem(H, score, None, mean, base, indices, None, response_rank=1)
     mean_score = float(2*np.sum(mean*score))
     mean_energy = float(np.sum(mean*(H @ mean)))
@@ -1693,11 +1692,14 @@ def scalar_score_control_equivalence(
         rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy)
             +abs(objective)+abs(omitted))
         residual = abs((objective+omitted)-row["objective"])
-        require(math.isfinite(objective) and math.isclose(objective+omitted, row["objective"],
-                rel_tol=1e-8, abs_tol=max(1e-10, rounding)),
+        require(math.isfinite(objective) and math.isclose(objective, row["objective"]-omitted,
+                rel_tol=1e-8, abs_tol=max(1e-10, rounding))
+                and abs(row["objective"]-objective-omitted) <= max(1e-10, rounding),
                 "saved scalar control differs from its score-only constant offset")
         comparisons.append(dict(exponent=row["exponent"], variance=row["variance"],
             saved_full_objective=row["objective"], score_objective=objective,
+            saved_full_minus_score=float(row["objective"]-objective),
+            omitted_constant_absolute_residual=float(abs(row["objective"]-objective-omitted)),
             full_reconstruction_absolute_residual=residual, rounding_allowance=rounding,
             equation_relative_residual=problem.curve[-1]["equation_relative_residual"]))
     return dict(objective_identity="gaussian_score_scale_contrast_v1",
@@ -1755,6 +1757,25 @@ def validate_scalar_score_coefficient_probe(
 ) -> None:
     """verify a saved score-only alternative without refitting or propagating it."""
     validate_scalar_score_coefficient_state(likelihood, previous, primary)
+    _validate_scalar_probe(likelihood, previous, primary, receipt, alternative,
+        _scalar_score_inputs(likelihood, previous), 0., 0.)
+
+
+def validate_scalar_coefficient_probe(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None,
+    primary: ScalarCoefficientState, receipt: dict, alternative: ScalarCoefficientState,
+) -> None:
+    """verify an unchanged energy-bearing probe using its original full objective."""
+    validate_scalar_coefficient_state(likelihood, previous, primary)
+    inputs = _scalar_coefficient_inputs(likelihood, previous)
+    _, H, score, _, mean, _, _ = inputs
+    mean_score, mean_energy = float(2*np.sum(mean*score)), float(np.sum(mean*(H @ mean)))
+    offset = float(likelihood.energy-mean_score+mean_energy)
+    rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy))
+    _validate_scalar_probe(likelihood, previous, primary, receipt, alternative, inputs, offset, rounding)
+
+
+def _validate_scalar_probe(likelihood, previous, primary, receipt, alternative, inputs, offset, rounding):
     saved = primary.scale
     require(set(receipt) == {"saved_winner", "rechecked_candidates", "tightened_refinement", "selected",
             "saved_scale_status", "numerical_complete", "status", "scope",
@@ -1796,14 +1817,14 @@ def validate_scalar_score_coefficient_probe(
     require(receipt["selected"] == selected
         and receipt["numerical_complete"] is (refinement is None or refinement["success"]),
         "frozen scalar score probe selection or numerical completion differs")
-    inputs = _scalar_score_inputs(likelihood, previous)
     H, score, mean, base = _validate_scalar_state_at_variance(
         likelihood, previous, alternative, selected["variance"], inputs)
     _, _, factor = _factor(H, base)
     objective = float(2*np.log(np.diag(factor)).sum()
                       - np.sum((score-H @ mean)*(alternative.uncentered_beta-mean)))
     require(math.isfinite(objective)
-        and math.isclose(objective, selected["objective"], rel_tol=1e-8, abs_tol=1e-10)
+        and math.isclose(objective, selected["objective"]-offset, rel_tol=1e-8,
+            abs_tol=max(1e-10, rounding+8*np.finfo(float).eps*abs(objective)))
         and alternative.diagnostics == receipt["diagnostics"],
         "frozen scalar score probe objective or posterior diagnostics differ")
     n = len(primary.player_ids)

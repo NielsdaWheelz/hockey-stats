@@ -26,7 +26,7 @@ from .artifacts import (
 from .chance_cli import read_json
 
 if TYPE_CHECKING:
-    from .attribution import AnnualState, PoolingSource, PoolingStatistics, ShapeBasis
+    from .attribution import AnnualState, PoolingSource, PoolingStatistics, ShapeBasis, ShapeCoefficientLikelihood
 
 POPULATIONS = ("all_attempts", "unblocked_spatial")
 RESEARCH_SEASONS = tuple(f"{year}{year + 1}" for year in range(2021, 2026))
@@ -2329,3 +2329,350 @@ def load_revision_population(
         ref["u"],
         ref.get("p"),
     )
+
+
+@dataclass(frozen=True)
+class EmpiricalSource:
+    """validated counted game moments and their original annual coordinate axes."""
+
+    basis: "ShapeBasis"
+    seasons: tuple[str, ...]
+    grouped: tuple[GroupedPopulation, ...]
+    references: tuple[AnnualReferences, ...]
+    annual: tuple[dict, ...]
+    game_dates: dict[str, str]
+    game_coverage: dict[str, dict]
+    source_identity: dict
+
+
+@dataclass(frozen=True)
+class EmpiricalTraining:
+    """selected training moments; player exposure is seconds, rates are per hour."""
+
+    likelihood: "ShapeCoefficientLikelihood"
+    game_ids: tuple
+    source_player_ids: tuple[int, ...]
+    strata: tuple[tuple, ...]
+    source_strata: tuple[tuple, ...]
+    xbar: np.ndarray
+    nbar: np.ndarray
+    player_exposure: np.ndarray
+    directed_hours: float
+    response_counts: np.ndarray
+    source_identity: dict
+
+
+def _empirical_grouped(annual: dict, path: Path) -> GroupedPopulation:
+    """decode raw moments only; response self energy is neither read nor invented."""
+    names = ("stratum_e",) + tuple(name+suffix for name in
+        ("H_e", "T_raw", "stratum_x", "stratum_n") for suffix in ("_data", "_indices", "_indptr"))
+    with np.load(path, allow_pickle=False) as source:
+        require(set(source.files) == set(annual["grouped_shapes"]), "empirical grouped archive members differ")
+        arrays = {name: source[name] for name in names}
+    require(all(list(value.shape) == annual["grouped_shapes"][name] and np.isfinite(value).all()
+                for name, value in arrays.items()), "empirical grouped member shape or finiteness differs")
+    g, n, s, k = len(annual["game_ids"]), 2*len(annual["players"]), len(annual["strata"]), 656
+    matrices = {}
+    for name, width in (("H_e", n*n), ("T_raw", n*k), ("stratum_x", s*n), ("stratum_n", s*k)):
+        data, indices, indptr = (arrays[name+suffix] for suffix in ("_data", "_indices", "_indptr"))
+        require(data.dtype == np.dtype("float64") and indices.dtype.kind in "iu" and indptr.dtype.kind in "iu"
+                and data.ndim == indices.ndim == indptr.ndim == 1 and len(data) == len(indices)
+                and indptr.shape == (g+1,) and indptr[0] == 0 and indptr[-1] == len(data)
+                and np.all(indptr[1:] >= indptr[:-1]) and np.all((0 <= indices) & (indices < width))
+                and np.all(data >= 0), "empirical sparse moment storage or nonnegative values differ: "+name)
+        matrices[name] = sparse.csr_matrix((data, indices, indptr), shape=(g, width))
+        require(matrices[name].has_canonical_format, "empirical sparse moments are not canonical: "+name)
+    require(arrays["stratum_e"].dtype == np.dtype("float64") and arrays["stratum_e"].shape == (g, s)
+            and np.all(arrays["stratum_e"] >= 0), "empirical context exposure differs")
+    # these two legacy fields are unavailable; empirical contractions never use them.
+    return GroupedPopulation(tuple(annual["game_ids"]), matrices["H_e"], matrices["T_raw"],
+        arrays["stratum_e"], matrices["stratum_x"], matrices["stratum_n"], np.empty(0), None,
+        tuple(annual["membership_signatures"]), annual["row_count"])
+
+
+def read_empirical_source(result_ref: ArtifactReference, basis_ref: ArtifactReference,
+                          corpus_ref: ArtifactReference) -> EmpiricalSource:
+    """read only the frozen corrected count chain, first-year basis and date inventory."""
+    from .attribution import decode_shape_basis
+    from .corpus_inputs import load_corpus
+
+    require(result_ref["sha256"] == "d0c0f6a7af3888cd0d0920d152f322447a984cbc20edac596aa70f60dbb0f2de"
+            and basis_ref == dict(path="/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+                                  sha256="67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc")
+            and corpus_ref == dict(path="/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+                                   sha256="8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"),
+            "empirical research requires its exact result, spatial basis and date corpus")
+    checked = {}
+
+    def path(reference):
+        key = reference["path"]
+        if key not in checked:
+            checked[key] = (reference["sha256"], linked_path(reference))
+        require(checked[key][0] == reference["sha256"], "empirical source binds conflicting file digests")
+        return checked[key][1]
+
+    result = read_json(path(result_ref))
+    require(result["kind"] == "attribution_revision_result" and result["schema_version"] == 2
+            and result["purpose"] == "research" and result["completion"] == "complete",
+            "empirical source requires the completed corrected 04b result")
+    clean_implementation(result["implementation"])
+    clean_implementation(result["model_implementation"])
+    prepared_ref = result["evidence"]["prepared"]
+    require(prepared_ref == dict(path="/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+                                sha256="fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"),
+            "empirical source changed corrected preparation")
+    prepared = read_json(path(prepared_ref))
+    require(prepared["kind"] == "attribution_revision_prepared" and prepared["schema_version"] == 2
+            and prepared["purpose"] == "research" and tuple(prepared["seasons"]) == RESEARCH_SEASONS,
+            "empirical preparation kind, purpose or years differ")
+    clean_implementation(prepared["implementation"])
+    baseline_ref = prepared["baseline_prepared"]
+    require(baseline_ref == REVISION_BASELINE, "empirical source changed original preparation")
+    baseline = read_json(path(baseline_ref))
+    require(baseline["kind"] == "attribution_prepared" and baseline["schema_version"] == 1
+            and baseline["purpose"] == "research", "empirical original preparation identity differs")
+    clean_implementation(baseline["implementation"])
+    original_protocol = read_json(path(baseline["protocol"]))
+    revision_protocol = read_json(path(prepared["protocol"]))
+    clean_implementation(original_protocol["implementation"])
+    clean_implementation(revision_protocol["implementation"])
+    require(result["protocol"] == prepared["protocol"]
+            and revision_protocol["baseline_prepared"] == baseline_ref
+            and original_protocol["selection"] == baseline["selection"] == prepared["selection"]
+            and original_protocol["seasons"] == baseline["seasons"] == prepared["seasons"]
+            and baseline["design"] == prepared["design"]
+            and all(original_protocol["design"][name] == value for name, value in baseline["design"].items())
+            and original_protocol["design"]["spatial_response_covariance"] == "first_season_half_count_cell_shares"
+            and original_protocol["design"]["half_count"] == .5
+            and all(prepared["design"][name] is True for name in
+                    ("paired_team_direction_masks", "zero_event_segments", "matched_spatial_exclusion")),
+            "empirical source changed original population, direction masks or reference lineage")
+    selection = read_json(path(baseline["selection"]))
+    require(prepared["inputs"] == baseline["inputs"] and all(prepared[name] == baseline[name] for name in
+            ("population_ids", "grid", "games_by_season", "target_season", "populations", "design_sha256")),
+            "empirical preparation changed original source or coverage identity")
+    bound_corpora = [{key: row[key] for key in ("path", "sha256")} for row in baseline["inputs"]
+                    if row["kind"] == "corpus"]
+    require(corpus_ref in bound_corpora and len(bound_corpora) == 5
+            and selection["kind"] == "attribution_selection" and selection["schema_version"] == 1
+            and selection["purpose"] == "research"
+            and any(row["season"] == RESEARCH_SEASONS[-1] and row["corpus_path"] == corpus_ref["path"]
+                    for row in selection["corpora"]),
+            "empirical date corpus is absent from the frozen source selection")
+    corpus_inputs = []
+    corpus, inventory, _ = load_corpus(Path(corpus_ref["path"]).resolve(strict=True), corpus_inputs)
+    require(corpus_inputs[0]["sha256"] == corpus_ref["sha256"]
+            and corpus["reference"]["requested_season"] == RESEARCH_SEASONS[-1]
+            and len(inventory) == 1312, "empirical final date corpus digest or admitted inventory differs")
+    checked[corpus_ref["path"]] = (corpus_ref["sha256"], Path(corpus_ref["path"]))
+    annual = tuple(row for row in prepared["annual"] if row["population"] == "unblocked_spatial")
+    original = tuple(row for row in baseline["annual"] if row["population"] == "unblocked_spatial")
+    require(tuple(row["season"] for row in annual) == tuple(row["season"] for row in original) == RESEARCH_SEASONS,
+            "empirical annual spatial inventory differs")
+    grouped, references = [], []
+    for year, (row, old) in enumerate(zip(annual, original, strict=True)):
+        require(all(row[name] == value for name, value in old.items()) and row["status"] == "prepared"
+                and row["reason"] is None and row["players"] == sorted(set(row["players"]))
+                and row["strata"] == sorted(map(list, set(map(tuple, row["strata"]))))
+                and row["game_ids"] == sorted(set(row["game_ids"]))
+                and len(row["game_ids"]) == baseline["games_by_season"][row["season"]],
+                "empirical corrected annual axes, source identity or coverage differ")
+        values = _read_arrays(path(row["references"]), row["reference_shapes"])
+        references.append(AnnualReferences("unblocked_spatial", row["season"], year,
+            baseline["protocol"]["sha256"], prepared["population_ids"]["unblocked_spatial"],
+            tuple(row["players"]), tuple(map(tuple, row["strata"])), row["r"], values["u"], values["p"],
+            values["player_exposure"], values["response_counts"]))
+        grouped.append(_empirical_grouped(row, path(row["grouped"])))
+    require(tuple(sorted(inventory)) == grouped[-1].game_ids,
+            "empirical grouped inventory differs from all admitted games, including zero-time games")
+    from .artifacts import rows
+
+    coverage = {}
+    for row in rows(path(baseline["ledgers"]["coverage"])):
+        if row["season"] == RESEARCH_SEASONS[-1]:
+            game = row["game_id"]
+            require(game in inventory and game not in coverage, "empirical coverage game is absent or duplicated")
+            coverage[game] = dict(row["populations"]["unblocked_spatial"], native_coverage=row["native_coverage"],
+                score_failures=row["score_failures"], unknown_horizon_periods=row["unknown_horizon_periods"])
+    require(set(coverage) == set(inventory), "empirical coverage does not include every admitted final game")
+    for index, game in enumerate(grouped[-1].game_ids):
+        directed_seconds = 3600*float(grouped[-1].stratum_e[index].sum())
+        counts = float(grouped[-1].stratum_n[index].sum())
+        require(math.isclose(directed_seconds, 2*coverage[game]["retained_seconds"], rel_tol=0, abs_tol=1e-7)
+                and counts == coverage[game]["retained_attempts"],
+                "empirical game moments disagree with original matched spatial coverage: "+game)
+    with np.load(path(basis_ref), allow_pickle=False) as source:
+        basis_arrays = {name: source[name] for name in source.files}
+    basis = decode_shape_basis(basis_arrays,
+        basis_sha256="649a49ecba19de5df609d6980d9de76491afa13e9108df0d8e6500659886cc51")
+    require(all(np.array_equal(reference.p, basis.p) for reference in references)
+            and np.array_equal(references[0].p, (references[0].response_counts+.5)
+                               /(references[0].response_counts.sum()+.5*656)),
+            "empirical spatial reference is not the wholly training first-season half-count reference")
+    source_identity = dict(source_result=result_ref, prepared=prepared_ref, baseline_prepared=baseline_ref,
+        basis=basis_ref, corpus=corpus_ref, original_protocol=baseline["protocol"],
+        revision_protocol=prepared["protocol"], selection=baseline["selection"],
+        basis_sha256=basis.sha256, first_reference_season=RESEARCH_SEASONS[0],
+        population_id=prepared["population_ids"]["unblocked_spatial"],
+        coverage_ledger=baseline["ledgers"]["coverage"],
+        decoded_grouped_members=["H_e", "T_raw", "stratum_e", "stratum_x", "stratum_n"])
+    return EmpiricalSource(basis, RESEARCH_SEASONS, tuple(grouped), tuple(references), annual,
+        {game: row["game_date"] for game, row in inventory.items()}, coverage, source_identity)
+
+
+def empirical_training(grouped: GroupedPopulation, references: AnnualReferences,
+                       train_ids: tuple, basis: "ShapeBasis") -> EmpiricalTraining:
+    """contract selected whole games, estimating every annual reference from training."""
+    from .attribution import ShapeCoefficientLikelihood
+
+    ids = tuple(train_ids)
+    n, s, k = 2*len(references.player_ids), len(references.strata), len(basis.p)
+    require(bool(ids) and ids == tuple(sorted(set(ids))) and set(ids).issubset(grouped.game_ids)
+            and grouped.game_ids == tuple(sorted(set(grouped.game_ids)))
+            and grouped.H_e.shape == (len(grouped.game_ids), n*n)
+            and grouped.T_raw.shape == (len(grouped.game_ids), n*k)
+            and grouped.stratum_x.shape == (len(grouped.game_ids), s*n)
+            and grouped.stratum_n.shape == (len(grouped.game_ids), s*k)
+            and grouped.stratum_e.shape == (len(grouped.game_ids), s)
+            and references.benchmark == "unblocked_spatial" and np.array_equal(references.p, basis.p),
+            "empirical training games, native reference or moment axes differ")
+    positions = {game: index for index, game in enumerate(grouped.game_ids)}
+    rows = np.array([positions[game] for game in ids])
+    E = grouped.stratum_e[rows].sum(axis=0)
+    C = np.asarray(grouped.stratum_x[rows].sum(axis=0)).reshape(s, n)
+    N = np.asarray(grouped.stratum_n[rows].sum(axis=0)).reshape(s, k)
+    A = np.asarray(grouped.H_e[rows].sum(axis=0)).reshape(n, n)
+    K = np.asarray(grouped.T_raw[rows].sum(axis=0)).reshape(n, k)
+    require(all(np.isfinite(value).all() and np.all(value >= 0) for value in (A, C, E, N, K))
+            and np.array_equal(N, np.rint(N)) and np.array_equal(K, np.rint(K)),
+            "empirical training requires finite nonnegative counted moments")
+    hours = float(E.sum())
+    require(hours > 0 and float(N.sum()) > 0, "empirical training has no retained exposure or attempts")
+    role_exposure = np.diag(A)
+    require(np.allclose(role_exposure[:n//2], role_exposure[n//2:], rtol=1e-12, atol=1e-12)
+            and np.allclose(A, A.T, rtol=1e-12, atol=1e-12),
+            "empirical training changed paired player exposure or moment symmetry")
+    active = np.flatnonzero(role_exposure[:n//2] > 0)
+    columns = np.r_[active, n//2+active]
+    contexts = np.flatnonzero(E > 0)
+    omitted = E == 0
+    require(not np.any(C[omitted]) and not np.any(N[omitted]),
+            "empirical zero-exposure context contains player exposure or attempts")
+    require(np.allclose(C.sum(axis=1), 10*E, rtol=1e-10, atol=1e-10)
+            and np.allclose(A.sum(axis=1), 10*role_exposure, rtol=1e-10, atol=1e-10)
+            and np.allclose(K.sum(axis=0), 10*N.sum(axis=0), rtol=0, atol=1e-8),
+            "empirical training player/context count or exposure accounting differs")
+    A, C, K = A[np.ix_(columns, columns)], C[np.ix_(contexts, columns)], K[columns]
+    E, N = E[contexts], N[contexts]
+    xbar, nbar, r = C/E[:, None], N/E[:, None], float(N.sum()/hours)
+    H = r*(A-C.T @ xbar)
+    T = K-C.T @ nbar
+    Q = (T-T.sum(axis=1)[:, None]*basis.p) @ basis.B
+    exposure = 3600*role_exposure[active]
+    u = exposure/exposure.sum()
+    player_ids = tuple(references.player_ids[index] for index in active)
+    strata = tuple(references.strata[index] for index in contexts)
+    identity = dict(population_id=references.population_id, source_protocol_sha256=references.protocol_sha256,
+        season=references.season, training_game_ids=list(ids), source_player_ids=list(references.player_ids),
+        source_contexts=list(map(list, references.strata)), basis_sha256=basis.sha256,
+        references="selected_training_rate_exposure_context; fixed_first_season_spatial_reference")
+    likelihood = ShapeCoefficientLikelihood(references.season, player_ids, H, Q, u, r, basis, identity)
+    require(np.isfinite(H).all() and np.isfinite(Q).all() and Q.shape == (2*len(active), 40)
+            and np.allclose(xbar[:, :len(active)].sum(axis=1), 5., rtol=0, atol=1e-10)
+            and np.allclose(xbar[:, len(active):].sum(axis=1), 5., rtol=0, atol=1e-10),
+            "empirical training finite coefficient score or five-player context means differ")
+    return EmpiricalTraining(likelihood, ids, references.player_ids, strata, references.strata,
+        xbar, nbar, exposure, hours, N.sum(axis=0), identity)
+
+
+def empirical_game_moments(grouped: GroupedPopulation, references: AnnualReferences, game_id) -> dict:
+    """one game's sparse raw moments on the complete original player/context axes."""
+    require(game_id in grouped.game_ids, "empirical evaluation game absent from grouped inventory")
+    index = grouped.game_ids.index(game_id)
+    n, s, k = 2*len(references.player_ids), len(references.strata), len(references.response_counts)
+    return dict(E=grouped.stratum_e[index], C=grouped.stratum_x[index].reshape((s, n)).tocsr(),
+        A=grouped.H_e[index].reshape((n, n)).tocsr(), N=grouped.stratum_n[index].toarray().reshape(s, k),
+        K=grouped.T_raw[index].reshape((n, k)).tocsr(), p=references.p,
+        context_ids=references.strata, player_ids=references.player_ids)
+
+
+def read_empirical_fixture(path: Path | str) -> EmpiricalSource:
+    """read literal counted rows; fixture evidence cannot enter the research reader."""
+    from .attribution import decode_shape_basis
+    from .chance_cli import identity
+
+    path = Path(path).resolve(strict=True)
+    document = read_json(path)
+    require(document["kind"] == "attribution_empirical_fixture" and document["schema_version"] == 1
+            and document["purpose"] == "fixture_exercise" and len(document["years"]) == 3
+            and document["seasons"] == [year["season"] for year in document["years"]],
+            "empirical fixture requires three explicit synthetic counted seasons")
+
+    def reference(value):
+        return dict(path=str((path.parent/value["path"]).resolve(strict=True)), sha256=value["sha256"])
+
+    for value in document["sources"].values():
+        linked_path(reference(value))
+    basis_ref = reference(document["basis"]["arrays"])
+    with np.load(linked_path(basis_ref), allow_pickle=False) as source:
+        basis = decode_shape_basis({name: source[name] for name in source.files},
+            basis_sha256=document["basis"]["basis_sha256"])
+    data_ref = reference(document["arrays"])
+    arrays = load_arrays(dict(arrays=data_ref, array_shapes=document["array_shapes"]))
+    grouped, references, annual, coverage = [], [], [], {}
+    fixture_ref = identity(path)
+    for year, row in enumerate(document["years"]):
+        prefix = f"year_{year}_"
+        offense, defense, seconds, si, games, counts = (arrays[prefix+name] for name in
+            ("offense", "defense", "seconds", "si", "row_game_ids", "counts"))
+        players, strata, game_ids = tuple(row["players"]), tuple(map(tuple, row["strata"])), tuple(row["game_ids"])
+        m, n = len(seconds), len(players)
+        require(players == tuple(sorted(set(players))) and strata == tuple(sorted(set(strata)))
+                and game_ids == tuple(sorted(set(game_ids))) and m > 0 and m % 2 == 0
+                and offense.shape == defense.shape == (m, 5) and counts.shape == (m, 656)
+                and games.shape == si.shape == seconds.shape == (m,)
+                and all(value.dtype == np.dtype("int64") for value in (offense, defense, si, games, counts))
+                and seconds.dtype == np.dtype("float64") and np.all(seconds > 0)
+                and np.array_equal(seconds, np.rint(seconds)) and np.all(counts >= 0)
+                and np.all((0 <= si) & (si < len(strata)))
+                and np.all(np.diff(np.sort(offense, axis=1), axis=1) > 0)
+                and np.all(np.diff(np.sort(defense, axis=1), axis=1) > 0)
+                and not np.any(offense[:, :, None] == defense[:, None, :])
+                and np.array_equal(offense[::2], defense[1::2])
+                and np.array_equal(defense[::2], offense[1::2])
+                and np.array_equal(seconds[::2], seconds[1::2]) and np.array_equal(games[::2], games[1::2])
+                and np.all(games[1:] >= games[:-1]) and set(map(str, games)).issubset(game_ids)
+                and tuple(np.unique(np.r_[offense.ravel(), defense.ravel()]).tolist()) == players,
+                "empirical fixture changed nonnegative integer counts, paired rows or ordered axes")
+        exposure = np.array([seconds[(offense == player).any(axis=1)].sum() for player in players])
+        require(np.all(exposure > 0), "empirical fixture source player has no exposure")
+        response_counts = counts.sum(axis=0).astype(float)
+        refs = AnnualReferences("unblocked_spatial", row["season"], year, fixture_ref["sha256"],
+            data_ref["sha256"], players, strata, float(response_counts.sum()/(seconds.sum()/3600)),
+            exposure/exposure.sum(), basis.p, exposure, response_counts)
+        observations = (dict(game_id=str(games[i]), offense=offense[i].tolist(), defense=defense[i].tolist(),
+            seconds=float(seconds[i]), stratum=strata[int(si[i])], counts=counts[i]) for i in range(m))
+        moments = group_observations(observations, refs, game_ids)
+        references.append(refs)
+        grouped.append(moments)
+        totals = dict(supported_seconds=float(seconds.sum()/2), retained_seconds=float(seconds.sum()/2),
+            excluded_seconds=0., recognized_attempts=int(counts.sum()), retained_attempts=int(counts.sum()),
+            excluded_attempts=0, measured_games=len(game_ids), unresolved_membership_seconds=0,
+            unknown_horizon_games=0)
+        annual.append(dict(row, coverage=totals, references=data_ref, grouped=data_ref,
+            source="explicitly synthetic integer counted rows", team_seconds=float(seconds.sum()),
+            total_count=int(counts.sum())))
+        if year == 2:
+            for game, E, N in zip(game_ids, moments.stratum_e, np.asarray(moments.stratum_n.sum(axis=1)).ravel(), strict=True):
+                sec = 1800*float(E.sum())
+                coverage[game] = dict(supported_seconds=sec, retained_seconds=sec, excluded_seconds=0.,
+                    recognized_attempts=int(N), retained_attempts=int(N), excluded_attempts=0,
+                    unresolved_membership_seconds=0, unknown_horizon_periods=[], score_failures=[],
+                    source="explicitly synthetic counted stints")
+    dates = {game: document["game_dates"][game] for game in grouped[-1].game_ids}
+    require(all(isinstance(value, str) for value in dates.values()), "empirical fixture dates are missing")
+    source_identity = dict(fixture=fixture_ref, arrays=data_ref, basis=basis_ref,
+        basis_sha256=basis.sha256, first_reference_season=document["seasons"][0],
+        population_id=data_ref["sha256"], source="explicitly synthetic integer counted stints")
+    return EmpiricalSource(basis, tuple(document["seasons"]), tuple(grouped), tuple(references),
+        tuple(annual), dates, coverage, source_identity)

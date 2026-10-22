@@ -1,7 +1,6 @@
 """factual probability diagnostics from one native prediction pass."""
 
 from collections import Counter
-from datetime import date
 from itertools import zip_longest
 import math
 
@@ -13,6 +12,7 @@ from .captures import InputContractError
 from .chance import CONTEXT_CATEGORIES, ROLES, TYPES, component_prediction_context, predict_component
 from .chance_cohort import SOURCE_STATUSES, STUDY_INCLUSIONS
 from .chance_targets import DECOMPOSITION_QUANTITIES, component_target, recorded_on_net
+from .paired_evaluation import calendar_blocks, paired_samples as ratio_samples, ratio_bootstrap
 
 
 PROBABILITY_POPULATIONS = {
@@ -630,92 +630,25 @@ def composed_summaries(stream_path, game_dates):
     return result
 
 
-def calendar_blocks(dates, days):
-    require(bool(dates) and type(days) is int and days > 0, "invalid calendar resampling units")
-    parsed = [date.fromisoformat(value) for value in dates]
-    first = min(parsed)
-    return np.array([(value - first).days // days for value in parsed], dtype=np.int64)
-
-
 def ratio_interval(numerators, denominators, seed, *, observed=None, blocks=None, samples=None):
-    """pool additive sums; retain zero-contribution units and every undefined draw."""
-    numerators = np.asarray(numerators, dtype=np.float64)
-    denominators = np.asarray(denominators, dtype=np.float64)
-    require(
-        numerators.shape == denominators.shape
-        and numerators.ndim == 1
-        and len(numerators) > 0
-        and np.isfinite(numerators).all()
-        and np.isfinite(denominators).all()
-        and (denominators >= 0).all(),
-        "invalid resampling sums",
-    )
-    contributing_games = int(np.count_nonzero(denominators))
-    total = float(denominators.sum())
-    estimate = float(numerators.sum() / total) if total else None
-    all_one_label = False
+    """retain historical attempt labels around the shared float ratio kernel."""
+    result = ratio_bootstrap(numerators, denominators, seed, blocks=blocks, samples=samples)
+    total = result.pop("denominator")
+    result.pop("draws")
+    result["count"] = int(total)
+    if result["missing_reason"] is not None:
+        result["missing_reason"] = "zero attempt denominator in at least one resampled draw"
     if observed is not None:
-        observed = np.asarray(observed, dtype=np.float64)
-        require(
-            observed.shape == denominators.shape
-            and np.isfinite(observed).all()
-            and (observed >= 0).all()
-            and (observed <= denominators).all(),
-            "invalid observed label sums",
-        )
+        observed, denominators = (np.asarray(value, dtype=np.float64)
+                                  for value in (observed, denominators))
+        require(observed.shape == denominators.shape and np.isfinite(observed).all()
+                and np.all(observed >= 0) and np.all(observed <= denominators),
+                "invalid observed label sums")
         all_one_label = bool(total and (observed.sum() == 0 or observed.sum() == total))
-    if blocks is not None:
-        blocks = np.asarray(blocks)
-        require(blocks.shape == denominators.shape and np.issubdtype(blocks.dtype, np.integer)
-                and (blocks >= 0).all(), "invalid calendar block assignments")
-        n = int(max(blocks)) + 1
-        numerators = np.bincount(blocks, weights=numerators, minlength=n)
-        denominators = np.bincount(blocks, weights=denominators, minlength=n)
-    else:
-        n = len(numerators)
-    if samples is None:
-        samples = np.random.Generator(np.random.PCG64(seed)).integers(0, n, size=(2000, n))
-    require(samples.shape == (2000, n) and np.issubdtype(samples.dtype, np.integer)
-            and (samples >= 0).all() and (samples < n).all(), "resampling dimensions disagree")
-    sampled_denominators = denominators[samples].sum(axis=1)
-    undefined = int(np.count_nonzero(sampled_denominators == 0))
-    sampled = np.divide(
-        numerators[samples].sum(axis=1),
-        sampled_denominators,
-        out=np.full(2000, np.nan),
-        where=sampled_denominators != 0,
-    )
-    require(estimate is None or math.isfinite(estimate), "nonfinite pooled estimate")
-    require(np.isfinite(sampled).sum() + undefined == 2000, "nonfinite bootstrap estimate")
-    reason = (
-        "zero attempt denominator in at least one resampled draw"
-        if undefined
-        else "all-one-label population cannot establish calibration support"
-        if all_one_label
-        else None
-    )
-    result = {
-        "estimate": estimate,
-        "count": int(total),
-        "contributing_games": contributing_games,
-        "interval": None
-        if undefined
-        else np.percentile(sampled, [2.5, 97.5], method="linear").tolist(),
-        "undefined_draws": undefined,
-        "missing_reason": "zero attempt denominator in at least one resampled draw"
-        if undefined
-        else None,
-    }
-    if observed is not None:
-        result.update(
-            observed_positive_count=int(observed.sum()),
-            all_one_label=all_one_label,
-            calibration_support_missing_reason=reason,
-        )
-    if blocks is not None:
-        result.update(contributing_blocks=int(np.count_nonzero(denominators)), selected_blocks=n)
+        result.update(observed_positive_count=int(observed.sum()), all_one_label=all_one_label,
+            calibration_support_missing_reason=(result["missing_reason"] if result["undefined_draws"]
+                else "all-one-label population cannot establish calibration support" if all_one_label else None))
     return result
-
 
 
 def compare_paired_records(baseline, changed, pairs, *, resampling=True, samples=None):
@@ -806,16 +739,7 @@ def compare_paired_records(baseline, changed, pairs, *, resampling=True, samples
 
 def paired_samples(game_dates, seed=3032026):
     """one selected draw matrix per unit; retain empty dates and zero-count games."""
-    dates = list(game_dates.values())
-    require(bool(dates), "paired resampling requires selected games")
-    units = dict(games=None, calendar_7_day=calendar_blocks(dates, 7),
-                 calendar_14_day=calendar_blocks(dates, 14))
-    result = {}
-    for name, blocks in units.items():
-        count = len(dates) if blocks is None else int(max(blocks)) + 1
-        result[name] = dict(blocks=blocks, samples=np.random.Generator(np.random.PCG64(seed)).integers(
-            0, count, size=(2000, count)))
-    return result
+    return ratio_samples(game_dates, seed)
 
 
 def paired_additive(numerators, denominators, game_dates, *, samples=None):

@@ -2,6 +2,36 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05h specification review — 2026-10-21
+
+independent source/statistical, systems and content review clears the [05h full specification](../specs/05h-observed-deployment.md). all final retained on-ice segments contribute, including zero-event time; personal/spatial masks and peer filters do not redefine deployment. one canonical seasonal-pair table serves either endpoint, with existing per-game receipts supplying exact reductions. trades can produce both relations. independent membership checks complement conservation, which alone cannot detect swapped identities.
+
+the user selected minutes and shares of the profile player's included time. neutral top-ten tables expand to all counterparts; names/positions use the selected season, without misleading team-stint labels. shares overlap and need not agree reciprocally. review clarifies the explicit season prop and named denominator. no comparison/export expansion, quality measure or fitted interpretation follows.
+
+schema 6 adds one table and one profile-response field, reusing identity, coverage, publication and navigation owners. the cost is a candidate rebuild, larger game receipts and less detail from season aggregation/collapsed rows. implementation depends on 02d's checked observed boundary, not its separate research audit or 04m. this is specification acceptance only; [the plan](../plan.md) owns implementation and activation assignment.
+
+## 02d specification review — 2026-10-21
+
+independent source/statistical, systems and content review supports the [full 02d contract](../specs/02d-source-exposure-consistency.md). source evidence owns constant-lineup segments and interior/boundary distinctions; observed preparation owns matched exclusions. the user selected three complete-bundle probes followed by conditional expansion across the 57 affected games. new captures remain distinct originals; the 342-request ceiling adds no new feed or capture framework.
+
+one schema-5 observed candidate verifies the consumer consequences. the comparison separates the original publication, changed policy on original inputs, and selected recovered inputs. frozen research ledgers supply their own support consequences; neither website seconds nor source differences establish fitted impact. verified different frozen evidence can complete the bounded comparison with hypothetical reprocessing still unassessed; missing required evidence leaves execution incomplete.
+
+review clarified initial/final recovery receipt binding, selection-tree ownership, provider absence versus invariant failure, a recovered fixture from whichever game succeeds, and explicit cell/cohort report identities. whole-run exclusion loses possibly valid play; edges remain unresolved; new bundles may change collateral facts. these costs are declared rather than hidden. this is specification review only; acquisition, implementation, audit execution, fitting and activation are not assigned. [the plan](../plan.md) owns progression.
+
+## 04m implementation and empirical review — 2026-10-21
+
+independent source/training, numerical/statistical and rendered-content review clears [04m](attribution-04m/verification.md). the four-state counted fixture passes direct posterior and per-stint loss oracles, leakage mutations, unseen/carried identity checks, explicit unavailable contexts, fractional denominators and empty calendar blocks. the shared ratio kernel preserves old chance outputs exactly. the real execution reconciles six fresh states, six fixed-history probes, 1,312 inventory games, 261 assessment games, 126 comparison rows and all 10,356 diagnostic rows; 9,008 independent checks reproduce saved contractions and intervals. report rendering works with original reads and scientific computation denied. temporary controllers are deleted after final green.
+
+borrowing has supported lower regional loss than independent fitting, and both beat context under all three conditional resampling schemes. native inverse-share evidence is narrower: borrowing–independent has a contrary positive point estimate with unresolved direction; borrowing–context also remains unresolved. regional point harm remains visible beside gains. review makes directed versus physical time, exact native regions, historical source gaps and contrary native evidence explicit. source bytes, historical fits/verdicts and the observed website remain intact; concurrent source-specification drafts are preserved independently. the result is a joint recorded-shape diagnostic, without latent recovery, player intervals, nomination, admission or a selected successor.
+
+## approved direction after 05g — 2026-10-21
+
+source/statistical and product review separate three responsibilities: [02d](../specs/02d-source-exposure-consistency.md) for source/exposure consistency, [05h](../specs/05h-observed-deployment.md) for observed deployment context, and a contingent [04n](../specs/04n-attribution-follow-up.md) selected after 04m. the user approved this direction and documentation updates; full specifications and execution remain separate.
+
+the event/time disagreement warrants a conservative matched-support contract and measured consequences. empty shifts are missing evidence, not an established parser defect; recovery starts with a bounded probe and can end in an explicit retained gap. frozen attribution preparation shares the relevant exclusion pattern, but website seconds cannot establish research impact. preserve 04m's inputs/fits and inspect its own ledgers before proposing regeneration or sensitivity work.
+
+product review favors two shared-minute tables over another outcome/ability surface: teammates and opponents, including zero-event time, linked to existing seasonal profiles. the cost is new factual aggregation and publication work after exposure policy settles. personal shot maps remain later; no chemistry, quality or with/without effect is implied. this sequencing improves evidence and context without bundling source changes into an unselected model experiment. independent source/statistical and product review clear the bounded stubs; this is direction review, not full-specification or implementation acceptance. [the plan](../plan.md) owns assignment.
+
 ## 05g delivery review — 2026-10-21
 
 independent review clears [pr #40](https://github.com/NielsdaWheelz/hockey-stats/pull/40), its successful security check and exact merge-tree equality with reviewed `619cc88`. every producer remains in ancestry. primary typechecking, observed cli/source imports and isolated three-season candidate/profile/map reads pass. the primary editable project metadata is refreshed to restore a missing entry point; dependency pins and the running build remain unchanged.

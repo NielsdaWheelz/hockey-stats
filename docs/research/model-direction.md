@@ -4,7 +4,7 @@ updated 2026-10-22 for the complete experimental product direction, preserving c
 
 ## complete experimental product — 2026-10-22
 
-the user approved completing the selected input/component/output/visualization repertoire, then iterating from its behavior. the next product milestone is the full experimental skater/goalie experience, not another narrow preview. [program specification](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). completed 04o retains its assigned protocol; a favorable result is not a prerequisite and no successor study is automatically selected.
+the user approved completing the selected input/component/output/visualization repertoire, then iterating from its behavior. the subsequent [v1 boundary](../product-inventory.md#v1-card-completion-boundary--2026-10-22) is full hockeyviz-style player cards/components and both jfresh skater formats with supported microstats. this retains component breadth without requiring every alternative encoder or standalone visual tool before release. [program specification](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). completed 04o retains its protocol; a favorable result is not a prerequisite and no successor study is automatically selected.
 
 the process correction is substantive: we treated too many useful but imperfect model mechanisms as unusable until stronger claims passed. 03p and 04n offer real predictive evidence alongside unresolved calibration, recovery and physical-rate defects. they are neither worthless nor admitted player ability. explicit experimental use can start from compatible mechanisms while preserving every original verdict, research-exposed season and narrower claim.
 
@@ -20,13 +20,19 @@ after the baseline is visible, prioritize consequential errors in real cards/map
 
 accepted tradeoff: greater provisional breadth, computation and maintenance, and some estimates that will change materially. the benefit is earlier understanding of the whole product and a better basis for choosing improvements. optional tracking, inaccessible physical truth and private-model equivalence remain outside what this strategy can establish.
 
+### comprehensive repertoire clarification
+
+the user's subsequent clarification makes coverage independent of baseline selection: implement the identified public-data/peer-method families and agreed candidates even when their value is unknown. correct preparation survives poor results; an available unwritten family remains a gap. [model features](../model-features.md) owns the concrete checklist and [the source/method audit](model-input-audit.md) its evidence. full recorded event history, fixed-window summaries, time-decay and learned attention are different mechanisms. attention is our proposed alternative, not a verified claim about a peer's private model.
+
+retain the reviewed initial recipe while completing the added contracts. bounded real-data exercises establish that alternatives actually work; full-corpus fitting of every combination does not follow. prioritize actual v1 card behavior and its input dependencies; retain later alternatives as explicit work, then direct expensive comparisons from product consequences. this costs preparation and maintenance without pretending indiscriminate activation improves a model. [the coverage issue](../issues/experimental-repertoire-coverage.md) remains open without becoming a blanket release gate; the previous baseline review does not cover the additions.
+
 ### concrete baseline rationale
 
 the [full specification](../specs/experimental-player-analysis.md) fixes one initial family recipe, not a search for a successful model. the user's forty-mode choice preserves finer spatial structure at higher computational cost. positive attempt intensity, normalized shape and bounded conditional chance quality jointly ensure that expected goals cannot exceed attempts on the same support; independently fitting two positive rates would not establish that invariant. this changes the likelihood, so old quadratic fits supply evidence and reusable mechanisms, not compatible coefficients.
 
 virtual neutral execution replaces actual-actor averaging only in this experimental product. common training-only opportunity panels and a common 1,000/100/100-minute workload separate modeled level from personal deployment. zero residual execution is a reference player, not an arithmetic league-average probability. the ten-term league-relative index omits specified cross-component interactions; depth replacement subtracts one consistently weighted component vector. neither total claims causal goal credit or war.
 
-fixed origin/setter assumptions, optional-context imputation, age-informed point-prior borrowing and fixed regularization permit a complete initial model without another selection campaign. they can bias results and understate uncertainty; no calibrated interval is supplied. ordinary-minor valuation omits other penalty classes; territorial movement uses recorded anchors and a declared successor approximation. all omitted source facts and correct inactive feature families remain available for later revisions. diagnostic weakness stays visible; arithmetic and source defects remain local blockers.
+fixed origin/setter assumptions, optional-context imputation, age-informed point-prior borrowing and fixed regularization permit a complete initial model without another selection campaign. they can bias results and understate uncertainty; no calibrated interval is supplied. ordinary-minor valuation omits other penalty classes; territorial movement uses recorded anchors and a declared successor approximation. retained source facts do not imply implemented encoders; required missing families belong to the expanded coverage work above. diagnostic weakness stays visible; arithmetic and source defects remain local blockers.
 
 ## approved direction and decision logic
 

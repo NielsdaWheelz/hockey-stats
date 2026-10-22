@@ -2,6 +2,8 @@
 
 status: implementation appendix to [the complete program](experimental-player-analysis.md), not a new admission campaign. the plan owns assignments; the parent specification owns scope, publication, common workloads, replacement and the complete component ledger. historical protocols remain unchanged. this appendix defines a new recipe, not automatic promotion of an old fitted artifact.
 
+the parent's [coverage amendment](experimental-player-analysis.md#input-and-feature-completeness) additionally requires retained event-history/decay/attention and tip/rink alternatives. the equations below still define the initial recipe. the new alternatives need concrete prefix/objective/masking/reference and bounded-exercise contracts here before implementation; this appendix does not yet implement or fully specify them, and their absence keeps expanded coverage open.
+
 ## target and populations
 
 fit annual states in order, 2021–22 through 2025–26; expose the last three seasons. each state uses that season and preceding fitted states only. later seasons never revise an earlier displayed estimate. these are retrospective seasonal estimates on research-exposed data, not live shot forecasts.

@@ -1,0 +1,11 @@
+# microstat inputs and meanings
+
+recorded 2026-10-22 after inspecting the user's [microstat sample](../research/visual-references/jfresh-glendening-microstat-card.jpg). [the sample review](../research/visual-references/README.md#microstat-field-coverage) lists all twenty displayed fields; v21 in [the visual inventory](../product-inventory.md#visual-coverage-inventory--2026-10-22) owns the requested card. the plan owns assignments.
+
+problem: current public event/model outputs do not establish complete observed passes, controlled entries/exits, pressure or puck touches. inferred setter weights and transition rates are different quantities. a visually complete card filled from those fields would invent evidence. the [official reference guide](https://hockeystats.com/about/microstat-player-cards) identifies sampled manual tracking and separate skating data, with definitions and coverage that change by season.
+
+impact: the user requires this card with every honestly constructible field for v1, while accepting impossible/inaccessible fields. layout and supported outputs must progress together; full private-tracking parity is not established. existing shots-on-goal cannot stand in for a reference unblocked-attempt field; setting effect cannot stand in for expected assists. a public skating aggregate does not by itself reproduce the reference's composite or forecast.
+
+resolution: make a field-by-field source/definition matrix against the admitted corpus and identified public feeds. name observed versus inferred construction, timing, numerator/exposure, seasonal coverage, compatible cohort, producer and publication field. verify available event-derived quantities; define any useful independent inferred counterpart separately. record genuinely inaccessible measurements and what source would resolve them. no paid-data purchase, bulk capture or forecasting model is assigned. then implement/exercise supported contracts and retain truthful field-level gaps; require actual values and evidence to claim a field complete.
+
+this is source/contract work inside the experimental program, not a prerequisite for unrelated cards or scientific admission. keep the issue until the matrix and supported implementations have receipts and remaining source limitations are explicit in the inventory and displayed content.

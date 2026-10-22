@@ -6,6 +6,32 @@ the detailed [capability inventory](../product-inventory.md) now separates compo
 
 2026-10-22 amendment: the dated initial-target ordering below is historical. the [full experimental program](../specs/experimental-player-analysis.md) now specifies all selected core player-analysis families together; its numerical and application contracts supersede earlier "later" placeholders. the comparison evidence remains useful, but private parity and scientific support are not inferred from completion.
 
+## supplied-image review and v1 boundary — 2026-10-22
+
+visually inspected all [eight user-selected images](visual-references/README.md), retained their exact bytes and original filename/hash mapping. s01 establishes a compact percentile-tile card with embedded histories; s02 a grouped microstat card; s07 a dense four-map/subskill/component sheet. s04/s08 establish contour, density legend and evidence-inset forms. s05/s06 expose a distinct many-player scatter gap; s03 adds historical population bands. the index records concrete findings and unknowns; no interactive behavior was tested.
+
+the user selected the complete hockeyviz player-card families/components and both jfresh skater cards for v1, with available microstats and explicit inaccessible fields. richer standalone scatters/history bands/context tools can follow. [release checklist](../product-inventory.md#v1-card-completion-boundary--2026-10-22) owns this distinction. no supplied goalie/descriptive-card image closes their remaining field audit. a screenshot's private thresholds, projection or implied attribution cannot become our estimator by copying labels.
+
+the [microstat guide](https://hockeystats.com/about/microstat-player-cards), read for this review, identifies manual tracking and separate skating measures. the [sample field crosswalk](visual-references/README.md#microstat-field-coverage) distinguishes available event facts, independent expected quantities and missing observations. completeness of the v1 format does not establish inaccessible tracking parity. no paid acquisition is assigned.
+
+## visual reference sweep — 2026-10-22
+
+the user requires comprehensive publicly documented player-analysis visual capability. [the visual inventory](../product-inventory.md#visual-coverage-inventory--2026-10-22) owns required rows and delivery status; this page owns reference evidence. this pass re-read public page text/guides below. it did not inspect every image, exercise subscription controls or capture rendered screenshots. retrieved pages include cached older content; access date does not establish current production behavior.
+
+| public reference | evidence from this pass / remaining inspection |
+|---|---|
+| [hockeyviz isolated guide](https://hockeyviz.com/howto/isolate) | documents spatial panels, skill distributions and a component-value diagram; screenshot geometry and interactions still need inspection |
+| [skater career](https://hockeyviz.com/player/matthau97) / [season](https://hockeyviz.com/player/matthau97/TOR/2526) | career lists summaries, histories, subskills and type/danger/breakdown links; season lists shot/context panels, replacements, spider, wowy, deployment and appearances. headings prove panel existence, not complete axis semantics |
+| [descriptive guide](https://hockeyviz.com/howto/skaterCard) | explains scoring/workload bars, on/off scatter, shift/score deployment and teammate/opponent groups. its adjusted and multiseason meanings must not be copied onto our unadjusted season results |
+| [wowy guide](https://hockeyviz.com/howto/wowy) | distinguishes together, focal-away and counterpart-away rates and exposure; our current focal/group contract does not cover all three populations |
+| [goalie career](https://hockeyviz.com/player/helleco93) | lists results, isolated subskills, annual type/danger detail and value; linked images/quantities need their own inspection |
+| [jfresh skater preview](https://hockeystats.com/cards/player-cards) | exposes component/context percentiles, history labels, identity/usage/contract metadata and download. preview access does not establish other-player controls or export behavior |
+| [jfresh goalie preview](https://hockeystats.com/cards/goalie-cards) | exposes strength/danger, start-quality, rebound/consistency, history and observed/expected-save labels; exact formulas and rendered interactions remain unverified |
+
+finish the bounded sweep using representative skater/goalie and season/career pages, the linked detail images/guides, and public table/comparison/history/export surfaces. pin each distinct view's example url, access/method date and screenshot or image when accessible, plus observed controls and access limits. record actual interaction checks separately from a visible control. inaccessible pages remain unknown; do not infer missing panels or bypass access. existing public-profile references in the inventory remain leads, not newly exercised evidence.
+
+map every distinct panel/form/control to an inventory row, shared equivalent or explicit scope decision. a duplicate visual skin can share one implementation; a different analytical question or population needs its own contract. resolve unknown definitions through [the reference issue](../issues/card-reference-definitions.md); track missing display/interaction contracts in [visual coverage](../issues/experimental-visual-coverage.md). this sweep is specification work, not a scientific prerequisite or a claim of exhaustive private-product parity.
+
 ## hockeyviz
 
 the public [isolated-impact guide](https://hockeyviz.com/howto/isolate) combines 5v5 offense/defense maps, power-play offense, penalty-kill defense, finishing, setting, shootiness, penalties drawn/taken, and transition contributions. its synthetic-goals summary places component estimates in a common playing-time context. the example is dated december 2024; linked model descriptions may have newer versions.
@@ -24,7 +50,7 @@ the corresponding long-term target is a compact, shareable comparative card with
 
 semantic correction: the current [official explanation](https://hockeystats.com/about/player-cards) describes a predictive model, including projected scoring rates. our selected-season ability target remains different. borrowing its layout does not authorize relabeling our estimate as projected war. the [goalie preview](https://hockeystats.com/cards/goalie-cards) provides a distinct later reference; several current field definitions remain [unresolved](../issues/card-reference-definitions.md).
 
-## common product, explicit model identity
+## historical initial target, explicit model identity
 
 | capability | destination | initial target |
 |---|---|---|
@@ -37,4 +63,4 @@ semantic correction: the current [official explanation](https://hockeystats.com/
 
 the chosen scientific direction remains hockeyviz-style interpretability and history-informed ability estimation. replicating card capabilities does not by itself choose patrick bacon's war formulation or make synthetic goals interchangeable with war. if multiple model families are eventually offered, label them and preserve their distinct assumptions. the model behind a card must always be identifiable.
 
-extend the selected architecture's explicit output contracts as components are added. this destination does not justify implementing an abstract universal card engine or the entire model catalogue now. when a component becomes the next target, pin its reference example, intended meaning, data requirements, and acceptance evidence before implementing it.
+the current expanded contracts supersede the initial target column above. extend the existing architecture's explicit outputs and shared view owners; no abstract universal card engine follows. required reference examples, meanings, data dependencies and acceptance evidence belong in the current program, with missing contracts visible before their implementation.

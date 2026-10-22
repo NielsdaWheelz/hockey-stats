@@ -2,6 +2,8 @@
 
 implementation appendix to [the complete program](experimental-player-analysis.md). [the plan](../plan.md) alone owns assignment; the parent specification owns seasons, acquisition and publication. [chance/execution](experimental-chance.md) owns inferred origins and reference-execution chance values. this is one coherent initial recipe, not a claim to reproduce private hockeyviz software. frozen studies and their fitted artifacts remain unchanged.
 
+the parent's [coverage amendment](experimental-player-analysis.md#input-and-feature-completeness) also requires concrete retained alternatives for documented finer elapsed context and age/entry/transition-variance behavior. coarse bins and mean drift below remain initial choices, not evidence that those other mechanisms are implemented. finish their equations, exposure/reference semantics and bounded exercise costs before implementing the added alternatives; unrelated baseline and application work need not wait for comparative scientific success.
+
 ## populations and response ownership
 
 prepare five annual states chronologically. use corrected source support, actual membership and ordinary regular-season play with both goalies present. `ev` contains two directed observations of genuine 5v5 time. `st` contains one advantaged-side observation of 5v4, 5v3 or 4v3 time; its attacking player terms mean pp offense, defending terms mean pk defense. share those player terms across the three states, retaining separate state baselines. 4v4, 3v3, empty-net and shorthanded offense do not enter these attribution fits; their descriptive/chance evidence retains its own population.

@@ -1,5 +1,39 @@
 # council synthesis
 
+## v1 delivery planning — 2026-10-22
+
+the user confirmed complete agreed cards/components with coherent initial models, then requested the [next-step plan](../plan.md#v1-delivery-sequence). finish the field/source crosswalk, close missing v1 numerical/schema/content contracts and split implementation across many reviewable prs. complete cards are the acceptance units; source, numerical, publication and view owners can proceed in parallel through settled interfaces. fixtures permit development; actual quantities, interactions and exports establish delivery.
+
+the [dated coverage rule](../product-inventory.md#v1-field-crosswalk-and-card-acceptance) keeps later discoveries in the destination queue unless they repair a promised field/correctness defect or receive an explicit v1 scope decision. unavailable observations retain reasons; unwritten available components remain incomplete. existing numerical references and baseline choices are unchanged. accepted cost: more integration handoffs and temporary fixtures for earlier inspectable cards, without another scientific prerequisite campaign or operating framework. this entry records a planning/documentation update, not new reference, numerical or implementation verification.
+
+independent scope/ownership review found no hidden prerequisite, assignment or scope-reduction blocker. documentation link/anchor and whitespace checks pass; existing side-conversation drafts and reference images remain preserved.
+
+## supplied images and v1 release clarification — 2026-10-22
+
+all [eight user-supplied images](visual-references/README.md) were visually inspected, renamed descriptively and moved from `samples/` without changing bytes. this review found concrete omissions: compact cards' embedded histories, a distinct microstat card, many-player scatters and historical reference bands. map examples also require explicit contour/density/inset composition, while the isolated sheet combines four maps, skill distributions and value accounting. image inspection is not interaction testing, numerical verification or independent subagent review.
+
+the user clarified the release boundary: full hockeyviz-style player cards and component/subskill outputs, plus jfresh's comparative and microstat skater cards using available evidence. [v1 coverage](../product-inventory.md#v1-card-completion-boundary--2026-10-22) separates required card sections from later standalone views and alternative encoders. dedicated goalies remain selected; jfresh-specific goalie extras may follow. the broader inventory grows from nineteen to twenty-one view families without turning all twenty-one into v1 gates.
+
+the hard distinction is between an inaccessible observation and an available but unimplemented component. a source gap can be explicit on a useful card; setting/territory inference cannot impersonate tracked passing/entries. private formulas permit independently specified estimates, not copied claims. [microstat source work](../issues/microstat-inputs.md) records the field-level obligation. scientific weakness remains visible rather than blocking an experimental output; broken arithmetic still blocks that output.
+
+tradeoff: v1 gets full card breadth sooner, with later surrounding tools, source gaps and imperfect estimates. card density costs reflow/export design; microstats cost source/definition work. shared owners remain; no generic chart framework or further research gate. the brief, plan, roadmap and appendices now distinguish release completion from destination completeness. this task changes documentation and reference-file locations only; no implementation, fit, acquisition, publication or independent-review claim follows.
+
+## frontend completeness clarification — 2026-10-22
+
+the user extended the completeness clarification explicitly to visualizations, charts, tables and interactions. documentation review and a bounded public-text/guide sweep found gaps hidden by broad family labels: descriptive scatter/deployment, reciprocal with/without, replacement/spider and goalie pattern/value presentations. [reference evidence](player-card-references.md#visual-reference-sweep--2026-10-22) distinguishes inspected text from uninspected images and subscription behavior. no independent subagent or rendered-browser review occurred in this amendment.
+
+the [nineteen-row visual inventory](../product-inventory.md#visual-coverage-inventory--2026-10-22) now requires explicit meanings, controls, exports, owners and real-delivery evidence. the [application appendix](../specs/experimental-application.md#visual-coverage-and-content-contract) identifies missing producer/schema contracts; a reference panel cannot be implemented by relabeling the nearest existing field. candidate definitions stay open until specified or explicitly rescoped. earlier baseline reviews do not certify these additions.
+
+tradeoff: more content, rendering, numerical/schema work and verification, contained through shared owners and four coherent frontend packages. fixtures permit parallel development, actual outputs close capability, and weak estimates need not wait for scientific admission. source/input and visual audits remain bounded specification work. no code, acquisition, fit, activation or whole-site scope expansion follows from this documentation assignment.
+
+## completeness clarification — 2026-10-22
+
+the user clarified that full capability requires comprehensive identified public inputs, documented peer feature families and agreed alternatives, not only the selected baseline's inputs. the documentation review found a real scope gap: retained chronology, recent-event summaries and fixed windows did not implement full-history/decay/attention alternatives; tip/rink corrections and finer elapsed/age-prior choices also needed explicit dispositions. [the coverage issue](../issues/experimental-repertoire-coverage.md) records the remaining contracts. this is a documentation/code-inspection finding, not a new independent numerical review.
+
+the revised contract separates preparation, selectable implementation, exercised behavior, activation and scientific support. no prior predictive win is required for implementation; weak features may remain inactive. dated public-method/source evidence bounds the inventory, while private recipes and arbitrary infinite transformations remain unknowable. existing selected components still need actual producer-to-screen evidence; a good-looking card or a raw payload cannot prove exhaustive coverage.
+
+tradeoff: more up-front preparation, bounded alternative exercises and retained code, without requiring full-corpus fitting of every combination. integrate the unchanged reviewed baseline and application when assigned, finish the added family contracts within the same program, and iterate from the assembled product. the earlier reviews below certify only their original scope. no new code, acquisition, fit, activation or independent subagent review occurred in this amendment.
+
 ## complete experimental specification review — 2026-10-22
 
 three numerical/hockey/systems-content reviewers developed and cross-reviewed the [full contract](../specs/experimental-player-analysis.md) and its three appendices. the user selected a league-relative headline with roster-depth replacement alongside, virtual neutral execution, forty spatial modes and the common 1,000/100/100-minute workload. the specification fixes the remaining baseline mechanics and a strict shared publication contract; [the plan](../plan.md) alone assigns execution.

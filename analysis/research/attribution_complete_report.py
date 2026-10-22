@@ -271,13 +271,13 @@ def render_reports(output, assessment, assessment_reference):
         "",
         "## volume, shape and interaction",
         "",
-        "| borrowing − independent component | estimate | games 95% interval |",
-        "|---|---:|---|",
+        "| borrowing − independent component | estimate | games 95% interval | direction across three schemes |",
+        "|---|---:|---|---|",
     ]
     for component in ("weighted_volume", "shape", "interaction"):
         row = _aggregate(assessment, CONTRASTS[0], "games", component=component)
         lines.append(
-            f"| {component.replace('_',' ')} | {_number(row['estimate'])} | [{_number(row['lower'])}, {_number(row['upper'])}] |"
+            f"| {component.replace('_',' ')} | {_number(row['estimate'])} | [{_number(row['lower'])}, {_number(row['upper'])}] | `{row['direction']}` |"
         )
     volume = _aggregate(assessment, CONTRASTS[0], "games", metric="volume", component="volume")
     lines += [

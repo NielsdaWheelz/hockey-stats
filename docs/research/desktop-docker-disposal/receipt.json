@@ -1,0 +1,246 @@
+{
+  "authorization": "user approved option 3 with the v7 connection check; no export",
+  "context": "desktop-linux",
+  "scope": [
+    {
+      "name": "hockey-stats-db-1",
+      "id": "c5d05a901ef4d4b0519239b6cd8244fa40326a74dd4c9fcaf71e2c06dc9561d3",
+      "volume": "hockey-stats_hockey_pgdata",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-07-21T10:39:09.971404836Z"
+    },
+    {
+      "name": "hockey-parity-smoke-db-20260801",
+      "id": "ecce93293159a9b10c19005f7dee5603d26e7d48c579112be33800caffa3c8c2",
+      "volume": "hockey-parity-smoke-db-20260801",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T16:00:47.253404135Z"
+    },
+    {
+      "name": "hockey-parity-smoke-v5-db-20260801",
+      "id": "6f055593c6d7f6fc45554fb06cb99faa56338c9241e4027f5bf70d4d8cb0956d",
+      "volume": "hockey-parity-smoke-v5-db-20260801",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T20:07:25.435465179Z"
+    },
+    {
+      "name": "hockey-parity-smoke-v6-db-20260801",
+      "id": "81bcf6c7ff39804b898a1821b37a1891c39be56810c4ed9975b4c5ae1e74bb82",
+      "volume": "hockey-parity-smoke-v6-db-20260801",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T20:41:56.813522804Z"
+    },
+    {
+      "name": "hockey-parity-smoke-v7-db-20260801",
+      "id": "1db57f99578be584bbba6603a488a4fc80db140008b7574e1a0884cd8725c2d1",
+      "volume": "hockey-parity-smoke-v7-db-20260801",
+      "status_before": "running",
+      "restart_before": "unless-stopped",
+      "created": "2026-08-01T21:30:45.162332131Z"
+    },
+    {
+      "name": "hockey-parity-smoke-v8-db-20260801",
+      "id": "03119f684ea1a98ee2f7635aaada03f96bc6e603ab9367442c2741e70d5a3588",
+      "volume": "hockey-parity-smoke-v8-db-20260801",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T22:26:03.895690083Z"
+    },
+    {
+      "name": "hockey-parity-smoke-direct228-synthetic-v1-db-20260801",
+      "id": "ad39e0b8b727788ff9ad3f851c01c4b3085b5caae044d0da9dca9f0c7559a074",
+      "volume": "hockey-parity-smoke-direct228-synthetic-v1-db-20260801",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T22:34:23.816681926Z"
+    },
+    {
+      "name": "hockey-parity-smoke-direct228-synthetic-v2-db-20260801",
+      "id": "6d1499a375442ee3e5fde4368a8966f49f94725ac9f37fe88f27eb9e741bd667",
+      "volume": "hockey-parity-smoke-direct228-synthetic-v2-db-20260801",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T23:04:19.00747638Z"
+    },
+    {
+      "name": "hockey-direct228-v6-search-db-20260801",
+      "id": "f9860c5a67dfe6525e5da01bdfebb6145cdf43988483903c3fe583984d644f1a",
+      "volume": "f48d9fa575882a5cac45aeb0ac782a36209170eeaf23c260966b59084e2f513d",
+      "status_before": "exited",
+      "restart_before": "no",
+      "created": "2026-08-01T20:12:20.155323135Z"
+    }
+  ],
+  "volume_usage_before": {
+    "hockey-parity-smoke-db-20260801": {
+      "links": 1,
+      "reported_size": "494.3MB"
+    },
+    "hockey-parity-smoke-v7-db-20260801": {
+      "links": 1,
+      "reported_size": "131MB"
+    },
+    "hockey-parity-smoke-direct228-synthetic-v1-db-20260801": {
+      "links": 1,
+      "reported_size": "160.3MB"
+    },
+    "hockey-parity-smoke-v8-db-20260801": {
+      "links": 1,
+      "reported_size": "158.5MB"
+    },
+    "f48d9fa575882a5cac45aeb0ac782a36209170eeaf23c260966b59084e2f513d": {
+      "links": 1,
+      "reported_size": "461.8MB"
+    },
+    "hockey-stats_hockey_pgdata": {
+      "links": 1,
+      "reported_size": "103GB"
+    },
+    "hockey-parity-smoke-v6-db-20260801": {
+      "links": 1,
+      "reported_size": "134.4MB"
+    },
+    "hockey-parity-smoke-v5-db-20260801": {
+      "links": 1,
+      "reported_size": "105.2MB"
+    },
+    "hockey-parity-smoke-direct228-synthetic-v2-db-20260801": {
+      "links": 1,
+      "reported_size": "165.8MB"
+    }
+  },
+  "started_at": "2026-10-22T02:21:21.987433+00:00",
+  "raw_before": {
+    "observed_at": "2026-10-22T02:21:21.987853+00:00",
+    "allocated_bytes": 293992919040,
+    "logical_bytes": 2199023255552,
+    "device": 16777234,
+    "inode": 42645133,
+    "host_available_bytes": 102735073280
+  },
+  "actions": [
+    {
+      "at": "2026-10-22T02:21:22.958312+00:00",
+      "operation": "container rm without force or volume flag",
+      "ids": [
+        "c5d05a901ef4d4b0519239b6cd8244fa40326a74dd4c9fcaf71e2c06dc9561d3",
+        "ecce93293159a9b10c19005f7dee5603d26e7d48c579112be33800caffa3c8c2",
+        "6f055593c6d7f6fc45554fb06cb99faa56338c9241e4027f5bf70d4d8cb0956d",
+        "81bcf6c7ff39804b898a1821b37a1891c39be56810c4ed9975b4c5ae1e74bb82",
+        "1db57f99578be584bbba6603a488a4fc80db140008b7574e1a0884cd8725c2d1",
+        "03119f684ea1a98ee2f7635aaada03f96bc6e603ab9367442c2741e70d5a3588",
+        "ad39e0b8b727788ff9ad3f851c01c4b3085b5caae044d0da9dca9f0c7559a074",
+        "6d1499a375442ee3e5fde4368a8966f49f94725ac9f37fe88f27eb9e741bd667",
+        "f9860c5a67dfe6525e5da01bdfebb6145cdf43988483903c3fe583984d644f1a"
+      ]
+    },
+    {
+      "at": "2026-10-22T02:21:23.239520+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-stats_hockey_pgdata",
+      "wall_seconds": 0.281
+    },
+    {
+      "at": "2026-10-22T02:21:23.288669+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-db-20260801",
+      "wall_seconds": 0.049
+    },
+    {
+      "at": "2026-10-22T02:21:23.341271+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-v5-db-20260801",
+      "wall_seconds": 0.052
+    },
+    {
+      "at": "2026-10-22T02:21:23.396792+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-v6-db-20260801",
+      "wall_seconds": 0.055
+    },
+    {
+      "at": "2026-10-22T02:21:23.442929+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-v7-db-20260801",
+      "wall_seconds": 0.046
+    },
+    {
+      "at": "2026-10-22T02:21:23.498605+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-v8-db-20260801",
+      "wall_seconds": 0.055
+    },
+    {
+      "at": "2026-10-22T02:21:23.559114+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-direct228-synthetic-v1-db-20260801",
+      "wall_seconds": 0.06
+    },
+    {
+      "at": "2026-10-22T02:21:23.606682+00:00",
+      "operation": "volume rm without force",
+      "volume": "hockey-parity-smoke-direct228-synthetic-v2-db-20260801",
+      "wall_seconds": 0.047
+    },
+    {
+      "at": "2026-10-22T02:21:23.651848+00:00",
+      "operation": "volume rm without force",
+      "volume": "f48d9fa575882a5cac45aeb0ac782a36209170eeaf23c260966b59084e2f513d",
+      "wall_seconds": 0.045
+    }
+  ],
+  "v7_connection_check": {
+    "checked_at": "2026-10-22T02:21:22.068702+00:00",
+    "inspection_pid": 48,
+    "other_clients": []
+  },
+  "v7_shutdown": {
+    "Status": "exited",
+    "ExitCode": 0,
+    "StartedAt": "2026-10-20T18:17:43.478370667Z",
+    "FinishedAt": "2026-10-22T02:21:22.140596628Z",
+    "OOMKilled": false,
+    "Error": "",
+    "wall_seconds": 0.263
+  },
+  "removed_at": "2026-10-22T02:21:23.652223+00:00",
+  "raw_after_immediate": {
+    "observed_at": "2026-10-22T02:21:23.652283+00:00",
+    "allocated_bytes": 293994450944,
+    "logical_bytes": 2199023255552,
+    "device": 16777234,
+    "inode": 42645133,
+    "host_available_bytes": 102736056320
+  },
+  "docker_preservation": {
+    "all_preexisting_unrelated_container_ids_present": true,
+    "all_preexisting_unrelated_volume_names_present": true,
+    "all_preexisting_image_ids_present": true,
+    "unrelated_containers_before": 59,
+    "unrelated_volumes_before": 240,
+    "image_ids_before": 240,
+    "scoped_containers_absent": 9,
+    "scoped_volumes_absent": 9,
+    "raw_identity_and_logical_size_unchanged": true
+  },
+  "raw_after_followups": [
+    {
+      "observed_at": "2026-10-22T02:22:02.250160+00:00",
+      "allocated_bytes": 189264207872,
+      "logical_bytes": 2199023255552,
+      "device": 16777234,
+      "inode": 42645133,
+      "host_available_bytes": 207342997504
+    }
+  ],
+  "filesystem_preservation": {
+    "protected_roots_identity_unchanged": 18,
+    "sentinel_hashes_unchanged": 28,
+    "primary_dirty_and_untracked_file_hashes_and_mtimes_unchanged": 12
+  },
+  "context_after": "desktop-linux"
+}

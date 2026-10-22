@@ -204,32 +204,58 @@ def empirical_prediction(training, state_or_none, evaluation_ids) -> dict:
 
 
 def _empirical_moments(game, prediction):
-    """align supported contexts without dropping positive assessment exposure."""
+    """align explicit coarse or continuous context moments without dropping exposure."""
     s, n, k = len(game["context_ids"]), 2*len(game["player_ids"]), len(prediction["p"])
-    E = np.asarray(game["E"])
     C, A, K = (sparse.csr_matrix(game[name]) for name in ("C", "A", "K"))
     N = np.asarray(game["N"])
+    general = "G" in game
+    gram = np.asarray(game["G"] if general else game["E"])
     require(game["player_ids"] == prediction["player_ids"]
             and np.array_equal(game["p"], prediction["p"])
-            and E.shape == (s,) and C.shape == (s, n) and A.shape == (n, n)
+            and gram.shape == ((s, s) if general else (s,))
+            and C.shape == (s, n) and A.shape == (n, n)
             and N.shape == (s, k) and K.shape == (n, k)
             and prediction["context"].shape == (len(prediction["context_ids"]), k)
             and prediction["maps"].shape == (n, k)
-            and all(np.isfinite(value).all() for value in (E, C.data, A.data, N, K.data))
-            and np.all(E >= 0), "empirical game moments or prediction axes differ")
+            and all(np.isfinite(value).all() for value in (gram, C.data, A.data, N, K.data))
+            and (general or np.all(gram >= 0)), "empirical game moments or prediction axes differ")
     positions = {context: i for i, context in enumerate(game["context_ids"])}
     require(len(positions) == s and len(set(prediction["context_ids"])) == len(prediction["context_ids"])
             and all(context in positions for context in prediction["context_ids"]),
             "empirical prediction contexts differ from source")
     selected = [positions[context] for context in prediction["context_ids"]]
     omitted = [i for i in range(s) if i not in selected]
-    require(not omitted or (np.all(E[omitted] == 0) and np.all(N[omitted] == 0)
+    require(not omitted or (np.all(gram[omitted] == 0) and np.all(N[omitted] == 0)
                             and C[omitted].nnz == 0),
             "assessment context is absent from training")
-    return E[selected], C[selected], A, N[selected], K
+    if general:
+        integral = np.asarray(game["context_integral"])
+        require(integral.shape == (s,) and np.isfinite(integral).all()
+                and np.isfinite(game["directed_hours"]) and game["directed_hours"] >= 0
+                and np.allclose(gram, gram.T, rtol=1e-8, atol=1e-10),
+                "continuous context exposure or gram differs")
+        gram = gram[np.ix_(selected, selected)]
+    else:
+        gram = gram[selected]
+    return gram, C[selected], A, N[selected], K
 
 
-def empirical_paired_loss(game_moments, left, right, metric, *, response="shape") -> dict:
+def _context_product(gram, values):
+    return gram @ values if gram.ndim == 2 else gram[:, None]*values
+
+
+def _game_hours(game):
+    return float(game["directed_hours"] if "G" in game else np.sum(game["E"]))
+
+
+def _context_integral(game, prediction):
+    if "G" not in game:
+        return _empirical_moments(game, prediction)[0]
+    positions = {context: i for i, context in enumerate(game["context_ids"])}
+    return np.asarray(game["context_integral"])[[positions[c] for c in prediction["context_ids"]]]
+
+
+def empirical_paired_loss(game_moments, left, right, metric, *, response="shape", aggregate=False) -> dict:
     """signed loss difference; response self energy cancels before contraction."""
     require(response in ("shape", "complete"), "paired loss response must be shape or complete")
     require(left["context_ids"] == right["context_ids"] and left["player_ids"] == right["player_ids"]
@@ -242,9 +268,41 @@ def empirical_paired_loss(game_moments, left, right, metric, *, response="shape"
     require(metric.ndim in (1, 2) and metric.shape[0] == len(p) and np.isfinite(metric).all()
             and (metric.ndim == 2 and metric.shape[1] > 0 or metric.ndim == 1 and np.all(metric > 0)),
             "empirical loss requires a finite native operator or positive diagonal metric")
+    if aggregate:
+        require(metric.ndim == 1 and "map_coordinates" in left and "map_coordinates" in right
+                and np.array_equal(left["map_basis"], right["map_basis"]),
+                "aggregate native loss requires explicit common player factors")
+        operator = left["map_basis"]
+        dc = left["map_coordinates"]-right["map_coordinates"]
+        sc = left["map_coordinates"]+right["map_coordinates"]
+        require(operator.ndim == 2 and operator.shape[1] == len(p)
+                and dc.shape == sc.shape == (len(difference_m), len(operator))
+                and all(np.isfinite(v).all() for v in (operator,dc,sc)),
+                "aggregate native player factors differ")
+        shape_n = N-N.sum(axis=1,keepdims=True)*p if response == "shape" else N
+        response_term = float(np.sum(shape_n*difference_f*metric))
+        player_response = K @ (operator*metric).T
+        if response == "shape":
+            player_response -= np.asarray(K.sum(axis=1))*((operator*metric) @ p)
+        response_term += float(np.sum(player_response*dc))
+        value = float(np.sum(difference_f*_context_product(E,sum_f)*metric))
+        value += float(np.sum(((C @ dc) @ operator)*sum_f*metric))
+        value += float(np.sum(difference_f*((C @ sc) @ operator)*metric))
+        value += float(np.sum(dc*((A @ sc) @ ((operator*metric) @ operator.T))))
+        value -= 2*response_term
+        require(np.isfinite(value), "aggregate native paired loss is nonfinite")
+        return dict(loss_numerator=value,component_numerators=np.asarray([value]),
+                    directed_hours=_game_hours(game_moments))
     if metric.ndim == 2:
-        difference_f, sum_f, difference_m, sum_m = (
-            value @ metric for value in (difference_f, sum_f, difference_m, sum_m))
+        difference_f, sum_f = difference_f @ metric, sum_f @ metric
+        if "map_coordinates" in left and "map_coordinates" in right:
+            require(np.array_equal(left["map_basis"],right["map_basis"]),
+                    "regional player factors use different native axes")
+            operator = left["map_basis"] @ metric
+            difference_m = (left["map_coordinates"]-right["map_coordinates"]) @ operator
+            sum_m = (left["map_coordinates"]+right["map_coordinates"]) @ operator
+        else:
+            difference_m, sum_m = difference_m @ metric, sum_m @ metric
         shape_n, shape_k = N @ metric, K @ metric
         if response == "shape":
             shape_n = shape_n-N.sum(axis=1, keepdims=True)*(p @ metric)
@@ -258,29 +316,44 @@ def empirical_paired_loss(game_moments, left, right, metric, *, response="shape"
         response_term += np.asarray(K.multiply(difference_m*weights).sum(axis=0)).ravel()
         if response == "shape":
             response_term -= np.sum(np.asarray(K.sum(axis=1))*p*difference_m*weights, axis=0)
-    components = np.sum(difference_f*(E[:, None]*sum_f+C @ sum_m)*weights, axis=0)
+    components = np.sum(difference_f*(_context_product(E, sum_f)+C @ sum_m)*weights, axis=0)
     components += np.sum(difference_m*(C.T @ sum_f+A @ sum_m)*weights, axis=0)
     components -= 2*response_term
     require(np.isfinite(components).all(), "empirical paired loss is nonfinite")
     return dict(loss_numerator=float(components.sum()), component_numerators=components,
-                directed_hours=float(E.sum()))
+                directed_hours=_game_hours(game_moments))
 
 
-def empirical_residuals(game_moments, prediction, *, response="shape") -> dict:
+def empirical_residuals(game_moments, prediction, *, response="shape", operator=None) -> dict:
     """native signed response sums and overlapping role-specific on-ice associations."""
     E, C, A, N, K = _empirical_moments(game_moments, prediction)
     require(response in ('shape', 'complete'), 'residual response must be shape or complete')
     F, M, p = prediction["context"], prediction["maps"], prediction["p"]
-    observed = (N-N.sum(axis=1, keepdims=True)*p).sum(axis=0) if response == 'shape' else N.sum(axis=0)
-    predicted = (E[:, None]*F+C @ M).sum(axis=0)
-    player_residual = K.toarray()-C.T @ F-A @ M
-    if response == 'shape':
-        # preserve the historical order of operations for frozen 04m values.
-        player_residual = K.toarray()-np.asarray(K.sum(axis=1))*p-C.T @ F-A @ M
+    observed_N = N[:len(game_moments['E'])] if 'G' in game_moments else N
+    if operator is None:
+        observed = (observed_N-observed_N.sum(axis=1,keepdims=True)*p).sum(axis=0) if response=='shape' else observed_N.sum(axis=0)
+        predicted = (_context_integral(game_moments,prediction) @ F+A.diagonal() @ M
+                     if 'G' in game_moments else (E[:,None]*F+C @ M).sum(axis=0))
+        player_residual = K.toarray()-C.T @ F-A @ M
+        if response == 'shape':
+            # preserve the historical order of operations for frozen 04m values.
+            player_residual = K.toarray()-np.asarray(K.sum(axis=1))*p-C.T @ F-A @ M
+    else:
+        require(operator.ndim == 2 and operator.shape[0] == len(p) and np.isfinite(operator).all(),
+                'residual regional operator differs')
+        projected_f = F @ operator
+        projected_m = (prediction['map_coordinates'] @ (prediction['map_basis'] @ operator)
+                       if 'map_coordinates' in prediction else M @ operator)
+        observed = observed_N.sum(axis=0) @ operator
+        predicted = _context_integral(game_moments,prediction) @ projected_f + (A.diagonal() if 'G' in game_moments else np.asarray(C.sum(axis=0)).ravel()) @ projected_m
+        player_residual = K @ operator-C.T @ projected_f-A @ projected_m
+        if response == 'shape':
+            observed -= observed_N.sum()*(p @ operator)
+            player_residual -= np.asarray(K.sum(axis=1))*(p @ operator)
     require(all(np.isfinite(value).all() for value in (observed, predicted, player_residual)),
             "empirical residual is nonfinite")
     return dict(observed_sum=observed, predicted_sum=predicted, residual_sum=observed-predicted,
-                player_residual_sum=player_residual, player_hours=A.diagonal(), directed_hours=float(E.sum()))
+                player_residual_sum=player_residual, player_hours=A.diagonal(), directed_hours=_game_hours(game_moments))
 
 
 def complete_prediction(training, scalar_state, shape_state, evaluation_ids):
@@ -345,8 +418,20 @@ def complete_prediction(training, scalar_state, shape_state, evaluation_ids):
         and np.allclose(maps.sum(axis=1, keepdims=True), volume_maps, atol=1e-9),
         "complete prediction volume or zero-sum shape does not close",
     )
+    map_basis = np.vstack((p, likelihood.basis.R.T))
+    shape_coordinates = np.zeros((2*len(ids),1+likelihood.basis.R.shape[1]))
+    if shape_state is not None:
+        for i, player in enumerate(ids):
+            if player in positions:
+                shape_coordinates[i,1:] = likelihood.r*shape_state.uncentered_Theta[positions[player]]
+                shape_coordinates[len(ids)+i,1:] = likelihood.r*shape_state.uncentered_Theta[len(positions)+positions[player]]
+    coordinates = shape_coordinates.copy()
+    coordinates[:,0] = volume_maps.ravel()
+    require(np.allclose(coordinates @ map_basis,maps,rtol=1e-8,atol=1e-10),
+            "complete player factorization differs from physical maps")
     return dict(
         shape,
+        map_basis=map_basis, map_coordinates=coordinates, shape_coordinates=shape_coordinates,
         context=context,
         maps=maps,
         volume_context=volume_context,
@@ -363,7 +448,11 @@ def complete_paired_decomposition(game, left, right, regions):
         "loss_numerator"
     ]
     shape_left = dict(left, context=left["shape_context"], maps=left["shape_maps"])
+    if "map_coordinates" in left:
+        shape_left["map_coordinates"] = left["shape_coordinates"]
     shape_right = dict(right, context=right["shape_context"], maps=right["shape_maps"])
+    if "map_coordinates" in right:
+        shape_right["map_coordinates"] = right["shape_coordinates"]
     E, C, A, N, K = _empirical_moments(game, left)
     total_n, total_k = N.sum(axis=1), np.asarray(K.sum(axis=1)).ravel()
     result = dict(volume=volume)
@@ -371,8 +460,9 @@ def complete_paired_decomposition(game, left, right, regions):
         ("regional", regions, float(np.sum((p @ regions) ** 2))),
         ("native_inverse_share", 1.0 / p, 1.0),
     ):
-        complete = empirical_paired_loss(game, left, right, metric, response="complete")
-        shape = empirical_paired_loss(game, shape_left, shape_right, metric)
+        aggregate = metric.ndim == 1 and "map_coordinates" in left and "map_coordinates" in right
+        complete = empirical_paired_loss(game, left, right, metric, response="complete", aggregate=aggregate)
+        shape = empirical_paired_loss(game, shape_left, shape_right, metric, aggregate=aggregate)
         # expand the cross residual directly; response self products cancel.
         q_native = metric @ (p @ metric) if metric.ndim == 2 else p * metric
         shape_n = N @ q_native - total_n * float(p @ q_native)
@@ -383,7 +473,7 @@ def complete_paired_decomposition(game, left, right, regions):
             hf, hm = prediction["shape_context"] @ q_native, prediction["shape_maps"] @ q_native
             cross.append(
                 float(
-                    vf @ (E * hf + C @ hm)
+                    vf @ (_context_product(E, hf[:, None]).ravel() + C @ hm)
                     + vm @ (C.T @ hf + A @ hm)
                     - total_n @ hf
                     - total_k @ hm
@@ -396,8 +486,8 @@ def complete_paired_decomposition(game, left, right, regions):
             np.isclose(
                 complete["loss_numerator"],
                 weight * volume + shape["loss_numerator"] + interaction,
-                rtol=1e-9,
-                atol=1e-8,
+                rtol=1e-8 if "G" in game else 1e-9,
+                atol=1e-10 if "G" in game else 1e-8,
             ),
             "direct volume/shape interaction does not close",
         )
@@ -598,4 +688,224 @@ def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
                 minimum_total_location=total_summary["minimum_complete_example"],
             )
         )
+    return result
+
+
+def quadratic_interval_signs(coefficients, directed_hours):
+    """exact strictly negative portions of a quadratic on normalized time [0,1].
+
+    each row contains constant, linear and quadratic coefficients. floating
+    tolerances are deliberately absent from sign decisions. zero-duration roots
+    do not contribute exposure; the minimum can be an unattained boundary limit.
+    """
+    q = np.asarray(coefficients)
+    require(q.ndim == 2 and q.shape[1] == 3 and len(q)>0 and q.dtype == np.dtype('float64')
+            and np.isfinite(q).all() and np.isfinite(directed_hours) and directed_hours > 0,
+            'quadratic signs require finite coefficients and positive directed hours')
+    import math
+
+    c, b, a = q.T
+    roots = np.zeros((len(q),2),dtype=np.float64)
+    linear = (a == 0) & (b != 0)
+    roots[linear] = (-c[linear]/b[linear])[:,None]
+    quadratic = a != 0
+    discriminant = b*b-4*a*c
+    require(np.isfinite(discriminant).all(), 'quadratic discriminant is nonfinite')
+    uncertain = quadratic & (np.abs(discriminant) <= 8*np.finfo(np.float64).eps*(b*b+np.abs(4*a*c)))
+    # a compensated difference of products preserves near-tangent signs;
+    # factored values below avoid cancellation between nearby roots.
+    for index in np.flatnonzero(uncertain):
+        cc,bb,aa = (float(v) for v in q[index])
+        product=4*aa*cc
+        require(np.isfinite(product) and np.isfinite(4*aa), 'quadratic product is nonfinite')
+        error=math.fma(-4*aa,cc,product)
+        difference=math.fma(bb,bb,-product)
+        discriminant[index]=math.fsum((difference,error))
+    require(np.isfinite(discriminant).all(), 'compensated discriminant is nonfinite')
+    repeated = quadratic & (discriminant == 0)
+    roots[repeated] = (-b[repeated]/(2*a[repeated]))[:,None]
+    distinct = quadratic & (discriminant > 0)
+    stable = -.5*(b[distinct]+np.copysign(np.sqrt(discriminant[distinct]),b[distinct]))
+    roots[distinct,0] = stable/a[distinct]
+    roots[distinct,1] = c[distinct]/stable
+    # absent/outside roots become duplicate boundary cuts, with zero duration.
+    roots.sort(axis=1)
+    unbounded_roots=roots.copy()
+    roots = np.clip(roots,0.,1.)
+    cuts = np.column_stack((np.zeros(len(q)),roots,np.ones(len(q))))
+    lo, hi = cuts[:,:-1], cuts[:,1:]
+    width, mid = hi-lo, (lo+hi)/2
+    at_mid = (a[:,None]*mid+b[:,None])*mid+c[:,None]
+    at_mid[linear] = b[linear,None]*(mid[linear]-unbounded_roots[linear,0,None])
+    real = quadratic & (discriminant >= 0)
+    at_mid[real] = a[real,None]*(mid[real]-unbounded_roots[real,0,None])*(mid[real]-unbounded_roots[real,1,None])
+    negative = (at_mid < 0) & (width > 0)
+    no_real=quadratic & (discriminant < 0)
+    negative[no_real] = (a[no_real,None] < 0) & (width[no_real] > 0)
+    at_mid[no_real] = (a[no_real,None]*(mid[no_real]+b[no_real,None]/(2*a[no_real,None]))**2
+                       -discriminant[no_real,None]/(4*a[no_real,None]))
+    duration = np.where(negative,width,0.).sum(axis=1)*directed_hours
+    integral = at_mid*width+a[:,None]*width**3/12
+    mass = -np.where(negative,integral,0.).sum(axis=1)*directed_hours
+    require(np.isfinite(mass).all() and np.all(mass >= 0),
+            'quadratic negative mass is nonfinite or negative')
+    vertex = np.divide(-b,2*a,out=np.zeros_like(a),where=a != 0)
+    vertex_value = np.divide(-discriminant,4*a,out=np.zeros_like(a),where=a != 0)
+    interior = (a > 0) & (vertex > 0) & (vertex < 1)
+    constant=(a == 0) & (b == 0)
+    endpoint=a+b+c
+    cancellation=np.abs(endpoint) <= 8*np.finfo(np.float64).eps*(np.abs(a)+np.abs(b)+np.abs(c))
+    for index in np.flatnonzero(cancellation & ~constant):
+        endpoint[index]=math.fsum(float(v) for v in q[index])
+    candidate_values = np.column_stack((c,endpoint,np.where(interior,vertex_value,np.inf)))
+    candidate_times = np.column_stack((np.where(constant,.5,0.),np.ones(len(q)),vertex))
+    selected = np.argmin(candidate_values,axis=1)
+    minimum = candidate_values[np.arange(len(q)),selected]
+    times = candidate_times[np.arange(len(q)),selected]
+    attainment = np.full(len(q),'attained',dtype='<U11')
+    attainment[times == 0] = 'right_limit'
+    attainment[times == 1] = 'left_limit'
+    lower, upper = lo[negative], hi[negative]
+    order = np.argsort(lower)
+    lower, upper = lower[order], upper[order]
+    previous = np.r_[0.,np.maximum.accumulate(upper)[:-1]] if len(upper) else np.empty(0)
+    union = float(np.maximum(0.,upper-np.maximum(lower,previous)).sum())
+    return dict(negative_location_hours=np.asarray(duration,dtype=np.float64),negative_mass=np.asarray(mass,dtype=np.float64),
+        negative_pairs=int(np.count_nonzero(duration)),any_negative_hours=union*directed_hours,
+        minimum=np.asarray(minimum,dtype=np.float64),minimum_at=np.asarray(times,dtype=np.float64),minimum_attainment=attainment,
+        negative_interval_bounds=np.stack((lo,hi),axis=2),negative_interval_mask=negative)
+
+
+def context_prediction_row_batches(rows, predictions, training, batch_size=64, *, receipt):
+    """bounded complete-rate polynomial rows; source owns timing and event assignment."""
+    from .attribution_context import context_polynomial, TEMPORAL_IDS
+
+    require(type(batch_size) is int and batch_size > 0 and bool(predictions),
+            'invalid continuous prediction batch size')
+    refs = {arm: {player: i for i, player in enumerate(pred['player_ids'])}
+            for arm, pred in predictions.items()}
+    batches, durations, locators = {arm: [] for arm in predictions}, [], []
+    receipt.update(rows=0, maximum_shape_sum_absolute=0., maximum_complete_volume_absolute=0.)
+    for row in rows:
+        seconds = float(row['end']-row['start'])
+        require(np.isfinite(seconds) and seconds > 0, 'continuous row duration must be positive')
+        Z = context_polynomial(tuple(row['stratum']), row['start'], training.M, training.strata)
+        for arm, prediction in predictions.items():
+            require(prediction['context_ids'] == training.strata+TEMPORAL_IDS,
+                    'continuous prediction context axes differ')
+            positions = refs[arm]
+            require(all(p in positions for p in (*row['offense'], *row['defense'])),
+                    'continuous row players differ')
+            indices = [positions[p] for p in row['offense']]
+            indices += [len(positions)+positions[p] for p in row['defense']]
+            native = Z.T @ prediction['context']
+            native[0] += prediction['maps'][indices].sum(axis=0)
+            volume = Z.T @ prediction['volume_context']
+            volume[0] += prediction['volume_maps'][indices].sum(axis=0)
+            shape = Z.T @ prediction['shape_context']
+            shape[0] += prediction['shape_maps'][indices].sum(axis=0)
+            native *= np.array([1., seconds, seconds**2])[:, None]
+            volume *= np.array([1., seconds, seconds**2])[:, None]
+            shape *= np.array([1., seconds, seconds**2])[:, None]
+            shape_error = float(np.max(np.abs(shape.sum(axis=1))))
+            volume_error = float(np.max(np.abs(native.sum(axis=1, keepdims=True)-volume)))
+            require(np.allclose(shape.sum(axis=1), 0., rtol=1e-8, atol=1e-10)
+                    and np.allclose(native.sum(axis=1, keepdims=True), volume, rtol=1e-8, atol=1e-10),
+                    'continuous physical volume/shape identity differs')
+            receipt['maximum_shape_sum_absolute'] = max(receipt['maximum_shape_sum_absolute'], shape_error)
+            receipt['maximum_complete_volume_absolute'] = max(receipt['maximum_complete_volume_absolute'], volume_error)
+            batches[arm].append(native)
+        receipt['rows'] += 1
+        durations.append(seconds/3600.)
+        locators.append(dict({key: row[key] for key in ('game_id','period','start','end','segment_index','attacking_team')},
+                             side=row['stratum'][0]))
+        if len(durations) == batch_size:
+            yield {arm: np.asarray(v) for arm,v in batches.items()}, np.asarray(durations), locators
+            batches, durations, locators = {arm: [] for arm in predictions}, [], []
+    if durations:
+        yield {arm: np.asarray(v) for arm,v in batches.items()}, np.asarray(durations), locators
+    receipt['status'] = 'verified'
+
+
+def continuous_rate_diagnostics(batches, regions, region_names, training_r):
+    """integrated strict physical signs and exact row/clock witnesses at three resolutions."""
+    require(np.isfinite(training_r) and training_r > 0 and len(region_names) == regions.shape[1],
+            'continuous rate reference differs')
+    summaries = {}
+    for arms, hours, locators in batches:
+        for arm, native in arms.items():
+            require(native.ndim == 3 and native.shape[:2] == (len(hours),3)
+                    and native.shape[2] == len(regions) and np.isfinite(native).all(),
+                    'continuous native polynomial axes differ')
+            for resolution, values in (('total',native.sum(axis=2,keepdims=True)),
+                                       ('regional',native @ regions),('native',native)):
+                n = values.shape[2]
+                entry = summaries.setdefault((arm,resolution), dict(arm=arm,resolution=resolution,
+                    rows=0,locations=n,directed_hours=0.,negative_interval_location_pairs=0,
+                    negative_location_hours=0.,any_negative_directed_hours=0.,negative_mass_predicted_attempts=0.,
+                    minimum=None,worst_location=None))
+                for q, duration, locator in zip(values,hours,locators,strict=True):
+                    result = quadratic_interval_signs(q.T,float(duration))
+                    entry['rows'] += 1; entry['directed_hours'] += float(duration)
+                    entry['negative_interval_location_pairs'] += result['negative_pairs']
+                    entry['negative_location_hours'] += float(result['negative_location_hours'].sum())
+                    entry['any_negative_directed_hours'] += float(result['any_negative_hours'])
+                    entry['negative_mass_predicted_attempts'] += float(result['negative_mass'].sum())
+                    cell = int(np.argmin(result['minimum']))
+                    minimum = float(result['minimum'][cell])
+                    if entry['minimum'] is None or minimum < entry['minimum']:
+                        fraction = float(result['minimum_at'][cell])
+                        entry['minimum'] = minimum
+                        entry['worst_location'] = dict(locator,location_index=cell,
+                            location_label=region_names[cell] if resolution=='regional' else 'total' if resolution=='total' else cell,
+                            time=float(locator['start']+fraction*(locator['end']-locator['start'])),
+                            attainment=result['minimum_attainment'][cell])
+    require(bool(summaries), 'continuous rate diagnostics require positive exposure')
+    for entry in summaries.values():
+        hours=entry['directed_hours']; denominator=entry['locations']*hours
+        entry.update(strict_sign_rule='prediction < 0 on positive-duration intervals',
+            polynomial_precision='float64 saved coefficients; compensated fma discriminant and factored integration; no sign tolerance',
+            minimum_domain='row exposure interior; boundary values are one-sided infima',
+            negative_location_time_fraction=entry['negative_location_hours']/denominator,
+            any_negative_exposure_fraction=entry['any_negative_directed_hours']/hours,
+            negative_mass_reference=training_r*hours,
+            negative_mass_fraction=entry['negative_mass_predicted_attempts']/(training_r*hours),
+            location_exposure_denominator=denominator,training_r=training_r)
+    return list(summaries.values())
+
+
+def context_complete_prediction(training, scalar_state, shape_state, evaluation_ids):
+    """compose physical coarse/time/player fields in the saved training reference."""
+    from .attribution_context import TEMPORAL_IDS
+
+    base = complete_prediction(training, scalar_state, shape_state, evaluation_ids)
+    likelihood, basis = training.likelihood, training.likelihood.basis
+    n = len(likelihood.player_ids)
+    raw_volume = np.zeros((2*n,1))
+    raw_shape = np.zeros((2*n,basis.R.shape[1]))
+    if scalar_state is not None:
+        raw_volume = likelihood.r*scalar_state.uncentered_beta[current_player_rows(scalar_state,likelihood.player_ids)]
+        raw_shape = likelihood.r*shape_state.uncentered_Theta[current_player_rows(shape_state,likelihood.player_ids)]
+    volume_rhs = training.Nh.sum(axis=1,keepdims=True)-training.Ch @ raw_volume
+    shape_rhs = training.Nh @ basis.B-training.Ch @ raw_shape
+    volume_time = np.linalg.solve(training.D,volume_rhs)
+    shape_time = np.linalg.solve(training.D,shape_rhs) @ basis.R.T
+    require(np.allclose(training.D @ volume_time,volume_rhs,rtol=1e-8,atol=1e-10)
+            and np.allclose(training.D @ (shape_time @ basis.B),shape_rhs,rtol=1e-8,atol=1e-10)
+            and np.allclose(shape_time.sum(axis=1),0.,rtol=1e-8,atol=1e-10),
+            'continuous context compensation solve or zero-sum shape differs')
+    result = dict(base,context_ids=training.strata+TEMPORAL_IDS,
+        volume_context=np.vstack((base['volume_context'],volume_time)),
+        shape_context=np.vstack((base['shape_context'],shape_time)))
+    result['context'] = result['volume_context']*basis.p+result['shape_context']
+    require(np.allclose(result['context'].sum(axis=1,keepdims=True),result['volume_context'],rtol=1e-8,atol=1e-10),
+            'continuous complete context does not sum to volume')
+    return result
+
+
+def embed_constant_prediction(prediction, temporal_ids):
+    """embed an unchanged saved coarse predictor with exactly zero temporal terms."""
+    result = dict(prediction,context_ids=prediction['context_ids']+tuple(temporal_ids))
+    for name in ('context','volume_context','shape_context'):
+        result[name] = np.vstack((prediction[name],np.zeros((len(temporal_ids),prediction[name].shape[1]))))
     return result

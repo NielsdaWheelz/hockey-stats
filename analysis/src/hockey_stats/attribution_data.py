@@ -6,6 +6,7 @@ active recovery preparation binds its separate model protocol explicitly.
 """
 
 import hashlib
+import json
 import math
 from dataclasses import dataclass
 from itertools import groupby
@@ -433,6 +434,7 @@ class GroupedPopulation:
     Q_h: np.ndarray | None
     membership_signatures: tuple[str, ...]
     row_count: int
+    correction_identity: dict | None = None
 
 
 @dataclass(frozen=True)
@@ -2520,8 +2522,8 @@ def read_empirical_source(result_ref: ArtifactReference, basis_ref: ArtifactRefe
         {game: row["game_date"] for game, row in inventory.items()}, coverage, source_identity)
 
 
-def empirical_training(grouped: GroupedPopulation, references: AnnualReferences,
-                       train_ids: tuple, basis: "ShapeBasis") -> EmpiricalTraining:
+def _selected_training(grouped: GroupedPopulation, references: AnnualReferences,
+                       train_ids: tuple, basis: "ShapeBasis") -> tuple:
     """contract selected whole games, estimating every annual reference from training."""
     from .attribution import ShapeCoefficientLikelihood
 
@@ -2576,13 +2578,22 @@ def empirical_training(grouped: GroupedPopulation, references: AnnualReferences,
         season=references.season, training_game_ids=list(ids), source_player_ids=list(references.player_ids),
         source_contexts=list(map(list, references.strata)), basis_sha256=basis.sha256,
         references="selected_training_rate_exposure_context; fixed_first_season_spatial_reference")
+    if grouped.correction_identity is not None:
+        identity["source_correction"] = grouped.correction_identity
     likelihood = ShapeCoefficientLikelihood(references.season, player_ids, H, Q, u, r, basis, identity)
     require(np.isfinite(H).all() and np.isfinite(Q).all() and Q.shape == (2*len(active), 40)
             and np.allclose(xbar[:, :len(active)].sum(axis=1), 5., rtol=0, atol=1e-10)
             and np.allclose(xbar[:, len(active):].sum(axis=1), 5., rtol=0, atol=1e-10),
             "empirical training finite coefficient score or five-player context means differ")
-    return EmpiricalTraining(likelihood, ids, references.player_ids, strata, references.strata,
-        xbar, nbar, exposure, hours, N.sum(axis=0), identity)
+    return (EmpiricalTraining(likelihood, ids, references.player_ids, strata, references.strata,
+        xbar, nbar, exposure, hours, N.sum(axis=0), identity),
+        dict(rows=rows,T=T,context_totals=N.sum(axis=1),context_exposure=E))
+
+
+def empirical_training(grouped: GroupedPopulation, references: AnnualReferences,
+                       train_ids: tuple, basis: "ShapeBasis") -> EmpiricalTraining:
+    """derive the shape likelihood from selected raw counted-game moments."""
+    return _selected_training(grouped,references,train_ids,basis)[0]
 
 
 def empirical_game_moments(grouped: GroupedPopulation, references: AnnualReferences, game_id) -> dict:
@@ -2676,3 +2687,995 @@ def read_empirical_fixture(path: Path | str) -> EmpiricalSource:
         population_id=data_ref["sha256"], source="explicitly synthetic integer counted stints")
     return EmpiricalSource(basis, tuple(document["seasons"]), tuple(grouped), tuple(references),
         tuple(annual), dates, coverage, source_identity)
+
+
+def complete_grouped(annual: dict, path: Path) -> GroupedPopulation:
+    """decode recorded moments with the scalar self energy required for volume."""
+    from dataclasses import replace
+
+    grouped = _empirical_grouped(annual, path)
+    with np.load(path, allow_pickle=False) as archive:
+        require(
+            "Q_t" in archive.files and "Q_t" in annual["grouped_shapes"],
+            "complete rates require retained scalar response energy",
+        )
+        energy = archive["Q_t"]
+        require(
+            "Q_h" in archive.files,
+            "complete archive lacks retained shape response energy",
+        )
+        shape_energy = archive["Q_h"]
+    require(
+        energy.dtype == np.dtype("float64")
+        and energy.shape == (len(grouped.game_ids),)
+        and list(energy.shape) == annual["grouped_shapes"]["Q_t"]
+        and np.isfinite(energy).all()
+        and np.all(energy >= 0),
+        "complete scalar response energy differs from its declared axes",
+    )
+    require(
+        shape_energy.dtype == np.dtype("float64")
+        and shape_energy.shape == energy.shape
+        and np.isfinite(shape_energy).all()
+        and np.all(shape_energy >= 0),
+        "complete shape response energy differs",
+    )
+    return replace(
+        grouped,
+        Q_t=energy,
+        Q_h=shape_energy,
+        correction_identity=annual.get("correction_identity"),
+    )
+
+
+def complete_training(grouped, references, train_ids, basis):
+    """derive shape and scalar likelihoods from the same selected counted support."""
+    from .attribution import ScalarCoefficientLikelihood
+
+    shape, selected = _selected_training(grouped, references, train_ids, basis)
+    require(
+        grouped.Q_t is not None
+        and grouped.Q_t.shape == (len(grouped.game_ids),)
+        and grouped.Q_t.dtype == np.dtype("float64")
+        and np.isfinite(grouped.Q_t).all()
+        and np.all(grouped.Q_t >= 0),
+        "complete rates require finite retained scalar energy",
+    )
+    raw_energy = float(
+        (
+            grouped.Q_t[selected["rows"]].sum()
+            - np.sum(selected["context_totals"] ** 2 / selected["context_exposure"])
+        )
+        / shape.likelihood.r
+    )
+    subtraction_scale = float(
+        (
+            grouped.Q_t[selected["rows"]].sum()
+            + np.sum(selected["context_totals"] ** 2 / selected["context_exposure"])
+        )
+        / shape.likelihood.r
+    )
+    roundoff_budget = 32 * np.finfo(np.float64).eps * subtraction_scale
+    require(
+        np.isfinite(raw_energy) and raw_energy >= -roundoff_budget,
+        "complete residual scalar energy is materially negative or nonfinite",
+    )
+    energy = 0.0 if raw_energy < 0 else raw_energy
+    scalar_identity = dict(
+        shape.source_identity,
+        scalar_energy=dict(
+            raw=raw_energy,
+            normalized=energy,
+            roundoff_budget=roundoff_budget,
+            rule="normalize negative subtraction roundoff within 32 epsilon times uncancelled energy scale",
+        ),
+    )
+    scalar = ScalarCoefficientLikelihood(
+        references.season,
+        shape.likelihood.player_ids,
+        shape.likelihood.H,
+        selected["T"].sum(axis=1)[:, None],
+        energy,
+        shape.likelihood.u,
+        shape.likelihood.r,
+        scalar_identity,
+    )
+    return shape, scalar
+
+
+def subtract_zero_count_rows(
+    grouped,
+    references,
+    exclusions,
+    *,
+    membership_signatures=None,
+    correction_identity=None,
+):
+    """subtract finite complete zero-count rows; retained response moments are immutable."""
+    from dataclasses import replace
+
+    require(bool(exclusions), "source correction has no specified rows")
+    keys = set()
+    for row in exclusions:
+        key = (
+            row["game_id"],
+            row["period"],
+            row["segment_index"],
+            row["attacking_team"],
+        )
+        require(
+            key not in keys
+            and row["season"] == references.season
+            and row["population"] == "unblocked_spatial"
+            and row["counts"] == []
+            and row["end"] - row["start"] == row["seconds"]
+            and row["seconds"] > 0
+            and row["game_id"] in grouped.game_ids
+            and tuple(row["stratum"]) in references.strata
+            and len(row["offense"]) == len(row["defense"]) == 5
+            and len(set(row["offense"] + row["defense"])) == 10
+            and set(row["offense"] + row["defense"]).issubset(references.player_ids),
+            "source exclusion locator, count or complete row contract differs",
+        )
+        keys.add(key)
+    require(
+        membership_signatures is not None
+        and len(membership_signatures) == 2 * len(references.player_ids)
+        and correction_identity is not None,
+        "corrected row support and correction identity are required",
+    )
+    ordered = sorted(exclusions, key=lambda row: row["game_id"])
+    delta = group_observations(iter(ordered), references, grouped.game_ids)
+    matrices = {}
+    for name in ("H_e", "stratum_x"):
+        matrix = (getattr(grouped, name) - getattr(delta, name)).tocsr()
+        require(
+            np.all(matrix.data >= -1e-12),
+            "source correction exceeds original design exposure",
+        )
+        matrix.data[matrix.data < 0] = 0
+        matrix.eliminate_zeros()
+        matrices[name] = matrix
+    E = grouped.stratum_e - delta.stratum_e
+    require(np.all(E >= -1e-12), "source correction exceeds original context exposure")
+    E[E < 0] = 0
+    return replace(
+        grouped,
+        H_e=matrices["H_e"],
+        stratum_x=matrices["stratum_x"],
+        stratum_e=E,
+        row_count=grouped.row_count - len(exclusions),
+        membership_signatures=tuple(membership_signatures),
+        correction_identity=correction_identity,
+    )
+
+
+def decode_coefficient_state(row, component="shape"):
+    """decode one named saved coefficient state without selecting or fitting it."""
+    from .attribution import ShapeCoefficientState, ScalarCoefficientState
+
+    values = load_arrays(row)
+    fields = ("season", "r", "a", "q", "source_identity", "scale", "diagnostics")
+    metadata = {name: row[name] for name in fields}
+    metadata.update(
+        {
+            name: tuple(row[name])
+            for name in (
+                "player_ids",
+                "current_player_ids",
+                "entrant_ids",
+                "carried_only_ids",
+            )
+        }
+    )
+    if component == "shape":
+        return ShapeCoefficientState(
+            **metadata, basis_sha256=row["basis_sha256"], **values
+        )
+    require(component == "volume", "unknown coefficient component")
+    return ScalarCoefficientState(**metadata, **values)
+
+
+def coefficient_state_row(
+    state, index, arm, parent, likelihood, arrays, component="shape"
+):
+    """serialize the state metadata shared by the finite selected components."""
+    row = dict(
+        index=index,
+        arm=arm,
+        season=state.season,
+        player_ids=state.player_ids,
+        current_player_ids=state.current_player_ids,
+        entrant_ids=state.entrant_ids,
+        carried_only_ids=state.carried_only_ids,
+        r=state.r,
+        a=state.a,
+        q=state.q,
+        **({"basis_sha256": state.basis_sha256} if component == "shape" else {}),
+        source_identity=state.source_identity,
+        parent=parent,
+        likelihood=likelihood,
+        scale=state.scale,
+        diagnostics=state.diagnostics,
+        **arrays,
+    )
+    return row
+
+
+def read_complete_fixture(path):
+    """read five literal synthetic histories and their independently named exclusions."""
+    from dataclasses import replace
+    from .attribution import decode_shape_basis
+    from .chance_cli import identity
+
+    path = Path(path).resolve(strict=True)
+    document = read_json(path)
+    require(
+        document["kind"] == "attribution_complete_fixture"
+        and document["schema_version"] == 1
+        and document["purpose"] == "fixture_exercise"
+        and len(document["years"]) == 5,
+        "complete fixture requires five explicit counted seasons",
+    )
+
+    def ref(value):
+        return dict(
+            path=str((path.parent / value["path"]).resolve(strict=True)),
+            sha256=value["sha256"],
+        )
+
+    basis_ref = ref(document["basis"]["arrays"])
+    with np.load(linked_path(basis_ref), allow_pickle=False) as archive:
+        basis = decode_shape_basis(
+            {name: archive[name] for name in archive.files},
+            basis_sha256=document["basis"]["basis_sha256"],
+        )
+    data_ref = ref(document["arrays"])
+    arrays = load_arrays(dict(arrays=data_ref, array_shapes=document["array_shapes"]))
+    grouped, references, annual, all_rows = [], [], [], []
+    for index, year in enumerate(document["years"]):
+        prefix = f"year_{index}_"
+        offense, defense, seconds, si, games, counts = (
+            arrays[prefix + name]
+            for name in (
+                "offense",
+                "defense",
+                "seconds",
+                "si",
+                "row_game_ids",
+                "counts",
+            )
+        )
+        require(
+            offense.shape == defense.shape == (len(seconds), 5)
+            and counts.shape == (len(seconds), 656)
+            and np.all(seconds > 0)
+            and np.isfinite(seconds).all()
+            and np.all(counts >= 0)
+            and counts.dtype == np.dtype("int64")
+            and np.array_equal(offense[::2], defense[1::2])
+            and np.array_equal(defense[::2], offense[1::2])
+            and np.array_equal(seconds[::2], seconds[1::2])
+            and np.array_equal(games[::2], games[1::2]),
+            "complete fixture counted row axes differ",
+        )
+        players = tuple(year["players"])
+        strata = tuple(map(tuple, year["strata"]))
+        exposure = np.array(
+            [seconds[(offense == player).any(axis=1)].sum() for player in players]
+        )
+        totals = counts.sum(axis=0).astype(float)
+        refs = AnnualReferences(
+            "unblocked_spatial",
+            year["season"],
+            index,
+            data_ref["sha256"],
+            data_ref["sha256"],
+            players,
+            strata,
+            float(totals.sum() / (seconds.sum() / 3600)),
+            exposure / exposure.sum(),
+            basis.p,
+            exposure,
+            totals,
+        )
+        rows = []
+        for i in range(len(seconds)):
+            nz = np.flatnonzero(counts[i])
+            rows.append(
+                dict(
+                    population="unblocked_spatial",
+                    season=year["season"],
+                    game_id=str(games[i]),
+                    period=1,
+                    start=i // 2 * 300,
+                    end=i // 2 * 300 + float(seconds[i]),
+                    segment_index=i // 2,
+                    attacking_team=int(si[i]) + 1,
+                    offense=offense[i].tolist(),
+                    defense=defense[i].tolist(),
+                    seconds=float(seconds[i]),
+                    stratum=list(strata[int(si[i])]),
+                    counts=[[int(cell), int(counts[i, cell])] for cell in nz],
+                )
+            )
+        moments = group_observations(iter(rows), refs, tuple(year["game_ids"]))
+        references.append(refs)
+        grouped.append(moments)
+        all_rows.append(rows)
+        annual.append(
+            dict(
+                year,
+                coverage=dict(measured_games=len(year["game_ids"])),
+                references=data_ref,
+                grouped=data_ref,
+            )
+        )
+    source_identity = dict(
+        fixture=identity(path),
+        arrays=data_ref,
+        basis=basis_ref,
+        basis_sha256=basis.sha256,
+        source="explicitly synthetic integer counted histories",
+    )
+    coverage = {
+        game: dict(
+            retained_seconds=1800 * float(grouped[-1].stratum_e[i].sum()),
+            retained_attempts=int(grouped[-1].stratum_n[i].sum()),
+        )
+        for i, game in enumerate(grouped[-1].game_ids)
+    }
+    original = EmpiricalSource(
+        basis,
+        tuple(document["seasons"]),
+        tuple(grouped),
+        tuple(references),
+        tuple(annual),
+        document["game_dates"],
+        coverage,
+        source_identity,
+    )
+    exclusions = []
+    for locator in document["exclusions"]:
+        matches = [
+            row
+            for rows in all_rows
+            for row in rows
+            if all(row[name] == value for name, value in locator.items())
+        ]
+        require(
+            len(matches) == 1 and matches[0]["counts"] == [],
+            "fixture exclusion not an exact zero-count row",
+        )
+        exclusions.append(matches[0])
+    corrected = list(grouped)
+    for index, refs in enumerate(references):
+        selected = [row for row in exclusions if row["season"] == refs.season]
+        if selected:
+            retained = [row for row in all_rows[index] if row not in selected]
+            replay = group_observations(iter(retained), refs, grouped[index].game_ids)
+            correction_identity = dict(
+                kind="synthetic_zero_count_exclusion",
+                counted_arrays_sha256=data_ref["sha256"],
+                rows_sha256=hashlib.sha256(
+                    json.dumps(selected, sort_keys=True, separators=(",", ":")).encode()
+                ).hexdigest(),
+            )
+            corrected[index] = subtract_zero_count_rows(
+                grouped[index],
+                refs,
+                selected,
+                membership_signatures=replay.membership_signatures,
+                correction_identity=correction_identity,
+            )
+            verify_grouped_population(corrected[index], replay)
+    receipt = dict(
+        rows=exclusions,
+        directed_seconds=sum(row["seconds"] for row in exclusions),
+        physical_seconds=sum(row["seconds"] for row in exclusions) / 2,
+        count_loss=0,
+        source="explicit synthetic correction",
+    )
+    metadata = dict(document, rows=all_rows)
+    return replace(original, grouped=tuple(corrected)), original, receipt, metadata
+
+
+COMPLETE_SOURCE_SHA = "3e17a6323c2ad67b40e65e2c9a5c4e290d896f640bbf95726b20dc558ff30b08"
+COMPLETE_AUDIT_SHA = "b307e0d1f90989865afb8c2465d272d3351198c7cc2a16074b24dee4ffaffe30"
+COMPLETE_IMPACT_SHA = "f308b2f0c6c77e2f66562c7277af666b105a372d7b18089bd8138f92648953c4"
+COMPLETE_EXCLUSIONS = (
+    ("20232024", "2023020041", 2, 236, 1167, 1200, (30, 8)),
+    ("20232024", "2023020685", 3, 372, 939, 992, (2, 52)),
+    ("20242025", "2024020186", 3, 325, 657, 703, (14, 52)),
+)
+
+
+def read_complete_source(result_ref, audit_ref):
+    """bind accepted 02d evidence and subtract only the six authorized frozen rows."""
+    from dataclasses import replace
+    from .artifacts import rows
+
+    require(
+        result_ref["sha256"] == COMPLETE_SOURCE_SHA
+        and audit_ref["sha256"] == COMPLETE_AUDIT_SHA,
+        "complete rates require the frozen 04m result and accepted final 02d audit",
+    )
+    result = read_json(linked_path(result_ref))
+    audit = read_json(linked_path(audit_ref))
+    require(
+        result["kind"] == "attribution_empirical_result"
+        and result["schema_version"] == 1
+        and result["execution_status"] == "complete"
+        and result["purpose"] == "research",
+        "complete source requires the completed frozen empirical result",
+    )
+    clean_implementation(result["implementation"])
+    clean_implementation(audit["implementation"])
+    require(
+        audit["kind"] == "source_exposure_result"
+        and audit["execution_status"] == "complete"
+        and audit["research_impact"] == "verified"
+        and audit["policy_id"] == "strict_interior_other_strength_v1"
+        and audit["recovery_status"] == "no_recovery"
+        and audit["recovery"]["recovered_games"] == 0,
+        "complete source audit is interim, changed, or reports recovery",
+    )
+    impact_ref = audit["outputs"]["research-impact.json"]
+    require(
+        impact_ref["sha256"] == COMPLETE_IMPACT_SHA,
+        "complete source research-impact identity differs",
+    )
+    oracle_ref = dict(
+        path="/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/review/research-impact-oracle.json",
+        sha256="cf5f1ab4f57d0c4d6232cc5dcce0a862894c0c8ed8ddd79f1296fc1dd726a3d8",
+    )
+    oracle = read_json(linked_path(oracle_ref))
+    require(
+        oracle["totals"]["unblocked_spatial"]["newly_lost_directed_seconds"] == 264
+        and oracle["totals"]["unblocked_spatial"]["newly_lost_row_counts"] == 0,
+        "corroborating frozen source oracle differs",
+    )
+    impact = read_json(linked_path(impact_ref))
+    require(
+        impact["kind"] == "source_exposure_research_impact"
+        and impact["schema_version"] == 1
+        and impact["research_impact"] == "verified"
+        and impact["policy_id"] == audit["policy_id"]
+        and impact["unresolved"] == [],
+        "accepted source impact is incomplete",
+    )
+    assessment_ref = result["consumed"]["assessment"]
+    assessment = read_json(linked_path(assessment_ref))
+    require(
+        assessment["kind"] == "attribution_empirical_assessment"
+        and assessment["execution_status"] == "complete",
+        "complete frozen empirical assessment is unavailable",
+    )
+    clean_implementation(assessment["implementation"])
+    prepared_ref = assessment["prepared"]
+    prepared = read_json(linked_path(prepared_ref))
+    fit_ref = assessment["fit"]
+    fit = read_json(linked_path(fit_ref))
+    clean_implementation(prepared["implementation"])
+    clean_implementation(fit["implementation"])
+    require(
+        prepared["kind"] == "attribution_empirical_prepared"
+        and fit["kind"] == "attribution_empirical_fit"
+        and prepared["purpose"] == fit["purpose"] == "research"
+        and fit["prepared"] == prepared_ref
+        and fit["execution_status"] == "complete"
+        and fit["state_count"] == len(fit["states"]) == 6
+        and len(assessment["probes"]) == 6
+        and prepared["sources"] == result["source_references"],
+        "complete original preparation, fit or probe inventory differs",
+    )
+    original = read_empirical_source(
+        prepared["sources"]["source_result"],
+        prepared["sources"]["basis"],
+        prepared["sources"]["corpus"],
+    )
+    grouped = tuple(
+        complete_grouped(row, linked_path(row["grouped"])) for row in original.annual
+    )
+    original = replace(original, grouped=grouped)
+    baseline = read_json(linked_path(original.source_identity["baseline_prepared"]))
+    ledger_refs = {
+        row["season"]: row["reference"]
+        for row in impact["references"]["directed_rows"]
+        if row["population"] == "unblocked_spatial"
+    }
+    expected = {
+        game: (season, period, segment, start, end, teams)
+        for season, game, period, segment, start, end, teams in COMPLETE_EXCLUSIONS
+    }
+    affected = {}
+    for game in impact["games"]:
+        require(
+            game["source_status"] == "concordant",
+            "source impact includes nonconcordant source evidence",
+        )
+        incidents = game["incidents"]
+        for incident in incidents:
+            require(
+                incident["source_status"] == "concordant"
+                and incident["differences"] == [],
+                "accepted impact incident changed its source evidence",
+            )
+            spatial = incident["populations"]["unblocked_spatial"]
+            if spatial["newly_excluded_physical_seconds"]:
+                require(
+                    game["game_id"] in expected
+                    and spatial["newly_excluded_attempts"] == 0
+                    and spatial["already_excluded_physical_seconds"] == 0
+                    and spatial["lost_retained_events"] == [],
+                    "accepted source audit specifies an unexpected correction",
+                )
+                affected.setdefault(game["game_id"], []).append(incident)
+    require(
+        set(affected) == set(expected),
+        "accepted source audit omits a frozen correction",
+    )
+    exclusions = []
+    support_signatures = {}
+    affected_rows = {}
+    for season in ("20232024", "20242025"):
+        bound = next(
+            row
+            for row in baseline["annual"]
+            if row["population"] == "unblocked_spatial" and row["season"] == season
+        )
+        require(
+            ledger_refs[season] == bound["rows"],
+            "accepted source audit changed original spatial ledger",
+        )
+        annual_index = original.seasons.index(season)
+        refs = original.references[annual_index]
+        positions = {player: index for index, player in enumerate(refs.player_ids)}
+        old_signatures = [hashlib.sha256() for _ in range(2 * len(refs.player_ids))]
+        new_signatures = [hashlib.sha256() for _ in old_signatures]
+        old_count = new_count = 0
+        for row in rows(linked_path(ledger_refs[season])):
+            columns = [positions[player] for player in row["offense"]]
+            columns += [
+                len(refs.player_ids) + positions[player] for player in row["defense"]
+            ]
+            old_marker = old_count.to_bytes(8, "little")
+            for column in columns:
+                old_signatures[column].update(old_marker)
+            old_count += 1
+            excluded = (
+                row["game_id"] in expected
+                and (row["period"], row["segment_index"])
+                == expected[row["game_id"]][1:3]
+            )
+            if not excluded:
+                new_marker = new_count.to_bytes(8, "little")
+                for column in columns:
+                    new_signatures[column].update(new_marker)
+                new_count += 1
+            if row["game_id"] not in expected:
+                continue
+            affected_rows.setdefault(row["game_id"], []).append(row)
+            _, period, segment, start, end, teams = expected[row["game_id"]]
+            if row["period"] == period and row["segment_index"] == segment:
+                require(
+                    row["start"] == start
+                    and row["end"] == end
+                    and row["seconds"] == end - start
+                    and row["attacking_team"] in teams
+                    and row["counts"] == [],
+                    "frozen source exclusion locator, duration or zero-count evidence differs",
+                )
+                incidents = affected[row["game_id"]]
+                require(
+                    len(incidents) == 2
+                    and {entry["state"] for entry in incidents}
+                    == {"original", "selected"},
+                    "accepted source correction does not bind both concordant states",
+                )
+                for incident in incidents:
+                    runs = [
+                        run
+                        for run in incident["runs"]
+                        if run["period_number"] == period
+                        and run["start_seconds"] == start
+                        and run["end_seconds"] == end
+                    ]
+                    require(
+                        len(runs) == 1, "accepted source correction endpoints differ"
+                    )
+                    run = runs[0]
+                    side = row["stratum"][0]
+                    require(
+                        side in ("away", "home")
+                        and row["offense"] == run[side + "_skaters"]
+                        and row["defense"]
+                        == run[("home" if side == "away" else "away") + "_skaters"],
+                        "accepted source correction lineup differs",
+                    )
+                    segments = incident["populations"]["unblocked_spatial"]["segments"]
+                    require(
+                        any(
+                            value["segment_index"] == segment
+                            and value["period"] == period
+                            and value["start"] == start
+                            and value["end"] == end
+                            and value["pre_mask_attempts"] == 0
+                            and row["stratum"]
+                            == [
+                                side,
+                                str(period),
+                                max(
+                                    -3,
+                                    min(
+                                        3,
+                                        value["score_difference"]
+                                        if side == "home"
+                                        else -value["score_difference"],
+                                    ),
+                                ),
+                            ]
+                            for value in segments
+                        ),
+                        "accepted source correction spatial segment differs",
+                    )
+                exclusions.append(row)
+        require(
+            old_count == original.grouped[annual_index].row_count
+            and tuple(item.hexdigest() for item in old_signatures)
+            == original.grouped[annual_index].membership_signatures,
+            "original spatial ledger row support differs from grouped membership signatures",
+        )
+        support_signatures[season] = tuple(item.hexdigest() for item in new_signatures)
+    require(
+        len(exclusions) == 6
+        and len({(row["game_id"], row["attacking_team"]) for row in exclusions}) == 6
+        and sum(row["seconds"] for row in exclusions) == 264,
+        "frozen six-row correction inventory differs",
+    )
+    corrected = list(grouped)
+    for index, refs in enumerate(original.references):
+        selected = [row for row in exclusions if row["season"] == refs.season]
+        if selected:
+            correction_identity = dict(
+                kind="finite_zero_count_exclusion",
+                source_audit_sha256=audit_ref["sha256"],
+                original_grouped_sha256=original.annual[index]["grouped"]["sha256"],
+                rows_sha256=hashlib.sha256(
+                    json.dumps(selected, sort_keys=True, separators=(",", ":")).encode()
+                ).hexdigest(),
+            )
+            corrected[index] = subtract_zero_count_rows(
+                grouped[index],
+                refs,
+                selected,
+                membership_signatures=support_signatures[refs.season],
+                correction_identity=correction_identity,
+            )
+    game_replays = []
+    for game, batch in affected_rows.items():
+        year = original.seasons.index(batch[0]["season"])
+        refs = original.references[year]
+        before = group_observations(iter(batch), refs, (game,))
+        retained = [row for row in batch if row not in exclusions]
+        after = group_observations(iter(retained), refs, (game,))
+        before_errors = verify_grouped_game(before, grouped[year], refs, game)
+        after_errors = verify_grouped_game(after, corrected[year], refs, game)
+        game_replays.append(
+            dict(
+                game_id=game,
+                before_errors=before_errors,
+                after_errors=after_errors,
+                original_rows=len(batch),
+                retained_rows=len(retained),
+            )
+        )
+    receipt = dict(
+        source_result=result_ref,
+        source_audit=audit_ref,
+        research_impact=impact_ref,
+        corroborating_oracle=oracle_ref,
+        policy_id=audit["policy_id"],
+        rows=exclusions,
+        directed_seconds=264,
+        physical_seconds=132,
+        count_loss=0,
+        changed_seasons=["20232024", "20242025"],
+        final_assessment_unchanged=True,
+        affected_game_replays=game_replays,
+        membership_support="original hashes verified; corrected hashes recomputed during existing ledger scan",
+        old_grouped=[row["grouped"] for row in original.annual],
+    )
+    metadata = dict(
+        prepared=prepared,
+        prepared_ref=prepared_ref,
+        fit=fit,
+        fit_ref=fit_ref,
+        assessment=assessment,
+        assessment_ref=assessment_ref,
+        train_ids=prepared["train_ids"],
+        assessment_ids=prepared["assessment_ids"],
+        inventory=prepared["inventory"],
+        months=prepared["months"],
+        row_references={
+            row["season"]: row["rows"]
+            for row in baseline["annual"]
+            if row["population"] == "unblocked_spatial"
+        },
+    )
+    return replace(original, grouped=tuple(corrected)), original, receipt, metadata
+
+
+def iter_complete_rows(source, metadata, assessment_ids):
+    """replay original final held-out support once, including zero-event directed rows."""
+    from .artifacts import rows
+
+    selected = set(assessment_ids)
+    if "rows" in metadata:
+        yield from (row for row in metadata["rows"][-1] if row["game_id"] in selected)
+    else:
+        reference = metadata["row_references"][source.seasons[-1]]
+        for row in rows(linked_path(reference)):
+            if row["game_id"] in selected:
+                yield row
+
+
+def reconcile_complete_rows(row_iterator, grouped, references, assessment_ids, receipt):
+    """stream one game at a time and independently reconcile all five raw moments."""
+    seen = set()
+    count = 0
+    seconds = 0.0
+    attempts = 0
+    errors = {name: 0.0 for name in ("A", "C", "E", "N", "K")}
+    for game, iterator in groupby(row_iterator, key=lambda row: row["game_id"]):
+        require(
+            game in assessment_ids and game not in seen,
+            "held-out row replay duplicates or adds a game",
+        )
+        batch = list(iterator)
+        seen.add(game)
+        actual = group_observations(iter(batch), references, (game,))
+        expected = empirical_game_moments(grouped, references, game)
+        n, s, k = (
+            2 * len(references.player_ids),
+            len(references.strata),
+            len(references.response_counts),
+        )
+        for key, name, shape in (
+            ("A", "H_e", (n, n)),
+            ("C", "stratum_x", (s, n)),
+            ("N", "stratum_n", (s, k)),
+            ("K", "T_raw", (n, k)),
+        ):
+            difference = getattr(actual, name)[0].reshape(shape) - expected[key]
+            value = (
+                float(np.max(np.abs(difference.data)))
+                if sparse.issparse(difference) and difference.nnz
+                else (
+                    float(np.max(np.abs(difference)))
+                    if not sparse.issparse(difference)
+                    else 0.0
+                )
+            )
+            errors[key] = max(errors[key], value)
+        errors["E"] = max(
+            errors["E"], float(np.max(np.abs(actual.stratum_e[0] - expected["E"])))
+        )
+        require(
+            max(errors.values()) <= 1e-10,
+            "held-out row replay differs from grouped raw moments",
+        )
+        count += len(batch)
+        seconds += sum(row["seconds"] for row in batch)
+        attempts += sum(sum(value for _, value in row["counts"]) for row in batch)
+        yield from batch
+    for game in set(assessment_ids) - seen:
+        require(
+            float(grouped.stratum_e[grouped.game_ids.index(game)].sum()) == 0,
+            "positive-exposure held-out game absent from row replay",
+        )
+    receipt.update(
+        status="verified",
+        rows=count,
+        directed_seconds=seconds,
+        retained_counts=attempts,
+        moment_max_absolute_errors=errors,
+        zero_time_games=sorted(set(assessment_ids) - seen),
+        inventory_games=len(assessment_ids),
+    )
+
+
+def read_coefficient_chain(trainings, document):
+    """validate saved annual equations, records, parents and source likelihood identity."""
+    from .attribution import validate_shape_coefficient_state
+
+    require(
+        len(document["states"]) == len(trainings) + 1,
+        "saved coefficient chain inventory differs",
+    )
+    states = []
+    for index, row in enumerate(document["states"]):
+        independent = index == len(trainings)
+        likelihood = (trainings[-1] if independent else trainings[index]).likelihood
+        parent = (
+            None
+            if independent or index == 0
+            else document["states"][index - 1]["record"]
+        )
+        record = read_coefficient_record(row["record"])
+        require(
+            record == {name: value for name, value in row.items() if name != "record"}
+            and row["index"] == index
+            and row["season"] == likelihood.season
+            and row["arm"] == ("independent" if independent else "borrowing")
+            and row["parent"] == parent,
+            "saved coefficient record, annual selection or incoming parent differs",
+        )
+        state = decode_coefficient_state(row)
+        validate_shape_coefficient_state(
+            likelihood, None if independent or index == 0 else states[-1], state
+        )
+        states.append(state)
+    return tuple(states)
+
+
+def exact_shape_reuse_proofs(original_trainings, corrected_trainings, fit_document):
+    """prove the finite first-two and final-independent unchanged likelihood contracts."""
+    proofs = []
+    for index in (0, 1, len(original_trainings)):
+        year = min(index, len(original_trainings) - 1)
+        old, new = original_trainings[year], corrected_trainings[year]
+        fields = ("H", "Q", "u")
+        require(
+            old.likelihood.player_ids == new.likelihood.player_ids
+            and old.likelihood.r == new.likelihood.r
+            and old.likelihood.basis.sha256 == new.likelihood.basis.sha256
+            and old.source_identity == new.source_identity
+            and old.game_ids == new.game_ids
+            and old.strata == new.strata
+            and all(
+                np.array_equal(
+                    getattr(old.likelihood, name), getattr(new.likelihood, name)
+                )
+                for name in fields
+            )
+            and np.array_equal(old.xbar, new.xbar)
+            and np.array_equal(old.nbar, new.nbar),
+            "selected shape reuse changes likelihood arrays, references or axes",
+        )
+        row = fit_document["states"][index]
+        parent = (
+            None
+            if index in (0, len(original_trainings))
+            else fit_document["states"][index - 1]["record"]
+        )
+        require(row["parent"] == parent, "selected shape reuse incoming parent differs")
+        proofs.append(
+            dict(
+                index=index,
+                season=new.likelihood.season,
+                arm=row["arm"],
+                record=row["record"],
+                original_parent=parent,
+                selected_parent=parent,
+                likelihood_arrays_equal=True,
+                ids_rate_exposure_basis_reference_equal=True,
+                incoming_parent_equal=True,
+            )
+        )
+    return proofs
+
+
+def _fixture_reference(reference, root):
+    return dict(
+        path=str((root / reference["path"]).resolve(strict=True)),
+        sha256=reference["sha256"],
+    )
+
+
+def read_coefficient_record(reference):
+    """resolve the explicit portable-fixture record schema at its own boundary."""
+    record = read_json(linked_path(reference))
+    if record.get("reference_mode") == "fixture_relative_v1":
+        root = Path(reference["path"]).parent
+        record = dict(
+            record,
+            arrays=_fixture_reference(record["arrays"], root),
+            parent=None
+            if record["parent"] is None
+            else _fixture_reference(record["parent"], root),
+        )
+    return record
+
+
+def read_complete_fixture_controls(fixture, original):
+    document = read_json(Path(fixture))
+    root = Path(fixture).absolute().parent
+    reference = _fixture_reference(document["controls"], root)
+    controls = read_json(linked_path(reference))
+    require(
+        controls["kind"] == "attribution_complete_fixture_controls"
+        and controls["schema_version"] == 1
+        and controls["purpose"] == "fixture_exercise"
+        and _fixture_reference(controls["source"], root)
+        == original.source_identity["arrays"],
+        "fixture controls differ from explicit counted arrays",
+    )
+    states = []
+    for row in controls["states"]:
+        require(
+            row["reference_mode"] == "fixture_relative_v1",
+            "fixture state reference mode differs",
+        )
+        selected = dict(
+            row,
+            arrays=_fixture_reference(row["arrays"], root),
+            record=_fixture_reference(row["record"], root),
+            parent=None
+            if row["parent"] is None
+            else _fixture_reference(row["parent"], root),
+        )
+        states.append(selected)
+    probes = []
+    for probe in controls["probes"]:
+        alternative = probe["alternative"]
+        probes.append(
+            dict(
+                probe,
+                alternative=dict(
+                    alternative,
+                    arrays=_fixture_reference(alternative["arrays"], root),
+                    parent=None
+                    if alternative["parent"] is None
+                    else _fixture_reference(alternative["parent"], root),
+                ),
+            )
+        )
+    return dict(controls, states=states, probes=probes), reference
+
+
+def verify_grouped_population(actual, expected):
+    """check a corrected archive against independently rebuilt complete row moments."""
+    errors = {}
+    require(
+        actual.game_ids == expected.game_ids
+        and actual.row_count == expected.row_count
+        and actual.membership_signatures == expected.membership_signatures,
+        "corrected raw moment inventory or same-role row support differs",
+    )
+    for name in ("H_e", "T_raw", "stratum_x", "stratum_n"):
+        difference = getattr(actual, name) - getattr(expected, name)
+        errors[name] = float(np.max(np.abs(difference.data))) if difference.nnz else 0.0
+    for name in ("stratum_e", "Q_t", "Q_h"):
+        left, right = getattr(actual, name), getattr(expected, name)
+        require(
+            left is not None and right is not None,
+            "corrected raw moment energy is missing",
+        )
+        errors[name] = float(np.max(np.abs(left - right)))
+    require(
+        max(errors.values()) <= 1e-8,
+        "corrected raw moments differ from literal row reconstruction",
+    )
+    return errors
+
+
+def verify_grouped_game(actual, expected, references, game):
+    """reconcile complete one-game row moments to one bound annual grouped row."""
+    index = expected.game_ids.index(game)
+    errors = {}
+    for name in ("H_e", "T_raw", "stratum_x", "stratum_n"):
+        difference = getattr(actual, name)[0] - getattr(expected, name)[index]
+        errors[name] = float(np.max(np.abs(difference.data))) if difference.nnz else 0.0
+    for name in ("stratum_e", "Q_t", "Q_h"):
+        left, right = getattr(actual, name), getattr(expected, name)
+        require(
+            left is not None and right is not None,
+            "bound game response energy is missing",
+        )
+        errors[name] = float(np.max(np.abs(left[0] - right[index])))
+    require(
+        max(errors.values()) <= 1e-8,
+        "affected game original/corrected raw moments differ from full row replay",
+    )
+    return errors

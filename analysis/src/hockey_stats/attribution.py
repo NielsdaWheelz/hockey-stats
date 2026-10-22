@@ -271,6 +271,42 @@ class ShapeCoefficientState:
 
 
 @dataclass(frozen=True)
+class ScalarCoefficientLikelihood:
+    """matched spatial-count volume score and retained scalar response energy."""
+
+    season: str
+    player_ids: tuple[int, ...]
+    H: np.ndarray
+    score: np.ndarray
+    energy: float
+    u: np.ndarray
+    r: float
+    source_identity: dict
+
+
+@dataclass(frozen=True)
+class ScalarCoefficientState:
+    """annual league-relative volume; covariance includes every historical identity."""
+
+    season: str
+    player_ids: tuple[int, ...]
+    current_player_ids: tuple[int, ...]
+    entrant_ids: tuple[int, ...]
+    carried_only_ids: tuple[int, ...]
+    beta: np.ndarray
+    V: np.ndarray
+    u: np.ndarray
+    r: float
+    a: float
+    q: float | None
+    source_identity: dict
+    scale: dict
+    diagnostics: dict
+    uncentered_beta: np.ndarray
+    centering_shift: np.ndarray
+
+
+@dataclass(frozen=True)
 class _CoefficientUpdate:
     mean: np.ndarray
     covariance: np.ndarray
@@ -409,13 +445,17 @@ def _posterior(
     )
 
 
-def _coefficient_mean(block: BlockState | GraphShapeState | ShapeBandState | ShapeCoefficientState) -> np.ndarray:
-    return block.M if isinstance(block, BlockState) else block.Theta
+def _coefficient_mean(
+    block: BlockState | GraphShapeState | ShapeBandState | ShapeCoefficientState | ScalarCoefficientState,
+) -> np.ndarray:
+    if isinstance(block, BlockState):
+        return block.M
+    return block.beta if isinstance(block, ScalarCoefficientState) else block.Theta
 
 
 def _prior(
-    players: tuple[int, ...], previous: AnnualState | ShapeCoefficientState | None,
-    block: BlockState | GraphShapeState | ShapeBandState | ShapeCoefficientState | None, width: int
+    players: tuple[int, ...], previous: AnnualState | ShapeCoefficientState | ScalarCoefficientState | None,
+    block: BlockState | GraphShapeState | ShapeBandState | ShapeCoefficientState | ScalarCoefficientState | None, width: int
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     n = len(players)
     M0 = np.zeros((2 * n, width))
@@ -1224,9 +1264,9 @@ def decompose_shape_history(H: np.ndarray, Q: np.ndarray, Qbar: np.ndarray, m0: 
                 carry_update=carry["update"], closure=closure)
 
 
-def _shape_coefficient_inputs(likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None):
-    current, basis = likelihood.player_ids, likelihood.basis
-    n = len(current)
+def _coefficient_inputs(likelihood, previous, score, width):
+    """validate annual player-score axes, then align the shared historical prior."""
+    current, n = likelihood.player_ids, len(likelihood.player_ids)
     require(isinstance(likelihood.season, str) and len(likelihood.season) == 8
             and likelihood.season.isdigit()
             and int(likelihood.season[4:]) == int(likelihood.season[:4]) + 1
@@ -1234,33 +1274,43 @@ def _shape_coefficient_inputs(likelihood: ShapeCoefficientLikelihood, previous: 
             and all(type(player) is int for player in current)
             and math.isfinite(likelihood.r) and likelihood.r > 0
             and isinstance(likelihood.source_identity, dict) and bool(likelihood.source_identity),
-            "shape coefficient likelihood requires actual season, sorted identities and source identity")
-    for value, shape in ((likelihood.H, (2*n, 2*n)), (likelihood.Q, (2*n, 40)),
-                         (likelihood.u, (n,)), (basis.B, (656, 40)), (basis.p, (656,))):
+            "coefficient likelihood requires actual season, sorted identities and source identity")
+    for value, shape in ((likelihood.H, (2*n, 2*n)), (score, (2*n, width)), (likelihood.u, (n,))):
         require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
                 and value.shape == shape and np.isfinite(value).all(),
-                "shape coefficient likelihood axes or finite float64 arrays differ")
+                "coefficient likelihood axes or finite float64 arrays differ")
     require(np.all(likelihood.u > 0) and abs(float(likelihood.u.sum()) - 1) <= 1e-12
-            and np.all(basis.p > 0) and abs(float(basis.p.sum()) - 1) <= 1e-12
-            and np.max(np.abs(basis.p @ basis.B)) <= 1e-10
-            and np.max(np.abs(basis.B.T @ (basis.p[:, None] * basis.B) - np.eye(40))) <= 1e-10
             and np.allclose(likelihood.H, likelihood.H.T, rtol=1e-10, atol=1e-10),
-            "shape coefficient exposure, basis or symmetric information differs")
+            "coefficient exposure or symmetric information differs")
     for start in (0, n):
         require(np.max(np.abs(likelihood.H[:, start:start+n].sum(axis=1)))
                     <= 1e-8 * (1 + np.linalg.norm(likelihood.H, ord=np.inf))
-                and np.max(np.abs(likelihood.Q[start:start+n].sum(axis=0)))
-                    <= 1e-8 * (1 + np.linalg.norm(likelihood.Q, ord=np.inf)),
-                "shape coefficient likelihood does not annihilate role-constant gauges")
+                and np.max(np.abs(score[start:start+n].sum(axis=0)))
+                    <= 1e-8 * (1 + np.linalg.norm(score, ord=np.inf)),
+                "coefficient likelihood does not annihilate role-constant gauges")
     if previous is not None:
         require(int(likelihood.season[:4]) == int(previous.season[:4]) + 1
-                and previous.basis_sha256 == basis.sha256
                 and "numerical_original_scale" not in previous.scale,
-                "shape coefficient predecessor is nonconsecutive, changed basis or a numerical alternative")
-    players, H, Q, weights, _ = _align_annual_information(
-        current, () if previous is None else previous.player_ids, likelihood.H, likelihood.Q, likelihood.u)
-    mean, base, indices = _prior(players, previous, previous, 40)
-    return players, H, Q, weights, mean, base, indices
+                "coefficient predecessor is nonconsecutive or a numerical alternative")
+    players, H, aligned_score, weights, _ = _align_annual_information(
+        current, () if previous is None else previous.player_ids, likelihood.H, score, likelihood.u)
+    mean, base, indices = _prior(players, previous, previous, width)
+    return players, H, aligned_score, weights, mean, base, indices
+
+
+def _shape_coefficient_inputs(likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None):
+    basis = likelihood.basis
+    for value, shape in ((basis.B, (656, 40)), (basis.p, (656,))):
+        require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
+                and value.shape == shape and np.isfinite(value).all(),
+                "shape coefficient likelihood axes or finite float64 arrays differ")
+    require(np.all(basis.p > 0) and abs(float(basis.p.sum()) - 1) <= 1e-12
+            and np.max(np.abs(basis.p @ basis.B)) <= 1e-10
+            and np.max(np.abs(basis.B.T @ (basis.p[:, None] * basis.B) - np.eye(40))) <= 1e-10,
+            "shape coefficient basis differs")
+    if previous is not None:
+        require(previous.basis_sha256 == basis.sha256, "shape coefficient predecessor changed basis")
+    return _coefficient_inputs(likelihood, previous, likelihood.Q, 40)
 
 
 def fit_shape_coefficients(
@@ -1287,10 +1337,10 @@ def fit_shape_coefficients(
         update.uncentered_mean, update.centering_shift)
 
 
-def validate_shape_coefficient_state(
-    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None, state: ShapeCoefficientState,
+def _validate_shape_coefficient_state_at_variance(
+    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None, state: ShapeCoefficientState, variance: float,
 ) -> None:
-    """check saved axes, search and posterior equations without another selection or solve."""
+    """check saved axes and posterior equations at one declared variance."""
     players, H, Q, u, mean, base, indices = _shape_coefficient_inputs(likelihood, previous)
     n = len(players)
     current = likelihood.player_ids
@@ -1306,23 +1356,37 @@ def validate_shape_coefficient_state(
         require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
                 and value.shape == shape and np.isfinite(value).all(),
                 "shape coefficient state axes or finite float64 arrays differ")
+    require(state.a == (variance if previous is None else previous.a)
+            and state.q == (None if previous is None else variance), "shape coefficient prior scale lineage differs")
+    base[indices, indices] += variance
+    _validate_coefficient_posterior(H, Q, u, mean, base, state.uncentered_Theta,
+                                    state.Theta, state.V, state.centering_shift)
+
+    return H, Q, u, mean, base
+
+
+def validate_shape_coefficient_state(
+    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None, state: ShapeCoefficientState,
+) -> None:
+    """check saved axes, search and posterior equations without another selection or solve."""
     validate_shape_scale_receipt(state.scale, None if previous is None else previous.scale)
     require(all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
                 and row["objective"] is not None and row["equation_relative_residual"] is not None
                 and 0 <= row["equation_relative_residual"] <= 1e-8 for row in state.scale["curve"]),
             "shape coefficient search contains response energy or a failed numerical solve")
-    variance = state.scale["selected"]["variance"]
-    require(state.a == (variance if previous is None else previous.a)
-            and state.q == (None if previous is None else variance), "shape coefficient prior scale lineage differs")
-    base[indices, indices] += variance
+    _validate_shape_coefficient_state_at_variance(likelihood, previous, state, state.scale["selected"]["variance"])
+
+
+def _validate_coefficient_posterior(H, Q, u, mean, base, raw, centered_mean, covariance, shift):
+    """check the original mean equation and gauge-projected covariance equation."""
+    n = len(u)
     normal = np.eye(2*n) + base @ H
-    mean_residual = _equation_residual(normal, state.uncentered_Theta - mean, base @ (Q - H @ mean))
-    raw = state.uncentered_Theta
+    mean_residual = _equation_residual(normal, raw - mean, base @ (Q - H @ mean))
     off, defense = u @ raw[:n], u @ raw[n:]
     centered = np.vstack((raw[:n] - off, raw[n:] - defense))
-    require(np.allclose(state.Theta, centered, rtol=1e-10, atol=1e-10)
-            and np.allclose(state.centering_shift, off + defense, rtol=1e-10, atol=1e-10),
-            "shape coefficient uncentered mean or compensation differs")
+    require(np.allclose(centered_mean, centered, rtol=1e-10, atol=1e-10)
+            and np.allclose(shift, off + defense, rtol=1e-10, atol=1e-10),
+            "coefficient uncentered mean or compensation differs")
     # h annihilates the role gauges, so (i+p v0 h) v = p v0 p' checks
     # the retained centered covariance directly, without reconstructing a fit.
     normal -= np.eye(2*n)
@@ -1330,14 +1394,14 @@ def validate_shape_coefficient_state(
         normal[start:start+n] -= u @ normal[start:start+n]
     normal += np.eye(2*n)
     _, centered_prior, _ = _center(np.zeros((2*n, 1)), base, u, {})
-    covariance_residual = _equation_residual(normal, state.V, centered_prior)
-    tolerance = 1e-10 * max(1, np.linalg.norm(state.V, ord=np.inf))
+    covariance_residual = _equation_residual(normal, covariance, centered_prior)
+    tolerance = 1e-10 * max(1, np.linalg.norm(covariance, ord=np.inf))
     require(max(mean_residual, covariance_residual) <= 1e-8
-            and np.max(np.abs(state.V - state.V.T)) <= tolerance
-            and np.min(np.diag(state.V)) >= -tolerance
-            and max(np.max(np.abs(u @ state.Theta[:n])), np.max(np.abs(u @ state.Theta[n:]))) <= 1e-8
-            and max(np.max(np.abs(u @ state.V[:n])), np.max(np.abs(u @ state.V[n:]))) <= tolerance,
-            "shape coefficient saved posterior or centering equation differs")
+            and np.max(np.abs(covariance - covariance.T)) <= tolerance
+            and np.min(np.diag(covariance)) >= -tolerance
+            and max(np.max(np.abs(u @ centered_mean[:n])), np.max(np.abs(u @ centered_mean[n:]))) <= 1e-8
+            and max(np.max(np.abs(u @ covariance[:n])), np.max(np.abs(u @ covariance[n:]))) <= tolerance,
+            "coefficient saved posterior or centering equation differs")
 
 
 def _conditional_scale_probe(problem: _ScaleProblem, saved: dict) -> dict:
@@ -1391,6 +1455,172 @@ def bounded_shape_coefficient_probe(
     regions, _ = shape_regions()
     movement = dict(native_cells=float(np.max(np.abs(delta))), regions=float(np.max(np.abs(delta @ regions))))
     receipt.update(status="verified" if receipt["numerical_complete"] and max(movement.values()) <= 1e-4
+        else "numerically_unresolved", scope=POOLING_PROBE_SCOPE,
+        maximum_league_relative_current_player_movement=movement, tolerance=1e-4,
+        diagnostics=update.diagnostics)
+    return receipt, alternative
+
+
+def validate_shape_coefficient_probe(
+    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None,
+    primary: ShapeCoefficientState, receipt: dict, alternative: ShapeCoefficientState,
+) -> None:
+    """verify a frozen conditional alternative; never select or propagate its history."""
+    from .attribution_simulation import shape_regions
+
+    validate_shape_coefficient_state(likelihood, previous, primary)
+    saved = primary.scale
+    require(set(receipt) == {"saved_winner", "rechecked_candidates", "tightened_refinement", "selected",
+            "saved_scale_status", "numerical_complete", "status", "scope",
+            "maximum_league_relative_current_player_movement", "tolerance", "diagnostics"}
+        and receipt["saved_winner"] == saved["selected"]
+        and receipt["saved_scale_status"] == {key: saved[key] for key in
+            ("status", "own_reasons", "inherited_limitation")}
+        and receipt["scope"] == POOLING_PROBE_SCOPE and receipt["tolerance"] == 1e-4
+        and alternative.scale == dict(saved, selected=receipt["selected"], numerical_original_scale=saved),
+        "frozen shape probe primary scale, scope or saved alternative binding differs")
+    winner = saved["selected"]
+    coarse = [row for row in saved["curve"] if row["phase"] == "coarse"
+              and row["objective"] is not None and row["exponent"] != winner["exponent"]]
+    nearest = sorted(coarse, key=lambda row: (abs(row["exponent"]-winner["exponent"]), row["exponent"]))[:2]
+    expected = [winner] + nearest
+    curve = receipt["rechecked_candidates"]
+    require(len(curve) >= len(expected)
+        and all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
+            and type(row["exponent"]) in (int, float) and -8 <= row["exponent"] <= 0
+            and row["variance"] == 10.**row["exponent"] and row["error"] is None
+            and type(row["objective"]) in (int, float) and math.isfinite(row["objective"])
+            and row["equation_relative_residual"] is not None
+            and 0 <= row["equation_relative_residual"] <= 1e-8 for row in curve)
+        and all(new["phase"] == "independent_recheck" and new["exponent"] == old["exponent"]
+            and math.isclose(new["objective"], old["objective"], rel_tol=1e-8, abs_tol=1e-10)
+            for old, new in zip(expected, curve)), "frozen shape probe rechecks or finite solve receipts differ")
+    refinement = receipt["tightened_refinement"]
+    if saved["refinement"] is None:
+        require(refinement is None and len(curve) == len(expected), "frozen shape probe added a refinement")
+    else:
+        require(refinement is not None and refinement["bounds"] == saved["refinement"]["bounds"]
+            and refinement["xatol"] == 1e-6 and refinement["maxiter"] == 80
+            and refinement["evaluations"] == len(curve)-len(expected) <= 80
+            and all(row["phase"] == "refinement"
+                and refinement["bounds"][0] <= row["exponent"] <= refinement["bounds"][1]
+                for row in curve[len(expected):]), "frozen shape probe bracket or evaluation budget differs")
+    selected = min(saved["curve"] + curve, key=lambda row: (row["objective"], row["variance"]))
+    require(receipt["selected"] == selected
+        and receipt["numerical_complete"] is (refinement is None or refinement["success"]),
+        "frozen shape probe selected state or numerical completion differs")
+    H, Q, u, mean, base = _validate_shape_coefficient_state_at_variance(
+        likelihood, previous, alternative, selected["variance"])
+    _, _, factor = _factor(H, base)
+    logdet = float(2*np.log(np.diag(factor)).sum())
+    objective = float(40*logdet - np.sum((Q-H @ mean)*(alternative.uncentered_Theta-mean)))
+    require(math.isfinite(objective)
+        and math.isclose(objective, selected["objective"], rel_tol=1e-8, abs_tol=1e-10)
+        and alternative.diagnostics == receipt["diagnostics"],
+        "frozen shape probe objective, response or posterior diagnostics differ")
+    n = len(primary.player_ids)
+    current = [primary.player_ids.index(player) for player in primary.current_player_ids]
+    rows = current + [n+index for index in current]
+    delta = (alternative.Theta[rows]-primary.Theta[rows]) @ likelihood.basis.R.T
+    regions, _ = shape_regions()
+    movement = dict(native_cells=float(np.max(np.abs(delta))), regions=float(np.max(np.abs(delta @ regions))))
+    require(set(receipt["maximum_league_relative_current_player_movement"]) == set(movement)
+        and all(math.isclose(receipt["maximum_league_relative_current_player_movement"][key], value,
+            rel_tol=1e-10, abs_tol=1e-12) for key, value in movement.items())
+        and receipt["status"] == ("verified" if receipt["numerical_complete"] and max(movement.values()) <= 1e-4
+            else "numerically_unresolved"), "frozen shape probe physical movement or status differs")
+
+
+def _scalar_coefficient_inputs(likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None):
+    require(isinstance(likelihood.energy, (int, float)) and math.isfinite(likelihood.energy)
+            and likelihood.energy >= 0, "scalar coefficient likelihood requires retained finite response energy")
+    return _coefficient_inputs(likelihood, previous, likelihood.score, 1)
+
+
+def fit_scalar_coefficients(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None = None,
+) -> ScalarCoefficientState:
+    """select the existing scalar annual prior on matched recorded spatial counts."""
+    started = time.monotonic()
+    players, H, score, u, mean, base, indices = _scalar_coefficient_inputs(likelihood, previous)
+    problem = _ScaleProblem(H, score, likelihood.energy, mean, base, indices, None)
+    variance, scale = _select_scale(problem, previous is not None and previous.scale["status"] == "scale_unresolved")
+    require(all(row["objective"] is not None for row in scale["curve"]),
+            "scalar coefficient scale solve failed; dependent chain stopped")
+    update = _coefficient_update(H, score, mean, problem.covariance(variance), u)
+    update.diagnostics["resources"] = resources(started)
+    current = likelihood.player_ids
+    entrants = current if previous is None else tuple(player for player in current if player not in previous.player_ids)
+    return ScalarCoefficientState(likelihood.season, players, current, entrants,
+        tuple(player for player in players if player not in current), update.mean, update.covariance, u,
+        likelihood.r, variance if previous is None else previous.a, None if previous is None else variance,
+        likelihood.source_identity, scale, update.diagnostics, update.uncentered_mean, update.centering_shift)
+
+
+def validate_scalar_coefficient_state(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
+) -> None:
+    """bind the saved scalar search, annual lineage, posterior and role references."""
+    players, H, score, u, mean, base, indices = _scalar_coefficient_inputs(likelihood, previous)
+    n, current = len(players), likelihood.player_ids
+    entrants = current if previous is None else tuple(player for player in current if player not in previous.player_ids)
+    require(state.season == likelihood.season and state.player_ids == players
+            and state.current_player_ids == current and state.entrant_ids == entrants
+            and state.carried_only_ids == tuple(player for player in players if player not in current)
+            and state.r == likelihood.r and state.source_identity == likelihood.source_identity
+            and np.array_equal(state.u, u), "scalar coefficient state identity or annual alignment differs")
+    for value, shape in ((state.beta, (2*n, 1)), (state.V, (2*n, 2*n)),
+                         (state.uncentered_beta, (2*n, 1)), (state.centering_shift, (1,))):
+        require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
+                and value.shape == shape and np.isfinite(value).all(),
+                "scalar coefficient state axes or finite float64 arrays differ")
+    validate_shape_scale_receipt(state.scale, None if previous is None else previous.scale)
+    require(all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
+                and row["objective"] is not None and row["equation_relative_residual"] is not None
+                and 0 <= row["equation_relative_residual"] <= 1e-8 for row in state.scale["curve"]),
+            "scalar coefficient search contains a failed numerical solve")
+    variance = state.scale["selected"]["variance"]
+    require(state.a == (variance if previous is None else previous.a)
+            and state.q == (None if previous is None else variance), "scalar coefficient prior scale lineage differs")
+    base[indices, indices] += variance
+    _validate_coefficient_posterior(H, score, u, mean, base, state.uncentered_beta,
+                                    state.beta, state.V, state.centering_shift)
+    # the solved mean gives the signal contraction without another posterior solve.
+    _, _, factor = _factor(H, base)
+    logdet = float(2*np.log(np.diag(factor)).sum())
+    mean_score = float(2 * np.sum(mean * score))
+    mean_energy = float(np.sum(mean * (H @ mean)))
+    contraction = float(np.sum((score - H @ mean) * (state.uncentered_beta - mean)))
+    contrast = float(logdet - mean_score + mean_energy - contraction)
+    saved_contrast = state.scale["selected"]["objective"] - likelihood.energy
+    # the saved full objective can lose ulps when response energy is much larger
+    # than its scale-dependent contrast; it must not set a relative error budget.
+    rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy)+abs(contraction))
+    require(math.isfinite(contrast)
+            and math.isclose(contrast, saved_contrast, rel_tol=1e-8, abs_tol=max(1e-10, rounding)),
+            "scalar coefficient selected objective differs from retained response energy")
+
+
+def bounded_scalar_coefficient_probe(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
+) -> tuple[dict, ScalarCoefficientState]:
+    """tighten one saved scalar bracket with the incoming primary history fixed."""
+    validate_scalar_coefficient_state(likelihood, previous, state)
+    players, H, score, u, mean, base, indices = _scalar_coefficient_inputs(likelihood, previous)
+    problem = _ScaleProblem(H, score, likelihood.energy, mean, base, indices, None)
+    receipt = _conditional_scale_probe(problem, state.scale)
+    variance = receipt["selected"]["variance"]
+    update = _coefficient_update(H, score, mean, problem.covariance(variance), u)
+    alternative = replace(state, beta=update.mean, V=update.covariance,
+        q=None if previous is None else variance, a=variance if previous is None else previous.a,
+        scale=dict(state.scale, selected=receipt["selected"], numerical_original_scale=state.scale),
+        uncentered_beta=update.uncentered_mean, centering_shift=update.centering_shift,
+        diagnostics=update.diagnostics)
+    n = len(players)
+    current = [players.index(player) for player in state.current_player_ids]
+    rows = current + [n + index for index in current]
+    movement = dict(volume_relative=float(np.max(np.abs(alternative.beta[rows] - state.beta[rows]))))
+    receipt.update(status="verified" if receipt["numerical_complete"] and movement["volume_relative"] <= 1e-4
         else "numerically_unresolved", scope=POOLING_PROBE_SCOPE,
         maximum_league_relative_current_player_movement=movement, tolerance=1e-4,
         diagnostics=update.diagnostics)

@@ -1,0 +1,144 @@
+{
+  "status": "verified",
+  "assessment": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/assessment/assessment.json",
+    "sha256": "748b3634ce966e607fbd1d3e9bbd29c9f0ce2c84d662b797f23228725d48d558"
+  },
+  "checks": 2721315,
+  "comparison_absolute_tolerance": 2e-07,
+  "comparison_relative_tolerance": 2e-09,
+  "maximum_absolute_differences": {
+    "per_arm_regional_decomposition": 3.410605131648481e-13,
+    "per_arm_native_decomposition": 9.094947017729282e-12,
+    "primary_game_regional": 2.3092638912203256e-13,
+    "all_variant_game_paired_closure": 4.263256414560601e-14,
+    "all_primary_game_numerators": 8.72546479513403e-12,
+    "source_game_numerators": 3.922841218528816e-12,
+    "games_paired_draw_closure": 1.8829382497642655e-13,
+    "games_regional_draw_decomposition": 2.4424906541753444e-15,
+    "games_native_draw_decomposition": 4.547473508864641e-13,
+    "calendar_7_day_paired_draw_closure": 6.283862319378386e-14,
+    "calendar_7_day_regional_draw_decomposition": 2.55351295663786e-15,
+    "calendar_7_day_native_draw_decomposition": 4.405364961712621e-13,
+    "calendar_14_day_paired_draw_closure": 3.907985046680551e-14,
+    "calendar_14_day_regional_draw_decomposition": 2.275957200481571e-15,
+    "calendar_14_day_native_draw_decomposition": 3.979039320256561e-13,
+    "saved_pooled_numerators": 3.319655661471188e-11,
+    "saved_estimates": 9.237055564881302e-14,
+    "undefined_draw_counts": 0.0,
+    "conditional_linear_intervals": 1.5631940186722204e-13,
+    "shared_scalar_total_receipt": 0.0,
+    "negative_entry_receipt": 5.551115123125783e-17,
+    "negative_row_receipt": 3.469446951953614e-18,
+    "negative_mass_receipt": 1.734723475976807e-18,
+    "negative_mass_reference": 3.637978807091713e-12,
+    "worst_locator_raw_prediction": 2.220446049250313e-16
+  },
+  "heldout_games": 261,
+  "directed_hours": 421.4483333333332,
+  "main_variants": 16,
+  "source_variants": 4,
+  "game_primary_and_all_variant_closure": true,
+  "independent_method": "raw coefficient composition; per-arm grouped quadratic minus raw response; direct volume/shape cross terms; manual shared frequency-matrix resampling",
+  "native_ledger_replayed": false,
+  "native_interaction_direction_scope": "identically zero cross term verified within 1e-10 and all saved directions unresolved; strict signs of independent floating roundoff are not compared",
+  "rate_scope": "saved arithmetic and nine independently evaluated worst locators; full entry counts/mass rely on the bound one-pass source receipt and fixture direct-row oracle",
+  "rate_receipts": [
+    {
+      "arm": "borrowing",
+      "resolution": "total",
+      "negative_entries": 0,
+      "negative_mass_predicted_attempts": 0.0,
+      "minimum": 6.414351457342281,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "borrowing",
+      "resolution": "regional",
+      "negative_entries": 4586,
+      "negative_mass_predicted_attempts": 0.8977247182448547,
+      "minimum": -1.8704331519132886,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "borrowing",
+      "resolution": "native",
+      "negative_entries": 34517895,
+      "negative_mass_predicted_attempts": 278.72045946060194,
+      "minimum": -0.5094677197717394,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "independent",
+      "resolution": "total",
+      "negative_entries": 0,
+      "negative_mass_predicted_attempts": 0.0,
+      "minimum": 10.535612695457882,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "independent",
+      "resolution": "regional",
+      "negative_entries": 2383,
+      "negative_mass_predicted_attempts": 0.29709653074382225,
+      "minimum": -0.6177655174963859,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "independent",
+      "resolution": "native",
+      "negative_entries": 34560488,
+      "negative_mass_predicted_attempts": 190.10008558917505,
+      "minimum": -0.4185048637212293,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "context",
+      "resolution": "total",
+      "negative_entries": 0,
+      "negative_mass_predicted_attempts": 0.0,
+      "minimum": 33.22520852641336,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "context",
+      "resolution": "regional",
+      "negative_entries": 0,
+      "negative_mass_predicted_attempts": 0.0,
+      "minimum": 0.0,
+      "worst_locator_verified": true
+    },
+    {
+      "arm": "context",
+      "resolution": "native",
+      "negative_entries": 0,
+      "negative_mass_predicted_attempts": 0.0,
+      "minimum": 0.0,
+      "worst_locator_verified": true
+    }
+  ],
+  "source_correction": {
+    "rows": 6,
+    "directed_seconds": 264,
+    "count_loss": 0
+  },
+  "schemes": {
+    "games": {
+      "undefined": 0,
+      "selected_units": 261,
+      "empty_units": 0
+    },
+    "calendar_7_day": {
+      "undefined": 0,
+      "selected_units": 28,
+      "empty_units": 2
+    },
+    "calendar_14_day": {
+      "undefined": 0,
+      "selected_units": 14,
+      "empty_units": 1
+    }
+  },
+  "wall_seconds": 72.42651041701902,
+  "peak_rss_bytes": 2767634432
+}

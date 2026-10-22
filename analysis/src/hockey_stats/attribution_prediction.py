@@ -229,8 +229,9 @@ def _empirical_moments(game, prediction):
     return E[selected], C[selected], A, N[selected], K
 
 
-def empirical_paired_loss(game_moments, left, right, metric) -> dict:
+def empirical_paired_loss(game_moments, left, right, metric, *, response="shape") -> dict:
     """signed loss difference; response self energy cancels before contraction."""
+    require(response in ("shape", "complete"), "paired loss response must be shape or complete")
     require(left["context_ids"] == right["context_ids"] and left["player_ids"] == right["player_ids"]
             and np.array_equal(left["p"], right["p"]), "empirical paired prediction references differ")
     E, C, A, N, K = _empirical_moments(game_moments, left)
@@ -244,32 +245,357 @@ def empirical_paired_loss(game_moments, left, right, metric) -> dict:
     if metric.ndim == 2:
         difference_f, sum_f, difference_m, sum_m = (
             value @ metric for value in (difference_f, sum_f, difference_m, sum_m))
-        shape_n = N @ metric-N.sum(axis=1, keepdims=True)*(p @ metric)
-        shape_k = K @ metric-np.asarray(K.sum(axis=1))*(p @ metric)
-        response = np.sum(shape_n*difference_f, axis=0)+np.sum(shape_k*difference_m, axis=0)
+        shape_n, shape_k = N @ metric, K @ metric
+        if response == "shape":
+            shape_n = shape_n-N.sum(axis=1, keepdims=True)*(p @ metric)
+            shape_k = shape_k-np.asarray(K.sum(axis=1))*(p @ metric)
+        response_term = np.sum(shape_n*difference_f, axis=0)+np.sum(shape_k*difference_m, axis=0)
         weights = 1.
     else:
         weights = metric
-        shape_n = N-N.sum(axis=1, keepdims=True)*p
-        response = np.sum(shape_n*difference_f*weights, axis=0)
-        response += np.asarray(K.multiply(difference_m*weights).sum(axis=0)).ravel()
-        response -= np.sum(np.asarray(K.sum(axis=1))*p*difference_m*weights, axis=0)
+        shape_n = N-N.sum(axis=1, keepdims=True)*p if response == "shape" else N
+        response_term = np.sum(shape_n*difference_f*weights, axis=0)
+        response_term += np.asarray(K.multiply(difference_m*weights).sum(axis=0)).ravel()
+        if response == "shape":
+            response_term -= np.sum(np.asarray(K.sum(axis=1))*p*difference_m*weights, axis=0)
     components = np.sum(difference_f*(E[:, None]*sum_f+C @ sum_m)*weights, axis=0)
     components += np.sum(difference_m*(C.T @ sum_f+A @ sum_m)*weights, axis=0)
-    components -= 2*response
+    components -= 2*response_term
     require(np.isfinite(components).all(), "empirical paired loss is nonfinite")
     return dict(loss_numerator=float(components.sum()), component_numerators=components,
                 directed_hours=float(E.sum()))
 
 
-def empirical_residuals(game_moments, prediction) -> dict:
+def empirical_residuals(game_moments, prediction, *, response="shape") -> dict:
     """native signed response sums and overlapping role-specific on-ice associations."""
     E, C, A, N, K = _empirical_moments(game_moments, prediction)
+    require(response in ('shape', 'complete'), 'residual response must be shape or complete')
     F, M, p = prediction["context"], prediction["maps"], prediction["p"]
-    observed = (N-N.sum(axis=1, keepdims=True)*p).sum(axis=0)
+    observed = (N-N.sum(axis=1, keepdims=True)*p).sum(axis=0) if response == 'shape' else N.sum(axis=0)
     predicted = (E[:, None]*F+C @ M).sum(axis=0)
-    player_residual = K.toarray()-np.asarray(K.sum(axis=1))*p-C.T @ F-A @ M
+    player_residual = K.toarray()-C.T @ F-A @ M
+    if response == 'shape':
+        # preserve the historical order of operations for frozen 04m values.
+        player_residual = K.toarray()-np.asarray(K.sum(axis=1))*p-C.T @ F-A @ M
     require(all(np.isfinite(value).all() for value in (observed, predicted, player_residual)),
             "empirical residual is nonfinite")
     return dict(observed_sum=observed, predicted_sum=predicted, residual_sum=observed-predicted,
                 player_residual_sum=player_residual, player_hours=A.diagonal(), directed_hours=float(E.sum()))
+
+
+def complete_prediction(training, scalar_state, shape_state, evaluation_ids):
+    """compose raw volume and zero-sum shape in one training-only reference."""
+    require(
+        (scalar_state is None) == (shape_state is None),
+        "complete prediction requires both fitted components or context only",
+    )
+    shape = empirical_prediction(training, shape_state, evaluation_ids)
+    likelihood, ids = training.likelihood, tuple(evaluation_ids)
+    p, current = likelihood.basis.p, likelihood.player_ids
+    volume_maps = np.zeros((2 * len(ids), 1))
+    current_maps = np.zeros((2 * len(current), 1))
+    if scalar_state is not None:
+        state = scalar_state
+        require(
+            state.season == likelihood.season
+            and state.current_player_ids == current
+            and state.r == likelihood.r
+            and state.player_ids == shape_state.player_ids
+            and state.entrant_ids == shape_state.entrant_ids
+            and state.carried_only_ids == shape_state.carried_only_ids
+            and np.array_equal(state.u, shape_state.u)
+            and state.uncentered_beta.shape == (2 * len(state.player_ids), 1)
+            and np.isfinite(state.uncentered_beta).all(),
+            "volume and shape state populations or training references differ",
+        )
+        positions = {player: i for i, player in enumerate(state.player_ids)}
+        raw = likelihood.r * state.uncentered_beta
+        for i, player in enumerate(ids):
+            if player in positions:
+                volume_maps[i] = raw[positions[player]]
+                volume_maps[len(ids) + i] = raw[len(positions) + positions[player]]
+        selected = [positions[player] for player in current]
+        current_maps = raw[selected + [len(positions) + i for i in selected]]
+        # each role has its own gauge. unseen raw zero becomes minus that shift.
+        for fitted, raw_name, centered_name in (
+            (state, "uncentered_beta", "beta"),
+            (shape_state, "uncentered_Theta", "Theta"),
+        ):
+            n = len(fitted.player_ids)
+            raw_coefficients, centered = getattr(fitted, raw_name), getattr(fitted, centered_name)
+            shifts = np.vstack(
+                [
+                    np.broadcast_to(
+                        fitted.u @ raw_coefficients[role * n : (role + 1) * n], (n, raw_coefficients.shape[1])
+                    )
+                    for role in range(2)
+                ]
+            )
+            require(
+                np.allclose(centered, raw_coefficients - shifts, rtol=1e-10, atol=1e-11),
+                "raw and role-centered coefficient predictions differ",
+            )
+    volume_context = training.nbar.sum(axis=1, keepdims=True) - training.xbar @ current_maps
+    shape_context, shape_maps = shape["context"], shape["maps"]
+    context, maps = volume_context * p + shape_context, volume_maps * p + shape_maps
+    require(
+        np.allclose(shape_context.sum(axis=1), 0.0, atol=1e-9)
+        and np.allclose(shape_maps.sum(axis=1), 0.0, atol=1e-9)
+        and np.allclose(context.sum(axis=1, keepdims=True), volume_context, atol=1e-9)
+        and np.allclose(maps.sum(axis=1, keepdims=True), volume_maps, atol=1e-9),
+        "complete prediction volume or zero-sum shape does not close",
+    )
+    return dict(
+        shape,
+        context=context,
+        maps=maps,
+        volume_context=volume_context,
+        volume_maps=volume_maps,
+        shape_context=shape_context,
+        shape_maps=shape_maps,
+    )
+
+
+def complete_paired_decomposition(game, left, right, regions):
+    """paired physical loss, with signed volume, shape and interaction terms."""
+    p = left["p"]
+    volume = empirical_paired_loss(game, left, right, np.ones((len(p), 1)), response="complete")[
+        "loss_numerator"
+    ]
+    shape_left = dict(left, context=left["shape_context"], maps=left["shape_maps"])
+    shape_right = dict(right, context=right["shape_context"], maps=right["shape_maps"])
+    E, C, A, N, K = _empirical_moments(game, left)
+    total_n, total_k = N.sum(axis=1), np.asarray(K.sum(axis=1)).ravel()
+    result = dict(volume=volume)
+    for name, metric, weight in (
+        ("regional", regions, float(np.sum((p @ regions) ** 2))),
+        ("native_inverse_share", 1.0 / p, 1.0),
+    ):
+        complete = empirical_paired_loss(game, left, right, metric, response="complete")
+        shape = empirical_paired_loss(game, shape_left, shape_right, metric)
+        # expand the cross residual directly; response self products cancel.
+        q_native = metric @ (p @ metric) if metric.ndim == 2 else p * metric
+        shape_n = N @ q_native - total_n * float(p @ q_native)
+        shape_k = np.asarray(K @ q_native).ravel() - total_k * float(p @ q_native)
+        cross = []
+        for prediction in (left, right):
+            vf, vm = prediction["volume_context"].ravel(), prediction["volume_maps"].ravel()
+            hf, hm = prediction["shape_context"] @ q_native, prediction["shape_maps"] @ q_native
+            cross.append(
+                float(
+                    vf @ (E * hf + C @ hm)
+                    + vm @ (C.T @ hf + A @ hm)
+                    - total_n @ hf
+                    - total_k @ hm
+                    - shape_n @ vf
+                    - shape_k @ vm
+                )
+            )
+        interaction = 2 * (cross[0] - cross[1])
+        require(
+            np.isclose(
+                complete["loss_numerator"],
+                weight * volume + shape["loss_numerator"] + interaction,
+                rtol=1e-9,
+                atol=1e-8,
+            ),
+            "direct volume/shape interaction does not close",
+        )
+        if name == "native_inverse_share":
+            require(
+                abs(interaction)
+                <= 1e-9
+                * max(1.0, abs(complete["loss_numerator"]), abs(shape["loss_numerator"]), abs(volume)),
+                "native inverse-share volume/shape interaction is nonzero",
+            )
+        result[name] = dict(
+            complete=complete["loss_numerator"],
+            volume=volume,
+            weighted_volume=weight * volume,
+            shape=shape["loss_numerator"],
+            interaction=interaction,
+            region_numerators=complete["component_numerators"],
+            directed_hours=complete["directed_hours"],
+        )
+    return result
+
+
+def prediction_row_batches(rows, predictions, batch_size=256, *, receipt):
+    """evaluate bounded native matrices; source iteration/reconciliation has one owner."""
+    require(
+        type(batch_size) is int and batch_size > 0 and bool(predictions), "invalid prediction row batch size"
+    )
+    arm_rates = {arm: [] for arm in predictions}
+    volume_rates = {arm: [] for arm in predictions}
+    receipt.update(
+        rows=0,
+        maximum_shape_sum_absolute=0.0,
+        maximum_complete_volume_absolute=0.0,
+        absolute_tolerance=1e-9,
+        relative_tolerance=1e-10,
+    )
+    seconds, locators = [], []
+    references = {
+        arm: (
+            {player: i for i, player in enumerate(prediction["player_ids"])},
+            {context: i for i, context in enumerate(prediction["context_ids"])},
+        )
+        for arm, prediction in predictions.items()
+    }
+    for row in rows:
+        require(np.isfinite(row["seconds"]) and row["seconds"] > 0, "invalid prediction row duration")
+        for arm, prediction in predictions.items():
+            players, contexts = references[arm]
+            context = tuple(row["stratum"])
+            require(
+                context in contexts
+                and all(player in players for player in (*row["offense"], *row["defense"])),
+                "prediction row population differs from fitted reference",
+            )
+            selected = [players[player] for player in row["offense"]]
+            selected += [len(players) + players[player] for player in row["defense"]]
+            native = prediction["context"][contexts[context]] + prediction["maps"][selected].sum(axis=0)
+            volume = float(
+                prediction["volume_context"][contexts[context], 0] + prediction["volume_maps"][selected].sum()
+            )
+            shape = prediction["shape_context"][contexts[context]] + prediction["shape_maps"][selected].sum(
+                axis=0
+            )
+            shape_error, volume_error = abs(float(shape.sum())), abs(float(native.sum()) - volume)
+            require(
+                shape_error <= 1e-9 and np.isclose(native.sum(), volume, rtol=1e-10, atol=1e-9),
+                "row physical shape or complete-volume identity differs",
+            )
+            receipt["maximum_shape_sum_absolute"] = max(receipt["maximum_shape_sum_absolute"], shape_error)
+            receipt["maximum_complete_volume_absolute"] = max(
+                receipt["maximum_complete_volume_absolute"], volume_error
+            )
+            arm_rates[arm].append(native)
+            volume_rates[arm].append([volume])
+        receipt["rows"] += 1
+        seconds.append(row["seconds"])
+        locators.append(
+            {
+                key: row[key]
+                for key in (
+                    "game_id",
+                    "period",
+                    "start",
+                    "end",
+                    "segment_index",
+                    "attacking_team",
+                    "offense",
+                    "defense",
+                    "stratum",
+                )
+            }
+        )
+        if len(seconds) == batch_size:
+            yield (
+                {arm: np.array(value) for arm, value in arm_rates.items()},
+                np.array(seconds),
+                locators,
+                {arm: np.array(value) for arm, value in volume_rates.items()},
+            )
+            arm_rates = {arm: [] for arm in predictions}
+            volume_rates = {arm: [] for arm in predictions}
+            seconds, locators = [], []
+    if seconds:
+        yield (
+            {arm: np.array(value) for arm, value in arm_rates.items()},
+            np.array(seconds),
+            locators,
+            {arm: np.array(value) for arm, value in volume_rates.items()},
+        )
+    receipt["status"] = "verified"
+
+
+def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
+    """strict physical signs at each resolution, sharing the historical accumulator."""
+    from .attribution import negative_rate_summaries
+
+    extra = {}
+
+    def transformed():
+        for rates, seconds, locators, volumes in batches:
+            require(set(rates) == set(volumes), "native and scalar diagnostic arms differ")
+            selected = {}
+            for arm, native in rates.items():
+                require(native.shape[1] == len(p), "native diagnostic cells differ")
+                require(volumes[arm].shape == (len(native), 1), "scalar diagnostic row axes differ")
+                for resolution, values in (
+                    ("total", volumes[arm]),
+                    ("regional", native @ regions),
+                    ("native", native),
+                ):
+                    name = arm + ":" + resolution
+                    selected[name] = values
+                    entry = extra.setdefault(
+                        name, dict(seconds=0.0, any_negative_seconds=0.0, locations=values.shape[1])
+                    )
+                    entry["seconds"] += float(seconds.sum())
+                    entry["any_negative_seconds"] += float(seconds @ np.any(values < 0, axis=1))
+            yield selected, seconds, locators
+
+    iterator = iter(transformed())
+    first = next(iterator, None)
+    require(first is not None, "rate diagnostics require positive held-out exposure")
+    import itertools
+
+    summaries = negative_rate_summaries(
+        itertools.chain((first,), iterator), {name: training_r for name in first[0]}
+    )
+    result = []
+    for name, summary in summaries.items():
+        arm, resolution = name.split(":")
+        total_summary = summaries[arm + ":total"]
+        details = extra[name]
+        location = dict(summary["minimum_cell_example"])
+        cell = location.pop("cell_id")
+        location.update(
+            location_index=cell,
+            location_label=(
+                region_names[cell] if resolution == "regional" else "total" if resolution == "total" else cell
+            ),
+        )
+        result.append(
+            dict(
+                arm=arm,
+                resolution=resolution,
+                rows=summary["rows"],
+                locations=details["locations"],
+                strict_sign_rule="prediction < 0",
+                closure_absolute_tolerance=1e-9,
+                negative_entries=summary["negative_cell_rates"],
+                negative_total_rows=total_summary["negative_complete_rates"],
+                directed_hours=summary["team_seconds"] / 3600.0,
+                entry_exposure_denominator=details["locations"] * summary["team_seconds"] / 3600.0,
+                negative_entry_location_hours=summary["exposure_weighted_negative_cell_frequency"]
+                * details["locations"]
+                * summary["team_seconds"]
+                / 3600.0,
+                any_negative_entry_row_directed_hours=details["any_negative_seconds"] / 3600.0,
+                negative_total_rate_directed_hours=total_summary[
+                    "exposure_weighted_negative_complete_frequency"
+                ]
+                * total_summary["team_seconds"]
+                / 3600.0,
+                negative_entry_exposure_fraction=summary["exposure_weighted_negative_cell_frequency"],
+                negative_total_rate_exposure_fraction=total_summary[
+                    "exposure_weighted_negative_complete_frequency"
+                ],
+                any_negative_entry_row_exposure_fraction=details["any_negative_seconds"] / details["seconds"],
+                negative_mass_predicted_attempts=summary["negative_mass"]
+                * training_r
+                * summary["team_seconds"]
+                / 3600.0,
+                negative_mass_reference=training_r * summary["team_seconds"] / 3600.0,
+                negative_mass_fraction=summary["negative_mass"],
+                training_r=training_r,
+                minimum=summary["minimum_cell_rate"],
+                worst_location=location,
+                minimum_total_rate=total_summary["minimum_complete_rate"],
+                minimum_total_location=total_summary["minimum_complete_example"],
+            )
+        )
+    return result

@@ -6,6 +6,7 @@ estimated from selected training exposure and applied unchanged to assessment.
 
 from dataclasses import dataclass
 from itertools import groupby
+from typing import TYPE_CHECKING
 
 import numpy as np
 from scipy import sparse
@@ -13,6 +14,9 @@ from scipy import sparse
 from .artifacts import linked_path, ordered_array_digest, require, rows
 from .attribution_data import (AnnualReferences, EmpiricalTraining, GroupedPopulation,
     complete_training, empirical_game_moments, group_observations, verify_grouped_game)
+
+if TYPE_CHECKING:
+    from .attribution import ShapeCoefficientLikelihood, ScalarCoefficientLikelihood, ScalarScoreLikelihood
 
 TEMPORAL_IDS = tuple(("temporal", str(k), b, j) for k in (1, 2, 3)
                      for b in ("constant", "lead", "trail") for j in (1, 2))
@@ -105,10 +109,10 @@ class ContextPopulation:
 @dataclass(frozen=True)
 class ContextTraining:
     """selected annual temporal likelihood and its fixed physical compensation geometry."""
-    likelihood: object
-    scalar_likelihood: object
+    likelihood: "ShapeCoefficientLikelihood"
+    scalar_likelihood: "ScalarScoreLikelihood"
     coarse_training: EmpiricalTraining
-    coarse_scalar_likelihood: object
+    coarse_scalar_likelihood: "ScalarCoefficientLikelihood"
     E: np.ndarray
     C0: np.ndarray
     N0: np.ndarray

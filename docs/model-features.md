@@ -34,6 +34,12 @@ this table extends the original inventory; proposed names describe responsibilit
 
 unchanged families in the local inventory below remain required. distinguishing a documented peer input from our proposed time-decay/attention alternative prevents both accidental omissions and invented parity claims. bounded real-data preparation and a runnable small fit/score path must exercise each new numerical alternative; full five-season fitting of every combination is not a completion requirement. actual baseline outputs for every required product family remain mandatory.
 
+### v1 card-source closure — 2026-10-22
+
+[the completed card crosswalk](product-inventory.md#v1-field-crosswalk-and-card-acceptance) closes v1 meaning/source/owner gaps, not full feature implementation. [card facts](specs/experimental-card-facts.md) assigns source-backed all-strength usage/primary scoring, goal/on-net context, penalties, shifts/score/shared usage and personal unblocked/hit/blocker reductions. these are prepared/display facts until an explicit recipe selects them; a card summary is not a model-ready predictor or proof of prospective timing.
+
+microstat coverage is twenty F slots and twenty D slots, twenty-nine unique fields. six are constructible using admitted facts plus specified execution; twenty-two require absent tracking; skating has public measurements but unverified archival admission. source-valued puck management remains outside our model ledger, reference expected assists require observed pass links, and no inferred setting/territory supplies those observations. [evidence and follow-up](issues/microstat-inputs.md) distinguishes admitted input from public availability. existing inactive families and later history/attention/tip/rink/age alternatives retain the statuses below; this closure neither activates them nor makes all alternatives v1 prerequisites.
+
 ## policy and contract
 
 2026-10-22 amendment: the [complete experimental program](specs/experimental-player-analysis.md) may fit compatible groups together without a successful separate experiment for every family. the intended repertoire includes game/shift/day fatigue proxies, event chains, penalty context, coaches, people and history alongside geometry and game state. a family needs an explicit source/timing/population/reference contract, not prior proof of predictive gain. scientific assessment then guides recipe refinement. this policy does not itself assign fitting or acquisition.

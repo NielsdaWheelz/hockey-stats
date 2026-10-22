@@ -2,6 +2,9 @@
 
 status: settled system responsibilities and statistical meanings, with dated interview evidence below. [the brief](brief.md) owns product choices and [the plan](plan.md) current progression. observed facts and checked experimental model outputs may be published privately before scientific admission. stronger claims retain their specific evidence requirements; every activation remains explicit. the 2026-10-22 contract below supersedes earlier observed-only product restrictions, not frozen study protocols.
 
+
+the 2026-10-22 [v1 field audit](product-inventory.md#v1-field-crosswalk-and-card-acceptance) preserves these owners. [card facts](specs/experimental-card-facts.md) adds cohesive factual reductions under python; [application](specs/experimental-application.md#v1-payload-additions) supplies strict named transport and five compositions. one authoritative value can serve multiple cards. source-dependent fields stay separate from model outputs; native mass, physical display density and nonadditive ratios have different explicit invariants. no additional service, generic metric platform or release machinery follows.
+
 ## operating scale
 
 this is a website run by one person. retain work according to its replacement cost: source evidence and hours-long fits are worth saving; cheap transformations and website builds are worth rerunning. a local analysis command produces a sqlite file; the website reads it. publication can stop the server, replace the file, restart and require a page reload. one previous database is enough for data rollback; git supplies code history.

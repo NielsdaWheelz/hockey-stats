@@ -2,6 +2,9 @@
 
 status: **scope index; the [experimental application appendix](experimental-application.md) and its [parent specification](experimental-player-analysis.md) define the initial implementation and remaining expanded-coverage contracts.** extend the existing 05a–05h application for the [complete experimental program](experimental-player-analysis.md), through [05](05-publication.md). [the plan](../plan.md) owns assignment; [the visual inventory](../product-inventory.md#visual-coverage-inventory--2026-10-22) is the view/control/export checklist. do not build another research dashboard or require global model admission before private modeled views.
 
+
+the [completed v1 field crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance) and [application appendix](experimental-application.md#card-compositions-and-shared-display-rules) now settle five concrete card compositions, their exact fields and shared history/cohort/export rules. use those contracts and the [plan's handoffs](../plan.md#proposed-pr-boundaries-and-dependencies); no separate website arithmetic or renewed whole-destination survey precedes their implementation.
+
 ## target behavior
 
 browse complete selected skater and goalie analysis: tables/search, concise comparative cards, component details, spatial explanation, peer distributions, player comparisons, historical trajectories, recorded game evidence, deployment/with-without context, personal shooting and exports. keep real magnitudes and evidence beside ranks. 5v5/xg is the first working path, not the completed scope.

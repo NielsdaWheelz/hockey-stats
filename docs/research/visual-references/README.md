@@ -47,7 +47,7 @@ the sample supplies the desired field list; it does not establish available inpu
 
 whole-card parity remains incomplete where evidence is unavailable. supported fields and clearly named experimental counterparts can still form a useful card. the sample does not authorize purchasing tracking, copying a private projection or blocking the rest of the product until every source is available.
 
-## what these images do not settle
+## what the supplied images do not settle
 
 no interactive controls were exercised. no supplied image shows our required tables, goalie card, reciprocal wowy, spider, replacement detail or error states. finish the required-card audit for v1; broader reference work follows its release priority. historical bands' thresholds, scatter hide rules, proprietary formulas and color semantics cannot be recovered reliably from pixels alone. preserve those unknowns rather than infer scientific claims from design.
 
@@ -63,3 +63,20 @@ no interactive controls were exercised. no supplied image shows our required tab
 | s06 | `bafkreicsle2uflwxefx4lteixxcwgvx7htxvburqriloenpopgga5mgqg4.webp` | `18232e0a358eedb6aed15d159d82f0ed9b327007c2e5583749ff6257e1fdaa7b` |
 | s07 | `bafkreieaax4zmq5s75nqhcgjgvouklosjop6tgtmempxi4bhatpdinhdya.webp` | `18a4744cfe72224707a6138d60381a2640dde70498c416bff6e1406891e9fea0` |
 | s08 | `bafkreigp26m3pm7bnhqiiejl5vbbzbhrmg3fu3ci5kdgyo5ad2g3nmtega.webp` | `710c54096ef7e8df64dc364c6b22574d623ddcf715bd947c43d4969c736e7ad9` |
+
+## additional public card references — 2026-10-22
+
+four publicly linked images were inspected by the goalie/descriptive auditor and root, then retained unchanged as research evidence. these are not application assets or numerical fixtures; no branding or private values enter our product. the eight supplied-image identities above remain unchanged. public image inspection does not establish subscription interactions or grant broader source rights.
+
+| id / local file | dimensions / size | sha256 | source / finding |
+|---|---|---|---|
+| r01 / [hockeyviz-hoffman-descriptive-card.png](hockeyviz-hoffman-descriptive-card.png) | 651×917; 118,670 bytes | `7998c9babcfb4241b037392f0d8dfcfe181c252531e6dad53293f2437fc45723` | [public original](https://hockeyviz.com/static/img/howto/playerCard-hoffmmi89.png); descriptive card: usage/scoring bars, attempt/goal on-off scatters, shooting fractions, penalties, starts/score and usage-context scatter; 2014–17 example |
+| r02 / [hockeyviz-hellebuyck-saving-by-type.png](hockeyviz-hellebuyck-saving-by-type.png) | 640×970; 196,724 bytes | `d33dbf685c4c3f986e14651ecaddbbc2f95a1d94af14d13fb060aaa21ecae825` | [public original](https://hockeyviz.com/fixedImg/saving/2526/helleco93); four shot-type panels, counts/expected-versus-observed bars and relative-goals-per-xg map legend; generated2026-10-17 |
+| r03 / [hockeyviz-hellebuyck-saving-danger.png](hockeyviz-hellebuyck-saving-danger.png) | 768×436; 62,946 bytes | `55f6354035e069e325b75649cb3305a7e4035826b116ae69d7e668b6610973e4` | [public original](https://hockeyviz.com/fixedImg/savingCalibration/2526/helleco93); actual/expected difficulty-density comparison and integrated goal difference; private signed centering is not defined by pixels |
+| r04 / [hockeyviz-hellebuyck-saving-summary.png](hockeyviz-hellebuyck-saving-summary.png) | 640×970; 144,299 bytes | `31ad6b946b5510778174760778c0c778e174b46b078a9591ffaa4c26c5cef8db` | [public original](https://hockeyviz.com/fixedImg/savingTeamSingle/2526/WPG/helleco93); unblocked attempts=misses+saves+goals, expected goals, difficulty and league-relative goals-per-xg map; generated2026-04-17 |
+
+[the completed crosswalk](../../product-inventory.md#v1-field-crosswalk-and-card-acceptance) links each section to our independent quantities. the published descriptive guide and old image differ in context presentation; the image shows a two-coordinate usage scatter. r04's “shots” includes misses and therefore cannot use shots-on-net expected goals interchangeably. r03's signed curves have an unknown private baseline; our nonnegative fixed-bin actual/expected densities are explicitly different.
+
+also inspected, without adding large later-view images to git: [skater season overview](https://hockeyviz.com/fixedImg/playerOverview/2526/TOR/matthau97) and [goalie season overview](https://hockeyviz.com/fixedImg/playerOverview/2526/WPG/helleco93). these separate season-page compositions contain game-axis workload and smoothed rate/goal-to-xg traces; skater adds teammate/start traces. they are later destination work, not embedded card histories or new v1 window controls. the goalie career results/subskills wrappers required subscription and were not inspected. visible headings/public methods inform our finite independent contract; exact private rendering, centering and goalie sG remain unknown.
+
+microstat amendment: s02 is a forward example. the [current public guide](https://hockeystats.com/about/microstat-player-cards) additionally defines a twenty-field defense composition; eleven fields overlap, yielding twenty-nine distinct fields. the [crosswalk](../../product-inventory.md#microstat-skater--s02-and-documented-fd-variants) and [canonical meanings](../../specs/experimental-card-facts.md#microstat-quantities-and-populations) supersede any reading that the twenty supplied labels cover both positions. six component summaries reuse the comparative model values within microstat detail. no defense screenshot or subscription control was inspected.

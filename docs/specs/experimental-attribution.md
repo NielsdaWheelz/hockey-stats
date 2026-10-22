@@ -103,11 +103,13 @@ value an award as one isolated two-minute power play. in goals/hour, let `a,b` b
 ```text
 tau = -expm1(-a*T)/a              # limit T when a tends to zero
 V = ((a-e_f) - (b-e_a))*tau
-drawn_value = (1000/60) * delta_draw * V
-taken_value = -(1000/60) * delta_take * V
+drawn_value_per60 = delta_draw * V
+taken_value_per60 = -delta_take * V
+drawn_value = (1000/60) * drawn_value_per60
+taken_value = (1000/60) * taken_value_per60
 ```
 
-the pp goal ends the minor; an sh goal does not. this values an isolated opportunity, omitting overlaps, 5v3 interactions and regulation-end truncation. the valuation uses neutral units, not the focal player's pp/pk coefficients; do not count the resulting additional special-team minutes again.
+`delta_draw` and `delta_take` are award-rate contrasts per60 minutes; the two value rates are goals per60 and the final two values are goals over the common 1,000-minute 5v5 workload. the pp goal ends the minor; an sh goal does not. this values an isolated opportunity, omitting overlaps, 5v3 interactions and regulation-end truncation. the valuation uses neutral units, not the focal player's pp/pk coefficients; do not count the resulting additional special-team minutes again.
 
 ## shootiness
 
@@ -166,6 +168,14 @@ ice_lost_map[c] = n0 * sum_z d_i[z]*G_against[z,c]
 evaluate against-side start zones in the correctly reflected attacking frame; on-the-fly uses the declared pooled zone mixture. this common survival assumption deliberately excludes start-specific/focal substitution behavior from successor value.
 
 sum cells for goals per basket; against increases are unfavorable. current-player spatial effects hold start context fixed; these terms allocate the induced successor-start difference only. never add raw post-shift outcomes or the four movement subskills again. collapsing live exits to one on-the-fly state loses their specific live-zone imprint. incomplete anchors, interpolation, fixed substitution behavior and the successor-slot approximation remain prominent limits. this is a model-based territorial footprint, not observed possession or measured causal transition skill.
+
+## card projections and shared quantities
+
+publish neutral complete attempt/xg rates beside each focal complete rate and signed contrast from `project_spatial`; use the same context and reference, never an empirical league rate as an interchangeable denominator. the isolated card's four maps are **attempt-rate contrasts** for 5v5 offense, pp offense, 5v5 defense and pk defense. their xg insets are separate projections: signed xg/60 and `100*delta_xg/neutral_complete_xg`. each additive map closes to its own quantity; an attempt map does not integrate to its xg inset. defensive rates keep the against sign, while the contribution ledger reverses that sign explicitly.
+
+produce `pp`/`pk` aggregated maps/scalars using the exact state weights of the common workload ledger below; store these weights/reference identity and retain exact-state detail. these are common-mixture estimates, not the player's actual usage. a missing required state does not become zero or silently re-normalize the mixture. the 5v5 shootiness label is `100*(focal_probability-neutral_probability)` percentage points on its declared common unit, not relative percent. expose both probabilities.
+
+the compact card's penalty grouping is exactly `penalties_drawn+penalties_taken` from the ledger. compute and publish it once in `player_value`; the ten separate contributions remain authoritative. central isolated-card execution distributions use the 5v5 common-panel per100 finishing/setting quantities; their adjacent contribution labels still use the full workload. no percentile, conditional stage or shootiness term is added to the total. [application](experimental-application.md#card-compositions-and-shared-display-rules) owns cohorts, history and physical display.
 
 ## ten-term ledger and depth reference
 

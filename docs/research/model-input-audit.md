@@ -18,6 +18,14 @@ finish the crosswalk by enumerating the selected source families and their analy
 
 all gaps need an owner and a concrete disposition. `pending implementation` is not coverage closure; `inactive in baseline` is acceptable only when the required retained implementation exists. inaccessible/undefined evidence and unverified private methods remain limitations, not fabricated facts. lack of proven predictive improvement is not grounds for omitting an available reviewed family. preserve specific public method versions and inspect later revisions explicitly.
 
+### v1 card input audit — 2026-10-22
+
+three bounded audits plus root code/source/image reconciliation produced the [required-card crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance). available role/boxscore/roster/elapsed evidence can supply the missing factual card summaries through existing owners; additional reductions and real-corpus verification remain required. admitted raw fields are not completed analytical capability. exact source locators, matching support and ownership are in [card facts](../specs/experimental-card-facts.md).
+
+new source dispositions are concrete: a3z tracking links require member access and no compatible tracking corpus is admitted; twenty-two microstat quantities therefore remain explicit gaps. NHL skating has documented public aggregates but three historical probes returned 403; schema/census feasibility stays open. six microstat quantities can be constructed without those sources. these conclusions concern checked evidence, not universal absence of another feed. goalie/descriptive deficits chiefly required new summaries and corrected conditioning, not new data or fit heads. [dated evidence](player-card-references.md#v1-field-audit--2026-10-22) records the inspection limits.
+
+this completes the v1 field/source meaning pass. the comprehensive peer-method/alternative-repertoire audit above remains destination work and cannot silently reopen the v1 gate. annual scope, neutral reference, forty modes and common workload remain unchanged.
+
 ## historical audit — 2026-09-30
 
 audited 2026-09-30 against implementation `9132131`, three local game captures, season references and retained 03b evidence. three independent reviewers examined hockeyviz, evolving hockey, and our capture → interpretation → preparation → model path. the drive is detached: fixture presence is not historical completeness. this is a bounded public-method audit, not access to either site's private production system.

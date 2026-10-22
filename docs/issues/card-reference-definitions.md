@@ -1,16 +1,9 @@
-# card reference definitions
+# later card reference definitions and private-method limits
 
-status: open definitions within the complete experimental program; unrelated baseline work can proceed. [the visual inventory](../product-inventory.md#visual-coverage-inventory--2026-10-22) now makes the affected player-analysis presentations explicit required work, with definitions pending.
+status, 2026-10-22: v1 meanings and owners are resolved in the [completed crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance). this issue now concerns later destination formulas and explicit peer-access limits, not a prerequisite for v1 implementation.
 
-problem: public layouts are more complete than current public definitions. a visible label does not supply an estimand, denominator, eligibility rule or reproducible model.
+problem: a visible private-product label does not reveal an estimator. hockeyviz's current goalie career results/subskill wrappers require subscription; their current full graphics remain uninspected. its publicly visible goalie sG column has no established formula in the inspected [sG article](https://hockeyviz.com/txt/sG). [jfresh's goalie preview](https://hockeystats.com/cards/goalie-cards) names start-quality, consistency and aggregate value; the [2022 explainer](https://jfresh.substack.com/p/2022-nhl-player-cards-explainer) does not establish current thresholds. private2026–27 rewrites likewise cannot be inferred from older articles.
 
-evidence, checked 2026-09-29:
+impact/disposition: v1 uses an explicitly independent stopping-per100 headline, three outcome and three continuation subskills, paired unblocked/on-net evidence, fixed-bin danger comparison and declared ratio maps. [the audit](../research/player-card-references.md#v1-field-audit--2026-10-22) records actually inspected images and differences. no private overall goalie value is invented. later jfresh quality/consistency/aggregate proposals and broader context/spider/reference-band views need their own exact contracts before assignment; they do not hold these cards open.
 
-- hockeyviz's [2026–27 preview](https://hockeyviz.com/txt/preview2627) announces rewritten shot-rate and xg models with descriptions forthcoming; older articles cannot establish the new implementation.
-- the [current goalie preview](https://hockeystats.com/cards/goalie-cards) displays danger tiers, start-quality categories, rebound control and consistency. the detailed [explainer found](https://jfresh.substack.com/p/2022-nhl-player-cards-explainer) dates to 2022; unchanged current definitions were not established.
-
-2026-10-22: public page text was re-read, confirming that the goalie preview still names these categories. rendered behavior and exact current formulas were not verified. [reference sweep](../research/player-card-references.md#visual-reference-sweep--2026-10-22)
-
-impact: the [inventory](../product-inventory.md) can identify these capabilities, but cannot promise current numerical parity or treat historical thresholds as approved requirements. start-quality, consistency, aggregate goalie value and other unresolved in-scope quantities cannot disappear behind candidate labels.
-
-resolution: pin a dated reference and define our quantity, population, denominator, time meaning and computational acceptance evidence in the owning appendix. obtain adequate public documentation or explicitly adopt an independent definition with its limitations; scientific quality may remain provisional. private documentation is not a prerequisite. delete this record when required affected quantities have concrete contracts and any exclusions have explicit scope approval. deferral alone does not resolve a required field. [visual coverage](experimental-visual-coverage.md) owns the broader rendering/interaction audit.
+resolution: when a later family is selected, pin its example/access/version, independently define the quantity/population/denominator/reference and check its producer/content contract. public documentation or an explicit independent definition suffices; private access is not mandatory. preserve the dated access limitation when exact parity remains unverifiable. delete this issue when no later selected field has an unresolved definition, retaining historical evidence in the reference audit.

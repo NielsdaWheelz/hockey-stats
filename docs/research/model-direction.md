@@ -205,6 +205,14 @@ assess broad spatial predictive differences and observable history/exposure grou
 
 tradeoff: limited fresh fits and training-reference reconstruction delay a prior change, and held-out observations still reveal no true player ability. the benefit is evidence from the intended population before more tuning of a simulator. retain age, entry/exit selection, richer exposure-integrated deployment adjustment, complete-rate adequacy, uncertainty and chance valuation as separate unresolved responsibilities. encoder availability does not make an event feature valid over zero-shot exposure. [the plan](../plan.md) owns progression; no new prior, automatic next experiment or ability release follows.
 
+## source consequences before a new attribution question
+
+the approved [02d direction](../specs/02d-source-exposure-consistency.md) separates source reconciliation from model selection. 05g's strict-interior conflicts and 57 empty-shift responses affect older seasons used as history in 04m. its three target-season edge cases remain a different boundary. 04m consumes corrected 04b grouped moments inherited from 04a, not the website population. historical preparation has the same relevant outside-event exclusion pattern, but context/score masks differ; exact research impact requires the frozen ledgers.
+
+preserve 04m's inputs, expensive fits, protocol and original result. source findings belong in its interpretation, with measured consequences distinguished from pending checks. neither shared defects across arms nor a small observed footprint establishes cancellation or demands a restart. any later regeneration or sensitivity fit needs its own identities and justified scope. [04n](../specs/04n-attribution-follow-up.md) holds that contingent decision until 04m reports; no prior revision, new feature or campaign is selected now.
+
+cost: a bounded source/consumer audit before another scientific intervention, plus possible loss of valid time under conservative exclusion. potential source recovery improves coverage only after validation; unresolved gaps remain explicit. the private deployment-context product can be specified independently and use the settled support without waiting for model admission.
+
 ## software and verification judgment
 
 the existing effect-capture/python-analysis boundary is appropriate. 04c places shared attribution fitting, chronology, projection and artifact validation in their package owners; old study commands retain named read-only controls and assessment. study-specific selections, criteria and figures stay with the study. further mature shared mechanisms belong in their responsible modules when needed, without a framework or historical migration.

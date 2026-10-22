@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## approved direction after 05g — 2026-10-21
+
+source/statistical and product review separate three responsibilities: [02d](../specs/02d-source-exposure-consistency.md) for source/exposure consistency, [05h](../specs/05h-observed-deployment.md) for observed deployment context, and a contingent [04n](../specs/04n-attribution-follow-up.md) selected after 04m. the user approved this direction and documentation updates; full specifications and execution remain separate.
+
+the event/time disagreement warrants a conservative matched-support contract and measured consequences. empty shifts are missing evidence, not an established parser defect; recovery starts with a bounded probe and can end in an explicit retained gap. frozen attribution preparation shares the relevant exclusion pattern, but website seconds cannot establish research impact. preserve 04m's inputs/fits and inspect its own ledgers before proposing regeneration or sensitivity work.
+
+product review favors two shared-minute tables over another outcome/ability surface: teammates and opponents, including zero-event time, linked to existing seasonal profiles. the cost is new factual aggregation and publication work after exposure policy settles. personal shot maps remain later; no chemistry, quality or with/without effect is implied. this sequencing improves evidence and context without bundling source changes into an unselected model experiment. independent source/statistical and product review clear the bounded stubs; this is direction review, not full-specification or implementation acceptance. [the plan](../plan.md) owns assignment.
+
 ## 05g delivery review — 2026-10-21
 
 independent review clears [pr #40](https://github.com/NielsdaWheelz/hockey-stats/pull/40), its successful security check and exact merge-tree equality with reviewed `619cc88`. every producer remains in ancestry. primary typechecking, observed cli/source imports and isolated three-season candidate/profile/map reads pass. the primary editable project metadata is refreshed to restore a missing entry point; dependency pins and the running build remain unchanged.

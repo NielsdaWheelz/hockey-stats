@@ -2,6 +2,8 @@
 
 status: open; original-source coverage limitation found during 05g. provider cause is unknown; current reconstruction correctly withholds unsupported elapsed exposure.
 
+planned owner: [02d source/exposure consistency](../specs/02d-source-exposure-consistency.md), approved as direction only. specify a small separately dated recovery probe; expand to affected games only if useful evidence exists and the full contract assigns acquisition. preserve the original empty responses and distinguish new support from policy changes. absent recovery, retain the gap explicitly; no parser rewrite, alternative feed or research restart follows automatically.
+
 problem: 57 of the original 1,312 `20242025` inventory games, contiguous ids `2024021235`–`2024021291` dated `2025-04-08`–`2025-04-15`, have http `200` shift responses containing `{"data":[],"total":0}`. successful transport does not establish that the underlying shift observations are complete.
 
 impact: these captures cannot supply matched observed counts/time or peer-reference exposure. their concentration late in the season creates date-selective missingness. retained reported event memberships and recorded locations remain separate evidence; neither supplies an elapsed denominator. unavailable rates are not zero production, no appearance or retirement. the observed publication must disclose the selected season's gap without filling it.

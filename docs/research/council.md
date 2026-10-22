@@ -1,6 +1,38 @@
 # council synthesis
 
+## complete experimental product review — 2026-10-22
+
+user decision: implement the full selected input, component, output and visualization repertoire with real initial estimates, then improve it through use. five-on-five/xg is a useful first integration increment, not a smaller completion target. [brief](../brief.md) · [program stub](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). the plan alone owns assignments; running 04o retains its protocol. no new implementation, fit, acquisition or activation follows from this documentation update.
+
+three independent domain/statistical, systems/product and hockey-capability reviews agree on the distinction between correct computation and mature evidence. historical failures do not erase useful mechanisms; an explicit experimental publication does not change those failures into scientific support. observed facts, experimental estimates and specifically supported claims need different meanings, not separate websites.
+
+- **statistics:** require targets, timing, matched exposure, normalized probability/origin construction, reference policy, valued responses and nonoverlapping accounting. report weak calibration/recovery, prior sensitivity and missing uncertainty honestly. signed effects can be negative; impossible complete rates remain a defect, never a clipped prediction disguised as valid.
+- **hockey scope:** retain full skater/goalie families, including setting, shootiness, pp/pk states, penalties, ice won/lost and transition subskills, goalie outcomes, coaches, fatigue and age/history context. distinguish unavailable tracking from explicitly inferred inputs. exact optional competitor fields stay optional.
+- **systems and product:** extend existing python, sqlite, effect and application owners. numerical/content contracts precede parallel producer, publication and view work. every required family needs actual numerical outputs and useful cards/maps/tables/comparisons/history/exports; no metric platform, second dashboard or placeholder wall.
+
+draft review closed a completion loophole: visible gaps permit partial delivery, but unimplemented core families keep the program incomplete unless the user explicitly rescopes it. the review also preserved candidate status for goalie aggregate valuation and named elapsed shift age/start context separately from workload. the physical-rate restriction remains local to that quantity; valid signed effects and unrelated components need not wait.
+
+an earlier narrow-preview recommendation would have preserved the product bottleneck under a new name. the review therefore treats breadth as a real completion criterion while integrating incrementally. the opposite error is treating “experimental” as permission for arbitrary proxies, invalid arithmetic or unexplained totals. both are rejected.
+
+material tradeoff: more provisional implementations, fitting and source work, visible weak estimates and later revisions in exchange for earlier whole-product feedback. compatible groups may enter a joint baseline without winning isolated studies. after assembly, choose changes by their consequences for actual player interpretation; no automatic successor campaign. support and public language remain claim-specific; public launch remains separately selected rather than waiting for universal certification.
+
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
+
+## 04o specification review — 2026-10-21
+
+independent statistical, source/hockey and systems/content reviewers clear the [full contract](../specs/04o-attribution-context.md). the user selected fixed smooth curves, diagnostic adoption afterward and player point sensitivities with ten new fits. engineering fixes eighteen time/score columns, projects their shape component into the existing forty modes, preserves old native context maps and reuses ten exact borrowing controls. the cost is restricted temporal/spatial flexibility and unvalidated player uncertainty. [the plan](../plan.md) owns execution assignment.
+
+adversarial review resolved the finite-response-energy issue: exact event-time/exposure calculations need a continuous working contrast and a typed score-only scalar likelihood. the old full-objective response term is constant within each annual scale search; existing controls remain valid and byte-identical, with independent constant-offset/posterior checks and bounded numerical probes. no invented energy, absolute mse or calibrated noise claim follows. the control must reproduce 04n before candidate interpretation.
+
+source review made frozen pre-scores and accepted event assignment authoritative: ledger order is not score chronology. exact count/time conservation, training-only centering and interval integration preserve the population. systems review requires sparse player blocks, a fixed final-season sensitivity population and separate scalar/regional summaries. content review separates prediction, player movement and impossible physical rates; endpoint extrema identify one-sided limits. no source/research execution or serving change occurred during specification. coefficient movement and public-method resemblance establish neither improved individual recovery nor ability admission.
+
+## approved direction after 04n — 2026-10-21
+
+independent statistical, hockey/source and product/systems reviewers agree on retaining borrowing and making player consequences central to the next contextual comparison. statistics initially favored shift-start circumstances, then accepted score × game time after source review: current shift evidence is attempt-indexed and a missing same-clock faceoff does not establish an on-the-fly start. the adopted direction is [04o](../specs/04o-attribution-context.md), with exposure integration and player-effect sensitivity, not a diagnosed remedy. [the plan](../plan.md) owns progression.
+
+04n's regional negative mass is about 0.9 predicted attempts versus 279 natively. neither frequency nor this aggregate magnitude selects a likelihood rewrite; small regional mass does not validate individual maps. preserve the issue without clipping or a retrospective tolerance. the tradeoff is another contextual comparison before calibrated player intervals; avoid repeating generic accounting or launching an open-ended feature search. [model direction](model-direction.md#04o--test-context-and-player-consequences) records the remaining claim requirements.
+
+[published magnus 9](https://hockeyviz.com/txt/magnus9EV) supports explicit contextual components and historical borrowing, but reports generally modest annual score/zone effects. the [2026–27 preview](https://hockeyviz.com/txt/preview2627), rechecked 2026-10-21, announces a later rewrite without its full method there. our recommendation is an inference, not micah's private prescription. product review supports independent [05i personal shooting geography](../specs/05i-personal-shot-views.md), with new source/publication contracts; schema-6 activation is already complete.
 
 ## 04n delivery review — 2026-10-21
 

@@ -1,23 +1,25 @@
-# pr06 — website
+# pr06 — complete player-analysis website
 
-status: **stub; not ready for implementation.** [05a](05a-observed-website.md)/[05b](05b-observed-comparison.md) deliver the private observed path. [05c](05c-player-explorer.md) delivers table/card/distribution exploration; [05d](05d-descriptive-cards.md) covers richer descriptive facts/export, and [05e's full specification](05e-spatial-views.md) covers observed unblocked spatial views. expand this same application against the [05 publication contract](05-publication.md) and settled [brief](../brief.md) for supported ability maps and comparisons. fixtures can exercise analytical views when assigned; a real ability release additionally requires supported 03–04 results. [plan](../plan.md)
+status: **stub; not ready for implementation.** extend the existing 05a–05h application for the [complete experimental program](experimental-player-analysis.md), through [05](05-publication.md). [the plan](../plan.md) owns assignment; [the inventory](../product-inventory.md) is the finite capability checklist. do not build another research dashboard or require global model admission before private modeled views.
 
-## purpose and ownership
+## target behavior
 
-support the published question: who creates or suppresses genuine 5v5 opportunities, where, and with what evidence? inputs are complete published view responses. outputs are a compact sortable league table with name search, player profiles and adjusted maps, selected-player comparisons, complete-season observed summaries and game-by-game evidence.
+browse complete selected skater and goalie analysis: tables/search, concise comparative cards, component details, spatial explanation, peer distributions, player comparisons, historical trajectories, recorded game evidence, deployment/with-without context, personal shooting and exports. keep real magnitudes and evidence beside ranks. 5v5/xg is the first working path, not the completed scope.
 
-use the selected react/router frontend and effect operations within `app/src/`. route/browser modules own presentation and meaningful url selections; effect owns response validation and application effects. server queries remain in 05. defer concrete files and interfaces; preserve one state owner.
+the headline remains underlying level across a season. distinguish observations, experimental modeled estimates and specific supported claims. show quantity/sign/units/reference, season/strength, coverage, model identity and consequential limitations. separate component rates, accumulated results and reference-workload value. no unsupported causal, forecast, replacement or calibrated-uncertainty language.
 
-reuse the observed views and publication client established in 05a. adding supported analytical panels does not authorize a second frontend, duplicate summaries or a generic card system. 05a's narrower observed slice is useful independently and does not satisfy this analytical contract.
+## structure and composition
 
-## settled behavior and exclusions
+reuse current react/router routes, shared client/effect operations and profile/table/comparison/distribution/map/history/png owners. typed responses supply finished hockey quantities; browser selectors choose available results rather than refit models. the application may compute declared display/cohort operations from published values, using the same owner across html and exports.
 
-present offense and defense separately. distinguish estimated ability from observed counts, reconstructed exposure and inferred locations. game rows explain observed season totals; they do not decompose adjusted season effects. show units, baseline, uncertainty meaning, evidence coverage and publication identity. unavailable values need reasons, not zeros.
+one content designer per feature family works with its numerical owner on actual labels, definitions, representative content, map scales and empty/error states. examples must include sparse evidence, missing inputs, experimental uncertainty and materially different players. labeled synthetic fixtures permit parallel interface work; real-output review is required before calling a family complete. no generic dashboard/card framework or ornamental placeholder wall.
 
-support local/private browsing, direct links and reloads. no browser-triggered fits, arbitrary date windows, full event explorer or historical-release browser. observed raw-unit distributions and compact cards now have a separate consumer in 05c; percentile policy, supported analytical distributions/cards, public hosting and new components keep their own contracts in the roadmap.
+scalar/map/explanation views must describe the same quantity. probability stages and explanatory subskills do not become extra additive value. incompatible comparisons need visible reasons; selected player/cohort/reference remain explicit. history uses declared output seasons and methods, not archived publications. table/card/map exports preserve identity, units, references and experimental meaning.
 
-## full specification and completion
+## boundaries and acceptance
 
-content design owns labels, definitions, empty/error states, visual hierarchy and accessible explanations. analytical owners supply metric semantics. specify sorting, comparison compatibility, map scales/orientation and insufficient-evidence states using real output examples. display admitted population/reference metadata; do not confuse the model baseline with a percentile cohort. any later cohort needs its definition when that feature first consumes it.
+retain localhost access until separately changed; detached browsing, direct links and ordinary reloads continue. no browser-triggered fits, arbitrary date windows, complete event explorer, accounts, public-hosting work or historical-release browser. optional competitor fields remain choices in the inventory.
 
-completion means the agreed views work coherently from one publication, including detached operation, direct-route reload and honest fixture/missingness labels. verify the useful browsing path and chart readability; no design-system project.
+the full specification owns concrete files, routes/responses, layouts, cohorts, scales and export formats for coherent batches of required views. test actual table → profile → comparison → history/export journeys with the publication owner; verify accessible keyboard use, narrow layouts/zoom, readable maps and invariant content across displays. keep verification proportionate to consequential changes.
+
+temporary integration/live checks follow red → green → refactor → green, then deletion; fixtures and explicitly selected lasting checks follow [07](07-lightweight-testing.md). completion requires real family outputs and truthful content, not mature accuracy or a scientific-admission badge. software-invalid quantities stay unavailable with a reason; weak but defined estimates can be explored. implementation and activation remain separately assigned.

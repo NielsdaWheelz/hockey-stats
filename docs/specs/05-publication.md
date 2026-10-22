@@ -1,23 +1,27 @@
-# pr05 — publication
+# pr05 — analytical publication
 
-status: **stub; not ready for implementation.** [05a](05a-observed-website.md) first establishes this publication/read boundary for private source-supported observed results, independently of model admission. expand this spec for supported analytical quantities when their shared view contract is ready. labeled fixtures may support that design but cannot admit withheld estimates. [plan](../plan.md) · [architecture](../architecture.md)
+status: **stub; not ready for implementation.** extend the existing 05a–05h publication boundary for the [complete experimental program](experimental-player-analysis.md). [the plan](../plan.md) owns assignments. historical study handoffs/verdicts remain unchanged; checked experimental use is a new explicit contract, not retroactive admission.
 
-## purpose and contract
+## target and ownership
 
-turn declared analytical outputs into one self-contained sqlite publication and coherent read responses for 06. inputs include supported player-season effects, spatial outputs, observed game/season summaries, reconstructed exposure, coverage and uncertainty definitions. outputs are a checked candidate database, read queries and an explicit local publication/restore procedure. browsing must work without python or the external drive.
+produce one self-contained sqlite candidate containing observed evidence and concrete skater/goalie experimental outputs, followed by specifically supported claims where evidence permits. serve coherent table/profile/comparison/history/map responses without python or the external drive. use the same publisher, effect readers and explicit activation; no second database service or research dashboard.
 
-python owns export, analytical eligibility, reference conditions, units and reconciliation. effect owns application reads and file publication. proposed module homes are `analysis/src/hockey_stats/` for export, and server/read, operator and shared boundary modules within `app/src/`; exact files follow the full specification. do not duplicate hockey calculations in sql or typescript.
+python family producers own numerical quantities, analytical populations, references, units, map/scalar closure and limitations. the existing python publication owner stores their finalized outputs and validates cross-family identities/accounting. existing effect shared/server modules validate and query concrete view responses. preserve the current observed facts and their source identities; no hockey-model recalculation in typescript or sql.
 
-extend 05a's same database/export/read owners with supported estimates; do not build a second publisher or make model fields mandatory for its observed-only predecessor. matched observed counts/exposure and coverage remain source/aggregation claims. supported chance-valued effects additionally require the relevant 03–04 evidence. the full spec owns the concrete producer/reader cutover, without legacy fallbacks.
+## capability contract
 
-## settled behavior and exclusions
+- concrete per-family scalar/map/evidence records, keyed by person, season and strength; no universal metric registry or empty placeholder schema for every hypothetical family.
+- shared metadata: quantity meaning, units/sign/reference, input/design/model identity, coverage/inference, experimental/support statement and uncertainty availability. a missing value, failed solve and synthetic fixture have distinct reasons; neither becomes zero.
+- related view data use one read-only publication. observed and modeled values remain distinguishable in queries and content. model availability does not imply support for every interpretation.
+- retain observed historical seasons and declare new modeled output seasons explicitly. references and method differences remain visible; no latest-season substitution.
+- candidate checks cover source/quantity reconciliation, finite permitted numerics, keys, schema compatibility and truthful status. poor calibration or recovery can accompany an experimental estimate; they cannot become a supported claim by passing export checks.
 
-serve the active database read-only for the server's lifetime. return related data together for each view. after checking a candidate, explicitly stop the server, copy the completed file into place, restart and reload. preserve one previous valid database; an incomplete copy must leave intact files available for manual repair. restore compatible code through git and lockfiles when necessary. retain no old website builds.
+## operation and scope
 
-no automatic activation, historical-publication browser, hot switching, job runner or generalized storage layer. publication retention does not authorize deleting source history or expensive fits. accepted costs are manual operation and brief browsing interruption.
+finalize a fresh database; validate it before separately assigned stop/copy/restart activation. keep one previous database; rebuild compatible application code from git. no hot switching, archived builds, automatic activation, runner, generic storage layer or deletion of source/fit history. accepted costs are schema cutover and a brief manual interruption.
 
-## full specification and completion
+## full specification and acceptance
 
-define the schema, reader compatibility, complete view responses and concrete candidate checks. carry identities, evidence cutoffs, supported populations, missing-value reasons and analytical status. publication preserves the eligibility and reference definitions supplied by 03–04. percentile cohorts belong to later comparison features, not an invented publication default.
+define concrete tables, array encodings, typed responses, producer/reader files and compatibility cutover with 06 and numerical owners. use labeled fixtures while fitting runs; complete with real numerical outputs and detached reads. verify maps/scalars/totals and observed game/season closure, explicit unavailable states, incompatible-reader rejection and ordinary manual restore. content design owns useful operator language, with model semantics supplied by numerical owners.
 
-content design owns operator wording; analytical owners supply its scientific meaning. distinguish “database checks passed,” “fixture publication” and “scientifically supported results.” completion requires detached reads, reconciliation, incompatible-reader rejection and demonstrated manual activation/restore with bounded fixtures. structural validity alone never establishes scientific support.
+use temporary integration/live red → green → refactor → green checks, then delete campaign-only checks/dependencies; retain fixtures and only separately selected stable regressions under [07](07-lightweight-testing.md). database validity, experimental availability and scientific support are separate conclusions. no implementation or activation follows from this stub.

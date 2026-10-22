@@ -285,11 +285,17 @@ def _receipts(database, selection):
     receipts = {}
     for row in top['seasons']:
         reference = dict(path=str(database.parent / row['receipt']['path']), sha256=row['receipt']['sha256'])
-        receipt = read_json(linked_path(reference))
-        require(receipt['season'] == row['season'] and receipt['publication_id'] == top['publication_id']
-                and receipt['corpus_sha256'] == row['corpus_sha256'], 'season receipt binding differs')
-        receipts[row['season']] = (reference, receipt)
+        digest(reference['sha256'])
+        receipts[row['season']] = (reference, row)
     return top, receipts
+
+
+def _season_receipt(top, binding):
+    reference, row = binding
+    receipt = read_json(linked_path(reference))
+    require(receipt['season'] == row['season'] and receipt['publication_id'] == top['publication_id']
+            and receipt['corpus_sha256'] == row['corpus_sha256'], 'season receipt binding differs')
+    return receipt
 
 
 def _correspondence(original, selected, recovery):
@@ -304,7 +310,10 @@ def _correspondence(original, selected, recovery):
     require(recovery['consumed']['corpus'] == {k:old_ref[k] for k in ('path','sha256')},
             'recovery original corpus reference differs from original selection')
     old_corpus, old_inventory, old_ledger = load_corpus(old_path, [])
-    new_corpus, new_inventory, new_ledger = load_corpus(new_path, [])
+    if old_ref == new_ref:
+        new_corpus, new_inventory, new_ledger = old_corpus, old_inventory, old_ledger
+    else:
+        new_corpus, new_inventory, new_ledger = load_corpus(new_path, [])
     require(old_inventory == new_inventory and old_corpus['reference'] == new_corpus['reference'],
             'recovery changed inventory or season references')
     if recovery['summary']['recovered_games']:
@@ -318,7 +327,7 @@ def _correspondence(original, selected, recovery):
                 f'{gid}: selected corpus bundle differs from recovery tree')
         if row['disposition'] != 'recovered':
             require(old_ledger[gid]['status'] == new_ledger[gid]['status'], f'{gid}: unchanged native status differs')
-            if old_ledger[gid]['output_path'] is not None:
+            if old_ref != new_ref and old_ledger[gid]['output_path'] is not None:
                 old = read_json(old_path.parent / old_ledger[gid]['output_path'])
                 new = read_json(new_path.parent / new_ledger[gid]['output_path'])
                 require(_admission(old) == _admission(new), f'{gid}: unchanged native facts differ')
@@ -746,7 +755,7 @@ def _research_impact(result_path, incidents, output):
     return report
 
 
-def _incident_inputs(states):
+def _incident_inputs(states, boundaries):
     """all empty targets and disagreement games require source comparison, even without lost runs."""
     games = set(TARGETS)
     for rows in states.values():
@@ -754,14 +763,11 @@ def _incident_inputs(states):
             if any(c['temporal_case'] == 'interior' or c['shift_relation'] == 'neither'
                    for c in row['receipt'].get('exposure_conflicts', [])):
                 games.add(row['receipt']['game_id'])
-    incidents, boundaries = [], []
+    incidents = []
     for state, rows in states.items():
         for gid, row in sorted(rows.items()):
             receipt = row['receipt']
             conflicts = receipt.get('exposure_conflicts', [])
-            for conflict in conflicts:
-                if conflict['temporal_case'] == 'boundary':
-                    boundaries.append(dict(state=state, game_id=gid, **conflict))
             if gid not in games:
                 continue
             run_indices = {index for c in conflicts if c['temporal_case'] == 'interior' for index in c['segment_indices']}
@@ -779,10 +785,30 @@ def _incident_inputs(states):
         required_examples=sorted(BOUNDARIES))
 
 
-def _state_receipts(result):
+def _state_receipts(result, games, state):
+    """retain only bound incident facts and compact boundary evidence between seasons."""
     sources = {Path(row['path']).stem:{k:row[k] for k in ('path','sha256')}
-               for row in result.receipt['consumed'] if row['kind'] == 'reconstruction'}
-    return {row['game_id']:dict(receipt=row, source=sources.get(row['game_id'])) for row in result.receipt['games']}
+               for row in result.receipt['consumed'] if row['kind'] == 'reconstruction'
+               and Path(row['path']).stem in games}
+    retained, boundaries = {}, []
+    for row in result.receipt['games']:
+        gid = row['game_id']
+        conflicts = []
+        for conflict in row.get('exposure_conflicts',[]):
+            compact = {k:v for k,v in conflict.items() if k != 'adjacent_native_intervals'}
+            compact['adjacent_native_intervals'] = [{k:interval[k] for k in
+                ('interval_index','period_number','start_seconds','end_seconds','classification',
+                 'away_skaters','home_skaters','away_goalies','home_goalies')}
+                for interval in conflict['adjacent_native_intervals']]
+            if conflict['temporal_case'] == 'boundary':
+                boundaries.append(dict(state=state,game_id=gid,**compact))
+            if conflict['temporal_case'] == 'interior' or conflict['shift_relation'] == 'neither':
+                conflicts.append(compact)
+        if gid in games:
+            indices = {i for c in conflicts if c['temporal_case'] == 'interior' for i in c['segment_indices']}
+            retained[gid] = dict(source=sources.get(gid),receipt=dict(game_id=gid,status=row['status'],
+                exposure_conflicts=conflicts,segments={i:row['segments'][i] for i in indices}))
+    return retained, boundaries
 
 
 def _season_summary(connection, season):
@@ -831,6 +857,7 @@ def assess(args):
     selected_top, selected_receipts = _receipts(candidate, selection)
     comparisons, peers, full_receipts, summaries = {}, {}, [], {}
     states = {'original':{}, 'selected':{}}
+    boundary_rows = []
     delta_fields = ['phase','entity','season','game_id','player_id','cell_id','support','quantity','unit',
                     'before','after','delta','reason','original','policy_only','selected','component']
     peer_fields = ['phase','season','position_group_before','position_group_after','minute_cutoff','metric','player_id',
@@ -845,13 +872,15 @@ def assess(args):
                 'publication receipt/database identity differs')
         for old_ref,new_ref in zip(original['corpora'], selection['corpora']):
             season = old_ref['season']
-            receipt_ref, old_receipt = original_receipts[season]
+            receipt_ref, _ = original_receipts[season]
+            old_receipt = _season_receipt(original_top,original_receipts[season])
             old_evidence = dict(old_db.execute('SELECT * FROM season WHERE season=?',(season,)).fetchone())
             require(old_evidence['corpus_sha256'] == old_ref['sha256'] == old_receipt['corpus_sha256'],
                     'pinned original corpus/receipt differs')
             check_season(old_db, SimpleNamespace(season=season, receipt=old_receipt,
                 spatial_coverage=strict_json(old_evidence['spatial_coverage_json'].encode()),
                 coverage=strict_json(old_evidence['coverage_json'].encode())), 'real')
+            del old_receipt
             print(f'assessing {season}: authoritative policy-only aggregate', file=sys.stderr, flush=True)
             policy = aggregate(old_ref['path'],'real',season,old_ref['sha256'])
             policy_path = out / f'policy-only-{season}.json'
@@ -861,10 +890,12 @@ def assess(args):
             full_receipts.append(dict(season=season,state='policy_only',reference=identity(policy_path)))
             chosen = policy if old_ref == new_ref else aggregate(new_ref['path'],'real',season,new_ref['sha256'])
             checks = _verify_selected(new_db,chosen,'real')
-            selected_ref, selected_receipt = selected_receipts[season]
+            selected_ref, _ = selected_receipts[season]
+            selected_receipt = _season_receipt(selected_top,selected_receipts[season])
             require(selected_receipt['games'] == chosen.receipt['games']
                     and selected_receipt['aggregate_identities'] == chosen.receipt['aggregate_identities'],
                     f'{season}: final candidate receipts differ from authoritative aggregation')
+            del selected_receipt
             comparisons[season] = _compare_tables(old_db,policy,new_db,season,delta_writer)
             peer_states = [_peers(list(_sql_rows(old_db,'player',season)), list(_sql_rows(old_db,'player_season',season))),
                 _peers(list(_result_rows(policy,'player')),list(_result_rows(policy,'player_season'))),
@@ -875,12 +906,17 @@ def assess(args):
             peers[season] = dict(changes=_peer_consequences(peer_states,season,peer_writer),states=identity(peer_path))
             summaries[season] = dict(original=_season_summary(old_db,season),
                 policy_only=policy.receipt['aggregate_identities'],selected=_season_summary(new_db,season),readback=checks)
-            original_rows, chosen_rows = _state_receipts(policy), _state_receipts(chosen)
+            incident_games = set(TARGETS) | {row['game_id'] for result in (policy,chosen)
+                for row in result.receipt['games'] if any(c['temporal_case'] == 'interior' or c['shift_relation'] == 'neither'
+                    for c in row.get('exposure_conflicts',[]))}
+            original_rows, original_boundaries = _state_receipts(policy,incident_games,'original')
+            chosen_rows, chosen_boundaries = _state_receipts(chosen,incident_games,'selected')
             states['original'].update(original_rows); states['selected'].update(chosen_rows)
+            boundary_rows.extend(original_boundaries); boundary_rows.extend(chosen_boundaries)
             full_receipts.extend([dict(season=season,state='original',reference=receipt_ref),
                                   dict(season=season,state='selected',reference=selected_ref)])
-            del policy, chosen, peer_states
-    incidents, boundaries = _incident_inputs(states)
+            del policy, chosen, peer_states, original_rows, chosen_rows, original_boundaries, chosen_boundaries
+    incidents, boundaries = _incident_inputs(states,boundary_rows)
     write_json(out/'boundary-diagnostics.json',boundaries)
     research = _research_impact(attribution_result,incidents,out)
     # input files and clean producer must still be the identities assessed.

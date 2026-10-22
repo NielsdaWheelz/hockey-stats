@@ -114,13 +114,13 @@ reuse the existing read-only handle and validate pairs one season at a time. sta
 
 ## profile and content contract
 
-one `DeploymentTables` component sits **after peer distributions and before spatial views**. pass selected player, deployment, selected-season identities and the existing profile-link callback; keep query/navigation ownership in `routes/player.tsx`.
+one `DeploymentTables` component sits **after peer distributions and before spatial views**. pass the selected season, selected player, deployment, selected-season identities and existing profile-link callback; keep query/navigation ownership in `routes/player.tsx`.
 
 - heading: “5v5 deployment · <season>”. show the selected player's included on-ice minutes and existing `CoverageDetail` once above both tables; retain the page's `GlobalGap` notice.
 - tables: “teammates shared with” and “opponents faced”. columns are linked name/reported position, “shared min”, and “share of included time”. reuse `playerName` and `Minutes`; omit counterpart team labels that could imply which stint supplied overlap.
 - show ten rows per table initially, with independent “show all <n>” / “show fewer” buttons when needed. show the visible/total row count. return all rows in the api; no thresholds, extra requests, sort controls or new url parameters.
 - calculate the percentage in one local presentation helper from shared seconds and **the selected player's** included seconds. display one decimal; a positive value below 0.1% is `<0.1%`. never divide by personal/spatial time, counterpart time or total pair-time. exact seconds determine order; display rounding does not.
-- copy: “shared minutes use this player's included 5v5 time, including intervals with no recorded attempts. shares overlap: each included second counts for four teammates and five opponents.” add “a player can appear in both tables after a trade.” use neutral numbers, without higher-is-better colors, ranks or confidence styling.
+- copy: “shares use <selected player's name>'s <included minutes> included 5v5 minutes, including intervals with no recorded attempts. shares overlap: each included second counts for four teammates and five opponents.” add “a player can appear in both tables after a trade.” use neutral numbers, without higher-is-better colors, ranks or confidence styling.
 - links preserve selected season and existing peer/metric/map settings through the established profile-link behavior. those settings do not change deployment rows. local expansion resets on player or season change, but not an unrelated view-setting change. reuse existing abort/loading handling; never show old-player rows beneath a new heading.
 
 availability has explicit meanings:

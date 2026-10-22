@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05h specification review — 2026-10-21
+
+independent source/statistical, systems and content review clears the [05h full specification](../specs/05h-observed-deployment.md). all final retained on-ice segments contribute, including zero-event time; personal/spatial masks and peer filters do not redefine deployment. one canonical seasonal-pair table serves either endpoint, with existing per-game receipts supplying exact reductions. trades can produce both relations. independent membership checks complement conservation, which alone cannot detect swapped identities.
+
+the user selected minutes and shares of the profile player's included time. neutral top-ten tables expand to all counterparts; names/positions use the selected season, without misleading team-stint labels. shares overlap and need not agree reciprocally. review clarifies the explicit season prop and named denominator. no comparison/export expansion, quality measure or fitted interpretation follows.
+
+schema 6 adds one table and one profile-response field, reusing identity, coverage, publication and navigation owners. the cost is a candidate rebuild, larger game receipts and less detail from season aggregation/collapsed rows. implementation depends on 02d's checked observed boundary, not its separate research audit or 04m. this is specification acceptance only; [the plan](../plan.md) owns implementation and activation assignment.
+
 ## 02d specification review — 2026-10-21
 
 independent source/statistical, systems and content review supports the [full 02d contract](../specs/02d-source-exposure-consistency.md). source evidence owns constant-lineup segments and interior/boundary distinctions; observed preparation owns matched exclusions. the user selected three complete-bundle probes followed by conditional expansion across the 57 affected games. new captures remain distinct originals; the 342-request ceiling adds no new feed or capture framework.

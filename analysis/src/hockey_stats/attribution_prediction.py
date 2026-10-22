@@ -570,7 +570,7 @@ def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
                 negative_total_rows=total_summary["negative_complete_rates"],
                 directed_hours=summary["team_seconds"] / 3600.0,
                 entry_exposure_denominator=details["locations"] * summary["team_seconds"] / 3600.0,
-                negative_entry_directed_hours=summary["exposure_weighted_negative_cell_frequency"]
+                negative_entry_location_hours=summary["exposure_weighted_negative_cell_frequency"]
                 * details["locations"]
                 * summary["team_seconds"]
                 / 3600.0,

@@ -22,6 +22,16 @@ the decision leads with complete-rate evidence and preserves adverse composition
 
 the reviewed saved report contains 231 comparison rows, thirteen inventory game rows, 3,483 diagnostic rows and nine physical-rate rows. csv headers match the content contract. source-only primary game numerators, normalizers, float denominators, missing reasons and exact rate locators are retained. result status is `fixture_verified`, with nomination and handoff null, admission `not_admitted` and no next question. report summaries bind full receipts through the assessment reference while omitting their large objective curves.
 
-## limits and remaining final checks
+## final content contract checks
+
+the content regression first failed against the preceding saved assessment because mixed game-score rows had a single regional normalizer and denominator. the repair removes those row-wide fields and saves seventy-seven named loss-column contracts, each with its own normalizer. verification.md explains the denominator formula and unavailable training/zero-time values. rate diagnostics now name exposure summed over negative entries `negative_entry_location_hours`. result.json preserves the assessment's limitations verbatim, and verification.md renders them explicitly.
+
+the native inverse-share complete-rate estimates, games intervals and three-scheme directions now appear beside the complete regional headline. standalone volume also states its games interval and direction. correction row counts, physical/directed seconds and named games are rendered from the saved correction receipt for both research and fixture purposes.
+
+the updated four-command fixture run at `/Users/nnandal/Documents/code/hockey-stats-local/attribution-04n-20261021/integration-05/` passed these content assertions. its assessment sha256 is `6903a8a8ed656ee238988f84f750a5803ed4878d3caada701b638c9a5b08f9e6`. the independent direct-row oracle repeated all 16,014 comparisons with the same maximum discrepancy. the report's result preserves all seven source limitations and seventy-seven metric-column definitions; no mixed game row retains the misleading common denominator. the saved figure was reopened and inspected, with no clipping or overlap.
+
+a separate temporary saved-assessment rendering variant supplied finite interval endpoints and both supported-direction labels. those endpoints were edited solely for content verification; they are not new scientific evidence or another fitting campaign. its figure at `/Users/nnandal/Documents/code/hockey-stats-local/attribution-04n-20261021/report-finite-content-01/comparison.png` was saved and visually inspected: interval bars, filled points, zero lines, labels and caption are legible. the existing fixture's unavailable-interval rendering remains separately checked. no model fits were added for this rendering check.
+
+## remaining final checks
 
 these are fixture and shared-contract checks. they do not establish empirical predictive improvement, latent recovery, calibrated player uncertainty or chance-model admission. the root integration owner retains the full four-command, missing-input, relocation, saved-only regeneration and frozen-04m checks. temporary oracle programs remain outside the retained implementation until the final green check; final deletion and empirical rendered-content evidence belong in verification.md.

@@ -175,20 +175,22 @@ def render_reports(output, assessment, assessment_reference):
         for row in assessment["numerical"]["probe_rows"]
     ]
     statuses = [
-        row["saved_scale_status"]["status"] for row in numerical["probes"] if row["origin"] != "frozen_source_control"
+        row["saved_scale_status"]["status"]
+        for row in numerical["probes"]
+        if row["origin"] != "frozen_source_control"
     ]
     numerical["selected_scale_status_counts"] = {
         status: statuses.count(status) for status in sorted(set(statuses))
     }
     numerical["complete_probe_receipts_in_assessment"] = assessment_reference
     correction = assessment["source_correction"]
+    correction_label = "synthetic" if fixture else "accepted"
     correction_text = (
-        f"the synthetic correction removes {len(correction['rows'])} directed zero-count rows and "
-        f"{_number(correction['directed_seconds'])} directed seconds, with count loss {correction['count_loss']}. "
-        if fixture
-        else "the accepted correction removes six complete directed zero-count historical rows: "
-        "132 physical / 264 directed seconds, with no retained spatial count loss and no final-season change. "
+        f"the {correction_label} correction removes {len(correction['rows'])} directed zero-count rows: "
+        f"{_number(correction['physical_seconds'])} physical / {_number(correction['directed_seconds'])} directed seconds, "
+        f"with count loss {correction['count_loss']}. "
     )
+    correction_games = sorted({row["game_id"] for row in correction["rows"]})
     costs = dict(
         prepare=assessment["preparation_resources"],
         fit=assessment["fit_resources"],
@@ -225,6 +227,23 @@ def render_reports(output, assessment, assessment_reference):
         )
     lines += [
         "",
+        "## native complete-rate evidence",
+        "",
+        "| contrast | inverse-share estimate | games 95% interval | direction across three schemes |",
+        "|---|---:|---|---|",
+    ]
+    for contrast in CONTRASTS:
+        row = _aggregate(assessment, contrast, "games", metric="native_inverse_share")
+        lines.append(
+            f"| {contrast.replace('-', ' − ')} | {_number(row['estimate'])} | "
+            f"[{_number(row['lower'])}, {_number(row['upper'])}] | `{row['direction']}` |"
+        )
+    lines += [
+        "",
+        "native inverse-share complete loss divides by directed hours; its volume weight is one and its interaction is zero.",
+    ]
+    lines += [
+        "",
         "negative paired differences mean lower error. regional aggregate units are "
         "`(recorded unblocked attempts/60)^2`, dividing the pooled numerator by twelve × directed hours. "
         "all three valid 95% intervals must lie below zero for `supported_lower_loss`, or above zero for "
@@ -238,9 +257,11 @@ def render_reports(output, assessment, assessment_reference):
         "",
         "## source correction",
         "",
-        correction_text + "original captures and grouped archives remain bound. "
+        correction_text + "original source evidence and grouped archives remain bound. "
         "count moments and scalar response energy are preserved only after checking the excluded rows are zero-count. "
         "exposure, league rate, residualization and training references are recomputed; nine new states and three exact reuses are selected.",
+        "",
+        "frozen correction games: " + ", ".join(f"`{game}`" for game in correction_games) + ".",
         "",
         (
             "the synthetic fixture uses its declared tiny counted histories and exclusions rather than asserting these empirical counts."
@@ -261,7 +282,8 @@ def render_reports(output, assessment, assessment_reference):
     volume = _aggregate(assessment, CONTRASTS[0], "games", metric="volume", component="volume")
     lines += [
         "",
-        f"standalone volume difference: {_number(volume['estimate'])}, divided by directed hours. "
+        f"standalone volume difference: {_number(volume['estimate'])}; games interval "
+        f"[{_number(volume['lower'])}, {_number(volume['upper'])}]; `{volume['direction']}` across three schemes, divided by directed hours. "
         "the regional volume contribution weights its numerator by `||p′W||²`; all three contributions share twelve × hours. "
         "interaction is a signed cross residual computed directly from grouped moments. contributions are not percentages of blame. "
         "inverse-share native error has unit volume weight and zero interaction. paired moments do not establish absolute regional mse/rmse.",
@@ -351,6 +373,18 @@ def render_reports(output, assessment, assessment_reference):
         "",
         f"assessment: `{assessment_reference['path']}`; sha256 `{assessment_reference['sha256']}`.",
         "",
+        "## game-score normalization",
+        "",
+        "game-scores.csv retains directed hours and signed loss numerators. each named column has its own "
+        "metric_normalizer in game_score_metrics below; divide its numerator by metric_normalizer × directed_hours. "
+        "there is no common row-level denominator across these mixed metrics. primary aggregate regional "
+        "components use twelve, individual regions and native inverse-share and standalone volume use one. "
+        "training rows have unavailable loss columns; zero-time assessment rows have zero numerators and unavailable ratios.",
+        "",
+        "## limitations",
+        "",
+        *("- " + limit for limit in assessment["limits"]),
+        "",
         "```json",
         json.dumps(
             dict(
@@ -359,6 +393,7 @@ def render_reports(output, assessment, assessment_reference):
                 numerical=numerical,
                 resources=costs,
                 consumed=assessment["consumed"],
+                game_score_metrics=assessment["game_score_metrics"],
             ),
             indent=2,
             allow_nan=False,
@@ -390,6 +425,8 @@ def render_reports(output, assessment, assessment_reference):
         verification=assessment["verification"],
         resources=costs,
         source_references=assessment["sources"],
+        limits=assessment["limits"],
+        game_score_metrics=assessment["game_score_metrics"],
         tables=tables,
         figure=figure,
         decision=identity(output / "decision.md"),

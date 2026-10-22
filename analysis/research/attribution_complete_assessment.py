@@ -145,6 +145,27 @@ def assess_games(
     source_metrics = [("regional", "all", "shape", 12.0)]
     source_metrics += [("regional", name, "shape", 1.0) for name in region_names]
     source_metrics += [("native_inverse_share", "all", "shape", 1.0)]
+    game_score_metrics = []
+    for comparison, contrasts, selected_metrics in (
+        ("main", CONTRASTS, metrics),
+        ("source_only", ("corrected-original",), source_metrics),
+    ):
+        for contrast in contrasts:
+            for metric, region, component, normalizer in selected_metrics:
+                prefix = "source_only:" if comparison == "source_only" else ""
+                game_score_metrics.append(
+                    dict(
+                        column=f"{prefix}{contrast}:{metric}:{region}:{component}:loss_numerator",
+                        comparison=comparison,
+                        contrast=contrast,
+                        metric=metric,
+                        region=region,
+                        component=component,
+                        metric_normalizer=normalizer,
+                        loss_denominator="metric_normalizer * directed_hours",
+                        estimate_units="(recorded unblocked attempts/60)^2",
+                    )
+                )
     game_rows, dates, hours, all_values, source_values, ids = [], [], [], [], [], []
     diagnostics, means, observed_means = [], [], []
     player_ids, player_hours, player_residuals = None, None, None
@@ -169,8 +190,6 @@ def assess_games(
             retained_recorded_unblocked_attempts=counts,
             coverage=game["coverage"],
             reference_identity=game["source_identity"],
-            metric_normalizer=12.0,
-            loss_denominator=12.0 * exposure,
             reason=(
                 "training game; excluded from assessment"
                 if game["partition"] == "training"
@@ -423,6 +442,7 @@ def assess_games(
             if row["variant"] == "primary"
         ],
         game_rows=game_rows,
+        game_score_metrics=game_score_metrics,
         diagnostic_rows=diagnostics,
         region_names=list(region_names),
         support_rows=support_rows,

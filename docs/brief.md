@@ -14,13 +14,22 @@ the explicit long-term destination is to replicate the substantive player-card a
 
 ## experimental product decision — 2026-10-22
 
-build the full agreed input, model-component, output and visualization repertoire with coherent initial estimators, then improve it through use and bounded comparisons. implement compatible feature groups together; do not require each to win a separate study before it can appear in a private model. preserve correct feature extraction after ablation. [the inventory](product-inventory.md) defines finite scope; [the program stub](specs/experimental-player-analysis.md) connects its work boundaries. this does not select every optional competitor field or claim exact private-model parity.
+build the full agreed input, model-component, output and visualization repertoire with coherent initial estimators, then improve it through use and bounded comparisons. implement compatible feature groups together; do not require each to win a separate study before it can appear in a private model. preserve correct feature extraction after ablation. [the inventory](product-inventory.md) defines finite scope; [the program specification](specs/experimental-player-analysis.md) connects its work boundaries. this does not select every optional competitor field or claim exact private-model parity.
 
 computations and meanings must be correct even when estimates are poor. source identity, exposure, timing, units, probability mass, references and component accounting remain strict. calibration failures, weak recovery, prior sensitivity and unavailable calibrated intervals remain visible limitations of experimental estimates. observed facts stay distinct; a supported claim requires evidence for that particular quantity, population and interpretation. scientific support is not a global website switch.
 
 the completed experimental product includes actual baseline outputs for the selected skater and goalie families, complete comparison/history/table/map/card journeys, and their evidence. missing observations may motivate declared inference; they may not become invented facts. a labeled synthetic example can establish interface behavior but cannot complete a real component. deliver useful parts continuously while the finite checklist remains open. 04o and frozen studies keep their protocols and verdicts; their success is not a prerequisite for this program.
 
 accepted costs: broader provisional code, more source/model work, visible scientific weaknesses and later revisions. the benefit is a product whose actual behavior directs improvement. public release remains a separate decision, with honest claims and source rights; it does not require certifying every estimate or waiting for every optional feature. there is still one application, local fitting, explicit publication and one previous database.
+
+## experimental specification choices — 2026-10-22
+
+- headline: league-relative value, with replacement-relative value alongside. replacement uses a roster-depth proxy outside each team's top twelve forwards/six defensemen by regular-season usage, pooled by position; injuries, trades and coaching affect this benchmark.
+- execution reference: virtual shooter, setter and goalie with zero residual execution effects while retaining circumstances and inferred setup state. this is reference execution, not probability averaged over actual players; older frozen reference contracts stay unchanged.
+- spatial baseline: forty modes, chosen over a twelve-region simplification. preserve finer structure and accept heavier nonlinear fitting without implying reliable fine-cell effects.
+- headline workload: 1,000 5v5 minutes, 100 pp minutes and 100 pk minutes for every skater. expose hypothetical specialty minutes and prior dominance; this is a common-workload index, not accumulated seasonal value.
+
+[the full program](specs/experimental-player-analysis.md) specifies five annual training/history states, three displayed seasons, point-estimate limitations, concrete numerical families and the shared application. these implementation choices do not admit scientific claims or assign execution.
 
 ## choices confirmed by the user
 

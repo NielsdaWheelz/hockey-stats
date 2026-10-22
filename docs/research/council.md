@@ -1,5 +1,15 @@
 # council synthesis
 
+## complete experimental specification review — 2026-10-22
+
+three numerical/hockey/systems-content reviewers developed and cross-reviewed the [full contract](../specs/experimental-player-analysis.md) and its three appendices. the user selected a league-relative headline with roster-depth replacement alongside, virtual neutral execution, forty spatial modes and the common 1,000/100/100-minute workload. the specification fixes the remaining baseline mechanics and a strict shared publication contract; [the plan](../plan.md) alone assigns execution.
+
+adversarial review repaired substantive draft ambiguities: independent attempt/xg heads could violate chance≤attempts; annual reporting centers could contaminate historical borrowing; separate head allocations would not close the nonlinear rate product; territory required explicit role directions, survival and seconds/hour conversion; personal usage could leak into a supposedly common execution reference. the revised contract uses count×bounded quality, raw-coordinate carry, joint-head shapley evaluation and common opportunity panels. observed goal evidence, inferred setters/origins and model allocations retain distinct meanings.
+
+systems/content review fixes one command owner, schema 7, concrete family records, same-kind routes and cross-schema manual restore. context maps use matched locatable-unblocked populations; all-attempt values remain separate scalars, avoiding a large blocked-origin context store. complete modeled maps still integrate all inferred origin mass. content owns units, signs, workload, support, unavailable uncertainty and representative actual outputs for every family; fixtures cannot close the program alone.
+
+the lighter regional baseline was rejected in favor of the user's forty-mode choice. accepted costs include eighty annual head-states before initialization/em work and bounded continuations, shared hypothetical specialist usage, fixed priors and inferred mechanisms. ordinary minors are the initial penalty target; complete penalty impact, tracked passing/possession and validated player intervals are not claimed. correct inactive features remain retained. review establishes a coherent implementation handoff, not numerical performance or scientific support; no new source acquisition, fit, code change or activation occurred in this specification task.
+
 ## complete experimental product review — 2026-10-22
 
 user decision: implement the full selected input, component, output and visualization repertoire with real initial estimates, then improve it through use. five-on-five/xg is a useful first integration increment, not a smaller completion target. [brief](../brief.md) · [program stub](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). the plan alone owns assignments; 04o retains its frozen protocol and completed verdict. no new implementation, fit, acquisition or activation follows from this documentation update.

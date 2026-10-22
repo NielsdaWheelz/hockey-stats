@@ -41,6 +41,14 @@ the [exact ledger](research/features-03k/ledger.md) traces every required local 
 
 the sixteen numerical families are `game_additive,recent_additive,recent_interactions,game_detail,recent_detail,recent_geometry,off_wing,action_windows,zone_run,sequence,shift_age,shift_start,workload,calendar_rest,historical,strength_transition`. each stage declares its own ordered selection and saved design; the ledger specifies permissions, scales, structural absence and reference treatment. retaining a fact does not create an encoder or activate it in a recipe.
 
+## specified experimental use
+
+[the full program](specs/experimental-player-analysis.md) specifies new use; this is not a claim that its implementation or fits have run. the [chance appendix](specs/experimental-chance.md) selects `game_additive,recent_additive,recent_interactions,recent_geometry,off_wing,sequence,shift_age,shift_start,workload,calendar_rest,strength_transition`, plus actual-strength, dated-coach and annual-age terms. `game_detail,recent_detail,action_windows,zone_run,historical` remain supported inactive alternatives, not deleted code.
+
+source preparation must extend 5v5-only eligibility and opposing-five assumptions, supply chronological elapsed covariates for rate models, admit the dated right-rail coach feed, and construct explicit setter/stop/transition inference targets. [the attribution appendix](specs/experimental-attribution.md) owns its elapsed design and likelihood; copying an attempt encoding onto interval midpoints is insufficient. optional circumstance imputation is now explicitly specified: training-centered values plus missing indicators/categories, preserving original status. essential source invalidity still follows matched exclusions. this new policy does not change frozen complete-case research populations.
+
+age/history, workload, penalty shadows and retained event chains enter their declared owners; unobserved passes, tracked possession and physical rebounds do not become facts. a fixed imputer and missing indicators buy usable breadth but introduce structural assumptions and selective recording effects. adverse scientific evidence remains visible and later ablation requires refitting.
+
 ## scientific activation and population support
 
 historical fitted-use inventory, reviewed after [03o](research/chance-03o/protocol.md), 2026-10-14. this covers circumstance families; native spatial/type/season/shooter/goalie terms are separate. it is not the new program's recipe: explicit compatible selections and any new eligibility work belong to that full specification.

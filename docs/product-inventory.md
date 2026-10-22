@@ -6,6 +6,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 05a–05h establish the observed foundation: table/search, profiles, personal/on-ice/game evidence, comparison, raw-rate distributions/percentiles, png, spatial views, three-season history and deployment. their narrower slice exclusions do not constrain the new experimental program. keep those facts and their coverage intact while extending the same publication/application. [program boundaries](specs/experimental-player-analysis.md)
 
+[the full implementation specification](specs/experimental-player-analysis.md) maps this selected core to explicit source/model/application owners, with [numerical value accounting](specs/experimental-attribution.md), [chance/goalie contracts](specs/experimental-chance.md) and [view/schema contracts](specs/experimental-application.md). implementing the first 5v5 path does not close the remaining families. exact goalie start/consistency categories and aggregate goalie valuation remain candidates; this specification does not quietly select them.
+
 ## analytical dependencies
 
 | capability boundary | remaining experimental work / later evidence |

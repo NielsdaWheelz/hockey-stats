@@ -4,6 +4,8 @@ reviewed 2026-09-29 following the user's explicit clarification: replicating hoc
 
 the detailed [capability inventory](../product-inventory.md) now separates components, subskills, descriptive cards, goalie cards, context and optional tracking. the user confirmed dedicated goalie cards for later. this page retains the comparative rationale rather than duplicating that checklist.
 
+2026-10-22 amendment: the dated initial-target ordering below is historical. the [full experimental program](../specs/experimental-player-analysis.md) now specifies all selected core player-analysis families together; its numerical and application contracts supersede earlier "later" placeholders. the comparison evidence remains useful, but private parity and scientific support are not inferred from completion.
+
 ## hockeyviz
 
 the public [isolated-impact guide](https://hockeyviz.com/howto/isolate) combines 5v5 offense/defense maps, power-play offense, penalty-kill defense, finishing, setting, shootiness, penalties drawn/taken, and transition contributions. its synthetic-goals summary places component estimates in a common playing-time context. the example is dated december 2024; linked model descriptions may have newer versions.

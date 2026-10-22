@@ -20,6 +20,14 @@ chance scoring distinguishes actor-conditioned predictions from reference-standa
 
 publication checks establish the candidate's declared construction and honest status; they do not certify every model claim. observed results remain separate. fixtures permit publication/view development before expensive fits, followed by actual-output checks. no new activation workflow or global admission state machine. [05](specs/05-publication.md) and [06](specs/06-website.md) specify the concrete extension.
 
+### concrete experimental implementation
+
+the [full program](specs/experimental-player-analysis.md) and its numerical/application appendices now own the concrete baseline. preserve the 656-cell geometry and forty retained modes, but use positive rate/probability constructions rather than clipping the old quadratic model. chronology, sparse identities and source support are reusable; incompatible fitted coefficients are not. five chronological annual states supply three displayed seasons.
+
+reference execution sets residual actor execution to a virtual neutral state. it is not the old empirical joint-matchup average; frozen 03d and subsequent studies retain that definition. a common shot-context distribution supplies headline finishing/setting, while actual-opportunity attribution remains separate evidence. ten named terms compose the common-workload index; shootiness, conditional stages and territorial subskills explain it rather than add more value.
+
+schema 7 extends the existing publisher/read service and three routes with explicit family payloads. structured payloads have fixed schemas, not arbitrary metric keys. keyed relational facts support readonly on/off and selected-teammate aggregation, followed by the existing per60 arithmetic; no request fits or scores a model. the strict new reader validates incoming candidates; rotation preserves the previous database opaquely, with its matching code rebuilt from git for restore. no old-schema serving fallback or second application follows.
+
 ## method
 
 resolve consequential dependencies one at a time. for each question, explain the observable difference, recommend an answer with its costs, and record the user's choice separately from engineering judgment. ask about purpose and operating constraints; investigate empirical matters and own routine technical decisions. new information may reopen a dependent decision, with the reason stated.
@@ -328,7 +336,7 @@ the alternative puts hockey canonicalization in effect and passes numerical tabl
 
 ### shared analytical mechanisms and study policy
 
-keep source facts, target applicability, prediction applicability, design, objective and assessment separate. for example, a conditional goal stage can train on on-net attempts while predicting every unblocked attempt; recorded goal labels must remain intact. opportunity standardization averages the probability product over a common joint actor reference, not a product of independently averaged layers.
+keep source facts, target applicability, prediction applicability, design, objective and assessment separate. for example, a conditional goal stage can train on on-net attempts while predicting every unblocked attempt; recorded goal labels must remain intact. opportunity standardization evaluates the full probability product under its declared reference, never a product of independently averaged layers. the experimental product uses virtual neutral execution; frozen research uses its recorded joint-matchup reference.
 
 as assigned work next needs shared component setup/execution, artifact validation or paired numerical comparison, put the mature mechanism in its responsible `analysis/src/hockey_stats/` module. keep frozen selections, thresholds, decisions and figures in `analysis/research/`. preserve behavior at affected boundaries; historical studies remain reproducible at recorded revisions. no blanket migration, compatibility layer or generic experiment framework.
 

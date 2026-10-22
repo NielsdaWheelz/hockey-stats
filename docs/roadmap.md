@@ -33,7 +33,7 @@ milestones overlap. a usable experimental component may be inspected or explicit
 | composition | coherent context explanations, map/scalar closure, skater common-value and replacement references; no duplicated contribution or sum of percentiles |
 | experience | table discovery and specialist tables, complete profiles/cards, maps, distributions, comparison, analytical history/trajectories, game evidence, personal shots, with/without/deployment context, card/map/table exports |
 
-the [program stub](specs/experimental-player-analysis.md) connects these into non-overlapping contracts, source preparation, numerical families, publication/readers and application/content work. define interfaces together, then work in parallel where dependencies permit. extend one application and one publisher; do not introduce a generic metric platform or a second research dashboard. 05i personal geography belongs within this program, not another observed-only diversion before modeled views.
+the [program specification](specs/experimental-player-analysis.md) connects these into non-overlapping contracts, source preparation, numerical families, publication/readers and application/content work. define interfaces together, then work in parallel where dependencies permit. extend one application and one publisher; do not introduce a generic metric platform or a second research dashboard. 05i personal geography belongs within this program, not another observed-only diversion before modeled views.
 
 ## scientific work within the product
 
@@ -52,7 +52,7 @@ use the [supported-attribution stub](specs/04-player-attribution.md) for stronge
 
 ## after the complete baseline
 
-prioritize by consequence for the player's interpretation, rather than the next available modeling technique. candidate refinements include positive complete-rate models, better source/inference quality, chance calibration and actor standardization, context and age/history assumptions, entrant/change behavior, component credit and uncertainty. choose the actual question from baseline evidence. do not preassign a new sequence of studies or require every candidate refinement.
+prioritize by consequence for the player's interpretation, rather than the next available modeling technique. the initial specification already requires positive complete-rate models, explicit actor standardization and contribution accounting. refinements include better source/inference quality, chance calibration, context and age/history assumptions, entrant/change behavior, more useful component estimates and uncertainty. choose the actual question from baseline evidence. do not preassign a new sequence of studies or require every candidate refinement.
 
 current-season operation adds explicit acquisition, scoring/refit cutoffs and operator-run updates. historical expansion adds admitted seasons and comparable outputs, not archived website builds. both remain local-batch work. public hosting gets its own small specification when the product is worth sharing; no accounts, subscription system, remote training or freshness promises are implied.
 

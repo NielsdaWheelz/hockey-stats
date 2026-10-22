@@ -4,7 +4,7 @@ updated 2026-10-22 for the complete experimental product direction, preserving c
 
 ## complete experimental product — 2026-10-22
 
-the user approved completing the selected input/component/output/visualization repertoire, then iterating from its behavior. the next product milestone is the full experimental skater/goalie experience, not another narrow preview. [program stub](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). completed 04o retains its assigned protocol; a favorable result is not a prerequisite and no successor study is automatically selected.
+the user approved completing the selected input/component/output/visualization repertoire, then iterating from its behavior. the next product milestone is the full experimental skater/goalie experience, not another narrow preview. [program specification](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). completed 04o retains its assigned protocol; a favorable result is not a prerequisite and no successor study is automatically selected.
 
 the process correction is substantive: we treated too many useful but imperfect model mechanisms as unusable until stronger claims passed. 03p and 04n offer real predictive evidence alongside unresolved calibration, recovery and physical-rate defects. they are neither worthless nor admitted player ability. explicit experimental use can start from compatible mechanisms while preserving every original verdict, research-exposed season and narrower claim.
 
@@ -19,6 +19,14 @@ chance standardization must integrate the joint outcome product under an explici
 after the baseline is visible, prioritize consequential errors in real cards/maps and common-value interpretation. compare a bounded revision with saved baselines and inspect its player consequences. targeted calibration, recovery, numerical and uncertainty studies can strengthen particular claims. retain sensible comparison cutoffs and declare any decision margin prospectively; do not rescue historical failures through new tolerances or automatically create an endless study sequence.
 
 accepted tradeoff: greater provisional breadth, computation and maintenance, and some estimates that will change materially. the benefit is earlier understanding of the whole product and a better basis for choosing improvements. optional tracking, inaccessible physical truth and private-model equivalence remain outside what this strategy can establish.
+
+### concrete baseline rationale
+
+the [full specification](../specs/experimental-player-analysis.md) fixes one initial family recipe, not a search for a successful model. the user's forty-mode choice preserves finer spatial structure at higher computational cost. positive attempt intensity, normalized shape and bounded conditional chance quality jointly ensure that expected goals cannot exceed attempts on the same support; independently fitting two positive rates would not establish that invariant. this changes the likelihood, so old quadratic fits supply evidence and reusable mechanisms, not compatible coefficients.
+
+virtual neutral execution replaces actual-actor averaging only in this experimental product. common training-only opportunity panels and a common 1,000/100/100-minute workload separate modeled level from personal deployment. zero residual execution is a reference player, not an arithmetic league-average probability. the ten-term league-relative index omits specified cross-component interactions; depth replacement subtracts one consistently weighted component vector. neither total claims causal goal credit or war.
+
+fixed origin/setter assumptions, optional-context imputation, age-informed point-prior borrowing and fixed regularization permit a complete initial model without another selection campaign. they can bias results and understate uncertainty; no calibrated interval is supplied. ordinary-minor valuation omits other penalty classes; territorial movement uses recorded anchors and a declared successor approximation. all omitted source facts and correct inactive feature families remain available for later revisions. diagnostic weakness stays visible; arithmetic and source defects remain local blockers.
 
 ## approved direction and decision logic
 

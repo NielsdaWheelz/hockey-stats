@@ -13,11 +13,13 @@ export const Rate = Schema.Finite.check(Schema.isGreaterThanOrEqualTo(0));
 export const DateString = Schema.String.check(Schema.isPattern(/^\d{4}-\d{2}-\d{2}$/), Schema.makeFilter((value) => !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value));
 export const Timestamp = Schema.String.check(Schema.isPattern(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/), Schema.makeFilter((value) => !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 19) === value.slice(0, 19)));
 export const GitCommit = Schema.NullOr(Schema.String.check(Schema.isPattern(/^[a-f0-9]{40}$/)));
-export const ReasonCode = Schema.Literals([
+const inheritedReasonCodes = [
   "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
   "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
-  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games", "no_5v5_exposure",
-]);
+  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  "event_exposure_conflict", "shift_source_empty",
+] as const;
+export const ReasonCode = Schema.Literals([...inheritedReasonCodes, "no_5v5_exposure"]);
 export type ReasonCode = typeof ReasonCode.Type;
 export const ReasonCodes = Schema.Array(ReasonCode).check(Schema.makeFilter((codes) => codes.every((code, index) => index === 0 || codes[index - 1] < code)));
 export const CoverageStatus = Schema.Literals(["complete", "partial", "unavailable"]);
@@ -42,9 +44,7 @@ export const Metrics = Schema.Struct({
 export type Metrics = typeof Metrics.Type;
 
 export const PersonalReasonCode = Schema.Literals([
-  "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
-  "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
-  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  ...inheritedReasonCodes,
   "personal_credit_unresolved", "no_personal_5v5_exposure",
 ]);
 export type PersonalReasonCode = typeof PersonalReasonCode.Type;
@@ -74,9 +74,7 @@ export const PersonalMetrics = Schema.Struct({
 export type PersonalMetrics = typeof PersonalMetrics.Type;
 
 export const SpatialReasonCode = Schema.Literals([
-  "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
-  "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
-  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  ...inheritedReasonCodes,
   "spatial_coordinates_missing", "spatial_frame_unresolved", "spatial_location_outside_rink", "no_spatial_5v5_exposure",
 ]);
 export type SpatialReasonCode = typeof SpatialReasonCode.Type;
@@ -119,7 +117,7 @@ export const PlayerSpatialCell = Schema.Struct({
 export type PlayerSpatialCell = typeof PlayerSpatialCell.Type;
 export const SpatialSelection = Schema.Struct({
   definition: Schema.Struct({
-    population_version: Schema.Literal("matched_unblocked_locations_v1"), display_version: Schema.Literal("rect5_gaussian10_v1"), sigma_ft: Schema.Literal(10),
+    population_version: Schema.Literal("matched_unblocked_locations_v2"), display_version: Schema.Literal("rect5_gaussian10_v1"), sigma_ft: Schema.Literal(10),
     rink: Schema.Struct({length_ft: Schema.Literal(200), width_ft: Schema.Literal(85), corner_radius_ft: Schema.Literal(28), goal_x: Schema.Literal(89)}),
     units: Schema.Literal("attempts_per60_per100sqft"), orientation: Schema.Literal("shooting_team_positive_x"),
   }),
@@ -153,9 +151,9 @@ export const Publication = Schema.Struct({
   kind: Schema.Literal("observed_5v5"),
   purpose: Schema.Literals(["real", "fixture"]),
   generated_at: Timestamp,
-  population_version: Schema.Literal("matched_attempts_v1"),
-  personal_population_version: Schema.Literal("matched_personal_credits_v1"),
-  spatial_population_version: Schema.Literal("matched_unblocked_locations_v1"),
+  population_version: Schema.Literal("matched_attempts_v2"),
+  personal_population_version: Schema.Literal("matched_personal_credits_v2"),
+  spatial_population_version: Schema.Literal("matched_unblocked_locations_v2"),
   spatial_display_version: Schema.Literal("rect5_gaussian10_v1"),
   git_commit: GitCommit,
 });
@@ -224,9 +222,40 @@ export const LeagueResponse = Schema.Struct({ publication: Publication, availabl
   response.available_seasons.includes(response.season.season) && new Set(response.players.map((player) => player.player_id)).size === response.players.length &&
   (response.spatial === null || JSON.stringify(response.spatial.league_support) === JSON.stringify(response.season.spatial_coverage))));
 export type LeagueResponse = typeof LeagueResponse.Type;
-export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, player_id: HockeyId, games: Schema.Array(PlayerGame), history: Schema.Array(Schema.Struct({season: SeasonEvidence, player: Schema.NullOr(PlayerSummary)})) }).check(Schema.makeFilter((response) => {
+export const DeploymentPeer = Schema.Struct({ player_id: HockeyId, shared_seconds: Count.check(Schema.isGreaterThan(0)) });
+export type DeploymentPeer = typeof DeploymentPeer.Type;
+export const Deployment = Schema.Struct({ teammates: Schema.Array(DeploymentPeer), opponents: Schema.Array(DeploymentPeer) });
+export type Deployment = typeof Deployment.Type;
+export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, player_id: HockeyId, deployment: Schema.NullOr(Deployment), games: Schema.Array(PlayerGame), history: Schema.Array(Schema.Struct({season: SeasonEvidence, player: Schema.NullOr(PlayerSummary)})) }).check(Schema.makeFilter((response) => {
   const selected = response.players.find((player) => player.player_id === response.player_id) ?? null;
   const selectedHistory = response.history.find((row) => row.season.season === response.season.season);
+  if (selected === null) {
+    if (response.deployment !== null) return false;
+  } else {
+    if (response.deployment === null) return false;
+    const selectedSeconds = BigInt(selected.metrics.included_seconds);
+    const players = new Map(response.players.map((player) => [player.player_id, player]));
+    const combined = new Map<string, bigint>();
+    for (const [relation, multiplier] of [["teammates", 4n], ["opponents", 5n]] as const) {
+      const peers = response.deployment[relation];
+      const seen = new Set<string>();
+      let total = 0n;
+      for (const [index, peer] of peers.entries()) {
+        if (peer.player_id === response.player_id || !players.has(peer.player_id) || seen.has(peer.player_id)) return false;
+        const previous = peers[index - 1];
+        if (previous !== undefined && (previous.shared_seconds < peer.shared_seconds || previous.shared_seconds === peer.shared_seconds &&
+          (previous.player_id.length > peer.player_id.length || previous.player_id.length === peer.player_id.length && previous.player_id >= peer.player_id))) return false;
+        seen.add(peer.player_id);
+        const seconds = BigInt(peer.shared_seconds);
+        total += seconds;
+        combined.set(peer.player_id, (combined.get(peer.player_id) ?? 0n) + seconds);
+      }
+      if (total !== multiplier * selectedSeconds) return false;
+    }
+    for (const [id, seconds] of combined) {
+      if (seconds > selectedSeconds || seconds > BigInt(players.get(id)!.metrics.included_seconds)) return false;
+    }
+  }
   return Schema.is(LeagueResponse)(response) && response.history.length === response.available_seasons.length &&
     response.history.every((row,index) => row.season.season === response.available_seasons[index] && (row.player === null || row.player.player_id === response.player_id)) &&
     response.history.some((row) => row.player !== null) && selectedHistory !== undefined &&

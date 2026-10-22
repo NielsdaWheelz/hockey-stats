@@ -22,6 +22,7 @@ import {
 import SpatialViews from "../spatial-views";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import DescriptiveCard from "../descriptive-card";
+import DeploymentTables from "../deployment-tables";
 import {
   buildObservedComparison,
   type ObservedRateKey,
@@ -47,7 +48,7 @@ export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
 
 export default function Player() {
   const data = useLoaderData<typeof clientLoader>();
-  const { publication, season, players, games, spatial, history } = data;
+  const { publication, season, players, games, spatial, history, deployment } = data;
   const player = players.find((row) => row.player_id === data.player_id);
   const historicalIdentity = history.find((row) => row.player !== null);
   const location = useLocation();
@@ -114,6 +115,10 @@ export default function Player() {
   );
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", data.player_id);
+  const profileLink = (playerId: string) => ({
+    to: `/players/${playerId}?${viewQuery}`,
+    state: { leagueSearch, comparisonSearch },
+  });
   return (
     <>
       <nav className="back-link">
@@ -279,10 +284,15 @@ export default function Player() {
             comparison={comparison}
             metric={metric}
             onMetricChange={changeMetric}
-            profileLink={(playerId) => ({
-              to: `/players/${playerId}?${viewQuery}`,
-              state: { leagueSearch, comparisonSearch },
-            })}
+            profileLink={profileLink}
+          />
+          <DeploymentTables
+            key={`${season.season}:${player.player_id}`}
+            season={season.season}
+            player={player}
+            deployment={deployment!}
+            players={players}
+            profileLink={profileLink}
           />
           <SpatialViews
             spatial={spatial}

@@ -1,11 +1,12 @@
 """matched recorded attempts and elapsed time from an explicit native corpus."""
 
 from collections import Counter, defaultdict
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 import math
 import re
+from itertools import combinations, product
 from typing import Literal
 
 from .corpus_inputs import (
@@ -14,7 +15,10 @@ from .corpus_inputs import (
 )
 from .captures import SOURCES
 from .feature_data import ATTEMPT_KINDS
-from .reconstruct import REPORT_CODES, lineup_classification, attacking_coordinates, defending_sides
+from .reconstruct import (
+    REPORT_CODES, lineup_classification, attacking_coordinates, defending_sides,
+    five_on_five_segments, outside_attempt_conflicts,
+)
 from .shot_origins import in_rink
 from . import observed_spatial
 from .interpret import clock_seconds
@@ -32,6 +36,7 @@ REASON_CODES = frozenset((
     "elapsed_membership_unresolved", "period_horizon_unavailable",
     "player_toi_conflict", "roster_identity_unresolved",
     "unassigned_player_games", "no_5v5_exposure",
+    "event_exposure_conflict", "shift_source_empty",
 ))
 PERSONAL_REASON_CODES = (REASON_CODES - {"no_5v5_exposure"}) | {"personal_credit_unresolved", "no_personal_5v5_exposure"}
 
@@ -133,6 +138,14 @@ class PlayerSeason(Metrics):
 
 
 @dataclass(frozen=True)
+class PairSeconds:
+    player_a: str
+    relation: Literal["teammate", "opponent"]
+    player_b: str
+    shared_seconds: int
+
+
+@dataclass(frozen=True)
 class ObservedResult:
     season: str
     corpus_sha256: str
@@ -150,6 +163,38 @@ class ObservedResult:
     player_game_spatial: tuple[observed_spatial.GameCell, ...]
     player_season_spatial: tuple[observed_spatial.SeasonCell, ...]
     spatial_coverage: dict
+    player_season_pairs: tuple[PairSeconds, ...]
+
+
+def _pair_rows(seconds):
+    ordered = sorted(seconds, key=lambda key: (len(key[0]), key[0], key[1], len(key[2]), key[2]))
+    return tuple(PairSeconds(a, relation, b, seconds[a, relation, b]) for a, relation, b in ordered)
+
+
+def _check_pairs(pairs, player_seconds, physical_seconds, loc):
+    incident, totals, combined = Counter(), Counter(), Counter()
+    seen = set()
+    for row in pairs:
+        a, b, relation, seconds = row.player_a, row.player_b, row.relation, row.shared_seconds
+        require(all(type(pid) is str and re.fullmatch(r"[1-9][0-9]*", pid) for pid in (a, b))
+                and (len(a), a) < (len(b), b), loc, "noncanonical deployment endpoints")
+        require(a in player_seconds and b in player_seconds, loc, "deployment endpoint lacks player exposure")
+        require(relation in ("teammate", "opponent") and type(seconds) is int and 0 < seconds <= _MAX_INTEGER,
+                loc, "invalid deployment relation or seconds")
+        key = (a, relation, b)
+        require(key not in seen, loc, "duplicate deployment pair")
+        seen.add(key)
+        incident[a, relation] += seconds
+        incident[b, relation] += seconds
+        totals[relation] += seconds
+        combined[a, b] += seconds
+    require(totals["teammate"] == 20 * physical_seconds and totals["opponent"] == 25 * physical_seconds,
+            loc, "deployment physical conservation failed")
+    for pid, seconds in player_seconds.items():
+        require(incident[pid, "teammate"] == 4 * seconds and incident[pid, "opponent"] == 5 * seconds,
+                loc, "deployment player conservation failed")
+    require(all(seconds <= min(player_seconds[a], player_seconds[b]) for (a, b), seconds in combined.items()),
+            loc, "combined deployment overlap exceeds exposure")
 
 
 def _metrics(seconds, excluded, attempts_for, attempts_against, reasons):
@@ -392,15 +437,23 @@ def _validate_native(interpreted, native, events, recon, reports, loc):
         exposures[row["player_id"]] = row
     require(exposures.keys() == {pid for pid, row in identities.items() if row["reported_position"] in _SKATERS},
             loc, "native exposure population differs from supported roster")
-    return identities, unassigned, intervals, interval_members, periods, exposures
+    return identities, unassigned, intervals, periods, exposures
 
 
-def _game(entry, value, path, consumed):
+def observe_game(entry, value, path, consumed):
+    """validate one inventory-bound native envelope and calculate matched support.
+
+    return game, player games, listed identities, association gap, receipt and
+    sparse spatial rows; append any consumed original-source references.
+    """
     interpreted, native, events, recon, reports = validate_envelope(value, path, entry)
-    identities, unassigned, intervals, members, periods, exposures = _validate_native(
+    identities, unassigned, intervals, periods, exposures = _validate_native(
         interpreted, native, events, recon, reports, str(path))
     game = interpreted["game"]
     reasons = set()
+    if any(check["name"] == "shift_collection" and check["status"] == "match"
+           and check["observed"] == check["expected"] == 0 for check in interpreted["checks"]):
+        reasons.add("shift_source_empty")
     if any(row["classification"] == "unresolved" for row in intervals):
         reasons.add("elapsed_membership_unresolved")
         if any(native["issues"][i]["code"] == "unresolved_shift_player" for row in intervals
@@ -409,28 +462,18 @@ def _game(entry, value, path, consumed):
     horizon_unavailable = not periods or any(row["status"] == "unavailable" for row in periods)
     if horizon_unavailable:
         reasons.add("period_horizon_unavailable")
-    segments = []
-    native_to_segment = {}
+    segments = five_on_five_segments(intervals)
+    native_to_segment = {index: i for i, segment in enumerate(segments) for index in segment["interval_indices"]}
     mask = defaultdict(set)
-    for index, row in enumerate(intervals):
-        if row["classification"] != "five_on_five":
-            continue
-        if segments and segments[-1]["period"] == row["period_number"] and segments[-1]["end"] == row["start_seconds"] and segments[-1]["members"] == members[index]:
-            segment = segments[-1]
-            segment["end"] = row["end_seconds"]
-            segment["indices"].append(index)
-        else:
-            segment = dict(period=row["period_number"], start=row["start_seconds"], end=row["end_seconds"], members=members[index], indices=[index])
-            segments.append(segment)
-        native_to_segment[index] = len(segments) - 1
-        if not _roster_matches(members[index], identities, game):
-            mask[len(segments) - 1].add("roster_identity_unresolved")
+    for index, segment in enumerate(segments):
+        if not _roster_matches(_members(segment, str(path)), identities, game):
+            mask[index].add("roster_identity_unresolved")
             reasons.add("roster_identity_unresolved")
     masks = []
     def remove(code, source, source_index, period=None, clock=None, whole=False):
         affected = [i for i, row in enumerate(segments) if whole or (
-            (period is None or row["period"] == period) and
-            (clock is None or row["start"] <= clock <= row["end"]))]
+            (period is None or row["period_number"] == period) and
+            (clock is None or row["start_seconds"] <= clock <= row["end_seconds"]))]
         for index in affected:
             mask[index].add(code)
         reasons.add(code)
@@ -441,6 +484,17 @@ def _game(entry, value, path, consumed):
     for i, check in enumerate(interpreted["checks"]):
         if check["name"] in ("timed_goals", "timed_shots") and check["status"] == "mismatch":
             remove("count_accounting_conflict", "checks", i, whole=True)
+    conflicts = outside_attempt_conflicts(interpreted, native, segments)
+    for conflict in conflicts:
+        if conflict["temporal_case"] != "interior":
+            continue
+        require(conflict["shift_relation"] == "neither", path, "interior other-strength attempt must disagree with native exposure")
+        for index in conflict["segment_indices"]:
+            mask[index].add("event_exposure_conflict")
+        reasons.add("event_exposure_conflict")
+        masks.append(dict(code="event_exposure_conflict", source="play-by-play", source_index=conflict["source_index"],
+            period_number=conflict["period_number"], elapsed_seconds=conflict["elapsed_seconds"],
+            segment_indices=conflict["segment_indices"]))
     linked_reports = {row["report_source_index"] for row in recon.values() if row["report_source_index"] is not None}
     candidates = []
     dispositions = []
@@ -498,16 +552,27 @@ def _game(entry, value, path, consumed):
             attempts[team] += 1
             per_segment[target, team] += 1
             disposition["status"] = "included"
-    included = sum(row["end"] - row["start"] for i, row in enumerate(segments) if i not in mask)
-    excluded = sum(row["end"] - row["start"] for i, row in enumerate(segments) if i in mask)
+    included = sum(row["end_seconds"] - row["start_seconds"] for i, row in enumerate(segments) if i not in mask)
+    excluded = sum(row["end_seconds"] - row["start_seconds"] for i, row in enumerate(segments) if i in mask)
     unresolved = sum(row["end_seconds"] - row["start_seconds"] for row in intervals if row["classification"] == "unresolved")
     player_rows = []
     seconds_by_player, excluded_by_player, for_by_player, against_by_player = Counter(), Counter(), Counter(), Counter()
+    pair_seconds = Counter()
     for i, segment in enumerate(segments):
-        seconds = segment["end"] - segment["start"]
-        for side, team in ((0, game["away_team_id"]), (1, game["home_team_id"])):
-            opponent = game["home_team_id"] if side == 0 else game["away_team_id"]
-            for pid in segment["members"][side]:
+        seconds = segment["end_seconds"] - segment["start_seconds"]
+        if i not in mask:
+            away, home = (sorted((str(pid) for pid in segment[side]), key=lambda pid: (len(pid), pid))
+                          for side in ("away_skaters", "home_skaters"))
+            for team in (away, home):
+                for a, b in combinations(team, 2):
+                    pair_seconds[a, "teammate", b] += seconds
+            for a, b in product(away, home):
+                if (len(a), a) > (len(b), b):
+                    a, b = b, a
+                pair_seconds[a, "opponent", b] += seconds
+        for side, team in (("away_skaters", game["away_team_id"]), ("home_skaters", game["home_team_id"])):
+            opponent = game["home_team_id"] if side == "away_skaters" else game["away_team_id"]
+            for pid in segment[side]:
                 if i in mask:
                     excluded_by_player[pid] += seconds
                 else:
@@ -547,16 +612,16 @@ def _game(entry, value, path, consumed):
             continue
         physical_cells[event["team_id"], event["cell_id"]] += 1
         segment = segments[event["segment_index"]]
-        for side, team in ((0, game["away_team_id"]), (1, game["home_team_id"])):
-            for pid in segment["members"][side]:
+        for side, team in (("away_skaters", game["away_team_id"]), ("home_skaters", game["home_team_id"])):
+            for pid in segment[side]:
                 direction = "for" if str(team) == event["team_id"] else "against"
                 player_cells[pid, event["cell_id"], direction] += 1
                 (spatial_for if direction == "for" else spatial_against)[pid] += 1
     for i, segment in enumerate(segments):
         target = spatial_excluded if i in spatial_mask else spatial_seconds
-        for pid in segment["members"][0] + segment["members"][1]:
-            target[pid] += segment["end"] - segment["start"]
-    spatial_included = sum(s["end"]-s["start"] for i,s in enumerate(segments) if i not in spatial_mask)
+        for pid in segment["away_skaters"] + segment["home_skaters"]:
+            target[pid] += segment["end_seconds"] - segment["start_seconds"]
+    spatial_included = sum(s["end_seconds"]-s["start_seconds"] for i,s in enumerate(segments) if i not in spatial_mask)
     spatial_known_excluded = excluded + included - spatial_included
     spatial_team_counts = Counter()
     for (team, identity), count in physical_cells.items():
@@ -578,9 +643,9 @@ def _game(entry, value, path, consumed):
     personal_reasons = {"personal_credit_unresolved"} if any(c["status"] == "unresolved" for c in credits) else set()
     personal_seconds, personal_excluded = Counter(), Counter()
     for i, segment in enumerate(segments):
-        seconds = segment["end"] - segment["start"]
+        seconds = segment["end_seconds"] - segment["start_seconds"]
         target = personal_excluded if i in personal_mask else personal_seconds
-        for pid in segment["members"][0] + segment["members"][1]:
+        for pid in segment["away_skaters"] + segment["home_skaters"]:
             target[pid] += seconds
     shots, goals, assists = Counter(), Counter(), Counter()
     for credit in credits:
@@ -593,8 +658,8 @@ def _game(entry, value, path, consumed):
             goals[scorer] += 1
             if credit["primary_assister_id"] is not None:
                 assists[credit["primary_assister_id"]] += 1
-    personal_included = sum(s["end"] - s["start"] for i, s in enumerate(segments) if i not in personal_mask)
-    personal_known_excluded = sum(s["end"] - s["start"] for i, s in enumerate(segments) if i in personal_mask)
+    personal_included = sum(s["end_seconds"] - s["start_seconds"] for i, s in enumerate(segments) if i not in personal_mask)
+    personal_known_excluded = sum(s["end_seconds"] - s["start_seconds"] for i, s in enumerate(segments) if i in personal_mask)
     listed = {pid: row for pid, row in identities.items() if row["reported_position"] in _SKATERS}
     for pid, identity in sorted(listed.items()):
         player_reasons = set(reasons)
@@ -612,6 +677,8 @@ def _game(entry, value, path, consumed):
         player_rows.append(PlayerGame(**_metric_fields(metric), personal=personal, spatial=spatial, player_id=str(pid), game_id=game["game_id"], team_id=str(identity["team_id"])))
     require(sum(row.included_seconds for row in player_rows) == 10 * included, path, "player exposure conservation failed")
     require(sum(row.attempts_for or 0 for row in player_rows) == sum(row.attempts_against or 0 for row in player_rows) == 5 * sum(attempts.values()), path, "player attempt conservation failed")
+    pairs = _pair_rows(pair_seconds)
+    _check_pairs(pairs, {row.player_id: row.included_seconds for row in player_rows}, included, path)
     game_metric = _metrics(included, excluded, attempts[game["away_team_id"]], attempts[game["home_team_id"]], reasons)
     output = Game(game["game_id"], game["game_date"], str(game["away_team_id"]), str(game["home_team_id"]),
                   game.get("away_team_abbrev"), game.get("home_team_abbrev"), included, excluded, unresolved,
@@ -630,9 +697,12 @@ def _game(entry, value, path, consumed):
         require(sum(getattr(row.personal, name) or 0 for row in player_rows) + goalie_credits[name] == personal_totals[name]
                 == sum(counts.values()), path, f"personal {name} conservation failed")
     receipt = dict(game_id=game["game_id"], status="reconstructed", source_inputs=interpreted["inputs"],
+        deployment_pairs=[asdict(row) for row in pairs],
         unassigned_player_associations=unassigned, masks=masks,
-        segments=[dict(period_number=s["period"], start_seconds=s["start"], end_seconds=s["end"],
-                       interval_indices=s["indices"], excluded_reasons=sorted(mask.get(i, ()))) for i, s in enumerate(segments)],
+        segments=[dict(s, excluded_reasons=sorted(mask.get(i, ()))) for i, s in enumerate(segments)],
+        exposure_conflicts=[dict(conflict, adjacent_native_intervals=[dict(interval_index=i, **row)
+            for i, row in enumerate(intervals) if row["period_number"] == conflict["period_number"]
+            and row["start_seconds"] <= conflict["elapsed_seconds"] <= row["end_seconds"]]) for conflict in conflicts],
         event_dispositions=dispositions, report_dispositions=report_dispositions,
         personal_credit_dispositions=credits,
         personal_masks=[dict(segment_index=i, inherited=i in mask,
@@ -727,11 +797,11 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
             games.append(game)
             receipts.append(dict(game_id=gid, status=row["status"], reason=row["reason"],
                                  source_inputs=value["interpreted"]["inputs"] if value is not None else [],
-                                 event_dispositions=[], unassigned_player_associations=True))
+                                 event_dispositions=[], deployment_pairs=[], unassigned_player_associations=True))
             unassigned_games.append(dict(game_id=gid, date=entry["game_date"], away_team_id=game.away_team_id,
                                          home_team_id=game.home_team_id, reason_codes=list(reasons)))
             continue
-        game, rows, listed, unassigned, receipt, spatial_rows = _game(entry, value, envelope_path, inputs)
+        game, rows, listed, unassigned, receipt, spatial_rows = observe_game(entry, value, envelope_path, inputs)
         games.append(game)
         player_games.extend(rows)
         sparse.extend(spatial_rows)
@@ -818,6 +888,13 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
         reason_game_counts=[dict(code=code, games=count) for code, count in sorted(reason_counts.items())], unassigned_games=unassigned_games)
     physical_cells = [cell for receipt in receipts for cell in receipt.get("spatial_team_cells", [])]
     spatial_cells, dense, spatial_coverage = observed_spatial.finalize(games, player_games, seasons, physical_cells, sparse)
+    pair_seconds = Counter()
+    for game_receipt in receipts:
+        for row in game_receipt["deployment_pairs"]:
+            pair_seconds[row["player_a"], row["relation"], row["player_b"]] += row["shared_seconds"]
+    pairs = _pair_rows(pair_seconds)
+    _check_pairs(pairs, {row.player_id: row.included_seconds for row in seasons},
+                 sum(row.included_seconds for row in games), path)
     dated = [value for value in observations if value is not None]
     receipt = dict(consumed=inputs, games=receipts, player_reductions=player_reductions, aggregate_identities=dict(
         physical_included_seconds=sum(row.included_seconds for row in games),
@@ -845,4 +922,4 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
     return ObservedResult(season, inputs[0]["sha256"], tuple(players[pid] for pid in sorted(players)), tuple(games),
         tuple(sorted(player_games, key=lambda row: (int(row.player_id), game_index[row.game_id].game_date, row.game_id))),
         tuple(seasons), coverage, min(dated) if dated else None, max(dated) if dated else None,
-        sum(value is None for value in observations), tuple(implementations), receipt, spatial_cells, tuple(sparse), dense, spatial_coverage)
+        sum(value is None for value in observations), tuple(implementations), receipt, spatial_cells, tuple(sparse), dense, spatial_coverage, pairs)

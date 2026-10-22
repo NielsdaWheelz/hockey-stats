@@ -11,7 +11,7 @@ from scipy.integrate import quad
 from .artifacts import require
 from .shot_origins import in_rink
 
-POPULATION_VERSION = "matched_unblocked_locations_v1"
+POPULATION_VERSION = "matched_unblocked_locations_v2"
 DISPLAY_VERSION = "rect5_gaussian10_v1"
 
 

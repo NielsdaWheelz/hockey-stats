@@ -41,8 +41,8 @@
   "a": 1e-08,
   "q": 1e-08,
   "source_identity": {
-    "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-    "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+    "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+    "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
     "season": "20242025",
     "training_game_ids": [
       "2024020001",
@@ -299,7 +299,7 @@
     "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
     "source_correction": {
       "kind": "synthetic_zero_count_exclusion",
-      "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+      "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
       "rows_sha256": "b86c3abd2661827e611781cf166af39dd18f19a2b8981190212845a857a3bc6c"
     },
     "scalar_energy": {
@@ -311,12 +311,12 @@
   },
   "parent": {
     "path": "context.control.volume.2.json",
-    "sha256": "714ae722628ebb534f96a05d183dfbb1df9f66167cb92b4bbbd15850d87472bf"
+    "sha256": "301708bf90956d266d5b63804a2939f86284dbbf537bb45493165f1c57bddeb1"
   },
   "likelihood": {
     "counted_arrays": {
       "path": "context.npz",
-      "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+      "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
     },
     "season": "20242025",
     "component": "volume"
@@ -660,8 +660,8 @@
     "centered_covariance_symmetry": 1.6543612251060553e-24,
     "centered_mean_residual": 6.617444900424222e-24,
     "resources": {
-      "wall_seconds": 0.0012004169984720647,
-      "peak_memory_bytes": 131334144
+      "wall_seconds": 0.0032196249812841415,
+      "peak_memory_bytes": 133398528
     }
   },
   "arrays": {

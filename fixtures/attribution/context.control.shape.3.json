@@ -42,8 +42,8 @@
   "q": 0.017116889665230603,
   "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
   "source_identity": {
-    "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-    "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+    "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+    "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
     "season": "20242025",
     "training_game_ids": [
       "2024020001",
@@ -300,18 +300,18 @@
     "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
     "source_correction": {
       "kind": "synthetic_zero_count_exclusion",
-      "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+      "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
       "rows_sha256": "b86c3abd2661827e611781cf166af39dd18f19a2b8981190212845a857a3bc6c"
     }
   },
   "parent": {
     "path": "context.control.shape.2.json",
-    "sha256": "13890c5c208b359f8c1fa1f8d3c4b3f8876de3ed9b64cd391312793b8db200dd"
+    "sha256": "a2dd3d67b93967f633b3b0dfa3e0f07db5abaa6a74b3c511973a8afc7a93b79f"
   },
   "likelihood": {
     "counted_arrays": {
       "path": "context.npz",
-      "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+      "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
     },
     "season": "20242025",
     "component": "shape"
@@ -566,8 +566,8 @@
     "centered_mean_residual": 1.5920840429726494e-17,
     "zero_sum_mean_residual": 5.551115123125783e-17,
     "resources": {
-      "wall_seconds": 0.0021977080032229424,
-      "peak_memory_bytes": 133234688
+      "wall_seconds": 0.018905207980424166,
+      "peak_memory_bytes": 135643136
     }
   },
   "arrays": {

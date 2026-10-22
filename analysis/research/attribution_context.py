@@ -220,6 +220,14 @@ def read_prepared(path):
         return {key[len(prefix)+1:]: value for key, value in arrays.items() if key.startswith(prefix+"_")}
     trainings = tuple(decode_context_training(row, values(row["prefix"]), basis) for row in document["years"])
     populations = tuple(decode_context_population(row, values(row["prefix"])) for row in document["populations"])
+    require(all(np.array_equal(population.references.p, basis.p)
+        and population.references.season == training.season
+        and population.references.player_ids == training.source_player_ids
+        and population.references.strata == training.coarse_training.source_strata
+        and set(training.game_ids).issubset(population.grouped.game_ids)
+        and population.source_identity["fixed_basis_columns"] == json_values(BASIS_COLUMNS)
+        for population, training in zip(populations, trainings, strict=True)),
+        "context source/training season, player, context or fixed basis axes differ")
     expected_members = {"B", "p", "eigenvalues"}
     for row in document["years"]+document["populations"]:
         expected_members.update(row["prefix"]+"_"+name for name in values(row["prefix"]))

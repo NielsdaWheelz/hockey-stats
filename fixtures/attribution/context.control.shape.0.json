@@ -50,8 +50,8 @@
   "q": null,
   "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
   "source_identity": {
-    "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-    "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+    "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+    "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
     "season": "20212022",
     "training_game_ids": [
       "2021020001",
@@ -311,7 +311,7 @@
   "likelihood": {
     "counted_arrays": {
       "path": "context.npz",
-      "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+      "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
     },
     "season": "20212022",
     "component": "shape"
@@ -558,8 +558,8 @@
     "centered_mean_residual": 6.944318492568131e-18,
     "zero_sum_mean_residual": 2.7755575615628914e-17,
     "resources": {
-      "wall_seconds": 0.0020745000219903886,
-      "peak_memory_bytes": 131547136
+      "wall_seconds": 0.0062893329886719584,
+      "peak_memory_bytes": 133922816
     }
   },
   "arrays": {

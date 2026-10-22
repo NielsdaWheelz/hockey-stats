@@ -4,7 +4,7 @@
   "purpose": "fixture_exercise",
   "counted_arrays": {
     "path": "context.npz",
-    "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+    "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
   },
   "states": [
     {
@@ -58,8 +58,8 @@
       "a": 1e-08,
       "q": null,
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20212022",
         "training_game_ids": [
           "2021020001",
@@ -325,7 +325,7 @@
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20212022",
         "component": "volume"
@@ -669,8 +669,8 @@
         "centered_covariance_symmetry": 4.1359030627651384e-25,
         "centered_mean_residual": 3.308722450212111e-24,
         "resources": {
-          "wall_seconds": 0.0014068750315345824,
-          "peak_memory_bytes": 130777088
+          "wall_seconds": 0.0027624579961411655,
+          "peak_memory_bytes": 132890624
         }
       },
       "arrays": {
@@ -721,7 +721,7 @@
       "component": "volume",
       "record": {
         "path": "context.control.volume.0.json",
-        "sha256": "19d92ec2e38663d4c25a54d2a41d7360da0d48815281b5ac7d72e07b3e9c7e1e"
+        "sha256": "b780b403bc6c26f8ce8d4c8fc6bb0845779bc1c7c855b3440d94cbfbf1ab3ec7"
       }
     },
     {
@@ -770,8 +770,8 @@
       "a": 1e-08,
       "q": 1e-08,
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20222023",
         "training_game_ids": [
           "2022020001",
@@ -1035,12 +1035,12 @@
       },
       "parent": {
         "path": "context.control.volume.0.json",
-        "sha256": "19d92ec2e38663d4c25a54d2a41d7360da0d48815281b5ac7d72e07b3e9c7e1e"
+        "sha256": "b780b403bc6c26f8ce8d4c8fc6bb0845779bc1c7c855b3440d94cbfbf1ab3ec7"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20222023",
         "component": "volume"
@@ -1384,8 +1384,8 @@
         "centered_covariance_symmetry": 8.271806125530277e-25,
         "centered_mean_residual": 4.549493369041652e-24,
         "resources": {
-          "wall_seconds": 0.0013209169846959412,
-          "peak_memory_bytes": 131137536
+          "wall_seconds": 0.0011827080161310732,
+          "peak_memory_bytes": 133234688
         }
       },
       "arrays": {
@@ -1436,7 +1436,7 @@
       "component": "volume",
       "record": {
         "path": "context.control.volume.1.json",
-        "sha256": "63f7573e9380519f2b68f17d2c8bf68291d1abcaf77684aff86c63a9d63af0d9"
+        "sha256": "c86f0a2077fc9522fc561ebc8765a24662435a20da9a26fa1b81a3a8945d2d27"
       }
     },
     {
@@ -1482,8 +1482,8 @@
       "a": 1e-08,
       "q": 1e-08,
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20232024",
         "training_game_ids": [
           "2023020001",
@@ -1740,7 +1740,7 @@
         "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
         "source_correction": {
           "kind": "synthetic_zero_count_exclusion",
-          "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "rows_sha256": "c00e27567aea2f9fe644ab0f8e3cf9b0f07fae417891e546a50249484136a1e1"
         },
         "scalar_energy": {
@@ -1752,12 +1752,12 @@
       },
       "parent": {
         "path": "context.control.volume.1.json",
-        "sha256": "63f7573e9380519f2b68f17d2c8bf68291d1abcaf77684aff86c63a9d63af0d9"
+        "sha256": "c86f0a2077fc9522fc561ebc8765a24662435a20da9a26fa1b81a3a8945d2d27"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20232024",
         "component": "volume"
@@ -2101,8 +2101,8 @@
         "centered_covariance_symmetry": 1.6543612251060553e-24,
         "centered_mean_residual": 3.308722450212111e-24,
         "resources": {
-          "wall_seconds": 0.001234708004631102,
-          "peak_memory_bytes": 131235840
+          "wall_seconds": 0.0013165000127628446,
+          "peak_memory_bytes": 133316608
         }
       },
       "arrays": {
@@ -2153,7 +2153,7 @@
       "component": "volume",
       "record": {
         "path": "context.control.volume.2.json",
-        "sha256": "714ae722628ebb534f96a05d183dfbb1df9f66167cb92b4bbbd15850d87472bf"
+        "sha256": "301708bf90956d266d5b63804a2939f86284dbbf537bb45493165f1c57bddeb1"
       }
     },
     {
@@ -2199,8 +2199,8 @@
       "a": 1e-08,
       "q": 1e-08,
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20242025",
         "training_game_ids": [
           "2024020001",
@@ -2457,7 +2457,7 @@
         "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
         "source_correction": {
           "kind": "synthetic_zero_count_exclusion",
-          "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "rows_sha256": "b86c3abd2661827e611781cf166af39dd18f19a2b8981190212845a857a3bc6c"
         },
         "scalar_energy": {
@@ -2469,12 +2469,12 @@
       },
       "parent": {
         "path": "context.control.volume.2.json",
-        "sha256": "714ae722628ebb534f96a05d183dfbb1df9f66167cb92b4bbbd15850d87472bf"
+        "sha256": "301708bf90956d266d5b63804a2939f86284dbbf537bb45493165f1c57bddeb1"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20242025",
         "component": "volume"
@@ -2818,8 +2818,8 @@
         "centered_covariance_symmetry": 1.6543612251060553e-24,
         "centered_mean_residual": 6.617444900424222e-24,
         "resources": {
-          "wall_seconds": 0.0012004169984720647,
-          "peak_memory_bytes": 131334144
+          "wall_seconds": 0.0032196249812841415,
+          "peak_memory_bytes": 133398528
         }
       },
       "arrays": {
@@ -2870,7 +2870,7 @@
       "component": "volume",
       "record": {
         "path": "context.control.volume.3.json",
-        "sha256": "6faf112cd463bff9b26c7b5fb0a410b9f740de4a5b971d26d875e39bf541d1ea"
+        "sha256": "edc287a0e03493fdb22222890d955dc715d99adae25c95c29bc3cc9705ea5552"
       }
     },
     {
@@ -2923,8 +2923,8 @@
       "a": 1e-08,
       "q": 1e-08,
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20252026",
         "training_game_ids": [
           "2025020002",
@@ -3187,12 +3187,12 @@
       },
       "parent": {
         "path": "context.control.volume.3.json",
-        "sha256": "6faf112cd463bff9b26c7b5fb0a410b9f740de4a5b971d26d875e39bf541d1ea"
+        "sha256": "edc287a0e03493fdb22222890d955dc715d99adae25c95c29bc3cc9705ea5552"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20252026",
         "component": "volume"
@@ -3536,8 +3536,8 @@
         "centered_covariance_symmetry": 1.6543612251060553e-24,
         "centered_mean_residual": 6.617444900424222e-24,
         "resources": {
-          "wall_seconds": 0.0013554170145653188,
-          "peak_memory_bytes": 131448832
+          "wall_seconds": 0.006101333012338728,
+          "peak_memory_bytes": 133775360
         }
       },
       "arrays": {
@@ -3588,7 +3588,7 @@
       "component": "volume",
       "record": {
         "path": "context.control.volume.4.json",
-        "sha256": "5381bb31631bd654e1eacd8014e3cec35e8f31c82df4f8b9740e763645f4915a"
+        "sha256": "0aff74f6c729be3215ad5f00ce40b54d59d9541935ff2db24dfe55ea29733b7b"
       }
     },
     {
@@ -3642,8 +3642,8 @@
       "a": 1e-08,
       "q": null,
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20252026",
         "training_game_ids": [
           "2025020002",
@@ -3908,7 +3908,7 @@
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20252026",
         "component": "volume"
@@ -4252,8 +4252,8 @@
         "centered_covariance_symmetry": 4.1359030627651384e-25,
         "centered_mean_residual": 2.0679515313825692e-24,
         "resources": {
-          "wall_seconds": 0.001125000009778887,
-          "peak_memory_bytes": 131547136
+          "wall_seconds": 0.0034925409709103405,
+          "peak_memory_bytes": 133857280
         }
       },
       "arrays": {
@@ -4304,7 +4304,7 @@
       "component": "volume",
       "record": {
         "path": "context.control.volume.5.json",
-        "sha256": "874806e555e89c3f88591aed2010a89c1c16e42514a95dd0582635ed4dd0c1c0"
+        "sha256": "54b77a5ed440d294991b1862a5f7f36446a0140defe21ca2e39cd4ec922d6378"
       }
     },
     {
@@ -4359,8 +4359,8 @@
       "q": null,
       "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20212022",
         "training_game_ids": [
           "2021020001",
@@ -4620,7 +4620,7 @@
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20212022",
         "component": "shape"
@@ -4867,8 +4867,8 @@
         "centered_mean_residual": 6.944318492568131e-18,
         "zero_sum_mean_residual": 2.7755575615628914e-17,
         "resources": {
-          "wall_seconds": 0.0020745000219903886,
-          "peak_memory_bytes": 131547136
+          "wall_seconds": 0.0062893329886719584,
+          "peak_memory_bytes": 133922816
         }
       },
       "arrays": {
@@ -4919,7 +4919,7 @@
       "component": "shape",
       "record": {
         "path": "context.control.shape.0.json",
-        "sha256": "7c1edf52659c35281f8c6c25d8656e469d6333af0ad6410f8c330ccaf46f857b"
+        "sha256": "015fc02126f7fe3acba1db8fe228947a8b220bf7eafc2a49b77c72f28ffd0741"
       }
     },
     {
@@ -4969,8 +4969,8 @@
       "q": 0.012960194678798555,
       "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20222023",
         "training_game_ids": [
           "2022020001",
@@ -5228,12 +5228,12 @@
       },
       "parent": {
         "path": "context.control.shape.0.json",
-        "sha256": "7c1edf52659c35281f8c6c25d8656e469d6333af0ad6410f8c330ccaf46f857b"
+        "sha256": "015fc02126f7fe3acba1db8fe228947a8b220bf7eafc2a49b77c72f28ffd0741"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20222023",
         "component": "shape"
@@ -5480,8 +5480,8 @@
         "centered_mean_residual": 1.0873390091960204e-17,
         "zero_sum_mean_residual": 2.7755575615628914e-17,
         "resources": {
-          "wall_seconds": 0.0021830840269103646,
-          "peak_memory_bytes": 133087232
+          "wall_seconds": 0.0061406249878928065,
+          "peak_memory_bytes": 135397376
         }
       },
       "arrays": {
@@ -5532,7 +5532,7 @@
       "component": "shape",
       "record": {
         "path": "context.control.shape.1.json",
-        "sha256": "57eca582160825afa8a57073d731c062868b211ece80fa2aea2bc762347d01d7"
+        "sha256": "fbd2ce334564dd47a9bf774e854fd03c82084581456948f82a187e19a8fd650c"
       }
     },
     {
@@ -5579,8 +5579,8 @@
       "q": 0.012917576341473199,
       "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20232024",
         "training_game_ids": [
           "2023020001",
@@ -5837,18 +5837,18 @@
         "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
         "source_correction": {
           "kind": "synthetic_zero_count_exclusion",
-          "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "rows_sha256": "c00e27567aea2f9fe644ab0f8e3cf9b0f07fae417891e546a50249484136a1e1"
         }
       },
       "parent": {
         "path": "context.control.shape.1.json",
-        "sha256": "57eca582160825afa8a57073d731c062868b211ece80fa2aea2bc762347d01d7"
+        "sha256": "fbd2ce334564dd47a9bf774e854fd03c82084581456948f82a187e19a8fd650c"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20232024",
         "component": "shape"
@@ -6095,8 +6095,8 @@
         "centered_mean_residual": 1.3441483999656262e-17,
         "zero_sum_mean_residual": 5.551115123125783e-17,
         "resources": {
-          "wall_seconds": 0.002120082965120673,
-          "peak_memory_bytes": 133152768
+          "wall_seconds": 0.00555770902428776,
+          "peak_memory_bytes": 135544832
         }
       },
       "arrays": {
@@ -6147,7 +6147,7 @@
       "component": "shape",
       "record": {
         "path": "context.control.shape.2.json",
-        "sha256": "13890c5c208b359f8c1fa1f8d3c4b3f8876de3ed9b64cd391312793b8db200dd"
+        "sha256": "a2dd3d67b93967f633b3b0dfa3e0f07db5abaa6a74b3c511973a8afc7a93b79f"
       }
     },
     {
@@ -6194,8 +6194,8 @@
       "q": 0.017116889665230603,
       "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20242025",
         "training_game_ids": [
           "2024020001",
@@ -6452,18 +6452,18 @@
         "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
         "source_correction": {
           "kind": "synthetic_zero_count_exclusion",
-          "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "rows_sha256": "b86c3abd2661827e611781cf166af39dd18f19a2b8981190212845a857a3bc6c"
         }
       },
       "parent": {
         "path": "context.control.shape.2.json",
-        "sha256": "13890c5c208b359f8c1fa1f8d3c4b3f8876de3ed9b64cd391312793b8db200dd"
+        "sha256": "a2dd3d67b93967f633b3b0dfa3e0f07db5abaa6a74b3c511973a8afc7a93b79f"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20242025",
         "component": "shape"
@@ -6718,8 +6718,8 @@
         "centered_mean_residual": 1.5920840429726494e-17,
         "zero_sum_mean_residual": 5.551115123125783e-17,
         "resources": {
-          "wall_seconds": 0.0021977080032229424,
-          "peak_memory_bytes": 133234688
+          "wall_seconds": 0.018905207980424166,
+          "peak_memory_bytes": 135643136
         }
       },
       "arrays": {
@@ -6770,7 +6770,7 @@
       "component": "shape",
       "record": {
         "path": "context.control.shape.3.json",
-        "sha256": "cc56b8dab64b9a4ff2fc4c88c334fdad5060b037ba3ff04cc226e538477b9a92"
+        "sha256": "6a9c92501f1a9c7ce300d38d1573f84ebb4df38df1256e144787d91f5641f97f"
       }
     },
     {
@@ -6824,8 +6824,8 @@
       "q": 0.015077628520291316,
       "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20252026",
         "training_game_ids": [
           "2025020002",
@@ -7082,12 +7082,12 @@
       },
       "parent": {
         "path": "context.control.shape.3.json",
-        "sha256": "cc56b8dab64b9a4ff2fc4c88c334fdad5060b037ba3ff04cc226e538477b9a92"
+        "sha256": "6a9c92501f1a9c7ce300d38d1573f84ebb4df38df1256e144787d91f5641f97f"
       },
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20252026",
         "component": "shape"
@@ -7342,8 +7342,8 @@
         "centered_mean_residual": 1.1048266892260944e-17,
         "zero_sum_mean_residual": 3.469446951953614e-17,
         "resources": {
-          "wall_seconds": 0.0022938339971005917,
-          "peak_memory_bytes": 133283840
+          "wall_seconds": 0.004942375002428889,
+          "peak_memory_bytes": 135708672
         }
       },
       "arrays": {
@@ -7394,7 +7394,7 @@
       "component": "shape",
       "record": {
         "path": "context.control.shape.4.json",
-        "sha256": "c047cc63e932bcf0f065fe80e443ea3778ba1a99c6f6253a81766eedf2e64869"
+        "sha256": "600b0f24c6df3a7c56efe08d80a519d607f201e1997d58256bffe8974ae18b94"
       }
     },
     {
@@ -7449,8 +7449,8 @@
       "q": null,
       "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
       "source_identity": {
-        "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-        "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+        "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+        "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
         "season": "20252026",
         "training_game_ids": [
           "2025020002",
@@ -7709,7 +7709,7 @@
       "likelihood": {
         "counted_arrays": {
           "path": "context.npz",
-          "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+          "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
         },
         "season": "20252026",
         "component": "shape"
@@ -7964,8 +7964,8 @@
         "centered_mean_residual": 5.9739504793320795e-18,
         "zero_sum_mean_residual": 1.9081958235744878e-17,
         "resources": {
-          "wall_seconds": 0.0021002499852329493,
-          "peak_memory_bytes": 133365760
+          "wall_seconds": 0.00929924997035414,
+          "peak_memory_bytes": 135888896
         }
       },
       "arrays": {
@@ -8016,7 +8016,7 @@
       "component": "shape",
       "record": {
         "path": "context.control.shape.5.json",
-        "sha256": "f41e793b4bc2626d7b4130c55d69660c624920ae014b55a16ad5069f55d66b86"
+        "sha256": "8d1f50d8f514b8c17af66829ce95e8c2c942c8bc1e497ff19ab6be0bb06ec390"
       }
     }
   ],
@@ -8391,8 +8391,8 @@
         "a": 1e-08,
         "q": null,
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20212022",
           "training_game_ids": [
             "2021020001",
@@ -8658,7 +8658,7 @@
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20212022",
           "component": "volume"
@@ -9743,8 +9743,8 @@
         "a": 1e-08,
         "q": 1e-08,
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20222023",
           "training_game_ids": [
             "2022020001",
@@ -10008,12 +10008,12 @@
         },
         "parent": {
           "path": "context.control.volume.0.json",
-          "sha256": "19d92ec2e38663d4c25a54d2a41d7360da0d48815281b5ac7d72e07b3e9c7e1e"
+          "sha256": "b780b403bc6c26f8ce8d4c8fc6bb0845779bc1c7c855b3440d94cbfbf1ab3ec7"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20222023",
           "component": "volume"
@@ -11095,8 +11095,8 @@
         "a": 1e-08,
         "q": 1e-08,
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20232024",
           "training_game_ids": [
             "2023020001",
@@ -11353,7 +11353,7 @@
           "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
           "source_correction": {
             "kind": "synthetic_zero_count_exclusion",
-            "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+            "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
             "rows_sha256": "c00e27567aea2f9fe644ab0f8e3cf9b0f07fae417891e546a50249484136a1e1"
           },
           "scalar_energy": {
@@ -11365,12 +11365,12 @@
         },
         "parent": {
           "path": "context.control.volume.1.json",
-          "sha256": "63f7573e9380519f2b68f17d2c8bf68291d1abcaf77684aff86c63a9d63af0d9"
+          "sha256": "c86f0a2077fc9522fc561ebc8765a24662435a20da9a26fa1b81a3a8945d2d27"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20232024",
           "component": "volume"
@@ -12452,8 +12452,8 @@
         "a": 1e-08,
         "q": 1e-08,
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20242025",
           "training_game_ids": [
             "2024020001",
@@ -12710,7 +12710,7 @@
           "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
           "source_correction": {
             "kind": "synthetic_zero_count_exclusion",
-            "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+            "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
             "rows_sha256": "b86c3abd2661827e611781cf166af39dd18f19a2b8981190212845a857a3bc6c"
           },
           "scalar_energy": {
@@ -12722,12 +12722,12 @@
         },
         "parent": {
           "path": "context.control.volume.2.json",
-          "sha256": "714ae722628ebb534f96a05d183dfbb1df9f66167cb92b4bbbd15850d87472bf"
+          "sha256": "301708bf90956d266d5b63804a2939f86284dbbf537bb45493165f1c57bddeb1"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20242025",
           "component": "volume"
@@ -13816,8 +13816,8 @@
         "a": 1e-08,
         "q": 1e-08,
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20252026",
           "training_game_ids": [
             "2025020002",
@@ -14080,12 +14080,12 @@
         },
         "parent": {
           "path": "context.control.volume.3.json",
-          "sha256": "6faf112cd463bff9b26c7b5fb0a410b9f740de4a5b971d26d875e39bf541d1ea"
+          "sha256": "edc287a0e03493fdb22222890d955dc715d99adae25c95c29bc3cc9705ea5552"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20252026",
           "component": "volume"
@@ -15175,8 +15175,8 @@
         "a": 1e-08,
         "q": null,
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20252026",
           "training_game_ids": [
             "2025020002",
@@ -15441,7 +15441,7 @@
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20252026",
           "component": "volume"
@@ -16371,8 +16371,8 @@
         "q": null,
         "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20212022",
           "training_game_ids": [
             "2021020001",
@@ -16632,7 +16632,7 @@
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20212022",
           "component": "shape"
@@ -17369,8 +17369,8 @@
         "q": 0.012959954204325434,
         "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20222023",
           "training_game_ids": [
             "2022020001",
@@ -17628,12 +17628,12 @@
         },
         "parent": {
           "path": "context.control.shape.0.json",
-          "sha256": "7c1edf52659c35281f8c6c25d8656e469d6333af0ad6410f8c330ccaf46f857b"
+          "sha256": "015fc02126f7fe3acba1db8fe228947a8b220bf7eafc2a49b77c72f28ffd0741"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20222023",
           "component": "shape"
@@ -18367,8 +18367,8 @@
         "q": 0.012917615228465828,
         "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20232024",
           "training_game_ids": [
             "2023020001",
@@ -18625,18 +18625,18 @@
           "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
           "source_correction": {
             "kind": "synthetic_zero_count_exclusion",
-            "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+            "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
             "rows_sha256": "c00e27567aea2f9fe644ab0f8e3cf9b0f07fae417891e546a50249484136a1e1"
           }
         },
         "parent": {
           "path": "context.control.shape.1.json",
-          "sha256": "57eca582160825afa8a57073d731c062868b211ece80fa2aea2bc762347d01d7"
+          "sha256": "fbd2ce334564dd47a9bf774e854fd03c82084581456948f82a187e19a8fd650c"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20232024",
           "component": "shape"
@@ -19370,8 +19370,8 @@
         "q": 0.017117076464443524,
         "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20242025",
           "training_game_ids": [
             "2024020001",
@@ -19628,18 +19628,18 @@
           "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference",
           "source_correction": {
             "kind": "synthetic_zero_count_exclusion",
-            "counted_arrays_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+            "counted_arrays_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
             "rows_sha256": "b86c3abd2661827e611781cf166af39dd18f19a2b8981190212845a857a3bc6c"
           }
         },
         "parent": {
           "path": "context.control.shape.2.json",
-          "sha256": "13890c5c208b359f8c1fa1f8d3c4b3f8876de3ed9b64cd391312793b8db200dd"
+          "sha256": "a2dd3d67b93967f633b3b0dfa3e0f07db5abaa6a74b3c511973a8afc7a93b79f"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20242025",
           "component": "shape"
@@ -20396,8 +20396,8 @@
         "q": 0.015077526113045005,
         "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20252026",
           "training_game_ids": [
             "2025020002",
@@ -20654,12 +20654,12 @@
         },
         "parent": {
           "path": "context.control.shape.3.json",
-          "sha256": "cc56b8dab64b9a4ff2fc4c88c334fdad5060b037ba3ff04cc226e538477b9a92"
+          "sha256": "6a9c92501f1a9c7ce300d38d1573f84ebb4df38df1256e144787d91f5641f97f"
         },
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20252026",
           "component": "shape"
@@ -21417,8 +21417,8 @@
         "q": null,
         "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
         "source_identity": {
-          "population_id": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
-          "source_protocol_sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4",
+          "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+          "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
           "season": "20252026",
           "training_game_ids": [
             "2025020002",
@@ -21677,7 +21677,7 @@
         "likelihood": {
           "counted_arrays": {
             "path": "context.npz",
-            "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+            "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
           },
           "season": "20252026",
           "component": "shape"
@@ -25796,7 +25796,7 @@
     "interval_primitive": "shared paired_evaluation; numerator oracle independent of grouped contraction",
     "source_arrays": {
       "path": "context.npz",
-      "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+      "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
     }
   }
 }

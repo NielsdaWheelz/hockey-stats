@@ -84,7 +84,7 @@ def _figure(output, assessment):
     figure.suptitle(title, fontsize=13, x=.04, ha="left", y=.97)
     figure.text(.04, .095,
         "left: two-sided 95% percentile intervals; 2,000 paired draws per scheme; linear quantiles.\n"
-        "right: pooled regional point differences; comparison.csv supplies all regional intervals and numeric values.\n"
+        "right: regional point differences; bands are feet from the attacking goal; y signs name rink halves. comparison.csv has values/intervals.\n"
         "all intervals condition on this split, population and fitted states; fitting and selection uncertainty are omitted.\n"
         "regional aggregate divides by twelve × directed hours; individual regions divide by directed hours. no absolute mse or player accuracy.",
         fontsize=8, va="top", linespacing=1.5)
@@ -203,6 +203,9 @@ def render_reports(output, assessment, assessment_reference):
         "their assessment exposure remains included. each arm compensates context using its own uncentered maps. "
         "support signed residual associations divide summed on-ice residuals by group on-ice hours; zero hours is unavailable. "
         "they supply neither individual accuracy, cohort squared loss nor a residual ranking.", "",
+        "the twelve regions partition native cell centers in shooting-team coordinates (feet), with attacks toward positive x and the goal at (89, 0). "
+        "precedence is x > 89 behind the goal, then x ≤ 25 outside the attacking zone, then radial goal-distance bands "
+        "<10, [10,20), [20,40) and ≥40 feet. each region is split by negative/positive y; y = 0 contributes half to each side.", "",
         "[comparison.csv](comparison.csv) retains twelve regional contrasts and the native inverse-share metric; "
         "[diagnostics.csv](diagnostics.csv) retains fixed calendar, game mean-shape, support residual and bounded-probe summaries. "
         "the bound native diagnostic archive preserves cell coordinates, coverage and observed/predicted means with signed residuals. "

@@ -88,6 +88,12 @@ STATE_ARRAYS = dict(
     shape=("Theta", "V", "uncentered_Theta", "centering_shift", "u"),
     volume=("beta", "V", "uncentered_beta", "centering_shift", "u"),
 )
+MAIN_VARIANT_COMPONENTS = (
+    ("volume", "borrowing"),
+    ("shape", "borrowing"),
+    ("volume", "independent"),
+    ("shape", "independent"),
+)
 RULES = dict(
     seed=404130,
     draws=2000,
@@ -96,6 +102,18 @@ RULES = dict(
     arms=["borrowing", "independent", "context"],
     components=["volume", "shape"],
     states=dict(selected=12, new=9, reused=3),
+    variants=dict(
+        main_bit_order=[
+            dict(component=component, arm=arm)
+            for component, arm in MAIN_VARIANT_COMPONENTS
+        ],
+        source_only_bit_order=["corrected borrowing shape", "original borrowing shape"],
+        bit_meanings={"0": "primary", "1": "bounded probe"},
+        ordinal_origin=0,
+        order="lexicographic binary bits; all-zero combination is named primary",
+        main_count=16,
+        source_only_count=4,
+    ),
     probes=dict(
         new=9,
         reused=3,
@@ -690,9 +708,17 @@ def assess(prepared, fitted, output):
     source = read_prepared(prepared)
     document = source.document
     require(
-        {row["game_id"] for row in document["inventory"] if row["partition"] == "assessment"}
+        {
+            row["game_id"]
+            for row in document["inventory"]
+            if row["partition"] == "assessment"
+        }
         == set(document["assessment_ids"])
-        and {row["game_id"] for row in document["inventory"] if row["partition"] == "training"}
+        and {
+            row["game_id"]
+            for row in document["inventory"]
+            if row["partition"] == "training"
+        }
         == set(document["train_ids"]),
         "saved inventory partition labels differ from frozen assessment/training ids",
     )
@@ -820,12 +846,7 @@ def assess(prepared, fitted, output):
     }
     predictions["context"] = complete_prediction(final, None, None, ids)
     variants = {}
-    keys = (
-        ("volume", "borrowing"),
-        ("shape", "borrowing"),
-        ("volume", "independent"),
-        ("shape", "independent"),
-    )
+    keys = MAIN_VARIANT_COMPONENTS
     for bits in product((False, True), repeat=4):
         chosen = {
             key: alternatives[key]
@@ -949,6 +970,23 @@ def assess(prepared, fitted, output):
             source_control_probes=1,
             main_variants=16,
             source_only_variants=4,
+            variant_contract=RULES["variants"],
+            main_variant_ordinals=[
+                dict(
+                    ordinal=index,
+                    variant=name,
+                    bits="0000" if name == "primary" else name.removeprefix("probe_"),
+                )
+                for index, name in enumerate(variants)
+            ],
+            source_only_variant_ordinals=[
+                dict(
+                    ordinal=index,
+                    variant=name,
+                    bits="00" if name == "primary" else name.removeprefix("probe_"),
+                )
+                for index, name in enumerate(source_variants)
+            ],
             games=len(inventory),
             assessment_games=len(document["assessment_ids"]),
         ),

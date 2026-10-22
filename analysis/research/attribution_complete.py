@@ -688,8 +688,15 @@ def assess(prepared, fitted, output):
 
     started, process_started = time.monotonic(), time.process_time()
     source = read_prepared(prepared)
-    fit_ref, fit_document, states = read_fit(source, fitted)
     document = source.document
+    require(
+        {row["game_id"] for row in document["inventory"] if row["partition"] == "assessment"}
+        == set(document["assessment_ids"])
+        and {row["game_id"] for row in document["inventory"] if row["partition"] == "training"}
+        == set(document["train_ids"]),
+        "saved inventory partition labels differ from frozen assessment/training ids",
+    )
+    fit_ref, fit_document, states = read_fit(source, fitted)
     corrected, original, correction, metadata = _source(
         document["source_result"]["path"] if document["source_result"] else None,
         document["source_audit"]["path"] if document["source_audit"] else None,
@@ -956,7 +963,11 @@ def assess(prepared, fitted, output):
         zero_time_game_ids=document["coverage"]["zero_time_game_ids"],
     )
     payload["verification"] = dict(
-        source_chain="accepted final 02d correction and frozen 04m references verified",
+        source_chain=(
+            "accepted final 02d correction and frozen 04m references verified"
+            if document["purpose"] == "research"
+            else "explicit synthetic counted fixture correction and original controls verified"
+        ),
         reuse_proofs=document["reuse_proofs"],
         heldout_rows=reconciliation,
         physical_prediction=prediction_receipt,

@@ -2891,6 +2891,7 @@ def coefficient_state_row(
         r=state.r,
         a=state.a,
         q=state.q,
+        **({"basis_sha256": state.basis_sha256} if component == "shape" else {}),
         source_identity=state.source_identity,
         parent=parent,
         likelihood=likelihood,
@@ -2898,8 +2899,6 @@ def coefficient_state_row(
         diagnostics=state.diagnostics,
         **arrays,
     )
-    if component == "shape":
-        row["basis_sha256"] = state.basis_sha256
     return row
 
 

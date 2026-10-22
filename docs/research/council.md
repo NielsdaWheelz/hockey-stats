@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05g delivery review — 2026-10-21
+
+independent review clears [pr #40](https://github.com/NielsdaWheelz/hockey-stats/pull/40), its successful security check and exact merge-tree equality with reviewed `619cc88`. every producer remains in ancestry. primary typechecking, observed cli/source imports and isolated three-season candidate/profile/map reads pass. the primary editable project metadata is refreshed to restore a missing entry point; dependency pins and the running build remain unchanged.
+
+six original primary drafts remain exact git input blobs; the pre-assignment plan's original bytes and differences are explicitly preserved before its status chronology is reconciled. all 39,375 required frozen source paths survive without the task worktree, so no alias or extra data copy is needed. the owned task worktree, local/remote branch, redundant stash, temporary pr body and verification listener are removed. active-build/database bytes and nanosecond mtimes remain exact. [delivery evidence](observed-05g/verification.md#source-integration-and-task-cleanup) records the boundary; activation is unassigned and both source limitations remain open.
+
 ## 05g implementation review — 2026-10-21
 
 independent source/statistical, systems and rendered-content reviews clear [05g implementation and acceptance](observed-05g/verification.md). all 3,936 game inventories and consumed inputs reconcile to original local evidence; separate seasonal reductions pass. both independent comparisons preserve every 2025–26 identity, game, support, reason, scalar and map/reference value exactly. historical identities, absent records, annual peer eligibility and physical references remain explicit rather than inheriting current-year context.

@@ -100,20 +100,18 @@ def _numerical_summary(assessment):
     numerical = assessment["numerical"]
     probes = []
     for probe in numerical["probe_rows"]:
-        receipt = probe.get("receipt", {})
-        scale = probe.get("alternative", {}).get("scale", {})
-        probes.append(dict(index=probe.get("index"), season=probe.get("season"), arm=probe.get("arm"),
-            verified=probe["verified"], status=receipt.get("status"),
-            maximum_league_relative_current_player_movement=receipt.get("maximum_league_relative_current_player_movement"),
-            saved_scale_status=scale.get("status"), own_scale_reasons=scale.get("own_reasons"),
-            inherited_scale_limitation=scale.get("inherited_limitation")))
+        receipt = probe["receipt"]
+        scale = probe["alternative"]["scale"]
+        probes.append(dict(index=probe["index"], season=probe["season"], arm=probe["arm"],
+            verified=probe["verified"], status=receipt["status"],
+            maximum_league_relative_current_player_movement=receipt["maximum_league_relative_current_player_movement"],
+            saved_scale_status=scale["status"], own_scale_reasons=scale["own_reasons"],
+            inherited_scale_limitation=scale["inherited_limitation"]))
     return {**{key: value for key, value in numerical.items() if key != "probe_rows"}, "probes": probes}
 
 
 def _native_reference(assessment, assessment_reference):
-    native = assessment.get("native_diagnostics")
-    if native is None:
-        return None
+    native = assessment["native_diagnostics"]
     return dict(arrays=native["arrays"], array_shapes=native["array_shapes"], axes_in_assessment=assessment_reference,
                 meaning="native game means and group signed residual associations; not player-effect maps")
 
@@ -133,8 +131,8 @@ def render_reports(output, assessment, assessment_reference):
     coverage = assessment["coverage"]
     numerical = _numerical_summary(assessment)
     native_reference = _native_reference(assessment, assessment_reference)
-    costs = dict(prepare=assessment.get("preparation_resources"), fit=assessment.get("fit_resources"),
-                 assessment=assessment.get("resources"), states=assessment.get("state_resources"))
+    costs = dict(prepare=assessment["preparation_resources"], fit=assessment["fit_resources"],
+                 assessment=assessment["resources"], states=assessment["state_resources"])
     lines = ["# empirical attribution benchmark", "",
         "does existing annual borrowing reduce error for recorded spatial shape in held-out final-season games, "
         "compared with an independent-season fit and training-fitted context alone?", "",
@@ -156,19 +154,29 @@ def render_reports(output, assessment, assessment_reference):
         "[game-scores.csv](game-scores.csv) names every withheld game, date, retained count/time, coverage record and source identity. "
         "all earlier seasons are training; final references, players, context means and penalties use final training games only. "
         "the first-season spatial reference and forty-mode basis stay fixed.", "",
+        "annual training coverage:", "",
+        "| season | training games | active training players | directed hours | recorded attempts | source zero-time games |",
+        "|---|---:|---:|---:|---:|---:|"])
+    for year in assessment["years"]:
+        lines.append(f"| {year['season']} | {len(year['game_ids'])} | {len(year['player_ids'])} | "
+            f"{_number(year['directed_hours'])} | {_number(year['training_attempts'])} | {year['zero_time_source_games']} |")
+    lines.extend(["", "all earlier seasons are wholly training; the final row contains final training games only. "
+        "source zero-time games count the full annual source inventory, including the final season before partitioning. "
+        "historical source gaps affect incoming history and are separate from final assessment coverage. "
+        "the research source's zero-time historical games include unresolved captured-source gaps. the frozen ledgers do not distinguish "
+        "newly catalogued failure types, so their measured attribution impact remains unresolved. "
+        "no source correction, additional exclusion or later coverage estimate is substituted here.", ""])
+    lines.extend(["source-ledger coverage retains its original units and overlapping categories:", "",
+                  "| source field | value |", "|---|---:|"])
+    for key, value in coverage["source_annual"].items():
+        lines.append(f"| {key} | {value} |")
+    lines.extend(["", "recording and reconstructed membership/exposure gaps can be selective; shared source defects need not cancel. "
+        "matching counts/time does not establish ignorable missingness. exact source lineage and producer identities are bound in result.json.", "",
         "## conditional paired differences", "",
         "negative means the first arm has lower recorded-shape error; positive means higher error. units are "
         "(recorded unblocked attempts/60)². these are signed differences of error, without observed self energy; absolute mse and rmse are unavailable. "
         "the denominator is twelve times pooled directed hours, rather than an average of game rates. both team directions remain one game.", "",
         "| contrast | pooled difference | scheme | 95% interval | direction across all schemes |", "|---|---:|---|---:|---|"])
-    if coverage.get("source_annual"):
-        position = lines.index("## conditional paired differences")
-        source_lines = ["source-ledger coverage retains its original units and overlapping categories:", "",
-                        "| source field | value |", "|---|---:|"]
-        source_lines += [f"| {key} | {value} |" for key, value in coverage["source_annual"].items()]
-        source_lines += ["", "recording and reconstructed membership/exposure gaps can be selective; shared source defects need not cancel. "
-                         "matching counts/time does not establish ignorable missingness. exact source lineage and producer identities are bound in result.json.", ""]
-        lines[position:position] = source_lines
     for contrast in CONTRASTS:
         for scheme in SCHEMES:
             row = _aggregate(assessment, contrast, scheme)
@@ -217,9 +225,9 @@ def render_reports(output, assessment, assessment_reference):
         lines.append("unresolved: " + assessment["unresolved_reason"] + ".")
     elif fixture:
         lines.append("the fixture is verified. no next scientific question is selected from fixture performance.")
-    elif assessment.get("unresolved_reason"):
+    elif assessment["unresolved_reason"]:
         lines.append("unresolved scientific question: " + assessment["unresolved_reason"] + ".")
-    elif assessment.get("next_question"):
+    elif assessment["next_question"]:
         lines.append("next question: " + assessment["next_question"])
     else:
         lines.append("no successor model is selected by this diagnostic comparison.")
@@ -235,7 +243,7 @@ def render_reports(output, assessment, assessment_reference):
         "this report renders the saved assessment. no original moments, source arrays, fitted coefficients or bootstrap calculations are read during rendering.", "",
         f"assessment: `{assessment_reference['path']}`; sha256 `{assessment_reference['sha256']}`.", "",
         "```json", json.dumps(dict(numerical=numerical, coverage=coverage,
-            resources=costs, inventory=assessment.get("inventory"), verification=assessment.get("verification"),
+            resources=costs, inventory=assessment["inventory"], verification=assessment["verification"],
             consumed=assessment["consumed"], native_diagnostics=native_reference),
             indent=2, allow_nan=False), "```", "",
         "per-game, pooled and draw-wise paired closure is checked before saving. final probe alternatives preserve primary fits. "
@@ -248,12 +256,12 @@ def render_reports(output, assessment, assessment_reference):
         schema_version=1, execution_status="complete", numerical_status=assessment["numerical_status"],
         study_status=("fixture_verified" if fixture else "diagnosed") if verified else "numerically_unresolved",
         nomination=None, admission="not_admitted", handoff=None,
-        next_question=None if fixture or not verified else assessment.get("next_question"),
-        unresolved_reason=assessment.get("unresolved_reason"), coverage=coverage,
-        numerical=numerical, inventory=assessment.get("inventory"),
+        next_question=None if fixture or not verified else assessment["next_question"],
+        unresolved_reason=assessment["unresolved_reason"], coverage=coverage,
+        numerical=numerical, inventory=assessment["inventory"],
         aggregate_comparisons=[_aggregate(assessment, contrast, scheme) for contrast in CONTRASTS for scheme in SCHEMES],
-        resources=costs, verification=assessment.get("verification"),
-        source_references=assessment.get("sources", assessment["consumed"]), native_diagnostics=native_reference,
+        resources=costs, verification=assessment["verification"],
+        source_references=assessment["sources"], native_diagnostics=native_reference,
         outputs=dict(**tables, figure=figure, decision=identity(decision), verification=identity(verification)))
     write_json(output / "result.json", result)
     return result

@@ -1,5 +1,15 @@
 # council synthesis
 
+## v1-01 shared-evidence specification review — 2026-10-22
+
+three independent source/reconstruction, context/identity and systems/consumer reviewers clear the [v1-01 handoff](../specs/v1-01-shared-evidence.md). root inspected the existing owners and integrated their findings. this is documentation/code inspection, not implemented behavior, a corpus audit or scientific verification. no settled product choice needed reopening.
+
+native reconstruction already retains other strengths; the extension belongs in shared preparation. review fixes actual-unit shift/workload summaries, normalized non-attempt locations, goalie faced prefixes, episode censoring, immediate outcome labels and separate event/elapsed snapshots. source-supported events can survive missing elapsed time; rate consumers require paired counts/time. saved masks cover missing collections, accounting conflicts, unresolved events and lineup contradictions without rewriting existing observed 5v5 populations. the new product's incoming-goal/pre-score exception stays distinct from frozen research exclusions.
+
+systems review closes strict selection/member schemas, cardinality, unavailable collections, reader boundaries and persisted support decisions. base preparation is independent of v1-02 coaching; later fits/scoring bind that separate input. factual reductions and additional actor-specific masks remain v1-03 work. content owns truthful coverage receipts and source/elapsed/model distinctions, not a premature card or calibration claim.
+
+accepted costs: wider prepared data, complete five-season acceptance, conservative run-level exclusions, fixed elapsed-workload approximation and one explicit coach input later. optional height stays unavailable pending [unit evidence](../issues/bio-height-units.md); existing fields remain usable. fixtures permit detached development, not full acceptance. no acquisition, fitting, application rebuild, publication, persistent harness or execution assignment follows. documentation link/anchor and whitespace checks pass; historical source/research artifacts and serving files remain untouched.
+
 ## v1 field and source contract review — 2026-10-22
 
 the user assigned one coordinated documentation task with three bounded independent audits: microstats; goalie/descriptive cards; modeled skater cards. root inspected shared code/source/reference evidence, integrated their findings and returned the amended contracts for adversarial review. all three final reviews clear the [five-card crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance), shared definitions and [twenty proposed handoffs](../plan.md#proposed-pr-boundaries-and-dependencies). this establishes definition/source/owner coverage, not implementation or scientific support.

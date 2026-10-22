@@ -25,6 +25,8 @@ blocks retain inferred release mass; their contact location is never an observed
 
 `analysis_data.py` extends the reconstruction/feature owners with one all-time design. split eligible intervals at membership, strength, score, live-play reset, regulation ten-minute boundaries and each member's shift-age boundaries `0,10,20,40,60,90` seconds; the last age bin is `90+`. evaluate continuously changing prefix counters at the chunk's left endpoint. this defines a piecewise-constant model: elapsed integration is exact for that declared approximation, not for continuously changing fatigue. events use the corresponding chunk covariates, except their authoritative pre-event score and supported boundary membership. do not discard an otherwise eligible goal merely because subsequent elapsed time has the new score.
 
+[v1-01](v1-01-shared-evidence.md#context-and-labels) owns these factual chunks. elapsed counters include events strictly before the chunk-left clock and participation over preceding half-open time; same-clock events are excluded from that frozen snapshot. execution's separate exact pre-event snapshot may include earlier same-clock records. the spatial producer owns encoding, training-only centering/scaling and its additional valued-response support, not another chronology implementation. dated coach evidence joins separately from v1-02.
+
 the fixed design includes:
 
 - player indicators for the two roles; dated coach indicators for each role, plus coach score deviations for `-2..2` and a third-period tied/one-/two-goal-lead deviation;

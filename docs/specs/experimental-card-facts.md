@@ -6,6 +6,8 @@ factual appendix to the [program](experimental-player-analysis.md). the [v1 cros
 
 reuse `interpret.py`, `references.py`, `scoring_credits.py`, `reconstruct.py`, `game_chronology.py`, `feature_data.py` and `observed.py`. `analysis_data.py` extends their prepared facts/support; `descriptive.py` reduces usage, scoring, goal context and deployment; `microstats.py` reduces the fixed microstat family. neither summary module parses raw bodies, assigns on-ice membership or estimates xg. existing personal goals/primary assists and observed on-ice results remain exact, including their existing support. python owns finalized summaries; dynamic context uses the existing query arithmetic. no parallel hockey calculator in the browser.
 
+[v1-01](v1-01-shared-evidence.md) fixes their common factual handoff: all-strength event evidence, matched elapsed links/masks, actual-unit context and dated identity. v1-03 owns the reductions below and additional family-specific restrictions. valid events without elapsed support remain evidence, not rate observations; new all-strength masks do not replace existing observed 5v5 populations.
+
 | admitted evidence / locator | available facts; remaining work |
 |---|---|
 | play-by-play `/plays/*`, `typeDescKey`, period/clock/`situationCode`, `details` | shooter/scorer, first/second assist, hitter/hittee, blocker, penalty roles and event-owner team; strengthen actor/team/elapsed checks for each new use |
@@ -19,7 +21,7 @@ the audit checked representative source bundles in each displayed season (`20230
 
 ## identity and reported usage
 
-one `person` record supplies every card: selected season, id/name, season teams, reported position/position group, sweater numbers by team, supported handedness, birth date and age at february 1 of the season's ending year. optional reported height is centimeters, with display conversion only. conflicting/missing identity fields remain null with source reasons. portraits/team artwork are optional presentation assets; absent assets neither block the card nor trigger remote fetching. salary, contract and projected-role labels remain excluded.
+one `person` record supplies every card: selected season, id/name, season teams, reported position/position group, sweater numbers by team, supported handedness, birth date and age at february 1 of the season's ending year. optional normalized height is centimeters, with display conversion only; [unverified admitted units](../issues/bio-height-units.md) leave it null while preserving raw height. conflicting/missing identity fields remain null with source reasons. portraits/team artwork are optional presentation assets; absent assets neither block the card nor trigger remote fetching. salary, contract and projected-role labels remain excluded.
 
 `reported_usage` contains positive-toi appearance count, summed known boxscore seconds, minutes per appearance, reported shifts and listed/supported/missing game counts. minutes per appearance is `sum(seconds)/(60*positive_toi_appearances)` on the same known records. zero-toi roster listings are not appearances; a missing record is not zero. traded players aggregate their actual team appearances once. retain team breakdown and incomplete-coverage flag.
 

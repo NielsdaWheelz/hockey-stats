@@ -1,0 +1,610 @@
+{
+  "index": 0,
+  "arm": "borrowing",
+  "season": "20212022",
+  "player_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "current_player_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "entrant_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "carried_only_ids": [],
+  "r": 20.52173913043478,
+  "a": 0.012662475170180746,
+  "q": null,
+  "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
+  "source_identity": {
+    "population_id": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+    "source_protocol_sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda",
+    "season": "20212022",
+    "training_game_ids": [
+      "2021020001",
+      "2021020002",
+      "2021020003",
+      "2021020004",
+      "2021020005",
+      "2021020006",
+      "2021020007",
+      "2021020008",
+      "2021020009",
+      "2021020010",
+      "2021020011",
+      "2021020012",
+      "2021020013"
+    ],
+    "source_player_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "source_contexts": [
+      [
+        "away",
+        "1",
+        -3
+      ],
+      [
+        "away",
+        "1",
+        -2
+      ],
+      [
+        "away",
+        "1",
+        -1
+      ],
+      [
+        "away",
+        "1",
+        0
+      ],
+      [
+        "away",
+        "1",
+        1
+      ],
+      [
+        "away",
+        "1",
+        2
+      ],
+      [
+        "away",
+        "1",
+        3
+      ],
+      [
+        "away",
+        "2",
+        -3
+      ],
+      [
+        "away",
+        "2",
+        -2
+      ],
+      [
+        "away",
+        "2",
+        -1
+      ],
+      [
+        "away",
+        "2",
+        0
+      ],
+      [
+        "away",
+        "2",
+        1
+      ],
+      [
+        "away",
+        "2",
+        2
+      ],
+      [
+        "away",
+        "2",
+        3
+      ],
+      [
+        "away",
+        "3",
+        -3
+      ],
+      [
+        "away",
+        "3",
+        -2
+      ],
+      [
+        "away",
+        "3",
+        -1
+      ],
+      [
+        "away",
+        "3",
+        0
+      ],
+      [
+        "away",
+        "3",
+        1
+      ],
+      [
+        "away",
+        "3",
+        2
+      ],
+      [
+        "away",
+        "3",
+        3
+      ],
+      [
+        "away",
+        "overtime",
+        0
+      ],
+      [
+        "home",
+        "1",
+        -3
+      ],
+      [
+        "home",
+        "1",
+        -2
+      ],
+      [
+        "home",
+        "1",
+        -1
+      ],
+      [
+        "home",
+        "1",
+        0
+      ],
+      [
+        "home",
+        "1",
+        1
+      ],
+      [
+        "home",
+        "1",
+        2
+      ],
+      [
+        "home",
+        "1",
+        3
+      ],
+      [
+        "home",
+        "2",
+        -3
+      ],
+      [
+        "home",
+        "2",
+        -2
+      ],
+      [
+        "home",
+        "2",
+        -1
+      ],
+      [
+        "home",
+        "2",
+        0
+      ],
+      [
+        "home",
+        "2",
+        1
+      ],
+      [
+        "home",
+        "2",
+        2
+      ],
+      [
+        "home",
+        "2",
+        3
+      ],
+      [
+        "home",
+        "3",
+        -3
+      ],
+      [
+        "home",
+        "3",
+        -2
+      ],
+      [
+        "home",
+        "3",
+        -1
+      ],
+      [
+        "home",
+        "3",
+        0
+      ],
+      [
+        "home",
+        "3",
+        1
+      ],
+      [
+        "home",
+        "3",
+        2
+      ],
+      [
+        "home",
+        "3",
+        3
+      ],
+      [
+        "home",
+        "overtime",
+        0
+      ]
+    ],
+    "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f",
+    "references": "selected_training_rate_exposure_context; fixed_first_season_spatial_reference"
+  },
+  "parent": null,
+  "likelihood": {
+    "counted_arrays": {
+      "path": "context.npz",
+      "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
+    },
+    "season": "20212022",
+    "component": "shape"
+  },
+  "scale": {
+    "status": "resolved",
+    "own_reasons": [],
+    "inherited_limitation": false,
+    "curve": [
+      {
+        "exponent": -8.0,
+        "variance": 1e-08,
+        "objective": -0.0012752878094500514,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 6.774929330872868e-20
+      },
+      {
+        "exponent": -7.5,
+        "variance": 3.162277660168379e-08,
+        "objective": -0.004032792903381583,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 8.128755828494626e-20
+      },
+      {
+        "exponent": -7.0,
+        "variance": 1e-07,
+        "objective": -0.012752598444235083,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 2.708862884232368e-19
+      },
+      {
+        "exponent": -6.5,
+        "variance": 3.162277660168379e-07,
+        "objective": -0.040325132686781215,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 5.415109390910738e-19
+      },
+      {
+        "exponent": -6.0,
+        "variance": 1e-06,
+        "objective": -0.12749802579732317,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 8.658209571173724e-19
+      },
+      {
+        "exponent": -5.5,
+        "variance": 3.162277660168379e-06,
+        "objective": -0.4029718926776229,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 1.729926718462384e-18
+      },
+      {
+        "exponent": -5.0,
+        "variance": 1e-05,
+        "objective": -1.2721907203516079,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 1.2987068693887748e-18
+      },
+      {
+        "exponent": -4.5,
+        "variance": 3.1622776601683795e-05,
+        "objective": -4.001974463559106,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 4.318278194143141e-18
+      },
+      {
+        "exponent": -4.0,
+        "variance": 0.0001,
+        "objective": -12.44913598043071,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 8.668489960405768e-18
+      },
+      {
+        "exponent": -3.5,
+        "variance": 0.00031622776601683794,
+        "objective": -37.43060349102427,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 1.0766680565887221e-17
+      },
+      {
+        "exponent": -3.0,
+        "variance": 0.001,
+        "objective": -102.23195828537912,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 3.110581981458877e-17
+      },
+      {
+        "exponent": -2.5,
+        "variance": 0.0031622776601683794,
+        "objective": -222.576893577708,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 4.23186842042102e-17
+      },
+      {
+        "exponent": -2.0,
+        "variance": 0.01,
+        "objective": -325.5511349309654,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 1.12700962425656e-16
+      },
+      {
+        "exponent": -1.5,
+        "variance": 0.03162277660168379,
+        "objective": -248.63089313532646,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 1.581303229319471e-16
+      },
+      {
+        "exponent": -1.0,
+        "variance": 0.1,
+        "objective": 144.39430856092395,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 2.3879719416687973e-16
+      },
+      {
+        "exponent": -0.5,
+        "variance": 0.31622776601683794,
+        "objective": 854.7219984888789,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 2.4075648069974317e-16
+      },
+      {
+        "exponent": 0.0,
+        "variance": 1.0,
+        "objective": 1751.9290965206783,
+        "phase": "coarse",
+        "error": null,
+        "equation_relative_residual": 2.675256148530067e-16
+      },
+      {
+        "exponent": -2.118033988749895,
+        "variance": 0.00762019370540219,
+        "objective": -311.1318703732555,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 7.729373454271194e-17
+      },
+      {
+        "exponent": -1.881966011250105,
+        "variance": 0.013123025984117298,
+        "objective": -329.7736280298609,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 1.0471095229769213e-16
+      },
+      {
+        "exponent": -1.7360679774997898,
+        "variance": 0.018362509035578893,
+        "objective": -317.69253816026867,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 1.5494487631657892e-16
+      },
+      {
+        "exponent": -1.9067735668291237,
+        "variance": 0.012394426407367787,
+        "objective": -329.84158664400593,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 1.0860228404077798e-16
+      },
+      {
+        "exponent": -1.897290122063644,
+        "variance": 0.01266805318236633,
+        "objective": -329.87887375292735,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 1.232414706676613e-16
+      },
+      {
+        "exponent": -1.8975160814773027,
+        "variance": 0.012661463825465971,
+        "objective": -329.87888903854537,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 1.1757772400365117e-16
+      },
+      {
+        "exponent": -1.8974813932379069,
+        "variance": 0.012662475170180746,
+        "objective": -329.87888957157406,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 9.965643542755052e-17
+      },
+      {
+        "exponent": -1.8974480317603764,
+        "variance": 0.012663447909011813,
+        "objective": -329.8788890989821,
+        "phase": "refinement",
+        "error": null,
+        "equation_relative_residual": 1.255202097035358e-16
+      }
+    ],
+    "competing_coarse_minima": [
+      {
+        "exponent": -2.0,
+        "objective": -325.5511349309654
+      }
+    ],
+    "refinement": {
+      "success": true,
+      "message": "Solution found.",
+      "evaluations": 8,
+      "bounds": [
+        -2.5,
+        -1.5
+      ],
+      "exponent": -1.8974813932379069
+    },
+    "selected": {
+      "exponent": -1.8974813932379069,
+      "variance": 0.012662475170180746,
+      "objective": -329.87888957157406,
+      "phase": "refinement",
+      "error": null,
+      "equation_relative_residual": 9.965643542755052e-17
+    }
+  },
+  "diagnostics": {
+    "equation_relative_residual": 1.6695765767896203e-16,
+    "cholesky_equation_relative_residual": 9.965643542755052e-17,
+    "original_mean_equation_relative_residual": 1.6695765767896203e-16,
+    "original_covariance_equation_relative_residual": 2.4839531022237677e-17,
+    "covariance_symmetry": 0.0,
+    "covariance_rounding_tolerance": 1e-10,
+    "centered_covariance_symmetry": 4.336808689942018e-19,
+    "centered_mean_residual": 6.944318492568131e-18,
+    "zero_sum_mean_residual": 2.7755575615628914e-17,
+    "resources": {
+      "wall_seconds": 0.0062893329886719584,
+      "peak_memory_bytes": 133922816
+    }
+  },
+  "arrays": {
+    "path": "context.control.shape.0.npz",
+    "sha256": "a385bc13aa60af23a8ec1519fe75695af8d99b692c690ca0e6de318239ccaa0d"
+  },
+  "array_shapes": [
+    {
+      "name": "Theta",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "V",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "uncentered_Theta",
+      "shape": [
+        24,
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "centering_shift",
+      "shape": [
+        40
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "u",
+      "shape": [
+        12
+      ],
+      "dtype": "<f8"
+    }
+  ],
+  "reference_mode": "fixture_relative_v1"
+}

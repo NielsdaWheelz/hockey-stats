@@ -1,6 +1,6 @@
 # pr04o — score and game-time attribution context
 
-full specification, 2026-10-21. [the plan](../plan.md) owns assignment; implementation, research execution and publication remain unassigned. [model direction](../research/model-direction.md#04o--test-context-and-player-consequences) owns rationale. preserve [04n's evidence](../research/attribution-04n/decision.md), expensive fits and the active website.
+full specification, 2026-10-21; implementation and assigned research execution completed 2026-10-22: [decision](../research/attribution-04o/decision.md) · [verification](../research/attribution-04o/verification.md). [the plan](../plan.md) owns assignment; adoption and publication remain unassigned. [model direction](../research/model-direction.md#04o--test-context-and-player-consequences) owns rationale. preserve [04n's evidence](../research/attribution-04n/decision.md), expensive fits and the active website. the prepared artifact retains the original specification snapshot.
 
 ## target and decisions
 

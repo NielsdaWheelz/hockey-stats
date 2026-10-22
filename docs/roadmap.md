@@ -37,7 +37,7 @@ the [program stub](specs/experimental-player-analysis.md) connects these into no
 
 ## scientific work within the product
 
-[03p](research/chance-03p/decision.md) supplies a developmental chance representation; [04n](research/attribution-04n/decision.md) supplies evidence of useful complete regional prediction with unresolved native behavior and negative-rate defects. these are reusable starting points subject to compatible targets and explicit new use, not admitted ability or automatically publishable artifacts. the [04o protocol](specs/04o-attribution-context.md) remains unchanged; its outcome is not a prerequisite for the experimental program. [model direction](research/model-direction.md) preserves the rationale and completed comparisons.
+[03p](research/chance-03p/decision.md) supplies a developmental chance representation; [04n](research/attribution-04n/decision.md) supplies evidence of useful complete regional prediction with unresolved native behavior and negative-rate defects. these are reusable starting points subject to compatible targets and explicit new use, not admitted ability or automatically publishable artifacts. [completed 04o](research/attribution-04o/decision.md) finds unresolved regional gain, higher native inverse-share loss and small common-reference player point changes under its fixed score/time adjustment. its frozen protocol and adverse evidence remain intact; its outcome is not a prerequisite for the experimental program. [model direction](research/model-direction.md) preserves the rationale and completed comparisons.
 
 keep these distinctions explicit:
 

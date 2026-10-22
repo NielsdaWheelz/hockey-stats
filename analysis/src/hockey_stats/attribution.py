@@ -285,6 +285,19 @@ class ScalarCoefficientLikelihood:
 
 
 @dataclass(frozen=True)
+class ScalarScoreLikelihood:
+    """scalar working least-squares score, without an invented response energy."""
+
+    season: str
+    player_ids: tuple[int, ...]
+    H: np.ndarray
+    score: np.ndarray
+    u: np.ndarray
+    r: float
+    source_identity: dict
+
+
+@dataclass(frozen=True)
 class ScalarCoefficientState:
     """annual league-relative volume; covariance includes every historical identity."""
 
@@ -568,7 +581,7 @@ class _ScaleProblem:
         self.band = response_rank is not None
         self.reduced = basis is not None or response_rank is not None
         if yy is None:
-            require(self.reduced, "response energy may be absent only for a projected shape likelihood")
+            require(self.reduced, "absent response energy requires an explicit coefficient response rank")
             self.zz = None
         elif self.reduced:
             self.zz = float(yy - 2 * np.sum(M0 * T) + np.sum(M0 * (H @ M0)))
@@ -1532,18 +1545,21 @@ def validate_shape_coefficient_probe(
 
 
 def _scalar_coefficient_inputs(likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None):
-    require(isinstance(likelihood.energy, (int, float)) and math.isfinite(likelihood.energy)
+    require(isinstance(likelihood, ScalarCoefficientLikelihood)
+            and isinstance(likelihood.energy, (int, float)) and math.isfinite(likelihood.energy)
             and likelihood.energy >= 0, "scalar coefficient likelihood requires retained finite response energy")
     return _coefficient_inputs(likelihood, previous, likelihood.score, 1)
 
 
-def fit_scalar_coefficients(
-    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None = None,
-) -> ScalarCoefficientState:
-    """select the existing scalar annual prior on matched recorded spatial counts."""
-    started = time.monotonic()
-    players, H, score, u, mean, base, indices = _scalar_coefficient_inputs(likelihood, previous)
-    problem = _ScaleProblem(H, score, likelihood.energy, mean, base, indices, None)
+def _scalar_score_inputs(likelihood: ScalarScoreLikelihood, previous: ScalarCoefficientState | None):
+    require(isinstance(likelihood, ScalarScoreLikelihood)
+            and (previous is None or isinstance(previous, ScalarCoefficientState)),
+            "scalar score requires its typed likelihood and scalar predecessor")
+    return _coefficient_inputs(likelihood, previous, likelihood.score, 1)
+
+
+def _fit_scalar_state(likelihood, previous, inputs, problem, started):
+    players, H, score, u, mean, _, _ = inputs
     variance, scale = _select_scale(problem, previous is not None and previous.scale["status"] == "scale_unresolved")
     require(all(row["objective"] is not None for row in scale["curve"]),
             "scalar coefficient scale solve failed; dependent chain stopped")
@@ -1557,11 +1573,30 @@ def fit_scalar_coefficients(
         likelihood.source_identity, scale, update.diagnostics, update.uncentered_mean, update.centering_shift)
 
 
-def validate_scalar_coefficient_state(
-    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
-) -> None:
-    """bind the saved scalar search, annual lineage, posterior and role references."""
-    players, H, score, u, mean, base, indices = _scalar_coefficient_inputs(likelihood, previous)
+def fit_scalar_coefficients(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None = None,
+) -> ScalarCoefficientState:
+    """select the existing scalar annual prior on matched recorded spatial counts."""
+    started = time.monotonic()
+    inputs = _scalar_coefficient_inputs(likelihood, previous)
+    _, H, score, _, mean, base, indices = inputs
+    problem = _ScaleProblem(H, score, likelihood.energy, mean, base, indices, None)
+    return _fit_scalar_state(likelihood, previous, inputs, problem, started)
+
+
+def fit_scalar_score_coefficients(
+    likelihood: ScalarScoreLikelihood, previous: ScalarCoefficientState | None = None,
+) -> ScalarCoefficientState:
+    """select the scalar annual prior from its energy-free scale contrast."""
+    started = time.monotonic()
+    inputs = _scalar_score_inputs(likelihood, previous)
+    _, H, score, _, mean, base, indices = inputs
+    problem = _ScaleProblem(H, score, None, mean, base, indices, None, response_rank=1)
+    return _fit_scalar_state(likelihood, previous, inputs, problem, started)
+
+
+def _validate_scalar_state_at_variance(likelihood, previous, state, variance, inputs):
+    players, H, score, u, mean, base, indices = inputs
     n, current = len(players), likelihood.player_ids
     entrants = current if previous is None else tuple(player for player in current if player not in previous.player_ids)
     require(state.season == likelihood.season and state.player_ids == players
@@ -1574,17 +1609,31 @@ def validate_scalar_coefficient_state(
         require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
                 and value.shape == shape and np.isfinite(value).all(),
                 "scalar coefficient state axes or finite float64 arrays differ")
+    require(state.a == (variance if previous is None else previous.a)
+            and state.q == (None if previous is None else variance), "scalar coefficient prior scale lineage differs")
+    base = base.copy()
+    base[indices, indices] += variance
+    _validate_coefficient_posterior(H, score, u, mean, base, state.uncentered_beta,
+                                    state.beta, state.V, state.centering_shift)
+    return H, score, mean, base
+
+
+def _validate_scalar_search(state, previous):
     validate_shape_scale_receipt(state.scale, None if previous is None else previous.scale)
     require(all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
                 and row["objective"] is not None and row["equation_relative_residual"] is not None
                 and 0 <= row["equation_relative_residual"] <= 1e-8 for row in state.scale["curve"]),
-            "scalar coefficient search contains a failed numerical solve")
-    variance = state.scale["selected"]["variance"]
-    require(state.a == (variance if previous is None else previous.a)
-            and state.q == (None if previous is None else variance), "scalar coefficient prior scale lineage differs")
-    base[indices, indices] += variance
-    _validate_coefficient_posterior(H, score, u, mean, base, state.uncentered_beta,
-                                    state.beta, state.V, state.centering_shift)
+            "scalar coefficient search contains a failed numerical solve or response energy")
+
+
+def validate_scalar_coefficient_state(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
+) -> None:
+    """bind the saved scalar search, annual lineage, posterior and role references."""
+    inputs = _scalar_coefficient_inputs(likelihood, previous)
+    _validate_scalar_search(state, previous)
+    H, score, mean, base = _validate_scalar_state_at_variance(
+        likelihood, previous, state, state.scale["selected"]["variance"], inputs)
     # the solved mean gives the signal contraction without another posterior solve.
     _, _, factor = _factor(H, base)
     logdet = float(2*np.log(np.diag(factor)).sum())
@@ -1601,13 +1650,77 @@ def validate_scalar_coefficient_state(
             "scalar coefficient selected objective differs from retained response energy")
 
 
+def validate_scalar_score_coefficient_state(
+    likelihood: ScalarScoreLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
+) -> None:
+    """bind the energy-free search and the same annual posterior equations."""
+    inputs = _scalar_score_inputs(likelihood, previous)
+    _validate_scalar_search(state, previous)
+    H, score, mean, base = _validate_scalar_state_at_variance(
+        likelihood, previous, state, state.scale["selected"]["variance"], inputs)
+    _, _, factor = _factor(H, base)
+    objective = float(2*np.log(np.diag(factor)).sum()
+                      - np.sum((score-H @ mean)*(state.uncentered_beta-mean)))
+    require(math.isfinite(objective)
+            and math.isclose(objective, state.scale["selected"]["objective"], rel_tol=1e-8, abs_tol=1e-10),
+            "scalar score selected objective differs from gaussian_score_scale_contrast_v1")
+
+
+def scalar_score_control_equivalence(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
+) -> dict:
+    """check an unchanged energy-bearing control at its saved scales, never reselect."""
+    validate_scalar_coefficient_state(likelihood, previous, state)
+    score_likelihood = ScalarScoreLikelihood(likelihood.season, likelihood.player_ids, likelihood.H,
+        likelihood.score, likelihood.u, likelihood.r, likelihood.source_identity)
+    inputs = _scalar_score_inputs(score_likelihood, previous)
+    _, H, score, _, mean, base, indices = inputs
+    _validate_scalar_state_at_variance(score_likelihood, previous, state,
+        state.scale["selected"]["variance"], inputs)
+    problem = _ScaleProblem(H, score, None, mean, base, indices, None, response_rank=1)
+    mean_score = float(2*np.sum(mean*score))
+    mean_energy = float(np.sum(mean*(H @ mean)))
+    omitted = float(likelihood.energy-mean_score+mean_energy)
+    winner = state.scale["selected"]
+    coarse = [row for row in state.scale["curve"] if row["phase"] == "coarse"
+              and row["exponent"] != winner["exponent"]]
+    points = [winner] + sorted(coarse,
+        key=lambda row: (abs(row["exponent"]-winner["exponent"]), row["exponent"]))[:2]
+    comparisons = []
+    for row in points:
+        objective = problem.objective(row["exponent"], "fixed_control_equivalence")
+        rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy)
+            +abs(objective)+abs(omitted))
+        residual = abs((objective+omitted)-row["objective"])
+        require(math.isfinite(objective) and math.isclose(objective, row["objective"]-omitted,
+                rel_tol=1e-8, abs_tol=max(1e-10, rounding))
+                and abs(row["objective"]-objective-omitted) <= max(1e-10, rounding),
+                "saved scalar control differs from its score-only constant offset")
+        comparisons.append(dict(exponent=row["exponent"], variance=row["variance"],
+            saved_full_objective=row["objective"], score_objective=objective,
+            saved_full_minus_score=float(row["objective"]-objective),
+            omitted_constant_absolute_residual=float(abs(row["objective"]-objective-omitted)),
+            full_reconstruction_absolute_residual=residual, rounding_allowance=rounding,
+            equation_relative_residual=problem.curve[-1]["equation_relative_residual"]))
+    return dict(objective_identity="gaussian_score_scale_contrast_v1",
+        omitted_within_search_constant=omitted, fixed_saved_scales=comparisons,
+        posterior_equivalence="verified by identical aligned score posterior and role-reference equations",
+        original_state_and_scale_curve="unchanged", selection="not rerun")
+
+
 def bounded_scalar_coefficient_probe(
     likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
 ) -> tuple[dict, ScalarCoefficientState]:
     """tighten one saved scalar bracket with the incoming primary history fixed."""
     validate_scalar_coefficient_state(likelihood, previous, state)
-    players, H, score, u, mean, base, indices = _scalar_coefficient_inputs(likelihood, previous)
+    inputs = _scalar_coefficient_inputs(likelihood, previous)
+    _, H, score, _, mean, base, indices = inputs
     problem = _ScaleProblem(H, score, likelihood.energy, mean, base, indices, None)
+    return _scalar_probe(previous, state, inputs, problem)
+
+
+def _scalar_probe(previous, state, inputs, problem):
+    players, H, score, u, mean, _, _ = inputs
     receipt = _conditional_scale_probe(problem, state.scale)
     variance = receipt["selected"]["variance"]
     update = _coefficient_update(H, score, mean, problem.covariance(variance), u)
@@ -1625,6 +1738,105 @@ def bounded_scalar_coefficient_probe(
         maximum_league_relative_current_player_movement=movement, tolerance=1e-4,
         diagnostics=update.diagnostics)
     return receipt, alternative
+
+
+def bounded_scalar_score_coefficient_probe(
+    likelihood: ScalarScoreLikelihood, previous: ScalarCoefficientState | None, state: ScalarCoefficientState,
+) -> tuple[dict, ScalarCoefficientState]:
+    """tighten the saved score-only scalar bracket with unchanged incoming history."""
+    validate_scalar_score_coefficient_state(likelihood, previous, state)
+    inputs = _scalar_score_inputs(likelihood, previous)
+    _, H, score, _, mean, base, indices = inputs
+    problem = _ScaleProblem(H, score, None, mean, base, indices, None, response_rank=1)
+    return _scalar_probe(previous, state, inputs, problem)
+
+
+def validate_scalar_score_coefficient_probe(
+    likelihood: ScalarScoreLikelihood, previous: ScalarCoefficientState | None,
+    primary: ScalarCoefficientState, receipt: dict, alternative: ScalarCoefficientState,
+) -> None:
+    """verify a saved score-only alternative without refitting or propagating it."""
+    validate_scalar_score_coefficient_state(likelihood, previous, primary)
+    _validate_scalar_probe(likelihood, previous, primary, receipt, alternative,
+        _scalar_score_inputs(likelihood, previous), 0., 0.)
+
+
+def validate_scalar_coefficient_probe(
+    likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None,
+    primary: ScalarCoefficientState, receipt: dict, alternative: ScalarCoefficientState,
+) -> None:
+    """verify an unchanged energy-bearing probe using its original full objective."""
+    validate_scalar_coefficient_state(likelihood, previous, primary)
+    inputs = _scalar_coefficient_inputs(likelihood, previous)
+    _, H, score, _, mean, _, _ = inputs
+    mean_score, mean_energy = float(2*np.sum(mean*score)), float(np.sum(mean*(H @ mean)))
+    offset = float(likelihood.energy-mean_score+mean_energy)
+    rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy))
+    _validate_scalar_probe(likelihood, previous, primary, receipt, alternative, inputs, offset, rounding)
+
+
+def _validate_scalar_probe(likelihood, previous, primary, receipt, alternative, inputs, offset, rounding):
+    saved = primary.scale
+    require(set(receipt) == {"saved_winner", "rechecked_candidates", "tightened_refinement", "selected",
+            "saved_scale_status", "numerical_complete", "status", "scope",
+            "maximum_league_relative_current_player_movement", "tolerance", "diagnostics"}
+        and receipt["saved_winner"] == saved["selected"]
+        and receipt["saved_scale_status"] == {key: saved[key] for key in
+            ("status", "own_reasons", "inherited_limitation")}
+        and receipt["scope"] == POOLING_PROBE_SCOPE and receipt["tolerance"] == 1e-4
+        and alternative.scale == dict(saved, selected=receipt["selected"], numerical_original_scale=saved),
+        "frozen scalar score probe scope or primary binding differs")
+    winner = saved["selected"]
+    coarse = [row for row in saved["curve"] if row["phase"] == "coarse"
+              and row["objective"] is not None and row["exponent"] != winner["exponent"]]
+    expected = [winner] + sorted(coarse,
+        key=lambda row: (abs(row["exponent"]-winner["exponent"]), row["exponent"]))[:2]
+    curve = receipt["rechecked_candidates"]
+    require(len(curve) >= len(expected)
+        and all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
+            and type(row["exponent"]) in (int, float) and -8 <= row["exponent"] <= 0
+            and row["variance"] == 10.**row["exponent"] and row["error"] is None
+            and type(row["objective"]) in (int, float) and math.isfinite(row["objective"])
+            and row["equation_relative_residual"] is not None
+            and 0 <= row["equation_relative_residual"] <= 1e-8 for row in curve)
+        and all(new["phase"] == "independent_recheck" and new["exponent"] == old["exponent"]
+            and math.isclose(new["objective"], old["objective"], rel_tol=1e-8, abs_tol=1e-10)
+            for old, new in zip(expected, curve)),
+        "frozen scalar score probe rechecks or finite solve receipts differ")
+    refinement = receipt["tightened_refinement"]
+    if saved["refinement"] is None:
+        require(refinement is None and len(curve) == len(expected), "frozen scalar score probe added a refinement")
+    else:
+        require(refinement is not None and refinement["bounds"] == saved["refinement"]["bounds"]
+            and refinement["xatol"] == 1e-6 and refinement["maxiter"] == 80
+            and refinement["evaluations"] == len(curve)-len(expected) <= 80
+            and all(row["phase"] == "refinement"
+                and refinement["bounds"][0] <= row["exponent"] <= refinement["bounds"][1]
+                for row in curve[len(expected):]), "frozen scalar score probe bracket or budget differs")
+    selected = min(saved["curve"] + curve, key=lambda row: (row["objective"], row["variance"]))
+    require(receipt["selected"] == selected
+        and receipt["numerical_complete"] is (refinement is None or refinement["success"]),
+        "frozen scalar score probe selection or numerical completion differs")
+    H, score, mean, base = _validate_scalar_state_at_variance(
+        likelihood, previous, alternative, selected["variance"], inputs)
+    _, _, factor = _factor(H, base)
+    objective = float(2*np.log(np.diag(factor)).sum()
+                      - np.sum((score-H @ mean)*(alternative.uncentered_beta-mean)))
+    require(math.isfinite(objective)
+        and math.isclose(objective, selected["objective"]-offset, rel_tol=1e-8,
+            abs_tol=max(1e-10, rounding+8*np.finfo(float).eps*abs(objective)))
+        and alternative.diagnostics == receipt["diagnostics"],
+        "frozen scalar score probe objective or posterior diagnostics differ")
+    n = len(primary.player_ids)
+    current = [primary.player_ids.index(player) for player in primary.current_player_ids]
+    rows = current + [n+index for index in current]
+    movement = dict(volume_relative=float(np.max(np.abs(alternative.beta[rows]-primary.beta[rows]))))
+    require(receipt["maximum_league_relative_current_player_movement"].keys() == movement.keys()
+        and math.isclose(receipt["maximum_league_relative_current_player_movement"]["volume_relative"],
+            movement["volume_relative"], rel_tol=1e-10, abs_tol=1e-12)
+        and receipt["status"] == ("verified" if receipt["numerical_complete"]
+            and movement["volume_relative"] <= 1e-4 else "numerically_unresolved"),
+        "frozen scalar score probe physical movement or status differs")
 
 
 def _fit(

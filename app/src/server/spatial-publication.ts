@@ -177,7 +177,7 @@ export const validateSpatial = (sql: SqliteClient, selectedSeason: Season, leagu
   }
 });
 
-const definition: SpatialSelection["definition"] = { population_version: "matched_unblocked_locations_v1", display_version: "rect5_gaussian10_v1", sigma_ft: 10,
+const definition: SpatialSelection["definition"] = { population_version: "matched_unblocked_locations_v2", display_version: "rect5_gaussian10_v1", sigma_ft: 10,
   rink: {length_ft:200,width_ft:85,corner_radius_ft:28,goal_x:89}, units:"attempts_per60_per100sqft",orientation:"shooting_team_positive_x" };
 export const readSpatial = (sql: SqliteClient, season: Season, leagueSupport: SpatialCoverage, ids?: readonly string[]) => Effect.gen(function* () {
   if (ids === undefined) return null;

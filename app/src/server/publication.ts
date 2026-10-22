@@ -29,7 +29,7 @@ const personalColumns = {
   personal_coverage_status: CoverageStatus, personal_reason_codes_json: Schema.fromJsonString(PersonalReasonCodes),
 };
 const PublicationRow = Schema.Struct({
-  id: Schema.Literal(1), schema_version: Schema.Literal(4),
+  id: Schema.Literal(1), schema_version: Schema.Literal(5),
   ...publicationFields,
   game_type: Schema.Literal(2), producer_json: Schema.fromJsonString(Producer),
 });
@@ -95,7 +95,8 @@ export const publicationLayer = (filename: string) => Layer.effect(Publication, 
   const tableList = yield* sql.unsafe<{ name: string; type: string; strict: number }>("PRAGMA table_list");
   yield* Effect.try(() => {
     if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreignKeys.length !== 0) throw new Error("publication integrity or foreign-key check failed");
-    if (JSON.stringify(version) !== '[{"user_version":4}]' || JSON.stringify(journal) !== '[{"journal_mode":"delete"}]') throw new Error("incompatible publication version or journal mode");
+    if (JSON.stringify(version) !== '[{"user_version":5}]') throw new Error("incompatible publication version; schema 5 is required");
+    if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]') throw new Error("publication requires delete journal mode");
     const actual = tableList.filter((table) => !table.name.startsWith("sqlite_"));
     if (actual.length !== 9 || actual.some((table) => table.type !== "table" || table.strict !== 1 || !(table.name in tables))) throw new Error("publication requires exactly nine strict tables");
   });

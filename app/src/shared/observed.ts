@@ -13,11 +13,13 @@ export const Rate = Schema.Finite.check(Schema.isGreaterThanOrEqualTo(0));
 export const DateString = Schema.String.check(Schema.isPattern(/^\d{4}-\d{2}-\d{2}$/), Schema.makeFilter((value) => !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value));
 export const Timestamp = Schema.String.check(Schema.isPattern(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/), Schema.makeFilter((value) => !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 19) === value.slice(0, 19)));
 export const GitCommit = Schema.NullOr(Schema.String.check(Schema.isPattern(/^[a-f0-9]{40}$/)));
-export const ReasonCode = Schema.Literals([
+const inheritedReasonCodes = [
   "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
   "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
-  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games", "no_5v5_exposure",
-]);
+  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  "event_exposure_conflict", "shift_source_empty",
+] as const;
+export const ReasonCode = Schema.Literals([...inheritedReasonCodes, "no_5v5_exposure"]);
 export type ReasonCode = typeof ReasonCode.Type;
 export const ReasonCodes = Schema.Array(ReasonCode).check(Schema.makeFilter((codes) => codes.every((code, index) => index === 0 || codes[index - 1] < code)));
 export const CoverageStatus = Schema.Literals(["complete", "partial", "unavailable"]);
@@ -42,9 +44,7 @@ export const Metrics = Schema.Struct({
 export type Metrics = typeof Metrics.Type;
 
 export const PersonalReasonCode = Schema.Literals([
-  "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
-  "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
-  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  ...inheritedReasonCodes,
   "personal_credit_unresolved", "no_personal_5v5_exposure",
 ]);
 export type PersonalReasonCode = typeof PersonalReasonCode.Type;
@@ -74,9 +74,7 @@ export const PersonalMetrics = Schema.Struct({
 export type PersonalMetrics = typeof PersonalMetrics.Type;
 
 export const SpatialReasonCode = Schema.Literals([
-  "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
-  "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
-  "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games",
+  ...inheritedReasonCodes,
   "spatial_coordinates_missing", "spatial_frame_unresolved", "spatial_location_outside_rink", "no_spatial_5v5_exposure",
 ]);
 export type SpatialReasonCode = typeof SpatialReasonCode.Type;
@@ -119,7 +117,7 @@ export const PlayerSpatialCell = Schema.Struct({
 export type PlayerSpatialCell = typeof PlayerSpatialCell.Type;
 export const SpatialSelection = Schema.Struct({
   definition: Schema.Struct({
-    population_version: Schema.Literal("matched_unblocked_locations_v1"), display_version: Schema.Literal("rect5_gaussian10_v1"), sigma_ft: Schema.Literal(10),
+    population_version: Schema.Literal("matched_unblocked_locations_v2"), display_version: Schema.Literal("rect5_gaussian10_v1"), sigma_ft: Schema.Literal(10),
     rink: Schema.Struct({length_ft: Schema.Literal(200), width_ft: Schema.Literal(85), corner_radius_ft: Schema.Literal(28), goal_x: Schema.Literal(89)}),
     units: Schema.Literal("attempts_per60_per100sqft"), orientation: Schema.Literal("shooting_team_positive_x"),
   }),
@@ -153,9 +151,9 @@ export const Publication = Schema.Struct({
   kind: Schema.Literal("observed_5v5"),
   purpose: Schema.Literals(["real", "fixture"]),
   generated_at: Timestamp,
-  population_version: Schema.Literal("matched_attempts_v1"),
-  personal_population_version: Schema.Literal("matched_personal_credits_v1"),
-  spatial_population_version: Schema.Literal("matched_unblocked_locations_v1"),
+  population_version: Schema.Literal("matched_attempts_v2"),
+  personal_population_version: Schema.Literal("matched_personal_credits_v2"),
+  spatial_population_version: Schema.Literal("matched_unblocked_locations_v2"),
   spatial_display_version: Schema.Literal("rect5_gaussian10_v1"),
   git_commit: GitCommit,
 });

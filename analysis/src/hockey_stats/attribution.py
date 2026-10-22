@@ -1586,11 +1586,16 @@ def validate_scalar_coefficient_state(
                                     state.beta, state.V, state.centering_shift)
     # the solved mean gives the signal contraction without another posterior solve.
     sign, logdet = np.linalg.slogdet(np.eye(2*n) + base @ H)
-    objective = float(logdet + likelihood.energy - 2 * np.sum(mean * score)
-                      + np.sum(mean * (H @ mean))
-                      - np.sum((score - H @ mean) * (state.uncentered_beta - mean)))
-    require(sign > 0 and math.isfinite(objective)
-            and math.isclose(objective, state.scale["selected"]["objective"], rel_tol=1e-8, abs_tol=1e-10),
+    mean_score = float(2 * np.sum(mean * score))
+    mean_energy = float(np.sum(mean * (H @ mean)))
+    contraction = float(np.sum((score - H @ mean) * (state.uncentered_beta - mean)))
+    contrast = float(logdet - mean_score + mean_energy - contraction)
+    saved_contrast = state.scale["selected"]["objective"] - likelihood.energy
+    # the saved full objective can lose ulps when response energy is much larger
+    # than its scale-dependent contrast; it must not set a relative error budget.
+    rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy)+abs(contraction))
+    require(sign > 0 and math.isfinite(contrast)
+            and math.isclose(contrast, saved_contrast, rel_tol=1e-8, abs_tol=max(1e-10, rounding)),
             "scalar coefficient selected objective differs from retained response energy")
 
 

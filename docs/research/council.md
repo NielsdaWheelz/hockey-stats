@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 05h delivery review — 2026-10-21
+
+independent review clears [pr #44](https://github.com/NielsdaWheelz/hockey-stats/pull/44), its successful security check and exact reviewed/merged tree equality. all producers, the reviewed 02d handoff and nine current primary draft input blobs survive in ancestry. reconciliation retains the approved complete-rate direction and completed 05h status. primary typechecking, observed cli entry and isolated three-season league/profile/deployment reads pass without rebuilding serving assets or rerunning research.
+
+the task worktree, local/remote branch, owned stash, temporary listener and redundant delivery scratch are removed. candidate source paths need no alias. all 29 serving files retain exact bytes and nanosecond mtimes with the same listener; acceptance evidence, frozen baseline references, both candidate copies and the separate 02d assessment's frozen 04b input remain exact. [delivery evidence](observed-05h/verification.md#source-integration-and-task-cleanup) records the boundary. the independent 02d worktree remains; later integration must preserve schema 6. activation stays unassigned and no model is admitted.
+
 ## 05h implementation review — 2026-10-21
 
 independent source/statistical, systems and rendered-content reviews clear [05h implementation and acceptance](observed-05h/verification.md). hash-bound native player timelines intersect independently of the production pair counter and exactly reproduce all 2,313,650 game-pair rows and 710,765 seasonal rows. all 4,354,474 pre-existing table rows and prior game-receipt fields remain exact against the reviewed 02d baseline. every player, including zero-time records, satisfies the shared-time identities and combined trade bounds. source gaps retain their existing meanings.

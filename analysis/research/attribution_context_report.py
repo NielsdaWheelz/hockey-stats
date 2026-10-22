@@ -114,17 +114,25 @@ def report(assessment,output):
                 for key in ('heldout_rows','physical_prediction','control_comparisons','control_rate_diagnostics')),
         'context report requires complete saved assessment evidence')
     root=Path(output).absolute();require(not root.exists(),'report output already exists');root.mkdir(parents=True)
+    comparison_rows=[dict(row,direction='zero_by_construction',interval_direction=row['direction'],
+        interpretation='native volume/shape interaction is algebraically zero; numeric values and intervals are floating roundoff')
+        if row['metric']=='native_inverse_share' and row['component']=='interaction' else row
+        for row in d['comparison_rows']]
+    region_columns={prefix+str(index):prefix+name for index,name in enumerate(d['region_names'])
+        for prefix in ('candidate_region_','control_region_','region_change_')}
     tables={}
     for filename,key in (('comparison.csv','comparison_rows'),('game-losses.csv','game_rows'),
         ('player-changes.csv','player_rows'),('player-summary.csv','player_summary_rows'),
         ('player-probe-summary.csv','player_probe_summary_rows'),('rate-diagnostics.csv','rate_rows'),
         ('months.csv','month_rows'),('support.csv','support_rows')):
-        rows=d[key]
+        rows=comparison_rows if key=='comparison_rows' else d[key]
+        if key=='player_rows':
+            rows=[{region_columns.get(name,name):value for name,value in row.items()} for row in rows]
         if key=='rate_rows':
             rows=[dict(row,**{'minimum_'+name:value for name,value in row['worst_location'].items()}) for row in rows]
         tables[filename]=_csv(root,filename,rows)
     figures=dict(prediction=_prediction_figure(root,d),player_sensitivity=_player_figure(root,d))
-    primary=[r for r in d['comparison_rows'] if r['variant']=='primary']
+    primary=[r for r in comparison_rows if r['variant']=='primary']
     leading=[r for r in primary if r['metric']=='regional' and r['region']=='all' and r['component']=='complete']
     direction=d['primary_direction'];numerical=d['numerical_status']
     status=('fixture_verified' if d['purpose']=='fixture_exercise' else 'diagnosed') if numerical=='verified' else 'numerically_unresolved'
@@ -152,13 +160,21 @@ def report(assessment,output):
         lines.append(f"- {row['scheme']}: {_number(row['lower'])} to {_number(row['upper'])}; {row['undefined_draws']} unavailable draws.")
     lines.extend(['','other diagnostic directions (each combines all three interval schemes):'])
     for row in primary:
-        if row['scheme']=='games' and row['region']=='all' and not (row['metric']=='regional' and row['component']=='complete'):
+        if (row['scheme']=='games' and row['region']=='all'
+            and not (row['metric']=='regional' and row['component']=='complete')
+            and not (row['metric']=='native_inverse_share' and row['component']=='interaction')):
             lines.append(f"- {row['metric']} {row['component']}: {_number(row['estimate'])}; `{row['direction']}`.")
-    adverse_regions=[row for row in primary if row['scheme']=='games' and row['metric']=='regional'
-        and row['region']!='all' and row['direction']=='supported_higher_loss']
-    if adverse_regions:
-        lines.extend(['','individual-region adverse diagnostics are unadjusted descriptive comparisons across twelve regions. all twelve comparisons remain in the table; this adds no selection or adoption rule.'])
-        for row in adverse_regions:
+    native={row['component']:row for row in primary if row['scheme']=='games'
+        and row['metric']=='native_inverse_share' and row['region']=='all'}
+    if (native['complete']['direction']=='supported_higher_loss' and native['shape']['estimate']>0
+        and native['weighted_volume']['estimate']<0):
+        lines.extend(['',f"the native inverse-share criterion supports higher complete loss for the candidate ({_number(native['complete']['estimate'])}). the increase is driven by shape, {_number(native['shape']['estimate'])} (`{native['shape']['direction']}`), partly offset by volume, {_number(native['weighted_volume']['estimate'])} (`{native['weighted_volume']['direction']}`)."])
+    lines.extend(['','the native volume/shape interaction is zero by construction. its tiny saved values and interval endpoints are floating roundoff, not an unresolved scientific effect.'])
+    supported_regions=[row for row in primary if row['scheme']=='games' and row['metric']=='regional'
+        and row['region']!='all' and row['direction'] in ('supported_lower_loss','supported_higher_loss')]
+    if supported_regions:
+        lines.extend(['','individual-region supported directions are unadjusted descriptive comparisons across twelve regions. all twelve comparisons remain in the table; this adds no selection or adoption rule.'])
+        for row in supported_regions:
             lines.append(f"- {row['region']}: {_number(row['estimate'])} (recorded unblocked attempts/60)²; `{row['direction']}` across all three conditional interval schemes.")
     lines.extend(['','current-player point-change summaries, in recorded unblocked attempts/60:'])
     for row in d['player_summary_rows']:
@@ -172,6 +188,16 @@ def report(assessment,output):
     for row in d['rate_rows']:
         witness=row['worst_location']
         lines.append(f"- {row['arm']} {row['resolution']}: negative location-time fraction {_number(row['negative_location_time_fraction'])}; any-negative exposure {_number(row['any_negative_exposure_fraction'])}; negative mass {_number(row['negative_mass_predicted_attempts'])} predicted attempts; minimum/infimum {_number(row['minimum'])} attempts/60, `{witness['attainment']}` at game `{witness['game_id']}`, segment {witness['segment_index']}, {witness['side']}, period {witness['period']} clock {_number(witness['time'])}, location `{witness['location_label']}`.")
+    rates={(row['arm'],row['resolution']):row for row in d['rate_rows']}
+    for resolution in ('regional','native'):
+        candidate,control=rates['candidate',resolution],rates['control',resolution]
+        comparisons=[]
+        for label,key,units in (('negative location-time fraction','negative_location_time_fraction',''),
+            ('any-negative exposure fraction','any_negative_exposure_fraction',''),
+            ('negative mass','negative_mass_predicted_attempts',' predicted attempts')):
+            change='increases' if candidate[key]>control[key] else 'decreases' if candidate[key]<control[key] else 'is unchanged'
+            comparisons.append(f"{label} {change} from {_number(control[key])} to {_number(candidate[key])}{units}")
+        lines.extend(['',resolution+': '+'; '.join(comparisons)+'.'])
     lines.extend(['',f"numerical status: `{numerical}`. all sixteen final-component combinations preserve the primary direction: `{str(d['primary_direction_stable']).lower()}`. ten candidate states and ten exact control reuses retain twenty conditional probe receipts. endpoint and inherited scale limitations remain recorded in those receipts.",'',
         'adoption remains undecided. this study neither changes the observed website nor establishes chance valuation, player recovery or uncertainty calibration. no single next model revision is identified by this comparison.','',
         '[prediction figure](prediction.png) · [player sensitivity figure](player-sensitivity.png) · [comparison table](comparison.csv) · [player changes](player-changes.csv) · [rate diagnostics](rate-diagnostics.csv)',''])

@@ -1,12 +1,12 @@
 # pr05i — personal shooting geography
 
-status: **direction stub; not ready for implementation.** [the plan](../plan.md) owns assignment. this observed capability is independent of 04o and model admission; [the inventory](../product-inventory.md#cards-and-supporting-views) owns the wider destination.
+status: **direction stub; not ready for implementation.** [the plan](../plan.md) owns assignment. this capability is folded into the [complete experimental program](experimental-player-analysis.md), rather than queued as the next separate observed-only slice. its source-backed geography remains independent of 04o and model admission; [the inventory](../product-inventory.md#cards-and-supporting-views) owns the wider destination.
 
 ## question and boundary
 
 where does this player take their own recorded attempts, compared with the existing maps of team attempts while they are on ice?
 
-use corroborated shooter and location evidence. blocked contacts cannot become release locations. reuse observed source/aggregation, sqlite publication, typed reads and rink/display owners; this requires new published facts, not merely a frontend toggle. preserve existing personal/on-ice/spatial quantities and their support meanings. no xg, finishing ability, adjusted maps or causal interpretation.
+use corroborated shooter and location evidence. blocked contacts cannot become release locations. reuse observed source/aggregation, sqlite publication, typed reads and rink/display owners; this requires new published facts, not merely a frontend toggle. preserve existing personal/on-ice/spatial quantities and their support meanings. these personal observations do not themselves estimate finishing or adjusted effects. the coordinated program may supply modeled views separately under their own definitions; the source-backed view remains distinct.
 
 ## full specification must settle
 

@@ -1,5 +1,21 @@
 # council synthesis
 
+## complete experimental product review — 2026-10-22
+
+user decision: implement the full selected input, component, output and visualization repertoire with real initial estimates, then improve it through use. five-on-five/xg is a useful first integration increment, not a smaller completion target. [brief](../brief.md) · [program stub](../specs/experimental-player-analysis.md) · [roadmap](../roadmap.md). the plan alone owns assignments; 04o retains its frozen protocol and completed verdict. no new implementation, fit, acquisition or activation follows from this documentation update.
+
+three independent domain/statistical, systems/product and hockey-capability reviews agree on the distinction between correct computation and mature evidence. historical failures do not erase useful mechanisms; an explicit experimental publication does not change those failures into scientific support. observed facts, experimental estimates and specifically supported claims need different meanings, not separate websites.
+
+- **statistics:** require targets, timing, matched exposure, normalized probability/origin construction, reference policy, valued responses and nonoverlapping accounting. report weak calibration/recovery, prior sensitivity and missing uncertainty honestly. signed effects can be negative; impossible complete rates remain a defect, never a clipped prediction disguised as valid.
+- **hockey scope:** retain full skater/goalie families, including setting, shootiness, pp/pk states, penalties, ice won/lost and transition subskills, goalie outcomes, coaches, fatigue and age/history context. distinguish unavailable tracking from explicitly inferred inputs. exact optional competitor fields stay optional.
+- **systems and product:** extend existing python, sqlite, effect and application owners. numerical/content contracts precede parallel producer, publication and view work. every required family needs actual numerical outputs and useful cards/maps/tables/comparisons/history/exports; no metric platform, second dashboard or placeholder wall.
+
+draft review closed a completion loophole: visible gaps permit partial delivery, but unimplemented core families keep the program incomplete unless the user explicitly rescopes it. the review also preserved candidate status for goalie aggregate valuation and named elapsed shift age/start context separately from workload. the physical-rate restriction remains local to that quantity; valid signed effects and unrelated components need not wait.
+
+an earlier narrow-preview recommendation would have preserved the product bottleneck under a new name. the review therefore treats breadth as a real completion criterion while integrating incrementally. the opposite error is treating “experimental” as permission for arbitrary proxies, invalid arithmetic or unexplained totals. both are rejected.
+
+material tradeoff: more provisional implementations, fitting and source work, visible weak estimates and later revisions in exchange for earlier whole-product feedback. compatible groups may enter a joint baseline without winning isolated studies. after assembly, choose changes by their consequences for actual player interpretation; no automatic successor campaign. support and public language remain claim-specific; public launch remains separately selected rather than waiting for universal certification.
+
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
 ## 04o implementation and empirical review — 2026-10-22

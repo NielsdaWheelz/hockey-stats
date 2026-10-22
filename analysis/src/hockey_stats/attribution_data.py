@@ -429,7 +429,7 @@ class GroupedPopulation:
     stratum_e: np.ndarray
     stratum_x: sparse.csr_matrix
     stratum_n: sparse.csr_matrix
-    Q_t: np.ndarray
+    Q_t: np.ndarray | None
     Q_h: np.ndarray | None
     membership_signatures: tuple[str, ...]
     row_count: int
@@ -1563,7 +1563,7 @@ def weighted_population(
         and grouped.stratum_x.shape == (len(a), s * n)
         and grouped.stratum_n.shape == (len(a), s * k)
         and grouped.stratum_e.shape == (len(a), s)
-        and grouped.Q_t.shape == (len(a),),
+        and grouped.Q_t is not None and grouped.Q_t.shape == (len(a),),
         "grouped moments disagree with annual reference dimensions",
     )
     E = a @ grouped.stratum_e
@@ -2384,9 +2384,9 @@ def _empirical_grouped(annual: dict, path: Path) -> GroupedPopulation:
         require(matrices[name].has_canonical_format, "empirical sparse moments are not canonical: "+name)
     require(arrays["stratum_e"].dtype == np.dtype("float64") and arrays["stratum_e"].shape == (g, s)
             and np.all(arrays["stratum_e"] >= 0), "empirical context exposure differs")
-    # these two legacy fields are unavailable; empirical contractions never use them.
+    # response self energy is unavailable at this selected-array boundary.
     return GroupedPopulation(tuple(annual["game_ids"]), matrices["H_e"], matrices["T_raw"],
-        arrays["stratum_e"], matrices["stratum_x"], matrices["stratum_n"], np.empty(0), None,
+        arrays["stratum_e"], matrices["stratum_x"], matrices["stratum_n"], None, None,
         tuple(annual["membership_signatures"]), annual["row_count"])
 
 

@@ -136,18 +136,6 @@ def report(assessment,output):
     leading=[r for r in primary if r['metric']=='regional' and r['region']=='all' and r['component']=='complete']
     direction=d['primary_direction'];numerical=d['numerical_status']
     status=('fixture_verified' if d['purpose']=='fixture_exercise' else 'diagnosed') if numerical=='verified' else 'numerically_unresolved'
-    result=artifact('attribution_context_result',d['purpose'],dict(assessment=identity(path)),schema_version=1,
-        execution_status='complete',numerical_status=numerical,study_status=status,
-        nomination=None,admission='not_admitted',handoff=None,next_question=None,
-        unresolved_reason=d['unresolved_reason'] or ('fixture exercise supplies no research recommendation'
-            if d['purpose']=='fixture_exercise' else 'this diagnostic comparison does not uniquely identify the next model revision'),
-        numerical_unresolved_reason=d['unresolved_reason'],prediction_direction=direction,
-        primary_direction_stable=d['primary_direction_stable'],primary_comparison=primary,
-        player_summaries=d['player_summary_rows'],rate_diagnostics=d['rate_rows'],
-        coverage=d['coverage'],inventory=d['inventory'],verification=d['verification'],
-        preparation_resources=d['preparation_resources'],fit_resources=d['fit_resources'],
-        assessment_resources=d['resources'],tables=tables,figures=figures,limits=d['limits'],resources=resources(started))
-    write_json(root/'result.json',json_values(result))
     introduction=('this fixture exercise uses explicitly synthetic counted histories. it verifies implementation contracts and makes no research recommendation.'
         if d['purpose']=='fixture_exercise' else
         'this is a research comparison of complete recorded unblocked-attempt rates. it does not admit a player-ability model. '
@@ -212,4 +200,18 @@ def report(assessment,output):
         '- reports consume saved assessment evidence only; source ledgers and fit execution are not called.','',
         'the study verification record must additionally identify the independent implementation checks, figure inspection and final temporary-test deletion. software completion alone supplies no scientific admission.','']
     (root/'verification.md').write_text('\n'.join(verification))
+    result=artifact('attribution_context_result',d['purpose'],dict(assessment=identity(path)),schema_version=1,
+        execution_status='complete',numerical_status=numerical,study_status=status,
+        nomination=None,admission='not_admitted',handoff=None,next_question=None,
+        unresolved_reason=d['unresolved_reason'] or ('fixture exercise supplies no research recommendation'
+            if d['purpose']=='fixture_exercise' else 'this diagnostic comparison does not uniquely identify the next model revision'),
+        numerical_unresolved_reason=d['unresolved_reason'],prediction_direction=direction,
+        primary_direction_stable=d['primary_direction_stable'],primary_comparison=primary,
+        player_summaries=d['player_summary_rows'],rate_diagnostics=d['rate_rows'],
+        coverage=d['coverage'],inventory=d['inventory'],verification=d['verification'],
+        preparation_resources=d['preparation_resources'],fit_resources=d['fit_resources'],
+        assessment_resources=d['resources'],tables=tables,figures=figures,limits=d['limits'],
+        resources=dict(**resources(started),output_bytes=sum(path.stat().st_size for path in root.rglob('*') if path.is_file()),
+            output_bytes_scope='tree before current manifest serialization'))
+    write_json(root/'result.json',json_values(result))
     return identity(root/'result.json')

@@ -1337,10 +1337,10 @@ def fit_shape_coefficients(
         update.uncentered_mean, update.centering_shift)
 
 
-def validate_shape_coefficient_state(
-    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None, state: ShapeCoefficientState,
+def _validate_shape_coefficient_state_at_variance(
+    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None, state: ShapeCoefficientState, variance: float,
 ) -> None:
-    """check saved axes, search and posterior equations without another selection or solve."""
+    """check saved axes and posterior equations at one declared variance."""
     players, H, Q, u, mean, base, indices = _shape_coefficient_inputs(likelihood, previous)
     n = len(players)
     current = likelihood.player_ids
@@ -1356,17 +1356,25 @@ def validate_shape_coefficient_state(
         require(isinstance(value, np.ndarray) and value.dtype == np.dtype("float64")
                 and value.shape == shape and np.isfinite(value).all(),
                 "shape coefficient state axes or finite float64 arrays differ")
-    validate_shape_scale_receipt(state.scale, None if previous is None else previous.scale)
-    require(all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
-                and row["objective"] is not None and row["equation_relative_residual"] is not None
-                and 0 <= row["equation_relative_residual"] <= 1e-8 for row in state.scale["curve"]),
-            "shape coefficient search contains response energy or a failed numerical solve")
-    variance = state.scale["selected"]["variance"]
     require(state.a == (variance if previous is None else previous.a)
             and state.q == (None if previous is None else variance), "shape coefficient prior scale lineage differs")
     base[indices, indices] += variance
     _validate_coefficient_posterior(H, Q, u, mean, base, state.uncentered_Theta,
                                     state.Theta, state.V, state.centering_shift)
+
+    return H, Q, u, mean, base
+
+
+def validate_shape_coefficient_state(
+    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None, state: ShapeCoefficientState,
+) -> None:
+    """check saved axes, search and posterior equations without another selection or solve."""
+    validate_shape_scale_receipt(state.scale, None if previous is None else previous.scale)
+    require(all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
+                and row["objective"] is not None and row["equation_relative_residual"] is not None
+                and 0 <= row["equation_relative_residual"] <= 1e-8 for row in state.scale["curve"]),
+            "shape coefficient search contains response energy or a failed numerical solve")
+    _validate_shape_coefficient_state_at_variance(likelihood, previous, state, state.scale["selected"]["variance"])
 
 
 def _validate_coefficient_posterior(H, Q, u, mean, base, raw, centered_mean, covariance, shift):
@@ -1451,6 +1459,75 @@ def bounded_shape_coefficient_probe(
         maximum_league_relative_current_player_movement=movement, tolerance=1e-4,
         diagnostics=update.diagnostics)
     return receipt, alternative
+
+
+def validate_shape_coefficient_probe(
+    likelihood: ShapeCoefficientLikelihood, previous: ShapeCoefficientState | None,
+    primary: ShapeCoefficientState, receipt: dict, alternative: ShapeCoefficientState,
+) -> None:
+    """verify a frozen conditional alternative; never select or propagate its history."""
+    from .attribution_simulation import shape_regions
+
+    validate_shape_coefficient_state(likelihood, previous, primary)
+    saved = primary.scale
+    require(set(receipt) == {"saved_winner", "rechecked_candidates", "tightened_refinement", "selected",
+            "saved_scale_status", "numerical_complete", "status", "scope",
+            "maximum_league_relative_current_player_movement", "tolerance", "diagnostics"}
+        and receipt["saved_winner"] == saved["selected"]
+        and receipt["saved_scale_status"] == {key: saved[key] for key in
+            ("status", "own_reasons", "inherited_limitation")}
+        and receipt["scope"] == POOLING_PROBE_SCOPE and receipt["tolerance"] == 1e-4
+        and alternative.scale == dict(saved, selected=receipt["selected"], numerical_original_scale=saved),
+        "frozen shape probe primary scale, scope or saved alternative binding differs")
+    winner = saved["selected"]
+    coarse = [row for row in saved["curve"] if row["phase"] == "coarse"
+              and row["objective"] is not None and row["exponent"] != winner["exponent"]]
+    nearest = sorted(coarse, key=lambda row: (abs(row["exponent"]-winner["exponent"]), row["exponent"]))[:2]
+    expected = [winner] + nearest
+    curve = receipt["rechecked_candidates"]
+    require(len(curve) >= len(expected)
+        and all(set(row) == {"exponent", "variance", "objective", "phase", "error", "equation_relative_residual"}
+            and type(row["exponent"]) in (int, float) and -8 <= row["exponent"] <= 0
+            and row["variance"] == 10.**row["exponent"] and row["error"] is None
+            and type(row["objective"]) in (int, float) and math.isfinite(row["objective"])
+            and row["equation_relative_residual"] is not None
+            and 0 <= row["equation_relative_residual"] <= 1e-8 for row in curve)
+        and all(new["phase"] == "independent_recheck" and new["exponent"] == old["exponent"]
+            and math.isclose(new["objective"], old["objective"], rel_tol=1e-8, abs_tol=1e-10)
+            for old, new in zip(expected, curve)), "frozen shape probe rechecks or finite solve receipts differ")
+    refinement = receipt["tightened_refinement"]
+    if saved["refinement"] is None:
+        require(refinement is None and len(curve) == len(expected), "frozen shape probe added a refinement")
+    else:
+        require(refinement is not None and refinement["bounds"] == saved["refinement"]["bounds"]
+            and refinement["xatol"] == 1e-6 and refinement["maxiter"] == 80
+            and refinement["evaluations"] == len(curve)-len(expected) <= 80
+            and all(row["phase"] == "refinement"
+                and refinement["bounds"][0] <= row["exponent"] <= refinement["bounds"][1]
+                for row in curve[len(expected):]), "frozen shape probe bracket or evaluation budget differs")
+    selected = min(saved["curve"] + curve, key=lambda row: (row["objective"], row["variance"]))
+    require(receipt["selected"] == selected
+        and receipt["numerical_complete"] is (refinement is None or refinement["success"]),
+        "frozen shape probe selected state or numerical completion differs")
+    H, Q, u, mean, base = _validate_shape_coefficient_state_at_variance(
+        likelihood, previous, alternative, selected["variance"])
+    sign, logdet = np.linalg.slogdet(np.eye(len(H)) + base @ H)
+    objective = float(40*logdet - np.sum((Q-H @ mean)*(alternative.uncentered_Theta-mean)))
+    require(sign > 0 and math.isfinite(objective)
+        and math.isclose(objective, selected["objective"], rel_tol=1e-8, abs_tol=1e-10)
+        and alternative.diagnostics == receipt["diagnostics"],
+        "frozen shape probe objective, response or posterior diagnostics differ")
+    n = len(primary.player_ids)
+    current = [primary.player_ids.index(player) for player in primary.current_player_ids]
+    rows = current + [n+index for index in current]
+    delta = (alternative.Theta[rows]-primary.Theta[rows]) @ likelihood.basis.R.T
+    regions, _ = shape_regions()
+    movement = dict(native_cells=float(np.max(np.abs(delta))), regions=float(np.max(np.abs(delta @ regions))))
+    require(set(receipt["maximum_league_relative_current_player_movement"]) == set(movement)
+        and all(math.isclose(receipt["maximum_league_relative_current_player_movement"][key], value,
+            rel_tol=1e-10, abs_tol=1e-12) for key, value in movement.items())
+        and receipt["status"] == ("verified" if receipt["numerical_complete"] and max(movement.values()) <= 1e-4
+            else "numerically_unresolved"), "frozen shape probe physical movement or status differs")
 
 
 def _scalar_coefficient_inputs(likelihood: ScalarCoefficientLikelihood, previous: ScalarCoefficientState | None):

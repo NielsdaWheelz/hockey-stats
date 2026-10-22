@@ -1,5 +1,29 @@
 # council synthesis
 
+## v1-14 history/cohort/export specification review — 2026-10-22
+
+three independent domain/cohort, systems and content reviewers clear [v1-14](../specs/v1-14-history-cohorts-exports.md) after root inspected merged schema7 and current client/cohort/history/png owners. settled product choices need no new interview. this is documentation/code-contract review, not implemented behavior or rendered-output verification.
+
+the existing publication already supplies finite scalar families and annual values. the handoff adds browser selectors, per-field qualification, three annual peer reads and shared history/exports through current routes. profile history and current card png are actual consumers of one converter; comparison remains selected-season and keeps its existing picker. complete card compositions, analytical maps and each saved card remain their later owners' work. no schema/server change, fitting, new dependency, service/cache or full-season rebuild follows.
+
+review repairs unknown-position classification, exact specialty-state selection, modeled spatial roles, separate general/specialty cutoffs, nullable event-trained qualification and ledger support. a common-workload total has no invented aggregate exposure/prior-only flag; constituent support survives export. raw sources, modeled fields and existing observed populations have explicit semantic keys; annual evidence changes alone do not break history. incompatible peer definitions stay separate. csv retains actual uncertainty metadata without computing new intervals or showing uncertainty bands.
+
+accepted costs: more annual scalar reads, finite selector/content maintenance, and withheld ranks where qualification or source census is unproved. magnitudes remain inspectable; weak science is not a new admission veto. [skating census](../issues/microstat-inputs.md) remains v1-04/17 work, not a reason to infer completeness from published values or delay other fields. independent card producers and source work can continue against the settled interface.
+
+documentation link/anchor, consistency and whitespace checks accompany the handoff. existing coaching drafts remain preserved. no source code, capture, fit, live build, database or listener changed; implementation and activation remain unassigned.
+
+## v1-02 dated-coaching specification review — 2026-10-22
+
+three independent source, systems and content reviewers clear [v1-02](../specs/v1-02-dated-coaches.md) after root integrated their repairs and inspected the existing capture/corpus owners. settled product choices need no new preference question. this is specification/code/source inspection, not implemented behavior, five-season admission or model verification.
+
+one supplemental effect capture and one offline python binder produce a game-attributed, checked coach selection. six-source capture/interpretation/provenance contracts remain unchanged. a small attributed alias table owns stable project coach identities; it does not rewrite the source's reported person. the module command avoids v1-01/13's concurrently edited command registration. numerical consumers later bind exact corpus/game/team/artifact identities; base preparation and publication remain independent.
+
+reported head coach is not verified bench attendance, tenure or pregame knowledge. three fresh read-only right-rail probes returned 403, so current source access remains [unresolved](../issues/coach-source-access.md). prior inspection and an accessible official roster corroborate a candidate, not a locally admitted historical corpus. five production-client probes precede bounded expansion; failed/empty probes retain distinct reasons, and an all-unknown artifact cannot count as completed real admission. no automatic html fallback or new acquisition system follows.
+
+review closes side-local malformed handling, receipt/body/status invariants, explicit missing-versus-unreviewed identity, exact alias scope, finite malformed context evidence and copied-path provenance. capture, parsed names and resolved identities have different denominators. source-content failure is not mislabeled access denial. accepted costs are new source requests/storage, maintained identity evidence, retrospective uncertainty and explicit partial completion if blocked. fixture checks permit detached software work; external evidence and usable access remain necessary for full real acceptance.
+
+documentation consistency/link and whitespace checks accompany the handoff. no code, raw capture, fit, publication or running application changed. existing primary drafts and the independently running v1-01/13 work remain preserved; implementation, acquisition and activation are not assigned by this specification.
+
 ## v1-13 typed-publication implementation review — 2026-10-22
 
 the assigned [foundation](../specs/v1-13-typed-publication.md) is implemented and verified in an isolated branch/worktree. independent exchange/storage, interface and content review accompanies temporary red → green → refactor → green integration checks and native browser checks. [the verification receipt](publication-v1-13/verification.md) retains attributed fixtures, independent expected facts, rejection reasons, measured costs and cleanup evidence; temporary tests/controllers were deleted without a new dependency or permanent harness.

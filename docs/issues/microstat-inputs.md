@@ -10,6 +10,8 @@ twenty-two fields need observations absent from the admitted corpus: observed pa
 
 skating is a separate public-measurement family. maximum mph and 20+ mph burst count have honest independent definitions; historical payload/schema/census is not yet verified. no private composite is promised. access failure is neither a zero nor proof that acquisition is impossible.
 
+the v1-14 code audit also finds no structured source-census declaration in schema7: `Source` records provenance/definition/limitations, not an independently checked eligible population. v1-04 must specify and verify the finite declaration against the accessible source: season, measurements, source identity, same-position census membership, inclusion/exclusion rules and counts, acquisition completeness and receipt identity. its publication/interface integration belongs with v1-04/17; a boolean invented by the browser is insufficient. until then, raw skating values can display but numeric skating percentiles return `census_unverified`. resolution requires a checked census and a published contract consumed by the shared cohort owner, not merely non-null player rows. no skating acquisition or schema change is assigned to v1-14.
+
 ## checked evidence and bounded follow-up
 
 - the [official guide](https://hockeystats.com/about/microstat-player-cards) defines F/D fields; the [provider glossary](https://www.allthreezones.com/player-cardsfaq.html) qualifies credited actions and tracked windows. [current workbook](https://www.allthreezones.com/tableau-workbook-2021-present.html) and [data links](https://www.allthreezones.com/a3z-data-links.html) redirected to member login on 2026-10-22. no paid access or representative open historical tracking corpus was admitted.

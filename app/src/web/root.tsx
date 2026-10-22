@@ -10,9 +10,11 @@ import {
   useLocation,
   useNavigation,
   useRouteLoaderData,
+  useSearchParams,
 } from "react-router";
 import stylesheet from "./styles.css?url";
-import { LoadError } from "./presentation";
+import { LoadError, seasonLabel } from "./presentation";
+import { pendingSeasonChange, seasonSearch, viewSearch } from "./explorer";
 
 export const links = () => [{ rel: "stylesheet", href: stylesheet }];
 export const meta = () => [
@@ -27,8 +29,19 @@ export function Layout({ children }: { readonly children: ReactNode }) {
   const league = useRouteLoaderData<LeagueResponse>("routes/league");
   const player = useRouteLoaderData<PlayerResponse>("routes/player");
   const comparison = useRouteLoaderData<LeagueResponse>("routes/compare");
-  const season = (player ?? league ?? comparison)?.publication.season;
-  const seasonLabel = season ? `${season.slice(0, 4)}–${season.slice(6)}` : "";
+  const data = player ?? league ?? comparison;
+  const season = data?.season.season;
+  const location = useLocation();
+  const navigation = useNavigation();
+  const [, setSearch] = useSearchParams();
+  const pending = viewSearch(location, navigation.location).getAll("season");
+  const selected =
+    pending.length === 1 && data?.available_seasons.includes(pending[0]!)
+      ? pending[0]!
+      : season;
+  const changingSeason =
+    navigation.state !== "idle" &&
+    pendingSeasonChange(location, navigation.location);
   return (
     <html lang="en">
       <head>
@@ -51,16 +64,47 @@ export function Layout({ children }: { readonly children: ReactNode }) {
         <div className="sheet">
           <header className="site-heading">
             <p className="eyebrow">
-              <Link to="/">hockey statistics / included results</Link>
+              <Link to={season ? `/?${seasonSearch("", season)}` : "/"}>
+                hockey statistics / included results
+              </Link>
             </p>
             <h1>
-              {seasonLabel && `${seasonLabel} · `}regular season · 5v5 recorded
+              {season && !changingSeason && `${seasonLabel(season)} · `}regular season · 5v5 recorded
               results
             </h1>
             <p>
               personal production and team attempts while on ice; unadjusted for
               teammates, opponents, score or deployment.
             </p>
+            {data && (
+              <div className="season-control">
+                <label htmlFor="season-selection">season</label>
+                <select
+                  id="season-selection"
+                  value={selected}
+                  onChange={(event) => {
+                    const next = viewSearch(location, navigation.location);
+                    if (
+                      next.getAll("season").length === 1 &&
+                      next.get("season") === event.currentTarget.value
+                    )
+                      return;
+                    next.set("season", event.currentTarget.value);
+                    setSearch(next, {
+                      preventScrollReset: true,
+                      state: location.state,
+                      flushSync: true,
+                    });
+                  }}
+                >
+                  {data.available_seasons.map((value) => (
+                    <option key={value} value={value}>
+                      {seasonLabel(value)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </header>
           {children}
           <footer>
@@ -91,7 +135,8 @@ export default function App() {
   }, [location.pathname]);
   const changingPage =
     navigation.state !== "idle" &&
-    navigation.location?.pathname !== location.pathname;
+    (navigation.location?.pathname !== location.pathname ||
+      pendingSeasonChange(location, navigation.location));
   return (
     <main id="main" ref={main} tabIndex={-1}>
       {changingPage ? (

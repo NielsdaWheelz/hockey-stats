@@ -3,12 +3,13 @@ import {
   isRouteErrorResponse,
   useRevalidator,
   useRouteError,
+  useLocation,
 } from "react-router";
 import type {
-  Coverage,
   Metrics,
   PlayerSummary,
   Publication,
+  SeasonEvidence,
   ReasonCode,
   PersonalMetrics,
   PersonalReasonCode,
@@ -54,6 +55,8 @@ export const reasons: Record<
 export const playerName = (player: PlayerSummary) =>
   player.display_name ?? `player ${player.player_id}`;
 export const teamName = (team: Team) => team.abbreviation ?? `team ${team.id}`;
+export const seasonLabel = (season: string) =>
+  `${season.slice(0, 4)}–${season.slice(6)}`;
 
 const normalizedName = (value: string) =>
   value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
@@ -155,46 +158,63 @@ export function CoverageDetail({
   );
 }
 
-export function GlobalGap({ coverage }: { readonly coverage: Coverage }) {
-  if (coverage.games_with_unassigned_player_associations === 0) return null;
+export function GlobalGap({ season }: { readonly season: SeasonEvidence }) {
+  const coverage = season.coverage;
   return (
-    <aside className="global-gap" aria-label="unassigned player evidence">
-      <p>
-        player associations are unresolved in{" "}
-        {coverage.games_with_unassigned_player_associations} inventory{" "}
-        {coverage.games_with_unassigned_player_associations === 1
-          ? "game"
-          : "games"}
-        . every season summary carries this gap; included results may omit games
-        for any player.
-      </p>
-      <details>
-        <summary>view every unassigned game</summary>
-        <ul>
-          {coverage.unassigned_games.map((game) => (
-            <li key={game.game_id}>
-              <time dateTime={game.date}>{game.date}</time> · {game.game_id} ·
-              team {game.away_team_id} at team {game.home_team_id}:{" "}
-              {game.reason_codes.map((code) => reasons[code]).join("; ")}
-            </li>
-          ))}
-        </ul>
-      </details>
-    </aside>
+    <>
+      {(coverage.partial_games > 0 || coverage.unavailable_games > 0) && (
+        <aside className="global-gap" aria-label="season inventory coverage">
+          <p>
+            {seasonLabel(season.season)} on-ice evidence: {coverage.games_with_included_time}{" "}
+            of {coverage.inventory_games} inventory games have included 5v5
+            time; {coverage.partial_games} partial, {coverage.unavailable_games}{" "}
+            unavailable. included observations may omit games or parts of games.
+          </p>
+        </aside>
+      )}
+      {coverage.games_with_unassigned_player_associations > 0 && (
+        <aside className="global-gap" aria-label="unassigned player evidence">
+          <p>
+            player associations are unresolved in{" "}
+            {coverage.games_with_unassigned_player_associations} inventory{" "}
+            {coverage.games_with_unassigned_player_associations === 1
+              ? "game"
+              : "games"}
+            . every {seasonLabel(season.season)} summary carries this gap; included
+            results may omit games for any player.
+          </p>
+          <details>
+            <summary>view every unassigned game</summary>
+            <ul>
+              {coverage.unassigned_games.map((game) => (
+                <li key={game.game_id}>
+                  <time dateTime={game.date}>{game.date}</time> · {game.game_id} ·
+                  team {game.away_team_id} at team {game.home_team_id}:{" "}
+                  {game.reason_codes.map((code) => reasons[code]).join("; ")}
+                </li>
+              ))}
+            </ul>
+          </details>
+        </aside>
+      )}
+    </>
   );
 }
 
 export function Evidence({
   publication,
-  coverage,
+  season,
 }: {
   readonly publication: Publication;
-  readonly coverage: Coverage;
+  readonly season: SeasonEvidence;
 }) {
+  const coverage = season.coverage;
   return (
     <details className="evidence">
       <summary>publication and coverage evidence</summary>
       <dl className="evidence-facts">
+        <dt>selected season</dt>
+        <dd>{seasonLabel(season.season)}</dd>
         <dt>published</dt>
         <dd>
           <time dateTime={publication.generated_at}>
@@ -204,22 +224,22 @@ export function Evidence({
         <dt>publication id</dt>
         <dd className="identifier">{publication.publication_id}</dd>
         <dt>source corpus sha-256</dt>
-        <dd className="identifier">{publication.corpus_sha256}</dd>
+        <dd className="identifier">{season.corpus_sha256}</dd>
         <dt>source retrieval</dt>
         <dd>
-          {publication.source_requested_min !== null &&
-          publication.source_requested_max !== null ? (
+          {season.source_requested_min !== null &&
+          season.source_requested_max !== null ? (
             <>
-              {publication.source_requested_min} to{" "}
-              {publication.source_requested_max}
+              {season.source_requested_min} to{" "}
+              {season.source_requested_max}
             </>
           ) : (
             "dated source retrieval interval unavailable"
           )}
-          {publication.undated_sources > 0 && (
+          {season.undated_sources > 0 && (
             <>
-              ; {publication.undated_sources} undated source{" "}
-              {publication.undated_sources === 1 ? "receipt" : "receipts"}
+              ; {season.undated_sources} undated source{" "}
+              {season.undated_sources === 1 ? "receipt" : "receipts"}
             </>
           )}
         </dd>
@@ -268,22 +288,60 @@ export function LoadError() {
   const error = useRouteError();
   const revalidator = useRevalidator();
   const status = isRouteErrorResponse(error) ? error.status : 500;
+  const data = isRouteErrorResponse(error) ? error.data : undefined;
+  const location = useLocation();
+  const seasonError =
+    data?._tag === "InvalidSeasonSelection" || data?._tag === "SeasonNotFound";
+  const spatialError = data?._tag === "InvalidSpatialSelection";
+  const available: readonly string[] = Array.isArray(data?.available_seasons)
+    ? data.available_seasons
+    : [];
+  const selected = new URLSearchParams(location.search).getAll("season");
+  const leagueQuery = new URLSearchParams();
+  if (selected.length === 1) leagueQuery.set("season", selected[0]!);
+  const leagueSearch = leagueQuery.size ? `?${leagueQuery}` : "";
   return (
     <section className="load-error">
       <h2>
-        {status === 404
-          ? "player not found"
-          : status === 400
-            ? "invalid player id"
-            : "results could not be loaded"}
+        {seasonError
+          ? "season could not be selected"
+          : spatialError
+            ? "invalid spatial selection"
+            : status === 404
+              ? "player not found"
+              : status === 400
+                ? "invalid player id"
+                : "results could not be loaded"}
       </h2>
       <p>
-        {status === 404
-          ? "this player is absent from this publication."
-          : status === 400
-            ? "the player id must be a canonical decimal number."
-            : "please try again. if the problem persists, check the local server."}
+        {seasonError
+          ? data.message
+          : spatialError
+            ? data.message
+            : status === 404
+              ? "this player has no published record in any available season."
+              : status === 400
+                ? "the player id must be a canonical decimal number."
+                : "please try again. if the problem persists, check the local server."}
       </p>
+      {available.length > 0 && (
+        <nav aria-label="available seasons">
+          <p>choose a published season:</p>
+          <ul>
+            {available.map((season) => {
+              const next = new URLSearchParams(location.search);
+              next.set("season", season);
+              return (
+                <li key={season}>
+                  <Link to={`${location.pathname}?${next}`} state={location.state}>
+                    {seasonLabel(season)}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      )}
       <div className="actions">
         {status >= 500 && (
           <button
@@ -294,7 +352,7 @@ export function LoadError() {
             {revalidator.state === "idle" ? "try again" : "retrying…"}
           </button>
         )}
-        <Link to="/">back to players</Link>
+        <Link to={`/${leagueSearch}`}>back to players</Link>
       </div>
     </section>
   );

@@ -149,22 +149,22 @@ def reconstruct_main() -> int:
 
 def observed_main() -> int:
     parser = argparse.ArgumentParser(
-        description="build one checked observed-5v5 sqlite publication from an explicit native corpus",
+        description="build one checked observed-5v5 sqlite publication from an explicit season selection",
         allow_abbrev=False,
     )
-    parser.add_argument("--corpus", required=True, action=Once, metavar="FILE")
-    parser.add_argument("--purpose", required=True, action=Once, choices=("real", "fixture"))
+    parser.add_argument("--selection", required=True, action=Once, metavar="FILE")
     parser.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     args = parser.parse_args()
     from .publication import build_publication
 
     try:
-        verification = build_publication(Path(args.corpus), args.purpose, Path(args.out))
+        verification = build_publication(Path(args.selection), Path(args.out))
     except (InputContractError, OSError, ValueError, sqlite3.Error) as error:
         print(f"observed publication failed: {error}", file=sys.stderr)
         return 1
-    print(f"observed publication {verification['publication_id']}: {verification['season']}, {args.purpose}")
-    print(f"included: {verification['checks']['physical_seconds']}s, {verification['checks']['physical_attempts']} attempts")
+    print(f"observed publication {verification['publication_id']}: {verification['purpose']}")
+    for season in verification["seasons"]:
+        print(f"{season['season']}: {season['checks']['physical_seconds']}s, {season['checks']['physical_attempts']} attempts")
     print(f"output: {Path(args.out).absolute() / 'observed.sqlite'}; scientific admission not performed")
     return 0
 

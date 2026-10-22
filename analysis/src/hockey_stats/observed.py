@@ -25,8 +25,6 @@ Status = Literal["complete", "partial", "unavailable"]
 _ATTEMPTS = ATTEMPT_KINDS
 _SKATERS = frozenset(("C", "L", "R", "D", "F"))
 _MEMBERS = ("away_skaters", "home_skaters", "away_goalies", "home_goalies")
-_REAL_CORPUS = Path("/Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20252026/corpus.json")
-_REAL_DIGEST = "1e4273d00107f8b7c04a49c70e4ac8a53153d46c493f2bf2bb2c4fd0e30ce034"
 _MAX_INTEGER = 2**53 - 1
 REASON_CODES = frozenset((
     "required_source_unavailable", "count_accounting_conflict",
@@ -661,19 +659,25 @@ def _game(entry, value, path, consumed):
     return output, player_rows, listed, unassigned, receipt, spatial_rows
 
 
-def aggregate(corpus_path: Path | str, purpose: Purpose) -> ObservedResult:
+def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, expected_sha256: str) -> ObservedResult:
     """admit explicit native evidence and return finalized, deterministic quantities."""
     require(purpose in ("real", "fixture"), "observed", "purpose must be real or fixture")
+    require(type(expected_season) is str and re.fullmatch(r"[1-9][0-9]{7}", expected_season)
+            and int(expected_season[4:]) == int(expected_season[:4]) + 1,
+            "observed", "expected canonical consecutive-year season")
+    require(type(expected_sha256) is str and re.fullmatch(r"[0-9a-f]{64}", expected_sha256),
+            "observed", "expected lowercase sha256")
     path = Path(corpus_path).resolve(strict=True)
     inputs = []
     corpus, inventory, ledger = load_corpus(path, inputs)
     season = corpus["reference"]["requested_season"]
-    require(type(season) is str and re.fullmatch(r"[0-9]{8}", season), path, "invalid season")
+    require(season == expected_season, path, "selected season differs from corpus")
+    require(inputs[0]["sha256"] == expected_sha256, path, "selected corpus digest differs")
     if purpose == "fixture":
         require(corpus.get("purpose") == "fixture", path, "fixture corpus must explicitly declare purpose:fixture")
     if purpose == "real":
-        require(path == _REAL_CORPUS and inputs[0]["sha256"] == _REAL_DIGEST
-                and season == "20252026" and len(inventory) == 1312, path, "real publication requires the specified 2025–26 corpus")
+        require(corpus.get("purpose") != "fixture" and len(inventory) == 1312,
+                path, "real publication requires a full non-fixture 1,312-game inventory")
     games, player_games, receipts, unassigned_games = [], [], [], []
     sparse = []
     players = {}

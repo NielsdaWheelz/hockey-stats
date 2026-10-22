@@ -11,7 +11,7 @@ import { stat } from "node:fs/promises";
 import { resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
-import { HockeyId, ObservedApi, parseSpatialSelection } from "../shared/observed.js";
+import { HockeyId, ObservedApi, parseSpatialSelection, resolveSeasonSelection, type InvalidSeasonSelection, type SeasonNotFound } from "../shared/observed.js";
 import { Publication, publicationLayer } from "./publication.js";
 
 try {
@@ -39,15 +39,29 @@ try {
     };
     const handlers = HttpApiBuilder.group(ObservedApi, "observed", (handlers) => handlers
       .handle("league", ({ request }) => Effect.gen(function* () {
+        const query = new URL(request.url, "http://127.0.0.1").searchParams;
+        const season = yield* Effect.try({
+          try: () => resolveSeasonSelection(query, publication.seasons.map((evidence) => evidence.season)),
+          catch: (error) => error as typeof InvalidSeasonSelection.Type | typeof SeasonNotFound.Type,
+        });
         const ids = yield* Effect.try({
-          try: () => parseSpatialSelection(new URL(request.url, "http://127.0.0.1").searchParams),
+          try: () => parseSpatialSelection(query),
           catch: () => ({ _tag: "InvalidSpatialSelection", message: "select one or two distinct player ids" } as const),
         });
-        return yield* publication.league(ids).pipe(Effect.mapError(readFailure));
+        return yield* publication.league(season, ids).pipe(Effect.mapError(readFailure));
       }))
-      .handle("player", ({ params }) => Effect.gen(function* () {
+      .handle("player", ({ params, request }) => Effect.gen(function* () {
         if (!Schema.is(HockeyId)(params.playerId)) return yield* Effect.fail({ _tag: "InvalidPlayerId", message: "invalid player id" } as const);
-        const player = yield* publication.player(params.playerId).pipe(Effect.mapError(readFailure));
+        const query = new URL(request.url, "http://127.0.0.1").searchParams;
+        const available_seasons = publication.seasons.map((evidence) => evidence.season);
+        const season = yield* Effect.try({
+          try: () => {
+            if ([...query.keys()].some((key) => key !== "season")) throw { _tag: "InvalidSeasonSelection", message: "only season selection is supported", available_seasons } satisfies typeof InvalidSeasonSelection.Type;
+            return resolveSeasonSelection(query, available_seasons);
+          },
+          catch: (error) => error as typeof InvalidSeasonSelection.Type | typeof SeasonNotFound.Type,
+        });
+        const player = yield* publication.player(season, params.playerId).pipe(Effect.mapError(readFailure));
         if (player === undefined) return yield* Effect.fail({ _tag: "PlayerNotFound", message: "player not found in this publication" } as const);
         return player;
       })),

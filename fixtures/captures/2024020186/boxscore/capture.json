@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "gameId": "2024020186",
+  "source": "boxscore",
+  "request": {
+    "method": "GET",
+    "url": "https://api-web.nhle.com/v1/gamecenter/2024020186/boxscore",
+    "requestedAt": "2026-09-30T19:19:32.788Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Wed, 30 Sep 2026 19:19:33 GMT",
+    "etag": "W/\"6abd60cc--gzip\""
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 13534,
+    "sha256": "8ea0980e79193564548ade44ae1f2a5567f465538bebafce9b22f63c71e380d3"
+  },
+  "failure": null
+}

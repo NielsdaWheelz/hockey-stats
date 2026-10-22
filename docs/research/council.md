@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04n specification review — 2026-10-21
+
+independent source, statistical and systems/content reviews clear the [full contract](../specs/04n-attribution-follow-up.md). the user selected corrected historical support, nine fresh fits with three exact shape reuses, and held-out 2025–26 sign diagnostics. accepted final 02d research evidence remains an execution prerequisite; its observed candidate alone is insufficient. [the plan](../plan.md) owns assignment.
+
+source review confirms that zero-event exposure removal changes residualized likelihoods and historical borrowing despite unchanged counts. statistical review requires an explicit complete-response scoring boundary, scalar energy and raw/centered coefficient semantics, regional volume–shape interaction and independent closure. numerical review includes all sixteen final component probe combinations and four original/corrected source-only combinations, using saved alternatives without extra fits. zero-time games remain in assessment accounting.
+
+content review keeps complete recorded-rate evidence first, with correctly normalized component contributions, explicit negative-rate denominators and exact row/cell locators. negative total rate and any negative cell are different diagnostics. exact reuse adds limited compatibility work; corrected history and volume fitting delay context/uncertainty work. no clipping, invented positivity gate, player ranking or admission follows. specification checks need no application or numerical run; implementation remains separate.
+
 ## 05h delivery review — 2026-10-21
 
 independent review clears [pr #44](https://github.com/NielsdaWheelz/hockey-stats/pull/44), its successful security check and exact reviewed/merged tree equality. all producers, the reviewed 02d handoff and nine current primary draft input blobs survive in ancestry. reconciliation retains the approved complete-rate direction and completed 05h status. primary typechecking, observed cli entry and isolated three-season league/profile/deployment reads pass without rebuilding serving assets or rerunning research.

@@ -548,6 +548,7 @@ def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
     result = []
     for name, summary in summaries.items():
         arm, resolution = name.split(":")
+        total_summary = summaries[arm + ":total"]
         details = extra[name]
         location = dict(summary["minimum_cell_example"])
         cell = location.pop("cell_id")
@@ -566,7 +567,7 @@ def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
                 strict_sign_rule="prediction < 0",
                 closure_absolute_tolerance=1e-9,
                 negative_entries=summary["negative_cell_rates"],
-                negative_total_rows=summary["negative_complete_rates"],
+                negative_total_rows=total_summary["negative_complete_rates"],
                 directed_hours=summary["team_seconds"] / 3600.0,
                 entry_exposure_denominator=details["locations"] * summary["team_seconds"] / 3600.0,
                 negative_entry_directed_hours=summary["exposure_weighted_negative_cell_frequency"]
@@ -574,11 +575,13 @@ def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
                 * summary["team_seconds"]
                 / 3600.0,
                 any_negative_entry_row_directed_hours=details["any_negative_seconds"] / 3600.0,
-                negative_total_rate_directed_hours=summary["exposure_weighted_negative_complete_frequency"]
-                * summary["team_seconds"]
+                negative_total_rate_directed_hours=total_summary[
+                    "exposure_weighted_negative_complete_frequency"
+                ]
+                * total_summary["team_seconds"]
                 / 3600.0,
                 negative_entry_exposure_fraction=summary["exposure_weighted_negative_cell_frequency"],
-                negative_total_rate_exposure_fraction=summary[
+                negative_total_rate_exposure_fraction=total_summary[
                     "exposure_weighted_negative_complete_frequency"
                 ],
                 any_negative_entry_row_exposure_fraction=details["any_negative_seconds"] / details["seconds"],
@@ -591,8 +594,8 @@ def complete_rate_diagnostics(batches, p, regions, region_names, training_r):
                 training_r=training_r,
                 minimum=summary["minimum_cell_rate"],
                 worst_location=location,
-                minimum_total_rate=summary["minimum_complete_rate"],
-                minimum_total_location=summary["minimum_complete_example"],
+                minimum_total_rate=total_summary["minimum_complete_rate"],
+                minimum_total_location=total_summary["minimum_complete_example"],
             )
         )
     return result

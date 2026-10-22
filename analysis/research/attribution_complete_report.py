@@ -345,8 +345,9 @@ def render_reports(output, assessment, assessment_reference):
         "# verification",
         "",
         "this report renders the saved assessment only. it reads no fitted arrays, source rows or original moments, "
-        "and performs no bootstrap or fitting. source, fit, row reconciliation, identities, preservation and temporary-test "
-        "deletion evidence remain explicit in the assessment verification object.",
+        "and performs no bootstrap or fitting. source, fit, row reconciliation, identities and preservation evidence "
+        "remain explicit in the assessment verification object. final acceptance and temporary-test deletion are recorded "
+        "separately in docs/research/attribution-04n/verification.md after the final green check.",
         "",
         f"assessment: `{assessment_reference['path']}`; sha256 `{assessment_reference['sha256']}`.",
         "",

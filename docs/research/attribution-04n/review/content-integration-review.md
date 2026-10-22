@@ -12,6 +12,8 @@ separate direct tiny-row checks verified complete and shape response targets aga
 
 the fixture's physical row receipt records maximum absolute shape sum `1.7763568394002505e-14` and complete-minus-volume discrepancy `2.1316282072803006e-14`, against absolute tolerance `1e-9` and relative tolerance `1e-10`. these arithmetic tolerances do not change strict sign counts.
 
+the final strict-sign regression also checks that all three resolutions report the same scalar-total negative count, exposure, minimum and exact locator. their entry signs and negative mass remain resolution-specific. a native sum of `-1e-18` cannot turn a scalar total of zero into a negative complete-rate row.
+
 ## rendered content
 
 saved-only rendering was inspected at `/Users/nnandal/Documents/code/hockey-stats-local/attribution-04n-20261021/report-content-03/`. the original figure had clipped unavailable-interval annotations and a caption overlapping the axis labels. the repaired figure uses hollow unavailable points, one shared axis label and a separate caption below the panels. the saved png was reopened and visually inspected after repair: titles, labels, zero lines, legend and conditional caption are legible and unclipped.

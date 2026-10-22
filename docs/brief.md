@@ -98,6 +98,7 @@ the explicit long-term destination is to replicate the substantive player-card a
 | 04m assessment target, confirmed 2026-10-20 | 2025–26 only, with the preceding four seasons supplying history | evidence for the intended first profile season, without replication across target seasons |
 | 04m partition/budget, confirmed 2026-10-20 | one fixed calendar-spanning approximately 80/20 game split; six shape fits | earlier history is shared; partial assessment coverage and intervals conditional on fitting/split, without nested refitting |
 | 04m scientific result, confirmed 2026-10-20 | diagnostic lower/higher/unresolved prediction error, without a new minimum-gain gate | empirical evidence may inform the next question but cannot automatically select or admit ability |
+| post-04m direction, approved 2026-10-21 | retain borrowing; assess complete matched unblocked volume plus shape before another prior, deployment-feature or uncertainty campaign | fresh volume work delays richer context/intervals but tests the assembled recorded-rate quantity. 02d determines the source branch; no new likelihood, admission or replacement of the all-attempt chance-valued destination |
 
 ## initial product and scope
 

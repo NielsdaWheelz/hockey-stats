@@ -1,0 +1,39 @@
+{
+  "status": "complete",
+  "created_utc": "2026-10-22T15:22:40.660809+00:00",
+  "pr": "https://github.com/NielsdaWheelz/hockey-stats/pull/47",
+  "merge_commit": "3e8f9026ac176fb78e1a3686b1ae9d16748d9a0c",
+  "reviewed_head": "be2383da6492bf18f7e5a7670c03cdaaa3240edd",
+  "merged_tree": "3f9eb7a580de14b67a0a39c86cfadf4ca8200917",
+  "exact_tree_equality": true,
+  "producer_history_retained": true,
+  "primary_strategy_commit": "7c63bfb0eb455708333d6de98588d1f5449ed2d6",
+  "strategy": "complete experimental player analysis preserved",
+  "task_worktree_removed": true,
+  "task_environment_removed": true,
+  "local_branch_removed": true,
+  "remote_branch_removed": true,
+  "alias": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-04o",
+    "target": "/Users/nnandal/Documents/code/hockey-stats",
+    "kind": "symlink",
+    "reason": "frozen hash-bound 04n input reference; no duplicate checkout/environment"
+  },
+  "removed_scratch_files": 26,
+  "removed_scratch_bytes": 153273,
+  "temporary_pr_body_removed": true,
+  "empty_review_scratch_removed": true,
+  "verification": {
+    "python_imports": "passed",
+    "four_command_entry": "passed",
+    "pinned_node_typecheck": "passed",
+    "security": "GitGuardian Security Checks: SUCCESS",
+    "scientific_reruns": false
+  },
+  "protected_files": 434,
+  "protected_bytes": 4609577545,
+  "serving_listener_pid": 70045,
+  "publication_changed": false,
+  "admission": "not_admitted",
+  "evidence_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04o-20261021/reviews/delivery"
+}

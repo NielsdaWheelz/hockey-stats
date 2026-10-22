@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/api/league?season=20252026",
+    "status": 200
+  },
+  {
+    "path": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+    "status": 400
+  },
+  {
+    "path": "/api/maps?season=20252026&players=8478402&family=observed&strength=5v5&view=effect",
+    "status": 404
+  },
+  {
+    "path": "/api/players/8478402/context?season=20252026&mode=on_off&population=recorded_all_attempts",
+    "status": 404
+  }
+]

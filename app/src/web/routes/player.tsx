@@ -8,7 +8,9 @@ import {
   type ClientLoaderFunctionArgs,
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
-import { loadPlayer } from "../client";
+import type { SeasonEvidence } from "../../shared/observed";
+import type { Person } from "../../shared/player-analysis";
+import { loadProfile } from "../client";
 import {
   readMapMode,
   readPeerSettings,
@@ -41,16 +43,63 @@ import {
 } from "../presentation";
 
 export const clientLoader = ({ params, request }: ClientLoaderFunctionArgs) =>
-  loadPlayer(params.playerId!, request.signal, new URL(request.url).searchParams);
+  loadProfile(params.playerId!, request.signal, new URL(request.url).searchParams);
 export const ErrorBoundary = LoadError;
+// map mode selects the requested map view, so it reloads.
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
-  shouldRevalidateView(args, ["peers", "peerMin", "map", "metric"]);
+  shouldRevalidateView(args, ["peers", "peerMin", "metric"]);
+
+type Identity = Pick<Person, "display_name" | "player_id" | "teams"> & {
+  readonly reported_position: string | null;
+};
+const teamList = (identity: Identity) =>
+  identity.teams.map(teamName).join(" / ");
+
+function HistorySeason({
+  evidence,
+  selected,
+  gap,
+}: {
+  readonly evidence: SeasonEvidence;
+  readonly selected: boolean;
+  readonly gap: boolean;
+}) {
+  const location = useLocation();
+  const [search] = useSearchParams();
+  return (
+    <th scope="row" className="identity">
+      <Link
+        to={`${location.pathname}?${seasonSearch(search, evidence.season)}`}
+        state={location.state}
+        aria-current={selected ? "page" : undefined}
+      >
+        {seasonLabel(evidence.season)}
+      </Link>
+      {selected && <span className="history-context">selected season</span>}
+      {gap && evidence.coverage.games_with_unassigned_player_associations > 0 && (
+        <span className="history-context">
+          global gap: {evidence.coverage.games_with_unassigned_player_associations}{" "}
+          unassigned inventory games; player totals may omit games.
+        </span>
+      )}
+    </th>
+  );
+}
+
+function HistoryIdentity({ identity }: { readonly identity: Identity }) {
+  return (
+    <td className="history-identity">
+      <span className="history-name">{playerName(identity)}</span>
+      {teamList(identity)} · {identity.reported_position ?? "position unavailable"}
+    </td>
+  );
+}
 
 export default function Player() {
   const data = useLoaderData<typeof clientLoader>();
-  const { publication, season, players, games, spatial, history, deployment } = data;
-  const player = players.find((row) => row.player_id === data.player_id);
-  const historicalIdentity = history.find((row) => row.player !== null);
+  const { publication, season, players, games, maps, history, deployment, person, player } = data;
+  const identity: Identity | null = player ?? person;
+  const historicalIdentity = history.find((row) => row.person !== null);
   const location = useLocation();
   const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
@@ -128,23 +177,25 @@ export default function Player() {
             back to comparison
           </Link>
         )}
-        <Link to={`/compare?${comparisonQuery}`} state={{ leagueSearch }}>
-          compare this player
-        </Link>
+        {data.kind === "skater" && (
+          <Link to={`/compare?${comparisonQuery}`} state={{ leagueSearch }}>
+            compare this player
+          </Link>
+        )}
       </nav>
       <section className="player-heading">
-        <h2>{player ? playerName(player) : `player ${data.player_id}`}</h2>
-        {player ? (
+        <h2>{identity ? playerName(identity) : `player ${data.player_id}`}</h2>
+        {identity ? (
           <p>
-            {player.teams.map(teamName).join(" / ")} · reported position{" "}
-            {player.reported_position} · player {player.player_id}
+            {teamList(identity)} · reported position{" "}
+            {identity.reported_position ?? "unavailable"} · player {identity.player_id}
           </p>
         ) : (
           <>
             <p>no published player record for {seasonLabel(season.season)}.</p>
-            {historicalIdentity?.player && (
+            {historicalIdentity?.person && (
               <p>
-                {playerName(historicalIdentity.player)} · name from{" "}
+                {playerName(historicalIdentity.person)} · name from{" "}
                 {seasonLabel(historicalIdentity.season.season)}.
               </p>
             )}
@@ -152,6 +203,15 @@ export default function Player() {
               absence is not zero production or evidence that the player did not
               play. choose a history season below.
             </p>
+          </>
+        )}
+        {data.kind === "goalie" && (
+          <p>goalie analysis presentation is not implemented yet.</p>
+        )}
+        {person && data.kind === "skater" && !player && (
+          <>
+            <p>no observed results for {seasonLabel(season.season)}.</p>
+            {data.observedExplanation && <p>{data.observedExplanation}</p>}
           </>
         )}
       </section>
@@ -163,121 +223,148 @@ export default function Player() {
           controls={<PeerControls settings={settings} onChange={changePeers} />}
         />
       )}
-      <section className="player-history" aria-labelledby="history-heading">
-        <h3 id="history-heading">recorded results across published seasons</h3>
-        <p className="control-note">
-          each season retains its own identity, matched time and coverage. raw
-          rates are unadjusted for league environment, missingness or deployment.
-        </p>
-        <div
-          className="table-scroll history-scroll"
-          tabIndex={0}
-          role="region"
-          aria-label="player history table, scroll horizontally for all columns"
-        >
-          <table
-            className="history-table"
-            aria-label="recorded results across published seasons"
+      {data.kind === "goalie" ? (
+        <section className="player-history" aria-labelledby="history-heading">
+          <h3 id="history-heading">published identity across seasons</h3>
+          <div
+            className="table-scroll history-scroll"
+            tabIndex={0}
+            role="region"
+            aria-label="published identity table, scroll horizontally for all columns"
           >
-            <caption>
-              personal and on-ice rates use separate included 5v5 minutes.
-              follow a season for its complete evidence and known exclusions.
-            </caption>
-            <colgroup span={2} />
-            <colgroup span={5} />
-            <colgroup span={4} />
-            <thead>
-              <tr>
-                <th scope="col" rowSpan={2} className="identity">
-                  season
-                </th>
-                <th scope="col" rowSpan={2}>
-                  season identity / teams / reported position
-                </th>
-                <th scope="colgroup" colSpan={5}>
-                  personal production
-                </th>
-                <th scope="colgroup" colSpan={4}>
-                  team attempts while on ice
-                </th>
-              </tr>
-              <tr>
-                <th scope="col" className="numeric">shots on goal/60</th>
-                <th scope="col" className="numeric">goals/60</th>
-                <th scope="col" className="numeric">primary assists/60</th>
-                <th scope="col" className="numeric">included min</th>
-                <th scope="col">coverage</th>
-                <th scope="col" className="numeric">for/60</th>
-                <th scope="col" className="numeric">against/60</th>
-                <th scope="col" className="numeric">included min</th>
-                <th scope="col">coverage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {history.map(({ season: evidence, player: row }) => (
-                <tr key={evidence.season}>
-                  <th scope="row" className="identity">
-                    <Link
-                      to={`${location.pathname}?${seasonSearch(search, evidence.season)}`}
-                      state={location.state}
-                      aria-current={
-                        evidence.season === season.season ? "page" : undefined
-                      }
-                    >
-                      {seasonLabel(evidence.season)}
-                    </Link>
-                    {evidence.season === season.season && (
-                      <span className="history-context">selected season</span>
-                    )}
-                    {evidence.coverage.games_with_unassigned_player_associations > 0 && (
-                      <span className="history-context">
-                        global gap: {evidence.coverage.games_with_unassigned_player_associations}{" "}
-                        unassigned inventory games; player totals may omit games.
-                      </span>
-                    )}
-                  </th>
-                  {row ? (
-                    <>
-                      <td className="history-identity">
-                        <span className="history-name">{playerName(row)}</span>
-                        {row.teams.map(teamName).join(" / ")} · {row.reported_position}
-                      </td>
-                      <td className="numeric">
-                        <Quantity value={row.personal.shots_on_goal_per60} metrics={row.personal} rate precision={2} />
-                      </td>
-                      <td className="numeric">
-                        <Quantity value={row.personal.goals_per60} metrics={row.personal} rate precision={2} />
-                      </td>
-                      <td className="numeric">
-                        <Quantity value={row.personal.primary_assists_per60} metrics={row.personal} rate precision={2} />
-                      </td>
-                      <td className="numeric">
-                        <Minutes seconds={row.personal.included_seconds} />
-                      </td>
-                      <td><CoverageDetail metrics={row.personal} /></td>
-                      <td className="numeric">
-                        <Quantity value={row.metrics.for_per60} metrics={row.metrics} rate />
-                      </td>
-                      <td className="numeric">
-                        <Quantity value={row.metrics.against_per60} metrics={row.metrics} rate />
-                      </td>
-                      <td className="numeric">
-                        <Minutes seconds={row.metrics.included_seconds} />
-                      </td>
-                      <td><CoverageDetail metrics={row.metrics} /></td>
-                    </>
-                  ) : (
-                    <td colSpan={10}>
-                      no published player record for {seasonLabel(evidence.season)}.
-                    </td>
-                  )}
+            <table className="history-table identity-history">
+              <caption>identity only; goalie results are not presented here.</caption>
+              <thead>
+                <tr>
+                  <th scope="col" className="identity">season</th>
+                  <th scope="col">season identity / teams / reported position</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <GlobalGap season={season} />
+              </thead>
+              <tbody>
+                {history.map(({ season: evidence, person: row }) => (
+                  <tr key={evidence.season}>
+                    <HistorySeason
+                      evidence={evidence}
+                      selected={evidence.season === season.season}
+                      gap={false}
+                    />
+                    {row ? (
+                      <HistoryIdentity identity={row} />
+                    ) : (
+                      <td>no published player record for {seasonLabel(evidence.season)}.</td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : (
+        <section className="player-history" aria-labelledby="history-heading">
+          <h3 id="history-heading">recorded results across published seasons</h3>
+          <p className="control-note">
+            each season retains its own identity, matched time and coverage. raw
+            rates are unadjusted for league environment, missingness or deployment.
+          </p>
+          <div
+            className="table-scroll history-scroll"
+            tabIndex={0}
+            role="region"
+            aria-label="player history table, scroll horizontally for all columns"
+          >
+            <table
+              className="history-table"
+              aria-label="recorded results across published seasons"
+            >
+              <caption>
+                personal and on-ice rates use separate included 5v5 minutes.
+                follow a season for its complete evidence and known exclusions.
+              </caption>
+              <colgroup span={2} />
+              <colgroup span={5} />
+              <colgroup span={4} />
+              <thead>
+                <tr>
+                  <th scope="col" rowSpan={2} className="identity">
+                    season
+                  </th>
+                  <th scope="col" rowSpan={2}>
+                    season identity / teams / reported position
+                  </th>
+                  <th scope="colgroup" colSpan={5}>
+                    personal production
+                  </th>
+                  <th scope="colgroup" colSpan={4}>
+                    team attempts while on ice
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" className="numeric">shots on goal/60</th>
+                  <th scope="col" className="numeric">goals/60</th>
+                  <th scope="col" className="numeric">primary assists/60</th>
+                  <th scope="col" className="numeric">included min</th>
+                  <th scope="col">coverage</th>
+                  <th scope="col" className="numeric">for/60</th>
+                  <th scope="col" className="numeric">against/60</th>
+                  <th scope="col" className="numeric">included min</th>
+                  <th scope="col">coverage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {history.map(({ season: evidence, person: rowPerson, player: row }) => (
+                  <tr key={evidence.season}>
+                    <HistorySeason
+                      evidence={evidence}
+                      selected={evidence.season === season.season}
+                      gap
+                    />
+                    {row ? (
+                      <>
+                        <HistoryIdentity identity={row} />
+                        <td className="numeric">
+                          <Quantity value={row.personal.shots_on_goal_per60} metrics={row.personal} rate precision={2} />
+                        </td>
+                        <td className="numeric">
+                          <Quantity value={row.personal.goals_per60} metrics={row.personal} rate precision={2} />
+                        </td>
+                        <td className="numeric">
+                          <Quantity value={row.personal.primary_assists_per60} metrics={row.personal} rate precision={2} />
+                        </td>
+                        <td className="numeric">
+                          <Minutes seconds={row.personal.included_seconds} />
+                        </td>
+                        <td><CoverageDetail metrics={row.personal} /></td>
+                        <td className="numeric">
+                          <Quantity value={row.metrics.for_per60} metrics={row.metrics} rate />
+                        </td>
+                        <td className="numeric">
+                          <Quantity value={row.metrics.against_per60} metrics={row.metrics} rate />
+                        </td>
+                        <td className="numeric">
+                          <Minutes seconds={row.metrics.included_seconds} />
+                        </td>
+                        <td><CoverageDetail metrics={row.metrics} /></td>
+                      </>
+                    ) : rowPerson ? (
+                      <>
+                        <HistoryIdentity identity={rowPerson} />
+                        <td colSpan={9}>
+                          no observed results for {seasonLabel(evidence.season)}.
+                        </td>
+                      </>
+                    ) : (
+                      <td colSpan={10}>
+                        no published player record for {seasonLabel(evidence.season)}.
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+      {data.kind === "skater" && <GlobalGap season={season} />}
       {player && comparison && (
         <>
           <PeerDistributions
@@ -295,7 +382,7 @@ export default function Player() {
             profileLink={profileLink}
           />
           <SpatialViews
-            spatial={spatial}
+            maps={maps}
             players={[player]}
             season={season.season}
             mode={mode}

@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "profile/history exactledger55/110, distinct analytical identity without observed fabrication",
+    "on/off and actual two-teammate intersections match independently checked counts/time/rates; zeroevent20s retained",
+    "native/display/scalar closure; densityunits; goalie additive masses versus pooled nonadditive ratio, fixed25% scale",
+    "sourceindex join keeps duplicate/null eventids and missing numerical supplements",
+    "allfamilies selected; scalarcohorts no games; incompatiblekind/role/type400, unknown404"
+  ],
+  "response_bytes": {
+    "/api/players/9000001?season=20232024": 871855,
+    "/api/players/9000001/context?season=20232024&mode=on_off&population=recorded_all_attempts": 208226,
+    "/api/players/9000001/context?season=20232024&mode=with_without&population=recorded_all_attempts&teammates=9000002,9000003": 208260,
+    "/api/maps?season=20232024&players=9000001&family=offense_attempts&strength=5v5&view=effect": 363902,
+    "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&population=unblocked&type=all&view=evidence_mass": 453222,
+    "/api/maps?season=20232024&players=9000004&family=goalie_evidence&strength=5v5&population=unblocked&type=all&view=evidence_ratio": 453191,
+    "/api/players/9000001/evidence?season=20232024&family=personal_shots&strength=5v5&outcome=all_unblocked": 214040,
+    "/api/players/9000001/evidence?season=20232024&family=execution&strength=5v5": 222383,
+    "/api/players/9000004/evidence?season=20232024&family=goalie&strength=5v5": 214619,
+    "/api/players/9000004/evidence?season=20232024&family=goalie_evidence&strength=5v5&population=unblocked&type=all": 394891,
+    "/api/players/9000001/evidence?season=20232024&family=penalties": 209782,
+    "/api/players/9000001/evidence?season=20232024&family=territory": 210313,
+    "/api/players/9000001/evidence?season=20232024&family=microstats": 227794,
+    "/api/league?season=20232024&kind=skater&family=overview": 440701,
+    "/api/league?season=20232024&kind=goalie&family=overview": 208876,
+    "/api/players/9000004/context?season=20232024&mode=on_off&population=recorded_all_attempts": 82,
+    "/api/maps?season=20232024&players=9000001,9000004&family=offense_attempts&strength=5v5&view=effect": 82,
+    "/api/maps?season=20232024&players=9000001&family=defense_attempts&strength=5v4&view=effect": 78,
+    "/api/players/9000001/evidence?season=20232024&family=personal_shots&strength=5v5&outcome=all_unblocked&shot_type=bogus": 64,
+    "/api/maps?season=20232024&players=999999999&family=offense_attempts&strength=5v5&view=effect": 74
+  }
+}

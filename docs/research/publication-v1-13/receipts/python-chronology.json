@@ -1,0 +1,260 @@
+{
+  "red": {
+    "checks": [
+      {
+        "name": "top-level future fit season",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "top-level future cutoff year",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "fact supplement future fit season",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "nested paired future cutoff",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "tagged method provenance future fit",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "failed fit future season",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "same-year fit with multiyear base input",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      },
+      {
+        "name": "same-ending-year cutoff is allowed",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      },
+      {
+        "name": "earlier fitted population is allowed",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      }
+    ],
+    "passed": 3,
+    "total": 9
+  },
+  "green": {
+    "checks": [
+      {
+        "name": "top-level future fit season",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method fit season is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "top-level future cutoff year",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method training cutoff is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "fact supplement future fit season",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method fit season is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "nested paired future cutoff",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method training cutoff is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "tagged method provenance future fit",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method fit season is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "failed fit future season",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method fit season is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "row method list future fit",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method fit season is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "same-year fit with multiyear base input",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      },
+      {
+        "name": "june season boundary cutoff is allowed",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      },
+      {
+        "name": "earlier fitted population is allowed",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      }
+    ],
+    "passed": 10,
+    "total": 10
+  },
+  "refinements_red": {
+    "checks": [
+      {
+        "name": "autumn cutoff consumes later season",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "later predecessor outside fit population",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "later annual state outside fit population",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "season scoped support references future method",
+        "expected": "reject",
+        "actual": "accept",
+        "error": null,
+        "pass_check": false
+      },
+      {
+        "name": "same ending year june boundary",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      },
+      {
+        "name": "earlier cutoff is valid",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      }
+    ],
+    "passed": 2,
+    "total": 6
+  },
+  "refinements_green": {
+    "checks": [
+      {
+        "name": "autumn cutoff consumes later season",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method training cutoff is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "later predecessor outside fit population",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "state input season is outside method fit seasons",
+        "pass_check": true
+      },
+      {
+        "name": "later annual state outside fit population",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "state input season is outside method fit seasons",
+        "pass_check": true
+      },
+      {
+        "name": "season scoped support references future method",
+        "expected": "reject",
+        "actual": "reject",
+        "error": "method fit season is later than displayed season",
+        "pass_check": true
+      },
+      {
+        "name": "same ending year june boundary",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      },
+      {
+        "name": "earlier cutoff is valid",
+        "expected": "accept",
+        "actual": "accept",
+        "error": null,
+        "pass_check": true
+      }
+    ],
+    "passed": 6,
+    "total": 6
+  },
+  "fixture": {
+    "changed_members": [
+      "20242025-ledger-value_ledger.jsonl",
+      "manifest.json",
+      "methods.jsonl"
+    ],
+    "numeric_payloads_unchanged": true,
+    "input_lists_unchanged": true,
+    "ordered_input_digests_verified": 9,
+    "methods": 9,
+    "changed_row_method_ids": 1,
+    "manifest_sha256": "f768b285ea529a07f9a683e54878d8f9ec42c758f899cfefcec3018c59c66078"
+  },
+  "final_strict_exchange_and_sql_readback": "passed",
+  "retained_fixture_byte_identity": "passed",
+  "publication_id": "cfed52ea-954b-4d6d-87e6-dc5d8d118476",
+  "database_sha256": "9ba58c11a8c430098b74eff35b47bbe797f8d345c8911fbc71ae5f432a85c10c"
+}

@@ -10,7 +10,7 @@ import {
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
 import { HockeyId, type PlayerSummary } from "../../shared/observed";
-import { loadLeague } from "../client";
+import { loadComparison } from "../client";
 import PlayerPicker from "../player-picker";
 import {
   readMapMode,
@@ -40,26 +40,13 @@ import {
   seasonLabel,
 } from "../presentation";
 
-export const clientLoader = ({ request }: ClientLoaderFunctionArgs) => {
-  const search = new URL(request.url).searchParams;
-  const ids: string[] = [];
-  for (const key of ["a", "b"]) {
-    const values = search.getAll(key);
-    if (
-      values.length === 1 &&
-      Schema.is(HockeyId)(values[0]) &&
-      !ids.includes(values[0])
-    )
-      ids.push(values[0]);
-  }
-  search.delete("spatial");
-  if (ids.length) search.set("spatial", ids.join(","));
-  return loadLeague(request.signal, search);
-};
+export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
+  loadComparison(request.signal, new URL(request.url).searchParams);
 export const ErrorBoundary = LoadError;
 
+// map mode selects the requested map view, so it reloads.
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
-  shouldRevalidateView(args, ["peers", "peerMin", "map", "metric"]);
+  shouldRevalidateView(args, ["peers", "peerMin", "metric"]);
 
 function selection(
   values: string[],
@@ -79,7 +66,7 @@ function selection(
   return player
     ? { player }
     : {
-        error: `no published player record for player ${values[0]} in ${seasonLabel(season)}`,
+        error: `no published skater record for player ${values[0]} in ${seasonLabel(season)}`,
         absentId: values[0],
       };
 }
@@ -171,21 +158,11 @@ export default function Compare() {
         flushSync: true,
       });
   };
-  const pair =
-    first.player && second.player && !secondError
-      ? [first.player, second.player]
-      : undefined;
+  const pair = data.pair;
   const comparison = useMemo(
     () =>
       pair ? buildObservedComparison(data.players, pair, settings) : undefined,
-    [
-      data.players,
-      first.player,
-      second.player,
-      secondError,
-      settings.peers,
-      settings.peerMin,
-    ],
+    [data.players, pair, settings.peers, settings.peerMin],
   );
   const profileLink = (playerId: string) => ({
     to: `/players/${playerId}?${viewQuery}`,
@@ -363,7 +340,7 @@ export default function Compare() {
       )}
       {comparison && pair && (
         <SpatialViews
-          spatial={data.spatial}
+          maps={data.maps}
           players={pair}
           season={data.season.season}
           mode={mode}

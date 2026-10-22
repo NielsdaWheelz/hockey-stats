@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import type { LeagueResponse, PlayerResponse } from "../shared/observed";
+import type { ComparisonView, LeagueView, ProfileView } from "./client";
 import {
   Link,
   Links,
@@ -26,9 +26,9 @@ export const meta = () => [
 ];
 
 export function Layout({ children }: { readonly children: ReactNode }) {
-  const league = useRouteLoaderData<LeagueResponse>("routes/league");
-  const player = useRouteLoaderData<PlayerResponse>("routes/player");
-  const comparison = useRouteLoaderData<LeagueResponse>("routes/compare");
+  const league = useRouteLoaderData<LeagueView>("routes/league");
+  const player = useRouteLoaderData<ProfileView>("routes/player");
+  const comparison = useRouteLoaderData<ComparisonView>("routes/compare");
   const data = player ?? league ?? comparison;
   const season = data?.season.season;
   const location = useLocation();
@@ -62,6 +62,11 @@ export function Layout({ children }: { readonly children: ReactNode }) {
           skip to results
         </a>
         <div className="sheet">
+          {data?.publication.purpose === "fixture" && (
+            <p className="fixture-banner" role="note">
+              fixture publication · development evidence, not real results
+            </p>
+          )}
           <header className="site-heading">
             <p className="eyebrow">
               <Link to={season ? `/?${seasonSearch("", season)}` : "/"}>

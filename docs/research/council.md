@@ -1,5 +1,13 @@
 # council synthesis
 
+## v1-13 typed-publication implementation review — 2026-10-22
+
+the assigned [foundation](../specs/v1-13-typed-publication.md) is implemented and verified in an isolated branch/worktree. independent exchange/storage, interface and content review accompanies temporary red → green → refactor → green integration checks and native browser checks. [the verification receipt](publication-v1-13/verification.md) retains attributed fixtures, independent expected facts, rejection reasons, measured costs and cleanup evidence; temporary tests/controllers were deleted without a new dependency or permanent harness.
+
+review repaired conditional event eligibility, rounded-rink coordinates, repeated physical facts, finite-sum overflow, metadata resolution, method-bound historical support and per-row method chronology. API absence is distinct from unfinished work; source-only reductions retain source provenance; covered-all goalie evidence retains actual states and unclipped ratios. earlier seals missed an unbound synthetic prior input and later-season method metadata; the corrected bundle and final reseal supersede them. an unjustified breakdown equality was removed rather than silently changing the numerical contract. browser review repaired specific season-error copy and narrow goalie-history overflow.
+
+accepted costs: complete fixed schemas, explicit cross-language validation, coherent map-toggle refetches, bounded 128-row keyset reads and roughly 292 mb peak reader-check memory on the fixture. real full-season map volume remains [an explicit integration measurement](../issues/publication-map-volume.md). software/fixture completion does not establish real family delivery, complete cards or scientific admission. the primary build, active/previous databases and port 3000 listener retain their exact protected state; activation remains unassigned.
+
 ## v1-13 typed-publication specification review — 2026-10-22
 
 three independent storage, interface and content reviewers clear [v1-13](../specs/v1-13-typed-publication.md), after root integrated code inspection and their adversarial repairs. the settled product choices needed no new preference question. this is specification/code review, not implementation, corpus execution or scientific verification. official sqlite documentation confirms the existing strict-table, explicit-foreign-key and readonly primitives; no new dependency is selected.

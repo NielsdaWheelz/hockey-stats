@@ -1,0 +1,10 @@
+{
+  "checks": 5,
+  "passed": [
+    "miss:actor_on_net_goal_probability",
+    "miss:neutral_goalie_on_net_goal_probability",
+    "block:actor_unblocked_goal_probability",
+    "block:actor_on_net_goal_probability",
+    "valid supplemental row joined to wrong source population rejects without final candidate"
+  ]
+}

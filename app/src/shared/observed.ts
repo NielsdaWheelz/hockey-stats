@@ -1,18 +1,8 @@
 import * as Schema from "effect/Schema";
-import * as HttpApi from "effect/http-api/HttpApi";
-import * as HttpApiEndpoint from "effect/http-api/HttpApiEndpoint";
-import * as HttpApiGroup from "effect/http-api/HttpApiGroup";
 import * as HttpApiSchema from "effect/http-api/HttpApiSchema";
 
-export const HockeyId = Schema.String.check(Schema.isPattern(/^[1-9]\d*$/));
-export const GameId = Schema.String.check(Schema.isPattern(/^[1-9]\d{9}$/));
-export const Season = Schema.String.check(Schema.isPattern(/^[1-9]\d{7}$/), Schema.makeFilter((value) => Number(value.slice(4)) === Number(value.slice(0, 4)) + 1));
-export type Season = typeof Season.Type;
-export const Count = Schema.Finite.check(Schema.isInt(), Schema.isGreaterThanOrEqualTo(0), Schema.isLessThanOrEqualTo(Number.MAX_SAFE_INTEGER));
-export const Rate = Schema.Finite.check(Schema.isGreaterThanOrEqualTo(0));
-export const DateString = Schema.String.check(Schema.isPattern(/^\d{4}-\d{2}-\d{2}$/), Schema.makeFilter((value) => !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value));
-export const Timestamp = Schema.String.check(Schema.isPattern(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/), Schema.makeFilter((value) => !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 19) === value.slice(0, 19)));
-export const GitCommit = Schema.NullOr(Schema.String.check(Schema.isPattern(/^[a-f0-9]{40}$/)));
+import { HockeyId, GameId, Season, Count, Rate, DateString, Timestamp, GitCommit, Publication } from "./publication.js";
+export { HockeyId, GameId, Season, Count, Rate, DateString, Timestamp, GitCommit, Publication } from "./publication.js";
 const inheritedReasonCodes = [
   "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved",
   "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable",
@@ -132,32 +122,11 @@ export const SpatialSelection = Schema.Struct({
     selection.league_support.included_seconds > 0 && data.cells !== null && data.cells.length === selection.cells.length && data.cells.every((cell,index) => cell.cell_id === selection.cells[index].cell_id)))));
 export type SpatialSelection = typeof SpatialSelection.Type;
 
-export const parseSpatialSelection = (query: URLSearchParams): readonly string[] | undefined => {
-  if ([...query.keys()].some((key) => key !== "spatial" && key !== "season")) throw new Error("only season and spatial selection are supported");
-  const values = query.getAll("spatial");
-  if (values.length === 0) return undefined;
-  const ids = values[0].split(",");
-  if (values.length !== 1 || ids.length < 1 || ids.length > 2 || new Set(ids).size !== ids.length || ids.some((id) => !Schema.is(HockeyId)(id))) throw new Error("select one or two distinct player ids");
-  return ids;
-};
-
 const matchedPersonalSupport = ({ metrics, personal }: { metrics: Metrics; personal: PersonalMetrics }) =>
   personal.included_seconds <= metrics.included_seconds &&
   personal.known_excluded_seconds - metrics.known_excluded_seconds === metrics.included_seconds - personal.included_seconds &&
   metrics.reason_codes.every((code) => code === "no_5v5_exposure" || personal.reason_codes.includes(code));
 
-export const Publication = Schema.Struct({
-  publication_id: Schema.String.check(Schema.isUUID()),
-  kind: Schema.Literal("observed_5v5"),
-  purpose: Schema.Literals(["real", "fixture"]),
-  generated_at: Timestamp,
-  population_version: Schema.Literal("matched_attempts_v2"),
-  personal_population_version: Schema.Literal("matched_personal_credits_v2"),
-  spatial_population_version: Schema.Literal("matched_unblocked_locations_v2"),
-  spatial_display_version: Schema.Literal("rect5_gaussian10_v1"),
-  git_commit: GitCommit,
-});
-export type Publication = typeof Publication.Type;
 
 export const Coverage = Schema.Struct({
   inventory_games: Count,
@@ -218,76 +187,12 @@ export const SeasonEvidence = Schema.Struct({
   evidence.coverage.unassigned_games.every((game) => game.game_id.slice(0, 4) === evidence.season.slice(0, 4) && game.game_id.slice(4, 6) === "02")));
 export type SeasonEvidence = typeof SeasonEvidence.Type;
 
-export const LeagueResponse = Schema.Struct({ publication: Publication, available_seasons: AvailableSeasons, season: SeasonEvidence, players: Schema.Array(PlayerSummary), spatial: Schema.NullOr(SpatialSelection) }).check(Schema.makeFilter((response) =>
-  response.available_seasons.includes(response.season.season) && new Set(response.players.map((player) => player.player_id)).size === response.players.length &&
-  (response.spatial === null || JSON.stringify(response.spatial.league_support) === JSON.stringify(response.season.spatial_coverage))));
-export type LeagueResponse = typeof LeagueResponse.Type;
 export const DeploymentPeer = Schema.Struct({ player_id: HockeyId, shared_seconds: Count.check(Schema.isGreaterThan(0)) });
 export type DeploymentPeer = typeof DeploymentPeer.Type;
 export const Deployment = Schema.Struct({ teammates: Schema.Array(DeploymentPeer), opponents: Schema.Array(DeploymentPeer) });
 export type Deployment = typeof Deployment.Type;
-export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, player_id: HockeyId, deployment: Schema.NullOr(Deployment), games: Schema.Array(PlayerGame), history: Schema.Array(Schema.Struct({season: SeasonEvidence, player: Schema.NullOr(PlayerSummary)})) }).check(Schema.makeFilter((response) => {
-  const selected = response.players.find((player) => player.player_id === response.player_id) ?? null;
-  const selectedHistory = response.history.find((row) => row.season.season === response.season.season);
-  if (selected === null) {
-    if (response.deployment !== null) return false;
-  } else {
-    if (response.deployment === null) return false;
-    const selectedSeconds = BigInt(selected.metrics.included_seconds);
-    const players = new Map(response.players.map((player) => [player.player_id, player]));
-    const combined = new Map<string, bigint>();
-    for (const [relation, multiplier] of [["teammates", 4n], ["opponents", 5n]] as const) {
-      const peers = response.deployment[relation];
-      const seen = new Set<string>();
-      let total = 0n;
-      for (const [index, peer] of peers.entries()) {
-        if (peer.player_id === response.player_id || !players.has(peer.player_id) || seen.has(peer.player_id)) return false;
-        const previous = peers[index - 1];
-        if (previous !== undefined && (previous.shared_seconds < peer.shared_seconds || previous.shared_seconds === peer.shared_seconds &&
-          (previous.player_id.length > peer.player_id.length || previous.player_id.length === peer.player_id.length && previous.player_id >= peer.player_id))) return false;
-        seen.add(peer.player_id);
-        const seconds = BigInt(peer.shared_seconds);
-        total += seconds;
-        combined.set(peer.player_id, (combined.get(peer.player_id) ?? 0n) + seconds);
-      }
-      if (total !== multiplier * selectedSeconds) return false;
-    }
-    for (const [id, seconds] of combined) {
-      if (seconds > selectedSeconds || seconds > BigInt(players.get(id)!.metrics.included_seconds)) return false;
-    }
-  }
-  return Schema.is(LeagueResponse)(response) && response.history.length === response.available_seasons.length &&
-    response.history.every((row,index) => row.season.season === response.available_seasons[index] && (row.player === null || row.player.player_id === response.player_id)) &&
-    response.history.some((row) => row.player !== null) && selectedHistory !== undefined &&
-    JSON.stringify(selectedHistory.season) === JSON.stringify(response.season) && JSON.stringify(selectedHistory.player) === JSON.stringify(selected) &&
-    (selected !== null || response.games.length === 0) && new Set(response.games.map((game) => game.game_id)).size === response.games.length &&
-    response.games.every((game) => game.game_id.slice(0, 4) === response.season.season.slice(0, 4) && game.game_id.slice(4, 6) === "02") &&
-    response.spatial !== null && response.spatial.players.length === 1 && response.spatial.players[0].player_id === response.player_id &&
-    (selected !== null || response.spatial.players[0].data === null);
-}));
-export type PlayerResponse = typeof PlayerResponse.Type;
-
 export const InvalidPlayerId = Schema.Struct({ _tag: Schema.Literal("InvalidPlayerId"), message: Schema.String }).pipe(HttpApiSchema.status(400));
-export const InvalidSpatialSelection = Schema.Struct({ _tag: Schema.Literal("InvalidSpatialSelection"), message: Schema.String }).pipe(HttpApiSchema.status(400));
 export const PlayerNotFound = Schema.Struct({ _tag: Schema.Literal("PlayerNotFound"), message: Schema.String }).pipe(HttpApiSchema.status(404));
 export const InvalidSeasonSelection = Schema.Struct({ _tag: Schema.Literal("InvalidSeasonSelection"), message: Schema.String, available_seasons: AvailableSeasons }).pipe(HttpApiSchema.status(400));
 export const SeasonNotFound = Schema.Struct({ _tag: Schema.Literal("SeasonNotFound"), message: Schema.String, available_seasons: AvailableSeasons }).pipe(HttpApiSchema.status(404));
 export const ReadFailure = Schema.Struct({ _tag: Schema.Literal("ReadFailure"), message: Schema.String }).pipe(HttpApiSchema.status(500));
-export const ApiError = Schema.Union([InvalidPlayerId, InvalidSpatialSelection, PlayerNotFound, InvalidSeasonSelection, SeasonNotFound, ReadFailure]);
-export type ApiError = typeof ApiError.Type;
-
-export const resolveSeasonSelection = (query: URLSearchParams, available_seasons: readonly Season[]): Season => {
-  const values = query.getAll("season");
-  if (values.length === 0) return available_seasons[0];
-  if (values.length !== 1 || !Schema.is(Season)(values[0])) throw { _tag: "InvalidSeasonSelection", message: "select one canonical season", available_seasons } satisfies typeof InvalidSeasonSelection.Type;
-  if (!available_seasons.includes(values[0])) throw { _tag: "SeasonNotFound", message: "season not found in this publication", available_seasons } satisfies typeof SeasonNotFound.Type;
-  return values[0];
-};
-
-const QueryValue = Schema.optional(Schema.Union([Schema.String, Schema.Array(Schema.String)]));
-export const ObservedApi = HttpApi.make("observed").add(HttpApiGroup.make("observed").add(
-  HttpApiEndpoint.get("league", "/api/league", { query: { season: QueryValue, spatial: QueryValue }, success: LeagueResponse, error: [InvalidSeasonSelection, SeasonNotFound, InvalidSpatialSelection, ReadFailure] }),
-  HttpApiEndpoint.get("player", "/api/players/:playerId", {
-    params: { playerId: Schema.String }, query: { season: QueryValue }, success: PlayerResponse, error: [InvalidSeasonSelection, SeasonNotFound, InvalidPlayerId, PlayerNotFound, ReadFailure],
-  }),
-));

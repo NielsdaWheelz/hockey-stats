@@ -1,0 +1,17 @@
+{
+  "candidate": "var/v1-13/candidate-chronology/player-analysis.sqlite",
+  "publication_id": "cfed52ea-954b-4d6d-87e6-dc5d8d118476",
+  "sha256": "9ba58c11a8c430098b74eff35b47bbe797f8d345c8911fbc71ae5f432a85c10c",
+  "positive_method_chronology_check": true,
+  "all_five_apis": true,
+  "unchanged_ledger55_and_nonzero_teammate_context": true,
+  "opaque_schema6_predecessor_preserved": true,
+  "cross_schema_restore_instructions": true,
+  "compatible_distinct_restore": true,
+  "runtime_malformed_read_500": true,
+  "sandbox_input_read_denied": "cat: /Users/nnandal/Documents/code/hockey-stats-v1-13/var/v1-13/observed-selection.json: Operation not permitted",
+  "sandbox_standalone_check_and_five_apis": true,
+  "compiled_startup_to_first_response_seconds": 1.4742839999962598,
+  "source_bytes_unchanged": true,
+  "no_wal_shm": true
+}

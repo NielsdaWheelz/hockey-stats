@@ -57,3 +57,7 @@ the final candidate is `var/v1-13/candidate-chronology/player-analysis.sqlite`, 
 [protected-state evidence](receipts/protected-state.json) confirms all 30 original build/database files retain exact bytes, sizes and modification times, and the primary listener retains pid `70045`, start time and command. the reviewed database retains its exact digest after reads with no wal/shm. the database is a disposable worktree output; no sqlite file is committed. no live activation occurred.
 
 the python, shared-contract, reader, web, independent-review and root temporary controllers/generators were removed after their final green checks. compact cleanup inventories accompany their receipts; retained source-backed fixtures and expected facts remain data, not a test runner. no test-only dependency or persistent acceptance framework remains.
+
+## source integration
+
+on 2026-10-22 the user assigned pr, merge and task cleanup. [pr #48](https://github.com/NielsdaWheelz/hockey-stats/pull/48) merged the reviewed head `22912ff6923e9e414cc7a5f95c7f91a4b8ae9674` as `1e36be9b79c821ab8a95a31e12ea5d8e631e7694` after its security check passed. the merge tree is exactly equal to the reviewed head; no source or dependency changed during integration. the pr also preserves the three pre-existing local product/specification commits and supplied contract snapshot. newer parallel documentation drafts remain outside the pr. live activation remains unassigned.

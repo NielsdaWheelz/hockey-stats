@@ -146,6 +146,8 @@ def prepare(source_result, fixture, output):
             game_ids=training.game_ids, source_player_ids=training.source_player_ids,
             player_ids=training.likelihood.player_ids, strata=training.strata, source_strata=training.source_strata,
             r=training.likelihood.r, directed_hours=training.directed_hours,
+            training_attempts=float(training.response_counts.sum()),
+            zero_time_source_games=int(np.count_nonzero(source.grouped[i].stratum_e.sum(axis=1) == 0)),
             source_identity=training.source_identity, source_annual=original))
     coverage = dict(inventory_games=len(final.game_ids), training_games=len(train), assessment_games=len(heldout),
         assessment_fraction=len(heldout)/len(final.game_ids),

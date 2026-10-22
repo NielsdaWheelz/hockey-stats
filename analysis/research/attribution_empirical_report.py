@@ -33,10 +33,10 @@ def _csv(output, name, rows, fields=None):
     return identity(path)
 
 
-def _aggregate(assessment, contrast, scheme):
+def _aggregate(assessment, contrast, scheme, metric):
     rows = [row for row in assessment["comparison_rows"]
             if (row["contrast"], row["metric"], row["region"], row["scheme"])
-            == (contrast, "regional", "all", scheme)]
+            == (contrast, metric, "all", scheme)]
     require(len(rows) == 1, "saved assessment aggregate comparison is missing or repeated")
     return rows[0]
 
@@ -49,7 +49,7 @@ def _figure(output, assessment):
     figure, axes = plt.subplots(1, 2, figsize=(13, 7), gridspec_kw={"width_ratios": [1, 1.15]})
     for ci, contrast in enumerate(CONTRASTS):
         for si, scheme in enumerate(SCHEMES):
-            row = _aggregate(assessment, contrast, scheme)
+            row = _aggregate(assessment, contrast, scheme, "regional")
             position = ci + (si - 1) * .19
             color = COLORS[si]
             if row["lower"] is not None and row["upper"] is not None:
@@ -181,7 +181,7 @@ def render_reports(output, assessment, assessment_reference):
         "| contrast | pooled difference | scheme | 95% interval | direction across all schemes |", "|---|---:|---|---:|---|"])
     for contrast in CONTRASTS:
         for scheme in SCHEMES:
-            row = _aggregate(assessment, contrast, scheme)
+            row = _aggregate(assessment, contrast, scheme, "regional")
             interval = (f"[{_number(row['lower'])}, {_number(row['upper'])}]" if row["lower"] is not None
                         else "unavailable: " + str(row["reason"]))
             lines.append(f"| {contrast.replace('-', ' − ')} | {_number(row['estimate'])} | {scheme} | {interval} | `{row['direction']}` |")
@@ -191,7 +191,24 @@ def render_reports(output, assessment, assessment_reference):
         "2,000 draws use one paired matrix per scheme across all contrasts and regions, with seed 404130 and linear percentile quantiles. "
         "seven- and fourteen-day blocks begin at the earliest withheld inventory date and include intervening empty blocks. "
         "zero-denominator draws remain unavailable. intervals omit fitting/selection, split and population uncertainty.", "",
-        "## support and bounded diagnostics", "",
+        "## native inverse-share contrasts", "",
+        "the native paired difference weights each cell by 1/p and divides by directed hours, without the regional factor of twelve. "
+        "it has a different spatial emphasis and normalization. each metric retains its own conditional direction; "
+        "a regional advantage does not establish a native-cell gain.", "",
+        "| contrast | native pooled difference | scheme | 95% interval | direction across all schemes |", "|---|---:|---|---:|---|"])
+    for contrast in CONTRASTS:
+        for scheme in SCHEMES:
+            row = _aggregate(assessment, contrast, scheme, "native_inverse_share")
+            interval = (f"[{_number(row['lower'])}, {_number(row['upper'])}]" if row["lower"] is not None
+                        else "unavailable: " + str(row["reason"]))
+            lines.append(f"| {contrast.replace('-', ' − ')} | {_number(row['estimate'])} | {scheme} | {interval} | `{row['direction']}` |")
+    lines.extend(["", "the regional aggregate does not imply the same direction in every region. "
+        "these fixed regional rows retain their own point differences and directions across all three schemes; intervals remain in comparison.csv.", "",
+        "| region | borrowing − independent point difference | direction across all schemes |", "|---|---:|---|"])
+    for row in assessment["comparison_rows"]:
+        if (row["contrast"], row["metric"], row["scheme"]) == (CONTRASTS[0], "regional", "games") and row["region"] != "all":
+            lines.append(f"| {row['region']} | {_number(row['estimate'])} | `{row['direction']}` |")
+    lines.extend(["", "## support and bounded diagnostics", "",
         "support groups are exclusive within each role: positive final training exposure (`current_training`), earlier exposure only (`carried_only`), "
         "or neither (`new_to_fit`). the separate `first_in_corpus_final` flag overlaps them and means first observed in this corpus during the final season; "
         "it does not mean nhl debut or an ability change. player participation overlaps within a lineup, so on-ice hours are not independent observations.", "",
@@ -264,7 +281,9 @@ def render_reports(output, assessment, assessment_reference):
         next_question=None if fixture or not verified else assessment["next_question"],
         unresolved_reason=assessment["unresolved_reason"], coverage=coverage,
         numerical=numerical, inventory=assessment["inventory"],
-        aggregate_comparisons=[_aggregate(assessment, contrast, scheme) for contrast in CONTRASTS for scheme in SCHEMES],
+        aggregate_comparisons=[_aggregate(assessment, contrast, scheme, "regional") for contrast in CONTRASTS for scheme in SCHEMES],
+        native_aggregate_comparisons=[_aggregate(assessment, contrast, scheme, "native_inverse_share")
+                                     for contrast in CONTRASTS for scheme in SCHEMES],
         resources=costs, verification=assessment["verification"],
         source_references=assessment["sources"], native_diagnostics=native_reference,
         outputs=dict(**tables, figure=figure, decision=identity(decision), verification=identity(verification)))

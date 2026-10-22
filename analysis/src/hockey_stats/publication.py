@@ -14,7 +14,7 @@ import sys
 import time
 import uuid
 
-from .artifacts import implementation_identity, require, write_json
+from .artifacts import implementation_identity, linked_path, require, write_json
 from .captures import strict_json
 from .observed import PERSONAL_REASON_CODES, SPATIAL_REASON_CODES, _metrics, aggregate
 from .observed_spatial import POPULATION_VERSION, DISPLAY_VERSION
@@ -80,16 +80,16 @@ _METRICS = """
 _SCHEMA = """
 CREATE TABLE publication (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    schema_version INTEGER NOT NULL CHECK(schema_version=4),
+    schema_version INTEGER NOT NULL CHECK(schema_version=5),
     kind TEXT NOT NULL CHECK(kind='observed_5v5'),
     publication_id TEXT NOT NULL,
     purpose TEXT NOT NULL CHECK(purpose IN ('real','fixture')),
     game_type INTEGER NOT NULL CHECK(game_type=2),
     generated_at TEXT NOT NULL,
-    population_version TEXT NOT NULL CHECK(population_version='matched_attempts_v1'),
-    personal_population_version TEXT NOT NULL CHECK(personal_population_version='matched_personal_credits_v1'),
+    population_version TEXT NOT NULL CHECK(population_version='matched_attempts_v2'),
+    personal_population_version TEXT NOT NULL CHECK(personal_population_version='matched_personal_credits_v2'),
     producer_json TEXT NOT NULL CHECK(json_valid(producer_json) AND json_type(producer_json)='object'),
-    spatial_population_version TEXT NOT NULL CHECK(spatial_population_version='matched_unblocked_locations_v1'),
+    spatial_population_version TEXT NOT NULL CHECK(spatial_population_version='matched_unblocked_locations_v2'),
     spatial_display_version TEXT NOT NULL CHECK(spatial_display_version='rect5_gaussian10_v1')
 ) STRICT;
 CREATE TABLE season (
@@ -284,7 +284,7 @@ def _validate_personal(metrics, on_ice, loc):
     require(valid and (status != "complete" or excluded == 0), f"{loc}: inconsistent personal null/status/rate contract")
 
 
-def _selection(selection_path):
+def read_selection(selection_path):
     """decode the bounded publication selection, independently of research selections."""
     path = Path(selection_path).resolve(strict=True)
     data = path.read_bytes()
@@ -304,30 +304,18 @@ def _selection(selection_path):
         require(type(season) is str and re.fullmatch(r"[1-9][0-9]{7}", season)
                 and int(season[4:]) == int(season[:4]) + 1
                 and season in ("20232024", "20242025", "20252026"), "unsupported observed season")
-        require(type(item["path"]) is str and Path(item["path"]).is_absolute(), "corpus path must be absolute")
-        corpus_path = Path(item["path"]).resolve(strict=True)
-        require(corpus_path.is_file(), f"{corpus_path}: corpus must be an existing file")
-        require(type(item["sha256"]) is str and re.fullmatch(r"[0-9a-f]{64}", item["sha256"]),
-                "corpus digest must be lowercase sha256")
+        corpus_path = linked_path({"path": item["path"], "sha256": item["sha256"]})
         seasons.append(season)
         paths.append(corpus_path)
     require(seasons == sorted(set(seasons)), "observed seasons must be ascending and unique")
     require(len(set(paths)) == len(paths), "observed corpus paths must resolve to distinct files")
     if value["purpose"] == "real":
         require(seasons == ["20232024", "20242025", "20252026"], "real observed publication requires all three declared seasons")
-        pinned = {
-            "20242025": ("/Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20242025/corpus.json", "7e2ee518dd4dc961f0c7835572561f7463f431eac680487ab035ed84cebe21d3"),
-            "20252026": ("/Users/nnandal/Documents/code/hockey-stats-local/03m-20261010/corpora/20252026/corpus.json", "1e4273d00107f8b7c04a49c70e4ac8a53153d46c493f2bf2bb2c4fd0e30ce034"),
-        }
-        for item, corpus_path in zip(corpora, paths):
-            if item["season"] in pinned:
-                expected_path, expected_digest = pinned[item["season"]]
-                require(corpus_path == Path(expected_path).resolve(strict=True) and item["sha256"] == expected_digest,
-                        f"{item['season']}: real publication requires the pinned corpus identity")
     return path, data, value, paths
 
 
-def _stored(row, season):
+def stored_row(row, season):
+    """validate and flatten one observed result row for sqlite storage."""
     fields = dict(row) if isinstance(row, dict) else asdict(row)
     if "attempts_for" in fields:
         expected = asdict(_metrics(fields["included_seconds"], fields["known_excluded_seconds"],
@@ -356,7 +344,7 @@ def _insert(connection, table, row):
     connection.execute(f"INSERT INTO {table} ({','.join(row)}) VALUES ({','.join('?' for _ in row)})", tuple(row.values()))
 
 
-def _check_season(connection, result, purpose):
+def check_season(connection, result, purpose):
     """independently reduce stored facts within one season, one game/player at a time."""
     season = result.season
     connection.row_factory = sqlite3.Row
@@ -488,7 +476,7 @@ def _check_season(connection, result, purpose):
 def build_publication(selection_path: Path, output: Path) -> dict:
     """finalize after each season's independent read-back and the complete database checks."""
     started = time.monotonic()
-    selection_path, selection_bytes, selection, paths = _selection(selection_path)
+    selection_path, selection_bytes, selection, paths = read_selection(selection_path)
     output = output.absolute()
     require(not output.exists() and not output.is_symlink(), f"{output}: output already exists")
     parent = output.parent.resolve(strict=True)
@@ -505,10 +493,10 @@ def build_publication(selection_path: Path, output: Path) -> dict:
     }
     publication_id = str(uuid.uuid4())
     metadata = {
-        "id": 1, "schema_version": 4, "kind": "observed_5v5", "publication_id": publication_id,
+        "id": 1, "schema_version": 5, "kind": "observed_5v5", "publication_id": publication_id,
         "purpose": selection["purpose"], "game_type": 2,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "population_version": "matched_attempts_v1", "personal_population_version": "matched_personal_credits_v1",
+        "population_version": "matched_attempts_v2", "personal_population_version": "matched_personal_credits_v2",
         "spatial_population_version": POPULATION_VERSION, "spatial_display_version": DISPLAY_VERSION,
         "producer_json": json.dumps(producer, allow_nan=False, sort_keys=True, separators=(",", ":")),
     }
@@ -520,7 +508,7 @@ def build_publication(selection_path: Path, output: Path) -> dict:
         connection.execute("PRAGMA foreign_keys=ON")
         connection.execute("PRAGMA journal_mode=DELETE")
         connection.executescript(_SCHEMA + _SPATIAL_SCHEMA)
-        connection.execute("PRAGMA user_version=4")
+        connection.execute("PRAGMA user_version=5")
         with connection:
             _insert(connection, "publication", metadata)
         for item, corpus_path in zip(selection["corpora"], paths):
@@ -539,7 +527,7 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                 _insert(connection, "season", evidence)
                 for table, rows in tables:
                     for row in rows:
-                        _insert(connection, table, _stored(row, result.season))
+                        _insert(connection, table, stored_row(row, result.season))
             with closing(sqlite3.connect(incomplete.as_uri() + "?mode=ro", uri=True)) as readback:
                 readback.row_factory = sqlite3.Row
                 require(dict(readback.execute("SELECT * FROM season WHERE season=?", (result.season,)).fetchone()) == evidence,
@@ -548,9 +536,9 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                     cursor = readback.execute(f"SELECT * FROM {table} WHERE season=? ORDER BY rowid", (result.season,))
                     for row in rows:
                         actual = cursor.fetchone()
-                        require(actual is not None and dict(actual) == _stored(row, result.season), f"{result.season}/{table}: read-back differs")
+                        require(actual is not None and dict(actual) == stored_row(row, result.season), f"{result.season}/{table}: read-back differs")
                     require(cursor.fetchone() is None, f"{result.season}/{table}: extra stored rows")
-                checks = _check_season(readback, result, selection["purpose"])
+                checks = check_season(readback, result, selection["purpose"])
             season_output = output / "seasons" / result.season
             season_output.mkdir(parents=True)
             season_verification = {"schema_version": 1, "kind": "observed_season_verification",
@@ -575,7 +563,7 @@ def build_publication(selection_path: Path, output: Path) -> dict:
         require([tuple(r) for r in connection.execute("PRAGMA integrity_check")] == [("ok",)], "sqlite integrity check failed")
         require(not connection.execute("PRAGMA foreign_key_check").fetchall(), "sqlite foreign key check failed")
         require(connection.execute("PRAGMA journal_mode").fetchone()[0] == "delete", "publication requires delete journal mode")
-        require(connection.execute("PRAGMA user_version").fetchone()[0] == 4, "publication requires schema 4")
+        require(connection.execute("PRAGMA user_version").fetchone()[0] == 5, "publication requires schema 5")
         require(dict(connection.execute("SELECT * FROM publication").fetchone()) == metadata, "publication metadata read-back differs")
         require([r[0] for r in connection.execute("SELECT season FROM season ORDER BY season")] == [r["season"] for r in selection["corpora"]],
                 "stored season catalog differs")

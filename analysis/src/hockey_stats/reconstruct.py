@@ -32,6 +32,28 @@ class Interval(Membership):
     issue_indices: list[int]
 
 
+class ExposureSegment(TypedDict):
+    period_number: int
+    start_seconds: int
+    end_seconds: int
+    away_skaters: list[int]
+    home_skaters: list[int]
+    away_goalies: list[int]
+    home_goalies: list[int]
+    interval_indices: list[int]
+
+
+class ExposureConflict(TypedDict):
+    source_index: int
+    event_id: int | None
+    report_source_index: int
+    period_number: int
+    elapsed_seconds: int
+    temporal_case: Literal["interior", "boundary"]
+    segment_indices: list[int]
+    shift_relation: Literal["before", "after", "both", "neither", "unavailable"]
+
+
 class ShotTypeEvidence(TypedDict):
     api_value: str | None
     report_value: str | None
@@ -118,6 +140,55 @@ _ATTEMPTS = {"goal", "shot-on-goal", "missed-shot", "blocked-shot"}
 _SKATERS = {"C", "L", "R", "D", "F"}
 _EMPTY: Membership = {"away_skaters": None, "home_skaters": None,
                       "away_goalies": None, "home_goalies": None}
+
+
+def five_on_five_segments(intervals: list[Interval] | None) -> list[ExposureSegment]:
+    """coalesce ordered native intervals by full membership, without changing them."""
+    segments: list[ExposureSegment] = []
+    for index, row in enumerate(intervals or []):
+        if row["classification"] != "five_on_five" or row["end_seconds"] <= row["start_seconds"]:
+            continue
+        members = {field: sorted(row[field]) for field in _EMPTY}
+        if (segments and segments[-1]["interval_indices"][-1] == index - 1
+                and segments[-1]["period_number"] == row["period_number"]
+                and segments[-1]["end_seconds"] == row["start_seconds"]
+                and all(segments[-1][field] == values for field, values in members.items())):
+            segments[-1]["end_seconds"] = row["end_seconds"]
+            segments[-1]["interval_indices"].append(index)
+        else:
+            segments.append(dict(period_number=row["period_number"], start_seconds=row["start_seconds"],
+                end_seconds=row["end_seconds"], **members, interval_indices=[index]))
+    return segments
+
+
+def outside_attempt_conflicts(
+    interpreted: GameDocument, reconstruction: Reconstruction, segments: list[ExposureSegment],
+) -> list[ExposureConflict]:
+    """locate supported other-strength attempts against unchanged native 5v5 runs."""
+    reports = {row["source_index"]: row for row in interpreted["report_rows"] or []}
+    events = {row["source_index"]: row for row in reconstruction["events"] or []}
+    conflicts: list[ExposureConflict] = []
+    for event in interpreted["events"] or []:
+        row = events[event["source_index"]]
+        report = reports.get(row["report_source_index"])
+        modifier = row["goal_modifier_evidence"]
+        if (not event["kind_valid"] or event["timed_period"] is not True
+                or event["type_key"] not in _ATTEMPTS or event["elapsed_seconds"] is None
+                or row["classification"] != "other" or row["match_status"] != "matched"
+                or report is None or report["penalty_shot"] is not False
+                or modifier is not None and modifier["status"] == "reported" and modifier["reported_value"] == "penalty-shot"):
+            continue
+        clock = event["elapsed_seconds"]
+        adjoining = [i for i, segment in enumerate(segments) if segment["period_number"] == event["period_number"]
+                    and segment["start_seconds"] <= clock <= segment["end_seconds"]]
+        if not adjoining:
+            continue
+        interior = any(segments[i]["start_seconds"] < clock < segments[i]["end_seconds"] for i in adjoining)
+        conflicts.append(dict(source_index=event["source_index"], event_id=event["event_id"],
+            report_source_index=row["report_source_index"], period_number=event["period_number"],
+            elapsed_seconds=clock, temporal_case="interior" if interior else "boundary",
+            segment_indices=adjoining, shift_relation=row["shift_relation"]))
+    return conflicts
 
 
 def _issue(issues: list[Issue], code: str, source: str, path: str, message: str) -> int:

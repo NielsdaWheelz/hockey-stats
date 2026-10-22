@@ -30,6 +30,10 @@ export const reasons: Record<
     "an event could not be assigned to supported 5v5 membership and time",
   unpaired_report_attempt: "a report attempt has no native event match",
   elapsed_membership_unresolved: "some elapsed membership is unresolved",
+  event_exposure_conflict:
+    "event and shift evidence disagree about 5v5 play; the affected interval's counts and time are excluded.",
+  shift_source_empty:
+    "the captured shift source contains no records; elapsed 5v5 time is unavailable.",
   period_horizon_unavailable: "a period's elapsed horizon is unavailable",
   player_toi_conflict:
     "reported player ice time conflicts with reconstructed exposure",

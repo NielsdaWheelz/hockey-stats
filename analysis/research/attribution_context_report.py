@@ -158,7 +158,7 @@ def report(assessment,output):
         f"the complete twelve-region prediction contrast is `{direction}`; candidate minus control is {_number(leading[0]['estimate'])} (recorded unblocked attempts/60)². lower is better.",'']
     for row in leading:
         lines.append(f"- {row['scheme']}: {_number(row['lower'])} to {_number(row['upper'])}; {row['undefined_draws']} unavailable draws.")
-    lines.extend(['','other diagnostic directions (each combines all three interval schemes):'])
+    lines.extend(['','other diagnostic directions (each combines all three interval schemes):',''])
     for row in primary:
         if (row['scheme']=='games' and row['region']=='all'
             and not (row['metric']=='regional' and row['component']=='complete')
@@ -173,10 +173,10 @@ def report(assessment,output):
     supported_regions=[row for row in primary if row['scheme']=='games' and row['metric']=='regional'
         and row['region']!='all' and row['direction'] in ('supported_lower_loss','supported_higher_loss')]
     if supported_regions:
-        lines.extend(['','individual-region supported directions are unadjusted descriptive comparisons across twelve regions. all twelve comparisons remain in the table; this adds no selection or adoption rule.'])
+        lines.extend(['','individual-region supported directions are unadjusted descriptive comparisons across twelve regions. all twelve comparisons remain in the table; this adds no selection or adoption rule.',''])
         for row in supported_regions:
             lines.append(f"- {row['region']}: {_number(row['estimate'])} (recorded unblocked attempts/60)²; `{row['direction']}` across all three conditional interval schemes.")
-    lines.extend(['','current-player point-change summaries, in recorded unblocked attempts/60:'])
+    lines.extend(['','current-player point-change summaries, in recorded unblocked attempts/60:',''])
     for row in d['player_summary_rows']:
         lines.append(f"- {row['role']} {row['metric']}: exposure-weighted rms {_number(row['exposure_weighted_rms'])}; median {_number(row['median'])}; p90 {_number(row['p90'])}; maximum {_number(row['maximum'])}.")
     lines.extend(['','the intervals condition on fitted histories, selected scales, split, source population and this continuous working least-squares contrast. they are not absolute mse, equivalence evidence or calibrated player uncertainty.','',

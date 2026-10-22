@@ -100,7 +100,7 @@ export default function DeploymentTables({
                         aria-label={expanded[relation] ? `show fewer ${relation}` : `show all ${peers.length} ${relation}`}
                         aria-expanded={expanded[relation]}
                         aria-controls={`${id}-${relation}`}
-                        onClick={() => setExpanded({ ...expanded, [relation]: !expanded[relation] })}
+                        onClick={() => setExpanded((current) => ({ ...current, [relation]: !current[relation] }))}
                       >
                         {expanded[relation] ? "show fewer" : `show all ${peers.length}`}
                       </button>

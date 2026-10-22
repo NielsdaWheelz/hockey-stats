@@ -100,7 +100,7 @@ a card presents quantities; it is not a new statistical model. several rows can 
 | finishing/setting detail | results, estimated subskills, shot-type/danger breakdowns and history | later; exact panel composition and bins specified with the models |
 | goalie summary and detail | compact comparisons, stopping evidence, maps, subskills and history | later family; exact panels candidates |
 | usage/context view | deployment distributions, teammates/opponents, role and workload | 05h specifies observed teammate/opponent shared minutes and time shares; richer roles, workload and quality claims remain later |
-| personal shot view | individual shot locations, rates and shot mix | later; observed/imputed locations distinguished |
+| personal shot view | individual shot locations, rates and shot mix | [05i direction stub](specs/05i-personal-shot-views.md) covers source-supported personal shooting geography independently of ability research; exact event population, distribution/rate meaning and coverage remain to specify. blocked contacts are not release locations; broader shot mix remains later |
 | with/without view | together/apart results and maps, selected teammate/combination context, replacement comparisons | later; shared deployment prevents a causal-chemistry claim |
 | adjustment explanation | relate observed on-ice results to isolated estimates through supported self/context terms and any defined residual | later; nonlinear effects need explicit composition, not invented additive attribution |
 | tracking/microstat card | directly tracked actions and optional skating measures | optional |

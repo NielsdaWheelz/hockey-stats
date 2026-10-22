@@ -55,6 +55,12 @@ reviewed after [03o](research/chance-03o/protocol.md), 2026-10-14. this classifi
 
 before activation, inspect availability by season and outcome; preserve source status, structural absence and unavailable/conflicting evidence. define the comparable population before fitting, evaluate both arms there, and report departures from the full source-eligible population. complete-case comparability does not establish representativeness. no silent zero fill, successful-row intersection or automatic imputation follows. the full specification must also decide whether conditioning on the family removes a mechanism the player should receive credit for.
 
+## attribution exposure context
+
+04n uses home/period/clipped-score context over matched elapsed exposure. [04o's full specification](specs/04o-attribution-context.md) selects, but has not implemented or scientifically adopted, eighteen fixed within-period time/score columns. new temporal shape uses the existing forty modes; old coarse context retains its native maps. no selected smoothing penalty is added. pre-event score and clock facts supply exact event terms and integrated zero-event exposure, centered using training time only. a midpoint or attempt-level `game_detail` value is not this contract. player shape, corrected population and annual borrowing remain unchanged. player consequences are point sensitivities, not validated recovery or uncertainty.
+
+`shift_age`/`shift_start` availability likewise does not provide elapsed-time attribution: skaters have distinct histories, and `no_same_clock_faceoff` does not prove an on-the-fly start. preserve these capabilities without silently selecting them or controlling away player-created mechanisms.
+
 ## unavailable evidence and separate inference
 
 complete passing/screens, tracked entries/exits, trajectories and representative physical block release/contact pairs remain unavailable in the admitted public corpus. catalogue possible enrichment; never synthesize it as observed input. unsupported proxies remain pending until their meaning can be specified. optional paid evidence stays separate from the core.

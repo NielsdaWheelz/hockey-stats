@@ -101,6 +101,9 @@ the explicit long-term destination is to replicate the substantive player-card a
 | post-04m direction, approved 2026-10-21 | retain borrowing; assess complete matched unblocked volume plus shape before another prior, deployment-feature or uncertainty campaign | fresh volume work delays richer context/intervals but tests the assembled recorded-rate quantity. no new likelihood, admission or replacement of the all-attempt chance-valued destination |
 | 04n corrected support, confirmed 2026-10-21 | apply the verified historical zero-event exposure exclusions; six fresh scalar states plus three affected borrowing-shape refits; reuse three unaffected shape states | requires accepted final 02d research evidence and exact reuse checks; source-only shape sensitivity preserves the frozen 04m comparison without claiming the complete effect of source correction |
 | 04n sign diagnostics, confirmed 2026-10-21 | replay held-out 2025–26 rows, including zero-event time | complete-rate signs, minima and negative mass cover the assessed population; earlier negative-rate findings remain historical, without a five-season sign campaign |
+| 04o temporal context, confirmed 2026-10-21 | fixed smooth curves within each period | isolates one score/time revision without selecting a smoothing penalty; may miss abrupt late-game changes |
+| 04o scientific decision, confirmed 2026-10-21 | diagnostic comparison; decide adoption afterward | predictive direction and player consequences inform a later decision, without automatic nomination or recovery claims |
+| 04o uncertainty/budget, confirmed 2026-10-21 | player-effect point sensitivities; ten new annual component fits, exact controls reused | prediction intervals condition on fits; player changes cannot be claimed to exceed fitting uncertainty. no repeated-history uncertainty campaign |
 
 ## initial product and scope
 

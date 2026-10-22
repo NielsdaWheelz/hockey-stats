@@ -2,6 +2,22 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04o specification review — 2026-10-21
+
+independent statistical, source/hockey and systems/content reviewers clear the [full contract](../specs/04o-attribution-context.md). the user selected fixed smooth curves, diagnostic adoption afterward and player point sensitivities with ten new fits. engineering fixes eighteen time/score columns, projects their shape component into the existing forty modes, preserves old native context maps and reuses ten exact borrowing controls. the cost is restricted temporal/spatial flexibility and unvalidated player uncertainty. [the plan](../plan.md) owns execution assignment.
+
+adversarial review resolved the finite-response-energy issue: exact event-time/exposure calculations need a continuous working contrast and a typed score-only scalar likelihood. the old full-objective response term is constant within each annual scale search; existing controls remain valid and byte-identical, with independent constant-offset/posterior checks and bounded numerical probes. no invented energy, absolute mse or calibrated noise claim follows. the control must reproduce 04n before candidate interpretation.
+
+source review made frozen pre-scores and accepted event assignment authoritative: ledger order is not score chronology. exact count/time conservation, training-only centering and interval integration preserve the population. systems review requires sparse player blocks, a fixed final-season sensitivity population and separate scalar/regional summaries. content review separates prediction, player movement and impossible physical rates; endpoint extrema identify one-sided limits. no source/research execution or serving change occurred during specification. coefficient movement and public-method resemblance establish neither improved individual recovery nor ability admission.
+
+## approved direction after 04n — 2026-10-21
+
+independent statistical, hockey/source and product/systems reviewers agree on retaining borrowing and making player consequences central to the next contextual comparison. statistics initially favored shift-start circumstances, then accepted score × game time after source review: current shift evidence is attempt-indexed and a missing same-clock faceoff does not establish an on-the-fly start. the adopted direction is [04o](../specs/04o-attribution-context.md), with exposure integration and player-effect sensitivity, not a diagnosed remedy. [the plan](../plan.md) owns progression.
+
+04n's regional negative mass is about 0.9 predicted attempts versus 279 natively. neither frequency nor this aggregate magnitude selects a likelihood rewrite; small regional mass does not validate individual maps. preserve the issue without clipping or a retrospective tolerance. the tradeoff is another contextual comparison before calibrated player intervals; avoid repeating generic accounting or launching an open-ended feature search. [model direction](model-direction.md#04o--test-context-and-player-consequences) records the remaining claim requirements.
+
+[published magnus 9](https://hockeyviz.com/txt/magnus9EV) supports explicit contextual components and historical borrowing, but reports generally modest annual score/zone effects. the [2026–27 preview](https://hockeyviz.com/txt/preview2627), rechecked 2026-10-21, announces a later rewrite without its full method there. our recommendation is an inference, not micah's private prescription. product review supports independent [05i personal shooting geography](../specs/05i-personal-shot-views.md), with new source/publication contracts; schema-6 activation is already complete.
+
 ## 04n delivery review — 2026-10-21
 
 independent integration review clears [pr #46](https://github.com/NielsdaWheelz/hockey-stats/pull/46), its successful security check and exact reviewed/merged tree equality. the source snapshot and all scientific producers remain ancestors. primary source imports, command entry and pinned typechecking pass; schema-6 application/publication code is unchanged. no scientific computation or serving rebuild occurs during delivery.

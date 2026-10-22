@@ -20,6 +20,8 @@ reviewed 2026-09-29. this is the checklist behind the [roadmap](roadmap.md), bou
 
 ## analytical dependencies
 
+2026-10-21 deployment direction: [05h](specs/05h-observed-deployment.md) brings forward teammate/opponent shared-minute tables after [02d's source/exposure contract](specs/02d-source-exposure-consistency.md) settles. these add observed context using zero-event time as well as event-bearing intervals; quality, chemistry, together/apart outcomes and fitted adjustments remain later. source repair and the contingent [04n](specs/04n-attribution-follow-up.md) scientific question have separate owners.
+
 the capability review, updated after 04b, separates available facts, implemented mechanisms and supported estimates. [the plan](plan.md) owns assignments/status and [the feature inventory](model-features.md) exact encoder use; these are dependencies of parity, not a mandatory bundle before the first useful profile.
 
 | capability boundary | remaining work |
@@ -97,7 +99,7 @@ a card presents quantities; it is not a new statistical model. several rows can 
 | detailed 5v5 view | inspect spatial differences hidden by the summary | first maps; richer drill-down later |
 | finishing/setting detail | results, estimated subskills, shot-type/danger breakdowns and history | later; exact panel composition and bins specified with the models |
 | goalie summary and detail | compact comparisons, stopping evidence, maps, subskills and history | later family; exact panels candidates |
-| usage/context view | deployment distributions, teammates/opponents, role and workload | later beyond first exposure/context essentials |
+| usage/context view | deployment distributions, teammates/opponents, role and workload | 05h direction covers observed teammate/opponent shared minutes; richer roles, workload and quality claims remain later |
 | personal shot view | individual shot locations, rates and shot mix | later; observed/imputed locations distinguished |
 | with/without view | together/apart results and maps, selected teammate/combination context, replacement comparisons | later; shared deployment prevents a causal-chemistry claim |
 | adjustment explanation | relate observed on-ice results to isolated estimates through supported self/context terms and any defined residual | later; nonlinear effects need explicit composition, not invented additive attribution |

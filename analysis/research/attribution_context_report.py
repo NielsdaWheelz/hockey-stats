@@ -142,7 +142,10 @@ def report(assessment,output):
     write_json(root/'result.json',json_values(result))
     introduction=('this fixture exercise uses explicitly synthetic counted histories. it verifies implementation contracts and makes no research recommendation.'
         if d['purpose']=='fixture_exercise' else
-        'this is a research comparison of complete recorded unblocked-attempt rates. it does not admit a player-ability model.')
+        'this is a research comparison of complete recorded unblocked-attempt rates. it does not admit a player-ability model. '
+        'the response is source-locatable unblocked attempts on matched genuine 5v5 exposure, including zero-event time. '
+        'all five selected seasons are research-exposed; the final-season split is '
+        f"{d['coverage']['training_games']} training and {d['coverage']['assessment_games']} assessment games.")
     lines=['# 04o: score and game-time context','',introduction,'',
         f"the complete twelve-region prediction contrast is `{direction}`; candidate minus control is {_number(leading[0]['estimate'])} (recorded unblocked attempts/60)². lower is better.",'']
     for row in leading:

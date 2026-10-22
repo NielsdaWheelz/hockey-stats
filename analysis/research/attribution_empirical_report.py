@@ -149,7 +149,9 @@ def render_reports(output, assessment, assessment_reference):
         f"{_number(coverage['training_recorded_unblocked_attempts'])} recorded unblocked attempts; assessment retains "
         f"{_number(coverage['assessment_directed_hours'])} directed hours and "
         f"{_number(coverage['assessment_recorded_unblocked_attempts'])} attempts. "
-        f"{coverage['assessment_zero_time_games']} assessment games have zero retained time and remain sampling/calendar units.", "",
+        f"{coverage['assessment_zero_time_games']} assessment games have zero retained time and remain sampling/calendar units. "
+        "directed hours count both team directions and equal twice matched physical game-clock hours; "
+        "source-ledger retained_seconds remains physical game-clock time.", "",
         "the fixed split reserves the first floor(month game count / 5) ids after the declared sha256 ordering within each inventory calendar month. "
         "[game-scores.csv](game-scores.csv) names every withheld game, date, retained count/time, coverage record and source identity. "
         "all earlier seasons are training; final references, players, context means and penalties use final training games only. "

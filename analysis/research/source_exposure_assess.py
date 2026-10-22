@@ -123,7 +123,7 @@ def source_concordance(observed, frozen):
                 differences=differences)
 
 
-def intersect_runs(runs, segments, events, population, *, directed_rows=None, game=None):
+def intersect_runs(runs, segments, events, population, *, directed_rows, game):
     """intersect whole runs with the frozen ledger's score-split rows and masks."""
     require(population in ('all_attempts', 'unblocked_spatial'), 'unknown frozen population')
     runs = sorted({(r['period_number'], r['start_seconds'], r['end_seconds']) for r in runs})
@@ -161,32 +161,31 @@ def intersect_runs(runs, segments, events, population, *, directed_rows=None, ga
         duration = row['end'] - row['start']
         masks = row['masks'][population]
         require(isinstance(masks, list), 'frozen mask must be an array')
-        if directed_rows is not None:
-            directions = [r for r in directed_rows if r['segment_index'] == index]
-            require(len(directions) == (0 if masks else 2), 'frozen directed-row mask/pair differs')
-            require(masks or {r['stratum'][0] for r in directions} == {'away','home'},
-                    'frozen directed-row side pair differs')
-            for direction in directions:
-                side = direction['stratum'][0]
-                opponent = 'home' if side == 'away' else 'away'
-                expected_counts = row['counts'][side][population]
-                if population == 'all_attempts':
-                    expected_counts = [[0,expected_counts]] if expected_counts else []
-                require(direction['population'] == population and direction['period'] == row['period']
-                        and direction['start'] == row['start'] and direction['end'] == row['end']
-                        and direction['seconds'] == duration
-                        and direction['offense'] == row[side+'_skaters']
-                        and direction['defense'] == row[opponent+'_skaters']
-                        and direction['counts'] == expected_counts,
-                        'frozen directed-row range/membership/counts differ from segment')
-                require(game is not None and direction['attacking_team'] == game[side+'_team_id']
-                        and direction['stratum'][1] == (str(row['period']) if row['period'] <= 3 else 'overtime')
-                        and direction['stratum'][2] == max(-3,min(3,-row['score_difference'] if side == 'away' else row['score_difference'])),
-                        'frozen directed-row context differs')
-                directed_checked += 1
-                directed_seconds += direction['seconds']
-                player_seconds += direction['seconds']*len(direction['offense'])
-                directed_counts += sum(count for _,count in direction['counts'])
+        directions = [r for r in directed_rows if r['segment_index'] == index]
+        require(len(directions) == (0 if masks else 2), 'frozen directed-row mask/pair differs')
+        require(masks or {r['stratum'][0] for r in directions} == {'away','home'},
+                'frozen directed-row side pair differs')
+        for direction in directions:
+            side = direction['stratum'][0]
+            opponent = 'home' if side == 'away' else 'away'
+            expected_counts = row['counts'][side][population]
+            if population == 'all_attempts':
+                expected_counts = [[0,expected_counts]] if expected_counts else []
+            require(direction['population'] == population and direction['period'] == row['period']
+                    and direction['start'] == row['start'] and direction['end'] == row['end']
+                    and direction['seconds'] == duration
+                    and direction['offense'] == row[side+'_skaters']
+                    and direction['defense'] == row[opponent+'_skaters']
+                    and direction['counts'] == expected_counts,
+                    'frozen directed-row range/membership/counts differ from segment')
+            require(direction['attacking_team'] == game[side+'_team_id']
+                    and direction['stratum'][1] == (str(row['period']) if row['period'] <= 3 else 'overtime')
+                    and direction['stratum'][2] == max(-3,min(3,-row['score_difference'] if side == 'away' else row['score_difference'])),
+                    'frozen directed-row context differs')
+            directed_checked += 1
+            directed_seconds += direction['seconds']
+            player_seconds += direction['seconds']*len(direction['offense'])
+            directed_counts += sum(count for _,count in direction['counts'])
         counts = row['counts']
         assigned = by_segment[index]
         total = 0
@@ -226,18 +225,17 @@ def intersect_runs(runs, segments, events, population, *, directed_rows=None, ga
         ledger_receipts.append(dict(segment_index=index, period=row['period'], start=row['start'], end=row['end'],
             score=row.get('score'), score_difference=row.get('score_difference'), masks=masks,
             pre_mask_attempts=total, interval_indices=row.get('interval_indices')))
-    if directed_rows is not None:
-        require(directed_seconds == 2*losses and player_seconds == 10*losses and directed_counts == len(lost),
-                'frozen directed/player/count loss does not conserve physical/event units')
+    require(directed_seconds == 2*losses and player_seconds == 10*losses and directed_counts == len(lost),
+            'frozen directed/player/count loss does not conserve physical/event units')
     return dict(newly_excluded_physical_seconds=losses,
-        newly_excluded_directed_seconds=directed_seconds if directed_rows is not None else 2*losses,
-        newly_excluded_player_seconds=player_seconds if directed_rows is not None else 10*losses, already_excluded_physical_seconds=prior,
+        newly_excluded_directed_seconds=directed_seconds,
+        newly_excluded_player_seconds=player_seconds, already_excluded_physical_seconds=prior,
         already_excluded_directed_seconds=2*prior, already_excluded_player_seconds=10*prior,
         newly_excluded_attempts=len(lost), already_excluded_attempts=len(excluded),
         newly_excluded_player_for=len(lost)*5, newly_excluded_player_against=len(lost)*5,
         affected_players=[dict(player_id=pid, lost_seconds=seconds) for pid, seconds in sorted(players.items())],
         lost_retained_events=lost, already_excluded_events=excluded, segments=ledger_receipts,
-        directed_rows_checked=directed_checked if directed_rows is not None else None)
+        directed_rows_checked=directed_checked)
 
 
 def _read_database(path, version, purpose):
@@ -692,6 +690,26 @@ def _research_impact(result_path, incidents, output):
                         measured['source'] = incident['source']
                         measured['populations'] = None
                         if concordance['source_status'] == 'concordant':
+                            intervals = frozen['reconstruction']['intervals'] or []
+                            for segment in ledger['segments'].get(gid,[]):
+                                if not any(r['period_number'] == segment['period'] and r['start_seconds'] < segment['end']
+                                           and r['end_seconds'] > segment['start'] for r in incident['runs']):
+                                    continue
+                                cursor = segment['start']
+                                for index in segment['interval_indices']:
+                                    require(type(index) is int and 0 <= index < len(intervals),
+                                            'frozen segment native interval reference unavailable')
+                                    native_interval = intervals[index]
+                                    # native membership can span a ledger context boundary; retain its exact overlap.
+                                    left = max(segment['start'],native_interval['start_seconds'])
+                                    right = min(segment['end'],native_interval['end_seconds'])
+                                    require(native_interval['period_number'] == segment['period'] and left == cursor
+                                            and right > left and native_interval['classification'] == 'five_on_five'
+                                            and all(native_interval[k] == segment[k] for k in
+                                                ('away_skaters','home_skaters','away_goalies','home_goalies')),
+                                            'frozen ledger segment does not match native interval bounds/memberships')
+                                    cursor = right
+                                require(cursor == segment['end'], 'frozen native intervals do not tile ledger segment')
                             api = {e['source_index']:e for e in frozen['interpreted']['events'] or []}
                             native = {e['source_index']:e for e in frozen['reconstruction']['events'] or []}
                             for event in ledger['events'].get(gid, []):

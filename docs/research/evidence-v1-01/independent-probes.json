@@ -1,0 +1,54 @@
+{
+  "probe-participation-3.txt": {
+    "sha256": "46476a8b3a077cccf2c7b30698767e200d08b555ca36c670fba7c6f96974d76b",
+    "result": {
+      "differ|censored|mismatch": 22,
+      "differ|censored|unavailable": 5,
+      "match|censored|mismatch": 11,
+      "match|uncensored|match": 1261,
+      "match|uncensored|unavailable": 34
+    }
+  },
+  "probe-r6-2.txt": {
+    "sha256": "cc9922af9607514508bd861dd0df546d662f1ea118fc07a669822d9cac13fc80",
+    "result": "exact_duplicates           supported=[0, 1] conflicts=[]\nadjacent                   supported=[0, 1] conflicts=[]\nstrict_overlap             supported=[] conflicts=[[0, 1]]\nnested                     supported=[] conflicts=[[0, 1]]\noverlap_then_clean         supported=[2] conflicts=[[0, 1]]\nother_player_unaffected    supported=[2] conflicts=[[0, 1]]\ncoverage 8482684: False\nrows 27 span 1564 censored 27 p2 spans near 1137: [(1054, 1103)]\noverlap issues: 4 ['distinct strictly overlapping shift bounds for player 8482684 in period 2; component omitt']\nprefix at /plays/194 None 921 complete individual source participation unavailable\n"
+  },
+  "parity-3.json": {
+    "sha256": "c56f8871c4f3711e10528511b469ed004d71e0b8c31edc03389b1097f1bfd533",
+    "result": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/claude-review/head /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/claude-review/head/hockey_stats/reconstruct.py False\n/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src/hockey_stats/reconstruct.py True\n{\"games\": 36, \"differing\": []}\n"
+  },
+  "tamper-3.json": {
+    "sha256": "9b267cfda9cc91be6bbce57beea914c23ce8a21fcad252ecc2b9daf33e4b7697",
+    "result": {
+      "baseline_unchanged": "ACCEPTED",
+      "game_bytes_changed_no_rehash": "rejected: /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/claude-review/tamper/game_bytes_changed_no_rehash/games/20242025/2024020404.json: member digest ",
+      "game_extra_key_rehash": "rejected: game: record fields differ from closed schema",
+      "game_nan_rehash": "rejected: /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/claude-review/tamper/game_nan_rehash/games/20242025/2024020404.json: non-finite number NaN",
+      "game_unbound_input_ref_rehash": "rejected: prepared/evidence: source locator is not bound by manifest inputs",
+      "game_null_without_problem_rehash": "rejected: game/events/0/pre_score: null fields must have exactly one located problem",
+      "game_negative_count_rehash": "rejected: game/chunks/0/score/values/away: negative counter, index or time",
+      "manifest_extra_key": "rejected: manifest: record fields differ from closed schema",
+      "manifest_missing_member": "rejected: manifest/files: extra, missing or duplicate member",
+      "manifest_cross_wired": "rejected: game: member identity differs",
+      "manifest_escape_path": "rejected: manifest/files: member path must be contained and canonical",
+      "manifest_negative_resource": "rejected: manifest/resources/wall_seconds: negative counter, index or time",
+      "manifest_purpose_relabel_real": "rejected: manifest: selection identity differs",
+      "selection_copy_changed": "rejected: manifest: copied selection digest differs",
+      "manifest_removed": "rejected: /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/claude-review/tamper/manifest_removed/manifest.json: [Errno 2] No such file or directory: '/User",
+      "read_as_real": "rejected: manifest: preparation purpose differs",
+      "prepare_unknown_key": "rejected: selection: record fields differ from closed schema",
+      "prepare_duplicate_game": "rejected: selection: duplicate or invalid game identity",
+      "prepare_duplicate_season": "rejected: selection: seasons must be unique, admitted and ordered",
+      "prepare_bool_schema": "rejected: selection/schema_version: invalid literal",
+      "prepare_hash_mismatch": "rejected: /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json: selected corpus digest differs",
+      "prepare_fixture_relabeled_real": "rejected: selection: real preparation requires all five ordered seasons",
+      "prepare_real_with_game_ids_null_fixture": "rejected: selection: real requires all inventory games; fixture requires explicit nonempty games",
+      "prepare_duplicate_json_key": "rejected: duplicate object key 'schema_version'",
+      "prepare_occupied_output": "rejected: /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/claude-review/small-out: output directory already exists"
+    }
+  },
+  "synthetic-labels-3.txt": {
+    "sha256": "4b0ea04e79f6f207ad4f658b44a71de601b5b7da0ff491d9dc6c85c403a0f785",
+    "result": "stop_at_2s                   stop=True (-) reattempt=False(-) delay=2\nstop_at_3s                   stop=False(-) reattempt=False(-) delay=3\nstop_reason_unknown          stop=None (unavailable) reattempt=False(-) delay=1\nreattempt_at_5s              stop=False(-) reattempt=True (-) delay=5\nreattempt_at_6s              stop=False(-) reattempt=False(-) delay=6\nopponent_unresolved_next     stop=False(-) reattempt=False(-) delay=2\nsame_team_unresolved_next    stop=False(-) reattempt=None (unavailable) delay=2\ninvalid_next_row             stop=None (unavailable) reattempt=None (unavailable) delay=None\nequal_clock_hit              stop=False(-) reattempt=False(-) delay=0\nlast_row_no_terminal         stop=None (unavailable) reattempt=None (unavailable) delay=None\n"
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "status": "passed",
+  "meaning": "reader selection of actual execution, all-strength descriptive and elapsed facts; no downstream fit or eligibility claim",
+  "original_sources_denied": true,
+  "network_denied": true,
+  "games": [
+    {
+      "game_id": "2025020001",
+      "execution_facts": 119,
+      "execution_examples": [
+        {
+          "source_index": 2,
+          "details": {
+            "outcome": "block",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8473419,
+            "physical_shooter_id": 8473419,
+            "shooting_team_id": 13,
+            "opposing_goalie_id": 8481519,
+            "location_kind": "block_contact"
+          },
+          "geometry": {
+            "x_ft": 61,
+            "y_ft": -3,
+            "frame": "home_attack",
+            "location_kind": "block_contact"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": null,
+            "reattempt_within_5s": null,
+            "reattempt_source_index": null,
+            "next_event_source_index": null,
+            "next_event_delay_seconds": null
+          }
+        },
+        {
+          "source_index": 66,
+          "details": {
+            "outcome": "goal",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8483493,
+            "physical_shooter_id": 8483493,
+            "shooting_team_id": 16,
+            "opposing_goalie_id": 8475683,
+            "location_kind": "reported_attempt"
+          },
+          "geometry": {
+            "x_ft": -66,
+            "y_ft": 1,
+            "frame": "home_attack",
+            "location_kind": "reported_event"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": false,
+            "reattempt_within_5s": null,
+            "reattempt_source_index": null,
+            "next_event_source_index": null,
+            "next_event_delay_seconds": null
+          }
+        },
+        {
+          "source_index": 18,
+          "details": {
+            "outcome": "miss",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8484144,
+            "physical_shooter_id": 8484144,
+            "shooting_team_id": 16,
+            "opposing_goalie_id": 8475683,
+            "location_kind": "reported_attempt"
+          },
+          "geometry": {
+            "x_ft": -55,
+            "y_ft": 29,
+            "frame": "home_attack",
+            "location_kind": "reported_event"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": null,
+            "reattempt_within_5s": null,
+            "reattempt_source_index": null,
+            "next_event_source_index": null,
+            "next_event_delay_seconds": null
+          }
+        },
+        {
+          "source_index": 10,
+          "details": {
+            "outcome": "save",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8478542,
+            "physical_shooter_id": 8478542,
+            "shooting_team_id": 13,
+            "opposing_goalie_id": 8481519,
+            "location_kind": "reported_attempt"
+          },
+          "geometry": {
+            "x_ft": 58,
+            "y_ft": 22,
+            "frame": "home_attack",
+            "location_kind": "reported_event"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": true,
+            "reattempt_within_5s": false,
+            "reattempt_source_index": null,
+            "next_event_source_index": 11,
+            "next_event_delay_seconds": 1
+          }
+        }
+      ],
+      "descriptive_states": [
+        {
+          "away_skaters": 4,
+          "home_skaters": 5,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 222
+        },
+        {
+          "away_skaters": 5,
+          "home_skaters": 4,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 360
+        },
+        {
+          "away_skaters": 5,
+          "home_skaters": 5,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 2962
+        },
+        {
+          "away_skaters": 6,
+          "home_skaters": 5,
+          "away_goalies": 0,
+          "home_goalies": 1,
+          "physical_seconds": 56
+        }
+      ],
+      "elapsed_chunks": 1279,
+      "elapsed_example": {
+        "chunk_index": 159,
+        "segment_index": 53,
+        "start_seconds": 418,
+        "end_seconds": 428
+      },
+      "elapsed_example_score": {
+        "away": 0,
+        "home": 0
+      },
+      "elapsed_example_away_unit": {
+        "member_count": 4,
+        "known_count": 4,
+        "known_toi_all_sum_seconds": 508,
+        "toi_all_mean_seconds": 127.0,
+        "toi_all_max_seconds": 158
+      },
+      "elapsed_example_home_unit": {
+        "member_count": 5,
+        "known_count": 5,
+        "known_toi_all_sum_seconds": 680,
+        "toi_all_mean_seconds": 136.0,
+        "toi_all_max_seconds": 152
+      }
+    },
+    {
+      "game_id": "2025021094",
+      "execution_facts": 119,
+      "execution_examples": [
+        {
+          "source_index": 6,
+          "details": {
+            "outcome": "block",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8476873,
+            "physical_shooter_id": 8476873,
+            "shooting_team_id": 12,
+            "opposing_goalie_id": 8479361,
+            "location_kind": "block_contact"
+          },
+          "geometry": {
+            "x_ft": -78,
+            "y_ft": 4,
+            "frame": "home_attack",
+            "location_kind": "block_contact"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": null,
+            "reattempt_within_5s": null,
+            "reattempt_source_index": null,
+            "next_event_source_index": null,
+            "next_event_delay_seconds": null
+          }
+        },
+        {
+          "source_index": 47,
+          "details": {
+            "outcome": "goal",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8478057,
+            "physical_shooter_id": 8478057,
+            "shooting_team_id": 10,
+            "opposing_goalie_id": 8483548,
+            "location_kind": "reported_attempt"
+          },
+          "geometry": {
+            "x_ft": 80,
+            "y_ft": -3,
+            "frame": "home_attack",
+            "location_kind": "reported_event"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": false,
+            "reattempt_within_5s": null,
+            "reattempt_source_index": null,
+            "next_event_source_index": null,
+            "next_event_delay_seconds": null
+          }
+        },
+        {
+          "source_index": 5,
+          "details": {
+            "outcome": "miss",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8480336,
+            "physical_shooter_id": 8480336,
+            "shooting_team_id": 12,
+            "opposing_goalie_id": 8479361,
+            "location_kind": "reported_attempt"
+          },
+          "geometry": {
+            "x_ft": -44,
+            "y_ft": 40,
+            "frame": "home_attack",
+            "location_kind": "reported_event"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": null,
+            "reattempt_within_5s": null,
+            "reattempt_source_index": null,
+            "next_event_source_index": null,
+            "next_event_delay_seconds": null
+          }
+        },
+        {
+          "source_index": 20,
+          "details": {
+            "outcome": "save",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8479442,
+            "physical_shooter_id": 8479442,
+            "shooting_team_id": 10,
+            "opposing_goalie_id": 8483548,
+            "location_kind": "reported_attempt"
+          },
+          "geometry": {
+            "x_ft": 49,
+            "y_ft": -9,
+            "frame": "home_attack",
+            "location_kind": "reported_event"
+          },
+          "pre_score": {
+            "away": 0,
+            "home": 0
+          },
+          "pre_event_player_count": 12,
+          "immediate_outcomes": {
+            "recorded_goalie_stop": true,
+            "reattempt_within_5s": false,
+            "reattempt_source_index": null,
+            "next_event_source_index": 21,
+            "next_event_delay_seconds": 1
+          }
+        }
+      ],
+      "descriptive_states": [
+        {
+          "away_skaters": 3,
+          "home_skaters": 3,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 41
+        },
+        {
+          "away_skaters": 4,
+          "home_skaters": 4,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 97
+        },
+        {
+          "away_skaters": 4,
+          "home_skaters": 5,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 143
+        },
+        {
+          "away_skaters": 5,
+          "home_skaters": 4,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 503
+        },
+        {
+          "away_skaters": 5,
+          "home_skaters": 5,
+          "away_goalies": 1,
+          "home_goalies": 1,
+          "physical_seconds": 2739
+        }
+      ],
+      "elapsed_chunks": 1329,
+      "elapsed_example": {
+        "chunk_index": 78,
+        "segment_index": 28,
+        "start_seconds": 187,
+        "end_seconds": 197
+      },
+      "elapsed_example_score": {
+        "away": 0,
+        "home": 0
+      },
+      "elapsed_example_away_unit": {
+        "member_count": 5,
+        "known_count": 5,
+        "known_toi_all_sum_seconds": 288,
+        "toi_all_mean_seconds": 57.6,
+        "toi_all_max_seconds": 99
+      },
+      "elapsed_example_home_unit": {
+        "member_count": 4,
+        "known_count": 4,
+        "known_toi_all_sum_seconds": 203,
+        "toi_all_mean_seconds": 50.75,
+        "toi_all_max_seconds": 70
+      }
+    }
+  ]
+}

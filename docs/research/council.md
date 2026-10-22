@@ -1,5 +1,15 @@
 # council synthesis
 
+## v1-01 detached implementation review — 2026-10-22
+
+three non-astra implementers, peer review, root and an independent claude session completed the detached [shared-evidence implementation](evidence-v1-01/verification.md). the strict preparation command and public readers deliver all-strength event facts, matched elapsed masks/chunks, actual-unit context, immediate labels and dated people. 36 original fixture games retain 11,659 source events; all 37 native cases and the old research projections remain exact. canonical observed reducers on all three displayed seasons also remain exact. this is computational and interface verification, not scientific admission.
+
+adversarial review repaired focal outcome leakage, unsupported participation, goalie applicability, label missingness, support closure and finite artifact consistency defects. distinct overlapping own shift rows are omitted from known participation with original witnesses; exact duplicates and valid adjacency remain supported. actual multi-team identity checks and trusted-input future-mutation invariance pass. [receipts](evidence-v1-01/verification.md) retain the checked boundaries; temporary tests/controllers are deleted after final green.
+
+material costs remain visible: conservative lost support, piecewise-constant elapsed workload, two source passes and a measured 1.94 gb fixture artifact. the closed schema's repeated evidence needs a real operating-cost measurement and possibly a separately specified storage revision. source-order episode availability and explicitly future outcome groups need care in later execution encoders. these limits neither erase the facts nor establish model quality.
+
+work is paused at the user's instruction. the external drive is absent, so all 6,560 real games, full reconciliation/original-source spot checks and real resource measurements remain pending. v1-13 fixtures develop independently; its root owns final shared cli reconciliation. no acquisition, fitting, database change, application rebuild or activation occurred.
+
 ## v1-01 shared-evidence specification review — 2026-10-22
 
 three independent source/reconstruction, context/identity and systems/consumer reviewers clear the [v1-01 handoff](../specs/v1-01-shared-evidence.md). root inspected the existing owners and integrated their findings. this is documentation/code inspection, not implemented behavior, a corpus audit or scientific verification. no settled product choice needed reopening.

@@ -9,6 +9,20 @@ def period_length(event):
     return None
 
 
+def elapsed_scores(ordered, pre_scores, game):
+    """post-goal elapsed changes projected from the verified pre-event authority."""
+    result = []
+    for event in ordered:
+        if event["source_index"] not in pre_scores:
+            continue
+        if event["type_key"] == "goal" and event["timed_period"] is True:
+            score = dict(pre_scores[event["source_index"]])
+            side = "away" if event["shooting_team_id"] == game["away_team_id"] else "home"
+            score[side] += 1
+            result.append({"period_number":event["period_number"],"elapsed_seconds":event["elapsed_seconds"],"score":score})
+    return result
+
+
 def score_chronology(interpreted, events, game):
     """count all strengths before each event; never read post-event scores."""
     failures = []

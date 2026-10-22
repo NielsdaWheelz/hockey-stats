@@ -1,0 +1,566 @@
+{
+  "status": "fixture verification only; real five-season acceptance remains pending",
+  "games_checked": 37,
+  "native_reconstruction_five_on_five_and_02d_conflicts_exact": true,
+  "native_baseline_sha256": "5c0c858c7e3defc4897182a72e4966ec8e81b6b123507b899f4bcaf2462c01a1",
+  "checks": [
+    "one row per source event",
+    "source witnesses located",
+    "maximal membership physical seconds conserved",
+    "exclusion reason unions saved once",
+    "unique assigned half-open child",
+    "native reconstruction and old projections unchanged"
+  ],
+  "games": [
+    {
+      "game_id": "2021020001",
+      "source_events": 321,
+      "segments": 249,
+      "physical_seconds": 3600,
+      "excluded_seconds": 53,
+      "events": {
+        "not_applicable": 208,
+        "included": 111,
+        "excluded": 2
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "identity_conflict": 2
+      }
+    },
+    {
+      "game_id": "2021020454",
+      "source_events": 316,
+      "segments": 324,
+      "physical_seconds": 3900,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 185,
+        "included": 131
+      },
+      "report_only": 6,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2021020615",
+      "source_events": 291,
+      "segments": 238,
+      "physical_seconds": 3600,
+      "excluded_seconds": 28,
+      "events": {
+        "not_applicable": 191,
+        "included": 98,
+        "excluded": 2
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "identity_conflict": 2
+      }
+    },
+    {
+      "game_id": "2021020617",
+      "source_events": 358,
+      "segments": 261,
+      "physical_seconds": 3773,
+      "excluded_seconds": 34,
+      "events": {
+        "not_applicable": 240,
+        "included": 117,
+        "excluded": 1
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "identity_conflict": 1,
+        "strength_conflict": 1
+      }
+    },
+    {
+      "game_id": "2021020942",
+      "source_events": 344,
+      "segments": 264,
+      "physical_seconds": 3546,
+      "excluded_seconds": 105,
+      "events": {
+        "not_applicable": 218,
+        "included": 117,
+        "excluded": 6,
+        "unresolved": 3
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "identity_conflict": 3,
+        "membership_unavailable": 3,
+        "strength_conflict": 1
+      }
+    },
+    {
+      "game_id": "2021021103",
+      "source_events": 306,
+      "segments": 459,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 183,
+        "included": 108,
+        "unresolved": 15
+      },
+      "report_only": 6,
+      "reason_codes": {
+        "horizon_unavailable": 16
+      }
+    },
+    {
+      "game_id": "2021021179",
+      "source_events": 256,
+      "segments": 396,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 155,
+        "included": 101
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2022020001",
+      "source_events": 323,
+      "segments": 255,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 197,
+        "included": 126
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2022020009",
+      "source_events": 302,
+      "segments": 382,
+      "physical_seconds": 3605,
+      "excluded_seconds": 11,
+      "events": {
+        "not_applicable": 180,
+        "included": 120,
+        "excluded": 1,
+        "unresolved": 1
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "membership_unavailable": 2
+      }
+    },
+    {
+      "game_id": "2022020054",
+      "source_events": 364,
+      "segments": 287,
+      "physical_seconds": 3450,
+      "excluded_seconds": 26,
+      "events": {
+        "not_applicable": 240,
+        "included": 118,
+        "unresolved": 2,
+        "excluded": 4
+      },
+      "report_only": 2,
+      "reason_codes": {
+        "membership_unavailable": 4,
+        "event_evidence_unresolved": 2,
+        "unmatched_report_attempt": 2
+      }
+    },
+    {
+      "game_id": "2022020547",
+      "source_events": 256,
+      "segments": 391,
+      "physical_seconds": 3600,
+      "excluded_seconds": 3600,
+      "events": {
+        "not_applicable": 138,
+        "excluded": 118
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "count_accounting_conflict": 2,
+        "identity_conflict": 2
+      }
+    },
+    {
+      "game_id": "2022020822",
+      "source_events": 303,
+      "segments": 477,
+      "physical_seconds": 3900,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 187,
+        "included": 116
+      },
+      "report_only": 6,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2022021077",
+      "source_events": 313,
+      "segments": 429,
+      "physical_seconds": 3890,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 208,
+        "included": 105
+      },
+      "report_only": 5,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2023020001",
+      "source_events": 328,
+      "segments": 385,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 203,
+        "included": 125
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2023020012",
+      "source_events": 353,
+      "segments": 425,
+      "physical_seconds": 3589,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 227,
+        "included": 125,
+        "unresolved": 1
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "membership_unavailable": 1
+      }
+    },
+    {
+      "game_id": "2023020013",
+      "source_events": 347,
+      "segments": 468,
+      "physical_seconds": 3900,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 229,
+        "included": 118
+      },
+      "report_only": 6,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2023020078",
+      "source_events": 299,
+      "segments": 413,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 201,
+        "included": 98
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2023020237",
+      "source_events": 275,
+      "segments": 380,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 166,
+        "included": 109
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2023020955",
+      "source_events": 346,
+      "segments": 356,
+      "physical_seconds": 3598,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 213,
+        "included": 133
+      },
+      "report_only": 1,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2024020001",
+      "source_events": 349,
+      "segments": 416,
+      "physical_seconds": 3600,
+      "excluded_seconds": 50,
+      "events": {
+        "not_applicable": 224,
+        "included": 119,
+        "excluded": 6
+      },
+      "report_only": 3,
+      "reason_codes": {
+        "event_evidence_unresolved": 2,
+        "unmatched_report_attempt": 3
+      }
+    },
+    {
+      "game_id": "2024020022",
+      "source_events": 361,
+      "segments": 446,
+      "physical_seconds": 3661,
+      "excluded_seconds": 10,
+      "events": {
+        "not_applicable": 240,
+        "included": 113,
+        "excluded": 1,
+        "unresolved": 7
+      },
+      "report_only": 10,
+      "reason_codes": {
+        "identity_conflict": 2,
+        "membership_unavailable": 7
+      }
+    },
+    {
+      "game_id": "2024020102",
+      "source_events": 398,
+      "segments": 394,
+      "physical_seconds": 3900,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 270,
+        "included": 128
+      },
+      "report_only": 12,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2024020186",
+      "source_events": 328,
+      "segments": 372,
+      "physical_seconds": 3475,
+      "excluded_seconds": 49,
+      "events": {
+        "not_applicable": 221,
+        "included": 98,
+        "excluded": 3,
+        "unresolved": 6
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "strength_conflict": 2,
+        "membership_unavailable": 7
+      }
+    },
+    {
+      "game_id": "2024020340",
+      "source_events": 348,
+      "segments": 399,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 227,
+        "included": 121
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2024020364",
+      "source_events": 321,
+      "segments": 427,
+      "physical_seconds": 3839,
+      "excluded_seconds": 1200,
+      "events": {
+        "not_applicable": 204,
+        "included": 79,
+        "excluded": 38
+      },
+      "report_only": 1,
+      "reason_codes": {
+        "unmatched_report_attempt": 1
+      }
+    },
+    {
+      "game_id": "2024020404",
+      "source_events": 295,
+      "segments": 410,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 184,
+        "included": 111
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2024021177",
+      "source_events": 352,
+      "segments": 368,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 222,
+        "included": 130
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2024021235",
+      "source_events": 292,
+      "segments": 0,
+      "physical_seconds": 0,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 182,
+        "unresolved": 110
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "membership_unavailable": 110
+      }
+    },
+    {
+      "game_id": "2025020001",
+      "source_events": 361,
+      "segments": 403,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 242,
+        "included": 119
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2025020006",
+      "source_events": 374,
+      "segments": 432,
+      "physical_seconds": 3900,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 251,
+        "included": 123
+      },
+      "report_only": 16,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2025020184",
+      "source_events": 330,
+      "segments": 374,
+      "physical_seconds": 3468,
+      "excluded_seconds": 3468,
+      "events": {
+        "not_applicable": 211,
+        "excluded": 119
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "count_accounting_conflict": 2,
+        "membership_unavailable": 6
+      }
+    },
+    {
+      "game_id": "2025020282",
+      "source_events": 319,
+      "segments": 441,
+      "physical_seconds": 3726,
+      "excluded_seconds": 3726,
+      "events": {
+        "not_applicable": 201,
+        "excluded": 118
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "count_accounting_conflict": 2
+      }
+    },
+    {
+      "game_id": "2025020307",
+      "source_events": 317,
+      "segments": 463,
+      "physical_seconds": 3846,
+      "excluded_seconds": 3846,
+      "events": {
+        "not_applicable": 199,
+        "excluded": 118
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "count_accounting_conflict": 2
+      }
+    },
+    {
+      "game_id": "2025020544",
+      "source_events": 403,
+      "segments": 0,
+      "physical_seconds": 0,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 271,
+        "unresolved": 132
+      },
+      "report_only": 8,
+      "reason_codes": {
+        "membership_unavailable": 132
+      }
+    },
+    {
+      "game_id": "2025020565",
+      "source_events": 302,
+      "segments": 0,
+      "physical_seconds": 0,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 183,
+        "unresolved": 119
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "membership_unavailable": 119
+      }
+    },
+    {
+      "game_id": "2025020614",
+      "source_events": 265,
+      "segments": 395,
+      "physical_seconds": 3600,
+      "excluded_seconds": 0,
+      "events": {
+        "not_applicable": 156,
+        "included": 109
+      },
+      "report_only": 0,
+      "reason_codes": {}
+    },
+    {
+      "game_id": "2025021094",
+      "source_events": 307,
+      "segments": 382,
+      "physical_seconds": 3523,
+      "excluded_seconds": 26,
+      "events": {
+        "not_applicable": 188,
+        "included": 112,
+        "unresolved": 3,
+        "excluded": 4
+      },
+      "report_only": 0,
+      "reason_codes": {
+        "membership_unavailable": 4
+      }
+    }
+  ]
+}

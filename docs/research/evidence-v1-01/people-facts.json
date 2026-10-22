@@ -1,0 +1,850 @@
+{
+  "purpose": "fixture",
+  "claim": "selected native source rows independently reconcile dated multi-team identity; no model or scientific assessment",
+  "selection": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/selection.json",
+    "sha256": "6f5ac920a1c6474334f77c6f3998ad1e2fbe1c752ee1ef9b051d73a675dd64c2"
+  },
+  "artifact_root": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+  "checks": [
+    {
+      "season": "20212022",
+      "player_id": 8474027,
+      "result": "pass",
+      "expected": {
+        "player_id": 8474027,
+        "name": "Justin Braun",
+        "team_ids": [
+          3,
+          4
+        ],
+        "reported_positions": [
+          "D"
+        ],
+        "position_group": "D",
+        "sweaters": [
+          {
+            "team_id": 4,
+            "game_id": "2021020454",
+            "number": 61
+          },
+          {
+            "team_id": 3,
+            "game_id": "2021021103",
+            "number": 61
+          }
+        ],
+        "birth_date": "1987-02-10",
+        "shoots_catches": "R",
+        "age_reference_date": "2022-02-01",
+        "age_days": 12775,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2021020454",
+          "game_date": "2021-12-16",
+          "team_ids": [
+            4
+          ],
+          "roster_rows": [
+            {
+              "source_index": 3,
+              "team_id": 4,
+              "first_name": "Justin",
+              "last_name": "Braun",
+              "reported_position": "D",
+              "sweater_number": 61
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/defense/4",
+              "team_id": 4,
+              "name": "J. Braun",
+              "reported_position": "D"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/games/2021020454.json",
+            "sha256": "5fd0acb293b9804fdedeb04026d992fba2fec3b4a8c4eeae1f5de53146771d8f"
+          }
+        },
+        {
+          "game_id": "2021021103",
+          "game_date": "2022-04-03",
+          "team_ids": [
+            3
+          ],
+          "roster_rows": [
+            {
+              "source_index": 2,
+              "team_id": 3,
+              "first_name": "Justin",
+              "last_name": "Braun",
+              "reported_position": "D",
+              "sweater_number": 61
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/defense/4",
+              "team_id": 3,
+              "name": "J. Braun",
+              "reported_position": "D"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/games/2021021103.json",
+            "sha256": "211bd61f99631edacd150ed17e20433911b2eef2b2eaf7b0d3a85db292f3f0fb"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/637",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20212022/skater-bios/capture.json",
+          "body_sha256": "4b6fc24269029766408b040f122fd6aef97a49187e4290b73652bee0d4510cb8",
+          "birth_date": "1987-02-10",
+          "shoots_catches": "R",
+          "raw_height": 74,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/corpus.json",
+        "sha256": "c17f70a854bd5faa4a541a55044606bde6f73c951bfa573ba159b1c5b881a576"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20212022.json",
+        "sha256": "543ca9a5240c64ea2ded1f7a9e0f0f292a55d7cc9dc8e61cbf936eb3ee876979"
+      }
+    },
+    {
+      "season": "20212022",
+      "player_id": 8478366,
+      "result": "pass",
+      "expected": {
+        "player_id": 8478366,
+        "name": "Frank Vatrano",
+        "team_ids": [
+          3,
+          13
+        ],
+        "reported_positions": [
+          "C",
+          "R"
+        ],
+        "position_group": "F",
+        "sweaters": [
+          {
+            "team_id": 13,
+            "game_id": "2021020617",
+            "number": 77
+          },
+          {
+            "team_id": 3,
+            "game_id": "2021021103",
+            "number": 77
+          }
+        ],
+        "birth_date": "1994-03-14",
+        "shoots_catches": "L",
+        "age_reference_date": "2022-02-01",
+        "age_days": 10186,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2021020617",
+          "game_date": "2022-01-08",
+          "team_ids": [
+            13
+          ],
+          "roster_rows": [
+            {
+              "source_index": 24,
+              "team_id": 13,
+              "first_name": "Frank",
+              "last_name": "Vatrano",
+              "reported_position": "C",
+              "sweater_number": 77
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/9",
+              "team_id": 13,
+              "name": "F. Vatrano",
+              "reported_position": "R"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/games/2021020617.json",
+            "sha256": "ef5bf7d4a66ad905b435bfa491f6688ddea32933f6455210762f6e40383a2d17"
+          }
+        },
+        {
+          "game_id": "2021021103",
+          "game_date": "2022-04-03",
+          "team_ids": [
+            3
+          ],
+          "roster_rows": [
+            {
+              "source_index": 22,
+              "team_id": 3,
+              "first_name": "Frank",
+              "last_name": "Vatrano",
+              "reported_position": "C",
+              "sweater_number": 77
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/forwards/10",
+              "team_id": 3,
+              "name": "F. Vatrano",
+              "reported_position": "R"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/games/2021021103.json",
+            "sha256": "211bd61f99631edacd150ed17e20433911b2eef2b2eaf7b0d3a85db292f3f0fb"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/300",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20212022/skater-bios/capture.json",
+          "body_sha256": "4b6fc24269029766408b040f122fd6aef97a49187e4290b73652bee0d4510cb8",
+          "birth_date": "1994-03-14",
+          "shoots_catches": "L",
+          "raw_height": 71,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/corpus.json",
+        "sha256": "c17f70a854bd5faa4a541a55044606bde6f73c951bfa573ba159b1c5b881a576"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20212022.json",
+        "sha256": "543ca9a5240c64ea2ded1f7a9e0f0f292a55d7cc9dc8e61cbf936eb3ee876979"
+      }
+    },
+    {
+      "season": "20212022",
+      "player_id": 8480015,
+      "result": "pass",
+      "expected": {
+        "player_id": 8480015,
+        "name": "Owen Tippett",
+        "team_ids": [
+          4,
+          13
+        ],
+        "reported_positions": [
+          "R"
+        ],
+        "position_group": "F",
+        "sweaters": [
+          {
+            "team_id": 13,
+            "game_id": "2021020617",
+            "number": 74
+          },
+          {
+            "team_id": 4,
+            "game_id": "2021021103",
+            "number": 74
+          }
+        ],
+        "birth_date": "1999-02-16",
+        "shoots_catches": "R",
+        "age_reference_date": "2022-02-01",
+        "age_days": 8386,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2021020617",
+          "game_date": "2022-01-08",
+          "team_ids": [
+            13
+          ],
+          "roster_rows": [
+            {
+              "source_index": 32,
+              "team_id": 13,
+              "first_name": "Owen",
+              "last_name": "Tippett",
+              "reported_position": "R",
+              "sweater_number": 74
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/8",
+              "team_id": 13,
+              "name": "O. Tippett",
+              "reported_position": "R"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/games/2021020617.json",
+            "sha256": "ef5bf7d4a66ad905b435bfa491f6688ddea32933f6455210762f6e40383a2d17"
+          }
+        },
+        {
+          "game_id": "2021021103",
+          "game_date": "2022-04-03",
+          "team_ids": [
+            4
+          ],
+          "roster_rows": [
+            {
+              "source_index": 30,
+              "team_id": 4,
+              "first_name": "Owen",
+              "last_name": "Tippett",
+              "reported_position": "R",
+              "sweater_number": 74
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/9",
+              "team_id": 4,
+              "name": "O. Tippett",
+              "reported_position": "R"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/games/2021021103.json",
+            "sha256": "211bd61f99631edacd150ed17e20433911b2eef2b2eaf7b0d3a85db292f3f0fb"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/274",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20212022/skater-bios/capture.json",
+          "body_sha256": "4b6fc24269029766408b040f122fd6aef97a49187e4290b73652bee0d4510cb8",
+          "birth_date": "1999-02-16",
+          "shoots_catches": "R",
+          "raw_height": 73,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/corpus.json",
+        "sha256": "c17f70a854bd5faa4a541a55044606bde6f73c951bfa573ba159b1c5b881a576"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20212022.json",
+        "sha256": "543ca9a5240c64ea2ded1f7a9e0f0f292a55d7cc9dc8e61cbf936eb3ee876979"
+      }
+    },
+    {
+      "season": "20222023",
+      "player_id": 8476442,
+      "result": "pass",
+      "expected": {
+        "player_id": 8476442,
+        "name": "Matt Nieto",
+        "team_ids": [
+          21,
+          28
+        ],
+        "reported_positions": [
+          "L"
+        ],
+        "position_group": "F",
+        "sweaters": [
+          {
+            "team_id": 28,
+            "game_id": "2022020001",
+            "number": 83
+          },
+          {
+            "team_id": 21,
+            "game_id": "2022021077",
+            "number": 83
+          }
+        ],
+        "birth_date": "1992-11-05",
+        "shoots_catches": "L",
+        "age_reference_date": "2023-02-01",
+        "age_days": 11045,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2022020001",
+          "game_date": "2022-10-07",
+          "team_ids": [
+            28
+          ],
+          "roster_rows": [
+            {
+              "source_index": 13,
+              "team_id": 28,
+              "first_name": "Matt",
+              "last_name": "Nieto",
+              "reported_position": "L",
+              "sweater_number": 83
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/11",
+              "team_id": 28,
+              "name": "M. Nieto",
+              "reported_position": "L"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20222023/games/2022020001.json",
+            "sha256": "b2837d37aa72c94937fcd48b26572d7b5106a9d93da071c5e0fe501bce998bb2"
+          }
+        },
+        {
+          "game_id": "2022021077",
+          "game_date": "2023-03-15",
+          "team_ids": [
+            21
+          ],
+          "roster_rows": [
+            {
+              "source_index": 8,
+              "team_id": 21,
+              "first_name": "Matt",
+              "last_name": "Nieto",
+              "reported_position": "L",
+              "sweater_number": 83
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/10",
+              "team_id": 21,
+              "name": "M. Nieto",
+              "reported_position": "L"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20222023/games/2022021077.json",
+            "sha256": "c541ca6709a363a4809dd49503d0c9726326d1fee120644bde896d53bd97b9a7"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/532",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20222023/skater-bios/capture.json",
+          "body_sha256": "26cd1fc857e994af26a6352f1787b87d90df39fb96a9a3f4e2518c5260cd4331",
+          "birth_date": "1992-11-05",
+          "shoots_catches": "L",
+          "raw_height": 71,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20222023/corpus.json",
+        "sha256": "2f96282b1c36f562cddcb9ac9550483fa7f9b946ea9897132c0a296daf2c8057"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20222023.json",
+        "sha256": "98b146f81eca25d4e755b1ae3a9373273df246be20999a4e774acef3ba461f80"
+      }
+    },
+    {
+      "season": "20242025",
+      "player_id": 8480879,
+      "result": "pass",
+      "expected": {
+        "player_id": 8480879,
+        "name": "Jacob Bernard-Docker",
+        "team_ids": [
+          7,
+          9
+        ],
+        "reported_positions": [
+          "D"
+        ],
+        "position_group": "D",
+        "sweaters": [
+          {
+            "team_id": 9,
+            "game_id": "2024020340",
+            "number": 24
+          },
+          {
+            "team_id": 7,
+            "game_id": "2024021235",
+            "number": 24
+          }
+        ],
+        "birth_date": "2000-06-30",
+        "shoots_catches": "R",
+        "age_reference_date": "2025-02-01",
+        "age_days": 8982,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2024020340",
+          "game_date": "2024-11-25",
+          "team_ids": [
+            9
+          ],
+          "roster_rows": [
+            {
+              "source_index": 24,
+              "team_id": 9,
+              "first_name": "Jacob",
+              "last_name": "Bernard-Docker",
+              "reported_position": "D",
+              "sweater_number": 24
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/defense/2",
+              "team_id": 9,
+              "name": "J. Bernard-Docker",
+              "reported_position": "D"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024020340.json",
+            "sha256": "bfad655eaa2ab85584e4c10448549a900ec7464e69c03b7364bef94290937596"
+          }
+        },
+        {
+          "game_id": "2024021235",
+          "game_date": "2025-04-08",
+          "team_ids": [
+            7
+          ],
+          "roster_rows": [
+            {
+              "source_index": 27,
+              "team_id": 7,
+              "first_name": "Jacob",
+              "last_name": "Bernard-Docker",
+              "reported_position": "D",
+              "sweater_number": 24
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/defense/2",
+              "team_id": 7,
+              "name": "J. Bernard-Docker",
+              "reported_position": "D"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024021235.json",
+            "sha256": "8883f48a2592eae1d5bb8cbd23b4ebf3eb25b6e4924205e01f8524399234b13e"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/419",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20242025/skater-bios/capture.json",
+          "body_sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396",
+          "birth_date": "2000-06-30",
+          "shoots_catches": "R",
+          "raw_height": 73,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json",
+        "sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20242025.json",
+        "sha256": "87559087fbb07a5d77591539b491a60d5ce7478dc2cc128c9930c6286f34bdeb"
+      }
+    },
+    {
+      "season": "20242025",
+      "player_id": 8482859,
+      "result": "pass",
+      "expected": {
+        "player_id": 8482859,
+        "name": "Zack Ostapchuk",
+        "team_ids": [
+          9,
+          28
+        ],
+        "reported_positions": [
+          "C"
+        ],
+        "position_group": "F",
+        "sweaters": [
+          {
+            "team_id": 9,
+            "game_id": "2024020340",
+            "number": 38
+          },
+          {
+            "team_id": 28,
+            "game_id": "2024021177",
+            "number": 63
+          }
+        ],
+        "birth_date": "2003-05-29",
+        "shoots_catches": "L",
+        "age_reference_date": "2025-02-01",
+        "age_days": 7919,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2024020340",
+          "game_date": "2024-11-25",
+          "team_ids": [
+            9
+          ],
+          "roster_rows": [
+            {
+              "source_index": 38,
+              "team_id": 9,
+              "first_name": "Zack",
+              "last_name": "Ostapchuk",
+              "reported_position": "C",
+              "sweater_number": 38
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/forwards/8",
+              "team_id": 9,
+              "name": "Z. Ostapchuk",
+              "reported_position": "C"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024020340.json",
+            "sha256": "bfad655eaa2ab85584e4c10448549a900ec7464e69c03b7364bef94290937596"
+          }
+        },
+        {
+          "game_id": "2024021177",
+          "game_date": "2025-03-30",
+          "team_ids": [
+            28
+          ],
+          "roster_rows": [
+            {
+              "source_index": 32,
+              "team_id": 28,
+              "first_name": "Zack",
+              "last_name": "Ostapchuk",
+              "reported_position": "C",
+              "sweater_number": 63
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/7",
+              "team_id": 28,
+              "name": "Z. Ostapchuk",
+              "reported_position": "C"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024021177.json",
+            "sha256": "7e2d84850faa54df2a09a20f4fc0e154ed19eb9cedc5b32164270368438b331c"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/132",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20242025/skater-bios/capture.json",
+          "body_sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396",
+          "birth_date": "2003-05-29",
+          "shoots_catches": "L",
+          "raw_height": 76,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json",
+        "sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20242025.json",
+        "sha256": "87559087fbb07a5d77591539b491a60d5ce7478dc2cc128c9930c6286f34bdeb"
+      }
+    },
+    {
+      "season": "20242025",
+      "player_id": 8483808,
+      "result": "pass",
+      "expected": {
+        "player_id": 8483808,
+        "name": "Andrei Kuzmenko",
+        "team_ids": [
+          20,
+          26
+        ],
+        "reported_positions": [
+          "L"
+        ],
+        "position_group": "F",
+        "sweaters": [
+          {
+            "team_id": 20,
+            "game_id": "2024020102",
+            "number": 96
+          },
+          {
+            "team_id": 20,
+            "game_id": "2024020340",
+            "number": 96
+          },
+          {
+            "team_id": 26,
+            "game_id": "2024021177",
+            "number": 96
+          }
+        ],
+        "birth_date": "1996-02-04",
+        "shoots_catches": "R",
+        "age_reference_date": "2025-02-01",
+        "age_days": 10590,
+        "height_cm": null
+      },
+      "dated_source_observations": [
+        {
+          "game_id": "2024020102",
+          "game_date": "2024-10-22",
+          "team_ids": [
+            20
+          ],
+          "roster_rows": [
+            {
+              "source_index": 39,
+              "team_id": 20,
+              "first_name": "Andrei",
+              "last_name": "Kuzmenko",
+              "reported_position": "L",
+              "sweater_number": 96
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/forwards/11",
+              "team_id": 20,
+              "name": "A. Kuzmenko",
+              "reported_position": "L"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024020102.json",
+            "sha256": "9b6bec144c386e2bffa8b269b2e6745b0c926a860b5ff28d477fec7a903ac1cc"
+          }
+        },
+        {
+          "game_id": "2024020340",
+          "game_date": "2024-11-25",
+          "team_ids": [
+            20
+          ],
+          "roster_rows": [
+            {
+              "source_index": 39,
+              "team_id": 20,
+              "first_name": "Andrei",
+              "last_name": "Kuzmenko",
+              "reported_position": "L",
+              "sweater_number": 96
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/awayTeam/forwards/11",
+              "team_id": 20,
+              "name": "A. Kuzmenko",
+              "reported_position": "L"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024020340.json",
+            "sha256": "bfad655eaa2ab85584e4c10448549a900ec7464e69c03b7364bef94290937596"
+          }
+        },
+        {
+          "game_id": "2024021177",
+          "game_date": "2025-03-30",
+          "team_ids": [
+            26
+          ],
+          "roster_rows": [
+            {
+              "source_index": 34,
+              "team_id": 26,
+              "first_name": "Andrei",
+              "last_name": "Kuzmenko",
+              "reported_position": "L",
+              "sweater_number": 96
+            }
+          ],
+          "boxscore_rows": [
+            {
+              "source_path": "/playerByGameStats/homeTeam/forwards/10",
+              "team_id": 26,
+              "name": "A. Kuzmenko",
+              "reported_position": "L"
+            }
+          ],
+          "native_input": {
+            "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/games/2024021177.json",
+            "sha256": "7e2d84850faa54df2a09a20f4fc0e154ed19eb9cedc5b32164270368438b331c"
+          }
+        }
+      ],
+      "bio_source_observations": [
+        {
+          "source": "skater-bios",
+          "path": "/data/886",
+          "capture_path": "/Users/nnandal/Documents/code/hockey-stats/fixtures/references/20242025/skater-bios/capture.json",
+          "body_sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396",
+          "birth_date": "1996-02-04",
+          "shoots_catches": "R",
+          "raw_height": 72,
+          "effective_at": null
+        }
+      ],
+      "native_reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json",
+        "sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad"
+      },
+      "prepared_people": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/people/20242025.json",
+        "sha256": "87559087fbb07a5d77591539b491a60d5ce7478dc2cc128c9930c6286f34bdeb"
+      }
+    }
+  ],
+  "temporary_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/.temporary-v1-01/check_people_sources.py",
+    "sha256": "0254a609953abffd8706e12e408a616a1b940966166b91461abad469959da820"
+  },
+  "result": "pass",
+  "checked_players": 7
+}

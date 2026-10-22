@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "seasons": [
+    {
+      "season": "20212022",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/corpus.json",
+      "sha256": "c17f70a854bd5faa4a541a55044606bde6f73c951bfa573ba159b1c5b881a576",
+      "game_ids": [
+        "2021020001",
+        "2021020454",
+        "2021020615",
+        "2021020617",
+        "2021020942",
+        "2021021103",
+        "2021021179"
+      ]
+    },
+    {
+      "season": "20222023",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20222023/corpus.json",
+      "sha256": "2f96282b1c36f562cddcb9ac9550483fa7f9b946ea9897132c0a296daf2c8057",
+      "game_ids": [
+        "2022020001",
+        "2022020009",
+        "2022020547",
+        "2022020822",
+        "2022021077"
+      ]
+    },
+    {
+      "season": "20232024",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20232024/corpus.json",
+      "sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "game_ids": [
+        "2023020001",
+        "2023020012",
+        "2023020013",
+        "2023020078",
+        "2023020237",
+        "2023020955"
+      ]
+    },
+    {
+      "season": "20242025",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json",
+      "sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "game_ids": [
+        "2024020001",
+        "2024020022",
+        "2024020102",
+        "2024020186",
+        "2024020340",
+        "2024020364",
+        "2024020404",
+        "2024021177",
+        "2024021235"
+      ]
+    },
+    {
+      "season": "20252026",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20252026/corpus.json",
+      "sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "game_ids": [
+        "2025020001",
+        "2025020006",
+        "2025020184",
+        "2025020282",
+        "2025020307",
+        "2025020544",
+        "2025020565",
+        "2025020614",
+        "2025021094"
+      ]
+    }
+  ]
+}

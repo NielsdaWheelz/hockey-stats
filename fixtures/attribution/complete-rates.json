@@ -1,0 +1,857 @@
+{
+  "kind": "attribution_complete_fixture",
+  "schema_version": 1,
+  "purpose": "fixture_exercise",
+  "description": "five explicitly synthetic counted histories; six complete zero-event exclusions; entrants, carried and unseen identities; changing rates",
+  "basis": {
+    "arrays": {
+      "path": "graph-40ft.npz",
+      "sha256": "96185eedb638c58000345a483d7996d3f99dc7da0bb407099680ebad6c3a2722"
+    },
+    "basis_sha256": "aa7cf41446fd41ae353daaf0b7d83a56a1c9e2e5f0df27c82146c383b28b1a2f"
+  },
+  "arrays": {
+    "path": "complete-rates.npz",
+    "sha256": "bd6bcd28754d5ec7e862b1806410c79b0bd6e51b772ebad4b41491325cdceb7e"
+  },
+  "array_shapes": [
+    {
+      "name": "year_0_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_0_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_0_counts",
+      "shape": [
+        96,
+        656
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_1_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_1_counts",
+      "shape": [
+        96,
+        656
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_2_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_2_counts",
+      "shape": [
+        96,
+        656
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_3_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_3_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_3_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_3_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_3_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_3_counts",
+      "shape": [
+        96,
+        656
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_4_offense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_4_defense",
+      "shape": [
+        96,
+        5
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_4_seconds",
+      "shape": [
+        96
+      ],
+      "dtype": "<f8"
+    },
+    {
+      "name": "year_4_si",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_4_row_game_ids",
+      "shape": [
+        96
+      ],
+      "dtype": "<i8"
+    },
+    {
+      "name": "year_4_counts",
+      "shape": [
+        96,
+        656
+      ],
+      "dtype": "<i8"
+    }
+  ],
+  "seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "years": [
+    {
+      "season": "20212022",
+      "players": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "game_ids": [
+        "2021020001",
+        "2021020002",
+        "2021020003",
+        "2021020004",
+        "2021020005",
+        "2021020006",
+        "2021020007",
+        "2021020008",
+        "2021020009",
+        "2021020010",
+        "2021020011",
+        "2021020012",
+        "2021020013"
+      ],
+      "training_game_ids": [
+        "2021020001",
+        "2021020002",
+        "2021020003",
+        "2021020004",
+        "2021020005",
+        "2021020006",
+        "2021020007",
+        "2021020008",
+        "2021020009",
+        "2021020010",
+        "2021020011",
+        "2021020012",
+        "2021020013"
+      ],
+      "assessment_game_ids": [],
+      "oracle_current_player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "row_count": 96,
+      "zero_time_game": "2021020013",
+      "directed_hours": 4.910555555555556,
+      "retained_attempts": 87
+    },
+    {
+      "season": "20222023",
+      "players": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "game_ids": [
+        "2022020001",
+        "2022020002",
+        "2022020003",
+        "2022020004",
+        "2022020005",
+        "2022020006",
+        "2022020007",
+        "2022020008",
+        "2022020009",
+        "2022020010",
+        "2022020011",
+        "2022020012",
+        "2022020013"
+      ],
+      "training_game_ids": [
+        "2022020001",
+        "2022020002",
+        "2022020003",
+        "2022020004",
+        "2022020005",
+        "2022020006",
+        "2022020007",
+        "2022020008",
+        "2022020009",
+        "2022020010",
+        "2022020011",
+        "2022020012",
+        "2022020013"
+      ],
+      "assessment_game_ids": [],
+      "oracle_current_player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "row_count": 96,
+      "zero_time_game": "2022020013",
+      "directed_hours": 4.693333333333333,
+      "retained_attempts": 326
+    },
+    {
+      "season": "20232024",
+      "players": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "game_ids": [
+        "2023020001",
+        "2023020002",
+        "2023020003",
+        "2023020004",
+        "2023020005",
+        "2023020006",
+        "2023020007",
+        "2023020008",
+        "2023020009",
+        "2023020010",
+        "2023020011",
+        "2023020012",
+        "2023020013"
+      ],
+      "training_game_ids": [
+        "2023020001",
+        "2023020002",
+        "2023020003",
+        "2023020004",
+        "2023020005",
+        "2023020006",
+        "2023020007",
+        "2023020008",
+        "2023020009",
+        "2023020010",
+        "2023020011",
+        "2023020012",
+        "2023020013"
+      ],
+      "assessment_game_ids": [],
+      "oracle_current_player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "row_count": 96,
+      "zero_time_game": "2023020013",
+      "directed_hours": 4.910555555555556,
+      "retained_attempts": 84
+    },
+    {
+      "season": "20242025",
+      "players": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "game_ids": [
+        "2024020001",
+        "2024020002",
+        "2024020003",
+        "2024020004",
+        "2024020005",
+        "2024020006",
+        "2024020007",
+        "2024020008",
+        "2024020009",
+        "2024020010",
+        "2024020011",
+        "2024020012",
+        "2024020013"
+      ],
+      "training_game_ids": [
+        "2024020001",
+        "2024020002",
+        "2024020003",
+        "2024020004",
+        "2024020005",
+        "2024020006",
+        "2024020007",
+        "2024020008",
+        "2024020009",
+        "2024020010",
+        "2024020011",
+        "2024020012",
+        "2024020013"
+      ],
+      "assessment_game_ids": [],
+      "oracle_current_player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "row_count": 96,
+      "zero_time_game": "2024020013",
+      "directed_hours": 4.693333333333333,
+      "retained_attempts": 161
+    },
+    {
+      "season": "20252026",
+      "players": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "strata": [
+        [
+          "away"
+        ],
+        [
+          "home"
+        ]
+      ],
+      "game_ids": [
+        "2025020001",
+        "2025020002",
+        "2025020003",
+        "2025020004",
+        "2025020005",
+        "2025020006",
+        "2025020007",
+        "2025020008",
+        "2025020009",
+        "2025020010",
+        "2025020011",
+        "2025020012",
+        "2025020013"
+      ],
+      "training_game_ids": [
+        "2025020002",
+        "2025020003",
+        "2025020004",
+        "2025020005",
+        "2025020006",
+        "2025020007",
+        "2025020008",
+        "2025020010",
+        "2025020011",
+        "2025020012"
+      ],
+      "assessment_game_ids": [
+        "2025020001",
+        "2025020009",
+        "2025020013"
+      ],
+      "oracle_current_player_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        16
+      ],
+      "row_count": 96,
+      "zero_time_game": "2025020013",
+      "directed_hours": 4.808333333333334,
+      "retained_attempts": 239
+    }
+  ],
+  "game_dates": {
+    "2025020001": "2025-10-01",
+    "2025020002": "2025-10-02",
+    "2025020003": "2025-10-03",
+    "2025020004": "2025-10-04",
+    "2025020005": "2025-10-05",
+    "2025020006": "2025-10-06",
+    "2025020007": "2026-03-01",
+    "2025020008": "2026-03-02",
+    "2025020009": "2026-03-03",
+    "2025020010": "2026-03-04",
+    "2025020011": "2026-03-05",
+    "2025020012": "2026-03-06",
+    "2025020013": "2026-03-07"
+  },
+  "train_ids": [
+    "2025020002",
+    "2025020003",
+    "2025020004",
+    "2025020005",
+    "2025020006",
+    "2025020007",
+    "2025020008",
+    "2025020010",
+    "2025020011",
+    "2025020012"
+  ],
+  "assessment_ids": [
+    "2025020001",
+    "2025020009",
+    "2025020013"
+  ],
+  "exclusions": [
+    {
+      "population": "unblocked_spatial",
+      "season": "20232024",
+      "game_id": "2023020001",
+      "period": 1,
+      "start": 0,
+      "end": 31.0,
+      "segment_index": 0,
+      "attacking_team": 2,
+      "offense": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "defense": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seconds": 31.0,
+      "stratum": [
+        "home"
+      ],
+      "counts": []
+    },
+    {
+      "population": "unblocked_spatial",
+      "season": "20232024",
+      "game_id": "2023020001",
+      "period": 1,
+      "start": 0,
+      "end": 31.0,
+      "segment_index": 0,
+      "attacking_team": 1,
+      "offense": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "defense": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seconds": 31.0,
+      "stratum": [
+        "away"
+      ],
+      "counts": []
+    },
+    {
+      "population": "unblocked_spatial",
+      "season": "20232024",
+      "game_id": "2023020001",
+      "period": 1,
+      "start": 300,
+      "end": 368.0,
+      "segment_index": 1,
+      "attacking_team": 2,
+      "offense": [
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "defense": [
+        5,
+        8,
+        9,
+        10,
+        12
+      ],
+      "seconds": 68.0,
+      "stratum": [
+        "home"
+      ],
+      "counts": []
+    },
+    {
+      "population": "unblocked_spatial",
+      "season": "20232024",
+      "game_id": "2023020001",
+      "period": 1,
+      "start": 300,
+      "end": 368.0,
+      "segment_index": 1,
+      "attacking_team": 1,
+      "offense": [
+        5,
+        8,
+        9,
+        10,
+        12
+      ],
+      "defense": [
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "seconds": 68.0,
+      "stratum": [
+        "away"
+      ],
+      "counts": []
+    },
+    {
+      "population": "unblocked_spatial",
+      "season": "20242025",
+      "game_id": "2024020001",
+      "period": 1,
+      "start": 0,
+      "end": 54.0,
+      "segment_index": 0,
+      "attacking_team": 2,
+      "offense": [
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "defense": [
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "seconds": 54.0,
+      "stratum": [
+        "home"
+      ],
+      "counts": []
+    },
+    {
+      "population": "unblocked_spatial",
+      "season": "20242025",
+      "game_id": "2024020001",
+      "period": 1,
+      "start": 0,
+      "end": 54.0,
+      "segment_index": 0,
+      "attacking_team": 1,
+      "offense": [
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "defense": [
+        1,
+        2,
+        3,
+        4,
+        13
+      ],
+      "seconds": 54.0,
+      "stratum": [
+        "away"
+      ],
+      "counts": []
+    }
+  ],
+  "expected": {
+    "selected_states": 12,
+    "new_states": 9,
+    "reused_states": 3,
+    "excluded_directed_rows": 6,
+    "count_loss": 0,
+    "excluded_directed_seconds": 306.0,
+    "excluded_physical_seconds": 153.0,
+    "assessment_zero_time_game_ids": [
+      "2025020013"
+    ],
+    "training_attempts": [
+      87,
+      326,
+      84,
+      161,
+      239
+    ]
+  },
+  "controls": {
+    "path": "complete-rates.controls.json",
+    "sha256": "e674cef60880fc606da9414879c23320abc49954f226bd57056e24fddeba7a67"
+  }
+}

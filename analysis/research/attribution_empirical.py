@@ -20,10 +20,13 @@ from hockey_stats.artifacts import (
     ordered_array_digest, require, resources, write_arrays, write_json,
 )
 from hockey_stats.attribution import (
-    ShapeBasis, ShapeCoefficientLikelihood, ShapeCoefficientState, bounded_shape_coefficient_probe,
+    ShapeBasis, ShapeCoefficientLikelihood, bounded_shape_coefficient_probe,
     decode_shape_basis, fit_shape_coefficients, validate_shape_coefficient_state,
 )
-from hockey_stats.attribution_data import EmpiricalTraining, empirical_training, read_empirical_fixture, read_empirical_source
+from hockey_stats.attribution_data import (
+    EmpiricalTraining, empirical_training, read_empirical_fixture, read_empirical_source,
+    coefficient_state_row, decode_coefficient_state,
+)
 from hockey_stats.attribution_prediction import empirical_prediction
 from hockey_stats.attribution_simulation import shape_regions
 from hockey_stats.captures import InputContractError
@@ -211,14 +214,6 @@ def read_prepared(path):
     return Prepared(reference, document, tuple(trainings), basis)
 
 
-def _state_row(state, index, arm, parent, likelihood, arrays):
-    return dict(index=index, arm=arm, season=state.season, player_ids=state.player_ids,
-        current_player_ids=state.current_player_ids, entrant_ids=state.entrant_ids,
-        carried_only_ids=state.carried_only_ids, r=state.r, a=state.a, q=state.q,
-        basis_sha256=state.basis_sha256, source_identity=state.source_identity, parent=parent, likelihood=likelihood,
-        scale=state.scale, diagnostics=state.diagnostics, **arrays)
-
-
 def fit(prepared, output):
     started, process_started = time.monotonic(), time.process_time()
     source = read_prepared(prepared)
@@ -234,7 +229,7 @@ def fit(prepared, output):
         data = write_arrays(root, f'state-{index}.npz', {name: getattr(state, name) for name in STATE_ARRAYS})
         likelihood = dict(prepared=source.reference, season=training.likelihood.season,
             training_sha256=source.document['training_sha256'])
-        row = _state_row(state, index, 'independent' if independent else 'borrowing',
+        row = coefficient_state_row(state, index, 'independent' if independent else 'borrowing',
             None if independent else parent, likelihood, data)
         write_json(root/f'state-{index}.json', json_values(row))
         row['record'] = _ref(root/f'state-{index}.json')
@@ -271,12 +266,7 @@ def read_fit(source, path):
                 training_sha256=source.document['training_sha256'])
             and row['parent'] == (None if independent or index == 0 else document['states'][index-1]['record']),
             'saved state identity or predecessor differs')
-        values = load_arrays(row)
-        state = ShapeCoefficientState(season=row['season'], player_ids=tuple(row['player_ids']),
-            current_player_ids=tuple(row['current_player_ids']), entrant_ids=tuple(row['entrant_ids']),
-            carried_only_ids=tuple(row['carried_only_ids']), r=row['r'], a=row['a'], q=row['q'],
-            basis_sha256=row['basis_sha256'], source_identity=row['source_identity'], scale=row['scale'],
-            diagnostics=row['diagnostics'], **values)
+        state = decode_coefficient_state(row)
         validate_shape_coefficient_state(training.likelihood, None if independent or index == 0 else states[-1], state)
         states.append(state)
     require(document['scale_objective_evaluations'] == sum(len(state.scale['curve']) for state in states),
@@ -309,7 +299,7 @@ def assess(prepared, fitted, output):
         receipt, alternative = bounded_shape_coefficient_probe(training.likelihood, previous, state)
         data = write_arrays(root, f'probe-{index}.npz', {name: getattr(alternative, name) for name in STATE_ARRAYS})
         probes.append(dict(index=index, season=state.season, arm='independent' if independent else 'borrowing',
-            verified=receipt['status'] == 'verified', receipt=receipt, alternative=_state_row(alternative,
+            verified=receipt['status'] == 'verified', receipt=receipt, alternative=coefficient_state_row(alternative,
                 index, 'independent' if independent else 'borrowing', fit_document['states'][index]['parent'],
                 fit_document['states'][index]['likelihood'], data)))
         if index >= len(states)-2:

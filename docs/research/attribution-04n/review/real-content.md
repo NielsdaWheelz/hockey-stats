@@ -2,6 +2,8 @@
 
 status: verified within the audit scope below. no production code or fitted state changed during this review.
 
+subsequent report-only amendment: clean producer `b515b55` adds three-scheme directions to the component table. the final report is `report-02/result.json`, sha256 `7245ab4873945ebaa0b58d0cd46a11ab9087e1196b4c1258770b304a7664ae6f`. the assessment and all scientific result fields, csv files, generated verification and figure below remain unchanged. [final acceptance](../verification.md) binds saved-only replay and deletion of the focused temporary rendering check; the original review below retains its original report identity.
+
 ## bound evidence
 
 assessment: `/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/assessment/assessment.json`, sha256 `748b3634ce966e607fbd1d3e9bbd29c9f0ce2c84d662b797f23228725d48d558`.

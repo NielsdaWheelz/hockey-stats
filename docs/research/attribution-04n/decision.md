@@ -38,11 +38,11 @@ the correction changes borrowing volume and shape history; source-only sensitivi
 
 ## volume, shape and interaction
 
-| borrowing − independent component | estimate | games 95% interval |
-|---|---:|---|
-| weighted volume | -0.04701993 | [-0.09357125, -2.036006e-05] |
-| shape | -0.06822569 | [-0.1055659, -0.03270796] |
-| interaction | 0.006436607 | [-0.01066613, 0.02476172] |
+| borrowing − independent component | estimate | games 95% interval | direction across three schemes |
+|---|---:|---|---|
+| weighted volume | -0.04701993 | [-0.09357125, -2.036006e-05] | `unresolved` |
+| shape | -0.06822569 | [-0.1055659, -0.03270796] | `supported_lower_loss` |
+| interaction | 0.006436607 | [-0.01066613, 0.02476172] | `unresolved` |
 
 standalone volume difference: -4.033639; games interval [-8.027079, -0.001746603]; `unresolved` across three schemes, divided by directed hours. the regional volume contribution weights its numerator by `||p′W||²`; all three contributions share twelve × hours. interaction is a signed cross residual computed directly from grouped moments. contributions are not percentages of blame. inverse-share native error has unit volume weight and zero interaction. paired moments do not establish absolute regional mse/rmse.
 

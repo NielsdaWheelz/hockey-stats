@@ -3,7 +3,7 @@
   "kind": "attribution_complete_result",
   "purpose": "research",
   "implementation": {
-    "git_commit": "64088688824e9d19dad388f604657b22672f67dc",
+    "git_commit": "b515b55ad6864ff95b74576dc150b5916b2d4251",
     "git_dirty": false,
     "python_version": "3.14.8",
     "numpy_version": "2.5.3",
@@ -1516,32 +1516,32 @@
   ],
   "tables": {
     "comparison": {
-      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/comparison.csv",
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/comparison.csv",
       "sha256": "27ea8e227b846f06f67d8a62547396999d3336b7cf5d3d62c2d60c6ad7a3e1ee"
     },
     "games": {
-      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/game-scores.csv",
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/game-scores.csv",
       "sha256": "9d75350566fedee2981a9a0140f8c6ce4aba4bf73acf628285237d40cbf0768e"
     },
     "diagnostics": {
-      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/diagnostics.csv",
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/diagnostics.csv",
       "sha256": "9da8714d089ef49f695efbe9a1153848659003a21e326c933127abb419628228"
     },
     "rates": {
-      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/rate-diagnostics.csv",
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/rate-diagnostics.csv",
       "sha256": "e4cc10421524a76070d84daab909206c919bf9d0635cb616a8ea2acf0f1b4148"
     }
   },
   "figure": {
-    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/comparison.png",
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/comparison.png",
     "sha256": "90bb04dc4163797b07c8435063a3ed7e213480d8ce73d6b1f06b598a541300d6"
   },
   "decision": {
-    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/decision.md",
-    "sha256": "053d68c99f83366c935712923e31fc2b02290fef71c83d3303d67c43fd7e6ca3"
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/decision.md",
+    "sha256": "2cb74d25df4061c832c2c378ef19c5a77532da0bb202fffd6c80b0e6d6c80dd8"
   },
   "verification_document": {
-    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/verification.md",
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report-02/verification.md",
     "sha256": "c57d5ea5f3d129dd2c0c569ac8c5494176ddd46172825c5281a8f618f8f126ad"
   },
   "aggregate_comparisons": [

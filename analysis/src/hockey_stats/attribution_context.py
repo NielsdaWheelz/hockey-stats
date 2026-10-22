@@ -173,7 +173,7 @@ def integrate_context_game(directed_rows, events, segments, references):
     contexts = {c: i for i, c in enumerate(references.strata)}
     segments_by_id = {row["segment_index"]: row for row in segments}
     require(len(segments_by_id) == len(segments), "duplicate frozen segment index")
-    joined, remaining, row_ids = {}, {}, set()
+    joined, remaining = {}, {}
     for row in directed_rows:
         key = (row["game_id"], row["segment_index"], row["stratum"][0])
         require(key not in joined and tuple(row["stratum"]) in contexts
@@ -223,7 +223,6 @@ def integrate_context_game(directed_rows, events, segments, references):
                 "retained row counts are not unique positive integer native counts")
         joined[key] = (row, segment)
         remaining[key] = dict(row["counts"])
-        row_ids.add((row["game_id"], row["segment_index"]))
     seen, endpoints, goals, simultaneous = set(), 0, 0, {}
     for event in events:
         if event["unblocked_spatial"] != "retained":

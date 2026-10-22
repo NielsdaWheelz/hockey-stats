@@ -1,0 +1,94 @@
+{
+  "kind": "source_exposure_02d_delivery",
+  "pr": "https://github.com/NielsdaWheelz/hockey-stats/pull/45",
+  "merge_commit": "d82a881c0e50ac831e404aff162caa402d297cd6",
+  "reviewed_head": "abe50f3662a7ea6c9c092457bf8538f68751dae3",
+  "tree": "e6b576c2676dbe52dd909d71732c5d7e524b63d9",
+  "reviewed_merged_tree_equal": true,
+  "preserved_draft_snapshot": "65f084d1be570e627960ea81e44a88d3587f50a3",
+  "scientific_producer": "e2592a96b1b7d105c842c6fefe0321dce4f85457",
+  "hosted_checks": {
+    "GitGuardian Security Checks": "success",
+    "hosted_application_tests": "not_run"
+  },
+  "primary_checks": {
+    "pinned_node_typecheck": "pass",
+    "python_cli_and_public_imports": "pass",
+    "serving_assets_rebuilt": false
+  },
+  "cleanup": {
+    "worktree_removed": "/Users/nnandal/Documents/code/hockey-stats-02d",
+    "local_and_remote_branch_removed": "implement/02d-source-exposure",
+    "disposable_roots": 5,
+    "regular_files": 10888,
+    "logical_file_bytes": 177798074,
+    "symlinks": 16,
+    "temporary_pr_body_removed": true,
+    "alias_required": false,
+    "unknown_helpers_signaled": false
+  },
+  "preservation": {
+    "protected_files": 39,
+    "bytes_sizes_nanosecond_mtimes": "exact",
+    "sqlite_wal_shm": "absent",
+    "active_publication": "84a9da75-2cdf-44e7-a463-21e79a02929e",
+    "unrelated_04n": "preserved",
+    "source_captures_fits_frozen_references": "preserved",
+    "all_evidence_and_stopped_runs": "preserved",
+    "managed_daemon": "preserved"
+  },
+  "execution_boundaries": {
+    "activation": "not_run",
+    "research_regeneration": "not_run",
+    "refitting": "not_run",
+    "admission": "not_admitted"
+  },
+  "external_receipts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/pr-merged.json",
+      "sha256": "50fa7d02f5e16a3e9407389ce29c8383e72c973f2ec7ae87a9a4b809c91c2dd0",
+      "bytes": 878
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/integration-review.json",
+      "sha256": "bdbcfe315e77690ba3cc6d9b360e5a8742f9beacde82e58ace1fcfac8d797017",
+      "bytes": 19997
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/primary-inputs.json",
+      "sha256": "e8e272e2a0ef5b5894320f7f6cfb9f390474b1fce44b91dcd5e120cd5a97cbac",
+      "bytes": 2599
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/primary-integration.json",
+      "sha256": "4c595299a060f361e9ef0066d49dd1c1dcd94de0e465a6464748378c922dc755",
+      "bytes": 646
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/primary-checks.json",
+      "sha256": "f2dd714ac35072ad919ef1eb7996be672afbb840348d55fc2b4aedb62b483a27",
+      "bytes": 805
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/cleanup-manifest.json",
+      "sha256": "2ff8f5f7c098af36ed59ee8424766a9c87030ddd9ca076b093285c9e3bf4c56a",
+      "bytes": 2880626
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/cleanup-receipt.json",
+      "sha256": "8fb53da3ec5fe18c9cce190924978432360069aa6bb424146b18ff6844ed2716",
+      "bytes": 2512
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/protected-before.json",
+      "sha256": "6e62d69db759c0ea16ce07a376d56895ce85d5483d325fbd3fcf3da148aca612",
+      "bytes": 10276
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/delivery/protected-after.json",
+      "sha256": "ca6f9ad8a7ca6f4d98d8ab04d017fd303c907da53e5fb312d2cd9d9527a48f56",
+      "bytes": 11450
+    }
+  ],
+  "recorded_at": "2026-10-22T04:34:36.584109+00:00"
+}

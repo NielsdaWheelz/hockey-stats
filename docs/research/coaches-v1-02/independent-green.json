@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "kind": "independent-v1-02-fixture-verification",
+  "purpose": "fixture",
+  "software_status": "pass",
+  "acquisition_status": "not_run",
+  "real_admission": "not_run",
+  "red": {
+    "status": "observed",
+    "reason": "coaches module absent before implementation",
+    "receipt": "red.json"
+  },
+  "green": {
+    "status": "pass",
+    "groups": 15,
+    "wall_seconds": 1.662,
+    "synthetic_games": 49,
+    "synthetic_slots": 98,
+    "seasons": [
+      "20242025",
+      "20252026"
+    ],
+    "coach_ids": 4
+  },
+  "groups": [
+    "coverage_independent_reduction",
+    "detached_reader_no_external_files_or_network",
+    "explicit_expected_statuses",
+    "input_contradictions_are_errors",
+    "inventory_binding_does_not_open_game_envelopes",
+    "member_hash_tampering",
+    "minimal_consumer_join_contract",
+    "occupied_output",
+    "promised_receipt_and_body_integrity",
+    "purpose_rejection",
+    "real_module_cli_and_rejected_flags",
+    "report_context_parent_child_consistency",
+    "resealed_malformed_artifact_metadata",
+    "resealed_malformed_members",
+    "resealed_member_cross_links"
+  ],
+  "reproduction": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/hockey-v1-02-review/review.py",
+  "implementation_sha256": {
+    "analysis/src/hockey_stats/coaches.py": "33a9aff733323d11bd2fd5898f3b30bde5bb02f1fdf799d5f5b6830926275808",
+    "analysis/src/hockey_stats/captures.py": "21ea6b23b6748c67d13bbc52f65ebb39ed79bf74df8a083e4b7d8cea6fe0808a",
+    "app/src/operator/capture.ts": "54e98fbf7cb4ddbe46661ddb601f8e68e4a5c52b02d93a748e82540e105869f9",
+    "app/src/operator/cli.ts": "cb645beb477a0cadb5214ecec32686f62a24da9abb908c1d798656456fa3b656",
+    "app/src/operator/capture-report.ts": "9e7e9e3c5ecb27bfd6c7589194e53b8f8e003e327d5b00ad33494da457d8cf57"
+  },
+  "fixture_sha256": {
+    "selection.json": "34aa6d9f32ae528d09d70f481baba14932622589f888208e08d044d53b10cbff",
+    "identities.json": "8d1dfbc2774f2cf8cd5cb59c06dcc5758de2822d12f31a5f533fbbcecd6882a4",
+    "expected.json": "09edfcd1dd6c5e168272d22ac05e59eb5eefc13618f754bf0756c55ec0c3ac86",
+    "corpus.json": "b360722a0e594f6b6b5862315caddfa0ff1bdd76cedd9f0a2cb670b69984264c",
+    "prior-corpus.json": "bf346ed682d240447e89a71d494fab4485bc65c2d23ebbfefd2e877ec5579c88"
+  },
+  "findings_resolved": [
+    "supplemental receipt http status now bounded to 100..599 at shared reader",
+    "selected missing receipt now reaches explicit supplemental reader contract error",
+    "retained report collection and declared candidate child checks cannot contradict one another"
+  ],
+  "test_corrections": [
+    "removed accidental unittest run-method shadowing",
+    "side-collision mutation now duplicates actual away team id",
+    "resealed member mutations also recompute output-byte receipt",
+    "copied-source inventory check compares facts rather than original absolute paths"
+  ],
+  "limits": [
+    "all retained input receipts and bodies are synthetic; no original nhl source captured",
+    "candidate gameReports paths/types exercise proposed parser behavior only; first-original schema pinning not_run",
+    "five-season acquisition, real identity review, coach-change and temporary-absence checks not_run",
+    "minimal prepared-like join is an independent future-consumer contract exercise, not a v1-01 or numerical-consumer implementation",
+    "no external drive, upstream request, fitting, publication, activation, commit or push"
+  ],
+  "temporary_drivers_retained_for_root_review": false,
+  "cleanup": "temporary drivers removed after final green; fixtures and receipts retained"
+}

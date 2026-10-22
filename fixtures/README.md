@@ -6,6 +6,8 @@ current scope: thirty-six complete six-source game bundles across `20212022` thr
 
 purpose: bounded offline examples for later interpretation and application development. these are neither a training population nor a complete boundary suite. no legacy fixtures were imported; the archived projected and synthetic fixtures remain excluded from the source-evidence baseline.
 
+[dated-coach examples](coaches/README.md) are separately labeled synthetic inputs and independent expected facts for v1-02. their 49 games/98 side dispositions are not added to the original-capture totals above. right-rail is supplemental: the six-source bundles remain complete without it. representative real right-rail originals and first-response schema pinning await the hdd and usable source access; [the source issue](../docs/issues/coach-source-access.md) records that unfinished acceptance.
+
 ## fixture policy and local corpus
 
 03c expands the evidence in two tiers; the case index and copy record state which inputs are actually available:

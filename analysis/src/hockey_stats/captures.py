@@ -78,7 +78,15 @@ def read_reference_capture(directory: Path, source: str) -> ReferenceCapture:
     return _read_capture(directory, source, reference=True)
 
 
-def _read_capture(directory: Path, source: str, *, reference: bool) -> Capture | ReferenceCapture:
+def read_supplemental_capture(directory: Path, source: str = "right-rail") -> Capture:
+    """read a selected supplemental game source; its receipt must exist."""
+    if source != "right-rail":
+        raise ValueError(f"unknown supplemental source {source!r}")
+    return _read_capture(directory, source, reference=False, required=True)
+
+
+def _read_capture(directory: Path, source: str, *, reference: bool,
+                  required: bool = False) -> Capture | ReferenceCapture:
     """read one fixed source, checking metadata and promised body integrity.
 
     unavailable sources retain known metadata; malformed records raise
@@ -88,7 +96,11 @@ def _read_capture(directory: Path, source: str, *, reference: bool) -> Capture |
     path = (directory / source / "capture.json").resolve()
     try:
         metadata_bytes = path.read_bytes()
-    except FileNotFoundError:
+    except FileNotFoundError as error:
+        if required:
+            raise InputContractError(
+                f"{path}: selected capture.json is absent; restore the receipt or select a new capture directory"
+            ) from error
         return receipt(source, path, None, None, None, None, None,
                        f"{path}: capture.json absent; source unavailable")
 
@@ -129,6 +141,7 @@ def _read_capture(directory: Path, source: str, *, reference: bool) -> Capture |
         urls = {
             "play-by-play": f"https://api-web.nhle.com/v1/gamecenter/{identity}/play-by-play",
             "landing": f"https://api-web.nhle.com/v1/gamecenter/{identity}/landing",
+            "right-rail": f"https://api-web.nhle.com/v1/gamecenter/{identity}/right-rail",
             "boxscore": f"https://api-web.nhle.com/v1/gamecenter/{identity}/boxscore",
             "shifts": f"https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D{identity}&limit=-1",
             "game-summary": f"https://www.nhl.com/scores/htmlreports/{season}/GS{identity[-6:]}.HTM",
@@ -152,8 +165,8 @@ def _read_capture(directory: Path, source: str, *, reference: bool) -> Capture |
         and isinstance(value, str) for key, value in headers.items()
     ), "responseHeaders must contain selected lowercase headers with string values")
     status = metadata.get("httpStatus")
-    require("httpStatus" in metadata and (status is None or type(status) is int),
-            "httpStatus must be a received integer status or null")
+    require("httpStatus" in metadata and (status is None or type(status) is int and 100 <= status <= 599),
+            "httpStatus must be a received integer status from 100 through 599 or null")
     state = metadata.get("state")
     require(state in ("captured", "failed"), "state must be captured or failed")
     if state == "failed":

@@ -1,0 +1,25 @@
+{
+  "software_status": "pass_detached",
+  "acquisition_status": "not_run",
+  "protected_files": 483,
+  "protected_hashes_and_mtimes": "unchanged",
+  "temporary_drivers_deleted": [
+    "/tmp/hockey-stats-v1-02-capture",
+    "/tmp/hockey-v1-02-binder",
+    "/tmp/hockey-v1-02-review"
+  ],
+  "temporary_dependency_symlink": "removed",
+  "test_only_dependencies_added": false,
+  "source_sha256": {
+    "analysis/src/hockey_stats/coaches.py": "33a9aff733323d11bd2fd5898f3b30bde5bb02f1fdf799d5f5b6830926275808",
+    "analysis/src/hockey_stats/captures.py": "21ea6b23b6748c67d13bbc52f65ebb39ed79bf74df8a083e4b7d8cea6fe0808a",
+    "app/src/operator/capture.ts": "54e98fbf7cb4ddbe46661ddb601f8e68e4a5c52b02d93a748e82540e105869f9",
+    "app/src/operator/cli.ts": "cb645beb477a0cadb5214ecec32686f62a24da9abb908c1d798656456fa3b656",
+    "app/src/operator/capture-report.ts": "9e7e9e3c5ecb27bfd6c7589194e53b8f8e003e327d5b00ad33494da457d8cf57"
+  },
+  "typescript_check": "pass: pinned node24.21.0 tsc -p app/tsconfig.json",
+  "site_build": "not_run: operator-only change",
+  "real_requests": 0,
+  "real_acquisition_blocker": "external hdd absent; usable production-client source access unverified",
+  "worktree_retained_for_real_acceptance": "/Users/nnandal/Documents/code/hockey-stats-v1-02"
+}

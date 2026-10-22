@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "coaches": [
+    {
+      "coach_id": "coach-alpha",
+      "display_name": "alpha coach"
+    },
+    {
+      "coach_id": "coach-beta",
+      "display_name": "beta coach"
+    },
+    {
+      "coach_id": "coach-jon",
+      "display_name": "jon smith"
+    },
+    {
+      "coach_id": "coach-john",
+      "display_name": "john smith"
+    }
+  ],
+  "aliases": [
+    {
+      "reported_name": "alpha coach",
+      "applies_to": null,
+      "coach_id": "coach-alpha",
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020001",
+          "side": "home",
+          "receipt_sha256": "2bcd013d06be467f292bd27b1e8b19d5adf3ce333f26a3f3a751d14c6384befb",
+          "body_sha256": "c1e5d5307449a1ead618823e28d31aee7f4c9cfe87eca0c284356341f00c9dac",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "beta coach",
+      "applies_to": null,
+      "coach_id": "coach-beta",
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020001",
+          "side": "away",
+          "receipt_sha256": "2bcd013d06be467f292bd27b1e8b19d5adf3ce333f26a3f3a751d14c6384befb",
+          "body_sha256": "c1e5d5307449a1ead618823e28d31aee7f4c9cfe87eca0c284356341f00c9dac",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "ambiguous coach",
+      "applies_to": null,
+      "coach_id": null,
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020003",
+          "side": "home",
+          "receipt_sha256": "c2e7ae7caafcad3f74b44de41b18fca175275b414951573bef3dd0e02237a4dd",
+          "body_sha256": "110dcd06bf5d101db39d1980744877ab3201fda4c46638eb965513343c308e6e",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "scoped coach",
+      "applies_to": [
+        {
+          "season": "20252026",
+          "game_id": "2025020034",
+          "side": "home"
+        }
+      ],
+      "coach_id": "coach-alpha",
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020034",
+          "side": "home",
+          "receipt_sha256": "7b1a14e4eb4109fb3b9c79616ca4ada4946af4d741b476aa9e80665e26087cae",
+          "body_sha256": "90d60fc5560b04f11c58c6cce8d2d6e50cd45a1d6398f91b8b4da0d4a998fdc7",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "scoped coach",
+      "applies_to": [
+        {
+          "season": "20252026",
+          "game_id": "2025020035",
+          "side": "home"
+        }
+      ],
+      "coach_id": null,
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020035",
+          "side": "home",
+          "receipt_sha256": "42b71ec918de77ab22cf9352ee6444897c4170c47a4867af2a9946d12438b136",
+          "body_sha256": "90d60fc5560b04f11c58c6cce8d2d6e50cd45a1d6398f91b8b4da0d4a998fdc7",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "jon smith",
+      "applies_to": null,
+      "coach_id": "coach-jon",
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020047",
+          "side": "home",
+          "receipt_sha256": "40bd96c009697a3135657a0fa6ac23cf86ab4110b31c03177f46b895455857fd",
+          "body_sha256": "1fbd54a7c8e60c8d446379fa1f3cdf91dddcae274ef83c30f1aa58bf32f6577f",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "john smith",
+      "applies_to": null,
+      "coach_id": "coach-john",
+      "explanation": "synthetic independent identity review",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020048",
+          "side": "home",
+          "receipt_sha256": "9b12be549955434b8f1c367ac131b34f79922d5330191386e11a1d6cf8c08f32",
+          "body_sha256": "972c76a91a721f4ff26ce0d7183191acfdd7aab2e10e8015f1b0fa745028c71c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "purpose": "synthetic independent acceptance only",
+  "games": [
+    {
+      "label": "same-people-other-season-teams",
+      "game_id": "2024020001",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "resolved",
+      "game_id": "2025020001",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "unreviewed",
+      "game_id": "2025020002",
+      "home": "identity_unreviewed",
+      "away": "resolved"
+    },
+    {
+      "label": "unresolved",
+      "game_id": "2025020003",
+      "home": "identity_unresolved",
+      "away": "resolved"
+    },
+    {
+      "label": "spacing",
+      "game_id": "2025020004",
+      "home": "identity_unreviewed",
+      "away": "resolved"
+    },
+    {
+      "label": "accent",
+      "game_id": "2025020005",
+      "home": "identity_unreviewed",
+      "away": "resolved"
+    },
+    {
+      "label": "empty",
+      "game_id": "2025020006",
+      "home": "coach_not_reported",
+      "away": "resolved"
+    },
+    {
+      "label": "blank",
+      "game_id": "2025020007",
+      "home": "coach_not_reported",
+      "away": "resolved"
+    },
+    {
+      "label": "null-name",
+      "game_id": "2025020008",
+      "home": "coach_not_reported",
+      "away": "resolved"
+    },
+    {
+      "label": "numeric-name",
+      "game_id": "2025020009",
+      "home": "coach_malformed",
+      "away": "resolved"
+    },
+    {
+      "label": "object-name",
+      "game_id": "2025020010",
+      "home": "coach_malformed",
+      "away": "resolved"
+    },
+    {
+      "label": "array-side",
+      "game_id": "2025020011",
+      "home": "coach_malformed",
+      "away": "resolved"
+    },
+    {
+      "label": "null-side",
+      "game_id": "2025020012",
+      "home": "coach_not_reported",
+      "away": "resolved"
+    },
+    {
+      "label": "malformed-head",
+      "game_id": "2025020013",
+      "home": "coach_malformed",
+      "away": "resolved"
+    },
+    {
+      "label": "missing-head",
+      "game_id": "2025020014",
+      "home": "coach_not_reported",
+      "away": "resolved"
+    },
+    {
+      "label": "empty-object",
+      "game_id": "2025020015",
+      "home": "coach_not_reported",
+      "away": "coach_not_reported"
+    },
+    {
+      "label": "null-gameinfo",
+      "game_id": "2025020016",
+      "home": "coach_not_reported",
+      "away": "coach_not_reported"
+    },
+    {
+      "label": "malformed-gameinfo",
+      "game_id": "2025020017",
+      "home": "source_malformed",
+      "away": "source_malformed"
+    },
+    {
+      "label": "root-array",
+      "game_id": "2025020018",
+      "home": "source_malformed",
+      "away": "source_malformed"
+    },
+    {
+      "label": "malformed-json",
+      "game_id": "2025020019",
+      "home": "source_malformed",
+      "away": "source_malformed"
+    },
+    {
+      "label": "duplicate-json",
+      "game_id": "2025020020",
+      "home": "source_malformed",
+      "away": "source_malformed"
+    },
+    {
+      "label": "nonfinite-json",
+      "game_id": "2025020021",
+      "home": "source_malformed",
+      "away": "source_malformed"
+    },
+    {
+      "label": "wrong-id",
+      "game_id": "2025020022",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "invalid-id",
+      "game_id": "2025020023",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "wrong-gameId",
+      "game_id": "2025020024",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "wrong-season",
+      "game_id": "2025020025",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "wrong-type",
+      "game_id": "2025020026",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "wrong-date",
+      "game_id": "2025020027",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "null-context",
+      "game_id": "2025020028",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "conflict-precedence",
+      "game_id": "2025020029",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "non2xx",
+      "game_id": "2025020030",
+      "home": "source_unavailable",
+      "away": "source_unavailable"
+    },
+    {
+      "label": "transport",
+      "game_id": "2025020031",
+      "home": "source_unavailable",
+      "away": "source_unavailable"
+    },
+    {
+      "label": "not-requested",
+      "game_id": "2025020032",
+      "home": "source_unavailable",
+      "away": "source_unavailable"
+    },
+    {
+      "label": "probe-deferred",
+      "game_id": "2025020033",
+      "home": "source_unavailable",
+      "away": "source_unavailable"
+    },
+    {
+      "label": "scoped-a",
+      "game_id": "2025020034",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "scoped-b",
+      "game_id": "2025020035",
+      "home": "identity_unresolved",
+      "away": "resolved"
+    },
+    {
+      "label": "home-team-conflict",
+      "game_id": "2025020036",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "away-team-invalid",
+      "game_id": "2025020037",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "teams-agree",
+      "game_id": "2025020038",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "nested-decoy",
+      "game_id": "2025020039",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "candidate-rosters-valid",
+      "game_id": "2025020040",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "candidate-rosters-wrong-game",
+      "game_id": "2025020041",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "candidate-rosters-wrong-season",
+      "game_id": "2025020042",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "candidate-rosters-invalid-url",
+      "game_id": "2025020043",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "candidate-rosters-wrong-type",
+      "game_id": "2025020044",
+      "home": "source_identity_conflict",
+      "away": "source_identity_conflict"
+    },
+    {
+      "label": "candidate-rosters-null",
+      "game_id": "2025020045",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "candidate-report-extra-field",
+      "game_id": "2025020046",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "similar-jon",
+      "game_id": "2025020047",
+      "home": "resolved",
+      "away": "resolved"
+    },
+    {
+      "label": "similar-john",
+      "game_id": "2025020048",
+      "home": "resolved",
+      "away": "resolved"
+    }
+  ],
+  "limits": [
+    "no original right-rail body or report-link schema certified",
+    "no real season coverage",
+    "no fitted effects"
+  ]
+}

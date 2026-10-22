@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "checks": [
+    "right-rail: one request, exact binary body and sha256, only supplemental leaf",
+    "302/403: exact non-2xx body retained, redirect not followed, supplemental retry guidance",
+    "transport/body-read: failed receipts retained, no promised body",
+    "occupied supplemental output rejected before any request",
+    "default: unchanged six requests/source directories",
+    "landing: existing-core single-source semantics and core-copy failure guidance preserved",
+    "reader: captured/failed 99/600/999/boolean http statuses rejected",
+    "reader: supplemental successes/failures, missing promised receipt rejected, frozen six-source fixture valid"
+  ],
+  "evidence": "/tmp/hockey-stats-v1-02-capture/run-qusrzgnh"
+}

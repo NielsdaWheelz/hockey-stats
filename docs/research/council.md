@@ -1,5 +1,15 @@
 # council synthesis
 
+## v1-02 detached implementation review — 2026-10-22
+
+the user assigned [v1-02](../specs/v1-02-dated-coaches.md), then confirmed fixture development until the hdd is connected. two non-astra agents implemented the capture and offline binder owners; a third wrote independent adversarial acceptance checks. root reviewed contracts, implementation and final behavior. the capture implementer separately reviewed the binder's source/systems boundary; the independent reviewer checked source, systems and operator content.
+
+[detached verification](coaches-v1-02/verification.md) passes: real cli entry points with controlled transport, four implementer groups, 15 independent groups over 49 synthetic games/98 slots, and eight additional source checks. all 37 frozen fixture interpretations remain equal to the original reader; all five fixture-derived inventories and 222 core receipts remain readable. tests preceded implementation; temporary tests/controllers were removed after final green, retaining labeled fixtures, expected facts and receipts.
+
+review repaired invalid http-status acceptance, malformed report-url handling, bool/float count and alias-index acceptance, inconsistent report parent/child evidence and the missing operator summary. finite-json parsing, source receipts, inventory admission and exclusive artifact writes retain their existing owners. interpretation/identity/coverage has one new owner; its detached validator is read-only. no fallback feed, tenure model, duplicated core interpretation, numerical fit, publication or website change was added.
+
+this clears detached software behavior only. the real identity table is empty; candidate report-link paths/types remain provisional until first-original inspection. five-season acquisition, real name review, permanent-change/temporary-absence checks and real admission remain pending under [the source issue](../issues/coach-source-access.md). counts from synthetic receipts establish no historical coverage. accepted costs are explicit supplemental selection, manual exact identities, retrospective uncertainty and a partial fresh output after a failed bind, without a successful final artifact.
+
 ## v1 field and source contract review — 2026-10-22
 
 the user assigned one coordinated documentation task with three bounded independent audits: microstats; goalie/descriptive cards; modeled skater cards. root inspected shared code/source/reference evidence, integrated their findings and returned the amended contracts for adversarial review. all three final reviews clear the [five-card crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance), shared definitions and [twenty proposed handoffs](../plan.md#proposed-pr-boundaries-and-dependencies). this establishes definition/source/owner coverage, not implementation or scientific support.

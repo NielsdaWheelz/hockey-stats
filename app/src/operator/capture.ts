@@ -18,7 +18,7 @@ const responseHeaderNames = [
   "location",
 ] as const;
 
-type GameSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report" | "landing";
+type GameSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "play-report" | "landing" | "right-rail";
 
 export type CaptureIdentity =
   | { readonly gameId: string; readonly source: GameSource }
@@ -86,6 +86,20 @@ export const captureGame = ({
       records.push(yield* captureResponse({ identity: { gameId, source }, url, outDirectory }));
     }
     return records;
+  });
+
+export const captureRightRail = ({ gameId, outDirectory }: {
+  readonly gameId: string;
+  readonly outDirectory: string;
+}): Effect.Effect<CaptureRecord[], PlatformError, FileSystem.FileSystem | HttpClient.HttpClient> =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    yield* fs.makeDirectory(outDirectory);
+    return [yield* captureResponse({
+      identity: { gameId, source: "right-rail" },
+      url: `https://api-web.nhle.com/v1/gamecenter/${gameId}/right-rail`,
+      outDirectory,
+    })];
   });
 
 // the existing core receipt protects against accidentally selecting another game.

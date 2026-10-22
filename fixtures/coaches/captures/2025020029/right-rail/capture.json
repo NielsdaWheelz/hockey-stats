@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "gameId": "2025020029",
+  "source": "right-rail",
+  "request": {
+    "method": "GET",
+    "url": "https://api-web.nhle.com/v1/gamecenter/2025020029/right-rail",
+    "requestedAt": "2026-10-22T01:02:03.000Z"
+  },
+  "responseHeaders": {},
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 130,
+    "sha256": "1d4e2d878790a9462b5ba8912dde3bd084ead5b6793b686e0e2b62140380dd1a"
+  },
+  "failure": null
+}

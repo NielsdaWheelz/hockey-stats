@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "reference": {
+    "schema_version": 2,
+    "requested_season": "20242025",
+    "inventory": [
+      {
+        "game_id": "2024020001",
+        "season": "20242025",
+        "game_type": 2,
+        "game_date": "2024-10-11",
+        "home_team_id": 3,
+        "away_team_id": 4,
+        "source_index": 0
+      }
+    ],
+    "inputs": [
+      {
+        "source": "season-summary",
+        "capture_path": "/synthetic/season-summary/capture.json",
+        "requested_at": null,
+        "http_status": null,
+        "body_sha256": null,
+        "status": "unavailable",
+        "reason": "synthetic inventory only"
+      },
+      {
+        "source": "season-games",
+        "capture_path": "/synthetic/season-games/capture.json",
+        "requested_at": null,
+        "http_status": null,
+        "body_sha256": null,
+        "status": "unavailable",
+        "reason": "synthetic inventory only"
+      },
+      {
+        "source": "skater-bios",
+        "capture_path": "/synthetic/skater-bios/capture.json",
+        "requested_at": null,
+        "http_status": null,
+        "body_sha256": null,
+        "status": "unavailable",
+        "reason": "synthetic inventory only"
+      },
+      {
+        "source": "goalie-bios",
+        "capture_path": "/synthetic/goalie-bios/capture.json",
+        "requested_at": null,
+        "http_status": null,
+        "body_sha256": null,
+        "status": "unavailable",
+        "reason": "synthetic inventory only"
+      }
+    ],
+    "bio_observations": [],
+    "bio_collections": []
+  },
+  "games": [
+    {
+      "game_id": "2024020001",
+      "inventory_source_index": 0,
+      "status": "missing_capture",
+      "reason": "synthetic no core source",
+      "output_path": null
+    }
+  ]
+}

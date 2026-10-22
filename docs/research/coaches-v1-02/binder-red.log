@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/hockey-v1-02-binder/test_binder_temp.py", line 9, in <module>
+    from hockey_stats.coaches import bind_coaches, read_coaches
+ModuleNotFoundError: No module named 'hockey_stats.coaches'

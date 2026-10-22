@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "checks": [
+    "alias-index-False",
+    "alias-index-0.0",
+    "conflicting-parent-hidden-by-absent-child",
+    "coverage-True",
+    "coverage-1.0",
+    "invalid-report-url",
+    "malformed-root-precedence",
+    "one-sided-malformed"
+  ],
+  "evidence": "/tmp/hockey-stats-v1-02-capture/source-review-0eewcgq9",
+  "source_sha256": "33a9aff733323d11bd2fd5898f3b30bde5bb02f1fdf799d5f5b6830926275808"
+}

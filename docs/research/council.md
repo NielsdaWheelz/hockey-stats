@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 02d delivery review — 2026-10-21
+
+independent integration review clears [pr #45](https://github.com/NielsdaWheelz/hockey-stats/pull/45), successful security checks and exact reviewed/merged tree equality. the common observed-validator body remains identical, strict schema-6 deployment validation remains mandatory, and the historical audit projects only the additive deployment receipt field. nine focused groups, real schema-4/5 checks, the real schema-6 reader and pinned primary typechecking pass. accepted scientific outputs and all seven non-chronology drafts remain exact; the full nine-draft snapshot and every producer survive in ancestry.
+
+the clean primary fast-forward, five-root disposal and task worktree/local/remote branch removal are verified. no alias is required. all 39 protected files retain exact bytes, sizes and nanosecond mtimes; the same publication remains serving. evidence, stopped-run artifacts, raw captures, fits, frozen references, the managed daemon and separately assigned 04n work remain intact. [delivery evidence](source-02d/verification.md#source-integration-and-task-cleanup) records the scope. no activation, scientific rerun or admission follows.
+
 ## 02d implementation review — 2026-10-21
 
 independent source/statistical, systems and content reviews clear [02d's implementation and acceptance](source-02d/verification.md). raw shifts/reports establish the three 33/53/46-second interior runs, unchanged native facts and zero retained collateral events. synthetic checks verify matched count/time removal, prior overlap, boundaries, goalie changes and penalty shots. three complete-bundle probes use eighteen requests and recover no matched support; all 57 gaps remain with explicit empty-source reasons. no expansion or source substitution follows.

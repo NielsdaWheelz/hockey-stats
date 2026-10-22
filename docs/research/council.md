@@ -10,6 +10,12 @@ borrowing has supported lower complete regional loss than independent fitting (`
 
 positive held-out scalar totals coexist with negative regional and native complete rates. borrowing's exposure-weighted negative-entry fractions are `0.2273%` regionally and `29.7760%` natively; their negative masses have different denominators and remain explicit. this is conditional joint lineup prediction of recorded results on exposed seasons, not latent recovery, a pregame forecast, positive event intensities or calibrated player ability. the diagnostic does not uniquely identify a next revision. original scientific verdicts, fits, accepted source evidence and the observed website remain intact; no nomination, admission, publication or automatic successor follows.
 
+## 05h activation review — 2026-10-21
+
+independent systems and rendered-content review clears the separately assigned [schema-6 activation](observed-05h/verification.md#explicit-activation). the exact verified candidate is paired with rebuilt primary code `cb13d99`; the validated old schema-3 active becomes the sole previous database, paired with rebuildable `d3dee76`. exclusive-copy/full-reader validation and separate-port browser preflight precede the real stop/copy/restart. all 28 installed files match staging; the interruption is bounded at 44.22 seconds.
+
+actual three-season api/browser checks preserve current-season summaries and verify deployment seconds/shares, keyboard expansion, history/maps/comparison and 320px reflow without runtime errors. candidate/baseline and frozen research evidence remain exact. temporary builds, rollback checkout and browser controllers are removed; only the primary listener remains. rollback requires compatible code and a manual restart; existing tabs need a reload. source gaps remain visible, independent 04n work continues, and no fitted ability or model admission follows.
+
 ## 02d delivery review — 2026-10-21
 
 independent integration review clears [pr #45](https://github.com/NielsdaWheelz/hockey-stats/pull/45), successful security checks and exact reviewed/merged tree equality. the common observed-validator body remains identical, strict schema-6 deployment validation remains mandatory, and the historical audit projects only the additive deployment receipt field. nine focused groups, real schema-4/5 checks, the real schema-6 reader and pinned primary typechecking pass. accepted scientific outputs and all seven non-chronology drafts remain exact; the full nine-draft snapshot and every producer survive in ancestry.

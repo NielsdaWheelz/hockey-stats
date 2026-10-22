@@ -3750,7 +3750,7 @@ def read_context_source(result_ref):
     return source, metadata
 
 
-def read_context_fixture(path, *, require_controls=True):
+def read_context_fixture(path):
     """read the five literal counted, timed histories; fixture setup never fits here."""
     from .attribution import decode_shape_basis
     from .attribution_context import BASIS_COLUMNS
@@ -3818,24 +3818,23 @@ def read_context_fixture(path, *, require_controls=True):
         ledger_game_ids=document["ledger_game_ids"], inventory=document["inventory"],
         train_ids=document["train_ids"], assessment_ids=document["assessment_ids"],
         months=document["months"], expected_arrays=arrays, fixture_document=document)
-    if require_controls:
-        control_ref = ref(document["controls"])
-        controls = read_json(linked_path(control_ref))
-        require(controls["kind"] == "attribution_context_fixture_controls" and controls["schema_version"] == 1
-                and controls["purpose"] == "fixture_exercise" and ref(controls["counted_arrays"]) == arrays_ref,
-                "temporal fixture controls differ from literal counted input")
-        states, probes = [], []
-        for row in controls["states"]:
-            require(row["reference_mode"] == "fixture_relative_v1", "fixture state reference mode differs")
-            states.append(dict(row, arrays=ref(row["arrays"]), record=ref(row["record"]),
-                               parent=None if row["parent"] is None else ref(row["parent"])))
-        for probe in controls["probes"]:
-            alternative = probe["alternative"]
-            probes.append(dict(probe, alternative=dict(alternative, arrays=ref(alternative["arrays"]),
-                parent=None if alternative["parent"] is None else ref(alternative["parent"]))))
-        controls = dict(controls, states=states, probes=probes)
-        metadata.update(controls_fit=controls, controls_assessment=controls,
-            controls_fit_reference=control_ref, controls_assessment_reference=control_ref)
+    control_ref = ref(document["controls"])
+    controls = read_json(linked_path(control_ref))
+    require(controls["kind"] == "attribution_context_fixture_controls" and controls["schema_version"] == 1
+            and controls["purpose"] == "fixture_exercise" and ref(controls["counted_arrays"]) == arrays_ref,
+            "temporal fixture controls differ from literal counted input")
+    states, probes = [], []
+    for row in controls["states"]:
+        require(row["reference_mode"] == "fixture_relative_v1", "fixture state reference mode differs")
+        states.append(dict(row, arrays=ref(row["arrays"]), record=ref(row["record"]),
+                           parent=None if row["parent"] is None else ref(row["parent"])))
+    for probe in controls["probes"]:
+        alternative = probe["alternative"]
+        probes.append(dict(probe, alternative=dict(alternative, arrays=ref(alternative["arrays"]),
+            parent=None if alternative["parent"] is None else ref(alternative["parent"]))))
+    controls = dict(controls, states=states, probes=probes)
+    metadata.update(controls_fit=controls, controls_assessment=controls,
+        controls_fit_reference=control_ref, controls_assessment_reference=control_ref)
     return source, metadata
 
 

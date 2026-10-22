@@ -73,6 +73,16 @@ def _source_receipts(directory, game_id, interpreted):
     return rows
 
 
+def _support_reason(support):
+    if support is None:
+        return "identity_unavailable"
+    if support["game"]["included_seconds"] == 0:
+        return "no_retained_matched_time"
+    if support["included_attempts"] == 0:
+        return "no_retained_matched_attempt"
+    return "matched_time_and_attempt"
+
+
 def _review(directory, entry, envelope, envelope_path, output, producer):
     """admit native contracts before considering support; null identity is a gap."""
     game_id = entry["game_id"]
@@ -82,14 +92,12 @@ def _review(directory, entry, envelope, envelope_path, output, producer):
     game = interpreted["game"]
     if game is None:
         support = None
-        reason = "identity_unavailable"
         receipt = None
     else:
         require(all(game[field] == entry[field] for field in IDENTITY_FIELDS),
                 f"{directory}: admitted game identity conflicts with inventory")
         observed, players, _, _, receipt, _ = observe_game(entry, envelope, envelope_path, [])
         included = [row for row in receipt["event_dispositions"] if row["status"] == "included"]
-        useful = observed.included_seconds > 0 and bool(included)
         require(all(not receipt["segments"][row["segment_index"]]["excluded_reasons"] for row in included),
                 "included recovery attempt assigned to excluded segment")
         support = dict(game=json_values(asdict(observed)), player_rows=len(players),
@@ -97,7 +105,7 @@ def _review(directory, entry, envelope, envelope_path, output, producer):
                 row["match_status"] for row in envelope["reconstruction"]["events"] or [])),
             event_dispositions=dict(Counter(row["status"] for row in receipt["event_dispositions"])),
             personal=receipt["personal_identities"], spatial=receipt["spatial_identities"])
-        reason = "matched_time_and_attempt" if useful else "no_retained_matched_time" if not observed.included_seconds else "no_retained_matched_attempt"
+    reason = _support_reason(support)
     facts = {key: _digest(value) for key, value in interpreted.items() if key not in ("inputs", "interpretation", "issues")}
     review_path = output / (game_id + ".review.json")
     write_json(review_path, dict(schema_version=1, implementation=producer, native_envelope=identity(envelope_path),
@@ -253,8 +261,8 @@ def validate_recovery(path, *, corpus_path=None, audit_sources=True):
                     and reviewed["game_id"] == game_id and reviewed["native_envelope"] == review["native_envelope"]
                     and reviewed["support"] == review["support"], "recovery native review binding differs")
             support = review["support"]
-            actual_useful = support is not None and support["game"]["included_seconds"] > 0 and support["included_attempts"] > 0
-            expected_reason = "identity_unavailable" if support is None else "matched_time_and_attempt" if actual_useful else "no_retained_matched_time" if not support["game"]["included_seconds"] else "no_retained_matched_attempt"
+            expected_reason = _support_reason(support)
+            actual_useful = expected_reason == "matched_time_and_attempt"
             require(review["useful"] == actual_useful and review["reason"] == expected_reason,
                     "recovery reason/predicate differs from matched support")
             if audit_sources:

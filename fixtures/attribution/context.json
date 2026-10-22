@@ -104,7 +104,7 @@
   },
   "arrays": {
     "path": "context.npz",
-    "sha256": "9aea4a10440e818ca7237cee167ef06eea3f944e78b3b5d05a6a6227401e3ab4"
+    "sha256": "f1099b95977ad2f49b16440500da7506ce76d4f33ed16e362fc276442188beda"
   },
   "array_shapes": [
     {
@@ -514,7 +514,7 @@
   },
   "events": {
     "path": "context.events.jsonl",
-    "sha256": "a048ec0e19a6847693e2d77655575633fc6c196710b68b9b2570972b5063d548"
+    "sha256": "0c66ff303c608bf58124a3f9a75be8edd6e2f7b6b364f9cf39472378b16a200e"
   },
   "segments": {
     "path": "context.segments.jsonl",
@@ -2024,7 +2024,8 @@
     "nonclipped_boundary_goals": 5,
     "saturated_interior_goals": 5,
     "after_goal_same_clock_shots": 10,
-    "later_saturated_score_events": 5
+    "later_saturated_score_events": 5,
+    "retained_period_end_events": 5
   },
   "controls": {
     "path": "context.controls.json",

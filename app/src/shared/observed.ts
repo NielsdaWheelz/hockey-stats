@@ -222,9 +222,40 @@ export const LeagueResponse = Schema.Struct({ publication: Publication, availabl
   response.available_seasons.includes(response.season.season) && new Set(response.players.map((player) => player.player_id)).size === response.players.length &&
   (response.spatial === null || JSON.stringify(response.spatial.league_support) === JSON.stringify(response.season.spatial_coverage))));
 export type LeagueResponse = typeof LeagueResponse.Type;
-export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, player_id: HockeyId, games: Schema.Array(PlayerGame), history: Schema.Array(Schema.Struct({season: SeasonEvidence, player: Schema.NullOr(PlayerSummary)})) }).check(Schema.makeFilter((response) => {
+export const DeploymentPeer = Schema.Struct({ player_id: HockeyId, shared_seconds: Count.check(Schema.isGreaterThan(0)) });
+export type DeploymentPeer = typeof DeploymentPeer.Type;
+export const Deployment = Schema.Struct({ teammates: Schema.Array(DeploymentPeer), opponents: Schema.Array(DeploymentPeer) });
+export type Deployment = typeof Deployment.Type;
+export const PlayerResponse = Schema.Struct({ ...LeagueResponse.fields, player_id: HockeyId, deployment: Schema.NullOr(Deployment), games: Schema.Array(PlayerGame), history: Schema.Array(Schema.Struct({season: SeasonEvidence, player: Schema.NullOr(PlayerSummary)})) }).check(Schema.makeFilter((response) => {
   const selected = response.players.find((player) => player.player_id === response.player_id) ?? null;
   const selectedHistory = response.history.find((row) => row.season.season === response.season.season);
+  if (selected === null) {
+    if (response.deployment !== null) return false;
+  } else {
+    if (response.deployment === null) return false;
+    const selectedSeconds = BigInt(selected.metrics.included_seconds);
+    const players = new Map(response.players.map((player) => [player.player_id, player]));
+    const combined = new Map<string, bigint>();
+    for (const [relation, multiplier] of [["teammates", 4n], ["opponents", 5n]] as const) {
+      const peers = response.deployment[relation];
+      const seen = new Set<string>();
+      let total = 0n;
+      for (const [index, peer] of peers.entries()) {
+        if (peer.player_id === response.player_id || !players.has(peer.player_id) || seen.has(peer.player_id)) return false;
+        const previous = peers[index - 1];
+        if (previous !== undefined && (previous.shared_seconds < peer.shared_seconds || previous.shared_seconds === peer.shared_seconds &&
+          (previous.player_id.length > peer.player_id.length || previous.player_id.length === peer.player_id.length && previous.player_id >= peer.player_id))) return false;
+        seen.add(peer.player_id);
+        const seconds = BigInt(peer.shared_seconds);
+        total += seconds;
+        combined.set(peer.player_id, (combined.get(peer.player_id) ?? 0n) + seconds);
+      }
+      if (total !== multiplier * selectedSeconds) return false;
+    }
+    for (const [id, seconds] of combined) {
+      if (seconds > selectedSeconds || seconds > BigInt(players.get(id)!.metrics.included_seconds)) return false;
+    }
+  }
   return Schema.is(LeagueResponse)(response) && response.history.length === response.available_seasons.length &&
     response.history.every((row,index) => row.season.season === response.available_seasons[index] && (row.player === null || row.player.player_id === response.player_id)) &&
     response.history.some((row) => row.player !== null) && selectedHistory !== undefined &&

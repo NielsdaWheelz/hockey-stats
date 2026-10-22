@@ -1,5 +1,6 @@
 """one checked sqlite publication from authoritative observed results."""
 
+from collections import Counter
 from contextlib import closing
 from dataclasses import asdict
 from datetime import datetime, timezone
@@ -80,7 +81,7 @@ _METRICS = """
 _SCHEMA = """
 CREATE TABLE publication (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    schema_version INTEGER NOT NULL CHECK(schema_version=5),
+    schema_version INTEGER NOT NULL CHECK(schema_version=6),
     kind TEXT NOT NULL CHECK(kind='observed_5v5'),
     publication_id TEXT NOT NULL,
     purpose TEXT NOT NULL CHECK(purpose IN ('real','fixture')),
@@ -171,6 +172,19 @@ CREATE TABLE player_season (
     PRIMARY KEY(season,player_id),
     FOREIGN KEY(season,player_id) REFERENCES player(season,player_id)
 ) STRICT;
+CREATE TABLE player_season_pair (
+    season TEXT NOT NULL,
+    player_a TEXT NOT NULL,
+    relation TEXT NOT NULL CHECK(relation IN ('teammate','opponent')),
+    player_b TEXT NOT NULL,
+    shared_seconds INTEGER NOT NULL CHECK(shared_seconds BETWEEN 1 AND 9007199254740991),
+    PRIMARY KEY(season,player_a,relation,player_b),
+    FOREIGN KEY(season,player_a) REFERENCES player_season(season,player_id),
+    FOREIGN KEY(season,player_b) REFERENCES player_season(season,player_id),
+    CHECK(length(player_a)<length(player_b) OR
+      (length(player_a)=length(player_b) AND player_a COLLATE BINARY < player_b))
+) STRICT;
+CREATE INDEX player_season_pair_b ON player_season_pair(season,player_b,relation,player_a);
 """
 
 
@@ -317,6 +331,12 @@ def read_selection(selection_path):
 def stored_row(row, season):
     """validate and flatten one observed result row for sqlite storage."""
     fields = dict(row) if isinstance(row, dict) else asdict(row)
+    if "shared_seconds" in fields:
+        a, b = fields["player_a"], fields["player_b"]
+        require(all(type(pid) is str and re.fullmatch(r"[1-9][0-9]*", pid) for pid in (a, b))
+                and (len(a), a) < (len(b), b), f"{season}: noncanonical deployment endpoints")
+        require(fields["relation"] in ("teammate", "opponent") and type(fields["shared_seconds"]) is int
+                and 0 < fields["shared_seconds"] <= 9007199254740991, f"{season}: invalid deployment relation or seconds")
     if "attempts_for" in fields:
         expected = asdict(_metrics(fields["included_seconds"], fields["known_excluded_seconds"],
             fields["attempts_for"] or 0, fields["attempts_against"] or 0, fields["reason_codes"]))
@@ -344,8 +364,36 @@ def _insert(connection, table, row):
     connection.execute(f"INSERT INTO {table} ({','.join(row)}) VALUES ({','.join('?' for _ in row)})", tuple(row.values()))
 
 
-def check_season(connection, result, purpose):
-    """independently reduce stored facts within one season, one game/player at a time."""
+def _check_deployment(rows, player_seconds, physical_seconds, loc):
+    """check source receipts and stored rows against their own published exposure."""
+    facts, combined = {}, Counter()
+    incident = {pid: [0, 0] for pid in player_seconds}
+    totals = [0, 0]
+    for row in rows:
+        a, relation, b, seconds = (row[key] for key in ("player_a", "relation", "player_b", "shared_seconds"))
+        require(all(type(pid) is str and re.fullmatch(r"[1-9][0-9]*", pid) for pid in (a, b))
+                and (len(a), a) < (len(b), b), f"{loc}: noncanonical deployment endpoints")
+        require(a in player_seconds and b in player_seconds, f"{loc}: unknown deployment endpoint")
+        require(relation in ("teammate", "opponent") and type(seconds) is int and 0 < seconds <= 9007199254740991,
+                f"{loc}: invalid deployment relation or seconds")
+        key = (a, relation, b)
+        require(key not in facts, f"{loc}: duplicate deployment pair")
+        facts[key] = seconds
+        direction = 0 if relation == "teammate" else 1
+        incident[a][direction] += seconds
+        incident[b][direction] += seconds
+        totals[direction] += seconds
+        combined[a, b] += seconds
+    require(totals == [20 * physical_seconds, 25 * physical_seconds], f"{loc}: deployment physical conservation failed")
+    require(all(incident[pid] == [4 * seconds, 5 * seconds] for pid, seconds in player_seconds.items()),
+            f"{loc}: deployment player conservation failed")
+    require(all(seconds <= min(player_seconds[a], player_seconds[b]) for (a, b), seconds in combined.items()),
+            f"{loc}: combined deployment overlap exceeds exposure")
+    return facts
+
+
+def check_observed_season(connection, result, purpose):
+    """independently validate one season's matched on-ice, personal and spatial facts."""
     season = result.season
     connection.row_factory = sqlite3.Row
     require(connection.execute("SELECT count(*) FROM player WHERE season=?", (season,)).fetchone()[0]
@@ -473,6 +521,28 @@ def check_season(connection, result, purpose):
                 read_back="passed", conservation="passed")
 
 
+def check_season(connection, result, purpose):
+    """validate the complete current publication, including deployment, for one season."""
+    checks = check_observed_season(connection, result, purpose)
+    season = result.season
+    receipt_by_game = {row["game_id"]: row for row in result.receipt["games"]}
+    pair_reduction = Counter()
+    for game in connection.execute("SELECT game_id,included_seconds FROM game WHERE season=?", (season,)):
+        gid = game["game_id"]
+        player_seconds = {row["player_id"]: row["included_seconds"] for row in connection.execute(
+            "SELECT player_id,included_seconds FROM player_game WHERE season=? AND game_id=?", (season, gid))}
+        pair_reduction.update(_check_deployment(receipt_by_game[gid]["deployment_pairs"],
+            player_seconds, game["included_seconds"], f"{season}/{gid}"))
+    pairs = connection.execute("SELECT player_a,relation,player_b,shared_seconds FROM player_season_pair WHERE season=?", (season,)).fetchall()
+    player_seconds = {row["player_id"]: row["included_seconds"] for row in
+                      connection.execute("SELECT player_id,included_seconds FROM player_season WHERE season=?", (season,))}
+    stored_pairs = _check_deployment(pairs, player_seconds, checks["physical_seconds"], season)
+    require(stored_pairs == pair_reduction, f"{season}: stored deployment differs from game receipt reductions")
+    return checks | dict(deployment_pairs=len(stored_pairs),
+        teammate_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "teammate"),
+        opponent_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "opponent"))
+
+
 def build_publication(selection_path: Path, output: Path) -> dict:
     """finalize after each season's independent read-back and the complete database checks."""
     started = time.monotonic()
@@ -493,7 +563,7 @@ def build_publication(selection_path: Path, output: Path) -> dict:
     }
     publication_id = str(uuid.uuid4())
     metadata = {
-        "id": 1, "schema_version": 5, "kind": "observed_5v5", "publication_id": publication_id,
+        "id": 1, "schema_version": 6, "kind": "observed_5v5", "publication_id": publication_id,
         "purpose": selection["purpose"], "game_type": 2,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "population_version": "matched_attempts_v2", "personal_population_version": "matched_personal_credits_v2",
@@ -508,7 +578,7 @@ def build_publication(selection_path: Path, output: Path) -> dict:
         connection.execute("PRAGMA foreign_keys=ON")
         connection.execute("PRAGMA journal_mode=DELETE")
         connection.executescript(_SCHEMA + _SPATIAL_SCHEMA)
-        connection.execute("PRAGMA user_version=5")
+        connection.execute("PRAGMA user_version=6")
         with connection:
             _insert(connection, "publication", metadata)
         for item, corpus_path in zip(selection["corpora"], paths):
@@ -522,7 +592,8 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                 "source_implementations_json": json.dumps(result.source_implementations, allow_nan=False, sort_keys=True, separators=(",", ":"))}
             tables = (("player", result.players), ("game", result.games), ("player_game", result.player_games),
                 ("player_season", result.player_seasons), ("spatial_cell", result.spatial_cells),
-                ("player_game_spatial", result.player_game_spatial), ("player_season_spatial", result.player_season_spatial))
+                ("player_game_spatial", result.player_game_spatial), ("player_season_spatial", result.player_season_spatial),
+                ("player_season_pair", result.player_season_pairs))
             with connection:
                 _insert(connection, "season", evidence)
                 for table, rows in tables:
@@ -563,12 +634,14 @@ def build_publication(selection_path: Path, output: Path) -> dict:
         require([tuple(r) for r in connection.execute("PRAGMA integrity_check")] == [("ok",)], "sqlite integrity check failed")
         require(not connection.execute("PRAGMA foreign_key_check").fetchall(), "sqlite foreign key check failed")
         require(connection.execute("PRAGMA journal_mode").fetchone()[0] == "delete", "publication requires delete journal mode")
-        require(connection.execute("PRAGMA user_version").fetchone()[0] == 5, "publication requires schema 5")
+        require(connection.execute("PRAGMA user_version").fetchone()[0] == 6, "publication requires schema 6")
         require(dict(connection.execute("SELECT * FROM publication").fetchone()) == metadata, "publication metadata read-back differs")
         require([r[0] for r in connection.execute("SELECT season FROM season ORDER BY season")] == [r["season"] for r in selection["corpora"]],
                 "stored season catalog differs")
-        require({r[1] for r in connection.execute("PRAGMA table_list") if r[2] == "table" and r[0] == "main" and not r[1].startswith("sqlite_")}
-                == {"publication", "season", "player", "game", "player_game", "player_season", "spatial_cell", "player_game_spatial", "player_season_spatial"},
+        catalog = [r for r in connection.execute("PRAGMA table_list") if r[2] == "table" and r[0] == "main" and not r[1].startswith("sqlite_")]
+        require({r[1] for r in catalog}
+                == {"publication", "season", "player", "game", "player_game", "player_season", "spatial_cell", "player_game_spatial", "player_season_spatial", "player_season_pair"}
+                and all(r[5] == 1 for r in catalog),
                 "publication table structure differs")
     finally:
         connection.close()

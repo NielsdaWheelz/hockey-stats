@@ -23,7 +23,7 @@ from hockey_stats.chance_cli import identity, output_path, read_json
 from hockey_stats.cli import Once
 from hockey_stats.corpus_inputs import load_corpus
 from hockey_stats.observed import aggregate
-from hockey_stats.publication import check_season, read_selection, stored_row
+from hockey_stats.publication import check_observed_season, read_selection, stored_row
 
 SPEC = Path(__file__).resolve().parents[2] / 'docs/specs/02d-source-exposure-consistency.md'
 POLICY = 'strict_interior_other_strength_v1'
@@ -356,6 +356,12 @@ def _canonical(row):
             for key, value in row.items()}
 
 
+def _assessment_receipt(receipt):
+    """retain this audit's frozen schema-5 receipt shape from current observed facts."""
+    return receipt | dict(games=[{key: value for key, value in row.items() if key != 'deployment_pairs'}
+                                for row in receipt['games']])
+
+
 def _verify_selected(connection, result, purpose):
     for table in TABLES:
         actual = iter(_sql_rows(connection, table, result.season))
@@ -373,7 +379,7 @@ def _verify_selected(connection, result, purpose):
             and evidence['undated_sources'] == result.undated_sources
             and strict_json(evidence['source_implementations_json'].encode()) == list(result.source_implementations),
             f'{result.season}: final season evidence differs')
-    return check_season(connection, result, purpose)
+    return check_observed_season(connection, result, purpose)
 
 
 def _missing_spatial(table, key, connection, policy, season):
@@ -904,7 +910,7 @@ def assess(args):
             old_evidence = dict(old_db.execute('SELECT * FROM season WHERE season=?',(season,)).fetchone())
             require(old_evidence['corpus_sha256'] == old_ref['sha256'] == old_receipt['corpus_sha256'],
                     'pinned original corpus/receipt differs')
-            check_season(old_db, SimpleNamespace(season=season, receipt=old_receipt,
+            check_observed_season(old_db, SimpleNamespace(season=season, receipt=old_receipt,
                 spatial_coverage=strict_json(old_evidence['spatial_coverage_json'].encode()),
                 coverage=strict_json(old_evidence['coverage_json'].encode())), 'real')
             del old_receipt
@@ -913,13 +919,13 @@ def assess(args):
             policy_path = out / f'policy-only-{season}.json'
             write_json(policy_path, dict(schema_version=1,kind='source_exposure_policy_only_receipt',
                 implementation=producer,policy_id=POLICY,corpus={k:old_ref[k] for k in ('path','sha256')},
-                **policy.receipt,coverage=policy.coverage,spatial_coverage=policy.spatial_coverage))
+                **_assessment_receipt(policy.receipt),coverage=policy.coverage,spatial_coverage=policy.spatial_coverage))
             full_receipts.append(dict(season=season,state='policy_only',reference=identity(policy_path)))
             chosen = policy if old_ref == new_ref else aggregate(new_ref['path'],'real',season,new_ref['sha256'])
             checks = _verify_selected(new_db,chosen,'real')
             selected_ref, _ = selected_receipts[season]
             selected_receipt = _season_receipt(selected_top,selected_receipts[season])
-            require(selected_receipt['games'] == chosen.receipt['games']
+            require(selected_receipt['games'] == _assessment_receipt(chosen.receipt)['games']
                     and selected_receipt['aggregate_identities'] == chosen.receipt['aggregate_identities'],
                     f'{season}: final candidate receipts differ from authoritative aggregation')
             del selected_receipt

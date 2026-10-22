@@ -169,3 +169,107 @@ def expected_excess_prediction_terms(gram, xbar, true_maps, selection, K, mean_s
             "fixed expected spatial prediction is nonfinite")
     return dict(error=error, bias_squared=bias_squared, sampling_variance=variation,
                 signal=signal, coupling=coupling, delta=delta)
+
+
+def empirical_prediction(training, state_or_none, evaluation_ids) -> dict:
+    """physical prediction in the training reference, with zero raw priors for unseen ids."""
+    likelihood = training.likelihood
+    basis, current = likelihood.basis, likelihood.player_ids
+    ids = tuple(evaluation_ids)
+    require(len(ids) == len(set(ids)) and training.xbar.shape == (len(training.strata), 2*len(current))
+            and training.nbar.shape == (len(training.strata), len(basis.p))
+            and all(np.isfinite(value).all() for value in (training.xbar, training.nbar)),
+            "empirical prediction training or evaluation axes differ")
+    maps = np.zeros((2*len(ids), len(basis.p)))
+    current_maps = np.zeros((2*len(current), len(basis.p)))
+    if state_or_none is not None:
+        state = state_or_none
+        require(state.current_player_ids == current and state.season == likelihood.season
+                and state.r == likelihood.r and state.basis_sha256 == basis.sha256
+                and state.uncentered_Theta.shape == (2*len(state.player_ids), basis.R.shape[1])
+                and np.isfinite(state.uncentered_Theta).all(),
+                "empirical prediction state differs from its training likelihood")
+        positions = {player: i for i, player in enumerate(state.player_ids)}
+        raw_maps = likelihood.r * state.uncentered_Theta @ basis.R.T
+        for i, player in enumerate(ids):
+            if player in positions:
+                maps[i] = raw_maps[positions[player]]
+                maps[len(ids)+i] = raw_maps[len(positions)+positions[player]]
+        selected = [positions[player] for player in current]
+        current_maps = raw_maps[selected + [len(positions)+i for i in selected]]
+    context = training.nbar-training.nbar.sum(axis=1, keepdims=True)*basis.p-training.xbar @ current_maps
+    require(np.isfinite(context).all() and np.isfinite(maps).all(),
+            "empirical prediction is nonfinite")
+    return dict(context=context, maps=maps, context_ids=training.strata, player_ids=ids, p=basis.p)
+
+
+def _empirical_moments(game, prediction):
+    """align supported contexts without dropping positive assessment exposure."""
+    s, n, k = len(game["context_ids"]), 2*len(game["player_ids"]), len(prediction["p"])
+    E = np.asarray(game["E"])
+    C, A, K = (sparse.csr_matrix(game[name]) for name in ("C", "A", "K"))
+    N = np.asarray(game["N"])
+    require(game["player_ids"] == prediction["player_ids"]
+            and np.array_equal(game["p"], prediction["p"])
+            and E.shape == (s,) and C.shape == (s, n) and A.shape == (n, n)
+            and N.shape == (s, k) and K.shape == (n, k)
+            and prediction["context"].shape == (len(prediction["context_ids"]), k)
+            and prediction["maps"].shape == (n, k)
+            and all(np.isfinite(value).all() for value in (E, C.data, A.data, N, K.data))
+            and np.all(E >= 0), "empirical game moments or prediction axes differ")
+    positions = {context: i for i, context in enumerate(game["context_ids"])}
+    require(len(positions) == s and len(set(prediction["context_ids"])) == len(prediction["context_ids"])
+            and all(context in positions for context in prediction["context_ids"]),
+            "empirical prediction contexts differ from source")
+    selected = [positions[context] for context in prediction["context_ids"]]
+    omitted = [i for i in range(s) if i not in selected]
+    require(not omitted or (np.all(E[omitted] == 0) and np.all(N[omitted] == 0)
+                            and C[omitted].nnz == 0),
+            "assessment context is absent from training")
+    return E[selected], C[selected], A, N[selected], K
+
+
+def empirical_paired_loss(game_moments, left, right, metric) -> dict:
+    """signed loss difference; response self energy cancels before contraction."""
+    require(left["context_ids"] == right["context_ids"] and left["player_ids"] == right["player_ids"]
+            and np.array_equal(left["p"], right["p"]), "empirical paired prediction references differ")
+    E, C, A, N, K = _empirical_moments(game_moments, left)
+    difference_f, sum_f = left["context"]-right["context"], left["context"]+right["context"]
+    difference_m, sum_m = left["maps"]-right["maps"], left["maps"]+right["maps"]
+    p = left["p"]
+    metric = np.asarray(metric)
+    require(metric.ndim in (1, 2) and metric.shape[0] == len(p) and np.isfinite(metric).all()
+            and (metric.ndim == 2 and metric.shape[1] > 0 or metric.ndim == 1 and np.all(metric > 0)),
+            "empirical loss requires a finite native operator or positive diagonal metric")
+    if metric.ndim == 2:
+        difference_f, sum_f, difference_m, sum_m = (
+            value @ metric for value in (difference_f, sum_f, difference_m, sum_m))
+        shape_n = N @ metric-N.sum(axis=1, keepdims=True)*(p @ metric)
+        shape_k = K @ metric-np.asarray(K.sum(axis=1))*(p @ metric)
+        response = np.sum(shape_n*difference_f, axis=0)+np.sum(shape_k*difference_m, axis=0)
+        weights = 1.
+    else:
+        weights = metric
+        shape_n = N-N.sum(axis=1, keepdims=True)*p
+        response = np.sum(shape_n*difference_f*weights, axis=0)
+        response += np.asarray(K.multiply(difference_m*weights).sum(axis=0)).ravel()
+        response -= np.sum(np.asarray(K.sum(axis=1))*p*difference_m*weights, axis=0)
+    components = np.sum(difference_f*(E[:, None]*sum_f+C @ sum_m)*weights, axis=0)
+    components += np.sum(difference_m*(C.T @ sum_f+A @ sum_m)*weights, axis=0)
+    components -= 2*response
+    require(np.isfinite(components).all(), "empirical paired loss is nonfinite")
+    return dict(loss_numerator=float(components.sum()), component_numerators=components,
+                directed_hours=float(E.sum()))
+
+
+def empirical_residuals(game_moments, prediction) -> dict:
+    """native signed response sums and overlapping role-specific on-ice associations."""
+    E, C, A, N, K = _empirical_moments(game_moments, prediction)
+    F, M, p = prediction["context"], prediction["maps"], prediction["p"]
+    observed = (N-N.sum(axis=1, keepdims=True)*p).sum(axis=0)
+    predicted = (E[:, None]*F+C @ M).sum(axis=0)
+    player_residual = K.toarray()-np.asarray(K.sum(axis=1))*p-C.T @ F-A @ M
+    require(all(np.isfinite(value).all() for value in (observed, predicted, player_residual)),
+            "empirical residual is nonfinite")
+    return dict(observed_sum=observed, predicted_sum=predicted, residual_sum=observed-predicted,
+                player_residual_sum=player_residual, player_hours=A.diagonal(), directed_hours=float(E.sum()))

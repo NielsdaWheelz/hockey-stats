@@ -1,11 +1,12 @@
 """matched recorded attempts and elapsed time from an explicit native corpus."""
 
 from collections import Counter, defaultdict
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 import math
 import re
+from itertools import combinations, product
 from typing import Literal
 
 from .corpus_inputs import (
@@ -137,6 +138,14 @@ class PlayerSeason(Metrics):
 
 
 @dataclass(frozen=True)
+class PairSeconds:
+    player_a: str
+    relation: Literal["teammate", "opponent"]
+    player_b: str
+    shared_seconds: int
+
+
+@dataclass(frozen=True)
 class ObservedResult:
     season: str
     corpus_sha256: str
@@ -154,6 +163,38 @@ class ObservedResult:
     player_game_spatial: tuple[observed_spatial.GameCell, ...]
     player_season_spatial: tuple[observed_spatial.SeasonCell, ...]
     spatial_coverage: dict
+    player_season_pairs: tuple[PairSeconds, ...]
+
+
+def _pair_rows(seconds):
+    ordered = sorted(seconds, key=lambda key: (len(key[0]), key[0], key[1], len(key[2]), key[2]))
+    return tuple(PairSeconds(a, relation, b, seconds[a, relation, b]) for a, relation, b in ordered)
+
+
+def _check_pairs(pairs, player_seconds, physical_seconds, loc):
+    incident, totals, combined = Counter(), Counter(), Counter()
+    seen = set()
+    for row in pairs:
+        a, b, relation, seconds = row.player_a, row.player_b, row.relation, row.shared_seconds
+        require(all(type(pid) is str and re.fullmatch(r"[1-9][0-9]*", pid) for pid in (a, b))
+                and (len(a), a) < (len(b), b), loc, "noncanonical deployment endpoints")
+        require(a in player_seconds and b in player_seconds, loc, "deployment endpoint lacks player exposure")
+        require(relation in ("teammate", "opponent") and type(seconds) is int and 0 < seconds <= _MAX_INTEGER,
+                loc, "invalid deployment relation or seconds")
+        key = (a, relation, b)
+        require(key not in seen, loc, "duplicate deployment pair")
+        seen.add(key)
+        incident[a, relation] += seconds
+        incident[b, relation] += seconds
+        totals[relation] += seconds
+        combined[a, b] += seconds
+    require(totals["teammate"] == 20 * physical_seconds and totals["opponent"] == 25 * physical_seconds,
+            loc, "deployment physical conservation failed")
+    for pid, seconds in player_seconds.items():
+        require(incident[pid, "teammate"] == 4 * seconds and incident[pid, "opponent"] == 5 * seconds,
+                loc, "deployment player conservation failed")
+    require(all(seconds <= min(player_seconds[a], player_seconds[b]) for (a, b), seconds in combined.items()),
+            loc, "combined deployment overlap exceeds exposure")
 
 
 def _metrics(seconds, excluded, attempts_for, attempts_against, reasons):
@@ -516,8 +557,19 @@ def observe_game(entry, value, path, consumed):
     unresolved = sum(row["end_seconds"] - row["start_seconds"] for row in intervals if row["classification"] == "unresolved")
     player_rows = []
     seconds_by_player, excluded_by_player, for_by_player, against_by_player = Counter(), Counter(), Counter(), Counter()
+    pair_seconds = Counter()
     for i, segment in enumerate(segments):
         seconds = segment["end_seconds"] - segment["start_seconds"]
+        if i not in mask:
+            away, home = (sorted((str(pid) for pid in segment[side]), key=lambda pid: (len(pid), pid))
+                          for side in ("away_skaters", "home_skaters"))
+            for team in (away, home):
+                for a, b in combinations(team, 2):
+                    pair_seconds[a, "teammate", b] += seconds
+            for a, b in product(away, home):
+                if (len(a), a) > (len(b), b):
+                    a, b = b, a
+                pair_seconds[a, "opponent", b] += seconds
         for side, team in (("away_skaters", game["away_team_id"]), ("home_skaters", game["home_team_id"])):
             opponent = game["home_team_id"] if side == "away_skaters" else game["away_team_id"]
             for pid in segment[side]:
@@ -625,6 +677,8 @@ def observe_game(entry, value, path, consumed):
         player_rows.append(PlayerGame(**_metric_fields(metric), personal=personal, spatial=spatial, player_id=str(pid), game_id=game["game_id"], team_id=str(identity["team_id"])))
     require(sum(row.included_seconds for row in player_rows) == 10 * included, path, "player exposure conservation failed")
     require(sum(row.attempts_for or 0 for row in player_rows) == sum(row.attempts_against or 0 for row in player_rows) == 5 * sum(attempts.values()), path, "player attempt conservation failed")
+    pairs = _pair_rows(pair_seconds)
+    _check_pairs(pairs, {row.player_id: row.included_seconds for row in player_rows}, included, path)
     game_metric = _metrics(included, excluded, attempts[game["away_team_id"]], attempts[game["home_team_id"]], reasons)
     output = Game(game["game_id"], game["game_date"], str(game["away_team_id"]), str(game["home_team_id"]),
                   game.get("away_team_abbrev"), game.get("home_team_abbrev"), included, excluded, unresolved,
@@ -643,6 +697,7 @@ def observe_game(entry, value, path, consumed):
         require(sum(getattr(row.personal, name) or 0 for row in player_rows) + goalie_credits[name] == personal_totals[name]
                 == sum(counts.values()), path, f"personal {name} conservation failed")
     receipt = dict(game_id=game["game_id"], status="reconstructed", source_inputs=interpreted["inputs"],
+        deployment_pairs=[asdict(row) for row in pairs],
         unassigned_player_associations=unassigned, masks=masks,
         segments=[dict(s, excluded_reasons=sorted(mask.get(i, ()))) for i, s in enumerate(segments)],
         exposure_conflicts=[dict(conflict, adjacent_native_intervals=[dict(interval_index=i, **row)
@@ -742,7 +797,7 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
             games.append(game)
             receipts.append(dict(game_id=gid, status=row["status"], reason=row["reason"],
                                  source_inputs=value["interpreted"]["inputs"] if value is not None else [],
-                                 event_dispositions=[], unassigned_player_associations=True))
+                                 event_dispositions=[], deployment_pairs=[], unassigned_player_associations=True))
             unassigned_games.append(dict(game_id=gid, date=entry["game_date"], away_team_id=game.away_team_id,
                                          home_team_id=game.home_team_id, reason_codes=list(reasons)))
             continue
@@ -833,6 +888,13 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
         reason_game_counts=[dict(code=code, games=count) for code, count in sorted(reason_counts.items())], unassigned_games=unassigned_games)
     physical_cells = [cell for receipt in receipts for cell in receipt.get("spatial_team_cells", [])]
     spatial_cells, dense, spatial_coverage = observed_spatial.finalize(games, player_games, seasons, physical_cells, sparse)
+    pair_seconds = Counter()
+    for game_receipt in receipts:
+        for row in game_receipt["deployment_pairs"]:
+            pair_seconds[row["player_a"], row["relation"], row["player_b"]] += row["shared_seconds"]
+    pairs = _pair_rows(pair_seconds)
+    _check_pairs(pairs, {row.player_id: row.included_seconds for row in seasons},
+                 sum(row.included_seconds for row in games), path)
     dated = [value for value in observations if value is not None]
     receipt = dict(consumed=inputs, games=receipts, player_reductions=player_reductions, aggregate_identities=dict(
         physical_included_seconds=sum(row.included_seconds for row in games),
@@ -860,4 +922,4 @@ def aggregate(corpus_path: Path | str, purpose: Purpose, expected_season: str, e
     return ObservedResult(season, inputs[0]["sha256"], tuple(players[pid] for pid in sorted(players)), tuple(games),
         tuple(sorted(player_games, key=lambda row: (int(row.player_id), game_index[row.game_id].game_date, row.game_id))),
         tuple(seasons), coverage, min(dated) if dated else None, max(dated) if dated else None,
-        sum(value is None for value in observations), tuple(implementations), receipt, spatial_cells, tuple(sparse), dense, spatial_coverage)
+        sum(value is None for value in observations), tuple(implementations), receipt, spatial_cells, tuple(sparse), dense, spatial_coverage, pairs)

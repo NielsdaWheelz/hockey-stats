@@ -3679,3 +3679,195 @@ def verify_grouped_game(actual, expected, references, game):
         "affected game original/corrected raw moments differ from full row replay",
     )
     return errors
+
+
+CONTEXT_SOURCE_SHA = "7245ab4873945ebaa0b58d0cd46a11ab9087e1196b4c1258770b304a7664ae6f"
+CONTEXT_SOURCE_BINDINGS = dict(
+    prepared="26ecaa961af968e936067ff31002283150bc7278adba7b7121e52c936358c902",
+    protocol="1dae2c1f696b14c3af7456b25534d3c0f6fdb30775788ca4599dc0eeee17121a",
+    correction="41fd7c3a5b79dee24e91335ca2eda0132feffa0120b5266f0e0c386037daad27",
+    fit="154f6e6324e3144eb6aa74aebcaabc2b6a860e123faca4b297328a087329bbcb",
+    assessment="748b3634ce966e607fbd1d3e9bbd29c9f0ce2c84d662b797f23228725d48d558")
+
+
+
+def read_context_source(result_ref):
+    """bind 04n and follow its accepted finite correction and original capture ledgers."""
+    require(result_ref["sha256"] == CONTEXT_SOURCE_SHA, "temporal context requires the exact frozen 04n result")
+    result = read_json(linked_path(result_ref))
+    require(result["kind"] == "attribution_complete_result" and result["schema_version"] == 1
+            and result["purpose"] == "research" and result["execution_status"] == "complete",
+            "temporal source requires a completed research result")
+    clean_implementation(result["implementation"])
+    assessment_ref = result["consumed"]["assessment"]
+    require(assessment_ref["sha256"] == CONTEXT_SOURCE_BINDINGS["assessment"], "frozen 04n assessment identity differs")
+    assessment = read_json(linked_path(assessment_ref))
+    prepared_ref, fit_ref = assessment["prepared"], assessment["fit"]
+    require(prepared_ref["sha256"] == CONTEXT_SOURCE_BINDINGS["prepared"] and fit_ref["sha256"] == CONTEXT_SOURCE_BINDINGS["fit"],
+            "frozen 04n preparation or control fit identity differs")
+    prepared, fit = read_json(linked_path(prepared_ref)), read_json(linked_path(fit_ref))
+    for document in (assessment, prepared, fit): clean_implementation(document["implementation"])
+    require(prepared["protocol"]["sha256"] == CONTEXT_SOURCE_BINDINGS["protocol"]
+            and prepared["correction"]["sha256"] == CONTEXT_SOURCE_BINDINGS["correction"]
+            and prepared["source_result"]["sha256"] == COMPLETE_SOURCE_SHA
+            and prepared["source_audit"]["sha256"] == COMPLETE_AUDIT_SHA
+            and fit["prepared"] == prepared_ref and fit["execution_status"] == "complete",
+            "frozen source protocol, correction or incoming control contract differs")
+    linked_path(prepared["protocol"])
+    correction = read_json(linked_path(prepared["correction"]))
+    source, _, rebuilt_correction, metadata = read_complete_source(prepared["source_result"], prepared["source_audit"])
+    require({key: value for key, value in correction.items() if key != "corrected_archives"} == rebuilt_correction,
+            "accepted finite correction differs from frozen 04n")
+    from dataclasses import replace
+
+    frozen_grouped = list(source.grouped)
+    corrected_receipts = []
+    require([row["season"] for row in correction["corrected_archives"]] == ["20232024", "20242025"],
+            "frozen correction archive seasons differ")
+    for row in correction["corrected_archives"]:
+        index = source.seasons.index(row["season"])
+        require(tuple(row["players"]) == source.references[index].player_ids
+                and tuple(map(tuple, row["strata"])) == source.references[index].strata
+                and tuple(row["game_ids"]) == source.grouped[index].game_ids,
+                "frozen corrected archive axes differ")
+        saved = complete_grouped(row, linked_path(row["grouped"]))
+        errors = verify_grouped_population(source.grouped[index], saved)
+        require(all(error == 0 for error in errors.values()), "frozen corrected archive differs from exact finite correction")
+        frozen_grouped[index] = saved
+        corrected_receipts.append(dict(season=row["season"], archive=row["grouped"], exact=True))
+    source = replace(source, grouped=tuple(frozen_grouped))
+    baseline = read_json(linked_path(source.source_identity["baseline_prepared"]))
+    require(sum(len(g.game_ids) for g in source.grouped) == 6560 and len(prepared["train_ids"]) == 1051
+            and len(prepared["assessment_ids"]) == 261 and source.seasons == tuple(prepared["seasons"]),
+            "temporal source inventory or split differs from frozen study")
+    metadata.update(controls_fit=fit, controls_assessment=assessment, controls_fit_reference=fit_ref,
+        controls_assessment_reference=assessment_ref, source_result=result_ref, source_prepared=prepared,
+        source_prepared_reference=prepared_ref, correction=correction, correction_reference=prepared["correction"],
+        events_reference=baseline["ledgers"]["events"], segments_reference=baseline["ledgers"]["segments"],
+        corrected_archive_receipts=corrected_receipts)
+    return source, metadata
+
+
+def read_context_fixture(path, *, require_controls=True):
+    """read the five literal counted, timed histories; fixture setup never fits here."""
+    from .attribution import decode_shape_basis
+    from .attribution_context import BASIS_COLUMNS
+    from .artifacts import rows
+    from .chance_cli import identity
+
+    path = Path(path).resolve(strict=True)
+    document = read_json(path)
+    require(document["kind"] == "attribution_context_fixture" and document["schema_version"] == 1
+            and document["purpose"] == "fixture_exercise" and len(document["years"]) == 5
+            and document["basis_columns"] == list(BASIS_COLUMNS), "temporal fixture schema, history or basis differs")
+    def ref(value):
+        require(set(value) == {"path", "sha256"} and not Path(value["path"]).is_absolute(),
+                "fixture reference requires a declared relative path and sha256")
+        return dict(path=str((path.parent/value["path"]).resolve(strict=True)), sha256=value["sha256"])
+    basis_ref = ref(document["basis"]["arrays"])
+    with np.load(linked_path(basis_ref), allow_pickle=False) as data:
+        basis = decode_shape_basis({name: data[name] for name in data.files}, basis_sha256=document["basis"]["basis_sha256"])
+    arrays_ref = ref(document["arrays"])
+    arrays = load_arrays(dict(arrays=arrays_ref, array_shapes=document["array_shapes"]))
+    rows_ref, events_ref, segments_ref = (ref(document[name]) for name in ("rows", "events", "segments"))
+    all_rows = list(rows(linked_path(rows_ref)))
+    all_events, all_segments = list(rows(linked_path(events_ref))), list(rows(linked_path(segments_ref)))
+    grouped, references, annual, rows_by_year = [], [], [], []
+    excluded = []
+    for index, year in enumerate(document["years"]):
+        batch = [row for row in all_rows if row["season"] == year["season"]]
+        players, strata = tuple(year["players"]), tuple(map(tuple, year["strata"]))
+        exposure = np.array([sum(row["seconds"] for row in batch if player in row["offense"]) for player in players])
+        totals = np.zeros(656)
+        for row in batch:
+            for cell, count in row["counts"]: totals[cell] += count
+        refs = AnnualReferences("unblocked_spatial", year["season"], index, arrays_ref["sha256"], arrays_ref["sha256"],
+            players, strata, float(totals.sum()/(sum(row["seconds"] for row in batch)/3600)),
+            exposure/exposure.sum(), basis.p, exposure, totals)
+        original = group_observations(iter(batch), refs, tuple(year["game_ids"]))
+        exclusions = [row for row in batch if any(all(row[k] == v for k, v in locator.items())
+                                               for locator in document["exclusions"])]
+        require(all(not row["counts"] for row in exclusions), "fixture correction contains a recorded attempt")
+        retained = [row for row in batch if row not in exclusions]
+        corrected = original
+        if exclusions:
+            replay = group_observations(iter(retained), refs, original.game_ids)
+            correction_identity = dict(kind="synthetic_zero_count_exclusion", counted_arrays_sha256=arrays_ref["sha256"],
+                rows_sha256=hashlib.sha256(json.dumps(exclusions, sort_keys=True, separators=(",", ":")).encode()).hexdigest())
+            corrected = subtract_zero_count_rows(original, refs, exclusions,
+                membership_signatures=replay.membership_signatures, correction_identity=correction_identity)
+            verify_grouped_population(corrected, replay)
+        grouped.append(corrected); references.append(refs); excluded.extend(exclusions); rows_by_year.append(batch)
+        annual.append(dict(year, coverage=dict(measured_games=len(year["game_ids"])), grouped=arrays_ref, references=arrays_ref))
+    require(len(excluded) == 6 and sum(row["seconds"] for row in excluded) == 264,
+            "temporal fixture correction does not contain the six fixed zero-count rows")
+    correction = dict(rows=excluded, directed_seconds=264, physical_seconds=132, count_loss=0,
+        source="explicit synthetic finite zero-count exclusion")
+    coverage = {game: dict(retained_seconds=1800*float(grouped[-1].stratum_e[i].sum()),
+        retained_attempts=int(grouped[-1].stratum_n[i].sum())) for i, game in enumerate(grouped[-1].game_ids)}
+    source_identity = dict(fixture=identity(path), arrays=arrays_ref, basis=basis_ref, basis_sha256=basis.sha256,
+        source="explicitly synthetic timed integer counted histories")
+    source = EmpiricalSource(basis, tuple(document["seasons"]), tuple(grouped), tuple(references), tuple(annual),
+        document["game_dates"], coverage, source_identity)
+    metadata = dict(rows=rows_by_year, events=all_events, segments=all_segments,
+        events_reference=events_ref, segments_reference=segments_ref,
+        row_references={year["season"]: rows_ref for year in document["years"]},
+        correction=correction, correction_reference=dict(path=str(path), sha256=identity(path)["sha256"]),
+        inventory=document["inventory"], train_ids=document["train_ids"], assessment_ids=document["assessment_ids"],
+        months=document["months"], expected_arrays=arrays, fixture_document=document)
+    if require_controls:
+        control_ref = ref(document["controls"])
+        controls = read_json(linked_path(control_ref))
+        require(controls["kind"] == "attribution_context_fixture_controls" and controls["schema_version"] == 1
+                and controls["purpose"] == "fixture_exercise" and ref(controls["counted_arrays"]) == arrays_ref,
+                "temporal fixture controls differ from literal counted input")
+        states, probes = [], []
+        for row in controls["states"]:
+            require(row["reference_mode"] == "fixture_relative_v1", "fixture state reference mode differs")
+            states.append(dict(row, arrays=ref(row["arrays"]), record=ref(row["record"]),
+                               parent=None if row["parent"] is None else ref(row["parent"])))
+        for probe in controls["probes"]:
+            alternative = probe["alternative"]
+            probes.append(dict(probe, alternative=dict(alternative, arrays=ref(alternative["arrays"]),
+                parent=None if alternative["parent"] is None else ref(alternative["parent"]))))
+        controls = dict(controls, states=states, probes=probes)
+        metadata.update(controls_fit=controls, controls_assessment=controls,
+            controls_fit_reference=control_ref, controls_assessment_reference=control_ref)
+    return source, metadata
+
+
+
+def verify_context_control_training(trainings, metadata):
+    """require exact equality with all five frozen 04n coarse likelihoods and references."""
+    prepared = metadata["source_prepared"]
+    arrays = load_arrays(prepared)
+    require(len(trainings) == len(prepared["years"]) == 5, "frozen coarse training year inventory differs")
+    receipts = []
+    for training, row in zip(trainings, prepared["years"], strict=True):
+        coarse, scalar = training.coarse_training, training.coarse_scalar_likelihood
+        require(training.season == row["season"] and list(coarse.likelihood.player_ids) == row["player_ids"]
+                and list(coarse.source_player_ids) == row["source_player_ids"]
+                and list(map(list, coarse.strata)) == row["strata"]
+                and list(map(list, coarse.source_strata)) == row["source_strata"]
+                and list(coarse.game_ids) == row["game_ids"] and training.r == row["r"]
+                and coarse.directed_hours == row["directed_hours"]
+                and coarse.source_identity == row["source_identity"]
+                and scalar.source_identity == row["scalar_source_identity"],
+                "frozen coarse training annual axes, identity or references differ")
+        values = dict(H=coarse.likelihood.H, Q=coarse.likelihood.Q, u=coarse.likelihood.u,
+            xbar=coarse.xbar, nbar=coarse.nbar, player_exposure=coarse.player_exposure,
+            response_counts=coarse.response_counts, scalar_score=scalar.score,
+            scalar_energy=np.array(scalar.energy))
+        for name, value in values.items():
+            require(np.array_equal(value, arrays[row["prefix"]+"_"+name]),
+                    "frozen 04n coarse training array differs: "+row["season"]+"/"+name)
+        require(np.array_equal(training.basis.p, arrays["p"])
+                and np.array_equal(training.basis.B, arrays["B"])
+                and np.array_equal(training.basis.eigenvalues, arrays["eigenvalues"]),
+                "frozen first-season spatial reference differs")
+        receipt = dict(status="exact", season=training.season, prepared=metadata["source_prepared_reference"],
+            arrays=prepared["arrays"], array_names=list(values), axes_rate_hours_source_identity_exact=True,
+            spatial_reference_exact=True, corrected_archives=metadata["corrected_archive_receipts"])
+        training.receipt["frozen_coarse_equivalence"] = receipt
+        receipts.append(receipt)
+    return receipts

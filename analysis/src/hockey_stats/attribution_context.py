@@ -605,5 +605,3 @@ def decode_context_training(row, arrays, basis):
             and np.isclose(arrays["E"].sum(), row["directed_hours"], rtol=1e-8, atol=1e-10),
             "saved temporal training coarse compensation differs")
     return ContextTraining(shape, scalar, coarse, coarse_scalar, *(arrays[name] for name in ("E","C0","N0","M","D","Ch","Nh")), row["receipt"])
-
-

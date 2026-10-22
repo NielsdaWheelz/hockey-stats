@@ -2,7 +2,7 @@
 
 status: open; original-source coverage limitation found during 05g. provider cause is unknown; current reconstruction correctly withholds unsupported elapsed exposure.
 
-planned owner: the [02d full specification](../specs/02d-source-exposure-consistency.md). the user selected probes `2024021235`, `2024021263`, `2024021291`, then conditional expansion to the remaining 54 games if a probe yields usable matched exposure: at most 342 requests through existing six-source capture. acquisition remains unassigned. preserve original empty responses and distinguish new support/collateral source changes from policy exclusions. absent recovery, retain gaps; no parser rewrite, alternate feed or research restart follows automatically.
+02d outcome: the assigned [bounded recovery](../research/source-02d/verification.md) captures complete bundles for `2024021235`, `2024021263`, `2024021291`, exactly 18 requests. every fresh body is byte-identical to its original, including empty shifts; none provides matched time and an included attempt. the conditional expansion is therefore not taken. all 57 gaps remain under the exact original bundle selection. `shift_source_empty` explains the successful empty response without inventing elapsed support or zero rates. no additional requests, parser rewrite, alternate feed or research restart are assigned.
 
 problem: 57 of the original 1,312 `20242025` inventory games, contiguous ids `2024021235`–`2024021291` dated `2025-04-08`–`2025-04-15`, have http `200` shift responses containing `{"data":[],"total":0}`. successful transport does not establish that the underlying shift observations are complete.
 

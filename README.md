@@ -25,6 +25,8 @@ the localhost-only website shows included recorded 5v5 results: personal shots o
 
 05g adds 2023–24 through 2025–26 in one schema-4 candidate, with a shared season selector and three-row player history. [history contract](docs/specs/05g-observed-history.md) · [verification and candidate identity](docs/research/observed-05g/verification.md). activation is unassigned. the existing site at `http://127.0.0.1:3000/` still runs 05f with schema 3; `publication/previous.sqlite` still holds schema 2 and requires code `074799a`. both databases and the active build remain unchanged. [05f activation evidence](docs/research/observed-05f/verification.md#explicit-activation) records their identities.
 
+02d's [accepted source/exposure assessment](docs/research/source-02d/verification.md) removes 132 physical seconds across three contradictory runs, with unchanged included counts. eighteen recovery requests supply no matched support; all 57 gaps remain. the pinned schema-5 candidate and bounded frozen-ledger audit remain attributable evidence. schema 6 inherits the settled observed policy.
+
 05h adds selected-season teammate/opponent tables from every retained on-ice interval, including zero-event time. shared minutes and overlapping shares use the selected player's included 5v5 time; peer filters do not change deployment. each table starts with ten rows and expands locally to all counterparts. a player may occur in both after a trade. these are recorded relationships, without quality or chemistry claims. schema 6 preserves the checked 02d population and all prior facts. [deployment contract](docs/specs/05h-observed-deployment.md) · [verification](docs/research/observed-05h/verification.md). activation remains separately assigned.
 
 use node `24.21.0`, pinned in `app/.node-version`. stop the running server before rebuilding its assets or replacing its publication. on this mac, explicitly put the installed node executable first so npm's children use the same runtime:
@@ -101,7 +103,25 @@ uv sync --locked
 
 the selection has exactly `schema_version:1`, `purpose:"real"|"fixture"` and an ascending `corpora` list of `{season,path,sha256}`. corpus paths are absolute existing files with distinct resolved identities; digests bind their exact bytes. real selections require all three declared seasons and both pinned 2024–25/2025–26 corpus identities. 2023–24 uses the freshly prepared, frozen corpus recorded in verification; preparation uses the existing native command and local originals specified in the history contract. fixtures select one to three explicitly marked fixture corpora and cannot become real. no implicit discovery, acquisition or subset selector exists.
 
-argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates, writes, reads back and receipts each season independently before releasing its heavy results. `seasons/<season>/verification.json` retains complete consumed sources, exclusions and reductions. the top-level receipt binds the original selection copy, each season receipt and final database digest/cost. only complete all-season validation permits the final rename from `observed.sqlite.incomplete` to `observed.sqlite`. failed work stays incomplete and never touches active/previous files. only the completed database is needed for serving.
+02d's offline recovery review and assessment use fresh output directories. from the repository root, after preparing the locked python and application environments:
+
+```sh
+analysis/.venv/bin/python analysis/research/source_exposure.py recovery \
+  --corpus /absolute/original-20242025/corpus.json \
+  --captures /absolute/three-probe-captures --out /absolute/new-recovery-review
+analysis/.venv/bin/python analysis/research/source_exposure.py assess \
+  --original-selection /absolute/original-selection.json \
+  --selected-selection /absolute/selected-selection.json \
+  --baseline /absolute/schema-4-baseline/observed.sqlite \
+  --candidate /absolute/schema-5-candidate/observed.sqlite \
+  --recovery /absolute/new-recovery-review/recovery.json \
+  --attribution-result /Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04b/result.json \
+  --out /absolute/new-assessment
+```
+
+recovery performs no acquisition; its capture directory must already contain the exact three probes. conditional expansion uses `--probe-receipt` and all 57 complete bundles only after useful matched support is verified. assessment reuses the pinned application peer calculator, so `app/node_modules` and the pinned node executable must be available. assessment exits `0` when complete, `1` when required research evidence remains pending, and `2` on an input error. [02d verification](docs/research/source-02d/verification.md) binds the real selection, failed recovery, checked candidate and complete acceptance evidence.
+
+for `hockey-stats-observed`, argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates, writes, reads back and receipts each season independently before releasing its heavy results. `seasons/<season>/verification.json` retains complete consumed sources, exclusions and reductions. the top-level receipt binds the original selection copy, each season receipt and final database digest/cost. only complete all-season validation permits the final rename from `observed.sqlite.incomplete` to `observed.sqlite`. failed work stays incomplete and never touches active/previous files. only the completed database is needed for serving.
 
 the api retains two endpoints: `/api/league?season=20242025` optionally adds `&spatial=<id>[,<id>]`; `/api/players/<id>?season=20242025` adds that player's compact history and complete `deployment` arrays. league/comparison responses carry no pairs. responses separate global `publication` from seasonal `season` evidence and list ordered `available_seasons`. empty/repeated/malformed season values return `InvalidSeasonSelection` (400); well-formed unpublished values return `SeasonNotFound` (404), both with recovery catalogs. a globally known player absent from the selected year returns its selected-season league, empty games, null deployment/map and real history; globally unknown ids remain 404. a present player with zero included time has empty deployment arrays, with availability explained by existing coverage.
 

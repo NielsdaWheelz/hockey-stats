@@ -1,0 +1,553 @@
+{
+  "schema_version": 1,
+  "kind": "source_exposure_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "e2592a96b1b7d105c842c6fefe0321dce4f85457",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "spec": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/spec.md",
+    "sha256": "0396fb45f18769127651723ad67fba514f77b77b2e84deba2d2f1761fdd371df"
+  },
+  "consumed": {
+    "original_selection": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05g-inputs-01/selection.json",
+      "sha256": "920aad8d3faaa10101266843ca848e67f94f00e1ffc17e07c5654d78c157dbd4"
+    },
+    "selected_selection": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/selection.json",
+      "sha256": "920aad8d3faaa10101266843ca848e67f94f00e1ffc17e07c5654d78c157dbd4"
+    },
+    "baseline": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/observed.sqlite",
+      "sha256": "9469fc771dcffe6cb8e1c2e6d366f2259fc01f04b4b734ccbbd88a665ab02f56"
+    },
+    "candidate": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/candidate/observed.sqlite",
+      "sha256": "97ab72b08052ad1c1a94797ec5ccd465fceccd2dbe340ff2d965158007a7aa77"
+    },
+    "recovery": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/probe-review-02/recovery.json",
+      "sha256": "5e7a67bfcd7d77dc25acb14c042c574a3b10196ac8bc29f68e04dbeb721980e1"
+    },
+    "attribution_result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/attribution-04b/result.json",
+      "sha256": "d0c0f6a7af3888cd0d0920d152f322447a984cbc20edac596aa70f60dbb0f2de"
+    }
+  },
+  "policy_id": "strict_interior_other_strength_v1",
+  "execution_status": "complete",
+  "candidate_status": "ready",
+  "recovery_status": "no_recovery",
+  "recovery": {
+    "targeted_games": 57,
+    "requested_games": 3,
+    "source_requests": 18,
+    "recovered_games": 0,
+    "retained_gaps": 57,
+    "recovery_status": "no_recovery",
+    "expansion": "not_requested"
+  },
+  "correspondence": {
+    "inventory_games": 1312,
+    "unchanged_native_games": 1312,
+    "recovered_games": 0,
+    "tree_checked": true
+  },
+  "observed_deltas": {
+    "20232024": {
+      "policy_only": {
+        "changed_entities": {
+          "game": 2,
+          "player_game": 71,
+          "player_season": 924,
+          "league_reference": 668
+        },
+        "changed_quantities": 1271870
+      },
+      "recovery": {
+        "changed_entities": {},
+        "changed_quantities": 0
+      },
+      "total": {
+        "changed_entities": {
+          "game": 2,
+          "player_game": 71,
+          "player_season": 924,
+          "league_reference": 668
+        },
+        "changed_quantities": 1271870
+      }
+    },
+    "20242025": {
+      "policy_only": {
+        "changed_entities": {
+          "game": 58,
+          "player_game": 2085,
+          "player_season": 920,
+          "league_reference": 668
+        },
+        "changed_quantities": 1243573
+      },
+      "recovery": {
+        "changed_entities": {},
+        "changed_quantities": 0
+      },
+      "total": {
+        "changed_entities": {
+          "game": 58,
+          "player_game": 2085,
+          "player_season": 920,
+          "league_reference": 668
+        },
+        "changed_quantities": 1243573
+      }
+    },
+    "20252026": {
+      "policy_only": {
+        "changed_entities": {},
+        "changed_quantities": 0
+      },
+      "recovery": {
+        "changed_entities": {},
+        "changed_quantities": 0
+      },
+      "total": {
+        "changed_entities": {},
+        "changed_quantities": 0
+      }
+    }
+  },
+  "peer_consequences": {
+    "20232024": {
+      "changes": {
+        "policy_only": 137,
+        "total": 137
+      },
+      "states": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/peer-states-20232024.json",
+        "sha256": "5473b0a0de7dcbad0a60871ab3abd1188df8449e7d9cb7d7e4eee3aa39c78dce"
+      }
+    },
+    "20242025": {
+      "changes": {
+        "policy_only": 76,
+        "total": 76
+      },
+      "states": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/peer-states-20242025.json",
+        "sha256": "8c127002fd1ec4ff8d577d8ecfe21368cd3e029504ebeb72b032c80d5946804b"
+      }
+    },
+    "20252026": {
+      "changes": {},
+      "states": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/peer-states-20252026.json",
+        "sha256": "8aa6e4edae33b7386cc681666fc318af97d427147d9bea9cb3dcef6ba9a161b5"
+      }
+    }
+  },
+  "season_summaries": {
+    "20232024": {
+      "original": {
+        "inventory_games": 1312,
+        "physical": {
+          "included_seconds": 3665853,
+          "known_excluded_seconds": 43773,
+          "personal_included_seconds": 3665853,
+          "personal_known_excluded_seconds": 43773,
+          "spatial_included_seconds": 3664709,
+          "spatial_known_excluded_seconds": 44917,
+          "away_attempts": {
+            "available_count_sum": 59119,
+            "unavailable_games": 14
+          },
+          "home_attempts": {
+            "available_count_sum": 61505,
+            "unavailable_games": 14
+          },
+          "spatial_away_unblocked": {
+            "available_count_sum": 42035,
+            "unavailable_games": 14
+          },
+          "spatial_home_unblocked": {
+            "available_count_sum": 43833,
+            "unavailable_games": 14
+          }
+        }
+      },
+      "policy_only": {
+        "physical_included_seconds": 3665767,
+        "player_included_seconds": 36657670,
+        "known_excluded_seconds": 43859,
+        "known_unresolved_seconds": 128655,
+        "included_attempts": 120624,
+        "player_attempts_for": 603120,
+        "player_attempts_against": 603120,
+        "personal_physical_included_seconds": 3665767,
+        "personal_player_included_seconds": 36657670,
+        "personal_known_excluded_seconds": 43859,
+        "personal_additional_excluded_seconds": 0,
+        "personal_included_credits": {
+          "shots_on_goal": 59120,
+          "goals": 5085,
+          "primary_assists": 4797
+        },
+        "personal_goalie_credits": {
+          "shots_on_goal": 1,
+          "goals": 0,
+          "primary_assists": 4
+        },
+        "spatial_physical_included_seconds": 3664623,
+        "spatial_player_included_seconds": 36646230,
+        "spatial_known_excluded_seconds": 45003,
+        "spatial_additional_excluded_seconds": 1144,
+        "spatial_unblocked_attempts": 85868,
+        "spatial_player_unblocked_for": 429340,
+        "spatial_player_unblocked_against": 429340
+      },
+      "selected": {
+        "inventory_games": 1312,
+        "physical": {
+          "included_seconds": 3665767,
+          "known_excluded_seconds": 43859,
+          "personal_included_seconds": 3665767,
+          "personal_known_excluded_seconds": 43859,
+          "spatial_included_seconds": 3664623,
+          "spatial_known_excluded_seconds": 45003,
+          "away_attempts": {
+            "available_count_sum": 59119,
+            "unavailable_games": 14
+          },
+          "home_attempts": {
+            "available_count_sum": 61505,
+            "unavailable_games": 14
+          },
+          "spatial_away_unblocked": {
+            "available_count_sum": 42035,
+            "unavailable_games": 14
+          },
+          "spatial_home_unblocked": {
+            "available_count_sum": 43833,
+            "unavailable_games": 14
+          }
+        }
+      },
+      "readback": {
+        "physical_seconds": 3665767,
+        "player_seconds": 36657670,
+        "physical_attempts": 120624,
+        "player_attempts_for": 603120,
+        "player_attempts_against": 603120,
+        "personal_physical_seconds": 3665767,
+        "personal_player_seconds": 36657670,
+        "read_back": "passed",
+        "conservation": "passed"
+      }
+    },
+    "20242025": {
+      "original": {
+        "inventory_games": 1312,
+        "physical": {
+          "included_seconds": 3590899,
+          "known_excluded_seconds": 70537,
+          "personal_included_seconds": 3590899,
+          "personal_known_excluded_seconds": 70537,
+          "spatial_included_seconds": 3590852,
+          "spatial_known_excluded_seconds": 70584,
+          "away_attempts": {
+            "available_count_sum": 57477,
+            "unavailable_games": 82
+          },
+          "home_attempts": {
+            "available_count_sum": 58808,
+            "unavailable_games": 82
+          },
+          "spatial_away_unblocked": {
+            "available_count_sum": 40814,
+            "unavailable_games": 82
+          },
+          "spatial_home_unblocked": {
+            "available_count_sum": 41710,
+            "unavailable_games": 82
+          }
+        }
+      },
+      "policy_only": {
+        "physical_included_seconds": 3590853,
+        "player_included_seconds": 35908530,
+        "known_excluded_seconds": 70583,
+        "known_unresolved_seconds": 260095,
+        "included_attempts": 116285,
+        "player_attempts_for": 581425,
+        "player_attempts_against": 581425,
+        "personal_physical_included_seconds": 3590853,
+        "personal_player_included_seconds": 35908530,
+        "personal_known_excluded_seconds": 70583,
+        "personal_additional_excluded_seconds": 0,
+        "personal_included_credits": {
+          "shots_on_goal": 54134,
+          "goals": 4784,
+          "primary_assists": 4507
+        },
+        "personal_goalie_credits": {
+          "shots_on_goal": 7,
+          "goals": 0,
+          "primary_assists": 0
+        },
+        "spatial_physical_included_seconds": 3590806,
+        "spatial_player_included_seconds": 35908060,
+        "spatial_known_excluded_seconds": 70630,
+        "spatial_additional_excluded_seconds": 47,
+        "spatial_unblocked_attempts": 82524,
+        "spatial_player_unblocked_for": 412620,
+        "spatial_player_unblocked_against": 412620
+      },
+      "selected": {
+        "inventory_games": 1312,
+        "physical": {
+          "included_seconds": 3590853,
+          "known_excluded_seconds": 70583,
+          "personal_included_seconds": 3590853,
+          "personal_known_excluded_seconds": 70583,
+          "spatial_included_seconds": 3590806,
+          "spatial_known_excluded_seconds": 70630,
+          "away_attempts": {
+            "available_count_sum": 57477,
+            "unavailable_games": 82
+          },
+          "home_attempts": {
+            "available_count_sum": 58808,
+            "unavailable_games": 82
+          },
+          "spatial_away_unblocked": {
+            "available_count_sum": 40814,
+            "unavailable_games": 82
+          },
+          "spatial_home_unblocked": {
+            "available_count_sum": 41710,
+            "unavailable_games": 82
+          }
+        }
+      },
+      "readback": {
+        "physical_seconds": 3590853,
+        "player_seconds": 35908530,
+        "physical_attempts": 116285,
+        "player_attempts_for": 581425,
+        "player_attempts_against": 581425,
+        "personal_physical_seconds": 3590853,
+        "personal_player_seconds": 35908530,
+        "read_back": "passed",
+        "conservation": "passed"
+      }
+    },
+    "20252026": {
+      "original": {
+        "inventory_games": 1312,
+        "physical": {
+          "included_seconds": 3700934,
+          "known_excluded_seconds": 90085,
+          "personal_included_seconds": 3700934,
+          "personal_known_excluded_seconds": 90085,
+          "spatial_included_seconds": 3700910,
+          "spatial_known_excluded_seconds": 90109,
+          "away_attempts": {
+            "available_count_sum": 57480,
+            "unavailable_games": 32
+          },
+          "home_attempts": {
+            "available_count_sum": 59140,
+            "unavailable_games": 32
+          },
+          "spatial_away_unblocked": {
+            "available_count_sum": 41336,
+            "unavailable_games": 32
+          },
+          "spatial_home_unblocked": {
+            "available_count_sum": 42844,
+            "unavailable_games": 32
+          }
+        }
+      },
+      "policy_only": {
+        "physical_included_seconds": 3700934,
+        "player_included_seconds": 37009340,
+        "known_excluded_seconds": 90085,
+        "known_unresolved_seconds": 57215,
+        "included_attempts": 116620,
+        "player_attempts_for": 583100,
+        "player_attempts_against": 583100,
+        "personal_physical_included_seconds": 3700934,
+        "personal_player_included_seconds": 37009340,
+        "personal_known_excluded_seconds": 90085,
+        "personal_additional_excluded_seconds": 0,
+        "personal_included_credits": {
+          "shots_on_goal": 54277,
+          "goals": 5147,
+          "primary_assists": 4860
+        },
+        "personal_goalie_credits": {
+          "shots_on_goal": 6,
+          "goals": 0,
+          "primary_assists": 0
+        },
+        "spatial_physical_included_seconds": 3700910,
+        "spatial_player_included_seconds": 37009100,
+        "spatial_known_excluded_seconds": 90109,
+        "spatial_additional_excluded_seconds": 24,
+        "spatial_unblocked_attempts": 84180,
+        "spatial_player_unblocked_for": 420900,
+        "spatial_player_unblocked_against": 420900
+      },
+      "selected": {
+        "inventory_games": 1312,
+        "physical": {
+          "included_seconds": 3700934,
+          "known_excluded_seconds": 90085,
+          "personal_included_seconds": 3700934,
+          "personal_known_excluded_seconds": 90085,
+          "spatial_included_seconds": 3700910,
+          "spatial_known_excluded_seconds": 90109,
+          "away_attempts": {
+            "available_count_sum": 57480,
+            "unavailable_games": 32
+          },
+          "home_attempts": {
+            "available_count_sum": 59140,
+            "unavailable_games": 32
+          },
+          "spatial_away_unblocked": {
+            "available_count_sum": 41336,
+            "unavailable_games": 32
+          },
+          "spatial_home_unblocked": {
+            "available_count_sum": 42844,
+            "unavailable_games": 32
+          }
+        }
+      },
+      "readback": {
+        "physical_seconds": 3700934,
+        "player_seconds": 37009340,
+        "physical_attempts": 116620,
+        "player_attempts_for": 583100,
+        "player_attempts_against": 583100,
+        "personal_physical_seconds": 3700934,
+        "personal_player_seconds": 37009340,
+        "read_back": "passed",
+        "conservation": "passed"
+      }
+    }
+  },
+  "receipts": [
+    {
+      "season": "20232024",
+      "state": "policy_only",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/policy-only-20232024.json",
+        "sha256": "62bfe30da123d54c0ccb7d9f6b1ad55cbd877ad91e083b5818e91ca392c4c168"
+      }
+    },
+    {
+      "season": "20232024",
+      "state": "original",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/seasons/20232024/verification.json",
+        "sha256": "e7a7809e4eb2235d56d98b6da66006f92de6cb2075d06c33d10d75caa6a1599a"
+      }
+    },
+    {
+      "season": "20232024",
+      "state": "selected",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/candidate/seasons/20232024/verification.json",
+        "sha256": "2f85074ec926f70015ccc1fd5856b03899b6c43562b468443c7bb766ae328480"
+      }
+    },
+    {
+      "season": "20242025",
+      "state": "policy_only",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/policy-only-20242025.json",
+        "sha256": "f36d223ecac4ff0331493ae73ee643e98225438425de0e64a16a6c5a9a21921a"
+      }
+    },
+    {
+      "season": "20242025",
+      "state": "original",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/seasons/20242025/verification.json",
+        "sha256": "36c657b89658bdb5466b82c19be032a676a0c8ceeeae3dc6286f1666f53fd7a4"
+      }
+    },
+    {
+      "season": "20242025",
+      "state": "selected",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/candidate/seasons/20242025/verification.json",
+        "sha256": "32ac2068162dd54101690d6067ee4128c1e531583d17f9eae1ac29a7db54acb7"
+      }
+    },
+    {
+      "season": "20252026",
+      "state": "policy_only",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/policy-only-20252026.json",
+        "sha256": "7cf657aa0f4a13ef559d1e2cd2a9e27b97ad4685793fe1a785524d4b86571c33"
+      }
+    },
+    {
+      "season": "20252026",
+      "state": "original",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/observed-05g-candidate-01/seasons/20252026/verification.json",
+        "sha256": "7e670c1bceeee8852277a9b59151afc23c8affb5d2c5319320fc3145123bf108"
+      }
+    },
+    {
+      "season": "20252026",
+      "state": "selected",
+      "reference": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/candidate/seasons/20252026/verification.json",
+        "sha256": "f4ce8a21493d40ffd4000011dbeb3c10b0ac10ae6156fd20e1ab2f3e97264644"
+      }
+    }
+  ],
+  "research_impact": "verified",
+  "outputs": {
+    "observed-deltas.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/observed-deltas.csv",
+      "sha256": "dbddbf0992b2c10a6fb3b83e77b5a8e326e98d37925ffd16feb13e8f812b1c91"
+    },
+    "peer-consequences.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/peer-consequences.csv",
+      "sha256": "7533c8db1bb812b213c1d2a103375a1c7cc5c67b06c9346474e272b4548c7747"
+    },
+    "research-impact.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/research-impact.json",
+      "sha256": "f308b2f0c6c77e2f66562c7277af666b105a372d7b18089bd8138f92648953c4"
+    },
+    "boundary-diagnostics.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/boundary-diagnostics.json",
+      "sha256": "fa9090c3165448656bb51e44a44bc0e643f45ae932a22efecf3c3aff72018a75"
+    }
+  },
+  "activation": "not_run",
+  "admission": "not_admitted",
+  "handoff": null,
+  "resources": {
+    "wall_seconds": 919.6937724999734,
+    "peak_memory_bytes": 4337516544
+  },
+  "limitations": [
+    "source support only; no physical truth or fitted-result sensitivity claim",
+    "recovery eligibility, fitted effects, research league references, scales and prediction remain unassessed",
+    "strict effect/browser acceptance is a separate root verification boundary"
+  ]
+}

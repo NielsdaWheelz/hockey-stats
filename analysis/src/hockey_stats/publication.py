@@ -392,8 +392,8 @@ def _check_deployment(rows, player_seconds, physical_seconds, loc):
     return facts
 
 
-def check_season(connection, result, purpose):
-    """independently reduce stored facts within one season, one game/player at a time."""
+def check_observed_season(connection, result, purpose):
+    """independently validate one season's matched on-ice, personal and spatial facts."""
     season = result.season
     connection.row_factory = sqlite3.Row
     require(connection.execute("SELECT count(*) FROM player WHERE season=?", (season,)).fetchone()[0]
@@ -404,7 +404,6 @@ def check_season(connection, result, purpose):
         f"{season}: player team absent from game")
     seconds = exposure = attempts = for_count = against_count = personal_seconds = personal_exposure = 0
     league_counts = {}
-    pair_reduction = Counter()
     receipt_by_game = {row["game_id"]: row for row in result.receipt["games"]}
     for game in connection.execute("SELECT * FROM game WHERE season=? ORDER BY game_id", (season,)):
         gid = game["game_id"]
@@ -415,8 +414,6 @@ def check_season(connection, result, purpose):
         player_against = sum(r["attempts_against"] or 0 for r in rows)
         require(player_seconds == 10 * game["included_seconds"] and player_for == player_against == 5 * physical_attempts,
                 f"{season}/{gid}: stored physical conservation failed")
-        pair_reduction.update(_check_deployment(receipt_by_game[gid]["deployment_pairs"],
-            {r["player_id"]: r["included_seconds"] for r in rows}, game["included_seconds"], f"{season}/{gid}"))
         personal_player_seconds = sum(r["personal_included_seconds"] for r in rows)
         require(personal_player_seconds == 10 * game["personal_included_seconds"], f"{season}/{gid}: personal exposure differs")
         credits = receipt_by_game[gid].get("personal_identities", {}).get("skater_credits", {})
@@ -458,11 +455,6 @@ def check_season(connection, result, purpose):
         against_count += player_against
         personal_seconds += game["personal_included_seconds"]
         personal_exposure += personal_player_seconds
-    pairs = connection.execute("SELECT player_a,relation,player_b,shared_seconds FROM player_season_pair WHERE season=?", (season,)).fetchall()
-    player_seconds = {r["player_id"]: r["included_seconds"] for r in
-                      connection.execute("SELECT player_id,included_seconds FROM player_season WHERE season=?", (season,))}
-    stored_pairs = _check_deployment(pairs, player_seconds, seconds, season)
-    require(stored_pairs == pair_reduction, f"{season}: stored deployment differs from game receipt reductions")
     references = {r["cell_id"]: r for r in connection.execute("SELECT * FROM spatial_cell WHERE season=? ORDER BY cell_id", (season,))}
     support = result.spatial_coverage
     require(len(references) == 668 and sum(r["league_count"] or 0 for r in references.values()) == (support["unblocked_attempts"] or 0),
@@ -526,10 +518,29 @@ def check_season(connection, result, purpose):
     return dict(physical_seconds=seconds, player_seconds=exposure, physical_attempts=attempts,
                 player_attempts_for=for_count, player_attempts_against=against_count,
                 personal_physical_seconds=personal_seconds, personal_player_seconds=personal_exposure,
-                deployment_pairs=len(stored_pairs),
-                teammate_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "teammate"),
-                opponent_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "opponent"),
                 read_back="passed", conservation="passed")
+
+
+def check_season(connection, result, purpose):
+    """validate the complete current publication, including deployment, for one season."""
+    checks = check_observed_season(connection, result, purpose)
+    season = result.season
+    receipt_by_game = {row["game_id"]: row for row in result.receipt["games"]}
+    pair_reduction = Counter()
+    for game in connection.execute("SELECT game_id,included_seconds FROM game WHERE season=?", (season,)):
+        gid = game["game_id"]
+        player_seconds = {row["player_id"]: row["included_seconds"] for row in connection.execute(
+            "SELECT player_id,included_seconds FROM player_game WHERE season=? AND game_id=?", (season, gid))}
+        pair_reduction.update(_check_deployment(receipt_by_game[gid]["deployment_pairs"],
+            player_seconds, game["included_seconds"], f"{season}/{gid}"))
+    pairs = connection.execute("SELECT player_a,relation,player_b,shared_seconds FROM player_season_pair WHERE season=?", (season,)).fetchall()
+    player_seconds = {row["player_id"]: row["included_seconds"] for row in
+                      connection.execute("SELECT player_id,included_seconds FROM player_season WHERE season=?", (season,))}
+    stored_pairs = _check_deployment(pairs, player_seconds, checks["physical_seconds"], season)
+    require(stored_pairs == pair_reduction, f"{season}: stored deployment differs from game receipt reductions")
+    return checks | dict(deployment_pairs=len(stored_pairs),
+        teammate_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "teammate"),
+        opponent_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "opponent"))
 
 
 def build_publication(selection_path: Path, output: Path) -> dict:

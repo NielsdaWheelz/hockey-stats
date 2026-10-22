@@ -1,0 +1,46 @@
+{
+  "kind": "attribution_complete_delivery_cleanup",
+  "status": "complete",
+  "date": "2026-10-21",
+  "pr": "https://github.com/NielsdaWheelz/hockey-stats/pull/46",
+  "merge_commit": "bf773904c5f098e0d1585a26a6e838a8b878f895",
+  "reviewed_head": "28778b6812684562569e6257c33e181e68ff26b2",
+  "reviewed_and_merged_tree": "3f07caa50181781ed04242bf79c86bfcffd182d8",
+  "security_check": "success",
+  "primary_checks": {
+    "source_imports": "passed",
+    "complete_command_entry": "passed",
+    "pinned_typecheck": "passed",
+    "node_version": "24.21.0"
+  },
+  "removed": {
+    "worktree": "/Users/nnandal/Documents/code/hockey-stats-04n",
+    "local_branch": "implement/04n-attribution-complete",
+    "remote_branch": "origin/implement/04n-attribution-complete",
+    "scratch_root": "/Users/nnandal/Documents/code/hockey-stats-local/attribution-04n-20261021",
+    "scratch_files": 34,
+    "scratch_bytes": 428169,
+    "temporary_pr_body": "/tmp/hockey-stats-04n-pr-body.md"
+  },
+  "alias_required": false,
+  "all_scratch_evidence_retained_exact": true,
+  "protected_files": 224,
+  "protected_bytes": 2772773057,
+  "protected_contract": "exact sha256, byte size and nanosecond mtime",
+  "listener_pid": 70045,
+  "listener_start": "Wed Oct 21 21:56:36 2026",
+  "delivery_evidence_root": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/reviews/delivery",
+  "scientific_execution_during_delivery": false,
+  "source_acquisition_during_delivery": false,
+  "activation_during_delivery": false,
+  "model_admission": "not_admitted",
+  "preservation_verified": true,
+  "required_reference_review": "verified",
+  "same_listener_verified": true,
+  "independent_reviews": {
+    "premerge": "premerge-review.json",
+    "required_references": "reference-audit.json",
+    "post_cleanup_references": "post-cleanup-reference-review.json",
+    "final_preservation": "final-review.json"
+  }
+}

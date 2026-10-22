@@ -2,6 +2,12 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 04n delivery review — 2026-10-21
+
+independent integration review clears [pr #46](https://github.com/NielsdaWheelz/hockey-stats/pull/46), its successful security check and exact reviewed/merged tree equality. the source snapshot and all scientific producers remain ancestors. primary source imports, command entry and pinned typechecking pass; schema-6 application/publication code is unchanged. no scientific computation or serving rebuild occurs during delivery.
+
+the task worktree, local/remote branch, duplicate scratch and temporary pr body are removed. all 34 scratch files have exact retained external copies, and no authoritative scientific reference requires the removed roots; no alias is needed. independent preservation checks all 224 protected files and the unchanged listener. [delivery evidence](attribution-04n/verification.md#source-integration-and-task-cleanup) bounds the checks. source evidence, expensive fits, accepted reports, frozen inputs and both publications remain intact; no activation or ability admission follows.
+
 ## 04n implementation and empirical review — 2026-10-21
 
 independent source/training, numerical/statistical and rendered-content review clears [04n's complete-rate implementation and execution](attribution-04n/verification.md). the five-year counted fixture checks corrections, response energy, annual carry, entrants/unseen identities, nonzero regional interaction, zero native interaction, exact signs, empty blocks and all four commands. real audits verify the six zero-count exclusions, every training array, twelve selected states and thirteen fixed-history probes without extra control fits. independently composed grouped quadratics and manual shared draws reproduce all sixteen main/four source-only combinations in 2,721,315 comparisons. saved-only rendering is byte-exact with scientific dependencies denied. temporary test/controller code is deleted after final green; retained receipts bound the evidence and its limits.

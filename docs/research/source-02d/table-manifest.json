@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "kind": "source_exposure_compact_tables",
+  "files": {
+    "observed-deltas.csv": {
+      "path": "observed-deltas.csv",
+      "sha256": "4cf727c14d02a1ba054ee9127404133f8a9a384420833576feacba595843f8cd",
+      "rows": 631,
+      "bytes": 224667
+    },
+    "peer-consequences.csv": {
+      "path": "peer-consequences.csv",
+      "sha256": "06639ef15ebbfc94031c76e61dab73f7adcaadcef9a5a5bf0be3d103ff410a37",
+      "rows": 213,
+      "bytes": 170984
+    },
+    "season-summary.csv": {
+      "path": "season-summary.csv",
+      "sha256": "065d8697f5be38c93e562b6191a9816c88af0d746b6c2b600c55593bb4091c92",
+      "rows": 27,
+      "bytes": 5764
+    }
+  },
+  "assessment_result": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/result.json",
+    "sha256": "b307e0d1f90989865afb8c2465d272d3351198c7cc2a16074b24dee4ffaffe30",
+    "bytes": 19183
+  },
+  "independent_reconciliation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/report-reconciliation/result.json",
+    "sha256": "248d004e821b3a8d191a807b81f2d75753e5abc2e25b0d18ea9d94d50b711af8"
+  },
+  "full_source_csvs": {
+    "observed-deltas.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/observed-deltas.csv",
+      "sha256": "dbddbf0992b2c10a6fb3b83e77b5a8e326e98d37925ffd16feb13e8f812b1c91",
+      "bytes": 1457989703
+    },
+    "peer-consequences.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/assessment-03/peer-consequences.csv",
+      "sha256": "7533c8db1bb812b213c1d2a103375a1c7cc5c67b06c9346474e272b4548c7747",
+      "bytes": 343417
+    }
+  },
+  "selection": {
+    "phase": "total only; original, policy_only and selected values are retained; recovery has no changes",
+    "observed_rows": {
+      "game": "all 140 changed game quantities, including 57 reason-only games",
+      "player_season": "all 487 changed non-cell quantities for the 30 player-seasons losing included seconds in at least one support",
+      "league_reference": "4 rows: largest absolute selected minus original for each changed season and league raw rate or density; smallest cell_id breaks exact ties; selected extrema are not representative"
+    },
+    "direct_player_seasons": [
+      {
+        "season": "20232024",
+        "player_id": "8475149"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8475750"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8475848"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8476392"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8476419"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8476429"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8476871"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8476917"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8477392"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8477451"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8477504"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8477940"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8478136"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8478398"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8480014"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8480980"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8481601"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8481618"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8482964"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8483515"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8474151"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8476460"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8476878"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8477504"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8477940"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8478398"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8478416"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8478519"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8479542"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8480014"
+      }
+    ],
+    "peers": "all 213 changed default position/family-specific 300-minute standings",
+    "season_summary": "27 additive available-game fact sums across all 1312 games per season; paired counts require both team directions; null-game counts remain explicit; no rates are summed",
+    "unchanged_20252026": "exact numerical facts; no changed league reference or peer row"
+  },
+  "selected_extrema": [
+    {
+      "season": "20232024",
+      "quantity": "league_density",
+      "selected_cell_id": "603",
+      "absolute_change": 3.8424345254917114e-05,
+      "tied_cells": 1
+    },
+    {
+      "season": "20232024",
+      "quantity": "league_raw_per60",
+      "selected_cell_id": "620",
+      "absolute_change": 2.9842431731541552e-05,
+      "tied_cells": 1
+    },
+    {
+      "season": "20242025",
+      "quantity": "league_density",
+      "selected_cell_id": "603",
+      "absolute_change": 1.9912943814315298e-05,
+      "tied_cells": 1
+    },
+    {
+      "season": "20242025",
+      "quantity": "league_raw_per60",
+      "selected_cell_id": "620",
+      "absolute_change": 1.586126576946789e-05,
+      "tied_cells": 1
+    }
+  ],
+  "proof": {
+    "observed_exact_source_row_union": 631,
+    "peer_parsed_rows_identical": true,
+    "rate_aggregation": "none"
+  },
+  "formatting": {
+    "committed_csv_line_endings": "lf",
+    "external_files": "unchanged",
+    "operation": "record delimiters normalized to lf; parsed headers, row order and every field remain identical to the approved external compact copies"
+  }
+}

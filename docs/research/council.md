@@ -2,6 +2,14 @@
 
 date: 2026-09-29. status: initial reconnaissance recommendations. three independent reviewers covered hockey statistics, product design, and systems/data; the primary agent inspected and preserved the predecessor. these are disciplinary perspectives, not imagined quotations from named experts. subsequent user decisions are authoritative in the [project brief](../brief.md); recommendations and open questions below retain their original context.
 
+## 02d implementation review — 2026-10-21
+
+independent source/statistical, systems and content reviews clear [02d's implementation and acceptance](source-02d/verification.md). raw shifts/reports establish the three 33/53/46-second interior runs, unchanged native facts and zero retained collateral events. synthetic checks verify matched count/time removal, prior overlap, boundaries, goalie changes and penalty shots. three complete-bundle probes use eighteen requests and recover no matched support; all 57 gaps remain with explicit empty-source reasons. no expansion or source substitution follows.
+
+the schema-5 candidate reconciles every inventory game, scalar/cell reduction, family-specific peer cohort and seasonal reference; every current-season numerical fact stays exact. separate full-output review reconciles 5,030,886 changed-quantity rows, all peer states and boundary locators. the final frozen audit validates 68 source-concordant games against exact 04b/04a metadata and actual directed rows, without matrices or fits: each population/state loses 132 retained physical, 264 directed and 1,320 player seconds, zero retained events and zero prior overlap. this is source support, not fitted sensitivity or ability admission.
+
+normal/detached browsing, history, affected maps, png and code-paired rollback pass on disposable paths/listeners. two deliberately stopped assessor attempts expose excessive receipt retention and incorrect report units; bounded seasonal ownership and explicit field units repair them before the successful 920-second run. temporary checks/controllers/dependencies are deleted after final green, while facts, receipts, fixtures and expensive evidence remain. source truth, boundary clocks and 57 gaps stay open. the active site and both databases remain intact; no activation is assigned. 05h separately includes the observed handoff through `71e19f8` and delivers schema 6; later audit integration must preserve that newer reader/writer.
+
 ## 02d specification review — 2026-10-21
 
 independent source/statistical, systems and content review supports the [full 02d contract](../specs/02d-source-exposure-consistency.md). source evidence owns constant-lineup segments and interior/boundary distinctions; observed preparation owns matched exclusions. the user selected three complete-bundle probes followed by conditional expansion across the 57 affected games. new captures remain distinct originals; the 342-request ceiling adds no new feed or capture framework.

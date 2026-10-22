@@ -1,0 +1,1711 @@
+{
+  "schema_version": 1,
+  "kind": "attribution_complete_result",
+  "purpose": "research",
+  "implementation": {
+    "git_commit": "64088688824e9d19dad388f604657b22672f67dc",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "consumed": {
+    "assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/assessment/assessment.json",
+      "sha256": "748b3634ce966e607fbd1d3e9bbd29c9f0ce2c84d662b797f23228725d48d558"
+    }
+  },
+  "execution_status": "complete",
+  "numerical_status": "verified",
+  "study_status": "diagnosed",
+  "nomination": null,
+  "admission": "not_admitted",
+  "handoff": null,
+  "next_question": null,
+  "unresolved_reason": "this diagnostic study does not uniquely identify the next model revision",
+  "coverage": {
+    "inventory_games": 1312,
+    "assessment_games": 261,
+    "training_games": 1051,
+    "actual_assessment_fraction": 0.1989329268292683,
+    "assessment_directed_hours": 421.4483333333332,
+    "assessment_recorded_unblocked_attempts": 17331.0,
+    "assessment_zero_time_games": 0,
+    "training_directed_hours": 1682.9733333333327,
+    "training_recorded_unblocked_attempts": 68906.0,
+    "source_annual": {
+      "measured_games": 1312,
+      "score_unavailable_games": 0,
+      "unknown_horizon_games": 0,
+      "unresolved_membership_games": 297,
+      "supported_seconds": 3791019,
+      "retained_seconds": 3787959,
+      "excluded_seconds": 3060,
+      "recognized_attempts": 87486,
+      "retained_attempts": 86237,
+      "excluded_attempts": 1249,
+      "collateral_attempts": 109,
+      "unassigned_attempts": 1139,
+      "unallocated_ownership_attempts": 0,
+      "common_population_seconds": 3787959,
+      "common_population_all_attempts": 119438,
+      "common_population_unblocked_attempts": 86237,
+      "unresolved_membership_seconds": 57215
+    },
+    "zero_time_game_ids": [
+      "2025020544",
+      "2025020565"
+    ]
+  },
+  "numerical": {
+    "verified": true,
+    "aggregate_direction_stable": true,
+    "source_direction_stable": true,
+    "primary_probe_combinations": 16,
+    "source_probe_combinations": 4,
+    "per_game_closure_max_absolute": 6.821210263296962e-13,
+    "pooled_closure_max_absolute": 2.751221472863108e-11,
+    "bootstrap_closure": {
+      "games": {
+        "paired": 4.440892098500626e-14,
+        "regional_decomposition": 5.551115123125783e-16,
+        "native_decomposition": 5.684341886080802e-14
+      },
+      "calendar_7_day": {
+        "paired": 6.794564910705958e-14,
+        "regional_decomposition": 6.661338147750939e-16,
+        "native_decomposition": 7.105427357601002e-14
+      },
+      "calendar_14_day": {
+        "paired": 7.283063041541027e-14,
+        "regional_decomposition": 6.661338147750939e-16,
+        "native_decomposition": 1.1368683772161603e-13
+      }
+    },
+    "probes": [
+      {
+        "component": "volume",
+        "index": 0,
+        "season": "20212022",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "volume",
+        "index": 1,
+        "season": "20222023",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "volume",
+        "index": 2,
+        "season": "20232024",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "volume",
+        "index": 3,
+        "season": "20242025",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "volume",
+        "index": 4,
+        "season": "20252026",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "volume",
+        "index": 5,
+        "season": "20252026",
+        "arm": "independent",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 0,
+        "season": "20212022",
+        "arm": "borrowing",
+        "origin": "reused",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 1,
+        "season": "20222023",
+        "arm": "borrowing",
+        "origin": "reused",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 2,
+        "season": "20232024",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 3,
+        "season": "20242025",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 4,
+        "season": "20252026",
+        "arm": "borrowing",
+        "origin": "new",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 5,
+        "season": "20252026",
+        "arm": "independent",
+        "origin": "reused",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      },
+      {
+        "component": "shape",
+        "index": 4,
+        "season": "20252026",
+        "arm": "original_borrowing",
+        "origin": "frozen_source_control",
+        "verified": true,
+        "saved_scale_status": {
+          "status": "resolved",
+          "own_reasons": [],
+          "inherited_limitation": false
+        },
+        "alternative_scale_status": "resolved",
+        "alternative_scale_reasons": [],
+        "inherited_scale_limitation": false
+      }
+    ],
+    "selected_scale_status_counts": {
+      "resolved": 12
+    },
+    "complete_probe_receipts_in_assessment": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/assessment/assessment.json",
+      "sha256": "748b3634ce966e607fbd1d3e9bbd29c9f0ce2c84d662b797f23228725d48d558"
+    }
+  },
+  "inventory": {
+    "states": 12,
+    "new_states": 9,
+    "reused_states": 3,
+    "probes": 13,
+    "new_probes": 9,
+    "reused_probes": 3,
+    "source_control_probes": 1,
+    "main_variants": 16,
+    "source_only_variants": 4,
+    "variant_contract": {
+      "main_bit_order": [
+        {
+          "component": "volume",
+          "arm": "borrowing"
+        },
+        {
+          "component": "shape",
+          "arm": "borrowing"
+        },
+        {
+          "component": "volume",
+          "arm": "independent"
+        },
+        {
+          "component": "shape",
+          "arm": "independent"
+        }
+      ],
+      "source_only_bit_order": [
+        "corrected borrowing shape",
+        "original borrowing shape"
+      ],
+      "bit_meanings": {
+        "0": "primary",
+        "1": "bounded probe"
+      },
+      "ordinal_origin": 0,
+      "order": "lexicographic binary bits; all-zero combination is named primary",
+      "main_count": 16,
+      "source_only_count": 4
+    },
+    "main_variant_ordinals": [
+      {
+        "ordinal": 0,
+        "variant": "primary",
+        "bits": "0000"
+      },
+      {
+        "ordinal": 1,
+        "variant": "probe_0001",
+        "bits": "0001"
+      },
+      {
+        "ordinal": 2,
+        "variant": "probe_0010",
+        "bits": "0010"
+      },
+      {
+        "ordinal": 3,
+        "variant": "probe_0011",
+        "bits": "0011"
+      },
+      {
+        "ordinal": 4,
+        "variant": "probe_0100",
+        "bits": "0100"
+      },
+      {
+        "ordinal": 5,
+        "variant": "probe_0101",
+        "bits": "0101"
+      },
+      {
+        "ordinal": 6,
+        "variant": "probe_0110",
+        "bits": "0110"
+      },
+      {
+        "ordinal": 7,
+        "variant": "probe_0111",
+        "bits": "0111"
+      },
+      {
+        "ordinal": 8,
+        "variant": "probe_1000",
+        "bits": "1000"
+      },
+      {
+        "ordinal": 9,
+        "variant": "probe_1001",
+        "bits": "1001"
+      },
+      {
+        "ordinal": 10,
+        "variant": "probe_1010",
+        "bits": "1010"
+      },
+      {
+        "ordinal": 11,
+        "variant": "probe_1011",
+        "bits": "1011"
+      },
+      {
+        "ordinal": 12,
+        "variant": "probe_1100",
+        "bits": "1100"
+      },
+      {
+        "ordinal": 13,
+        "variant": "probe_1101",
+        "bits": "1101"
+      },
+      {
+        "ordinal": 14,
+        "variant": "probe_1110",
+        "bits": "1110"
+      },
+      {
+        "ordinal": 15,
+        "variant": "probe_1111",
+        "bits": "1111"
+      }
+    ],
+    "source_only_variant_ordinals": [
+      {
+        "ordinal": 0,
+        "variant": "primary",
+        "bits": "00"
+      },
+      {
+        "ordinal": 1,
+        "variant": "probe_01",
+        "bits": "01"
+      },
+      {
+        "ordinal": 2,
+        "variant": "probe_10",
+        "bits": "10"
+      },
+      {
+        "ordinal": 3,
+        "variant": "probe_11",
+        "bits": "11"
+      }
+    ],
+    "games": 1312,
+    "assessment_games": 261
+  },
+  "verification": {
+    "source_chain": "accepted final 02d correction and frozen 04m references verified",
+    "reuse_proofs": [
+      {
+        "index": 0,
+        "season": "20212022",
+        "arm": "borrowing",
+        "record": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04m-20261021/fit/state-0.json",
+          "sha256": "7f222906bb2d4bc81cbfc20657c58a655f221bbb30a386c011bb24d6ff5b610f"
+        },
+        "original_parent": null,
+        "selected_parent": null,
+        "likelihood_arrays_equal": true,
+        "ids_rate_exposure_basis_reference_equal": true,
+        "incoming_parent_equal": true
+      },
+      {
+        "index": 1,
+        "season": "20222023",
+        "arm": "borrowing",
+        "record": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04m-20261021/fit/state-1.json",
+          "sha256": "ac620a15b06bd529b6bf2664b8c949c2a8715f9eee2e678cc06b20dfb7efdcab"
+        },
+        "original_parent": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04m-20261021/fit/state-0.json",
+          "sha256": "7f222906bb2d4bc81cbfc20657c58a655f221bbb30a386c011bb24d6ff5b610f"
+        },
+        "selected_parent": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04m-20261021/fit/state-0.json",
+          "sha256": "7f222906bb2d4bc81cbfc20657c58a655f221bbb30a386c011bb24d6ff5b610f"
+        },
+        "likelihood_arrays_equal": true,
+        "ids_rate_exposure_basis_reference_equal": true,
+        "incoming_parent_equal": true
+      },
+      {
+        "index": 5,
+        "season": "20252026",
+        "arm": "independent",
+        "record": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04m-20261021/fit/state-5.json",
+          "sha256": "35788921881f55ed021c4d531e0fb21d3edd9a3194657913abebf32ec19040f2"
+        },
+        "original_parent": null,
+        "selected_parent": null,
+        "likelihood_arrays_equal": true,
+        "ids_rate_exposure_basis_reference_equal": true,
+        "incoming_parent_equal": true
+      }
+    ],
+    "heldout_rows": {
+      "status": "verified",
+      "rows": 177098,
+      "directed_seconds": 1517214.0,
+      "retained_counts": 17331,
+      "moment_max_absolute_errors": {
+        "A": 0.0,
+        "C": 0.0,
+        "E": 0.0,
+        "N": 0.0,
+        "K": 0.0
+      },
+      "zero_time_games": [],
+      "inventory_games": 261
+    },
+    "physical_prediction": {
+      "rows": 177098,
+      "maximum_shape_sum_absolute": 1.4432899320127035e-14,
+      "maximum_complete_volume_absolute": 2.842170943040401e-14,
+      "absolute_tolerance": 1e-09,
+      "relative_tolerance": 1e-10,
+      "status": "verified"
+    },
+    "state_count": 12,
+    "new_states": 9,
+    "reused_states": 3,
+    "probe_count": 13,
+    "primary_fit_preserved": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/fit/fit.json",
+      "sha256": "154f6e6324e3144eb6aa74aebcaabc2b6a860e123faca4b297328a087329bbcb"
+    },
+    "conditional_probe_scope": "fixed incoming primary histories; sixteen main and four source-only combinations"
+  },
+  "resources": {
+    "prepare": {
+      "wall_seconds": 92.0868105419795,
+      "peak_memory_bytes": 2800320512,
+      "process_seconds": 32.239039,
+      "output_bytes": 267190572,
+      "output_bytes_scope": "tree before current manifest serialization"
+    },
+    "fit": {
+      "wall_seconds": 447.49469095800305,
+      "peak_memory_bytes": 2629582848,
+      "process_seconds": 299.605662,
+      "output_bytes": 466611621,
+      "output_bytes_scope": "tree before current manifest serialization"
+    },
+    "assessment": {
+      "wall_seconds": 619.086664124974,
+      "peak_memory_bytes": 3493199872,
+      "process_seconds": 459.65069300000005,
+      "output_bytes": 471305002,
+      "output_bytes_scope": "tree before current manifest serialization"
+    },
+    "states": [
+      {
+        "wall_seconds": 20.689656500006095,
+        "peak_memory_bytes": 694534144
+      },
+      {
+        "wall_seconds": 23.527320666995365,
+        "peak_memory_bytes": 1143947264
+      },
+      {
+        "wall_seconds": 33.41262729099253,
+        "peak_memory_bytes": 1535557632
+      },
+      {
+        "wall_seconds": 43.65181212499738,
+        "peak_memory_bytes": 2077409280
+      },
+      {
+        "wall_seconds": 52.580224874953274,
+        "peak_memory_bytes": 2629582848
+      },
+      {
+        "wall_seconds": 13.034403250028845,
+        "peak_memory_bytes": 2629582848
+      },
+      {
+        "wall_seconds": 56.85010704101296,
+        "peak_memory_bytes": 625573888
+      },
+      {
+        "wall_seconds": 41.04119079199154,
+        "peak_memory_bytes": 1089650688
+      },
+      {
+        "wall_seconds": 66.47616525000194,
+        "peak_memory_bytes": 2629582848
+      },
+      {
+        "wall_seconds": 67.31932008301374,
+        "peak_memory_bytes": 2629582848
+      },
+      {
+        "wall_seconds": 77.4347600840265,
+        "peak_memory_bytes": 2629582848
+      },
+      {
+        "wall_seconds": 39.99889662495116,
+        "peak_memory_bytes": 1660911616
+      }
+    ]
+  },
+  "source_references": {
+    "source_result": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-04m/docs/research/attribution-04b/result.json",
+      "sha256": "d0c0f6a7af3888cd0d0920d152f322447a984cbc20edac596aa70f60dbb0f2de"
+    },
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/prepared/prepared.json",
+      "sha256": "fbc40ab798493be6fcc7068ea52eb43831ad725fb89d7a4c87242f689cb7d17b"
+    },
+    "baseline_prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/prepared/prepared.json",
+      "sha256": "b771cdc1784a72cf0db6be47b9eb0f597af542bb9cace1f339ba40002265cd8a"
+    },
+    "basis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04c-20261016/prepared/basis.npz",
+      "sha256": "67d7ee706f1d8d251cc68a0d22378e67e1961b2ac53fb764bfc0efdff11d43fc"
+    },
+    "corpus": {
+      "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+      "sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+    },
+    "original_protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/inputs/protocol.json",
+      "sha256": "bd5c921dbfa7fedb6957c972707434ec3aadfa85e522bca0c49e8481563237de"
+    },
+    "revision_protocol": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04b-20261015/inputs/protocol.json",
+      "sha256": "32c4edf30c7cc8d5f1c844c7ee048991465d9066019e434ddefc0746ccedc7d6"
+    },
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/inputs/selection.json",
+      "sha256": "67cb59a415943f9ce24c62544c9a6e45adab6e6a872b8eba73709affdb7d72d5"
+    },
+    "basis_sha256": "649a49ecba19de5df609d6980d9de76491afa13e9108df0d8e6500659886cc51",
+    "first_reference_season": "20212022",
+    "population_id": "92ae11f6c00192843ca8777b2d491618c1a6e62a86e49013d9f3e960d8d37b3b",
+    "coverage_ledger": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04a-20261014-02/prepared/coverage.jsonl",
+      "sha256": "ab3b4824f0ccf12142a0c03185a4f543d540850e63789f52c3c6ed4e2ebbdcf5"
+    },
+    "decoded_grouped_members": [
+      "H_e",
+      "T_raw",
+      "stratum_e",
+      "stratum_x",
+      "stratum_n"
+    ]
+  },
+  "limits": [
+    "joint lineup prediction of recorded locatable unblocked rates; not individual ability or chance value",
+    "one frozen partition of research-exposed seasons; not untouched confirmation or a pregame forecast",
+    "intervals condition on fits, scales, split and population; no empirical player uncertainty claim",
+    "signed effects may be negative; negative complete predictions are not event intensities; no clipping",
+    "paired response moments establish differences, not absolute regional mse or rmse",
+    "source-only sensitivity concerns shape; complete volume correction sensitivity was not fitted",
+    "limited context, relative-rate carry and forty-mode geometry remain assumptions; no ability admission"
+  ],
+  "game_score_metrics": [
+    {
+      "column": "borrowing-independent:regional:all:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:all:weighted_volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "weighted_volume",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:all:shape:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:all:interaction:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "interaction",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:behind_goal_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "behind_goal_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:behind_goal_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "behind_goal_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:outside_attacking_zone_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "outside_attacking_zone_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:outside_attacking_zone_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "outside_attacking_zone_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_0_10_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_0_10_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_0_10_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_0_10_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_10_20_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_10_20_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_10_20_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_10_20_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_20_40_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_20_40_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_20_40_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_20_40_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_40_plus_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_40_plus_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:regional:in_zone_40_plus_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "in_zone_40_plus_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:native_inverse_share:all:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:native_inverse_share:all:weighted_volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "weighted_volume",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:native_inverse_share:all:shape:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:native_inverse_share:all:interaction:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "interaction",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-independent:volume:all:volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "volume",
+      "region": "all",
+      "component": "volume",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:all:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:all:weighted_volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "weighted_volume",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:all:shape:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:all:interaction:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "interaction",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:behind_goal_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "behind_goal_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:behind_goal_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "behind_goal_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:outside_attacking_zone_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "outside_attacking_zone_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:outside_attacking_zone_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "outside_attacking_zone_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_0_10_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_0_10_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_0_10_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_0_10_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_10_20_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_10_20_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_10_20_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_10_20_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_20_40_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_20_40_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_20_40_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_20_40_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_40_plus_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_40_plus_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:regional:in_zone_40_plus_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "in_zone_40_plus_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:native_inverse_share:all:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:native_inverse_share:all:weighted_volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "weighted_volume",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:native_inverse_share:all:shape:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:native_inverse_share:all:interaction:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "interaction",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "borrowing-context:volume:all:volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "volume",
+      "region": "all",
+      "component": "volume",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:all:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:all:weighted_volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "weighted_volume",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:all:shape:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:all:interaction:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "interaction",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:behind_goal_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "behind_goal_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:behind_goal_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "behind_goal_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:outside_attacking_zone_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "outside_attacking_zone_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:outside_attacking_zone_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "outside_attacking_zone_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_0_10_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_0_10_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_0_10_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_0_10_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_10_20_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_10_20_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_10_20_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_10_20_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_20_40_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_20_40_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_20_40_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_20_40_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_40_plus_negative_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_40_plus_negative_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:regional:in_zone_40_plus_positive_y:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "in_zone_40_plus_positive_y",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:native_inverse_share:all:complete:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "complete",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:native_inverse_share:all:weighted_volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "weighted_volume",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:native_inverse_share:all:shape:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:native_inverse_share:all:interaction:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "interaction",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "independent-context:volume:all:volume:loss_numerator",
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "volume",
+      "region": "all",
+      "component": "volume",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:all:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 12.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:behind_goal_negative_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "behind_goal_negative_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:behind_goal_positive_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "behind_goal_positive_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:outside_attacking_zone_negative_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "outside_attacking_zone_negative_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:outside_attacking_zone_positive_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "outside_attacking_zone_positive_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_0_10_negative_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_0_10_negative_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_0_10_positive_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_0_10_positive_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_10_20_negative_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_10_20_negative_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_10_20_positive_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_10_20_positive_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_20_40_negative_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_20_40_negative_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_20_40_positive_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_20_40_positive_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_40_plus_negative_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_40_plus_negative_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:regional:in_zone_40_plus_positive_y:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "regional",
+      "region": "in_zone_40_plus_positive_y",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    },
+    {
+      "column": "source_only:corrected-original:native_inverse_share:all:shape:loss_numerator",
+      "comparison": "source_only",
+      "contrast": "corrected-original",
+      "metric": "native_inverse_share",
+      "region": "all",
+      "component": "shape",
+      "metric_normalizer": 1.0,
+      "loss_denominator": "metric_normalizer * directed_hours",
+      "estimate_units": "(recorded unblocked attempts/60)^2"
+    }
+  ],
+  "tables": {
+    "comparison": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/comparison.csv",
+      "sha256": "27ea8e227b846f06f67d8a62547396999d3336b7cf5d3d62c2d60c6ad7a3e1ee"
+    },
+    "games": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/game-scores.csv",
+      "sha256": "9d75350566fedee2981a9a0140f8c6ce4aba4bf73acf628285237d40cbf0768e"
+    },
+    "diagnostics": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/diagnostics.csv",
+      "sha256": "9da8714d089ef49f695efbe9a1153848659003a21e326c933127abb419628228"
+    },
+    "rates": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/rate-diagnostics.csv",
+      "sha256": "e4cc10421524a76070d84daab909206c919bf9d0635cb616a8ea2acf0f1b4148"
+    }
+  },
+  "figure": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/comparison.png",
+    "sha256": "90bb04dc4163797b07c8435063a3ed7e213480d8ce73d6b1f06b598a541300d6"
+  },
+  "decision": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/decision.md",
+    "sha256": "053d68c99f83366c935712923e31fc2b02290fef71c83d3303d67c43fd7e6ca3"
+  },
+  "verification_document": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/attribution-04n-20261021/report/verification.md",
+    "sha256": "c57d5ea5f3d129dd2c0c569ac8c5494176ddd46172825c5281a8f618f8f126ad"
+  },
+  "aggregate_comparisons": [
+    {
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -550.2885280034467,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.10880901336333182,
+      "scheme": "games",
+      "lower": -0.16883055886266174,
+      "upper": -0.044485156309361513,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -550.2885280034467,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.10880901336333182,
+      "scheme": "calendar_7_day",
+      "lower": -0.1643729205569293,
+      "upper": -0.05368365595080804,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "borrowing-independent",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -550.2885280034467,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.10880901336333182,
+      "scheme": "calendar_14_day",
+      "lower": -0.16784648771547186,
+      "upper": -0.04994350669396876,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -3852.9089645387803,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.761838929354484,
+      "scheme": "games",
+      "lower": -0.9269467076018653,
+      "upper": -0.5858657796626909,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -3852.9089645387803,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.761838929354484,
+      "scheme": "calendar_7_day",
+      "lower": -0.9323443650563611,
+      "upper": -0.6044823808307415,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "borrowing-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -3852.9089645387803,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.761838929354484,
+      "scheme": "calendar_14_day",
+      "lower": -0.9517903945291061,
+      "upper": -0.5820235992676505,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -3302.620436535334,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.6530299159911525,
+      "scheme": "games",
+      "lower": -0.7989797051820744,
+      "upper": -0.5088556143960458,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -3302.620436535334,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.6530299159911525,
+      "scheme": "calendar_7_day",
+      "lower": -0.8059239950187493,
+      "upper": -0.5142518682261664,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    },
+    {
+      "comparison": "main",
+      "contrast": "independent-context",
+      "metric": "regional",
+      "region": "all",
+      "component": "complete",
+      "loss_numerator": -3302.620436535334,
+      "directed_hours": 421.4483333333332,
+      "metric_normalizer": 12.0,
+      "loss_denominator": 5057.379999999998,
+      "estimate": -0.6530299159911525,
+      "scheme": "calendar_14_day",
+      "lower": -0.8050762529805464,
+      "upper": -0.5188255555728842,
+      "undefined_draws": 0,
+      "direction": "supported_lower_loss",
+      "reason": null
+    }
+  ]
+}

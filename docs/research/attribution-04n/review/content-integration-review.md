@@ -1,6 +1,6 @@
 # content and assessment review
 
-status: fixture assessment and saved report reviewed; empirical execution and its rendered result remain a separate final check. software verification does not admit a model.
+status: fixture assessment and saved report reviewed. the subsequent [empirical assessment and rendered-content review](real-content.md) completes the separate real-data check; [final acceptance](../verification.md) records integration and cleanup. software verification does not admit a model.
 
 ## independent assessment evidence
 

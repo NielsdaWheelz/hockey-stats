@@ -1,6 +1,6 @@
 # pr04n — complete recorded-rate adequacy
 
-full specification, 2026-10-21; implementation and research execution require separate assignment. [the plan](../plan.md) owns progression. preserve [04m's frozen evidence](../research/attribution-04m/decision.md); this is a research report, not an ability handoff or website release.
+implemented and empirically verified, 2026-10-21, under the user's separate execution assignment. [decision](../research/attribution-04n/decision.md) · [acceptance](../research/attribution-04n/verification.md). [the plan](../plan.md) owns progression. preserve [04m's frozen evidence](../research/attribution-04m/decision.md); this is a research report, not an ability handoff or website release.
 
 ## target and boundary
 

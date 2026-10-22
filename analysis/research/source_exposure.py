@@ -126,6 +126,8 @@ def _summary(rows):
 def recovery(corpus_path, captures_root, output, probe_receipt=None):
     """review exactly three probes, or their bound conditional 57-game expansion."""
     started = time.monotonic()
+    spec_bytes = SPEC.read_bytes()
+    spec_sha256 = hashlib.sha256(spec_bytes).hexdigest()
     corpus_path = Path(corpus_path).resolve(strict=True)
     captures_root = Path(captures_root).resolve(strict=True)
     corpus, inventory, ledger, ordered = _original(corpus_path)
@@ -141,13 +143,15 @@ def recovery(corpus_path, captures_root, output, probe_receipt=None):
         probe = validate_recovery(probe_receipt)
         require(probe["consumed"]["probe_receipt"] is None
                 and probe["consumed"]["corpus"] == identity(corpus_path)
-                and probe["consumed"]["spec"] == identity(SPEC)
+                and probe["consumed"]["spec"]["sha256"] == spec_sha256
                 and probe["implementation"] == producer
                 and probe["summary"]["recovered_games"] > 0,
                 "expansion requires an unchanged, useful initial probe with this corpus, policy and producer")
     output = output_path(str(output), [str(corpus_path.parent), str(captures_root),
         *([str(probe_receipt.parent)] if probe_receipt else [])])
     output.mkdir()
+    spec_path = output / "spec.md"
+    spec_path.write_bytes(spec_bytes)
     envelopes = output / "games"
     envelopes.mkdir()
     selected = output / "selected-games"
@@ -197,7 +201,7 @@ def recovery(corpus_path, captures_root, output, probe_receipt=None):
                             f"{game_id}: probe was changed or recaptured before expansion")
         (selected / game_id).symlink_to(row["selected_path"], target_is_directory=True)
         rows.append(row)
-    producer_document.update(consumed=dict(corpus=identity(corpus_path), spec=identity(SPEC),
+    producer_document.update(consumed=dict(corpus=identity(corpus_path), spec=identity(spec_path),
         probe_receipt=identity(probe_receipt) if probe_receipt else None),
         policy_id=POLICY_ID, inventory_sha256=_digest([inventory[gid] for gid in ordered]),
         selected_games=str(selected), capture_root=str(captures_root), games=rows,
@@ -219,7 +223,8 @@ def validate_recovery(path, *, corpus_path=None, audit_sources=True):
     consumed = document["consumed"]
     require(set(consumed) == {"corpus", "spec", "probe_receipt"}, "recovery input references differ")
     bound_corpus = linked_path(consumed["corpus"])
-    linked_path(consumed["spec"])
+    require(linked_path(consumed["spec"]) == path.parent / "spec.md",
+            "recovery spec must bind its stable local snapshot")
     if corpus_path is not None:
         require(bound_corpus == Path(corpus_path).resolve(strict=True), "recovery original corpus differs")
     _, inventory, ledger, ordered = _original(bound_corpus)
@@ -276,7 +281,8 @@ def validate_recovery(path, *, corpus_path=None, audit_sources=True):
     if consumed["probe_receipt"] is not None:
         probe = validate_recovery(linked_path(consumed["probe_receipt"]), audit_sources=audit_sources)
         require(probe["consumed"]["probe_receipt"] is None and probe["summary"]["recovered_games"] > 0
-                and probe["consumed"]["corpus"] == consumed["corpus"] and probe["consumed"]["spec"] == consumed["spec"]
+                and probe["consumed"]["corpus"] == consumed["corpus"]
+                and probe["consumed"]["spec"]["sha256"] == consumed["spec"]["sha256"]
                 and probe["implementation"] == document["implementation"], "invalid conditional probe binding")
         for game_id in PROBES:
             before = next(row for row in probe["games"] if row["game_id"] == game_id)

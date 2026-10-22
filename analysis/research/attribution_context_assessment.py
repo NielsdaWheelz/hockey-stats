@@ -1,12 +1,11 @@
 """04o's fixed paired assessment, player sensitivity and saved evidence boundary."""
 
 from itertools import product
-from pathlib import Path
 import time
 
 import numpy as np
 
-from hockey_stats.artifacts import artifact, json_values, linked_path, require, resources, write_arrays, write_json
+from hockey_stats.artifacts import artifact, json_values, linked_path, require, write_arrays, write_json
 from hockey_stats.attribution_prediction import (complete_paired_decomposition, complete_prediction,
     context_complete_prediction, embed_constant_prediction, continuous_rate_diagnostics,
     context_prediction_row_batches, empirical_residuals)

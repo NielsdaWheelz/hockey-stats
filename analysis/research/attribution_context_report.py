@@ -5,9 +5,7 @@ import json
 from pathlib import Path
 import time
 
-import numpy as np
-
-from hockey_stats.artifacts import (artifact,clean_implementation,json_values,linked_path,load_arrays,
+from hockey_stats.artifacts import (artifact,clean_implementation,json_values,load_arrays,
     require,resources,write_json)
 from hockey_stats.chance_cli import identity,read_json
 
@@ -59,7 +57,8 @@ def _prediction_figure(root,d):
         ax.set_title(title,loc='left',fontsize=11)
         ax.set_xlabel('candidate − control; (recorded unblocked attempts/60)²',fontsize=8)
         ax.grid(axis='x',alpha=.18);ax.spines[['top','right']].set_visible(False)
-    axes[0,0].legend(frameon=False,fontsize=8,loc='best')
+    handles,labels=axes[0,0].get_legend_handles_labels()
+    fig.legend(handles,labels,frameon=False,fontsize=8,loc='outside lower center',ncols=3)
     fig.suptitle('lower loss is better; all three conditional 95% interval schemes',fontsize=13)
     fig.savefig(root/'prediction.png',dpi=170);plt.close(fig)
     return identity(root/'prediction.png')
@@ -152,6 +151,12 @@ def report(assessment,output):
     for row in primary:
         if row['scheme']=='games' and row['region']=='all' and not (row['metric']=='regional' and row['component']=='complete'):
             lines.append(f"- {row['metric']} {row['component']}: {_number(row['estimate'])}; `{row['direction']}`.")
+    adverse_regions=[row for row in primary if row['scheme']=='games' and row['metric']=='regional'
+        and row['region']!='all' and row['direction']=='supported_higher_loss']
+    if adverse_regions:
+        lines.extend(['','individual-region adverse diagnostics are unadjusted descriptive comparisons across twelve regions. all twelve comparisons remain in the table; this adds no selection or adoption rule.'])
+        for row in adverse_regions:
+            lines.append(f"- {row['region']}: {_number(row['estimate'])} (recorded unblocked attempts/60)²; `{row['direction']}` across all three conditional interval schemes.")
     lines.extend(['','current-player point-change summaries, in recorded unblocked attempts/60:'])
     for row in d['player_summary_rows']:
         lines.append(f"- {row['role']} {row['metric']}: exposure-weighted rms {_number(row['exposure_weighted_rms'])}; median {_number(row['median'])}; p90 {_number(row['p90'])}; maximum {_number(row['maximum'])}.")

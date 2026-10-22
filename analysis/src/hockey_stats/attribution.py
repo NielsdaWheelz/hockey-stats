@@ -1511,9 +1511,10 @@ def validate_shape_coefficient_probe(
         "frozen shape probe selected state or numerical completion differs")
     H, Q, u, mean, base = _validate_shape_coefficient_state_at_variance(
         likelihood, previous, alternative, selected["variance"])
-    sign, logdet = np.linalg.slogdet(np.eye(len(H)) + base @ H)
+    _, _, factor = _factor(H, base)
+    logdet = float(2*np.log(np.diag(factor)).sum())
     objective = float(40*logdet - np.sum((Q-H @ mean)*(alternative.uncentered_Theta-mean)))
-    require(sign > 0 and math.isfinite(objective)
+    require(math.isfinite(objective)
         and math.isclose(objective, selected["objective"], rel_tol=1e-8, abs_tol=1e-10)
         and alternative.diagnostics == receipt["diagnostics"],
         "frozen shape probe objective, response or posterior diagnostics differ")
@@ -1585,7 +1586,8 @@ def validate_scalar_coefficient_state(
     _validate_coefficient_posterior(H, score, u, mean, base, state.uncentered_beta,
                                     state.beta, state.V, state.centering_shift)
     # the solved mean gives the signal contraction without another posterior solve.
-    sign, logdet = np.linalg.slogdet(np.eye(2*n) + base @ H)
+    _, _, factor = _factor(H, base)
+    logdet = float(2*np.log(np.diag(factor)).sum())
     mean_score = float(2 * np.sum(mean * score))
     mean_energy = float(np.sum(mean * (H @ mean)))
     contraction = float(np.sum((score - H @ mean) * (state.uncentered_beta - mean)))
@@ -1594,7 +1596,7 @@ def validate_scalar_coefficient_state(
     # the saved full objective can lose ulps when response energy is much larger
     # than its scale-dependent contrast; it must not set a relative error budget.
     rounding = 8*np.finfo(float).eps*(abs(likelihood.energy)+abs(mean_score)+abs(mean_energy)+abs(contraction))
-    require(sign > 0 and math.isfinite(contrast)
+    require(math.isfinite(contrast)
             and math.isclose(contrast, saved_contrast, rel_tol=1e-8, abs_tol=max(1e-10, rounding)),
             "scalar coefficient selected objective differs from retained response energy")
 

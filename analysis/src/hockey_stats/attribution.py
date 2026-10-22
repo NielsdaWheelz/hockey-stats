@@ -1617,8 +1617,8 @@ def bounded_scalar_coefficient_probe(
     n = len(players)
     current = [players.index(player) for player in state.current_player_ids]
     rows = current + [n + index for index in current]
-    movement = dict(total=float(np.max(np.abs(alternative.beta[rows] - state.beta[rows]))))
-    receipt.update(status="verified" if receipt["numerical_complete"] and movement["total"] <= 1e-4
+    movement = dict(volume_relative=float(np.max(np.abs(alternative.beta[rows] - state.beta[rows]))))
+    receipt.update(status="verified" if receipt["numerical_complete"] and movement["volume_relative"] <= 1e-4
         else "numerically_unresolved", scope=POOLING_PROBE_SCOPE,
         maximum_league_relative_current_player_movement=movement, tolerance=1e-4,
         diagnostics=update.diagnostics)

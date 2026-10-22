@@ -111,12 +111,12 @@ def assess_games(
     borrowing shape predictions. every variant shares training and held-out axes.
     """
     p, regions = np.asarray(p), np.asarray(regions)
+    expected_variants = {"primary", *(f"probe_{mask:04b}" for mask in range(1, 16))}
+    expected_source_variants = {"primary", *(f"probe_{mask:02b}" for mask in range(1, 4))}
     require(
         set(predictions) == set(ARMS)
-        and len(alternatives) == 16
-        and "primary" in alternatives
-        and len(source_predictions) == 4
-        and "primary" in source_predictions
+        and set(alternatives) == expected_variants
+        and set(source_predictions) == expected_source_variants
         and regions.shape == (len(p), 12)
         and len(region_names) == 12
         and np.all(p > 0)
@@ -127,6 +127,17 @@ def assess_games(
         all(set(value) == set(ARMS) for value in alternatives.values())
         and all(set(value) == {"corrected", "original"} for value in source_predictions.values()),
         "complete or source-only arm inventory differs",
+    )
+    require(
+        all(
+            "volume_context" not in prediction
+            and "volume_maps" not in prediction
+            and "shape_context" not in prediction
+            and "shape_maps" not in prediction
+            for arms in source_predictions.values()
+            for prediction in arms.values()
+        ),
+        "source-only comparison requires explicit shape-response predictions",
     )
     variants = ("primary", *(name for name in alternatives if name != "primary"))
     source_variants = ("primary", *(name for name in source_predictions if name != "primary"))
@@ -212,6 +223,10 @@ def assess_games(
         for ci, contrast in enumerate(CONTRASTS):
             for mi, (metric, region, component, _) in enumerate(metrics):
                 row[f"{contrast}:{metric}:{region}:{component}:loss_numerator"] = float(values[0, ci, mi])
+        for mi, (metric, region, component, _) in enumerate(source_metrics):
+            row[f"source_only:corrected-original:{metric}:{region}:{component}:loss_numerator"] = float(
+                source[0][0][mi]
+            )
         all_values.append(values)
         hours.append(exposure)
         dates.append(game["date"])
@@ -274,8 +289,22 @@ def assess_games(
         == source_directions["primary", "corrected-original", "regional", "all", "shape"]
         for variant in source_variants
     )
+    expected_probes = {
+        (
+            component,
+            index,
+            "independent" if index == 5 else "borrowing",
+            "reused" if component == "shape" and index in (0, 1, 5) else "new",
+        )
+        for component in ("volume", "shape")
+        for index in range(6)
+    }
+    expected_probes.add(("shape", 4, "original_borrowing", "frozen_source_control"))
     require(
-        len(probe_rows) == 13 and all(type(row["verified"]) is bool for row in probe_rows),
+        len(probe_rows) == 13
+        and {(row["component"], row["index"], row["arm"], row["origin"]) for row in probe_rows}
+        == expected_probes
+        and all(type(row["verified"]) is bool for row in probe_rows),
         "complete assessment requires twelve selected-state probes and frozen-control probe",
     )
     verified = stable and source_stable and all(row["verified"] for row in probe_rows)

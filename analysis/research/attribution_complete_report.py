@@ -86,20 +86,13 @@ def _figure(output, assessment):
                     axes[panel].plot(
                         [row["lower"], row["upper"]], [position, position], color=COLORS[si], linewidth=1.5
                     )
-                else:
-                    axes[panel].annotate(
-                        "interval unavailable",
-                        (row["estimate"], position),
-                        xytext=(5, 0),
-                        textcoords="offset points",
-                        fontsize=7,
-                    )
                 axes[panel].plot(
                     row["estimate"],
                     position,
                     "o",
                     color=COLORS[si],
                     markersize=4,
+                    markerfacecolor=COLORS[si] if row["lower"] is not None else "white",
                     label=scheme.replace("_", " ") if panel == 0 and index == 0 else None,
                 )
         axes[panel].set_yticks(range(3), [label.replace("-", " − ").replace("_", " ") for label in labels])
@@ -107,9 +100,11 @@ def _figure(output, assessment):
         axes[panel].axvline(0, color="#777777", linewidth=0.8)
         axes[panel].grid(axis="x", alpha=0.18)
         axes[panel].tick_params(labelsize=9)
-        axes[panel].set_xlabel(
-            "paired loss difference (recorded unblocked attempts/60)²\nlower favors the first arm", fontsize=9
-        )
+    figure.supxlabel(
+        "paired loss difference (recorded unblocked attempts/60)²; lower favors the first arm",
+        y=0.22,
+        fontsize=9,
+    )
     axes[0].set_title("complete regional rates", loc="left", fontsize=11)
     axes[1].set_title("borrowing − independent: signed contributions", loc="left", fontsize=11)
     title = "held-out complete recorded rates: joint lineup prediction"
@@ -125,12 +120,14 @@ def _figure(output, assessment):
         0.145,
         "all terms divide by twelve × directed hours. weighted volume uses ||p′W||²; contributions sum to the complete difference.\n"
         "two-sided 95% linear percentile intervals; 2,000 shared paired draws per scheme, conditional on fitted states, split and source population.\n"
-        "fitting and selection uncertainty are omitted. signed contributions are not percentages of blame. comparison.csv is the numeric companion.\n"
+        "hollow points have unavailable intervals; comparison.csv explains missing denominators. fitting and selection uncertainty are omitted.\n"
+        "signed contributions are not percentages of blame. comparison.csv is the numeric companion.\n"
         "no absolute regional mse/rmse, player accuracy or publishable ability follows from these paired losses.",
         fontsize=8,
         linespacing=1.5,
+        va="top",
     )
-    figure.subplots_adjust(left=0.18, right=0.97, top=0.79, bottom=0.28, wspace=0.9)
+    figure.subplots_adjust(left=0.18, right=0.97, top=0.79, bottom=0.31, wspace=0.9)
     path = output / "comparison.png"
     with path.open("xb") as stream:
         figure.savefig(stream, format="png", dpi=160, facecolor="white")
@@ -162,7 +159,27 @@ def render_reports(output, assessment, assessment_reference):
     verified = assessment["numerical_status"] == "verified"
     coverage = assessment["coverage"]
     numerical = {key: value for key, value in assessment["numerical"].items() if key != "probe_rows"}
-    numerical["probe_verdicts"] = [row["verified"] for row in assessment["numerical"]["probe_rows"]]
+    numerical["probes"] = [
+        dict(
+            component=row["component"],
+            index=row["index"],
+            season=row["season"],
+            arm=row["arm"],
+            origin=row["origin"],
+            verified=row["verified"],
+            saved_scale_status=row["receipt"]["saved_scale_status"],
+            alternative_scale_status=row["alternative"]["scale"]["status"],
+            alternative_scale_reasons=row["alternative"]["scale"]["own_reasons"],
+            inherited_scale_limitation=row["alternative"]["scale"]["inherited_limitation"],
+        )
+        for row in assessment["numerical"]["probe_rows"]
+    ]
+    statuses = [
+        row["saved_scale_status"]["status"] for row in numerical["probes"] if row["origin"] != "frozen_source_control"
+    ]
+    numerical["selected_scale_status_counts"] = {
+        status: statuses.count(status) for status in sorted(set(statuses))
+    }
     numerical["complete_probe_receipts_in_assessment"] = assessment_reference
     correction = assessment["source_correction"]
     correction_text = (
@@ -288,15 +305,22 @@ def render_reports(output, assessment, assessment_reference):
         "",
         "2,000 shared PCG64(404130) draws each for games, seven-day blocks and fourteen-day blocks pool numerators and float exposure. "
         "empty calendar blocks, zero-time games and undefined zero-denominator draws are retained; unavailable intervals carry reasons. "
+        "an interval is unavailable if any draw has zero exposure, including draws of zero-time games or empty calendar blocks. "
         "these intervals condition on fitted models, selection, split and source population. there is no refitting, scheme selection or multiplicity control. "
         "month and support residual associations are descriptive diagnostics, not subgroup accuracy claims.",
         "",
         f"all {numerical['primary_probe_combinations']} final component combinations and "
         f"{numerical['source_probe_combinations']} source-only combinations were rescored on shared draws. "
-        f"complete-regional direction stability: `{numerical['aggregate_direction_stable']}`; "
-        f"source-only shape stability: `{numerical['source_direction_stable']}`. "
+        f"complete-regional direction stability: `{str(numerical['aggregate_direction_stable']).lower()}`; "
+        f"source-only shape stability: `{str(numerical['source_direction_stable']).lower()}`. "
         "each bounded probe conditions on incoming primary history; no propagated probe histories or further fitting is implied. "
         "finite endpoint winners and inherited unresolved scale flags remain limitations in the saved receipts.",
+        "",
+        "selected primary scale statuses: "
+        + ", ".join(
+            f"`{status}`: {count}" for status, count in numerical["selected_scale_status_counts"].items()
+        )
+        + ". exact endpoint reasons and inherited flags remain in the numerical summary; bounded-probe verification does not resolve scale identification.",
         "",
         "useful joint prediction does not resolve latent recovery, richer context, empirical player uncertainty or supported chance valuation. "
         "publication remains separate.",

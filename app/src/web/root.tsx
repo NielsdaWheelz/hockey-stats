@@ -18,10 +18,11 @@ import { pendingSeasonChange, seasonSearch, viewSearch } from "./explorer";
 
 export const links = () => [{ rel: "stylesheet", href: stylesheet }];
 export const meta = () => [
-  { title: "hockey statistics · recorded results" },
+  { title: "hockey statistics · published player analysis" },
   {
     name: "description",
-    content: "included 5v5 recorded results and source coverage",
+    content:
+      "published observations, experimental estimates and their evidence",
   },
 ];
 
@@ -70,16 +71,16 @@ export function Layout({ children }: { readonly children: ReactNode }) {
           <header className="site-heading">
             <p className="eyebrow">
               <Link to={season ? `/?${seasonSearch("", season)}` : "/"}>
-                hockey statistics / included results
+                hockey statistics / player analysis
               </Link>
             </p>
             <h1>
-              {season && !changingSeason && `${seasonLabel(season)} · `}regular season · 5v5 recorded
-              results
+              {season && !changingSeason && `${seasonLabel(season)} · `}regular
+              season · published player analysis
             </h1>
             <p>
-              personal production and team attempts while on ice; unadjusted for
-              teammates, opponents, score or deployment.
+              recorded results and experimental estimates retain their own
+              populations, numerical references and support.
             </p>
             {data && (
               <div className="season-control">
@@ -113,7 +114,8 @@ export function Layout({ children }: { readonly children: ReactNode }) {
           </header>
           {children}
           <footer>
-            source-supported observations · no estimate of player ability
+            observations and experimental estimates · limitations belong to each
+            quantity
           </footer>
         </div>
         <ScrollRestoration />
@@ -126,7 +128,7 @@ export function Layout({ children }: { readonly children: ReactNode }) {
 export function HydrateFallback() {
   return (
     <main id="main">
-      <p role="status">loading recorded results…</p>
+      <p role="status">loading published results…</p>
     </main>
   );
 }
@@ -145,7 +147,7 @@ export default function App() {
   return (
     <main id="main" ref={main} tabIndex={-1}>
       {changingPage ? (
-        <p role="status">loading recorded results…</p>
+        <p role="status">loading published results…</p>
       ) : (
         <Outlet />
       )}

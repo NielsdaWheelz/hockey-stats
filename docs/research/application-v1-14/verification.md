@@ -1,0 +1,59 @@
+# shared history, cohort and export verification
+
+implementation of [v1-14](../../specs/v1-14-history-cohorts-exports.md), assigned 2026-10-22. branch `implement/v1-14-history-cohorts-exports`; worktree `/Users/nnandal/Documents/code/hockey-stats-v1-14`. starting code `61fa087`; the exact supplied working documentation is preserved separately in `655bc49`.
+
+the task extends existing schema7 browser consumers. it assigns no acquisition, fitting, scientific admission, live build or publication activation. complete card compositions and real analytical source-to-screen acceptance remain v1-15–20. the primary checkout and concurrent v1-01/v1-02 worktrees are outside this task.
+
+## inputs and verification boundary
+
+the [fixture description](../../../fixtures/publication-v1-14/README.md) retains attribution to six captured games and the frozen synthetic analytical exchange. the disposable manifest changes only observed corpus bindings after reconstructing those same captures at the task path. all analytical member bytes retain their original identity.
+
+the candidate publication is `a8fd30c0-3968-4672-a90e-d4da6bd2d66c`, purpose `fixture`, database sha-256 `7af3bcec6e4ad7bbf2f081dd74eba02cee15a111aa12f526b2fba48e6debccb7`, 20,299,776 bytes. candidate assembly/read-back took 18.24 seconds with 214,728,704 peak resident bytes. these are compact-fixture measurements, not full-season capacity claims.
+
+three native non-astra agents own finite scalar/cohort contracts, client/navigation composition, and rendering/exports. root reviews their boundaries while an independent non-astra session checks domain, systems and content. temporary red → green → refactor → green checks exercise actual typed fixture responses and specified adverse inputs; retained expectations are data, not a test framework.
+
+## checked contracts and review
+
+| boundary | verified behavior | evidence |
+|---|---|---|
+| finite values | all 197 selectors checked against actual typed responses, including exact specialty strengths, thirty microstats and 26 goalie fields; native values, original unavailable detail, uncertainty, sources and per-field qualification preserved | [selector receipt](receipts/selectors-green.txt), [checked facts](../../../fixtures/publication-v1-14/checked-facts.json) |
+| cohorts | one exact midpoint kernel; ties/rounding collisions/zero/null, inclusive threshold and one second below, positive exposure at zero cutoff, partial support, unknown position/all override, f/d and goalie separation, incompatible semantic partitions and raw-only skating | selector receipt; [independent review](independent-review.md) |
+| support | headline/finishing exception, exact constituent support, no aggregate ledger exposure, original observed coverage without invented model flags, microstat mathematical denominators retained separately | [metadata receipt](receipts/export-metadata-green.txt): 656 exported rows across 197 selectors and sixteen endpoint shapes |
+| loading | three annual cohorts, exact request-local deduplication, annual corpus/person/catalog/value/support agreement, differing unfinished-family prose allowed, cancellation of four pending reads, metric reload and local peer/history changes | [live composition](receipts/composition-green.txt), [navigation](receipts/navigation-green.txt), [request receipt](receipts/composition.json), [goalie receipt](receipts/goalie-composition.json) |
+| annual meaning | independently calculated annual ranks 43.75/50/39.583333333333336 with n=24/25/24 in declared transformed cohorts; missing middle year; f→d change across absence; annual method changes preserve meaning, changed numerical reference breaks it | [composition cases](../../../fixtures/publication-v1-14/composition-checked-facts.json) |
+| rendering | signed and constant domains, all three slots, raw values retained in percentile mode, no bridge across missing/changed meaning; annual position/reference markers; six significant digits only for display | [render receipt](receipts/render-green.txt), native inspection below |
+| exports | fixed 58-column csv, required 39 columns in order; exact finite numeric cells, empty missing numbers/reasons, full supplied uncertainty and support; crlf, quotes, formula-prefixed text and negative numbers; decode/null-blob failure, retry and object-url cleanup | [csv receipt](receipts/csv-green.txt), metadata receipt, native downloads |
+
+three implementation agents cross-reviewed adjacent contracts. a separate claude session performed independent domain, systems and saved-content code review and executed its own live wire checks. [the complete review](independent-review.md) retains the red findings and their repairs: R1–R14 are all closed. root inspected native rendered pages and saved pngs; the independent reviewer did not claim visual inspection. the react and full-story verification skill checklists informed this bounded review without adding dependencies or a permanent harness.
+
+## native browser and saved outputs
+
+native chrome used the detached compiled server and a disposable localhost proxy. its test host embedded unchanged application html/css in an actual 320 css-pixel browsing context; frame client width, inner width and body scroll width were all 320. the proxy only altered declared schema-valid fixture responses and forwarded the application's own buttons/season links. this avoids pretending an unreliable native device-width stepper established the viewport. no product-only styling or live database mutation was used.
+
+observed profile 8473507 retained its original five-rate card, maps, deployment, games and source history. raw history shows 3.5749751737835154 in 2023–24, absence in 2024–25 and 4.787234042553192 in 2025–26; ranks at cutoff0 are 43.75/absent/52.083333333333336 with n=24/absent/24. saved raw history breaks at the missing slot. the existing observed png remains 1200×1695; the new observed history png is 1200×2172.
+
+the separately declared synthetic goalie case supplies −2.5 stopping goals per100 on net, 18000 matching seconds, a singleton percentile50, a pending second year and absent third year. native content and downloaded csv agree. the negative singleton domain remains signed. the long formula-like name wraps in the page and saved 1200×2449 png; its csv text receives the documented leading apostrophe, while numeric −2.5 remains numeric. a one-shot null `toBlob` callback displayed “export failed; browsing remains available. retry the download.”; retry prepared the native png. the pending and absent original goalie paths were also inspected.
+
+comparison 8473507/8474564 (`for60`, position peers, cutoff0) shows two named groups on one raw scale. its downloaded csv contains exactly24 defense and48 forwards, each row once, and the selected players' exact native values/ranks. the header and row counts agree with the plotted/table selection. [native receipts](receipts/native-exports.json) identify each downloaded form, byte count, sha-256, image dimensions and checked csv rows; files remain ordinary local downloads rather than committed image binaries.
+
+user steering explicitly excluded dedicated accessibility/voiceover acceptance. no voiceover/keyboard audit or accessibility conformance is claimed. responsive layout, native controls, ordinary navigation and downloadable content remain in scope.
+
+## costs, limits and choices
+
+[request receipts](receipts/composition.json) record bytes and wall times for the compact fixture: observed profile 2,242,093 bytes across detail, three observed annual cohorts and the existing map; synthetic ledger profile 2,544,246 bytes across detail, three annual overview cohorts and the retained selected-season observed cohort. observed selected-year reads deduplicate. ledger comparison uses 1,442,233 bytes across observed, overview and the existing map. goalie profiles now read detail plus three goalie annual cohorts, no unused skater cohort and no maps. timings vary with concurrent local checks; these are measured costs, not latency promises.
+
+the accepted tradeoff is bounded annual reads with no persistent cache: each year's exact reference is worth the extra browser work. exact native tables/csv coexist with rounded display labels to keep plots legible. csv keeps complete structured evidence in fixed json-text columns rather than flattening away uncertainty or constituent support. missing or incompatible eligibility produces an explicit missing rank while preserving any valid magnitude. these are viewing mechanics, not scientific support thresholds.
+
+fixture limits matter: six games leave every observed skater below the default300-minute cutoff; ranked observed checks use cutoff0/1. provided analytical cohorts are singleton at best; nontrivial ties, positions, eligibility and semantic partitions use explicitly synthetic datums/annual transformations. original goalie ev/pk aggregates are unfinished; the signed goalie magnitude is mutation evidence only. no full-season capacity, real analytical card delivery, calibrated uncertainty or scientific admission follows from these checks. the existing microstat source-census issue remains its own work; skating stays raw-only with `census_unverified`.
+
+[render cost receipt](receipts/history-render-cost.json) records a single complete history component render, including all annual svg slots and table/evidence rows: observed raw29.812ms, percentile4.299ms; synthetic ledger raw7.2705ms, percentile7.5099ms. csv outputs were3640/8080 bytes. this is node24 server-render cpu time, with single-run/warmup effects; browser layout, text measurement and png canvas encoding are separate.
+
+[protected-state receipt](receipts/protected-state.json) confirms all28 primary build files and both active/previous sqlite files retain identical sha-256, size and modification time. port3000 remains the original pid70045 with its original start time and command. no live restart, rebuild or activation occurred. schema/server/api/operator/dependencies and original captured/analytical fixture members are unchanged.
+
+[native navigation/export receipt](receipts/native-navigation-export.json) closes the asynchronous check. a temporary one-shot canvas callback delay allowed the actual 2024–25 history link to finish navigation before encoding completed. the destination had the new identity, selected year and url settings; the downloaded png retained the original long identity and selected2023–24 and was byte-identical to the prior original-view png. root inspected it. elapsed3536ms includes3176.3ms injected wait; the remaining359.7ms includes view construction, image decode/draw, native encoding and instrumentation. this is one local sample, not a benchmark. the local receipt resolved stale native observer state without altering application behavior.
+
+## final state
+
+[source identity](receipts/source-identity.json) records every changed browser source hash against `61fa087` and the supplied-documentation snapshot. the final readability pass preserved the complete selector/cohort syntax trees; [its receipt](receipts/selector-format.txt) distinguishes formatting from behavior. test-only exports were then hidden without changing bodies. all affected boundary checks were green before removal, and final pinned-node typecheck/build and whitespace checks pass after deletion. final typecheck took 2.88 seconds (386,367,488 peak resident bytes); build took 2.73 seconds (563,150,848 peak resident bytes).
+
+[deletion receipt](receipts/temporary-check-deletion.json) identifies the 21 removed task-owned temporary source/data files by hash. no test-only dependency was added. retained material consists of attributed fixture cases, independently checked expectations and delivery receipts. all three detached listeners and the independent review session are closed. the isolated branch/worktree remain available for review; no merge, push or activation is included.

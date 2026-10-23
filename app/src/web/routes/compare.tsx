@@ -15,7 +15,8 @@ import PlayerPicker from "../player-picker";
 import {
   readMapMode,
   readPeerSettings,
-  readRateMetric,
+  readMetric,
+  readHistoryScale,
   viewSearch,
   seasonSearch,
   shouldRevalidateView,
@@ -24,11 +25,12 @@ import {
 } from "../explorer";
 import SpatialViews from "../spatial-views";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
+import { selectLeagueValues, type AnalysisMetric } from "../analysis-values";
+import { buildAnalysisCohort } from "../analysis-cohorts";
 import { ObservedRateValue, ObservedSupport } from "../descriptive-card";
 import {
   buildObservedComparison,
   observedMetrics,
-  type ObservedRateKey,
 } from "../observed-comparison";
 import {
   Evidence,
@@ -46,7 +48,7 @@ export const ErrorBoundary = LoadError;
 
 // map mode selects the requested map view, so it reloads.
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
-  shouldRevalidateView(args, ["peers", "peerMin", "metric"]);
+  shouldRevalidateView(args, ["peers", "peerMin", "specialtyMin", "history"]);
 
 function selection(
   values: string[],
@@ -81,10 +83,17 @@ export default function Compare() {
     `?${seasonSearch("", data.season.season)}`;
   const { settings, search: peerNormalized } = readPeerSettings(search);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
-  const { metric, search: normalized } = readRateMetric(mapNormalized);
+  const { metric, search: metricNormalized } = readMetric(
+    mapNormalized,
+    "skater",
+  );
+  const { scale, search: normalized } = readHistoryScale(metricNormalized);
   useCanonicalSearch(data.season.season, normalized);
   const viewQuery = seasonSearch("", data.season.season);
-  if (metric !== "sog60") viewQuery.set("metric", metric);
+  if (metric.id !== "sog60") viewQuery.set("metric", metric.id);
+  if (scale !== "raw") viewQuery.set("history", scale);
+  if (settings.specialtyMin !== 50)
+    viewQuery.set("specialtyMin", String(settings.specialtyMin));
   if (mode === "absolute") viewQuery.set("map", "absolute");
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
@@ -100,6 +109,10 @@ export default function Compare() {
       if (nextSettings.peerMin === 300) next.delete("peerMin");
       else next.set("peerMin", String(nextSettings.peerMin));
     }
+    if (nextSettings.specialtyMin !== undefined) {
+      if (nextSettings.specialtyMin === 50) next.delete("specialtyMin");
+      else next.set("specialtyMin", String(nextSettings.specialtyMin));
+    }
     if (next.toString() !== previous)
       setSearch(next, {
         preventScrollReset: true,
@@ -107,11 +120,11 @@ export default function Compare() {
         flushSync: true,
       });
   };
-  const changeMetric = (nextMetric: ObservedRateKey) => {
+  const changeMetric = (nextMetric: AnalysisMetric) => {
     const next = viewSearch(location, navigation.location);
-    if (nextMetric === readRateMetric(next).metric) return;
-    if (nextMetric === "sog60") next.delete("metric");
-    else next.set("metric", nextMetric);
+    if (nextMetric.id === readMetric(next, "skater").metric.id) return;
+    if (nextMetric.id === "sog60") next.delete("metric");
+    else next.set("metric", nextMetric.id);
     setSearch(next, {
       preventScrollReset: true,
       state: location.state,
@@ -130,10 +143,16 @@ export default function Compare() {
     });
   };
   const first = selection(
-    search.getAll("a"), "first", data.players, data.season.season,
+    search.getAll("a"),
+    "first",
+    data.players,
+    data.season.season,
   );
   const second = selection(
-    search.getAll("b"), "second", data.players, data.season.season,
+    search.getAll("b"),
+    "second",
+    data.players,
+    data.season.season,
   );
   const secondError =
     first.player && first.player.player_id === second.player?.player_id
@@ -164,6 +183,21 @@ export default function Compare() {
       pair ? buildObservedComparison(data.players, pair, settings) : undefined,
     [data.players, pair, settings.peers, settings.peerMin],
   );
+  const scalarComparison = useMemo(() => {
+    if (!pair) return null;
+    const values = selectLeagueValues(data.scalarCohort, metric);
+    const selected = pair.map(
+      (player) => values.find((datum) => datum.playerId === player.player_id)!,
+    );
+    return buildAnalysisCohort(values, selected, settings);
+  }, [
+    data.scalarCohort,
+    pair,
+    metric,
+    settings.peers,
+    settings.peerMin,
+    settings.specialtyMin,
+  ]);
   const profileLink = (playerId: string) => ({
     to: `/players/${playerId}?${viewQuery}`,
     state: {
@@ -177,11 +211,12 @@ export default function Compare() {
         <Link to={`/${leagueSearch}`}>back to players</Link>
       </nav>
       <section className="comparison-heading">
-        <h2>compare recorded 5v5 results</h2>
+        <h2>compare published player quantities</h2>
         <p>
-          each player's own included evidence and matched 5v5 time; these are
-          unadjusted observations, not ability. personal production and team
-          attempts while on ice use separate matched populations.
+          the recorded 5v5 comparison below uses each player's own included
+          evidence and matched 5v5 time; these are unadjusted observations, not
+          ability. personal production and team attempts while on ice use
+          separate matched populations.
         </p>
         <p>
           attempts “for” are by the player's team while on ice, not personal
@@ -190,9 +225,7 @@ export default function Compare() {
         <p>both player searches use this season's published records.</p>
       </section>
       {data.players.length === 0 && (
-        <p className="empty-search">
-          no players are available in this season
-        </p>
+        <p className="empty-search">no players are available in this season</p>
       )}
       <div className="comparison-pickers">
         <PlayerPicker
@@ -243,6 +276,7 @@ export default function Compare() {
       <GlobalGap season={data.season} />
       {comparison && (
         <section aria-label="included player comparison">
+          <h3>recorded 5v5 comparison · observed reference</h3>
           <PeerControls settings={settings} onChange={changePeers} />
           <div
             className="table-scroll comparison-scroll"
@@ -286,7 +320,9 @@ export default function Compare() {
                     </th>
                   </tr>
                   {observedMetrics
-                    .filter((definition) => definition.population === population)
+                    .filter(
+                      (definition) => definition.population === population,
+                    )
                     .map((definition) => (
                       <tr key={definition.key}>
                         <th scope="row" className="identity">
@@ -322,7 +358,8 @@ export default function Compare() {
                 aria-label={`${playerName(card.player)} support`}
               >
                 <h3>
-                  {card.slot === 0 ? "first" : "second"}: {playerName(card.player)}
+                  {card.slot === 0 ? "first" : "second"}:{" "}
+                  {playerName(card.player)}
                 </h3>
                 <ObservedSupport card={card} comparison={comparison} />
               </section>
@@ -330,12 +367,17 @@ export default function Compare() {
           </div>
         </section>
       )}
-      {comparison && (
+      {scalarComparison && (
         <PeerDistributions
-          comparison={comparison}
+          cohort={scalarComparison}
           metric={metric}
           onMetricChange={changeMetric}
+          settings={settings}
+          onPeerChange={changePeers}
+          publication={data.publication}
+          season={data.season}
           profileLink={profileLink}
+          exportValues
         />
       )}
       {comparison && pair && (

@@ -7,7 +7,7 @@ import {
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
 import { HockeyId, type PlayerSummary, type Team } from "../shared/observed";
-import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
+import { analysisMetric, defaultAnalysisMetric, type AnalysisMetric } from "./analysis-values";
 import {
   matchingPlayers,
   nameOrder,
@@ -36,6 +36,7 @@ export type Discovery = {
 export type PeerSettings = {
   readonly peers: "position" | "all";
   readonly peerMin: number;
+  readonly specialtyMin: number;
 };
 
 export function parseMinutes(value: string): number | undefined {
@@ -113,21 +114,34 @@ export function readPeerSettings(search: URLSearchParams): {
   const minimums = search.getAll("peerMin");
   const minimum = minimums.length === 1 ? parseMinutes(minimums[0]) : undefined;
   if (minimums.length && minimum === undefined) next.delete("peerMin");
-  return { settings: { peers, peerMin: minimum ?? 300 }, search: next };
+  const specialties = search.getAll("specialtyMin");
+  const specialty = specialties.length === 1 ? parseMinutes(specialties[0]) : undefined;
+  if (specialties.length && specialty === undefined) next.delete("specialtyMin");
+  return { settings: { peers, peerMin: minimum ?? 300, specialtyMin: specialty ?? 50 }, search: next };
 }
 
-export function readRateMetric(search: URLSearchParams): {
-  readonly metric: ObservedRateKey;
+export function readMetric(search: URLSearchParams, kind: "skater" | "goalie"): {
+  readonly metric: AnalysisMetric;
   readonly search: URLSearchParams;
 } {
   const next = new URLSearchParams(search);
   const values = search.getAll("metric");
-  const metric =
-    values.length === 1
-      ? observedMetrics.find((definition) => definition.key === values[0])?.key
-      : undefined;
+  const selected = values.length === 1 ? analysisMetric(values[0]) : undefined;
+  const metric = selected?.kind === kind ? selected : undefined;
   if (values.length && metric === undefined) next.delete("metric");
-  return { metric: metric ?? "sog60", search: next };
+  return { metric: metric ?? defaultAnalysisMetric(kind), search: next };
+}
+
+export function readHistoryScale(search: URLSearchParams): {
+  readonly scale: "raw" | "percentile";
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const values = search.getAll("history");
+  const selected = values.length === 1 ? values[0] : undefined;
+  const scale = selected === "percentile" ? "percentile" : "raw";
+  if (values.length && selected !== "raw" && selected !== "percentile") next.delete("history");
+  return { scale, search: next };
 }
 
 export function selectDiscovery(

@@ -1,0 +1,295 @@
+{
+  "receipts": [
+    {
+      "kind": "profile",
+      "id": "9000001",
+      "metric": "ledger.league_total",
+      "ms": 207.93795899999998,
+      "calls": [
+        {
+          "url": "/api/players/9000001?season=20232024",
+          "bytes": 872958
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795
+        }
+      ],
+      "bytes": 2544246
+    },
+    {
+      "kind": "profile",
+      "id": "8473507",
+      "metric": "sog60",
+      "ms": 101.368833,
+      "calls": [
+        {
+          "url": "/api/players/8473507?season=20232024",
+          "bytes": 743244
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+          "bytes": 326325
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8473507&family=observed&strength=5v5&view=effect",
+          "bytes": 509048
+        }
+      ],
+      "bytes": 2242093
+    },
+    {
+      "kind": "comparison",
+      "metric": "ledger.league_total",
+      "calls": [
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8473507%2C8474090&family=observed&strength=5v5&view=effect",
+          "bytes": 671667
+        }
+      ],
+      "bytes": 1442233
+    },
+    {
+      "kind": "profile",
+      "id": "8473507",
+      "metric": "sog60",
+      "ms": 84.45958399999995,
+      "calls": [
+        {
+          "url": "/api/players/8473507?season=20232024",
+          "bytes": 743244
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+          "bytes": 326325
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8473507&family=observed&strength=5v5&view=effect",
+          "bytes": 509048
+        }
+      ],
+      "bytes": 2242093
+    },
+    {
+      "kind": "profile",
+      "id": "8473507",
+      "metric": "sog60",
+      "ms": 85.72162500000002,
+      "calls": [
+        {
+          "url": "/api/players/8473507?season=20232024",
+          "bytes": 743244
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+          "bytes": 326325
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8473507&family=observed&strength=5v5&view=effect",
+          "bytes": 509048
+        }
+      ],
+      "bytes": 2242093
+    },
+    {
+      "kind": "profile",
+      "id": "9000001",
+      "metric": "ledger.league_total",
+      "ms": 121.84279199999992,
+      "calls": [
+        {
+          "url": "/api/players/9000001?season=20232024",
+          "bytes": 872958
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795
+        }
+      ],
+      "bytes": 2544246
+    },
+    {
+      "kind": "profile",
+      "id": "8473507",
+      "metric": "sog60",
+      "ms": 86.10574999999994,
+      "calls": [
+        {
+          "url": "/api/players/8473507?season=20232024",
+          "bytes": 743244
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+          "bytes": 326325
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8473507&family=observed&strength=5v5&view=effect",
+          "bytes": 509048
+        }
+      ],
+      "bytes": 2242093
+    },
+    {
+      "kind": "profile",
+      "id": "9000001",
+      "metric": "sog60",
+      "ms": 74.47787500000004,
+      "calls": [
+        {
+          "url": "/api/players/9000001?season=20232024",
+          "bytes": 872958
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+          "bytes": 326325
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        }
+      ],
+      "bytes": 1862759
+    },
+    {
+      "kind": "annual-hand-expected",
+      "annualFacts": [
+        {
+          "season": "20232024",
+          "value": 3.5749751737835154,
+          "n": 24,
+          "percentile": 43.75,
+          "corpus": "c0ff50dd397e4d03bbdbede317fbe79f55380478044f74b2c14577ee00d980c8"
+        },
+        {
+          "season": "20242025",
+          "value": 3.5749751737835154,
+          "n": 25,
+          "percentile": 50,
+          "corpus": "21d995c19ca71df03dc6509846c478feadc8c44869d998f67afdd64920b23972"
+        },
+        {
+          "season": "20252026",
+          "value": 3.5749751737835154,
+          "n": 24,
+          "percentile": 39.583333333333336,
+          "corpus": "1f95257cf6e25f886356bf06c41a719e353ef19e11106772fe6c4a16b261c8e4"
+        }
+      ],
+      "transforms": [
+        "2023 observed snapshot with explicit synthetic annual identities added to annual cohorts, no observed source claim",
+        "2023 reported position F, 2024 absent, 2025 snapshot D",
+        "annual method ids differ with same recipe/reference/support policy",
+        "2024 ledger reference_id changed consistently across catalogs"
+      ]
+    },
+    {
+      "kind": "profile",
+      "id": "9000002",
+      "metric": "ledger.league_total",
+      "ms": 113.34187500000007,
+      "calls": [
+        {
+          "url": "/api/players/9000002?season=20242025",
+          "bytes": 743612
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795
+        }
+      ],
+      "bytes": 2420834
+    }
+  ],
+  "adversarial": [
+    "publication",
+    "corpus",
+    "inventory",
+    "catalog",
+    "identity",
+    "scalar",
+    "support",
+    "missing",
+    "cancellation"
+  ],
+  "aborted": 4
+}

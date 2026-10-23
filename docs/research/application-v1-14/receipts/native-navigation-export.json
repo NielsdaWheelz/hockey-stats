@@ -1,0 +1,118 @@
+{
+  "last": {
+    "event": "completed",
+    "at": 1792714562067,
+    "detail": {
+      "before": {
+        "title": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+        "season": "20232024",
+        "settings": "?season=20232024&history=percentile"
+      },
+      "after": {
+        "title": "fixture person 4",
+        "season": "20242025",
+        "settings": "?season=20242025&history=percentile"
+      },
+      "changed": true,
+      "blob": true,
+      "width": 1200,
+      "height": 2449,
+      "elapsed": 3536,
+      "injected": 3176.300000011921,
+      "excludingDelay": 359.69999998807907
+    },
+    "received_at": "2026-10-23T00:16:02.068Z"
+  },
+  "events": [
+    {
+      "event": "start",
+      "at": 1792714558530,
+      "detail": {
+        "before": {
+          "title": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+          "season": "20232024",
+          "settings": "?season=20232024&history=percentile"
+        }
+      },
+      "received_at": "2026-10-23T00:15:58.532Z"
+    },
+    {
+      "event": "toBlob hook entered",
+      "at": 1792714558741,
+      "detail": {
+        "width": 1200,
+        "height": 2449,
+        "elapsed": 209.69999998807907
+      },
+      "received_at": "2026-10-23T00:15:58.742Z"
+    },
+    {
+      "event": "navigation click fired",
+      "at": 1792714559926,
+      "detail": {
+        "href": "http://127.0.0.1:41926/players/9000004?season=20242025&history=percentile",
+        "beforeClick": {
+          "title": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+          "season": "20232024",
+          "settings": "?season=20232024&history=percentile"
+        }
+      },
+      "received_at": "2026-10-23T00:15:59.941Z"
+    },
+    {
+      "event": "navigation click dispatched",
+      "at": 1792714559943,
+      "detail": {
+        "afterClick": {
+          "title": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+          "season": "20232024",
+          "settings": "?season=20232024&history=percentile"
+        }
+      },
+      "received_at": "2026-10-23T00:15:59.945Z"
+    },
+    {
+      "event": "before native toBlob",
+      "at": 1792714561922,
+      "detail": {
+        "before": {
+          "title": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+          "season": "20232024",
+          "settings": "?season=20232024&history=percentile"
+        },
+        "after": {
+          "title": "fixture person 4",
+          "season": "20242025",
+          "settings": "?season=20242025&history=percentile"
+        },
+        "changed": true,
+        "injected": 3176.300000011921
+      },
+      "received_at": "2026-10-23T00:16:01.936Z"
+    },
+    {
+      "event": "completed",
+      "at": 1792714562067,
+      "detail": {
+        "before": {
+          "title": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+          "season": "20232024",
+          "settings": "?season=20232024&history=percentile"
+        },
+        "after": {
+          "title": "fixture person 4",
+          "season": "20242025",
+          "settings": "?season=20242025&history=percentile"
+        },
+        "changed": true,
+        "blob": true,
+        "width": 1200,
+        "height": 2449,
+        "elapsed": 3536,
+        "injected": 3176.300000011921,
+        "excludingDelay": 359.69999998807907
+      },
+      "received_at": "2026-10-23T00:16:02.068Z"
+    }
+  ]
+}

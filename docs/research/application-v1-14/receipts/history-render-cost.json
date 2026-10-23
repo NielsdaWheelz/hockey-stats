@@ -1,0 +1,239 @@
+{
+  "source_sha256": {
+    ".v1-14-history-cost.tsx": "7edc4e9a1fd17034abf3479ec5e402a1bd1b3bf547cdc4541e1db1846bc6de3f",
+    "src/web/client.ts": "f5d1e0f8c5b1184be80a63895acb5b208b0345d27cea743d3a62dea2f6a3cade",
+    "src/web/analysis-values.ts": "1ea580a20f368ee03919f06d271338998d6266e83c17b9d255dc624352b492b3",
+    "src/web/analysis-cohorts.ts": "046ec00cc91ca2e49e9da2dc368dee1907e9df62afd66923c82e02ba452e2bc3",
+    "src/web/analysis-history.tsx": "cab78993a6432b41425b895cf579aa8fae0a1e1b231cb47fae5d96fcfe7a6709",
+    "src/web/export.ts": "75304aa785f4ed1191d3ad08c0b35f07de7546cca716c28a84e21cb3ebe67c07"
+  },
+  "measured_at": "2026-10-23T00:11:53.486Z",
+  "runtime": "v24.21.0",
+  "api_origin": "http://127.0.0.1:41924",
+  "measurement": "single-run CPU wall time for actual loadProfile, selector/cohort history composition, complete AnalysisHistory React server render (native SVG + three annual table rows/evidence/actions), and history CSV serialization",
+  "limits": "server rendering is not native browser layout, DOM-measured history export SVG, image decode, canvas or PNG measurement; no production data/capacity claim; fixture request/decode and first render may include warm-up cost",
+  "results": [
+    {
+      "input": {
+        "playerId": "8473507",
+        "metric": "sog60",
+        "meaning": "captured observed identity/results in a fixture publication"
+      },
+      "publication_id": "a8fd30c0-3968-4672-a90e-d4da6bd2d66c",
+      "purpose": "fixture",
+      "season": "20232024",
+      "settings": {
+        "peers": "position",
+        "peerMin": 0,
+        "specialtyMin": 50
+      },
+      "load_profile_ms": 238.50266599999986,
+      "compose_history_ms": 21.42033399999991,
+      "calls": [
+        {
+          "url": "/api/players/8473507?season=20232024",
+          "bytes": 743244
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=observed&strength=5v5",
+          "bytes": 326325
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=observed&strength=5v5",
+          "bytes": 334705
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8473507&family=observed&strength=5v5&view=effect",
+          "bytes": 509048
+        }
+      ],
+      "response_bytes": 2242093,
+      "annual": [
+        {
+          "season": "20232024",
+          "corpus_sha256": "c0ff50dd397e4d03bbdbede317fbe79f55380478044f74b2c14577ee00d980c8",
+          "value": 3.5749751737835154,
+          "status": "provided",
+          "standing": {
+            "kind": "ranked",
+            "percentile": 43.75,
+            "n": 24,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 0
+          }
+        },
+        {
+          "season": "20242025",
+          "corpus_sha256": "21d995c19ca71df03dc6509846c478feadc8c44869d998f67afdd64920b23972",
+          "value": null,
+          "status": "absent",
+          "standing": {
+            "kind": "unavailable",
+            "reason": "absent season",
+            "n": null,
+            "peerGroup": null,
+            "cutoffMinutes": null
+          }
+        },
+        {
+          "season": "20252026",
+          "corpus_sha256": "1f95257cf6e25f886356bf06c41a719e353ef19e11106772fe6c4a16b261c8e4",
+          "value": 4.787234042553192,
+          "status": "provided",
+          "standing": {
+            "kind": "ranked",
+            "percentile": 52.083333333333336,
+            "n": 24,
+            "peerGroup": "reported defense",
+            "cutoffMinutes": 0
+          }
+        }
+      ],
+      "renderings": [
+        {
+          "scale": "raw",
+          "render_ms": 29.812374999999975,
+          "html_bytes": 4978,
+          "native_svg_bytes": 864,
+          "native_svg_sha256": "0a88ffcbb96960886f2c936e3b7a25fe5cf27e79c1a355b56ed11d20dd505b9f",
+          "html_sha256": "e4365e411d2df16506ca3d45e33b832e4211dfa2149ccbaf73983c3ac82739ab",
+          "csv_ms": 0.35554099999990285,
+          "csv_bytes": 3640,
+          "csv_sha256": "6db31447057b108f9f6c2406f90710e2d751fbb613dcb16a368d6b931eb75313",
+          "annual_slots": 3,
+          "available_raw_points": 2,
+          "ranked_points": 2
+        },
+        {
+          "scale": "percentile",
+          "render_ms": 4.298583000000008,
+          "html_bytes": 5041,
+          "native_svg_bytes": 878,
+          "native_svg_sha256": "4f1ca283d6539d02d5dfdc00ad4c5afbcd4bca678f0651a5d8743c9df9623a70",
+          "html_sha256": "f1539bb61ec60139d6149fbe48c20d147e91731b93ac56a4d96ed32069b48594",
+          "csv_ms": 0.0965409999998883,
+          "csv_bytes": 3640,
+          "csv_sha256": "6db31447057b108f9f6c2406f90710e2d751fbb613dcb16a368d6b931eb75313",
+          "annual_slots": 3,
+          "available_raw_points": 2,
+          "ranked_points": 2
+        }
+      ]
+    },
+    {
+      "input": {
+        "playerId": "9000001",
+        "metric": "ledger.league_total",
+        "meaning": "synthetic analytical fixture; no real rating claim"
+      },
+      "publication_id": "a8fd30c0-3968-4672-a90e-d4da6bd2d66c",
+      "purpose": "fixture",
+      "season": "20232024",
+      "settings": {
+        "peers": "position",
+        "peerMin": 0,
+        "specialtyMin": 50
+      },
+      "load_profile_ms": 213.1450829999999,
+      "compose_history_ms": 0.6208330000001752,
+      "calls": [
+        {
+          "url": "/api/players/9000001?season=20232024",
+          "bytes": 872958
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=observed&strength=5v5",
+          "bytes": 328771
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795
+        }
+      ],
+      "response_bytes": 2544246,
+      "annual": [
+        {
+          "season": "20232024",
+          "corpus_sha256": "c0ff50dd397e4d03bbdbede317fbe79f55380478044f74b2c14577ee00d980c8",
+          "value": 55,
+          "status": "provided",
+          "standing": {
+            "kind": "unavailable",
+            "reason": "qualification unavailable",
+            "n": 0,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 0
+          }
+        },
+        {
+          "season": "20242025",
+          "corpus_sha256": "21d995c19ca71df03dc6509846c478feadc8c44869d998f67afdd64920b23972",
+          "value": 55,
+          "status": "provided",
+          "standing": {
+            "kind": "unavailable",
+            "reason": "qualification unavailable",
+            "n": 0,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 0
+          }
+        },
+        {
+          "season": "20252026",
+          "corpus_sha256": "1f95257cf6e25f886356bf06c41a719e353ef19e11106772fe6c4a16b261c8e4",
+          "value": null,
+          "status": "not_computed",
+          "standing": {
+            "kind": "unavailable",
+            "reason": "not computed; later-season fixture family pending",
+            "n": null,
+            "peerGroup": "reported forwards",
+            "cutoffMinutes": 0
+          }
+        }
+      ],
+      "renderings": [
+        {
+          "scale": "raw",
+          "render_ms": 7.270499999999856,
+          "html_bytes": 12055,
+          "native_svg_bytes": 929,
+          "native_svg_sha256": "047db83d910f8c59d62d797e1516f5d531444040627a037c638163387865460f",
+          "html_sha256": "32ac1e5c85578001ad59e9d0aab4fcf283faf923801553e827020ef546de00c6",
+          "csv_ms": 0.3667089999999007,
+          "csv_bytes": 8080,
+          "csv_sha256": "9b3bb799996b5d8bf870c04637f08ddf1de98a3f78efe1bcb67d6d3e80afd113",
+          "annual_slots": 3,
+          "available_raw_points": 2,
+          "ranked_points": 0
+        },
+        {
+          "scale": "percentile",
+          "render_ms": 7.509917000000087,
+          "html_bytes": 11922,
+          "native_svg_bytes": 758,
+          "native_svg_sha256": "6eebb09416809203356125e3e94acb6f2c78bc86734bef3c8cde1ee8e8bbd105",
+          "html_sha256": "5e94ac9b77d35943a3883952cd6bcd64dadd811f3ef67c54664aaccc217b355c",
+          "csv_ms": 0.3322499999999309,
+          "csv_bytes": 8080,
+          "csv_sha256": "9b3bb799996b5d8bf870c04637f08ddf1de98a3f78efe1bcb67d6d3e80afd113",
+          "annual_slots": 3,
+          "available_raw_points": 2,
+          "ranked_points": 0
+        }
+      ]
+    }
+  ]
+}

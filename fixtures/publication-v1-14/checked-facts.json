@@ -1,0 +1,108 @@
+{
+  "purpose": "fixture",
+  "source": "fixtures/publication-v1-13/results/manifest.json",
+  "meaning": "checked adapter and cohort expectations; analytical values and additional support probes are synthetic, not scientific evidence",
+  "selector_inventory": {
+    "observed": 5,
+    "ledger": 24,
+    "spatial": 16,
+    "execution": 70,
+    "shootiness": 14,
+    "penalties": 4,
+    "territory": 6,
+    "counterpart_usage": 2,
+    "microstats": 30,
+    "goalie": 26,
+    "total": 197,
+    "first_season_distinct_api_requests": 16,
+    "execution_strengths": ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"],
+    "excluded_guides": ["spatial neutral forecasts", "spatial complete forecasts", "shootiness neutral probability", "territory hazards", "opposite pp/pk spatial roles"]
+  },
+  "published_synthetic_values": {
+    "season": "20232024",
+    "player_id": "9000001",
+    "ledger_league_total": 55,
+    "ledger_replacement_total": 110,
+    "ledger_total_component_support_count": 10,
+    "ledger_combined_penalties_component_support_count": 2,
+    "ledger_support": null,
+    "ledger_headline_qualification_seconds": null,
+    "ledger_headline_qualification_reason": "the frozen synthetic player has no provided observed matching elapsed time",
+    "pp_spatial_support": "not_computed",
+    "pk_spatial_support": "not_computed",
+    "blocked_attempt_share": {
+      "value": 0.25,
+      "unit": "fraction",
+      "numerator": 1,
+      "denominator": 4,
+      "denominator_kind": "opponent_attempts",
+      "included_seconds": 600,
+      "source_id": "fixture_source"
+    }
+  },
+  "rank_arithmetic": [
+    {"values": [0], "selected": 0, "n": 1, "percentile": 50},
+    {"values": [0, 2, 2, 4], "selected": 2, "n": 4, "percentile": 50},
+    {"values": [1, 1.0000001], "selected": 1.0000001, "n": 2, "percentile": 75, "meaning": "display rounding must not create a tie"},
+    {"values": [], "selected": 0, "n": 0, "percentile": null}
+  ],
+  "synthetic_cohort_probe": {
+    "metric_id": "execution.5v5.finishing_goals_per100_attempts",
+    "cutoff_minutes": 300,
+    "rows": [
+      {"player_id": "1", "position": "F", "value": 0, "seconds": 18000, "position_cohort_member": true},
+      {"player_id": "2", "position": "F", "value": 2, "seconds": 18000, "position_cohort_member": true},
+      {"player_id": "3", "position": "F", "value": 2, "seconds": 18000, "position_cohort_member": true},
+      {"player_id": "4", "position": "F", "value": 4, "seconds": 17999, "standing_reason": "below cutoff"},
+      {"player_id": "5", "position": "F", "value": 8, "seconds": null, "standing_reason": "qualification unavailable"},
+      {"player_id": "6", "position": null, "value": 9, "seconds": 18000, "standing_reason": "unknown position"},
+      {"player_id": "7", "position": "D", "value": 10, "seconds": 18000, "position_cohort_member": true}
+    ],
+    "forward_n": 3,
+    "player_2_percentile": 66.66666666666667,
+    "all_skater_n": 5,
+    "all_skater_includes_unknown_position": true,
+    "zero_cutoff_zero_seconds_member": false,
+    "changed_semantic_key_available_forward_incompatible_count": 1,
+    "unavailable_selected_unknown_meaning": "selected unavailable with n null and incompatible count zero; display available peer semantic partitions separately"
+  },
+  "synthetic_qualification_probe": {
+    "basis": "actual 20232024 overview fixture value envelopes, with independently assigned distinct support seconds solely to detect wrong accessor ownership",
+    "seconds": {
+      "observed_on_ice": 18000,
+      "spatial_5v5": 19000,
+      "spatial_pp": 3000,
+      "spatial_pk": 3001,
+      "execution_finishing": 20000,
+      "execution_setting": 20001,
+      "penalties": 21000,
+      "territory": 22000
+    },
+    "ledger_total_and_finishing_seconds": 18000,
+    "standalone_finishing_seconds": 20000,
+    "ledger_setting_seconds": 20001,
+    "ledger_five_on_five_offense_and_defense_seconds": 19000,
+    "ledger_power_play_offense_seconds": 3000,
+    "ledger_penalty_kill_defense_seconds": 3001,
+    "ledger_drawn_taken_combined_penalties_seconds": 21000,
+    "ledger_ice_won_and_lost_seconds": 22000,
+    "missing_execution_finishing_seconds": "standalone value remains 3 with unavailable rank; ledger finishing still qualifies from 18000 observed seconds"
+  },
+  "semantics": {
+    "annual_method_ids_design_hashes_input_hashes": "provenance only; unchanged recipe/reference/support policy retains semantic key",
+    "changed_method_reference_id": "breaks semantic key",
+    "changed_source_receipt": "provenance only; retains semantic key",
+    "changed_source_definition": "breaks semantic key exactly, including changed prose",
+    "unavailable_observed_selected": {"peer_mode": "all", "cutoff_minutes": 0, "cohort_n": 72, "incompatible_peer_count": 0},
+    "observed_support": "preserve exact personal/metrics primitive and reason_codes; do not invent Support flags or reason counts",
+    "absent_history_reason": "absent season",
+    "synthetic_skating_value": 32,
+    "skating_rank_reason": "census_unverified"
+  },
+  "preservation_controls": {
+    "observed_metrics": ["sog60", "goals60", "primaryAssists60", "for60", "against60"],
+    "peer_modes": ["position", "all"],
+    "cutoffs_minutes": [0, 1, 300],
+    "expectation": "membership and exact midpoint percentiles match independently counted captured observed rows; unknown positions remain unavailable in same-position mode"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "scope": "bounded operating review; rejected temporary candidates; production unchanged",
+  "source_code_sha256": "194f8f2c2443c03990cd5496aad3ef017f44b4c8467a8c68371fe52343a70ea2",
+  "format_decision": "retain the specified direct-fact json contract for this delivery; real measured cost is recorded in real-artifact.json. a normalized store needs a separate contract change",
+  "profile": {
+    "source_receipt_sha256": "8ed6d5221aea64ee81e5c855dc7c65780f11d1c1a0897ee5d14f250cdd8911f8",
+    "game_id": "2021020093",
+    "profiled_seconds": 15.331167,
+    "total_calls": 50754888,
+    "dominant_functions": [
+      {
+        "file": "/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src/hockey_stats/analysis_records.py",
+        "line": 1065,
+        "function": "validate_game",
+        "calls": 1,
+        "internal_seconds": 0.022007,
+        "cumulative_seconds": 8.863561
+      },
+      {
+        "file": "/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src/hockey_stats/analysis_records.py",
+        "line": 834,
+        "function": "validate",
+        "calls": 2020891,
+        "internal_seconds": 3.883006,
+        "cumulative_seconds": 8.795337
+      },
+      {
+        "file": "/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src/hockey_stats/analysis_context.py",
+        "line": 749,
+        "function": "prepare_game",
+        "calls": 1,
+        "internal_seconds": 0.391696,
+        "cumulative_seconds": 3.678708
+      },
+      {
+        "file": "/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src/hockey_stats/feature_data.py",
+        "line": 607,
+        "function": "_prefix_workload",
+        "calls": 3,
+        "internal_seconds": 1.349831,
+        "cumulative_seconds": 2.446343
+      },
+      {
+        "file": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/typing.py",
+        "line": 2495,
+        "function": "get_origin",
+        "calls": 2414118,
+        "internal_seconds": 0.719569,
+        "cumulative_seconds": 1.270653
+      },
+      {
+        "file": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/typing.py",
+        "line": 2525,
+        "function": "get_args",
+        "calls": 2057199,
+        "internal_seconds": 0.631122,
+        "cumulative_seconds": 1.095326
+      },
+      {
+        "file": "/Users/nnandal/Documents/code/hockey-stats-v1-01/analysis/src/hockey_stats/artifacts.py",
+        "line": 36,
+        "function": "write_json",
+        "calls": 4,
+        "internal_seconds": 0.00563,
+        "cumulative_seconds": 0.461455
+      }
+    ],
+    "limit": "profiler adds per-call overhead; percentages and inferred unprofiled speedups require caution"
+  },
+  "validator_candidate": {
+    "differential_cases": 336,
+    "differential_outcomes": {
+      "InputContractError": 278,
+      "accept": 58
+    },
+    "exact_acceptance_rejection_error_text": true,
+    "candidate_function_sha256": "a2cb19db55a55127b4a339e356a32d7a8c69d5b29f36f50c20a853ab11b02060",
+    "baseline_mean_public_seconds": 2.695369,
+    "candidate_mean_public_seconds": 2.469317,
+    "public_runtime_reduction_fraction": 0.08386681007312902,
+    "independent_peer_review": "systems_acceptance: readonly scalar/Any/None/TypeVar dispatch and differential controller review passed; no concrete correction",
+    "timing_limit": "four same-game public reads under concurrent real preparation; visible run-to-run variance; no broad runtime improvement claim",
+    "root_decision": "shadow primitive fast path rejected for current delivery; modest noisy gain does not justify restart/reverification; production remains unchanged",
+    "source_receipt_sha256": "47fa2f3df1ecabcc73067f8457b744c9d394b235743d376fc57b88de0dfe128e"
+  },
+  "history_candidate": {
+    "fixture_games": 36,
+    "inventory_rows": 6560,
+    "all_four_output_paths_exact": true,
+    "input_summaries_unchanged": true,
+    "caller_missing_source_provenance_preserved": true,
+    "same_date_and_future_invariance": {
+      "focal_game": "2025020001",
+      "mutated_games": 9,
+      "equal": true
+    },
+    "baseline_mean_history_seconds": 0.5797887289954815,
+    "candidate_mean_history_seconds": 0.5511188750097062,
+    "history_runtime_reduction_fraction": 0.04944879496958743,
+    "independent_peer_review": "content_acceptance: fixed prior cutoff/key/source evidence, unavailable provenance, read-only ownership, sole tuple consumer, batch/stream and future checks cleared; no concrete flaw",
+    "timing_limit": "only retained fixture summaries populated across full declared inventory; sparse prior histories and few repeated appearances understate real repeat factor; history-only timings do not establish end-to-end gain",
+    "source_receipt_sha256": "663599e1c50f7950eccebd95b7fa4a650a34118a383838c6608318cbe481871b",
+    "root_decision": "reject: about five percent of a small history-only workload does not establish material end-to-end gain; additional retained state and restart/reverification are unjustified"
+  }
+}

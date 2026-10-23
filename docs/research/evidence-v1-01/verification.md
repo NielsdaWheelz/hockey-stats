@@ -1,6 +1,6 @@
 # v1-01 shared-evidence verification
 
-status: detached implementation, readback and independent review passed; real-corpus acceptance is paused pending the external drive. the user assigned the full [specification](../../specs/v1-01-shared-evidence.md), then instructed completion of available work followed by a pause. fixture completion does not clear the five-season, 6,560-game acceptance boundary. [remaining acceptance](../../issues/evidence-v1-01-acceptance.md).
+status: paused at the user's request on 2026-10-23 before drive disconnection. all 6,560 selected games are prepared; the 29 original-source content samples and guarded downstream readers pass. two full season source reconciliations pass; three source seasons and the reason-time supplement remain unfinished. all owned drive processes and monitors are stopped. [checkpoint and exact resumption](pause-2026-10-23.json) · [remaining acceptance](../../issues/evidence-v1-01-acceptance.md).
 
 implementation: branch `v1-01-shared-evidence`, worktree `/Users/nnandal/Documents/code/hockey-stats-v1-01`. three non-astra implementers covered source/support, factual context and artifacts; root, peer reviewers and a separate claude session challenged the boundaries. the primary checkout and serving files were not modified by this work.
 
@@ -41,7 +41,7 @@ final preparation measured 152.38 seconds wall time, 1,038,254,080 peak resident
 | dated identity | [seven actual multi-team people](people-facts.json) match original dated teams/sweaters, latest supported roster names, positions and named bio observations; february-1 age references and unknown effective times/height units are explicit. conditional conflicting-join evidence and malformed date/age/sweater links are checked |
 | preserved consumers | [full canonical before/after results](preserved-consumers.json) match exactly through existing observed reducers on all three displayed 1,312-game seasons: hockey facts, support, personal/spatial/deployment quantities and reasons. [36 research/core fixture projections](research-projections.json) also match exactly after the final repair; no historical fit or application rebuild was required |
 | downstream readiness | [actual reader exercise](downstream-readers.json) selects ordinary execution event facts, all-strength descriptive states and matched elapsed chunks in `2025020001` and `2025021094`, with original sources/network denied. it neither fits nor establishes a downstream recipe's eligibility |
-| real handoff | pending: all 6,560 selected games, all partitions, complete coverage reconciliation, real original-source spot checks and real resource measurements require the absent drive |
+| real handoff | [real artifact](real-artifact.json), [29 original-source samples](real-content.json) and [guarded reader exercise](real-systems.json) pass; two full source seasons pass, three source seasons and the reason-time report are paused at the [saved checkpoint](pause-2026-10-23.json) |
 
 independent review repaired outcome-dependent episode availability at the focal row; uncertain participation fabricated across source gaps; incomplete physical-action label semantics; goalie workload taint from known empty nets/own goals; unresolved support mislabeled ambiguity; unassigned interior attempts left in included runs; abbreviated season identities; missing raw block coordinates; and strict source/member consistency gaps. [final independent review](independent-review.md) separates computational findings from operating costs and scientific claims.
 
@@ -53,9 +53,83 @@ representative checked cases:
 - `2025021094`: the penalty shot at `/plays/164` is outside ordinary matched support; the final ordinary goal at `/plays/304` is retained in actual overtime `[40,41)`, with no invented full overtime.
 - `2025020565`: distinct overlapping own rows for `8482684` cannot establish a known physical union. [original locators and expected behavior](../../../fixtures/README.md#v1-01-individual-participation-overlap-check--2026-10-22) retain all rows; 27 clean spans supply 1,564 known seconds, with complete time/start/age/rest withheld. known 5v5 time intersects clean participation and never exceeds known total time. exact duplicates and endpoint adjacency remain valid controls.
 
-## costs, consumer limits and pause
+## real-corpus resumption
 
-the closed direct-fact json schema repeats located evidence and missing reasons. the measured fixture output extrapolates to hundreds of gb for five seasons; richer real histories may cost more. [storage issue](../../issues/prepared-evidence-size.md) retains the required real measurement and storage-contract decision. an interned representation was not silently substituted for the specified schema.
+all five original corpus identities match the [real selection](selection-real.json). the first preparation reached `2021020093`, where two other-state boundary neighbors produced the same empty-affected strength diagnostic twice. the strict validator correctly rejected it. [the repair receipt](boundary-2021020093.json) records red, green, refactor, source/consumer parity and independent public readback. the producer now emits that diagnostic once, preserving each same-state identity mask, every source row and all support decisions. the complete original capture bundle is retained under `fixtures/captures/2021020093/`; no corrected download replaced it.
+
+the [resumed implementation freeze](real-source-freeze.json) identifies commit `5503c7b` by source content. the [native-only regression](real-native-support.json) checks all 6,560 envelopes, 2,060,996 original events, 2,082,038 report rows and 2,444,136 maximal segments: source cardinality, unique witnesses, native partitions and exclusion unions pass. it measured 281.561 seconds and 203,063,296 peak resident bytes. this bounded check does not replace complete prepared-artifact acceptance, which remains unfinished at the requested pause.
+
+the [real artifact receipt](real-artifact.json) identifies `/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json`, sha256 `63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c`. all five seasons have 1,312 game members, plus five people members and coverage. preparation measured 33,732.702 seconds (9.37 hours), 5,420,793,856 peak resident bytes and 397,784,660,779 output bytes excluding the manifest. independent checks match the exact 6,568-file set, output bytes, selection bytes, package source hash and policy hash. the recorded analysis tree was clean at `5503c7b`; documentation status is separate.
+
+[content verification](real-content.json) independently checks 29 games against original bodies: 9,451 events/pre-scores, 13,343 roles, 7,759 geometries, 108,554 known prefix times and 6,960 dated history windows. all 29 samples and five season people files pass public readback. [systems verification](real-systems.json) checks all five people files/coverage and three actual downstream selections with original sources, network, fitting and publication access denied. its 5,369 person-season records remain explicitly partial; the three views preserve usable event facts when elapsed membership is absent. neither bounded review substitutes for full source reconciliation.
+
+## real coverage
+
+the exact [real coverage member](real-coverage.json) is copied byte for byte from the completed artifact (sha256 `fb9e5c5207375747caf00d45d49a5264ccd9b86bf0e6f22c34b21bd0bdf9fc49`). the public coverage reader and all five season people readers passed the guarded systems check. two independent full-season source reconciliations pass; the other three are paused. these are recorded source and support facts, not model eligibility or scientific quality.
+
+all six named source bodies are available for every selected game in each season: play-by-play, boxscore, shifts, game-summary, play-report and landing. availability means the source parsed; it does not imply every field, event context or elapsed rate denominator is supported. matched elapsed support is the included physical time below. model applicability is **not assessed here** and belongs to each downstream consumer and its additional restrictions.
+
+| season | inventory / selected games | six-source available games | original events | report-only attempts | matched included seconds | excluded seconds | unresolved known seconds | unknown-horizon games |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `20212022` | 1,312 / 1,312 | 1,312 | 404,656 | 909 | 4,611,732 | 97,019 | 69,299 | 1 |
+| `20222023` | 1,312 / 1,312 | 1,312 | 408,732 | 825 | 4,670,390 | 83,153 | 27,075 | 0 |
+| `20232024` | 1,312 / 1,312 | 1,312 | 413,676 | 836 | 4,587,763 | 58,105 | 128,655 | 0 |
+| `20242025` | 1,312 / 1,312 | 1,312 | 420,073 | 736 | 4,420,410 | 92,692 | 260,095 | 0 |
+| `20252026` | 1,312 / 1,312 | 1,312 | 413,859 | 983 | 4,617,973 | 113,817 | 57,215 | 0 |
+
+`real-coverage.json` retains 131 season/state rows keyed by away/home skater and goalie counts. each row records physical, included, excluded, directed team, skater-slot and goalie-slot seconds. the table sums those exact-state rows by season; team time counts both directions, while slot time uses actual membership. physical seconds are counted once and equal included plus excluded seconds.
+
+| season | exact-state rows | resolved physical seconds | directed team-seconds | skater-slot-seconds | goalie-slot-seconds |
+|---|---:|---:|---:|---:|---:|
+| `20212022` | 32 | 4,708,751 | 9,223,464 | 45,142,287 | 9,134,599 |
+| `20222023` | 29 | 4,753,543 | 9,340,780 | 45,675,870 | 9,254,830 |
+| `20232024` | 24 | 4,645,868 | 9,175,526 | 44,908,206 | 9,091,413 |
+| `20242025` | 24 | 4,513,102 | 8,840,820 | 43,360,702 | 8,744,366 |
+| `20252026` | 22 | 4,731,790 | 9,235,946 | 45,203,897 | 9,140,442 |
+
+excluded seconds are the union of matched-support masks, not a count of conflicts. the closed coverage shape retains aggregate time; game-level support reasons retain the masks for interpreting it. a separate manifest-bound acceptance report will count reason witnesses and event dispositions and attribute known resolved excluded time by reason, without changing the artifact or rederiving policy. per-code times can overlap. its reviewed selective auditor rereads only positive-excluded-time games after their full source proof; zero known resolved excluded time does not assert zero unknown duration. this supplement is unfinished at the pause. unresolved known seconds are outside resolved physical time. the single `20212022` unknown-horizon game has no invented missing duration.
+
+source event counts by kind and outcome (`null` is the recorded absent outcome; a zero means that kind/outcome pair has no row in that season):
+
+| kind | outcome | `20212022` | `20222023` | `20232024` | `20242025` | `20252026` |
+|---|---|---:|---:|---:|---:|---:|
+| `blocked-shot` | `block` | 35,375 | 38,615 | 44,677 | 43,877 | 40,866 |
+| `delayed-penalty` | `null` | 1,752 | 2,185 | 3,376 | 3,210 | 3,384 |
+| `faceoff` | `null` | 74,251 | 74,659 | 74,188 | 74,296 | 73,496 |
+| `failed-shot-attempt` | `null` | 0 | 27 | 13 | 7 | 15 |
+| `game-end` | `null` | 1,312 | 1,312 | 1,312 | 1,312 | 1,312 |
+| `giveaway` | `null` | 23,513 | 22,656 | 20,233 | 39,364 | 40,366 |
+| `goal` | `null` | 717 | 681 | 640 | 713 | 796 |
+| `goal` | `goal` | 7,657 | 7,793 | 7,628 | 7,357 | 7,554 |
+| `hit` | `null` | 60,186 | 59,077 | 59,648 | 56,293 | 53,658 |
+| `missed-shot` | `null` | 138 | 97 | 109 | 83 | 139 |
+| `missed-shot` | `miss` | 30,286 | 32,098 | 35,354 | 38,021 | 39,029 |
+| `penalty` | `null` | 9,696 | 10,063 | 10,008 | 9,011 | 9,692 |
+| `period-end` | `null` | 4,326 | 4,333 | 4,290 | 4,284 | 4,381 |
+| `period-start` | `null` | 4,334 | 4,334 | 4,290 | 4,285 | 4,381 |
+| `shootout-complete` | `null` | 103 | 95 | 82 | 77 | 119 |
+| `shot-on-goal` | `null` | 385 | 322 | 316 | 256 | 394 |
+| `shot-on-goal` | `save` | 74,854 | 73,742 | 71,399 | 66,315 | 64,976 |
+| `stoppage` | `null` | 57,199 | 57,260 | 57,734 | 58,684 | 57,202 |
+| `takeaway` | `null` | 18,572 | 19,383 | 18,379 | 12,628 | 12,099 |
+
+completeness cells are `available / partial / unavailable / not applicable`, using the coverage member’s own denominator: game for order/score/frame, season-person for identity, person-game for history, event for event context, chunk for elapsed context and attempt for immediate stop/reattempt. a partial record retains supported subfields and does not become a complete observed fact.
+
+| field / denominator | `20212022` | `20222023` | `20232024` | `20242025` | `20252026` |
+|---|---:|---:|---:|---:|---:|
+| `order` | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 |
+| `score` | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 | 1,312 / 0 / 0 / 0 |
+| `frame` | 1,185 / 127 / 0 / 0 | 1,205 / 107 / 0 / 0 | 1,172 / 139 / 1 / 0 | 1,301 / 11 / 0 / 0 | 1,306 / 6 / 0 / 0 |
+| `identity` | 0 / 1,147 / 0 / 0 | 0 / 1,077 / 0 / 0 | 0 / 1,041 / 0 / 0 | 0 / 1,041 / 0 / 0 | 0 / 1,063 / 0 / 0 |
+| `history` | 0 / 52,460 / 0 / 0 | 0 / 52,460 / 0 / 0 | 294 / 52,174 / 0 / 0 | 313 / 52,160 / 0 / 0 | 435 / 52,043 / 0 / 0 |
+| `event_context` | 307,677 / 96,515 / 464 / 0 | 349,212 / 59,111 / 409 / 0 | 260,113 / 153,107 / 456 / 0 | 316,465 / 103,090 / 518 / 0 | 328,833 / 84,515 / 511 / 0 |
+| `elapsed_context` | 1,147,643 / 278,678 / 0 / 0 | 1,548,919 / 209,103 / 0 / 0 | 1,131,820 / 568,841 / 0 / 0 | 1,364,325 / 315,243 / 0 / 0 | 1,445,746 / 302,335 / 0 / 0 |
+| `immediate_stop` | 82,481 / 0 / 476 / 66,455 | 81,493 / 0 / 438 / 71,417 | 78,983 / 0 / 447 / 80,693 | 73,646 / 0 / 524 / 82,452 | 72,501 / 0 / 508 / 80,745 |
+| `reattempt` | 74,832 / 0 / 476 / 74,104 | 73,715 / 0 / 438 / 79,195 | 71,371 / 0 / 447 / 88,305 | 66,296 / 0 / 524 / 89,802 | 64,953 / 0 / 508 / 88,293 |
+
+## costs and consumer limits
+
+the closed direct-fact json schema repeats located evidence and missing reasons. real preparation occupies 397.8 gb and takes 9.37 hours. this delivery retains the specified representation; a normalized store requires a separate storage-contract change behind the same factual reader meanings. [storage issue](../../issues/prepared-evidence-size.md) retains the remaining full-reader measurement. [two bounded optimization candidates](operating-review.json) showed modest or negligible measured benefit and were rejected without changing production.
 
 conservative run exclusions and conflicting individual-component omissions lose usable time rather than invent exact participation. elapsed workload is intentionally piecewise constant. missing history and optional normalized height remain missing. two game-at-a-time passes retain compact prior-game summaries rather than every event in memory. these choices preserve the selected meanings at the cost of support, disk, source rereads and downstream decoding time.
 
@@ -63,14 +137,14 @@ consumer contracts must keep `feature_facts.outcome` and `immediate_outcomes` ou
 
 v1-13 is independent in `/Users/nnandal/Documents/code/hockey-stats-v1-13`, branch `implement/v1-13-typed-publication`. this branch's `analysis_cli.main(argv=None) -> int` exposes only `prepare`: required `command` subparser, no flag abbreviation, existing `cli.Once`, `prepare_analysis(selection, out)`, absolute manifest path on success/0, contract/io/value errors on stderr/1 and argparse errors/2. v1-13 owns `publish`, the combined dispatch/entrypoint and observed-publication cli removal; delivery root reconciles shared edits. neither detached fixture set depends on execution of the other.
 
-temporary tests/controllers and test-only snapshots are deleted after final green; [deletion receipt](test-deletion.json) retains their identities and outcomes. original fixtures, compact checked facts and the final local fixture artifact remain. no persistent harness or dependency was added.
+the completed detached phase's temporary tests were deleted; [its deletion receipt](test-deletion.json) retains their identities and outcomes. unfinished real-acceptance controllers are retained at the requested pause and must be deleted after final green. original fixtures, compact checked facts and the final local fixture artifact remain. no persistent harness or dependency was added.
 
-the ready [real selection](selection-real.json) fixes all five 03n paths/hashes. after the drive is available and this work resumes, run from the worktree with a new external output directory:
+the [real selection](selection-real.json) fixes all five 03n paths/hashes. the resumed preparation uses a new external output directory:
 
 ```sh
 uv run --project analysis hockey-stats-analysis prepare \
   --selection docs/research/evidence-v1-01/selection-real.json \
-  --out /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01
+  --out /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02
 ```
 
-then complete the [remaining acceptance](../../issues/evidence-v1-01-acceptance.md), including every public game/people/coverage read, original-source reconciliation and actual downstream exercise. the command is preparation, not the whole acceptance procedure. the [plan](../../plan.md#current-boundary) owns the requested pause and resumption.
+preparation is complete and must not be repeated on resumption. the [checkpoint](pause-2026-10-23.json) preserves two passing source receipts and partial rows for the other three seasons; rerun only unfinished season checks from the start into fresh verification directories, then complete all five reason audits and both compact merges. the [remaining acceptance](../../issues/evidence-v1-01-acceptance.md) stays open. the [plan](../../plan.md#current-boundary) owns the requested pause.

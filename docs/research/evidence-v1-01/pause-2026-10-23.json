@@ -1,0 +1,125 @@
+{
+  "status": "paused at user request; full acceptance incomplete",
+  "date": "2026-10-23",
+  "stop_reason": "user needs to disconnect external drive",
+  "drive_jobs_stopped": true,
+  "root_monitor_stopped": true,
+  "stop_method": "SIGINT at the next completed source-game row; read-only reason audits interrupted immediately",
+  "stopped_process_exit_codes": [
+    130
+  ],
+  "io_errors": [],
+  "prepared_artifact": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "bytes": 18633830
+  },
+  "preparation_resources": {
+    "wall_seconds": 33732.70182795898,
+    "peak_memory_bytes": 5420793856,
+    "output_bytes": 397784660779
+  },
+  "completed_checks": [
+    "all 6560 games prepared",
+    "all 6560 native support checks",
+    "29 original-source content samples and public game readbacks",
+    "five season people source/public checks",
+    "guarded downstream views, all people and coverage",
+    "two complete source/coverage season reconciliations"
+  ],
+  "completed_source_seasons": [
+    {
+      "season": "20212022",
+      "games": 1312,
+      "receipt": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20212022/receipt.json",
+      "receipt_sha256": "8a8be6ab36e50a51efdb6c040fd001643025cbfb7704512bf7a65af7273fe080"
+    },
+    {
+      "season": "20222023",
+      "games": 1312,
+      "receipt": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20222023/receipt.json",
+      "receipt_sha256": "e4369ee2113015e40c3410a94119ece64068c90ccbfc432c9d63e66f456b293e"
+    }
+  ],
+  "partial_source_seasons": [
+    {
+      "season": "20232024",
+      "completed_game_rows": 1257,
+      "last_game_id": "2023021257",
+      "per_game_jsonl": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20232024/per-game.jsonl",
+      "completion_receipt": false
+    },
+    {
+      "season": "20242025",
+      "completed_game_rows": 1227,
+      "last_game_id": "2024021228",
+      "per_game_jsonl": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20242025/per-game.jsonl",
+      "completion_receipt": false
+    },
+    {
+      "season": "20252026",
+      "completed_game_rows": 1205,
+      "last_game_id": "2025021205",
+      "per_game_jsonl": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20252026/per-game.jsonl",
+      "completion_receipt": false
+    }
+  ],
+  "reason_audits": {
+    "completed_receipts": 0,
+    "interrupted_seasons": [
+      "20212022",
+      "20222023"
+    ],
+    "remaining_seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "source_merge_complete": false,
+    "reason_merge_complete": false
+  },
+  "temporary_controllers_retained_until_final_green": [
+    {
+      "path": "var/v1-01-acceptance/reconcile_artifact.py",
+      "sha256": "11f47738af4b62eb6a470b3617382a4d2977459d5eec3cc785051b68c0f88b27",
+      "bytes": 28163
+    },
+    {
+      "path": "var/v1-01-acceptance/merge_reconciliation.py",
+      "sha256": "50b9abe9394892a26bb8349b7b322367fc67ba55fd7ec7b9218258c7667507b5",
+      "bytes": 5947
+    },
+    {
+      "path": "var/v1-01-acceptance/reason_time_audit.py",
+      "sha256": "50961cdea2f6d0a7dba2cc60e2dc8fa7e3be60d650877cf95b09d4ecf46f509c",
+      "bytes": 10474
+    },
+    {
+      "path": "var/v1-01-acceptance/merge_reason_time.py",
+      "sha256": "3e11da5d026f161fd98c5772c0843c2e7375122ac9a31a9b29f0d2a62fee78a6",
+      "bytes": 8443
+    }
+  ],
+  "resume": {
+    "do_not_repeat_completed_preparation": true,
+    "prepared_directory": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "reuse_completed_source_seasons": [
+      "20212022",
+      "20222023"
+    ],
+    "rerun_unfinished_source_seasons_from_start": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "fresh_source_output_parent": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed",
+    "reason_audits": "rerun all five from their completed source receipts, using fresh output files; selective reads cover positive known resolved excluded time only",
+    "remaining": [
+      "merge exact five source receipts",
+      "complete and merge five reason-time receipts",
+      "update verification coverage/conflict tables and final independent review",
+      "delete temporary controllers after final green; retain original fixtures and compact receipts"
+    ]
+  },
+  "interrupted_process_count": 5
+}

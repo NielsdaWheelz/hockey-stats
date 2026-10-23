@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "scope": "29 bounded original-source samples across five completed seasons; full-corpus validation is a separate receipt",
+  "selection": "selection-real.json",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "detailed_receipt": "real-content-details.json",
+  "detailed_receipt_sha256": "c9040b8cd6391d65c2d6f1761b938c32d702d0f55e2cd3b72606e9917f3469ec",
+  "temporary_checker_sha256": "c359347feb0d0919673a8d5cab132a10dc556704faeb17eec1d6d4957ad323be",
+  "samples_by_season": {
+    "20212022": 6,
+    "20222023": 5,
+    "20232024": 5,
+    "20242025": 6,
+    "20252026": 7
+  },
+  "original_source_checks": {
+    "events": 9451,
+    "raw_roles": 13343,
+    "pre_event_scores": 9451,
+    "geometries": 7759,
+    "known_player_prefix_times": 108554,
+    "same_clock_event_pairs": 2156,
+    "event_elapsed_prefix_pairs": 26029,
+    "dated_game_people": 1160,
+    "history_windows": 6960,
+    "earlier_counter_evidence": 411874,
+    "raw_prior_appearances": 40,
+    "season_person_bio_observations": 1160,
+    "latest_source_name_cohorts": 28
+  },
+  "sample_partition_seconds": {
+    "physical": 93233,
+    "excluded": 7567,
+    "zero_attempt_segments": 46223
+  },
+  "specific_witnesses": {
+    "2021020093": "one different-strength boundary reason",
+    "2022020822": "incoming goal pre-score 0-1; following elapsed score 1-1",
+    "2024020186": "49 union-excluded seconds",
+    "2024021235": "110 attempts retained without a denominator",
+    "2025020565": "1564 clean known participation seconds after overlap exclusion",
+    "2025021094": "ordinary support excludes penalty shot; overtime ends at 41 seconds"
+  },
+  "public_reader_checks": {
+    "games": 29,
+    "season_people": 5,
+    "pending_samples": 0
+  },
+  "limits": "native reconstruction and modifier disposition are admitted boundaries. samples check source-to-content meaning and public equality, not all games or scientific quality."
+}

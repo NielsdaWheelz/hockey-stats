@@ -690,7 +690,7 @@ def _head_design(head, predictors, labels, people, source_actors=None):
 def prepare_execution(base_prepared, coaches, recipe, season):
     """bind exact selected evidence, keeping every recognized attempt disposition."""
     started = perf_counter()
-    _require(recipe == RECIPE or recipe == RECIPE["name"], "execution recipe differs")
+    _require(recipe == RECIPE, "execution recipe differs")
     _require(isinstance(base_prepared, PreparedManifest), "execution needs a checked prepared manifest")
     purpose = base_prepared["purpose"]
     # re-read detached identities to bind supplied objects to their member bytes.

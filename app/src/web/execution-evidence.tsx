@@ -15,7 +15,7 @@ const value = (estimate: Estimate, places: number) =>
   estimate.value === null
     ? estimate.unavailable_reason === "no_exposure"
       ? "unavailable: no paired attempts"
-      : `unavailable: ${estimate.unavailable_reason}`
+      : `unavailable: ${estimate.unavailable_reason?.replaceAll("_", " ")}`
     : number(estimate.value, places);
 export const executionEvidenceCsvHeaders = [
   "publication_id",

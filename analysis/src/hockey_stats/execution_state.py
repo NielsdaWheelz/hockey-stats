@@ -225,6 +225,9 @@ def _actors(metadata, coefficients, season):
         weight = sum(row['center_weight'] for row in selected)
         center = sum(row['center_weight'] * coefficients[row['index']] for row in selected) / weight if weight else 0.
         require(record == dict(value=center, weight=weight, prior_only=not bool(weight)), 'actor center differs from fixed training weights')
+    if coefficients is not None and metadata['head'] == 'g':
+        mean = float(np.dot(coefficients[expected_indices], metadata['design']['setter_mean_weights']))
+        require(abs(mean - metadata['centers']['setter']['value']) <= 1e-12, 'unknown setter mean has a nonzero centered residual')
     return actors
 
 
@@ -806,7 +809,7 @@ def read_execution_probe(state, head):
     comparison = probe['comparison']
     require(resolution.get('baseline') == baseline and resolution.get('comparison') == comparison, 'probe comparison/baseline differs from resolution record')
     _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance tightened_objective objective_change tightened_gradient_max gradient_max_change coefficient_max_change coefficient_l2_change maximum_probability_change head_maximum_changes terminal_maximum_changes evaluated_origins evaluated_branches'.split(), 'resolution comparison')
-    require(comparison['optimizer_maxiter'] == 2000 and comparison['optimizer_ftol'] == 1e-11
+    require(comparison['optimizer_maxiter'] == 2000 and comparison['optimizer_ftol'] == 1e-15
             and comparison['optimizer_gtol'] == 1e-7 and comparison['em_maxiter'] == 100
             and comparison['em_relative_tolerance'] == 1e-9 and comparison['em_responsibility_tolerance'] == 1e-7,
             'resolution did not use tenfold tighter tolerances')

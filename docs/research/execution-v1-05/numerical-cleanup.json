@@ -1,0 +1,69 @@
+{
+  "status": "deleted after root numerical local green gate",
+  "owned_temporary_scripts_and_bytecode": [
+    "/tmp/execution_v1_05_numerical_checks.py",
+    "/tmp/execution_v1_05_source_oracle.py",
+    "/tmp/execution_v1_05_conditioning.py",
+    "/tmp/execution_v1_05_preconditioned_probe.py",
+    "/tmp/execution_v1_05_block_conditioning.py",
+    "/tmp/execution_v1_05_block_probe.py",
+    "/tmp/execution_v1_05_stopping_preview.py",
+    "/tmp/__pycache__/execution_v1_05_numerical_checks.cpython-314.pyc",
+    "/tmp/__pycache__/execution_v1_05_conditioning.cpython-314.pyc",
+    "/tmp/__pycache__/execution_v1_05_block_conditioning.cpython-314.pyc"
+  ],
+  "retained_receipts_logs": [
+    "/tmp/execution_v1_05_approved_stopping_receipt.md",
+    "/tmp/execution_v1_05_block_probe.log",
+    "/tmp/execution_v1_05_numerical_receipt.md",
+    "/tmp/execution_v1_05_numerical_results.json",
+    "/tmp/execution_v1_05_preconditioned_probe.log",
+    "/tmp/execution_v1_05_preconditioned_results.json",
+    "/tmp/execution_v1_05_resolution_diagnosis.md",
+    "/tmp/execution_v1_05_source_results.json",
+    "/tmp/execution_v1_05_stopping_amendment_proposal.md",
+    "/tmp/execution_v1_05_stopping_preview.log",
+    "/tmp/execution_v1_05_stopping_preview_results.json",
+    "/tmp/execution_v1_05_cleanup_manifest.json"
+  ],
+  "deleted": [
+    "/tmp/execution_v1_05_numerical_checks.py",
+    "/tmp/execution_v1_05_source_oracle.py",
+    "/tmp/execution_v1_05_conditioning.py",
+    "/tmp/execution_v1_05_preconditioned_probe.py",
+    "/tmp/execution_v1_05_block_conditioning.py",
+    "/tmp/execution_v1_05_block_probe.py",
+    "/tmp/execution_v1_05_stopping_preview.py",
+    "/tmp/__pycache__/execution_v1_05_numerical_checks.cpython-314.pyc",
+    "/tmp/__pycache__/execution_v1_05_conditioning.cpython-314.pyc",
+    "/tmp/__pycache__/execution_v1_05_block_conditioning.cpython-314.pyc"
+  ],
+  "completed_at": "2026-10-22T23:05:35-07:00",
+  "acceptance": "current fixture chain06: twenty completed heads and four passed probes; independent mathematics and option checks green; full real acceptance remains open",
+  "deleted_absence_checks": {
+    "/tmp/execution_v1_05_numerical_checks.py": true,
+    "/tmp/execution_v1_05_source_oracle.py": true,
+    "/tmp/execution_v1_05_conditioning.py": true,
+    "/tmp/execution_v1_05_preconditioned_probe.py": true,
+    "/tmp/execution_v1_05_block_conditioning.py": true,
+    "/tmp/execution_v1_05_block_probe.py": true,
+    "/tmp/execution_v1_05_stopping_preview.py": true,
+    "/tmp/__pycache__/execution_v1_05_numerical_checks.cpython-314.pyc": true,
+    "/tmp/__pycache__/execution_v1_05_conditioning.cpython-314.pyc": true,
+    "/tmp/__pycache__/execution_v1_05_block_conditioning.cpython-314.pyc": true
+  },
+  "retained_existence_checks": {
+    "/tmp/execution_v1_05_approved_stopping_receipt.md": true,
+    "/tmp/execution_v1_05_block_probe.log": true,
+    "/tmp/execution_v1_05_numerical_receipt.md": true,
+    "/tmp/execution_v1_05_numerical_results.json": true,
+    "/tmp/execution_v1_05_preconditioned_probe.log": true,
+    "/tmp/execution_v1_05_preconditioned_results.json": true,
+    "/tmp/execution_v1_05_resolution_diagnosis.md": true,
+    "/tmp/execution_v1_05_source_results.json": true,
+    "/tmp/execution_v1_05_stopping_amendment_proposal.md": true,
+    "/tmp/execution_v1_05_stopping_preview.log": true,
+    "/tmp/execution_v1_05_stopping_preview_results.json": true,
+    "/tmp/execution_v1_05_cleanup_manifest.json": true
+  }
+}

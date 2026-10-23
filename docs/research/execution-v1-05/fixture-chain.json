@@ -2,7 +2,7 @@
   "recipe": {
     "name": "experimental-v1",
     "version": "execution-v1-05-1",
-    "sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304",
+    "sha256": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09",
     "definition": {
       "version": "execution-v1-05-1",
       "heads": {
@@ -72,7 +72,7 @@
       },
       "solver": {
         "maxiter": 2000,
-        "ftol": 1e-10,
+        "ftol": 1e-14,
         "gtol": 1e-06,
         "em_maxiter": 100,
         "em_objective": 1e-08,
@@ -382,13 +382,13 @@
         "--season",
         "20212022",
         "--out",
-        "var/v1-05-checks/chain-05/20212022"
+        "var/v1-05-checks/chain-06/20212022"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 25.2085280000465,
+      "command_wall_seconds": 27.737830084050074,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json",
-        "sha256": "2686d6b57b4565908a5312cee804b0c955fd47fdd06d780c3b098c8e7254c9a4"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json",
+        "sha256": "f488dc9f0101e35d9441ac539d5d6a4ac53f8e7b634e73a2c35412f9558ccc87"
       },
       "heads": {
         "u": {
@@ -427,15 +427,15 @@
         "--season",
         "20222023",
         "--out",
-        "var/v1-05-checks/chain-05/20222023",
+        "var/v1-05-checks/chain-06/20222023",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 29.436717208009213,
+      "command_wall_seconds": 40.66612195799826,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json",
-        "sha256": "12e4bd94a04c8cb0336145521671bcbe49d6e8d145470185dd27e8c967007672"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json",
+        "sha256": "aedba02bcd02f90aed9e90b070d44dd1125dc10d35a89685de1a31694a881494"
       },
       "heads": {
         "u": {
@@ -474,15 +474,15 @@
         "--season",
         "20232024",
         "--out",
-        "var/v1-05-checks/chain-05/20232024",
+        "var/v1-05-checks/chain-06/20232024",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 35.35204774996964,
+      "command_wall_seconds": 46.539477416023146,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json",
-        "sha256": "7338225b6a01f5531b06c580a3fe21970ea3aa6861762642ecf8ac133bdef748"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json",
+        "sha256": "0529f1c7495694ec3b96720eac7c8009f175079103671cce627a4cd3e84514a2"
       },
       "heads": {
         "u": {
@@ -521,15 +521,15 @@
         "--season",
         "20242025",
         "--out",
-        "var/v1-05-checks/chain-05/20242025",
+        "var/v1-05-checks/chain-06/20242025",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 67.15582291700412,
+      "command_wall_seconds": 72.19385712500662,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json",
-        "sha256": "6bbe84627e29118ef0213b3be7f07c4970ffcad661c22e5762759226be5ab31d"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json",
+        "sha256": "54eeb5891a06d77038e1ea366a9468831a0e86587393c47a3493a11fd1c9fe68"
       },
       "heads": {
         "u": {
@@ -568,39 +568,39 @@
         "--season",
         "20252026",
         "--out",
-        "var/v1-05-checks/chain-05/20252026",
+        "var/v1-05-checks/chain-06/20252026",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json"
       ],
-      "exit_code": 1,
-      "command_wall_seconds": 75.84492516698083,
+      "exit_code": 0,
+      "command_wall_seconds": 83.50991620798595,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json",
-        "sha256": "99eb032a1be8b7e364f8e2b39fa44cd0777a87c787d786b61ee1f57566652425"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json",
+        "sha256": "93138c5fa2f7da78e77d547ae020246224468d2aff0ce402cd77807878686b18"
       },
       "heads": {
         "u": {
           "status": "complete",
           "reasons": [],
-          "resolution": "failed"
+          "resolution": "passed"
         },
         "q": {
           "status": "complete",
           "reasons": [],
-          "resolution": "failed"
+          "resolution": "passed"
         },
         "r": {
           "status": "complete",
           "reasons": [],
-          "resolution": "failed"
+          "resolution": "passed"
         },
         "g": {
           "status": "complete",
           "reasons": [],
-          "resolution": "failed"
+          "resolution": "passed"
         }
       }
     }
   ],
-  "wall_seconds": 254.16191870899638
+  "wall_seconds": 291.9407135840156
 }

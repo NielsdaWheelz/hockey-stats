@@ -2,6 +2,8 @@
 
 status: the user approved this exact amendment on 2026-10-22 after the preview and independent read-only mathematics review. the following proposal is retained as the pre-adoption record. the preview used the old predecessor; only a fresh full chain can qualify the amended recipe.
 
+subsequent verification: the new full fixture chain completed twenty heads and passed all four probes; [verification](verification.md) owns its identities and limits. the numerical campaign controllers were deleted after this green boundary; [cleanup](numerical-cleanup.json) retains exact paths and absence checks. the preview and failed chains remain historical evidence.
+
 proposal: change the baseline native optimizer's `ftol` from `1e-10` to `1e-14`; the required tenfold-tighter continuation consequently uses `1e-15`. retain `chance.solve_logistic`, the original summed penalized objective and gradients, all coefficient coordinates, `maxiter=2000`, baseline `gtol=1e-6`, continuation `gtol=1e-7`, both starts, every em rule and the `1e-5` probability margin.
 
 this is tighter stopping, with additional computation. it adds no conditioning, algorithm, restart, population change or new recipe family. the production source, recipe and specifications have NOT changed. user approval is required before changing that fixed specification and computing a new annual chain.

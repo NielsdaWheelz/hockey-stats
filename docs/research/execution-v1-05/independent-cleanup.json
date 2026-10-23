@@ -1,0 +1,135 @@
+{
+  "owner": "independent_systems_review",
+  "completed_utc": "2026-10-23T06:07:01.261763+00:00",
+  "authorization": "root accepted local systems/content review and assigned deletion of exactly the 28 manifest-owned temporary files",
+  "manifest": {
+    "path": "/tmp/v105-independent-owned-cleanup.json",
+    "sha256": "b71f9fe24f7dcc2f5fae97e436fb8483b41ecd8accd2c9c501eaeb373d2525cb"
+  },
+  "deleted_count": 28,
+  "absence_checks": [
+    {
+      "path": "/tmp/v105-independent-mutations.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-independent-selector.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-independent-selector.out",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-setter-membership.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-setter-real-source.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-independent-probe-gaps.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-independent-no-probe.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-known-checks.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-known-checks.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-content-checks.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-content-checks.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-probe-checks.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-probe-checks.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-content-receipt-check.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-content-receipt-check.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-final-systems-review.md",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-known-checks.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-known-checks.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-unknownmean-check.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-unknownmean-check.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-predecessor-output-check.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-predecessor-output-check.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-probe-checks.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-probe-checks.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-content-checks.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-content-checks.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-content-receipt-check.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-amended-content-receipt-check.json",
+      "absent": true
+    }
+  ],
+  "preserved_proofs": [
+    {
+      "path": "docs/research/execution-v1-05/independent-systems-review.md",
+      "sha256": "d9c03030ad7034edc7c4c602b2bae684d9843835e4435f476b83f7774f1bc3ce"
+    },
+    {
+      "path": "docs/research/execution-v1-05/independent-systems-checks.json",
+      "sha256": "e1a08c0d0e05fccbf28271777a9ddeae6b6b40095b71453640bb61e63e81ed1d"
+    }
+  ],
+  "preservation_scope": "only the exact manifest paths were unlinked; proof receipts, reports, logs, original and campaign states, user claude scratchpads and drafts were outside the deletion list; no git index commands were run"
+}

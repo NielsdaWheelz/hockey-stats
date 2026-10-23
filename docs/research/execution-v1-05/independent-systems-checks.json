@@ -1,0 +1,164 @@
+{
+  "scope": "independent local systems/content review; no reviewer fits, acquisition, publication or activation",
+  "stopping_amendment_commit": "841be03",
+  "recipe_sha256": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09",
+  "fixture_chain": "var/v1-05-checks/chain-06",
+  "real_completion": "pending; fixture checks are not real acceptance",
+  "scientific_admission": "not performed",
+  "checks": {
+    "known_contracts": [
+      {
+        "check": "positive control",
+        "result": "accepted"
+      },
+      {
+        "check": "absent current-year ledger",
+        "result": "InputContractError: current-season ledger invents or omits a supported observation"
+      },
+      {
+        "check": "illegal setter ledger in u",
+        "result": "InputContractError: ledger block is not applicable to this head"
+      },
+      {
+        "check": "first-state prehistory",
+        "result": "InputContractError: first annual state invents pre-chain history"
+      },
+      {
+        "check": "swapped normalized setter mean weights",
+        "result": "InputContractError: setter mean differs from fixed pre-outcome center weights"
+      },
+      {
+        "check": "availability registry literal removed",
+        "result": "InputContractError: availability condition registry differs"
+      },
+      {
+        "check": "wall-time scope excludes design",
+        "result": "InputContractError: resource wall-time scope differs"
+      },
+      {
+        "check": "malformed purpose []",
+        "exit": 1,
+        "stderr": "fit failed: invalid prepared manifest purpose",
+        "out_exists": false
+      },
+      {
+        "check": "malformed purpose {}",
+        "exit": 1,
+        "stderr": "fit failed: invalid prepared manifest purpose",
+        "out_exists": false
+      },
+      {
+        "check": "malformed purpose {'purpose': 'garbage'}",
+        "exit": 1,
+        "stderr": "fit failed: invalid prepared manifest purpose",
+        "out_exists": false
+      },
+      {
+        "check": "partial family",
+        "exit": 1,
+        "stderr": "execution family incomplete: unavailable heads u"
+      },
+      {
+        "check": "failed numerical resolution",
+        "exit": 1,
+        "stderr": "execution family incomplete: unresolved numerical probes u"
+      },
+      {
+        "check": "complete first year",
+        "exit": 0,
+        "stderr": ""
+      }
+    ],
+    "absolute_unknown_setter_mean": {
+      "scope": "synthetic actor-structure check, no fit or scientific claim",
+      "control": "accepted",
+      "corruption": "normalization-preserving weights within relative tolerance but nonzero absolute centered mean",
+      "rejection": "unknown setter mean has a nonzero centered residual"
+    },
+    "predecessor_output_containment": {
+      "scope": "disposable predecessor copy; no fitter or original mutation",
+      "nested_output_rejected": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-predecessor-output-cu9h8p9w/previous/nested-output: output must be outside input directories",
+      "path_created": false,
+      "fitter_called": false,
+      "predecessor_remains_readable": true
+    },
+    "final_probes": {
+      "scope": "current frozen-source fixture chain06 only; fixture numerical pass, no real completion",
+      "positive_control": "final annual state plus four tagged probe variants readable",
+      "actual_probes": 256,
+      "population": {
+        "eligible_contexts": 1068,
+        "withheld_contexts": []
+      },
+      "outcome_witnesses": "factual outcome matches requirement",
+      "fixture_attribution": {
+        "kind": "synthetic",
+        "source_key": "2025020565:20",
+        "reason": "supported current actor has no focal shot; hypothetical shot at an actual on-ice source context",
+        "changed_fields": [
+          "shooter",
+          "shooter_deployment",
+          "shooter_prefix_workload",
+          "shooter_calendar_rest",
+          "reported_hand_off_wing",
+          "recent_same_shooter",
+          "setter_candidates_and_role_weights"
+        ],
+        "actor": {
+          "block": "shooter",
+          "id": "8474596",
+          "role": "G",
+          "likelihood_support": 0.0
+        },
+        "source_prepared_member": {
+          "kind": "game",
+          "season": "20252026",
+          "game_id": "2025020565",
+          "path": "games/20252026/2025020565.json",
+          "sha256": "ea2e9168042d88ad4c9c59bcc08ff7e3657fc4095b3c8a4e6873c63c84fa7596"
+        },
+        "actual_attacking_skaters": [
+          "8476462",
+          "8478399",
+          "8478414",
+          "8479407",
+          "8480002"
+        ],
+        "actual_attacking_goalies": [
+          "8474596"
+        ],
+        "setter_universe_complete": true
+      },
+      "maximum_probability_changes": {
+        "u": 5.705771846109542e-07,
+        "q": 4.211498030315397e-07,
+        "r": 3.7790996498809903e-07,
+        "g": 4.711362476816916e-07
+      },
+      "statuses": {
+        "u": "passed",
+        "q": "passed",
+        "r": "passed",
+        "g": "passed"
+      },
+      "false_passed_rejected": "false numerical resolution verdict"
+    },
+    "content_receipt": {
+      "receipt": "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/execution-v1-05/content.json",
+      "sha256": "2751c81693fe1083cae81dbc37c81099a3f22c404648517a32b37b40f1116523",
+      "rows_checked": 20,
+      "years": 5,
+      "games": 36,
+      "recognized_attempts": 4328,
+      "result": "all twenty rows agree with strict saved states",
+      "scope": "in-sample, outcome-dependent origin imputation; no unconditional forecast claim",
+      "scientific_status": "experimental; no real fit or admission",
+      "final_resolution": {
+        "u": "passed",
+        "q": "passed",
+        "r": "passed",
+        "g": "passed"
+      }
+    }
+  }
+}

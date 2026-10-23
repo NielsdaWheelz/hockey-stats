@@ -3,7 +3,7 @@
   "recipe": {
     "name": "experimental-v1",
     "version": "execution-v1-05-1",
-    "sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304",
+    "sha256": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09",
     "definition": {
       "version": "execution-v1-05-1",
       "heads": {
@@ -73,7 +73,7 @@
       },
       "solver": {
         "maxiter": 2000,
-        "ftol": 1e-10,
+        "ftol": 1e-14,
         "gtol": 1e-06,
         "em_maxiter": 100,
         "em_objective": 1e-08,
@@ -372,19 +372,19 @@
     {
       "season": "20212022",
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json",
-        "sha256": "2686d6b57b4565908a5312cee804b0c955fd47fdd06d780c3b098c8e7254c9a4"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json",
+        "sha256": "f488dc9f0101e35d9441ac539d5d6a4ac53f8e7b634e73a2c35412f9558ccc87"
       },
       "recognized_attempts": 824,
       "selected_games": 7,
       "resources": {
-        "wall_seconds": 24.76990625000326,
-        "peak_memory_bytes": 890667008,
-        "design_wall_seconds": 20.622896082990337,
-        "input_read_wall_seconds": 0.003968750010244548,
-        "fit_wall_seconds": 4.143041417002678,
+        "wall_seconds": 27.35782283404842,
+        "peak_memory_bytes": 893976576,
+        "design_wall_seconds": 20.779284542019013,
+        "input_read_wall_seconds": 0.004119249992072582,
+        "fit_wall_seconds": 6.574419042037334,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 3449060,
+        "output_bytes": 3449582,
         "origin_rows": {
           "u": 100986,
           "q": 618,
@@ -413,26 +413,26 @@
           "u": 1,
           "q": 1,
           "r": 1,
-          "g": 4
+          "g": 5
         }
       }
     },
     {
       "season": "20222023",
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json",
-        "sha256": "12e4bd94a04c8cb0336145521671bcbe49d6e8d145470185dd27e8c967007672"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json",
+        "sha256": "aedba02bcd02f90aed9e90b070d44dd1125dc10d35a89685de1a31694a881494"
       },
       "recognized_attempts": 596,
       "selected_games": 5,
       "resources": {
-        "wall_seconds": 28.94152050098637,
-        "peak_memory_bytes": 990658560,
-        "design_wall_seconds": 17.232023667020258,
-        "input_read_wall_seconds": 0.004014541977085173,
-        "fit_wall_seconds": 11.705482291989028,
+        "wall_seconds": 40.20906404207926,
+        "peak_memory_bytes": 990642176,
+        "design_wall_seconds": 18.36068725003861,
+        "input_read_wall_seconds": 0.0039652499835938215,
+        "fit_wall_seconds": 21.84441154205706,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 3187421,
+        "output_bytes": 3188225,
         "origin_rows": {
           "u": 99490,
           "q": 434,
@@ -461,26 +461,26 @@
           "u": 2,
           "q": 2,
           "r": 2,
-          "g": 8
+          "g": 10
         }
       }
     },
     {
       "season": "20232024",
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json",
-        "sha256": "7338225b6a01f5531b06c580a3fe21970ea3aa6861762642ecf8ac133bdef748"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json",
+        "sha256": "0529f1c7495694ec3b96720eac7c8009f175079103671cce627a4cd3e84514a2"
       },
       "recognized_attempts": 715,
       "selected_games": 6,
       "resources": {
-        "wall_seconds": 34.806934541033115,
-        "peak_memory_bytes": 801783808,
-        "design_wall_seconds": 20.95721812499687,
-        "input_read_wall_seconds": 0.004012666002381593,
-        "fit_wall_seconds": 13.845703750033863,
+        "wall_seconds": 45.94860087503912,
+        "peak_memory_bytes": 793509888,
+        "design_wall_seconds": 24.700584582984447,
+        "input_read_wall_seconds": 0.004888584022410214,
+        "fit_wall_seconds": 21.24312770803226,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 3593837,
+        "output_bytes": 3594697,
         "origin_rows": {
           "u": 103440,
           "q": 448,
@@ -509,26 +509,26 @@
           "u": 2,
           "q": 2,
           "r": 2,
-          "g": 8
+          "g": 10
         }
       }
     },
     {
       "season": "20242025",
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json",
-        "sha256": "6bbe84627e29118ef0213b3be7f07c4970ffcad661c22e5762759226be5ab31d"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json",
+        "sha256": "54eeb5891a06d77038e1ea366a9468831a0e86587393c47a3493a11fd1c9fe68"
       },
       "recognized_attempts": 1092,
       "selected_games": 9,
       "resources": {
-        "wall_seconds": 66.42108258296503,
-        "peak_memory_bytes": 1065631744,
-        "design_wall_seconds": 32.06497100001434,
-        "input_read_wall_seconds": 0.004187207960058004,
-        "fit_wall_seconds": 34.35192437499063,
+        "wall_seconds": 71.66299733397318,
+        "peak_memory_bytes": 1012318208,
+        "design_wall_seconds": 33.47633070900338,
+        "input_read_wall_seconds": 0.004386541957501322,
+        "fit_wall_seconds": 38.1822800830123,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 4412962,
+        "output_bytes": 4413566,
         "origin_rows": {
           "u": 202147,
           "q": 755,
@@ -557,26 +557,26 @@
           "u": 2,
           "q": 2,
           "r": 2,
-          "g": 10
+          "g": 12
         }
       }
     },
     {
       "season": "20252026",
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json",
-        "sha256": "99eb032a1be8b7e364f8e2b39fa44cd0777a87c787d786b61ee1f57566652425"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json",
+        "sha256": "93138c5fa2f7da78e77d547ae020246224468d2aff0ce402cd77807878686b18"
       },
       "recognized_attempts": 1101,
       "selected_games": 9,
       "resources": {
-        "wall_seconds": 74.90910970902769,
-        "peak_memory_bytes": 1171324928,
-        "design_wall_seconds": 37.62655862496467,
-        "input_read_wall_seconds": 0.007428667042404413,
-        "fit_wall_seconds": 37.27512241702061,
+        "wall_seconds": 82.91004262497881,
+        "peak_memory_bytes": 1178402816,
+        "design_wall_seconds": 30.320598874997813,
+        "input_read_wall_seconds": 0.006547915982082486,
+        "fit_wall_seconds": 52.58289583399892,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 8131613,
+        "output_bytes": 8130385,
         "origin_rows": {
           "u": 202153,
           "q": 761,
@@ -593,7 +593,7 @@
           "u": 1,
           "q": 1,
           "r": 1,
-          "g": 4
+          "g": 1
         },
         "dimensions": {
           "u": 2634,
@@ -605,7 +605,7 @@
           "u": 2,
           "q": 2,
           "r": 2,
-          "g": 9
+          "g": 10
         }
       }
     }
@@ -628,18 +628,18 @@
           "path": "coverage.json",
           "sha256": "82eccdbbc1dbba72b345f434e496b264e56122a1c77b68af8c48fdca3dc5d830"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/coverage.json",
         "head_pointer": "/heads/u",
         "optional_features_pointer": "/optional_features/u",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 3.2950121670146473,
+        "head_solve_wall_seconds": 4.97151883400511,
         "actual_inner_solves": 1,
         "coefficient_coordinates": 2572,
         "expanded_origin_rows": 100986,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 216,
@@ -1274,9 +1274,9 @@
         "attempts": 771,
         "positive": 618,
         "class_fraction": 0.8015564202334631,
-        "mean_predicted_probability": 0.8015560632638405,
-        "mean_imputation_weighted_negative_log_likelihood": 0.39921735177156953,
-        "mean_outcome_only_negative_log_likelihood": 0.39921735177156953,
+        "mean_predicted_probability": 0.8015564408400145,
+        "mean_imputation_weighted_negative_log_likelihood": 0.3992168201880048,
+        "mean_outcome_only_negative_log_likelihood": 0.3992168201880048,
         "reliability": [
           {
             "lower": 0.0,
@@ -1318,7 +1318,7 @@
             "upper": 0.3,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.2827226209655208
+            "predicted_mass": 0.28272560177399236
           },
           {
             "lower": 0.3,
@@ -1332,91 +1332,91 @@
             "upper": 0.4,
             "count": 2,
             "observed_positive": 1,
-            "predicted_mass": 0.7406928165580402
+            "predicted_mass": 0.7406828634937387
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.4173091096104657
+            "predicted_mass": 0.41729548795161575
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 7,
             "observed_positive": 1,
-            "predicted_mass": 3.357939200092772
+            "predicted_mass": 3.3579258157927883
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 8,
             "observed_positive": 1,
-            "predicted_mass": 4.195596247347137
+            "predicted_mass": 4.195595165881015
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 15,
             "observed_positive": 6,
-            "predicted_mass": 8.570768022220864
+            "predicted_mass": 8.570816266433203
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 32,
             "observed_positive": 13,
-            "predicted_mass": 20.03490313936522
+            "predicted_mass": 20.034904792983532
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 60,
             "observed_positive": 25,
-            "predicted_mass": 40.726003904701564
+            "predicted_mass": 40.72603158528603
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 72,
             "observed_positive": 46,
-            "predicted_mass": 52.46930725232592
+            "predicted_mass": 52.4692875789328
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 124,
             "observed_positive": 90,
-            "predicted_mass": 96.69103703119082
+            "predicted_mass": 96.69106854658439
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 146,
             "observed_positive": 133,
-            "predicted_mass": 120.37293339328981
+            "predicted_mass": 120.37294602349816
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 197,
             "observed_positive": 196,
-            "predicted_mass": 172.44498431657632
+            "predicted_mass": 172.44511562064622
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 102,
             "observed_positive": 102,
-            "predicted_mass": 93.85181118938736
+            "predicted_mass": 93.8518978669538
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 4,
             "observed_positive": 4,
-            "predicted_mass": 3.8437165327891347
+            "predicted_mass": 3.843722671439885
           }
         ],
         "origin_mass_error": 1.1102230246251565e-15,
@@ -1447,18 +1447,18 @@
           "path": "coverage.json",
           "sha256": "82eccdbbc1dbba72b345f434e496b264e56122a1c77b68af8c48fdca3dc5d830"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/coverage.json",
         "head_pointer": "/heads/q",
         "optional_features_pointer": "/optional_features/q",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.21574370795860887,
+        "head_solve_wall_seconds": 0.35526558302808553,
         "actual_inner_solves": 1,
         "coefficient_coordinates": 2611,
         "expanded_origin_rows": 618,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -2143,9 +2143,9 @@
         "attempts": 618,
         "positive": 439,
         "class_fraction": 0.7103559870550162,
-        "mean_predicted_probability": 0.7103551275234102,
-        "mean_imputation_weighted_negative_log_likelihood": 0.5089081136554185,
-        "mean_outcome_only_negative_log_likelihood": 0.5089081136554185,
+        "mean_predicted_probability": 0.7103560106159935,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5089063389645502,
+        "mean_outcome_only_negative_log_likelihood": 0.5089063389645502,
         "reliability": [
           {
             "lower": 0.0,
@@ -2194,91 +2194,91 @@
             "upper": 0.35,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.34937743898785983
+            "predicted_mass": 0.3493639793037793
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 3,
             "observed_positive": 0,
-            "predicted_mass": 1.1365035472577218
+            "predicted_mass": 1.136484532115439
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 7,
             "observed_positive": 1,
-            "predicted_mass": 3.0173913197618867
+            "predicted_mass": 3.0173554429265272
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 11,
             "observed_positive": 2,
-            "predicted_mass": 5.2878904604373345
+            "predicted_mass": 5.287794511331784
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 24,
             "observed_positive": 6,
-            "predicted_mass": 12.680669719595082
+            "predicted_mass": 12.68054043757444
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 40,
             "observed_positive": 16,
-            "predicted_mass": 23.075210765347272
+            "predicted_mass": 23.075059609393577
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 78,
             "observed_positive": 37,
-            "predicted_mass": 49.019328282606956
+            "predicted_mass": 49.019218194691746
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 100,
             "observed_positive": 65,
-            "predicted_mass": 67.40306248872422
+            "predicted_mass": 67.40315239170373
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 116,
             "observed_positive": 86,
-            "predicted_mass": 84.05993005871152
+            "predicted_mass": 84.06009265982173
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 120,
             "observed_positive": 111,
-            "predicted_mass": 93.03630294596131
+            "predicted_mass": 93.03675280441885
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 71,
             "observed_positive": 69,
-            "predicted_mass": 58.319645031490225
+            "predicted_mass": 58.31992625822412
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 33,
             "observed_positive": 32,
-            "predicted_mass": 28.765331201732593
+            "predicted_mass": 28.765426102131247
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 14,
             "observed_positive": 14,
-            "predicted_mass": 12.84882554885361
+            "predicted_mass": 12.84884763704709
           },
           {
             "lower": 0.95,
@@ -2316,18 +2316,18 @@
           "path": "coverage.json",
           "sha256": "82eccdbbc1dbba72b345f434e496b264e56122a1c77b68af8c48fdca3dc5d830"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/coverage.json",
         "head_pointer": "/heads/r",
         "optional_features_pointer": "/optional_features/r",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.16853033303050324,
+        "head_solve_wall_seconds": 0.2723090839572251,
         "actual_inner_solves": 1,
         "coefficient_coordinates": 2611,
         "expanded_origin_rows": 439,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -3012,9 +3012,9 @@
         "attempts": 439,
         "positive": 335,
         "class_fraction": 0.7630979498861048,
-        "mean_predicted_probability": 0.7630985150493199,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4467996822718076,
-        "mean_outcome_only_negative_log_likelihood": 0.4467996822718076,
+        "mean_predicted_probability": 0.7630979434993616,
+        "mean_imputation_weighted_negative_log_likelihood": 0.44679893559784256,
+        "mean_outcome_only_negative_log_likelihood": 0.44679893559784256,
         "reliability": [
           {
             "lower": 0.0,
@@ -3070,91 +3070,91 @@
             "upper": 0.4,
             "count": 2,
             "observed_positive": 0,
-            "predicted_mass": 0.7758428056992295
+            "predicted_mass": 0.7758518222360217
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 3,
             "observed_positive": 0,
-            "predicted_mass": 1.3210490032868214
+            "predicted_mass": 1.3210301886914464
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 5,
             "observed_positive": 0,
-            "predicted_mass": 2.4164008834751756
+            "predicted_mass": 2.4163780940492257
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 7,
             "observed_positive": 1,
-            "predicted_mass": 3.71062973458504
+            "predicted_mass": 3.7106024401302995
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 12,
             "observed_positive": 2,
-            "predicted_mass": 6.948469284199772
+            "predicted_mass": 6.948459368181129
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 30,
             "observed_positive": 12,
-            "predicted_mass": 18.811236812770794
+            "predicted_mass": 18.8112121200399
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 39,
             "observed_positive": 21,
-            "predicted_mass": 26.391109109047843
+            "predicted_mass": 26.39108797850001
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 67,
             "observed_positive": 46,
-            "predicted_mass": 48.43336370494025
+            "predicted_mass": 48.433248713173036
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 100,
             "observed_positive": 89,
-            "predicted_mass": 77.42084214673594
+            "predicted_mass": 77.42078987853334
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 84,
             "observed_positive": 76,
-            "predicted_mass": 69.1623861300443
+            "predicted_mass": 69.16243696029775
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 72,
             "observed_positive": 70,
-            "predicted_mass": 62.854545413981626
+            "predicted_mass": 62.85452370784081
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 12,
             "observed_positive": 12,
-            "predicted_mass": 10.97057635234975
+            "predicted_mass": 10.970582012090787
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 6,
             "observed_positive": 6,
-            "predicted_mass": 5.783796725534921
+            "predicted_mass": 5.783793912456024
           }
         ],
         "origin_mass_error": 0.0,
@@ -3186,18 +3186,18 @@
           "path": "coverage.json",
           "sha256": "82eccdbbc1dbba72b345f434e496b264e56122a1c77b68af8c48fdca3dc5d830"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/coverage.json",
         "head_pointer": "/heads/g",
         "optional_features_pointer": "/optional_features/g",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.4008351249503903,
-        "actual_inner_solves": 4,
+        "head_solve_wall_seconds": 0.8257066660444252,
+        "actual_inner_solves": 5,
         "coefficient_coordinates": 2842,
         "expanded_origin_rows": 335,
         "candidate_branches": 3061,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -3884,86 +3884,86 @@
         "attempts": 335,
         "positive": 39,
         "class_fraction": 0.11641791044776119,
-        "mean_predicted_probability": 0.1112185550744081,
-        "mean_imputation_weighted_negative_log_likelihood": 0.5035410578239234,
-        "mean_outcome_only_negative_log_likelihood": 0.2677741159318585,
+        "mean_predicted_probability": 0.11121668115953687,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5035401675952829,
+        "mean_outcome_only_negative_log_likelihood": 0.2677739292455586,
         "reliability": [
           {
             "lower": 0.0,
             "upper": 0.05,
             "count": 33,
             "observed_positive": 0,
-            "predicted_mass": 1.3478758533805475
+            "predicted_mass": 1.3478519256012311
           },
           {
             "lower": 0.05,
             "upper": 0.1,
             "count": 167,
             "observed_positive": 1,
-            "predicted_mass": 12.393177901620032
+            "predicted_mass": 12.392900962516226
           },
           {
             "lower": 0.1,
             "upper": 0.15,
             "count": 77,
             "observed_positive": 11,
-            "predicted_mass": 9.47425485102757
+            "predicted_mass": 9.474131805781207
           },
           {
             "lower": 0.15,
             "upper": 0.2,
             "count": 25,
             "observed_positive": 5,
-            "predicted_mass": 4.28118954022607
+            "predicted_mass": 4.281127843647729
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 17,
             "observed_positive": 8,
-            "predicted_mass": 3.7324233777558784
+            "predicted_mass": 3.7324244782413705
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 3,
             "observed_positive": 2,
-            "predicted_mass": 0.7887214142730798
+            "predicted_mass": 0.7887181891130945
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 4,
             "observed_positive": 3,
-            "predicted_mass": 1.2668494563268546
+            "predicted_mass": 1.26682217418351
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 3,
             "observed_positive": 3,
-            "predicted_mass": 1.1033931319735757
+            "predicted_mass": 1.103349874023103
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 0.8143725294227302
+            "predicted_mass": 0.8143538514415938
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 0.9812810823673577
+            "predicted_mass": 0.9812502270133846
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 1.074676811553026
+            "predicted_mass": 1.0746568568824073
           },
           {
             "lower": 0.55,
@@ -4060,18 +4060,18 @@
           "path": "coverage.json",
           "sha256": "a2d5af55f99b94189fc36c8b276bfae91d568e904c5c9feefb8f0ca737a2d9a7"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/coverage.json",
         "head_pointer": "/heads/u",
         "optional_features_pointer": "/optional_features/u",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 9.652197166986298,
+        "head_solve_wall_seconds": 17.225849791022483,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2521,
         "expanded_origin_rows": 99490,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 216,
@@ -4706,9 +4706,9 @@
         "attempts": 585,
         "positive": 434,
         "class_fraction": 0.7418803418803419,
-        "mean_predicted_probability": 0.7418800602143334,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4640607583239018,
-        "mean_outcome_only_negative_log_likelihood": 0.4640607583239018,
+        "mean_predicted_probability": 0.7418803402134433,
+        "mean_imputation_weighted_negative_log_likelihood": 0.46406145203030524,
+        "mean_outcome_only_negative_log_likelihood": 0.46406145203030524,
         "reliability": [
           {
             "lower": 0.0,
@@ -4764,91 +4764,91 @@
             "upper": 0.4,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.3540906382132275
+            "predicted_mass": 0.35407879485451976
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 6,
             "observed_positive": 0,
-            "predicted_mass": 2.559541577439509
+            "predicted_mass": 2.5595593803067316
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 7,
             "observed_positive": 1,
-            "predicted_mass": 3.365645636119339
+            "predicted_mass": 3.365643155826726
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 19,
             "observed_positive": 5,
-            "predicted_mass": 10.037619352112703
+            "predicted_mass": 10.037674464041185
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 29,
             "observed_positive": 10,
-            "predicted_mass": 16.720056599343238
+            "predicted_mass": 16.72012150294351
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 60,
             "observed_positive": 23,
-            "predicted_mass": 37.566262791566814
+            "predicted_mass": 37.566356756491686
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 71,
             "observed_positive": 42,
-            "predicted_mass": 47.935153241760595
+            "predicted_mass": 47.93522343864552
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 89,
             "observed_positive": 66,
-            "predicted_mass": 64.88940209589643
+            "predicted_mass": 64.8894644997582
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 100,
             "observed_positive": 89,
-            "predicted_mass": 77.45538356373739
+            "predicted_mass": 77.45540357305676
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 106,
             "observed_positive": 102,
-            "predicted_mass": 87.26058884924888
+            "predicted_mass": 87.2605213624521
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 70,
             "observed_positive": 69,
-            "predicted_mass": 61.05545491359628
+            "predicted_mass": 61.05534078635626
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 26,
             "observed_positive": 26,
-            "predicted_mass": 23.840428495640943
+            "predicted_mass": 23.840404926165643
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.9602074707097332
+            "predicted_mass": 0.9602063839654682
           }
         ],
         "origin_mass_error": 1.2212453270876722e-15,
@@ -4884,18 +4884,18 @@
           "path": "coverage.json",
           "sha256": "a2d5af55f99b94189fc36c8b276bfae91d568e904c5c9feefb8f0ca737a2d9a7"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/coverage.json",
         "head_pointer": "/heads/q",
         "optional_features_pointer": "/optional_features/q",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.4582137090037577,
+        "head_solve_wall_seconds": 0.9142561670159921,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2558,
         "expanded_origin_rows": 434,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -5579,9 +5579,9 @@
         "attempts": 434,
         "positive": 321,
         "class_fraction": 0.7396313364055299,
-        "mean_predicted_probability": 0.7396307891016383,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4826002977833336,
-        "mean_outcome_only_negative_log_likelihood": 0.4826002977833336,
+        "mean_predicted_probability": 0.7396313328409133,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4825996876192089,
+        "mean_outcome_only_negative_log_likelihood": 0.4825996876192089,
         "reliability": [
           {
             "lower": 0.0,
@@ -5623,7 +5623,7 @@
             "upper": 0.3,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.29769260378562223
+            "predicted_mass": 0.29768979465638135
           },
           {
             "lower": 0.3,
@@ -5637,91 +5637,91 @@
             "upper": 0.4,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.39023045451018484
+            "predicted_mass": 0.3902302968477498
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 2,
             "observed_positive": 1,
-            "predicted_mass": 0.846082527609204
+            "predicted_mass": 0.8460923362311532
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 7,
             "observed_positive": 2,
-            "predicted_mass": 3.3689432545997837
+            "predicted_mass": 3.368980258095616
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 15,
             "observed_positive": 3,
-            "predicted_mass": 7.8540547744757205
+            "predicted_mass": 7.854139794203646
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 27,
             "observed_positive": 8,
-            "predicted_mass": 15.595503677347255
+            "predicted_mass": 15.59548694630828
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 28,
             "observed_positive": 12,
-            "predicted_mass": 17.513415305274663
+            "predicted_mass": 17.513457954066425
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 58,
             "observed_positive": 40,
-            "predicted_mass": 39.1565115165692
+            "predicted_mass": 39.15663862075257
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 76,
             "observed_positive": 58,
-            "predicted_mass": 55.36912250589826
+            "predicted_mass": 55.36914870881743
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 79,
             "observed_positive": 64,
-            "predicted_mass": 61.2372883534591
+            "predicted_mass": 61.2371881675455
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 76,
             "observed_positive": 69,
-            "predicted_mass": 62.66492422524673
+            "predicted_mass": 62.66495614977434
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 46,
             "observed_positive": 46,
-            "predicted_mass": 40.12648622258356
+            "predicted_mass": 40.12649228791027
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 17,
             "observed_positive": 17,
-            "predicted_mass": 15.623702442940218
+            "predicted_mass": 15.623692735329477
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.9558046058115506
+            "predicted_mass": 0.9558044024175517
           }
         ],
         "origin_mass_error": 0.0,
@@ -5757,18 +5757,18 @@
           "path": "coverage.json",
           "sha256": "a2d5af55f99b94189fc36c8b276bfae91d568e904c5c9feefb8f0ca737a2d9a7"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/coverage.json",
         "head_pointer": "/heads/r",
         "optional_features_pointer": "/optional_features/r",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.44367424998199567,
+        "head_solve_wall_seconds": 0.7707693330012262,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2558,
         "expanded_origin_rows": 321,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -6452,9 +6452,9 @@
         "attempts": 321,
         "positive": 235,
         "class_fraction": 0.7320872274143302,
-        "mean_predicted_probability": 0.7320877266438025,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4671787158141623,
-        "mean_outcome_only_negative_log_likelihood": 0.4671787158141623,
+        "mean_predicted_probability": 0.7320872211143663,
+        "mean_imputation_weighted_negative_log_likelihood": 0.467178193448307,
+        "mean_outcome_only_negative_log_likelihood": 0.467178193448307,
         "reliability": [
           {
             "lower": 0.0,
@@ -6510,84 +6510,84 @@
             "upper": 0.4,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.365481033672147
+            "predicted_mass": 0.3654911815067924
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 6,
             "observed_positive": 0,
-            "predicted_mass": 2.6011378365686744
+            "predicted_mass": 2.6011411487071636
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 6,
             "observed_positive": 1,
-            "predicted_mass": 2.8575562608496408
+            "predicted_mass": 2.8575385386332037
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 9,
             "observed_positive": 1,
-            "predicted_mass": 4.754983451069793
+            "predicted_mass": 4.754955471059157
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 16,
             "observed_positive": 3,
-            "predicted_mass": 9.231740467419625
+            "predicted_mass": 9.231719435808017
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 33,
             "observed_positive": 17,
-            "predicted_mass": 20.511718150408836
+            "predicted_mass": 20.511658050569235
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 54,
             "observed_positive": 36,
-            "predicted_mass": 36.50834937097013
+            "predicted_mass": 36.50828293478414
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 38,
             "observed_positive": 28,
-            "predicted_mass": 27.634263135270555
+            "predicted_mass": 27.63423922806457
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 57,
             "observed_positive": 52,
-            "predicted_mass": 44.23184902122331
+            "predicted_mass": 44.23183799192798
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 55,
             "observed_positive": 52,
-            "predicted_mass": 45.46497743614051
+            "predicted_mass": 45.46500308102485
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 30,
             "observed_positive": 29,
-            "predicted_mass": 26.147736656242703
+            "predicted_mass": 26.147751620438807
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 16,
             "observed_positive": 16,
-            "predicted_mass": 14.690367432824662
+            "predicted_mass": 14.690379295187682
           },
           {
             "lower": 0.95,
@@ -6632,18 +6632,18 @@
           "path": "coverage.json",
           "sha256": "a2d5af55f99b94189fc36c8b276bfae91d568e904c5c9feefb8f0ca737a2d9a7"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/coverage.json",
         "head_pointer": "/heads/g",
         "optional_features_pointer": "/optional_features/g",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 1.0808881670236588,
-        "actual_inner_solves": 8,
+        "head_solve_wall_seconds": 2.767942957987543,
+        "actual_inner_solves": 10,
         "coefficient_coordinates": 2744,
         "expanded_origin_rows": 235,
         "candidate_branches": 2099,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -7329,72 +7329,72 @@
         "attempts": 235,
         "positive": 23,
         "class_fraction": 0.09787234042553192,
-        "mean_predicted_probability": 0.0949968874731996,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4185752585857051,
-        "mean_outcome_only_negative_log_likelihood": 0.23989033712038776,
+        "mean_predicted_probability": 0.09499652642734262,
+        "mean_imputation_weighted_negative_log_likelihood": 0.41857428768850835,
+        "mean_outcome_only_negative_log_likelihood": 0.23988988334089661,
         "reliability": [
           {
             "lower": 0.0,
             "upper": 0.05,
             "count": 42,
             "observed_positive": 0,
-            "predicted_mass": 1.7038911980722622
+            "predicted_mass": 1.703907519892573
           },
           {
             "lower": 0.05,
             "upper": 0.1,
             "count": 120,
             "observed_positive": 3,
-            "predicted_mass": 8.795457808543727
+            "predicted_mass": 8.795397144540953
           },
           {
             "lower": 0.1,
             "upper": 0.15,
             "count": 42,
             "observed_positive": 4,
-            "predicted_mass": 5.037686874724003
+            "predicted_mass": 5.037641780093397
           },
           {
             "lower": 0.15,
             "upper": 0.2,
             "count": 19,
             "observed_positive": 6,
-            "predicted_mass": 3.336879262028116
+            "predicted_mass": 3.3368743665569043
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 3,
             "observed_positive": 2,
-            "predicted_mass": 0.638797240207758
+            "predicted_mass": 0.6387928694835875
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 4,
             "observed_positive": 3,
-            "predicted_mass": 1.0537447536660596
+            "predicted_mass": 1.0537547427264382
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 3,
             "observed_positive": 3,
-            "predicted_mass": 0.9748067574249397
+            "predicted_mass": 0.9748129491310117
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.38126900351634135
+            "predicted_mass": 0.38126530441116707
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.40173565801870287
+            "predicted_mass": 0.401737033589482
           },
           {
             "lower": 0.45,
@@ -7505,18 +7505,18 @@
           "path": "coverage.json",
           "sha256": "8e8bdb1dc3360cb3941266c0999fa42aef89dcbde8c000eb0a9c4f6d84d243cf"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/coverage.json",
         "head_pointer": "/heads/u",
         "optional_features_pointer": "/optional_features/u",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 11.5860632500262,
+        "head_solve_wall_seconds": 17.531155625008978,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2547,
         "expanded_origin_rows": 103440,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 216,
@@ -8154,9 +8154,9 @@
         "attempts": 605,
         "positive": 448,
         "class_fraction": 0.740495867768595,
-        "mean_predicted_probability": 0.740495977753274,
-        "mean_imputation_weighted_negative_log_likelihood": 0.43985447261207133,
-        "mean_outcome_only_negative_log_likelihood": 0.43985447261207133,
+        "mean_predicted_probability": 0.7404958681830164,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4398549215944343,
+        "mean_outcome_only_negative_log_likelihood": 0.4398549215944343,
         "reliability": [
           {
             "lower": 0.0,
@@ -8184,119 +8184,119 @@
             "upper": 0.2,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.17662555671625674
+            "predicted_mass": 0.17662639517663592
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 3,
             "observed_positive": 0,
-            "predicted_mass": 0.703208823489516
+            "predicted_mass": 0.7032129734355346
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.2721920716661232
+            "predicted_mass": 0.2721937997668887
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 7,
             "observed_positive": 0,
-            "predicted_mass": 2.241920166964693
+            "predicted_mass": 2.2419374132067547
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 5,
             "observed_positive": 1,
-            "predicted_mass": 1.8938433979274922
+            "predicted_mass": 1.8938695005702313
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 7,
             "observed_positive": 1,
-            "predicted_mass": 2.972528744361926
+            "predicted_mass": 2.972549707456139
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 18,
             "observed_positive": 2,
-            "predicted_mass": 8.604953037028492
+            "predicted_mass": 8.604969825973878
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 25,
             "observed_positive": 3,
-            "predicted_mass": 13.284853755192277
+            "predicted_mass": 13.284840692852072
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 37,
             "observed_positive": 16,
-            "predicted_mass": 21.250950480148653
+            "predicted_mass": 21.250932525868187
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 32,
             "observed_positive": 16,
-            "predicted_mass": 19.97607013021343
+            "predicted_mass": 19.9761149212988
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 48,
             "observed_positive": 36,
-            "predicted_mass": 32.4345885630044
+            "predicted_mass": 32.43451990648191
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 89,
             "observed_positive": 70,
-            "predicted_mass": 64.60203148629373
+            "predicted_mass": 64.60194843553138
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 97,
             "observed_positive": 78,
-            "predicted_mass": 75.2263622848857
+            "predicted_mass": 75.226402290739
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 96,
             "observed_positive": 89,
-            "predicted_mass": 79.11976056009894
+            "predicted_mass": 79.11972870053216
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 74,
             "observed_positive": 71,
-            "predicted_mass": 64.71893624445698
+            "predicted_mass": 64.71890310849678
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 48,
             "observed_positive": 48,
-            "predicted_mass": 44.14559900332882
+            "predicted_mass": 44.14559451385456
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 17,
             "observed_positive": 17,
-            "predicted_mass": 16.375642234953393
+            "predicted_mass": 16.37565553948395
           }
         ],
         "origin_mass_error": 2.6645352591003757e-15,
@@ -8332,18 +8332,18 @@
           "path": "coverage.json",
           "sha256": "8e8bdb1dc3360cb3941266c0999fa42aef89dcbde8c000eb0a9c4f6d84d243cf"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/coverage.json",
         "head_pointer": "/heads/q",
         "optional_features_pointer": "/optional_features/q",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.5876207500114106,
+        "head_solve_wall_seconds": 0.7425514170317911,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2586,
         "expanded_origin_rows": 448,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -9032,9 +9032,9 @@
         "attempts": 448,
         "positive": 312,
         "class_fraction": 0.6964285714285714,
-        "mean_predicted_probability": 0.6964264825228091,
-        "mean_imputation_weighted_negative_log_likelihood": 0.502263068601818,
-        "mean_outcome_only_negative_log_likelihood": 0.502263068601818,
+        "mean_predicted_probability": 0.6964285824834785,
+        "mean_imputation_weighted_negative_log_likelihood": 0.502263995508193,
+        "mean_outcome_only_negative_log_likelihood": 0.502263995508193,
         "reliability": [
           {
             "lower": 0.0,
@@ -9083,98 +9083,98 @@
             "upper": 0.35,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.3136750734417662
+            "predicted_mass": 0.3136700513541558
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 5,
             "observed_positive": 0,
-            "predicted_mass": 1.8368944855570428
+            "predicted_mass": 1.8368944748406926
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 10,
             "observed_positive": 3,
-            "predicted_mass": 4.307371257621629
+            "predicted_mass": 4.307417298968828
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 19,
             "observed_positive": 4,
-            "predicted_mass": 9.044387020216046
+            "predicted_mass": 9.044426364610148
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 31,
             "observed_positive": 7,
-            "predicted_mass": 16.362132315199236
+            "predicted_mass": 16.36224419130314
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 39,
             "observed_positive": 18,
-            "predicted_mass": 22.49319440842546
+            "predicted_mass": 22.4933046099688
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 41,
             "observed_positive": 26,
-            "predicted_mass": 25.663720264090486
+            "predicted_mass": 25.663774545570803
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 59,
             "observed_positive": 39,
-            "predicted_mass": 39.907030652256694
+            "predicted_mass": 39.907207276455935
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 77,
             "observed_positive": 62,
-            "predicted_mass": 55.694639060494175
+            "predicted_mass": 55.69478393621283
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 67,
             "observed_positive": 57,
-            "predicted_mass": 51.966099888954
+            "predicted_mass": 51.96623567413304
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 51,
             "observed_positive": 48,
-            "predicted_mass": 41.93517547662961
+            "predicted_mass": 41.93529390152482
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 36,
             "observed_positive": 36,
-            "predicted_mass": 31.32628383911574
+            "predicted_mass": 31.32630182720726
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 11,
             "observed_positive": 11,
-            "predicted_mass": 10.188821674432045
+            "predicted_mass": 10.188812301395762
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.9596387537846061
+            "predicted_mass": 0.9596384990521603
           }
         ],
         "origin_mass_error": 0.0,
@@ -9210,18 +9210,18 @@
           "path": "coverage.json",
           "sha256": "8e8bdb1dc3360cb3941266c0999fa42aef89dcbde8c000eb0a9c4f6d84d243cf"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/coverage.json",
         "head_pointer": "/heads/r",
         "optional_features_pointer": "/optional_features/r",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.5524783750297502,
+        "head_solve_wall_seconds": 0.6893571669934317,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2586,
         "expanded_origin_rows": 312,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -9904,9 +9904,9 @@
         "attempts": 312,
         "positive": 250,
         "class_fraction": 0.8012820512820513,
-        "mean_predicted_probability": 0.8012811754421523,
-        "mean_imputation_weighted_negative_log_likelihood": 0.39235482253541787,
-        "mean_outcome_only_negative_log_likelihood": 0.39235482253541787,
+        "mean_predicted_probability": 0.8012820612416703,
+        "mean_imputation_weighted_negative_log_likelihood": 0.3923540109694409,
+        "mean_outcome_only_negative_log_likelihood": 0.3923540109694409,
         "reliability": [
           {
             "lower": 0.0,
@@ -9969,84 +9969,84 @@
             "upper": 0.45,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.42511277482446924
+            "predicted_mass": 0.42512870467489255
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.45473320993026983
+            "predicted_mass": 0.45472665797837014
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 4,
             "observed_positive": 0,
-            "predicted_mass": 2.1130613202497703
+            "predicted_mass": 2.1130512706756366
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 12,
             "observed_positive": 3,
-            "predicted_mass": 6.983688095724936
+            "predicted_mass": 6.98366013453661
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 12,
             "observed_positive": 4,
-            "predicted_mass": 7.6016235277407445
+            "predicted_mass": 7.601585713486822
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 20,
             "observed_positive": 7,
-            "predicted_mass": 13.504381754610616
+            "predicted_mass": 13.504364457993676
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 39,
             "observed_positive": 30,
-            "predicted_mass": 28.366651032192284
+            "predicted_mass": 28.366656177596273
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 42,
             "observed_positive": 34,
-            "predicted_mass": 32.56787622869156
+            "predicted_mass": 32.56792140288586
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 67,
             "observed_positive": 61,
-            "predicted_mass": 55.393190390319326
+            "predicted_mass": 55.393257715636594
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 52,
             "observed_positive": 50,
-            "predicted_mass": 45.48911484774819
+            "predicted_mass": 45.48920770526919
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 58,
             "observed_positive": 57,
-            "predicted_mass": 53.25360983091471
+            "predicted_mass": 53.25375536896232
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 4,
             "observed_positive": 4,
-            "predicted_mass": 3.846683725004599
+            "predicted_mass": 3.846687797704918
           }
         ],
         "origin_mass_error": 0.0,
@@ -10084,18 +10084,18 @@
           "path": "coverage.json",
           "sha256": "8e8bdb1dc3360cb3941266c0999fa42aef89dcbde8c000eb0a9c4f6d84d243cf"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/coverage.json",
         "head_pointer": "/heads/g",
         "optional_features_pointer": "/optional_features/g",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 1.0373013750067912,
-        "actual_inner_solves": 8,
+        "head_solve_wall_seconds": 2.1102524579619057,
+        "actual_inner_solves": 10,
         "coefficient_coordinates": 2794,
         "expanded_origin_rows": 250,
         "candidate_branches": 2190,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -10780,72 +10780,72 @@
         "attempts": 250,
         "positive": 28,
         "class_fraction": 0.112,
-        "mean_predicted_probability": 0.10996150482435221,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4630627838766399,
-        "mean_outcome_only_negative_log_likelihood": 0.24239055597187611,
+        "mean_predicted_probability": 0.10995993892602411,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4630613897109191,
+        "mean_outcome_only_negative_log_likelihood": 0.2423894751600756,
         "reliability": [
           {
             "lower": 0.0,
             "upper": 0.05,
             "count": 46,
             "observed_positive": 0,
-            "predicted_mass": 1.7835150412355871
+            "predicted_mass": 1.783382618849549
           },
           {
             "lower": 0.05,
             "upper": 0.1,
             "count": 121,
             "observed_positive": 3,
-            "predicted_mass": 8.962923329396373
+            "predicted_mass": 8.962650211364924
           },
           {
             "lower": 0.1,
             "upper": 0.15,
             "count": 43,
             "observed_positive": 5,
-            "predicted_mass": 5.182876896151222
+            "predicted_mass": 5.182840885533424
           },
           {
             "lower": 0.15,
             "upper": 0.2,
             "count": 16,
             "observed_positive": 3,
-            "predicted_mass": 2.7303824262392054
+            "predicted_mass": 2.7304228401728423
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 6,
             "observed_positive": 3,
-            "predicted_mass": 1.3167742103980515
+            "predicted_mass": 1.3168101307010511
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 5,
             "observed_positive": 2,
-            "predicted_mass": 1.3322125033335488
+            "predicted_mass": 1.3321975428621928
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.3299907216446597
+            "predicted_mass": 0.32998710821321325
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 4,
             "observed_positive": 4,
-            "predicted_mass": 1.4816658225235755
+            "predicted_mass": 1.4816639086369237
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 3,
             "observed_positive": 2,
-            "predicted_mass": 1.2722231502431869
+            "predicted_mass": 1.272211547950029
           },
           {
             "lower": 0.45,
@@ -10859,7 +10859,7 @@
             "upper": 0.55,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 1.073931068434415
+            "predicted_mass": 1.0739208662196988
           },
           {
             "lower": 0.55,
@@ -10873,7 +10873,7 @@
             "upper": 0.65,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 1.279497721133827
+            "predicted_mass": 1.2795036671082078
           },
           {
             "lower": 0.65,
@@ -10887,7 +10887,7 @@
             "upper": 0.75,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.744383315354402
+            "predicted_mass": 0.7443934038939708
           },
           {
             "lower": 0.75,
@@ -10956,18 +10956,18 @@
           "path": "coverage.json",
           "sha256": "8d8d83614f5fc1ab7883b96c7f00d4ab50968e2d19795e899ab4937373c38428"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/coverage.json",
         "head_pointer": "/heads/u",
         "optional_features_pointer": "/optional_features/u",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 29.248294708959293,
+        "head_solve_wall_seconds": 32.39671520801494,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2597,
         "expanded_origin_rows": 202147,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 216,
@@ -11601,9 +11601,9 @@
         "attempts": 1062,
         "positive": 755,
         "class_fraction": 0.7109227871939736,
-        "mean_predicted_probability": 0.7109219350584278,
-        "mean_imputation_weighted_negative_log_likelihood": 0.49535797502746476,
-        "mean_outcome_only_negative_log_likelihood": 0.49535797502746476,
+        "mean_predicted_probability": 0.7109227693368627,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4953582339807485,
+        "mean_outcome_only_negative_log_likelihood": 0.4953582339807485,
         "reliability": [
           {
             "lower": 0.0,
@@ -11638,112 +11638,112 @@
             "upper": 0.25,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.24248729232542626
+            "predicted_mass": 0.24248286225951873
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 2,
             "observed_positive": 0,
-            "predicted_mass": 0.5338785850104137
+            "predicted_mass": 0.5338742641842177
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 6,
             "observed_positive": 0,
-            "predicted_mass": 1.9240314552019768
+            "predicted_mass": 1.9240296688306602
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 10,
             "observed_positive": 0,
-            "predicted_mass": 3.8389527793178635
+            "predicted_mass": 3.8389341941489485
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 11,
             "observed_positive": 1,
-            "predicted_mass": 4.7068871372531955
+            "predicted_mass": 4.706887125611864
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 25,
             "observed_positive": 8,
-            "predicted_mass": 11.881225060685077
+            "predicted_mass": 11.881189066726478
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 39,
             "observed_positive": 13,
-            "predicted_mass": 20.638855591930447
+            "predicted_mass": 20.6389065882213
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 89,
             "observed_positive": 35,
-            "predicted_mass": 51.33533328027871
+            "predicted_mass": 51.33548994646485
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 115,
             "observed_positive": 53,
-            "predicted_mass": 71.6790558021097
+            "predicted_mass": 71.67933045554004
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 157,
             "observed_positive": 100,
-            "predicted_mass": 105.87581719293104
+            "predicted_mass": 105.87598520216439
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 178,
             "observed_positive": 132,
-            "predicted_mass": 129.34239726477222
+            "predicted_mass": 129.34256912550933
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 164,
             "observed_positive": 150,
-            "predicted_mass": 127.12822964654003
+            "predicted_mass": 127.12843546663706
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 137,
             "observed_positive": 135,
-            "predicted_mass": 112.62198365592326
+            "predicted_mass": 112.62201180085135
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 96,
             "observed_positive": 96,
-            "predicted_mass": 83.84909709147358
+            "predicted_mass": 83.84904640275698
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 31,
             "observed_positive": 31,
-            "predicted_mass": 28.44757221946987
+            "predicted_mass": 28.447517844797577
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.9532909768275215
+            "predicted_mass": 0.9532910210435953
           }
         ],
         "origin_mass_error": 2.6645352591003757e-15,
@@ -11779,18 +11779,18 @@
           "path": "coverage.json",
           "sha256": "8d8d83614f5fc1ab7883b96c7f00d4ab50968e2d19795e899ab4937373c38428"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/coverage.json",
         "head_pointer": "/heads/q",
         "optional_features_pointer": "/optional_features/q",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 1.1688180839992128,
+        "head_solve_wall_seconds": 1.2183190410141833,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2638,
         "expanded_origin_rows": 755,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -12480,9 +12480,9 @@
         "attempts": 755,
         "positive": 494,
         "class_fraction": 0.6543046357615894,
-        "mean_predicted_probability": 0.65430826882648,
-        "mean_imputation_weighted_negative_log_likelihood": 0.5638770080176323,
-        "mean_outcome_only_negative_log_likelihood": 0.5638770080176323,
+        "mean_predicted_probability": 0.654304635679333,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5638770827926864,
+        "mean_outcome_only_negative_log_likelihood": 0.5638770827926864,
         "reliability": [
           {
             "lower": 0.0,
@@ -12510,7 +12510,7 @@
             "upper": 0.2,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.18784989897925225
+            "predicted_mass": 0.18783932517940458
           },
           {
             "lower": 0.2,
@@ -12524,98 +12524,98 @@
             "upper": 0.3,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.2590222999647325
+            "predicted_mass": 0.25901096209813107
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 5,
             "observed_positive": 0,
-            "predicted_mass": 1.6461932448400909
+            "predicted_mass": 1.6461377439884788
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 6,
             "observed_positive": 1,
-            "predicted_mass": 2.2723145801302165
+            "predicted_mass": 2.2722704169092647
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 18,
             "observed_positive": 6,
-            "predicted_mass": 7.696398125037552
+            "predicted_mass": 7.696251244937529
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 39,
             "observed_positive": 12,
-            "predicted_mass": 18.589717130939903
+            "predicted_mass": 18.589475707895016
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 53,
             "observed_positive": 16,
-            "predicted_mass": 27.983622415794436
+            "predicted_mass": 27.983414388576605
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 88,
             "observed_positive": 34,
-            "predicted_mass": 50.927943164888106
+            "predicted_mass": 50.9275507520316
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 122,
             "observed_positive": 79,
-            "predicted_mass": 76.53441043681632
+            "predicted_mass": 76.53391218333216
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 153,
             "observed_positive": 110,
-            "predicted_mass": 103.31979837713888
+            "predicted_mass": 103.31919638400285
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 131,
             "observed_positive": 108,
-            "predicted_mass": 94.94847171653836
+            "predicted_mass": 94.94814181623262
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 91,
             "observed_positive": 82,
-            "predicted_mass": 70.31149956073837
+            "predicted_mass": 70.31139071946195
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 34,
             "observed_positive": 33,
-            "predicted_mass": 27.95847376250009
+            "predicted_mass": 27.958406058645664
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 10,
             "observed_positive": 10,
-            "predicted_mass": 8.630593520049896
+            "predicted_mass": 8.630580249713178
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 3,
             "observed_positive": 3,
-            "predicted_mass": 2.7364347296361267
+            "predicted_mass": 2.736421984891858
           },
           {
             "lower": 0.95,
@@ -12658,18 +12658,18 @@
           "path": "coverage.json",
           "sha256": "8d8d83614f5fc1ab7883b96c7f00d4ab50968e2d19795e899ab4937373c38428"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/coverage.json",
         "head_pointer": "/heads/r",
         "optional_features_pointer": "/optional_features/r",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.9716909169801511,
+        "head_solve_wall_seconds": 0.9341154160210863,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2638,
         "expanded_origin_rows": 494,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -13359,9 +13359,9 @@
         "attempts": 494,
         "positive": 390,
         "class_fraction": 0.7894736842105263,
-        "mean_predicted_probability": 0.7894733248640341,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4244433198482022,
-        "mean_outcome_only_negative_log_likelihood": 0.4244433198482022,
+        "mean_predicted_probability": 0.7894736738090892,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4244439392211078,
+        "mean_outcome_only_negative_log_likelihood": 0.4244439392211078,
         "reliability": [
           {
             "lower": 0.0,
@@ -13417,91 +13417,91 @@
             "upper": 0.4,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.38367225749948725
+            "predicted_mass": 0.38368048845439756
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 3,
             "observed_positive": 0,
-            "predicted_mass": 1.3032202427665485
+            "predicted_mass": 1.3032360084057275
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 8,
             "observed_positive": 3,
-            "predicted_mass": 3.777995054544231
+            "predicted_mass": 3.7779960166133577
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 9,
             "observed_positive": 2,
-            "predicted_mass": 4.786808643496615
+            "predicted_mass": 4.786851783061968
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 16,
             "observed_positive": 5,
-            "predicted_mass": 9.16803737904305
+            "predicted_mass": 9.168061091219329
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 15,
             "observed_positive": 11,
-            "predicted_mass": 9.312553780170193
+            "predicted_mass": 9.312566571717166
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 46,
             "observed_positive": 29,
-            "predicted_mass": 31.165612084853763
+            "predicted_mass": 31.16556273705373
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 49,
             "observed_positive": 29,
-            "predicted_mass": 35.63186400573486
+            "predicted_mass": 35.631872658688216
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 81,
             "observed_positive": 56,
-            "predicted_mass": 62.95639188316143
+            "predicted_mass": 62.9564258050556
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 100,
             "observed_positive": 96,
-            "predicted_mass": 82.60786555873482
+            "predicted_mass": 82.60787998844643
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 94,
             "observed_positive": 88,
-            "predicted_mass": 82.25026074519982
+            "predicted_mass": 82.2503031260593
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 60,
             "observed_positive": 59,
-            "predicted_mass": 55.07858494893438
+            "predicted_mass": 55.07860045977146
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 12,
             "observed_positive": 12,
-            "predicted_mass": 11.576955898693651
+            "predicted_mass": 11.576958127143367
           }
         ],
         "origin_mass_error": 0.0,
@@ -13539,18 +13539,18 @@
           "path": "coverage.json",
           "sha256": "8d8d83614f5fc1ab7883b96c7f00d4ab50968e2d19795e899ab4937373c38428"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/coverage.json",
         "head_pointer": "/heads/g",
         "optional_features_pointer": "/optional_features/g",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 2.851007541990839,
-        "actual_inner_solves": 10,
+        "head_solve_wall_seconds": 3.4503695830353536,
+        "actual_inner_solves": 12,
         "coefficient_coordinates": 2890,
         "expanded_origin_rows": 390,
         "candidate_branches": 3360,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -14242,86 +14242,86 @@
         "attempts": 390,
         "positive": 50,
         "class_fraction": 0.1282051282051282,
-        "mean_predicted_probability": 0.12521258790500467,
-        "mean_imputation_weighted_negative_log_likelihood": 0.5485620290880773,
-        "mean_outcome_only_negative_log_likelihood": 0.3004349104574513,
+        "mean_predicted_probability": 0.12521295064290625,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5485610608982192,
+        "mean_outcome_only_negative_log_likelihood": 0.30043445381178796,
         "reliability": [
           {
             "lower": 0.0,
             "upper": 0.05,
             "count": 33,
             "observed_positive": 0,
-            "predicted_mass": 1.329603485682078
+            "predicted_mass": 1.329594517929694
           },
           {
             "lower": 0.05,
             "upper": 0.1,
             "count": 144,
             "observed_positive": 2,
-            "predicted_mass": 11.084233433070903
+            "predicted_mass": 11.084181311010706
           },
           {
             "lower": 0.1,
             "upper": 0.15,
             "count": 115,
             "observed_positive": 9,
-            "predicted_mass": 14.053739166608157
+            "predicted_mass": 14.05375068006944
           },
           {
             "lower": 0.15,
             "upper": 0.2,
             "count": 40,
             "observed_positive": 11,
-            "predicted_mass": 6.891084464513335
+            "predicted_mass": 6.891126665872397
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 33,
             "observed_positive": 12,
-            "predicted_mass": 7.25413963858687
+            "predicted_mass": 7.254212111818156
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 11,
             "observed_positive": 4,
-            "predicted_mass": 2.945436660012165
+            "predicted_mass": 2.945473953179247
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 8,
             "observed_positive": 6,
-            "predicted_mass": 2.6364307793464565
+            "predicted_mass": 2.6364459585010027
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 0.7582556893313769
+            "predicted_mass": 0.758260858977038
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.40275166102081894
+            "predicted_mass": 0.4027505280161392
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 0.9319403281938967
+            "predicted_mass": 0.9319566775599519
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.545293976585765
+            "predicted_mass": 0.5452974877996604
           },
           {
             "lower": 0.55,
@@ -14418,18 +14418,18 @@
           "path": "coverage.json",
           "sha256": "f6dc440daa66012e04b56b1883714ac5010d5722b45d520572c2a2ee690fc7ef"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/coverage.json",
         "head_pointer": "/heads/u",
         "optional_features_pointer": "/optional_features/u",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 20.788895834004506,
+        "head_solve_wall_seconds": 32.363295707968064,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2634,
         "expanded_origin_rows": 202153,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 216,
@@ -15066,9 +15066,9 @@
         "attempts": 1068,
         "positive": 761,
         "class_fraction": 0.7125468164794008,
-        "mean_predicted_probability": 0.7125461465723224,
-        "mean_imputation_weighted_negative_log_likelihood": 0.49917838746527143,
-        "mean_outcome_only_negative_log_likelihood": 0.49917838746527143,
+        "mean_predicted_probability": 0.7125467660713062,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4991786086119626,
+        "mean_outcome_only_negative_log_likelihood": 0.4991786086119626,
         "reliability": [
           {
             "lower": 0.0,
@@ -15103,105 +15103,105 @@
             "upper": 0.25,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.20169321568094753
+            "predicted_mass": 0.20169169499411777
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 2,
             "observed_positive": 0,
-            "predicted_mass": 0.5634713673702592
+            "predicted_mass": 0.5634747956900337
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 7,
             "observed_positive": 1,
-            "predicted_mass": 2.2445118268755775
+            "predicted_mass": 2.2445233310864356
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 8,
             "observed_positive": 2,
-            "predicted_mass": 3.092617218098847
+            "predicted_mass": 3.0926539337567225
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 10,
             "observed_positive": 2,
-            "predicted_mass": 4.323851360883361
+            "predicted_mass": 4.323903583166929
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 25,
             "observed_positive": 6,
-            "predicted_mass": 11.813298265934447
+            "predicted_mass": 11.813337448738928
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 40,
             "observed_positive": 13,
-            "predicted_mass": 21.122429766431605
+            "predicted_mass": 21.12253625697046
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 77,
             "observed_positive": 29,
-            "predicted_mass": 44.661316259204916
+            "predicted_mass": 44.66147091521434
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 122,
             "observed_positive": 57,
-            "predicted_mass": 76.1691646431067
+            "predicted_mass": 76.16944926470958
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 152,
             "observed_positive": 94,
-            "predicted_mass": 102.81251923454226
+            "predicted_mass": 102.8125391403221
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 180,
             "observed_positive": 131,
-            "predicted_mass": 130.56606887241867
+            "predicted_mass": 130.56613664314352
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 181,
             "observed_positive": 166,
-            "predicted_mass": 140.06639801043497
+            "predicted_mass": 140.0664511538314
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 153,
             "observed_positive": 150,
-            "predicted_mass": 126.20267779908146
+            "predicted_mass": 126.20264185377296
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 85,
             "observed_positive": 85,
-            "predicted_mass": 74.1746428241669
+            "predicted_mass": 74.17453917924892
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 25,
             "observed_positive": 25,
-            "predicted_mass": 22.984623875009405
+            "predicted_mass": 22.98459696950843
           },
           {
             "lower": 0.95,
@@ -15218,43 +15218,43 @@
         "batches": 52
       },
       "resolution": {
-        "status": "failed",
+        "status": "passed",
         "baseline": {
           "path": "resolution/baseline.json",
-          "sha256": "eba5a6916aa03a1dde38cf78b7d27b7fa0c2be9fcbcac812387b174dac0f23b5"
+          "sha256": "920ee9334350cea0bb635506ee1f8d727195237ef29c0cfd4cdf03b2da061825"
         },
         "probe": {
           "path": "resolution/u.json",
-          "sha256": "7080cc55d9444f7967a1051dab2c46ffb102de920a1c70ddb695d49f035d0496"
+          "sha256": "9765e5d8adcb51626e80aac01d5b811db1b74d52af1e964cba4eadff66ef3d4f"
         },
         "comparison": {
-          "base_objective": 568.682340256671,
-          "base_gradient_max": 0.0014993168481669122,
+          "base_objective": 568.6822761604884,
+          "base_gradient_max": 0.00012761744331379887,
           "optimizer_maxiter": 2000,
-          "optimizer_ftol": 1e-11,
+          "optimizer_ftol": 1e-15,
           "optimizer_gtol": 1e-07,
           "em_maxiter": 100,
           "em_relative_tolerance": 1e-09,
           "em_responsibility_tolerance": 1e-07,
-          "tightened_objective": 568.682339856208,
-          "objective_change": -4.0046290905593196e-07,
-          "tightened_gradient_max": 0.00046839915250451725,
-          "gradient_max_change": 0.001404699583746491,
-          "coefficient_max_change": 5.1105488125591236e-05,
-          "coefficient_l2_change": 0.00038791830463185637,
-          "maximum_probability_change": 4.321311468824529e-05,
+          "tightened_objective": 568.682276160352,
+          "objective_change": -1.3642420526593924e-10,
+          "tightened_gradient_max": 7.823290019359774e-06,
+          "gradient_max_change": 0.00012048641939077509,
+          "coefficient_max_change": 1.5999778245935625e-06,
+          "coefficient_l2_change": 1.1164498009130742e-05,
+          "maximum_probability_change": 5.705771846109542e-07,
           "head_maximum_changes": {
-            "u": 4.321311468818978e-05,
+            "u": 5.705771846109542e-07,
             "q": 0.0,
             "r": 0.0,
             "g": 0.0
           },
           "terminal_maximum_changes": {
-            "block": 4.321311468824529e-05,
-            "miss": 1.9479721814541495e-05,
-            "stopped": 9.836061364107418e-06,
-            "continuing": 2.496010190061737e-05,
-            "goal": 3.5742047984899106e-06
+            "block": 5.705771846109542e-07,
+            "miss": 3.253443282558166e-07,
+            "stopped": 1.7729216791884106e-07,
+            "continuing": 3.0248332921756216e-07,
+            "goal": 6.064900311131272e-08
           },
           "evaluated_origins": 115806,
           "evaluated_branches": 897754
@@ -15284,18 +15284,18 @@
           "path": "coverage.json",
           "sha256": "f6dc440daa66012e04b56b1883714ac5010d5722b45d520572c2a2ee690fc7ef"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/coverage.json",
         "head_pointer": "/heads/q",
         "optional_features_pointer": "/optional_features/q",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.6915174159803428,
+        "head_solve_wall_seconds": 1.1907946660066955,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2676,
         "expanded_origin_rows": 761,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -15988,9 +15988,9 @@
         "attempts": 761,
         "positive": 508,
         "class_fraction": 0.6675427069645203,
-        "mean_predicted_probability": 0.6675445579026164,
-        "mean_imputation_weighted_negative_log_likelihood": 0.5497072233106514,
-        "mean_outcome_only_negative_log_likelihood": 0.5497072233106514,
+        "mean_predicted_probability": 0.667542728019374,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5497076739572657,
+        "mean_outcome_only_negative_log_likelihood": 0.5497076739572657,
         "reliability": [
           {
             "lower": 0.0,
@@ -16011,119 +16011,119 @@
             "upper": 0.15,
             "count": 1,
             "observed_positive": 0,
-            "predicted_mass": 0.12047485173157235
+            "predicted_mass": 0.12047322900995526
           },
           {
             "lower": 0.15,
             "upper": 0.2,
             "count": 2,
             "observed_positive": 0,
-            "predicted_mass": 0.35490030090602875
+            "predicted_mass": 0.3548961166204032
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 3,
             "observed_positive": 0,
-            "predicted_mass": 0.72844811734901
+            "predicted_mass": 0.7284377432781552
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 8,
             "observed_positive": 0,
-            "predicted_mass": 2.203923094871251
+            "predicted_mass": 2.2039096012416084
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 5,
             "observed_positive": 1,
-            "predicted_mass": 1.5809185146095563
+            "predicted_mass": 1.5808968873323737
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 12,
             "observed_positive": 3,
-            "predicted_mass": 4.499311742937564
+            "predicted_mass": 4.49926266317535
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 10,
             "observed_positive": 2,
-            "predicted_mass": 4.307855585980219
+            "predicted_mass": 4.307784615682436
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 26,
             "observed_positive": 9,
-            "predicted_mass": 12.403728017698853
+            "predicted_mass": 12.403727834655328
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 40,
             "observed_positive": 15,
-            "predicted_mass": 21.097276934456755
+            "predicted_mass": 21.097219840219324
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 78,
             "observed_positive": 37,
-            "predicted_mass": 45.12624620307353
+            "predicted_mass": 45.126122157482456
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 110,
             "observed_positive": 62,
-            "predicted_mass": 68.971964377388
+            "predicted_mass": 68.9719024354582
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 145,
             "observed_positive": 104,
-            "predicted_mass": 98.0476918223392
+            "predicted_mass": 98.04725503714677
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 122,
             "observed_positive": 94,
-            "predicted_mass": 88.0695585608079
+            "predicted_mass": 88.06938919715031
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 107,
             "observed_positive": 92,
-            "predicted_mass": 82.84747965244188
+            "predicted_mass": 82.84726476362555
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 62,
             "observed_positive": 61,
-            "predicted_mass": 51.00697477014802
+            "predicted_mass": 51.00688756074714
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 21,
             "observed_positive": 20,
-            "predicted_mass": 18.308931535158923
+            "predicted_mass": 18.308879549020478
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 9,
             "observed_positive": 8,
-            "predicted_mass": 8.325724481992786
+            "predicted_mass": 8.325706790897804
           },
           {
             "lower": 0.95,
@@ -16140,43 +16140,43 @@
         "batches": 1
       },
       "resolution": {
-        "status": "failed",
+        "status": "passed",
         "baseline": {
           "path": "resolution/baseline.json",
-          "sha256": "eba5a6916aa03a1dde38cf78b7d27b7fa0c2be9fcbcac812387b174dac0f23b5"
+          "sha256": "920ee9334350cea0bb635506ee1f8d727195237ef29c0cfd4cdf03b2da061825"
         },
         "probe": {
           "path": "resolution/q.json",
-          "sha256": "a7e6c42a04359253eecea17fe5b612872f42d6dcb2681c30eb990c1bc3fa8318"
+          "sha256": "2899651474f2adb96e7f4dbab1a3f8a884c7f1fe96dd82903c8adaf43c2d5757"
         },
         "comparison": {
-          "base_objective": 439.02129698424943,
-          "base_gradient_max": 0.0019360264899337398,
+          "base_objective": 439.0212756188113,
+          "base_gradient_max": 2.718343556784575e-05,
           "optimizer_maxiter": 2000,
-          "optimizer_ftol": 1e-11,
+          "optimizer_ftol": 1e-15,
           "optimizer_gtol": 1e-07,
           "em_maxiter": 100,
           "em_relative_tolerance": 1e-09,
           "em_responsibility_tolerance": 1e-07,
-          "tightened_objective": 439.0212957573791,
-          "objective_change": -1.2268703244444623e-06,
-          "tightened_gradient_max": 0.0016341211119690162,
-          "gradient_max_change": 0.0015034215270686158,
-          "coefficient_max_change": 0.0002229608407991815,
-          "coefficient_l2_change": 0.0013733501665131901,
-          "maximum_probability_change": 6.910204844756684e-05,
+          "tightened_objective": 439.02127561876597,
+          "objective_change": -4.530420483206399e-11,
+          "tightened_gradient_max": 3.7607684587048773e-06,
+          "gradient_max_change": 2.761055705002846e-05,
+          "coefficient_max_change": 6.776603906424872e-07,
+          "coefficient_l2_change": 5.395139540827799e-06,
+          "maximum_probability_change": 4.211498030315397e-07,
           "head_maximum_changes": {
             "u": 0.0,
-            "q": 6.910204844756684e-05,
+            "q": 4.211498030315397e-07,
             "r": 0.0,
             "g": 0.0
           },
           "terminal_maximum_changes": {
             "block": 0.0,
-            "miss": 3.2726211820988116e-05,
-            "stopped": 1.3036251165193802e-05,
-            "continuing": 2.596921256506346e-05,
-            "goal": 1.3527288891923561e-05
+            "miss": 1.847809578126025e-07,
+            "stopped": 6.60021103049413e-08,
+            "continuing": 1.3570404783225243e-07,
+            "goal": 5.587501417103624e-08
           },
           "evaluated_origins": 115806,
           "evaluated_branches": 897754
@@ -16206,18 +16206,18 @@
           "path": "coverage.json",
           "sha256": "f6dc440daa66012e04b56b1883714ac5010d5722b45d520572c2a2ee690fc7ef"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/coverage.json",
         "head_pointer": "/heads/r",
         "optional_features_pointer": "/optional_features/r",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 0.613769166986458,
+        "head_solve_wall_seconds": 1.0279521250049584,
         "actual_inner_solves": 2,
         "coefficient_coordinates": 2676,
         "expanded_origin_rows": 508,
         "candidate_branches": 0,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -16910,9 +16910,9 @@
         "attempts": 508,
         "positive": 401,
         "class_fraction": 0.7893700787401575,
-        "mean_predicted_probability": 0.7893700878451275,
-        "mean_imputation_weighted_negative_log_likelihood": 0.4187672857112982,
-        "mean_outcome_only_negative_log_likelihood": 0.4187672857112982,
+        "mean_predicted_probability": 0.7893700844021049,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4187677442093261,
+        "mean_outcome_only_negative_log_likelihood": 0.4187677442093261,
         "reliability": [
           {
             "lower": 0.0,
@@ -16975,84 +16975,84 @@
             "upper": 0.45,
             "count": 3,
             "observed_positive": 0,
-            "predicted_mass": 1.2813859612959764
+            "predicted_mass": 1.2814042727976531
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 5,
             "observed_positive": 1,
-            "predicted_mass": 2.368064494156929
+            "predicted_mass": 2.3680661944415435
           },
           {
             "lower": 0.5,
             "upper": 0.55,
             "count": 8,
             "observed_positive": 0,
-            "predicted_mass": 4.168562274789375
+            "predicted_mass": 4.168576203340604
           },
           {
             "lower": 0.55,
             "upper": 0.6,
             "count": 21,
             "observed_positive": 3,
-            "predicted_mass": 12.066397734048703
+            "predicted_mass": 12.06640530630706
           },
           {
             "lower": 0.6,
             "upper": 0.65,
             "count": 28,
             "observed_positive": 19,
-            "predicted_mass": 17.62317131365271
+            "predicted_mass": 17.623175694044594
           },
           {
             "lower": 0.65,
             "upper": 0.7,
             "count": 35,
             "observed_positive": 21,
-            "predicted_mass": 23.709967306140836
+            "predicted_mass": 23.709968942044963
           },
           {
             "lower": 0.7,
             "upper": 0.75,
             "count": 53,
             "observed_positive": 35,
-            "predicted_mass": 38.514510862676275
+            "predicted_mass": 38.514503590125685
           },
           {
             "lower": 0.75,
             "upper": 0.8,
             "count": 74,
             "observed_positive": 60,
-            "predicted_mass": 57.45066960669752
+            "predicted_mass": 57.450641293861665
           },
           {
             "lower": 0.8,
             "upper": 0.85,
             "count": 102,
             "observed_positive": 93,
-            "predicted_mass": 84.37088817245647
+            "predicted_mass": 84.37086416970153
           },
           {
             "lower": 0.85,
             "upper": 0.9,
             "count": 125,
             "observed_positive": 115,
-            "predicted_mass": 109.4733906019479
+            "predicted_mass": 109.47339578230147
           },
           {
             "lower": 0.9,
             "upper": 0.95,
             "count": 48,
             "observed_positive": 48,
-            "predicted_mass": 44.1852245715299
+            "predicted_mass": 44.185229891280805
           },
           {
             "lower": 0.95,
             "upper": 1.0,
             "count": 6,
             "observed_positive": 6,
-            "predicted_mass": 5.787771725932128
+            "predicted_mass": 5.787771536021656
           }
         ],
         "origin_mass_error": 0.0,
@@ -17062,43 +17062,43 @@
         "batches": 1
       },
       "resolution": {
-        "status": "failed",
+        "status": "passed",
         "baseline": {
           "path": "resolution/baseline.json",
-          "sha256": "eba5a6916aa03a1dde38cf78b7d27b7fa0c2be9fcbcac812387b174dac0f23b5"
+          "sha256": "920ee9334350cea0bb635506ee1f8d727195237ef29c0cfd4cdf03b2da061825"
         },
         "probe": {
           "path": "resolution/r.json",
-          "sha256": "d9312f4c6688db1145db562be0c7d75c4cf0c38c5270eafbb37bbaec7a6bd267"
+          "sha256": "82182422084b3ca5a08a7079da85faa51714f5719acdfcce5cef7affebd44c87"
         },
         "comparison": {
-          "base_objective": 228.50347610399245,
-          "base_gradient_max": 0.0008786334684964814,
+          "base_objective": 228.503437485251,
+          "base_gradient_max": 4.366231657515485e-05,
           "optimizer_maxiter": 2000,
-          "optimizer_ftol": 1e-11,
+          "optimizer_ftol": 1e-15,
           "optimizer_gtol": 1e-07,
           "em_maxiter": 100,
           "em_relative_tolerance": 1e-09,
           "em_responsibility_tolerance": 1e-07,
-          "tightened_objective": 228.50347587938285,
-          "objective_change": -2.246096073577064e-07,
-          "tightened_gradient_max": 0.00019773541455054763,
-          "gradient_max_change": 0.0009590464946374055,
-          "coefficient_max_change": 0.00010474932385254668,
-          "coefficient_l2_change": 0.0004920796458294604,
-          "maximum_probability_change": 3.992772615246665e-05,
+          "tightened_objective": 228.50343748521777,
+          "objective_change": -3.3224978324142285e-11,
+          "tightened_gradient_max": 3.4469755554253356e-06,
+          "gradient_max_change": 4.633485543470428e-05,
+          "coefficient_max_change": 6.298809469770794e-07,
+          "coefficient_l2_change": 5.794499323480627e-06,
+          "maximum_probability_change": 3.7790996498809903e-07,
           "head_maximum_changes": {
             "u": 0.0,
             "q": 0.0,
-            "r": 3.992772615246665e-05,
+            "r": 3.7790996498809903e-07,
             "g": 0.0
           },
           "terminal_maximum_changes": {
             "block": 0.0,
             "miss": 0.0,
-            "stopped": 1.495188281930293e-05,
-            "continuing": 1.4157308804940705e-05,
-            "goal": 7.719843899134382e-06
+            "stopped": 1.5733907909876166e-07,
+            "continuing": 1.3677658738942e-07,
+            "goal": 3.482687617462066e-08
           },
           "evaluated_origins": 115806,
           "evaluated_branches": 897754
@@ -17130,18 +17130,18 @@
           "path": "coverage.json",
           "sha256": "f6dc440daa66012e04b56b1883714ac5010d5722b45d520572c2a2ee690fc7ef"
         },
-        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/coverage.json",
+        "locator": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/coverage.json",
         "head_pointer": "/heads/g",
         "optional_features_pointer": "/optional_features/g",
         "attempt_dispositions_pointer": "/attempts"
       },
       "costs": {
-        "head_solve_wall_seconds": 1.6324688339955173,
-        "actual_inner_solves": 9,
+        "head_solve_wall_seconds": 3.6371333340066485,
+        "actual_inner_solves": 10,
         "coefficient_coordinates": 2960,
         "expanded_origin_rows": 401,
         "candidate_branches": 3655,
-        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json#/resources"
+        "annual_resource_pointer": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json#/resources"
       },
       "optional_missingness_summary": {
         "columns": 236,
@@ -17837,79 +17837,79 @@
         "attempts": 401,
         "positive": 45,
         "class_fraction": 0.11221945137157108,
-        "mean_predicted_probability": 0.11007746733668734,
-        "mean_imputation_weighted_negative_log_likelihood": 0.47968471089518006,
-        "mean_outcome_only_negative_log_likelihood": 0.26900002859654687,
+        "mean_predicted_probability": 0.11007716125358614,
+        "mean_imputation_weighted_negative_log_likelihood": 0.479683621054591,
+        "mean_outcome_only_negative_log_likelihood": 0.2689996449356144,
         "reliability": [
           {
             "lower": 0.0,
             "upper": 0.05,
             "count": 66,
             "observed_positive": 1,
-            "predicted_mass": 2.6414320279396124
+            "predicted_mass": 2.6414023229988044
           },
           {
             "lower": 0.05,
             "upper": 0.1,
             "count": 159,
             "observed_positive": 3,
-            "predicted_mass": 11.707122912303754
+            "predicted_mass": 11.707083464594982
           },
           {
             "lower": 0.1,
             "upper": 0.15,
             "count": 85,
             "observed_positive": 4,
-            "predicted_mass": 10.308124788385417
+            "predicted_mass": 10.308136354739341
           },
           {
             "lower": 0.15,
             "upper": 0.2,
             "count": 58,
             "observed_positive": 15,
-            "predicted_mass": 9.853020363461493
+            "predicted_mass": 9.853013049663245
           },
           {
             "lower": 0.2,
             "upper": 0.25,
             "count": 16,
             "observed_positive": 9,
-            "predicted_mass": 3.5582227086716296
+            "predicted_mass": 3.5582174770947588
           },
           {
             "lower": 0.25,
             "upper": 0.3,
             "count": 7,
             "observed_positive": 4,
-            "predicted_mass": 1.9022735170379874
+            "predicted_mass": 1.9022687424571612
           },
           {
             "lower": 0.3,
             "upper": 0.35,
             "count": 3,
             "observed_positive": 3,
-            "predicted_mass": 0.9794648587012768
+            "predicted_mass": 0.9794497086444693
           },
           {
             "lower": 0.35,
             "upper": 0.4,
             "count": 2,
             "observed_positive": 1,
-            "predicted_mass": 0.7436065113851698
+            "predicted_mass": 0.7436056089910384
           },
           {
             "lower": 0.4,
             "upper": 0.45,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 0.8560738077158234
+            "predicted_mass": 0.8560603221149421
           },
           {
             "lower": 0.45,
             "upper": 0.5,
             "count": 2,
             "observed_positive": 2,
-            "predicted_mass": 0.9475946216193665
+            "predicted_mass": 0.9475849836596693
           },
           {
             "lower": 0.5,
@@ -17930,7 +17930,7 @@
             "upper": 0.65,
             "count": 1,
             "observed_positive": 1,
-            "predicted_mass": 0.6441282847900915
+            "predicted_mass": 0.6441196277296278
           },
           {
             "lower": 0.65,
@@ -17989,43 +17989,43 @@
         "batches": 1
       },
       "resolution": {
-        "status": "failed",
+        "status": "passed",
         "baseline": {
           "path": "resolution/baseline.json",
-          "sha256": "eba5a6916aa03a1dde38cf78b7d27b7fa0c2be9fcbcac812387b174dac0f23b5"
+          "sha256": "920ee9334350cea0bb635506ee1f8d727195237ef29c0cfd4cdf03b2da061825"
         },
         "probe": {
           "path": "resolution/g.json",
-          "sha256": "0227b5ffc0379543431dcddc7346bf51aa996366f24d82bc13957849777f44e8"
+          "sha256": "73986cbef1096bb8bc0cd1cd169bc2b67d563bcecc278baa2b34c667557dc0b9"
         },
         "comparison": {
-          "base_objective": 205.94250734445131,
-          "base_gradient_max": 0.0006752909252227823,
+          "base_objective": 205.9425280838108,
+          "base_gradient_max": 5.122637081279857e-06,
           "optimizer_maxiter": 2000,
-          "optimizer_ftol": 1e-11,
+          "optimizer_ftol": 1e-15,
           "optimizer_gtol": 1e-07,
           "em_maxiter": 100,
           "em_relative_tolerance": 1e-09,
           "em_responsibility_tolerance": 1e-07,
-          "tightened_objective": 205.94250712077837,
-          "objective_change": -2.2367294150171801e-07,
-          "tightened_gradient_max": 0.00018995253161941533,
-          "gradient_max_change": 0.0006787253840410123,
-          "coefficient_max_change": 0.00021181187291841042,
-          "coefficient_l2_change": 0.0007269790485545912,
-          "maximum_probability_change": 4.302034101383301e-05,
+          "tightened_objective": 205.94252808379076,
+          "objective_change": -2.0037305148434825e-11,
+          "tightened_gradient_max": 2.720859258877051e-06,
+          "gradient_max_change": 6.542165226124455e-06,
+          "coefficient_max_change": 4.261829617213664e-06,
+          "coefficient_l2_change": 4.8824305306992744e-06,
+          "maximum_probability_change": 4.711362476816916e-07,
           "head_maximum_changes": {
             "u": 0.0,
             "q": 0.0,
             "r": 0.0,
-            "g": 4.302034101383301e-05
+            "g": 4.711362476816916e-07
           },
           "terminal_maximum_changes": {
             "block": 0.0,
             "miss": 0.0,
             "stopped": 0.0,
-            "continuing": 1.4049462361082066e-05,
-            "goal": 1.4049462361082066e-05
+            "continuing": 2.092513914364602e-07,
+            "goal": 2.092513914364602e-07
           },
           "evaluated_origins": 115806,
           "evaluated_branches": 897754

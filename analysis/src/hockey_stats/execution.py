@@ -103,8 +103,10 @@ def fit_execution_year(design, previous_state, recipe, output):
 
     require(recipe == RECIPE, 'unsupported execution recipe definition')
     previous = _previous(design, previous_state, recipe)
-    output = output_path(str(output), [str(Path(design.prepared['path']).parent),
-                                      str(Path(design.coaches['path']).parent)])
+    input_roots = [str(Path(design.prepared['path']).parent), str(Path(design.coaches['path']).parent)]
+    if previous is not None:
+        input_roots.append(str(previous.path.parent))
+    output = output_path(str(output), input_roots)
     output.mkdir()
     (output / 'heads').mkdir()
     started = perf_counter()

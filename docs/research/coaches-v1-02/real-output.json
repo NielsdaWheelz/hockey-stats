@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "purpose": "real",
+  "software_status": "pass_binding",
+  "acquisition_status": "complete",
+  "admission": "usable_with_documented_gaps",
+  "artifact": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+  "members": {
+    "coaches.json": {
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670
+    },
+    "coverage.json": {
+      "sha256": "9c9a5084d7e1509d19db04cbbd3f2977d63b380bb1cd0b55103ef29f2fa3feb7",
+      "bytes": 4135
+    },
+    "identities.json": {
+      "sha256": "39ae4a471863f15ed4526c525f9af5c38a6974e6a4cd2419d9dcb22c449d7694",
+      "bytes": 94868
+    },
+    "selection.json": {
+      "sha256": "77d982f6c9bc9e7752f2b33ffa7a5fa61d793d3ac25d0369294bf427f53db05d",
+      "bytes": 2448339
+    }
+  },
+  "implementation": {
+    "git_commit": "947b16d371501bf436b8d876afbad02ac7df1758",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "source_sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+  "identity_table_sha256": "39ae4a471863f15ed4526c525f9af5c38a6974e6a4cd2419d9dcb22c449d7694",
+  "command": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-02",
+    "environment": {
+      "PYTHONPATH": "analysis/src"
+    },
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-m",
+      "hockey_stats.coaches",
+      "--selection",
+      "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/expansion-execution-01/selection.json",
+      "--identities",
+      "analysis/data/coach-identities.json",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01"
+    ],
+    "exit_code": 0,
+    "stdout": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/bind.stdout",
+    "stderr": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/bind.stderr"
+  },
+  "resources": {
+    "wall_seconds": 6.31456458294997,
+    "peak_memory_bytes": 195166208,
+    "output_bytes": 2547342
+  },
+  "total_output_bytes": 41889012,
+  "corpora": [
+    {
+      "season": "20212022",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/corpus.json",
+      "sha256": "30eb12b290ccd9af9eae7ade8c7dcd5f285129b52b646eec3fced3e2628badc8"
+    },
+    {
+      "season": "20222023",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20222023/corpus.json",
+      "sha256": "735c741115725e7c4fe8a28782f352c787895db5eea2123b2b7ec27b4db1e02a"
+    },
+    {
+      "season": "20232024",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json",
+      "sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+    },
+    {
+      "season": "20242025",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/corpus.json",
+      "sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+    },
+    {
+      "season": "20252026",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+      "sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+    }
+  ],
+  "coverage": {
+    "schema_version": 1,
+    "purpose": "real",
+    "seasons": [
+      {
+        "season": "20212022",
+        "games": 1312,
+        "slots": 2624,
+        "capture_counts": {
+          "not_acquired": 0,
+          "captured_2xx": 1312,
+          "captured_non2xx": 0,
+          "incomplete": 0
+        },
+        "parse_counts": {
+          "unavailable": 0,
+          "parsed": 1312,
+          "malformed": 0,
+          "identity_conflict": 0
+        },
+        "assignment_counts": {
+          "resolved": 2624,
+          "source_unavailable": 0,
+          "source_malformed": 0,
+          "source_identity_conflict": 0,
+          "coach_not_reported": 0,
+          "coach_malformed": 0,
+          "identity_unreviewed": 0,
+          "identity_unresolved": 0
+        },
+        "resolved_games": {
+          "both": 1312,
+          "one": 0,
+          "neither": 0
+        },
+        "distinct_coaches": 39
+      },
+      {
+        "season": "20222023",
+        "games": 1312,
+        "slots": 2624,
+        "capture_counts": {
+          "not_acquired": 0,
+          "captured_2xx": 1312,
+          "captured_non2xx": 0,
+          "incomplete": 0
+        },
+        "parse_counts": {
+          "unavailable": 0,
+          "parsed": 1312,
+          "malformed": 0,
+          "identity_conflict": 0
+        },
+        "assignment_counts": {
+          "resolved": 2624,
+          "source_unavailable": 0,
+          "source_malformed": 0,
+          "source_identity_conflict": 0,
+          "coach_not_reported": 0,
+          "coach_malformed": 0,
+          "identity_unreviewed": 0,
+          "identity_unresolved": 0
+        },
+        "resolved_games": {
+          "both": 1312,
+          "one": 0,
+          "neither": 0
+        },
+        "distinct_coaches": 33
+      },
+      {
+        "season": "20232024",
+        "games": 1312,
+        "slots": 2624,
+        "capture_counts": {
+          "not_acquired": 0,
+          "captured_2xx": 1312,
+          "captured_non2xx": 0,
+          "incomplete": 0
+        },
+        "parse_counts": {
+          "unavailable": 0,
+          "parsed": 1312,
+          "malformed": 0,
+          "identity_conflict": 0
+        },
+        "assignment_counts": {
+          "resolved": 2624,
+          "source_unavailable": 0,
+          "source_malformed": 0,
+          "source_identity_conflict": 0,
+          "coach_not_reported": 0,
+          "coach_malformed": 0,
+          "identity_unreviewed": 0,
+          "identity_unresolved": 0
+        },
+        "resolved_games": {
+          "both": 1312,
+          "one": 0,
+          "neither": 0
+        },
+        "distinct_coaches": 39
+      },
+      {
+        "season": "20242025",
+        "games": 1312,
+        "slots": 2624,
+        "capture_counts": {
+          "not_acquired": 0,
+          "captured_2xx": 1312,
+          "captured_non2xx": 0,
+          "incomplete": 0
+        },
+        "parse_counts": {
+          "unavailable": 0,
+          "parsed": 1312,
+          "malformed": 0,
+          "identity_conflict": 0
+        },
+        "assignment_counts": {
+          "resolved": 2624,
+          "source_unavailable": 0,
+          "source_malformed": 0,
+          "source_identity_conflict": 0,
+          "coach_not_reported": 0,
+          "coach_malformed": 0,
+          "identity_unreviewed": 0,
+          "identity_unresolved": 0
+        },
+        "resolved_games": {
+          "both": 1312,
+          "one": 0,
+          "neither": 0
+        },
+        "distinct_coaches": 36
+      },
+      {
+        "season": "20252026",
+        "games": 1312,
+        "slots": 2624,
+        "capture_counts": {
+          "not_acquired": 0,
+          "captured_2xx": 1312,
+          "captured_non2xx": 0,
+          "incomplete": 0
+        },
+        "parse_counts": {
+          "unavailable": 0,
+          "parsed": 1312,
+          "malformed": 0,
+          "identity_conflict": 0
+        },
+        "assignment_counts": {
+          "resolved": 2624,
+          "source_unavailable": 0,
+          "source_malformed": 0,
+          "source_identity_conflict": 0,
+          "coach_not_reported": 0,
+          "coach_malformed": 0,
+          "identity_unreviewed": 0,
+          "identity_unresolved": 0
+        },
+        "resolved_games": {
+          "both": 1312,
+          "one": 0,
+          "neither": 0
+        },
+        "distinct_coaches": 36
+      }
+    ],
+    "retrieval_range": {
+      "first": "2026-10-23T01:48:32.654Z",
+      "last": "2026-10-23T02:47:32.361Z"
+    },
+    "issues": []
+  },
+  "identity_review_complete": true,
+  "distinct_coaches": 65,
+  "source_limitation": "reported head coach at retrieval time; not verified acting bench attendance, tenure, career credit, causal coaching quality or pregame-known information",
+  "scientific_support": "not assessed; this slice prepares source evidence only"
+}

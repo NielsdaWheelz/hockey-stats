@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "purpose": "four complete original core bundles and nine supplemental right-rail originals for reported-coach source, permanent-change and temporary-absence boundaries; source names are not attendance",
+  "copies": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/boxscore/body.bin",
+      "fixture": "captures/2022020744/boxscore/body.bin",
+      "bytes": 13306,
+      "sha256": "4e8315b23e50d6e3a38736fcf1d2e0f48c5ef150b62073d11d0821c88c5139fc"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/boxscore/capture.json",
+      "fixture": "captures/2022020744/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "f5d5d063872a8c22dd05f19b3af8d4b042eb8c584f9c89cd579472e98962d241"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/game-summary/body.bin",
+      "fixture": "captures/2022020744/game-summary/body.bin",
+      "bytes": 34684,
+      "sha256": "ef9ed7bf1f7899eebc9921732ab70228dc1227e0c9e9c2a1b26ef25bc777b9fa"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/game-summary/capture.json",
+      "fixture": "captures/2022020744/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "a8cba59bcc1084e2684e71aea880acdeb9532f0116f5bc3ce8bf07ee1f6f6039"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/landing/body.bin",
+      "fixture": "captures/2022020744/landing/body.bin",
+      "bytes": 8796,
+      "sha256": "d01e677e5414f241749bd340fdcf35c187f29fb86b847f82d54e4b9553555f00"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/landing/capture.json",
+      "fixture": "captures/2022020744/landing/capture.json",
+      "bytes": 659,
+      "sha256": "eaaec01d6cf4c68b5f1dc10b908d4c551f33cf57a2c09e9e3ab58ec7b73d2273"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/play-by-play/body.bin",
+      "fixture": "captures/2022020744/play-by-play/body.bin",
+      "bytes": 107550,
+      "sha256": "592b4116b553c6ea9ef1fbad12b27bbda6641f15aabbd59c5ad3c762363ca721"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/play-by-play/capture.json",
+      "fixture": "captures/2022020744/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "44a5c5479870ed4983fe4f59f1aa96fe7674c9e614c0123288cce0dd9a6a1a4d"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/play-report/body.bin",
+      "fixture": "captures/2022020744/play-report/body.bin",
+      "bytes": 1023189,
+      "sha256": "1d366e6250c5670059af325cf03b61c7208e8a60e89faaf1de3c176f12b0e107"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/play-report/capture.json",
+      "fixture": "captures/2022020744/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "7fbe004d42816b19b48844bd2ddacde33340a6d88a0b9d3acffaf31af1c677bb"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/shifts/body.bin",
+      "fixture": "captures/2022020744/shifts/body.bin",
+      "bytes": 259036,
+      "sha256": "d1d8bae56df7adae5a886e028ac65585f7272039bd11cbd28102436328b71012"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020744/20261011-01/shifts/capture.json",
+      "fixture": "captures/2022020744/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "f2323674c66e60b78eb5ab5763984b6743418f486901f53ea0d754d212abf467"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/boxscore/body.bin",
+      "fixture": "captures/2022020765/boxscore/body.bin",
+      "bytes": 13289,
+      "sha256": "dc594902bf1a8fae90160cd1f7254a20d98c776912f5e5ed58c055f4c4b85bde"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/boxscore/capture.json",
+      "fixture": "captures/2022020765/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "5af5b3192ffebbf0634ffea014b2556306aca97376983d4b03a67d543702be6f"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/game-summary/body.bin",
+      "fixture": "captures/2022020765/game-summary/body.bin",
+      "bytes": 38362,
+      "sha256": "c2db7763e468ec06daa4104b163f5906d0ee7ff9531aa90c226a6ffe5a476ca5"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/game-summary/capture.json",
+      "fixture": "captures/2022020765/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "a6be1d3837a07ec77b7369e09fe80c608527656741671426613a41a092e01e55"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/landing/body.bin",
+      "fixture": "captures/2022020765/landing/body.bin",
+      "bytes": 12060,
+      "sha256": "55a3c98a06f2c9271797a9ebb48b013922cd7f12ecb255e3a44febb6d59a31ea"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/landing/capture.json",
+      "fixture": "captures/2022020765/landing/capture.json",
+      "bytes": 660,
+      "sha256": "257590279b9eb9ce7ff4ec632a10d51e7c4ae60a348aa256c3df8db48ccc1ebd"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/play-by-play/body.bin",
+      "fixture": "captures/2022020765/play-by-play/body.bin",
+      "bytes": 112664,
+      "sha256": "83266c0db01dca0da658f0f7abdf7ae8b8bbdcdbbfd468c1de2ac58e09f32d98"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/play-by-play/capture.json",
+      "fixture": "captures/2022020765/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "0c33fb79c2dc08dd72acdcccd5034e34ff02691b59c0937cdaaa33c4e44739f0"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/play-report/body.bin",
+      "fixture": "captures/2022020765/play-report/body.bin",
+      "bytes": 1035980,
+      "sha256": "5462401643ccdb5dc50567ad86afb990c6dd384ad3b232fab2d07d9ede686544"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/play-report/capture.json",
+      "fixture": "captures/2022020765/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "bbb9f2cf4d246eb728d6e15fe21fcfc3f7c2f05731cedeb3258f29feefde40bf"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/shifts/body.bin",
+      "fixture": "captures/2022020765/shifts/body.bin",
+      "bytes": 271521,
+      "sha256": "29d2b8b637970f16dc4e039b7476d0ef08a9aa145f28dc89fe8c40c069e5a05a"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2022020765/20261011-01/shifts/capture.json",
+      "fixture": "captures/2022020765/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "3346a51b820be448a0294f0bc30a1f510b0259379b9b121e28375a7624445cf5"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/boxscore/body.bin",
+      "fixture": "captures/2023020077/boxscore/body.bin",
+      "bytes": 13431,
+      "sha256": "ceec35340be5135e679ea600753b7bb9e3ac623f5a8e3cca5042191374859b11"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/boxscore/capture.json",
+      "fixture": "captures/2023020077/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "2a2474f151055f394dbfd96977d3858337606b7f02aeba235641f8cc94bcd331"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/game-summary/body.bin",
+      "fixture": "captures/2023020077/game-summary/body.bin",
+      "bytes": 37203,
+      "sha256": "a968784982e8438ee25928d97941c5be1f59946e2c3af869d49abf9438136453"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/game-summary/capture.json",
+      "fixture": "captures/2023020077/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "6ee8481fa4b84c49535079cca81c2cce646af70f78603d7843661054dbe1f766"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/landing/body.bin",
+      "fixture": "captures/2023020077/landing/body.bin",
+      "bytes": 12062,
+      "sha256": "4387d80cd469dd76cdb2f3cc262a60fd1d06495154ae0e3d4f833d258add9139"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/landing/capture.json",
+      "fixture": "captures/2023020077/landing/capture.json",
+      "bytes": 660,
+      "sha256": "3b9d86cedb0a88401063b9d490d64eac6adb9f6243e00897fa854c3dc84b8fd6"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/play-by-play/body.bin",
+      "fixture": "captures/2023020077/play-by-play/body.bin",
+      "bytes": 138587,
+      "sha256": "51a4d083153bb4a4961e84848544d0c4e3494bf3b9b2dfe5d4be55701a8c4dfc"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/play-by-play/capture.json",
+      "fixture": "captures/2023020077/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "1e2780c233e21a4228a521e707af50aa240ce726c681fd0580cb82a41e886a95"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/play-report/body.bin",
+      "fixture": "captures/2023020077/play-report/body.bin",
+      "bytes": 1305044,
+      "sha256": "91e85f1a5ef900d852bd2247d41c9b7c55110a5fd9be9ce253493c72bb6ef27f"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/play-report/capture.json",
+      "fixture": "captures/2023020077/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "347afabb45ce439c807966d0384f6ed943c26c10dba5226301c8f409c0397bbf"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/shifts/body.bin",
+      "fixture": "captures/2023020077/shifts/body.bin",
+      "bytes": 288424,
+      "sha256": "9a59b2ce3630b3e904fe462dd130a47ca23ea525e0c27a60695b0d94fa5d4711"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020077/shifts/capture.json",
+      "fixture": "captures/2023020077/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "ee3b627f7c8592c40640e3115ebe0f40401611989b24bb6d24a565b4aaaa9c51"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/boxscore/body.bin",
+      "fixture": "captures/2023020093/boxscore/body.bin",
+      "bytes": 13477,
+      "sha256": "33bc4d6bcfba5aa14c26f1321a306e750af868851b9116ccc7e3eec3973b368b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/boxscore/capture.json",
+      "fixture": "captures/2023020093/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "a4793f3d16e36a3d4bad1f02d49074c9a9022de8e51859ffa5fee81364817b98"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/game-summary/body.bin",
+      "fixture": "captures/2023020093/game-summary/body.bin",
+      "bytes": 35859,
+      "sha256": "63880327e1ca98acae0d9c81826403f67a150aa06ac62bc52af16bdd1200cf14"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/game-summary/capture.json",
+      "fixture": "captures/2023020093/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "4c1460c3ccfe0d28f0005e1033aa182e859aa00a6635a1f699dd2b956ccdc43d"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/landing/body.bin",
+      "fixture": "captures/2023020093/landing/body.bin",
+      "bytes": 11362,
+      "sha256": "fd218e6091e8c2807c7c92c681e2769281c2997a9e87369a48cfc450b2b067ff"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/landing/capture.json",
+      "fixture": "captures/2023020093/landing/capture.json",
+      "bytes": 660,
+      "sha256": "905ff43a590ea3b2c3efe143292e92c92f8207c73ce91755ed5b29e9bfa487b2"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/play-by-play/body.bin",
+      "fixture": "captures/2023020093/play-by-play/body.bin",
+      "bytes": 112914,
+      "sha256": "fc6c5add40a0f4f2b74e367eecf330eec050572c8807e103cb21afad6dfaa4c4"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/play-by-play/capture.json",
+      "fixture": "captures/2023020093/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "515a6d45f5a1a3ac03e3fc1b7a9fdcb221c5a7bc7c58aa0aeda3d2c6caf05f88"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/play-report/body.bin",
+      "fixture": "captures/2023020093/play-report/body.bin",
+      "bytes": 1062646,
+      "sha256": "ed51a260d975608b167cf44e206fc9c39d5b6d0722cc4865a6fdcc8d26afda64"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/play-report/capture.json",
+      "fixture": "captures/2023020093/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "ed9d395b0b68b542174291eec8ca4c9d9a6fbe58fcd9aec06cc6e543bce6ab43"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/shifts/body.bin",
+      "fixture": "captures/2023020093/shifts/body.bin",
+      "bytes": 269581,
+      "sha256": "4e6a57891c2820bfb9aa635e52c7a8bb1a083582dc0ad200b0a7956a981de690"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020093/shifts/capture.json",
+      "fixture": "captures/2023020093/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "88389333d9e571ce7a94d717ada7a67a60e50777dab0d7c1ad40c63a50ce955e"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020001/right-rail/capture.json",
+      "fixture": "captures/2021020001/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "507563a9d6af64d42ba1493226b8325cce9d077a6edd838852ecf6115f66b700"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020001/right-rail/body.bin",
+      "fixture": "captures/2021020001/right-rail/body.bin",
+      "bytes": 4875,
+      "sha256": "5dcb8ace2121169508313846e4a3e0128bc8cccbeec2832ffe3242a77240cfbb"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020001/right-rail/capture.json",
+      "fixture": "captures/2022020001/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "4241478cf91e30ba0bfeb3ea79dffdf80a0c53f7bb9a8e61be8c41ca1f602007"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020001/right-rail/body.bin",
+      "fixture": "captures/2022020001/right-rail/body.bin",
+      "bytes": 6122,
+      "sha256": "c819ce446b4b69e831b1bb632e73a3472795f4d023ca86e31c546d8c54021d87"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020001/right-rail/capture.json",
+      "fixture": "captures/2023020001/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "114e82c0b0d18994853502beb5439ac46901a04441aa44393d07bb1e6b74689f"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020001/right-rail/body.bin",
+      "fixture": "captures/2023020001/right-rail/body.bin",
+      "bytes": 4205,
+      "sha256": "4a7635daa3d314f13cafd7c02bd7e727c10ce8a7cae107f96493f85edd27af01"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020001/right-rail/capture.json",
+      "fixture": "captures/2024020001/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "1ba99038af21a8d068223e81ae5214536ac92b9fcfb37b19bb4a3f93680bdf8e"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020001/right-rail/body.bin",
+      "fixture": "captures/2024020001/right-rail/body.bin",
+      "bytes": 7012,
+      "sha256": "e022102d3eaddcbb9003587f9b00c72973553ebc5a7fb2513a4814e0b79d5f70"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020001/right-rail/capture.json",
+      "fixture": "captures/2025020001/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "e9558307eaeaf6ab9c938e34e0cc2afed51576464d240996fb4e2deb43903393"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020001/right-rail/body.bin",
+      "fixture": "captures/2025020001/right-rail/body.bin",
+      "bytes": 4550,
+      "sha256": "284a2c05a55228e3bf16fd17478d5695df40f52e75ed0a8cd760e68a20901a28"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020744/right-rail/capture.json",
+      "fixture": "captures/2022020744/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "f8f326a84d92e20f3f775ff5b95a56e0adc6116d883ed45fabe5b8eaa8f3bb9b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020744/right-rail/body.bin",
+      "fixture": "captures/2022020744/right-rail/body.bin",
+      "bytes": 4872,
+      "sha256": "4a91c959dbd09d5b3937eda43487dfbfbe8a37d4d28c8600364eba510442a283"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020765/right-rail/capture.json",
+      "fixture": "captures/2022020765/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "0e2c94b74d3f0ea2bcdb7dc0c1b01814bcb0c88f57d307fceced821d68a1fd23"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020765/right-rail/body.bin",
+      "fixture": "captures/2022020765/right-rail/body.bin",
+      "bytes": 4917,
+      "sha256": "3aa8ec2acbec256caa513ae4456fe271a02b05b3736eb19c2fa971d73eefbbfa"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020077/right-rail/capture.json",
+      "fixture": "captures/2023020077/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "199eecc6a36728fbe1b79d66ef3da5552a38a80bc95ad42dd7aaec2fd7857033"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020077/right-rail/body.bin",
+      "fixture": "captures/2023020077/right-rail/body.bin",
+      "bytes": 4898,
+      "sha256": "a4bbbf9a06b4c87d9d5fbad30a35be6fe0cbfca70b3c62a27b472ba460a1466e"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020093/right-rail/capture.json",
+      "fixture": "captures/2023020093/right-rail/capture.json",
+      "bytes": 665,
+      "sha256": "d4787700a5c9444651a3c39e1a60889c582946c95ecb28f6132aa2c0b10e4c88"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020093/right-rail/body.bin",
+      "fixture": "captures/2023020093/right-rail/body.bin",
+      "bytes": 4906,
+      "sha256": "682f193c3c177002045f48b8f7f6711d78d24e70c1fb0463c7216e8cb8e1bf7b"
+    }
+  ]
+}

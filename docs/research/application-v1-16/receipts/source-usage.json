@@ -1,0 +1,98 @@
+[
+  {
+    "season": "20232024",
+    "player_id": "8481559",
+    "reported_seconds": 2736,
+    "positive_toi_appearances": 2,
+    "reported_shifts": 55,
+    "minutes_per_appearance": 22.8,
+    "original_boxscores": [
+      {
+        "path": "fixtures/captures/2023020012/boxscore/body.bin",
+        "sha256": "f697ce135a3b8bb605d3f64ebf548cedf7c4f34f077f637c2577289693d5b69c",
+        "game_id": "2023020012",
+        "team_id": "1",
+        "toi": "18:54",
+        "shifts": 26
+      },
+      {
+        "path": "fixtures/captures/2023020955/boxscore/body.bin",
+        "sha256": "9d9d69e190db369ab5be78613adbf14d894de8b2a14267b3371cd6b9bc7389b6",
+        "game_id": "2023020955",
+        "team_id": "1",
+        "toi": "26:42",
+        "shifts": 29
+      }
+    ]
+  },
+  {
+    "season": "20242025",
+    "player_id": "8480879",
+    "reported_seconds": 1566,
+    "positive_toi_appearances": 2,
+    "reported_shifts": 35,
+    "minutes_per_appearance": 13.05,
+    "original_boxscores": [
+      {
+        "path": "fixtures/captures/2024020340/boxscore/body.bin",
+        "sha256": "d9c957de44c0438e7f3e1be0369ba70c9ecec6598f482dc229f6dcd6d995a6ca",
+        "game_id": "2024020340",
+        "team_id": "9",
+        "toi": "10:03",
+        "shifts": 14
+      },
+      {
+        "path": "fixtures/captures/2024021235/boxscore/body.bin",
+        "sha256": "21a6f45b3a201756e804d6e06233304fc3d2c46a35f05277677b33b30c634258",
+        "game_id": "2024021235",
+        "team_id": "7",
+        "toi": "16:03",
+        "shifts": 21
+      }
+    ]
+  },
+  {
+    "season": "20242025",
+    "player_id": "8470613",
+    "reported_seconds": 1179,
+    "positive_toi_appearances": 1,
+    "reported_shifts": 24,
+    "minutes_per_appearance": 19.65,
+    "original_boxscores": [
+      {
+        "path": "fixtures/captures/2024021235/boxscore/body.bin",
+        "sha256": "21a6f45b3a201756e804d6e06233304fc3d2c46a35f05277677b33b30c634258",
+        "game_id": "2024021235",
+        "team_id": "12",
+        "toi": "19:39",
+        "shifts": 24
+      }
+    ]
+  },
+  {
+    "season": "20252026",
+    "player_id": "8482093",
+    "reported_seconds": 2335,
+    "positive_toi_appearances": 2,
+    "reported_shifts": 44,
+    "minutes_per_appearance": 19.458333333333332,
+    "original_boxscores": [
+      {
+        "path": "fixtures/captures/2025020544/boxscore/body.bin",
+        "sha256": "67c88988a263b5fd392fef6c72de12dcbfaa2d829c2dab94af3287b71745376e",
+        "game_id": "2025020544",
+        "team_id": "12",
+        "toi": "20:59",
+        "shifts": 22
+      },
+      {
+        "path": "fixtures/captures/2025021094/boxscore/body.bin",
+        "sha256": "33af5a81666033ed5551fc07aacee0f0d1242b86433819c91f81781791a82af1",
+        "game_id": "2025021094",
+        "team_id": "12",
+        "toi": "17:56",
+        "shifts": 22
+      }
+    ]
+  }
+]

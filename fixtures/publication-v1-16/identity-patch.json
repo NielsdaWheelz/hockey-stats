@@ -1,0 +1,1130 @@
+{
+  "purpose": "fixture",
+  "parent": "fixtures/publication-v1-13/results/people.jsonl",
+  "scope": "disposable v1-16 exchange only; frozen parent unchanged",
+  "reason": "the schema-7 reader rejects affiliations without observed or dated dressed-game/game-team support; missing teams remain explicit instead of inventing evidence",
+  "copied_people_before_sha256": "58296163569bb6d92e9df357aeed3e755ff8ec7b068a17a6585b416347165dc2",
+  "copied_people_after_sha256": "29db5f585c604ac1c6f81183e561853eb71a1c0f0a6540fd3067c900c7a738f7",
+  "changes": [
+    {
+      "season": "20232024",
+      "player_id": "9000004",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "TBL",
+            "id": "14"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "player_id": "9000004",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "BUF",
+            "id": "7"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000001",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000002",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000003",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000005",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000006",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000007",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "FLA",
+            "id": "13"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000008",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "FLA",
+            "id": "13"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000009",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "FLA",
+            "id": "13"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000010",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "FLA",
+            "id": "13"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000011",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "FLA",
+            "id": "13"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000012",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "9000013",
+      "before": {
+        "teams": [
+          {
+            "abbreviation": "CHI",
+            "id": "16"
+          }
+        ],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            }
+          ]
+        }
+      },
+      "after": {
+        "teams": [],
+        "identity_support": {
+          "evidence": [
+            {
+              "id": "fixture_source",
+              "kind": "source"
+            }
+          ],
+          "problems": [
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "birth_date"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "age_years"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "height_cm"
+            },
+            {
+              "code": "missing_source",
+              "explanation": "not supplied in compact publication fixture",
+              "field": "handedness"
+            },
+            {
+              "field": "teams",
+              "code": "missing_source",
+              "explanation": "synthetic parent affiliation has no matching observed affiliation or dated dressed-game/game-team evidence"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

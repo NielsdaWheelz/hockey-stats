@@ -1,0 +1,25 @@
+{
+  "candidate_sha256": "69f55adda01d1382ceb122b087963895a5f1d55ecdc3af747ddeb86382f6c241",
+  "requests": [
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200,
+      "bytes": 882171,
+      "wall_ms": 33.14
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200,
+      "bytes": 441875,
+      "wall_ms": 41.25
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200,
+      "bytes": 315825,
+      "wall_ms": 8.21
+    }
+  ],
+  "total_bytes": 1639871,
+  "scope": "one final compact-fixture read sample; no full-season performance claim"
+}

@@ -1,0 +1,1837 @@
+{
+  "player_id": "9000001",
+  "result": {
+    "availability": "provided",
+    "data": {
+      "deployment": {
+        "focal": {
+          "score": {
+            "leading": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "tied": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "trailing": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "unknown": {
+              "seconds": 40,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.4
+              }
+            }
+          },
+          "shift_starts": {
+            "defensive": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            },
+            "neutral": {
+              "count": 1,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.1
+              }
+            },
+            "offensive": {
+              "count": 3,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3
+              }
+            },
+            "on_the_fly": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            },
+            "unknown": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            }
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 100,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "league": {
+          "score": {
+            "leading": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "tied": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "trailing": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "unknown": {
+              "seconds": 40,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.4
+              }
+            }
+          },
+          "shift_starts": {
+            "defensive": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            },
+            "neutral": {
+              "count": 1,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.1
+              }
+            },
+            "offensive": {
+              "count": 3,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3
+              }
+            },
+            "on_the_fly": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            },
+            "unknown": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            }
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 100,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "team": {
+          "score": {
+            "leading": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "tied": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "trailing": {
+              "seconds": 20,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3333333333333333
+              }
+            },
+            "unknown": {
+              "seconds": 40,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.4
+              }
+            }
+          },
+          "shift_starts": {
+            "defensive": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            },
+            "neutral": {
+              "count": 1,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.1
+              }
+            },
+            "offensive": {
+              "count": 3,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.3
+              }
+            },
+            "on_the_fly": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            },
+            "unknown": {
+              "count": 2,
+              "share": {
+                "reason_detail": null,
+                "unavailable_reason": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                },
+                "value": 0.2
+              }
+            }
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 100,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        }
+      },
+      "on_ice_conversion": {
+        "focal": {
+          "goals_against": 1,
+          "goals_for": 1,
+          "on_net_against": 2,
+          "on_net_for": 2,
+          "save_fraction": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.5
+          },
+          "shooting_against": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.5
+          },
+          "shooting_for": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.5
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 2,
+            "events": 2,
+            "included_seconds": 60.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "league": {
+          "goals_against": 3,
+          "goals_for": 3,
+          "on_net_against": 7,
+          "on_net_for": 7,
+          "save_fraction": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.5714285714285714
+          },
+          "shooting_against": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.42857142857142855
+          },
+          "shooting_for": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.42857142857142855
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 6,
+            "events": 6,
+            "included_seconds": 200.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "team": {
+          "goals_against": 1,
+          "goals_for": 2,
+          "on_net_against": 3,
+          "on_net_for": 4,
+          "save_fraction": {
+            "value": 0.6666666666666666,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "shooting_against": {
+            "value": 0.3333333333333333,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "shooting_for": {
+            "value": 0.5,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "support": {
+            "included_seconds": 100,
+            "known_excluded_seconds": 0,
+            "events": 0,
+            "eligible_weight": 0,
+            "unquantified_gap": false,
+            "reason_counts": [],
+            "prior_only": false,
+            "prior_seasons": [],
+            "current_season_information": true,
+            "inferred_inputs": []
+          }
+        }
+      },
+      "on_off_attempts": {
+        "league": {
+          "against_count": 14,
+          "against_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 252.0
+          },
+          "for_count": 14,
+          "for_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 252.0
+          },
+          "seconds": 200.0,
+          "share_minus_half": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 28,
+            "events": 28,
+            "included_seconds": 200.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "off": {
+          "against_count": 2,
+          "against_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 180.0
+          },
+          "for_count": 4,
+          "for_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 360.0
+          },
+          "seconds": 40.0,
+          "share_minus_half": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 16.666666666666664
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 6,
+            "events": 6,
+            "included_seconds": 40.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "on": {
+          "against_count": 3,
+          "against_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 180.0
+          },
+          "for_count": 5,
+          "for_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 300.0
+          },
+          "seconds": 60.0,
+          "share_minus_half": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 12.5
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 8,
+            "events": 8,
+            "included_seconds": 60.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        }
+      },
+      "on_off_goals": {
+        "league": {
+          "against_count": 3,
+          "against_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 54.0
+          },
+          "for_count": 3,
+          "for_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 54.0
+          },
+          "on_net_against": 7,
+          "on_net_for": 7,
+          "seconds": 200.0,
+          "share_minus_half": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 6,
+            "events": 6,
+            "included_seconds": 200.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "off": {
+          "against_count": 0,
+          "against_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "for_count": 1,
+          "for_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 90.0
+          },
+          "on_net_against": 1,
+          "on_net_for": 2,
+          "seconds": 40.0,
+          "share_minus_half": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 50.0
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 1,
+            "events": 1,
+            "included_seconds": 40.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "on": {
+          "against_count": 1,
+          "against_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 60.0
+          },
+          "for_count": 1,
+          "for_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 60.0
+          },
+          "on_net_against": 2,
+          "on_net_for": 2,
+          "seconds": 60.0,
+          "share_minus_half": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 2,
+            "events": 2,
+            "included_seconds": 60.0,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        }
+      },
+      "provenance": {
+        "id": "fixture_source",
+        "kind": "source"
+      },
+      "recorded_penalties": {
+        "focal": {
+          "drawn": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 2
+              }
+            ],
+            "count": 2,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 100
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 2,
+              "events": 2,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "served": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 3
+              }
+            ],
+            "count": 3,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 150
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 3,
+              "events": 3,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "taken": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 1
+              }
+            ],
+            "count": 1,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 50
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 1,
+              "events": 1,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          }
+        },
+        "league": {
+          "drawn": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 2
+              }
+            ],
+            "count": 2,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 100
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 2,
+              "events": 2,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "served": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 3
+              }
+            ],
+            "count": 3,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 150
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 3,
+              "events": 3,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "taken": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 1
+              }
+            ],
+            "count": 1,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 50
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 1,
+              "events": 1,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          }
+        },
+        "team": {
+          "drawn": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 2
+              }
+            ],
+            "count": 2,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 100
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 2,
+              "events": 2,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "served": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 3
+              }
+            ],
+            "count": 3,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 150
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 3,
+              "events": 3,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          "taken": {
+            "categories": [
+              {
+                "code": "minor",
+                "count": 1
+              }
+            ],
+            "count": 1,
+            "per1000minutes": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 50
+            },
+            "reported_seconds": 1200,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 1,
+              "events": 1,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          }
+        }
+      },
+      "reported_usage": {
+        "listed_games": 2,
+        "minutes_per_appearance": {
+          "reason_detail": null,
+          "unavailable_reason": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          },
+          "value": 10
+        },
+        "missing_games": 0,
+        "positive_toi_appearances": 2,
+        "provenance": {
+          "id": "fixture_source",
+          "kind": "source"
+        },
+        "reported_seconds": 1200,
+        "reported_shifts": 10,
+        "support": {
+          "current_season_information": true,
+          "eligible_weight": 0,
+          "events": 0,
+          "included_seconds": 1200,
+          "inferred_inputs": [],
+          "known_excluded_seconds": 0,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason_counts": [],
+          "unquantified_gap": false
+        },
+        "supported_games": 2,
+        "teams": [
+          {
+            "listed_games": 2,
+            "minutes_per_appearance": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 10
+            },
+            "missing_games": 0,
+            "positive_toi_appearances": 2,
+            "reported_seconds": 1200,
+            "reported_shifts": 10,
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 1200,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            },
+            "supported_games": 2,
+            "team_id": "18"
+          }
+        ]
+      },
+      "scoring_by_strength": {
+        "ev": {
+          "goals": 1,
+          "goals_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 6.0
+          },
+          "primary_assists": 2,
+          "primary_assists_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 12.0
+          },
+          "primary_points": 3,
+          "primary_points_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 18.0
+          },
+          "seconds": 600,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 3,
+            "events": 3,
+            "included_seconds": 600,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "five_on_five": {
+          "goals": 0,
+          "goals_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "primary_assists": 1,
+          "primary_assists_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 60.0
+          },
+          "primary_points": 1,
+          "primary_points_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 60.0
+          },
+          "seconds": 60,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 1,
+            "events": 1,
+            "included_seconds": 60,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "other": {
+          "goals": 0,
+          "goals_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "primary_assists": 0,
+          "primary_assists_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "primary_points": 0,
+          "primary_points_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "seconds": 60,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 60,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "pk": {
+          "goals": 0,
+          "goals_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "primary_assists": 0,
+          "primary_assists_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "primary_points": 0,
+          "primary_points_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "seconds": 120,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 120,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "pp": {
+          "goals": 0,
+          "goals_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.0
+          },
+          "primary_assists": 1,
+          "primary_assists_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 30.0
+          },
+          "primary_points": 1,
+          "primary_points_per60": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 30.0
+          },
+          "seconds": 120,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 1,
+            "events": 1,
+            "included_seconds": 120,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 60,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "states": [
+          {
+            "goals": 0,
+            "goals_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "primary_assists": 1,
+            "primary_assists_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 60.0
+            },
+            "primary_points": 1,
+            "primary_points_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 60.0
+            },
+            "seconds": 60,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 5,
+              "defending_goalie_present": true,
+              "defending_skaters": 5
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 1,
+              "events": 1,
+              "included_seconds": 60,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "goals": 1,
+            "goals_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 6.666666666666667
+            },
+            "primary_assists": 1,
+            "primary_assists_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 6.666666666666667
+            },
+            "primary_points": 2,
+            "primary_points_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 13.333333333333334
+            },
+            "seconds": 540,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 4,
+              "defending_goalie_present": true,
+              "defending_skaters": 4
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 2,
+              "events": 2,
+              "included_seconds": 540,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "goals": 0,
+            "goals_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "primary_assists": 1,
+            "primary_assists_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 30.0
+            },
+            "primary_points": 1,
+            "primary_points_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 30.0
+            },
+            "seconds": 120,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 5,
+              "defending_goalie_present": true,
+              "defending_skaters": 4
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 1,
+              "events": 1,
+              "included_seconds": 120,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "goals": 0,
+            "goals_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "primary_assists": 0,
+            "primary_assists_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "primary_points": 0,
+            "primary_points_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "seconds": 120,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 4,
+              "defending_goalie_present": true,
+              "defending_skaters": 5
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 120,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "goals": 0,
+            "goals_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "primary_assists": 0,
+            "primary_assists_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "primary_points": 0,
+            "primary_points_per60": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.0
+            },
+            "seconds": 60,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 3,
+              "defending_goalie_present": true,
+              "defending_skaters": 5
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 60,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          }
+        ],
+        "unclassified": {
+          "goals": 0,
+          "primary_assists": 0,
+          "primary_points": 0,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 5,
+            "events": 5,
+            "included_seconds": 600,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        }
+      },
+      "strength_usage": {
+        "ev": {
+          "appearances": 2,
+          "minutes_per_appearance": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 5.0
+          },
+          "seconds": 600,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 600,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "five_on_five": {
+          "appearances": 2,
+          "minutes_per_appearance": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.5
+          },
+          "seconds": 60,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 60,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "other": {
+          "appearances": 2,
+          "minutes_per_appearance": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.5
+          },
+          "seconds": 60,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 60,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "pk": {
+          "appearances": 2,
+          "minutes_per_appearance": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 1.0
+          },
+          "seconds": 120,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 120,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "pp": {
+          "appearances": 2,
+          "minutes_per_appearance": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 1.5
+          },
+          "seconds": 180,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": 0,
+            "events": 0,
+            "included_seconds": 180,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          }
+        },
+        "states": [
+          {
+            "appearances": 2,
+            "minutes_per_appearance": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.5
+            },
+            "seconds": 60,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 5,
+              "defending_goalie_present": true,
+              "defending_skaters": 5
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 60,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "appearances": 2,
+            "minutes_per_appearance": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 4.5
+            },
+            "seconds": 540,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 4,
+              "defending_goalie_present": true,
+              "defending_skaters": 4
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 540,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "appearances": 2,
+            "minutes_per_appearance": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 1.5
+            },
+            "seconds": 180,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 5,
+              "defending_goalie_present": true,
+              "defending_skaters": 4
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 180,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "appearances": 2,
+            "minutes_per_appearance": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 1.0
+            },
+            "seconds": 120,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 4,
+              "defending_goalie_present": true,
+              "defending_skaters": 5
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 120,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          },
+          {
+            "appearances": 2,
+            "minutes_per_appearance": {
+              "reason_detail": null,
+              "unavailable_reason": null,
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": 0.5
+            },
+            "seconds": 60,
+            "state": {
+              "attacking_goalie_present": true,
+              "attacking_skaters": 3,
+              "defending_goalie_present": true,
+              "defending_skaters": 5
+            },
+            "support": {
+              "current_season_information": true,
+              "eligible_weight": 0,
+              "events": 0,
+              "included_seconds": 60,
+              "inferred_inputs": [],
+              "known_excluded_seconds": 0,
+              "prior_only": false,
+              "prior_seasons": [],
+              "reason_counts": [],
+              "unquantified_gap": false
+            }
+          }
+        ]
+      }
+    },
+    "explanation": null
+  },
+  "season": "20232024"
+}

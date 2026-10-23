@@ -79,7 +79,8 @@ export function Layout({ children }: { readonly children: ReactNode }) {
         <div className="sheet">
           {data?.publication.purpose === "fixture" && (
             <p className="fixture-banner" role="note">
-              fixture publication · development evidence, not real results
+              fixture publication · development evidence; source definitions
+              distinguish captured and synthetic data
             </p>
           )}
           <header className="site-heading">

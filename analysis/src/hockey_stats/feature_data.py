@@ -167,6 +167,9 @@ def _people(document, bio_rows, input_ref, link):
                 "requested_season": observation.get("requested_season"),
             })
         positions = {row["reported_position"] for row in rows if row["reported_position"] is not None}
+        # exact skater-position disagreement does not make goalie applicability unknown.
+        is_goalie = (True if positions == {"G"} else False
+                     if positions and positions <= {"C", "L", "R", "F", "D"} else None)
         values = {
             "player_id": player_id, "team_id": team,
             "reported_position": next(iter(positions)) if len(positions) == 1 else None,
@@ -208,6 +211,7 @@ def _people(document, bio_rows, input_ref, link):
                 _problem(result, ("age_days",), "birth date follows game date")
         players[str(player_id)] = {"people": result}
         identities[player_id] = {"team_id": team, "position": values["reported_position"],
+                                 "is_goalie": is_goalie,
                                  "box": b, "roster": r, "box_problem": box_problem,
                                  "counter_evidence": counter_evidence,
                                  "event_team_id": event_team, "event_team_source": event_team_source}
@@ -448,6 +452,83 @@ def _row_members(interval, side, shifts):
     return set(members.values()) if len(members) == len(interval[side + "_skaters"]) else None
 
 
+def individual_participation(shift_records):
+    """return (supported native rows, conflicting native-row components).
+
+    only positive coherent timed shift rows enter either result. exact duplicate
+    bounds describe one supported span. every row in a component with distinct
+    strictly overlapping bounds is conflicting; none supports a physical union.
+    originals remain source evidence; adjacency alone is not a conflict.
+    """
+    by_person = defaultdict(lambda: defaultdict(list))
+    for row in shift_records or []:
+        if (
+            row["type_code"] == 517
+            and row["interval_status"] == "coherent"
+            and row["player_id"] is not None
+            and row["period_number"] in (1, 2, 3, 4)
+            and row["start_seconds"] is not None
+            and row["end_seconds"] is not None
+            and row["start_seconds"] < row["end_seconds"]
+        ):
+            key = row["player_id"], row["period_number"]
+            by_person[key][row["start_seconds"], row["end_seconds"]].append(row)
+    supported, conflicts = [], []
+    for bounds in by_person.values():
+        components, end = [], None
+        for start_stop, rows in sorted(bounds.items()):
+            start, stop = start_stop
+            if end is None or start >= end:
+                components.append([])
+                end = stop
+            else:
+                end = max(end, stop)
+            components[-1].append(rows)
+        for component in components:
+            if len(component) == 1:
+                supported.extend(component[0])
+            else:
+                conflicts.append([row for group in component for row in group])
+    return supported, conflicts
+
+
+def participation_coverage(document):
+    """source collection and individual accounting bound complete participation."""
+    checks = [c for c in document["checks"] if c["name"] == "shift_collection" and c["source"] == "shifts"]
+    complete = (document["shift_records"] is not None and len(checks) == 1
+                and checks[0]["status"] == "match"
+                and checks[0]["observed"] == checks[0]["expected"] == len(document["shift_records"]))
+    teams = defaultdict(set)
+    for row in (document["roster_records"] or []) + (document["boxscore_players"] or []):
+        if row["player_id"] is not None and row["team_id"] is not None:
+            teams[row["player_id"]].add(row["team_id"])
+    result = {}
+    unknown_players = set()
+    unknown_identity = False
+    for shift in document["shift_records"] or []:
+        player = shift["player_id"]
+        if shift["type_code"] == 505:
+            continue
+        if shift["type_code"] != 517:
+            if player is None:
+                unknown_identity = True
+            else:
+                unknown_players.add(player)
+            continue
+        coherent = complete and teams[player] == {shift["team_id"]}
+        result[player] = result.get(player, True) and coherent
+    for player in result:
+        if unknown_identity or player in unknown_players:
+            result[player] = False
+    _, conflicts = individual_participation(document["shift_records"])
+    for rows in conflicts:
+        result[rows[0]["player_id"]] = False
+    for check in document["checks"]:
+        if check["name"] in ("player_toi", "player_shift_count") and check["status"] == "mismatch":
+            result[check["player_id"]] = False
+    return result
+
+
 def _defender_sequences(ordered, reconstruction, game, shifts, reports, order_supported, link):
     """initial coherent rows can disappear once; a returning id is a new row."""
     recon = {row["source_index"]: row for row in reconstruction["events"] or []}
@@ -523,7 +604,7 @@ def _defender_sequences(ordered, reconstruction, game, shifts, reports, order_su
     return result
 
 
-def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempts, order_supported, link):
+def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempts, order_supported, link, *, product=False, game=None, participation=None, participation_complete=None):
     """one elapsed sweep and indexed shift/event prefixes, before each record."""
     intervals = reconstruction["intervals"] or []
     recon = {row["source_index"]: row for row in reconstruction["events"] or []}
@@ -556,6 +637,32 @@ def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempt
         entry["end_clocks"] = [r[0] for r in entry["ends"]]
     prefix = {player: Counter() for player in identities}
     incomplete_all, incomplete_5v5, unknown_attempt_teams = set(), set(), set()
+    incomplete_faced = set()
+    if product and reconstruction["intervals"] is None:
+        incomplete_all.update(identities)
+        incomplete_5v5.update(identities)
+    individual = defaultdict(list)
+    individual_five = defaultdict(list)
+    individual_bad = defaultdict(list)
+    if product and participation is not None:
+        for span in participation:
+            base = (span["period_number"] - 1) * 1200
+            player = span["player_id"]
+            start, end = base + span["start_seconds"], base + span["end_seconds"]
+            individual[player].append((start, end))
+            for native_start, native_end, interval in spans:
+                if interval["classification"] != "five_on_five":
+                    continue
+                members = interval["away_skaters"] + interval["home_skaters"] + interval["away_goalies"] + interval["home_goalies"]
+                left, right = max(start, native_start), min(end, native_end)
+                if player in members and left < right:
+                    individual_five[player].append((left, right))
+        for shift in shifts.values():
+            if (shift["type_code"] == 517 and shift["interval_status"] != "coherent"
+                    or shift["type_code"] not in (517, 505)):
+                period = shift["period_number"]
+                earliest = (period - 1) * 1200 + (shift["start_seconds"] or 0) if period in (1, 2, 3, 4) else 0
+                individual_bad[shift["player_id"]].append(earliest)
     result, cursor, integrated = {}, 0, 0
     for event in ordered:
         clock = _clock(event)
@@ -585,11 +692,13 @@ def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempt
                 if stop < end:
                     break
                 cursor += 1
-        if event["type_key"] in _ATTEMPTS:
+        if product or event["type_key"] in _ATTEMPTS:
             reported = set(sum((row[field] or [] for field in ("away_skaters", "home_skaters", "away_goalies", "home_goalies")), []))
             shooter = event["roles"].get("scorer" if event["type_key"] == "goal" else "shooter")
             if shooter in identities:
                 reported.add(shooter)
+            if product:
+                reported.update(p for p in event["roles"].values() if p in identities)
             compatible = _compatible_intervals(event, row, intervals)
             active_rows = [set(interval["shift_source_indices"]) for _, interval in compatible]
             players = {}
@@ -614,8 +723,22 @@ def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempt
                                        link("play-by-play", "/plays")])
                 for field in tuple(values):
                     values["known_" + field] = values[field]
+                if product:
+                    goalie = identities[player]["is_goalie"]
+                    values["on_net_faced"] = prefix[player]["on_net_faced"] if goalie else None
+                    values["known_on_net_faced"] = values["on_net_faced"]
+                    if goalie is not True:
+                        _problem(
+                            record, ("on_net_faced", "known_on_net_faced"),
+                            "on-net workload applies to a resolved goaltender role",
+                            "not_applicable" if goalie is False else "unavailable",
+                        )
+                    elif player in incomplete_faced:
+                        _problem(record, ("on_net_faced",), "earlier on-net physical action or goalie identity unresolved")
                 if clock is None or not order_supported:
-                    _problem(record, tuple(field for field in values if not field.startswith("known_")), "focal timed order/clock unavailable")
+                    _problem(record, tuple(field for field in values if not field.startswith("known_")
+                                           and (not product or record["problems"].get(field, {}).get("status") != "not_applicable")),
+                             "focal timed order/clock unavailable")
                 else:
                     if player in incomplete_all:
                         _problem(record, ("toi_all_seconds",), "unknown elapsed membership in prefix")
@@ -627,8 +750,69 @@ def _prefix_workload(ordered, reconstruction, identities, shifts, normal_attempt
                         _problem(record, ("shifts_begun", "shifts_completed"), "positive shift-prefix coverage or tied-clock frame unavailable")
                     if identities[player]["event_team_id"] is None or identities[player]["event_team_id"] in unknown_attempt_teams:
                         _problem(record, ("attempts", "goals"), "attributed earlier event count unavailable")
+                if product and not order_supported:
+                    _problem(record, tuple(field for field in values
+                                           if record["problems"].get(field, {}).get("status") != "not_applicable"),
+                             "verified earlier source order unavailable")
+                elif product and participation is not None and clock is not None:
+                    # all-strength individual participation does not depend on
+                    # whether the other eleven reported identities resolve.
+                    person_spans = sorted(individual[player])
+                    for field, field_spans in (("toi_all_seconds", person_spans),
+                                               ("toi_5v5_seconds", sorted(individual_five[player]))):
+                        known, covered_end = 0, 0
+                        for start, end in field_spans:
+                            stop = min(end, clock)
+                            known += max(0, stop - max(start, covered_end))
+                            covered_end = max(covered_end, end)
+                        values["known_" + field] = known
+                    known = values["known_toi_all_seconds"]
+                    if values["toi_5v5_seconds"] is not None:
+                        values["toi_5v5_seconds"] = values["known_toi_5v5_seconds"]
+                    bad = individual_bad[player] + individual_bad[None]
+                    if person_spans and participation_complete is not None and participation_complete.get(player, False) and not any(start <= clock for start in bad):
+                        values["toi_all_seconds"] = known
+                        record["problems"].pop("toi_all_seconds", None)
+                    else:
+                        _problem(record, ("toi_all_seconds",), "complete individual source participation unavailable")
+                    if participation_complete is None or not participation_complete.get(player, False):
+                        _problem(record, ("toi_5v5_seconds", "shifts_begun", "shifts_completed"), "complete individual source shift collection unavailable")
                 players[str(player)] = record
             result[event["source_index"]] = players
+        if product:
+            if not event["kind_valid"] or (event["timed_period"] is None
+                                           and event["type_key"] in ("shot-on-goal", "goal")):
+                incomplete_faced.update(p for p, identity in identities.items() if identity["is_goalie"] is True)
+            elif event["timed_period"] is True and event["type_key"] in ("shot-on-goal", "goal"):
+                team = event["shooting_team_id"]
+                side = "home" if team == game["away_team_id"] else "away" if team == game["home_team_id"] else None
+                opponents = [
+                    p for p, identity in identities.items()
+                    if identity["is_goalie"] is True
+                    and (side is None or identity["event_team_id"] == game[side + "_team_id"])
+                ]
+                # membership identifies the faced goalie; no shot type or coordinate requirement.
+                goalie_members = row[side + "_goalies"] if side else None
+                modifier = row["goal_modifier_evidence"]
+                physical = event["type_key"] != "goal" or (
+                    modifier is not None and modifier["status"] == "reported"
+                    and modifier["reported_value"] in ("none", "penalty-shot")
+                )
+                goalie_consistent = "goalie" not in event["roles"] or (
+                    goalie_members is not None and len(goalie_members) == 1
+                    and event["roles"]["goalie"] == goalie_members[0]
+                )
+                excluded_action = event["type_key"] == "goal" and (
+                    modifier is not None and modifier["status"] == "reported"
+                    and modifier["reported_value"] in ("own-goal", "awarded")
+                )
+                known_empty = goalie_members == [] and event["roles"].get("goalie") is None
+                if excluded_action or known_empty:
+                    pass
+                elif clock is not None and physical and goalie_consistent and goalie_members is not None and len(goalie_members) == 1 and goalie_members[0] in opponents:
+                    prefix[goalie_members[0]]["on_net_faced"] += 1
+                else:
+                    incomplete_faced.update(opponents)
         if event["source_index"] in normal_attempts:
             shooter = event["roles"].get("scorer" if event["type_key"] == "goal" else "shooter")
             if shooter in prefix and identities[shooter]["event_team_id"] == event["shooting_team_id"]:
@@ -888,7 +1072,7 @@ def _deployment(attempt, event, row, intervals, shifts, shift_lists, faceoffs, l
     return result
 
 
-def _strength_transitions(ordered, reconstruction, game, order_supported):
+def _strength_transitions(ordered, reconstruction, game, order_supported, *, product=False):
     intervals = reconstruction["intervals"] or []
     recon = {row["source_index"]: row for row in reconstruction["events"] or []}
     by_period = defaultdict(list)
@@ -902,6 +1086,8 @@ def _strength_transitions(ordered, reconstruction, game, order_supported):
         if event["period_number"] != period:
             period, cursor, reset_time = event["period_number"], 0, 0
             prior, returned, unknown = None, None, False
+        if product and (not event["kind_valid"] or _clock(event) is None):
+            unknown = True
         if _clock(event) is not None:
             rows = by_period[period]
             before_only = recon[event["source_index"]]["shift_relation"] == "before"
@@ -925,7 +1111,7 @@ def _strength_transitions(ordered, reconstruction, game, order_supported):
             "side": "same" if prior == focal_side else "opponent" if prior is not None else None,
             "age": event["elapsed_seconds"] - returned if returned is not None and event["elapsed_seconds"] is not None else None,
         }
-        if event["kind_valid"] and event["type_key"] in _RESETS:
+        if event["kind_valid"] and event["type_key"] in _RESETS and (not product or _clock(event) is not None):
             prior, returned, unknown = None, None, False
             reset_time = event["elapsed_seconds"] if event["elapsed_seconds"] is not None else 0
             # the ongoing interval also supplies membership after a reset.

@@ -4,6 +4,8 @@ full implementation handoff under [the program](experimental-player-analysis.md)
 
 prospective producer refinement: [v1-03](v1-03-factual-card-reductions.md) corrects score-share arithmetic, adds the fixed shift-coverage reason and permits evidenced person affiliations beyond old observed support while preserving every old observed fact. those narrow invariant changes supersede the corresponding checks below; they do not alter v1-13's completed acceptance record, fixed table shapes or schema version.
 
+later prospective cutover: [v1-06](v1-06-execution-scoring.md#matched-values-and-publication) replaces skater execution/breakdown payloads, permits evidenced goalie setters and entry-prior-only support, and hard-cuts exchange2/schema8. it preserves the other foundation mechanisms and this completed schema7 protocol/receipt. producers/readers/fixtures upgrade together; cheap factual results rebuild rather than pass through an importer. [the current application appendix](experimental-application.md#schema-8) owns the amended payloads.
+
 ## outcome and boundary
 
 one checked result bundle plus the existing observed selections produces a standalone schema-7 sqlite publication. one effect reader serves its typed contents, including explicit unfinished families, to the existing website. small fixtures exercise every analytical family before its real producer exists. observed facts and existing observed journeys retain their meanings.
@@ -122,7 +124,7 @@ use explicit relational primary/foreign keys for season/person/game/method refer
 
 support IDs resolve within `analysis_support`, whose population is `source_supported_attempts` or one of the five context populations. the definition describes eligibility and evidence; actual counts/time stay in facts/coverage. source/method lists resolve, season agrees with the fact and its population selector agrees with the descriptor. request metadata includes referenced support definitions once, alongside sources/methods.
 
-the [application family tables](experimental-application.md#schema-7) and [v1 additions](experimental-application.md#v1-payload-additions) fix named leaves. make prose-only nested facts executable with the following common record shapes; equations/populations stay in [card facts](experimental-card-facts.md):
+the [application family tables](experimental-application.md#schema-8) and [v1 additions](experimental-application.md#v1-payload-additions) fix named leaves, with the later execution amendment identified above. this completed handoff made prose-only nested facts executable with the following common record shapes; equations/populations stay in [card facts](experimental-card-facts.md):
 
 | nested record | required structure |
 |---|---|

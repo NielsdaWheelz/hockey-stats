@@ -1,0 +1,46 @@
+{
+  "scope": "schema-validated synthetic dated goalie attribution gap over exact original supported unit; no raw source mutation",
+  "recipe_sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304",
+  "key": "2021020001:6",
+  "goalie_member_id": 8477465,
+  "original_opposing_team": 5,
+  "opposing_unit_retained": [
+    8477465
+  ],
+  "heads": {
+    "u": {
+      "included": true,
+      "target": 1.0,
+      "reasons": []
+    },
+    "q": {
+      "included": false,
+      "target": null,
+      "reasons": [
+        "goalie_identity_unavailable"
+      ]
+    },
+    "r": {
+      "included": false,
+      "target": null,
+      "reasons": [
+        "goalie_identity_unavailable"
+      ]
+    },
+    "g": {
+      "included": false,
+      "target": null,
+      "reasons": [
+        "goalie_identity_unavailable"
+      ]
+    }
+  },
+  "full_probability_context": false,
+  "actual_fixture_sole_identity_gap_before_change": {
+    "20212022": 0,
+    "20222023": 0,
+    "20232024": 0,
+    "20242025": 0,
+    "20252026": 0
+  }
+}

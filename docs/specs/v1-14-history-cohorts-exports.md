@@ -1,5 +1,7 @@
 # v1-14 — shared history, cohorts and exports
 
+prospective execution amendment: [v1-06](v1-06-execution-scoring.md#common-panels-skills-and-support) defines execution qualification seconds as current exact-strength participation, separate from shared-strength coefficient evidence and common-panel denominators. its schema8 integration carries fixed panel/coefficient/paired-evidence details through selectors/history/csv. this supersedes ambiguous execution “matching seconds” wording below, not other fields' matched exposure or the completed schema7 verification record.
+
 full implementation handoff under [the application contract](experimental-application.md) and [five-card crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance). [the plan](../plan.md#proposed-pr-boundaries-and-dependencies) owns assignment. settled cohort, reference and export choices suffice; no new product preference is required. writing this specification assigns no implementation or activation.
 
 ## outcome and boundary

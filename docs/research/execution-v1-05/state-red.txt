@@ -1,0 +1,9 @@
+Using CPython 3.14.8 interpreter at: /opt/homebrew/opt/python@3.14/bin/python3.14
+Creating virtual environment at: analysis/.venv
+   Building hockey-stats @ file:///Users/nnandal/Documents/code/hockey-stats-v1-05/analysis
+      Built hockey-stats @ file:///Users/nnandal/Documents/code/hockey-stats-v1-05/analysis
+Installed 16 packages in 63ms
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/test_execution_state.py", line 11, in <module>
+    from hockey_stats.execution_state import write_execution_state, read_execution_state, read_execution_probe
+ModuleNotFoundError: No module named 'hockey_stats.execution_state'

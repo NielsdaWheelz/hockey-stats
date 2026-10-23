@@ -1,0 +1,7 @@
+# execution predictor fixtures
+
+`predictors.json` retains seven attributed predictor contexts from the checked v1-01 capture-fixture preparation: the first supported example of each of the six shot types and one blocked attempt. source keys, prepared-manifest identity, annual-state identity and explicit origin cells are retained in the file. all source observations came from existing original captures; no capture was acquired or replaced.
+
+the actual and fully neutral numerical signatures belong to the indicated fixture fit. they check saved-only evaluation, including all 656 origins for the block. they are experimental model outputs, not observed probabilities, measured block-release positions, real-season fits or admitted ability claims. the temporary campaign test reconstructs the predictor records and verifies those signatures while original sources and the network are denied.
+
+final-year resolution separately records synthetic geometry over all six types and all native cells, plus explicitly attributed synthetic sparse-actor witnesses when no applicable real source attempt exists. those transformations are retained in the final annual baseline descriptor. no synthetic witness is presented as an actual attempt.

@@ -1,0 +1,152 @@
+{
+  "scope": "explicitly synthetic numerical witness only, no observed shot or ability claim",
+  "attribution": {
+    "kind": "synthetic",
+    "source_key": "2025020565:20",
+    "reason": "supported current actor has no focal shot; hypothetical shot at an actual on-ice source context",
+    "changed_fields": [
+      "shooter",
+      "shooter_deployment",
+      "shooter_prefix_workload",
+      "shooter_calendar_rest",
+      "reported_hand_off_wing",
+      "recent_same_shooter",
+      "setter_candidates_and_role_weights"
+    ],
+    "actor": {
+      "block": "shooter",
+      "id": "8474596",
+      "role": "G",
+      "likelihood_support": 0.0
+    },
+    "source_prepared_member": {
+      "kind": "game",
+      "season": "20252026",
+      "game_id": "2025020565",
+      "path": "games/20252026/2025020565.json",
+      "sha256": "ea2e9168042d88ad4c9c59bcc08ff7e3657fc4095b3c8a4e6873c63c84fa7596"
+    },
+    "actual_attacking_skaters": [
+      "8476462",
+      "8478399",
+      "8478414",
+      "8479407",
+      "8480002"
+    ],
+    "actual_attacking_goalies": [
+      "8474596"
+    ],
+    "setter_universe_complete": true
+  },
+  "new_actor": "8474596",
+  "old_actor": "8478414",
+  "prior_only": true,
+  "recomputed_prefix_values": {
+    "shooter_prefix_toi_all_seconds/3600": {
+      "value": 0.052222222222222225,
+      "status": "available",
+      "condition": "shooter_prefix_toi_all_seconds/3600",
+      "kind": "numeric"
+    },
+    "shooter_prefix_shifts_completed/30": {
+      "value": null,
+      "status": "unavailable",
+      "condition": "shooter_prefix_shifts_completed/30",
+      "kind": "numeric"
+    },
+    "shooter_prefix_attempts/10": {
+      "value": 0.0,
+      "status": "available",
+      "condition": "shooter_prefix_attempts/10",
+      "kind": "numeric"
+    }
+  },
+  "recomputed_hand": "L",
+  "recomputed_recent_same_shooter": null,
+  "setter_candidates": [
+    {
+      "actor_id": null,
+      "kind": "none",
+      "probability": 0.2
+    },
+    {
+      "actor_id": "8475455",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8476462",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8476474",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8476822",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8477488",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8478399",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8478414",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8478841",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8479407",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8480002",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8481032",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8481559",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8481721",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8482110",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    },
+    {
+      "actor_id": "8482684",
+      "kind": "skater",
+      "probability": 0.05333333333333334
+    }
+  ],
+  "new_shooter_excluded_from_setters": true,
+  "all_head_matrices_use_new_shooter": true,
+  "no_context_returns_unavailable": true,
+  "recipe_sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304"
+}

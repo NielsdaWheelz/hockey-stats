@@ -1,0 +1,676 @@
+{
+  "runtime": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "scratch": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-j2bgupbv",
+  "raw_roots_created": false,
+  "production_network_requests": 0,
+  "synthetic_compact_arithmetic_only": true,
+  "passed": 28,
+  "total": 28,
+  "checks": [
+    {
+      "name": "whole-source finite membership with unresolved acquisition",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        }
+      ]
+    },
+    {
+      "name": "top-n without known denominator stays unestablished",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": null,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": null,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        }
+      ]
+    },
+    {
+      "name": "finite incomplete pages keep universe unknown",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": null,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": null,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": null,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        }
+      ]
+    },
+    {
+      "name": "complete acquisition includes measurement-specific null and unknown-position exclusions",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 0
+        }
+      ]
+    },
+    {
+      "name": "duplicate universe ids",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "universe ids: duplicate ids",
+      "pass_check": true
+    },
+    {
+      "name": "unresolved acquisition cannot be complete",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "complete acquisition requires complete enumeration and no unresolved ids",
+      "pass_check": true
+    },
+    {
+      "name": "unknown position cannot enter forwards",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "eligible id needs available same-season measurement and evidenced position",
+      "pass_check": true
+    },
+    {
+      "name": "unacquired cannot be excluded as null",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "exclusion requires source-null or available measurement with unknown/conflicting position",
+      "pass_check": true
+    },
+    {
+      "name": "source-null in one measure cannot suppress available other measure",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "measurement partitions must exhaust exactly the source-listed subset",
+      "pass_check": true
+    },
+    {
+      "name": "eligible source-only player remains despite no publication catalogue",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        }
+      ]
+    },
+    {
+      "name": "fabricated finite universe with only total witness",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "listed membership requires literal identity witnesses",
+      "pass_check": true
+    },
+    {
+      "name": "false membership disagrees with literal ids witness",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "listed membership requires literal identity witnesses",
+      "pass_check": true
+    },
+    {
+      "name": "reported count cannot double as identity witness",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "listed membership requires literal identity witnesses",
+      "pass_check": true
+    },
+    {
+      "name": "false complete without total or terminal boundary",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "complete enumeration requires reported total or terminal-page evidence",
+      "pass_check": true
+    },
+    {
+      "name": "source contract shape from wrong source kind",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "shape evidence must resolve its own source kind",
+      "pass_check": true
+    },
+    {
+      "name": "negative speed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "invalid finite nonnegative measurement",
+      "pass_check": true
+    },
+    {
+      "name": "nonfinite speed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-j2bgupbv/16/skating.json: invalid finite unique-key json: non-finite number Infinity",
+      "pass_check": true
+    },
+    {
+      "name": "fractional burst count",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "burst count must be a nonnegative integer",
+      "pass_check": true
+    },
+    {
+      "name": "null measurement cannot acquire zero",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "unavailable measurement must have null value/transformation",
+      "pass_check": true
+    },
+    {
+      "name": "synthetic origin cannot exercise primary adapter",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "a primary aggregate adapter requires an evidence-backed amendment; adapter_status must be not_observed",
+      "pass_check": true
+    },
+    {
+      "name": "403 capture cannot witness available measurement",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "semantic witness requires a successful captured body",
+      "pass_check": true
+    },
+    {
+      "name": "unselected witness link",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "witness references an unselected request",
+      "pass_check": true
+    },
+    {
+      "name": "invalid json pointer",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "invalid json pointer",
+      "pass_check": true
+    },
+    {
+      "name": "unknown product key",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "skating: expected exactly schema_version purpose implementation selection adapter_status captures source_contracts observations census",
+      "pass_check": true
+    },
+    {
+      "name": "detail outside declared universe remains raw-only",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        }
+      ]
+    },
+    {
+      "name": "explicit synthetic disjoint-counter arithmetic",
+      "expected": "accepted",
+      "actual": "accepted",
+      "pass_check": true,
+      "counts": [
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_max_speed_mph",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "f",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 0,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": "d",
+          "universe": 1,
+          "listed": 1,
+          "acquired": 1,
+          "available": 0,
+          "excluded": 1,
+          "unresolved": 0
+        },
+        {
+          "season": "20232024",
+          "measurement_id": "skating_bursts_over20_count",
+          "position_group": null,
+          "universe": 2,
+          "listed": 2,
+          "acquired": 1,
+          "available": 1,
+          "excluded": 1,
+          "unresolved": 1
+        }
+      ]
+    },
+    {
+      "name": "same counter cannot count twice",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "disjoint burst sum must retain two distinct nonnegative integer counters",
+      "pass_check": true
+    },
+    {
+      "name": "source-null must retain literal null",
+      "expected": "rejected",
+      "actual": "rejected",
+      "reason": "source-null requires a literal null witness",
+      "pass_check": true
+    }
+  ]
+}

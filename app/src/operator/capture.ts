@@ -22,7 +22,10 @@ type GameSource = "play-by-play" | "boxscore" | "shifts" | "game-summary" | "pla
 
 export type CaptureIdentity =
   | { readonly gameId: string; readonly source: GameSource }
-  | { readonly seasonId: string; readonly source: "season-summary" | "season-games" | "skater-bios" | "goalie-bios" };
+  | { readonly seasonId: string; readonly source: "season-summary" | "season-games" | "skater-bios" | "goalie-bios" }
+  | { readonly source: "edge-skating-detail"; readonly seasonId: string; readonly playerId: string; readonly gameTypeId: 2 }
+  | { readonly source: "edge-skating-listing"; readonly seasonId: string; readonly gameTypeId: 2 }
+  | { readonly source: "edge-skating-glossary" };
 
 type CaptureMetadata = CaptureIdentity & {
   readonly schemaVersion: 1;

@@ -1,4 +1,4 @@
-"""one checked sqlite publication from authoritative observed results."""
+"""one standalone publication from observed selections and checked analytical results."""
 
 from collections import Counter
 from contextlib import closing
@@ -11,12 +11,14 @@ from pathlib import Path
 import re
 import resource
 import sqlite3
+import shutil
 import sys
 import time
 import uuid
 
 from .artifacts import implementation_identity, linked_path, require, write_json
 from .captures import strict_json
+from . import analysis_publication as analysis
 from .observed import PERSONAL_REASON_CODES, SPATIAL_REASON_CODES, _metrics, aggregate
 from .observed_spatial import POPULATION_VERSION, DISPLAY_VERSION
 
@@ -81,8 +83,8 @@ _METRICS = """
 _SCHEMA = """
 CREATE TABLE publication (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    schema_version INTEGER NOT NULL CHECK(schema_version=6),
-    kind TEXT NOT NULL CHECK(kind='observed_5v5'),
+    schema_version INTEGER NOT NULL CHECK(schema_version=7),
+    kind TEXT NOT NULL CHECK(kind='player_analysis'),
     publication_id TEXT NOT NULL,
     purpose TEXT NOT NULL CHECK(purpose IN ('real','fixture')),
     game_type INTEGER NOT NULL CHECK(game_type=2),
@@ -91,7 +93,8 @@ CREATE TABLE publication (
     personal_population_version TEXT NOT NULL CHECK(personal_population_version='matched_personal_credits_v2'),
     producer_json TEXT NOT NULL CHECK(json_valid(producer_json) AND json_type(producer_json)='object'),
     spatial_population_version TEXT NOT NULL CHECK(spatial_population_version='matched_unblocked_locations_v2'),
-    spatial_display_version TEXT NOT NULL CHECK(spatial_display_version='rect5_gaussian10_v1')
+    spatial_display_version TEXT NOT NULL CHECK(spatial_display_version='rect5_gaussian10_v1'),
+    prepared_sha256 TEXT CHECK(prepared_sha256 IS NULL OR (length(prepared_sha256)=64 AND prepared_sha256 NOT GLOB '*[^0-9a-f]*'))
 ) STRICT;
 CREATE TABLE season (
     season TEXT NOT NULL PRIMARY KEY CHECK(length(season)=8 AND season NOT GLOB '*[^0-9]*'
@@ -104,15 +107,7 @@ CREATE TABLE season (
     source_implementations_json TEXT NOT NULL CHECK(json_valid(source_implementations_json) AND json_type(source_implementations_json)='array'),
     spatial_coverage_json TEXT NOT NULL CHECK(json_valid(spatial_coverage_json) AND json_type(spatial_coverage_json)='object')
 ) STRICT;
-CREATE TABLE player (
-    season TEXT NOT NULL REFERENCES season(season),
-    player_id TEXT NOT NULL CHECK(player_id GLOB '[1-9]*' AND player_id NOT GLOB '*[^0-9]*'),
-    display_name TEXT,
-    reported_position TEXT NOT NULL CHECK(reported_position IN ('C','L','R','D','F')),
-    name_source_json TEXT CHECK(name_source_json IS NULL OR (json_valid(name_source_json) AND json_type(name_source_json)='object')),
-    position_source_json TEXT NOT NULL CHECK(json_valid(position_source_json) AND json_type(position_source_json)='object'),
-    PRIMARY KEY(season,player_id)
-) STRICT;
+""" + analysis.PERSON_SCHEMA + """
 CREATE TABLE game (
     season TEXT NOT NULL REFERENCES season(season),
     game_id TEXT NOT NULL CHECK(length(game_id)=10 AND game_id GLOB '[1-9]*' AND game_id NOT GLOB '*[^0-9]*'
@@ -157,7 +152,7 @@ CREATE TABLE player_game (
     team_id TEXT NOT NULL CHECK(team_id GLOB '[1-9]*' AND team_id NOT GLOB '*[^0-9]*'),
 """ + _METRICS + """,
     PRIMARY KEY(season,player_id,game_id),
-    FOREIGN KEY(season,player_id) REFERENCES player(season,player_id),
+    FOREIGN KEY(season,player_id) REFERENCES person(season,player_id),
     FOREIGN KEY(season,game_id) REFERENCES game(season,game_id)
 ) STRICT;
 CREATE TABLE player_season (
@@ -170,7 +165,7 @@ CREATE TABLE player_season (
     unavailable_games INTEGER NOT NULL CHECK(unavailable_games BETWEEN 0 AND listed_games),
 """ + _METRICS + """,
     PRIMARY KEY(season,player_id),
-    FOREIGN KEY(season,player_id) REFERENCES player(season,player_id)
+    FOREIGN KEY(season,player_id) REFERENCES person(season,player_id)
 ) STRICT;
 CREATE TABLE player_season_pair (
     season TEXT NOT NULL,
@@ -396,8 +391,8 @@ def check_observed_season(connection, result, purpose):
     """independently validate one season's matched on-ice, personal and spatial facts."""
     season = result.season
     connection.row_factory = sqlite3.Row
-    require(connection.execute("SELECT count(*) FROM player WHERE season=?", (season,)).fetchone()[0]
-            == connection.execute("SELECT count(*) FROM player_season WHERE season=?", (season,)).fetchone()[0],
+    require(connection.execute("SELECT count(*) FROM player_season s JOIN person p USING(season,player_id) WHERE s.season=? AND p.kind='skater'", (season,)).fetchone()[0]
+            == connection.execute("SELECT count(*) FROM player_season WHERE season=?", (season,)).fetchone()[0] == len(result.players),
             f"{season}: player/summary rows differ")
     require(not connection.execute("""SELECT 1 FROM player_game p JOIN game g USING(season,game_id)
         WHERE p.season=? AND p.team_id NOT IN(g.away_team_id,g.home_team_id) LIMIT 1""", (season,)).fetchall(),
@@ -543,17 +538,34 @@ def check_season(connection, result, purpose):
         opponent_pair_seconds=sum(value for (_, relation, _), value in stored_pairs.items() if relation == "opponent"))
 
 
-def build_publication(selection_path: Path, output: Path) -> dict:
+def build_publication(selection_path: Path, results_path: Path, output: Path) -> dict:
     """finalize after each season's independent read-back and the complete database checks."""
     started = time.monotonic()
     selection_path, selection_bytes, selection, paths = read_selection(selection_path)
+    results = analysis.read_results(results_path)
+    require(results.manifest['purpose'] == selection['purpose']
+            and results.manifest['seasons'] == [item['season'] for item in selection['corpora']]
+            and results.manifest['observed_bindings'] == [dict(season=item['season'],corpus_sha256=item['sha256']) for item in selection['corpora']],
+            'observed selection and results bindings differ')
     output = output.absolute()
     require(not output.exists() and not output.is_symlink(), f"{output}: output already exists")
     parent = output.parent.resolve(strict=True)
     require(parent.is_dir(), f"{parent}: output parent must be a directory")
     output = parent / output.name
     require(all(not output.is_relative_to(path.parent) for path in paths), "output must be outside every input corpus directory")
+    require(not output.is_relative_to(results.directory), 'output must be outside result bundle')
     output.mkdir()
+    copied_results = output / 'results'
+    copied_results.mkdir()
+    members = [*results.manifest['catalogs'].values(), *(member for family in results.manifest['families'] for member in family['tables'].values())]
+    for member in members:
+        destination = copied_results / member['path']
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with analysis.member_path(results.directory,member).open('rb') as source, destination.open('xb') as target:
+            shutil.copyfileobj(source,target)
+    with (results.directory/'manifest.json').open('rb') as source, (copied_results/'manifest.json').open('xb') as target:
+        shutil.copyfileobj(source,target)
+    results = analysis.read_results(copied_results)
     with (output / "selection.json").open("xb") as destination:
         destination.write(selection_bytes)
     producer = implementation_identity() | {
@@ -563,22 +575,23 @@ def build_publication(selection_path: Path, output: Path) -> dict:
     }
     publication_id = str(uuid.uuid4())
     metadata = {
-        "id": 1, "schema_version": 6, "kind": "observed_5v5", "publication_id": publication_id,
+        "id": 1, "schema_version": 7, "kind": "player_analysis", "publication_id": publication_id,
         "purpose": selection["purpose"], "game_type": 2,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "population_version": "matched_attempts_v2", "personal_population_version": "matched_personal_credits_v2",
         "spatial_population_version": POPULATION_VERSION, "spatial_display_version": DISPLAY_VERSION,
+        "prepared_sha256": results.manifest["prepared_sha256"],
         "producer_json": json.dumps(producer, allow_nan=False, sort_keys=True, separators=(",", ":")),
     }
-    incomplete = output / "observed.sqlite.incomplete"
+    incomplete = output / "player-analysis.sqlite.incomplete"
     connection = sqlite3.connect(incomplete)
     season_receipts = []
-    consumed_bytes = 0
+    consumed_bytes = sum(analysis.member_path(results.directory,member).stat().st_size for member in members) + (results.directory/"manifest.json").stat().st_size
     try:
         connection.execute("PRAGMA foreign_keys=ON")
         connection.execute("PRAGMA journal_mode=DELETE")
-        connection.executescript(_SCHEMA + _SPATIAL_SCHEMA)
-        connection.execute("PRAGMA user_version=6")
+        connection.executescript(_SCHEMA + _SPATIAL_SCHEMA + analysis.SCHEMA)
+        connection.execute("PRAGMA user_version=7")
         with connection:
             _insert(connection, "publication", metadata)
         for item, corpus_path in zip(selection["corpora"], paths):
@@ -590,12 +603,23 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                 "coverage_json": json.dumps(result.coverage, allow_nan=False, sort_keys=True, separators=(",", ":")),
                 "spatial_coverage_json": json.dumps(result.spatial_coverage, allow_nan=False, sort_keys=True, separators=(",", ":")),
                 "source_implementations_json": json.dumps(result.source_implementations, allow_nan=False, sort_keys=True, separators=(",", ":"))}
-            tables = (("player", result.players), ("game", result.games), ("player_game", result.player_games),
+            tables = (("game", result.games), ("player_game", result.player_games),
                 ("player_season", result.player_seasons), ("spatial_cell", result.spatial_cells),
                 ("player_game_spatial", result.player_game_spatial), ("player_season_spatial", result.player_season_spatial),
                 ("player_season_pair", result.player_season_pairs))
             with connection:
                 _insert(connection, "season", evidence)
+                observed_people = {row.player_id:stored_row(row,result.season) for row in result.players}
+                teams = {row.player_id:json.loads(stored_row(row,result.season)['teams_json']) for row in result.player_seasons}
+                for player_id, observed in observed_people.items():
+                    person = results.people.get((result.season,player_id))
+                    require(person is not None and person['kind'] == 'skater'
+                            and person['display_name'] == observed['display_name']
+                            and person['reported_position'] == observed['reported_position']
+                            and person['teams'] == teams[player_id], f'{result.season}/{player_id}: observed identity differs from person catalog')
+                for (year,player_id),person in results.people.items():
+                    if year == result.season:
+                        _insert(connection,'person',analysis.store_person(person,observed_people.get(player_id)))
                 for table, rows in tables:
                     for row in rows:
                         _insert(connection, table, stored_row(row, result.season))
@@ -628,19 +652,22 @@ def build_publication(selection_path: Path, output: Path) -> dict:
                 "spatial_coverage": result.spatial_coverage, "checks": checks})
             consumed_bytes += sum(Path(row["path"]).stat().st_size for row in result.receipt["consumed"])
             del result, tables, rows, season_verification
+        with connection:
+            analysis.insert_results(connection,results)
         connection.close()
         connection = sqlite3.connect(incomplete.as_uri() + "?mode=ro", uri=True)
         connection.row_factory = sqlite3.Row
         require([tuple(r) for r in connection.execute("PRAGMA integrity_check")] == [("ok",)], "sqlite integrity check failed")
         require(not connection.execute("PRAGMA foreign_key_check").fetchall(), "sqlite foreign key check failed")
         require(connection.execute("PRAGMA journal_mode").fetchone()[0] == "delete", "publication requires delete journal mode")
-        require(connection.execute("PRAGMA user_version").fetchone()[0] == 6, "publication requires schema 6")
+        require(connection.execute("PRAGMA user_version").fetchone()[0] == 7, "publication requires schema 7")
         require(dict(connection.execute("SELECT * FROM publication").fetchone()) == metadata, "publication metadata read-back differs")
         require([r[0] for r in connection.execute("SELECT season FROM season ORDER BY season")] == [r["season"] for r in selection["corpora"]],
                 "stored season catalog differs")
         catalog = [r for r in connection.execute("PRAGMA table_list") if r[2] == "table" and r[0] == "main" and not r[1].startswith("sqlite_")]
         require({r[1] for r in catalog}
-                == {"publication", "season", "player", "game", "player_game", "player_season", "spatial_cell", "player_game_spatial", "player_season_spatial", "player_season_pair"}
+                == {"publication", "season", "person", "game", "player_game", "player_season", "spatial_cell", "player_game_spatial", "player_season_spatial", "player_season_pair", "analysis_source", "analysis_method", "analysis_support", "analysis_family", "analysis_grid"}
+                    | (set(analysis.KEYS) - set(('people','sources','methods','supports','attempt_value')))
                 and all(r[5] == 1 for r in catalog),
                 "publication table structure differs")
     finally:
@@ -648,16 +675,18 @@ def build_publication(selection_path: Path, output: Path) -> dict:
     with incomplete.open("rb") as source:
         database_sha256 = hashlib.file_digest(source, "sha256").hexdigest()
     rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    verification = {"schema_version": 1, "kind": "observed_publication_verification", "publication_id": publication_id,
+    verification = {"schema_version": 1, "kind": "player_analysis_publication_verification", "publication_id": publication_id,
         "purpose": selection["purpose"], "producer": producer,
         "selection": {"path": str(selection_path), "sha256": hashlib.sha256(selection_bytes).hexdigest(),
             "bytes": len(selection_bytes), "copy": "selection.json", "document": selection},
-        "seasons": season_receipts, "database": {"path": str(output / "observed.sqlite"), "sha256": database_sha256},
+        "results": {"manifest_sha256": hashlib.sha256((results.directory/'manifest.json').read_bytes()).hexdigest(),
+            "copy": "results", "prepared_sha256": results.manifest['prepared_sha256'], "families": [{key:family[key] for key in ('season','family','availability','explanation')} for family in results.manifest['families']]},
+        "seasons": season_receipts, "database": {"path": str(output / "player-analysis.sqlite"), "sha256": database_sha256},
         "checks": {"integrity": "passed", "foreign_keys": "passed", "read_back": "passed", "per_season_conservation": "passed"},
         "cost": {"wall_seconds": time.monotonic() - started, "peak_rss_bytes": rss if sys.platform == "darwin" else rss * 1024,
             "consumed_bytes": consumed_bytes, "database_bytes": incomplete.stat().st_size},
         "cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
         "scientific_admission": "not_performed"}
     write_json(output / "verification.json", verification)
-    incomplete.rename(output / "observed.sqlite")
+    incomplete.rename(output / "player-analysis.sqlite")
     return verification

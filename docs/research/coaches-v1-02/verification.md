@@ -113,3 +113,9 @@ the earlier source-access issue is resolved and removed. no v1-02 follow-up rema
 ## accepted costs
 
 one fresh supplemental directory per request preserves previous evidence and requires explicit capture selection. exact aliases require manual review and remain independent of teams/seasons. valid source names can support manually reviewed aliases even when that source has conflicting game context; the conflicted game itself never resolves either assignment. the compact reader validates stored relationships without reopening original inputs; later numerical consumers must additionally compare game/date/side and corpus identities with their own preparation. original responses now pin the report/series parser; the nominal-reporting limitation remains. a failed bind can leave a partial fresh directory, but never a successful `coaches.json`; repair the cause and select a new output.
+
+## source integration — 2026-10-22
+
+merging `origin/main` at `659aa2b` preserves v1-04 skating receipts alongside right-rail, the existing six-source and landing behavior, and universal integer http-status bounds of 100–599. [five targeted integration groups](integration.json) pass against 245 core, 20 reference, nine right-rail and three skating originals, with malformed-status, missing-receipt, strict skating-key and source-identity checks. incoming v1-13/14/15 and v1-04 delivery records and fixture-policy qualifications remain intact; current v1-02 status records complete source acceptance.
+
+[pinned integration verification](root-integration.json) passes typechecking and all 49 fixture games/98 expected dispositions, with exact prior game records. the existing real artifact still reads as 6,560 games/13,120 resolved slots at its unchanged `102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0` hash. no network request, real rebinding, fitting, publication or activation accompanies integration.

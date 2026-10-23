@@ -1,0 +1,41 @@
+{
+  "browser": "native firefox via computer-use",
+  "server": "127.0.0.1:41914",
+  "checks": [
+    "fixture banner; league search/sort/clear and discovery query restored after profile",
+    "profile card, peers, deployment, games and season history",
+    "difference/absolute maps use selected server scale",
+    "comparison deep link retains ordered Bouchard/Bahl pair through profile and return",
+    "known absent selected year keeps historical identity explicitly dated",
+    "goalie identity-only history and explicit unfinished presentation",
+    "present analytical skater has explicit no observed results without fabricated values",
+    "specific season/player error states on final build",
+    "375x820 changed identity/absence states; goalie table overflow fixed with existing scroll region",
+    "native 200 percent zoom verified",
+    "final deep-link combined filters: reported defense, CGY, 15 included minutes =>4 of72 observed players"
+  ],
+  "png": {
+    "path": "/Users/nnandal/Downloads/hockey-stats-20252026-8480860-5v5.png",
+    "bytes": 326625,
+    "sha256": "1dc6273055770a2b2f13d07ba39677749efbe57e5098f4d844a549d455c9a118",
+    "visually_checked": true,
+    "fixture_label_present": true,
+    "publication_id": "aac8f926-b49a-4afe-ae59-f905dece6d91",
+    "note": "download exercised before final metadata-only historical binding correction; rendering/export code unchanged"
+  },
+  "final_checks": {
+    "npm_typecheck": 0,
+    "npm_build": 0,
+    "client_javascript_bytes": 649700,
+    "primary_client_javascript_bytes": 595171,
+    "new_dependencies": 0
+  },
+  "browser_journey_candidate": "a141f80d-7236-4abd-8789-68211d3c1fc4",
+  "final_candidate": "cfed52ea-954b-4d6d-87e6-dc5d8d118476",
+  "final_typed_api_smoke": {
+    "status": 200,
+    "publication_id": "cfed52ea-954b-4d6d-87e6-dc5d8d118476",
+    "observed_players": 72
+  },
+  "metadata_only_corrections": "all browser quantities and code unchanged; chronology-equivalence.json binds earlier numerical/browser evidence to the final candidate"
+}

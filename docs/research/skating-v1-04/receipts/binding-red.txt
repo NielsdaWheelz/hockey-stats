@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/skating-binding-check.py", line 1, in <module>
+    from hockey_stats.skating import bind_skating, read_skating
+ModuleNotFoundError: No module named 'hockey_stats.skating'

@@ -1,0 +1,252 @@
+{
+  "supplied_drafts": [
+    {
+      "path": "docs/issues/microstat-inputs.md",
+      "sha256": "3d95d5445c488968ec7d98063a4c6cc3bca463f832b1e06abea7a9fdeaa4c615",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/model-features.md",
+      "sha256": "b749cbe57364f1dc13af0606872f776cb92a995e6e8375af935cb7bd5301be79",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/plan.md",
+      "sha256": "809fb47860a07a548951b8fd2d3de906e6f24f356461a3112b8c08adbfcf3602",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/research/council.md",
+      "sha256": "05458e497bb1b69c4ff506ac0ee48733fdeba9b26d99d591561ccf5d0d10344a",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/research/source-audit.md",
+      "sha256": "646592583536ed42742b1ae5d78947d2835606186a266db3d29f508a9d174eec",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/specs/experimental-application.md",
+      "sha256": "c60f2246044db329dcbab07746e09c90015a2492aaaabc31b5d26f4957e5a9bf",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/specs/experimental-card-facts.md",
+      "sha256": "003f758bf90246a932ba40e2c67bc5fff1f4a47756dfba14441eee4b256ceb03",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/specs/experimental-player-analysis.md",
+      "sha256": "bf83de87454ce159b8f0cab83802c595b6b05e9bacef2fa1535137950f445735",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/issues/coach-source-access.md",
+      "sha256": "76423d0c7d69e575635647fcf495d1cfbab743ac04890753355f4f22a1fd1a74",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/specs/v1-02-dated-coaches.md",
+      "sha256": "12a30e16a5c43b62a54a702319983262f5932a35d98535ac0d3878098d39f472",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    },
+    {
+      "path": "docs/specs/v1-14-history-cohorts-exports.md",
+      "sha256": "15306ab410f30723024e5ab1fae41c637b7f2fd4259617b1ca4615351bdb2294",
+      "snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4"
+    }
+  ],
+  "reviewed_tree": "1c39ecadd472418e10267452f80c95fb646aab97",
+  "implementation": "250701e53383a4866a991bd3e0aa27de331acb28",
+  "merge": "7dec0fceb11c3a3b48df21cbe8a92e118f67558f",
+  "independent_worktrees_before": "worktree /Users/nnandal/Documents/code/hockey-stats\nHEAD 61fa0870272ea1f5b0999b97c0e2809d393804c6\nbranch refs/heads/main\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-01\nHEAD 91754cff29770b862daa929abf2bc513bdb66611\nbranch refs/heads/v1-01-shared-evidence\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-02\nHEAD 2a3ab789b32990104a40c327453ee716ff0b0cc1\nbranch refs/heads/implement/v1-02-dated-coaches\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-14\nHEAD 250701e53383a4866a991bd3e0aa27de331acb28\nbranch refs/heads/implement/v1-14-history-cohorts-exports\n\n",
+  "task_worktree_removed": true,
+  "local_branch_removed": true,
+  "task_stash_dropped": "21d05f6c3fa236bcfdc2a38a594e2a2a227a9177",
+  "pr": "https://github.com/NielsdaWheelz/hockey-stats/pull/49",
+  "check": "GitGuardian Security Checks: SUCCESS",
+  "reviewed_and_merge_trees_equal": true,
+  "remote_branch_removed": true,
+  "removed_downloads": [
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-20232024-8473507-5v5.png",
+      "sha256": "f3ded747071e939d49fcab0b72fcbdf1971d37aa603d01041315751f1a48c975",
+      "bytes": 405831
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8473507-sog60-20232024-20252026-history-raw.png",
+      "sha256": "1bd7fe2e7d0841e5c5fc606dc1c8b28d2d55ffc110e30981de103f6c1bbf4f7c",
+      "bytes": 536733
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8473507-sog60-20232024-20252026-history.csv",
+      "sha256": "6db31447057b108f9f6c2406f90710e2d751fbb613dcb16a368d6b931eb75313",
+      "bytes": 3640
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile.png",
+      "sha256": "3b2f0b610907d7bcc24c8dd57d484e8f936232c73d38d220f6e161001991d6d2",
+      "bytes": 623676
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (1).png",
+      "sha256": "3b2f0b610907d7bcc24c8dd57d484e8f936232c73d38d220f6e161001991d6d2",
+      "bytes": 623676
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history.csv",
+      "sha256": "5714d1155303341d46d039a2091da5d1ae376220a6e2106e4af4ddcf8ba46bc3",
+      "bytes": 3964
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (2).png",
+      "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+      "bytes": 659911
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history (1).csv",
+      "sha256": "60ba8f613096ff4a3a3e369fd214a12b1e2fbd1565895468e924e1fd4ec90f2d",
+      "bytes": 4064
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (3).png",
+      "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+      "bytes": 659911
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-8473507-8474564-for60-20232024-distribution.csv",
+      "sha256": "c8cef2741c73abffc96991782f204df9f988ce93740f31d7ee6c81069da49002",
+      "bytes": 72340
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (4).png",
+      "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+      "bytes": 659911
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (5).png",
+      "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+      "bytes": 659911
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000001-ledger.league_total-20232024-20252026-history-raw.png",
+      "sha256": "8fd70a7f842356b601241e623f8818db8bd242aeb579c03c33909a2cb65caf3c",
+      "bytes": 1053459,
+      "case": "initial v1-14 synthetic ledger browser check, superseded during review"
+    },
+    {
+      "path": "/Users/nnandal/Downloads/hockey-stats-9000001-ledger.league_total-20232024-20252026-history.csv",
+      "sha256": "cfe48f264cba4d2acb25d82a862652ac6f060a1efe5445857fb09bb831592872",
+      "bytes": 7066,
+      "case": "initial v1-14 synthetic ledger browser check, superseded during review"
+    }
+  ],
+  "removed_scratch": [
+    {
+      "path": "/tmp/hockey-v114-cleanup-stash",
+      "sha256": "d5fa465f489c3c03f4c163b4dec2d094eab01c664c41c16c25ffcaee3d20bb06",
+      "bytes": 41
+    },
+    {
+      "path": "/tmp/hockey-v114-cleanup.json",
+      "sha256": "a1f80a0bc65868933f03cb5d1970595a75ff80ee186939d561da490df0b80e69",
+      "bytes": 3263
+    },
+    {
+      "path": "/tmp/hockey-v114-pr.md",
+      "sha256": "13efe2c876206531d1fc4f846eb2e4f3081de66799403662ed1846f8fa7a50de",
+      "bytes": 1391
+    },
+    {
+      "path": "/tmp/hockey-v114-review-accessibility.txt",
+      "sha256": "e78f28652bf99d2a5f800a7e912f1602651b2b2d410251e619f4642b2bcc0e44",
+      "bytes": 408
+    },
+    {
+      "path": "/tmp/hockey-v114-review-finalrequest.txt",
+      "sha256": "e39f772e40f06aaeeee45e52d00de0579302cc270f66263c5a69dcfba562ceb8",
+      "bytes": 645
+    },
+    {
+      "path": "/tmp/hockey-v114-review-followup.txt",
+      "sha256": "1f91a22a51de1cca9da69b1c0d8a3df6561b379966d15d50c5095a72357ad347",
+      "bytes": 547
+    },
+    {
+      "path": "/tmp/hockey-v114-review-lastclosures.txt",
+      "sha256": "5b2e827e1f6f74f1554f01022d83ba71ea7243cded9ea59069dbe3e6e73f54e2",
+      "bytes": 714
+    },
+    {
+      "path": "/tmp/hockey-v114-review-prompt.txt",
+      "sha256": "09bede10b7ced57c53602bbe81d5fab0840ed47a1b05c8dd55d49e90ddfbbc44",
+      "bytes": 1097
+    },
+    {
+      "path": "/tmp/hockey-v114-review-repairs.txt",
+      "sha256": "d8be1b8bc187ca9b7d43cd213700345c33d6c4209fca1f421908b378a3b186a1",
+      "bytes": 746
+    },
+    {
+      "path": "/tmp/hky-v114-head",
+      "sha256": "36a3172dd2d4bf527a389dcf1c5eca126de0388fea1a3809e94e54d736e39092",
+      "bytes": 165
+    },
+    {
+      "path": "/tmp/hky-v114-page",
+      "sha256": "38dc1583cd5e7ee1c758ac2d04dfb74df0bf8cd619842a20fc0fbc68fceb1c56",
+      "bytes": 4291
+    },
+    {
+      "path": "/tmp/v1-14-browser-goalie-cohort.json",
+      "sha256": "87f850d24b6859877d3908c4360c85724c75710a3b7b88c0f74a89aaa0c1faa4",
+      "bytes": 215081
+    },
+    {
+      "path": "/tmp/v1-14-browser-goalie.json",
+      "sha256": "64bad88e776622a55fe999ec0d3ff954d47232d94759d8db6ddd1538de19f956",
+      "bytes": 806404
+    },
+    {
+      "path": "/tmp/v1-14-goalie-league.json",
+      "sha256": "72e4d38f9b6219e502da7f2724c139a52064fbea3dca604413ecd98a3c1050ce",
+      "bytes": 209970
+    },
+    {
+      "path": "/tmp/v1-14-goalie-player.json",
+      "sha256": "23afec3d013cd537042c030db0cd90e64f17398cadd1984a22a22e5d1bb42d1a",
+      "bytes": 796182
+    },
+    {
+      "path": "/tmp/v1-14-goalie.json",
+      "sha256": "34880ed1de0652419cc645cd081432d58a84313b9d40648c6bd340a12c291d76",
+      "bytes": 743612
+    },
+    {
+      "path": "/tmp/v1-14-league.json",
+      "sha256": "ea6082b371f5a1ea325186364ea158c6b4bf4db54d2dc852df9b576da6dd3d9e",
+      "bytes": 441795
+    },
+    {
+      "path": "/tmp/v1-14-player.json",
+      "sha256": "8fa21c44dfd25980701d9c6808beb88ab5e2a95e6a60471596defaf0bf073dae",
+      "bytes": 872958
+    },
+    {
+      "path": "/tmp/v1-14-probe.json",
+      "sha256": "ea6082b371f5a1ea325186364ea158c6b4bf4db54d2dc852df9b576da6dd3d9e",
+      "bytes": 441795
+    }
+  ],
+  "worktrees_after": "worktree /Users/nnandal/Documents/code/hockey-stats\nHEAD 7dec0fceb11c3a3b48df21cbe8a92e118f67558f\nbranch refs/heads/main\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-01\nHEAD 91754cff29770b862daa929abf2bc513bdb66611\nbranch refs/heads/v1-01-shared-evidence\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-02\nHEAD 2a3ab789b32990104a40c327453ee716ff0b0cc1\nbranch refs/heads/implement/v1-02-dated-coaches\n\n",
+  "independent_worktree_heads_unchanged": true,
+  "live_file_hashes_sizes_mtimes_and_listener_unchanged": true,
+  "owned_ports_closed": [
+    41924,
+    41925,
+    41926
+  ],
+  "unrelated_worktrees_modified": false,
+  "owned_chrome_test_tabs_closed": 6,
+  "preexisting_chrome_tabs_preserved": true
+}

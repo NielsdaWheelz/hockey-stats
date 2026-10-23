@@ -1,0 +1,141 @@
+{
+  "purpose": "fixture",
+  "scope": "composition checks over the disposable schema7 publication built from the attributed v1-13 capture fixture; transformed responses below are synthetic, not reported hockey evidence",
+  "source_fixture": "../publication-v1-13/README.md",
+  "api_contract": "app/src/shared/player-analysis.ts",
+  "three_annual_cohorts": {
+    "metric": "sog60",
+    "player_id": "8473507",
+    "peer_mode": "position",
+    "peer_min_minutes": 0,
+    "transformation": "copy the 2023\u201324 observed player summary and person into all three annual history slots and annual observed cohorts; adjust person season, age_as_of and age_years to each year; retain each original annual SeasonEvidence and its corpus; replace an existing row or insert the missing one exactly once",
+    "expected": [
+      {
+        "season": "20232024",
+        "value": 3.5749751737835154,
+        "n": 24,
+        "percentile": 43.75,
+        "corpus": "c0ff50dd397e4d03bbdbede317fbe79f55380478044f74b2c14577ee00d980c8"
+      },
+      {
+        "season": "20242025",
+        "value": 3.5749751737835154,
+        "n": 25,
+        "percentile": 50,
+        "corpus": "21d995c19ca71df03dc6509846c478feadc8c44869d998f67afdd64920b23972"
+      },
+      {
+        "season": "20252026",
+        "value": 3.5749751737835154,
+        "n": 24,
+        "percentile": 39.583333333333336,
+        "corpus": "1f95257cf6e25f886356bf06c41a719e353ef19e11106772fe6c4a16b261c8e4"
+      }
+    ],
+    "hand_formula": "100*(count(raw values strictly less)+count(raw values equal)/2)/n; peers are same-year D with positive own personal included seconds and nonnull shots_on_goal_per60"
+  },
+  "missing_and_reference_checks": [
+    {
+      "transformation": "on the synthetic annual person above, mark 2023 reported_position F consistently in person/summary; replace 2024 person/families with the typed absent envelope and remove its cohort row; keep 2025 D",
+      "expected": {
+        "annual_positions": [
+          "F",
+          null,
+          "D"
+        ],
+        "middle_value_status": "absent",
+        "middle_standing_reason": "absent season",
+        "raw_segment_through_absence": false,
+        "percentile_segment_between_forward_and_defense": false
+      }
+    },
+    {
+      "source": "existing fixture ledger methods method:ledger and method:ledger:20242025",
+      "expected": "different annual method ids with the same recipe_id, reference_id and support_policy_id preserve semantic identity"
+    },
+    {
+      "transformation": "change method:ledger:20242025 reference_id to temporary_fixture_changed_reference consistently in every returned catalog",
+      "expected": "2023\u201324 and 2024\u201325 selected ledger semantic identities differ; raw and percentile history segments break"
+    }
+  ],
+  "composition_rejections": [
+    "different publication",
+    "different annual corpus",
+    "different displayed inventory",
+    "conflicting catalog entry under one id",
+    "different annual person identity",
+    "different original scalar uncertainty",
+    "different component support",
+    "different Estimate unavailable reason detail",
+    "available scalar missing its cohort row"
+  ],
+  "permitted_unavailable_envelope_difference": "not_computed family explanation prose may differ; original Estimate reasons/details, scalar status, identity, support and provenance must still agree",
+  "navigation": {
+    "default_skater_metric": "sog60",
+    "default_goalie_metric": "goalie.ev.stopping_goals_per100_on_net",
+    "default_history": "raw",
+    "default_peer_min": 300,
+    "default_specialty_min": 50,
+    "local_only": [
+      "peers",
+      "peerMin",
+      "specialtyMin",
+      "history"
+    ],
+    "reloaded": [
+      "metric",
+      "season",
+      "person",
+      "map"
+    ]
+  },
+  "goalie": {
+    "fixture_player_id": "9000004",
+    "finite_metric_count": 26,
+    "selected_seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "all_finite_metric_reads_checked": true,
+    "default_reads_checked_each_year": true,
+    "synthetic_selected_year_absence": "goalie kind and ev default retained; absent scalar; no map"
+  },
+  "unavailable_skater": {
+    "fixture_player_id": "9000002",
+    "selected_seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "observed_field_without_cohort_row": "null/uncomputed value remains selected with its family explanation"
+  },
+  "request_expectations": {
+    "observed_profile_with_map": {
+      "player": 1,
+      "league": 3,
+      "observed_maps": 1
+    },
+    "comparison_observed": {
+      "league": 1,
+      "observed_maps": 1
+    },
+    "comparison_other_family": {
+      "league": 2,
+      "observed_maps": 1
+    },
+    "persistent_cache": false,
+    "deduplication": "exact season/kind/family/strength within one loader",
+    "analytical_skater_without_observed_player": {
+      "player": 1,
+      "league": 4,
+      "maps": 0
+    },
+    "goalie_profile": {
+      "player": 1,
+      "league": 3,
+      "skater_cohorts": 0,
+      "maps": 0
+    }
+  }
+}

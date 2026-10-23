@@ -41,6 +41,29 @@ class ReferenceCapture:
     reason: str | None
 
 
+@dataclass(frozen=True)
+class SkatingCapture:
+    source: str
+    capture_path: Path
+    requested_identity: dict | None
+    requested_at: str | None
+    http_status: int | None
+    body_sha256: str | None
+    body: bytes | None
+    reason: str | None
+
+
+def skating_url(kind: str, season: str | None = None, player_id: str | None = None) -> str:
+    """the three fixed supplemental skating locators."""
+    if kind == "detail":
+        return f"https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/{player_id}/{season}/2"
+    if kind == "listing":
+        return f"https://www.nhl.com/nhl-edge/skaters/{season}/2/skating-speed/all"
+    if kind == "glossary":
+        return "https://www.nhl.com/nhl-edge/glossary"
+    raise ValueError(f"unknown skating source {kind!r}")
+
+
 def strict_json(data: bytes) -> object:
     """reject ambiguous objects and all non-finite json numbers."""
     def pairs(items: list[tuple[str, object]]) -> dict[str, object]:
@@ -85,14 +108,22 @@ def read_supplemental_capture(directory: Path, source: str = "right-rail") -> Ca
     return _read_capture(directory, source, reference=False, required=True)
 
 
+def read_skating_capture(directory: Path, kind: str) -> SkatingCapture:
+    """read one required skating receipt through the common byte validator."""
+    if kind not in ("detail", "listing", "glossary"):
+        raise ValueError(f"unknown skating source {kind!r}")
+    return _read_capture(directory, "edge-skating-" + kind, reference=False,
+                         required=True, skating=True)
+
+
 def _read_capture(directory: Path, source: str, *, reference: bool,
-                  required: bool = False) -> Capture | ReferenceCapture:
+                  required: bool = False, skating: bool = False) -> Capture | ReferenceCapture | SkatingCapture:
     """read one fixed source, checking metadata and promised body integrity.
 
     unavailable sources retain known metadata; malformed records raise
     InputContractError, while filesystem failures propagate as OSError.
     """
-    receipt = ReferenceCapture if reference else Capture
+    receipt = SkatingCapture if skating else ReferenceCapture if reference else Capture
     path = (directory / source / "capture.json").resolve()
     try:
         metadata_bytes = path.read_bytes()
@@ -120,7 +151,27 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
     require(type(metadata.get("schemaVersion")) is int and metadata["schemaVersion"] == 1,
             "unsupported metadata schemaVersion; expected integer 1")
     require(metadata.get("source") == source, "source identity does not match its directory")
-    if reference:
+    if skating:
+        kind = source.removeprefix("edge-skating-")
+        identity_keys = {"source"}
+        if kind != "glossary":
+            identity_keys |= {"seasonId", "gameTypeId"}
+            season = metadata.get("seasonId")
+            require(season in ("20232024", "20242025", "20252026"), "unsupported skating seasonId")
+            require(type(metadata.get("gameTypeId")) is int and metadata["gameTypeId"] == 2,
+                    "skating gameTypeId must be integer 2")
+        else:
+            season = None
+        player = metadata.get("playerId")
+        if kind == "detail":
+            identity_keys.add("playerId")
+            require(isinstance(player, str) and re.fullmatch(r"[0-9]+", player) is not None
+                    and int(player) > 0, "skating playerId must be a positive digit string")
+        require(set(metadata) == identity_keys | {"schemaVersion", "request", "responseHeaders",
+                "httpStatus", "state", "body", "failure"}, "unexpected skating receipt keys")
+        identity = {key: metadata[key] for key in identity_keys}
+        urls = {source: skating_url(kind, season, player)}
+    elif reference:
         identity = metadata.get("seasonId")
         require(isinstance(identity, str) and re.fullmatch(r"[0-9]{8}", identity) is not None,
                 "seasonId must be an eight-digit string")
@@ -149,6 +200,8 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
         }
     request = metadata.get("request")
     require(isinstance(request, dict), "request must be an object")
+    if skating:
+        require(set(request) == {"method", "url", "requestedAt"}, "unexpected skating request keys")
     require(request.get("method") == "GET" and request.get("url") == urls[source],
             "request method/url does not identify the requested source and identity")
     requested_at = request.get("requestedAt")
@@ -175,6 +228,8 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
         failure = metadata.get("failure")
         require(isinstance(failure, dict) and failure.get("kind") in ("transport", "body-read", "timeout")
                 and isinstance(failure.get("message"), str), "failed capture must name its failure kind/message")
+        if skating:
+            require(set(failure) == {"kind", "message"}, "unexpected skating failure keys")
         return receipt(source, path, identity, requested_at, status, None, None,
                        f"{path}: request failed ({failure['kind']}: {failure['message']}); source unavailable")
 
@@ -183,6 +238,8 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
             "captured body must have failure null")
     body = metadata.get("body")
     require(isinstance(body, dict), "captured body must have a body record")
+    if skating:
+        require(set(body) == {"path", "representation", "bytes", "sha256"}, "unexpected skating body keys")
     require(body.get("path") == "body.bin" and body.get("representation") == "http-client-body",
             "body must identify body.bin in http-client-body representation")
     length = body.get("bytes")

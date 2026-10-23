@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "groups": 3,
+  "parent_main": "659aa2bb923d63505ffa31ab4f9bb80a0f92ff97",
+  "parent_task": "62aae27a47cb1ea8037e741f9e61f51d540d3974",
+  "head": "62aae27a47cb1ea8037e741f9e61f51d540d3974",
+  "source_sha256": "8571b6cef87c991a41a0f2c666828bec31a1d37a07b3156569e3bb0ee8a69e4e",
+  "staged_tree": "218ad8cf5bc686a233dad39397a2b362f5dd88a4",
+  "evidence": {
+    "shared_and_skating_specific_malformed_refusals": 35,
+    "valid_source_reads_compared_to_exact_parents": 44,
+    "artifact_hash_unchanged": true,
+    "task_path_absence_simulated": "stat/lstat unavailable; all external opens and network denied"
+  },
+  "failures": [],
+  "errors": [],
+  "network_requests": 0
+}

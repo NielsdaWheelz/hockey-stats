@@ -1,0 +1,51 @@
+{
+  "purpose": "fixture",
+  "construction": "explicit synthetic browser case; typed API response transformation only; not source-backed hockey observations or fitted player estimates",
+  "player_id": "9000004",
+  "season": "20232024",
+  "strength": "ev",
+  "method_id": "method:goalie",
+  "values": {
+    "stopping_goals_per100_on_net": -2.5,
+    "miss_probability": 0.07,
+    "recorded_stop_probability": 0.29,
+    "conversion_probability": 0.57,
+    "recorded_reattempt_probability": 0.07,
+    "reattempt_neutral_goal_probability": 0.29,
+    "followup_danger": 0.57,
+    "miss_probability_difference": -0.03,
+    "recorded_stop_probability_difference": 0.07,
+    "conversion_probability_difference": -0.07,
+    "recorded_reattempt_probability_difference": 0.29,
+    "reattempt_neutral_goal_probability_difference": -0.29,
+    "followup_danger_difference": 0.07
+  },
+  "support": {
+    "included_seconds": 18000,
+    "events": 100,
+    "eligible_weight": 100,
+    "known_excluded_seconds": 0,
+    "unquantified_gap": false,
+    "reason_counts": [],
+    "inferred_inputs": [],
+    "current_season_information": true,
+    "prior_only": false,
+    "prior_seasons": []
+  },
+  "uncertainty": {
+    "kind": "not_estimated"
+  },
+  "expected": {
+    "default_stopping": -2.5,
+    "default_cutoff_minutes": 300,
+    "cohort_n": 1,
+    "percentile": 50,
+    "miss_probability_display_percent": 7,
+    "recorded_stop_probability_display_percent": 29,
+    "conversion_probability_display_percent": 57,
+    "later_years": "unchanged pending ev/pk results; history must preserve gaps",
+    "display_name": "first-year synthetic person label above is retained in png; csv prefixes the formula-like textual cell with an apostrophe"
+  },
+  "provenance": "reuses fixture person9000004 and first-year method:goalie identity from fixtures/publication-v1-13; synthetic ev values added consistently to player/history and overview cohort. whole transformed responses are decoded against existing PlayerResponse and LeagueResponse schemas.",
+  "display_name": "=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\""
+}

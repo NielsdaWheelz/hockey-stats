@@ -1,0 +1,27 @@
+{
+  "checks": [
+    {
+      "name": "season link and browser back retain coherent annual card"
+    },
+    {
+      "name": "browser forward restores next annual card"
+    }
+  ],
+  "errors": [],
+  "exports": [
+    {
+      "name": "cost-sample.png",
+      "bytes": 3236925,
+      "type": "image/png"
+    }
+  ],
+  "measurements": [
+    {
+      "path": "/players/9000001?season=20232024",
+      "settled_ms": 2217.599999964237,
+      "html_bytes": 157832
+    }
+  ],
+  "png_encode_and_save_ms": 1007.3999999761581,
+  "status": "green"
+}

@@ -328,6 +328,9 @@ thead .identity {
 .history-table {
   min-width: 72rem;
 }
+.identity-history {
+  min-width: 0;
+}
 .history-table .identity {
   width: 7.5rem;
   min-width: 7.5rem;
@@ -409,6 +412,13 @@ thead .identity {
 }
 .fixture-notice {
   font-weight: 650;
+}
+.fixture-banner {
+  margin: 1rem 0 0;
+  padding: 0.5rem 1rem;
+  border: 2px solid #8a5a00;
+  background: #fff4d6;
+  font-weight: 700;
 }
 .empty-search,
 .load-error {
@@ -1086,4 +1096,149 @@ footer {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.5rem;
   }
+}
+.analysis-detail,
+.analysis-history {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 1.5rem;
+}
+.analysis-selected-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1rem;
+}
+.analysis-selected-value {
+  min-width: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 1rem;
+}
+.analysis-selected-value h4 {
+  margin-top: 0;
+}
+.analysis-evidence {
+  font-size: 0.85rem;
+}
+.analysis-evidence summary {
+  cursor: pointer;
+}
+.analysis-evidence pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-size: 0.8rem;
+  max-width: 42rem;
+}
+.analysis-history > label {
+  display: block;
+  font-weight: 650;
+}
+.analysis-history > select {
+  padding: 0.5rem;
+  color: inherit;
+  background: var(--paper);
+  border: 1px solid #9ca8a5;
+  max-width: 100%;
+}
+.analysis-history-plot {
+  width: 100%;
+  display: block;
+  font-size: 0.8rem;
+  min-width: 0;
+}
+.analysis-history-table {
+  min-width: 62rem;
+}
+.analysis-history-table th,
+.analysis-history-table td {
+  vertical-align: top;
+  max-width: 24rem;
+}
+.fixture-notice {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.8rem;
+}
+.analysis-detail .peer-table {
+  min-width: 52rem;
+}
+.analysis-detail .peer-table th,
+.analysis-detail .peer-table td {
+  max-width: 24rem;
+}
+@media (max-width: 400px) {
+  .analysis-detail .minute-input {
+    flex-wrap: wrap;
+  }
+  .analysis-detail .minute-input input {
+    max-width: 100%;
+  }
+  .analysis-detail .minute-input button {
+    white-space: normal;
+  }
+  .analysis-history-plot {
+    min-height: 10rem;
+  }
+}
+
+/* finite discovery tables share the existing paper, teal and slate palette. */
+.site-navigation, .discovery-presets { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.discovery-presets button[aria-pressed="true"] { background: var(--ink, #20333a); color: #fff; }
+.experimental-status { font-weight: 650; color: #315b61; }
+.strength-control { margin: 1rem 0; max-width: 18rem; }
+.strength-control label { display: block; margin-bottom: .35rem; }
+.discovery-table { width: max-content; min-width: 100%; }
+.discovery-table .analysis-cell { min-width: 12rem; max-width: 19rem; white-space: normal; vertical-align: top; }
+.discovery-table .cell-standing { display: block; font-size: .76rem; font-weight: 400; color: #52666c; margin: .3rem 0; }
+.discovery-table details { font-size: .78rem; text-align: left; }
+.discovery-table details[open] { max-width: 24rem; }
+.discovery-table summary { cursor: pointer; }
+.discovery-table pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 20rem; overflow: auto; }
+.discovery-table .semantic-group th { text-align: left; background: #edf2f0; font-size: .82rem; white-space: normal; }
+.discovery-table caption { text-align: left; max-width: min(80rem, 90vw); white-space: normal; }
+@media (max-width: 540px) { .discovery-presets { gap: .4rem; } .discovery-presets button { padding: .45rem .6rem; } }
+
+.comparative-card {
+  min-width: 0;
+  padding: clamp(.8rem, 2vw, 1.5rem);
+  margin: 1.5rem 0;
+  border: 1px solid var(--rule);
+  background: var(--paper, #fbfaf6);
+  overflow-wrap: anywhere;
+}
+.comparative-card header h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin: .3rem 0; }
+.comparative-card header p { margin: .35rem 0; }
+.comparative-kicker { color: #17696b; font-weight: 700; }
+.comparative-workload { padding: .7rem 0; border-block: 1px solid var(--rule); }
+.comparative-totals { display: grid; grid-template-columns: 3fr 2fr; gap: 1rem; }
+.comparative-tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; border-block: 1px solid var(--rule); padding: 1rem 0; }
+.comparative-card h4 { margin: .6rem 0; }
+.comparative-card .comparative-magnitude { color: #17696b; font-size: 1.8rem; line-height: 1.15; margin: .5rem 0; font-variant-numeric: tabular-nums; }
+.comparative-headline .comparative-magnitude { font-size: 3.2rem; }
+.comparative-tile > p, .comparative-headline > p { font-size: .82rem; margin: .5rem 0; }
+.comparative-unit { font-family: var(--mono, monospace); }
+.comparative-construction { color: var(--muted, #56615c); }
+.comparative-card meter { width: 100%; accent-color: #17696b; }
+.comparative-card .analysis-evidence { font-size: .8rem; }
+.comparative-card pre { max-width: 100%; overflow: auto; white-space: pre-wrap; }
+.comparative-histories { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+.comparative-history { min-width: 0; margin: 0; }
+.comparative-history > svg { width: 100%; height: auto; font: 13px system-ui, sans-serif; }
+.comparative-history-legend { display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .8rem; }
+.comparative-history-legend span { display: flex; align-items: center; gap: .3rem; }
+.comparative-history details { margin-top: .7rem; }
+.comparative-card table { font-size: .85rem; min-width: 36rem; width: 100%; }
+.comparative-card th, .comparative-card td { padding: .7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+.comparative-ledger { margin: 1rem 0; }
+.comparative-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.comparative-pair .comparative-tiles { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; }
+.comparative-view-nav { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+.comparative-view-nav [aria-current="page"] { font-weight: 700; text-decoration-thickness: 3px; }
+@media (max-width: 1350px) { .comparative-pair { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .comparative-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .comparative-pair .comparative-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .comparative-totals, .comparative-histories { grid-template-columns: 1fr; }
 }

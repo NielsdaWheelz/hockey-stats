@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "status": "pass",
+  "reviewer": "contracts agent",
+  "publication_id": "cfed52ea-954b-4d6d-87e6-dc5d8d118476",
+  "manifest_sha256": "f768b285ea529a07f9a683e54878d8f9ec42c758f899cfefcec3018c59c66078",
+  "database_sha256": "9ba58c11a8c430098b74eff35b47bbe797f8d345c8911fbc71ae5f432a85c10c",
+  "red": {
+    "previous_candidate": "candidate-reviewed",
+    "temporal_violations": 97,
+    "missed_invariant": "row year was not compared with method fitting years and cutoff"
+  },
+  "green": {
+    "distinct_row_and_support_method_bindings": 11,
+    "method_input_digests_checked": 9,
+    "cutoff_bound": "row ending year-06-30",
+    "fitting_bound": "fit seasons <= row season",
+    "annual_state_and_predecessor_inputs": "subset of fitting seasons",
+    "prepared_input_scope": "three display years remain permitted",
+    "decoded_runtime": "node 24.21.0"
+  },
+  "data_equivalence": {
+    "changed_files": [
+      "methods.jsonl",
+      "20242025-ledger-value_ledger.jsonl",
+      "manifest.json"
+    ],
+    "changed_payload_field": "9000001/20242025 method_id: method:ledger -> method:ledger:20242025",
+    "numerical_changes": 0,
+    "other_bundle_files_byte_identical": 38,
+    "sqlite_tables_compared": 37,
+    "retained_bundle_files_byte_identical": 41,
+    "ledger_totals": [
+      55,
+      110
+    ]
+  },
+  "temporary_checks_deleted": [
+    "v1-13-chronology-audit.py",
+    "v1-13-chronology-read.mts"
+  ]
+}

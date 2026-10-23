@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "kind": "temporary controlled-fetch cli verification",
+  "live_requests": 0,
+  "scratch": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq",
+  "checks": [
+    {
+      "name": "detail: real cli fixed url and exact receipt/body",
+      "result": "pass"
+    },
+    {
+      "name": "listing: real cli fixed url and exact receipt/body",
+      "result": "pass"
+    },
+    {
+      "name": "glossary: real cli fixed url and exact receipt/body",
+      "result": "pass"
+    },
+    {
+      "name": "detail leading-zero player: real cli fixed url and exact receipt/body",
+      "result": "pass"
+    },
+    {
+      "name": "real cli denial receipt; single manual request",
+      "result": "pass"
+    },
+    {
+      "name": "real cli redirect receipt; single manual request",
+      "result": "pass"
+    },
+    {
+      "name": "real cli transport receipt; single manual request",
+      "result": "pass"
+    },
+    {
+      "name": "real cli body-read receipt; single manual request",
+      "result": "pass"
+    },
+    {
+      "name": "real cli timeout receipt; single manual request",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 1 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 2 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 3 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 4 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 5 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 6 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 7 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 8 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 9 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 10 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 11 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 12 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 13 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 14 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 15 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 16 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 17 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 18 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "occupied root fails before network",
+      "result": "pass"
+    },
+    {
+      "name": "npm command registration",
+      "result": "pass"
+    }
+  ],
+  "passed": 29,
+  "failed": 0
+}

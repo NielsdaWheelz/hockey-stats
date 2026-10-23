@@ -1,0 +1,276 @@
+{
+  "checks": 23,
+  "observed_rows": 72,
+  "batches": [
+    {
+      "label": "default discovery includes84 identities",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 39.647749999999974
+        }
+      ]
+    },
+    {
+      "label": "comparative profile default",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000001?season=20232024",
+          "bytes": 872958,
+          "ms": 23.442416999999978
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160,
+          "ms": 12.152083000000005
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562,
+          "ms": 30.394000000000005
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 62.124915999999985
+        }
+      ]
+    },
+    {
+      "label": "comparative profile &metric=goals60",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000001?season=20232024",
+          "bytes": 872958,
+          "ms": 23.520500000000027
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160,
+          "ms": 11.501874999999927
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562,
+          "ms": 27.299875000000043
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 59.91233299999999
+        }
+      ]
+    },
+    {
+      "label": "comparative profile &metric=execution.5v4.finishing_goals_per100_attempts",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000001?season=20232024",
+          "bytes": 872958,
+          "ms": 26.203374999999937
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160,
+          "ms": 13.067166000000043
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=execution&strength=5v4",
+          "bytes": 291148,
+          "ms": 17.71225000000004
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=execution&strength=5v4",
+          "bytes": 291466,
+          "ms": 28.097499999999968
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562,
+          "ms": 37.15654099999995
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=execution&strength=5v4",
+          "bytes": 288149,
+          "ms": 45.02758300000005
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 78.93241599999999
+        }
+      ]
+    },
+    {
+      "label": "exact-strength discovery",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 37.959790999999996
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=execution&strength=5v4",
+          "bytes": 288149,
+          "ms": 7.883791999999971
+        }
+      ]
+    },
+    {
+      "label": "comparative pair shared annual cohorts",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 39.053916999999956
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000001?season=20232024",
+          "bytes": 872958,
+          "ms": 25.97225000000003
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000002?season=20232024",
+          "bytes": 750182,
+          "ms": 42.641958000000045
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160,
+          "ms": 15.997915999999918
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562,
+          "ms": 25.378749999999968
+        }
+      ]
+    },
+    {
+      "label": "partial observed pair",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 45.462125000000015
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000002?season=20232024",
+          "bytes": 750182,
+          "ms": 19.65783399999998
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/players/8473507?season=20232024",
+          "bytes": 743244,
+          "ms": 35.95087500000011
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160,
+          "ms": 12.046291999999994
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562,
+          "ms": 24.107791000000134
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/maps?season=20232024&players=9000002%2C8473507&family=observed&strength=5v5&view=effect",
+          "bytes": 509084,
+          "ms": 13.673375000000078
+        }
+      ]
+    },
+    {
+      "label": "invalid comparison &a=9000001&b=9000001",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 45.01958300000001
+        }
+      ]
+    },
+    {
+      "label": "invalid comparison &a=oops&b=9000002",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 41.57608400000004
+        }
+      ]
+    },
+    {
+      "label": "invalid comparison &a=9999999&b=9000002",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 40.711874999999964
+        }
+      ]
+    },
+    {
+      "label": "invalid comparison &a=9000001&a=9000002&b=9000003",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 41.6685829999999
+        }
+      ]
+    },
+    {
+      "label": "absent current year keeps history",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/players/8473507?season=20242025",
+          "bytes": 736351,
+          "ms": 20.264249999999947
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 446160,
+          "ms": 14.661624999999958
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 454562,
+          "ms": 27.43387500000017
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 441795,
+          "ms": 68.1014580000001
+        }
+      ]
+    },
+    {
+      "label": "complete declared synthetic card",
+      "requests": [
+        {
+          "path": "http://127.0.0.1:41915/api/players/9000001?season=20232024",
+          "bytes": 1010065,
+          "ms": 31.587499999999864
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20252026&kind=skater&family=overview",
+          "bytes": 495149,
+          "ms": 15.770416000000068
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20242025&kind=skater&family=overview",
+          "bytes": 500485,
+          "ms": 32.44491599999992
+        },
+        {
+          "path": "http://127.0.0.1:41915/api/league?season=20232024&kind=skater&family=overview",
+          "bytes": 472088,
+          "ms": 72.82116700000006
+        }
+      ]
+    }
+  ]
+}

@@ -175,13 +175,18 @@ def prepare_support(document, reconstruction, input_ref):
                     local_reasons.append(reason(code, [segment_index], evidence, period=period,
                                                 events=[index], reports=[report_index]))
         if corroborated and temporal_case == "boundary" and row["segment_index"] is None:
+            other_state = False
             for segment_index in touching:
                 current = segment_rows[segment_index]["membership"]
                 if current != membership:
                     same_state = _state(current) == _state(membership)
-                    local_reasons.append(reason("identity_conflict" if same_state else "strength_conflict",
-                                                [segment_index] if same_state else [], evidence,
-                                                period=period, events=[index], reports=[report_index]))
+                    if same_state:
+                        local_reasons.append(reason("identity_conflict", [segment_index], evidence,
+                                                    period=period, events=[index], reports=[report_index]))
+                    elif not other_state:
+                        local_reasons.append(reason("strength_conflict", [], evidence,
+                                                    period=period, events=[index], reports=[report_index]))
+                        other_state = True
         if (not corroborated or row["segment_index"] is None) and not local_reasons:
             affected, scope = affected_at(period, clock, membership)
             if event["timed_period"] is not True or period is None or clock is None:

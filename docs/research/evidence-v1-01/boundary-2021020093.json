@@ -1,0 +1,55 @@
+{
+  "status": "focused repair and preserved source boundary verified; full real acceptance pending",
+  "game_id": "2021020093",
+  "production_file": {
+    "path": "analysis/src/hockey_stats/analysis_support.py",
+    "sha256": "d1b340d2ea90bbe3de790f5bcff50fc7a5534fd8bf067df60ed62d5496c19edc"
+  },
+  "cause": "two different-state boundary neighbors emitted an identical empty-affected strength diagnostic; strict reader rejected duplicate witnesses",
+  "repair": "emit that diagnostic once at first occurrence; retain each same-state identity mask and source touching associations",
+  "checked": {
+    "exact_original_red": true,
+    "exact_original_green_strict_game_validator": true,
+    "refactor_green": true,
+    "same_state_two_identity_masks": true,
+    "mixed_neighbor_order_both_orientations": true,
+    "native_reconstruction_exact_games": 37,
+    "frozen_producer_semantic_parity": true,
+    "unchanged_historical_owner_files": 6,
+    "context_peer_review_final": true,
+    "original_source_files_preserved": 12,
+    "required_reference_files_exact": 8,
+    "fixture_census_and_links": true,
+    "independent_public_fixture_games": 36,
+    "independent_new_boundary_cli_public_readback": true,
+    "independent_people_seasons": 5,
+    "detached_source_network_denied": true
+  },
+  "fixture_admission": "fixtures/source-admission-v1-01.json",
+  "temporary_check_files_pending_deletion": [
+    {
+      "path": "var/v1-01-acceptance/check_boundary_0093.py",
+      "sha256": "63e29b86a98e33a9d8ebec8d6d2c28077fd25af67f7684c68e085788bfcbaa0d",
+      "bytes": 3196
+    },
+    {
+      "path": "var/v1-01-acceptance/check_boundary_parity.py",
+      "sha256": "d98bc4e23c892c16750c7409f31e3d0082489b3af172589475606f2453ca6c73",
+      "bytes": 2580
+    },
+    {
+      "path": "var/v1-01-acceptance/preserve_boundary_0093.py",
+      "sha256": "d8cdd6d0ba14ec8907f0c8b7194c92eceb824d1496f233e77a430bc185dbe420",
+      "bytes": 2185
+    },
+    {
+      "path": "var/v1-01-acceptance/diagnose_support_0093.py",
+      "sha256": "75e91ada6fb4643a19a23ebd7dd148803db51c2cfc3715624f0082c1882b22dc",
+      "bytes": 2075
+    }
+  ],
+  "independent_receipts": [
+    "var/v1-01-acceptance/detached-readers-fixed-36.json",
+    "var/v1-01-acceptance/replay-0093/public-readback.json"
+  ]
+}

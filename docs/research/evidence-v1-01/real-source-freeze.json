@@ -1,0 +1,50 @@
+{
+  "source_code_sha256": "194f8f2c2443c03990cd5496aad3ef017f44b4c8467a8c68371fe52343a70ea2",
+  "preparation_policy_sha256": "28624b42c78254a0000c97205b73a5ff5ff59fbc237264c77d4cd4e339178795",
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_cli.py",
+      "sha256": "39f4146d42fd7be8d9a5b06a4a76ef33efa76c7be745d6fce1fea07439113af3"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_context.py",
+      "sha256": "774bc5eb3205e9be6e9d597470cf127e1d5bed7c68f42084b574bce99afe8a6f"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_data.py",
+      "sha256": "4fce9d43d6c5afca6ed9335ce5b308feca8a7cf2f8582f8fe222aa44f3a64f1d"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_records.py",
+      "sha256": "afc74806c18da4e7d5f45ba2b0709e143a5c97c76442c3a68ff540f5e85c95bb"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_support.py",
+      "sha256": "d1b340d2ea90bbe3de790f5bcff50fc7a5534fd8bf067df60ed62d5496c19edc"
+    },
+    {
+      "path": "analysis/src/hockey_stats/artifacts.py",
+      "sha256": "984895fe323e915ad299fd688f57fe685ec7e7692549b4c3144bb8080d2f2b86"
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_data.py",
+      "sha256": "b0db151dc6aff79c6fb67d42980246674ec1bb213c6245efab87597cdc932ddb"
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_history.py",
+      "sha256": "1ed96e6ff6d51a8e40cd5aebf1617a129cec59497861fc026a3cf2f9862f8263"
+    },
+    {
+      "path": "analysis/src/hockey_stats/game_chronology.py",
+      "sha256": "37ce2c83ad44b3c3fe62e7e616f74d6f7362c65a49f39742759a51ca95176cd7"
+    },
+    {
+      "path": "analysis/src/hockey_stats/reconstruct.py",
+      "sha256": "1d97a5854681e9425fa6d33b432ee063bb2bcd970beda6c1ad1e99a74c3de4b3"
+    },
+    {
+      "path": "analysis/src/hockey_stats/scoring_credits.py",
+      "sha256": "ee080030e48bd936876a83cfee9ef99a0c2f6900be4cc677f8a97396ad73325a"
+    }
+  ]
+}

@@ -199,8 +199,8 @@ def _team_rest(index, cutoff, missing_evidence):
     return result
 
 
-def prepare_history(inventory_rows, summaries, target_game_ids):
-    """date-prefix snapshots never consume another game on the focal date."""
+def history_context(inventory_rows, summaries):
+    """build compact date indexes once for streamed target-game preparation."""
     inventory = {row["game_id"]: row for row in inventory_rows}
     seasons = defaultdict(list)
     for row in inventory_rows:
@@ -217,6 +217,12 @@ def prepare_history(inventory_rows, summaries, target_game_ids):
             schedule.sort(key=lambda r: (r["game_date"], r["game_id"]))
             teams[season, team] = {"rows": schedule, "dates": [r["game_date"] for r in schedule],
                                    "inventory_evidence": indexes[season]["inventory_evidence"]}
+    return inventory, indexes, teams
+
+
+def prepare_history(inventory_rows, summaries, target_game_ids, *, missing_source_path="/history_corpora", missing_source="selection", prepared=None):
+    """date-prefix snapshots never consume another game on the focal date."""
+    inventory, indexes, teams = prepared if prepared is not None else history_context(inventory_rows, summaries)
     prior_windows = {}
     games, players = {}, {}
     for game_id in target_game_ids:
@@ -224,8 +230,8 @@ def prepare_history(inventory_rows, summaries, target_game_ids):
         cutoff, season = row["game_date"], row["season"]
         current = date.fromisoformat(cutoff)
         index = indexes.get(season)
-        missing_evidence = {"input_ref": row["selection_input_ref"], "source": "selection",
-                            "path": "/history_corpora", "requested_season": season}
+        missing_evidence = {"input_ref": row["selection_input_ref"], "source": missing_source,
+                            "path": missing_source_path, "requested_season": season}
         start = index["dates"][0] if index else None
         games[game_id] = {"teams": {
             str(row[side + "_team_id"]): {"calendar_rest": _team_rest(teams.get((season, row[side + "_team_id"])), cutoff, missing_evidence)}

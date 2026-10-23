@@ -1,5 +1,43 @@
 # council synthesis
 
+## v1-01 detached implementation review — 2026-10-22
+
+three non-astra implementers, peer review, root and an independent claude session completed the detached [shared-evidence implementation](evidence-v1-01/verification.md). the strict preparation command and public readers deliver all-strength event facts, matched elapsed masks/chunks, actual-unit context, immediate labels and dated people. 36 original fixture games retain 11,659 source events; all 37 native cases and the old research projections remain exact. canonical observed reducers on all three displayed seasons also remain exact. this is computational and interface verification, not scientific admission.
+
+adversarial review repaired focal outcome leakage, unsupported participation, goalie applicability, label missingness, support closure and finite artifact consistency defects. distinct overlapping own shift rows are omitted from known participation with original witnesses; exact duplicates and valid adjacency remain supported. actual multi-team identity checks and trusted-input future-mutation invariance pass. [receipts](evidence-v1-01/verification.md) retain the checked boundaries; temporary tests/controllers are deleted after final green.
+
+material costs remain visible: conservative lost support, piecewise-constant elapsed workload, two source passes and a measured 1.94 gb fixture artifact. the closed schema's repeated evidence needs a real operating-cost measurement and possibly a separately specified storage revision. source-order episode availability and explicitly future outcome groups need care in later execution encoders. these limits neither erase the facts nor establish model quality.
+
+work is paused at the user's instruction. the external drive is absent, so all 6,560 real games, full reconciliation/original-source spot checks and real resource measurements remain pending. v1-13 fixtures develop independently; its root owns final shared cli reconciliation. no acquisition, fitting, database change, application rebuild or activation occurred.
+
+## v1-01 shared-evidence specification review — 2026-10-22
+
+three independent source/reconstruction, context/identity and systems/consumer reviewers clear the [v1-01 handoff](../specs/v1-01-shared-evidence.md). root inspected the existing owners and integrated their findings. this is documentation/code inspection, not implemented behavior, a corpus audit or scientific verification. no settled product choice needed reopening.
+
+native reconstruction already retains other strengths; the extension belongs in shared preparation. review fixes actual-unit shift/workload summaries, normalized non-attempt locations, goalie faced prefixes, episode censoring, immediate outcome labels and separate event/elapsed snapshots. source-supported events can survive missing elapsed time; rate consumers require paired counts/time. saved masks cover missing collections, accounting conflicts, unresolved events and lineup contradictions without rewriting existing observed 5v5 populations. the new product's incoming-goal/pre-score exception stays distinct from frozen research exclusions.
+
+systems review closes strict selection/member schemas, cardinality, unavailable collections, reader boundaries and persisted support decisions. base preparation is independent of v1-02 coaching; later fits/scoring bind that separate input. factual reductions and additional actor-specific masks remain v1-03 work. content owns truthful coverage receipts and source/elapsed/model distinctions, not a premature card or calibration claim.
+
+accepted costs: wider prepared data, complete five-season acceptance, conservative run-level exclusions, fixed elapsed-workload approximation and one explicit coach input later. optional height stays unavailable pending [unit evidence](../issues/bio-height-units.md); existing fields remain usable. fixtures permit detached development, not full acceptance. no acquisition, fitting, application rebuild, publication, persistent harness or execution assignment follows. documentation link/anchor and whitespace checks pass; historical source/research artifacts and serving files remain untouched.
+
+## v1-03 factual-reduction specification review — 2026-10-22
+
+three independent read-only reviewers examined quantities/exposure, publication/interfaces and card content; root integrated the [full handoff](../specs/v1-03-factual-card-reductions.md) and amended the authoritative appendices. review used current source, the in-progress v1-01 handoff and local source evidence. one source review inspected fifteen fixture games, with detailed api/report penalty comparison in five; this is bounded definition evidence, not a three-season acceptance run. no further product preference was needed.
+
+the contract reuses old observed receipts, fixes each new count/time population, keeps the exact personal 5v5 component inside ev and supplies actual descriptive/microstat/source-context rows through schema7. reviewers caught separate segment axes, ordinary absent penalty roles, report-only hit handling, pending model-valued provenance, a score-share denominator mismatch and identity checks that would reject additional evidenced affiliations. the handoff resolves these at their owners, including publisher/server/shared/client checks. penalty credits remain api-attributed, with manual report-role sampling rather than an invented automatic parser; source-only recorded goals do not imply known physical shooters. goalie composite/header work remains v1-07.
+
+accepted costs are separate support policies, conservative family-local exclusions, more factual storage and a second existing observed aggregation at candidate assembly; these avoid new caches, frameworks and duplicate hockey calculators. recorded versus absent evidence and source-backed identity additions remain visible. current comparative facts can be verified now while full descriptive/microstat compositions remain v1-16/17. the new thirty-key record does not admit skating, tracking or xg. no research prerequisite, fit, acquisition, implementation or activation follows from this review.
+
+independent adversarial findings were reconciled in the specification; documentation link/anchor, consistency and whitespace checks cover the edits. prior drafts remain preserved. source code, external originals/fits, independent worktrees and serving files were not changed. [the plan](../plan.md#current-boundary) retains assignment/dependency status; this review is not software acceptance.
+
+## post-v1-02/15 sequencing recommendation — 2026-10-22
+
+root read the merged coaching and comparative-card receipts and current producer contracts. coaching supplies complete reported identities; the comparative application is software-complete on typed fixtures and awaits real producers. [the plan](../plan.md#current-boundary) recommends specifying v1-03 next, then v1-05 and v1-16. v1-01 remains the shared-evidence dependency for real reductions/fits; completed v1-02 supplies the independent coaching input. factual reduction can run alongside one heavy numerical fit, and the descriptive card can develop against fixtures before its real v1-03 integration. v1-06 then feeds reference values to later numerical families and existing views. no additional scientific gate is proposed.
+
+two bounded follow-ups remain: [skating context](../issues/microstat-inputs.md#checked-evidence-and-bounded-follow-up) should permit the corroborating inspection that the original probe order deferred; [comparative export density](../issues/comparative-export-density.md) needs a prospective content amendment to make the saved image compact. the latter trades some standalone audit detail for shareability while retaining detailed evidence in existing views/exports. completed protocols, acceptance and source limitations remain unchanged.
+
+this records root's receipt/dependency review and recommendations, not new independent-agent, numerical, browser or source verification. no implementation, fit, acquisition, activation or commit is assigned by this planning update.
+
 ## v1-02 real source completion review — 2026-10-22
 
 after the user connected the hdd, five production probes passed and pinned actual report links and selected season-series context before expansion. the non-astra source owner and independent reviewer checked the parser against original responses. the disposable sequential controller reused the existing capture/receipt owner; network-denied tests checked its stop/reuse rules. an initial test preload mistake issued five unintended real requests; all originals were preserved and explicitly reused within the original 6,560-request bound, with no duplicate game request.

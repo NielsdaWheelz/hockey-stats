@@ -33,8 +33,9 @@ def implementation_identity() -> Interpretation:
             "python_version": platform.python_version()}
 
 
-def write_json(output: Path, document: object) -> None:
-    serialized = json.dumps(document, allow_nan=False, indent=2) + "\n"
+def write_json(output: Path, document: object, *, compact: bool = False) -> None:
+    options = {"separators": (",", ":")} if compact else {"indent": 2}
+    serialized = json.dumps(document, allow_nan=False, **options) + "\n"
     with output.open("x", encoding="utf-8") as destination:
         destination.write(serialized)
 

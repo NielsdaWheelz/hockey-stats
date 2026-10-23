@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "purpose": "one complete original boundary report5v4 with two touching shift4v4 neighbors; retain one diagnostic without masking different-state elapsed time",
+  "copies": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/play-by-play/body.bin",
+      "fixture": "captures/2021020093/play-by-play/body.bin",
+      "bytes": 121311,
+      "sha256": "26ba4047b01078d885997c6a404e1cb54c9d9a620857dc9d028ec88ee5f5fa97"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/play-by-play/capture.json",
+      "fixture": "captures/2021020093/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "27a7c62e5e58e2134479b58607f42320a3f4d125c0e5a7fc4bf77292d0c4d579"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/boxscore/body.bin",
+      "fixture": "captures/2021020093/boxscore/body.bin",
+      "bytes": 13029,
+      "sha256": "8162395cb4b9f82b7d38d1b0c6c510928fa682b6c26606b0138f76246dcbcaff"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/boxscore/capture.json",
+      "fixture": "captures/2021020093/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "33f05e2dcb87e3342780ae58b59f882e39a090528ce768bd39d8e3870dcf6ffa"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/shifts/body.bin",
+      "fixture": "captures/2021020093/shifts/body.bin",
+      "bytes": 287410,
+      "sha256": "2c93730bc02e1e7428985e63336c599ed73c41582482a48f86c054e81d55127d"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/shifts/capture.json",
+      "fixture": "captures/2021020093/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "ff7caf54d27bd2452bf4405bb0a8ca28f7f4376d54ea0db60c0e30227dbaf963"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/game-summary/body.bin",
+      "fixture": "captures/2021020093/game-summary/body.bin",
+      "bytes": 34154,
+      "sha256": "a3603d673a0b37b4e0c40b68078086bb9b52fee85817ba88b5a0ba2f6ceede15"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/game-summary/capture.json",
+      "fixture": "captures/2021020093/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "61e976d3c3e8d2fc54a6a3872fb50ef0794afa16ab820dbd6d8196869754685e"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/play-report/body.bin",
+      "fixture": "captures/2021020093/play-report/body.bin",
+      "bytes": 1164512,
+      "sha256": "3e59c74ac9bea488b9992dc1b0dfc4c6f4074ce83d083468d77cc0eb762ed0e6"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/play-report/capture.json",
+      "fixture": "captures/2021020093/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "b11ed4b3228992a3fcb5c4e56be7c6850637acde17b8ae034e03760dba7a4d8e"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/landing/body.bin",
+      "fixture": "captures/2021020093/landing/body.bin",
+      "bytes": 8586,
+      "sha256": "cfa3f8cf190e40ef3c9e1f94f0ad3197f09fee7b3ad1c57aeb9e31247e5b5c54"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/landing/capture.json",
+      "fixture": "captures/2021020093/landing/capture.json",
+      "bytes": 659,
+      "sha256": "9ebe297d36cf41740ffaa8bef8b9141aa6150beb26e2b4f566313f61a61d6712"
+    }
+  ],
+  "required_reference_comparisons": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-summary/body.bin",
+      "fixture": "references/20212022/season-summary/body.bin",
+      "original_sha256": "efc05e6917d4519522172c03cc14f8db7a18effd9321b8cb261e5c32acc313fa",
+      "fixture_sha256": "efc05e6917d4519522172c03cc14f8db7a18effd9321b8cb261e5c32acc313fa",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-summary/capture.json",
+      "fixture": "references/20212022/season-summary/capture.json",
+      "original_sha256": "77ab3008afbc247121457e79f0d3d323c70d53e5ef78202dd592f8ca64c7eec9",
+      "fixture_sha256": "77ab3008afbc247121457e79f0d3d323c70d53e5ef78202dd592f8ca64c7eec9",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-games/body.bin",
+      "fixture": "references/20212022/season-games/body.bin",
+      "original_sha256": "671cfea1149af795736fdf15420fe184ef2f4c8ad2fdb62ce0649eafee7e1e8a",
+      "fixture_sha256": "671cfea1149af795736fdf15420fe184ef2f4c8ad2fdb62ce0649eafee7e1e8a",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-games/capture.json",
+      "fixture": "references/20212022/season-games/capture.json",
+      "original_sha256": "1511274ce29da18740f1006a9e74c5685532ff7b9c7c5e53f07d0ec79bd30b1c",
+      "fixture_sha256": "1511274ce29da18740f1006a9e74c5685532ff7b9c7c5e53f07d0ec79bd30b1c",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/skater-bios/body.bin",
+      "fixture": "references/20212022/skater-bios/body.bin",
+      "original_sha256": "4b6fc24269029766408b040f122fd6aef97a49187e4290b73652bee0d4510cb8",
+      "fixture_sha256": "4b6fc24269029766408b040f122fd6aef97a49187e4290b73652bee0d4510cb8",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/skater-bios/capture.json",
+      "fixture": "references/20212022/skater-bios/capture.json",
+      "original_sha256": "bee40362f5e6ef55382a6f9084455b6f06b30b6dd23ee622e811431eb80c707b",
+      "fixture_sha256": "bee40362f5e6ef55382a6f9084455b6f06b30b6dd23ee622e811431eb80c707b",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/goalie-bios/body.bin",
+      "fixture": "references/20212022/goalie-bios/body.bin",
+      "original_sha256": "cb1dca94b920d1951dd886b593dabe87ae340e95d1761aeeb2f05d416ecb77ff",
+      "fixture_sha256": "cb1dca94b920d1951dd886b593dabe87ae340e95d1761aeeb2f05d416ecb77ff",
+      "equal": true
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/goalie-bios/capture.json",
+      "fixture": "references/20212022/goalie-bios/capture.json",
+      "original_sha256": "e012bbe09c9ec15c654315f26554d9b0ec5d4eb5ea09c41d7830a8100b56e94d",
+      "fixture_sha256": "e012bbe09c9ec15c654315f26554d9b0ec5d4eb5ea09c41d7830a8100b56e94d",
+      "equal": true
+    }
+  ],
+  "checked_source_facts": {
+    "game_id": "2021020093",
+    "input_ref": {
+      "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/games/2021020093.json",
+      "sha256": "f04882bf8193929e0a537c2b7799ffd3e0a02c2d9223dada64500e238aae8842"
+    },
+    "source_event": {
+      "source_index": 217,
+      "event_id": 561,
+      "sort_order": 443,
+      "type_code": 508,
+      "type_key": "blocked-shot",
+      "kind_valid": true,
+      "period_number": 3,
+      "period_type": "REG",
+      "time_in_period": "02:18",
+      "time_remaining": "17:42",
+      "elapsed_seconds": 138,
+      "timed_period": true,
+      "situation_code": "1541",
+      "home_team_defending_side": "right",
+      "zone_code": "D",
+      "owner_team_id": 54,
+      "reported_x": 72,
+      "reported_y": 0,
+      "roles": {
+        "shooter": 8474565,
+        "blocker": 8480069
+      },
+      "shooting_team_id": 54,
+      "shot_type": null,
+      "reason": null,
+      "secondary_reason": null,
+      "penalty_type": null,
+      "penalty_description": null,
+      "penalty_duration_minutes": null,
+      "away_score": null,
+      "home_score": null
+    },
+    "native_association": {
+      "source_index": 217,
+      "report_source_index": 220,
+      "match_status": "matched",
+      "shot_type_evidence": {
+        "api_value": null,
+        "report_value": "Wrist",
+        "value": "wrist",
+        "status": "report_only"
+      },
+      "goal_modifier_evidence": null,
+      "away_skaters": [
+        8474565,
+        8476448,
+        8476539,
+        8476905,
+        8479991
+      ],
+      "home_skaters": [
+        8477456,
+        8480069,
+        8481186,
+        8481524
+      ],
+      "away_goalies": [
+        8475215
+      ],
+      "home_goalies": [
+        8475311
+      ],
+      "classification": "other",
+      "shift_relation": "neither",
+      "interval_indices": [],
+      "attacking_x": 72,
+      "attacking_y": 0,
+      "coordinate_status": "normalized",
+      "issue_indices": [
+        11
+      ]
+    },
+    "temporal_case": "boundary",
+    "report_index": 220,
+    "report_row_id": "PL-221",
+    "reported_membership": {
+      "away_skaters": [
+        8474565,
+        8476448,
+        8476539,
+        8476905,
+        8479991
+      ],
+      "home_skaters": [
+        8477456,
+        8480069,
+        8481186,
+        8481524
+      ],
+      "away_goalies": [
+        8475215
+      ],
+      "home_goalies": [
+        8475311
+      ]
+    },
+    "reported_state": [
+      5,
+      4,
+      1,
+      1
+    ],
+    "touching_segments": [
+      {
+        "segment_index": 166,
+        "period_number": 3,
+        "start_seconds": 122,
+        "end_seconds": 138,
+        "membership": {
+          "away_skaters": [
+            8474565,
+            8476448,
+            8476539,
+            8479991
+          ],
+          "home_skaters": [
+            8477456,
+            8480069,
+            8481186,
+            8481524
+          ],
+          "away_goalies": [
+            8475215
+          ],
+          "home_goalies": [
+            8475311
+          ]
+        }
+      },
+      {
+        "segment_index": 167,
+        "period_number": 3,
+        "start_seconds": 138,
+        "end_seconds": 171,
+        "membership": {
+          "away_skaters": [
+            8474565,
+            8475191,
+            8476448,
+            8476539
+          ],
+          "home_skaters": [
+            8471794,
+            8473446,
+            8476850,
+            8479370
+          ],
+          "away_goalies": [
+            8475215
+          ],
+          "home_goalies": [
+            8475311
+          ]
+        }
+      }
+    ],
+    "source_inputs": [
+      {
+        "source": "play-by-play",
+        "capture_path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/play-by-play/capture.json",
+        "requested_at": "2026-10-12T04:58:04.008Z",
+        "http_status": 200,
+        "body_sha256": "26ba4047b01078d885997c6a404e1cb54c9d9a620857dc9d028ec88ee5f5fa97",
+        "status": "parsed",
+        "reason": null
+      },
+      {
+        "source": "boxscore",
+        "capture_path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/boxscore/capture.json",
+        "requested_at": "2026-10-12T04:58:04.241Z",
+        "http_status": 200,
+        "body_sha256": "8162395cb4b9f82b7d38d1b0c6c510928fa682b6c26606b0138f76246dcbcaff",
+        "status": "parsed",
+        "reason": null
+      },
+      {
+        "source": "shifts",
+        "capture_path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/shifts/capture.json",
+        "requested_at": "2026-10-12T04:58:04.550Z",
+        "http_status": 200,
+        "body_sha256": "2c93730bc02e1e7428985e63336c599ed73c41582482a48f86c054e81d55127d",
+        "status": "parsed",
+        "reason": null
+      },
+      {
+        "source": "game-summary",
+        "capture_path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/game-summary/capture.json",
+        "requested_at": "2026-10-12T04:58:04.749Z",
+        "http_status": 200,
+        "body_sha256": "a3603d673a0b37b4e0c40b68078086bb9b52fee85817ba88b5a0ba2f6ceede15",
+        "status": "parsed",
+        "reason": null
+      },
+      {
+        "source": "play-report",
+        "capture_path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/play-report/capture.json",
+        "requested_at": "2026-10-12T04:58:05.045Z",
+        "http_status": 200,
+        "body_sha256": "3e59c74ac9bea488b9992dc1b0dfc4c6f4074ce83d083468d77cc0eb762ed0e6",
+        "status": "parsed",
+        "reason": null
+      },
+      {
+        "source": "landing",
+        "capture_path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020093/20261011-01/landing/capture.json",
+        "requested_at": "2026-10-12T04:58:05.424Z",
+        "http_status": 200,
+        "body_sha256": "cfa3f8cf190e40ef3c9e1f94f0ad3197f09fee7b3ad1c57aeb9e31247e5b5c54",
+        "status": "parsed",
+        "reason": null
+      }
+    ],
+    "pre_fix_duplicate_diagnostic_count": 2,
+    "pre_fix_unique_diagnostic_count": 1
+  },
+  "expected_product_support": {
+    "event_source_index": 217,
+    "report_source_index": 220,
+    "touching_segment_indices": [
+      166,
+      167
+    ],
+    "matching_segment_indices": [],
+    "event_disposition": "unresolved",
+    "diagnostic_code": "strength_conflict",
+    "diagnostic_count": 1,
+    "affected_segment_indices": [],
+    "segment_dispositions": [
+      "included",
+      "included"
+    ],
+    "retained_touching_seconds": 49,
+    "source_correction": false
+  }
+}

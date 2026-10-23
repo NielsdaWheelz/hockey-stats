@@ -23,6 +23,8 @@ class Membership(TypedDict):
     home_goalies: list[int] | None
 
 
+MEMBERSHIP_FIELDS = ("away_skaters", "home_skaters", "away_goalies", "home_goalies")
+
 class Interval(Membership):
     period_number: int
     start_seconds: int
@@ -138,15 +140,14 @@ REPORT_CODES = {
 }
 _ATTEMPTS = {"goal", "shot-on-goal", "missed-shot", "blocked-shot"}
 _SKATERS = {"C", "L", "R", "D", "F"}
-_EMPTY: Membership = {"away_skaters": None, "home_skaters": None,
-                      "away_goalies": None, "home_goalies": None}
+_EMPTY: Membership = dict.fromkeys(MEMBERSHIP_FIELDS)
 
 
-def five_on_five_segments(intervals: list[Interval] | None) -> list[ExposureSegment]:
-    """coalesce ordered native intervals by full membership, without changing them."""
+def membership_segments(intervals: list[Interval] | None) -> list[ExposureSegment]:
+    """coalesce every resolved positive native interval by full membership."""
     segments: list[ExposureSegment] = []
     for index, row in enumerate(intervals or []):
-        if row["classification"] != "five_on_five" or row["end_seconds"] <= row["start_seconds"]:
+        if row["classification"] == "unresolved" or row["end_seconds"] <= row["start_seconds"]:
             continue
         members = {field: sorted(row[field]) for field in _EMPTY}
         if (segments and segments[-1]["interval_indices"][-1] == index - 1
@@ -159,6 +160,12 @@ def five_on_five_segments(intervals: list[Interval] | None) -> list[ExposureSegm
             segments.append(dict(period_number=row["period_number"], start_seconds=row["start_seconds"],
                 end_seconds=row["end_seconds"], **members, interval_indices=[index]))
     return segments
+
+
+def five_on_five_segments(intervals: list[Interval] | None) -> list[ExposureSegment]:
+    """the observed/research projection keeps its existing population and shape."""
+    return [row for row in membership_segments(intervals)
+            if lineup_classification({key: row[key] for key in _EMPTY}) == "five_on_five"]
 
 
 def outside_attempt_conflicts(
@@ -395,6 +402,65 @@ def _goal_modifier(row, document, event_ids, landing_ids) -> GoalModifierEvidenc
     return evidence
 
 
+def roster_identities(roster):
+    """only a unique dated roster row establishes membership identity."""
+    by_id = defaultdict(list)
+    for row in roster or []:
+        if row["player_id"] is not None:
+            by_id[row["player_id"]].append(row)
+    return {player: rows[0] for player, rows in by_id.items()
+            if len(rows) == 1 and rows[0]["team_id"] is not None}
+
+
+def report_membership(report, game, identities, issues):
+    """resolve full reported membership without imposing action/credit eligibility."""
+    membership = dict(_EMPTY)
+    issue_indices = []
+    report_path = f"/rows/{report['source_index']}[{report['row_id']}]"
+    for side in ("away", "home"):
+        reported_members = report[side + "_members"]
+        if reported_members is None:
+            issue_indices.append(_issue(issues, "unavailable_report_members", "play-report", report_path + "/" + side + "_members",
+                "reported member list unavailable; event strength unresolved"))
+            continue
+        skaters, goalies = [], []
+        for slot, member in enumerate(reported_members):
+            player = member["player_id"]
+            category = _category(member["reported_position"])
+            identity = identities.get(player)
+            if player is not None and category is not None:
+                (goalies if category == "goalie" else skaters).append(player)
+            team = game[side + "_team_id"] if game is not None else None
+            if (player is None or identity is None or identity["team_id"] != team or category is None
+                    or category != _category(identity["reported_position"])):
+                issue_indices.append(_issue(issues, "unresolved_report_member", "play-report",
+                    report_path + f"/{side}_members/{slot}",
+                    "member has missing/ambiguous identity or incompatible roster team/position; event strength unresolved"))
+        membership[side + "_skaters"], membership[side + "_goalies"] = sorted(skaters), sorted(goalies)
+    return membership, issue_indices
+
+
+def membership_interval_link(membership, number, time, intervals, periods):
+    """honor every necessary native neighbor before assigning an endpoint."""
+    if intervals is None or time is None:
+        return "unavailable", []
+    before = [(i, interval) for i, interval in enumerate(intervals)
+              if interval["period_number"] == number and interval["start_seconds"] < time <= interval["end_seconds"]]
+    after = [(i, interval) for i, interval in enumerate(intervals)
+             if interval["period_number"] == number and interval["start_seconds"] <= time < interval["end_seconds"]]
+    horizon = next((period["end_seconds"] for period in periods or []
+                    if period["period_number"] == number and period["status"] == "supported"), None)
+    necessary = before + after
+    if (horizon is None or not 0 <= time <= horizon or not necessary
+            or time != 0 and not before or time != horizon and not after
+            or any(interval["classification"] == "unresolved" for _, interval in necessary)):
+        return "unavailable", []
+    matches_before = [i for i, interval in before if all(membership[key] == interval[key] for key in _EMPTY)]
+    matches_after = [i for i, interval in after if all(membership[key] == interval[key] for key in _EMPTY)]
+    relation = "both" if matches_before and matches_after else "before" if matches_before else "after" if matches_after else "neither"
+    return relation, sorted(set(matches_before + matches_after))
+
+
 def reconstruct_game(document: GameDocument) -> Reconstruction:
     """calculate from admitted facts and shared clock conversion; do not read files."""
     issues: list[Issue] = []
@@ -405,12 +471,7 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
     shifts = document["shift_records"]
 
     # only a single roster record establishes a player's team and position.
-    roster_by_id = defaultdict(list)
-    for row in roster or []:
-        if row["player_id"] is not None:
-            roster_by_id[row["player_id"]].append(row)
-    identities = {player: rows[0] for player, rows in roster_by_id.items()
-                  if len(rows) == 1 and rows[0]["team_id"] is not None}
+    identities = roster_identities(roster)
 
     event_ids = Counter(row["event_id"] for row in api or [] if row["event_id"] is not None)
     sort_orders = Counter(row["sort_order"] for row in api or [] if row["sort_order"] is not None)
@@ -717,27 +778,9 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
             membership_issues: list[int] = []
             if report is not None:
                 report_path = f"/rows/{report['source_index']}[{report['row_id']}]"
-                for side in ("away", "home"):
-                    reported_members = report[side + "_members"]
-                    if reported_members is None:
-                        membership_issues.append(_issue(issues, "unavailable_report_members", "play-report", report_path + "/" + side + "_members",
-                            "reported member list unavailable; event strength unresolved"))
-                        continue
-                    skaters, goalies = [], []
-                    for slot, member in enumerate(reported_members):
-                        player = member["player_id"]
-                        category = _category(member["reported_position"])
-                        identity = identities.get(player)
-                        if player is not None and category is not None:
-                            (goalies if category == "goalie" else skaters).append(player)
-                        team = game[side + "_team_id"]
-                        if (player is None or identity is None or identity["team_id"] != team or category is None
-                                or category != _category(identity["reported_position"])):
-                            membership_issues.append(_issue(issues, "unresolved_report_member", "play-report",
-                                report_path + f"/{side}_members/{slot}",
-                                "member has missing/ambiguous identity or incompatible roster team/position; event strength unresolved"))
-                    event[side + "_skaters"], event[side + "_goalies"] = sorted(skaters), sorted(goalies)
-                membership: Membership = {key: event[key] for key in _EMPTY}
+                membership, member_issues = report_membership(report, game, identities, issues)
+                membership_issues.extend(member_issues)
+                event.update(membership)
                 classification = lineup_classification(membership)
                 if row["type_key"] in _ATTEMPTS and report["penalty_shot"] is None:
                     membership_issues.append(_issue(issues, "unavailable_penalty_shot_status", "play-report", report_path + "/description",
@@ -811,24 +854,12 @@ def reconstruct_game(document: GameDocument) -> Reconstruction:
                     event["classification"] = classification
 
             if event["classification"] in ("five_on_five", "other") and intervals is not None:
-                time, number = row["elapsed_seconds"], row["period_number"]
-                before = [(i, interval) for i, interval in enumerate(intervals)
-                          if interval["period_number"] == number and interval["start_seconds"] < time <= interval["end_seconds"]]
-                after = [(i, interval) for i, interval in enumerate(intervals)
-                         if interval["period_number"] == number and interval["start_seconds"] <= time < interval["end_seconds"]]
-                horizon = next((period["end_seconds"] for period in periods if period["period_number"] == number and period["status"] == "supported"), None)
-                necessary = before + after
-                if (horizon is not None and 0 <= time <= horizon and necessary
-                        and (time == 0 or before) and (time == horizon or after)
-                        and all(interval["classification"] != "unresolved" for _, interval in necessary)):
-                    matches_before = [i for i, interval in before if all(event[key] == interval[key] for key in _EMPTY)]
-                    matches_after = [i for i, interval in after if all(event[key] == interval[key] for key in _EMPTY)]
-                    event["interval_indices"] = sorted(set(matches_before + matches_after))
-                    event["shift_relation"] = "both" if matches_before and matches_after else "before" if matches_before else "after" if matches_after else "neither"
-                    if event["shift_relation"] == "neither":
-                        event_issues.append(_issue(issues, "event_exposure_disagreement", "play-by-play", path,
-                            "reported lineup matches neither adjacent supported interval; exposure link unavailable"))
-                else:
+                relation, indices = membership_interval_link(event, row["period_number"], row["elapsed_seconds"], intervals, periods)
+                event["shift_relation"], event["interval_indices"] = relation, indices
+                if relation == "neither":
+                    event_issues.append(_issue(issues, "event_exposure_disagreement", "play-by-play", path,
+                        "reported lineup matches neither adjacent supported interval; exposure link unavailable"))
+                elif relation == "unavailable":
                     event_issues.append(_issue(issues, "unavailable_event_exposure_link", "play-by-play", path,
                         "necessary adjacent elapsed membership or horizon unavailable; exposure link unavailable"))
 

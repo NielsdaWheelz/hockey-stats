@@ -93,6 +93,7 @@ add one ordinary `hockey-stats-analysis` entry point in `analysis_cli.py`, regis
 |---|---|
 | `prepare --selection FILE --out DIR` | identified five-corpus selection → prepared manifest and game/season facts, under v1-01; no coach dependency |
 | `python -m hockey_stats.coaches --selection FILE --identities FILE --out DIR` | separate v1-02 offline module command → checked `coaches.json`; no preparation/publication command registration or network access |
+| `facts --prepared DIR --observed FILE --out DIR` | [v1-03](v1-03-factual-card-reductions.md): matched prepared/observed inputs → finalized descriptive, microstat and source-evidence families in the existing result exchange; no coach or fit dependency |
 | `fit --family execution\|spatial\|mechanisms --prepared DIR --coaches FILE --season ID --out DIR` | one annual family state; `--previous DIR` required for a returning annual chain; spatial also requires `--valued DIR`; mechanisms require `--execution DIR --spatial DIR` |
 | `score --prepared DIR --coaches FILE --execution DIR --season ID --out DIR` | frozen chance state and its bound coach selection → valued attempts and common opportunity panel |
 | `summarize --prepared DIR --models FILE --out DIR` | explicit compatible annual state/panel selection → three-season family results, references and evidence |

@@ -2,6 +2,8 @@
 
 full implementation handoff under [the program](experimental-player-analysis.md); [the plan](../plan.md#proposed-pr-boundaries-and-dependencies) owns assignment. [the application appendix](experimental-application.md) owns hockey quantities, card requirements and references; this document closes their exchange, storage and read contracts. no new product preference is required. implementation, acquisition, fitting and activation are not assigned by writing this specification.
 
+prospective producer refinement: [v1-03](v1-03-factual-card-reductions.md) corrects score-share arithmetic, adds the fixed shift-coverage reason and permits evidenced person affiliations beyond old observed support while preserving every old observed fact. those narrow invariant changes supersede the corresponding checks below; they do not alter v1-13's completed acceptance record, fixed table shapes or schema version.
+
 ## outcome and boundary
 
 one checked result bundle plus the existing observed selections produces a standalone schema-7 sqlite publication. one effect reader serves its typed contents, including explicit unfinished families, to the existing website. small fixtures exercise every analytical family before its real producer exists. observed facts and existing observed journeys retain their meanings.

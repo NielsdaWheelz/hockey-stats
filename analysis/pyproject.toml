@@ -11,6 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
+hockey-stats-analysis = "hockey_stats.analysis_cli:main"
 hockey-stats-chance = "hockey_stats.chance_cli:main"
 hockey-stats-interpret = "hockey_stats.cli:main"
 hockey-stats-reconstruct = "hockey_stats.cli:reconstruct_main"

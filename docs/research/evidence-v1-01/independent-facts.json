@@ -1,0 +1,83 @@
+{
+  "seasons": {
+    "20212022": {
+      "physical_seconds": 25619,
+      "games": 7,
+      "events": 2192,
+      "attempts": 824,
+      "segments": 2191,
+      "chunks": 7597
+    },
+    "20222023": {
+      "physical_seconds": 18595,
+      "games": 5,
+      "events": 1497,
+      "attempts": 596,
+      "segments": 1934,
+      "chunks": 6582
+    },
+    "20232024": {
+      "physical_seconds": 21887,
+      "games": 6,
+      "events": 1948,
+      "attempts": 715,
+      "segments": 2427,
+      "chunks": 7943
+    },
+    "20242025": {
+      "physical_seconds": 29275,
+      "games": 9,
+      "events": 3044,
+      "attempts": 1092,
+      "segments": 3232,
+      "chunks": 10638
+    },
+    "20252026": {
+      "physical_seconds": 25663,
+      "games": 9,
+      "events": 2978,
+      "attempts": 1101,
+      "segments": 2890,
+      "chunks": 9695
+    }
+  },
+  "representative_cases": {
+    "2022020822": {
+      "events": 303,
+      "attempts": 121,
+      "segments": 477,
+      "excluded_seconds": 0,
+      "reasons": {}
+    },
+    "2024020186": {
+      "events": 328,
+      "attempts": 107,
+      "segments": 372,
+      "excluded_seconds": 49,
+      "reasons": {
+        "strength_conflict": 2,
+        "membership_unavailable": 7
+      }
+    },
+    "2024021235": {
+      "events": 292,
+      "attempts": 110,
+      "segments": 0,
+      "excluded_seconds": 0,
+      "reasons": {
+        "membership_unavailable": 110
+      }
+    },
+    "2025021094": {
+      "events": 307,
+      "attempts": 120,
+      "segments": 382,
+      "excluded_seconds": 26,
+      "reasons": {
+        "membership_unavailable": 4
+      }
+    }
+  },
+  "independent_score_checks": 54114,
+  "actual_unit_checks": 84910
+}

@@ -1,0 +1,26 @@
+/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1074
+    ? ((cause: unknown) => new UnknownError(cause, "An error occurred in Effect.try"))
+                           ^
+
+UnknownError: An error occurred in Effect.try
+    at catcher (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1074:28)
+    at PrimitiveImpl.~effect/Effect/args (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1080:19)
+    at PrimitiveImpl.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:981:22)
+    ... 5 lines matching cause stack trace ...
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/.v1-03-goalie-reader-baseline-check.ts:8:28) {
+  _tag: 'UnknownError',
+  '~effect/Cause/UnknownError': '~effect/Cause/UnknownError',
+  [cause]: Error: analytical subject kind/identity differs
+      at present (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/src/server/.v1-03-analysis-publication-baseline.ts:460:15)
+      at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/src/server/.v1-03-analysis-publication-baseline.ts:643:40)
+      at PrimitiveImpl.~effect/Effect/args (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1078:22)
+      at PrimitiveImpl.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:981:22)
+      at FiberImpl.runLoop (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:654:41)
+      at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:595:23)
+      at <anonymous> (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:5689:9)
+      at <anonymous> (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:5767:19)
+      at Module.<anonymous> (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:5786:5)
+      at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/.v1-03-goalie-reader-baseline-check.ts:8:28)
+}
+
+Node.js v24.21.0

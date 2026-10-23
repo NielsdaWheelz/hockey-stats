@@ -24,6 +24,7 @@ import {
   spatialMetrics,
   validateSpatial,
 } from "./spatial-publication.js";
+import { preservesObservedAffiliations } from "../shared/player-analysis.js";
 const strict = { onExcessProperty: "error" } as const;
 const Locator = Schema.Struct({ game_id: GameId, source_index: Count });
 const { reason_codes, ...metricValues } = Metrics.fields;
@@ -350,12 +351,7 @@ export const validateObserved = (
           const identity = identities.find((row) => row.player_id === player.player_id);
           if (
             identity === undefined ||
-            identity.teams_json.length !== player.teams.length ||
-            identity.teams_json.some(
-              (team, i) =>
-                team.id !== player.teams[i].id ||
-                team.abbreviation !== player.teams[i].abbreviation,
-            )
+            !preservesObservedAffiliations(identity.teams_json, player.teams)
           )
             throw new Error("observed person teams differ from its summary");
           const rows = byPlayer.get(player.player_id) ?? [];

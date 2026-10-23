@@ -14,6 +14,28 @@ def _positive(value):
     return value if type(value) is int and value > 0 else None
 
 
+def actor_issue(event, identities, role_teams, membership=None):
+    """check recorded actor identities against explicit team/member contracts.
+
+    callers own population, association and interval exclusions. optional
+    assists deliberately do not enter this actor-only check.
+    """
+    actors = []
+    for role, team in role_teams.items():
+        player = event["roles"].get(role)
+        identity = identities.get(player)
+        if _positive(player) is None or identity is None:
+            return role + "_identity_unavailable"
+        if team is None or identity["team_id"] != team:
+            return role + "_team_conflict"
+        if membership is not None and player not in membership.get(team, ()):
+            return role + "_membership_conflict"
+        actors.append(player)
+    if len(set(actors)) != len(actors):
+        return "actor_identity_conflict"
+    return None
+
+
 def _bound_sources(document, consumed):
     bodies, references = {}, {}
     for source in ("play-by-play", "landing"):
@@ -48,7 +70,7 @@ def _bound_sources(document, consumed):
     return bodies, references
 
 
-def scoring_credits(document, selected, identities, consumed):
+def scoring_credits(document, selected, identities, consumed, *, factual=False):
     """return one credit disposition per already included scored/saved event.
 
     derived/raw drift is an input error; conflicting source observations are
@@ -61,7 +83,8 @@ def scoring_credits(document, selected, identities, consumed):
     landing = {}
     raw_goals = {}
     landing_body = bodies.get("landing")
-    require((document["landing_goals"] is not None) == (landing_body is not None),
+    require(factual and document["landing_goals"] is None
+            or (document["landing_goals"] is not None) == (landing_body is not None),
             "landing", "derived goal collection availability differs from bound source")
     if document["landing_goals"] is not None:
         summary = landing_body.get("summary") if landing_body is not None else None
@@ -108,17 +131,25 @@ def scoring_credits(document, selected, identities, consumed):
         require(index < len(plays) and type(plays[index]) is dict, path, "derived event locator differs")
         raw = plays[index]
         details = raw.get("details")
-        require(type(details) is dict, path, "included event lacks raw details")
+        require(factual or type(details) is dict, path, "included event lacks raw details")
+        details = details if type(details) is dict else {}
         descriptor = raw.get("periodDescriptor")
-        require(type(descriptor) is dict, path, "included event lacks raw period descriptor")
+        require(factual or type(descriptor) is dict, path, "included event lacks raw period descriptor")
+        descriptor = descriptor if type(descriptor) is dict else {}
         expected = dict(event_id=raw.get("eventId"), type_code=raw.get("typeCode"), type_key=raw.get("typeDescKey"),
                         period_number=descriptor.get("number"), period_type=descriptor.get("periodType"),
                         time_in_period=raw.get("timeInPeriod"),
                         time_remaining=raw.get("timeRemaining") if type(raw.get("timeRemaining")) is str else None,
                         situation_code=raw.get("situationCode") if type(raw.get("situationCode")) is str else None, owner_team_id=_positive(details.get("eventOwnerTeamId")))
+        if factual:
+            expected.update(event_id=_positive(raw.get("eventId")),
+                            period_number=_positive(descriptor.get("number")),
+                            period_type=descriptor.get("periodType") if type(descriptor.get("periodType")) is str else None,
+                            time_in_period=raw.get("timeInPeriod") if type(raw.get("timeInPeriod")) is str else None)
         require(all(type(event[key]) is type(value) and event[key] == value for key, value in expected.items()),
                 path, "derived event identity differs from raw fields")
-        require(event["elapsed_seconds"] == clock_seconds(event["time_in_period"], "play-by-play", path + "/timeInPeriod", []),
+        expected_clock = None if factual and event["timed_period"] is False else clock_seconds(event["time_in_period"], "play-by-play", path + "/timeInPeriod", [])
+        require(event["elapsed_seconds"] == expected_clock,
                 path, "derived event clock differs from raw fields")
         role = "scorer" if event["type_key"] == "goal" else "shooter"
         role_fields = {role: "scoringPlayerId" if role == "scorer" else "shootingPlayerId", "assist1": "assist1PlayerId", "assist2": "assist2PlayerId"}
@@ -126,14 +157,15 @@ def scoring_credits(document, selected, identities, consumed):
             require((name in event["roles"]) == (field in details) and event["roles"].get(name) == _positive(details.get(field)),
                     path + "/details/" + field, "derived role differs from raw field")
         scorer = event["roles"].get(role)
-        require(scorer not in identities or identities[scorer]["team_id"] == event["shooting_team_id"], path, "derived scorer/shooter team differs from roster")
+        team_matches = scorer not in identities or identities[scorer]["team_id"] == event["shooting_team_id"]
+        require(factual or team_matches, path, "derived scorer/shooter team differs from roster")
         refs = [dict(**references["play-by-play"], field=path + field) for field in (
             "/eventId", "/typeDescKey", "/typeCode", "/periodDescriptor", "/timeInPeriod", "/details/" + role_fields[role])]
         record = dict(source_index=index, status="credited", scorer_or_shooter_id=scorer,
                       primary_assister_id=None, evidence_refs=refs, reason=None)
         records.append(record)
-        if scorer not in identities:
-            record.update(status="unresolved", reason="scorer_or_shooter_identity_unavailable")
+        if scorer not in identities or not team_matches:
+            record.update(status="unresolved", reason="scorer_or_shooter_identity_unavailable" if team_matches else "scorer_or_shooter_team_conflict")
             continue
         if role != "scorer":
             continue
@@ -170,7 +202,26 @@ def scoring_credits(document, selected, identities, consumed):
             valid = valid and len(ids) <= 2 and all(_positive(pid) is not None and pid != scorer
                 and pid in identities and identities[pid]["team_id"] == event["shooting_team_id"] for pid in ids)
             valid = valid and len(ids) == len(set(pid for pid in ids if type(pid) is int))
-        if not valid:
+        if factual:
+            primary_valid = (not ("assist2PlayerId" in details and "assist1PlayerId" not in details)
+                             and type(landing_assists) is list)
+            primary_landing = ([landing_assists[0].get("playerId") if type(landing_assists[0]) is dict else None]
+                               if primary_valid and landing_assists else [])
+            primary_play = [details["assist1PlayerId"]] if "assist1PlayerId" in details else []
+            for ids in (primary_play, primary_landing):
+                primary_valid = primary_valid and all(_positive(pid) is not None and pid != scorer
+                    and pid in identities and identities[pid]["team_id"] == event["shooting_team_id"] for pid in ids)
+            if not primary_valid:
+                record.update(status="unresolved", reason="malformed_primary_assist")
+            elif primary_play != primary_landing:
+                record.update(status="unresolved", reason="primary_assist_conflict")
+            else:
+                record["primary_assister_id"] = primary_play[0] if primary_play else None
+                if not valid:
+                    record["reason"] = "secondary_assist_unresolved"
+                elif play_assists[1:] != landing_ids[1:]:
+                    record["reason"] = "secondary_assist_disagreement"
+        elif not valid:
             record.update(status="unresolved", reason="malformed_assists")
         elif (play_assists[:1] != landing_ids[:1]):
             record.update(status="unresolved", reason="primary_assist_conflict")

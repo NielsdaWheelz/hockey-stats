@@ -1,0 +1,110 @@
+{
+  "cli": [
+    "required subcommand",
+    "unsupported command",
+    "duplicate selection flag",
+    "duplicate output flag",
+    "abbreviated flag rejected",
+    "duplicate season",
+    "duplicate game",
+    "extra selection field",
+    "selection identity mismatch",
+    "corpus digest mismatch",
+    "fixture-to-real relabel",
+    "occupied output untouched"
+  ],
+  "manifest": [
+    "extra manifest field",
+    "missing coverage member",
+    "duplicate member",
+    "extra member",
+    "cross-wired member",
+    "absolute member path",
+    "escaping member path",
+    "nonfinite resource",
+    "negative resource",
+    "selection digest mismatch",
+    "missing promised member"
+  ],
+  "readers": [
+    "extra game field",
+    "extra nested source field",
+    "negative pre-score",
+    "bool source index",
+    "negative prefix counter",
+    "broken chronological link",
+    "missing original attempt",
+    "missing issue witness",
+    "detached game/people/coverage consumers: 9 games"
+  ],
+  "focused_context_unittest_checks": 19,
+  "future_invariance": {
+    "boundary": "trusted derived owner inputs; not raw source admission",
+    "variants": 2,
+    "verified_order": true,
+    "goal_accounting": {
+      "away": 1,
+      "home": 0
+    },
+    "identical_event_kind_counts": {
+      "hit": 2,
+      "shot-on-goal": 3,
+      "missed-shot": 1,
+      "stoppage": 1,
+      "goal": 1,
+      "period-end": 1
+    },
+    "earlier_event_snapshots": 4,
+    "elapsed_prefix_snapshots": 2,
+    "earlier_elapsed_transition_snapshots": 1,
+    "predictor_bytes": 77671,
+    "predictor_sha256": "0fbd27d8a4f1a4dc272608148d5ceb63e75f8663cd15b947026bca4d9e350c9e",
+    "focal_stop_label_changed": true,
+    "prior_same_clock_prefix_verified": true,
+    "label_mutation_separation": true
+  },
+  "artifact_unittest_checks": 7,
+  "source_fixture_cases": 37,
+  "people_source_checks": 7,
+  "source_code_sha256": "b2ac65f8e6dd7c1faec2bade6a4dc446646c322ca17a0e5182d3d80d5a92379f",
+  "final_full_public_reader_pass": {
+    "status": "passed",
+    "games": 36,
+    "season_people_members": 5,
+    "coverage_members": 1,
+    "exact_original_event_retention": 11659,
+    "exact_chunk_partitions": 42455,
+    "log_sha256": "c1a293718286bdbc507d1eebf522a0e61c59152d9e6a08bf7967a72c5e1d4bc2"
+  },
+  "focused_logs": [
+    {
+      "path": "final-context-checks.log",
+      "sha256": "5ba38caefe8260f232ffeaaca23e9907425d8083577e9be431ca14038fe302ff"
+    },
+    {
+      "path": "final-adversarial-checks.log",
+      "sha256": "47516cedbc83807f06756e23f9836b77ef68457895bc9a52bb73b9a7f0d25a75"
+    },
+    {
+      "path": "final-overlap-checks.log",
+      "sha256": "e9d761161d82f1c40f933a7bdde3c77f091c6110dc4cc3f01384c9ca7bd35136"
+    },
+    {
+      "path": "final-artifact-checks.log",
+      "sha256": "944cc2e8419c3a4655edd508787b6c7037f64d911c70eabb01dcacc26fceef3f"
+    },
+    {
+      "path": "final-history-checks.log",
+      "sha256": "6676581c0b56b3686d2731f8e7730057a37022d1b68119e49af60e7ded510cad"
+    }
+  ],
+  "temporary_test_deletion": "passed; see test-deletion.json",
+  "independent_review": "passed within 36-game fixture boundary; see independent-review.md",
+  "final_documentation_checks": {
+    "repository_links": 473,
+    "historical_external_links_unavailable_with_drive": 3,
+    "whitespace": "passed",
+    "frozen_source_identity": "passed",
+    "new_test_harnesses_retained": 0
+  }
+}

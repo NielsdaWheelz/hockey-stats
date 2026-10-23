@@ -1,0 +1,36 @@
+{
+  "deleted": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/input_failures.py",
+      "sha256": "502bea1912c1a83663409ce6e8b86911a3593ce3decd51222283321af6a6397a",
+      "bytes": 2512
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/seal-fixture.py",
+      "sha256": "6aff7d4333f8f2629c4493e93f0b5bd21c07c070326f3d303b782bf2bd7f7775",
+      "bytes": 3592
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/input-failures",
+      "kind": "owned cli-negative cloned fixtures and partial outputs",
+      "bytes": 2009236992
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/app/node_modules",
+      "kind": "owned dependency symlink only",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules"
+    }
+  ],
+  "retained_pending_real_acceptance": [
+    "var/v1-03/acceptance.py",
+    "var/v1-03/browser.mjs",
+    "var/v1-03/check-protected.py",
+    "var/v1-03/deny-inputs.mjs",
+    "var/v1-03/discovery.mjs",
+    "var/v1-03/live.mjs",
+    "var/v1-03/observed-identity.py",
+    "var/v1-03/real-strength-closure.py"
+  ],
+  "reason": "main command, independent source fold, detached api/browser/history and preservation checks still need the completed real artifact",
+  "permanent_tests_added": false
+}

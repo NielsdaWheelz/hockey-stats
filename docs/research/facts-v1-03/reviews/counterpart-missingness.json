@@ -1,0 +1,102 @@
+{
+  "purpose": "explicit synthetic shared-pair/usage transformations; not source observations or real acceptance",
+  "descriptive_sha256": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+  "cases": [
+    {
+      "case": "thin_usage",
+      "input": {
+        "shared_seconds_each": 100,
+        "counterpart_usage_minutes": {
+          "2": 10,
+          "3": null
+        },
+        "counterpart_roles": {
+          "2": "F",
+          "3": "D"
+        },
+        "focal_seconds": 100,
+        "focal_excluded_seconds": 17
+      },
+      "expected_mean": 10,
+      "actual_mean": 10.0,
+      "known_slot_seconds": 100,
+      "all_slot_seconds": 200,
+      "focal_coverage": {
+        "included_seconds": 100,
+        "known_excluded_seconds": 17,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "context_unavailable",
+            "count": 1
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "count": 1
+          }
+        ]
+      },
+      "role_bands": {
+        "forward": {
+          "known_slot_seconds": 100,
+          "all_slot_seconds": 100,
+          "mean_band_index": 1.0
+        },
+        "defense": {
+          "known_slot_seconds": 0,
+          "all_slot_seconds": 100,
+          "mean_band_index": null
+        }
+      },
+      "typed_validation": "passed"
+    },
+    {
+      "case": "unknown_position",
+      "input": {
+        "shared_seconds_each": 100,
+        "counterpart_usage_minutes": {
+          "2": 10,
+          "3": 20
+        },
+        "counterpart_roles": {
+          "2": "F",
+          "3": null
+        },
+        "focal_seconds": 100,
+        "focal_excluded_seconds": 17
+      },
+      "expected_mean": 15,
+      "actual_mean": 15.0,
+      "known_slot_seconds": 200,
+      "all_slot_seconds": 200,
+      "focal_coverage": {
+        "included_seconds": 100,
+        "known_excluded_seconds": 17,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "context_unavailable",
+            "count": 1
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "count": 1
+          }
+        ]
+      },
+      "role_bands": {
+        "forward": {
+          "known_slot_seconds": 100,
+          "all_slot_seconds": 100,
+          "mean_band_index": 1.0
+        },
+        "defense": {
+          "known_slot_seconds": 0,
+          "all_slot_seconds": 0,
+          "mean_band_index": null
+        }
+      },
+      "typed_validation": "passed"
+    }
+  ]
+}

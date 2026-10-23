@@ -86,7 +86,7 @@ content owner: analytical skater sheet under spatial/execution plus shared summa
 | d12 teammate/opponent context scatter | `skater_context` F/D usage-band coordinates, raw weighted usage and coverage | e/p; pair seconds already exist; reported counterpart usage/ranks are new factual reduction, not fitted quality |
 | d13 history/evidence/footer | annual factual rows and game records, source/coverage/unit/reference keys | e/p; three-season table/selected-field history, required method/support text in png |
 
-content owner: descriptive card with context/history owners. retain its two scatter panels and lower compositional bars/context scatter; a generic stats table alone does not close it. [factual appendix](specs/experimental-card-facts.md) defines each numerator/exposure and new source check.
+content owner: descriptive card with context/history owners. retain its two scatter panels and lower compositional bars/context scatter; a generic stats table alone does not close it. [factual appendix](specs/experimental-card-facts.md) defines each numerator/exposure and new source check. [v1-03](specs/v1-03-factual-card-reductions.md) supplies the shared factual reductions and source/context rows; v1-16 owns the full composition, so producer verification alone does not close this card.
 
 #### goalie — public saving/type/danger examples and documented subskills
 

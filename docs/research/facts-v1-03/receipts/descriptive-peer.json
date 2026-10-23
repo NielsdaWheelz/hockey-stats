@@ -1,0 +1,57 @@
+[
+  {
+    "check": "wrong purpose rejects fixture catalog",
+    "status": "passed",
+    "reason": "mixed or invalid source purpose"
+  },
+  {
+    "check": "changed catalog digest rejected",
+    "status": "passed",
+    "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v1-03-descriptive-integration-ya1lnrrn/digest/people.jsonl: member count/digest mismatch"
+  },
+  {
+    "check": "wrong native corpus binding rejected before candidate output",
+    "status": "passed",
+    "reason": "observed selection and results bindings differ"
+  },
+  {
+    "check": "family outside displayed years rejected",
+    "status": "passed",
+    "reason": "invalid family disposition"
+  },
+  {
+    "check": "rehashed wrong-year source game rejected",
+    "status": "passed",
+    "reason": "invalid regular-season game id"
+  },
+  {
+    "check": "actual prepared/source trade affiliation accepted over held-out old subset",
+    "status": "passed",
+    "season": "20242025",
+    "player_id": "8480879",
+    "old": [
+      {
+        "abbreviation": "OTT",
+        "id": "9"
+      }
+    ],
+    "added": {
+      "abbreviation": "BUF",
+      "id": "7"
+    },
+    "witness": {
+      "game_id": "2024021235",
+      "team_id": "7",
+      "away_team_id": "12",
+      "home_team_id": "7",
+      "away_abbreviation": "CAR",
+      "home_abbreviation": "BUF"
+    },
+    "limitation": "constructed prior subset; original fixture already includes both old observed affiliations"
+  },
+  {
+    "check": "actual dated trade addition rejects missing dressed witness",
+    "status": "passed",
+    "reason": "person affiliation lacks matching dressed-game/game-team evidence"
+  }
+]

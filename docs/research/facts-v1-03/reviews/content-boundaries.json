@@ -1,0 +1,96 @@
+{
+  "purpose": "explicit source-shaped synthetic boundary tests; not source admission or real analytical capability",
+  "source_template": {
+    "prepared_sha256": "2f4bd2bd134bf039cbd3a346b3d75d0812d02318f8344ebd169519d1703fdecf",
+    "season": "20252026",
+    "game_id": "2025020001",
+    "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158"
+  },
+  "cases": [
+    {
+      "case": "zero reported toi retains source penalty credit outside rate",
+      "status": "passed",
+      "game_id": "2025020001",
+      "player_id": "8484783",
+      "synthetic_input_sha256": "19b35c07c1622e16083fb46484025796cc57dd0e90164370aa8359e6327eb5af",
+      "expectation": {
+        "source_index": 53,
+        "source_credit_count": 2,
+        "source_role": "attributed",
+        "reported_seconds": 0,
+        "positive_toi_appearances": 0,
+        "rate_count": null,
+        "rate_seconds": null,
+        "rate": null
+      },
+      "serialized_roundtrip": "exact"
+    },
+    {
+      "case": "zero-time off-ice primary assist retains state count and null rate",
+      "status": "passed",
+      "game_id": "2025020001",
+      "player_id": "9000001",
+      "synthetic_input_sha256": "e7c2cae93d1a07c8050436034e21ae2f956a0b797ac9810051e221df0daec701",
+      "expectation": {
+        "source_index": 90,
+        "state": {
+          "attacking_skaters": 5,
+          "defending_skaters": 4,
+          "attacking_goalie_present": true,
+          "defending_goalie_present": true
+        },
+        "primary_assists": 1,
+        "own_seconds": 0,
+        "primary_assists_per60": null
+      },
+      "serialized_roundtrip": "exact"
+    },
+    {
+      "case": "reported shifts missing independently of known toi",
+      "status": "passed",
+      "game_id": "2025020001",
+      "player_id": "8473419",
+      "synthetic_input_sha256": "ce11f75dca38952a30e4c515f4c00576242c9e8e162db30cc3125fca5b22d849",
+      "expectation": {
+        "reported_seconds": 1210,
+        "supported_games": 1,
+        "missing_games": 0,
+        "positive_toi_appearances": 1,
+        "reported_shifts": null,
+        "reported_shifts_unavailable": 1
+      },
+      "serialized_roundtrip": "exact"
+    },
+    {
+      "case": "known reported shifts survive missing toi",
+      "status": "passed",
+      "game_id": "2025020001",
+      "player_id": "8473419",
+      "synthetic_input_sha256": "4e9cefe7684a615b89de964b247d4e21fdbbd5970d5df8454f21322b4028b888",
+      "expectation": {
+        "reported_seconds": null,
+        "supported_games": 0,
+        "missing_games": 1,
+        "positive_toi_appearances": 0,
+        "reported_shifts": 27
+      },
+      "serialized_roundtrip": "exact"
+    },
+    {
+      "case": "unknown score and shift starts retain elapsed time and all-start denominator",
+      "status": "passed",
+      "game_id": "2025020001",
+      "player_id": "8473419",
+      "synthetic_input_sha256": "5933127847168569b804d682211a6a956224b0e50fb195bcbbc154838f37faee",
+      "expectation": {
+        "unknown_score_seconds": 988,
+        "unknown_score_coverage_share": 1,
+        "known_score_shares": null,
+        "unknown_starts": 23,
+        "unknown_start_share": 1
+      },
+      "serialized_roundtrip": "exact"
+    }
+  ],
+  "production_source_changed": false
+}

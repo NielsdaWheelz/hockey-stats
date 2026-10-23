@@ -202,6 +202,14 @@ export const ProbabilityEstimate = Estimate.check(
 export const NonnegativeEstimate = Estimate.check(
   Schema.makeFilter((value) => value.value === null || value.value >= 0),
 );
+export const preservesObservedAffiliations = (
+  teams: readonly Team[],
+  observed: readonly Team[],
+): boolean =>
+  observed.every((old) =>
+    teams.some((team) => team.id === old.id && team.abbreviation === old.abbreviation),
+  );
+
 export const SupportReasonCode = Schema.Literals([
   "required_source_unavailable",
   "count_accounting_conflict",
@@ -221,6 +229,7 @@ export const SupportReasonCode = Schema.Literals([
   "spatial_frame_unresolved",
   "spatial_location_outside_rink",
   "no_spatial_5v5_exposure",
+  "reported_shifts_unavailable",
   "source_unavailable",
   "membership_unavailable",
   "identity_conflict",
@@ -897,7 +906,29 @@ const deploymentRecord = Schema.Struct({
     unknown: scoreBin,
   }),
   support: Support,
-});
+}).check(
+  Schema.makeFilter((value) => {
+    const starts = Object.values(value.shift_starts);
+    const startTotal = starts.every((bin) => bin.count !== null)
+      ? starts.reduce((sum, bin) => sum + (bin.count ?? 0), 0)
+      : null;
+    if (starts.some((bin) => bin.share.value !== null &&
+      (bin.count === null || startTotal === null || startTotal <= 0 ||
+        !close(bin.share.value, bin.count / startTotal)))) return false;
+    const known = [value.score.leading, value.score.tied, value.score.trailing];
+    const knownTotal = known.every((bin) => bin.seconds !== null)
+      ? known.reduce((sum, bin) => sum + (bin.seconds ?? 0), 0)
+      : null;
+    const unknown = value.score.unknown;
+    const allTotal = knownTotal !== null && unknown.seconds !== null
+      ? knownTotal + unknown.seconds : null;
+    return known.every((bin) => bin.share.value === null ||
+      (bin.seconds !== null && knownTotal !== null && knownTotal > 0 &&
+        close(bin.share.value, bin.seconds / knownTotal))) &&
+      (unknown.share.value === null || (unknown.seconds !== null && allTotal !== null &&
+        allTotal > 0 && close(unknown.share.value, unknown.seconds / allTotal)));
+  }),
+);
 export const SkaterDescriptive = Schema.Struct({
   provenance: SourceReference,
   reported_usage: ReportedUsage,
@@ -2092,7 +2123,7 @@ export const LeagueResponse = Schema.Union(
           row.person.player_id === data.player_id &&
           row.person.display_name === data.display_name &&
           row.person.reported_position === data.reported_position &&
-          JSON.stringify(row.person.teams) === JSON.stringify(data.teams)
+          preservesObservedAffiliations(row.person.teams, data.teams)
         );
       }),
   ),

@@ -1,0 +1,111 @@
+{
+  "status": "bounded source and context review; no real-corpus acceptance claim",
+  "checked_source_files": [
+    {
+      "path": "analysis/src/hockey_stats/reconstruct.py",
+      "sha256": "1d97a5854681e9425fa6d33b432ee063bb2bcd970beda6c1ad1e99a74c3de4b3"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_support.py",
+      "sha256": "bbdf6bdf0813937bd8050851791149b2d667817feda056667aa325e783817116"
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_data.py",
+      "sha256": "b0db151dc6aff79c6fb67d42980246674ec1bb213c6245efab87597cdc932ddb"
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_context.py",
+      "sha256": "774bc5eb3205e9be6e9d597470cf127e1d5bed7c68f42084b574bce99afe8a6f"
+    }
+  ],
+  "results": {
+    "source_fixtures": 37,
+    "real_skater_position_conflict_person_games": 40,
+    "direct_api_unavailable_history_windows": 240,
+    "reader_corruptions_rejected": 6,
+    "unavailable_ledger_statuses_checked": 4,
+    "known_nonshift_505_does_not_remove_completeness": true,
+    "unknown_999_is_person_local_or_global_when_identity_unknown": true,
+    "current_final_totals_are_not_prefix_values": true,
+    "native_row_shift_count_basis_preserved": true,
+    "direct_api_history_uses_bound_interpreted_game_locator": true,
+    "no_source_network_fit_or_publication_mutation": true,
+    "missing_raw_location_pair_and_unresolved_frame_checked": true,
+    "labeled_synthetic_absent_block_location_public_game_validated": true,
+    "r6_shared_participation_overlap_peer_review_passed": true,
+    "r6_peer_controls": [
+      "transitive strict overlap",
+      "nested bounds",
+      "exact duplicates",
+      "endpoint adjacency",
+      "separate player and period",
+      "clean-span 5v5 subset of all-strength participation",
+      "located omitted-component witnesses",
+      "native research row-count basis unchanged"
+    ]
+  },
+  "final_source_freeze": {
+    "receipt": "docs/research/evidence-v1-01/source-freeze.json",
+    "receipt_sha256": "6cb668904983a49e723833d444fd0c160bd8161d81c66dbfe530875cf8ae129a",
+    "aggregate_sha256": "b2ac65f8e6dd7c1faec2bade6a4dc446646c322ca17a0e5182d3d80d5a92379f"
+  },
+  "temporary_checks_deleted": 8,
+  "temporary_baselines_deleted": 1,
+  "temporary_files_deleted": [
+    {
+      "path": "/tmp/hockey-v1-01-source/check_applicability.py",
+      "sha256": "79d8614cd59380afaa4f783dc2e0c706f608673b2d4463b09e815417e043429f",
+      "bytes": 1549,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/check_final_review.py",
+      "sha256": "ddc53ec5f5f1b41d89bfe1a37f07708e67584206a40e9f84b65b3901e7958dc3",
+      "bytes": 3220,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/check_fixtures.py",
+      "sha256": "cd3dff2aec8324e7649d17acbc2d7ce86a25dfa7c7d896ac09f58564b87ecfa2",
+      "bytes": 4187,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/check_location_kind.py",
+      "sha256": "d730821fea41917842c145dcbef72305643cad495adddbda3c3553fd1339bdd2",
+      "bytes": 2322,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/check_r6_peer.py",
+      "sha256": "058609cf5e8707cc564ba0a3a1b0a5ab6bbcf0d5ddc808c8922ea962490c0fa3",
+      "bytes": 1448,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/check_source.py",
+      "sha256": "6abbfd358f23c03f43dd24033164770f3b07ce79b3e6cf75b9e6ba355c95089d",
+      "bytes": 11290,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/review_context.py",
+      "sha256": "bc784245f066bc1683df4935838a17cc6b94f194f925f8748d17345d9a9b4171",
+      "bytes": 2475,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/review_validator.py",
+      "sha256": "878a9764b40868878df1e32dfd3774264370ad509525da842fc6b2ae606ca715",
+      "bytes": 1655,
+      "kind": "temporary_check"
+    },
+    {
+      "path": "/tmp/hockey-v1-01-source/before.json",
+      "sha256": "5c0c858c7e3defc4897182a72e4966ec8e81b6b123507b899f4bcaf2462c01a1",
+      "bytes": 15942287,
+      "kind": "temporary_native_comparison_snapshot"
+    }
+  ],
+  "deletion_receipt": "docs/research/evidence-v1-01/test-deletion.json"
+}

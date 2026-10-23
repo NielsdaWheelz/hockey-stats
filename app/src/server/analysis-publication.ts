@@ -595,8 +595,8 @@ export const validateAnalysis = (
             )
           )
             throw new Error("fact supplied for pending family");
-          if (table === "dressed_game" || table === "context_coverage")
-            present(row.season, row.player_id, "skater");
+          if (table === "dressed_game") present(row.season, row.player_id);
+          if (table === "context_coverage") present(row.season, row.player_id, "skater");
           if (
             table === "attempt_setter" &&
             row.candidate_id !== "none" &&
@@ -640,7 +640,7 @@ export const validateAnalysis = (
           throw new Error("available event model value lacks method identity");
         if (value.method_id !== null && catalogs.methods[value.method_id].family !== "execution")
           throw new Error("event model method family differs");
-        if (value.shooter_id !== null) present(value.season, value.shooter_id, "skater");
+        if (value.shooter_id !== null) present(value.season, value.shooter_id);
         if (value.goalie_id !== null) present(value.season, value.goalie_id, "goalie");
         if (value.method_id !== null) {
           const inapplicable = (estimate: A.Estimate) =>
@@ -858,6 +858,28 @@ export const validateCrossRecords = (
   grids: readonly (typeof A.AnalysisGrid.Type)[],
 ) =>
   Effect.gen(function* () {
+    const identities = yield* sql.unsafe<{ person_teams: string; observed_teams: string }>(
+      "SELECT p.teams_json person_teams,s.teams_json observed_teams FROM person p JOIN player_season s USING(season,player_id)",
+    );
+    yield* Effect.try(() => {
+      for (const row of identities) {
+        const teams = decode(A.Person.fields.teams, strictJson(row.person_teams));
+        const observed = decode(A.Person.fields.teams, strictJson(row.observed_teams));
+        if (!A.preservesObservedAffiliations(teams, observed))
+          throw new Error("person loses or changes an observed affiliation");
+      }
+    });
+    yield* assertEmpty(
+      sql,
+      `SELECT 1 FROM person p JOIN json_each(p.teams_json) t
+       LEFT JOIN player_season s USING(season,player_id)
+       WHERE NOT EXISTS(SELECT 1 FROM json_each(coalesce(s.teams_json,'[]')) old WHERE json_extract(old.value,'$.id')=json_extract(t.value,'$.id'))
+       AND NOT EXISTS(SELECT 1 FROM dressed_game d JOIN game g USING(season,game_id)
+         WHERE d.season=p.season AND d.player_id=p.player_id AND d.team_id=json_extract(t.value,'$.id')
+         AND ((d.team_id=g.away_team_id AND (g.away_abbreviation IS NULL OR g.away_abbreviation IS json_extract(t.value,'$.abbreviation')))
+           OR (d.team_id=g.home_team_id AND (g.home_abbreviation IS NULL OR g.home_abbreviation IS json_extract(t.value,'$.abbreviation'))))) LIMIT 1`,
+      "person affiliation lacks matching dressed-game/game-team evidence",
+    );
     yield* assertEmpty(
       sql,
       "SELECT 1 FROM interval_fact a JOIN interval_fact b ON a.season=b.season AND a.game_id=b.game_id AND a.team_id=b.team_id AND a.population=b.population AND a.period_number=b.period_number AND a.rowid<b.rowid WHERE a.start_seconds<b.end_seconds AND b.start_seconds<a.end_seconds LIMIT 1",

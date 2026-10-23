@@ -48,7 +48,7 @@ DEFINITION = {
     "penalties": {"base_map": .25, "type_map": 1., "neighbor": 4., "circumstance": 4.,
                   "shooter": [4., 16.], "setter": [4., 16.], "goalie": [16., 64.],
                   "attacking_coach": [256., 1024.], "defending_coach": [256., 1024.], "age": 64.},
-    "solver": {"maxiter": 2000, "ftol": 1e-10, "gtol": 1e-6, "em_maxiter": 100,
+    "solver": {"maxiter": 2000, "ftol": 1e-14, "gtol": 1e-6, "em_maxiter": 100,
                "em_objective": 1e-8, "em_responsibility": 1e-6},
     "reference": "raw-minus-training-centers; preserve applicability offsets; virtual neutral execution",
     "population": {"game_type": 2, "physical_status": "ordinary", "skaters_each": [3, 4, 5, 6],

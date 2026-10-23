@@ -1,0 +1,19 @@
+# independent systems and content review
+
+scope: read-only production review of source freeze `0bb6d48`, recipe `eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304`, and local fixture chain `var/v1-05-checks/chain-05`. temporary probes stayed under `/tmp`; no fitting, acquisition, publication or production edits were performed by this reviewer.
+
+all previously assigned systems/content findings were repaired at the examined local boundary. accepted saved-state controls accompany targeted recomputed-member-hash rejection checks for absent current-year ledger entries, illegal head blocks, invented first-state prehistory, normalized but cross-wired setter weights, noncanonical setter axes, incomplete availability registry and inconsistent wall scope. earlier verified repairs cover live actor metadata completeness, fixed transforms, unavailable-state structure, completed solve diagnostics and probe schemas. cli malformed purposes return 1 without output; isolated no-fit command checks return 1 for unavailable families and failed final resolution, and 0 for a complete non-final family.
+
+one synthetic missing-predecessor check confirms exactly one shared `unavailable:preceding_status` flag. the original earlier-lineup setter omission was repaired and checked against game `2025021094`; it is retained as original source evidence rather than an observed-pass claim.
+
+final annual state and all four tagged numerical-probe variants read successfully. the frozen selector retains 256 actual full-probability contexts from 1,068 eligible contexts, zero withheld contexts and one explicitly synthetic sparse goalie-shot witness for actor `8474596`, source `2025020565:20`. factual-outcome witnesses match their recorded outcomes. the synthetic goalie witness retains actual on-ice source membership and recomputed actor circumstances; it does not claim an observed goalie attempt.
+
+all twenty rows in `docs/research/execution-v1-05/content.json` agree with strict saved states: five seasons, thirty-six fixture games and 4,328 recognized attempts. checked fields include exact conditioning, inclusion/class/exclusion counts, strength/type partitions, source-first/carry and prior-only populations, optional missingness, sample means, both setter losses, reliability bins, costs and bound coverage identities. the receipt labels in-sample outcome-dependent imputation and makes no unconditional forecast or ability claim. receipt sha256: `e400c28c64edebd5525cfc4bd0303001ecc61b062051f2c5defcc59f9101c501`.
+
+resource ownership now includes initial input read, design and fit/member persistence; the writer adds finalization time before writing the completion manifest. post-manifest validation is outside that explicitly stated scope. fixture timings do not qualify real capacity.
+
+numerical qualification remains open. final-year maximum probability changes are u `4.321311468824529e-5`, q `6.910204844756684e-5`, r `3.992772615246665e-5`, g `4.302034101383301e-5`, all above `1e-5`. each is truthfully serialized as failed. a refreshed-hash false-passed mutation is rejected. inspectability is not a passed numerical handoff.
+
+real input acceptance and twenty real annual heads remain pending. this review does not establish real completion, scientific admission, source merge, hosted checks or activation. a coherent replacement artifact requires consumer-pinned identity for authenticity; detached validation does not reopen original sources.
+
+reproduction receipts retained: `/tmp/v105-final-known-checks.py` and `.json`; `/tmp/v105-final-content-checks.py` and `.json`; `/tmp/v105-final-probe-checks.py` and `.json`; `/tmp/v105-final-content-receipt-check.py` and `.json`. earlier targeted witnesses remain under `/tmp/v105-independent-*` and `/tmp/v105-setter-*` until root's final cleanup decision.

@@ -145,10 +145,12 @@ PARSE_STATUSES = ('unavailable', 'parsed', 'malformed', 'identity_conflict')
 ASSIGNMENT_STATUSES = ('resolved', 'source_unavailable', 'source_malformed', 'source_identity_conflict',
                        'coach_not_reported', 'coach_malformed', 'identity_unreviewed', 'identity_unresolved')
 SIDES = ('home', 'away')
-# candidate report-link paths; first usable original must pin these before expansion.
-REPORT_POINTERS = tuple('/gameReports/' + field for field in (
-    'gameSummary', 'eventSummary', 'playByPlay', 'faceoffSummary', 'faceoffComparison',
-    'rosters', 'shotSummary', 'shiftChart', 'toiAway', 'toiHome'))
+# pinned from the five original 2026-10-22 production probes.
+REPORT_PREFIXES = dict(gameSummary='GS', eventSummary='ES', playByPlay='PL',
+                       faceoffSummary='FS', faceoffComparison='FC', rosters='RO',
+                       shotSummary='SS', shiftChart=None, toiAway='TV', toiHome='TH')
+REPORT_POINTERS = tuple('/gameReports/' + field for field in REPORT_PREFIXES)
+SERIES_FIELDS = ('id', 'season', 'gameType', 'gameDate', 'homeTeam/id', 'awayTeam/id', 'gameCenterLink')
 CONTEXT_POINTERS = ('/id', '/gameId', '/season', '/gameType', '/gameDate',
                     '/gameInfo/homeTeam/id', '/gameInfo/awayTeam/id', '/gameReports') + REPORT_POINTERS
 
@@ -326,7 +328,7 @@ def _pointer(body, pointer):
     return True, value
 
 
-def _report_status(value, game):
+def _report_status(pointer, value, game):
     if type(value) is not str:
         return 'invalid'
     try:
@@ -335,20 +337,41 @@ def _report_status(value, game):
         return 'invalid'
     if parsed.scheme not in ('http', 'https') or parsed.hostname not in ('www.nhl.com', 'nhl.com'):
         return 'invalid'
+    if pointer == '/gameReports/shiftChart':
+        if parsed.path != '/stats/shiftcharts' or parsed.fragment or re.fullmatch('id=[0-9]{10}', parsed.query) is None:
+            return 'invalid'
+        return 'agrees' if parsed.query == 'id=' + game['game_id'] else 'conflict'
     match = re.fullmatch(r'/scores/htmlreports/([0-9]{8})/([A-Z]{2})([0-9]{6})\.HTM', parsed.path)
-    if match is None or parsed.query or parsed.fragment:
+    if match is None or parsed.query or parsed.fragment or match[2] != REPORT_PREFIXES[pointer.rsplit('/', 1)[1]]:
         return 'invalid'
     return 'agrees' if (match[1], match[3]) == (game['season'], game['game_id'][-6:]) else 'conflict'
 
 
 def _context_status(pointer, value, game):
+    if pointer == '/seasonSeries':
+        if type(value) is not list:
+            return 'invalid'
+        return 'agrees' if len(_series_matches(value, game)) == 1 else 'conflict'
+    if pointer.startswith('/seasonSeries/'):
+        field = pointer.split('/', 3)[3]
+        if field in ('homeTeam', 'awayTeam'):
+            return 'agrees' if type(value) is dict else 'invalid'
+        if field == 'gameCenterLink':
+            match = re.fullmatch(r'/gamecenter/[a-z0-9]+-vs-[a-z0-9]+/([0-9]{4})/([0-9]{2})/([0-9]{2})/([0-9]{10})', value) if type(value) is str else None
+            if match is None or not _date('-'.join(match.group(1, 2, 3))):
+                return 'invalid'
+            return 'agrees' if ('-'.join(match.group(1, 2, 3)), match[4]) == (game['game_date'], game['game_id']) else 'conflict'
+        target = {'id': int(game['game_id']), 'season': int(game['season']), 'gameType': 2,
+                  'gameDate': game['game_date'], 'homeTeam/id': game['home_team_id'], 'awayTeam/id': game['away_team_id']}[field]
+        valid = _date(value) if field == 'gameDate' else type(value) is int and value > 0
+        return ('agrees' if value == target else 'conflict') if valid else 'invalid'
     expected = {'/id': game['game_id'], '/gameId': game['game_id'], '/season': game['season'],
                 '/gameType': 2, '/gameDate': game['game_date'],
                 '/gameInfo/homeTeam/id': game['home_team_id'], '/gameInfo/awayTeam/id': game['away_team_id']}
     if pointer == '/gameReports':
         return 'agrees' if type(value) is dict else 'invalid'
     if pointer.startswith('/gameReports/'):
-        return _report_status(value, game)
+        return _report_status(pointer, value, game)
     target = expected[pointer]
     if pointer in ('/id', '/gameId', '/season'):
         width = 8 if pointer == '/season' else 10
@@ -365,7 +388,29 @@ def _context(body, game):
         present, value = _pointer(body, pointer)
         status = 'absent' if not present else 'unavailable' if value is None else _context_status(pointer, value, game)
         checks.append(dict(pointer=pointer, reported_value=value, status=status))
+    present, series = _pointer(body, '/seasonSeries')
+    matches = _series_matches(series, game) if type(series) is list else []
+    if len(matches) == 1:
+        index, row = matches[0]
+        for field in SERIES_FIELDS:
+            present, value = _pointer(row, '/' + field)
+            pointer = f'/seasonSeries/{index}/{field}'
+            status = 'absent' if not present else 'unavailable' if value is None else _context_status(pointer, value, game)
+            checks.append(dict(pointer=pointer, reported_value=value, status=status))
+        for field in ('homeTeam', 'awayTeam'):
+            value = row.get(field)
+            if value is not None and type(value) is not dict:
+                checks.append(dict(pointer=f'/seasonSeries/{index}/{field}', reported_value=value, status='invalid'))
+    else:
+        status = 'absent' if not present else 'unavailable' if series is None else _context_status('/seasonSeries', series, game)
+        checks.append(dict(pointer='/seasonSeries', reported_value=series, status=status))
     return checks
+
+
+def _series_matches(series, game):
+    # other matchup games are not observations of this game's date or teams.
+    return [(index, row) for index, row in enumerate(series)
+            if type(row) is dict and type(row.get('id')) in (str, int) and str(row['id']) == game['game_id']]
 
 
 def _assignment(status, side, name=None, reason=None, coach_id=None, entry=None):
@@ -540,21 +585,42 @@ def _validate_context(checks, game):
     for check in checks:
         _closed(check, 'pointer reported_value status', 'context check')
         pointer = check['pointer']
-        require(type(pointer) is str and pointer in CONTEXT_POINTERS and pointer not in seen,
+        require(type(pointer) is str and (pointer in CONTEXT_POINTERS or pointer == '/seasonSeries'
+                or re.fullmatch(r'/seasonSeries/(?:0|[1-9][0-9]*)/(?:id|season|gameType|gameDate|homeTeam/id|awayTeam/id|homeTeam|awayTeam|gameCenterLink)', pointer))
+                and pointer not in seen,
                 'unknown/duplicate context pointer')
         seen.append(pointer)
         status = check['status']
         require(type(status) is str and status in ('agrees', 'absent', 'unavailable', 'invalid', 'conflict'), 'invalid context status')
         value = check['reported_value']
         if status == 'absent':
-            require(value is None and pointer in CONTEXT_POINTERS, 'absent context must have null value')
+            require(value is None, 'absent context must have null value')
         elif value is None:
             require(status == 'unavailable', 'explicit null context must be unavailable')
         else:
             require(status == _context_status(pointer, value, game), 'context check verdict differs from recorded value')
     if checks:
         require(seen[:len(CONTEXT_POINTERS)] == list(CONTEXT_POINTERS), 'context guard pointers/order differ')
-        require(len(seen) == len(CONTEXT_POINTERS), 'context guard cardinality differs')
+        series_checks = checks[len(CONTEXT_POINTERS):]
+        require(bool(series_checks), 'season-series context missing')
+        if series_checks[0]['pointer'] == '/seasonSeries':
+            require(len(series_checks) == 1 and series_checks[0]['status'] != 'agrees',
+                    'season-series collection requires absent/null/malformed or membership-conflict evidence')
+        else:
+            first = series_checks[0]['pointer']
+            index = first.split('/')[2]
+            expected = [f'/seasonSeries/{index}/{field}' for field in SERIES_FIELDS]
+            malformed_parents = [f'/seasonSeries/{index}/{field}' for field in ('homeTeam', 'awayTeam')
+                                 if f'/seasonSeries/{index}/{field}' in seen]
+            require([check['pointer'] for check in series_checks] == expected + malformed_parents,
+                    'selected season-series pointers must use one index and all fixed fields')
+            for check in series_checks[len(SERIES_FIELDS):]:
+                child = next(row for row in series_checks if row['pointer'] == check['pointer'] + '/id')
+                require(check['status'] == 'invalid' and check['reported_value'] is not None
+                        and type(check['reported_value']) is not dict and child['status'] == 'absent',
+                        'malformed season-series side must retain its invalid parent and absent id')
+            require(str(series_checks[0]['reported_value']) == game['game_id'],
+                    'selected season-series row id differs from requested game')
         reports = next(check['reported_value'] for check in checks if check['pointer'] == '/gameReports')
         for check in checks:
             if check['pointer'] in REPORT_POINTERS:

@@ -8,6 +8,7 @@
   "scripts": {
     "capture": "tsx src/operator/cli.ts",
     "capture-season": "tsx src/operator/capture-season-cli.ts",
+    "capture-skating": "tsx src/operator/skating-cli.ts",
     "publication": "tsx src/operator/publication-cli.ts",
     "build": "react-router build && tsc -p tsconfig.json --noEmit false --outDir dist/node",
     "serve": "node dist/node/server/main.js",

@@ -19,6 +19,10 @@ def main(argv=None) -> int:
     publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
     publish.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
     publish.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    facts = commands.add_parser("facts", allow_abbrev=False)
+    facts.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
+    facts.add_argument("--observed", required=True, action=Once, metavar="FILE")
+    facts.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     args = parser.parse_args(argv)
     try:
         if args.command == "prepare":
@@ -26,6 +30,11 @@ def main(argv=None) -> int:
 
             manifest = prepare_analysis(args.selection, args.out)
             print(str(manifest.directory / "manifest.json"))
+        elif args.command == "facts":
+            from .descriptive import build_factual_results
+
+            manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
+            print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         else:
             from .publication import build_publication
 

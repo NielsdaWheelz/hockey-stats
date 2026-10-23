@@ -14,6 +14,28 @@ def _positive(value):
     return value if type(value) is int and value > 0 else None
 
 
+def actor_issue(event, identities, role_teams, membership=None):
+    """check recorded actor identities against explicit team/member contracts.
+
+    callers own population, association and interval exclusions. optional
+    assists deliberately do not enter this actor-only check.
+    """
+    actors = []
+    for role, team in role_teams.items():
+        player = event["roles"].get(role)
+        identity = identities.get(player)
+        if _positive(player) is None or identity is None:
+            return role + "_identity_unavailable"
+        if team is None or identity["team_id"] != team:
+            return role + "_team_conflict"
+        if membership is not None and player not in membership.get(team, ()):
+            return role + "_membership_conflict"
+        actors.append(player)
+    if len(set(actors)) != len(actors):
+        return "actor_identity_conflict"
+    return None
+
+
 def _bound_sources(document, consumed):
     bodies, references = {}, {}
     for source in ("play-by-play", "landing"):
@@ -180,7 +202,26 @@ def scoring_credits(document, selected, identities, consumed, *, factual=False):
             valid = valid and len(ids) <= 2 and all(_positive(pid) is not None and pid != scorer
                 and pid in identities and identities[pid]["team_id"] == event["shooting_team_id"] for pid in ids)
             valid = valid and len(ids) == len(set(pid for pid in ids if type(pid) is int))
-        if not valid:
+        if factual:
+            primary_valid = (not ("assist2PlayerId" in details and "assist1PlayerId" not in details)
+                             and type(landing_assists) is list)
+            primary_landing = ([landing_assists[0].get("playerId") if type(landing_assists[0]) is dict else None]
+                               if primary_valid and landing_assists else [])
+            primary_play = [details["assist1PlayerId"]] if "assist1PlayerId" in details else []
+            for ids in (primary_play, primary_landing):
+                primary_valid = primary_valid and all(_positive(pid) is not None and pid != scorer
+                    and pid in identities and identities[pid]["team_id"] == event["shooting_team_id"] for pid in ids)
+            if not primary_valid:
+                record.update(status="unresolved", reason="malformed_primary_assist")
+            elif primary_play != primary_landing:
+                record.update(status="unresolved", reason="primary_assist_conflict")
+            else:
+                record["primary_assister_id"] = primary_play[0] if primary_play else None
+                if not valid:
+                    record["reason"] = "secondary_assist_unresolved"
+                elif play_assists[1:] != landing_ids[1:]:
+                    record["reason"] = "secondary_assist_disagreement"
+        elif not valid:
             record.update(status="unresolved", reason="malformed_assists")
         elif (play_assists[:1] != landing_ids[:1]):
             record.update(status="unresolved", reason="primary_assist_conflict")

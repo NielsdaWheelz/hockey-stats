@@ -1,0 +1,37 @@
+[
+  {
+    "case": "duplicate-flag",
+    "returncode": 2,
+    "stderr": "usage: hockey-stats-analysis facts [-h] --prepared DIRECTORY --observed FILE\n                                   --out DIRECTORY\nhockey-stats-analysis facts: error: --prepared must occur exactly once"
+  },
+  {
+    "case": "unknown-flag",
+    "returncode": 2,
+    "stderr": "usage: hockey-stats-analysis [-h] {prepare,publish,facts} ...\nhockey-stats-analysis: error: unrecognized arguments: --unrecognised x"
+  },
+  {
+    "case": "wrong-purpose",
+    "returncode": 1,
+    "stderr": "manifest: preparation purpose differs"
+  },
+  {
+    "case": "wrong-corpus",
+    "returncode": 1,
+    "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20232024/corpus.json: linked artifact digest mismatch"
+  },
+  {
+    "case": "absent-member",
+    "returncode": 1,
+    "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/input-failures/prepared/games/20232024/2023020001.json: [Errno 2] No such file or directory: '/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/input-failures/prepared/games/20232024/2023020001.json'"
+  },
+  {
+    "case": "changed-member",
+    "returncode": 1,
+    "stderr": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/input-failures/prepared/games/20232024/2023020001.json: member digest differs"
+  },
+  {
+    "case": "semantic-year-mismatch",
+    "returncode": 1,
+    "stderr": "game: season/game identity differs"
+  }
+]

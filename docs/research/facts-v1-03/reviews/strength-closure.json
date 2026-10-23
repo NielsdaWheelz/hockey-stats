@@ -1,0 +1,30 @@
+{
+  "purpose": "independent captured-fixture source-to-season/group closure; not real acceptance",
+  "descriptive_sha256": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+  "seasons": [
+    {
+      "season": "20232024",
+      "captured_games": 6,
+      "skaters": 201
+    },
+    {
+      "season": "20242025",
+      "captured_games": 9,
+      "skaters": 245
+    },
+    {
+      "season": "20252026",
+      "captured_games": 9,
+      "skaters": 277
+    }
+  ],
+  "checks": {
+    "usage_states": 2346,
+    "usage_groups": 3615,
+    "scoring_states": 2346,
+    "scoring_groups": 2892
+  },
+  "prepared_manifest_sha256": "2f4bd2bd134bf039cbd3a346b3d75d0812d02318f8344ebd169519d1703fdecf",
+  "results_manifest_sha256": "86833e0dd6bf26b0ebeb621705c709084b610a0092f551368f37e9d4b48200a1",
+  "observed_selection_sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37"
+}

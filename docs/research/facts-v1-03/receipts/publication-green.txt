@@ -1,0 +1,8 @@
+PASS known-state shares use 60 known seconds; unknown is 40/100
+PASS diluted known shares rejected
+PASS score K=60, U=0
+PASS score K=0, U=40
+PASS nonnull zero-denominator share rejected
+PASS score K=0, U=0
+PASS nonnull zero-denominator share rejected
+PASS reported shifts reason

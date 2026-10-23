@@ -1,0 +1,25 @@
+{"relation":"teammates","finite":226,"qualification_seconds":null,"standing":{"kind":"unavailable","reason":"qualification unavailable","n":0,"peerGroup":"reported defense","cutoffMinutes":0}}
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: counterpart qualification must retain exact focal matched elapsed seconds
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/.v1-03-counterpart-check.ts:28:3)
+    at Generator.next (<anonymous>)
+    at IteratorImpl.~effect/Effect/successCont (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1422:28)
+    at ExitPrimitive.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/core.ts:585:30)
+    at FiberImpl.runLoop (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:654:41)
+    at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:595:23)
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:589:27)
+    at Array.<anonymous> (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1025:13)
+    at MixedSchedulerDispatcher.runTasks (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/Scheduler.ts:254:17) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v26.12.0

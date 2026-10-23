@@ -509,7 +509,7 @@ export default function ComparativeCard({
         </p>
         {model.publication.purpose === "fixture" && (
           <p className="fixture-banner">
-            synthetic fixture · development evidence
+            fixture publication · development evidence
           </p>
         )}
         <h3 id={`${id}-title`}>
@@ -845,7 +845,7 @@ function comparativeCardSvg(model: ComparativeCardModel): string {
   try {
     paragraph("experimental seasonal level · comparative skater", 23);
     if (model.publication.purpose === "fixture")
-      paragraph("synthetic fixture · development evidence", 23);
+      paragraph("fixture publication · development evidence", 23);
     paragraph(
       model.person ? playerName(model.person) : `player ${model.playerId}`,
       40,

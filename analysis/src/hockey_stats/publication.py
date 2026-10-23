@@ -616,7 +616,7 @@ def build_publication(selection_path: Path, results_path: Path, output: Path) ->
                     require(person is not None and person['kind'] == 'skater'
                             and person['display_name'] == observed['display_name']
                             and person['reported_position'] == observed['reported_position']
-                            and person['teams'] == teams[player_id], f'{result.season}/{player_id}: observed identity differs from person catalog')
+                            and all(team in person['teams'] for team in teams[player_id]), f'{result.season}/{player_id}: observed identity differs from person catalog')
                 for (year,player_id),person in results.people.items():
                     if year == result.season:
                         _insert(connection,'person',analysis.store_person(person,observed_people.get(player_id)))

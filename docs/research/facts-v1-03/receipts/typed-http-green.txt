@@ -1,0 +1,8 @@
+pass typed /api/league?season=20232024&kind=skater&family=observed&strength=5v5
+pass typed /api/league?season=20232024&kind=skater&family=descriptive
+pass typed /api/league?season=20232024&kind=skater&family=microstats
+pass typed /api/players/8470600?season=20232024
+pass typed /api/players/8470600/evidence?season=20232024&family=personal_shots&strength=5v5&outcome=all_unblocked&blocked_contacts=false
+pass typed /api/players/8470600/context?season=20232024&mode=on_off&population=recorded_all_attempts
+pass invalid selection rejected /api/league?season=20232024&season=20242025&family=descriptive&kind=skater
+pass invalid selection rejected /api/players/8470600/context?season=20232024&mode=on_off&population=made_up

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "scope": "changed/new v1-04 markdown, plan/issue updates and both fixture readmes",
+  "network_requests": 0,
+  "application_tests_run": false,
+  "files": [
+    {
+      "path": "docs/issues/microstat-inputs.md",
+      "sha256": "92ebf06c42f4a2370b398b5c3894a928877a57e9cf9b1c53d1de9fd36144ae0b"
+    },
+    {
+      "path": "docs/plan.md",
+      "sha256": "4352b7c7f9681c2ad1ff4d3809345359162ba413bcfa8c6fe11494633c94699f"
+    },
+    {
+      "path": "docs/research/council.md",
+      "sha256": "d872cdb3499bf49baffabeef489af15ec7a4c2d08d4ced8663db253efa77a819"
+    },
+    {
+      "path": "docs/research/skating-v1-04/reviews/adversarial-final.md",
+      "sha256": "237a56b80a59392987819c3b24f1c5bb47f02eb6a5be91eca77a5b2569c04bfd"
+    },
+    {
+      "path": "docs/research/skating-v1-04/reviews/adversarial-planning.md",
+      "sha256": "263f71b7b0f87d14cf139d5e9d7f6c989400e6e903d0b351546fcbdeca1aff91"
+    },
+    {
+      "path": "docs/research/skating-v1-04/reviews/source-content.md",
+      "sha256": "dc29ef56bf30c68de6c18c7055225cee09066eebd9c544bc4ac7f9e92740ad16"
+    },
+    {
+      "path": "docs/research/skating-v1-04/source-audit.md",
+      "sha256": "485017921f52d94e50f80366aba87ff43e33a17bb401149f30779f431208ba39"
+    },
+    {
+      "path": "docs/research/skating-v1-04/verification.md",
+      "sha256": "b50216930af36cacd69d1ffd960e47295f15ed18d7ea49d05ebfc0b8768237af"
+    },
+    {
+      "path": "docs/specs/v1-04-skating-source-feasibility.md",
+      "sha256": "56838ee0002a630691e2210c9ffd3173797672753d3d7eb1fe2d0f55693b4f75"
+    },
+    {
+      "path": "fixtures/README.md",
+      "sha256": "a0056bbe665e21bc2613ab156362b7a81309e7858d0623d9fc8b9fee524ab317"
+    },
+    {
+      "path": "fixtures/skating-v1-04/README.md",
+      "sha256": "c8bb8f3eb77def38ec9baffd9d304eb6971a6b792fe5affc742323e2367cad60"
+    }
+  ],
+  "method": "repository-local markdown destinations and github-style heading anchors; code fences and inline code excluded; external urls and pre-existing absolute historical evidence locators recorded without fetching",
+  "local_links_checked": 516,
+  "local_anchor_links_checked": 66,
+  "external_links_not_fetched": 71,
+  "errors": [],
+  "historical_absolute_filesystem_links_not_revalidated": [
+    {
+      "source": "docs/plan.md",
+      "line": 189,
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04d-20261016/reviews/post-merge-cleanup.json",
+      "reason": "pre-existing absolute evidence outside this worktree; retained historical locator, outside v1-04 documentation-change scope"
+    },
+    {
+      "source": "docs/plan.md",
+      "line": 195,
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04e-20261016/reviews/post-merge-cleanup.json",
+      "reason": "pre-existing absolute evidence outside this worktree; retained historical locator, outside v1-04 documentation-change scope"
+    },
+    {
+      "source": "docs/plan.md",
+      "line": 205,
+      "target": "/Volumes/Expansion/hockey-stats/runs/attribution-04f-20261016/reviews/post-merge-cleanup.json",
+      "reason": "pre-existing absolute evidence outside this worktree; retained historical locator, outside v1-04 documentation-change scope"
+    },
+    {
+      "source": "docs/plan.md",
+      "line": 221,
+      "target": "/Users/nnandal/Documents/code/hockey-stats-local/05c-verification/pr-merge-cleanup.json",
+      "reason": "pre-existing absolute evidence outside this worktree; retained historical locator, outside v1-04 documentation-change scope"
+    }
+  ],
+  "manual_consistency": [
+    {
+      "check": "three captured attempts, seven deferred fixed keys, two unbound adaptive allowances; no fabricated attempted adaptive requests",
+      "result": "pass",
+      "evidence": "docs/plan.md; docs/research/skating-v1-04/verification.md; fixtures/skating-v1-04/README.md"
+    },
+    {
+      "check": "six initial season-measurement cells are context_unresolved/null; three deferred player-season rows retain not_requested",
+      "result": "pass",
+      "evidence": "docs/research/skating-v1-04/verification.md; reviews/source-content.md"
+    },
+    {
+      "check": "zero observed listed membership does not claim zero source population; universe/totals stay unknown/null",
+      "result": "pass",
+      "evidence": "docs/research/skating-v1-04/verification.md"
+    },
+    {
+      "check": "source-listed peer counts are separate from captured samples; null position group means unknown position throughout",
+      "result": "pass",
+      "evidence": "docs/research/skating-v1-04/reviews/source-content.md; reviews/source-content-independent.json operator_output"
+    },
+    {
+      "check": "source-audit remains explicitly historical documentation-stage evidence; later production http200 findings are distinguished in plan, issue and final verification",
+      "result": "pass",
+      "evidence": "docs/research/skating-v1-04/source-audit.md; docs/issues/microstat-inputs.md; docs/plan.md"
+    },
+    {
+      "check": "conditional bytes-per-player extrapolation supplies no invented population, campaign latency or full acquisition count",
+      "result": "pass",
+      "evidence": "docs/research/skating-v1-04/verification.md acquisition handoff"
+    }
+  ],
+  "controller": {
+    "path": "/private/tmp/hockey-skating-capture-eiDfZm/documentation-check.py",
+    "sha256": "ba66eb7cc2c94c290ec16642b5571116a20e605a37155d664899840100abead3"
+  },
+  "receipt_compaction": "retained summary counts, checked markdown identities, limitations, controller attribution and manual findings; omitted 516 repeated successful per-link records"
+}

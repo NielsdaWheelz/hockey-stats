@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "source": "edge-skating-detail",
+  "seasonId": "20232024",
+  "playerId": "8478402",
+  "gameTypeId": 2,
+  "request": {
+    "method": "GET",
+    "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8478402/20232024/2",
+    "requestedAt": "2026-10-23T01:32:50.961Z"
+  },
+  "responseHeaders": {
+    "content-type": "application/json",
+    "content-encoding": "gzip",
+    "date": "Fri, 23 Oct 2026 01:32:51 GMT",
+    "etag": "W/\"6adab94c--gzip\""
+  },
+  "httpStatus": 200,
+  "state": "captured",
+  "body": {
+    "path": "body.bin",
+    "representation": "http-client-body",
+    "bytes": 9478,
+    "sha256": "047c9a7ef6ef4e65cff78bee1b0e69cd1acfb16b1da954d5458ddda130019a19"
+  },
+  "failure": null
+}

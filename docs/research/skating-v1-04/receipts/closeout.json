@@ -1,0 +1,97 @@
+{
+  "implementation_commit": "aa9ff18639585740bbaf9aefad5a87aa1c3e6bf8",
+  "software_checks": "passed",
+  "checks": {
+    "capture": 29,
+    "compatibility": 3,
+    "binding": 40,
+    "independent": 62,
+    "root_literal_witnesses": 114
+  },
+  "typecheck": {
+    "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node node_modules/typescript/bin/tsc -p tsconfig.json",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-04/app",
+    "exit_code": 0
+  },
+  "protected_files_unchanged": 30,
+  "primary_documentation_inputs": [
+    {
+      "path": "docs/brief.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/issues/microstat-inputs.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/plan.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/product-inventory.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/research/council.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/specs/experimental-application.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/specs/experimental-card-facts.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/specs/experimental-player-analysis.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/research/skating-v1-04/source-audit.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/specs/v1-04-skating-source-feasibility.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/specs/v1-15-comparative-card-discovery.md",
+      "unchanged": true
+    }
+  ],
+  "request_plan_unchanged": true,
+  "source_sha256": {
+    "analysis/src/hockey_stats/captures.py": "eed8a2ecc0733297e084746e28cc2e2780b673e7a42bee7f3f3997ca2ae028ee",
+    "analysis/src/hockey_stats/skating.py": "1c24bc838252410b63c5c4a6460dfe9f604ee8840af272ee99fd1d281216b440",
+    "app/src/operator/capture.ts": "08965371801211f4d88247c4b53a412296c545ee9f1e349caab5965ebba21c22",
+    "app/src/operator/skating-capture.ts": "e809470a17b8558d8bd0cb99c4fa05115c6ffe25033e5df82c9138cbd5f240cb",
+    "app/src/operator/skating-cli.ts": "308ff83adb0ea85e17e6b70d0b13ea4e75cc8e0e30eb510811510b8f1e872515",
+    "app/package.json": "a6c6b5deadbc1f76e98038ea048d03719643f6f95bef9ed0e07a0611195b7980"
+  },
+  "temporary_dependency_link_removed": true,
+  "test_cleanup": "complete; capture, binding, independent and documentation controllers and their disposable synthetic scratch removed after final green",
+  "not_run": [
+    "full app build",
+    "live application/database/publication change",
+    "successful primary aggregate adapter",
+    "primary null/zero/disjoint-bin/traded semantics",
+    "source listing/census acquisition",
+    "bulk acquisition",
+    "pr/merge/activation"
+  ],
+  "cleanup_receipts": [
+    "receipts/capture-cleanup.json",
+    "receipts/binding-checks.json",
+    "reviews/adversarial-final.json"
+  ],
+  "documentation_checks": {
+    "local_links": 516,
+    "anchors": 66,
+    "errors": 0
+  },
+  "post_deletion_compact_read": "passed",
+  "primary_checkout_head_at_closeout": "b00e9ba4ca16573223877e29c47807abb041596b",
+  "primary_checkout_status_at_closeout": "",
+  "original_fixture_binary_attributes": "verified text/diff/merge unset; all three original body lengths and hashes unchanged"
+}

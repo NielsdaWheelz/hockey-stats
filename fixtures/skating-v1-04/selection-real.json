@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "purpose": "real",
+  "seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "requests": [
+    {
+      "request_id": "detail-8478402-20232024",
+      "kind": "detail",
+      "season": "20232024",
+      "player_id": "8478402",
+      "capture": {
+        "directory": "primary/detail-8478402-20232024",
+        "receipt_sha256": "6e44882fdb209d230fc313de0a1ab9df37e4317bdb2d873d57ccce5bec02a991",
+        "origin": "primary"
+      },
+      "deferred_reason": null
+    },
+    {
+      "request_id": "detail-8478402-20242025",
+      "kind": "detail",
+      "season": "20242025",
+      "player_id": "8478402",
+      "capture": {
+        "directory": "primary/detail-8478402-20242025",
+        "receipt_sha256": "d54c6f15471fd6c4ba5d0ad2ca147383d6039c64702d18fd0369cf8cc84ba9dd",
+        "origin": "primary"
+      },
+      "deferred_reason": null
+    },
+    {
+      "request_id": "detail-8478402-20252026",
+      "kind": "detail",
+      "season": "20252026",
+      "player_id": "8478402",
+      "capture": {
+        "directory": "primary/detail-8478402-20252026",
+        "receipt_sha256": "d677b238ec30672148288814202e4a797bb2487ce28bf02214e1c3c2f9b60118",
+        "origin": "primary"
+      },
+      "deferred_reason": null
+    },
+    {
+      "request_id": "detail-8480800-20232024",
+      "kind": "detail",
+      "season": "20232024",
+      "player_id": "8480800",
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "listing-20232024",
+      "kind": "listing",
+      "season": "20232024",
+      "player_id": null,
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "detail-8480800-20242025",
+      "kind": "detail",
+      "season": "20242025",
+      "player_id": "8480800",
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "listing-20242025",
+      "kind": "listing",
+      "season": "20242025",
+      "player_id": null,
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "detail-8480800-20252026",
+      "kind": "detail",
+      "season": "20252026",
+      "player_id": "8480800",
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "listing-20252026",
+      "kind": "listing",
+      "season": "20252026",
+      "player_id": null,
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "glossary",
+      "kind": "glossary",
+      "season": null,
+      "player_id": null,
+      "capture": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    }
+  ],
+  "position_references": [
+    {
+      "season": "20232024",
+      "directory": "../references/20232024",
+      "receipt_sha256": "55a91424a425bfa49b0c2d046c860ff7bd6719450449478edbd36976476c95af",
+      "body_sha256": "f1ced59a6cf806e03a8f5fad5926035ece02df9f778b9b029709a77fff17ad7c"
+    },
+    {
+      "season": "20242025",
+      "directory": "../references/20242025",
+      "receipt_sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a",
+      "body_sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+    },
+    {
+      "season": "20252026",
+      "directory": "../references/20252026",
+      "receipt_sha256": "2eee0e94cbb414ba45a132c732535961654b393308b87dcf2039540d4bc7a115",
+      "body_sha256": "7ecf80fc9e7cbafb90585bff11a0653185e192f1b42c4e6d9b106f22ef94749b"
+    }
+  ]
+}

@@ -20,9 +20,10 @@ import {
   type PlayerFamilies,
   type PlayerResponse,
 } from "../shared/player-analysis";
-import { readMapMode } from "./explorer";
+import { readMapMode, readMetric } from "./explorer";
+import { selectHistoryValue, selectLeagueValues, type AnalysisMetric } from "./analysis-values";
 
-// current views: the observed skater cohort and observed maps, joined into one view model per route.
+// each route composes its bounded publication reads before rendering.
 type Release = {
   readonly publication: Publication;
   readonly available_seasons: readonly string[];
@@ -34,6 +35,8 @@ export type ObservedMaps = {
   readonly scale: Extract<MapsResponse, { family: "observed" }>["scale"];
 };
 export type ProfileView = Release & {
+  readonly selectedMetric: AnalysisMetric;
+  readonly scalarHistory: readonly ScalarHistoryRow[];
   readonly player_id: string;
   readonly kind: PlayerResponse["kind"];
   readonly person: Person | null;
@@ -49,7 +52,12 @@ export type ProfileView = Release & {
     readonly player: PlayerSummary | null;
   }[];
 };
+export type ScalarHistoryRow = PlayerResponse["history"][number] & {
+  readonly cohort: LeagueResponse;
+};
 export type ComparisonView = LeagueView & {
+  readonly selectedMetric: AnalysisMetric;
+  readonly scalarCohort: LeagueResponse;
   readonly pair: readonly [PlayerSummary, PlayerSummary] | null;
   readonly maps: ObservedMaps | null;
 };
@@ -97,12 +105,55 @@ const cohortQuery = (query: URLSearchParams) => ({
 const mapView = (query: URLSearchParams) =>
   readMapMode(query).mode === "absolute" ? "complete" : "effect";
 
-// a season is identified by its corpus evidence, not only its year.
+// publication metadata and displayed years are one snapshot, across all annual corpora.
+function samePublication(a: Release, b: Release) {
+  if (!equal(a.publication, b.publication) || !equal(a.available_seasons, b.available_seasons))
+    throw new Error("responses describe different publications or displayed seasons");
+}
+
 function sameRelease(a: Release, b: Release) {
-  const identity = (release: Release) =>
-    `${release.publication.publication_id}/${release.season.season}/${release.season.corpus_sha256}`;
-  if (identity(a) !== identity(b))
-    throw new Error(`responses describe different publications or seasons: ${identity(a)} and ${identity(b)}`);
+  samePublication(a, b);
+  if (!equal(a.season, b.season))
+    throw new Error(`responses describe different season evidence: ${a.season.season} and ${b.season.season}`);
+}
+
+function equal(a: unknown, b: unknown): boolean {
+  if (a === b) return true;
+  if (typeof a !== "object" || a === null || typeof b !== "object" || b === null) return false;
+  const left = Object.entries(a), right = Object.entries(b);
+  return left.length === right.length && left.every(([key, value]) =>
+    Object.hasOwn(b, key) && equal(value, (b as Record<string, unknown>)[key]));
+}
+
+type Envelope = Pick<PlayerResponse, "sources" | "methods" | "supports">;
+function catalogs(inputs: readonly Envelope[]): Envelope {
+  const merged: Envelope = { sources: {}, methods: {}, supports: {} };
+  for (const input of inputs) {
+    for (const name of ["sources", "methods", "supports"] as const) {
+      const target = merged[name] as Record<string, unknown>;
+      for (const [id, value] of Object.entries(input[name])) {
+        if (Object.hasOwn(target, id) && !equal(target[id], value))
+          throw new Error(`conflicting ${name} catalog entry: ${id}`);
+        target[id] = value;
+      }
+    }
+  }
+  return merged;
+}
+
+type ScalarRequest = Pick<LeagueResponse, "kind" | "family" | "strength"> & { readonly season: string };
+const requestKey = (request: ScalarRequest) => JSON.stringify([
+  request.season, request.kind, request.family, request.strength,
+]);
+const scalarRequest = (season: string, metric: AnalysisMetric): ScalarRequest => ({
+  season, kind: metric.kind, family: metric.family, strength: metric.strength,
+});
+const scalarQuery = ({ strength, ...request }: ScalarRequest) => ({
+  ...request, ...(strength === null ? {} : { strength }),
+});
+function checkRequest(response: LeagueResponse, request: ScalarRequest) {
+  if (requestKey({ ...response, season: response.season.season }) !== requestKey(request))
+    throw new Error("league response does not match its requested field population");
 }
 
 function composeLeague(response: LeagueResponse): LeagueView {
@@ -122,7 +173,7 @@ function composeLeague(response: LeagueResponse): LeagueView {
 const observedOf = (families: PlayerFamilies) =>
   "availability" in families || families.kind !== "skater" ? null : families.observed;
 
-function composeProfile(detail: PlayerResponse, league: LeagueView): ProfileView {
+function composeProfile(detail: PlayerResponse, league: LeagueView, selectedMetric: AnalysisMetric, scalarHistory: readonly ScalarHistoryRow[]): ProfileView {
   sameRelease(detail, league);
   const observed = observedOf(detail.families);
   const player = league.players.find((row) => row.player_id === detail.player_id);
@@ -137,6 +188,8 @@ function composeProfile(detail: PlayerResponse, league: LeagueView): ProfileView
   }
   return {
     ...league,
+    selectedMetric,
+    scalarHistory,
     player_id: detail.player_id,
     kind: detail.kind,
     person: detail.person,
@@ -190,48 +243,108 @@ export const loadLeague = (signal: AbortSignal, query: URLSearchParams) =>
     signal,
   );
 
-// the detail decides whether an observed map exists; goalies have no skater map.
+// the player response owns annual identity, absence and displayed-season evidence.
 export const loadProfile = (playerId: string, signal: AbortSignal, query: URLSearchParams) =>
   read(
     Effect.gen(function* () {
       const api = yield* client;
-      const [detail, cohort] = yield* Effect.all(
-        [
-          api.analysis.player({ params: { playerId }, query: { season: seasonQuery(query) } }),
-          api.analysis.league({ query: cohortQuery(query) }),
-        ],
+      const detail = yield* api.analysis.player({ params: { playerId }, query: { season: seasonQuery(query) } });
+      const metric = readMetric(query, detail.kind).metric;
+      const observedRequest: ScalarRequest | null = detail.kind === "skater"
+        ? { season: detail.season.season, kind: "skater", family: "observed", strength: "5v5" }
+        : null;
+      const requests = [...new Map([
+        ...(observedRequest === null ? [] : [observedRequest]),
+        ...detail.available_seasons.map((season) => scalarRequest(season, metric)),
+      ].map((request) => [requestKey(request), request])).values()];
+      const responses = yield* Effect.all(
+        requests.map((request) => api.analysis.league({ query: scalarQuery(request) })),
         { concurrency: "unbounded" },
       );
-      const profile = yield* compose(() => composeProfile(detail, composeLeague(cohort)));
+      const profile = yield* compose(() => {
+        responses.forEach((response, index) => {
+          samePublication(detail, response);
+          checkRequest(response, requests[index]);
+        });
+        const resolved = catalogs([detail, ...responses]);
+        const cohorts = new Map(responses.map((response, index) => [requestKey(requests[index]), { ...response, ...resolved }]));
+        const scalarHistory = detail.history.map((row): ScalarHistoryRow => {
+          const cohort = cohorts.get(requestKey(scalarRequest(row.season.season, metric)))!;
+          sameRelease({ ...detail, season: row.season }, cohort);
+          const member = cohort.players.find(({ person }) => person.player_id === detail.player_id);
+          const selected = selectHistoryValue(row, cohort, metric, playerId);
+          if (member) {
+            if (!equal(row.person, member.person))
+              throw new Error(`player ${playerId}: annual identity differs from its cohort row`);
+            const peer = selectLeagueValues(cohort, metric).find((value) => value.playerId === playerId);
+            // family-envelope copy may differ; original field reasons and evidence remain exact.
+            const agrees = selected.status === "not_computed" && peer?.status === "not_computed"
+              ? equal({ ...selected, reason: null }, { ...peer, reason: null })
+              : equal(selected, peer);
+            if (!agrees)
+              throw new Error(`player ${playerId}: selected scalar or support differs from its annual cohort row`);
+          } else if (selected.value !== null) {
+            throw new Error(`player ${playerId}: available scalar has no annual cohort row`);
+          }
+          return { ...row, cohort };
+        });
+        const league: LeagueView = detail.kind === "goalie"
+          ? { publication: detail.publication, available_seasons: detail.available_seasons, season: detail.season, players: [] }
+          : composeLeague(cohorts.get(requestKey(observedRequest!))!);
+        return composeProfile(detail, league, metric, scalarHistory);
+      });
       if (!profile.player) return profile;
       const view = mapView(query);
       const maps = yield* api.analysis.maps({ query: mapsQuery(profile.season.season, [playerId], view) });
-      return yield* compose((): ProfileView => ({ ...profile, maps: observedMaps(maps, profile, [playerId], view) }));
+      return yield* compose((): ProfileView => {
+        catalogs([detail, ...responses, maps]);
+        return { ...profile, maps: observedMaps(maps, profile, [playerId], view) };
+      });
     }),
     signal,
   );
 
-// maps wait for the cohort: only a distinct pair of published skaters has an ordered map.
+// the observed picker stays bounded; the selected field retains its complete cohort.
 export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
   read(
     Effect.gen(function* () {
       const api = yield* client;
-      const cohort = yield* api.analysis.league({ query: cohortQuery(query) });
-      const league = yield* compose(() => composeLeague(cohort));
+      const observed = yield* api.analysis.league({ query: cohortQuery(query) });
+      const league = yield* compose(() => composeLeague(observed));
+      const metric = readMetric(query, "skater").metric;
+      const request = scalarRequest(league.season.season, metric);
+      const scalar = requestKey(request) === requestKey({ ...observed, season: observed.season.season })
+        ? observed
+        : yield* api.analysis.league({ query: scalarQuery(request) });
+      const scalarCohort = yield* compose(() => {
+        sameRelease(observed, scalar);
+        checkRequest(scalar, request);
+        return { ...scalar, ...catalogs([observed, scalar]) };
+      });
       const [first, second] = ["a", "b"].map((key) => {
         const values = query.getAll(key);
         return values.length === 1 ? league.players.find((row) => row.player_id === values[0]) : undefined;
       });
       if (!first || !second || first.player_id === second.player_id)
-        return { ...league, pair: null, maps: null } satisfies ComparisonView;
+        return { ...league, selectedMetric: metric, scalarCohort, pair: null, maps: null } satisfies ComparisonView;
+      yield* compose(() => {
+        for (const player of [first, second]) {
+          const identity = observed.players.find((row) => row.person.player_id === player.player_id)!.person;
+          const member = scalarCohort.players.find((row) => row.person.player_id === player.player_id);
+          if (!member || !equal(identity, member.person))
+            throw new Error(`player ${player.player_id}: comparison identity differs from its selected-field cohort row`);
+        }
+      });
       const ids = [first.player_id, second.player_id];
       const view = mapView(query);
       const maps = yield* api.analysis.maps({ query: mapsQuery(league.season.season, ids, view) });
-      return yield* compose((): ComparisonView => ({
-        ...league,
-        pair: [first, second],
-        maps: observedMaps(maps, league, ids, view),
-      }));
+      return yield* compose((): ComparisonView => {
+        catalogs([observed, scalar, maps]);
+        return {
+          ...league, selectedMetric: metric, scalarCohort, pair: [first, second],
+          maps: observedMaps(maps, league, ids, view),
+        };
+      });
     }),
     signal,
   );

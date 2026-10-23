@@ -14,7 +14,8 @@ import { loadProfile } from "../client";
 import {
   readMapMode,
   readPeerSettings,
-  readRateMetric,
+  readMetric,
+  readHistoryScale,
   viewSearch,
   seasonSearch,
   shouldRevalidateView,
@@ -23,12 +24,20 @@ import {
 } from "../explorer";
 import SpatialViews from "../spatial-views";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
+import {
+  defaultAnalysisMetric,
+  selectHistoryValue,
+  selectLeagueValues,
+  type AnalysisMetric,
+} from "../analysis-values";
+import { buildAnalysisCohort } from "../analysis-cohorts";
+import AnalysisHistory, {
+  type HistoryPoint,
+  type HistoryScale,
+} from "../analysis-history";
 import DescriptiveCard from "../descriptive-card";
 import DeploymentTables from "../deployment-tables";
-import {
-  buildObservedComparison,
-  type ObservedRateKey,
-} from "../observed-comparison";
+import { buildObservedComparison } from "../observed-comparison";
 import {
   CoverageDetail,
   Evidence,
@@ -43,11 +52,15 @@ import {
 } from "../presentation";
 
 export const clientLoader = ({ params, request }: ClientLoaderFunctionArgs) =>
-  loadProfile(params.playerId!, request.signal, new URL(request.url).searchParams);
+  loadProfile(
+    params.playerId!,
+    request.signal,
+    new URL(request.url).searchParams,
+  );
 export const ErrorBoundary = LoadError;
 // map mode selects the requested map view, so it reloads.
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
-  shouldRevalidateView(args, ["peers", "peerMin", "metric"]);
+  shouldRevalidateView(args, ["peers", "peerMin", "specialtyMin", "history"]);
 
 type Identity = Pick<Person, "display_name" | "player_id" | "teams"> & {
   readonly reported_position: string | null;
@@ -76,12 +89,14 @@ function HistorySeason({
         {seasonLabel(evidence.season)}
       </Link>
       {selected && <span className="history-context">selected season</span>}
-      {gap && evidence.coverage.games_with_unassigned_player_associations > 0 && (
-        <span className="history-context">
-          global gap: {evidence.coverage.games_with_unassigned_player_associations}{" "}
-          unassigned inventory games; player totals may omit games.
-        </span>
-      )}
+      {gap &&
+        evidence.coverage.games_with_unassigned_player_associations > 0 && (
+          <span className="history-context">
+            global gap:{" "}
+            {evidence.coverage.games_with_unassigned_player_associations}{" "}
+            unassigned inventory games; player totals may omit games.
+          </span>
+        )}
     </th>
   );
 }
@@ -90,14 +105,25 @@ function HistoryIdentity({ identity }: { readonly identity: Identity }) {
   return (
     <td className="history-identity">
       <span className="history-name">{playerName(identity)}</span>
-      {teamList(identity)} · {identity.reported_position ?? "position unavailable"}
+      {teamList(identity)} ·{" "}
+      {identity.reported_position ?? "position unavailable"}
     </td>
   );
 }
 
 export default function Player() {
   const data = useLoaderData<typeof clientLoader>();
-  const { publication, season, players, games, maps, history, deployment, person, player } = data;
+  const {
+    publication,
+    season,
+    players,
+    games,
+    maps,
+    history,
+    deployment,
+    person,
+    player,
+  } = data;
   const identity: Identity | null = player ?? person;
   const historicalIdentity = history.find((row) => row.person !== null);
   const location = useLocation();
@@ -105,14 +131,22 @@ export default function Player() {
   const [search, setSearch] = useSearchParams();
   const { settings, search: peerNormalized } = readPeerSettings(search);
   const { mode, search: mapNormalized } = readMapMode(peerNormalized);
-  const { metric, search: normalized } = readRateMetric(mapNormalized);
+  const { metric, search: metricNormalized } = readMetric(
+    mapNormalized,
+    data.kind,
+  );
+  const { scale, search: normalized } = readHistoryScale(metricNormalized);
   useCanonicalSearch(season.season, normalized);
   const leagueSearch =
     historySearch(location.state?.leagueSearch) ||
     `?${seasonSearch("", season.season)}`;
   const comparisonSearch = historySearch(location.state?.comparisonSearch);
   const viewQuery = seasonSearch("", season.season);
-  if (metric !== "sog60") viewQuery.set("metric", metric);
+  if (metric.id !== defaultAnalysisMetric(data.kind).id)
+    viewQuery.set("metric", metric.id);
+  if (scale !== "raw") viewQuery.set("history", scale);
+  if (settings.specialtyMin !== 50)
+    viewQuery.set("specialtyMin", String(settings.specialtyMin));
   if (mode === "absolute") viewQuery.set("map", "absolute");
   if (settings.peers !== "position") viewQuery.set("peers", settings.peers);
   if (settings.peerMin !== 300)
@@ -128,6 +162,10 @@ export default function Player() {
       if (nextSettings.peerMin === 300) next.delete("peerMin");
       else next.set("peerMin", String(nextSettings.peerMin));
     }
+    if (nextSettings.specialtyMin !== undefined) {
+      if (nextSettings.specialtyMin === 50) next.delete("specialtyMin");
+      else next.set("specialtyMin", String(nextSettings.specialtyMin));
+    }
     if (next.toString() !== previous)
       setSearch(next, {
         preventScrollReset: true,
@@ -135,11 +173,12 @@ export default function Player() {
         flushSync: true,
       });
   };
-  const changeMetric = (nextMetric: ObservedRateKey) => {
+  const changeMetric = (nextMetric: AnalysisMetric) => {
     const next = viewSearch(location, navigation.location);
-    if (nextMetric === readRateMetric(next).metric) return;
-    if (nextMetric === "sog60") next.delete("metric");
-    else next.set("metric", nextMetric);
+    if (nextMetric.id === readMetric(next, data.kind).metric.id) return;
+    if (nextMetric.id === defaultAnalysisMetric(data.kind).id)
+      next.delete("metric");
+    else next.set("metric", nextMetric.id);
     setSearch(next, {
       preventScrollReset: true,
       state: location.state,
@@ -162,6 +201,54 @@ export default function Player() {
       player ? buildObservedComparison(players, [player], settings) : undefined,
     [players, player, settings.peers, settings.peerMin],
   );
+  const scalarViews = useMemo(
+    () =>
+      data.scalarHistory.map((row) => {
+        const datum = selectHistoryValue(
+          row,
+          row.cohort,
+          metric,
+          data.player_id,
+        );
+        const cohort = buildAnalysisCohort(
+          selectLeagueValues(row.cohort, metric),
+          [datum],
+          settings,
+        );
+        const group = cohort.groups[0];
+        const point: HistoryPoint = {
+          datum,
+          season: row.season,
+          standing: group.selected[0].standing,
+          member: group.members.some(
+            (member) => member.playerId === datum.playerId,
+          ),
+          incompatiblePeerCount: group.incompatiblePeerCount,
+        };
+        return { point, cohort };
+      }),
+    [
+      data.scalarHistory,
+      data.player_id,
+      metric,
+      settings.peers,
+      settings.peerMin,
+      settings.specialtyMin,
+    ],
+  );
+  const selectedScalar = scalarViews.find(
+    ({ point }) => point.season.season === season.season,
+  )!;
+  const changeScale = (nextScale: HistoryScale) => {
+    const next = viewSearch(location, navigation.location);
+    if (nextScale === "raw") next.delete("history");
+    else next.set("history", nextScale);
+    setSearch(next, {
+      preventScrollReset: true,
+      state: location.state,
+      flushSync: true,
+    });
+  };
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", data.player_id);
   const profileLink = (playerId: string) => ({
@@ -188,7 +275,8 @@ export default function Player() {
         {identity ? (
           <p>
             {teamList(identity)} · reported position{" "}
-            {identity.reported_position ?? "unavailable"} · player {identity.player_id}
+            {identity.reported_position ?? "unavailable"} · player{" "}
+            {identity.player_id}
           </p>
         ) : (
           <>
@@ -205,9 +293,6 @@ export default function Player() {
             </p>
           </>
         )}
-        {data.kind === "goalie" && (
-          <p>goalie analysis presentation is not implemented yet.</p>
-        )}
         {person && data.kind === "skater" && !player && (
           <>
             <p>no observed results for {seasonLabel(season.season)}.</p>
@@ -220,9 +305,38 @@ export default function Player() {
           comparison={comparison}
           publication={publication}
           season={season}
-          controls={<PeerControls settings={settings} onChange={changePeers} />}
+          controls={
+            <>
+              <h4>observed 5v5 reference</h4>
+              <PeerControls settings={settings} onChange={changePeers} />
+            </>
+          }
         />
       )}
+      <PeerDistributions
+        cohort={selectedScalar.cohort}
+        metric={metric}
+        onMetricChange={changeMetric}
+        settings={settings}
+        onPeerChange={changePeers}
+        publication={publication}
+        season={season}
+        profileLink={profileLink}
+      />
+      <AnalysisHistory
+        view={{
+          publication,
+          metric,
+          selectedSeason: season.season,
+          scale,
+          points: scalarViews.map(({ point }) => point),
+        }}
+        onScaleChange={changeScale}
+        seasonLink={(year) => ({
+          to: `${location.pathname}?${seasonSearch(search, year)}`,
+          state: location.state,
+        })}
+      />
       {data.kind === "goalie" ? (
         <section className="player-history" aria-labelledby="history-heading">
           <h3 id="history-heading">published identity across seasons</h3>
@@ -233,11 +347,18 @@ export default function Player() {
             aria-label="published identity table, scroll horizontally for all columns"
           >
             <table className="history-table identity-history">
-              <caption>identity only; goalie results are not presented here.</caption>
+              <caption>
+                published identity; selected goalie quantities and support
+                appear above.
+              </caption>
               <thead>
                 <tr>
-                  <th scope="col" className="identity">season</th>
-                  <th scope="col">season identity / teams / reported position</th>
+                  <th scope="col" className="identity">
+                    season
+                  </th>
+                  <th scope="col">
+                    season identity / teams / reported position
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -251,7 +372,10 @@ export default function Player() {
                     {row ? (
                       <HistoryIdentity identity={row} />
                     ) : (
-                      <td>no published player record for {seasonLabel(evidence.season)}.</td>
+                      <td>
+                        no published player record for{" "}
+                        {seasonLabel(evidence.season)}.
+                      </td>
                     )}
                   </tr>
                 ))}
@@ -261,10 +385,13 @@ export default function Player() {
         </section>
       ) : (
         <section className="player-history" aria-labelledby="history-heading">
-          <h3 id="history-heading">recorded results across published seasons</h3>
+          <h3 id="history-heading">
+            recorded results across published seasons
+          </h3>
           <p className="control-note">
             each season retains its own identity, matched time and coverage. raw
-            rates are unadjusted for league environment, missingness or deployment.
+            rates are unadjusted for league environment, missingness or
+            deployment.
           </p>
           <div
             className="table-scroll history-scroll"
@@ -299,66 +426,111 @@ export default function Player() {
                   </th>
                 </tr>
                 <tr>
-                  <th scope="col" className="numeric">shots on goal/60</th>
-                  <th scope="col" className="numeric">goals/60</th>
-                  <th scope="col" className="numeric">primary assists/60</th>
-                  <th scope="col" className="numeric">included min</th>
+                  <th scope="col" className="numeric">
+                    shots on goal/60
+                  </th>
+                  <th scope="col" className="numeric">
+                    goals/60
+                  </th>
+                  <th scope="col" className="numeric">
+                    primary assists/60
+                  </th>
+                  <th scope="col" className="numeric">
+                    included min
+                  </th>
                   <th scope="col">coverage</th>
-                  <th scope="col" className="numeric">for/60</th>
-                  <th scope="col" className="numeric">against/60</th>
-                  <th scope="col" className="numeric">included min</th>
+                  <th scope="col" className="numeric">
+                    for/60
+                  </th>
+                  <th scope="col" className="numeric">
+                    against/60
+                  </th>
+                  <th scope="col" className="numeric">
+                    included min
+                  </th>
                   <th scope="col">coverage</th>
                 </tr>
               </thead>
               <tbody>
-                {history.map(({ season: evidence, person: rowPerson, player: row }) => (
-                  <tr key={evidence.season}>
-                    <HistorySeason
-                      evidence={evidence}
-                      selected={evidence.season === season.season}
-                      gap
-                    />
-                    {row ? (
-                      <>
-                        <HistoryIdentity identity={row} />
-                        <td className="numeric">
-                          <Quantity value={row.personal.shots_on_goal_per60} metrics={row.personal} rate precision={2} />
+                {history.map(
+                  ({ season: evidence, person: rowPerson, player: row }) => (
+                    <tr key={evidence.season}>
+                      <HistorySeason
+                        evidence={evidence}
+                        selected={evidence.season === season.season}
+                        gap
+                      />
+                      {row ? (
+                        <>
+                          <HistoryIdentity identity={row} />
+                          <td className="numeric">
+                            <Quantity
+                              value={row.personal.shots_on_goal_per60}
+                              metrics={row.personal}
+                              rate
+                              precision={2}
+                            />
+                          </td>
+                          <td className="numeric">
+                            <Quantity
+                              value={row.personal.goals_per60}
+                              metrics={row.personal}
+                              rate
+                              precision={2}
+                            />
+                          </td>
+                          <td className="numeric">
+                            <Quantity
+                              value={row.personal.primary_assists_per60}
+                              metrics={row.personal}
+                              rate
+                              precision={2}
+                            />
+                          </td>
+                          <td className="numeric">
+                            <Minutes seconds={row.personal.included_seconds} />
+                          </td>
+                          <td>
+                            <CoverageDetail metrics={row.personal} />
+                          </td>
+                          <td className="numeric">
+                            <Quantity
+                              value={row.metrics.for_per60}
+                              metrics={row.metrics}
+                              rate
+                            />
+                          </td>
+                          <td className="numeric">
+                            <Quantity
+                              value={row.metrics.against_per60}
+                              metrics={row.metrics}
+                              rate
+                            />
+                          </td>
+                          <td className="numeric">
+                            <Minutes seconds={row.metrics.included_seconds} />
+                          </td>
+                          <td>
+                            <CoverageDetail metrics={row.metrics} />
+                          </td>
+                        </>
+                      ) : rowPerson ? (
+                        <>
+                          <HistoryIdentity identity={rowPerson} />
+                          <td colSpan={9}>
+                            no observed results for{" "}
+                            {seasonLabel(evidence.season)}.
+                          </td>
+                        </>
+                      ) : (
+                        <td colSpan={10}>
+                          no published player record for{" "}
+                          {seasonLabel(evidence.season)}.
                         </td>
-                        <td className="numeric">
-                          <Quantity value={row.personal.goals_per60} metrics={row.personal} rate precision={2} />
-                        </td>
-                        <td className="numeric">
-                          <Quantity value={row.personal.primary_assists_per60} metrics={row.personal} rate precision={2} />
-                        </td>
-                        <td className="numeric">
-                          <Minutes seconds={row.personal.included_seconds} />
-                        </td>
-                        <td><CoverageDetail metrics={row.personal} /></td>
-                        <td className="numeric">
-                          <Quantity value={row.metrics.for_per60} metrics={row.metrics} rate />
-                        </td>
-                        <td className="numeric">
-                          <Quantity value={row.metrics.against_per60} metrics={row.metrics} rate />
-                        </td>
-                        <td className="numeric">
-                          <Minutes seconds={row.metrics.included_seconds} />
-                        </td>
-                        <td><CoverageDetail metrics={row.metrics} /></td>
-                      </>
-                    ) : rowPerson ? (
-                      <>
-                        <HistoryIdentity identity={rowPerson} />
-                        <td colSpan={9}>
-                          no observed results for {seasonLabel(evidence.season)}.
-                        </td>
-                      </>
-                    ) : (
-                      <td colSpan={10}>
-                        no published player record for {seasonLabel(evidence.season)}.
-                      </td>
-                    )}
-                  </tr>
-                ))}
+                      )}
+                    </tr>
+                  ),
+                )}
               </tbody>
             </table>
           </div>
@@ -367,12 +539,6 @@ export default function Player() {
       {data.kind === "skater" && <GlobalGap season={season} />}
       {player && comparison && (
         <>
-          <PeerDistributions
-            comparison={comparison}
-            metric={metric}
-            onMetricChange={changeMetric}
-            profileLink={profileLink}
-          />
           <DeploymentTables
             key={`${season.season}:${player.player_id}`}
             season={season.season}
@@ -399,9 +565,9 @@ export default function Player() {
             >
               <table className="game-table">
                 <caption>
-                  date order · personal, on-ice and spatial counts have their own
-                  matched minutes and coverage; spatial season counts and time
-                  reduce from these rows
+                  date order · personal, on-ice and spatial counts have their
+                  own matched minutes and coverage; spatial season counts and
+                  time reduce from these rows
                 </caption>
                 <thead>
                   <tr>

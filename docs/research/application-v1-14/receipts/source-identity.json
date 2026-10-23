@@ -1,0 +1,66 @@
+{
+  "base_code": "61fa087",
+  "supplied_documentation_snapshot": "655bc49bf8167333fdcf3db4ccbe0de0d54b20e4",
+  "branch": "implement/v1-14-history-cohorts-exports",
+  "node": "24.21.0",
+  "files": {
+    "app/src/web/analysis-cohorts.ts": {
+      "sha256": "7abf80f1eaeca52832280fc74a4dafe33e24f93caf4f549dbf88fa3233ad5659",
+      "bytes": 8394
+    },
+    "app/src/web/analysis-history.tsx": {
+      "sha256": "381833b0032f7a80852049eb5c6d6ed80328813af6041082db8a19af89fe8c75",
+      "bytes": 31749
+    },
+    "app/src/web/analysis-values.ts": {
+      "sha256": "8e709f9a5eb5a348c551a2d92696e27e827bf551e0213eb23006553d4c493dd3",
+      "bytes": 34364
+    },
+    "app/src/web/client.ts": {
+      "sha256": "f5d1e0f8c5b1184be80a63895acb5b208b0345d27cea743d3a62dea2f6a3cade",
+      "bytes": 15442
+    },
+    "app/src/web/descriptive-card.tsx": {
+      "sha256": "c3fe1defcf6cc824010fe6520b0d538efbcfe4b95ab7b3f786d0d6c10878c508",
+      "bytes": 19449
+    },
+    "app/src/web/explorer.ts": {
+      "sha256": "0b96bacfdc40b8018eae0aa845664a17ea25747346d6629a626518f0d6cb4ffe",
+      "bytes": 10649
+    },
+    "app/src/web/export.ts": {
+      "sha256": "75304aa785f4ed1191d3ad08c0b35f07de7546cca716c28a84e21cb3ebe67c07",
+      "bytes": 2634
+    },
+    "app/src/web/observed-comparison.ts": {
+      "sha256": "a50c34020822e4f70c243658543a99cada36de9262c4f5e2748e9be6b6fb5e7d",
+      "bytes": 6752
+    },
+    "app/src/web/peer-distributions.tsx": {
+      "sha256": "39e67c7af0fb3bc02534dcc421698bf668f0ff22dd3235c49ff344af5dd8c736",
+      "bytes": 20803
+    },
+    "app/src/web/root.tsx": {
+      "sha256": "804445ff31478a4677a8e860e072806bef45e2d229edc8027c8d901fe94573d4",
+      "bytes": 5084
+    },
+    "app/src/web/routes/compare.tsx": {
+      "sha256": "61e5572dd1e6abff5692d21869ce37a56ac12dd583f3445426525751aad5cac3",
+      "bytes": 14166
+    },
+    "app/src/web/routes/player.tsx": {
+      "sha256": "466854cc0e04582b061a6619d506a48ba41824131c0e7aef69cf3c89814aa94c",
+      "bytes": 25025
+    },
+    "app/src/web/styles.css": {
+      "sha256": "6b9382ef0db0bb3185fdec4afc652fcb0730bf30e672acdaaac89955adffb206",
+      "bytes": 21668
+    }
+  },
+  "final_checks_after_test_deletion": {
+    "typecheck": "passed",
+    "build": "passed",
+    "whitespace": "passed"
+  },
+  "format_only_change": "selector-format.txt records full syntax-tree equality; private-export cleanup changes no bodies"
+}

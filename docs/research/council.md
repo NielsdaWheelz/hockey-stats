@@ -1,5 +1,15 @@
 # council synthesis
 
+## v1-14 history/cohort/export implementation review — 2026-10-22
+
+the assigned [v1-14 boundary](../specs/v1-14-history-cohorts-exports.md) is implemented and verified in its isolated task worktree. three implementing agents and independent domain, systems and content review checked finite typed selectors, exact field qualification, annual cohort composition, route state and shared exports. temporary red → green → refactor → green checks used actual typed fixture responses; native browser and saved-output checks cover the assigned content/export acceptance. the user waived dedicated accessibility/voiceover acceptance; this entry makes no such acceptance claim. [the receipt](application-v1-14/verification.md) records identities, checked expectations, saved outputs, request costs and limits.
+
+review repaired unavailable analytical meaning, absent-season reasons, exact specialty qualification, ledger component support, annual identity/catalog consistency, unnecessary skater reads for goalies, family-envelope copy comparisons, signed and constant plot domains, native-unit scaling and export content. original field reasons, uncertainty, support and provenance remain exact. one annual cohort request per displayed year reuses an identical selected-year observed read; cancellation follows the existing route signal, with no persistent cache. unavailable fields retain their magnitudes or specific missing reasons rather than acquiring a manufactured reference population.
+
+native checks include 320px application viewports, observed preservation, signed experimental and goalie cases, mixed-position comparisons, history gaps/reference changes, png/csv outputs, long/formula-like fixture names and export failure/retry. navigation during image creation passed: the new season rendered before the png callback, while saved pixels retained the original selected view. fixtures remain explicitly synthetic where analytical values or identity cases were constructed; they establish interface behavior, not real component delivery or scientific support.
+
+accepted costs: bounded annual scalar reads, finite selector/content maintenance and withheld ranks where field support or the [skating source census](../issues/microstat-inputs.md) is unavailable. temporary checks/controllers were deleted after final green; small attributed fixtures, checked expectations and receipts remain. no acquisition, fitting, schema/service/dependency change, live publication activation or scientific admission follows. v1-15–20 retain complete-card compositions and real producer-to-screen/export acceptance; existing assignments and historical verdicts are unchanged.
+
 ## v1-14 history/cohort/export specification review — 2026-10-22
 
 three independent domain/cohort, systems and content reviewers clear [v1-14](../specs/v1-14-history-cohorts-exports.md) after root inspected merged schema7 and current client/cohort/history/png owners. settled product choices need no new interview. this is documentation/code-contract review, not implemented behavior or rendered-output verification.

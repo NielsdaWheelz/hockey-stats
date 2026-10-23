@@ -67,6 +67,8 @@ export const displayNumber = (value: number | null): string =>
       });
 export const valueText = (datum: AnalysisDatum): string =>
   displayNumber(displayValue(datum));
+const nativeUnitLabel = (metric: AnalysisMetric): string =>
+  metric.unit.startsWith("goals_per100_") ? metric.displayUnit : metric.unit;
 export const standingText = (standing: AnalysisStanding): string =>
   standing.kind === "ranked"
     ? `${formatPercentile(standing.percentile)} percentile`
@@ -107,6 +109,59 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           {datum.support.prior_seasons.join(", ") || "none"}; support reasons:{" "}
           {JSON.stringify(datum.support.reason_counts)}.
         </p>
+      )}
+      {datum.reference_panel && (
+        <div>
+          <p>
+            common reference panel: {datum.reference_panel.opportunities}{" "}
+            physical opportunities; setup weight{" "}
+            {datum.reference_panel.setup_weight}. these are mathematical
+            denominators, separate from viewing qualification.
+          </p>
+          <p>
+            fitted seasonal estimates; stage levels condition successively on
+            attempts, unblocked, on-net and continuing attempts. stage
+            differences use percentage points. setting is inferred setup credit,
+            not recorded shot assists.
+          </p>
+          {datum.coefficient_support && <>
+            <p>coefficients are shared across strengths. zero participation in this strength can mean extrapolation despite current-season information elsewhere. partial prior dependence is shown by head.</p>
+            {datum.qualificationSeconds === 0 && datum.value !== null && (
+              <p>this magnitude extrapolates shared-strength coefficients to a strength with zero current-season on-ice participation. current likelihood evidence may come from other strengths; this is not necessarily prior-only.</p>
+            )}
+            <div className="table-scroll" role="region" tabIndex={0} aria-label="execution coefficient support table, scroll horizontally for all columns">
+              <table>
+                <caption>distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass count</caption>
+                <thead><tr><th scope="col">coefficient</th><th scope="col">available</th><th scope="col">likelihood union</th><th scope="col">setter candidate</th><th scope="col">setter mean-coupled</th><th scope="col">prior only</th><th scope="col">carried seasons / reason</th></tr></thead>
+                <tbody>{[
+                  ...(["u", "q", "r", "g"] as const).map(head => ({label: `shooter ${head}`, coefficient: datum.coefficient_support!.shooter[head]})),
+                  {label: "setter g", coefficient: datum.coefficient_support.setter.g},
+                ].map(({label, coefficient}) => <tr key={label}>
+                  <th scope="row">{label}</th><td>{String(coefficient.available)}</td><td>{coefficient.likelihood_events ?? "unavailable"}</td>
+                  <td>{"candidate_events" in coefficient ? String(coefficient.candidate_events ?? "unavailable") : "not applicable"}</td>
+                  <td>{"mean_coupled_events" in coefficient ? String(coefficient.mean_coupled_events ?? "unavailable") : "not applicable"}</td>
+                  <td>{coefficient.prior_only === null ? "unavailable" : String(coefficient.prior_only)}</td><td>{coefficient.prior_seasons.join(", ") || "none"}{coefficient.reason && `; ${coefficient.reason}`}</td>
+                </tr>)}</tbody>
+              </table>
+            </div>
+          </>}
+          <details>
+            <summary>
+              panel masses, coefficient support and paired evidence
+            </summary>
+            <pre>
+              {JSON.stringify(
+                {
+                  reference_panel: datum.reference_panel,
+                  coefficient_support: datum.coefficient_support,
+                  paired_evidence: datum.paired_evidence,
+                },
+                null,
+                2,
+              )}
+            </pre>
+          </details>
+        </div>
       )}
       {datum.original && "denominator_kind" in datum.original && (
         <p>
@@ -230,6 +285,9 @@ export const analysisCsvHeaders = [
   "observed_coverage_status",
   "source_definitions",
   "source_limitations",
+  "reference_panel",
+  "coefficient_support",
+  "paired_evidence",
 ] as const;
 export function analysisCsvRow(
   publication: Publication,
@@ -310,6 +368,9 @@ export function analysisCsvRow(
     datum.observedSupport?.coverage_status ?? null,
     JSON.stringify(datum.sources.map((source) => source.definition)),
     JSON.stringify(datum.sources.flatMap((source) => source.limitations)),
+    JSON.stringify(datum.reference_panel),
+    JSON.stringify(datum.coefficient_support),
+    JSON.stringify(datum.paired_evidence),
   ];
 }
 
@@ -559,7 +620,7 @@ function historySvg(view: HistoryView): string {
     );
     text(`${view.metric.label} · ${view.metric.group}`);
     text(
-      `native unit: ${view.metric.unit}; display unit: ${view.metric.displayUnit}; display multiplier: ${view.metric.displayScale}`,
+      `native unit: ${nativeUnitLabel(view.metric)}; display unit: ${view.metric.displayUnit}; display multiplier: ${view.metric.displayScale}`,
     );
     const chartTop = top;
     const { values, prepared, domain, x, y } = geometry(view);
@@ -638,6 +699,11 @@ function historySvg(view: HistoryView): string {
       if (datum.support)
         text(
           `inferred inputs: ${datum.support.inferred_inputs.join(", ") || "none"}; current-season information: ${datum.support.current_season_information}; prior seasons: ${datum.support.prior_seasons.join(", ") || "none"}`,
+          20,
+        );
+      if (datum.reference_panel)
+        text(
+          `execution details: ${JSON.stringify({ reference_panel: datum.reference_panel, coefficient_support: datum.coefficient_support, paired_evidence: datum.paired_evidence })}`,
           20,
         );
       if (datum.workload !== null)
@@ -796,7 +862,7 @@ export default function AnalysisHistory({
                     "position unavailable"}
                 </td>
                 <td>
-                  {point.datum.value ?? "unavailable"} {view.metric.unit}
+                  {point.datum.value ?? "unavailable"} {nativeUnitLabel(view.metric)}
                   <br />
                   {view.metric.displayScale !== 1 &&
                     `${valueText(point.datum)} ${view.metric.displayUnit}`}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "kind": "player_analysis_results",
   "purpose": "fixture",
   "seasons": [
@@ -10,15 +10,15 @@
   "observed_bindings": [
     {
       "season": "20232024",
-      "corpus_sha256": "cda9f6722074c5fcbcfaa86a233f64162b141019bd084a7b9fd8d899fac62724"
+      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0"
     },
     {
       "season": "20242025",
-      "corpus_sha256": "3bd1e36aee1784fa09d238a7aae112c00a37b68dcb9ca3a383043efba65e4ed3"
+      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813"
     },
     {
       "season": "20252026",
-      "corpus_sha256": "bd6c874a41ea97153534e4a615b94137fe2bd2e25db7c661cfdf861ae07578c8"
+      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07"
     }
   ],
   "prepared_sha256": "6e50f4a432b56a3643450874e885ab993026eca6d299c080e1496bb21dd38cee",
@@ -30,8 +30,8 @@
   "catalogs": {
     "people": {
       "path": "people.jsonl",
-      "sha256": "14e8b258a93a7fd34ae184decc3a0ff4ed8196c2672423d9d16c5dd1c76463b4",
-      "rows": 254
+      "sha256": "2d8921451ecaf14135606f7cce9c3242a82adcc915c9f139281ab6ab967fefab",
+      "rows": 255
     },
     "sources": {
       "path": "sources.jsonl",
@@ -40,7 +40,7 @@
     },
     "methods": {
       "path": "methods.jsonl",
-      "sha256": "e0003d669437b2aa0c0734bfa7f8523d38e8fd52ff92cfccf248cd18f9b19243",
+      "sha256": "88528afd0fe300c9725f011998a785b1119e197e609c22400df7731c5595caed",
       "rows": 9
     },
     "supports": {
@@ -81,8 +81,8 @@
         },
         "dressed_game": {
           "path": "20232024-evidence-dressed_game.jsonl",
-          "sha256": "78267968fc11b665e786856d4a400139971541017682179a7f1d209347a97672",
-          "rows": 12
+          "sha256": "ce8e36c301ca87aee9831876fe5c9fcf7f671e9106a990d803fa34be426c513b",
+          "rows": 14
         },
         "interval_fact": {
           "path": "20232024-evidence-interval_fact.jsonl",
@@ -114,7 +114,7 @@
       "tables": {
         "skater_execution": {
           "path": "20232024-execution-skater_execution.jsonl",
-          "sha256": "6d79a520f4b60fbd9a5b477914de0df7ae927121acae9dd0cd82141265130fd0",
+          "sha256": "4094cf8bf68c46a1cbfde4892560f92a8731277a2cb1bfb1fd5cadfb785bcf60",
           "rows": 588
         },
         "analysis_map": {
@@ -124,23 +124,23 @@
         },
         "execution_breakdown": {
           "path": "20232024-execution-execution_breakdown.jsonl",
-          "sha256": "533ba173784ec2fd69654b04979ff6ce88aee3ccbf45d3caeac1dd2f7084ea6b",
+          "sha256": "5bc4f8f08f862c270e37982f33a92f470a41afec24e84c8f0c41b713cd13e10c",
           "rows": 5292
         },
         "attempt_value": {
           "path": "20232024-execution-attempt_value.jsonl",
-          "sha256": "b8d223f209b2628503819ad35ed805e83857e9a555d06376edbca569dfe6b8f7",
-          "rows": 1
+          "sha256": "511c250b316d644ae9168cf73b14cfaaf110f3b50049029d248718b9187d7024",
+          "rows": 23
         },
         "attempt_setter": {
           "path": "20232024-execution-attempt_setter.jsonl",
-          "sha256": "72c489f4b28198607f433d604ebe1bdc9f7115cfcdf63c4d6080d85dd10f36d0",
-          "rows": 3
+          "sha256": "23c3fbe5ffacb595e17da1d40a9899760ecc1c93b795c5999b38298ac8587d7d",
+          "rows": 5
         },
         "attempt_execution_share": {
           "path": "20232024-execution-attempt_execution_share.jsonl",
-          "sha256": "809b5949a9521f9d9f65340089017b40792cf9f4a03b8502eb8fd48e58b29f3c",
-          "rows": 5
+          "sha256": "dedfd3fa54a139c4da7a77e6cc9c281040d4f5491b38cb78c79a0e8786db10d2",
+          "rows": 11
         }
       }
     },
@@ -152,33 +152,33 @@
       "tables": {
         "goalie_result": {
           "path": "20232024-goalie-goalie_result.jsonl",
-          "sha256": "62cfac30427d48b8275d0dc2bb9a86ff7249b7cf7deb3ada880642c26024c261",
-          "rows": 11
+          "sha256": "7b3378f3cebb6cf437cf4cba80ebe18bac8b642a5498f48965b2303404727673",
+          "rows": 22
         },
         "goalie_observed": {
           "path": "20232024-goalie-goalie_observed.jsonl",
-          "sha256": "04ddbdb2a63f5979b6b1ef00f5d04c4bc6d431673bc28211f98df68355fc3e0a",
-          "rows": 12
+          "sha256": "1e5e7f6a3df9a69808caacc4247aba002824ed3c65419e216cd58a988c4479a8",
+          "rows": 24
         },
         "goalie_evidence_map": {
           "path": "20232024-goalie-goalie_evidence_map.jsonl",
-          "sha256": "4b62677f6466416f4654fdb9fa213383e49b61d97e008a1b9ec853e2c31bfdac",
-          "rows": 144
+          "sha256": "ed4947801490ba0fc3d727a269803c2f04dbf627a9fb3a9aa59430c763111d48",
+          "rows": 288
         },
         "goalie_danger": {
           "path": "20232024-goalie-goalie_danger.jsonl",
-          "sha256": "c0525dd32deedfaacc17cb989d58933c7642bdb7932c9f15fb1ad430810b2e6e",
-          "rows": 24
+          "sha256": "81f6d9a7ae7db1737bd74b135df36fba3539cec6e6003a421430ad0ec59c88df",
+          "rows": 48
         },
         "analysis_map": {
           "path": "20232024-goalie-analysis_map.jsonl",
-          "sha256": "656a6c32e07fb3f776851076c037979577bbf4f947b68e408faac5600155c9a0",
-          "rows": 11
+          "sha256": "ca0d7d17f7143524e925ed4b3a9630c1555cdad89e2fb750b819289c08160cc5",
+          "rows": 22
         },
         "execution_breakdown": {
           "path": "20232024-goalie-execution_breakdown.jsonl",
-          "sha256": "c073e58333b1afa9602720f20b162f79d78e22594a0aa75b4781f771485927fe",
-          "rows": 99
+          "sha256": "84624f78d30b57adc7015e6506addbce587ad16d97cab7f6fd7a424f5531cd21",
+          "rows": 198
         }
       }
     },
@@ -295,8 +295,8 @@
         },
         "dressed_game": {
           "path": "20242025-evidence-dressed_game.jsonl",
-          "sha256": "96ef2e7d4a10ea338c132669bfc263695009ec3d07ac2b967399ab711fcde86a",
-          "rows": 13
+          "sha256": "79af5e0a0ab10a2d2efdb3a2f4415924622dc84625c0d7b6f2c843a7fff4e5d7",
+          "rows": 14
         },
         "interval_fact": {
           "path": "20242025-evidence-interval_fact.jsonl",
@@ -392,9 +392,40 @@
     {
       "season": "20252026",
       "family": "evidence",
-      "availability": "not_computed",
-      "explanation": "not computed; later-season fixture family pending",
-      "tables": {}
+      "availability": "provided",
+      "explanation": null,
+      "tables": {
+        "attempt_fact": {
+          "path": "20252026-evidence-attempt_fact.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "rows": 0
+        },
+        "dressed_game": {
+          "path": "20252026-evidence-dressed_game.jsonl",
+          "sha256": "2c6b8f634ad4509cfb1b99879f7d6051ff73dfbc725610eb04fa60e92f520364",
+          "rows": 12
+        },
+        "interval_fact": {
+          "path": "20252026-evidence-interval_fact.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "rows": 0
+        },
+        "interval_player": {
+          "path": "20252026-evidence-interval_player.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "rows": 0
+        },
+        "interval_location": {
+          "path": "20252026-evidence-interval_location.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "rows": 0
+        },
+        "context_coverage": {
+          "path": "20252026-evidence-context_coverage.jsonl",
+          "sha256": "8075ed1af8eb19bda1f41ed598cbc097dc0d71eac8b08fe01608b39f0b02e9db",
+          "rows": 420
+        }
+      }
     },
     {
       "season": "20252026",

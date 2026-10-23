@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "purpose": "bounded original 5v5 goalie-shooter reducer regression source; no acquisition, fitting, training or scientific admission",
+  "game_id": "2021020065",
+  "season": "20212022",
+  "original_corpus": {
+    "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/corpus.json",
+    "bytes": 9776638,
+    "sha256": "30eb12b290ccd9af9eae7ade8c7dcd5f285129b52b646eec3fced3e2628badc8"
+  },
+  "original_native": {
+    "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/games/2021020065.json",
+    "relative_to_corpus_directory": "games/2021020065.json",
+    "bytes": 2229559,
+    "sha256": "2988ed705e13f8da469f669e68109c32dd0647656b8f969531a0fb76c11cd798",
+    "status": "reconstructed",
+    "inventory_source_index": 64
+  },
+  "source_inputs": [
+    {
+      "source": "boxscore",
+      "original_receipt": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/boxscore/capture.json",
+      "original_receipt_bytes": 662,
+      "original_receipt_sha256": "e1ab63226af5b7f8b3f12cc857b677972b17f4387234508413b07cd5ee59201f",
+      "fixture_receipt": "captures/2021020065/boxscore/capture.json",
+      "request_url": "https://api-web.nhle.com/v1/gamecenter/2021020065/boxscore",
+      "requested_at": "2026-10-12T04:56:36.706Z",
+      "http_status": 200,
+      "body_bytes": 13326,
+      "body_sha256": "83448aa21d2786b99b2f17e79654ccbc29cd7b1d9ee226d7e5ad66bb2c90525b",
+      "state": "captured"
+    },
+    {
+      "source": "game-summary",
+      "original_receipt": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/game-summary/capture.json",
+      "original_receipt_bytes": 694,
+      "original_receipt_sha256": "e4aff8e5711574e5a8404ee080ed0c1c47e8117f1cbbd8bcf5eddc14fe78b468",
+      "fixture_receipt": "captures/2021020065/game-summary/capture.json",
+      "request_url": "https://www.nhl.com/scores/htmlreports/20212022/GS020065.HTM",
+      "requested_at": "2026-10-12T04:56:37.187Z",
+      "http_status": 200,
+      "body_bytes": 37937,
+      "body_sha256": "eded51c178445ddd29aec03e4815963d4aaf3d40bc02a33815cd07e410bd1dec",
+      "state": "captured"
+    },
+    {
+      "source": "landing",
+      "original_receipt": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/landing/capture.json",
+      "original_receipt_bytes": 660,
+      "original_receipt_sha256": "1edb94001fe9af9a2289aa285e79024c2b9b7424918a6ed92855db332b243163",
+      "fixture_receipt": "captures/2021020065/landing/capture.json",
+      "request_url": "https://api-web.nhle.com/v1/gamecenter/2021020065/landing",
+      "requested_at": "2026-10-12T04:56:37.839Z",
+      "http_status": 200,
+      "body_bytes": 10593,
+      "body_sha256": "970c925c9b519d610b67f231a541facbc756dc08330a4df31e43aa5049ef3c99",
+      "state": "captured"
+    },
+    {
+      "source": "play-by-play",
+      "original_receipt": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/play-by-play/capture.json",
+      "original_receipt_bytes": 671,
+      "original_receipt_sha256": "4431b929afcd85c4b5f684ae3bb94026e869f6d3249f858635ab20ad51c17c38",
+      "fixture_receipt": "captures/2021020065/play-by-play/capture.json",
+      "request_url": "https://api-web.nhle.com/v1/gamecenter/2021020065/play-by-play",
+      "requested_at": "2026-10-12T04:56:36.386Z",
+      "http_status": 200,
+      "body_bytes": 142332,
+      "body_sha256": "44e2aa129203ca954ffc0affc633550c51f68d7319aebaf5edd58d75ae2264ee",
+      "state": "captured"
+    },
+    {
+      "source": "play-report",
+      "original_receipt": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/play-report/capture.json",
+      "original_receipt_bytes": 695,
+      "original_receipt_sha256": "eb4f61afeea24b0873b1a78b3428690afabf6d344c634309b770fbfa3193e1b9",
+      "fixture_receipt": "captures/2021020065/play-report/capture.json",
+      "request_url": "https://www.nhl.com/scores/htmlreports/20212022/PL020065.HTM",
+      "requested_at": "2026-10-12T04:56:37.490Z",
+      "http_status": 200,
+      "body_bytes": 1382690,
+      "body_sha256": "a0d6c203789eb2ef0f6743eedfefdbe416e7f224cc028402019bd8f711d16255",
+      "state": "captured"
+    },
+    {
+      "source": "shifts",
+      "original_receipt": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/shifts/capture.json",
+      "original_receipt_bytes": 653,
+      "original_receipt_sha256": "da1faebcafc3257e42890b6ac12a03fc4c931c5e598afd82a6af995430ee8f6c",
+      "fixture_receipt": "captures/2021020065/shifts/capture.json",
+      "request_url": "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D2021020065&limit=-1",
+      "requested_at": "2026-10-12T04:56:36.995Z",
+      "http_status": 200,
+      "body_bytes": 283953,
+      "body_sha256": "539efe030e8b7d77a5af2fbb1553e49e7b0b2c687b4323c3cb2dc0b33589fb7b",
+      "state": "captured"
+    }
+  ],
+  "copies": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/boxscore/body.bin",
+      "fixture": "fixtures/captures/2021020065/boxscore/body.bin",
+      "bytes": 13326,
+      "sha256": "83448aa21d2786b99b2f17e79654ccbc29cd7b1d9ee226d7e5ad66bb2c90525b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/boxscore/capture.json",
+      "fixture": "fixtures/captures/2021020065/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "e1ab63226af5b7f8b3f12cc857b677972b17f4387234508413b07cd5ee59201f"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/game-summary/body.bin",
+      "fixture": "fixtures/captures/2021020065/game-summary/body.bin",
+      "bytes": 37937,
+      "sha256": "eded51c178445ddd29aec03e4815963d4aaf3d40bc02a33815cd07e410bd1dec"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/game-summary/capture.json",
+      "fixture": "fixtures/captures/2021020065/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "e4aff8e5711574e5a8404ee080ed0c1c47e8117f1cbbd8bcf5eddc14fe78b468"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/landing/body.bin",
+      "fixture": "fixtures/captures/2021020065/landing/body.bin",
+      "bytes": 10593,
+      "sha256": "970c925c9b519d610b67f231a541facbc756dc08330a4df31e43aa5049ef3c99"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/landing/capture.json",
+      "fixture": "fixtures/captures/2021020065/landing/capture.json",
+      "bytes": 660,
+      "sha256": "1edb94001fe9af9a2289aa285e79024c2b9b7424918a6ed92855db332b243163"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/play-by-play/body.bin",
+      "fixture": "fixtures/captures/2021020065/play-by-play/body.bin",
+      "bytes": 142332,
+      "sha256": "44e2aa129203ca954ffc0affc633550c51f68d7319aebaf5edd58d75ae2264ee"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/play-by-play/capture.json",
+      "fixture": "fixtures/captures/2021020065/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "4431b929afcd85c4b5f684ae3bb94026e869f6d3249f858635ab20ad51c17c38"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/play-report/body.bin",
+      "fixture": "fixtures/captures/2021020065/play-report/body.bin",
+      "bytes": 1382690,
+      "sha256": "a0d6c203789eb2ef0f6743eedfefdbe416e7f224cc028402019bd8f711d16255"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/play-report/capture.json",
+      "fixture": "fixtures/captures/2021020065/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "eb4f61afeea24b0873b1a78b3428690afabf6d344c634309b770fbfa3193e1b9"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/shifts/body.bin",
+      "fixture": "fixtures/captures/2021020065/shifts/body.bin",
+      "bytes": 283953,
+      "sha256": "539efe030e8b7d77a5af2fbb1553e49e7b0b2c687b4323c3cb2dc0b33589fb7b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020065/20261011-01/shifts/capture.json",
+      "fixture": "fixtures/captures/2021020065/shifts/capture.json",
+      "bytes": 653,
+      "sha256": "da1faebcafc3257e42890b6ac12a03fc4c931c5e598afd82a6af995430ee8f6c"
+    }
+  ],
+  "required_season_references": {
+    "season": "20212022",
+    "original_corpus_reference": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/corpus.json",
+    "original_reference_capture_paths": [
+      "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-summary/capture.json",
+      "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-games/capture.json",
+      "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/skater-bios/capture.json",
+      "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/goalie-bios/capture.json"
+    ],
+    "files": [
+      {
+        "source": "season-summary",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-summary/body.bin",
+        "fixture": "fixtures/references/20212022/season-summary/body.bin",
+        "bytes": 634,
+        "sha256": "efc05e6917d4519522172c03cc14f8db7a18effd9321b8cb261e5c32acc313fa",
+        "matches_original": true
+      },
+      {
+        "source": "season-summary",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-summary/capture.json",
+        "fixture": "fixtures/references/20212022/season-summary/capture.json",
+        "bytes": 676,
+        "sha256": "77ab3008afbc247121457e79f0d3d323c70d53e5ef78202dd592f8ca64c7eec9",
+        "matches_original": true
+      },
+      {
+        "source": "season-games",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-games/body.bin",
+        "fixture": "fixtures/references/20212022/season-games/body.bin",
+        "bytes": 327493,
+        "sha256": "671cfea1149af795736fdf15420fe184ef2f4c8ad2fdb62ce0649eafee7e1e8a",
+        "matches_original": true
+      },
+      {
+        "source": "season-games",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/season-games/capture.json",
+        "fixture": "fixtures/references/20212022/season-games/capture.json",
+        "bytes": 671,
+        "sha256": "1511274ce29da18740f1006a9e74c5685532ff7b9c7c5e53f07d0ec79bd30b1c",
+        "matches_original": true
+      },
+      {
+        "source": "skater-bios",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/skater-bios/body.bin",
+        "fixture": "fixtures/references/20212022/skater-bios/body.bin",
+        "bytes": 484578,
+        "sha256": "4b6fc24269029766408b040f122fd6aef97a49187e4290b73652bee0d4510cb8",
+        "matches_original": true
+      },
+      {
+        "source": "skater-bios",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/skater-bios/capture.json",
+        "fixture": "fixtures/references/20212022/skater-bios/capture.json",
+        "bytes": 712,
+        "sha256": "bee40362f5e6ef55382a6f9084455b6f06b30b6dd23ee622e811431eb80c707b",
+        "matches_original": true
+      },
+      {
+        "source": "goalie-bios",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/goalie-bios/body.bin",
+        "fixture": "fixtures/references/20212022/goalie-bios/body.bin",
+        "bytes": 54452,
+        "sha256": "cb1dca94b920d1951dd886b593dabe87ae340e95d1761aeeb2f05d416ecb77ff",
+        "matches_original": true
+      },
+      {
+        "source": "goalie-bios",
+        "original": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/references/20212022/goalie-bios/capture.json",
+        "fixture": "fixtures/references/20212022/goalie-bios/capture.json",
+        "bytes": 711,
+        "sha256": "e012bbe09c9ec15c654315f26554d9b0ec5d4eb5ea09c41d7830a8100b56e94d",
+        "matches_original": true
+      }
+    ],
+    "all_existing_fixture_bytes_match_pinned_originals": true
+  },
+  "checked_source": {
+    "play_by_play_path": "/plays/22",
+    "source_index": 22,
+    "event_id": 84,
+    "period_number": 1,
+    "time_in_period": "03:45",
+    "elapsed_seconds": 225,
+    "type_key": "shot-on-goal",
+    "type_code": 506,
+    "situation_code": "1551",
+    "shooting_team_id": 54,
+    "shooter_id": 8475215,
+    "goalie_in_net_id": 8475156,
+    "shot_type": "wrist",
+    "roster_source_path": "/rosterSpots/10",
+    "roster_player_id": 8475215,
+    "roster_team_id": 54,
+    "roster_position": "G",
+    "sweater_number": 90,
+    "boxscore_path": "/playerByGameStats/homeTeam/goalies",
+    "boxscore_goalie_player_id": 8475215,
+    "boxscore_goalie_position": "G",
+    "play_report_source_index": 25,
+    "play_report_row_id": "PL-26",
+    "play_report_event_number": 26,
+    "play_report_elapsed_seconds": 225,
+    "play_report_strength": "EV",
+    "play_report_team_id": 54,
+    "play_report_shooter_id": 8475215,
+    "play_report_description": "VGK ONGOAL - #90 LEHNER, Wrist, Def. Zone, 187 ft.",
+    "native_classification": "five_on_five",
+    "native_shift_relation": "both",
+    "native_interval_indices": [
+      18
+    ],
+    "actual_state": {
+      "attacking_skaters": 5,
+      "defending_skaters": 5,
+      "attacking_goalie_present": true,
+      "defending_goalie_present": true,
+      "attacking_goalie_id": 8475215,
+      "defending_goalie_id": 8475156
+    },
+    "expected_physical_status": "ordinary",
+    "expected_physical_shooter_id": 8475215,
+    "expected_outcome": "save",
+    "expected_behaviour": "the physical goalie attempt remains in source/team-mass and valued team-shot accounting. the skater personal reference-xg reduction skips personal credit for this row with located reason personal_shooter_not_skater; it completes without aborting or creating a zero-valued team shot. no observed probability is invented."
+  },
+  "measured_fixture_totals": {
+    "complete_core_bundles": 43,
+    "interrupted_core_bundles": 1,
+    "available_source_pairs": 292,
+    "body_bytes": 79358498,
+    "receipt_bytes": 196692
+  },
+  "added_body_bytes": 1870831,
+  "added_receipt_bytes": 4035
+}

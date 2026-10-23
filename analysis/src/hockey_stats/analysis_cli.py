@@ -11,7 +11,7 @@ from .cli import Once
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(prog="hockey-stats-analysis", description="prepare evidence, reduce facts, fit annual execution, or publish checked analysis", allow_abbrev=False)
+    parser = argparse.ArgumentParser(prog="hockey-stats-analysis", description="prepare evidence, reduce facts, fit and score annual execution, compose results, or publish checked analysis", allow_abbrev=False)
     commands = parser.add_subparsers(dest="command", required=True)
     prepare = commands.add_parser("prepare", allow_abbrev=False)
     prepare.add_argument("--selection", required=True, action=Once, metavar="FILE")
@@ -27,6 +27,18 @@ def main(argv=None) -> int:
     fit.add_argument("--season", required=True, action=Once)
     fit.add_argument("--previous", action=Once, metavar="DIRECTORY")
     fit.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    score = commands.add_parser("score", allow_abbrev=False)
+    score.add_argument("--family", required=True, choices=("execution",), action=Once)
+    score.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
+    score.add_argument("--coaches", required=True, action=Once, metavar="FILE")
+    score.add_argument("--state", required=True, action=Once, metavar="DIRECTORY")
+    score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    summarize = commands.add_parser("summarize", allow_abbrev=False)
+    summarize.add_argument("--family", required=True, choices=("execution",), action=Once)
+    summarize.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--facts", required=True, action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--scores", required=True, action=Once, metavar="FILE")
+    summarize.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     publish = commands.add_parser("publish", allow_abbrev=False)
     publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
     publish.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
@@ -69,6 +81,16 @@ def main(argv=None) -> int:
                     (["unavailable heads " + ",".join(unavailable)] if unavailable else [])
                     + (["unresolved numerical probes " + ",".join(unresolved)] if unresolved else [])), file=sys.stderr)
                 return 1
+        elif args.command == "score":
+            from .execution_scores import write_execution_scores
+
+            scores = write_execution_scores(Path(args.prepared), Path(args.coaches), Path(args.state), Path(args.out))
+            print(f"execution scores {scores.manifest['season']}: {scores.manifest['purpose']}; {scores.path}")
+        elif args.command == "summarize":
+            from .execution_scores import compose_results
+
+            manifest = compose_results(Path(args.prepared), Path(args.facts), Path(args.scores), Path(args.out))
+            print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         else:
             from .publication import build_publication
 

@@ -589,7 +589,8 @@ export default function PeerDistributions({
                       </span>
                     </th>
                     <td>
-                      {row.datum.value ?? "unavailable"} {metric.unit}
+                      {row.datum.value ?? "unavailable"}{" "}
+                      {metric.unit.startsWith("goals_per100_") ? metric.displayUnit : metric.unit}
                       {metric.displayScale !== 1 && (
                         <span className="history-context">
                           {valueText(row.datum)} {metric.displayUnit}

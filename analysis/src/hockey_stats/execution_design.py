@@ -145,6 +145,8 @@ class ExecutionDesign:
     seasons: tuple[str, ...]
     recipe: dict
     resources: dict = field(default_factory=dict)
+    scoring_facts: dict = field(default_factory=dict)
+    observed_setters: dict = field(default_factory=dict)
 
 
 def _sha(path):
@@ -735,6 +737,7 @@ def prepare_execution(base_prepared, coaches, recipe, season):
     coaches_by_game = {row["game_id"]: row for row in coach_data["games"] if row["season"] == season}
     _require(set(selected["selected_game_ids"]) <= set(coaches_by_game), "coach binder misses selected prepared games")
     predictors, labels, coverage_rows, game_rows, dates = [], [], [], [], []
+    scoring_facts = {}
     # team history was computed but not serialized by v1-01. reuse its arithmetic
     # only over a verified complete prepared inventory; sparse fixture dates do
     # not prove that a team had no earlier game.
@@ -914,6 +917,13 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                                   "pointer": "/attempts/" + str(len(coverage_rows) - start_count), "heads": dispositions,
                                   "source_supported": not reasons, "candidate_universe_complete": candidate_complete,
                                   "setter_discrepancy": setter_discrepancy, "immediate_stop_known": stop is not None})
+            scoring_facts[key] = dict(shooter_id=str(shooter) if shooter is not None and str(shooter) in local_people else None,
+                goalie_id=str(goalie) if goalie is not None else None,
+                attacking_coach_id=coach_game[side]["coach_id"] if side in ("home", "away") else None,
+                defending_coach_id=coach_game[opposing_side]["coach_id"] if opposing_side in ("home", "away") else None,
+                physical_state=(strength[0][0], strength[1][0], strength[0][1], strength[1][1])
+                    if all(value is not None for pair in strength for value in pair) else None,
+                shot_type=shot_type if shot_type in TYPES else None)
         game_rows.append({"game_id": game_id, "game_date": inventory["game_date"], "status": game["game"]["ledger"]["status"],
                           "recognized_attempts": len(coverage_rows) - start_count, "prepared_member": next(row for row in prepared["files"] if row["kind"] == "game" and row["game_id"] == game_id)})
     heads = {head: _head_design(head, predictors, labels, people, source_actors) for head in HEADS}
@@ -924,7 +934,8 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                 "heads": {head: dict(counts) for head, counts in totals.items()},
                 "optional_features": {head: heads[head]["design"]["feature_support"] for head in HEADS}}
     return ExecutionDesign(purpose, season, prepared_ref, coach_ref, max(dates, default=None), tuple(predictors), heads, coverage, seasons, RECIPE,
-                           {"design_wall_seconds": perf_counter() - started, "input_read_wall_seconds": 0.})
+                           {"design_wall_seconds": perf_counter() - started, "input_read_wall_seconds": 0.},
+                           scoring_facts, {p.key:label["observed_setter"] for p,label in zip(predictors,labels,strict=True)})
 
 
 def build_resolution_witness(design, requirement, block, actor_id):

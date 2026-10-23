@@ -257,6 +257,88 @@ def _support(seconds=None, count=None, excluded=None, gap=False, reasons=()):
                 prior_only=False, prior_seasons=[])
 
 
+def reduce_reference_xg(valued_evidence: dict) -> dict:
+    """personal reference opportunity and time share the all-attempt mask."""
+    from math import fsum
+
+    members = {}
+    for row in valued_evidence['interval_player']:
+        members.setdefault((row['interval_id'],row['team_id']),set()).add(row['player_id'])
+    coverage = {r['player_id']:r for r in valued_evidence['context_coverage']
+                if r['population'] == 'neutral_all_attempt_value'}
+    players = {}
+    for row in valued_evidence['dressed_game']:
+        pid = row['player_id']
+        if pid not in coverage:
+            continue
+        cov = coverage[pid]
+        players[pid] = dict(seconds=0,excluded_seconds=cov['known_excluded_seconds'],count=0.,opportunities=0,
+            reasons=cov['reason_counts'],unquantified_gap=cov['unquantified_gap'],
+            source_ids=cov['source_ids'],
+            inferred_inputs=set(),
+            has_support=not cov['unquantified_gap'] and cov['known_excluded_seconds'] == 0)
+    for row in valued_evidence['interval_fact']:
+        if row['population'] != 'neutral_all_attempt_value':
+            continue
+        for pid in members.get((row['interval_id'],row['team_id']),()):
+            require(pid in players, 'reference xg', 'supported interval lacks dressed player')
+            players[pid]['seconds'] += row['end_seconds'] - row['start_seconds']
+            players[pid]['has_support'] = True
+    values = {}
+    for row in valued_evidence['personal']:
+        pid = row['player_id']
+        require(pid in players, 'reference xg', 'personal opportunity lacks dressed player')
+        values.setdefault(pid,[]).append(row['opportunity'])
+        players[pid]['inferred_inputs'].update(row['inferred_inputs'])
+        players[pid]['opportunities'] += 1
+    for pid, metric in players.items():
+        metric['count'] = fsum(values.get(pid,()))
+    return dict(season=valued_evidence['season'],game_id=valued_evidence['game_id'],
+                families=dict(v=dict(players=players,issues=valued_evidence['dispositions'],
+                                     event_dispositions=[],inherited_reasons=[],masks=[])))
+
+
+def summarize_reference_xg(people: list['PersonIdentity'], game_reductions: Iterable[dict],
+                           method_id: str) -> dict[str, dict]:
+    """return only the replacement field; other microstats stay byte-for-byte owned."""
+    from math import fsum
+
+    totals = {}
+    for game in game_reductions:
+        for pid, metric in game['families']['v']['players'].items():
+            total = totals.setdefault(pid,dict(seconds=0,excluded=0,values=[],events=0,gap=False,reasons=Counter(),supported=False,source_ids=set(),inferred_inputs=set()))
+            total['seconds'] += metric['seconds']
+            total['excluded'] += metric['excluded_seconds']
+            total['values'].append(metric['count'])
+            total['events'] += metric['opportunities']
+            total['gap'] |= metric['unquantified_gap']
+            total['supported'] |= metric['has_support']
+            total['source_ids'].update(metric['source_ids'])
+            total['inferred_inputs'].update(metric['inferred_inputs'])
+            total['reasons'].update({r['code']:r['count'] for r in metric['reasons']})
+    fields = {}
+    for person in people:
+        if person['kind'] != 'skater':
+            continue
+        pid = person['player_id']
+        total = totals.get(pid)
+        seconds = total['seconds'] if total else None
+        mass = fsum(total['values']) if total and total['supported'] else None
+        supported = total is not None and total['supported']
+        fields[pid] = _fact(3600*mass/seconds if seconds and mass is not None else None,mass,seconds,
+            method_id,_support(seconds,total['events'],total['excluded'],total['gap'],
+                [dict(code=k,count=v) for k,v in sorted(total['reasons'].items())]) if total else _support(gap=True),
+            reason='no_exposure' if supported else 'missing_source',construction='model_valued',method=True,
+            explanation='no matched positive reference-opportunity exposure' if supported else 'no checked matched reference-opportunity population')
+        if fields[pid]['unavailable_reason'] == 'missing_source':
+            refs = [dict(kind='source',id=s) for s in sorted(total['source_ids'])] if total else person.get('source',[])
+            require(any(r['kind'] == 'source' for r in refs), 'reference xg', 'missing source evidence lacks a source binding')
+            fields[pid]['reason_detail']['evidence'].extend(refs)
+        if total:
+            fields[pid]['support']['inferred_inputs'] = sorted(total['inferred_inputs'])
+    return fields
+
+
 def _fact(value, numerator, denominator, source_id, support, *, unit="per60", denominator_kind="included_seconds",
           reason="no_exposure", explanation="no matched positive denominator", construction="recorded", method=False):
     provenance = dict(kind="method" if method else "source", id=source_id)
@@ -269,7 +351,7 @@ def _fact(value, numerator, denominator, source_id, support, *, unit="per60", de
 
 def summarize_season(people: list["PersonIdentity"], game_reductions: Iterable[GameReduction],
                      observed_result: ObservedResult, source_ids: "SourceIds",
-                     pending_method_id: str) -> list[dict]:
+                     pending_method_id: str, reference_method_id: str | None = None) -> list[dict]:
     """emit every fixed field, with exact old personal scoring and own support."""
     totals = {family: {} for family in ("u", "h", "b")}
     for game in game_reductions:
@@ -319,7 +401,7 @@ def summarize_season(people: list["PersonIdentity"], game_reductions: Iterable[G
             if key in payload:
                 continue
             if key == "reference_xg_per60":
-                payload[key] = _fact(None, None, None, pending_method_id, _support(), reason="not_computed",
+                payload[key] = _fact(None, None, None, reference_method_id or pending_method_id, _support(), reason="not_computed",
                     explanation="neutral all-attempt reference probabilities await v1-05/06", construction="model_valued", method=True)
                 continue
             skating = key.startswith("skating_")

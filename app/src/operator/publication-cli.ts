@@ -99,7 +99,7 @@ try {
     } catch (error) {
       if (command === "restore")
         console.error(
-          "if the previous database uses another schema: stop the server, manually copy the previous database, rebuild its matching git revision, then restart; this reader accepts schema 7 only",
+          "if the previous database uses another schema: stop the server, manually copy the previous database, rebuild its matching git revision, then restart; this reader accepts schema 8 only",
         );
       throw error;
     }

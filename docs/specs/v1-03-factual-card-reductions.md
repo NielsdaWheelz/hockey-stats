@@ -42,6 +42,8 @@ descriptive.build_factual_results(prepared: Path, observed: Path, output: Path) 
 
 these are ordinary typed functions over explicit named records, not a generic reducer/plugin protocol or new serialized intermediate product. game reductions retain count, seconds, support/dispositions and source locators needed for checks. one projection supplies both descriptive context summaries and emitted interval facts. process one season at a time; stream evidence in each table's declared tuple-key order (`game_id,source_index` for events, not calendar order). history facts are already prepared. do not materialize a season×player×event×cell array. compact season accumulators and a reread suffice; no new cache/spool framework.
 
+the observed season retains its full scheduled inventory, including missing-capture slots. factual reduction visits the explicitly selected prepared games. every selected prepared game must occur in that inventory; every omitted inventory slot must have `status=missing_capture` and no source inputs. available source evidence may never disappear through preparation subselection. this distinction preserves the original observed aggregates and coverage without inventing prepared members for absent captures.
+
 ## command, inputs and exchange
 
 ```text

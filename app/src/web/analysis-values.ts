@@ -119,6 +119,9 @@ export type AnalysisDatum = {
   readonly original: Estimate | FactValue | null;
   readonly support: Support | null;
   readonly componentSupport: ComponentSupport;
+  readonly reference_panel: Execution["reference_panel"] | null;
+  readonly coefficient_support: Execution["coefficient_support"] | null;
+  readonly paired_evidence: Execution["paired_evidence"] | null;
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methods: readonly Method[];
@@ -157,6 +160,9 @@ type SelectedValue = {
   readonly reason: string | null;
   readonly support: Support | null;
   readonly componentSupport?: ComponentSupport;
+  readonly reference_panel?: Execution["reference_panel"];
+  readonly coefficient_support?: Execution["coefficient_support"];
+  readonly paired_evidence?: Execution["paired_evidence"];
   readonly qualificationSeconds: number | null;
   readonly qualificationBasis: string;
   readonly methodId?: string;
@@ -210,6 +216,8 @@ const definition = (
   displayUnit: metric.unit === "fraction"
     ? metric.id.endsWith("difference") ? "percentage points" : "%"
     : metric.unit === "goals_per_reference_basket" ? "goals per common workload"
+    : metric.unit === "goals_per100_attempts" ? "goals per 100 attempts"
+    : metric.unit === "goals_per100_assisted_opportunities" ? "goals per 100 setup opportunities"
     : metric.unit === "minutes_per_appearance" ? "min per appearance"
     : metric.unit === "per60" ? "per 60 min"
     : metric.unit
@@ -331,26 +339,31 @@ const execution = strengths.flatMap(strength =>
     family: strength === "5v5" ? "overview" : "execution",
     strength: strength === "5v5" ? null : strength,
     group: `execution ${strength}`,
-    label: title(field),
+    label: field === "setting_goals_per100_assisted_opportunities"
+      ? "setting goals per 100 setup opportunities"
+      : field === "finishing_goals_per100_attempts"
+        ? "finishing goals per 100 attempts"
+        : title(field),
     unit: field.includes("probability")
       ? "fraction"
       : field === "finishing_goals_per100_attempts"
         ? "goals_per100_attempts"
         : "goals_per100_assisted_opportunities",
-    population: `${strength} ${field.startsWith("setting") ? "assisted opportunities" : "attempt stages"}`,
-    qualificationLabel: `${strength} ${title(field)} support`,
+    population: `${strength} ${field.startsWith("setting") ? "inferred setup opportunities" : "attempt stages"}`,
+    qualificationLabel: `${strength} current-season exact-strength on-ice participation`,
     numericReference: field.includes("probability") && !field.endsWith("difference")
       ? "conditional probability"
-      : "published neutral execution forecast",
+      : "reference-execution opportunity; fitted seasonal common panel",
     cutoff: strength === "5v5" ? "general" : "specialty",
     select: inputs => fromResult(
       inputs.execution,
-      data => estimate(
-        data[field],
-        data.support[field],
-        data.method_id,
-        `execution.${strength}.support.${field}.included_seconds`
-      )
+      data => ({
+        ...estimate(data[field], data.support[field], data.method_id,
+          `${strength} current-season exact-strength focal on-ice participation with both goalies; cohort qualification, not panel or likelihood exposure`),
+        reference_panel: data.reference_panel,
+        coefficient_support: data.coefficient_support,
+        paired_evidence: data.paired_evidence,
+      })
     )
   })),
 );
@@ -927,6 +940,9 @@ function datum(
     original: selected.original,
     support: selected.support,
     componentSupport: selected.componentSupport ?? {},
+    reference_panel: selected.reference_panel ?? null,
+    coefficient_support: selected.coefficient_support ?? null,
+    paired_evidence: selected.paired_evidence ?? null,
     qualificationSeconds: selected.qualificationSeconds,
     qualificationBasis: selected.qualificationBasis,
     methods,

@@ -46,7 +46,7 @@ sha256: `102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0`. [out
 
 [final source/spec/content review](final-review.json) clears all assigned acceptance, receipt wording and completed temporary-tooling cleanup. [documentation checks](documentation-check.json) verify local links and anchors; whitespace checks pass.
 
-reproduce the real bind with a fresh external output, from this worktree:
+reproduce the real bind with a fresh external output, from the repository root:
 
 ```sh
 PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python \
@@ -119,3 +119,11 @@ one fresh supplemental directory per request preserves previous evidence and req
 merging `origin/main` at `659aa2b` preserves v1-04 skating receipts alongside right-rail, the existing six-source and landing behavior, and universal integer http-status bounds of 100–599. [five targeted integration groups](integration.json) pass against 245 core, 20 reference, nine right-rail and three skating originals, with malformed-status, missing-receipt, strict skating-key and source-identity checks. incoming v1-13/14/15 and v1-04 delivery records and fixture-policy qualifications remain intact; current v1-02 status records complete source acceptance.
 
 [pinned integration verification](root-integration.json) passes typechecking and all 49 fixture games/98 expected dispositions, with exact prior game records. the existing real artifact still reads as 6,560 games/13,120 resolved slots at its unchanged `102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0` hash. no network request, real rebinding, fitting, publication or activation accompanies integration.
+
+## pr merge and task cleanup
+
+[pr #52](https://github.com/NielsdaWheelz/hockey-stats/pull/52) merged as `95ea485c165a6eec75b271828c66d58d93afff95` after the hosted security check passed. the merged tree exactly equals independently reviewed tree `9ea2314c757df792770c00aa05c6c8853ed49ff9`; the integrated source preserves skating, coaching and the existing core/publication/application contracts. [delivery receipt](pr-merge-cleanup.json) records the exact identities and external preservation evidence.
+
+main is synchronized and pinned typechecking passes. the task worktree, local/remote branch, temporary integration tooling, dependency symlink and two cheap fixture outputs are removed. historical fixture-output receipts retain their past paths and hashes; the original fixtures, independent expected facts and operator receipts remain. no task-path symlink was created. the independent v1-01 worktree and stashes remain intact.
+
+after task removal, the primary reader successfully validates the retained external four-member real artifact at its unchanged hash: 6,560 games and 13,120 resolved assignments. its original task-path locators remain provenance; no consumer requires that removed checkout. its implementation commit remains in main ancestry. all 30 protected serving files, including both publication databases and compiled site files, retain their exact hashes, sizes and mtimes; the original serving process is unchanged. external source captures, native inputs, expensive fits and receipts remain. no activation accompanies source delivery.

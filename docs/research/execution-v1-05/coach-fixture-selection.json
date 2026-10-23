@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "seasons": [
+    {
+      "season": "20212022",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20212022/corpus.json",
+      "sha256": "c17f70a854bd5faa4a541a55044606bde6f73c951bfa573ba159b1c5b881a576",
+      "game_ids": [
+        "2021020001",
+        "2021020454",
+        "2021020615",
+        "2021020617",
+        "2021020942",
+        "2021021103",
+        "2021021179"
+      ],
+      "captures": [
+        {
+          "game_id": "2021020001",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020001",
+            "receipt_sha256": "507563a9d6af64d42ba1493226b8325cce9d077a6edd838852ecf6115f66b700"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2021020454",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020454",
+            "receipt_sha256": "00cfeedd18f3fe45285a542ab1e7ba5c2a078408e2a5e20fdad5fd6bf63d0906"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2021020615",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020615",
+            "receipt_sha256": "c44ad870b52013ad95dbc3a63d6d587a003551ba62df7375832ea492b4949719"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2021020617",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020617",
+            "receipt_sha256": "af98e2a43001f1af7786c5be919d22644bb256fba1173b69f307aa3e902fd8fc"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2021020942",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020942",
+            "receipt_sha256": "6f4cc37946cd3d5f0b787ff6298524ae26cc8f4ff3c376a8789b89c9cafa84b2"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2021021103",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021021103",
+            "receipt_sha256": "9580861d7f1e3dc22b7c8fedf41e842586415788d4c916008694837ec9339411"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2021021179",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021021179",
+            "receipt_sha256": "d263c44dd0b400f0217ae461fb4a28a7eb7421adf7da20455e17f162192524ab"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    },
+    {
+      "season": "20222023",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20222023/corpus.json",
+      "sha256": "2f96282b1c36f562cddcb9ac9550483fa7f9b946ea9897132c0a296daf2c8057",
+      "game_ids": [
+        "2022020001",
+        "2022020009",
+        "2022020547",
+        "2022020822",
+        "2022021077"
+      ],
+      "captures": [
+        {
+          "game_id": "2022020001",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020001",
+            "receipt_sha256": "4241478cf91e30ba0bfeb3ea79dffdf80a0c53f7bb9a8e61be8c41ca1f602007"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2022020009",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020009",
+            "receipt_sha256": "da330dc6a49e1875e7d735a66cb54960f4243a4eacbe8351a302c0eed2c6c1fd"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2022020822",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020822",
+            "receipt_sha256": "c427feab364740d75603277c2563d19746dac7216ba595b5b4fb9dbc6c30e4c6"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2022021077",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022021077",
+            "receipt_sha256": "86b7559fbbce5e7e8b7c3b383ae48d2c18317dca2cc535682fd0f4398e96e6c6"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2022020547",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020547",
+            "receipt_sha256": "da5c81d3124aabae5642f7ed929259ff268708a24a404732997283127c0a8412"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20232024/corpus.json",
+      "sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "game_ids": [
+        "2023020001",
+        "2023020012",
+        "2023020013",
+        "2023020078",
+        "2023020237",
+        "2023020955"
+      ],
+      "captures": [
+        {
+          "game_id": "2023020001",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020001",
+            "receipt_sha256": "114e82c0b0d18994853502beb5439ac46901a04441aa44393d07bb1e6b74689f"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2023020012",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020012",
+            "receipt_sha256": "c5f21a609f1160f668eef1cfb38093c6faa792b878346245a4fe2cf67ff6cc38"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2023020013",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020013",
+            "receipt_sha256": "a8e072c6126d9f6f663eed738d01439c1605911628b6bf7c25d65d8152448a99"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2023020078",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020078",
+            "receipt_sha256": "81650a40acfc64899aef0e08e92ceb4e800b13ac300e586950ef02455e70f035"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2023020237",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020237",
+            "receipt_sha256": "8ec7a9fc4ed543a74a0855a39bfc9c6a4b2d4b8770af4f3cb60e301f671f5334"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2023020955",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020955",
+            "receipt_sha256": "ea28d819c6b9238aa4f047b8f447422738d7a6d6fd21379044122d3cdc852edd"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json",
+      "sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "game_ids": [
+        "2024020001",
+        "2024020022",
+        "2024020102",
+        "2024020186",
+        "2024020340",
+        "2024020364",
+        "2024020404",
+        "2024021177",
+        "2024021235"
+      ],
+      "captures": [
+        {
+          "game_id": "2024020001",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020001",
+            "receipt_sha256": "1ba99038af21a8d068223e81ae5214536ac92b9fcfb37b19bb4a3f93680bdf8e"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024020022",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020022",
+            "receipt_sha256": "bb27147d255ddddb8852da01a53f29bb74b673b1e73af16111fae0548336a5a7"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024020102",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020102",
+            "receipt_sha256": "dec5b85693d7d7e883dc3ea2af5424970a4f7bf3f25d17d9c3a234e3b7468312"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024020186",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020186",
+            "receipt_sha256": "a8615b9ffe386cab16887cba8b4df821e27d79b593c76055fd1f714d71d15644"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024020340",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020340",
+            "receipt_sha256": "c2f07048e4e28c6cc7d733fcc829d54af83d0f236a47a0075efa9b101bbc7f4e"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024020364",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020364",
+            "receipt_sha256": "23ef45d2824900e53e270b56484e8d33550e175c7215410f7dc978fe65ab17ae"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024020404",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020404",
+            "receipt_sha256": "91cb04eea6837560cd4723650c15303d60257bc1fb5c7b5ffb7e44afd240dbed"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024021177",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024021177",
+            "receipt_sha256": "ca187fff47896bd68bd89526e114d70d2125e1fab958a6b3dbef93a1afc0ee5f"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2024021235",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024021235",
+            "receipt_sha256": "cb1c382d9632cd0c098129f5572d3632d4a26cafd14baf237f92735de8171406"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "corpus_manifest": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20252026/corpus.json",
+      "sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "game_ids": [
+        "2025020001",
+        "2025020006",
+        "2025020184",
+        "2025020282",
+        "2025020307",
+        "2025020544",
+        "2025020565",
+        "2025020614",
+        "2025021094"
+      ],
+      "captures": [
+        {
+          "game_id": "2025020001",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020001",
+            "receipt_sha256": "e9558307eaeaf6ab9c938e34e0cc2afed51576464d240996fb4e2deb43903393"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020006",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020006",
+            "receipt_sha256": "92c3b741f29d9dfeb9578914c32fd102e4a37aaad10532a95d364a899e975e39"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020184",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020184",
+            "receipt_sha256": "69e1861d713091cf599a2e328b6d35d0773f2a207a21153bbd89e475c35d1e26"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020282",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020282",
+            "receipt_sha256": "6b7903930bc84f9a04015e23f87e8090f78f62466302b5cf291673a33feca5d3"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020307",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020307",
+            "receipt_sha256": "a1dc25a2868d88d4f285d9fc185bf434f774b15d92f70539fcb0ff1c26438004"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020544",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020544",
+            "receipt_sha256": "851366e86c986e8b438d6e3c9401e2f57f593234cf65a201fc8d9af7b1e3fbf1"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020565",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020565",
+            "receipt_sha256": "91b87131a59a4b6e123a0d386d8808305d4fd0b20fb3728885b72eed142919e8"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020614",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020614",
+            "receipt_sha256": "bc84102e2041c23c598a30568804eac769ffc486b2ef050aa02c4881653d4ecd"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025021094",
+          "capture": {
+            "directory": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025021094",
+            "receipt_sha256": "0004b7a8af5c52defa192d42bbeebd73fff2695c42dc0e7ab8c123d8f76b4d08"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "runtime": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "checks": [
+    {
+      "name": "detail exact opaque returned bytes",
+      "result": "accepted",
+      "body_available": true
+    },
+    {
+      "name": "listing exact opaque returned bytes",
+      "result": "accepted",
+      "body_available": true
+    },
+    {
+      "name": "glossary exact opaque returned bytes",
+      "result": "accepted",
+      "body_available": true
+    },
+    {
+      "name": "denial preserves digest but withholds body",
+      "result": "accepted",
+      "body_available": false
+    },
+    {
+      "name": "redirect preserves digest but withholds body",
+      "result": "accepted",
+      "body_available": false
+    },
+    {
+      "name": "failed body-read retains received status and precise failure",
+      "result": "accepted",
+      "body_available": false
+    },
+    {
+      "name": "failed transport retains null status",
+      "result": "accepted",
+      "body_available": false
+    },
+    {
+      "name": "duplicate metadata keys",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/8/edge-skating-detail/capture.json: invalid metadata json (duplicate object key 'schemaVersion'); repair this capture or select a new capture directory"
+    },
+    {
+      "name": "missing promised bytes",
+      "result": "rejected",
+      "reason": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/9/edge-skating-detail/body.bin: captured record promises a missing body; restore its matching body or select a new capture directory"
+    },
+    {
+      "name": "corrupt promised bytes",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/10/edge-skating-detail/capture.json: body.bin length does not match body.bytes; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "unknown receipt key",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/11/edge-skating-detail/capture.json: unexpected skating receipt keys; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "irrelevant glossary season",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/12/edge-skating-glossary/capture.json: unexpected skating receipt keys; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "irrelevant listing player",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/13/edge-skating-listing/capture.json: unexpected skating receipt keys; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "unsupported detail season",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/14/edge-skating-detail/capture.json: unsupported skating seasonId; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "wrong game type",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/15/edge-skating-detail/capture.json: skating gameTypeId must be integer 2; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "boolean game type",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/16/edge-skating-detail/capture.json: skating gameTypeId must be integer 2; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "wrong fixed url",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/17/edge-skating-detail/capture.json: request method/url does not identify the requested source and identity; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "noncalendar timestamp",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/18/edge-skating-detail/capture.json: request.requestedAt is not a calendar timestamp; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "boolean http status",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/19/edge-skating-detail/capture.json: httpStatus must be a received integer status or null; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "invalid http status",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/20/edge-skating-detail/capture.json: invalid skating httpStatus; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "null captured status",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/21/edge-skating-detail/capture.json: captured body requires an httpStatus; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "unknown body key",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/22/edge-skating-detail/capture.json: unexpected skating body keys; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "unknown request key",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/23/edge-skating-detail/capture.json: unexpected skating request keys; repair this capture or select a new capture directory"
+    },
+    {
+      "name": "failed receipt unknown failure key",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz/24/edge-skating-detail/capture.json: unexpected skating failure keys; repair this capture or select a new capture directory"
+    }
+  ],
+  "passed": 24,
+  "scratch": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz"
+}

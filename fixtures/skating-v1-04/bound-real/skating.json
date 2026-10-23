@@ -1,0 +1,1842 @@
+{
+  "schema_version": 1,
+  "purpose": "real",
+  "implementation": {
+    "git_commit": "aa9ff18639585740bbaf9aefad5a87aa1c3e6bf8",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "selection": {
+    "original_path": "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/selection-real.json",
+    "sha256": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779",
+    "copied_path": "selection.json"
+  },
+  "adapter_status": "not_observed",
+  "captures": [
+    {
+      "request_id": "detail-8478402-20232024",
+      "kind": "detail",
+      "season": "20232024",
+      "player_id": "8478402",
+      "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8478402/20232024/2",
+      "requested_at": "2026-10-23T01:32:50.961Z",
+      "http_status": 200,
+      "state": "captured",
+      "receipt_path": "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20232024/edge-skating-detail/capture.json",
+      "receipt_sha256": "6e44882fdb209d230fc313de0a1ab9df37e4317bdb2d873d57ccce5bec02a991",
+      "body_sha256": "047c9a7ef6ef4e65cff78bee1b0e69cd1acfb16b1da954d5458ddda130019a19",
+      "origin": "primary",
+      "failure": null,
+      "deferred_reason": null
+    },
+    {
+      "request_id": "detail-8478402-20242025",
+      "kind": "detail",
+      "season": "20242025",
+      "player_id": "8478402",
+      "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8478402/20242025/2",
+      "requested_at": "2026-10-23T01:33:21.119Z",
+      "http_status": 200,
+      "state": "captured",
+      "receipt_path": "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20242025/edge-skating-detail/capture.json",
+      "receipt_sha256": "d54c6f15471fd6c4ba5d0ad2ca147383d6039c64702d18fd0369cf8cc84ba9dd",
+      "body_sha256": "f588738066e430839ffb201cedc6d64e2da3ffa21f1111111d91fa02008c116d",
+      "origin": "primary",
+      "failure": null,
+      "deferred_reason": null
+    },
+    {
+      "request_id": "detail-8478402-20252026",
+      "kind": "detail",
+      "season": "20252026",
+      "player_id": "8478402",
+      "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8478402/20252026/2",
+      "requested_at": "2026-10-23T01:33:28.357Z",
+      "http_status": 200,
+      "state": "captured",
+      "receipt_path": "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20252026/edge-skating-detail/capture.json",
+      "receipt_sha256": "d677b238ec30672148288814202e4a797bb2487ce28bf02214e1c3c2f9b60118",
+      "body_sha256": "87f706f5e2d18a7133ab8fd936ada756a6045ec3789b05f59fdb068328b6eacd",
+      "origin": "primary",
+      "failure": null,
+      "deferred_reason": null
+    },
+    {
+      "request_id": "detail-8480800-20232024",
+      "kind": "detail",
+      "season": "20232024",
+      "player_id": "8480800",
+      "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8480800/20232024/2",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "listing-20232024",
+      "kind": "listing",
+      "season": "20232024",
+      "player_id": null,
+      "url": "https://www.nhl.com/nhl-edge/skaters/20232024/2/skating-speed/all",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "detail-8480800-20242025",
+      "kind": "detail",
+      "season": "20242025",
+      "player_id": "8480800",
+      "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8480800/20242025/2",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "listing-20242025",
+      "kind": "listing",
+      "season": "20242025",
+      "player_id": null,
+      "url": "https://www.nhl.com/nhl-edge/skaters/20242025/2/skating-speed/all",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "detail-8480800-20252026",
+      "kind": "detail",
+      "season": "20252026",
+      "player_id": "8480800",
+      "url": "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8480800/20252026/2",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "listing-20252026",
+      "kind": "listing",
+      "season": "20252026",
+      "player_id": null,
+      "url": "https://www.nhl.com/nhl-edge/skaters/20252026/2/skating-speed/all",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    },
+    {
+      "request_id": "glossary",
+      "kind": "glossary",
+      "season": null,
+      "player_id": null,
+      "url": "https://www.nhl.com/nhl-edge/glossary",
+      "requested_at": null,
+      "http_status": null,
+      "state": "deferred",
+      "receipt_path": null,
+      "receipt_sha256": null,
+      "body_sha256": null,
+      "origin": null,
+      "failure": null,
+      "deferred_reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted"
+    }
+  ],
+  "source_contracts": [
+    {
+      "kind": "detail",
+      "format": "json",
+      "identity_rules": [],
+      "measurement_rules": [],
+      "enumeration_rules": [],
+      "shape_evidence": [
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/imperial"
+          },
+          "raw_value": 24.191
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/bursts20To22/value"
+          },
+          "raw_value": 390
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/burstsOver22/value"
+          },
+          "raw_value": 66
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/imperial"
+          },
+          "raw_value": 23.969
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/bursts20To22/value"
+          },
+          "raw_value": 359
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/burstsOver22/value"
+          },
+          "raw_value": 83
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/imperial"
+          },
+          "raw_value": 24.6119
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/bursts20To22/value"
+          },
+          "raw_value": 530
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/burstsOver22/value"
+          },
+          "raw_value": 151
+        }
+      ],
+      "definition_evidence": [],
+      "limitations": [
+        "literal scalar and maximum-event paths are observed; aggregate player id, season and regular-season/all-situations coverage are not established",
+        "burst category definitions and disjointness are unverified; no counters are added",
+        "no available primary measurement adapter is established"
+      ]
+    },
+    {
+      "kind": "listing",
+      "format": null,
+      "identity_rules": [],
+      "measurement_rules": [],
+      "enumeration_rules": [],
+      "shape_evidence": [],
+      "definition_evidence": [],
+      "limitations": [
+        "no usable primary measurement or census structure has been observed"
+      ]
+    },
+    {
+      "kind": "glossary",
+      "format": null,
+      "identity_rules": [],
+      "measurement_rules": [],
+      "enumeration_rules": [],
+      "shape_evidence": [],
+      "definition_evidence": [],
+      "limitations": [
+        "no usable primary measurement or census structure has been observed"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "season": "20232024",
+      "player_id": "8478402",
+      "reported_position": "C",
+      "position_group": "f",
+      "position_evidence": [
+        {
+          "source": {
+            "kind": "position_reference",
+            "season": "20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/data/123/positionCode"
+          },
+          "raw_value": "C"
+        }
+      ],
+      "context_evidence": [
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/gameDate"
+          },
+          "raw_value": "2024-04-05"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/player"
+          },
+          "raw_value": {
+            "firstName": {
+              "default": "Connor"
+            },
+            "lastName": {
+              "default": "McDavid"
+            }
+          }
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/col-vs-edm/2024/04/05/2023021214"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameDate"
+          },
+          "raw_value": "2024-04-05"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-cgy/2024/01/20/2023020714"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameDate"
+          },
+          "raw_value": "2024-01-20"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/col-vs-edm/2024/03/16/2023021070"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameDate"
+          },
+          "raw_value": "2024-03-16"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/wsh-vs-edm/2024/03/13/2023021043"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameDate"
+          },
+          "raw_value": "2024-03-13"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/vgk-vs-edm/2023/11/28/2023020335"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameDate"
+          },
+          "raw_value": "2023-11-28"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/wsh-vs-edm/2024/03/13/2023021043"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameDate"
+          },
+          "raw_value": "2024-03-13"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/pit-vs-edm/2024/03/03/2023020974"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameDate"
+          },
+          "raw_value": "2024-03-03"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-van/2023/11/06/2023020179"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameDate"
+          },
+          "raw_value": "2023-11-06"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-cgy/2024/04/06/2023021226"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameDate"
+          },
+          "raw_value": "2024-04-06"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-tbl/2023/11/18/2023020257"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameDate"
+          },
+          "raw_value": "2023-11-18"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameType"
+          },
+          "raw_value": 2
+        }
+      ],
+      "source_as_of": null,
+      "skating_max_speed_mph": {
+        "value": null,
+        "status": "context_unresolved",
+        "reason": "recorded scalars and maximum-event witnesses do not establish aggregate player identity, full-season coverage or regular-season/all-situations scope",
+        "evidence": [
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20232024"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/maxSkatingSpeed/imperial"
+            },
+            "raw_value": 24.191
+          }
+        ],
+        "transformation": null
+      },
+      "skating_bursts_over20_count": {
+        "value": null,
+        "status": "context_unresolved",
+        "reason": "recorded scalars and maximum-event witnesses do not establish aggregate player identity, full-season coverage or regular-season/all-situations scope; burst category definitions and disjointness are also unverified",
+        "evidence": [
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20232024"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/bursts20To22/value"
+            },
+            "raw_value": 390
+          },
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20232024"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/burstsOver22/value"
+            },
+            "raw_value": 66
+          }
+        ],
+        "transformation": null
+      }
+    },
+    {
+      "season": "20242025",
+      "player_id": "8478402",
+      "reported_position": "C",
+      "position_group": "f",
+      "position_evidence": [
+        {
+          "source": {
+            "kind": "position_reference",
+            "season": "20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/data/114/positionCode"
+          },
+          "raw_value": "C"
+        }
+      ],
+      "context_evidence": [
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/gameDate"
+          },
+          "raw_value": "2024-12-31"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/player"
+          },
+          "raw_value": {
+            "firstName": {
+              "default": "Connor"
+            },
+            "lastName": {
+              "default": "McDavid"
+            }
+          }
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/uta-vs-edm/2024/12/31/2024020601"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameDate"
+          },
+          "raw_value": "2024-12-31"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/wpg-vs-edm/2025/03/20/2024021099"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameDate"
+          },
+          "raw_value": "2025-03-20"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-uta/2024/11/29/2024020375"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameDate"
+          },
+          "raw_value": "2024-11-29"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-tor/2024/11/16/2024020274"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameDate"
+          },
+          "raw_value": "2024-11-16"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-mtl/2024/11/18/2024020290"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameDate"
+          },
+          "raw_value": "2024-11-18"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/nsh-vs-edm/2024/11/14/2024020264"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameDate"
+          },
+          "raw_value": "2024-11-14"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/uta-vs-edm/2025/03/18/2024021085"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameDate"
+          },
+          "raw_value": "2025-03-18"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-tbl/2025/02/25/2024020921"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameDate"
+          },
+          "raw_value": "2025-02-25"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-col/2024/11/30/2024020385"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameDate"
+          },
+          "raw_value": "2024-11-30"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-stl/2025/02/04/2024020851"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameDate"
+          },
+          "raw_value": "2025-02-04"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameType"
+          },
+          "raw_value": 2
+        }
+      ],
+      "source_as_of": null,
+      "skating_max_speed_mph": {
+        "value": null,
+        "status": "context_unresolved",
+        "reason": "recorded scalars and maximum-event witnesses do not establish aggregate player identity, full-season coverage or regular-season/all-situations scope",
+        "evidence": [
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20242025"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/maxSkatingSpeed/imperial"
+            },
+            "raw_value": 23.969
+          }
+        ],
+        "transformation": null
+      },
+      "skating_bursts_over20_count": {
+        "value": null,
+        "status": "context_unresolved",
+        "reason": "recorded scalars and maximum-event witnesses do not establish aggregate player identity, full-season coverage or regular-season/all-situations scope; burst category definitions and disjointness are also unverified",
+        "evidence": [
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20242025"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/bursts20To22/value"
+            },
+            "raw_value": 359
+          },
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20242025"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/burstsOver22/value"
+            },
+            "raw_value": 83
+          }
+        ],
+        "transformation": null
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "8478402",
+      "reported_position": "C",
+      "position_group": "f",
+      "position_evidence": [
+        {
+          "source": {
+            "kind": "position_reference",
+            "season": "20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/data/117/positionCode"
+          },
+          "raw_value": "C"
+        }
+      ],
+      "context_evidence": [
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/gameDate"
+          },
+          "raw_value": "2025-10-08"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/skatingSpeedDetails/maxSkatingSpeed/overlay/player"
+          },
+          "raw_value": {
+            "firstName": {
+              "default": "Connor"
+            },
+            "lastName": {
+              "default": "McDavid"
+            }
+          }
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/cgy-vs-edm/2025/10/08/2025020006"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameDate"
+          },
+          "raw_value": "2025-10-08"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/0/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/sea-vs-edm/2026/03/31/2025021187"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameDate"
+          },
+          "raw_value": "2026-03-31"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/1/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-van/2025/10/26/2025020147"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameDate"
+          },
+          "raw_value": "2025-10-26"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/2/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-tbl/2025/11/20/2025020322"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameDate"
+          },
+          "raw_value": "2025-11-20"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/3/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/wpg-vs-edm/2025/12/06/2025020450"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameDate"
+          },
+          "raw_value": "2025-12-06"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/4/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/wpg-vs-edm/2025/12/06/2025020450"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameDate"
+          },
+          "raw_value": "2025-12-06"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/5/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/min-vs-edm/2026/01/31/2025020871"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameDate"
+          },
+          "raw_value": "2026-01-31"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/6/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/edm-vs-lak/2026/04/11/2025021264"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameDate"
+          },
+          "raw_value": "2026-04-11"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/7/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/stl-vs-edm/2026/01/18/2025020769"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameDate"
+          },
+          "raw_value": "2026-01-18"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/8/gameType"
+          },
+          "raw_value": 2
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameCenterLink"
+          },
+          "raw_value": "/gamecenter/chi-vs-edm/2025/11/01/2025020192"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameDate"
+          },
+          "raw_value": "2025-11-01"
+        },
+        {
+          "source": {
+            "kind": "request",
+            "request_id": "detail-8478402-20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/topSkatingSpeeds/9/gameType"
+          },
+          "raw_value": 2
+        }
+      ],
+      "source_as_of": null,
+      "skating_max_speed_mph": {
+        "value": null,
+        "status": "context_unresolved",
+        "reason": "recorded scalars and maximum-event witnesses do not establish aggregate player identity, full-season coverage or regular-season/all-situations scope",
+        "evidence": [
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20252026"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/maxSkatingSpeed/imperial"
+            },
+            "raw_value": 24.6119
+          }
+        ],
+        "transformation": null
+      },
+      "skating_bursts_over20_count": {
+        "value": null,
+        "status": "context_unresolved",
+        "reason": "recorded scalars and maximum-event witnesses do not establish aggregate player identity, full-season coverage or regular-season/all-situations scope; burst category definitions and disjointness are also unverified",
+        "evidence": [
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20252026"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/bursts20To22/value"
+            },
+            "raw_value": 530
+          },
+          {
+            "source": {
+              "kind": "request",
+              "request_id": "detail-8478402-20252026"
+            },
+            "locator": {
+              "kind": "json_pointer",
+              "value": "/skatingSpeedDetails/burstsOver22/value"
+            },
+            "raw_value": 151
+          }
+        ],
+        "transformation": null
+      }
+    },
+    {
+      "season": "20232024",
+      "player_id": "8480800",
+      "reported_position": "D",
+      "position_group": "d",
+      "position_evidence": [
+        {
+          "source": {
+            "kind": "position_reference",
+            "season": "20232024"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/data/261/positionCode"
+          },
+          "raw_value": "D"
+        }
+      ],
+      "context_evidence": [],
+      "source_as_of": null,
+      "skating_max_speed_mph": {
+        "value": null,
+        "status": "not_requested",
+        "reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted",
+        "evidence": [],
+        "transformation": null
+      },
+      "skating_bursts_over20_count": {
+        "value": null,
+        "status": "not_requested",
+        "reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted",
+        "evidence": [],
+        "transformation": null
+      }
+    },
+    {
+      "season": "20242025",
+      "player_id": "8480800",
+      "reported_position": "D",
+      "position_group": "d",
+      "position_evidence": [
+        {
+          "source": {
+            "kind": "position_reference",
+            "season": "20242025"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/data/253/positionCode"
+          },
+          "raw_value": "D"
+        }
+      ],
+      "context_evidence": [],
+      "source_as_of": null,
+      "skating_max_speed_mph": {
+        "value": null,
+        "status": "not_requested",
+        "reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted",
+        "evidence": [],
+        "transformation": null
+      },
+      "skating_bursts_over20_count": {
+        "value": null,
+        "status": "not_requested",
+        "reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted",
+        "evidence": [],
+        "transformation": null
+      }
+    },
+    {
+      "season": "20252026",
+      "player_id": "8480800",
+      "reported_position": "D",
+      "position_group": "d",
+      "position_evidence": [
+        {
+          "source": {
+            "kind": "position_reference",
+            "season": "20252026"
+          },
+          "locator": {
+            "kind": "json_pointer",
+            "value": "/data/253/positionCode"
+          },
+          "raw_value": "D"
+        }
+      ],
+      "context_evidence": [],
+      "source_as_of": null,
+      "skating_max_speed_mph": {
+        "value": null,
+        "status": "not_requested",
+        "reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted",
+        "evidence": [],
+        "transformation": null
+      },
+      "skating_bursts_over20_count": {
+        "value": null,
+        "status": "not_requested",
+        "reason": "initial detail response lacks verified player-season aggregate context; conditional inspection not permitted",
+        "evidence": [],
+        "transformation": null
+      }
+    }
+  ],
+  "census": [
+    {
+      "season": "20232024",
+      "enumeration": "unestablished",
+      "inclusion_rule": null,
+      "reported_total": null,
+      "universe_ids": null,
+      "observed_listed_ids": [],
+      "enumeration_evidence": [],
+      "measurements": [
+        {
+          "measurement_id": "skating_max_speed_mph",
+          "acquisition": "unestablished",
+          "eligible": {
+            "f": [],
+            "d": []
+          },
+          "exclusions": [],
+          "unresolved": []
+        },
+        {
+          "measurement_id": "skating_bursts_over20_count",
+          "acquisition": "unestablished",
+          "eligible": {
+            "f": [],
+            "d": []
+          },
+          "exclusions": [],
+          "unresolved": []
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "enumeration": "unestablished",
+      "inclusion_rule": null,
+      "reported_total": null,
+      "universe_ids": null,
+      "observed_listed_ids": [],
+      "enumeration_evidence": [],
+      "measurements": [
+        {
+          "measurement_id": "skating_max_speed_mph",
+          "acquisition": "unestablished",
+          "eligible": {
+            "f": [],
+            "d": []
+          },
+          "exclusions": [],
+          "unresolved": []
+        },
+        {
+          "measurement_id": "skating_bursts_over20_count",
+          "acquisition": "unestablished",
+          "eligible": {
+            "f": [],
+            "d": []
+          },
+          "exclusions": [],
+          "unresolved": []
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "enumeration": "unestablished",
+      "inclusion_rule": null,
+      "reported_total": null,
+      "universe_ids": null,
+      "observed_listed_ids": [],
+      "enumeration_evidence": [],
+      "measurements": [
+        {
+          "measurement_id": "skating_max_speed_mph",
+          "acquisition": "unestablished",
+          "eligible": {
+            "f": [],
+            "d": []
+          },
+          "exclusions": [],
+          "unresolved": []
+        },
+        {
+          "measurement_id": "skating_bursts_over20_count",
+          "acquisition": "unestablished",
+          "eligible": {
+            "f": [],
+            "d": []
+          },
+          "exclusions": [],
+          "unresolved": []
+        }
+      ]
+    }
+  ]
+}

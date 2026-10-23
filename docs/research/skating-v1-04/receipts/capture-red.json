@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "kind": "temporary controlled-fetch cli verification",
+  "live_requests": 0,
+  "scratch": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-coyYYb",
+  "checks": [
+    {
+      "name": "detail: real cli fixed url and exact receipt/body",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: node:internal/modules/esm/resolve:272\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/nnandal/Documents/code/hockey-stats-v1-04/app/src/operator/skating-cli.ts' imported from /Users/nnandal/Documents/code/hockey-stats-v1-04/app/\n    at finalizeResolution (node:internal/modules/esm/resolve:272:11)\n    at moduleResolve (node:internal/modules/esm/resolve:879:10)\n    at defaultResolve (node:internal/modules/esm/resolve:1006:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)\n    at nextStep (node:internal/modules/customization_hooks:189:26)\n    at resolveBaseSync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:11092)\n    at resolveDirectorySync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:12398)\n    at resolveTsPathsSync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:13605)\n    at resolve (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:16832) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///Users/nnandal/Documents/code/hockey-stats-v1-04/app/src/operator/skating-cli.ts'\n}\n\nNode.js v24.21.0\n\n\n1 !== 0\n"
+    },
+    {
+      "name": "listing: real cli fixed url and exact receipt/body",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: node:internal/modules/esm/resolve:272\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/nnandal/Documents/code/hockey-stats-v1-04/app/src/operator/skating-cli.ts' imported from /Users/nnandal/Documents/code/hockey-stats-v1-04/app/\n    at finalizeResolution (node:internal/modules/esm/resolve:272:11)\n    at moduleResolve (node:internal/modules/esm/resolve:879:10)\n    at defaultResolve (node:internal/modules/esm/resolve:1006:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)\n    at nextStep (node:internal/modules/customization_hooks:189:26)\n    at resolveBaseSync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:11092)\n    at resolveDirectorySync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:12398)\n    at resolveTsPathsSync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:13605)\n    at resolve (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:16832) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///Users/nnandal/Documents/code/hockey-stats-v1-04/app/src/operator/skating-cli.ts'\n}\n\nNode.js v24.21.0\n\n\n1 !== 0\n"
+    },
+    {
+      "name": "glossary: real cli fixed url and exact receipt/body",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: node:internal/modules/esm/resolve:272\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/nnandal/Documents/code/hockey-stats-v1-04/app/src/operator/skating-cli.ts' imported from /Users/nnandal/Documents/code/hockey-stats-v1-04/app/\n    at finalizeResolution (node:internal/modules/esm/resolve:272:11)\n    at moduleResolve (node:internal/modules/esm/resolve:879:10)\n    at defaultResolve (node:internal/modules/esm/resolve:1006:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)\n    at nextStep (node:internal/modules/customization_hooks:189:26)\n    at resolveBaseSync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:11092)\n    at resolveDirectorySync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:12398)\n    at resolveTsPathsSync (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:13605)\n    at resolve (file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:16832) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///Users/nnandal/Documents/code/hockey-stats-v1-04/app/src/operator/skating-cli.ts'\n}\n\nNode.js v24.21.0\n\n\n1 !== 0\n"
+    },
+    {
+      "name": "real cli denial receipt; single manual request",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "real cli redirect receipt; single manual request",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "real cli transport receipt; single manual request",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "real cli body-read receipt; single manual request",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "real cli timeout receipt; single manual request",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "invalid case 1 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 2 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 3 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 4 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 5 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 6 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 7 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 8 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 9 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 10 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 11 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 12 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 13 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 14 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 15 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 16 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "invalid case 17 fails before filesystem/network",
+      "result": "pass"
+    },
+    {
+      "name": "occupied root fails before network",
+      "result": "pass"
+    },
+    {
+      "name": "npm command registration",
+      "result": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- 'tsx src/operator/skating-cli.ts'\n"
+    }
+  ],
+  "passed": 18,
+  "failed": 9
+}

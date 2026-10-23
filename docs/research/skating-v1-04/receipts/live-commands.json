@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "production_command": "npm run capture-skating -- --source detail --season SEASON --player 8478402 --out NEW_DIRECTORY",
+  "node_version": "24.21.0",
+  "attempted_requests": 3,
+  "automatic_retries": 0,
+  "followed_redirects": 0,
+  "cli_runs": [
+    {
+      "chunk_id": "e42f8a",
+      "wall_time_seconds": 0.663208625,
+      "exit_code": 0,
+      "original_token_count": 111,
+      "output": "\n> capture-skating\n> tsx src/operator/skating-cli.ts --source detail --season 20232024 --player 8478402 --out ../fixtures/skating-v1-04/primary/detail-8478402-20232024\n\ncaptured skating detail: http 200, 9478 bytes; original response body preserved\nusable sample: unverified; population: unestablished; capture alone establishes neither measurement validity nor a complete population\n../fixtures/skating-v1-04/primary/detail-8478402-20232024\n"
+    },
+    {
+      "chunk_id": "e44180",
+      "wall_time_seconds": 0.6321045,
+      "exit_code": 0,
+      "original_token_count": 111,
+      "output": "\n> capture-skating\n> tsx src/operator/skating-cli.ts --source detail --season 20242025 --player 8478402 --out ../fixtures/skating-v1-04/primary/detail-8478402-20242025\n\ncaptured skating detail: http 200, 9673 bytes; original response body preserved\nusable sample: unverified; population: unestablished; capture alone establishes neither measurement validity nor a complete population\n../fixtures/skating-v1-04/primary/detail-8478402-20242025\n"
+    },
+    {
+      "chunk_id": "3fb67e",
+      "wall_time_seconds": 0.51831825,
+      "exit_code": 0,
+      "original_token_count": 111,
+      "output": "\n> capture-skating\n> tsx src/operator/skating-cli.ts --source detail --season 20252026 --player 8478402 --out ../fixtures/skating-v1-04/primary/detail-8478402-20252026\n\ncaptured skating detail: http 200, 9456 bytes; original response body preserved\nusable sample: unverified; population: unestablished; capture alone establishes neither measurement validity nor a complete population\n../fixtures/skating-v1-04/primary/detail-8478402-20252026\n"
+    }
+  ]
+}

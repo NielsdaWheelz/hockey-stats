@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "reviewer_scope": "independent source/content review of binder not implemented by reviewer",
+  "live_requests": 0,
+  "request_plan_hash_matches_frozen_identity": true,
+  "captured_attempts": 3,
+  "deferred_fixed_keys": 7,
+  "unused_adaptive_allowance": 2,
+  "all_literal_witnesses_checked": 108,
+  "primary_raw_candidates": [
+    {
+      "season": "20232024",
+      "body_sha256": "047c9a7ef6ef4e65cff78bee1b0e69cd1acfb16b1da954d5458ddda130019a19",
+      "candidate_raw_maximum": 24.191,
+      "candidate_raw_bursts20To22": 390,
+      "candidate_raw_burstsOver22": 66
+    },
+    {
+      "season": "20242025",
+      "body_sha256": "f588738066e430839ffb201cedc6d64e2da3ffa21f1111111d91fa02008c116d",
+      "candidate_raw_maximum": 23.969,
+      "candidate_raw_bursts20To22": 359,
+      "candidate_raw_burstsOver22": 83
+    },
+    {
+      "season": "20252026",
+      "body_sha256": "87f706f5e2d18a7133ab8fd936ada756a6045ec3789b05f59fdb068328b6eacd",
+      "candidate_raw_maximum": 24.6119,
+      "candidate_raw_bursts20To22": 530,
+      "candidate_raw_burstsOver22": 151
+    }
+  ],
+  "verdict": "context_unresolved; no usable values or optional expansion",
+  "operator_output": "inspected 3 attempts; usable measurements: 0; adapter: not_observed\ndetail json and raw candidates observed; aggregate player-season context unresolved\npopulation: unestablished; compact evidence: /private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-_z_nivca/bound/skating.json\nsource-listed peer counts (position_group=None means unknown position):\nseason=20232024 measurement_id=skating_max_speed_mph position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20232024 measurement_id=skating_max_speed_mph position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20232024 measurement_id=skating_max_speed_mph position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20232024 measurement_id=skating_bursts_over20_count position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20232024 measurement_id=skating_bursts_over20_count position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20232024 measurement_id=skating_bursts_over20_count position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20242025 measurement_id=skating_max_speed_mph position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20242025 measurement_id=skating_max_speed_mph position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20242025 measurement_id=skating_max_speed_mph position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20242025 measurement_id=skating_bursts_over20_count position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20242025 measurement_id=skating_bursts_over20_count position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20242025 measurement_id=skating_bursts_over20_count position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20252026 measurement_id=skating_max_speed_mph position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20252026 measurement_id=skating_max_speed_mph position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20252026 measurement_id=skating_max_speed_mph position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20252026 measurement_id=skating_bursts_over20_count position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20252026 measurement_id=skating_bursts_over20_count position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\nseason=20252026 measurement_id=skating_bursts_over20_count position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0\n",
+  "checked_artifact": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-_z_nivca/bound/skating.json",
+  "checked_artifact_sha256": "422f87a909782ee87d73b9b0a7d70b79eb4c96c714178746ecba07d240d0763e",
+  "review_controller": {
+    "path": "/private/tmp/hockey-skating-capture-eiDfZm/source-review.py",
+    "sha256": "0ac2df25ec7292f41204cdbad8d77b52016189d3b8853188b858bc7abad8c1b4"
+  },
+  "command": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-04",
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-04/analysis/src",
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-m",
+      "hockey_stats.skating",
+      "--selection",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/selection-real.json",
+      "--out",
+      "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-_z_nivca/bound"
+    ]
+  },
+  "source_identities": {
+    "analysis/src/hockey_stats/skating.py": "d27a4994933c33a1d7200aa5f142f0e911ac8f3f1aeace571fd49dddd66a89b6",
+    "fixtures/skating-v1-04/selection-real.json": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779",
+    "docs/research/skating-v1-04/request-plan.json": "e2790052dbe6a6fa34dfd80ccc6817ba1cb07d6c1ca1bf41f7d3ade32ca769c6"
+  }
+}

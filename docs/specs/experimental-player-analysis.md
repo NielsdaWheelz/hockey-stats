@@ -134,9 +134,13 @@ each batch pairs its domain/numerical owner with a content reviewer. labels, den
 
 these are ownership packages, each deliverable across multiple prs under the plan's proposed boundaries. preparation and application/publication proceed in parallel once their contracts are settled; chance supplies valued responses; spatial rates supply mechanism valuation. integrate actual families as they arrive, then accept complete card compositions. 5v5 alone, fixtures alone or unexplained prior zeros do not complete v1. 05i personal geography belongs here rather than in another prerequisite slice. partial-family development must preserve explicit unfinished status and the current active publication.
 
+[v1-04](v1-04-skating-source-feasibility.md) bounds independent skating-source inspection to twelve attempted requests, a source/sample/census contract and a costed acquisition handoff. it needs no hdd, fitting or publication change. collection remains separately assigned; v1-17 consumes verified observations and owns source-census transport/ranks. blocked access cannot become zero data or postpone unrelated card work.
+
 [v1-13](v1-13-typed-publication.md) implements the fixed exchange/storage/read boundary with detached fixtures; later producers serialize real rows through it. it does not consume incomplete fit internals or require v1-01's corpus run. only the shared `analysis_cli.py`/entry-point edits need coordination. whole pending families have explicit availability envelopes; source gaps and failed computations remain separately attributable. existing observed views adapt to schema7; analytical card rendering and activation remain later assignments.
 
 [v1-14](v1-14-history-cohorts-exports.md) consumes that boundary without another schema change: fixed field/cohort selectors, three annual peer populations, shared history and exports through the existing routes. detached fixtures establish these mechanisms; each later card still owes its complete composition and real producer-to-export evidence. it can proceed independently of factual/numerical producers once assigned, coordinating shared frontend files with other view owners.
+
+[v1-15](v1-15-comparative-card-discovery.md) supplies the complete comparative skater composition and surrounding discovery/comparison against those shared mechanisms. it can be implemented detached alongside source work; actual v1-03/06/12 outputs close its real card and exports. finite tables and the two embedded histories reuse published values; no new numerical, source or publication contract follows.
 
 ## d. operation and acceptance
 

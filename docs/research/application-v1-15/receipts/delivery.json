@@ -1,0 +1,53 @@
+{
+  "pr": {
+    "number": 51,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/51",
+    "merged_at": "2026-10-23T02:41:45Z",
+    "head": "4ab24035023a28f9128687babed5aca1d9c3b2c6",
+    "merge": "122e202186dc1642469d15846452c46ae2946f9c",
+    "tree": "b902d214fa5119c7aba11b15cfc3f1e19e785b17",
+    "reviewed_merge_tree_equal": true,
+    "security_check": "GitGuardian Security Checks: SUCCESS"
+  },
+  "primary": {
+    "fast_forwarded_to": "122e202186dc1642469d15846452c46ae2946f9c",
+    "pinned_node": "24.21.0",
+    "typecheck_exit_code": 0,
+    "source_and_fixture_hashes_match_implementation_receipt": true
+  },
+  "cleanup": {
+    "worktree_removed": "/Users/nnandal/Documents/code/hockey-stats-v1-15",
+    "local_branch_removed": "implement/v1-15-comparative-card-discovery",
+    "remote_branch_removed": "implement/v1-15-comparative-card-discovery",
+    "cheap_candidate_and_ignored_build_dependencies_removed_with_worktree": true,
+    "temporary_files_removed": [
+      {
+        "path": "/tmp/hockey-stats-v1-15-integration-typecheck.txt",
+        "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf"
+      },
+      {
+        "path": "/tmp/hockey-stats-v1-15-main-typecheck.txt",
+        "sha256": "36de49487a44b2407d4252ebd69b7c04224469392cf8cef8b594809e014b8fdf"
+      },
+      {
+        "path": "/tmp/hockey-stats-v1-15-pr-body.md",
+        "sha256": "5fd8e7f185193b4c42ef72ea94e2204fe7f02d65e7c6b1b105d0d7c3af13000c"
+      }
+    ],
+    "earlier_tests_downloads_listeners": "removed; see cleanup.json",
+    "retained_independent_worktrees": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-01",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-02"
+    ],
+    "no_runtime_or_frozen_consumer_requires_task_path": true
+  },
+  "preservation": {
+    "reference": "protected-state.json",
+    "all_30_files_match_original_hash_size_mtime": true,
+    "original_serving_process_unchanged": true,
+    "source_captures_and_expensive_fits": "untouched",
+    "activation": false
+  },
+  "independent_review": "final_adversarial_review independently verified merge/tree equality, frontend/fixture hashes, task cleanup, all 30 protected files and original serving process; final closeout source/docs clear",
+  "closeout_relative_links_and_anchors_checked": 276
+}

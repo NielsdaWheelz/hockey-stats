@@ -1,3 +1,4 @@
+import type { Person } from "../shared/player-analysis";
 import {
   Link,
   isRouteErrorResponse,
@@ -7,7 +8,6 @@ import {
 } from "react-router";
 import type {
   Metrics,
-  PlayerSummary,
   Publication,
   SeasonEvidence,
   ReasonCode,
@@ -56,7 +56,9 @@ export const reasons: Record<
   no_5v5_exposure: "no 5v5 exposure in the supported listed evidence",
 };
 
-export const playerName = (player: Pick<PlayerSummary, "display_name" | "player_id">) =>
+export type PlayerIdentity = Pick<Person, "display_name" | "player_id" | "reported_position" | "teams">;
+
+export const playerName = (player: Pick<PlayerIdentity, "display_name" | "player_id">) =>
   player.display_name ?? `player ${player.player_id}`;
 export const teamName = (team: Team) => team.abbreviation ?? `team ${team.id}`;
 export const seasonLabel = (season: string) =>
@@ -65,8 +67,8 @@ export const seasonLabel = (season: string) =>
 const normalizedName = (value: string) =>
   value.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
 
-export function matchingPlayers(
-  players: readonly PlayerSummary[],
+export function matchingPlayers<T extends Pick<PlayerIdentity, "display_name" | "player_id">>(
+  players: readonly T[],
   query: string,
 ) {
   const tokens = normalizedName(query).trim().split(/\s+/).filter(Boolean);
@@ -75,7 +77,7 @@ export function matchingPlayers(
   );
 }
 
-export const nameOrder = (a: PlayerSummary, b: PlayerSummary) =>
+export const nameOrder = (a: Pick<PlayerIdentity, "display_name" | "player_id">, b: Pick<PlayerIdentity, "display_name" | "player_id">) =>
   playerName(a).localeCompare(playerName(b), "en") ||
   a.player_id.length - b.player_id.length ||
   a.player_id.localeCompare(b.player_id);

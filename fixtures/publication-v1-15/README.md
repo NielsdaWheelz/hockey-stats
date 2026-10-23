@@ -1,0 +1,7 @@
+# comparative card and discovery cases
+
+reuse [v1-13's frozen exchange and six captured games](../publication-v1-13/README.md) and [v1-14's checked history cases](../publication-v1-14/README.md). original captures, receipts and analytical member bytes are unchanged. the disposable candidate rebuilds those captures at the task worktree, declares fixture purpose and rebinds only its copied manifest's observed corpus hashes.
+
+[checked facts](checked-facts.json) describe the new deliberately synthetic response cases. the complete card copies synthetic person 9000001's provided 2023–24 analytical envelopes into three annual slots, retaining each slot's actual season evidence and catalogs. person 9000003 is a second synthetic peer. the browser-only response transform applies identical changes to detail/history/cohort projections before the existing typed client decodes them. synthetic recorded summaries exercise rates and qualification; they are NOT captured player results. empty synthetic deployment arrays are outside the card case's evidence claim. unchanged captured skaters establish observed preservation separately.
+
+both card cases use the actual schema7 api and existing selectors. field constants, unavailable states, support and independently calculated expected ranks are retained as data, without a permanent generator or test harness. [verification](../../docs/research/application-v1-15/verification.md) records source identities, acceptance, saved outputs and the distinction between software completion and real producer integration.

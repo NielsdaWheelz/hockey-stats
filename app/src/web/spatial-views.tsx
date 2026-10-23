@@ -1,13 +1,10 @@
 import { useId } from "react";
-import type {
-  PlayerSpatialCell,
-  PlayerSummary,
-  SpatialSelection,
-} from "../shared/observed";
+import type { PlayerSpatialCell, SpatialSelection } from "../shared/observed";
 import type { ObservedMaps } from "./client";
 import type { MapMode } from "./explorer";
 import {
   CoverageDetail,
+  type PlayerIdentity,
   Minutes,
   Quantity,
   playerName,
@@ -106,7 +103,7 @@ export default function SpatialViews({
   onModeChange,
 }: {
   readonly maps: ObservedMaps | null;
-  readonly players: readonly PlayerSummary[];
+  readonly players: readonly PlayerIdentity[];
   readonly season: string;
   readonly mode: MapMode;
   readonly onModeChange: (mode: MapMode) => void;
@@ -206,7 +203,11 @@ export default function SpatialViews({
         totals: attempts per 60 spatial minutes.
       </p>
       {available && (
-        <div className="spatial-legend" role="group" aria-label="shared map legend">
+        <div
+          className="spatial-legend"
+          role="group"
+          aria-label="shared map legend"
+        >
           <p>
             {mode === "difference"
               ? "difference from included league average"

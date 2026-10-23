@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-22",
+  "application": "Google Chrome on macos",
+  "checks": [
+    "wide comparative card and discovery viewed in native browser",
+    "native page zoom set to 200% through View menu; browser accessibility tree confirmed Zoom: 200%",
+    "320 css-pixel application iframe viewed at native 200% zoom; long card name wraps without clipping",
+    "native peer minimum field edited to 400 and submitted with Return; URL and standing changed to below cutoff",
+    "native accessibility tree exposes named peer inputs, apply/reset buttons, field links, disclosures, labeled history images and their adjacent tables",
+    "native saved pngs inspected for signed magnitudes, ten tiles, two histories, long identity wrapping and full support/provenance footer",
+    "saved csv independently parsed for row/column order, exact native/display units, empty inapplicable rank fields and escaped textual formula prefix"
+  ],
+  "limits": [
+    "no VoiceOver or other screen-reader session was run",
+    "no comprehensive accessibility, contrast or keyboard-navigation audit is claimed",
+    "browser suite measures 320px document width and local table overflow; native visual inspection supplements those assertions",
+    "native screenshot/AX compositor intermittently needed a DevTools repaint; browser suite and saved-output evidence are recorded separately"
+  ]
+}

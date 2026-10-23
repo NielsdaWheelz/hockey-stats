@@ -40,6 +40,20 @@ export function Layout({ children }: { readonly children: ReactNode }) {
     pending.length === 1 && data?.available_seasons.includes(pending[0]!)
       ? pending[0]!
       : season;
+  const leagueState = typeof location.state?.leagueSearch === "string"
+    ? location.state.leagueSearch : "";
+  const leagueSearch = season
+    ? seasonSearch(location.pathname === "/" ? location.search : leagueState, season)
+    : new URLSearchParams();
+  for (const key of ["peers", "peerMin", "specialtyMin", "history", "metric"]) {
+    const value = new URLSearchParams(location.search).get(key);
+    if (value !== null) leagueSearch.set(key, value);
+  }
+  const recordedSearch = new URLSearchParams(leagueSearch);
+  recordedSearch.set("table", "observed");
+  recordedSearch.delete("strength");
+  recordedSearch.delete("sort");
+  recordedSearch.delete("dir");
   const changingSeason =
     navigation.state !== "idle" &&
     pendingSeasonChange(location, navigation.location);
@@ -82,6 +96,12 @@ export function Layout({ children }: { readonly children: ReactNode }) {
               recorded results and experimental estimates retain their own
               populations, numerical references and support.
             </p>
+            {data && (
+              <nav className="site-navigation" aria-label="player analysis navigation">
+                <Link to={`/?${leagueSearch}`}>player tables</Link>
+                <Link to={`/?${recordedSearch}`}>recorded 5v5 table</Link>
+              </nav>
+            )}
             {data && (
               <div className="season-control">
                 <label htmlFor="season-selection">season</label>

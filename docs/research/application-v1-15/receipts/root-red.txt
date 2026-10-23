@@ -1,0 +1,19 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: default discovery must include every overview identity
+
+undefined !== 84
+
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/.tmp-v1-15-root.mts:18:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: 84,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

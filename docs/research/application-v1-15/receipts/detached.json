@@ -1,0 +1,36 @@
+{
+  "source_read": "denied by operating-system sandbox",
+  "external_drive_read": "denied",
+  "api": [
+    {
+      "path": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200,
+      "bytes": 441795,
+      "ms": 53.92387497704476
+    },
+    {
+      "path": "/api/players/9000001?season=20232024",
+      "status": 200,
+      "bytes": 872958,
+      "ms": 21.396208030637354
+    },
+    {
+      "path": "/api/maps?season=20232024&players=8473507&family=observed&strength=5v5&view=effect",
+      "status": 200,
+      "bytes": 509048,
+      "ms": 11.92029204685241
+    },
+    {
+      "path": "/api/players/9000001/evidence?season=20232024&family=penalties",
+      "status": 200,
+      "bytes": 210876,
+      "ms": 4.562083049677312
+    },
+    {
+      "path": "/api/players/9000001/context?season=20232024&mode=on_off&population=recorded_all_attempts",
+      "status": 200,
+      "bytes": 209320,
+      "ms": 5.062666023150086
+    }
+  ]
+}

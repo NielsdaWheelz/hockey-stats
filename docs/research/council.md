@@ -1,5 +1,13 @@
 # council synthesis
 
+## v1-15 comparative-card/discovery implementation review — 2026-10-22
+
+three non-astra implementation agents owned data composition, discovery/content and card/history; root reviewed integration and native saved outputs, with an independent adversarial source reviewer. the assigned software slice is complete against actual typed schema7 fixture responses. [the receipt](application-v1-15/verification.md) records complete/partial three-year cards, all 21 table/strength combinations, overview-only identities, shared comparison reads, observed preservation, native 320px/200% checks and faithful png/csv outputs. real v1-03/06/12 card integration remains pending; synthetic cases do not close real analytical delivery.
+
+review repaired a schema-valid embedded observed identity contradiction and indistinguishable semantic sort labels, plus missing exact-family comparison rows, usage/support evidence, replacement uncertainty, duplicate controls and svg title warnings. no unresolved source finding remains. temporary tests/controllers were deleted after final green; attributed checked facts and compact receipts remain. pinned typecheck/build run after deletion.
+
+accepted costs: bounded annual scalar reads, wider scrolling tables, denser evidence and a tall saved footer preserving exact field/annual provenance. no new dependency, schema, producer, service or cache. native labeled controls and Return submission were checked; no VoiceOver session or comprehensive accessibility audit is claimed. primary serving files/databases/listener and original inputs/fits remain untouched. merge, activation and scientific admission are unassigned.
+
 ## v1-15 comparative-card/discovery specification review — 2026-10-22
 
 three independent quantity, systems and design reviewers clear [v1-15](../specs/v1-15-comparative-card-discovery.md) after root inspected merged schema7/v1-14 owners, the field crosswalk and the actual supplied s01 image. the user chose comparative cards and the value table as the new entry points, with recorded views one click away. this is documentation, code-contract and image review, not implemented behavior, rendered-output verification or scientific support.

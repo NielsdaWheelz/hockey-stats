@@ -30,22 +30,55 @@ export function PeerControls({
   settings,
   onChange,
   metric,
+  allCutoffs = false,
 }: {
   readonly settings: PeerSettings;
   readonly onChange: (settings: Partial<PeerSettings>) => void;
   readonly metric?: AnalysisMetric;
+  readonly allCutoffs?: boolean;
 }) {
   const id = useId();
-  const specialty = metric?.cutoff === "specialty";
-  const committed = specialty ? settings.specialtyMin : settings.peerMin;
-  const [minute, setMinute] = useState({
-    committed,
-    draft: String(committed),
-    error: "",
+  type Cutoff = "general" | "specialty";
+  const committed = {
+    general: settings.peerMin,
+    specialty: settings.specialtyMin,
+  };
+  const [minutes, setMinutes] = useState({
+    general: {
+      committed: settings.peerMin,
+      draft: String(settings.peerMin),
+      error: "",
+    },
+    specialty: {
+      committed: settings.specialtyMin,
+      draft: String(settings.specialtyMin),
+      error: "",
+    },
   });
-  if (minute.committed !== committed)
-    setMinute({ committed, draft: String(committed), error: "" });
-  if (metric?.cutoff === "census")
+  if (
+    minutes.general.committed !== committed.general ||
+    minutes.specialty.committed !== committed.specialty
+  ) {
+    setMinutes({
+      general:
+        minutes.general.committed === committed.general
+          ? minutes.general
+          : {
+              committed: committed.general,
+              draft: String(committed.general),
+              error: "",
+            },
+      specialty:
+        minutes.specialty.committed === committed.specialty
+          ? minutes.specialty
+          : {
+              committed: committed.specialty,
+              draft: String(committed.specialty),
+              error: "",
+            },
+    });
+  }
+  if (metric?.cutoff === "census" && !allCutoffs)
     return (
       <div className="reference-controls">
         <p>
@@ -55,6 +88,9 @@ export function PeerControls({
         </p>
       </div>
     );
+  const cutoffs: readonly Cutoff[] = allCutoffs
+    ? ["general", "specialty"]
+    : [metric?.cutoff === "specialty" ? "specialty" : "general"];
   return (
     <div className="reference-controls">
       <div className="peer-controls">
@@ -75,60 +111,90 @@ export function PeerControls({
             </select>
           </div>
         )}
-        <form
-          className="minute-control"
-          noValidate
-          onSubmit={(event) => {
-            event.preventDefault();
-            const value = parseMinutes(minute.draft);
-            if (value === undefined) {
-              setMinute({
-                ...minute,
-                error:
-                  "enter nonnegative whole minutes without leading zeros; minutes × 60 must be a safe integer.",
-              });
-              return;
-            }
-            setMinute({ committed: value, draft: String(value), error: "" });
-            onChange(specialty ? { specialtyMin: value } : { peerMin: value });
-          }}
-        >
-          <label htmlFor={`${id}-minimum`}>
-            {metric?.cutoff === "specialty" ? "specialty" : "general"} minimum
-            peer included minutes ·{" "}
-            {metric?.qualificationLabel ??
-              "observed personal and on-ice 5v5, separately"}
-          </label>
-          <div className="minute-input">
-            <input
-              id={`${id}-minimum`}
-              inputMode="numeric"
-              value={minute.draft}
-              aria-invalid={Boolean(minute.error)}
-              aria-describedby={minute.error ? `${id}-error` : undefined}
-              onChange={(event) =>
-                setMinute({
-                  ...minute,
-                  draft: event.currentTarget.value,
-                  error: "",
-                })
-              }
-            />
-            <button type="submit">apply peer minimum</button>
-          </div>
-          {minute.error && (
-            <p id={`${id}-error`} className="selection-error" role="alert">
-              {minute.error}
-            </p>
-          )}
-        </form>
+        {cutoffs.map((cutoff) => {
+          const minute = minutes[cutoff];
+          return (
+            <form
+              key={cutoff}
+              className="minute-control"
+              noValidate
+              onSubmit={(event) => {
+                event.preventDefault();
+                const value = parseMinutes(minute.draft);
+                if (value === undefined) {
+                  setMinutes((previous) => ({
+                    ...previous,
+                    [cutoff]: {
+                      ...previous[cutoff],
+                      error:
+                        "enter nonnegative whole minutes without leading zeros; minutes × 60 must be a safe integer.",
+                    },
+                  }));
+                  return;
+                }
+                setMinutes((previous) => ({
+                  ...previous,
+                  [cutoff]: {
+                    committed: value,
+                    draft: String(value),
+                    error: "",
+                  },
+                }));
+                onChange(
+                  cutoff === "specialty"
+                    ? { specialtyMin: value }
+                    : { peerMin: value },
+                );
+              }}
+            >
+              <label htmlFor={`${id}-${cutoff}-minimum`}>
+                {cutoff} minimum peer included minutes ·{" "}
+                {allCutoffs
+                  ? cutoff === "specialty"
+                    ? "pp and pk support, separately"
+                    : "each field's matched general support"
+                  : (metric?.qualificationLabel ??
+                    "observed personal and on-ice 5v5, separately")}
+              </label>
+              <div className="minute-input">
+                <input
+                  id={`${id}-${cutoff}-minimum`}
+                  inputMode="numeric"
+                  value={minute.draft}
+                  aria-invalid={Boolean(minute.error)}
+                  aria-describedby={
+                    minute.error ? `${id}-${cutoff}-error` : undefined
+                  }
+                  onChange={(event) => {
+                    const draft = event.currentTarget.value;
+                    setMinutes((previous) => ({
+                      ...previous,
+                      [cutoff]: { ...previous[cutoff], draft, error: "" },
+                    }));
+                  }}
+                />
+                <button type="submit">
+                  apply {allCutoffs ? `${cutoff} ` : ""}peer minimum
+                </button>
+              </div>
+              {minute.error && (
+                <p
+                  id={`${id}-${cutoff}-error`}
+                  className="selection-error"
+                  role="alert"
+                >
+                  {minute.error}
+                </p>
+              )}
+            </form>
+          );
+        })}
         <button
           type="button"
           onClick={() => {
-            setMinute({
-              committed: specialty ? 50 : 300,
-              draft: specialty ? "50" : "300",
-              error: "",
+            setMinutes({
+              general: { committed: 300, draft: "300", error: "" },
+              specialty: { committed: 50, draft: "50", error: "" },
             });
             onChange({ peers: "position", peerMin: 300, specialtyMin: 50 });
           }}
@@ -145,39 +211,33 @@ export function PeerControls({
   );
 }
 
-function distributionRows(
-  group: AnalysisPeerGroup,
-): readonly AnalysisRow[] {
-  const members = group.members.map(
-    (datum): AnalysisRow => ({
-      datum,
-      member: true,
-      incompatiblePeerCount: group.incompatiblePeerCount,
-      standing: {
-        kind: "ranked",
-        percentile: midpointPercentile(
-          datum.value!,
-          group.members.map((member) => member.value!),
-        )!,
-        n: group.members.length,
-        peerGroup: group.peerGroup,
-        cutoffMinutes: group.cutoffMinutes!,
-      },
-    }),
-  );
+function distributionRows(group: AnalysisPeerGroup): readonly AnalysisRow[] {
+  const members = group.members.map((datum): AnalysisRow => ({
+    datum,
+    member: true,
+    incompatiblePeerCount: group.incompatiblePeerCount,
+    standing: {
+      kind: "ranked",
+      percentile: midpointPercentile(
+        datum.value!,
+        group.members.map((member) => member.value!),
+      )!,
+      n: group.members.length,
+      peerGroup: group.peerGroup,
+      cutoffMinutes: group.cutoffMinutes!,
+    },
+  }));
   const outsiders = group.selected
     .filter(
       ({ datum }) =>
         !group.members.some((member) => member.playerId === datum.playerId),
     )
-    .map(
-      ({ datum, standing }): AnalysisRow => ({
-        datum,
-        standing,
-        member: false,
-        incompatiblePeerCount: group.incompatiblePeerCount,
-      }),
-    );
+    .map(({ datum, standing }): AnalysisRow => ({
+      datum,
+      standing,
+      member: false,
+      incompatiblePeerCount: group.incompatiblePeerCount,
+    }));
   return [...members, ...outsiders];
 }
 
@@ -191,6 +251,7 @@ export default function PeerDistributions({
   season,
   profileLink,
   exportValues = false,
+  showPeerControls = true,
 }: {
   readonly cohort: AnalysisCohort;
   readonly metric: AnalysisMetric;
@@ -204,6 +265,7 @@ export default function PeerDistributions({
     readonly state: unknown;
   };
   readonly exportValues?: boolean;
+  readonly showPeerControls?: boolean;
 }) {
   const id = useId();
   const [status, setStatus] = useState("");
@@ -295,12 +357,14 @@ export default function PeerDistributions({
           analytical examples are synthetic.
         </p>
       )}
-      <PeerControls
-        key={metric.cutoff}
-        settings={settings}
-        onChange={onPeerChange}
-        metric={metric}
-      />
+      {showPeerControls && (
+        <PeerControls
+          key={metric.cutoff}
+          settings={settings}
+          onChange={onPeerChange}
+          metric={metric}
+        />
+      )}
       {mismatch && (
         <p className="selection-error">
           the displayed values have incompatible quantity definitions or

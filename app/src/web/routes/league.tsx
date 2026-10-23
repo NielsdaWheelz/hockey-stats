@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import {
   Link,
   useLoaderData,
@@ -12,38 +12,72 @@ import { loadLeague } from "../client";
 import {
   parseMinutes,
   readDiscovery,
-  selectDiscovery,
+  readTableSelection,
+  readPeerSettings,
   teamOptions,
   seasonSearch,
   shouldRevalidateView,
   useCanonicalSearch,
   viewSearch,
   type Sort,
+  type PeerSettings,
 } from "../explorer";
 import {
   CoverageDetail,
   Evidence,
   GlobalGap,
   LoadError,
-  Minutes,
-  Quantity,
   playerName,
   teamName,
 } from "../presentation";
+import {
+  composeDiscoveryRows,
+  discoveryPreset,
+  discoveryTables,
+  filterDiscoveryRows,
+  sortDiscoveryRows,
+  discoveryCsvHeaders,
+  discoveryCsvRows,
+} from "../analysis-discovery";
+import {
+  DatumEvidence,
+  displayNumber,
+  standingText,
+  valueText,
+} from "../analysis-history";
+import { PeerControls } from "../peer-distributions";
+import { downloadCsv } from "../export";
+import { analysisMetric } from "../analysis-values";
 
 export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
   loadLeague(request.signal, new URL(request.url).searchParams);
 export const ErrorBoundary = LoadError;
 
-export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) =>
-  shouldRevalidateView(args, ["q", "sort", "dir", "position", "team", "min"]);
+export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) => {
+  const selection = readTableSelection(args.nextUrl.searchParams).selection;
+  const needsExactFamily =
+    (selection.table === "execution" || selection.table === "shootiness") &&
+    selection.strength !== "5v5";
+  return shouldRevalidateView(args, [
+    "q", "sort", "dir", "position", "team", "min",
+    "peers", "peerMin", "specialtyMin", "history",
+    ...(!needsExactFamily ? ["table", "strength"] : []),
+  ]);
+};
 
 export default function League() {
   const data = useLoaderData<typeof clientLoader>();
   const location = useLocation();
   const navigation = useNavigation();
   const [search, setSearch] = useSearchParams();
-  const { discovery, search: normalized } = readDiscovery(search);
+  const { selection, search: tableNormalized } = readTableSelection(search);
+  const preset = discoveryPreset(selection.table, selection.strength);
+  const { settings, search: peersNormalized } = readPeerSettings(tableNormalized);
+  const { discovery, search: normalized } = readDiscovery(
+    peersNormalized,
+    ["name", ...preset.columns.map(column => column.id)],
+    preset.defaultSort,
+  );
   const { q, sort, dir, position, team, min } = discovery;
   const [minute, setMinute] = useState({
     committed: min,
@@ -53,8 +87,22 @@ export default function League() {
   if (minute.committed !== min)
     setMinute({ committed: min, draft: String(min), error: "" });
   useCanonicalSearch(data.season.season, normalized);
-  const players = selectDiscovery(data.players, discovery);
-  const teams = teamOptions(data.players);
+  const rows = useMemo(
+    () => composeDiscoveryRows(data.overview, data.selectedCohort, preset.columns, settings),
+    [
+      data.overview, data.selectedCohort, selection.table, selection.strength,
+      settings.peers, settings.peerMin, settings.specialtyMin,
+    ],
+  );
+  const { rows: filtered, unknownTimeExcluded } = filterDiscoveryRows(
+    rows,
+    discovery,
+  );
+  const players = sortDiscoveryRows(filtered, sort, dir);
+  const teams = teamOptions(data.overview.players.map(row => row.person));
+  const sortGroupCount = sort === "name"
+    ? 0 : new Set(rows.map(row => row.cells[sort]!.semanticKey)).size;
+  const [exportError, setExportError] = useState("");
   const commit = (next: URLSearchParams, replace = false) => {
     if (next.toString() !== viewSearch(location, navigation.location).toString())
       setSearch(next, {
@@ -63,6 +111,21 @@ export default function League() {
         state: location.state,
         flushSync: true,
       });
+  };
+  const changePeers = (values: Partial<PeerSettings>) => {
+    const next = viewSearch(location, navigation.location);
+    for (const [key, value] of Object.entries(values)) next.set(key, String(value));
+    commit(next);
+  };
+  const profileSearch = (metric?: string) => {
+    const next = seasonSearch("", data.season.season);
+    for (const key of ["peers", "peerMin", "specialtyMin", "history"])
+      if (search.has(key)) next.set(key, search.get(key)!);
+    if (selection.table === "observed") next.set("view", "observed");
+    const selectedMetric = metric ?? search.get("metric");
+    if (selectedMetric && analysisMetric(selectedMetric)?.kind === "skater")
+      next.set("metric", selectedMetric);
+    return next;
   };
   const clear = () => {
     setMinute({ committed: 0, draft: "0", error: "" });
@@ -111,18 +174,76 @@ export default function League() {
   return (
     <>
       <section className="league-heading">
-        <h2>recorded 5v5 results</h2>
+        <h2>player discovery</h2>
         <p>
-          personal production and team attempts while on ice, with separate
-          matched time and coverage. unadjusted observations, not ability.
+          experimental seasonal estimates and recorded results. sort raw values;
+          each field retains its own support and annual comparison population.
         </p>
         <Link
-          to={`/compare?${seasonSearch("", data.season.season)}`}
+          to={`/compare?${profileSearch()}`}
           state={{ leagueSearch: `?${seasonSearch(search, data.season.season)}` }}
         >
           compare players
         </Link>
       </section>
+      <p className="experimental-status">
+        experimental estimates · seasonal levels, not forecasts or causal effects
+      </p>
+      <nav className="discovery-presets" aria-label="analytical table">
+        {discoveryTables.map(table => (
+          <button
+            key={table}
+            type="button"
+            aria-pressed={table === selection.table}
+            onClick={() => {
+              const next = viewSearch(location, navigation.location);
+              if (table === "overview") next.delete("table");
+              else next.set("table", table);
+              next.delete("strength");
+              const target = discoveryPreset(
+                table,
+                table === "spatial" || table === "execution" || table === "shootiness"
+                  ? "5v5" : null,
+              );
+              if (!["name", ...target.columns.map(column => column.id)]
+                .includes(next.get("sort") ?? target.defaultSort)) {
+                next.delete("sort");
+                next.delete("dir");
+              }
+              commit(next);
+            }}
+          >
+            {table === "overview" ? "value overview"
+              : table === "observed" ? "recorded 5v5" : table}
+          </button>
+        ))}
+      </nav>
+      {selection.strength !== null && (
+        <div className="strength-control">
+          <label htmlFor="table-strength">exact table strength</label>
+          <select
+            id="table-strength"
+            value={selection.strength}
+            onChange={event => {
+              const next = viewSearch(location, navigation.location);
+              next.set("strength", event.currentTarget.value);
+              const target = discoveryPreset(selection.table, event.currentTarget.value);
+              if (!["name", ...target.columns.map(column => column.id)]
+                .includes(next.get("sort") ?? target.defaultSort)) {
+                next.delete("sort");
+                next.delete("dir");
+              }
+              commit(next);
+            }}
+          >
+            {(selection.table === "spatial"
+              ? ["5v5", "pp", "pk"]
+              : ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"]
+            ).map(strength => <option key={strength}>{strength}</option>)}
+          </select>
+        </div>
+      )}
+      <PeerControls settings={settings} onChange={changePeers} allCutoffs />
       <GlobalGap season={data.season} />
       <div className="discovery-controls">
         <div className="search-control">
@@ -245,135 +366,137 @@ export default function League() {
       </div>
       <p className="control-note">
         matches listed season teams; results still cover all included season
-        games.
+        games. display filters never change percentile cohorts. a zero minimum includes
+        missing or zero observed time; a positive minimum uses available included observed 5v5 time in every table.
+        {min > 0 && ` ${unknownTimeExcluded} otherwise matching skaters excluded because observed time is unavailable.`}
       </p>
       <p role="status" className="result-count">
-        {players.length} of {data.players.length} published players
+        {players.length} of {data.overview.players.length} published skaters
       </p>
+      <button
+        type="button"
+        disabled={!players.length}
+        onClick={() => {
+          setExportError("");
+          try {
+            downloadCsv(
+              discoveryCsvHeaders,
+              discoveryCsvRows(data.publication, data.season, players, preset),
+              `${preset.table}${preset.strength ? `-${preset.strength}` : ""}-${data.season.season}-${data.publication.publication_id}.csv`,
+            );
+          } catch {
+            setExportError("table export failed; retry the download.");
+          }
+        }}
+      >
+        download visible table csv
+      </button>
+      {exportError && <p role="alert">{exportError}</p>}
       {players.length === 0 ? (
         <p className="empty-search">
-          no players match the active filters: name {q ? `“${q}”` : "any"};
-          position{" "}
-          {position === "all"
-            ? "all skaters"
-            : position === "f"
-              ? "reported forwards"
-              : "reported defense"}
-          ; team {team ?? "all"}; at least {min} on-ice included minutes.{" "}
-          <button type="button" onClick={clear}>
-            clear filters
-          </button>
+          no skaters match these filters.{" "}
+          <button type="button" onClick={clear}>clear filters</button>
         </p>
       ) : (
         <div
           className="table-scroll"
           tabIndex={0}
-          aria-label="player results table, scroll horizontally for all columns"
+          aria-label="player analysis table, scroll horizontally for all columns"
         >
-          <table className="league-table">
+          <table className="league-table discovery-table">
             <caption>
-              included season results · games means games with on-ice included
-              time; each population has its own matched 5v5 minutes
+              {selection.table} {selection.strength ?? ""} · raw values and neutral
+              standings; higher percentile means higher named value. included time
+              is observed 5v5. reported usage/count/time columns have no percentile.
             </caption>
             <thead>
               <tr>
                 {header("name", "player", "player name")}
                 <th scope="col">season teams</th>
                 <th scope="col">position</th>
-                {header("games", "games", "games with included time")}
-                {header("minutes", "on-ice min", "on-ice included minutes")}
-                {header("for60", "on-ice for/60", "on-ice attempts for/60")}
-                {header(
-                  "against60",
-                  "on-ice against/60",
-                  "on-ice attempts against/60",
-                )}
-                <th scope="col">on-ice coverage</th>
-                {header(
-                  "sog60",
-                  "shots on goal/60",
-                  "personal shots on goal/60",
-                )}
-                {header("goals60", "goals/60", "personal goals/60")}
-                {header(
-                  "primaryAssists60",
-                  "primary assists/60",
-                  "personal primary assists/60",
-                )}
-                {header(
-                  "personalMinutes",
-                  "personal min",
-                  "personal included minutes",
-                )}
-                <th scope="col">personal coverage</th>
+                {preset.columns.map(column => (
+                  <Fragment key={column.id}>
+                    {header(column.id, column.label, column.label)}
+                  </Fragment>
+                ))}
               </tr>
             </thead>
             <tbody>
-              {players.map((player) => (
-                <tr key={player.player_id}>
-                  <th scope="row" className="identity">
-                    <Link
-                      to={`/players/${player.player_id}?${seasonSearch("", data.season.season)}`}
-                      state={{ leagueSearch: `?${seasonSearch(search, data.season.season)}` }}
-                    >
-                      {playerName(player)}
-                    </Link>
-                  </th>
-                  <td>{player.teams.map(teamName).join(" / ")}</td>
-                  <td>{player.reported_position}</td>
-                  <td className="numeric">{player.games_with_included_time}</td>
-                  <td className="numeric">
-                    <Minutes seconds={player.metrics.included_seconds} />
-                  </td>
-                  <td className="numeric">
-                    <Quantity
-                      value={player.metrics.for_per60}
-                      metrics={player.metrics}
-                      rate
-                    />
-                  </td>
-                  <td className="numeric">
-                    <Quantity
-                      value={player.metrics.against_per60}
-                      metrics={player.metrics}
-                      rate
-                    />
-                  </td>
-                  <td>
-                    <CoverageDetail metrics={player.metrics} />
-                  </td>
-                  <td className="numeric">
-                    <Quantity
-                      value={player.personal.shots_on_goal_per60}
-                      metrics={player.personal}
-                      rate
-                      precision={2}
-                    />
-                  </td>
-                  <td className="numeric">
-                    <Quantity
-                      value={player.personal.goals_per60}
-                      metrics={player.personal}
-                      rate
-                      precision={2}
-                    />
-                  </td>
-                  <td className="numeric">
-                    <Quantity
-                      value={player.personal.primary_assists_per60}
-                      metrics={player.personal}
-                      rate
-                      precision={2}
-                    />
-                  </td>
-                  <td className="numeric">
-                    <Minutes seconds={player.personal.included_seconds} />
-                  </td>
-                  <td>
-                    <CoverageDetail metrics={player.personal} />
-                  </td>
-                </tr>
-              ))}
+              {players.map((row, index) => {
+                const active = sort === "name" ? null : row.cells[sort]!;
+                const previous = index ? players[index - 1]!.cells[sort] : null;
+                return (
+                  <Fragment key={row.person.player_id}>
+                    {active && sortGroupCount > 1 &&
+                      (!previous || previous.semanticKey !== active.semanticKey) && (
+                        <tr className="semantic-group">
+                          <th colSpan={preset.columns.length + 3} scope="rowgroup">
+                            sort definition: {active.semanticIdentityKnown
+                              ? active.definition : "meaning unavailable"}
+                          </th>
+                        </tr>
+                      )}
+                    <tr>
+                      <th scope="row" className="identity">
+                        <Link
+                          to={`/players/${row.person.player_id}?${profileSearch()}`}
+                          state={{ leagueSearch: `?${seasonSearch(search, data.season.season)}` }}
+                        >
+                          {playerName(row.person)}
+                        </Link>
+                      </th>
+                      <td>{row.person.teams.map(teamName).join(" / ") || "unavailable"}</td>
+                      <td>{row.person.reported_position ?? "unknown"}</td>
+                      {preset.columns.map(column => {
+                        const cell = row.cells[column.id]!;
+                        return (
+                          <td key={column.id} className="numeric analysis-cell">
+                            {cell.kind === "metric" ? (
+                              <>
+                                <Link
+                                  to={`/players/${row.person.player_id}?${profileSearch(column.id)}`}
+                                  state={{ leagueSearch: `?${seasonSearch(search, data.season.season)}` }}
+                                >
+                                  {valueText(cell.row.datum)} {cell.row.datum.metric.displayUnit}
+                                </Link>
+                                <span className="cell-standing">
+                                  {standingText(cell.row.standing)}
+                                  {cell.row.standing.peerGroup && ` · ${cell.row.standing.peerGroup}`}
+                                  {cell.row.standing.n !== null && ` · n=${cell.row.standing.n}`}
+                                  {cell.row.standing.cutoffMinutes !== null && ` · ≥${cell.row.standing.cutoffMinutes} min`}
+                                </span>
+                                <details>
+                                  <summary>field evidence</summary>
+                                  <DatumEvidence datum={cell.row.datum} />
+                                </details>
+                              </>
+                            ) : (
+                              <>
+                                <span>{cell.value === null
+                                  ? cell.reason ?? cell.status
+                                  : `${displayNumber(cell.value * cell.displayScale)} ${cell.displayUnit}`}</span>
+                                <details>
+                                  <summary>source / coverage</summary>
+                                  {cell.source && (
+                                    <p>
+                                      {cell.source.construction} · {cell.source.population} · {cell.source.definition}
+                                    </p>
+                                  )}
+                                  {cell.observedSupport ? (
+                                    <CoverageDetail
+                                      metrics={cell.observedSupport as Parameters<typeof CoverageDetail>[0]["metrics"]}
+                                    />
+                                  ) : <pre>{JSON.stringify(cell.evidence, null, 2)}</pre>}
+                                </details>
+                              </>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  </Fragment>
+                );
+              })}
             </tbody>
           </table>
         </div>

@@ -1,0 +1,55 @@
+{
+  "files": [
+    {
+      "name": "complete.png",
+      "bytes": 3236925,
+      "sha256": "bbdafeb8c07d3ea99898d793963b56009a94f23ec396131511746383c6d1953c",
+      "width": 1200,
+      "height": 8623
+    },
+    {
+      "name": "partial.png",
+      "bytes": 2409252,
+      "sha256": "07ef5e1eff49704fb7ea597b213aee2e070674e8eb6268d318a2bbbfebd57a33",
+      "width": 1200,
+      "height": 7009
+    },
+    {
+      "name": "retry.png",
+      "bytes": 3236925,
+      "sha256": "bbdafeb8c07d3ea99898d793963b56009a94f23ec396131511746383c6d1953c",
+      "width": 1200,
+      "height": 8623
+    },
+    {
+      "name": "navigation.png",
+      "bytes": 3236925,
+      "sha256": "bbdafeb8c07d3ea99898d793963b56009a94f23ec396131511746383c6d1953c",
+      "width": 1200,
+      "height": 8623
+    },
+    {
+      "name": "observed-preserved.png",
+      "bytes": 406740,
+      "sha256": "ce1e9bc8b569aa3960a8370178cb08f2b07dedaebb8cd2170b6d00718ec82a61",
+      "width": 1200,
+      "height": 1695
+    },
+    {
+      "name": "history-preserved.png",
+      "bytes": 536594,
+      "sha256": "2c9ed0672fe38c5cd9fa26edb0d776b752124d7567f8729678478f031b081208",
+      "width": 1200,
+      "height": 2172
+    },
+    {
+      "name": "visible-table.csv",
+      "bytes": 62708,
+      "sha256": "f63d3bb3c42bc4d9922a08a0fa50876ef5513d07f1a55c5aea90d161e39d148a"
+    }
+  ],
+  "csv_rows": 30,
+  "csv_columns": 64,
+  "snapshot_and_retry_byte_identical": true,
+  "checked": "native seconds/display minutes, empty unranked metric/rank columns, exact order and formula-like name quoting"
+}

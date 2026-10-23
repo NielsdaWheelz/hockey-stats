@@ -1,0 +1,29 @@
+additional annual observed parity 20242025 72
+additional annual observed parity 20252026 72
+publication response could not be used {
+  _tag: 'SchemaError',
+  message: 'Expected <filter>\n  at ["families"]["ledger"]["data"]'
+}
+publication response could not be used Error: conflicting methods catalog entry: method:ledger
+    at catalogs (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/src/web/client.ts:176:17)
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/src/web/client.ts:492:24)
+    at PrimitiveImpl.~effect/Effect/args (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:1078:22)
+    at PrimitiveImpl.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:981:22)
+    at FiberImpl.runLoop (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:654:41)
+    at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:595:23)
+    at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+    at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:589:27)
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:1159:17)
+    at Array.<anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:5160:17)
+publication response could not be used Error: responses describe different publications or displayed seasons
+    at samePublication (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/src/web/client.ts:139:11)
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/src/web/client.ts:489:9)
+    at Array.forEach (<anonymous>)
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/src/web/client.ts:488:17)
+    at PrimitiveImpl.~effect/Effect/args (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:1078:22)
+    at PrimitiveImpl.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:981:22)
+    at FiberImpl.runLoop (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:654:41)
+    at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:595:23)
+    at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+    at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-15/app/node_modules/effect/src/internal/effect.ts:589:27)
+root live green: 23 checks; observed endpoint parity across 72 rows and five fields

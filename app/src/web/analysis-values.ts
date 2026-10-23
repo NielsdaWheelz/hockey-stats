@@ -70,6 +70,20 @@ export type AnalysisMetricId = ObservedRateKey
   | `microstats.${keyof SkaterMicrostats}`
   | `goalie.${"ev" | "pk"}.${typeof goalieFields[number]}`;
 
+// one fixed card/table order; these are existing selectors, never additive terms.
+export const comparativeTileIds = [
+  "ledger.five_on_five_offense.league_goals",
+  "ledger.five_on_five_defense.league_goals",
+  "ledger.power_play_offense.league_goals",
+  "ledger.penalty_kill_defense.league_goals",
+  "ledger.finishing.league_goals",
+  "goals60",
+  "primaryAssists60",
+  "ledger.penalties_combined.league_goals",
+  "context.opponents.usage_minutes_per_appearance",
+  "context.teammates.usage_minutes_per_appearance",
+] as const satisfies readonly AnalysisMetricId[];
+
 export type AnalysisMetric = {
   readonly id: AnalysisMetricId;
   readonly kind: Person["kind"];
@@ -194,6 +208,9 @@ const definition = (
   displayScale: metric.unit === "fraction" ? 100 : 1,
   displayUnit: metric.unit === "fraction"
     ? metric.id.endsWith("difference") ? "percentage points" : "%"
+    : metric.unit === "goals_per_reference_basket" ? "goals per common workload"
+    : metric.unit === "minutes_per_appearance" ? "min per appearance"
+    : metric.unit === "per60" ? "per 60 min"
     : metric.unit
 });
 
@@ -937,15 +954,39 @@ export function selectHistoryValue(
   return datum(row.person, playerId, row.season.season, catalogs, metric, historyInputs(row.families, metric));
 }
 
+// overview carries the observed summary unchanged; its identity must agree
+// before a recorded value or its exposure can be attributed to this person.
+export function checkObservedIdentity(person: Person, summary: PlayerSummary): void {
+  if (
+    person.player_id !== summary.player_id ||
+    person.display_name !== summary.display_name ||
+    person.reported_position !== summary.reported_position ||
+    person.teams.length !== summary.teams.length ||
+    person.teams.some((team, index) =>
+      team.id !== summary.teams[index].id ||
+      team.abbreviation !== summary.teams[index].abbreviation,
+    )
+  )
+    throw new Error(`player ${person.player_id}: observed summary identity differs from its overview person`);
+}
+
 export function selectLeagueValues(response: LeagueResponse, metric: AnalysisMetric): AnalysisDatum[] {
+  // the overview already contains the exact recorded 5v5 envelope. keep the
+  // metric and its observed population semantics unchanged while selecting it.
+  const observedOverview = response.kind === "skater" && response.family === "overview" &&
+    response.strength === null && metric.kind === "skater" &&
+    metric.family === "observed" && metric.strength === "5v5" &&
+    observed.some(field => field.id === metric.id);
   if (
     response.kind !== metric.kind ||
-    response.family !== metric.family ||
-    response.strength !== metric.strength
+    !observedOverview && (response.family !== metric.family || response.strength !== metric.strength)
   )
     throw new Error("league response does not match the selected quantity request");
-  const make = (person: Person, inputs: ValueInputs) =>
-    datum(person, person.player_id, response.season.season, response, metric, inputs);
+  const make = (person: Person, inputs: ValueInputs) => {
+    if (inputs.observed.availability === "provided")
+      checkObservedIdentity(person, inputs.observed.data);
+    return datum(person, person.player_id, response.season.season, response, metric, inputs);
+  };
   switch (response.family) {
     case "overview":
       if (response.kind === "goalie") return response.players.map(row => {
@@ -995,4 +1036,14 @@ export function selectLeagueValues(response: LeagueResponse, metric: AnalysisMet
     default:
       throw new Error("selected quantity does not use this endpoint");
   }
+}
+
+// a left join preserves overview identity when a requested scalar family has no
+// row. this is an unavailable view datum, never a fabricated exchange result.
+export function selectMissingLeagueValue(response: LeagueResponse, metric: AnalysisMetric, person: Person): AnalysisDatum {
+  if (person.kind !== response.kind || person.season !== response.season.season ||
+    response.kind !== metric.kind || response.family !== metric.family || response.strength !== metric.strength)
+    throw new Error("missing family row does not match the selected quantity request");
+  return datum(person, person.player_id, response.season.season, response, metric,
+    emptyInputs("no published family row for this player-season"));
 }

@@ -117,6 +117,11 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           field's own window.
         </p>
       )}
+      {datum.workload !== null && (
+        <p>
+          published workload / field context: {JSON.stringify(datum.workload)}
+        </p>
+      )}
       {datum.reasonCodes.length > 0 && (
         <p>recorded coverage reasons: {datum.reasonCodes.join(", ")}</p>
       )}
@@ -341,6 +346,19 @@ function breakReason(
     scale,
   );
 }
+// all history renderers share values and continuity decisions; geometry stays local.
+export function prepareHistory(
+  points: readonly HistoryPoint[],
+  scale: HistoryScale,
+) {
+  return points.map((point, index) => ({
+    point,
+    value: plottedValue(point, scale),
+    breakBefore:
+      index === 0 ? null : breakReason(points[index - 1], point, scale),
+  }));
+}
+
 function referenceChanged(
   previous: HistoryPoint,
   current: HistoryPoint,
@@ -367,13 +385,15 @@ function positionChange(
   return `reported position group changed since ${seasonLabel(previous.season.season)}: ${before === "f" ? "forwards" : "defense"} → ${after === "f" ? "forwards" : "defense"}`;
 }
 function geometry(view: HistoryView) {
-  const values = view.points.map((point) => plottedValue(point, view.scale));
+  const prepared = prepareHistory(view.points, view.scale);
+  const values = prepared.map((point) => point.value);
   const domain =
     view.scale === "percentile"
       ? ([0, 100] as const)
       : plotDomain(values.filter((value): value is number => value !== null));
   return {
     values,
+    prepared,
     domain,
     x: (i: number) => 110 + (i * 980) / Math.max(1, view.points.length - 1),
     y: (value: number) =>
@@ -384,7 +404,7 @@ function geometry(view: HistoryView) {
 }
 
 function HistoryPlot({ view }: { readonly view: HistoryView }) {
-  const { values, domain, x, y } = geometry(view);
+  const { values, prepared, domain, x, y } = geometry(view);
   const nativeX = (index: number) => `${x(index) / 12}%`;
   const nativeY = (value: number) => 30 + ((y(value) - 70) * 130) / 220;
   return (
@@ -402,7 +422,7 @@ function HistoryPlot({ view }: { readonly view: HistoryView }) {
             {i > 0 &&
               values[i - 1] !== null &&
               values[i] !== null &&
-              !breakReason(view.points[i - 1], point, view.scale) && (
+              !prepared[i].breakBefore && (
                 <line
                   x1={nativeX(i - 1)}
                   x2={nativeX(i)}
@@ -542,7 +562,7 @@ function historySvg(view: HistoryView): string {
       `native unit: ${view.metric.unit}; display unit: ${view.metric.displayUnit}; display multiplier: ${view.metric.displayScale}`,
     );
     const chartTop = top;
-    const { values, domain, x, y } = geometry(view);
+    const { values, prepared, domain, x, y } = geometry(view);
     element("line", {
       x1: 110,
       x2: 1090,
@@ -565,7 +585,7 @@ function historySvg(view: HistoryView): string {
         i > 0 &&
         values[i - 1] !== null &&
         values[i] !== null &&
-        !breakReason(view.points[i - 1], point, view.scale)
+        !prepared[i].breakBefore
       )
         element("line", {
           x1: x(i - 1),

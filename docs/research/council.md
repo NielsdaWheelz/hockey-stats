@@ -1,5 +1,13 @@
 # council synthesis
 
+## v1-15 comparative-card/discovery implementation review — 2026-10-22
+
+three non-astra implementation agents owned data composition, discovery/content and card/history; root reviewed integration and native saved outputs, with an independent adversarial source reviewer. the assigned software slice is complete against actual typed schema7 fixture responses. [the receipt](application-v1-15/verification.md) records complete/partial three-year cards, all 21 table/strength combinations, overview-only identities, shared comparison reads, observed preservation, native 320px/200% checks and faithful png/csv outputs. real v1-03/06/12 card integration remains pending; synthetic cases do not close real analytical delivery.
+
+review repaired a schema-valid embedded observed identity contradiction and indistinguishable semantic sort labels, plus missing exact-family comparison rows, usage/support evidence, replacement uncertainty, duplicate controls and svg title warnings. no unresolved source finding remains. temporary tests/controllers were deleted after final green; attributed checked facts and compact receipts remain. pinned typecheck/build run after deletion.
+
+accepted costs: bounded annual scalar reads, wider scrolling tables, denser evidence and a tall saved footer preserving exact field/annual provenance. no new dependency, schema, producer, service or cache. native labeled controls and Return submission were checked; no VoiceOver session or comprehensive accessibility audit is claimed. primary serving files/databases/listener and original inputs/fits remain untouched. merge, activation and scientific admission are unassigned.
+
 ## v1-04 skating-source implementation review — 2026-10-22
 
 the assigned [feasibility slice](../specs/v1-04-skating-source-feasibility.md) is implemented in its isolated worktree, with non-astra implementation owners and independent source, systems and content review. fixed supplemental capture reuses the shared byte/receipt owner; offline binding owns attributed observations and strict compact/census contracts. existing six/four-source completeness and the concurrent right-rail contract remain intact. [verification](skating-v1-04/verification.md) records red/green/refactor evidence, source hashes, original captures, checked facts and the acquisition handoff.

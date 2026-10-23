@@ -6,25 +6,83 @@ import {
   useSearchParams,
   type ShouldRevalidateFunctionArgs,
 } from "react-router";
-import { HockeyId, type PlayerSummary, type Team } from "../shared/observed";
-import { analysisMetric, defaultAnalysisMetric, type AnalysisMetric } from "./analysis-values";
+import { HockeyId, type Team } from "../shared/observed";
 import {
-  matchingPlayers,
-  nameOrder,
-  playerName,
-  teamName,
-} from "./presentation";
+  analysisMetric,
+  defaultAnalysisMetric,
+  type AnalysisMetric,
+  type AnalysisMetricId,
+} from "./analysis-values";
+import { teamName, type PlayerIdentity } from "./presentation";
 
 export type Sort =
+  | AnalysisMetricId
   | "name"
   | "games"
   | "minutes"
-  | "for60"
-  | "against60"
-  | "sog60"
-  | "goals60"
-  | "primaryAssists60"
-  | "personalMinutes";
+  | "personalMinutes"
+  | "reportedAppearances"
+  | "reportedMinutes";
+export type AnalysisView = "comparative" | "observed";
+export type DiscoveryTable =
+  | "overview"
+  | "observed"
+  | "spatial"
+  | "execution"
+  | "shootiness"
+  | "penalties"
+  | "territory";
+export type TableSelection = {
+  readonly table: DiscoveryTable;
+  readonly strength:
+    | "5v5"
+    | "pp"
+    | "pk"
+    | "5v4"
+    | "5v3"
+    | "4v3"
+    | "4v5"
+    | "3v5"
+    | "3v4"
+    | null;
+};
+
+export function readView(search: URLSearchParams): {
+  readonly view: AnalysisView;
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const values = search.getAll("view");
+  const selected = values.length === 1 ? values[0] : undefined;
+  if (values.length && selected !== "comparative" && selected !== "observed")
+    next.delete("view");
+  return { view: selected === "observed" ? "observed" : "comparative", search: next };
+}
+
+export function readTableSelection(search: URLSearchParams): {
+  readonly selection: TableSelection;
+  readonly search: URLSearchParams;
+} {
+  const next = new URLSearchParams(search);
+  const tables: readonly DiscoveryTable[] = [
+    "overview", "observed", "spatial", "execution", "shootiness", "penalties", "territory",
+  ];
+  const values = search.getAll("table");
+  const selected = values.length === 1 ? values[0] : undefined;
+  const table = tables.find(value => value === selected) ?? "overview";
+  if (values.length && selected !== table) next.delete("table");
+  const strengths = search.getAll("strength");
+  const rawStrength = strengths.length === 1 ? strengths[0] : undefined;
+  const choices = table === "spatial"
+    ? ["5v5", "pp", "pk"] as const
+    : table === "execution" || table === "shootiness"
+      ? ["5v5", "5v4", "5v3", "4v3", "4v5", "3v5", "3v4"] as const
+      : [];
+  const strength = choices.find(value => value === rawStrength) ?? choices[0] ?? null;
+  if (strengths.length && rawStrength !== strength) next.delete("strength");
+  return { selection: { table, strength }, search: next };
+}
+
 export type Discovery = {
   readonly q: string;
   readonly sort: Sort;
@@ -45,29 +103,24 @@ export function parseMinutes(value: string): number | undefined {
   return Number.isSafeInteger(minutes * 60) ? minutes : undefined;
 }
 
-export function readDiscovery(search: URLSearchParams): {
+export function readDiscovery(
+  search: URLSearchParams,
+  allowedSorts: readonly Sort[],
+  defaultSort: Sort,
+): {
   readonly discovery: Discovery;
   readonly search: URLSearchParams;
 } {
   const next = new URLSearchParams(search);
   const sortValues = search.getAll("sort");
   const rawSort = sortValues.length === 1 ? sortValues[0] : undefined;
-  const sort: Sort =
-    rawSort === "name" ||
-    rawSort === "games" ||
-    rawSort === "minutes" ||
-    rawSort === "for60" ||
-    rawSort === "against60" ||
-    rawSort === "sog60" ||
-    rawSort === "goals60" ||
-    rawSort === "primaryAssists60" ||
-    rawSort === "personalMinutes"
-      ? rawSort
-      : "minutes";
+  const sort = allowedSorts.find(value => value === rawSort) ?? defaultSort;
   if (sortValues.length && rawSort !== sort) next.delete("sort");
   const directions = search.getAll("dir");
   const rawDirection = directions.length === 1 ? directions[0] : undefined;
-  const dir = rawDirection === "asc" ? "asc" : "desc";
+  const invalidSort = sortValues.length > 0 && rawSort !== sort;
+  const dir = !invalidSort && rawDirection === "asc" ? "asc" : "desc";
+  if (invalidSort) next.delete("dir");
   if (directions.length && rawDirection !== "asc" && rawDirection !== "desc")
     next.delete("dir");
   const positions = search.getAll("position");
@@ -117,10 +170,17 @@ export function readPeerSettings(search: URLSearchParams): {
   const specialties = search.getAll("specialtyMin");
   const specialty = specialties.length === 1 ? parseMinutes(specialties[0]) : undefined;
   if (specialties.length && specialty === undefined) next.delete("specialtyMin");
-  return { settings: { peers, peerMin: minimum ?? 300, specialtyMin: specialty ?? 50 }, search: next };
+  return {
+    settings: { peers, peerMin: minimum ?? 300, specialtyMin: specialty ?? 50 },
+    search: next,
+  };
 }
 
-export function readMetric(search: URLSearchParams, kind: "skater" | "goalie"): {
+export function readMetric(
+  search: URLSearchParams,
+  kind: "skater" | "goalie",
+  view = readView(search).view,
+): {
   readonly metric: AnalysisMetric;
   readonly search: URLSearchParams;
 } {
@@ -129,7 +189,12 @@ export function readMetric(search: URLSearchParams, kind: "skater" | "goalie"): 
   const selected = values.length === 1 ? analysisMetric(values[0]) : undefined;
   const metric = selected?.kind === kind ? selected : undefined;
   if (values.length && metric === undefined) next.delete("metric");
-  return { metric: metric ?? defaultAnalysisMetric(kind), search: next };
+  return {
+    metric: metric ?? (kind === "skater" && view === "comparative"
+      ? analysisMetric("ledger.league_total")!
+      : defaultAnalysisMetric(kind)),
+    search: next,
+  };
 }
 
 export function readHistoryScale(search: URLSearchParams): {
@@ -140,56 +205,14 @@ export function readHistoryScale(search: URLSearchParams): {
   const values = search.getAll("history");
   const selected = values.length === 1 ? values[0] : undefined;
   const scale = selected === "percentile" ? "percentile" : "raw";
-  if (values.length && selected !== "raw" && selected !== "percentile") next.delete("history");
+  if (values.length && selected !== "raw" && selected !== "percentile")
+    next.delete("history");
   return { scale, search: next };
 }
 
-export function selectDiscovery(
-  players: readonly PlayerSummary[],
-  discovery: Discovery,
-): PlayerSummary[] {
-  const selected = matchingPlayers(players, discovery.q).filter(
-    (player) =>
-      (discovery.position === "all" ||
-        (player.reported_position === "D" ? "d" : "f") ===
-          discovery.position) &&
-      (discovery.team === null ||
-        player.teams.some((team) => team.id === discovery.team)) &&
-      player.metrics.included_seconds >= discovery.min * 60,
-  );
-  const value = (player: PlayerSummary) =>
-    discovery.sort === "games"
-      ? player.games_with_included_time
-      : discovery.sort === "minutes"
-        ? player.metrics.included_seconds
-        : discovery.sort === "for60"
-          ? player.metrics.for_per60
-          : discovery.sort === "against60"
-            ? player.metrics.against_per60
-            : discovery.sort === "sog60"
-              ? player.personal.shots_on_goal_per60
-              : discovery.sort === "goals60"
-                ? player.personal.goals_per60
-                : discovery.sort === "primaryAssists60"
-                  ? player.personal.primary_assists_per60
-                  : player.personal.included_seconds;
-  return selected.sort((a, b) => {
-    if (discovery.sort === "name")
-      return (
-        (discovery.dir === "asc" ? 1 : -1) *
-          playerName(a).localeCompare(playerName(b), "en") || nameOrder(a, b)
-      );
-    const left = value(a),
-      right = value(b);
-    if (left === null) return right === null ? nameOrder(a, b) : 1;
-    if (right === null) return -1;
-    return (
-      (discovery.dir === "asc" ? left - right : right - left) || nameOrder(a, b)
-    );
-  });
-}
-
-export function teamOptions(players: readonly PlayerSummary[]): Team[] {
+export function teamOptions(
+  players: readonly Pick<PlayerIdentity, "teams">[],
+): Team[] {
   const names = new Map<string, Set<string>>();
   for (const player of players) {
     for (const team of player.teams) {

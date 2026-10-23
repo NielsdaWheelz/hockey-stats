@@ -1,0 +1,184 @@
+{
+  "checks": [
+    {
+      "name": "overview-only identities discoverable"
+    },
+    {
+      "name": "positive time cutoff excludes unknowns explicitly"
+    },
+    {
+      "name": "partial card keeps ten tiles",
+      "details": 11
+    },
+    {
+      "name": "partial card keeps both histories"
+    },
+    {
+      "name": "two complete comparative compositions"
+    },
+    {
+      "name": "partial observed comparison keeps other side"
+    },
+    {
+      "name": "duplicate selection explicit error"
+    },
+    {
+      "name": "observed profile card/maps/deployment/games preserved"
+    },
+    {
+      "name": "missing exact family row stays usable"
+    },
+    {
+      "name": "existing goalie profile remains separate"
+    },
+    {
+      "name": "full card signed terms/magnitudes"
+    },
+    {
+      "name": "full card headline/two histories"
+    },
+    {
+      "name": "headline qualifies independently of prior-only pp"
+    },
+    {
+      "name": "both peer cutoffs directly adjustable"
+    },
+    {
+      "name": "peer changes remain local"
+    },
+    {
+      "name": "one reset restores both cutoffs"
+    },
+    {
+      "name": "png failure leaves retry"
+    },
+    {
+      "name": "navigation changes card while prior export pending"
+    },
+    {
+      "name": "inflight export retains original snapshot"
+    },
+    {
+      "name": "visible csv contains metadata and signed raw values"
+    },
+    {
+      "name": "320px no document overflow",
+      "details": {
+        "client": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "name": "320px retains ten tiles and two plots"
+    },
+    {
+      "name": "320px wide table locally scrolls"
+    }
+  ],
+  "errors": [],
+  "exports": [
+    {
+      "name": "partial.png",
+      "bytes": 2409252,
+      "type": "image/png"
+    },
+    {
+      "name": "observed-preserved.png",
+      "bytes": 406740,
+      "type": "image/png"
+    },
+    {
+      "name": "history-preserved.png",
+      "bytes": 536594,
+      "type": "image/png"
+    },
+    {
+      "name": "complete.png",
+      "bytes": 3236925,
+      "type": "image/png"
+    },
+    {
+      "name": "retry.png",
+      "bytes": 3236925,
+      "type": "image/png"
+    },
+    {
+      "name": "navigation.png",
+      "bytes": 3236925,
+      "type": "image/png"
+    },
+    {
+      "name": "visible-table.csv",
+      "bytes": 62708,
+      "type": "text/csv;charset=utf-8"
+    }
+  ],
+  "measurements": [
+    {
+      "path": "/?season=20232024&q=fixture",
+      "settled_ms": 1837.5,
+      "html_bytes": 318957
+    },
+    {
+      "path": "/?season=20232024&q=fixture&min=1",
+      "settled_ms": 996.1000000238419,
+      "html_bytes": 191396
+    },
+    {
+      "path": "/players/9000002?season=20232024",
+      "settled_ms": 1996.4000000357628,
+      "html_bytes": 65989
+    },
+    {
+      "path": "/compare?season=20232024&a=9000001&b=9000002",
+      "settled_ms": 995,
+      "html_bytes": 153940
+    },
+    {
+      "path": "/compare?season=20232024&a=9000002&b=8473507&view=observed",
+      "settled_ms": 998.8999999761581,
+      "html_bytes": 625376
+    },
+    {
+      "path": "/compare?season=20232024&a=9000001&b=9000001",
+      "settled_ms": 993.6000000238419,
+      "html_bytes": 6209
+    },
+    {
+      "path": "/players/8473507?season=20232024&view=observed&peerMin=0",
+      "settled_ms": 1999.5999999642372,
+      "html_bytes": 664944
+    },
+    {
+      "path": "/compare?season=20232024&a=9000002&b=8473507&metric=execution.5v4.finishing_goals_per100_attempts",
+      "settled_ms": 1995.7000000476837,
+      "html_bytes": 99751
+    },
+    {
+      "path": "/players/9000004?season=20232024",
+      "settled_ms": 1996.8999999761581,
+      "html_bytes": 17612
+    },
+    {
+      "path": "/players/9000001?season=20232024",
+      "settled_ms": 1998.6000000238419,
+      "html_bytes": 157832
+    },
+    {
+      "path": "/?season=20232024&q=synthetic&sort=name",
+      "settled_ms": 798.1999999880791,
+      "html_bytes": 256621
+    },
+    {
+      "path": "/players/9000001?season=20232024",
+      "settled_ms": 1984.300000011921,
+      "html_bytes": 157832
+    },
+    {
+      "path": "/?season=20232024&q=synthetic",
+      "settled_ms": 998.1000000238419,
+      "html_bytes": 256943
+    }
+  ],
+  "status": "green"
+}

@@ -1,0 +1,19 @@
+{
+  "node": "v24.21.0",
+  "after_temporary_test_deletion": true,
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exit_code": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "exit_code": 0
+  },
+  "working_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-15/app",
+  "primary_protected_state_unchanged": true,
+  "owned_test_ports_closed": [
+    41915,
+    41916,
+    41917
+  ]
+}

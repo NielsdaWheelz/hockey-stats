@@ -1,5 +1,15 @@
 # council synthesis
 
+## v1-15 comparative-card/discovery specification review — 2026-10-22
+
+three independent quantity, systems and design reviewers clear [v1-15](../specs/v1-15-comparative-card-discovery.md) after root inspected merged schema7/v1-14 owners, the field crosswalk and the actual supplied s01 image. the user chose comparative cards and the value table as the new entry points, with recorded views one click away. this is documentation, code-contract and image review, not implemented behavior, rendered-output verification or scientific support.
+
+the handoff supplies the ten fixed tiles, both embedded histories, complete ledger detail, finite family tables, broader skater discovery, two-card comparison and full png/table csv. existing values/cohorts/history/export remain authoritative. overview identities include skaters without observed summaries; a narrow adapter selects the same observed values from that existing projection. shared history segments preserve annual semantics and gaps. no new endpoint, schema, source, fit, service or dependency is needed.
+
+review closes exact metadata column ids/units, a separate metadata csv encoding path without fabricated metrics, grouping numeric sorts by the active field's meaning, partial observed-comparison sides and per-series annual png context. goals/a1 remain recorded 5v5; finishing remains a common-workload contribution; counterpart usage is not skill. ten visible tiles are not ten additive ledger terms. missing ranks retain usable magnitudes, and general headline eligibility cannot hide prior-only specialties.
+
+accepted costs: denser layouts/wider tables, bounded annual reads and explicit field-level evidence; pending estimates remain visible at the new entry point. detached fixtures can establish this software slice alongside v1-01/02, while real v1-03/06/12 outputs still close actual card delivery. temporary implementation checks follow red → green → refactor → green then deletion; useful attributed fixtures/receipts remain. no new research prerequisite or activation follows. documentation link/anchor, consistency and whitespace checks accompany the handoff; source code, captures, fits and serving files remain unchanged.
+
 ## v1-14 history/cohort/export implementation review — 2026-10-22
 
 the assigned [v1-14 boundary](../specs/v1-14-history-cohorts-exports.md) is implemented and verified in its isolated task worktree. three implementing agents and independent domain, systems and content review checked finite typed selectors, exact field qualification, annual cohort composition, route state and shared exports. temporary red → green → refactor → green checks used actual typed fixture responses; native browser and saved-output checks cover the assigned content/export acceptance. the user waived dedicated accessibility/voiceover acceptance; this entry makes no such acceptance claim. [the receipt](application-v1-14/verification.md) records identities, checked expectations, saved outputs, request costs and limits.

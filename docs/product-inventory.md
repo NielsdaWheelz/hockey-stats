@@ -121,7 +121,7 @@ content owner: goalie card/details with shared rink/history. default modeled sto
 | embedded component history | three annual 5v5 offense/defense/finishing percentiles/magnitudes | m; same ledger values, no three-year forecast/trailing average |
 | footer/detail/export | common metadata, explicit observed/model tiles, n/cutoff, workload/prior-only roles; all ten components in detail | m/e/p; full-card png includes both histories |
 
-content owner: compact card/cohort plus shared history/export. the ten tiles are fixed; setting/territory stay in the complete analytical card and ledger detail rather than silently enter an undocumented extra total.
+content owner: compact card/cohort plus shared history/export. the ten tiles are fixed; setting/territory stay in the complete analytical card and ledger detail rather than silently enter an undocumented extra total. [v1-15](specs/v1-15-comparative-card-discovery.md) fixes complete composition, discovery, two-card comparison and exports over schema7; fixture software acceptance and real v1-03/06/12 card closure remain separate receipts.
 
 #### microstat skater — s02 and documented F/D variants
 

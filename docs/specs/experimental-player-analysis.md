@@ -138,6 +138,8 @@ these are ownership packages, each deliverable across multiple prs under the pla
 
 [v1-14](v1-14-history-cohorts-exports.md) consumes that boundary without another schema change: fixed field/cohort selectors, three annual peer populations, shared history and exports through the existing routes. detached fixtures establish these mechanisms; each later card still owes its complete composition and real producer-to-export evidence. it can proceed independently of factual/numerical producers once assigned, coordinating shared frontend files with other view owners.
 
+[v1-15](v1-15-comparative-card-discovery.md) supplies the complete comparative skater composition and surrounding discovery/comparison against those shared mechanisms. it can be implemented detached alongside source work; actual v1-03/06/12 outputs close its real card and exports. finite tables and the two embedded histories reuse published values; no new numerical, source or publication contract follows.
+
 ## d. operation and acceptance
 
 run one declared baseline per family and five chronological annual states, plus the bounded numerical checks in the appendices: thirty execution/goalie, thirty spatial and twenty mechanism head-states, with sixteen final-head continuations. initializations and setter-em inner solves add actual computation; eighty states is not eighty optimizer calls. no grid search, automatic feature search, bootstrap-refit campaign or extra seasons. begin with fixtures and representative real preparation, solve and common-panel projection to measure dimensions, time and memory. measurements determine chunk sizes and honest cost estimates, not a new scientific gate. do not silently reduce forty modes, populations or references to meet an invented deadline.

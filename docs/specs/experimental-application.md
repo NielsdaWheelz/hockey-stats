@@ -123,6 +123,8 @@ for additive maps `integrated_value` remains the mass sum. evidence ratios live 
 
 [v1-14](v1-14-history-cohorts-exports.md) fixes the shared browser handoff over these merged schema7 interfaces: finite field selectors, exact qualification accessors, annual cohort composition, selected-field history and png/csv reuse. no new schema, endpoint or numerical producer. its bounded consumers extend current profiles/skater comparisons; the five complete card compositions and each analytical map/card export remain their later owners' acceptance.
 
+[v1-15](v1-15-comparative-card-discovery.md) composes the complete comparative card, finite family tables and two-card comparison from those owners. the user chose the comparative card/value table as the entry points, with explicit recorded navigation. overview `Person` identities keep skaters without observed summaries discoverable. a finite observed-in-overview selector adapter and shared one-/three-series history preparation extend existing mechanisms; no new schema or endpoints. complete comparative pngs include both embedded histories; table csv retains field-specific support and meaning. real producer delivery remains distinct from fixture acceptance.
+
 ## card compositions and shared display rules
 
 five fixed compositions, with exact slots in the [crosswalk](../product-inventory.md#v1-field-crosswalk-and-card-acceptance). all share identity/provenance, units, supported workload and missingness; methods/definitions are one click away and essential meaning survives export. content owners write labels against these quantities before implementation. neither current forecasts nor private model names are copied.

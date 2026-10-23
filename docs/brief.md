@@ -70,6 +70,7 @@ the accepted frontend cost is more content design, rendering and producer/schema
 | temporal meaning of ability | underlying level across the selected season | a late-season improvement remains blended with earlier play; no claim of season-end form |
 | website interaction | explore published analyses; run new fits separately | interactive filters query available results; new adjusted estimates require a separate analytical run |
 | first player discovery | compact league-wide table plus name search | publish a sortable player-summary index with links to profiles and comparisons |
+| v1-15 entry points, confirmed 2026-10-22 | comparative skater card and value table lead; recorded views one click away | unfinished model fields remain visible as pending; no automatic observed substitute. this preference assigns no activation |
 | long-term comparison tools | tables for sorting and ranking; distribution charts locating a player | comparisons need explicit populations and uncertainty; an ordered table alone does not establish meaningful separation |
 | publication history | serve the active publication; keep one previous valid publication for rollback | recover application code through git history; no archived builds or historical publication browser |
 | publication intent | explicitly activate a checked candidate with truthful observed/experimental/supported meanings | software checks do not certify science; successful computation does not replace active results |

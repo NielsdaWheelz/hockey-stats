@@ -2,6 +2,8 @@
 
 full implementation handoff, 2026-10-22. [the plan](../plan.md) owns assignment; this document assigns no execution. read the [program](experimental-player-analysis.md#a-evidence-and-preparation). this is independent of the running v1-01 preparation and v1-13 publication work.
 
+implementation is complete and independently verified, including all 6,560 real games and 13,120 resolved game-team slots. [execution and acceptance](../research/coaches-v1-02/verification.md) retain exact identities, source limitations and receipts.
+
 ## outcome and limits
 
 one supplemental capture command and one offline binder produce a checked, game-dated coach selection for the five admitted regular seasons, `20212022..20252026`: 6,560 games, 13,120 home/away dispositions. subsequent fits explicitly consume this selection without reparsing raw responses or rebuilding base preparation.
@@ -16,7 +18,7 @@ accepted costs: additional sequential requests/storage, a small reviewed identit
 
 the [2026-09-30 inspection](../research/source-audit.md#additional-source-evidence-without-the-drive) found `/gameInfo/awayTeam/headCoach/default` and its home counterpart in [right-rail](https://api-web.nhle.com/v1/gamecenter/2025020001/right-rail), without a top-level game id. the [official roster report](https://www.nhl.com/scores/htmlreports/20252026/RO020001.HTM) corroborates the two names. these establish a source candidate, not admitted five-season coverage.
 
-on 2026-10-22, three read-only right-rail probes returned 403; the web reader also could not open that endpoint. no raw source files were captured in this specification task. the cause and ordinary capture-client access remain unestablished. [source-access issue](../issues/coach-source-access.md).
+on 2026-10-22, three read-only right-rail probes returned 403; the web reader also could not open that endpoint. no raw source files were captured in that specification task. the cause was unestablished. later production-client execution succeeded for all five seasons; [the completed source verification](../research/coaches-v1-02/verification.md#live-source-execution) resolves the access issue without attributing the earlier 403s.
 
 when execution is assigned, freeze five inventory games, one per season, preferring existing fixtures; capture them first with the production command. inspect bodies, identity/context and both names. expand only seasons whose probe supplies a structurally usable, identity-compatible response with at least one nonblank coach name. a failed/empty probe does not prove the whole season inaccessible: mark remaining requests deferred with the access, transport or content reason, not failed or inspected. during expansion, the first 403/429 or two consecutive transport failures stop that season's batch; retain receipts and resume only by an explicit ordinary retry selection. no evasion or automatic retries. isolated missing names remain data rather than a reason to retry every game.
 

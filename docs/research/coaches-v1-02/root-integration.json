@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "fixture_games": 49,
+  "independent_expected_slots": 98,
+  "fixture_game_records_equal_pinned": true,
+  "real_games": 6560,
+  "real_resolved_slots": 13120,
+  "real_artifact_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+  "source_sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+  "shared_reader_sha256": "8571b6cef87c991a41a0f2c666828bec31a1d37a07b3156569e3bb0ee8a69e4e",
+  "temporary_fixture_output": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/coaches-v1-02-integration-zjykjrjw/fixture",
+  "temporary_fixture_member_hashes": {
+    "identities.json": "8d1dfbc2774f2cf8cd5cb59c06dcc5758de2822d12f31a5f533fbbcecd6882a4",
+    "selection.json": "34aa6d9f32ae528d09d70f481baba14932622589f888208e08d044d53b10cbff",
+    "coverage.json": "358196733b2212ccc0c49b93f942fd86d49d435aaeeb6983ba7fe2ed35f5294d",
+    "coaches.json": "37fe3f300c679aed44d60c0970212512d0c46348be1243e894b6ff86de4b5669"
+  },
+  "temporary_output_deleted": true,
+  "typescript_check": {
+    "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/node_modules/typescript/bin/tsc -p app/tsconfig.json --noEmit",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-02",
+    "exit_code": 0
+  }
+}

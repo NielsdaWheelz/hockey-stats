@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "pass_independent_review_complete",
+  "incoming_main": "659aa2b",
+  "conflicts_resolved": [
+    "analysis/src/hockey_stats/captures.py",
+    "docs/plan.md",
+    "docs/research/council.md",
+    "docs/specs/v1-02-dated-coaches.md",
+    "fixtures/README.md"
+  ],
+  "source_identities": {
+    "analysis/src/hockey_stats/captures.py": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/analysis/src/hockey_stats/captures.py",
+      "sha256": "8571b6cef87c991a41a0f2c666828bec31a1d37a07b3156569e3bb0ee8a69e4e"
+    },
+    "app/src/operator/capture.ts": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/app/src/operator/capture.ts",
+      "sha256": "f72a7199490be2a239c6a19756cb94cf77e3fe26dd620af73918e2f692480220"
+    },
+    "app/src/operator/skating-capture.ts": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/app/src/operator/skating-capture.ts",
+      "sha256": "e809470a17b8558d8bd0cb99c4fa05115c6ffe25033e5df82c9138cbd5f240cb"
+    },
+    "docs/plan.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/docs/plan.md",
+      "sha256": "1f32cadf70b8ed4d6f417236718ff2c323be9ce3e3bd300a85ebcc59a3f2e01c"
+    },
+    "docs/research/council.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/docs/research/council.md",
+      "sha256": "b907882363dac71fa7fe8f91ae85d11870c4d6531de13064701b3b00a8c2d15b"
+    },
+    "docs/specs/v1-02-dated-coaches.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/docs/specs/v1-02-dated-coaches.md",
+      "sha256": "f1bcee34d6512ae050241aea24e44fec6dcdf49dae25bea15286d3f32a283dd0"
+    },
+    "fixtures/README.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/fixtures/README.md",
+      "sha256": "3f91e8134bd53862ca5d8ff41f92c0c52e87c71188e86aad60ff8d297c47b9d1"
+    },
+    "docs/research/source-audit.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/docs/research/source-audit.md",
+      "sha256": "13adde1dced43b88beea95acaa3e58c25b14ba97cb4285cc9b00243dc489ed8e"
+    },
+    "docs/model-features.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/docs/model-features.md",
+      "sha256": "bb111694d8b8af94a3c7e61a45ee46bf1d4f8d261ef468d61cb545a3af2626d0"
+    },
+    "docs/research/coaches-v1-02/verification.md": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/docs/research/coaches-v1-02/verification.md",
+      "sha256": "6d0c336b9fc12b099fef7a3148f7f7d6c34d3813afbec99e96a0256fde34ed3c"
+    }
+  },
+  "checks": {
+    "temporary_reader_groups": 5,
+    "green_seconds": 0.102,
+    "unique_original_receipts": {
+      "core": 245,
+      "reference": 20,
+      "right_rail": 9,
+      "skating": 3
+    },
+    "invalid_status_cases": 15,
+    "missing_required_or_optional_receipt_cases": 4,
+    "skating_closed_key_or_identity_mutations": 5,
+    "right_rail_url_mutations": 1,
+    "incoming_council_sections_preserved": 74,
+    "incoming_coaching_spec_section": "historical facts retained; resolved issue link points to completed verification",
+    "local_markdown_links_checked": 544,
+    "git_diff_check": "pass",
+    "unmerged_files": 0
+  },
+  "red": {
+    "reason": "merge-conflict syntax prevented shared-reader import",
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/pr-delivery/integration-red.log",
+      "sha256": "2fb1fda90cc123c17fa9d8bb8db2f832e853942a52610b3d514408173f486045"
+    }
+  },
+  "green": {
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/pr-delivery/integration-green.log",
+      "sha256": "284aee2e9ec7210915041307a97051a4858d25248b56ce8dbdd9df88126167e9"
+    }
+  },
+  "app_capture_inspection": "incoming skating CaptureIdentity cases and exported captureResponse preserved; diff from incoming main adds captureRightRail only; existing six/default and landing control flows unchanged",
+  "network_requests": 0,
+  "reacquisition": false,
+  "real_artifact_rebound": false,
+  "temporary_driver": {
+    "path": "/tmp/hockey-v1-02-integration/reader_temp.py",
+    "deleted": true,
+    "sha256": "62ecebcf09ceb2ee79a2ac70fb2fcab14525d3d09c5fbd674a5ef13827fa3e02",
+    "deletion_authority": "root confirmed three independent integration groups clear plus pinned typecheck, 49-fixture equality and unchanged real artifact read"
+  },
+  "scope": "shared receipt integration and current documentation status; original source/fits/publications remain external and untouched",
+  "root_validation": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/pr-delivery/root-integration.json",
+    "sha256": "25f38a04e364d334a2c1cefcb0c0c4425fd08af61653b28a0e159faa58f3c6c1"
+  },
+  "independent_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/pr-delivery/independent-integration.json",
+    "sha256": "beee86a600a8fe0d65bc7902d510d435b13e835ddbddec9093385fcd292508b1"
+  }
+}

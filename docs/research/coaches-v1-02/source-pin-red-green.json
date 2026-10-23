@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "kind": "first-original-context-pin",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/analysis/src/hockey_stats/coaches.py",
+    "sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45"
+  },
+  "original_capture_root": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01",
+  "purpose": "fixture-tests-on-original-bodies",
+  "red": {
+    "log": "/tmp/hockey-v1-02-pin/red.log",
+    "exit_code": 1,
+    "failures": 7,
+    "errors": 1,
+    "meaning": "originals falsely conflicted at shiftChart and lacked seasonSeries corroborators"
+  },
+  "red_parent": {
+    "log": "/tmp/hockey-v1-02-pin/red-parent.log",
+    "exit_code": 1,
+    "failures": 2,
+    "meaning": "malformed selected-side containers previously treated as absent id"
+  },
+  "green": {
+    "log": "/tmp/hockey-v1-02-pin/green.log",
+    "exit_code": 0,
+    "test_groups": 5,
+    "seconds": 5.153
+  },
+  "test_driver": "/tmp/hockey-v1-02-pin/test_pin_temp.py",
+  "temporary_driver_deleted": false,
+  "contract": {
+    "report_fields": 10,
+    "html_prefixes": {
+      "gameSummary": "GS",
+      "eventSummary": "ES",
+      "playByPlay": "PL",
+      "faceoffSummary": "FS",
+      "faceoffComparison": "FC",
+      "rosters": "RO",
+      "shotSummary": "SS",
+      "toiAway": "TV",
+      "toiHome": "TH"
+    },
+    "shiftChart": "/stats/shiftcharts?id=<selected_game_id>",
+    "seasonSeries": "unique exact selected id; preserve seven corroborators at original same index; absent/null neutral; malformed or missing/duplicate membership conflicts; retain malformed parent at exact pointer only when needed"
+  },
+  "network_requests_by_agent": 0
+}

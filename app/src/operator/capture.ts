@@ -91,6 +91,20 @@ export const captureGame = ({
     return records;
   });
 
+export const captureRightRail = ({ gameId, outDirectory }: {
+  readonly gameId: string;
+  readonly outDirectory: string;
+}): Effect.Effect<CaptureRecord[], PlatformError, FileSystem.FileSystem | HttpClient.HttpClient> =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    yield* fs.makeDirectory(outDirectory);
+    return [yield* captureResponse({
+      identity: { gameId, source: "right-rail" },
+      url: `https://api-web.nhle.com/v1/gamecenter/${gameId}/right-rail`,
+      outDirectory,
+    })];
+  });
+
 // the existing core receipt protects against accidentally selecting another game.
 // captureResponse exclusively creates the landing leaf before any request.
 export const captureLanding = ({ gameId, outDirectory }: {

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "temporary-binder-verification",
+  "purpose": "fixture",
+  "recorded_at": "2026-10-22T22:19:56.735807+00:00",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-02/analysis/src/hockey_stats/coaches.py",
+    "sha256": "33a9aff733323d11bd2fd5898f3b30bde5bb02f1fdf799d5f5b6830926275808"
+  },
+  "red": {
+    "exit_code": 1,
+    "reason": "module absent before implementation",
+    "log": "/tmp/hockey-v1-02-binder/red.log",
+    "tests_written_before_product_source": true
+  },
+  "green": {
+    "command": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "/tmp/hockey-v1-02-binder/test_binder_temp.py"
+    ],
+    "environment": {
+      "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-02/analysis/src"
+    },
+    "exit_code": 0,
+    "log": "/tmp/hockey-v1-02-binder/green.log",
+    "test_groups": 4
+  },
+  "tests": "/tmp/hockey-v1-02-binder/test_binder_temp.py",
+  "temporary_driver_deleted": true,
+  "real_acquisition": "not_run",
+  "limitations": [
+    "synthetic fixture proof only",
+    "candidate report paths require first-original inspection before real expansion",
+    "real identity table intentionally empty without source review"
+  ],
+  "cleanup": "temporary drivers removed after final green; fixtures and receipts retained"
+}

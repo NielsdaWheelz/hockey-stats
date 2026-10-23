@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "purpose": "fixture",
+  "seasons": [
+    {
+      "season": "20242025",
+      "corpus_manifest": "prior-corpus.json",
+      "sha256": "bf346ed682d240447e89a71d494fab4485bc65c2d23ebbfefd2e877ec5579c88",
+      "game_ids": [
+        "2024020001"
+      ],
+      "captures": [
+        {
+          "game_id": "2024020001",
+          "capture": {
+            "directory": "captures/2024020001",
+            "receipt_sha256": "2ceaa9aa812b2798e59f8b7295d9a3d5e718aaabe25660d00f1d4ba5283430e8"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "corpus_manifest": "corpus.json",
+      "sha256": "b360722a0e594f6b6b5862315caddfa0ff1bdd76cedd9f0a2cb670b69984264c",
+      "game_ids": [
+        "2025020001",
+        "2025020002",
+        "2025020003",
+        "2025020004",
+        "2025020005",
+        "2025020006",
+        "2025020007",
+        "2025020008",
+        "2025020009",
+        "2025020010",
+        "2025020011",
+        "2025020012",
+        "2025020013",
+        "2025020014",
+        "2025020015",
+        "2025020016",
+        "2025020017",
+        "2025020018",
+        "2025020019",
+        "2025020020",
+        "2025020021",
+        "2025020022",
+        "2025020023",
+        "2025020024",
+        "2025020025",
+        "2025020026",
+        "2025020027",
+        "2025020028",
+        "2025020029",
+        "2025020030",
+        "2025020031",
+        "2025020032",
+        "2025020033",
+        "2025020034",
+        "2025020035",
+        "2025020036",
+        "2025020037",
+        "2025020038",
+        "2025020039",
+        "2025020040",
+        "2025020041",
+        "2025020042",
+        "2025020043",
+        "2025020044",
+        "2025020045",
+        "2025020046",
+        "2025020047",
+        "2025020048"
+      ],
+      "captures": [
+        {
+          "game_id": "2025020001",
+          "capture": {
+            "directory": "captures/2025020001",
+            "receipt_sha256": "2bcd013d06be467f292bd27b1e8b19d5adf3ce333f26a3f3a751d14c6384befb"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020002",
+          "capture": {
+            "directory": "captures/2025020002",
+            "receipt_sha256": "738ff78257df9f02e4d5943df99cefc2c401c944243222f0a907373c595ebee3"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020003",
+          "capture": {
+            "directory": "captures/2025020003",
+            "receipt_sha256": "c2e7ae7caafcad3f74b44de41b18fca175275b414951573bef3dd0e02237a4dd"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020004",
+          "capture": {
+            "directory": "captures/2025020004",
+            "receipt_sha256": "18351472edc0cd66399c407ea43ef6c6bb130c49392fac1ca9010ab9aceab8d9"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020005",
+          "capture": {
+            "directory": "captures/2025020005",
+            "receipt_sha256": "11880909c76dc6351911a766b8ede3aa5303f3fd27187641456a0be1d237be8e"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020006",
+          "capture": {
+            "directory": "captures/2025020006",
+            "receipt_sha256": "1f38a64921fe045dde4ce6a3ecba6b673d0b0a1a4feb4a53ff5226a85d431792"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020007",
+          "capture": {
+            "directory": "captures/2025020007",
+            "receipt_sha256": "4fa2ca049ebfc8f10c2fccceedb71d9c7c674234574847d95a6f92c85a5f6383"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020008",
+          "capture": {
+            "directory": "captures/2025020008",
+            "receipt_sha256": "b9ec06d6801dbd28b622ade8186e834ea003eeb252ea096802cf18ba9bc15959"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020009",
+          "capture": {
+            "directory": "captures/2025020009",
+            "receipt_sha256": "ecc7f72edb1538a97dd04aa2080eecefca13eb05834a5aa9a02ca51c655dfcc3"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020010",
+          "capture": {
+            "directory": "captures/2025020010",
+            "receipt_sha256": "a5bb506086bd556881377a5d4dfa30c45c083ea32a9d0e2531aded2e0b45a789"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020011",
+          "capture": {
+            "directory": "captures/2025020011",
+            "receipt_sha256": "b7ad7f970dca9cdbe8d3e79cb57499385fa4f5f74abc84aebc16cb13dbe1d395"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020012",
+          "capture": {
+            "directory": "captures/2025020012",
+            "receipt_sha256": "36db7196c3d1c403c102c9ca982a56f05ddcfca3283e4fe14df3cb2015f85e06"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020013",
+          "capture": {
+            "directory": "captures/2025020013",
+            "receipt_sha256": "40e2d083614008caae8f50f08dda0eb92d3135e1ec7d8cdc8c7337d666ca5725"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020014",
+          "capture": {
+            "directory": "captures/2025020014",
+            "receipt_sha256": "8ff871652980df3e7788667b73dc69005a8b21071ee9b9d922ee9b8c6b67cb69"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020015",
+          "capture": {
+            "directory": "captures/2025020015",
+            "receipt_sha256": "622a3ae4673b1a73aad0f7320d50e262ccbde01dade7adcf1ae0ccdb2e9e49af"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020016",
+          "capture": {
+            "directory": "captures/2025020016",
+            "receipt_sha256": "5443d5d30219a5665ae8ae922f5d59cc9698711c66ba7be7af36d8a2a2cec8bc"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020017",
+          "capture": {
+            "directory": "captures/2025020017",
+            "receipt_sha256": "87cdac1b0b4e21bec5de3cec01f55e92b644e7f72a81427b8ef3a3c3dd7cf149"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020018",
+          "capture": {
+            "directory": "captures/2025020018",
+            "receipt_sha256": "4548753cd2189a3ca3aea3b9f21362423eabfe59e28f2552e9e6aaeaa8977a7c"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020019",
+          "capture": {
+            "directory": "captures/2025020019",
+            "receipt_sha256": "b46caf199802142291eef034e79303fd1a72ff101396333b39d6c3a14b76a754"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020020",
+          "capture": {
+            "directory": "captures/2025020020",
+            "receipt_sha256": "6685611a41998ed535b6fad1fafb66f9c4eba79f68c56f8228735ddd1c27b1b1"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020021",
+          "capture": {
+            "directory": "captures/2025020021",
+            "receipt_sha256": "cccae6462638fddf66036be2933db246e3320053da77d8ac2743ad163757e811"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020022",
+          "capture": {
+            "directory": "captures/2025020022",
+            "receipt_sha256": "3311627330376dba75ecbf81213b454c0c21efd36e28f8159a751f0f5e884c66"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020023",
+          "capture": {
+            "directory": "captures/2025020023",
+            "receipt_sha256": "14eb4402eb7d5471f1f6b8a3bf0849990d5babe22695922be9a2218f78cca731"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020024",
+          "capture": {
+            "directory": "captures/2025020024",
+            "receipt_sha256": "aa820331cfc9be785d33015827a6d7b2c2566e2f2daf0e1730d8692354efd720"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020025",
+          "capture": {
+            "directory": "captures/2025020025",
+            "receipt_sha256": "b959bb6f85e4ddf80bbf94daf2d60d5748ae6ee49f5153036714864c6c055b3e"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020026",
+          "capture": {
+            "directory": "captures/2025020026",
+            "receipt_sha256": "df5ab0fce173f386508f38f6afc8d093437418983b4d140ab9fbfbaba008fcb3"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020027",
+          "capture": {
+            "directory": "captures/2025020027",
+            "receipt_sha256": "c4d08e5f323ae6e15e73cb68154af6fc2d527b636436bdfaf8b2a8312be09963"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020028",
+          "capture": {
+            "directory": "captures/2025020028",
+            "receipt_sha256": "9cb9ddfa21013b49fd75d3c95124fa256f54fde371402384069f1f68392994c8"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020029",
+          "capture": {
+            "directory": "captures/2025020029",
+            "receipt_sha256": "7f995fb175f6cc031b28a4041fd7ae1b62a09825045b76a15e5b7e3d450e5147"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020030",
+          "capture": {
+            "directory": "captures/2025020030",
+            "receipt_sha256": "eeefb0a8dd18d9f308e0a57c26c51b6844087d84e462bb1527eac904fd9771b0"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020031",
+          "capture": {
+            "directory": "captures/2025020031",
+            "receipt_sha256": "579984df6e608b945e1e76fd00f93ee8616f0314fc3650fcad1b28626236ccee"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020032",
+          "capture": null,
+          "not_acquired_reason": "not_requested",
+          "explanation": "synthetic explicit acquisition disposition"
+        },
+        {
+          "game_id": "2025020033",
+          "capture": null,
+          "not_acquired_reason": "probe_deferred",
+          "explanation": "synthetic explicit acquisition disposition"
+        },
+        {
+          "game_id": "2025020034",
+          "capture": {
+            "directory": "captures/2025020034",
+            "receipt_sha256": "7b1a14e4eb4109fb3b9c79616ca4ada4946af4d741b476aa9e80665e26087cae"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020035",
+          "capture": {
+            "directory": "captures/2025020035",
+            "receipt_sha256": "42b71ec918de77ab22cf9352ee6444897c4170c47a4867af2a9946d12438b136"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020036",
+          "capture": {
+            "directory": "captures/2025020036",
+            "receipt_sha256": "164b2b738075e2a1e51be4f14373a405d00c835f62f3dc112d90de6b4c922e52"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020037",
+          "capture": {
+            "directory": "captures/2025020037",
+            "receipt_sha256": "56ec631e2450150122c49ed1c631613ea340d6de68683514e641fcc62a516440"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020038",
+          "capture": {
+            "directory": "captures/2025020038",
+            "receipt_sha256": "519387b86399c00730f5966f0001c4e962078ad68a4558a185766473d87fa4e6"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020039",
+          "capture": {
+            "directory": "captures/2025020039",
+            "receipt_sha256": "5599f1f794cdb854b7653248e52c8c3782915b4f5d4e0e0df8083126a88b501f"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020040",
+          "capture": {
+            "directory": "captures/2025020040",
+            "receipt_sha256": "19f6e5df56bb35a91b42f014d438d2b30bedec14cd38842a3e01e039e3bb35dd"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020041",
+          "capture": {
+            "directory": "captures/2025020041",
+            "receipt_sha256": "e2f6a1b6ce6b8741655082f4f754a87399e487eb94315f85a4d06cffa251903f"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020042",
+          "capture": {
+            "directory": "captures/2025020042",
+            "receipt_sha256": "8d9c6b6256b95c52f36e83af6002ec2bef0f820b520a999e588c96074c0f18cb"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020043",
+          "capture": {
+            "directory": "captures/2025020043",
+            "receipt_sha256": "41ac17203dd48269e1149df91486bbee5b01dc93204bb595eaefd49d4e46ce9a"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020044",
+          "capture": {
+            "directory": "captures/2025020044",
+            "receipt_sha256": "67133e0ed076b37dac5d81dd46288c014a6ca2bce4e0c012582ae1c455b1fd97"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020045",
+          "capture": {
+            "directory": "captures/2025020045",
+            "receipt_sha256": "86cddc89093f000713eaf80744e8286f537279854bd4fc5078548f4b446af99c"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020046",
+          "capture": {
+            "directory": "captures/2025020046",
+            "receipt_sha256": "5ed4d583783926aff0ce35c60b2da05114e527916577008b077c61b4685a8126"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020047",
+          "capture": {
+            "directory": "captures/2025020047",
+            "receipt_sha256": "40bd96c009697a3135657a0fa6ac23cf86ab4110b31c03177f46b895455857fd"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        },
+        {
+          "game_id": "2025020048",
+          "capture": {
+            "directory": "captures/2025020048",
+            "receipt_sha256": "9b12be549955434b8f1c367ac131b34f79922d5330191386e11a1d6cf8c08f32"
+          },
+          "not_acquired_reason": null,
+          "explanation": null
+        }
+      ]
+    }
+  ]
+}

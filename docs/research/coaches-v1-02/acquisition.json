@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "purpose": "real",
+  "acquisition_status": "complete",
+  "selection": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/expansion-execution-01/selection.json",
+  "selection_sha256": "77d982f6c9bc9e7752f2b33ffa7a5fa61d793d3ac25d0369294bf427f53db05d",
+  "initial_request_bound": 6560,
+  "total_requests": 6560,
+  "probe_requests": 5,
+  "controller_incident_requests_preserved_and_reused": 5,
+  "batch_new_requests": 6550,
+  "batch_reused": 10,
+  "deferred_games": 0,
+  "unsuccessful_requests": 0,
+  "seasons": [
+    {
+      "season": "20212022",
+      "games": 1312,
+      "http_status_counts": {
+        "200": 1312
+      },
+      "body_bytes": 6477097,
+      "receipt_bytes": 872480
+    },
+    {
+      "season": "20222023",
+      "games": 1312,
+      "http_status_counts": {
+        "200": 1312
+      },
+      "body_bytes": 6457317,
+      "receipt_bytes": 872480
+    },
+    {
+      "season": "20232024",
+      "games": 1312,
+      "http_status_counts": {
+        "200": 1312
+      },
+      "body_bytes": 6410158,
+      "receipt_bytes": 872480
+    },
+    {
+      "season": "20242025",
+      "games": 1312,
+      "http_status_counts": {
+        "200": 1312
+      },
+      "body_bytes": 6423376,
+      "receipt_bytes": 872480
+    },
+    {
+      "season": "20252026",
+      "games": 1312,
+      "http_status_counts": {
+        "200": 1312
+      },
+      "body_bytes": 6543153,
+      "receipt_bytes": 872480
+    }
+  ],
+  "body_bytes": 32311101,
+  "receipt_bytes": 4362400,
+  "retrieval_range": {
+    "first": "2026-10-23T01:48:32.654Z",
+    "last": "2026-10-23T02:47:32.361Z"
+  },
+  "batch_started_at": "2026-10-23T01:58:30.194Z",
+  "batch_finished_at": "2026-10-23T02:47:32.772Z",
+  "batch_wall_seconds": 2942.578,
+  "source": "nhl-reported head coach at recorded retrieval time; not verified bench attendance",
+  "request_log": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/expansion-execution-01/requests.jsonl",
+  "controller_incident": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/controller-incident.json"
+}

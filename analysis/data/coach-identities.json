@@ -1,0 +1,2260 @@
+{
+  "schema_version": 1,
+  "purpose": "real",
+  "coaches": [
+    {
+      "coach_id": "coach-adam-foote",
+      "display_name": "Adam Foote"
+    },
+    {
+      "coach_id": "coach-alain-vigneault",
+      "display_name": "Alain Vigneault"
+    },
+    {
+      "coach_id": "coach-anders-sorensen",
+      "display_name": "Anders Sorensen"
+    },
+    {
+      "coach_id": "coach-andrew-brunette",
+      "display_name": "Andrew Brunette"
+    },
+    {
+      "coach_id": "coach-andre-tourigny",
+      "display_name": "André Tourigny"
+    },
+    {
+      "coach_id": "coach-barry-trotz",
+      "display_name": "Barry Trotz"
+    },
+    {
+      "coach_id": "coach-bob-boughner",
+      "display_name": "Bob Boughner"
+    },
+    {
+      "coach_id": "coach-brad-larsen",
+      "display_name": "Brad Larsen"
+    },
+    {
+      "coach_id": "coach-brad-shaw",
+      "display_name": "Brad Shaw"
+    },
+    {
+      "coach_id": "coach-bruce-boudreau",
+      "display_name": "Bruce Boudreau"
+    },
+    {
+      "coach_id": "coach-bruce-cassidy",
+      "display_name": "Bruce Cassidy"
+    },
+    {
+      "coach_id": "coach-craig-berube",
+      "display_name": "Craig Berube"
+    },
+    {
+      "coach_id": "coach-dj-smith",
+      "display_name": "D.J. Smith"
+    },
+    {
+      "coach_id": "coach-dallas-eakins",
+      "display_name": "Dallas Eakins"
+    },
+    {
+      "coach_id": "coach-dan-bylsma",
+      "display_name": "Dan Bylsma"
+    },
+    {
+      "coach_id": "coach-dan-muse",
+      "display_name": "Dan Muse"
+    },
+    {
+      "coach_id": "coach-darryl-sutter",
+      "display_name": "Darryl Sutter"
+    },
+    {
+      "coach_id": "coach-dave-hakstol",
+      "display_name": "Dave Hakstol"
+    },
+    {
+      "coach_id": "coach-dave-lowry",
+      "display_name": "Dave Lowry"
+    },
+    {
+      "coach_id": "coach-dave-tippett",
+      "display_name": "Dave Tippett"
+    },
+    {
+      "coach_id": "coach-david-quinn",
+      "display_name": "David Quinn"
+    },
+    {
+      "coach_id": "coach-dean-evason",
+      "display_name": "Dean Evason"
+    },
+    {
+      "coach_id": "coach-derek-king",
+      "display_name": "Derek King"
+    },
+    {
+      "coach_id": "coach-derek-lalonde",
+      "display_name": "Derek Lalonde"
+    },
+    {
+      "coach_id": "coach-dominique-ducharme",
+      "display_name": "Dominique Ducharme"
+    },
+    {
+      "coach_id": "coach-don-granato",
+      "display_name": "Don Granato"
+    },
+    {
+      "coach_id": "coach-drew-bannister",
+      "display_name": "Drew Bannister"
+    },
+    {
+      "coach_id": "coach-gerard-gallant",
+      "display_name": "Gerard Gallant"
+    },
+    {
+      "coach_id": "coach-glen-gulutzan",
+      "display_name": "Glen Gulutzan"
+    },
+    {
+      "coach_id": "coach-greg-cronin",
+      "display_name": "Greg Cronin"
+    },
+    {
+      "coach_id": "coach-jacques-martin",
+      "display_name": "Jacques Martin"
+    },
+    {
+      "coach_id": "coach-jared-bednar",
+      "display_name": "Jared Bednar"
+    },
+    {
+      "coach_id": "coach-jay-woodcroft",
+      "display_name": "Jay Woodcroft"
+    },
+    {
+      "coach_id": "coach-jeff-blashill",
+      "display_name": "Jeff Blashill"
+    },
+    {
+      "coach_id": "coach-jeremy-colliton",
+      "display_name": "Jeremy Colliton"
+    },
+    {
+      "coach_id": "coach-jim-hiller",
+      "display_name": "Jim Hiller"
+    },
+    {
+      "coach_id": "coach-jim-montgomery",
+      "display_name": "Jim Montgomery"
+    },
+    {
+      "coach_id": "coach-joe-sacco",
+      "display_name": "Joe Sacco"
+    },
+    {
+      "coach_id": "coach-joel-quenneville",
+      "display_name": "Joel Quenneville"
+    },
+    {
+      "coach_id": "coach-john-hynes",
+      "display_name": "John Hynes"
+    },
+    {
+      "coach_id": "coach-john-tortorella",
+      "display_name": "John Tortorella"
+    },
+    {
+      "coach_id": "coach-jon-cooper",
+      "display_name": "Jon Cooper"
+    },
+    {
+      "coach_id": "coach-kris-knoblauch",
+      "display_name": "Kris Knoblauch"
+    },
+    {
+      "coach_id": "coach-lane-lambert",
+      "display_name": "Lane Lambert"
+    },
+    {
+      "coach_id": "coach-lindy-ruff",
+      "display_name": "Lindy Ruff"
+    },
+    {
+      "coach_id": "coach-luke-richardson",
+      "display_name": "Luke Richardson"
+    },
+    {
+      "coach_id": "coach-marco-sturm",
+      "display_name": "Marco Sturm"
+    },
+    {
+      "coach_id": "coach-martin-st-louis",
+      "display_name": "Martin St. Louis"
+    },
+    {
+      "coach_id": "coach-mike-sullivan",
+      "display_name": "Mike Sullivan"
+    },
+    {
+      "coach_id": "coach-mike-yeo",
+      "display_name": "Mike Yeo"
+    },
+    {
+      "coach_id": "coach-pascal-vincent",
+      "display_name": "Pascal Vincent"
+    },
+    {
+      "coach_id": "coach-patrick-roy",
+      "display_name": "Patrick Roy"
+    },
+    {
+      "coach_id": "coach-paul-maurice",
+      "display_name": "Paul Maurice"
+    },
+    {
+      "coach_id": "coach-peter-deboer",
+      "display_name": "Peter DeBoer"
+    },
+    {
+      "coach_id": "coach-peter-laviolette",
+      "display_name": "Peter Laviolette"
+    },
+    {
+      "coach_id": "coach-rick-bowness",
+      "display_name": "Rick Bowness"
+    },
+    {
+      "coach_id": "coach-rick-tocchet",
+      "display_name": "Rick Tocchet"
+    },
+    {
+      "coach_id": "coach-rod-brindamour",
+      "display_name": "Rod Brind'Amour"
+    },
+    {
+      "coach_id": "coach-ryan-huska",
+      "display_name": "Ryan Huska"
+    },
+    {
+      "coach_id": "coach-ryan-warsofsky",
+      "display_name": "Ryan Warsofsky"
+    },
+    {
+      "coach_id": "coach-scott-arniel",
+      "display_name": "Scott Arniel"
+    },
+    {
+      "coach_id": "coach-sheldon-keefe",
+      "display_name": "Sheldon Keefe"
+    },
+    {
+      "coach_id": "coach-spencer-carbery",
+      "display_name": "Spencer Carbery"
+    },
+    {
+      "coach_id": "coach-todd-mclellan",
+      "display_name": "Todd McLellan"
+    },
+    {
+      "coach_id": "coach-travis-green",
+      "display_name": "Travis Green"
+    }
+  ],
+  "aliases": [
+    {
+      "reported_name": "Adam Foote",
+      "applies_to": null,
+      "coach_id": "coach-adam-foote",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020019",
+          "side": "home",
+          "receipt_sha256": "798feb777a98f632811f5366b7ef86fcf2f65d4e546092818b98cca90536c0a7",
+          "body_sha256": "c643a1fbbadba7e804235210c88ef40cf5d8d5d848278d3cfc30c564f3883bd4",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Alain Vigneault",
+      "applies_to": null,
+      "coach_id": "coach-alain-vigneault",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020018",
+          "side": "home",
+          "receipt_sha256": "8808e085b74c157d8644b7fde2d081ae44bbdbc07c9081775d74e683d0f869ad",
+          "body_sha256": "21cf9394c4af23ab6471b671407cf4fffd40e41ec46d83d24e1845018dbcdf1c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Anders Sorensen",
+      "applies_to": null,
+      "coach_id": "coach-anders-sorensen",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20242025",
+          "game_id": "2024020427",
+          "side": "home",
+          "receipt_sha256": "42ac52e2221680ac99757d6980e769660ca06457ec72eeb6eeee7f13f7771536",
+          "body_sha256": "b5ea8a67b4ee88aa4ccb13d858c0bb1d73c1ca444dad3d3229474499fe7ad663",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Andrew Brunette",
+      "applies_to": null,
+      "coach_id": "coach-andrew-brunette",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020111",
+          "side": "away",
+          "receipt_sha256": "044cf6927bc60190978f809041a1a99b13f926a3d4bce9efaead16d456470321",
+          "body_sha256": "31e0e0074f995a3882c8ace1f0e02ca4a5f1b9434555171e23e04c4bfdae357e",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020001",
+          "side": "away",
+          "receipt_sha256": "114e82c0b0d18994853502beb5439ac46901a04441aa44393d07bb1e6b74689f",
+          "body_sha256": "4a7635daa3d314f13cafd7c02bd7e727c10ce8a7cae107f96493f85edd27af01",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020017",
+          "side": "home",
+          "receipt_sha256": "3b52a9df21b2843a8575f2b40746439fab847ba6d01626a9bb5a063c3fd9769a",
+          "body_sha256": "3c560c13f0a1f9622a45800d1a78771bbcd3a45888d2196dede4604df3dced65",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020016",
+          "side": "home",
+          "receipt_sha256": "a4d31129938f8c6e5e3aa5a58bbdfd2f0120ab8ae763cc975d025f9ad35ef37d",
+          "body_sha256": "139d8b464c4d47edc70b068a60447a91e65b787bca60ca4116cc78e23c00843e",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "André Tourigny",
+      "applies_to": null,
+      "coach_id": "coach-andre-tourigny",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020013",
+          "side": "away",
+          "receipt_sha256": "d78f6bb4e50c6bc1ac53cad177e3deedfbac35a6b71803fa1090692910f669e9",
+          "body_sha256": "20d015e341609262982d93550dff49a5085d93bebaa92b60969087ed95abd43b",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020011",
+          "side": "away",
+          "receipt_sha256": "5c93df6ffcbde6e392b37f70cc59a49a0daffc6d78956104787f883a373760d3",
+          "body_sha256": "f824a5918bfc9a85d775b552372ab8aa841a9bc19d10c6db4b3911c02c98333d",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020017",
+          "side": "away",
+          "receipt_sha256": "1f850861c2e8e07bc112571f65b90489c1136fe1a61edd6279c9bca063a2f8c8",
+          "body_sha256": "66c9d4dfb75cf4497098a82f04194c95065d66a9aea57ef2d9b8a6d4eb9fd05d",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020005",
+          "side": "home",
+          "receipt_sha256": "7e62336bee5dec966b1395903eb5520f869dc81c0b559f57e9e8999c7e7f85ff",
+          "body_sha256": "de9fd39316a075441dc7a75a7e9a920723e79ec8cbff9549a621454cdf3fbe9f",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020018",
+          "side": "away",
+          "receipt_sha256": "ee7af2e583f022a8771e798315d8ee206afe2cc87fd34101743426ad3bc85835",
+          "body_sha256": "cae1e00f1c36c6a831429da76c6a590450b6f8f93f545b9e2f5520ccd8990b99",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Barry Trotz",
+      "applies_to": null,
+      "coach_id": "coach-barry-trotz",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020012",
+          "side": "away",
+          "receipt_sha256": "996203bbd620336d55dc7f94e4514d328d8651ba17b0d68b651acf24fa6cfb64",
+          "body_sha256": "9b0913928016578338822564838b91d04d150a7583b5ffc65c579f9c4b47df3f",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Bob Boughner",
+      "applies_to": null,
+      "coach_id": "coach-bob-boughner",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020033",
+          "side": "home",
+          "receipt_sha256": "7ce5b414263ea198b6eb7f27482138655588a222ea7b418f5530cb6fe3d1bd7c",
+          "body_sha256": "86441297b0ca0613c2aa065dd0407ed44564745b18d190fd0f4c019417b60396",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Brad Larsen",
+      "applies_to": null,
+      "coach_id": "coach-brad-larsen",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020013",
+          "side": "home",
+          "receipt_sha256": "d78f6bb4e50c6bc1ac53cad177e3deedfbac35a6b71803fa1090692910f669e9",
+          "body_sha256": "20d015e341609262982d93550dff49a5085d93bebaa92b60969087ed95abd43b",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020006",
+          "side": "away",
+          "receipt_sha256": "9b1cc08b8c903a848173e9f7f3f2ecee6de347838ade70b482d9e8bf071e9a78",
+          "body_sha256": "5af4ebb97cb227515b5398796da2a475cd3a4b76e6bd4798606301e658c36ddb",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Brad Shaw",
+      "applies_to": null,
+      "coach_id": "coach-brad-shaw",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20242025",
+          "game_id": "2024021146",
+          "side": "home",
+          "receipt_sha256": "5bebc3f06784cb8b5f93e6f7af3741daa64500b28b80ee7c4ac3f2e77b6a1416",
+          "body_sha256": "8abfc179c1d2afb1aefb5bc14f178aaf486f30b5ac3165f15ced6ea894faa8ca",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Bruce Boudreau",
+      "applies_to": null,
+      "coach_id": "coach-bruce-boudreau",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020386",
+          "side": "home",
+          "receipt_sha256": "90b0655156f9b999a3d4ed49ec41c71ac45d7a8d191c8358e04bdbfc026df143",
+          "body_sha256": "ea98c741566b23004c62adc4081063cb70454bbdb1cfefee7e707d878d9ff020",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020010",
+          "side": "away",
+          "receipt_sha256": "48579f6d1fdfabb7a5ef7b3271ea8dcbf96659c912332598fe163b1fb5f5aae4",
+          "body_sha256": "e39206bbd0cea7bea3aaf9bb285c131286583f60d0237a0b0f34173bcca87207",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Bruce Cassidy",
+      "applies_to": null,
+      "coach_id": "coach-bruce-cassidy",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020020",
+          "side": "home",
+          "receipt_sha256": "c206166831badc02bf3d3f1e3d17004cb0177a8dca648c17b396363c88600966",
+          "body_sha256": "2338f567a43936dfa5b37325e588b59cde31290fd78235b56e4f486c9029a94c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020004",
+          "side": "away",
+          "receipt_sha256": "5588c51ea2db2f863c90a659d63eb64ca2efaa1439e124335f83c03869ae5eae",
+          "body_sha256": "b0ab52dc67422031fc52dd1461a373239dc6515a60532ead6450922f12b4120a",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020003",
+          "side": "home",
+          "receipt_sha256": "b400351027d5dabd513357b7513875b5dfa84191f5075871f652f59150d93588",
+          "body_sha256": "c561f815f359121724048d3f86ad6f68a2ec117cbd39d70aa4e20b22f2b8ffb9",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020010",
+          "side": "home",
+          "receipt_sha256": "b5414dced51ca996788d76c43b542a8ded7d512614254d109b99af638cb762a1",
+          "body_sha256": "467b2fc02c3b96f5ffcc16bb3bf94e7776ac75cb46004de85a894191262bb9c1",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020007",
+          "side": "home",
+          "receipt_sha256": "cadd2226aff243ec16e4453f4137dd518ae568163d10e4d81a6c653e24084b2a",
+          "body_sha256": "29650c0b27f1e3db7e47b700801c62c716d3e22836e3436ec120c99fd2b81323",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Craig Berube",
+      "applies_to": null,
+      "coach_id": "coach-craig-berube",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020030",
+          "side": "away",
+          "receipt_sha256": "0e6f01fad6c6d25692b579f8e3eca355b31faa4849ec9fcf0c033b333edfc84a",
+          "body_sha256": "90a1a2083b8d2a8ccdd51e184fed7b676e45b00514def6f51b5e414ac7e5ca31",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020033",
+          "side": "home",
+          "receipt_sha256": "4dc41cc4604c41898637776208402d5f23100c3a8d2a9215b8a02b81c16051fe",
+          "body_sha256": "f71613e1dc5edccd8c870e3ea439aa48d1a04c29ea270fad65d98ecf28e772b8",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020013",
+          "side": "away",
+          "receipt_sha256": "a8e072c6126d9f6f663eed738d01439c1605911628b6bf7c25d65d8152448a99",
+          "body_sha256": "02f4634f2ba8b808e274c696641b59635ec6aa815fcf049fb9af1b46d37446c0",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020006",
+          "side": "away",
+          "receipt_sha256": "e2adae9a34038c004da3f4dbb874234b4ffc6cfca81c1ba0d500876c5461a832",
+          "body_sha256": "abbb244d460ef0c5d0192397472409c3d4abf2cb051517dfc36e2e07ca48f559",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020004",
+          "side": "home",
+          "receipt_sha256": "f1a7d462b71b1a362b5de49e10a104cbb0e5ee66605efb815cac6b32f1b525f7",
+          "body_sha256": "a10f5019c2d8d47b2a06c4696533a5eacf6f2f613944b846a04322353bdd47c7",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "D.J. Smith",
+      "applies_to": null,
+      "coach_id": "coach-dj-smith",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020008",
+          "side": "home",
+          "receipt_sha256": "e7a19d64812288dad67f9cb4430dcf638c5228945f6b47c068291b61e92ec79c",
+          "body_sha256": "553a3f58f6da9718da1496ca233021f89a01a04403e9bbc3598c067b4204cca0",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020013",
+          "side": "away",
+          "receipt_sha256": "99ca4ac1b88d148c7e058ac59a76aabe231db8806556251d22b27013de09ad24",
+          "body_sha256": "4a1b015218ff6a525a4f53ede078b2dfa3c2ca733e8e087517ede7331c25063a",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020004",
+          "side": "away",
+          "receipt_sha256": "39d6d84a5490906fc88e1300a72c1e72b2e15053bde011a5c94d6845b764936a",
+          "body_sha256": "16e323a1733fa88ce9ca0086699b523cde208a547942b51230f491ff98417c41",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020958",
+          "side": "home",
+          "receipt_sha256": "4e20bec764d57565db84c2973a7e17f27652a7aa07ea48debe500096f6fa6929",
+          "body_sha256": "53fd9b6213739b3e0284c234655bca940355ff2a7f451bcd64c772483dce95ca",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dallas Eakins",
+      "applies_to": null,
+      "coach_id": "coach-dallas-eakins",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020015",
+          "side": "home",
+          "receipt_sha256": "1ae3c03beae7008ad55ab7c869839c7ab3790811ae8211f52952804eae61f419",
+          "body_sha256": "634422307ac185df38012da4af38e2714911847575bad1acf6c677cfac8b4f63",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020009",
+          "side": "home",
+          "receipt_sha256": "da330dc6a49e1875e7d735a66cb54960f4243a4eacbe8351a302c0eed2c6c1fd",
+          "body_sha256": "5608dbdc40f836cc720c78d02fa0fe0ec34bdac74c77f8841f950885edb03d1e",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dan Bylsma",
+      "applies_to": null,
+      "coach_id": "coach-dan-bylsma",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20242025",
+          "game_id": "2024020003",
+          "side": "home",
+          "receipt_sha256": "50aba4bfffd92e37553a3f63d55de7d9db3343e9fcb2887e7214fcea3e16b7af",
+          "body_sha256": "4e0e34cfe3e247623af7f80f9ff5d44eecec25d5130e74e8e41b8aa4533b1cf1",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dan Muse",
+      "applies_to": null,
+      "coach_id": "coach-dan-muse",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020002",
+          "side": "away",
+          "receipt_sha256": "9893fc8b9a1b511a9a92815a0064a9a62894d9534f3ca39f71ff25e6c98a7b15",
+          "body_sha256": "54ef1287baaefe8c5ed6abf3272967d4e196a9de82c8931c0a7e862412cce7a3",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Darryl Sutter",
+      "applies_to": null,
+      "coach_id": "coach-darryl-sutter",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020031",
+          "side": "away",
+          "receipt_sha256": "a6918f5f2b3fb76665bc31f007b3698b8cc784cfe8e469adb32c7fb9dc28a370",
+          "body_sha256": "75fdcbe741d94daf7ea768fae34acd03df65373a327b935c12f4c7d28d300fe6",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020018",
+          "side": "home",
+          "receipt_sha256": "e86ae3d47897d4010a0d714cec7d2ec779139d0cfdfc7b07d9da4d3c4c58c856",
+          "body_sha256": "2c1b8d3d023d03c02a1d16fa8d4045e7cebd9b3b9232420be63ea473ee1c2560",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dave Hakstol",
+      "applies_to": null,
+      "coach_id": "coach-dave-hakstol",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020002",
+          "side": "away",
+          "receipt_sha256": "7ae601f3078ec339eaa18edfd8fab236cc47332c9eb8eecb7124b2f4a1f54553",
+          "body_sha256": "9f798bb46a565d6f002c2bb96ac33dcdf65e4e86c2a790f2eb4204697ae41866",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020009",
+          "side": "away",
+          "receipt_sha256": "da330dc6a49e1875e7d735a66cb54960f4243a4eacbe8351a302c0eed2c6c1fd",
+          "body_sha256": "5608dbdc40f836cc720c78d02fa0fe0ec34bdac74c77f8841f950885edb03d1e",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020003",
+          "side": "away",
+          "receipt_sha256": "b400351027d5dabd513357b7513875b5dfa84191f5075871f652f59150d93588",
+          "body_sha256": "c561f815f359121724048d3f86ad6f68a2ec117cbd39d70aa4e20b22f2b8ffb9",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dave Lowry",
+      "applies_to": null,
+      "coach_id": "coach-dave-lowry",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020469",
+          "side": "home",
+          "receipt_sha256": "2c47d3c187157e634d111522daafb0c5d6e5fbd9cbff828ba0e36249db1b147d",
+          "body_sha256": "1e73947a9c04883bdfbb8c5907a8cd7e52e0a99a1946f9f6322bcfb2325d57f3",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dave Tippett",
+      "applies_to": null,
+      "coach_id": "coach-dave-tippett",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020006",
+          "side": "home",
+          "receipt_sha256": "ae490e8ad844110b50dcce9f38e2c749b1d58198aba00857fbf4aa81c81a69fd",
+          "body_sha256": "3a97f31fd018af5faa7c447a2ea01c8051383a0ac40cb0e4dc85ea4fa6255aec",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "David Quinn",
+      "applies_to": null,
+      "coach_id": "coach-david-quinn",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020001",
+          "side": "away",
+          "receipt_sha256": "4241478cf91e30ba0bfeb3ea79dffdf80a0c53f7bb9a8e61be8c41ca1f602007",
+          "body_sha256": "c819ce446b4b69e831b1bb632e73a3472795f4d023ca86e31c546d8c54021d87",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020016",
+          "side": "home",
+          "receipt_sha256": "2ef0b435c265771250486846e925b69b6f00ac533688412cf651e49c01ba5839",
+          "body_sha256": "4e006193c22e4c3a04b6cac6a6e9c602b154a5dd1ddff0048848f481c2aefa74",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dean Evason",
+      "applies_to": null,
+      "coach_id": "coach-dean-evason",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020019",
+          "side": "away",
+          "receipt_sha256": "ea17884a2a41ade5bb622335df2101131853be65e1ba942b4b7dda18a0207466",
+          "body_sha256": "eee2b2c944c836e4ba8f6e846916311e7e16326d91d679bca0c790c2e5a274dc",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020017",
+          "side": "home",
+          "receipt_sha256": "e39bcedaab2156790f724ea06a7ac508eb1f6ce4eaf38e31ad51bccb856ec387",
+          "body_sha256": "5f31afc27663fc00bea80f100ecd29b612e32024828fd0d239e29f12f6c18c21",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020014",
+          "side": "home",
+          "receipt_sha256": "3911587b6abacb13136ac29b29410122960f4db2813b3d0656842018650de619",
+          "body_sha256": "0c2aa511a5476a5ce1d4b144da379aa1172eeb47b82ee74163a59653ac8a7130",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020018",
+          "side": "away",
+          "receipt_sha256": "791fdc62be9f53e02ef7f3ce429b9536896e5264ed88c7feeae0bfdd489b4c83",
+          "body_sha256": "a9bfad681fcd8ad1da39d704e6b00b94bde47fe2cda781c77e916ebb0ee8da56",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020016",
+          "side": "away",
+          "receipt_sha256": "a4d31129938f8c6e5e3aa5a58bbdfd2f0120ab8ae763cc975d025f9ad35ef37d",
+          "body_sha256": "139d8b464c4d47edc70b068a60447a91e65b787bca60ca4116cc78e23c00843e",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Derek King",
+      "applies_to": null,
+      "coach_id": "coach-derek-king",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020175",
+          "side": "home",
+          "receipt_sha256": "608d51b758c348727f492ca0c43770e049c678266c06c74d2a044f193ea90c63",
+          "body_sha256": "889ef7cff84f9f0490e68fdd5f3a82aaa49029152ca5f8e43e3ddf2905d16558",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Derek Lalonde",
+      "applies_to": null,
+      "coach_id": "coach-derek-lalonde",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020022",
+          "side": "home",
+          "receipt_sha256": "db61976bdf6c4508b2659a27b52bf967dc362f33e4476e409902eab26e9fb2af",
+          "body_sha256": "9e2106eeb704318881f95a9b43efebd29e62351fb5ec972c15272ae6765b4a64",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020012",
+          "side": "away",
+          "receipt_sha256": "c5f21a609f1160f668eef1cfb38093c6faa792b878346245a4fe2cf67ff6cc38",
+          "body_sha256": "0f453e3ab39b49817ade7364bfac2046f1152015784f7003293eced9e09a7647",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020014",
+          "side": "home",
+          "receipt_sha256": "cf1d0cc96eec9b53a85601bf564598856d529b14dc7bb4cbfa410948cf2b7818",
+          "body_sha256": "69d40108495fcc77ba110b1904627d8150f46f11c4ac5cfe42e96193fdb0b724",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Dominique Ducharme",
+      "applies_to": null,
+      "coach_id": "coach-dominique-ducharme",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020003",
+          "side": "away",
+          "receipt_sha256": "162412bb27a7e5596896e893bd28bbfbac3122c3e08cf924380e4cb5efc442b1",
+          "body_sha256": "847a5c193de25fd4a9dfa4cf9e6d1ef91323f94c3acbaefae644eb155aa2a727",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Don Granato",
+      "applies_to": null,
+      "coach_id": "coach-don-granato",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020007",
+          "side": "home",
+          "receipt_sha256": "df7bb66b31ace4cd06e8350381fc7957d0b14f97b7a4e367f0253d372b48a3eb",
+          "body_sha256": "5292427812a80533086929213f6a649b5e42e23e5c8cdfd4dd89534b1c779151",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020013",
+          "side": "home",
+          "receipt_sha256": "99ca4ac1b88d148c7e058ac59a76aabe231db8806556251d22b27013de09ad24",
+          "body_sha256": "4a1b015218ff6a525a4f53ede078b2dfa3c2ca733e8e087517ede7331c25063a",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020010",
+          "side": "home",
+          "receipt_sha256": "e45eeff7642248664080b4baf208e6ee13994a449786e4157052ef8bed63c762",
+          "body_sha256": "c9c640791aefe80de8db0f5585e7dd6b70d6052f23e5eff17d9b983202868ad4",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Drew Bannister",
+      "applies_to": null,
+      "coach_id": "coach-drew-bannister",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020451",
+          "side": "home",
+          "receipt_sha256": "0b8fb14e80ff3db54109c3ae655fa6bf9905d90e465a06632da32afe3f90f9d0",
+          "body_sha256": "063473e48b762362bbbb08f1c378883713342ca353c5b48af91d58f9c82a1519",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020003",
+          "side": "away",
+          "receipt_sha256": "50aba4bfffd92e37553a3f63d55de7d9db3343e9fcb2887e7214fcea3e16b7af",
+          "body_sha256": "4e0e34cfe3e247623af7f80f9ff5d44eecec25d5130e74e8e41b8aa4533b1cf1",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Gerard Gallant",
+      "applies_to": null,
+      "coach_id": "coach-gerard-gallant",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020004",
+          "side": "away",
+          "receipt_sha256": "90b9102e8e5a5979aed7a56054d7e0d5a3157fc8fc1c7a5ed59281196034be63",
+          "body_sha256": "e95b0953fa4f77b17350cdd160e8802d175d6bd5114e5b36dcf08d9da67453bb",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020003",
+          "side": "home",
+          "receipt_sha256": "b54f035674fe766db9249919ae03d368ffd41f869e5efa5d9f88c3be1c68383f",
+          "body_sha256": "f6b20d28ec8b92a3c85951a34770a1abf497c7127159a678ea0beadd363f9fe3",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Glen Gulutzan",
+      "applies_to": null,
+      "coach_id": "coach-glen-gulutzan",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020017",
+          "side": "away",
+          "receipt_sha256": "a9e62b6c4437b47c504526c183f631c37e753319cf4cd6b6b61c4a6f0dbc11f0",
+          "body_sha256": "e2da43d48d51ddd43a9bb8b24f0c1221bbf9ce6b96b5bec9da0ccdb8c892568f",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Greg Cronin",
+      "applies_to": null,
+      "coach_id": "coach-greg-cronin",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020031",
+          "side": "away",
+          "receipt_sha256": "d450542ea9afb0071541c7a10be2885ae8272b50839c1ff799726da67e3cee63",
+          "body_sha256": "0d0539dd05c48b2d50543e4871f0d979b4b7e67c637a208a0d6cc3005b9385c6",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020037",
+          "side": "away",
+          "receipt_sha256": "41efcf398bd4839bb849e35aee8ebe825c682e95acba044f4c40964d5cdbc461",
+          "body_sha256": "07e6e6c1863b500b2264c7a9b637c6b2a5584923bfd6f38d30e988d6f7f12612",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jacques Martin",
+      "applies_to": null,
+      "coach_id": "coach-jacques-martin",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020493",
+          "side": "away",
+          "receipt_sha256": "3e64938f9206f22049577842748eff7c9a268a0c762288b05e66bc01e8c20927",
+          "body_sha256": "5dcedca2ac12988f118fbd78a3542427742b359a088c86d62e627bc35e2b678c",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jared Bednar",
+      "applies_to": null,
+      "coach_id": "coach-jared-bednar",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020005",
+          "side": "home",
+          "receipt_sha256": "ef36c99725425fb25f2dd11cf97c9b543f9fc236e40ea81e820b18557a9d3134",
+          "body_sha256": "d2f17be131c95761191b10dc03dfa1508e4c191606a6fad170b174f53431d22b",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020008",
+          "side": "home",
+          "receipt_sha256": "bd26a81758cc4e1d4cfda0268068c5331426a2b1fb95ee3da8ae1fa3eb0ac0ba",
+          "body_sha256": "b05001f68015ba5a0c84702c576316ef9c8e9c0d31c3d5714787eb76b171d610",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020008",
+          "side": "away",
+          "receipt_sha256": "689205e5365bb4aac8dfafdb497bc85b02d0404eef98c8f140c08d27b2fe10d6",
+          "body_sha256": "0e63a98273611513c76cdeeaa0f06b3b363a56f91cbdcf291dd90db0410468b6",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020010",
+          "side": "away",
+          "receipt_sha256": "b5414dced51ca996788d76c43b542a8ded7d512614254d109b99af638cb762a1",
+          "body_sha256": "467b2fc02c3b96f5ffcc16bb3bf94e7776ac75cb46004de85a894191262bb9c1",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020003",
+          "side": "away",
+          "receipt_sha256": "4ceea494a8de620dc5b8710fd46e086e6580232068588dce1fa13f48a976fa2e",
+          "body_sha256": "e34aef89e571e1537401b664f7fddb64f28299d9d9213803be41b53da83f8604",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jay Woodcroft",
+      "applies_to": null,
+      "coach_id": "coach-jay-woodcroft",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020623",
+          "side": "home",
+          "receipt_sha256": "9c619af216b2be4aa0bcc69db085f140f377c4ebf24752fcc515cf5dfc59106e",
+          "body_sha256": "c1367eee27750490ed31f98b6b04b90e7b941e02b93e82e2437d54caa087514c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020010",
+          "side": "home",
+          "receipt_sha256": "48579f6d1fdfabb7a5ef7b3271ea8dcbf96659c912332598fe163b1fb5f5aae4",
+          "body_sha256": "e39206bbd0cea7bea3aaf9bb285c131286583f60d0237a0b0f34173bcca87207",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020009",
+          "side": "away",
+          "receipt_sha256": "1f73c4757ea7465830d25d57bfa382dd24499ec8cc5f86290886d9ef11851245",
+          "body_sha256": "949b5e519bf5136030c4148a4edeb564db8b71f8e7e8b1b8172aa50c69ad41f9",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jeff Blashill",
+      "applies_to": null,
+      "coach_id": "coach-jeff-blashill",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020009",
+          "side": "home",
+          "receipt_sha256": "e51c217b654067bf086fdbfa4d6fa59cbf6900e614f755d98187195a2a8cff42",
+          "body_sha256": "f63d1b410c786b5e7d6ce80c9a7043f7a18531c43b463e91b85a0240a54b99f5",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020001",
+          "side": "away",
+          "receipt_sha256": "e9558307eaeaf6ab9c938e34e0cc2afed51576464d240996fb4e2deb43903393",
+          "body_sha256": "284a2c05a55228e3bf16fd17478d5695df40f52e75ed0a8cd760e68a20901a28",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jeremy Colliton",
+      "applies_to": null,
+      "coach_id": "coach-jeremy-colliton",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020005",
+          "side": "away",
+          "receipt_sha256": "ef36c99725425fb25f2dd11cf97c9b543f9fc236e40ea81e820b18557a9d3134",
+          "body_sha256": "d2f17be131c95761191b10dc03dfa1508e4c191606a6fad170b174f53431d22b",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jim Hiller",
+      "applies_to": null,
+      "coach_id": "coach-jim-hiller",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020816",
+          "side": "home",
+          "receipt_sha256": "d11900374c03d8a1fd972fdf7629e542c3e47f3f7f429071fbfef91f35fe2cee",
+          "body_sha256": "7c765945e63d2c49275d7b39fb7c8fa4e66c4b672d2d5a2cb466524efd54f666",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020012",
+          "side": "away",
+          "receipt_sha256": "90c9141876e60e17ec8d7c62f6742da2f0bb2e0c0dc7c0b3e271ca509e2ea9ab",
+          "body_sha256": "1186f73904cf49556a4712fa53a1fdc0b220357619617530d6ae33339905ab16",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020003",
+          "side": "home",
+          "receipt_sha256": "4ceea494a8de620dc5b8710fd46e086e6580232068588dce1fa13f48a976fa2e",
+          "body_sha256": "e34aef89e571e1537401b664f7fddb64f28299d9d9213803be41b53da83f8604",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jim Montgomery",
+      "applies_to": null,
+      "coach_id": "coach-jim-montgomery",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020005",
+          "side": "away",
+          "receipt_sha256": "11eb6eb50a1e544949f5e515fe45e47ac42dbec9b0faf641f72de19496323790",
+          "body_sha256": "73316a71609d4422b762ba18ca651b72e3e56a7d12c2e74dd252142ce12f4325",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020006",
+          "side": "home",
+          "receipt_sha256": "909922027aafca8baa6d47c0928a5bf61fb1e942d7d9c2a7a501aff00bc2b562",
+          "body_sha256": "bb13003898d0b3d9a298d456ba7f423e462fbf31902190fa19f1aad5b60dd1b4",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020004",
+          "side": "away",
+          "receipt_sha256": "fe23b9149480177b5d500bdab5e0fec9aaaf9ecdbe16a8ec1ab51eb5cbe76b44",
+          "body_sha256": "9d77335b993cb0caf90834311c5900b93eff395d068a86f775aaff0d635c2b5f",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020337",
+          "side": "away",
+          "receipt_sha256": "dd83b0c7f061474315e8054b695df56a6c3d110f6921899f3b9227f651f05550",
+          "body_sha256": "7c812fa3263da69ffd0646582d0ee98f6abccf5966e54fec1a51e8cbf8726d86",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020015",
+          "side": "home",
+          "receipt_sha256": "f13e77213974c1515064c7b69538d55a45b05594f1821a89dd1ad24e5112335d",
+          "body_sha256": "5111909263378fef27dbe8be592d66ab2f3156983faf994ebd6b15813f5b3fde",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Joe Sacco",
+      "applies_to": null,
+      "coach_id": "coach-joe-sacco",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20242025",
+          "game_id": "2024020306",
+          "side": "home",
+          "receipt_sha256": "92c9775e2e784afbde6c466e7a4b263913ea081d97c0bdd2492f11fe1c486496",
+          "body_sha256": "c5f5484fd6398cf41ae391a17169e65405bed3aa57e4321d565cb92a9c59318e",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Joel Quenneville",
+      "applies_to": null,
+      "coach_id": "coach-joel-quenneville",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020010",
+          "side": "home",
+          "receipt_sha256": "edc9c7e007540f59242a6600dfe45484821f49ab715fa1dfe5249e46e3026f54",
+          "body_sha256": "8ba297c77cf5f2210a63d1c2aab59e4d2805d22c0fe2642f406fd42b02231f4d",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020021",
+          "side": "away",
+          "receipt_sha256": "e3e6166661c2cfc81d1b1431bc1aaff3d7970316c991d29a20b7cb96a370a878",
+          "body_sha256": "a36db5dd3e0a47d5e84459279fd6ece370c23ab64845c15b1326fa37d80ea98c",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "John Hynes",
+      "applies_to": null,
+      "coach_id": "coach-john-hynes",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020014",
+          "side": "home",
+          "receipt_sha256": "1499af4eebb86087a1785a6dc692dddbfc051a9880257b136786455b10be76de",
+          "body_sha256": "2d727174e931180d391613b9544a250b0c6ce45bbc8ce62fd8e2f463fa1e37bb",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020001",
+          "side": "home",
+          "receipt_sha256": "4241478cf91e30ba0bfeb3ea79dffdf80a0c53f7bb9a8e61be8c41ca1f602007",
+          "body_sha256": "c819ce446b4b69e831b1bb632e73a3472795f4d023ca86e31c546d8c54021d87",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020330",
+          "side": "home",
+          "receipt_sha256": "ef4bcb58c7934caf61237e18270dba5d920315521462785d3087eed77108a355",
+          "body_sha256": "9df54b049d780d9d48d2de0d14bf28db8f44f5890b29c38915163e8fb863be54",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020018",
+          "side": "home",
+          "receipt_sha256": "791fdc62be9f53e02ef7f3ce429b9536896e5264ed88c7feeae0bfdd489b4c83",
+          "body_sha256": "a9bfad681fcd8ad1da39d704e6b00b94bde47fe2cda781c77e916ebb0ee8da56",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020015",
+          "side": "away",
+          "receipt_sha256": "f13e77213974c1515064c7b69538d55a45b05594f1821a89dd1ad24e5112335d",
+          "body_sha256": "5111909263378fef27dbe8be592d66ab2f3156983faf994ebd6b15813f5b3fde",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "John Tortorella",
+      "applies_to": null,
+      "coach_id": "coach-john-tortorella",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020012",
+          "side": "home",
+          "receipt_sha256": "2585d245093b74cd645ff3544b97e79cf98ac80991a5003e5483bd99bdcabf1d",
+          "body_sha256": "972b893f756bc26433052dbb88463a67526a08f0579f65a06433287c1563c781",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020011",
+          "side": "away",
+          "receipt_sha256": "139836cab2325a4c3b473ac0b8d4cc8aac5ed33596513b70847b095c2766f393",
+          "body_sha256": "4bff3a3da50f1ebc2cca0eb5437db95db671b5a7d4de9621a9837b7a39bfdb43",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020022",
+          "side": "away",
+          "receipt_sha256": "bb27147d255ddddb8852da01a53f29bb74b673b1e73af16111fae0548336a5a7",
+          "body_sha256": "b54e5d457b1a240a931aad688621d664a7b7e2809f1ccd33478b56924c260790",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025021175",
+          "side": "home",
+          "receipt_sha256": "8cb15a6110a5950f4f42b2ac44d1a1d8651f0e32cfdfdf9868a27ee6250df390",
+          "body_sha256": "ccf68cd2b00ccefddc41796ff2b5dff0e8fd4c5d0d24b60a2f51e89492e8480a",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Jon Cooper",
+      "applies_to": null,
+      "coach_id": "coach-jon-cooper",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020001",
+          "side": "home",
+          "receipt_sha256": "507563a9d6af64d42ba1493226b8325cce9d077a6edd838852ecf6115f66b700",
+          "body_sha256": "5dcb8ace2121169508313846e4a3e0128bc8cccbeec2832ffe3242a77240cfbb",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020003",
+          "side": "away",
+          "receipt_sha256": "b54f035674fe766db9249919ae03d368ffd41f869e5efa5d9f88c3be1c68383f",
+          "body_sha256": "f6b20d28ec8b92a3c85951a34770a1abf497c7127159a678ea0beadd363f9fe3",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020001",
+          "side": "home",
+          "receipt_sha256": "114e82c0b0d18994853502beb5439ac46901a04441aa44393d07bb1e6b74689f",
+          "body_sha256": "4a7635daa3d314f13cafd7c02bd7e727c10ce8a7cae107f96493f85edd27af01",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020020",
+          "side": "away",
+          "receipt_sha256": "f85e658991469e92b99efd9e150e0a603735fec1abd945f0b1609e1279931bf7",
+          "body_sha256": "e84a0e379994ea3e2b651ff940f834b6c1aac7c54a0be30a5b18f33e7d6dbfab",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020011",
+          "side": "home",
+          "receipt_sha256": "594c0ebbda1cf986173112282edde70d5d7cd9a470d8acd79da147b52874b380",
+          "body_sha256": "e80d2b75637dc5dced06b122c201b8f16e2e0d1431162ab7e59f0aae72dc3c9c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Kris Knoblauch",
+      "applies_to": null,
+      "coach_id": "coach-kris-knoblauch",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020227",
+          "side": "home",
+          "receipt_sha256": "ffaf66890b7bf95229be7e12db0acc428e2446b52b37ce1d6d5c53a9c957598c",
+          "body_sha256": "881e896e59a5dec4c5bc9ef017ca97e5b5aa5b4bef7aa67297319138924966f4",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020008",
+          "side": "home",
+          "receipt_sha256": "96d5c267f7a4e1437cdfe1ddb9b222f87e35917fc8dbe2f8e6693ce436aef0d2",
+          "body_sha256": "4410331696d5d2a85e4bc1c0b4b2fe2f8c6fe6e2d8280fda92de67630ab65269",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020006",
+          "side": "home",
+          "receipt_sha256": "92c3b741f29d9dfeb9578914c32fd102e4a37aaad10532a95d364a899e975e39",
+          "body_sha256": "9c436ce9e8099511fef9bc062d1333562b262c3052954c7c9dff04e64a481bff",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Lane Lambert",
+      "applies_to": null,
+      "coach_id": "coach-lane-lambert",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020014",
+          "side": "home",
+          "receipt_sha256": "126a4f85bd38b5176061759c77d75d3dfd7ad24bba93f669b8dad446122b6589",
+          "body_sha256": "0772dd9a75343f483d5b5c394bdf8a51a2dade53d98c1555159b74c04ec203da",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020027",
+          "side": "home",
+          "receipt_sha256": "6befd8e1a29049d1e9906187c63d7051ac70052ea80bb11d376f73a025fff444",
+          "body_sha256": "707210e92be393509110860153bfb4da1199e8560ee3474ed001447f903bdfb4",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020021",
+          "side": "home",
+          "receipt_sha256": "e3e6166661c2cfc81d1b1431bc1aaff3d7970316c991d29a20b7cb96a370a878",
+          "body_sha256": "a36db5dd3e0a47d5e84459279fd6ece370c23ab64845c15b1326fa37d80ea98c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Lindy Ruff",
+      "applies_to": null,
+      "coach_id": "coach-lindy-ruff",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020017",
+          "side": "home",
+          "receipt_sha256": "66768f8062969974c63c7772186a25e43e03954c3ccbbab6781d2df8965aa452",
+          "body_sha256": "cb9168b906405c451f75fc2719c5133ca51a3126f18069b7a882b9c26bdc7a75",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020012",
+          "side": "away",
+          "receipt_sha256": "2585d245093b74cd645ff3544b97e79cf98ac80991a5003e5483bd99bdcabf1d",
+          "body_sha256": "972b893f756bc26433052dbb88463a67526a08f0579f65a06433287c1563c781",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020012",
+          "side": "home",
+          "receipt_sha256": "c5f21a609f1160f668eef1cfb38093c6faa792b878346245a4fe2cf67ff6cc38",
+          "body_sha256": "0f453e3ab39b49817ade7364bfac2046f1152015784f7003293eced9e09a7647",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020001",
+          "side": "home",
+          "receipt_sha256": "1ba99038af21a8d068223e81ae5214536ac92b9fcfb37b19bb4a3f93680bdf8e",
+          "body_sha256": "e022102d3eaddcbb9003587f9b00c72973553ebc5a7fb2513a4814e0b79d5f70",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020009",
+          "side": "home",
+          "receipt_sha256": "25feb64e42b09a191d9802848033a65b3d277cb93b92cea9bb080994ed6cd46e",
+          "body_sha256": "74b3048802476ff72be5166941a09cec54db7c5f25ca21f3955dfa2a563f22e2",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Luke Richardson",
+      "applies_to": null,
+      "coach_id": "coach-luke-richardson",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020008",
+          "side": "away",
+          "receipt_sha256": "bd26a81758cc4e1d4cfda0268068c5331426a2b1fb95ee3da8ae1fa3eb0ac0ba",
+          "body_sha256": "b05001f68015ba5a0c84702c576316ef9c8e9c0d31c3d5714787eb76b171d610",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020002",
+          "side": "away",
+          "receipt_sha256": "7517a9d39693409be8c039ace0746e144005ee6ae55d9089dc6e3279566a4592",
+          "body_sha256": "9723f601a3345572b02c7304a467ccece0b0779394061af4f8bb71b253a6a34c",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020005",
+          "side": "away",
+          "receipt_sha256": "7e62336bee5dec966b1395903eb5520f869dc81c0b559f57e9e8999c7e7f85ff",
+          "body_sha256": "de9fd39316a075441dc7a75a7e9a920723e79ec8cbff9549a621454cdf3fbe9f",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Marco Sturm",
+      "applies_to": null,
+      "coach_id": "coach-marco-sturm",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20252026",
+          "game_id": "2025020005",
+          "side": "away",
+          "receipt_sha256": "2e3b6ed2ecb12af4a211feb0813107b70bf3f4ed23553ae3005a09d6cc555eb5",
+          "body_sha256": "51a92d3b05e13ff2639c4657c81b5306c543359b3d06c9c87f2b5262a4b4af1f",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Martin St. Louis",
+      "applies_to": null,
+      "coach_id": "coach-martin-st-louis",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020587",
+          "side": "home",
+          "receipt_sha256": "f99970d9c1d673c10cb88b9f11fdf7f440564dcf40661df08d97f8610a937cfd",
+          "body_sha256": "25d3dc0b128d1f7664f67728468f02def0c219e688d6c0a56e7d1d6126fae478",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020007",
+          "side": "home",
+          "receipt_sha256": "58cd8cc68980f13e9adaed5e381942acd5b93a1995fc338f4ae706a72ffa3600",
+          "body_sha256": "0c13d6f95cfcf0836cab9452f9bc81f129ed00325b21f2fb6327b72157cb9db1",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020005",
+          "side": "away",
+          "receipt_sha256": "790e4e0eb8a1bd08b326119bff3d96c329f5d2d12218419966dac8761bb1e9d3",
+          "body_sha256": "13aad0bcab850a75fe376df2176d6fcd8451f5e802011abba7194162dcf05981",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020006",
+          "side": "home",
+          "receipt_sha256": "e2adae9a34038c004da3f4dbb874234b4ffc6cfca81c1ba0d500876c5461a832",
+          "body_sha256": "abbb244d460ef0c5d0192397472409c3d4abf2cb051517dfc36e2e07ca48f559",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020004",
+          "side": "away",
+          "receipt_sha256": "f1a7d462b71b1a362b5de49e10a104cbb0e5ee66605efb815cac6b32f1b525f7",
+          "body_sha256": "a10f5019c2d8d47b2a06c4696533a5eacf6f2f613944b846a04322353bdd47c7",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Mike Sullivan",
+      "applies_to": null,
+      "coach_id": "coach-mike-sullivan",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020001",
+          "side": "away",
+          "receipt_sha256": "507563a9d6af64d42ba1493226b8325cce9d077a6edd838852ecf6115f66b700",
+          "body_sha256": "5dcb8ace2121169508313846e4a3e0128bc8cccbeec2832ffe3242a77240cfbb",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020011",
+          "side": "home",
+          "receipt_sha256": "5c93df6ffcbde6e392b37f70cc59a49a0daffc6d78956104787f883a373760d3",
+          "body_sha256": "f824a5918bfc9a85d775b552372ab8aa841a9bc19d10c6db4b3911c02c98333d",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020002",
+          "side": "home",
+          "receipt_sha256": "7517a9d39693409be8c039ace0746e144005ee6ae55d9089dc6e3279566a4592",
+          "body_sha256": "9723f601a3345572b02c7304a467ccece0b0779394061af4f8bb71b253a6a34c",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020007",
+          "side": "home",
+          "receipt_sha256": "c42564db0c48f8b84145707eaf1d473b8b32e14ab9bd08a40adb2bec2845952f",
+          "body_sha256": "8d678c8f46aae2d356c66157a527376137f4e19819a331dede9b4bf6d6f3dbc7",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020002",
+          "side": "home",
+          "receipt_sha256": "9893fc8b9a1b511a9a92815a0064a9a62894d9534f3ca39f71ff25e6c98a7b15",
+          "body_sha256": "54ef1287baaefe8c5ed6abf3272967d4e196a9de82c8931c0a7e862412cce7a3",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Mike Yeo",
+      "applies_to": null,
+      "coach_id": "coach-mike-yeo",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020383",
+          "side": "home",
+          "receipt_sha256": "96ea904b270443c841f626392d2ee796c00b66152526b8d4d25ae7a23fcd83f5",
+          "body_sha256": "9661c7342fc5d04a3f6414e305c3dfadffaea99308bc43ae6cfff8d095b61998",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Pascal Vincent",
+      "applies_to": null,
+      "coach_id": "coach-pascal-vincent",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020011",
+          "side": "home",
+          "receipt_sha256": "139836cab2325a4c3b473ac0b8d4cc8aac5ed33596513b70847b095c2766f393",
+          "body_sha256": "4bff3a3da50f1ebc2cca0eb5437db95db671b5a7d4de9621a9837b7a39bfdb43",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Patrick Roy",
+      "applies_to": null,
+      "coach_id": "coach-patrick-roy",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020721",
+          "side": "home",
+          "receipt_sha256": "8bc5e629984c4b7d72bd3dfd45fa5a882830bf09c5fe1a9d44600a453bcd1668",
+          "body_sha256": "721d39a7144d98af5d97d11018414418738a18436e898d8578f3119665e43aa9",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020016",
+          "side": "home",
+          "receipt_sha256": "3679c8f98e68e8ad1543fbba9b48225446be735d579653a9f2891dc1b272ee5f",
+          "body_sha256": "f80b406d60f7259cf64d907465aff217e60996c15fe46090f97a49c324812595",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020013",
+          "side": "away",
+          "receipt_sha256": "002bedf22d3901d06ce3497a34927da5205f5d3f2928ebf11bb10d88a8be60ae",
+          "body_sha256": "15eab712519a52f45e3de3f0d5c9596957869798feae1966a9dea314073bd069",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Paul Maurice",
+      "applies_to": null,
+      "coach_id": "coach-paul-maurice",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020015",
+          "side": "away",
+          "receipt_sha256": "1ae3c03beae7008ad55ab7c869839c7ab3790811ae8211f52952804eae61f419",
+          "body_sha256": "634422307ac185df38012da4af38e2714911847575bad1acf6c677cfac8b4f63",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020014",
+          "side": "away",
+          "receipt_sha256": "126a4f85bd38b5176061759c77d75d3dfd7ad24bba93f669b8dad446122b6589",
+          "body_sha256": "0772dd9a75343f483d5b5c394bdf8a51a2dade53d98c1555159b74c04ec203da",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020014",
+          "side": "away",
+          "receipt_sha256": "3911587b6abacb13136ac29b29410122960f4db2813b3d0656842018650de619",
+          "body_sha256": "0c2aa511a5476a5ce1d4b144da379aa1172eeb47b82ee74163a59653ac8a7130",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020004",
+          "side": "home",
+          "receipt_sha256": "fe23b9149480177b5d500bdab5e0fec9aaaf9ecdbe16a8ec1ab51eb5cbe76b44",
+          "body_sha256": "9d77335b993cb0caf90834311c5900b93eff395d068a86f775aaff0d635c2b5f",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020001",
+          "side": "home",
+          "receipt_sha256": "e9558307eaeaf6ab9c938e34e0cc2afed51576464d240996fb4e2deb43903393",
+          "body_sha256": "284a2c05a55228e3bf16fd17478d5695df40f52e75ed0a8cd760e68a20901a28",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Peter DeBoer",
+      "applies_to": null,
+      "coach_id": "coach-peter-deboer",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020002",
+          "side": "home",
+          "receipt_sha256": "7ae601f3078ec339eaa18edfd8fab236cc47332c9eb8eecb7124b2f4a1f54553",
+          "body_sha256": "9f798bb46a565d6f002c2bb96ac33dcdf65e4e86c2a790f2eb4204697ae41866",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020016",
+          "side": "away",
+          "receipt_sha256": "46b9e0198eb92792f6978e8d3c6f71a6d3063c4483b12f42ab3a19dab800cb74",
+          "body_sha256": "dedce98f0ad0068ed2a3b39dd9f79dc3e09ab021942193cf977b04ba2aff122b",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020013",
+          "side": "home",
+          "receipt_sha256": "a8e072c6126d9f6f663eed738d01439c1605911628b6bf7c25d65d8152448a99",
+          "body_sha256": "02f4634f2ba8b808e274c696641b59635ec6aa815fcf049fb9af1b46d37446c0",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020017",
+          "side": "away",
+          "receipt_sha256": "3b52a9df21b2843a8575f2b40746439fab847ba6d01626a9bb5a063c3fd9769a",
+          "body_sha256": "3c560c13f0a1f9622a45800d1a78771bbcd3a45888d2196dede4604df3dced65",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025021252",
+          "side": "home",
+          "receipt_sha256": "796c67aa8cd3accd414aedaccf72369ae271997113fcea7788bca61007224b10",
+          "body_sha256": "5a4e737c62034a9a0f1719661aa105bb6cfe897da3964635e86be4805988aacf",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Peter Laviolette",
+      "applies_to": null,
+      "coach_id": "coach-peter-laviolette",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020004",
+          "side": "home",
+          "receipt_sha256": "90b9102e8e5a5979aed7a56054d7e0d5a3157fc8fc1c7a5ed59281196034be63",
+          "body_sha256": "e95b0953fa4f77b17350cdd160e8802d175d6bd5114e5b36dcf08d9da67453bb",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020005",
+          "side": "home",
+          "receipt_sha256": "11eb6eb50a1e544949f5e515fe45e47ac42dbec9b0faf641f72de19496323790",
+          "body_sha256": "73316a71609d4422b762ba18ca651b72e3e56a7d12c2e74dd252142ce12f4325",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020010",
+          "side": "away",
+          "receipt_sha256": "e45eeff7642248664080b4baf208e6ee13994a449786e4157052ef8bed63c762",
+          "body_sha256": "c9c640791aefe80de8db0f5585e7dd6b70d6052f23e5eff17d9b983202868ad4",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020007",
+          "side": "away",
+          "receipt_sha256": "c42564db0c48f8b84145707eaf1d473b8b32e14ab9bd08a40adb2bec2845952f",
+          "body_sha256": "8d678c8f46aae2d356c66157a527376137f4e19819a331dede9b4bf6d6f3dbc7",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Rick Bowness",
+      "applies_to": null,
+      "coach_id": "coach-rick-bowness",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020011",
+          "side": "away",
+          "receipt_sha256": "ff32e7084055853ebe321f6cf48e27ac8acb34e6bc2fed6acebe4503763d28f7",
+          "body_sha256": "66aa5a794e2859292d8a09d342da9e5f96d6f318b403138696bf04b160f4c96b",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020023",
+          "side": "home",
+          "receipt_sha256": "feef6db26d43cddfa21a95e3aca0d42f33e55c3ee95e1c7da7b1ac3b9dcb81d5",
+          "body_sha256": "4210ddfd03828a3361df6c24b0232164d73cd8684cdb739123b03fa520ba7301",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020007",
+          "side": "away",
+          "receipt_sha256": "3b84ab7d59821d13f19a47af180f69eacb9c7907227862258bdafbc53f813681",
+          "body_sha256": "22a7e951a3ce79f28e77b57478002071074b78906440d10309334fef35c49e39",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020728",
+          "side": "home",
+          "receipt_sha256": "e870f0bcafcbcee68c40bdbde6fc2ae5e5f6d84a8fbf7ab826bc4551285cca24",
+          "body_sha256": "87a7eddea580d53d0c897de9406dd939bcd741bd43cd9e6f264378315ff6b2c2",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Rick Tocchet",
+      "applies_to": null,
+      "coach_id": "coach-rick-tocchet",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20222023",
+          "game_id": "2022020765",
+          "side": "home",
+          "receipt_sha256": "0e2c94b74d3f0ea2bcdb7dc0c1b01814bcb0c88f57d307fceced821d68a1fd23",
+          "body_sha256": "3aa8ec2acbec256caa513ae4456fe271a02b05b3736eb19c2fa971d73eefbbfa",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020009",
+          "side": "home",
+          "receipt_sha256": "1f73c4757ea7465830d25d57bfa382dd24499ec8cc5f86290886d9ef11851245",
+          "body_sha256": "949b5e519bf5136030c4148a4edeb564db8b71f8e7e8b1b8172aa50c69ad41f9",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020009",
+          "side": "home",
+          "receipt_sha256": "9e907bfbff5cea32efcfb7fd21cba953f70a3142ec289370e358952c792cf0e4",
+          "body_sha256": "b44434514de1b4a57d904ef2381f4bfe6c392b2b1d7717d046230e33d198aef4",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020012",
+          "side": "away",
+          "receipt_sha256": "2a2e10ad7796bc66dc174f3a454345211b24f25537b688aa161a74fcc738b706",
+          "body_sha256": "3f331068062b252aa1915ba7fe627058f6e73df42133a4ca6883efe69cd86622",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Rod Brind'Amour",
+      "applies_to": null,
+      "coach_id": "coach-rod-brindamour",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020012",
+          "side": "home",
+          "receipt_sha256": "996203bbd620336d55dc7f94e4514d328d8651ba17b0d68b651acf24fa6cfb64",
+          "body_sha256": "9b0913928016578338822564838b91d04d150a7583b5ffc65c579f9c4b47df3f",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020006",
+          "side": "home",
+          "receipt_sha256": "9b1cc08b8c903a848173e9f7f3f2ecee6de347838ade70b482d9e8bf071e9a78",
+          "body_sha256": "5af4ebb97cb227515b5398796da2a475cd3a4b76e6bd4798606301e658c36ddb",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020004",
+          "side": "home",
+          "receipt_sha256": "39d6d84a5490906fc88e1300a72c1e72b2e15053bde011a5c94d6845b764936a",
+          "body_sha256": "16e323a1733fa88ce9ca0086699b523cde208a547942b51230f491ff98417c41",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020020",
+          "side": "home",
+          "receipt_sha256": "f85e658991469e92b99efd9e150e0a603735fec1abd945f0b1609e1279931bf7",
+          "body_sha256": "e84a0e379994ea3e2b651ff940f834b6c1aac7c54a0be30a5b18f33e7d6dbfab",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020014",
+          "side": "home",
+          "receipt_sha256": "2f0f01a87043b99f5eceffeffd85a619fc202c963907f4e7eef1922ef1b95646",
+          "body_sha256": "a179de33954bb4609b3c202f91ff92fc53562f5fbeaa93e8361a4dfcd94bd90b",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Ryan Huska",
+      "applies_to": null,
+      "coach_id": "coach-ryan-huska",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020007",
+          "side": "home",
+          "receipt_sha256": "3b84ab7d59821d13f19a47af180f69eacb9c7907227862258bdafbc53f813681",
+          "body_sha256": "22a7e951a3ce79f28e77b57478002071074b78906440d10309334fef35c49e39",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020009",
+          "side": "away",
+          "receipt_sha256": "9e907bfbff5cea32efcfb7fd21cba953f70a3142ec289370e358952c792cf0e4",
+          "body_sha256": "b44434514de1b4a57d904ef2381f4bfe6c392b2b1d7717d046230e33d198aef4",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020006",
+          "side": "away",
+          "receipt_sha256": "92c3b741f29d9dfeb9578914c32fd102e4a37aaad10532a95d364a899e975e39",
+          "body_sha256": "9c436ce9e8099511fef9bc062d1333562b262c3052954c7c9dff04e64a481bff",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Ryan Warsofsky",
+      "applies_to": null,
+      "coach_id": "coach-ryan-warsofsky",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20242025",
+          "game_id": "2024020019",
+          "side": "home",
+          "receipt_sha256": "3e1945524c0a1e3db475591aaf17095eba280dfbc4f686df0bff6bf657df74d7",
+          "body_sha256": "887c0f2da12501934510ab27a7f7754bfc7b47d650ce384f79549fd44aaadd8b",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020020",
+          "side": "home",
+          "receipt_sha256": "44edfda91a7973593d449f6409b5e8392380a31bc2e2ca8f3842d31cf2d3548e",
+          "body_sha256": "041bd40249f94e31d4e93048ac49858128a5685331890e7ffa39d2f8ee9d5718",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Scott Arniel",
+      "applies_to": null,
+      "coach_id": "coach-scott-arniel",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20242025",
+          "game_id": "2024020008",
+          "side": "away",
+          "receipt_sha256": "96d5c267f7a4e1437cdfe1ddb9b222f87e35917fc8dbe2f8e6693ce436aef0d2",
+          "body_sha256": "4410331696d5d2a85e4bc1c0b4b2fe2f8c6fe6e2d8280fda92de67630ab65269",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020017",
+          "side": "home",
+          "receipt_sha256": "a9e62b6c4437b47c504526c183f631c37e753319cf4cd6b6b61c4a6f0dbc11f0",
+          "body_sha256": "e2da43d48d51ddd43a9bb8b24f0c1221bbf9ce6b96b5bec9da0ccdb8c892568f",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Sheldon Keefe",
+      "applies_to": null,
+      "coach_id": "coach-sheldon-keefe",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020003",
+          "side": "home",
+          "receipt_sha256": "162412bb27a7e5596896e893bd28bbfbac3122c3e08cf924380e4cb5efc442b1",
+          "body_sha256": "847a5c193de25fd4a9dfa4cf9e6d1ef91323f94c3acbaefae644eb155aa2a727",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020007",
+          "side": "away",
+          "receipt_sha256": "58cd8cc68980f13e9adaed5e381942acd5b93a1995fc338f4ae706a72ffa3600",
+          "body_sha256": "0c13d6f95cfcf0836cab9452f9bc81f129ed00325b21f2fb6327b72157cb9db1",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020005",
+          "side": "home",
+          "receipt_sha256": "790e4e0eb8a1bd08b326119bff3d96c329f5d2d12218419966dac8761bb1e9d3",
+          "body_sha256": "13aad0bcab850a75fe376df2176d6fcd8451f5e802011abba7194162dcf05981",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020001",
+          "side": "away",
+          "receipt_sha256": "1ba99038af21a8d068223e81ae5214536ac92b9fcfb37b19bb4a3f93680bdf8e",
+          "body_sha256": "e022102d3eaddcbb9003587f9b00c72973553ebc5a7fb2513a4814e0b79d5f70",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020014",
+          "side": "away",
+          "receipt_sha256": "2f0f01a87043b99f5eceffeffd85a619fc202c963907f4e7eef1922ef1b95646",
+          "body_sha256": "a179de33954bb4609b3c202f91ff92fc53562f5fbeaa93e8361a4dfcd94bd90b",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Spencer Carbery",
+      "applies_to": null,
+      "coach_id": "coach-spencer-carbery",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20232024",
+          "game_id": "2023020018",
+          "side": "home",
+          "receipt_sha256": "7dc04f1ac65e87cf599a06f366e4a0db294e9afc23628df0f5e2a419868abc64",
+          "body_sha256": "9cc1b86abb0e802676e37930c90fad743202866ecdf2f20e32e4f25ff08220f2",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020031",
+          "side": "home",
+          "receipt_sha256": "4ebc3d763e6a4d9b73acb820efe81a7e7a612ed27075dbe618a16ff01d6372ba",
+          "body_sha256": "0cdb6e0e7753d3b5d611c6eb5e4d56433e18d30fa013e5ac4c9b8c65826355e1",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020005",
+          "side": "home",
+          "receipt_sha256": "2e3b6ed2ecb12af4a211feb0813107b70bf3f4ed23553ae3005a09d6cc555eb5",
+          "body_sha256": "51a92d3b05e13ff2639c4657c81b5306c543359b3d06c9c87f2b5262a4b4af1f",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Todd McLellan",
+      "applies_to": null,
+      "coach_id": "coach-todd-mclellan",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020016",
+          "side": "home",
+          "receipt_sha256": "7b8778c0566b12eaecc3c8d8c5d3b804774f2375c156cba739d9e81aa051d25c",
+          "body_sha256": "21f25270407421a2b6864baced2ae7c9b0236e12918908f7e150e27030358861",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20222023",
+          "game_id": "2022020004",
+          "side": "home",
+          "receipt_sha256": "5588c51ea2db2f863c90a659d63eb64ca2efaa1439e124335f83c03869ae5eae",
+          "body_sha256": "b0ab52dc67422031fc52dd1461a373239dc6515a60532ead6450922f12b4120a",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020008",
+          "side": "home",
+          "receipt_sha256": "689205e5365bb4aac8dfafdb497bc85b02d0404eef98c8f140c08d27b2fe10d6",
+          "body_sha256": "0e63a98273611513c76cdeeaa0f06b3b363a56f91cbdcf291dd90db0410468b6",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020559",
+          "side": "home",
+          "receipt_sha256": "dea7d645c1ed95fc3f8dbea5dc5986c0fa5036ffa97ac135ff354f7f3272b914",
+          "body_sha256": "e1d07f536277614e33a05279efad831f5190831a82876ad864127c5f44438da5",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020010",
+          "side": "home",
+          "receipt_sha256": "1f7c08e74df0b2e981f9183a097135cbc3fe20ffc935438e7e9204d7088492dd",
+          "body_sha256": "ee7d3e07d4d5a57f5549deb5cb2e2ccff3374bc3a9ae9114bf7e60cbfedd4e4d",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        }
+      ]
+    },
+    {
+      "reported_name": "Travis Green",
+      "applies_to": null,
+      "coach_id": "coach-travis-green",
+      "explanation": "reviewed this exact reported name across the recorded season/team distribution; one separately assigned identity, with no spelling-variant merge or inferred missing name.",
+      "anchors": [
+        {
+          "season": "20212022",
+          "game_id": "2021020006",
+          "side": "away",
+          "receipt_sha256": "ae490e8ad844110b50dcce9f38e2c749b1d58198aba00857fbf4aa81c81a69fd",
+          "body_sha256": "3a97f31fd018af5faa7c447a2ea01c8051383a0ac40cb0e4dc85ea4fa6255aec",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        },
+        {
+          "season": "20232024",
+          "game_id": "2023020982",
+          "side": "home",
+          "receipt_sha256": "25aa5425e68e580b72c0d97426370ab60406d2fbdcd64aee96edbf118005ee07",
+          "body_sha256": "e928698721f740e554802e2e25f070049d2f8d1e21ebe8279041167867e68965",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20242025",
+          "game_id": "2024020013",
+          "side": "home",
+          "receipt_sha256": "50b27c5cd6b217e690ca92fc7066863879fe57179e84a5d3991dd91153b9b097",
+          "body_sha256": "6387fa3ae25991d92c477fb7b3166533300a50bf815693d927032e28e237f810",
+          "pointer": "/gameInfo/homeTeam/headCoach/default"
+        },
+        {
+          "season": "20252026",
+          "game_id": "2025020011",
+          "side": "away",
+          "receipt_sha256": "594c0ebbda1cf986173112282edde70d5d7cd9a470d8acd79da147b52874b380",
+          "body_sha256": "e80d2b75637dc5dced06b122c201b8f16e2e0d1431162ab7e59f0aae72dc3c9c",
+          "pointer": "/gameInfo/awayTeam/headCoach/default"
+        }
+      ]
+    }
+  ]
+}

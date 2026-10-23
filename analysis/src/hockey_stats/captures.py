@@ -129,7 +129,9 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
         metadata_bytes = path.read_bytes()
     except FileNotFoundError as error:
         if required:
-            raise InputContractError(f"{path}: selected capture.json is absent") from error
+            raise InputContractError(
+                f"{path}: selected capture.json is absent; restore the receipt or select a new capture directory"
+            ) from error
         return receipt(source, path, None, None, None, None, None,
                        f"{path}: capture.json absent; source unavailable")
 
@@ -216,10 +218,8 @@ def _read_capture(directory: Path, source: str, *, reference: bool,
         and isinstance(value, str) for key, value in headers.items()
     ), "responseHeaders must contain selected lowercase headers with string values")
     status = metadata.get("httpStatus")
-    require("httpStatus" in metadata and (status is None or type(status) is int),
-            "httpStatus must be a received integer status or null")
-    if skating:
-        require(status is None or 100 <= status <= 599, "invalid skating httpStatus")
+    require("httpStatus" in metadata and (status is None or type(status) is int and 100 <= status <= 599),
+            "httpStatus must be a received integer status from 100 through 599 or null")
     state = metadata.get("state")
     require(state in ("captured", "failed"), "state must be captured or failed")
     if state == "failed":

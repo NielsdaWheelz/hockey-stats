@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "kind": "independent-final-manual-coach-identity-review",
+  "status": "pass",
+  "table_sha256": "39ae4a471863f15ed4526c525f9af5c38a6974e6a4cd2419d9dcb22c449d7694",
+  "reviewed_names": 65,
+  "reviewed_slots": 13120,
+  "verified_anchors": 184,
+  "all_prior_ids_unchanged": true,
+  "all_source_names_retained_exact": true,
+  "variants_merged": 0,
+  "unreviewed_names": 0,
+  "unresolved_names": 0,
+  "same_name_same_day_multiple_team_flags": 0,
+  "final_season_added_cohorts": [
+    {
+      "reported_name": "D.J. Smith",
+      "season": "20252026",
+      "team_id": 26,
+      "slots": 23,
+      "first": {
+        "game_id": "2025020958",
+        "game_date": "2026-03-02"
+      },
+      "last": {
+        "game_id": "2025021310",
+        "game_date": "2026-04-16"
+      }
+    },
+    {
+      "reported_name": "John Tortorella",
+      "season": "20252026",
+      "team_id": 54,
+      "slots": 8,
+      "first": {
+        "game_id": "2025021175",
+        "game_date": "2026-03-30"
+      },
+      "last": {
+        "game_id": "2025021306",
+        "game_date": "2026-04-15"
+      }
+    },
+    {
+      "reported_name": "Peter DeBoer",
+      "season": "20252026",
+      "team_id": 2,
+      "slots": 4,
+      "first": {
+        "game_id": "2025021252",
+        "game_date": "2026-04-09"
+      },
+      "last": {
+        "game_id": "2025021293",
+        "game_date": "2026-04-14"
+      }
+    },
+    {
+      "reported_name": "Rick Bowness",
+      "season": "20252026",
+      "team_id": 29,
+      "slots": 37,
+      "first": {
+        "game_id": "2025020728",
+        "game_date": "2026-01-13"
+      },
+      "last": {
+        "game_id": "2025021295",
+        "game_date": "2026-04-14"
+      }
+    }
+  ],
+  "judgment": "all exact-name catalogue identities and final team/year distributions reviewed; no ambiguous person merge or contradictory chronology identified",
+  "limits": [
+    "source name identity is not a bench-attendance or tenure claim",
+    "no new external corroboration or right-rail request made"
+  ],
+  "reviewer_network_requests": 0,
+  "independent_full_raw_census_matches_reviewed_distribution": true,
+  "matched_source_name_team_season_cohorts": 184
+}

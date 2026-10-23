@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "kind": "independent-original-source-pin-acceptance",
+  "status": "pass",
+  "purpose": "fixture_check_using_original_source_bytes",
+  "source_sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+  "groups": 5,
+  "wall_seconds": 4.118,
+  "checked_originals": 5,
+  "reviewer_network_requests": 0,
+  "checks": [
+    "five independent original name/date/side facts",
+    "ten exact report-link paths with separate shiftChart URL identity",
+    "selected-series types,date,roles,game link,membership and malformed side containers",
+    "neutral absent/null corroborators",
+    "unrelated and reordered series isolation",
+    "detached artifact-only reads",
+    "resealed mixed-index,missing,duplicate,type and contradictory evidence rejection"
+  ],
+  "reproduction": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python /tmp/hockey-v1-02-real-adversarial.py",
+  "limits": [
+    "source pin clear for bounded expansion; full acquisition not yet reviewed",
+    "real identities and permanent-change/temporary-absence checks remain pending"
+  ],
+  "temporary_driver_retained": true
+}

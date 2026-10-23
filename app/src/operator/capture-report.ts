@@ -3,7 +3,7 @@ import type { CaptureRecord } from "./capture.js";
 
 const landingReplacement = "for a replacement, use an explicitly prepared new game-directory copy with no landing leaf; preserve the original directory and any landing leaf";
 
-export const reportCaptureFailure = (error: PlatformError | Error, outDirectory: string, source?: "landing"): 1 => {
+export const reportCaptureFailure = (error: PlatformError | Error, outDirectory: string, source?: "landing" | "right-rail"): 1 => {
   const platformError = isPlatformError(error) ? error.reason : undefined;
   const path = platformError !== undefined && "pathOrDescriptor" in platformError ? platformError.pathOrDescriptor ?? outDirectory : outDirectory;
   const action = source === "landing" ? `check the path and core receipt; ${landingReplacement}`
@@ -18,7 +18,7 @@ export const reportCaptures = (
   records: readonly CaptureRecord[],
   identity: { readonly gameId: string } | { readonly seasonId: string },
   outDirectory: string,
-  source?: "landing",
+  source?: "landing" | "right-rail",
 ): 0 | 1 => {
   const subject = "gameId" in identity ? `game ${identity.gameId}` : `season ${identity.seasonId}`;
   let captured2xx = 0;
@@ -42,5 +42,6 @@ export const reportCaptures = (
   console.log(outDirectory);
   const succeeded = records.length > 0 && captured2xx === records.length;
   if (!succeeded && source === "landing") console.error(landingReplacement);
+  if (!succeeded && source === "right-rail") console.error("for a replacement, preserve this supplemental capture and retry with a new --out directory");
   return succeeded ? 0 : 1;
 };

@@ -2,7 +2,7 @@
 
 date: 2026-09-29, local time. purpose: account for useful public evidence before choosing another inference rule. this is a bounded audit, not a claim that every nhl endpoint has been surveyed. source availability is not historical coverage or scientific validation.
 
-2026-10-22 coaching handoff: [v1-02](../specs/v1-02-dated-coaches.md) now owns the finite supplemental right-rail capture/binding contract. the historical inspection below stays evidence of what was seen, not proof of present access. three new read-only probes returned 403; [the access issue](../issues/coach-source-access.md) records scope and uncertainty. no coach corpus has been admitted by this documentation task. reported game coach, stable resolved identity and actual bench attendance remain distinct.
+2026-10-22 coaching handoff: [v1-02](../specs/v1-02-dated-coaches.md) now owns the finite supplemental right-rail capture/binding contract. the historical inspection below stays evidence of what was seen, not proof of present access. three read-only probes returned 403 at the specification stage. [later production verification](coaches-v1-02/verification.md#live-source-execution) records successful access and complete reported-coach coverage without attributing those earlier denials. the documentation handoff itself admitted no coach corpus. reported game coach, stable resolved identity and actual bench attendance remain distinct.
 
 ## corrected omission
 

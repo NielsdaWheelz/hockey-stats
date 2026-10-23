@@ -1,0 +1,225 @@
+{
+  "software_checks": "passed",
+  "access_result": "three production http200 json bodies; aggregate context unresolved in all six cells",
+  "adapter_status": "not_observed",
+  "implementation": {
+    "git_commit": "aa9ff18639585740bbaf9aefad5a87aa1c3e6bf8",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "artifact_sha256": "0f57e09143428a40e41eb4aa6e66fe6332accb567b506831d62eb2e773054030",
+  "selected_requests": 10,
+  "attempted_requests": 3,
+  "deferred_fixed_keys": 7,
+  "unused_adaptive_slots": 2,
+  "body_bytes": 28607,
+  "root_literal_witness_checks": 114,
+  "counts": [
+    {
+      "season": "20232024",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": "f",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20232024",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": "d",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20232024",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": null,
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20232024",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": "f",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20232024",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": "d",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20232024",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": null,
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20242025",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": "f",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20242025",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": "d",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20242025",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": null,
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20242025",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": "f",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20242025",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": "d",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20242025",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": null,
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20252026",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": "f",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20252026",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": "d",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20252026",
+      "measurement_id": "skating_max_speed_mph",
+      "position_group": null,
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20252026",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": "f",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20252026",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": "d",
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    },
+    {
+      "season": "20252026",
+      "measurement_id": "skating_bursts_over20_count",
+      "position_group": null,
+      "universe": null,
+      "listed": 0,
+      "acquired": 0,
+      "available": 0,
+      "excluded": 0,
+      "unresolved": 0
+    }
+  ],
+  "source_sha256": {
+    "analysis/src/hockey_stats/captures.py": "eed8a2ecc0733297e084746e28cc2e2780b673e7a42bee7f3f3997ca2ae028ee",
+    "analysis/src/hockey_stats/skating.py": "1c24bc838252410b63c5c4a6460dfe9f604ee8840af272ee99fd1d281216b440",
+    "app/src/operator/capture.ts": "08965371801211f4d88247c4b53a412296c545ee9f1e349caab5965ebba21c22",
+    "app/src/operator/skating-capture.ts": "e809470a17b8558d8bd0cb99c4fa05115c6ffe25033e5df82c9138cbd5f240cb",
+    "app/src/operator/skating-cli.ts": "308ff83adb0ea85e17e6b70d0b13ea4e75cc8e0e30eb510811510b8f1e872515",
+    "app/package.json": "a6c6b5deadbc1f76e98038ea048d03719643f6f95bef9ed0e07a0611195b7980"
+  }
+}

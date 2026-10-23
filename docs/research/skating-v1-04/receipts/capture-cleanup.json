@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "authorization": "root confirmed final green and assigned exact capture-review controller/scratch deletion",
+  "network_requests": 0,
+  "application_tests_run": false,
+  "removed": [
+    {
+      "path": "/private/tmp/hockey-skating-capture-eiDfZm",
+      "files": [
+        {
+          "path": "/private/tmp/hockey-skating-capture-eiDfZm/check.mjs",
+          "bytes": 6535,
+          "sha256": "27930b8bd85e90a77e24a1bdbb2b904873c83d09155a65bed2fb36ef277c0daa"
+        },
+        {
+          "path": "/private/tmp/hockey-skating-capture-eiDfZm/compatibility.mjs",
+          "bytes": 4143,
+          "sha256": "a7e62f20bf76a3429f9f739e3bf7107807e4944c1054eadcd6d228f2c9fac66f"
+        },
+        {
+          "path": "/private/tmp/hockey-skating-capture-eiDfZm/documentation-check.py",
+          "bytes": 6229,
+          "sha256": "ba66eb7cc2c94c290ec16642b5571116a20e605a37155d664899840100abead3"
+        },
+        {
+          "path": "/private/tmp/hockey-skating-capture-eiDfZm/source-review.py",
+          "bytes": 6041,
+          "sha256": "0ac2df25ec7292f41204cdbad8d77b52016189d3b8853188b858bc7abad8c1b4"
+        },
+        {
+          "path": "/private/tmp/hockey-skating-capture-eiDfZm/transport.mjs",
+          "bytes": 921,
+          "sha256": "26db6da770a2970f21900748452e3dd351616f18bbf2f809c9ce11ef78c28491"
+        }
+      ],
+      "file_count": 5,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r",
+      "files": [
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/0/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/0/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/0/out/edge-skating-detail/capture.json",
+          "bytes": 716,
+          "sha256": "e76641bfa0039b2b85d9d24a9502386b2555da92cb30e3ce0d752b0376ade4d2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/1/calls.jsonl",
+          "bytes": 111,
+          "sha256": "aff5dc2ab2ac590dffe50c41aa34e98e7915991716425597dd785607d5c8b755"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/1/out/edge-skating-listing/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/1/out/edge-skating-listing/capture.json",
+          "bytes": 678,
+          "sha256": "650b27ae40babecc7f4c6fd4f0db595478973e0b28089301bac2a91fe3425da8"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/2/calls.jsonl",
+          "bytes": 83,
+          "sha256": "15b4d341e0f8119ea808ace7b9fac899e940f9c5e3697ace4ea477ad496f66d2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/2/out/edge-skating-glossary/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/2/out/edge-skating-glossary/capture.json",
+          "bytes": 606,
+          "sha256": "f4d2464f751944bb58606696309a00e539c07eba048a6d297a49dd95855e301b"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/3/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/3/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/3/out/edge-skating-detail/capture.json",
+          "bytes": 716,
+          "sha256": "496f4ee4e675ca8f02d8320ac263e29140d5d6c4454c493923f5f5f7449231e1"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/4/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/4/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/4/out/edge-skating-detail/capture.json",
+          "bytes": 716,
+          "sha256": "6b529885315df33d5dfb8ffc8aaf6169b6ed5ddd784c2e6b3ffacdd5da8857a0"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/5/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/5/out/edge-skating-detail/capture.json",
+          "bytes": 486,
+          "sha256": "c8e8a02b3d08139bdaef402486417e0a81fee6cb444ff61f93c6c67818c8a57f"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/6/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/6/out/edge-skating-detail/capture.json",
+          "bytes": 480,
+          "sha256": "7030c7c16fa01d0b116cf599099505db931da40e88a4000c3875e02ad2860141"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/7/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-QNRT0r/7/out/edge-skating-detail/capture.json",
+          "bytes": 497,
+          "sha256": "654a124939d573256150a86d707590585c5d1ee1341cea4c91170579c51d80b8"
+        }
+      ],
+      "file_count": 21,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-coyYYb",
+      "files": [],
+      "file_count": 0,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq",
+      "files": [
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/0/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/0/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/0/out/edge-skating-detail/capture.json",
+          "bytes": 716,
+          "sha256": "917672459269a54f1441dee61ee46d13dfe52366dc113d43721c81da9e607ed2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/1/calls.jsonl",
+          "bytes": 111,
+          "sha256": "aff5dc2ab2ac590dffe50c41aa34e98e7915991716425597dd785607d5c8b755"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/1/out/edge-skating-listing/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/1/out/edge-skating-listing/capture.json",
+          "bytes": 678,
+          "sha256": "9b5620ab66594a29c494dc7565e05ada5da3d51523d2403ad997ecf5f56f8515"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/2/calls.jsonl",
+          "bytes": 83,
+          "sha256": "15b4d341e0f8119ea808ace7b9fac899e940f9c5e3697ace4ea477ad496f66d2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/2/out/edge-skating-glossary/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/2/out/edge-skating-glossary/capture.json",
+          "bytes": 606,
+          "sha256": "3710a246972c18028461e9be6b6d10b6b67e8bda28ca2260f254606d0f966d2a"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/3/calls.jsonl",
+          "bytes": 122,
+          "sha256": "cae3021193f0e2f6686ebc9ca2802ebbe0f9c9047efe471c2d9b54508f2d51e4"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/3/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/3/out/edge-skating-detail/capture.json",
+          "bytes": 710,
+          "sha256": "f73567f6fce659635806324ae21b6e59c5d632ffe2f92b1298cf7cc1ea1445aa"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/4/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/4/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/4/out/edge-skating-detail/capture.json",
+          "bytes": 716,
+          "sha256": "9058dd92edd7c59da77ea94fea674a91e2ebc87878c132f865ec1c4ba227b90d"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/5/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/5/out/edge-skating-detail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/5/out/edge-skating-detail/capture.json",
+          "bytes": 716,
+          "sha256": "875e9346d5563501438a6277d3fbfce9b0cf7fba4c31a4f1d29bf4f79dad13d0"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/6/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/6/out/edge-skating-detail/capture.json",
+          "bytes": 486,
+          "sha256": "a4aab23df3d1dc73a1523a5882d5fd8aa98a2f60016c2d50469c3baa7ab4459d"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/7/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/7/out/edge-skating-detail/capture.json",
+          "bytes": 480,
+          "sha256": "d4727e979bc18d16b8167e9500155c834febc3d69463f8863faa416596a15bd1"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/8/calls.jsonl",
+          "bytes": 125,
+          "sha256": "3490870f672a7eb326c078d2bd781f250e38cbb83b114a75b2c4b3ee02a70a54"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-cli-cases-mUIIpq/8/out/edge-skating-detail/capture.json",
+          "bytes": 497,
+          "sha256": "6ed97571f0cb9bc44c72ecfcf6f46b38e1586d7dff10a311913ea85dd2da70f7"
+        }
+      ],
+      "file_count": 24,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX",
+      "files": [
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/calls-0.jsonl",
+          "bytes": 659,
+          "sha256": "e602733be2064938edbb1112573591d97d831a33b93831f50f2593d88ffc4a57"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/calls-1.jsonl",
+          "bytes": 637,
+          "sha256": "7cd3db4bf93ca3d9ba43f46582c4b2a5f2dfa7500f69e1d91746c80f3f44ddfc"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/calls-2.jsonl",
+          "bytes": 106,
+          "sha256": "091e4093ffa014e5bdecd06ee19b89ef6122f4ee75803b72826cdb03f9c911d0"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/boxscore/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/boxscore/capture.json",
+          "bytes": 640,
+          "sha256": "11228f55973d8e20df153736618d40f980ad1be9b39f176814192b3bd1efcd45"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/game-summary/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/game-summary/capture.json",
+          "bytes": 646,
+          "sha256": "d434ee385c5b583db049d1b80ba481b7cb5ab276e9d82f4d06547e03ce25ef87"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/landing/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/landing/capture.json",
+          "bytes": 638,
+          "sha256": "26c9cd80063ad3a634ff7dc812ce02bf8b92f34cd0c329b8f7590729839913ea"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/play-by-play/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/play-by-play/capture.json",
+          "bytes": 648,
+          "sha256": "7bf62cf989f2e5bc9bd97691a85d8844149f029f683d8f938deca3be7e41977e"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/play-report/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/play-report/capture.json",
+          "bytes": 645,
+          "sha256": "5df6582af4579cbc413106cc5d6bdb3bedc7138bc428de45f44b6813881dc7f6"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/shifts/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/game/shifts/capture.json",
+          "bytes": 666,
+          "sha256": "91bd14c720242502a3055a7616a139b745518af4f28b1859382756b0e392c00d"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/right-rail/right-rail/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/right-rail/right-rail/capture.json",
+          "bytes": 644,
+          "sha256": "9f2b44c0124120c151ee6d708870a38e40d70067ef34aa956968ac26638a0b0e"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/right-rail.mts",
+          "bytes": 862,
+          "sha256": "6c1df4d25777f63d50cc48ee85161b004c978bc1f55bda5e2f5104f405e2b201"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/goalie-bios/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/goalie-bios/capture.json",
+          "bytes": 725,
+          "sha256": "dde6b11873ade695e7d8300f26ecf56306897162c9bc777ead70a4bb51910047"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/season-games/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/season-games/capture.json",
+          "bytes": 684,
+          "sha256": "cfdb5d5706a36c1c8e3835880eb1c1b33a3d95f08c078d0de47d2319462d3860"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/season-summary/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/season-summary/capture.json",
+          "bytes": 663,
+          "sha256": "618ec4ed286921cb2cfa509b270181ccde0bd50cd5a87c5178052cc634bbd0f5"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/skater-bios/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX/season/skater-bios/capture.json",
+          "bytes": 725,
+          "sha256": "5a4613ce58adf97b028218dd3eaaa54cbb2a24c4866e272d072b1a51f670d256"
+        }
+      ],
+      "file_count": 26,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD",
+      "files": [
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/calls-0.jsonl",
+          "bytes": 659,
+          "sha256": "e602733be2064938edbb1112573591d97d831a33b93831f50f2593d88ffc4a57"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/calls-1.jsonl",
+          "bytes": 637,
+          "sha256": "7cd3db4bf93ca3d9ba43f46582c4b2a5f2dfa7500f69e1d91746c80f3f44ddfc"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/boxscore/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/boxscore/capture.json",
+          "bytes": 640,
+          "sha256": "43081ceb4e6b2997701d68b82001d0ccf749fdef9ec18abaf422bca8ca53abdf"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/game-summary/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/game-summary/capture.json",
+          "bytes": 646,
+          "sha256": "adae155a7118c6040867c8761e8d5a7450e73db9178cdd0fd13f21b53911851d"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/landing/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/landing/capture.json",
+          "bytes": 638,
+          "sha256": "64ec72af4981e572c6026914456ebb3a4a45df845d72013719d4d61859b5f1ec"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/play-by-play/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/play-by-play/capture.json",
+          "bytes": 648,
+          "sha256": "28095963f36510f84ec3d4a680a2228e39bd9229e7cc46246b438916983adc39"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/play-report/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/play-report/capture.json",
+          "bytes": 645,
+          "sha256": "75c2af4b5646145e92ae3610f982e7f9070c2d9ff7277e2ec0391e29f9eb560b"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/shifts/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/game/shifts/capture.json",
+          "bytes": 666,
+          "sha256": "26b43e8a307dd325ca6d76e414113f9dfa270d831a5dedb6c84745cfc9084d5e"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/right-rail.mts",
+          "bytes": 871,
+          "sha256": "524cf3843a17a790c24496ab6af3d13345a92c6183c8b9db644b02dba6a4421b"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/goalie-bios/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/goalie-bios/capture.json",
+          "bytes": 725,
+          "sha256": "48b283531cad027700a12d84bcbb80101de129dda9c1375464d011ef757bb587"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/season-games/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/season-games/capture.json",
+          "bytes": 684,
+          "sha256": "c87c8b2a0ce69d1f4aeadad99c4b7c94e43db21f513bbd82f7dc5b0271b81a75"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/season-summary/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/season-summary/capture.json",
+          "bytes": 663,
+          "sha256": "7bcab2a1e6bce526b4bc2078d0bcbfbda08ad42765c1933a468cbc0f1fe409d2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/skater-bios/body.bin",
+          "bytes": 5,
+          "sha256": "4b6a9519e862cf8e44c92268c2d419305cab83ca68564a725eef8a30251ba0f2"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-wKI4nD/season/skater-bios/capture.json",
+          "bytes": 725,
+          "sha256": "ae43b713e4ca870c82c5c1545c6f562c77805a07e4b898aab716715e002913f9"
+        }
+      ],
+      "file_count": 23,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-_z_nivca",
+      "files": [
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-_z_nivca/bound/selection.json",
+          "bytes": 4147,
+          "sha256": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-_z_nivca/bound/skating.json",
+          "bytes": 54116,
+          "sha256": "422f87a909782ee87d73b9b0a7d70b79eb4c96c714178746ecba07d240d0763e"
+        }
+      ],
+      "file_count": 2,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    },
+    {
+      "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-amt9_mue",
+      "files": [
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-amt9_mue/bound/selection.json",
+          "bytes": 4147,
+          "sha256": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779"
+        },
+        {
+          "path": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-source-review-amt9_mue/bound/skating.json",
+          "bytes": 54116,
+          "sha256": "422f87a909782ee87d73b9b0a7d70b79eb4c96c714178746ecba07d240d0763e"
+        }
+      ],
+      "file_count": 2,
+      "ownership": "exact reviewer-created directory; controlled bytes/calls or derived source-review artifacts checked before removal"
+    }
+  ],
+  "preserved_file_hashes": {
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/README.md": "c8bb8f3eb77def38ec9baffd9d304eb6971a6b792fe5affc742323e2367cad60",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/selection-real.json": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/bound-real/selection.json": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/bound-real/skating.json": "0f57e09143428a40e41eb4aa6e66fe6332accb567b506831d62eb2e773054030",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20252026/edge-skating-detail/body.bin": "87f706f5e2d18a7133ab8fd936ada756a6045ec3789b05f59fdb068328b6eacd",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20252026/edge-skating-detail/capture.json": "d677b238ec30672148288814202e4a797bb2487ce28bf02214e1c3c2f9b60118",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20232024/edge-skating-detail/body.bin": "047c9a7ef6ef4e65cff78bee1b0e69cd1acfb16b1da954d5458ddda130019a19",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20232024/edge-skating-detail/capture.json": "6e44882fdb209d230fc313de0a1ab9df37e4317bdb2d873d57ccce5bec02a991",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20242025/edge-skating-detail/body.bin": "f588738066e430839ffb201cedc6d64e2da3ffa21f1111111d91fa02008c116d",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/primary/detail-8478402-20242025/edge-skating-detail/capture.json": "d54c6f15471fd6c4ba5d0ad2ca147383d6039c64702d18fd0369cf8cc84ba9dd",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/input-identity.json": "21927767eabf8a801009283b83e4df3d340217feaf746fe15ae30ca7a09188d9",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/request-plan.json": "e2790052dbe6a6fa34dfd80ccc6817ba1cb07d6c1ca1bf41f7d3ade32ca769c6",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/verification.md": "b50216930af36cacd69d1ffd960e47295f15ed18d7ea49d05ebfc0b8768237af",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/source-audit.md": "485017921f52d94e50f80366aba87ff43e33a17bb401149f30779f431208ba39",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/protected-files.json": "3ef2873410c8eaa4af7f559c0c4010a0a40ddea8e7c05e7fb1512498c2db9bc6",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/capture-verification.json": "9d2f0657ed89916b3611dd907b07e1f8083b531e5758cca1e7f950b9bb8dab18",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/binding-checks.json": "a73f1153209651990cb143c3688522dce635b6b28f90faf1445e5cea6b0f5c36",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/binding-green.txt": "7a74f4fa8a257cadcba3be81ed0b1d40f5d1b60f69f47e58b78c6ebeba78bd99",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/binding-red.txt": "b515daf05915740591904be8d305ae9f9c99c4c8f4179e0a3850114d49086be8",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/capture-red.json": "f3204d898e913ac850c3170c0bf4cbf3366fffb216a76242d66b26ac459338a4",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/final-real-binding.json": "ef4c417f2f791ee5b41b8b617cfa0762d19d634592385d7c1464eb8746e5d0e8",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/capture-compatibility.json": "def9db33b9de567a6491b402c805534bd77d1d842a575e5db1e8312be4d386ff",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/live-commands.json": "6f1c4576ab45498c7c2dbf596bf15538684bff204b497d31446ad39a201cef28",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/closeout.json": "263c86e99c789c95554fd49aad014bbd83757129eedc8ecddf60fad68c02edec",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/position-reference-facts.json": "49e63eb13f14f709654da64c4a939d39e2002211892d6d5e5d6d18bfaa11be88",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/capture-green.json": "99ad79104f2e5102ca858ee4df7ecfffc754063000fc2c2779e59ad5b734647c",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/binding-cli-red.json": "a66e9de3dc0ee45c34e42d88977110b3bc0e057a5f5ce757c80b338b5a1c94b1",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/receipts/documentation-check.json": "633757a99caee39d53c20c2644c775098a9be18844bf396aa1ebec8f9cfcdbe1",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/source-content.md": "dc29ef56bf30c68de6c18c7055225cee09066eebd9c544bc4ac7f9e92740ad16",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/adversarial-final.md": "237a56b80a59392987819c3b24f1c5bb47f02eb6a5be91eca77a5b2569c04bfd",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/primary-source-independent.json": "6bc87ac73a44b2cb431a01cfa4dcaaf49338cebf01498052cce0eb59025eebb1",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/receipts-independent.json": "f9a81f26c22745cb5847d87f1c06ecb2ac2006bdb1b51ff77316cddd776668fb",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/compact-independent.json": "3d318675dc7228c5acb466e10cf39d4ac929c24b07579020e8140dadd15ec9ca",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/adversarial-final.json": "be34353cba2861aa5c2d46c5e090599c854a719947b0de7879df1cb995d09ce4",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/adversarial-planning.md": "263f71b7b0f87d14cf139d5e9d7f6c989400e6e903d0b351546fcbdeca1aff91",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/source-content-independent.json": "d9ce844150d3aa51d86337c03b61be6cb313fd6062b661488899c2d0fc7bf82d",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/skating-v1-04/reviews/binding-independent.json": "f16bd28e7a916996abb8959d628801f701721e20bf79292f2823f0b2e043aa98",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/README.md": "a0056bbe665e21bc2613ab156362b7a81309e7858d0623d9fc8b9fee524ab317",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/plan.md": "4352b7c7f9681c2ad1ff4d3809345359162ba413bcfa8c6fe11494633c94699f",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/research/council.md": "d872cdb3499bf49baffabeef489af15ec7a4c2d08d4ced8663db253efa77a819",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/docs/issues/microstat-inputs.md": "92ebf06c42f4a2370b398b5c3894a928877a57e9cf9b1c53d1de9fd36144ae0b"
+  },
+  "preservation_verified": true,
+  "all_named_paths_absent": true
+}

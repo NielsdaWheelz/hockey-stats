@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "kind": "temporary shared-capture compatibility verification",
+  "live_requests": 0,
+  "scratch": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-core-compatibility-c5CiZX",
+  "checks": [
+    {
+      "name": "existing game cli retains exact six-source capture contract",
+      "result": "pass"
+    },
+    {
+      "name": "existing season cli retains exact four-source capture contract",
+      "result": "pass"
+    },
+    {
+      "name": "concurrent right-rail identity is preserved verbatim in shared response capture",
+      "result": "pass"
+    }
+  ],
+  "passed": 3,
+  "failed": 0
+}

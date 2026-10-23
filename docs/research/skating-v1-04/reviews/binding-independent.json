@@ -1,0 +1,69 @@
+{
+  "runtime": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "scratch": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-d7khvcbz",
+  "original_bytes_unmodified": true,
+  "production_network_requests": 0,
+  "synthetic_compact_mutations_only": true,
+  "passed": 10,
+  "total": 10,
+  "checks": [
+    {
+      "name": "actual three-primary binding preserves six context-unresolved cells and six deferred cells",
+      "result": "accepted",
+      "pass_check": true
+    },
+    {
+      "name": "three unexplained initial deferrals cannot certify assigned real run",
+      "result": "rejected",
+      "reason": "initial deferral requires a preceding 429 or two consecutive transport failures",
+      "pass_check": true
+    },
+    {
+      "name": "429 initial requires all remaining initial slots deferred",
+      "result": "rejected",
+      "reason": "initial request occurred after a 429 or two consecutive transport failures",
+      "pass_check": true
+    },
+    {
+      "name": "two consecutive transport failures stop remaining initial capture",
+      "result": "rejected",
+      "reason": "initial request occurred after a 429 or two consecutive transport failures",
+      "pass_check": true
+    },
+    {
+      "name": "optional attempt without usable initial evidence is rejected",
+      "result": "rejected",
+      "reason": "optional probes require usable initial aggregate evidence; no supported primary adapter is available",
+      "pass_check": true
+    },
+    {
+      "name": "dated max-event overlay cannot admit a season-level real value",
+      "result": "rejected",
+      "reason": "a primary aggregate adapter requires an evidence-backed amendment; adapter_status must be not_observed",
+      "pass_check": true
+    },
+    {
+      "name": "expected purpose mismatch",
+      "result": "rejected",
+      "reason": "artifact purpose mismatch",
+      "pass_check": true
+    },
+    {
+      "name": "copied selection hash mismatch",
+      "result": "rejected",
+      "reason": "copied selection hash mismatch",
+      "pass_check": true
+    },
+    {
+      "name": "duplicate compact object keys",
+      "result": "rejected",
+      "reason": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-d7khvcbz/8/skating.json: invalid finite unique-key json: duplicate object key 'schema_version'",
+      "pass_check": true
+    },
+    {
+      "name": "actual compact reader succeeds with all reads outside compact root forbidden",
+      "result": "accepted",
+      "pass_check": true
+    }
+  ]
+}

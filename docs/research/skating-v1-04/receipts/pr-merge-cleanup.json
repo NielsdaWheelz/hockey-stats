@@ -1,0 +1,54 @@
+{
+  "pr": 50,
+  "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/50",
+  "reviewed_head": "b67fd61d375e5042ac603c6664254ef39cc9ca06",
+  "reviewed_tree": "6f096ff33334bdef4fc5048ff98ae739e870e7ca",
+  "merge_sha": "4687b775d447db22bde72c116b72e0ad9a8feadd",
+  "merged_tree": "6f096ff33334bdef4fc5048ff98ae739e870e7ca",
+  "trees_equal": true,
+  "tracked_files_copied_exact": 1339,
+  "protected_files_unchanged": 30,
+  "hosted_checks": [
+    {
+      "name": "GitGuardian Security Checks",
+      "conclusion": "SUCCESS"
+    }
+  ],
+  "cleanup_owned": {
+    "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-04",
+    "local_branch": "implement/v1-04-skating-source-feasibility",
+    "remote_branch": "refs/heads/implement/v1-04-skating-source-feasibility",
+    "disposable_paths": [
+      "/Users/nnandal/Documents/code/hockey-stats-local/v1-04-delivery/rebound-integrated",
+      "/Users/nnandal/Documents/code/hockey-stats-local/v1-04-delivery/pr-body.md"
+    ]
+  },
+  "cleanup_complete": true,
+  "post_removal_compact_read": "passed from primary with original worktree absent",
+  "task_worktree_removed": true,
+  "local_branch_removed": true,
+  "remote_branch_removed": true,
+  "removed_disposable_files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-04-delivery/rebound-integrated/selection.json",
+      "sha256": "ab0162818edf07a5eff6c9c9c31bfa9bf83bafdeae749011534e9f076f822779",
+      "bytes": 4147
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-04-delivery/rebound-integrated/skating.json",
+      "sha256": "6d7b79ec8f745385d5aa8d7b6db35bf8c4e5302ba2504e78f41a5574d4176fa5",
+      "bytes": 54117
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-local/v1-04-delivery/pr-body.md",
+      "sha256": "c41e8dbb89318fb49fabe1e63177270263cb4253725fdc490f6db2ef85df697f",
+      "bytes": 1222
+    }
+  ],
+  "primary_typecheck_exit_code": 0,
+  "source_capture_requests_this_delivery": 0,
+  "publication_activation": false,
+  "remaining_worktrees": "worktree /Users/nnandal/Documents/code/hockey-stats\nHEAD 4687b775d447db22bde72c116b72e0ad9a8feadd\nbranch refs/heads/main\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-01\nHEAD 91754cff29770b862daa929abf2bc513bdb66611\nbranch refs/heads/v1-01-shared-evidence\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-02\nHEAD c33c10fce8b77e26b10dd1d435f2663a0ddaff38\nbranch refs/heads/implement/v1-02-dated-coaches\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-15\nHEAD ec959810d3b1101e805ab661385cec7b832764c3\nbranch refs/heads/implement/v1-15-comparative-card-discovery\n\n",
+  "historical_input_preservation": "ten recorded documentation inputs match30a3da5; recorded plan hash matches retained primary ancestor b00e9ba; both commits remain ancestors",
+  "independent_delivery_review": "clear; post-removal compact read and source6/evidence39/protected30 independently verified"
+}

@@ -1,0 +1,65 @@
+{
+  "software_checks": "passed",
+  "access_result": "three primary http200 bodies independently inspected; aggregate context unresolved",
+  "adapter_status": "not_observed",
+  "network_requests_by_reviewer": 0,
+  "checks": {
+    "receipts": 24,
+    "compact": 28,
+    "binding": 10,
+    "total": 62
+  },
+  "source_sha256": {
+    "analysis/src/hockey_stats/captures.py": "eed8a2ecc0733297e084746e28cc2e2780b673e7a42bee7f3f3997ca2ae028ee",
+    "analysis/src/hockey_stats/skating.py": "1c24bc838252410b63c5c4a6460dfe9f604ee8840af272ee99fd1d281216b440",
+    "app/src/operator/capture.ts": "08965371801211f4d88247c4b53a412296c545ee9f1e349caab5965ebba21c22",
+    "app/src/operator/skating-capture.ts": "e809470a17b8558d8bd0cb99c4fa05115c6ffe25033e5df82c9138cbd5f240cb",
+    "app/src/operator/skating-cli.ts": "308ff83adb0ea85e17e6b70d0b13ea4e75cc8e0e30eb510811510b8f1e872515",
+    "app/package.json": "a6c6b5deadbc1f76e98038ea048d03719643f6f95bef9ed0e07a0611195b7980"
+  },
+  "temporary_scripts_sha256": {
+    "/tmp/.v1-04-independent-receipts.py": "030093285def192b710a08036dad922d82a0e636c321ce6ac4293359264e1533",
+    "/tmp/.v1-04-independent-compact.py": "b1ad9b05862d2b351fae2df93fa8111d1ff8aaec4bd732a6dc787181cc560970",
+    "/tmp/.v1-04-independent-binding.py": "aa7ea8e2bdceedc3b2ec69c6c2b32e576b20d4df131336066674fa1f571833f2"
+  },
+  "temporary_scratch_paths": [
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-vy9ax_6t",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-1ysqaoq0",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-_p7efbds",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-j2bgupbv",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-w11sqt3y",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-0r2disas",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-jbkzszjj",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-zwx2rxp2",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-p55gqgq7",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-gnz8othm",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-zg4227d8",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-d7khvcbz",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-8mmi5fq8"
+  ],
+  "temporary_cleanup": "complete; scripts, copied result scratch and every owned system-temp fixture root removed after final green",
+  "final_refactor_verification": "62 independent checks passed after unsupported-primary dead-code simplification",
+  "removed_temporary_paths": [
+    "/tmp/.v1-04-independent-receipts.py",
+    "/tmp/.v1-04-independent-compact.py",
+    "/tmp/.v1-04-independent-binding.py",
+    "/tmp/.v1-04-independent-receipts-results.json",
+    "/tmp/.v1-04-independent-compact-results.json",
+    "/tmp/.v1-04-independent-binding-results.json",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-2j1_etoz",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-receipts-vy9ax_6t",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-1ysqaoq0",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-_p7efbds",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-j2bgupbv",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-w11sqt3y",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-0r2disas",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-jbkzszjj",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-compact-zwx2rxp2",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-p55gqgq7",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-gnz8othm",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-zg4227d8",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-d7khvcbz",
+    "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/.v1-04-independent-binding-8mmi5fq8"
+  ]
+}

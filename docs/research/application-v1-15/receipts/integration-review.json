@@ -1,0 +1,15 @@
+{
+  "base_main": "b5701d7e65662150e7cf69626038787bb8f3c32e",
+  "original_reviewed_implementation": "43f30f0",
+  "frontend_files_unchanged": 15,
+  "resolution": "retain current main skating contracts/status and both council reviews; update v1-15 status only",
+  "relative_links_checked": 440,
+  "pinned_node": "24.21.0",
+  "typecheck_exit_code": 0,
+  "independent_review": "final_adversarial_review cleared staged source/docs and task-only removal after merge/tree verification",
+  "retained_worktrees": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-02"
+  ],
+  "removal_reference_check": "no runtime or frozen downstream consumer requires the v1-15 task path; historical receipts retain provenance"
+}

@@ -1,0 +1,112 @@
+pass: explicit missingness html
+pass: explicit missingness denied
+pass: explicit missingness transport
+pass: explicit missingness body-read
+pass: explicit missingness timeout
+pass: explicit missingness unrelated
+pass: explicit missingness invalid-json
+pass: explicit missingness empty-shape
+pass: explicit missingness deferred
+pass: bios-only correct C/f D/d attribution
+pass: exact failed cause retained
+pass: denied bytes remain hash-bound
+pass: exclusive occupied output
+pass: purpose mismatch
+pass: compact reader independent of raw roots
+pass: duplicate request id/key
+pass: unknown closed selection key
+pass: deferred capture contradiction
+pass: selected receipt hash mismatch
+pass: real rejects synthetic
+pass: malformed season type
+pass: missing-promised-body
+pass: body-digest-corrupt
+pass: receipt-player-mismatch
+pass: receipt-type-mismatch
+pass: receipt-season-mismatch
+pass: receipt-url-mismatch
+pass: closed-receipt-key
+pass: duplicate/invalid receipt json
+pass: observed-raw-context
+pass: original precision retained without value
+pass: burst bins retained without addition
+pass: observed-raw-denied
+pass: old absent core still unavailable
+pass: right-rail selected absent fails
+pass: existing bios reader preserved
+pass: cli
+command: ["/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python", "-m", "hockey_stats.skating", "--selection", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/selection.json", "--out", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/cli"]
+exit: 0
+inspected 8 attempts; usable measurements: 0; adapter: not_observed
+population: unestablished; compact evidence: /private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/cli/skating.json
+source-listed peer counts (position_group=None means unknown position):
+season=20232024 measurement_id=skating_max_speed_mph position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0
+season=20232024 measurement_id=skating_max_speed_mph position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0
+season=20232024 measurement_id=skating_max_speed_mph position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0
+season=20232024 measurement_id=skating_bursts_over20_count position_group=f universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0
+season=20232024 measurement_id=skating_bursts_over20_count position_group=d universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0
+season=20232024 measurement_id=skating_bursts_over20_count position_group=None universe=None listed=0 acquired=0 available=0 excluded=0 unresolved=0
+
+pass: cli-unknown
+command: ["/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python", "-m", "hockey_stats.skating", "--selection", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/selection.json", "--out", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/cli-unknown", "--other", "x"]
+exit: 2
+usage: python -m hockey_stats.skating [-h] --selection SELECTION --out OUT
+python -m hockey_stats.skating: error: unrecognized arguments: --other x
+
+pass: cli-duplicate
+command: ["/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python", "-m", "hockey_stats.skating", "--selection", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/selection.json", "--selection", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/selection.json", "--out", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/cli-duplicate"]
+exit: 2
+usage: python -m hockey_stats.skating [-h] --selection SELECTION --out OUT
+python -m hockey_stats.skating: error: duplicate flag --selection
+
+pass: cli-occupied
+command: ["/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python", "-m", "hockey_stats.skating", "--selection", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/selection.json", "--out", "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz/cli"]
+exit: 1
+output directory is occupied
+
+{
+  "check_count": 40,
+  "checks": [
+    "explicit missingness html",
+    "explicit missingness denied",
+    "explicit missingness transport",
+    "explicit missingness body-read",
+    "explicit missingness timeout",
+    "explicit missingness unrelated",
+    "explicit missingness invalid-json",
+    "explicit missingness empty-shape",
+    "explicit missingness deferred",
+    "bios-only correct C/f D/d attribution",
+    "exact failed cause retained",
+    "denied bytes remain hash-bound",
+    "exclusive occupied output",
+    "purpose mismatch",
+    "compact reader independent of raw roots",
+    "duplicate request id/key",
+    "unknown closed selection key",
+    "deferred capture contradiction",
+    "selected receipt hash mismatch",
+    "real rejects synthetic",
+    "malformed season type",
+    "missing-promised-body",
+    "body-digest-corrupt",
+    "receipt-player-mismatch",
+    "receipt-type-mismatch",
+    "receipt-season-mismatch",
+    "receipt-url-mismatch",
+    "closed-receipt-key",
+    "duplicate/invalid receipt json",
+    "observed-raw-context",
+    "original precision retained without value",
+    "burst bins retained without addition",
+    "observed-raw-denied",
+    "old absent core still unavailable",
+    "right-rail selected absent fails",
+    "existing bios reader preserved",
+    "cli",
+    "cli-unknown",
+    "cli-duplicate",
+    "cli-occupied"
+  ],
+  "scratch": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz"
+}

@@ -1,5 +1,7 @@
 # offline capture corpus
 
+[skating feasibility originals](skating-v1-04/README.md) are a separate supplemental-source case: three original http200 detail responses expose candidate fields but leave aggregate player-season scope unresolved. they do not alter the game/reference bundle counts below or establish admitted skating measurements.
+
 the initial eight fresh nhl responses were captured on 2026-09-29 with the production command on node `24.21.0`. all returned http `200`; their bodies total 993,223 bytes. exact request urls, retrieval times, selected response headers, saved lengths and sha-256 digests are in each `capture.json`. all initial eight responses advertised gzip; `body.bin` preserves the decompressed http-client bytes before text decoding or parsing. no source body was modified. `.gitattributes` treats these bodies as binary artifacts, preserving the reports' original crlf bytes and disabling textual diffs/merges; inspect the files directly.
 
 current scope: thirty-six complete six-source game bundles across `20212022` through `20252026`, one original interrupted five-source bundle, and all five four-source reference bundles. the 241 available source pairs contain 68,055,157 body bytes and 162,464 receipt bytes. [the earlier admission manifest](source-admission.json), [03m additions](source-admission-03m.json), [04a addition](source-admission-04a.json), [05e addition](source-admission-05e.json) and [05g additions](source-admission-05g.json) record exact copied and preserved file hashes.

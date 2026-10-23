@@ -1,0 +1,40 @@
+{
+  "command": "app publication check --candidate /tmp/v106-detached.sqlite",
+  "database_sha256": "ac570d4877efdd3d6b1fa824a1f56d2b34859de2909fc19cc53bda6a1263fd13",
+  "publication_id": "bc7cf0ae-74d9-46a7-a1fb-a037a18ab08c",
+  "schema_version": 8,
+  "purpose": "fixture",
+  "available_seasons": [
+    "20252026",
+    "20242025",
+    "20232024"
+  ],
+  "seasons": [
+    {
+      "season": "20252026",
+      "players": 84,
+      "skaters": 84,
+      "goalies": 0,
+      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07"
+    },
+    {
+      "season": "20242025",
+      "players": 85,
+      "skaters": 84,
+      "goalies": 1,
+      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813"
+    },
+    {
+      "season": "20232024",
+      "players": 86,
+      "skaters": 84,
+      "goalies": 2,
+      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0"
+    }
+  ],
+  "strict_reader_passed": true,
+  "source_read_denied": "cat: /Users/nnandal/Documents/code/hockey-stats-v1-06/fixtures/publication-v1-13/results/manifest.json: Operation not permitted",
+  "input_database_sha256": "ac570d4877efdd3d6b1fa824a1f56d2b34859de2909fc19cc53bda6a1263fd13",
+  "unchanged": true,
+  "no_wal_shm": true
+}

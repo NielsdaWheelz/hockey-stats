@@ -1,0 +1,258 @@
+{
+  "status": "passed",
+  "scope": "root-owned temporary tests/controllers, mutation copies and disposable development outputs after software and canonical fixture green",
+  "checked_at": "2026-10-23T09:14:01.513688+00:00",
+  "removed": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks",
+      "files": 2003,
+      "bytes": 1165310938,
+      "absent": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-independent",
+      "files": 708,
+      "bytes": 403880258,
+      "absent": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06",
+      "files": 626,
+      "bytes": 358775037,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/red-02",
+      "files": 0,
+      "bytes": 0,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-01",
+      "files": 148,
+      "bytes": 99447314,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-02",
+      "files": 588,
+      "bytes": 388522595,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-03",
+      "files": 439,
+      "bytes": 300376550,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-04",
+      "files": 515,
+      "bytes": 333018861,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/composition-check-01",
+      "files": 115,
+      "bytes": 2435354335,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/facts-01",
+      "files": 0,
+      "bytes": 0,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/wrong-purpose.json",
+      "files": 1,
+      "bytes": 1279,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/wrong-preparation.json",
+      "files": 1,
+      "bytes": 1282,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/duplicate-year.json",
+      "files": 1,
+      "bytes": 1510,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/manifest-drift.json",
+      "files": 1,
+      "bytes": 1282,
+      "absent": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/reversed-years.json",
+      "files": 1,
+      "bytes": 1282,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-independent-review.md",
+      "files": 1,
+      "bytes": 42928,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-valued-composition-review.md",
+      "files": 1,
+      "bytes": 10629,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-valued-review-request.txt",
+      "files": 1,
+      "bytes": 1019,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-valued-artifact-message.txt",
+      "files": 1,
+      "bytes": 851,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-valued-review-fixed.txt",
+      "files": 1,
+      "bytes": 1518,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-canonical-start.txt",
+      "files": 1,
+      "bytes": 1265,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-artifact-inbox.md",
+      "files": 1,
+      "bytes": 25232,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-review-composition.txt",
+      "files": 1,
+      "bytes": 1298,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-minimal-app.py",
+      "files": 1,
+      "bytes": 7655,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-detached.sqlite",
+      "files": 1,
+      "bytes": 20570112,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-native-zoom-profile",
+      "files": 177,
+      "bytes": 9251626,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-review-prompt.txt",
+      "files": 1,
+      "bytes": 2487,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-final-freeze-request.txt",
+      "files": 1,
+      "bytes": 737,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-artifact-agent-prompt.txt",
+      "files": 1,
+      "bytes": 3619,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-review-followup.txt",
+      "files": 1,
+      "bytes": 1004,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-fixture-before",
+      "files": 45,
+      "bytes": 3845190,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-refactor-review.txt",
+      "files": 1,
+      "bytes": 809,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-cost-followup.txt",
+      "files": 1,
+      "bytes": 812,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-artifact-focus.txt",
+      "files": 1,
+      "bytes": 975,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-artifact-agent-status.md",
+      "files": 1,
+      "bytes": 28000,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-assist-evidence.txt",
+      "files": 1,
+      "bytes": 1161,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-restore-format.py",
+      "files": 1,
+      "bytes": 954,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-artifact-handoff.txt",
+      "files": 1,
+      "bytes": 1193,
+      "absent": true
+    },
+    {
+      "path": "/tmp/v106-numerical-contract.md",
+      "files": 1,
+      "bytes": 2010,
+      "absent": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-production-before-freeze.json",
+      "files": 1,
+      "bytes": 1344,
+      "absent": true
+    }
+  ],
+  "retained": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores-selection.json",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/results/manifest.json",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate/player-analysis.sqlite",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/facts-02/manifest.json",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-root-r6-observed.json"
+  ],
+  "test_only_dependencies": "none added to repository manifests; shared installed dependencies untouched",
+  "protected": "original captures, raw/native corpora, root-r6 preparation, chain-06 states/coaches, primary build/listener and active/previous database untouched",
+  "application_cleanup": "separate owner receipt; app/tmp paths and superseded screenshots",
+  "owned_sessions": "both task-created skid sessions closed after their final durable reviews; unrelated sessions untouched"
+}

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/valued.py", line 3, in <module>
+    from hockey_stats.descriptive import valued_evidence
+ImportError: cannot import name 'valued_evidence' from 'hockey_stats.descriptive' (/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/descriptive.py)

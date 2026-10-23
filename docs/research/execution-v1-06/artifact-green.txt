@@ -1,0 +1,42 @@
+command: V106_RUN=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-04 PYTHONPATH=$PWD/analysis/src ../hockey-stats/analysis/.venv/bin/python -u var/v1-06-checks/artifact/test_artifact.py <32 score-side checks>
+date: 2026-10-23T08:19:50Z
+checks sha256: aad5da55c4da7f05ec2396cc6a163bb3fd631e9eb1458dfca35f139b8b790bcf
+execution_scores.py sha256: 615366d89810d36a104d2315d2217c52a719f8ff060b1aa125aa08fcdf8d237d
+execution.py sha256: 2eb22cbc7e5796bb622d73e9a81e25a7932bd06b2ea0f0e58b4e26b32c84a671
+analysis_cli.py sha256: 451fb5fc6a5526355367dd34b4bc162367cb11924ed4bad979ab435cc5795320
+descriptive.py sha256: 1bb0c61f0b2b394087e353b25bd625012a7a52cca867c4187605a229efaab2f0
+inputs: prepared root-r6, coaches v1-05 fixture, states v1-05 chain-06 (cfbda18b); composition-side checks (summarize_composition, publish_composed_candidate) passed separately against composer output fixture/composition-check-01 built from dev-02 and are rerun after the canonical campaign
+PASS score_contract
+PASS score_reader_relations
+PASS score_reader_purpose
+PASS mutation_prefix_order
+PASS mutation_duplicate_event
+PASS mutation_coalition_endpoint
+PASS mutation_share_closure
+PASS mutation_goalie_setter_share
+PASS mutation_zero_numerator_conditional
+PASS mutation_goalie_setter_candidate
+PASS setter_discrepancy_evidence
+PASS mutation_unknown_person
+PASS mutation_missing_projection
+PASS mutation_map_mass
+PASS mutation_nonfinite
+PASS mutation_coverage_count
+PASS mutation_panel_membership
+PASS mutation_panel_weights
+PASS mutation_panel_setup
+PASS mutation_panel_dtype
+PASS mutation_projection_stage
+PASS mutation_panel_logits
+PASS mutation_consistent_panel_removal
+PASS mutation_resolution_pairs
+PASS writer_failures_leave_no_manifest
+PASS mutation_unbound_and_manifest
+PASS mutation_resolution_claim
+PASS mutation_unrefreshed_digest
+PASS cli_score_rejections
+PASS final_year_resolution
+PASS detached_reader
+PASS summarize_rejections
+32/32 passed
+exit 0

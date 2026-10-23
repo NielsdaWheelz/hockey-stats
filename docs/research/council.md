@@ -1,5 +1,17 @@
 # council synthesis
 
+## v1-06 execution-scoring implementation review — 2026-10-23
+
+native non-astra implementers, root and an independent claude reviewer completed [v1-06 software and canonical fixture verification](execution-v1-06/verification.md). one execution evaluator owns reference probabilities, common-panel projections and exact four-group allocation; annual artifacts and source/factual composition have separate cohesive owners. matched values reuse the existing interval/membership projection. exchange2/schema8, checked skater/goalie dispatch and the existing profile/history/evidence/export paths cut over together.
+
+adversarial review repaired numerical underflow/saturation, exact likelihood support, source/type binding, goalie-shooter personal applicability, recorded-assist annotations, paired coverage and detached-test scope. independent residual subtraction, explicit branch integration and 24-permutation allocation agree. the projection refactor removes repeated probability work and bounds its working arrays without sampling or changed margins. source facts, memberships, recorded populations and catalogs pass nonempty byte comparisons.
+
+five captured-data fixture score artifacts and four saved final-year variants pass the fixed numerical limits; 38 frozen focal pairs retain all baseline panel rows. the complete three-season exchange and schema8 candidate pass independent checks. actual source/API values, native/display maps, cohort/history, both-expectation tables, csv/png, narrow layout and native 200% zoom pass. reader and browser work with the actual local and external source/fit roots denied; database bytes and protected serving/input files remain exact.
+
+costs remain explicit: canonical composition takes 372 seconds and peaks at 1.76 gb; publication takes 563 seconds and peaks at 223 mb; the fixture database is 838 mb. these are fixture measurements. exact full panels, fixed imputed origins, conditional point priors, shared-strength extrapolation, conservative matched exposure, mean-coupled setter support and bounded propagation retain their stated limitations. no calibrated ability, causal isolation or private-model parity follows.
+
+temporary tests/controllers and disposable development outputs are deleted after final software/fixture green. useful fixtures, canonical outputs, checked facts and receipts remain. [real acceptance](../issues/execution-v1-06-real-acceptance.md) stays blocked on accepted preparation, twenty real fitted heads/four probes and compatible real facts; full real costs and source-to-screen checks remain required. no new fitting, acquisition, scientific admission or live activation occurred.
+
 ## v1-06 execution-scoring specification review — 2026-10-22
 
 three independent read-only reviewers examined numerical/population contracts, systems/source composition and content for [v1-06](../specs/v1-06-execution-scoring.md). root inspected the existing foundation/application, newly merged factual owners and v1-05 interface; reviewers checked the in-progress execution design without certifying its implementation. [hockeyviz xg8](https://hockeyviz.com/txt/xg8) supports the four-layer inspiration, not equivalence of our reference panels or attribution convention. the user chose recorded outcomes beside **both** reference-execution and actual-actor expectations on identical paired attempts.

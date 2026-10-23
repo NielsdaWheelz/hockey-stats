@@ -1,0 +1,42 @@
+{
+  "candidate": "var/v1-06/candidate-11/player-analysis.sqlite",
+  "sha256": "ac570d4877efdd3d6b1fa824a1f56d2b34859de2909fc19cc53bda6a1263fd13",
+  "cases": [
+    {
+      "case": "old-schema",
+      "rejected": true,
+      "reason": "incompatible publication version; schema 8 is required"
+    },
+    {
+      "case": "sentinel-shooter",
+      "rejected": true,
+      "reason": "strict schema rejection"
+    },
+    {
+      "case": "nonzero-goalie-setter",
+      "rejected": true,
+      "reason": "neutral setter recipient has a nonzero execution share"
+    },
+    {
+      "case": "wrong-source-goalie",
+      "rejected": true,
+      "reason": "strict schema rejection"
+    },
+    {
+      "case": "wrong-fixed-prior",
+      "rejected": true,
+      "reason": "strict schema rejection"
+    },
+    {
+      "case": "wrong-likelihood-support",
+      "rejected": true,
+      "reason": "strict schema rejection"
+    },
+    {
+      "case": "wrong-paired-goals",
+      "rejected": true,
+      "reason": "strict schema rejection"
+    }
+  ],
+  "unchanged": true
+}

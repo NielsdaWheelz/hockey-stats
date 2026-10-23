@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "case": "empty-scores",
+      "rejection": "missing annual scores"
+    },
+    {
+      "case": "wrong-purpose",
+      "rejection": "score selection purpose/preparation differs"
+    },
+    {
+      "case": "wrong-preparation",
+      "rejection": "score selection purpose/preparation differs"
+    },
+    {
+      "case": "unknown-key",
+      "rejection": "expected exact fields schema_version,purpose,prepared_sha256,scores"
+    }
+  ]
+}

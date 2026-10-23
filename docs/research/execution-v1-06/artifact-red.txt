@@ -1,0 +1,122 @@
+command: V106_RUN=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/red-02 PYTHONPATH=$PWD/analysis/src ../hockey-stats/analysis/.venv/bin/python var/v1-06-checks/artifact/test_artifact.py
+date: 2026-10-23T06:43:52Z
+checks sha256: e8b4949f9cb734053404b4dc562bc45f0ffeddb567acd836e492cfec9b407f5b
+note: red-01 was discarded: the controller resolved the venv interpreter symlink to the base python (bs4 missing), which tested nothing
+FAIL score_contract: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL score_reader_relations: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL score_reader_purpose: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_prefix_order: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_duplicate_event: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_coalition_endpoint: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_share_closure: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_goalie_setter_share: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_unknown_person: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_missing_projection: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_map_mass: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_nonfinite: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_coverage_count: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_panel_membership: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_panel_weights: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_panel_setup: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_panel_dtype: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_unbound_and_manifest: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_resolution_claim: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL mutation_unrefreshed_digest: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL cli_score_rejections: AssertionError: score 20232024 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL final_year_resolution: AssertionError: score 20252026 failed: 2
+
+usage: hockey-stats-analysis [-h] {prepare,facts,fit,publish} ...
+hockey-stats-analysis: error: argument command: invalid choice: 'score' (choose from 'prepare', 'facts', 'fit', 'publish')
+
+FAIL summarize_rejections: AssertionError: facts failed: observed/prepared game selection differs
+
+FAIL summarize_composition: AssertionError: facts failed: result output exists
+
+FAIL publish_composed_candidate: AssertionError: publish failed: [Errno 2] No such file or directory: '/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/red-02/composed'
+
+0/25 passed
+exit 1

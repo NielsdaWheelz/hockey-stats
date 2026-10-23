@@ -1,0 +1,13 @@
+test_annual_source_pairing_and_neutral_value_closure (__main__.Composition.test_annual_source_pairing_and_neutral_value_closure) ... ok
+test_complete_selected_skater_fields_maps_strata (__main__.Composition.test_complete_selected_skater_fields_maps_strata) ... ok
+test_exact_factual_preservation (__main__.Composition.test_exact_factual_preservation) ... ok
+test_publication_roundtrip (__main__.Composition.test_publication_roundtrip) ... ok
+test_strict_selection_and_occupied_destination_rejections (__main__.Composition.test_strict_selection_and_occupied_destination_rejections) ... /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/captures.py:69: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x109be3d30>
+  def pairs(items: list[tuple[str, object]]) -> dict[str, object]:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1546.940s
+
+OK

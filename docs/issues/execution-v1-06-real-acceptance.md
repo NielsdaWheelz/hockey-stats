@@ -1,0 +1,9 @@
+# v1-06 real execution acceptance
+
+problem: the accepted five-season preparation, twenty real v1-05 head states and four saved final-year variants are unavailable. v1-06 explicitly excludes new fitting; fixture scoring cannot replace those inputs.
+
+impact: five real annual score artifacts, the complete three-season real exchange/candidate, real numerical propagation, source-to-screen reconciliation and full-season map/database costs remain unverified. software and captured-data fixture checks do not close this boundary or admit scientific claims.
+
+evidence: on 2026-10-23, `/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02` had 4,053 partial game files and no completion manifest at the final verification check. the independent preparation remains untouched. the frozen v1-05 worktree supplies only the approved purpose-`fixture` chain; [its real-acceptance issue](execution-v1-05-real-acceptance.md) remains open. [v1-06 verification](../research/execution-v1-06/verification.md) distinguishes fixture and real evidence.
+
+resolution: after the responsible upstream assignments provide accepted inputs, pin their exact preparation, coach, state and probe identities. run the five annual `score` commands into fresh external directories, compose against the regenerated compatible factual exchange with an explicit ordered score selection, and build a separate candidate with `publish`. complete every real acceptance row in [the specification](../specs/v1-06-execution-scoring.md): source/disposition inventories, scalar/map/accounting closure, exact matched populations, saved-variant propagation, resources and database size, application/history/export journeys, detached reads and preservation. retain independent receipts, delete temporary checks after final green, update the plan and remove this issue. no acquisition, new solve, activation or scientific admission is implied.

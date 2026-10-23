@@ -1,0 +1,243 @@
+{
+  "historical_checked_facts_exact": true,
+  "files": [
+    {
+      "path": "20242025-evidence-interval_location.jsonl",
+      "original_rows": 6,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-goalie-goalie_danger.jsonl",
+      "original_rows": 24,
+      "added_rows": 24,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-evidence-attempt_fact.jsonl",
+      "original_rows": 23,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-territory-analysis_map.jsonl",
+      "original_rows": 168,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20242025-evidence-context_coverage.jsonl",
+      "original_rows": 420,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-ledger-value_ledger.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-goalie-goalie_evidence_map.jsonl",
+      "original_rows": 144,
+      "added_rows": 144,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20242025-evidence-dressed_game.jsonl",
+      "original_rows": 13,
+      "added_rows": 1,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-evidence-context_coverage.jsonl",
+      "original_rows": 420,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-territory-skater_territory.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-evidence-interval_fact.jsonl",
+      "original_rows": 24,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-goalie-goalie_observed.jsonl",
+      "original_rows": 12,
+      "added_rows": 12,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-goalie-goalie_result.jsonl",
+      "original_rows": 11,
+      "added_rows": 11,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "sources.jsonl",
+      "original_rows": 5,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "methods.jsonl",
+      "original_rows": 7,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-shootiness-skater_shootiness.jsonl",
+      "original_rows": 588,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-spatial-analysis_map.jsonl",
+      "original_rows": 3360,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-penalties-skater_penalties.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "supports.jsonl",
+      "original_rows": 18,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-spatial-adjustment_decomposition.jsonl",
+      "original_rows": 1680,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-microstats-skater_microstats.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20242025-evidence-interval_player.jsonl",
+      "original_rows": 40,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-spatial-skater_spatial.jsonl",
+      "original_rows": 756,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-evidence-interval_player.jsonl",
+      "original_rows": 40,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-evidence-interval_location.jsonl",
+      "original_rows": 6,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "people.jsonl",
+      "original_rows": 254,
+      "added_rows": 1,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-goalie-execution_breakdown.jsonl",
+      "original_rows": 99,
+      "added_rows": 99,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-evidence-dressed_game.jsonl",
+      "original_rows": 12,
+      "added_rows": 2,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20232024-descriptive-skater_descriptive.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20242025-evidence-interval_fact.jsonl",
+      "original_rows": 24,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-goalie-analysis_map.jsonl",
+      "original_rows": 11,
+      "added_rows": 11,
+      "original_values_exact": true,
+      "byte_identical": false
+    },
+    {
+      "path": "20242025-evidence-attempt_fact.jsonl",
+      "original_rows": 23,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20232024-descriptive-skater_context.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    },
+    {
+      "path": "20242025-ledger-value_ledger.jsonl",
+      "original_rows": 84,
+      "added_rows": 0,
+      "original_values_exact": true,
+      "byte_identical": true
+    }
+  ]
+}

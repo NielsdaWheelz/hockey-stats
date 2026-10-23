@@ -1,0 +1,134 @@
+{
+  "publication_id": "8aeb5023-0630-42a0-9f5d-91d3f2d07dfb",
+  "schema_version": 8,
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate/player-analysis.sqlite",
+  "database_sha256": "d553ffb22362d392f374d052d92f8c31dce00c6f9bd85d7605a1cba6fec1c1b4",
+  "results_manifest_sha256": "78d490f8c2a093d37ba687fef571615a9d418e9c45cf0b0f9dbefd99deed4ad8",
+  "checks": [
+    {
+      "season": "20232024",
+      "player_id": "8481559",
+      "paired": {
+        "danger_unavailable": {
+          "actor_expected_goals": 0.0,
+          "events": 0,
+          "observed_goals": 0,
+          "reference_expected_goals": 0.0
+        },
+        "paired_attempts": 13,
+        "source_attempts": 13,
+        "unvalued_source_attempts": 0
+      },
+      "reference_xg_per60": 0.9048251794307327,
+      "context": [
+        {
+          "population": "neutral_all_attempt_value",
+          "on_seconds": 2041,
+          "on_for_mass": 1.7543442935608133
+        },
+        {
+          "population": "neutral_locatable_unblocked_value",
+          "on_seconds": 2041,
+          "on_for_mass": 1.5619834255369733
+        }
+      ],
+      "maps": [
+        {
+          "family": "finishing",
+          "value": 1.1292529656149721,
+          "cells": 656
+        },
+        {
+          "family": "setting",
+          "value": 0.17671963968100202,
+          "cells": 656
+        }
+      ],
+      "league_count": 201
+    },
+    {
+      "season": "20242025",
+      "player_id": "8481559",
+      "paired": {
+        "danger_unavailable": {
+          "actor_expected_goals": 0.0,
+          "events": 0,
+          "observed_goals": 0,
+          "reference_expected_goals": 0.0
+        },
+        "paired_attempts": 2,
+        "source_attempts": 2,
+        "unvalued_source_attempts": 0
+      },
+      "reference_xg_per60": 0.19106531659057946,
+      "context": [
+        {
+          "population": "neutral_all_attempt_value",
+          "on_seconds": 913,
+          "on_for_mass": 0.5493238871249548
+        },
+        {
+          "population": "neutral_locatable_unblocked_value",
+          "on_seconds": 913,
+          "on_for_mass": 0.3453507679463458
+        }
+      ],
+      "maps": [
+        {
+          "family": "finishing",
+          "value": 1.1968734461721056,
+          "cells": 656
+        },
+        {
+          "family": "setting",
+          "value": 0.17380944771566326,
+          "cells": 656
+        }
+      ],
+      "league_count": 245
+    },
+    {
+      "season": "20252026",
+      "player_id": "8481559",
+      "paired": {
+        "danger_unavailable": {
+          "actor_expected_goals": 0.0,
+          "events": 0,
+          "observed_goals": 0,
+          "reference_expected_goals": 0.0
+        },
+        "paired_attempts": 3,
+        "source_attempts": 3,
+        "unvalued_source_attempts": 0
+      },
+      "reference_xg_per60": null,
+      "context": [
+        {
+          "population": "neutral_all_attempt_value",
+          "on_seconds": 0,
+          "on_for_mass": 0
+        },
+        {
+          "population": "neutral_locatable_unblocked_value",
+          "on_seconds": 0,
+          "on_for_mass": 0
+        }
+      ],
+      "maps": [
+        {
+          "family": "finishing",
+          "value": 1.364445069208628,
+          "cells": 656
+        },
+        {
+          "family": "setting",
+          "value": 0.1339351160650856,
+          "cells": 656
+        }
+      ],
+      "league_count": 277
+    }
+  ],
+  "database_unchanged": true,
+  "no_wal_shm": true
+}

@@ -48,7 +48,7 @@ def main(argv=None) -> int:
             input_read_wall_seconds = perf_counter() - read_started
             design = prepare_execution(prepared, args.coaches, RECIPE, args.season)
             design.resources["input_read_wall_seconds"] = input_read_wall_seconds
-            previous = read_execution_state(args.previous, purpose) if args.previous else None
+            previous = read_execution_state(args.previous, purpose) if args.previous is not None else None
             state = fit_execution_year(design, previous, RECIPE, args.out)
             print(str(state.path))
             unavailable = [head for head in ("u", "q", "r", "g") if state.heads[head]["status"] != "complete"]

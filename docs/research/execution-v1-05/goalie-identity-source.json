@@ -1,0 +1,110 @@
+{
+  "scope": "two schema-validated synthetic goalie identity boundary cases over exact original membership; no raw source mutation",
+  "recipe_sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304",
+  "optional_position_does_not_exclude": {
+    "key": "2021020001:6",
+    "game_id": "2021020001",
+    "source_index": 6,
+    "outcome": "save",
+    "full_probability_context": true,
+    "goalie_identity": {
+      "status": "identified",
+      "player_id": 8477465,
+      "membership_id": 8477465,
+      "dated_team_id": 5,
+      "reported_position": null,
+      "reason": null,
+      "pointers": [
+        "/attempts/0/feature_facts/state/values/away_goalies",
+        "/attempts/0/details/values/opposing_goalie_id",
+        "/people/8477465/people/values/team_id",
+        "/events/6/source/roles/goalie"
+      ]
+    },
+    "pointer": "/attempts/0",
+    "heads": {
+      "u": {
+        "included": true,
+        "target": 1.0,
+        "reasons": []
+      },
+      "q": {
+        "included": true,
+        "target": 1.0,
+        "reasons": []
+      },
+      "r": {
+        "included": true,
+        "target": 0.0,
+        "reasons": []
+      },
+      "g": {
+        "included": false,
+        "target": null,
+        "reasons": [
+          "recorded_stopped_save"
+        ]
+      }
+    },
+    "source_supported": true,
+    "candidate_universe_complete": true,
+    "setter_discrepancy": null,
+    "immediate_stop_known": true
+  },
+  "positive_identity_conflict_is_head_local": {
+    "key": "2021020001:11",
+    "game_id": "2021020001",
+    "source_index": 11,
+    "outcome": "save",
+    "full_probability_context": false,
+    "goalie_identity": {
+      "status": "conflict",
+      "player_id": null,
+      "membership_id": 8476883,
+      "dated_team_id": 14,
+      "reported_position": "G",
+      "reason": "positive_credited_or_native_goalie_conflicts_with_membership",
+      "pointers": [
+        "/attempts/2/feature_facts/state/values/home_goalies",
+        "/attempts/2/details/values/opposing_goalie_id",
+        "/people/8476883/people/values/team_id",
+        "/events/11/source/roles/goalie"
+      ]
+    },
+    "pointer": "/attempts/2",
+    "heads": {
+      "u": {
+        "included": true,
+        "target": 1.0,
+        "reasons": []
+      },
+      "q": {
+        "included": false,
+        "target": null,
+        "reasons": [
+          "goalie_identity_unavailable"
+        ]
+      },
+      "r": {
+        "included": false,
+        "target": null,
+        "reasons": [
+          "goalie_identity_unavailable"
+        ]
+      },
+      "g": {
+        "included": false,
+        "target": null,
+        "reasons": [
+          "goalie_identity_unavailable"
+        ]
+      }
+    },
+    "source_supported": true,
+    "candidate_universe_complete": true,
+    "setter_discrepancy": null,
+    "immediate_stop_known": true
+  },
+  "goalie_actor_role": "G",
+  "goalie_role_reason": "supported_goalie_membership"
+}

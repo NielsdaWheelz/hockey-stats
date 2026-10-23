@@ -53,7 +53,8 @@ DEFINITION = {
     "reference": "raw-minus-training-centers; preserve applicability offsets; virtual neutral execution",
     "population": {"game_type": 2, "physical_status": "ordinary", "skaters_each": [3, 4, 5, 6],
                    "opposing_goalies": 1, "attacking_goalies": [0, 1],
-                   "required": ["focal_identity", "shooting_team", "membership", "shooter", "goalie", "six_type", "normalized_location", "outcome"],
+                   "required": ["focal_identity", "shooting_team", "membership", "shooter", "six_type", "normalized_location", "outcome"],
+                   "goalie_identity": "q/r/g only: exact opposing-goalie member and supported dated team identity; optional reported position; conflicting positive credited/native ids withheld; u uses cardinality only",
                    "elapsed_clock": "optional; resolved membership suffices",
                    "u": {"block": 0, "miss": 1, "save": 1, "goal": 1},
                    "q": {"miss": 0, "save": 1, "goal": 1},
@@ -90,6 +91,7 @@ DEFINITION = {
                        "center": 27., "scale": 10., "powers": [1, 2], "roles": ["F", "D", "G"],
                        "transition": "last-supported raw + (z(current_age)-z(last_age)) dot current annual block/head/role curve",
                        "unavailable_or_role_change": "age-neutral carry, no history reset", "coach": "age-neutral"},
+    "role_definition": "actual typed goalie membership supports G without biographical position; conflicting goalie/skater membership or dated position makes role unknown; F/D requires supported dated position; reasons retained",
     "history_definition": {"first": "source-first entry ridge only", "returning": "carry around declared mean only, no additional level ridge",
                            "ledger": "only likelihood-supported completed state updates; absent and prior-only years preserve last observation",
                            "zero_likelihood": "analytic current prior mean after age estimation",
@@ -546,15 +548,35 @@ def _head_design(head, predictors, labels, people, source_actors=None):
         any(c.kind in ("unknown", "goalie") and (labels[i]["observed_setter"] < 0 or labels[i]["observed_setter"] == j)
             for j, c in enumerate(predictors[i].setter_prior)) for i in rows)
     actor_indices = {block: {} for block in blocks}
+    actor_role_reasons = {block: {} for block in blocks}
     actors = []
     for (block, actor), record in sorted(actor_rows.items(), key=lambda item: (BLOCKS.index(item[0][0]), item[0][1])):
         if block == "setter" and coupled and setter_weight[actor] > 0:
             record["likelihood_support"] += 1.
         person = people.get(actor)
+        role_reason = "dated_position_unavailable"
         if person is not None:
             record["role"] = _value(person, "position_group")
+            role_reason = "supported_dated_position" if record["role"] is not None else "dated_position_missing_or_conflicting"
             age = _value(person, "age_days")
             record["age"] = age / 365.2425 if age is not None else None
+        actual_goalie = (source_actors or {}).get("goalie", {}).get(actor, 0) > 0
+        actual_skater = (source_actors or {}).get("setter", {}).get(actor, 0) > 0
+        if block.endswith("coach"):
+            record["role"] = None
+            role_reason = "coach_age_neutral"
+        elif actual_goalie:
+            positions = _value(person, "reported_positions") if person is not None else []
+            if actual_skater or positions and set(positions) != {"G"}:
+                record["role"] = None
+                role_reason = "goalie_membership_conflicts_with_skater_or_dated_position"
+            else:
+                record["role"] = "G"
+                role_reason = "supported_goalie_membership"
+        elif actual_skater and record["role"] == "G":
+            record["role"] = None
+            role_reason = "skater_membership_conflicts_with_dated_goalie_position"
+        actor_role_reasons[block][actor] = role_reason
         record["index"] = len(coefficients)
         record["prior_only"] = record["likelihood_support"] == 0
         record.update(mean=0., precision=DEFINITION["penalties"][block][0], age_delta=[], age_indices=[])
@@ -589,7 +611,7 @@ def _head_design(head, predictors, labels, people, source_actors=None):
                                           "structural_absence_attempts": structural[name], "active": bool(active[j])}
                                    for j, name in enumerate(names)},
                   map_indices=maps, native_neighbors=edges.tolist(), mirror_cells=mirror,
-                  circumstance_indices=circumstance_indices, actor_indices=actor_indices,
+                  circumstance_indices=circumstance_indices, actor_indices=actor_indices, actor_role_reasons=actor_role_reasons,
                   age_indices_by_block_role=age_indices_by_block_role, setup_index=setup_index,
                   families=list(FAMILIES) + ([] if head == "u" else ["goalie_workload", "goalie_calendar_rest"]),
                   trait_assumptions=["reported_hand_stable_trait"],
@@ -759,6 +781,7 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                 for block in ("attacking_coach", "defending_coach"):
                     source_actors[block][coach_id] += 1
         events = {event["source"]["source_index"]: event for event in game["events"] or []}
+        event_positions = {event["source"]["source_index"]: i for i, event in enumerate(game["events"] or [])}
         credits = {credit["source_index"]: credit for credit in game["credits"] or []}
         start_count = len(coverage_rows)
         for attempt in game["attempts"] or []:
@@ -780,7 +803,7 @@ def prepare_execution(base_prepared, coaches, recipe, season):
             shot_type = _value(recorded, "model_shot_type")
             outcome = _value(details, "outcome")
             shooter = _value(details, "physical_shooter_id")
-            goalie = _value(details, "opposing_goalie_id")
+            projected_goalie = _value(details, "opposing_goalie_id")
             side = _value(state, "home_away")
             opposing_side = "away" if side == "home" else "home" if side == "away" else None
             reasons = []
@@ -798,7 +821,32 @@ def prepare_execution(base_prepared, coaches, recipe, season):
             if strength[0][1] not in (0, 1) or strength[1][1] != 1: reasons.append("goalie_population_unavailable_or_outside")
             local_people = game.get("people") or {}
             if shooter is None or str(shooter) not in local_people: reasons.append("shooter_unavailable")
-            if goalie is None or str(goalie) not in local_people: reasons.append("goalie_unavailable")
+            goalie_members = _value(state, str(opposing_side) + "_goalies")
+            goalie_member = goalie_members[0] if goalie_members is not None and len(goalie_members) == 1 else None
+            goalie_person = local_people.get(str(goalie_member), {}).get("people", {})
+            dated_team = _value(goalie_person, "team_id")
+            native_goalie = (event["source"].get("roles") or {}).get("goalie") if event is not None else None
+            goalie_status, goalie_reason = "unavailable", "opposing_goalie_membership_unavailable"
+            goalie = None
+            if goalie_member is not None:
+                positive_ids = [value for value in (projected_goalie, native_goalie) if type(value) is int and value > 0]
+                if any(value != goalie_member for value in positive_ids):
+                    goalie_status, goalie_reason = "conflict", "positive_credited_or_native_goalie_conflicts_with_membership"
+                elif dated_team is None:
+                    goalie_reason = "dated_goalie_team_identity_unavailable"
+                elif dated_team != _value(state, "opponent_team_id"):
+                    goalie_status, goalie_reason = "conflict", "dated_goalie_team_conflicts_with_opposing_membership"
+                else:
+                    goalie, goalie_status, goalie_reason = goalie_member, "identified", None
+            attempt_pointer = "/attempts/" + str(len(coverage_rows) - start_count)
+            goalie_identity = {"status": goalie_status, "player_id": goalie, "membership_id": goalie_member,
+                               "dated_team_id": dated_team, "reported_position": _value(goalie_person, "reported_position"),
+                               "reason": goalie_reason,
+                               "pointers": [attempt_pointer + "/feature_facts/state/values" + ("/" + opposing_side + "_goalies" if opposing_side else ""),
+                                            attempt_pointer + "/details/values/opposing_goalie_id"]
+                               + (["/people/" + str(goalie_member) + "/people/values/team_id"] if goalie_member is not None else [])
+                               + (["/events/" + str(event_positions[source_index]) + "/source/roles/goalie"]
+                                  if event is not None and "goalie" in (event["source"].get("roles") or {}) else [])}
             if shot_type not in TYPES: reasons.append("shot_type_unavailable")
             try:
                 if outcome == "block" and event is not None:
@@ -819,7 +867,7 @@ def prepare_execution(base_prepared, coaches, recipe, season):
             if not reasons:
                 actor_coaches = {"attacking_coach": coach_game[side]["coach_id"],
                                  "defending_coach": coach_game[opposing_side]["coach_id"]}
-                actors = {"shooter": str(shooter), "goalie": str(goalie), **actor_coaches}
+                actors = {"shooter": str(shooter), "goalie": str(goalie) if goalie is not None else None, **actor_coaches}
                 setter_prior, candidate_complete = _setter_prior(game, attempt, event, state, local_people)
                 team_rest = _team_rest(team_schedules.get(_value(state, "opponent_team_id")), inventory["game_date"],
                                        {"input_ref": prepared_identity,
@@ -833,8 +881,8 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                 predictor = ExecutionPredictor(key, TYPES.index(shot_type), proxy, outcome == "block", shot_type == "tip",
                                                actors, {actor: people.get(actor) for actor in actors.values() if actor is not None}, setter_prior, context)
                 head_labels["u"] = float(outcome != "block")
-                if outcome != "block": head_labels["q"] = float(outcome in ("save", "goal"))
-                if outcome in ("save", "goal") and stop is not None:
+                if outcome != "block" and goalie is not None: head_labels["q"] = float(outcome in ("save", "goal"))
+                if outcome in ("save", "goal") and stop is not None and goalie is not None:
                     head_labels["r"] = float(not stop)
                     if not stop: head_labels["g"] = float(outcome == "goal")
                 if outcome == "goal":
@@ -849,6 +897,8 @@ def prepare_execution(base_prepared, coaches, recipe, season):
             dispositions = {}
             for head in HEADS:
                 exclusion = reasons.copy()
+                if not exclusion and head != "u" and goalie is None:
+                    exclusion = ["goalie_identity_unavailable"]
                 if not exclusion and head_labels[head] is None:
                     exclusion = ["requires_unblocked"] if head == "q" else ["requires_on_net"] if outcome not in ("save", "goal") else ["immediate_stop_label_unavailable"] if stop is None else ["recorded_stopped_save"]
                 dispositions[head] = {"included": head_labels[head] is not None, "target": head_labels[head], "reasons": exclusion}
@@ -859,6 +909,8 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                     totals[head]["strength:" + ",".join(map(str, (strength[0][0], strength[1][0], strength[0][1])))] += 1
             coverage_rows.append({"key": key, "game_id": game_id, "source_index": source_index,
                                   "outcome": outcome,
+                                  "full_probability_context": not reasons and goalie is not None,
+                                  "goalie_identity": goalie_identity,
                                   "pointer": "/attempts/" + str(len(coverage_rows) - start_count), "heads": dispositions,
                                   "source_supported": not reasons, "candidate_universe_complete": candidate_complete,
                                   "setter_discrepancy": setter_discrepancy, "immediate_stop_known": stop is not None})
@@ -881,7 +933,8 @@ def build_resolution_witness(design, requirement, block, actor_id):
         return None
     actor_id = str(actor_id)
     context = next((predictor for predictor in sorted(design.predictors, key=lambda row: (row.key.split(":")[0], int(row.key.split(":")[1])))
-                    if not predictor.tip and actor_id in predictor.context["attacking_skaters"] + predictor.context["attacking_goalies"]), None)
+                    if not predictor.tip and predictor.actors["goalie"] is not None
+                    and actor_id in predictor.context["attacking_skaters"] + predictor.context["attacking_goalies"]), None)
     if context is None:
         return None
     source_head = requirement.split(":")[1]

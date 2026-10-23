@@ -1,0 +1,57 @@
+{
+  "source_game": "2025021094",
+  "raw_play_by_play": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/fixtures/captures/2025021094/play-by-play/body.bin",
+    "sha256": "1cb5834471bb57a2f42084290c949adcf1fa6da0ca962057da1dfa13e5c4b2a6"
+  },
+  "event_prefix": {
+    "goalie_id": 8479361,
+    "focal_source_index": 167,
+    "independent_prior_raw_on_net_count": 21,
+    "raw_prior_source_indices": [
+      31,
+      32,
+      45,
+      67,
+      68,
+      80,
+      82,
+      85,
+      108,
+      117,
+      118,
+      119,
+      120,
+      123,
+      129,
+      132,
+      138,
+      139,
+      146,
+      157,
+      164
+    ],
+    "penalty_goal_source_index": 164,
+    "penalty_goal_prefix": 20,
+    "following_source_index": 167,
+    "following_prefix": 21,
+    "next_prefix": 22,
+    "focal_excluded": true,
+    "future_excluded": true,
+    "prior_penalty_included": true
+  },
+  "optional_fields": {
+    "unrelated_missing_counter_preserves_supported_toi": true,
+    "goalie_prefix_preserved": true,
+    "no_recent_structural_absence_distinct": true,
+    "unknown_coach_has_indicator": true,
+    "exact_strength_nonreference_columns": 31
+  },
+  "origin_law": {
+    "synthetic_contact_cell": 17,
+    "native_cells": 656,
+    "mass": 1.0,
+    "all_cells_positive": true
+  },
+  "recipe_sha256": "fa794eee0098b53900fce6c5b7756019a9b196c466a5e4366ef858a6297cbf2d"
+}

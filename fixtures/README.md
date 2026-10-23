@@ -381,3 +381,9 @@ original `2025020001`, `2025020614`, `2024020186` and `2024021235` exercise reta
 ## v1-13 typed publication checks
 
 [publication-v1-13](publication-v1-13/README.md) retains the complete compact schema-7 exchange, source/method/support catalogs and independently checked analytical constants. analytical records are synthetic; the preserved observed side reuses six original complete captures across the three displayed seasons. original captured bodies and receipts remain unchanged. the fixture exercises all fixed families, explicit unfinished work, source gaps, a failed-fit record, historical borrowing, actual-state goalie evidence, probability bins, event-key joins and distinct context populations. its sqlite candidate and temporary controllers are not committed fixtures.
+
+## v1-05 earlier-lineup setter candidates
+
+reuse the complete original `2025021094` six-source bundle, bound in [source-admission.json](source-admission.json). play-by-play `/plays/5` is an away missed shot. earlier uninterrupted-play membership at `/plays/3`, play-report `/rows/6`, supports away skaters `8477940` and `8476921`; both have left the unit by the focal `/plays/5`, play-report `/rows/8`. they have no required named event role. the source-order candidate universe must include both, exclude the shooter, and retain the goalie as a setup-only branch. reading only earlier event roles falsely omitted these candidates while claiming a complete universe.
+
+[the checked candidate receipt](../docs/research/execution-v1-05/setter-source.json) separates this original witness from a synthetic lineup-only/off-ice oracle, future-member exclusion, missing earlier membership and null prior roles. no goal assist supplies or repairs the candidate universe. original captures and required season references are reused unchanged; no corrected download or additional capture copy is needed.

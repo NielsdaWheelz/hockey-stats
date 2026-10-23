@@ -1,0 +1,113 @@
+{
+  "scope": "explicitly synthetic earlier-lineup candidate oracle; no real passing evidence",
+  "source_order": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "focal_source_index": 2,
+  "pre_event_skaters": [
+    1,
+    2,
+    3
+  ],
+  "earlier_source0_skaters": [
+    1,
+    2,
+    4
+  ],
+  "earlier_source1_skaters": [
+    1,
+    4,
+    5
+  ],
+  "future_source3_skaters": [
+    1,
+    2,
+    6
+  ],
+  "expected_candidates": [
+    "2",
+    "3",
+    "4",
+    "5",
+    "9"
+  ],
+  "off_ice_lineup_only": [
+    "4",
+    "5"
+  ],
+  "future_actor_excluded": "6",
+  "probabilities": {
+    "null": 0.2,
+    "2": 0.2285714285714286,
+    "3": 0.1142857142857143,
+    "4": 0.2285714285714286,
+    "5": 0.1142857142857143,
+    "9": 0.1142857142857143
+  },
+  "incomplete_earlier_membership_unknown": true,
+  "null_prior_roles_incomplete_without_crash": true,
+  "original_witness": {
+    "game_id": "2025021094",
+    "prepared_member_sha256": "d23cc3d073018500d8c1bbd17dd676663c38fa8297a79610eeb2700b641f1083",
+    "focal_source_index": 5,
+    "prior_membership_source_index": 3,
+    "prior_report_source_index": 6,
+    "focal_report_source_index": 8,
+    "lineup_only_off_ice_candidates": [
+      "8476921",
+      "8477940"
+    ],
+    "universe_complete": true,
+    "branches": [
+      {
+        "actor_id": null,
+        "kind": "none",
+        "probability": 0.2
+      },
+      {
+        "actor_id": "8473533",
+        "kind": "skater",
+        "probability": 0.12000000000000002
+      },
+      {
+        "actor_id": "8475791",
+        "kind": "skater",
+        "probability": 0.12000000000000002
+      },
+      {
+        "actor_id": "8476921",
+        "kind": "skater",
+        "probability": 0.12000000000000002
+      },
+      {
+        "actor_id": "8477940",
+        "kind": "skater",
+        "probability": 0.12000000000000002
+      },
+      {
+        "actor_id": "8480817",
+        "kind": "skater",
+        "probability": 0.04
+      },
+      {
+        "actor_id": "8482702",
+        "kind": "skater",
+        "probability": 0.12000000000000002
+      },
+      {
+        "actor_id": "8482809",
+        "kind": "skater",
+        "probability": 0.12000000000000002
+      },
+      {
+        "actor_id": "8483548",
+        "kind": "goalie",
+        "probability": 0.04
+      }
+    ]
+  },
+  "recipe_sha256": "fa794eee0098b53900fce6c5b7756019a9b196c466a5e4366ef858a6297cbf2d"
+}

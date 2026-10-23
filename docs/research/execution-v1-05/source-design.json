@@ -1,0 +1,189 @@
+{
+  "scope": "source/design acceptance; fixture-derived original captures and separately attributed later-year people mutation; no real fit completion",
+  "recipe_sha256": "fa794eee0098b53900fce6c5b7756019a9b196c466a5e4366ef858a6297cbf2d",
+  "checks": {
+    "later_year_invariance": {
+      "passed": true,
+      "earlier_season": "20212022",
+      "changed_member": "people/20252026.json",
+      "mutation": "supported birth date one year earlier; age_days increased365, schema-validated and member/manifest identity recomputed",
+      "numerical_sha256": "7b7ebf165f8c534920ed92543cc7e30a88ff935babb5a0382762cb3ef82dcfc3",
+      "baseline_manifest_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+      "mutated_manifest_sha256": "513f076bb3a89c3097bf8c4714ca2c1eccace818538624365b5df22a15b7f61b"
+    },
+    "partition": {
+      "passed": true,
+      "recognized_attempts": 824,
+      "unique_keys": 824,
+      "games": 7,
+      "heads": {
+        "u": {
+          "included": 771,
+          "class:1": 618,
+          "type:wrist": 466,
+          "strength:5,5,1": 643,
+          "class:0": 153,
+          "type:slap": 110,
+          "type:backhand": 39,
+          "type:tip": 59,
+          "type:snap": 92,
+          "type:other": 5,
+          "strength:5,4,1": 75,
+          "strength:4,5,1": 13,
+          "strength:6,5,0": 9,
+          "excluded": 53,
+          "strength:3,3,1": 23,
+          "strength:4,3,1": 6,
+          "strength:4,4,1": 1,
+          "strength:5,3,1": 1
+        },
+        "q": {
+          "included": 618,
+          "class:1": 439,
+          "type:wrist": 361,
+          "strength:5,5,1": 514,
+          "excluded": 206,
+          "type:slap": 90,
+          "type:backhand": 36,
+          "type:tip": 59,
+          "class:0": 179,
+          "type:snap": 67,
+          "type:other": 5,
+          "strength:5,4,1": 58,
+          "strength:6,5,0": 9,
+          "strength:4,5,1": 10,
+          "strength:3,3,1": 21,
+          "strength:4,3,1": 4,
+          "strength:4,4,1": 1,
+          "strength:5,3,1": 1
+        },
+        "r": {
+          "included": 439,
+          "class:0": 104,
+          "type:wrist": 261,
+          "strength:5,5,1": 364,
+          "excluded": 385,
+          "class:1": 335,
+          "type:slap": 63,
+          "type:backhand": 25,
+          "type:tip": 35,
+          "type:snap": 51,
+          "type:other": 4,
+          "strength:5,4,1": 42,
+          "strength:6,5,0": 7,
+          "strength:4,5,1": 7,
+          "strength:3,3,1": 15,
+          "strength:4,3,1": 2,
+          "strength:4,4,1": 1,
+          "strength:5,3,1": 1
+        },
+        "g": {
+          "excluded": 489,
+          "included": 335,
+          "class:0": 296,
+          "type:wrist": 205,
+          "strength:5,5,1": 280,
+          "type:backhand": 18,
+          "type:tip": 25,
+          "type:snap": 41,
+          "type:slap": 43,
+          "class:1": 39,
+          "strength:5,4,1": 30,
+          "strength:6,5,0": 6,
+          "strength:4,5,1": 6,
+          "strength:3,3,1": 11,
+          "strength:5,3,1": 1,
+          "type:other": 3,
+          "strength:4,3,1": 1
+        }
+      }
+    },
+    "no_matching_elapsed_segment": {
+      "passed": true,
+      "key": "2024020022:133",
+      "association": {
+        "source_index": 133,
+        "native": {
+          "source_index": 133,
+          "report_source_index": 136,
+          "match_status": "matched",
+          "shot_type_evidence": {
+            "api_value": "wrist",
+            "report_value": "Wrist",
+            "value": "wrist",
+            "status": "agreement"
+          },
+          "goal_modifier_evidence": null,
+          "away_skaters": [
+            8480068,
+            8480797,
+            8481178,
+            8481546,
+            8481553
+          ],
+          "home_skaters": [
+            8476468,
+            8478454,
+            8479425,
+            8480459,
+            8480748
+          ],
+          "away_goalies": [
+            8481035
+          ],
+          "home_goalies": [
+            8480947
+          ],
+          "classification": "five_on_five",
+          "shift_relation": "neither",
+          "interval_indices": [],
+          "attacking_x": -39,
+          "attacking_y": -7,
+          "coordinate_status": "normalized",
+          "issue_indices": [
+            12
+          ]
+        },
+        "touching_segment_indices": [
+          174,
+          175
+        ],
+        "matching_segment_indices": [],
+        "temporal_case": "boundary",
+        "issue_indices": [
+          0,
+          1
+        ]
+      },
+      "heads": {
+        "u": {
+          "included": true,
+          "target": 1.0,
+          "reasons": []
+        },
+        "q": {
+          "included": true,
+          "target": 1.0,
+          "reasons": []
+        },
+        "r": {
+          "included": true,
+          "target": 1.0,
+          "reasons": []
+        },
+        "g": {
+          "included": true,
+          "target": 0.0,
+          "reasons": []
+        }
+      }
+    },
+    "old_mirror_behavior": {
+      "passed": true,
+      "native_cells": 656,
+      "same_parameterization_as_commit": "fff4829",
+      "mirror_orbits": 348
+    }
+  },
+  "wall_seconds": 78.5417696670047
+}

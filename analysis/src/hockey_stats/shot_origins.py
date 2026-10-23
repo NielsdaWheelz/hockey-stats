@@ -50,6 +50,12 @@ def cell_id(point, centers=None):
     return int(np.argmin(np.sum((centers - point) ** 2, axis=1)))
 
 
+def mirror_cell_representatives(centers):
+    """first native representative of each exact left/right reflection orbit."""
+    lookup = {tuple(point): i for i, point in enumerate(centers)}
+    return [min(i, lookup[x, -y]) for i, (x, y) in enumerate(centers)]
+
+
 def forward_kernel(centers, distance_ft, direction_strength):
     """return log K[block, origin], normalized over block cells."""
     delta = centers[:, None, :] - centers[None, :, :]

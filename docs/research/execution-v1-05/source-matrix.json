@@ -1,0 +1,46 @@
+{
+  "scope": "fixture-derived original2025021094 compact physical-CSR and bounded origin-expansion check; no fit estimate",
+  "checks": [
+    {
+      "head": "u",
+      "physical_attempts": 119,
+      "expanded_rows": 22389,
+      "nonzeros": 511584,
+      "generation_wall_seconds": 0.003733707999344915,
+      "bounded_max_rows": 3958,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    },
+    {
+      "head": "q",
+      "physical_attempts": 85,
+      "expanded_rows": 85,
+      "nonzeros": 2151,
+      "generation_wall_seconds": 0.0001906250254251063,
+      "bounded_max_rows": 85,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    },
+    {
+      "head": "r",
+      "physical_attempts": 61,
+      "expanded_rows": 61,
+      "nonzeros": 1509,
+      "generation_wall_seconds": 0.00014849996659904718,
+      "bounded_max_rows": 61,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    },
+    {
+      "head": "g",
+      "physical_attempts": 53,
+      "expanded_rows": 53,
+      "nonzeros": 1305,
+      "generation_wall_seconds": 0.00019545899704098701,
+      "bounded_max_rows": 53,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    }
+  ],
+  "recipe_sha256": "fa794eee0098b53900fce6c5b7756019a9b196c466a5e4366ef858a6297cbf2d"
+}

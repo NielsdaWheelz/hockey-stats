@@ -15,7 +15,7 @@ from scipy.special import expit, log_expit, logsumexp
 
 from .artifacts import implementation_identity
 from .captures import InputContractError, strict_json
-from .shot_origins import cell_id, forward_kernel, grid, posterior
+from .shot_origins import cell_id, forward_kernel, grid, posterior, mirror_cell_representatives
 
 TYPES = ["wrist", "snap", "slap", "backhand", "tip", "other"]
 ROLES = ["F", "D", "unknown"]
@@ -221,10 +221,7 @@ def spatial_parameterization(layout, centers, constraint):
         if spatial_count != len(TYPES) * len(centers):
             raise InputContractError("spatial parameterization requires six native maps")
         if constraint == "mirror_y":
-            lookup = {tuple(point): i for i, point in enumerate(centers)}
-            cell_representatives = [
-                min(i, lookup[x, -y]) for i, (x, y) in enumerate(centers)
-            ]
+            cell_representatives = mirror_cell_representatives(centers)
             orbits = len(set(cell_representatives))
             for offset in range(start, end, len(centers)):
                 representatives[offset : offset + len(centers)] = [

@@ -8,21 +8,26 @@ evidence: [the delivery receipt](../research/facts-v1-03/verification.md) record
 
 resolution: consume the completed, independently checked selected preparation through `hockey-stats-analysis facts`, then the existing `publish` command into isolated external outputs. verify every spec arithmetic/source/application criterion, all 3,936 inventory games and exact old results; record hashes, per-season support/exclusions, source samples, resources and independent reviews. verify detached candidate reads and protected serving-state preservation, delete temporary controllers after final green, update the plan/receipt and remove this issue.
 
-remaining execution, after the selected preparation passes v1-01 acceptance, uses [the exact observed selection](../research/facts-v1-03/selection-real.json). the task-local temporary controllers remain under `var/v1-03/`; they are not a retained harness and must be deleted after the real checks pass. the ordinary external output directory below must be new.
+remaining execution starts only after the selected preparation passes v1-01 acceptance. use [the exact observed selection](../research/facts-v1-03/selection-real.json) from the primary repository. the external parent below must be new; both production commands require fresh output directories.
 
 ```sh
+cd /Users/nnandal/Documents/code/hockey-stats
 mkdir -p /Volumes/Expansion/hockey-stats/factual
-PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python \
-  var/v1-03/acceptance.py \
-  /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 \
-  docs/research/facts-v1-03/selection-real.json \
-  /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261022-01
-PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python \
-  var/v1-03/real-strength-closure.py --purpose real \
+mkdir /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261022-01
+PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats/analysis/src \
+  /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python \
+  -m hockey_stats.analysis_cli facts \
   --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 \
-  --observed docs/research/facts-v1-03/selection-real.json \
-  --facts /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261022-01/results \
-  --out var/v1-03/real-strength-closure.json
+  --observed /Users/nnandal/Documents/code/hockey-stats/docs/research/facts-v1-03/selection-real.json \
+  --out /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261022-01/results
+PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats/analysis/src \
+  /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python \
+  -m hockey_stats.analysis_cli publish \
+  --observed /Users/nnandal/Documents/code/hockey-stats/docs/research/facts-v1-03/selection-real.json \
+  --results /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261022-01/results \
+  --out /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261022-01/candidate
 ```
 
-then run the retained identity, typed-api and browser/history/export checks against the completed real candidate with original source paths denied; restore only the owned `app/node_modules` symlink for the task reader, using the existing primary dependency directory. seal real hashes/resources/support and independent reviews, check serving preservation, remove temporary controllers and the dependency symlink, and delete this issue. do not start another preparation or consume partial members to bypass this prerequisite.
+the user's cleanup assignment removes the completed task's temporary controllers. recreate new temporary acceptance checks for the separately assigned real follow-up; retain no harness or controller archive. independently reconcile every selected game, source identity, strength/group count and matched exposure, role disposition, support/exclusion total and preserved old result. verify typed api, browser, history, csv and png propagation against the real candidate, including detached reads with original source paths denied. record exact input/result/candidate hashes, wall time, peak memory, output bytes and independent source/arithmetic/systems/content reviews; verify protected serving-state preservation.
+
+the two production commands do not close these acceptance criteria. after the independent checks pass, retain compact receipts and original fixture evidence, delete the newly created temporary checks, update the plan/verification receipt and remove this issue. no activation or scientific admission follows. do not start another preparation or consume partial members to bypass the selected prerequisite.

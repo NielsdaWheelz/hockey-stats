@@ -101,5 +101,22 @@
     "timing_limit": "only retained fixture summaries populated across full declared inventory; sparse prior histories and few repeated appearances understate real repeat factor; history-only timings do not establish end-to-end gain",
     "source_receipt_sha256": "663599e1c50f7950eccebd95b7fa4a650a34118a383838c6608318cbe481871b",
     "root_decision": "reject: about five percent of a small history-only workload does not establish material end-to-end gain; additional retained state and restart/reverification are unjustified"
+  },
+  "scheduling_probe": {
+    "scope": "one bounded operating-system scheduling comparison during resumed source verification; no production code change",
+    "temporarily_paused_seasons": [
+      "20242025",
+      "20252026"
+    ],
+    "active_season": "20232024",
+    "bounded_single_worker_seconds": 240.367,
+    "active_worker_rows_before": 851,
+    "active_worker_rows_after": 868,
+    "active_worker_completed_rows": 17,
+    "all_workers_restored": true,
+    "subsequent_approximate_seconds": 300,
+    "subsequent_all_worker_completed_rows": 89,
+    "limit": "changing game sizes, cache state and concurrent work prevent a causal speed claim; per-shard source wall times include the temporary pause",
+    "decision": "retain three concurrent season checks; no scheduling controller retained"
   }
 }

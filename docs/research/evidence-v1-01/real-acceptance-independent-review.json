@@ -1,0 +1,82 @@
+{
+  "status": "pass",
+  "scope": "independent read-only review of exact source and reason receipt chains, five hash-bound compact source jsonl files and the copied coverage/identity receipts; no prepared game or original source reread",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "receipts": {
+    "source_merge": {
+      "path": "real-source-reconciliation.json",
+      "sha256": "7419ba23f1050d3abd0a11467a223253c922135e10250a4ace378d117185f210"
+    },
+    "reason_merge": {
+      "path": "real-reason-coverage.json",
+      "sha256": "1304e54fa489c4b8c6f2f276dddf721d726c43dce13ceee0178f8ca419791fef"
+    },
+    "identity_counts": {
+      "path": "real-identity-counts.json",
+      "sha256": "e065fddf2639d29e88ec418b1c95eb624ec8f6d5b0a6649929d81adf41a09309"
+    },
+    "coverage": {
+      "path": "real-coverage.json",
+      "sha256": "fb9e5c5207375747caf00d45d49a5264ccd9b86bf0e6f22c34b21bd0bdf9fc49"
+    },
+    "bounded_content": {
+      "path": "real-content.json",
+      "sha256": "a8d6c8589edd0d754ba71d11cf6861f3d9c1608fb102448d001dd3745c64a21f"
+    },
+    "guarded_systems": {
+      "path": "real-systems.json",
+      "sha256": "2ece18b738f82dda50813bb7c31065d43827b03e2a1215b56590559aa8889bce"
+    }
+  },
+  "methods": {
+    "source_checker_sha256": "11f47738af4b62eb6a470b3617382a4d2977459d5eec3cc785051b68c0f88b27",
+    "source_merger_sha256": "50b9abe9394892a26bb8349b7b322367fc67ba55fd7ec7b9218258c7667507b5",
+    "reason_auditor_sha256": "50961cdea2f6d0a7dba2cc60e2dc8fa7e3be60d650877cf95b09d4ecf46f509c",
+    "reason_merger_sha256": "3e11da5d026f161fd98c5772c0843c2e7375122ac9a31a9b29f0d2a62fee78a6"
+  },
+  "source_chain": {
+    "seasons": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "selected_games": 6560,
+    "public_game_reader_calls": 6560,
+    "unique_compact_game_keys": 6560,
+    "original_events": 2060996,
+    "shard_receipt_and_jsonl_hashes_verified": 5,
+    "seasonal_coverage_exact": true,
+    "identity_matches_coverage": true
+  },
+  "reason_chain": {
+    "selected_games": 6560,
+    "positive_exclusion_game_reads": 1345,
+    "zero_known_resolved_exclusion_games": 5215,
+    "zero_exclusion_games_with_reason_witnesses": 877,
+    "event_dispositions": {
+      "excluded": 16685,
+      "included": 735216,
+      "not_applicable": 1291234,
+      "unresolved": 17861
+    },
+    "known_resolved_physical_seconds": 23353054,
+    "known_resolved_included_seconds": 22908268,
+    "known_resolved_excluded_union_seconds": 444786,
+    "seconds_with_multiple_reason_codes": 12195,
+    "per_code_excluded_seconds_sum_nonadditive": 457295,
+    "unknown_horizon_games": 1,
+    "unresolved_known_seconds": 542339,
+    "five_shard_hash_and_source_bindings_verified": true
+  },
+  "checks": [
+    "five distinct real source and reason seasons each have 1312 selected games",
+    "source shard receipts bind one exact manifest, checker, identity file and hash-bound compact game rows",
+    "compact source rows cover every selected key once and sum to saved event and physical/included/excluded coverage",
+    "reason shards bind matching source receipts and compact row identities with fixed auditor and merger hashes",
+    "selective reason reads plus zero-exclusion games equal 6560; each season physical/included/excluded time and unknown quantities match its source receipt",
+    "per-code saved-mask seconds overlap and are not added to claim global excluded time"
+  ],
+  "limits": "reason time is positive resolved full-membership segment time. unknown horizons and unresolved known seconds remain outside that denominator. this review checks receipt chains and arithmetic; the completed source and reason controllers own their full game checks. no fitted quality or scientific admission is inferred."
+}

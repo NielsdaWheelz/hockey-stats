@@ -1,0 +1,111 @@
+{
+  "status": "pass",
+  "scope": "all6560 native envelopes; source support only; no full context, public prepared game read or raw capture parse",
+  "games": 6560,
+  "selection_sha256": "ad1251a0a72d93c6f5927ef8d5d4ab7298fef2f0930a8885bdd2e366aa9a7787",
+  "seasons": [
+    {
+      "season": "20212022",
+      "counts": {
+        "games": 1312,
+        "events": 404656,
+        "report_rows": 408823,
+        "native_intervals": 416155,
+        "segments": 410472,
+        "reasons": 3474,
+        "event_not_applicable": 256025,
+        "event_included": 142727,
+        "event_excluded": 3698,
+        "segment_included": 402444,
+        "segment_excluded": 8028,
+        "event_unresolved": 2206
+      },
+      "corpus_sha256": "30eb12b290ccd9af9eae7ade8c7dcd5f285129b52b646eec3fced3e2628badc8",
+      "native_game_hashes_aggregate_sha256": "d1ca73e3e51088444ebfe07da7e585997a458136df97ea937181b08dc8906e7c",
+      "wall_seconds": 32.458
+    },
+    {
+      "season": "20222023",
+      "counts": {
+        "games": 1312,
+        "events": 408732,
+        "report_rows": 412900,
+        "native_intervals": 521250,
+        "segments": 518521,
+        "reasons": 1588,
+        "event_not_applicable": 256079,
+        "event_included": 148628,
+        "segment_included": 509645,
+        "event_excluded": 3126,
+        "event_unresolved": 899,
+        "segment_excluded": 8876
+      },
+      "corpus_sha256": "735c741115725e7c4fe8a28782f352c787895db5eea2123b2b7ec27b4db1e02a",
+      "native_game_hashes_aggregate_sha256": "b5aecb0e286596b2216193d5af27b1a7a9344ad7f1af5ec788a8e3985bb03017",
+      "wall_seconds": 60.645
+    },
+    {
+      "season": "20232024",
+      "counts": {
+        "games": 1312,
+        "events": 413676,
+        "report_rows": 417853,
+        "native_intervals": 519499,
+        "segments": 505900,
+        "reasons": 5178,
+        "event_not_applicable": 254206,
+        "event_included": 152632,
+        "segment_included": 500046,
+        "event_unresolved": 4416,
+        "event_excluded": 2422,
+        "segment_excluded": 5854
+      },
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "native_game_hashes_aggregate_sha256": "6a017919ee4499834352d1880f473f8caac9fc94034ea8e2155d675425fbb4a2",
+      "wall_seconds": 61.999
+    },
+    {
+      "season": "20242025",
+      "counts": {
+        "games": 1312,
+        "events": 420073,
+        "report_rows": 424322,
+        "native_intervals": 500842,
+        "segments": 495293,
+        "reasons": 9055,
+        "event_not_applicable": 263989,
+        "event_included": 144278,
+        "event_excluded": 3372,
+        "segment_included": 485514,
+        "segment_excluded": 9779,
+        "event_unresolved": 8434
+      },
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "native_game_hashes_aggregate_sha256": "b5a6907949c731c779457395c5df7fe190bc50fe17adc9d7532c8431f4fbcec7",
+      "wall_seconds": 62.283
+    },
+    {
+      "season": "20252026",
+      "counts": {
+        "games": 1312,
+        "events": 413859,
+        "report_rows": 418140,
+        "native_intervals": 520143,
+        "segments": 513950,
+        "reasons": 2498,
+        "event_not_applicable": 260935,
+        "event_included": 146951,
+        "segment_included": 501762,
+        "event_unresolved": 1906,
+        "event_excluded": 4067,
+        "segment_excluded": 12188
+      },
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "native_game_hashes_aggregate_sha256": "2d2684c1bd579ed3c73d31462db4aac6e02cc2b6ba4b52a8b2bd87cd3f874be5",
+      "wall_seconds": 63.837
+    }
+  ],
+  "wall_seconds": 281.561,
+  "peak_rss_bytes": 203063296,
+  "controller_sha256": "10a0d38e3dc63ceb9a08fd08c4dee8ee04f90e2183266f515ec74ff6ae51f6f5"
+}

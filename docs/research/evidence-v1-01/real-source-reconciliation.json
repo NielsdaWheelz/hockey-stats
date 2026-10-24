@@ -1,0 +1,2521 @@
+{
+  "checked_games": 6560,
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/reconcile_artifact.py",
+    "sha256": "11f47738af4b62eb6a470b3617382a4d2977459d5eec3cc785051b68c0f88b27"
+  },
+  "checks": [
+    "five distinct selected season receipts",
+    "common exact manifest/checker/identity bindings",
+    "every compact game key exactly once against manifest selection",
+    "shard and total public reader counts",
+    "exact saved seasonal semantic coverage",
+    "compact rows only; no additional public game reads"
+  ],
+  "identity_counts_input": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/identity-counts-real.json",
+    "sha256": "e065fddf2639d29e88ec418b1c95eb624ec8f6d5b0a6649929d81adf41a09309"
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "merger": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/merge_reconciliation.py",
+    "sha256": "50b9abe9394892a26bb8349b7b322367fc67ba55fd7ec7b9218258c7667507b5"
+  },
+  "public_game_reader_calls": 6560,
+  "purpose": "real",
+  "seasons": [
+    {
+      "checked_games": 1312,
+      "completeness": {
+        "elapsed_context": {
+          "available": 1147643,
+          "not_applicable": 0,
+          "partial": 278678,
+          "unavailable": 0
+        },
+        "event_context": {
+          "available": 307677,
+          "not_applicable": 0,
+          "partial": 96515,
+          "unavailable": 464
+        },
+        "frame": {
+          "available": 1185,
+          "not_applicable": 0,
+          "partial": 127,
+          "unavailable": 0
+        },
+        "history": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 52460,
+          "unavailable": 0
+        },
+        "identity": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 1147,
+          "unavailable": 0
+        },
+        "immediate_stop": {
+          "available": 82481,
+          "not_applicable": 66455,
+          "partial": 0,
+          "unavailable": 476
+        },
+        "order": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        },
+        "reattempt": {
+          "available": 74832,
+          "not_applicable": 74104,
+          "partial": 0,
+          "unavailable": 476
+        },
+        "score": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        }
+      },
+      "events": [
+        {
+          "count": 35375,
+          "kind": "blocked-shot",
+          "outcome": "block"
+        },
+        {
+          "count": 1752,
+          "kind": "delayed-penalty",
+          "outcome": null
+        },
+        {
+          "count": 74251,
+          "kind": "faceoff",
+          "outcome": null
+        },
+        {
+          "count": 1312,
+          "kind": "game-end",
+          "outcome": null
+        },
+        {
+          "count": 23513,
+          "kind": "giveaway",
+          "outcome": null
+        },
+        {
+          "count": 717,
+          "kind": "goal",
+          "outcome": null
+        },
+        {
+          "count": 7657,
+          "kind": "goal",
+          "outcome": "goal"
+        },
+        {
+          "count": 60186,
+          "kind": "hit",
+          "outcome": null
+        },
+        {
+          "count": 138,
+          "kind": "missed-shot",
+          "outcome": null
+        },
+        {
+          "count": 30286,
+          "kind": "missed-shot",
+          "outcome": "miss"
+        },
+        {
+          "count": 9696,
+          "kind": "penalty",
+          "outcome": null
+        },
+        {
+          "count": 4326,
+          "kind": "period-end",
+          "outcome": null
+        },
+        {
+          "count": 4334,
+          "kind": "period-start",
+          "outcome": null
+        },
+        {
+          "count": 103,
+          "kind": "shootout-complete",
+          "outcome": null
+        },
+        {
+          "count": 385,
+          "kind": "shot-on-goal",
+          "outcome": null
+        },
+        {
+          "count": 74854,
+          "kind": "shot-on-goal",
+          "outcome": "save"
+        },
+        {
+          "count": 57199,
+          "kind": "stoppage",
+          "outcome": null
+        },
+        {
+          "count": 18572,
+          "kind": "takeaway",
+          "outcome": null
+        }
+      ],
+      "game_status_counts": {
+        "reconstructed": 1312
+      },
+      "inventory_games": 1312,
+      "report_only_attempts": 909,
+      "season": "20212022",
+      "time": [
+        {
+          "away_goalies": 0,
+          "away_skaters": 3,
+          "excluded_seconds": 75,
+          "goalie_slot_seconds": 134,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 134,
+          "physical_seconds": 209,
+          "skater_slot_seconds": 804,
+          "team_seconds": 268
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 56,
+          "home_goalies": 0,
+          "home_skaters": 3,
+          "included_seconds": 56,
+          "physical_seconds": 56,
+          "skater_slot_seconds": 336,
+          "team_seconds": 112
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 2641,
+          "goalie_slot_seconds": 87648,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 43824,
+          "physical_seconds": 46465,
+          "skater_slot_seconds": 262944,
+          "team_seconds": 87648
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 3,
+          "excluded_seconds": 125,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 0,
+          "physical_seconds": 125,
+          "skater_slot_seconds": 0,
+          "team_seconds": 0
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 109,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 109,
+          "physical_seconds": 109,
+          "skater_slot_seconds": 763,
+          "team_seconds": 218
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 104,
+          "goalie_slot_seconds": 9198,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 4599,
+          "physical_seconds": 4703,
+          "skater_slot_seconds": 32193,
+          "team_seconds": 9198
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 74,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 74,
+          "physical_seconds": 74,
+          "skater_slot_seconds": 592,
+          "team_seconds": 148
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 257,
+          "goalie_slot_seconds": 13594,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 6797,
+          "physical_seconds": 7054,
+          "skater_slot_seconds": 54376,
+          "team_seconds": 13594
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 74,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 74,
+          "physical_seconds": 74,
+          "skater_slot_seconds": 666,
+          "team_seconds": 148
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 41,
+          "goalie_slot_seconds": 59,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 59,
+          "physical_seconds": 100,
+          "skater_slot_seconds": 413,
+          "team_seconds": 118
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 101,
+          "goalie_slot_seconds": 7638,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 3819,
+          "physical_seconds": 3920,
+          "skater_slot_seconds": 26733,
+          "team_seconds": 7638
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 8,
+          "goalie_slot_seconds": 12,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 12,
+          "physical_seconds": 20,
+          "skater_slot_seconds": 96,
+          "team_seconds": 24
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 74,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 74,
+          "physical_seconds": 74,
+          "skater_slot_seconds": 592,
+          "team_seconds": 148
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 1210,
+          "goalie_slot_seconds": 129046,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 64523,
+          "physical_seconds": 65733,
+          "skater_slot_seconds": 516184,
+          "team_seconds": 129046
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 29,
+          "goalie_slot_seconds": 9,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 9,
+          "physical_seconds": 38,
+          "skater_slot_seconds": 81,
+          "team_seconds": 18
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 99,
+          "goalie_slot_seconds": 613,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 613,
+          "physical_seconds": 712,
+          "skater_slot_seconds": 5517,
+          "team_seconds": 1226
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 7053,
+          "goalie_slot_seconds": 726706,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 363353,
+          "physical_seconds": 370406,
+          "skater_slot_seconds": 3270177,
+          "team_seconds": 726706
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 25,
+          "goalie_slot_seconds": 3684,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 3684,
+          "physical_seconds": 3709,
+          "skater_slot_seconds": 36840,
+          "team_seconds": 7368
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 14,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 14,
+          "physical_seconds": 14,
+          "skater_slot_seconds": 112,
+          "team_seconds": 28
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 181,
+          "goalie_slot_seconds": 11556,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 5778,
+          "physical_seconds": 5959,
+          "skater_slot_seconds": 46224,
+          "team_seconds": 11556
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 666,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 666,
+          "physical_seconds": 666,
+          "skater_slot_seconds": 5994,
+          "team_seconds": 1332
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 460,
+          "goalie_slot_seconds": 170,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 170,
+          "physical_seconds": 630,
+          "skater_slot_seconds": 1530,
+          "team_seconds": 340
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 7908,
+          "goalie_slot_seconds": 661620,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 330810,
+          "physical_seconds": 338718,
+          "skater_slot_seconds": 2977290,
+          "team_seconds": 661620
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 3,
+          "physical_seconds": 3,
+          "skater_slot_seconds": 30,
+          "team_seconds": 6
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 48,
+          "goalie_slot_seconds": 710,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 710,
+          "physical_seconds": 758,
+          "skater_slot_seconds": 7100,
+          "team_seconds": 1420
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 1049,
+          "goalie_slot_seconds": 2062,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 2062,
+          "physical_seconds": 3111,
+          "skater_slot_seconds": 20620,
+          "team_seconds": 4124
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 74439,
+          "goalie_slot_seconds": 7398736,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 3699368,
+          "physical_seconds": 3773807,
+          "skater_slot_seconds": 36993680,
+          "team_seconds": 7398736
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 413,
+          "goalie_slot_seconds": 38731,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 38731,
+          "physical_seconds": 39144,
+          "skater_slot_seconds": 426041,
+          "team_seconds": 77462
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 5,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 5,
+          "physical_seconds": 5,
+          "skater_slot_seconds": 45,
+          "team_seconds": 10
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 83,
+          "goalie_slot_seconds": 3308,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 3308,
+          "physical_seconds": 3391,
+          "skater_slot_seconds": 33080,
+          "team_seconds": 6616
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 1,
+          "physical_seconds": 1,
+          "skater_slot_seconds": 11,
+          "team_seconds": 2
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 670,
+          "goalie_slot_seconds": 38293,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 38293,
+          "physical_seconds": 38963,
+          "skater_slot_seconds": 421223,
+          "team_seconds": 76586
+        }
+      ],
+      "unknown_horizon_games": 1,
+      "unresolved_known_seconds": 69299
+    },
+    {
+      "checked_games": 1312,
+      "completeness": {
+        "elapsed_context": {
+          "available": 1548919,
+          "not_applicable": 0,
+          "partial": 209103,
+          "unavailable": 0
+        },
+        "event_context": {
+          "available": 349212,
+          "not_applicable": 0,
+          "partial": 59111,
+          "unavailable": 409
+        },
+        "frame": {
+          "available": 1205,
+          "not_applicable": 0,
+          "partial": 107,
+          "unavailable": 0
+        },
+        "history": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 52460,
+          "unavailable": 0
+        },
+        "identity": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 1077,
+          "unavailable": 0
+        },
+        "immediate_stop": {
+          "available": 81493,
+          "not_applicable": 71417,
+          "partial": 0,
+          "unavailable": 438
+        },
+        "order": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        },
+        "reattempt": {
+          "available": 73715,
+          "not_applicable": 79195,
+          "partial": 0,
+          "unavailable": 438
+        },
+        "score": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        }
+      },
+      "events": [
+        {
+          "count": 38615,
+          "kind": "blocked-shot",
+          "outcome": "block"
+        },
+        {
+          "count": 2185,
+          "kind": "delayed-penalty",
+          "outcome": null
+        },
+        {
+          "count": 74659,
+          "kind": "faceoff",
+          "outcome": null
+        },
+        {
+          "count": 27,
+          "kind": "failed-shot-attempt",
+          "outcome": null
+        },
+        {
+          "count": 1312,
+          "kind": "game-end",
+          "outcome": null
+        },
+        {
+          "count": 22656,
+          "kind": "giveaway",
+          "outcome": null
+        },
+        {
+          "count": 681,
+          "kind": "goal",
+          "outcome": null
+        },
+        {
+          "count": 7793,
+          "kind": "goal",
+          "outcome": "goal"
+        },
+        {
+          "count": 59077,
+          "kind": "hit",
+          "outcome": null
+        },
+        {
+          "count": 97,
+          "kind": "missed-shot",
+          "outcome": null
+        },
+        {
+          "count": 32098,
+          "kind": "missed-shot",
+          "outcome": "miss"
+        },
+        {
+          "count": 10063,
+          "kind": "penalty",
+          "outcome": null
+        },
+        {
+          "count": 4333,
+          "kind": "period-end",
+          "outcome": null
+        },
+        {
+          "count": 4334,
+          "kind": "period-start",
+          "outcome": null
+        },
+        {
+          "count": 95,
+          "kind": "shootout-complete",
+          "outcome": null
+        },
+        {
+          "count": 322,
+          "kind": "shot-on-goal",
+          "outcome": null
+        },
+        {
+          "count": 73742,
+          "kind": "shot-on-goal",
+          "outcome": "save"
+        },
+        {
+          "count": 57260,
+          "kind": "stoppage",
+          "outcome": null
+        },
+        {
+          "count": 19383,
+          "kind": "takeaway",
+          "outcome": null
+        }
+      ],
+      "game_status_counts": {
+        "reconstructed": 1312
+      },
+      "inventory_games": 1312,
+      "report_only_attempts": 825,
+      "season": "20222023",
+      "time": [
+        {
+          "away_goalies": 0,
+          "away_skaters": 3,
+          "excluded_seconds": 31,
+          "goalie_slot_seconds": 110,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 110,
+          "physical_seconds": 141,
+          "skater_slot_seconds": 660,
+          "team_seconds": 220
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 39,
+          "home_goalies": 0,
+          "home_skaters": 3,
+          "included_seconds": 39,
+          "physical_seconds": 39,
+          "skater_slot_seconds": 234,
+          "team_seconds": 78
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 214,
+          "goalie_slot_seconds": 91814,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 45907,
+          "physical_seconds": 46121,
+          "skater_slot_seconds": 275442,
+          "team_seconds": 91814
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 169,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 169,
+          "physical_seconds": 169,
+          "skater_slot_seconds": 1183,
+          "team_seconds": 338
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 96,
+          "goalie_slot_seconds": 12042,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 6021,
+          "physical_seconds": 6117,
+          "skater_slot_seconds": 42147,
+          "team_seconds": 12042
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 41,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 41,
+          "physical_seconds": 41,
+          "skater_slot_seconds": 328,
+          "team_seconds": 82
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 43,
+          "goalie_slot_seconds": 11548,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 5774,
+          "physical_seconds": 5817,
+          "skater_slot_seconds": 46192,
+          "team_seconds": 11548
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 58,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 58,
+          "physical_seconds": 58,
+          "skater_slot_seconds": 522,
+          "team_seconds": 116
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 146,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 146,
+          "physical_seconds": 146,
+          "skater_slot_seconds": 1022,
+          "team_seconds": 292
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 161,
+          "goalie_slot_seconds": 8642,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 4321,
+          "physical_seconds": 4482,
+          "skater_slot_seconds": 30247,
+          "team_seconds": 8642
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 16,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 16,
+          "physical_seconds": 16,
+          "skater_slot_seconds": 128,
+          "team_seconds": 32
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 732,
+          "goalie_slot_seconds": 115632,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 57816,
+          "physical_seconds": 58548,
+          "skater_slot_seconds": 462528,
+          "team_seconds": 115632
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 4,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 4,
+          "physical_seconds": 4,
+          "skater_slot_seconds": 36,
+          "team_seconds": 8
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 350,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 350,
+          "physical_seconds": 350,
+          "skater_slot_seconds": 3150,
+          "team_seconds": 700
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 5527,
+          "goalie_slot_seconds": 769568,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 384784,
+          "physical_seconds": 390311,
+          "skater_slot_seconds": 3463056,
+          "team_seconds": 769568
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 74,
+          "goalie_slot_seconds": 3368,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 3368,
+          "physical_seconds": 3442,
+          "skater_slot_seconds": 33680,
+          "team_seconds": 6736
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 180,
+          "goalie_slot_seconds": 13446,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 6723,
+          "physical_seconds": 6903,
+          "skater_slot_seconds": 53784,
+          "team_seconds": 13446
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 654,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 654,
+          "physical_seconds": 654,
+          "skater_slot_seconds": 5886,
+          "team_seconds": 1308
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 58,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 58,
+          "physical_seconds": 58,
+          "skater_slot_seconds": 522,
+          "team_seconds": 116
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 7068,
+          "goalie_slot_seconds": 722202,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 361101,
+          "physical_seconds": 368169,
+          "skater_slot_seconds": 3249909,
+          "team_seconds": 722202
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 19,
+          "goalie_slot_seconds": 344,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 344,
+          "physical_seconds": 363,
+          "skater_slot_seconds": 3440,
+          "team_seconds": 688
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 526,
+          "goalie_slot_seconds": 728,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 728,
+          "physical_seconds": 1254,
+          "skater_slot_seconds": 7280,
+          "team_seconds": 1456
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 66980,
+          "goalie_slot_seconds": 7424072,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 3712036,
+          "physical_seconds": 3779016,
+          "skater_slot_seconds": 37120360,
+          "team_seconds": 7424072
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 968,
+          "goalie_slot_seconds": 38719,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 38719,
+          "physical_seconds": 39687,
+          "skater_slot_seconds": 425909,
+          "team_seconds": 77438
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 15,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 15,
+          "physical_seconds": 15,
+          "skater_slot_seconds": 135,
+          "team_seconds": 30
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 72,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 39,
+          "physical_seconds": 111,
+          "skater_slot_seconds": 390,
+          "team_seconds": 78
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 51,
+          "goalie_slot_seconds": 3843,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 3843,
+          "physical_seconds": 3894,
+          "skater_slot_seconds": 38430,
+          "team_seconds": 7686
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 411,
+          "goalie_slot_seconds": 37202,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 37202,
+          "physical_seconds": 37613,
+          "skater_slot_seconds": 409222,
+          "team_seconds": 74404
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 4,
+          "physical_seconds": 4,
+          "skater_slot_seconds": 48,
+          "team_seconds": 8
+        }
+      ],
+      "unknown_horizon_games": 0,
+      "unresolved_known_seconds": 27075
+    },
+    {
+      "checked_games": 1312,
+      "completeness": {
+        "elapsed_context": {
+          "available": 1131820,
+          "not_applicable": 0,
+          "partial": 568841,
+          "unavailable": 0
+        },
+        "event_context": {
+          "available": 260113,
+          "not_applicable": 0,
+          "partial": 153107,
+          "unavailable": 456
+        },
+        "frame": {
+          "available": 1172,
+          "not_applicable": 0,
+          "partial": 139,
+          "unavailable": 1
+        },
+        "history": {
+          "available": 294,
+          "not_applicable": 0,
+          "partial": 52174,
+          "unavailable": 0
+        },
+        "identity": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 1041,
+          "unavailable": 0
+        },
+        "immediate_stop": {
+          "available": 78983,
+          "not_applicable": 80693,
+          "partial": 0,
+          "unavailable": 447
+        },
+        "order": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        },
+        "reattempt": {
+          "available": 71371,
+          "not_applicable": 88305,
+          "partial": 0,
+          "unavailable": 447
+        },
+        "score": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        }
+      },
+      "events": [
+        {
+          "count": 44677,
+          "kind": "blocked-shot",
+          "outcome": "block"
+        },
+        {
+          "count": 3376,
+          "kind": "delayed-penalty",
+          "outcome": null
+        },
+        {
+          "count": 74188,
+          "kind": "faceoff",
+          "outcome": null
+        },
+        {
+          "count": 13,
+          "kind": "failed-shot-attempt",
+          "outcome": null
+        },
+        {
+          "count": 1312,
+          "kind": "game-end",
+          "outcome": null
+        },
+        {
+          "count": 20233,
+          "kind": "giveaway",
+          "outcome": null
+        },
+        {
+          "count": 640,
+          "kind": "goal",
+          "outcome": null
+        },
+        {
+          "count": 7628,
+          "kind": "goal",
+          "outcome": "goal"
+        },
+        {
+          "count": 59648,
+          "kind": "hit",
+          "outcome": null
+        },
+        {
+          "count": 109,
+          "kind": "missed-shot",
+          "outcome": null
+        },
+        {
+          "count": 35354,
+          "kind": "missed-shot",
+          "outcome": "miss"
+        },
+        {
+          "count": 10008,
+          "kind": "penalty",
+          "outcome": null
+        },
+        {
+          "count": 4290,
+          "kind": "period-end",
+          "outcome": null
+        },
+        {
+          "count": 4290,
+          "kind": "period-start",
+          "outcome": null
+        },
+        {
+          "count": 82,
+          "kind": "shootout-complete",
+          "outcome": null
+        },
+        {
+          "count": 316,
+          "kind": "shot-on-goal",
+          "outcome": null
+        },
+        {
+          "count": 71399,
+          "kind": "shot-on-goal",
+          "outcome": "save"
+        },
+        {
+          "count": 57734,
+          "kind": "stoppage",
+          "outcome": null
+        },
+        {
+          "count": 18379,
+          "kind": "takeaway",
+          "outcome": null
+        }
+      ],
+      "game_status_counts": {
+        "reconstructed": 1312
+      },
+      "inventory_games": 1312,
+      "report_only_attempts": 836,
+      "season": "20232024",
+      "time": [
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 596,
+          "goalie_slot_seconds": 77754,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 38877,
+          "physical_seconds": 39473,
+          "skater_slot_seconds": 233262,
+          "team_seconds": 77754
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 73,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 73,
+          "physical_seconds": 73,
+          "skater_slot_seconds": 511,
+          "team_seconds": 146
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 120,
+          "goalie_slot_seconds": 11196,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 5598,
+          "physical_seconds": 5718,
+          "skater_slot_seconds": 39186,
+          "team_seconds": 11196
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 2,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 2,
+          "physical_seconds": 2,
+          "skater_slot_seconds": 16,
+          "team_seconds": 4
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 49,
+          "goalie_slot_seconds": 12278,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 6139,
+          "physical_seconds": 6188,
+          "skater_slot_seconds": 49112,
+          "team_seconds": 12278
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 20,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 20,
+          "physical_seconds": 20,
+          "skater_slot_seconds": 180,
+          "team_seconds": 40
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 85,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 85,
+          "physical_seconds": 85,
+          "skater_slot_seconds": 595,
+          "team_seconds": 170
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 7222,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 3611,
+          "physical_seconds": 3611,
+          "skater_slot_seconds": 25277,
+          "team_seconds": 7222
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 887,
+          "goalie_slot_seconds": 115778,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 57889,
+          "physical_seconds": 58776,
+          "skater_slot_seconds": 463112,
+          "team_seconds": 115778
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 33,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 33,
+          "physical_seconds": 33,
+          "skater_slot_seconds": 297,
+          "team_seconds": 66
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 599,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 599,
+          "physical_seconds": 599,
+          "skater_slot_seconds": 5391,
+          "team_seconds": 1198
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 5454,
+          "goalie_slot_seconds": 735300,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 367650,
+          "physical_seconds": 373104,
+          "skater_slot_seconds": 3308850,
+          "team_seconds": 735300
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 80,
+          "goalie_slot_seconds": 3808,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 3808,
+          "physical_seconds": 3888,
+          "skater_slot_seconds": 38080,
+          "team_seconds": 7616
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 78,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 78,
+          "physical_seconds": 78,
+          "skater_slot_seconds": 624,
+          "team_seconds": 156
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 9014,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 4507,
+          "physical_seconds": 4507,
+          "skater_slot_seconds": 36056,
+          "team_seconds": 9014
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 7,
+          "goalie_slot_seconds": 1145,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 1145,
+          "physical_seconds": 1152,
+          "skater_slot_seconds": 10305,
+          "team_seconds": 2290
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 5380,
+          "goalie_slot_seconds": 707014,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 353507,
+          "physical_seconds": 358887,
+          "skater_slot_seconds": 3181563,
+          "team_seconds": 707014
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 25,
+          "goalie_slot_seconds": 293,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 293,
+          "physical_seconds": 318,
+          "skater_slot_seconds": 2930,
+          "team_seconds": 586
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 304,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 304,
+          "physical_seconds": 304,
+          "skater_slot_seconds": 3040,
+          "team_seconds": 608
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 43754,
+          "goalie_slot_seconds": 7331744,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 3665872,
+          "physical_seconds": 3709626,
+          "skater_slot_seconds": 36658720,
+          "team_seconds": 7331744
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 657,
+          "goalie_slot_seconds": 36572,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 36572,
+          "physical_seconds": 37229,
+          "skater_slot_seconds": 402292,
+          "team_seconds": 73144
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 29,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 29,
+          "physical_seconds": 29,
+          "skater_slot_seconds": 261,
+          "team_seconds": 58
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 116,
+          "goalie_slot_seconds": 3246,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 3246,
+          "physical_seconds": 3362,
+          "skater_slot_seconds": 32460,
+          "team_seconds": 6492
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 980,
+          "goalie_slot_seconds": 37826,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 37826,
+          "physical_seconds": 38806,
+          "skater_slot_seconds": 416086,
+          "team_seconds": 75652
+        }
+      ],
+      "unknown_horizon_games": 0,
+      "unresolved_known_seconds": 128655
+    },
+    {
+      "checked_games": 1312,
+      "completeness": {
+        "elapsed_context": {
+          "available": 1364325,
+          "not_applicable": 0,
+          "partial": 315243,
+          "unavailable": 0
+        },
+        "event_context": {
+          "available": 316465,
+          "not_applicable": 0,
+          "partial": 103090,
+          "unavailable": 518
+        },
+        "frame": {
+          "available": 1301,
+          "not_applicable": 0,
+          "partial": 11,
+          "unavailable": 0
+        },
+        "history": {
+          "available": 313,
+          "not_applicable": 0,
+          "partial": 52160,
+          "unavailable": 0
+        },
+        "identity": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 1041,
+          "unavailable": 0
+        },
+        "immediate_stop": {
+          "available": 73646,
+          "not_applicable": 82452,
+          "partial": 0,
+          "unavailable": 524
+        },
+        "order": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        },
+        "reattempt": {
+          "available": 66296,
+          "not_applicable": 89802,
+          "partial": 0,
+          "unavailable": 524
+        },
+        "score": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        }
+      },
+      "events": [
+        {
+          "count": 43877,
+          "kind": "blocked-shot",
+          "outcome": "block"
+        },
+        {
+          "count": 3210,
+          "kind": "delayed-penalty",
+          "outcome": null
+        },
+        {
+          "count": 74296,
+          "kind": "faceoff",
+          "outcome": null
+        },
+        {
+          "count": 7,
+          "kind": "failed-shot-attempt",
+          "outcome": null
+        },
+        {
+          "count": 1312,
+          "kind": "game-end",
+          "outcome": null
+        },
+        {
+          "count": 39364,
+          "kind": "giveaway",
+          "outcome": null
+        },
+        {
+          "count": 713,
+          "kind": "goal",
+          "outcome": null
+        },
+        {
+          "count": 7357,
+          "kind": "goal",
+          "outcome": "goal"
+        },
+        {
+          "count": 56293,
+          "kind": "hit",
+          "outcome": null
+        },
+        {
+          "count": 83,
+          "kind": "missed-shot",
+          "outcome": null
+        },
+        {
+          "count": 38021,
+          "kind": "missed-shot",
+          "outcome": "miss"
+        },
+        {
+          "count": 9011,
+          "kind": "penalty",
+          "outcome": null
+        },
+        {
+          "count": 4284,
+          "kind": "period-end",
+          "outcome": null
+        },
+        {
+          "count": 4285,
+          "kind": "period-start",
+          "outcome": null
+        },
+        {
+          "count": 77,
+          "kind": "shootout-complete",
+          "outcome": null
+        },
+        {
+          "count": 256,
+          "kind": "shot-on-goal",
+          "outcome": null
+        },
+        {
+          "count": 66315,
+          "kind": "shot-on-goal",
+          "outcome": "save"
+        },
+        {
+          "count": 58684,
+          "kind": "stoppage",
+          "outcome": null
+        },
+        {
+          "count": 12628,
+          "kind": "takeaway",
+          "outcome": null
+        }
+      ],
+      "game_status_counts": {
+        "reconstructed": 1312
+      },
+      "inventory_games": 1312,
+      "report_only_attempts": 736,
+      "season": "20242025",
+      "time": [
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 286,
+          "goalie_slot_seconds": 77036,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 38518,
+          "physical_seconds": 38804,
+          "skater_slot_seconds": 231108,
+          "team_seconds": 77036
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 23,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 23,
+          "physical_seconds": 23,
+          "skater_slot_seconds": 161,
+          "team_seconds": 46
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 47,
+          "goalie_slot_seconds": 5836,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 2918,
+          "physical_seconds": 2965,
+          "skater_slot_seconds": 20426,
+          "team_seconds": 5836
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 7,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 7,
+          "physical_seconds": 7,
+          "skater_slot_seconds": 56,
+          "team_seconds": 14
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 116,
+          "goalie_slot_seconds": 12352,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 6176,
+          "physical_seconds": 6292,
+          "skater_slot_seconds": 49408,
+          "team_seconds": 12352
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 26,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 26,
+          "physical_seconds": 26,
+          "skater_slot_seconds": 182,
+          "team_seconds": 52
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 7100,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 3550,
+          "physical_seconds": 3550,
+          "skater_slot_seconds": 24850,
+          "team_seconds": 7100
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 1108,
+          "goalie_slot_seconds": 105488,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 52744,
+          "physical_seconds": 53852,
+          "skater_slot_seconds": 421952,
+          "team_seconds": 105488
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 218,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 218,
+          "physical_seconds": 218,
+          "skater_slot_seconds": 1962,
+          "team_seconds": 436
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 7165,
+          "goalie_slot_seconds": 656760,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 328380,
+          "physical_seconds": 335545,
+          "skater_slot_seconds": 2955420,
+          "team_seconds": 656760
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 3,
+          "goalie_slot_seconds": 4100,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 4100,
+          "physical_seconds": 4103,
+          "skater_slot_seconds": 41000,
+          "team_seconds": 8200
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 3,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 0,
+          "physical_seconds": 3,
+          "skater_slot_seconds": 0,
+          "team_seconds": 0
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 206,
+          "goalie_slot_seconds": 8668,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 4334,
+          "physical_seconds": 4540,
+          "skater_slot_seconds": 34672,
+          "team_seconds": 8668
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 102,
+          "goalie_slot_seconds": 722,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 722,
+          "physical_seconds": 824,
+          "skater_slot_seconds": 6498,
+          "team_seconds": 1444
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 6791,
+          "goalie_slot_seconds": 600922,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 300461,
+          "physical_seconds": 307252,
+          "skater_slot_seconds": 2704149,
+          "team_seconds": 600922
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 6,
+          "goalie_slot_seconds": 481,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 481,
+          "physical_seconds": 487,
+          "skater_slot_seconds": 4810,
+          "team_seconds": 962
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 46,
+          "goalie_slot_seconds": 411,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 411,
+          "physical_seconds": 457,
+          "skater_slot_seconds": 4110,
+          "team_seconds": 822
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 74548,
+          "goalie_slot_seconds": 7173776,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 3586888,
+          "physical_seconds": 3661436,
+          "skater_slot_seconds": 35868880,
+          "team_seconds": 7173776
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 2,
+          "physical_seconds": 2,
+          "skater_slot_seconds": 22,
+          "team_seconds": 4
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 517,
+          "goalie_slot_seconds": 39746,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 39746,
+          "physical_seconds": 40263,
+          "skater_slot_seconds": 437206,
+          "team_seconds": 79492
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 17,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 17,
+          "physical_seconds": 17,
+          "skater_slot_seconds": 153,
+          "team_seconds": 34
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 247,
+          "goalie_slot_seconds": 3891,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 3891,
+          "physical_seconds": 4138,
+          "skater_slot_seconds": 38910,
+          "team_seconds": 7782
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 11,
+          "physical_seconds": 11,
+          "skater_slot_seconds": 121,
+          "team_seconds": 22
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 1501,
+          "goalie_slot_seconds": 46786,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 46786,
+          "physical_seconds": 48287,
+          "skater_slot_seconds": 514646,
+          "team_seconds": 93572
+        }
+      ],
+      "unknown_horizon_games": 0,
+      "unresolved_known_seconds": 260095
+    },
+    {
+      "checked_games": 1312,
+      "completeness": {
+        "elapsed_context": {
+          "available": 1445746,
+          "not_applicable": 0,
+          "partial": 302335,
+          "unavailable": 0
+        },
+        "event_context": {
+          "available": 328833,
+          "not_applicable": 0,
+          "partial": 84515,
+          "unavailable": 511
+        },
+        "frame": {
+          "available": 1306,
+          "not_applicable": 0,
+          "partial": 6,
+          "unavailable": 0
+        },
+        "history": {
+          "available": 435,
+          "not_applicable": 0,
+          "partial": 52043,
+          "unavailable": 0
+        },
+        "identity": {
+          "available": 0,
+          "not_applicable": 0,
+          "partial": 1063,
+          "unavailable": 0
+        },
+        "immediate_stop": {
+          "available": 72501,
+          "not_applicable": 80745,
+          "partial": 0,
+          "unavailable": 508
+        },
+        "order": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        },
+        "reattempt": {
+          "available": 64953,
+          "not_applicable": 88293,
+          "partial": 0,
+          "unavailable": 508
+        },
+        "score": {
+          "available": 1312,
+          "not_applicable": 0,
+          "partial": 0,
+          "unavailable": 0
+        }
+      },
+      "events": [
+        {
+          "count": 40866,
+          "kind": "blocked-shot",
+          "outcome": "block"
+        },
+        {
+          "count": 3384,
+          "kind": "delayed-penalty",
+          "outcome": null
+        },
+        {
+          "count": 73496,
+          "kind": "faceoff",
+          "outcome": null
+        },
+        {
+          "count": 15,
+          "kind": "failed-shot-attempt",
+          "outcome": null
+        },
+        {
+          "count": 1312,
+          "kind": "game-end",
+          "outcome": null
+        },
+        {
+          "count": 40366,
+          "kind": "giveaway",
+          "outcome": null
+        },
+        {
+          "count": 796,
+          "kind": "goal",
+          "outcome": null
+        },
+        {
+          "count": 7554,
+          "kind": "goal",
+          "outcome": "goal"
+        },
+        {
+          "count": 53658,
+          "kind": "hit",
+          "outcome": null
+        },
+        {
+          "count": 139,
+          "kind": "missed-shot",
+          "outcome": null
+        },
+        {
+          "count": 39029,
+          "kind": "missed-shot",
+          "outcome": "miss"
+        },
+        {
+          "count": 9692,
+          "kind": "penalty",
+          "outcome": null
+        },
+        {
+          "count": 4381,
+          "kind": "period-end",
+          "outcome": null
+        },
+        {
+          "count": 4381,
+          "kind": "period-start",
+          "outcome": null
+        },
+        {
+          "count": 119,
+          "kind": "shootout-complete",
+          "outcome": null
+        },
+        {
+          "count": 394,
+          "kind": "shot-on-goal",
+          "outcome": null
+        },
+        {
+          "count": 64976,
+          "kind": "shot-on-goal",
+          "outcome": "save"
+        },
+        {
+          "count": 57202,
+          "kind": "stoppage",
+          "outcome": null
+        },
+        {
+          "count": 12099,
+          "kind": "takeaway",
+          "outcome": null
+        }
+      ],
+      "game_status_counts": {
+        "reconstructed": 1312
+      },
+      "inventory_games": 1312,
+      "report_only_attempts": 983,
+      "season": "20252026",
+      "time": [
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 1690,
+          "goalie_slot_seconds": 99358,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 49679,
+          "physical_seconds": 51369,
+          "skater_slot_seconds": 298074,
+          "team_seconds": 99358
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 29,
+          "goalie_slot_seconds": 109,
+          "home_goalies": 0,
+          "home_skaters": 4,
+          "included_seconds": 109,
+          "physical_seconds": 138,
+          "skater_slot_seconds": 763,
+          "team_seconds": 218
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 307,
+          "goalie_slot_seconds": 9734,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 4867,
+          "physical_seconds": 5174,
+          "skater_slot_seconds": 34069,
+          "team_seconds": 9734
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 10,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 10,
+          "physical_seconds": 10,
+          "skater_slot_seconds": 80,
+          "team_seconds": 20
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 3,
+          "excluded_seconds": 356,
+          "goalie_slot_seconds": 12260,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 6130,
+          "physical_seconds": 6486,
+          "skater_slot_seconds": 49040,
+          "team_seconds": 12260
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 55,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 55,
+          "physical_seconds": 55,
+          "skater_slot_seconds": 385,
+          "team_seconds": 110
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 47,
+          "goalie_slot_seconds": 8212,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 4106,
+          "physical_seconds": 4153,
+          "skater_slot_seconds": 28742,
+          "team_seconds": 8212
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 1567,
+          "goalie_slot_seconds": 119674,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 59837,
+          "physical_seconds": 61404,
+          "skater_slot_seconds": 478696,
+          "team_seconds": 119674
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 450,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 450,
+          "physical_seconds": 450,
+          "skater_slot_seconds": 4050,
+          "team_seconds": 900
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 9071,
+          "goalie_slot_seconds": 714790,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 357395,
+          "physical_seconds": 366466,
+          "skater_slot_seconds": 3216555,
+          "team_seconds": 714790
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 4,
+          "excluded_seconds": 157,
+          "goalie_slot_seconds": 4012,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 4012,
+          "physical_seconds": 4169,
+          "skater_slot_seconds": 40120,
+          "team_seconds": 8024
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 167,
+          "goalie_slot_seconds": 10942,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 5471,
+          "physical_seconds": 5638,
+          "skater_slot_seconds": 43768,
+          "team_seconds": 10942
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 567,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 567,
+          "physical_seconds": 567,
+          "skater_slot_seconds": 5103,
+          "team_seconds": 1134
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 7834,
+          "goalie_slot_seconds": 667932,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 333966,
+          "physical_seconds": 341800,
+          "skater_slot_seconds": 3005694,
+          "team_seconds": 667932
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 5,
+          "excluded_seconds": 140,
+          "goalie_slot_seconds": 407,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 407,
+          "physical_seconds": 547,
+          "skater_slot_seconds": 4070,
+          "team_seconds": 814
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 548,
+          "home_goalies": 0,
+          "home_skaters": 5,
+          "included_seconds": 548,
+          "physical_seconds": 548,
+          "skater_slot_seconds": 5480,
+          "team_seconds": 1096
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 90001,
+          "goalie_slot_seconds": 7402036,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 3701018,
+          "physical_seconds": 3791019,
+          "skater_slot_seconds": 37010180,
+          "team_seconds": 7402036
+        },
+        {
+          "away_goalies": 1,
+          "away_skaters": 5,
+          "excluded_seconds": 1350,
+          "goalie_slot_seconds": 40749,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 40749,
+          "physical_seconds": 42099,
+          "skater_slot_seconds": 448239,
+          "team_seconds": 81498
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 0,
+          "goalie_slot_seconds": 65,
+          "home_goalies": 1,
+          "home_skaters": 3,
+          "included_seconds": 65,
+          "physical_seconds": 65,
+          "skater_slot_seconds": 585,
+          "team_seconds": 130
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 8,
+          "goalie_slot_seconds": 3648,
+          "home_goalies": 1,
+          "home_skaters": 4,
+          "included_seconds": 3648,
+          "physical_seconds": 3656,
+          "skater_slot_seconds": 36480,
+          "team_seconds": 7296
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 1085,
+          "goalie_slot_seconds": 44884,
+          "home_goalies": 1,
+          "home_skaters": 5,
+          "included_seconds": 44884,
+          "physical_seconds": 45969,
+          "skater_slot_seconds": 493724,
+          "team_seconds": 89768
+        },
+        {
+          "away_goalies": 0,
+          "away_skaters": 6,
+          "excluded_seconds": 8,
+          "goalie_slot_seconds": 0,
+          "home_goalies": 0,
+          "home_skaters": 6,
+          "included_seconds": 0,
+          "physical_seconds": 8,
+          "skater_slot_seconds": 0,
+          "team_seconds": 0
+        }
+      ],
+      "unknown_horizon_games": 0,
+      "unresolved_known_seconds": 57215
+    }
+  ],
+  "shards": [
+    {
+      "checked_games": 1312,
+      "per_game": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20212022/per-game.jsonl",
+        "rows": 1312,
+        "sha256": "1708ece4d559703ac89af37575094c14373dc8468d2d9a65a2a0ee777db0700d"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20212022/receipt.json",
+        "sha256": "8a8be6ab36e50a51efdb6c040fd001643025cbfb7704512bf7a65af7273fe080"
+      },
+      "resources": {
+        "peak_memory_bytes": 1874542592,
+        "per_game_output_bytes": 4045746,
+        "wall_seconds": 6979.512103041983
+      },
+      "season": "20212022"
+    },
+    {
+      "checked_games": 1312,
+      "per_game": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20222023/per-game.jsonl",
+        "rows": 1312,
+        "sha256": "f73a1e71ed02deea7e8237bd578ba58d81d222ce3f15e11185c32d53ea8f55f8"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20222023/receipt.json",
+        "sha256": "e4369ee2113015e40c3410a94119ece64068c90ccbfc432c9d63e66f456b293e"
+      },
+      "resources": {
+        "peak_memory_bytes": 2217361408,
+        "per_game_output_bytes": 4043625,
+        "wall_seconds": 8552.733823916991
+      },
+      "season": "20222023"
+    },
+    {
+      "checked_games": 1312,
+      "per_game": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20232024/per-game.jsonl",
+        "rows": 1312,
+        "sha256": "99ead32b3a885fd55a1162386201b1d7ef9e9695fa6c58f003f58b42fcf0a039"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20232024/receipt.json",
+        "sha256": "af68d1022226d3db87b1ac16946d3ce169812c31d43474291673fb32653027e5"
+      },
+      "resources": {
+        "peak_memory_bytes": 1745928192,
+        "per_game_output_bytes": 4036215,
+        "wall_seconds": 15198.695939917001
+      },
+      "season": "20232024"
+    },
+    {
+      "checked_games": 1312,
+      "per_game": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20242025/per-game.jsonl",
+        "rows": 1312,
+        "sha256": "6b899ceb3afae8ee97a4c5eadd367243cac86add738295d950bcfe0336c4e14c"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20242025/receipt.json",
+        "sha256": "1d07f4506d531d0d0c854fab88e261938feca00c876f698ae91fb5bacf51f83d"
+      },
+      "resources": {
+        "peak_memory_bytes": 1574764544,
+        "per_game_output_bytes": 3949727,
+        "wall_seconds": 15563.685175374965
+      },
+      "season": "20242025"
+    },
+    {
+      "checked_games": 1312,
+      "per_game": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20252026/per-game.jsonl",
+        "rows": 1312,
+        "sha256": "d450dbdc02a55f3863d77117d411c6c2418f4115b4b84911687d86d38ef24da5"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20252026/receipt.json",
+        "sha256": "3a0e32942d871b9b7ba841914389335d05bfb3bc17ca7ac1fd46f40c2f4c671b"
+      },
+      "resources": {
+        "peak_memory_bytes": 1674559488,
+        "per_game_output_bytes": 4054429,
+        "wall_seconds": 16175.081144333002
+      },
+      "season": "20252026"
+    }
+  ],
+  "status": "passed"
+}

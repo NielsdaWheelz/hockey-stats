@@ -1,0 +1,1145 @@
+{
+  "status": "deleted after final green",
+  "scope": "temporary v1-01 acceptance campaigns after final independent source/reason green; no production code change",
+  "authorization": "root final green after 6560-game source and selective reason merges, independent chain review, and stopped owned jobs",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "verified_outcomes": {
+    "source_merge": "real-source-reconciliation.json",
+    "reason_merge": "real-reason-coverage.json",
+    "independent_review": "real-acceptance-independent-review.json",
+    "guarded_reader": "real-systems.json",
+    "bounded_content": "real-content.json",
+    "fixture_boundary": "boundary-2021020093.json"
+  },
+  "removed_files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/__pycache__/check_detached_readers.cpython-315.pyc",
+      "sha256": "b6536cf6fa206e13bd22250682662ac2dfe53f845ea17eb8084591c387ffb52b",
+      "bytes": 25956,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/__pycache__/merge_reason_time.cpython-314.pyc",
+      "sha256": "c8f211352e9fa0fa87272156faaeae4bc0cdb7fa9f77a1eabe05a5697d50febd",
+      "bytes": 13343,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/__pycache__/merge_reconciliation.cpython-314.pyc",
+      "sha256": "53c546a1fd41368fd58823a04f8e9cc2ab4eeba91eaf6ea6219b07549e62ef4c",
+      "bytes": 10948,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/__pycache__/reason_time_audit.cpython-314.pyc",
+      "sha256": "d61299283f2f26d782f29f274545cc157236f5a912d70d8c29f65f9c7c60459d",
+      "bytes": 19323,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/__pycache__/reconcile_artifact.cpython-314.pyc",
+      "sha256": "f5e7095e535a7a51eb143b8ee48b4f4882bdb21959607cae3731cf32a2a227d4",
+      "bytes": 48661,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/boundary-0093-red.log",
+      "sha256": "97836fdba029e581dc7078f0e6a08c18cba5b2d18138503b20d99710b9f1a4b5",
+      "bytes": 306,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/boundary-0093-refactor-green.log",
+      "sha256": "6b9d02a69e068472105dc265771216c15e7a9b6cc79ad63bf2830f0d50c6adb7",
+      "bytes": 382,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/check_boundary_0093.py",
+      "sha256": "63e29b86a98e33a9d8ebec8d6d2c28077fd25af67f7684c68e085788bfcbaa0d",
+      "bytes": 3196,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/check_boundary_parity.py",
+      "sha256": "d98bc4e23c892c16750c7409f31e3d0082489b3af172589475606f2453ca6c73",
+      "bytes": 2580,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/check_detached_readers.py",
+      "sha256": "3d9267cd4c139f365a9d956d90b159c02878779e2cc3139416d49c32a8bd12d4",
+      "bytes": 13415,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/check_unavailable_ledger.py",
+      "sha256": "1bf40763bdf4933ef0765517a03841e3e196f833d39197aea65f90323eeaf5b8",
+      "bytes": 6907,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/checker-readiness.json",
+      "sha256": "9a546ae3569b2ee72c999770c3f6f27de2128289af904e9d0c1fbd590415e08f",
+      "bytes": 8780,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/detached-readers-fixed-36.json",
+      "sha256": "7a973dce791a16dab1b153f105c919b47cb362084925c208e1145fe1f784a056",
+      "bytes": 186243,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/detached-readers-real.json",
+      "sha256": "51e9c53e4efa8f38b5c7b371c1f81472badd9df583e0101130f5480d6267841c",
+      "bytes": 30772,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/diagnose_support_0093.py",
+      "sha256": "75e91ada6fb4643a19a23ebd7dd148803db51c2cfc3715624f0082c1882b22dc",
+      "bytes": 2075,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/fixture-partition-20212022.log",
+      "sha256": "8caa1e8b012a65a548845e48b02e8fff8032d3885032d787c00c27954a106a8e",
+      "bytes": 421,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/fixture-partition-20222023.log",
+      "sha256": "3596b502d271e9ec3d94fd76d68d19ab943e7f18b08e024e2dcf7d66e7301902",
+      "bytes": 419,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/fixture-partition-20232024.log",
+      "sha256": "8fcb7fcbb0bfdb17e5bd973bb7728ce2f8c436bf114ad4fb4da3d9739b499d88",
+      "bytes": 420,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/fixture-partition-20242025.log",
+      "sha256": "b6de54163d9d003245aa8a0b94f41889bc43265fb671ed7555b9664c4e363bec",
+      "bytes": 421,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/fixture-partition-20252026.log",
+      "sha256": "7106f510a20760b262b242c3df9e73c927f895c3e510bec4906634c3ac67be4d",
+      "bytes": 421,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/fixture-source-check-red/per-game.jsonl",
+      "sha256": "548b2f5fad40babb891d2063cc46c2cf61529f860be1c08e556031e6a44947fb",
+      "bytes": 32923,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/merge_reason_time.py",
+      "sha256": "3e11da5d026f161fd98c5772c0843c2e7375122ac9a31a9b29f0d2a62fee78a6",
+      "bytes": 8443,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/merge_reconciliation.py",
+      "sha256": "50b9abe9394892a26bb8349b7b322367fc67ba55fd7ec7b9218258c7667507b5",
+      "bytes": 5947,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/native-schema-preflight.json",
+      "sha256": "bf61166c1f8d922934df0d9149ff456e8eed131d937e51d09f4dd28faf6de1eb",
+      "bytes": 6086,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/native_schema_preflight.py",
+      "sha256": "180c7362a063d3af6fdf6190d5733a7dd72927c77adb960e81ced6ba2adb5612",
+      "bytes": 2235,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/partition-probes.json",
+      "sha256": "2498bf40503b79d946a9c6668515644768956b0bafc8ab863ac127738e9a3520",
+      "bytes": 1115,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/pending-test-deletion.json",
+      "sha256": "3510d2edc5efe48e3b89bc2f5414529ade00c8ae9c024844f1c69044acae4fe9",
+      "bytes": 29858,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/preserve_boundary_0093.py",
+      "sha256": "d8cdd6d0ba14ec8907f0c8b7194c92eceb824d1496f233e77a430bc185dbe420",
+      "bytes": 2185,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/probe_merge_reconciliation.py",
+      "sha256": "2afe67f47279dea01a7e5959000863b60dc2bafe17539a3eff1992112f1dfeef",
+      "bytes": 4185,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/probe_reason_time_audit.py",
+      "sha256": "92d6d79d1613a154bb85b618917422a5bbcc064aa1b6e63bcc4d09e53f9ef316",
+      "bytes": 5046,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/probe_reconcile_checker.py",
+      "sha256": "ac404e89f7d3e308c93338017ccf2b9496281b10e5877e1c9b097f291ac3fa9c",
+      "bytes": 2530,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/profile-0093.json",
+      "sha256": "8ed6d5221aea64ee81e5c855dc7c65780f11d1c1a0897ee5d14f250cdd8911f8",
+      "bytes": 4264,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/reason-probes.json",
+      "sha256": "69604c91c2617cd585f576ce5b2629150848ea0e3ec59833c872b65e77f356f9",
+      "bytes": 1340,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/reason_time_audit.py",
+      "sha256": "50961cdea2f6d0a7dba2cc60e2dc8fa7e3be60d650877cf95b09d4ecf46f509c",
+      "bytes": 10474,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/reconcile_artifact.py",
+      "sha256": "11f47738af4b62eb6a470b3617382a4d2977459d5eec3cc785051b68c0f88b27",
+      "bytes": 28163,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/__pycache__/inspect.cpython-314.pyc",
+      "sha256": "672be460dc14d1341b814bba02fac66ec14140d21a181deed6a5e8afa5b9139f",
+      "bytes": 5810,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/check_public.py",
+      "sha256": "2797dfc485da170fd17bb0a438391466f70e29c5275948561b76993517cdb54b",
+      "bytes": 2806,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/diff.txt",
+      "sha256": "3697d56de266ad70c643eae57ca3e65924c87d0f7ef2ed8b1249d438c3f9292b",
+      "bytes": 12480,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/game.json",
+      "sha256": "441bfcdf93b4ae4f4fb538a52a9940ad49b0b71e16fd995e39f8571f080b0d7d",
+      "bytes": 41413503,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/prepared-fixed/coverage.json",
+      "sha256": "d023bbd96c1f885e8dbbc4299d2e004222e455212220ba21100787c3bcd1ce2e",
+      "bytes": 3184,
+      "group": "boundary_replay_test_artifact"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/prepared-fixed/games/20212022/2021020093.json",
+      "sha256": "bdf95d0615a4217d8db3a825e49aae17c9ca2d0c42c9fee9964d9cc6dcb809eb",
+      "bytes": 41397721,
+      "group": "boundary_replay_test_artifact"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/prepared-fixed/manifest.json",
+      "sha256": "4d97ca734fd999b455b4d2bf9cc3fbb0eb6c85290e0f1ac89dbfdb678676098a",
+      "bytes": 5968,
+      "group": "boundary_replay_test_artifact"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/prepared-fixed/people/20212022.json",
+      "sha256": "e4e1eeb831d37b7d63f9ab2ff24f53ff8c76c801b7a16980fe3fafe93ef5c894",
+      "bytes": 50403,
+      "group": "boundary_replay_test_artifact"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/prepared-fixed/selection.json",
+      "sha256": "a4ce3922785064efab91cb09397f2ac0250d48b4cc014ae82691973b3931e419",
+      "bytes": 348,
+      "group": "boundary_replay_test_artifact"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/replay_probe.py",
+      "sha256": "f07c0ce1065d6eccbc92bee0b6164cc2c0249799d799e8122636f60fdd72b34f",
+      "bytes": 1994,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/selection.json",
+      "sha256": "a4ce3922785064efab91cb09397f2ac0250d48b4cc014ae82691973b3931e419",
+      "bytes": 348,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/shadow-history.json",
+      "sha256": "663599e1c50f7950eccebd95b7fa4a650a34118a383838c6608318cbe481871b",
+      "bytes": 12654,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/shadow-validator.json",
+      "sha256": "47fa2f3df1ecabcc73067f8457b744c9d394b235743d376fc57b88de0dfe128e",
+      "bytes": 3209,
+      "group": "local_campaign_code_probes_profiles_or_duplicates"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/content-samples-02.json",
+      "sha256": "c9040b8cd6391d65c2d6f1761b938c32d702d0f55e2cd3b72606e9917f3469ec",
+      "bytes": 111259,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/content-samples.json",
+      "sha256": "c2da2737c934ec9bbc4eda6a066ae70c637f98f69877979d8ed774ab1bde58d5",
+      "bytes": 7041,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/context0093-mutation.json",
+      "sha256": "042a018e7bb4bc28d7ed1636d63458f1803f7b7c4f11d8d60c8f57f6a9e0686e",
+      "bytes": 2322,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/interrupted-boundary-run.json",
+      "sha256": "2aa4613879084238d3c71519edb6d7cb5a07439b2f618935ef2556ecc600ed7f",
+      "bytes": 520,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/native-preflight.json",
+      "sha256": "7e7f6b59ef45291cff7e314b72b342ef45aac9cb7cac004a721ead3894e870ec",
+      "bytes": 39568,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/native-preflight.log",
+      "sha256": "9ad0c93a0a96d5b8cb44e96fc5e862f594c7b787b417be6932b4ee57f7d677be",
+      "bytes": 1403,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/prepare-fixed.log",
+      "sha256": "b41d2cc6e6c207d316b1f31a7a4bf07230eed6f49f23926e7cf731cc97597478",
+      "bytes": 134,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/prepare-permission-failure.log",
+      "sha256": "ef732b4d2919d296c157ea95b12734c032a8735e73beba5500b4803bdad6bb8c",
+      "bytes": 134,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/prepare-resumed.log",
+      "sha256": "19365d6c30e414c8e3dd98faf3d961837db83553efbeadbfc5e113e7fdd2aa07",
+      "bytes": 73,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/prepare.log",
+      "sha256": "66545f4e48481a103744fb3525f3e566928946564fe54ab6eada1e6f96b4f933",
+      "bytes": 80,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-real/start.txt",
+      "sha256": "65efadcc3834d4a1d850e58600fd450fdf2d9fad207293e3d5f0891428afd498",
+      "bytes": 33,
+      "group": "real_run_temporary_logs_and_duplicate_receipts"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-profile-0093.prof",
+      "sha256": "fbd98d8762f4c32ffeacbdeac07fa35cd5c409bea7bd369c177c5182594020ac",
+      "bytes": 458695,
+      "group": "profiling_trace"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-profile-0093/coverage.json",
+      "sha256": "d023bbd96c1f885e8dbbc4299d2e004222e455212220ba21100787c3bcd1ce2e",
+      "bytes": 3184,
+      "group": "profiling_fixture_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-profile-0093/games/20212022/2021020093.json",
+      "sha256": "bdf95d0615a4217d8db3a825e49aae17c9ca2d0c42c9fee9964d9cc6dcb809eb",
+      "bytes": 41397721,
+      "group": "profiling_fixture_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-profile-0093/manifest.json",
+      "sha256": "e287546ec22c1f7207296964ef5e56b6b74cf2252a894afe369a24f90f973ee4",
+      "bytes": 5969,
+      "group": "profiling_fixture_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-profile-0093/people/20212022.json",
+      "sha256": "e4e1eeb831d37b7d63f9ab2ff24f53ff8c76c801b7a16980fe3fafe93ef5c894",
+      "bytes": 50403,
+      "group": "profiling_fixture_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-profile-0093/selection.json",
+      "sha256": "a4ce3922785064efab91cb09397f2ac0250d48b4cc014ae82691973b3931e419",
+      "bytes": 348,
+      "group": "profiling_fixture_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020001.json",
+      "sha256": "d01b77bce03d65c918d984698134f66be4400535f6588291244936767acd258c",
+      "bytes": 42285277,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020002.json",
+      "sha256": "2cf9e9e17454ddea85144dec3085fe0ab03e340e2c606e5432c6de93ef6ea563",
+      "bytes": 43079043,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020003.json",
+      "sha256": "7b50ce0d29307b7945e1a816c9d51cfa140a8ba219bee5f4a6e30b000430a916",
+      "bytes": 45147597,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020004.json",
+      "sha256": "777ca4454c3093ad40700c8ebe78d1f9f50b4812522c14ca0a4e17e946359162",
+      "bytes": 37172959,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020005.json",
+      "sha256": "4dba49119df126227fe4d42b095c31fb3739cad4693600776eaca6f8b6950e6e",
+      "bytes": 47334405,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020006.json",
+      "sha256": "b8b1441d24db8c0f874cc9ffd602e299d47a50a78cc0bf3154a4dd4c43eb02c3",
+      "bytes": 45142592,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020007.json",
+      "sha256": "bfeff45d3b2a7c43055eb75063da24e542b53146c4d1e3e960e6b8015e90ce6b",
+      "bytes": 40629629,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020008.json",
+      "sha256": "f33ccba1935e6799642ed407eb9ee4f4e8d049c432901d566a43ee796fd4916f",
+      "bytes": 46970675,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020009.json",
+      "sha256": "26b7fc3a99fffde85809c4b2e95bae521b9834289cbf503dd33e7f039f043083",
+      "bytes": 40536237,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020010.json",
+      "sha256": "46f3f76b6bbed5c2ba97c365ea6bdbb567bd425455523828e8073727d320768c",
+      "bytes": 43750753,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020011.json",
+      "sha256": "0107b4f26fa4b6318f89a42913e51c33a271fb51e00d19dfebc3fa567b9b58ce",
+      "bytes": 45202975,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020012.json",
+      "sha256": "f7c862d96cc0250de565207e1b3b58a06ac1ee9cb06bf60a70bfc2930a9b21d2",
+      "bytes": 45032830,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020013.json",
+      "sha256": "80710a8329cdb9f4bb5754e9b4315e4794c4d2a437b30c795d342b6f75d4b37d",
+      "bytes": 42980048,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020014.json",
+      "sha256": "8f25444efeb43a73dd3f7e916dc25b3138d9cc30ec02891fa337a5561c1401c7",
+      "bytes": 38146958,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020015.json",
+      "sha256": "771a3e9935474cd88e21e1ba20c53e26b2e8154a5b7945160275abd8f34de028",
+      "bytes": 36519007,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020016.json",
+      "sha256": "b4e29332d0538d48c03f195dd63e6b7c8370286e7ccfe802d92780da51711b27",
+      "bytes": 41493596,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020017.json",
+      "sha256": "31905e924434c1fd9d6c53f912ed8c2ff4d5b3f3be2f66c6f4cae697445d84f1",
+      "bytes": 40393101,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020018.json",
+      "sha256": "a11d29465a204d7fa10f9458947d81214c24fe056dc25b2393c1e675dbbf260e",
+      "bytes": 44127916,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020019.json",
+      "sha256": "98a2252e9fea69a98bef9f0113224ad730540258fe4582d4bbc384b6eb02cad8",
+      "bytes": 39437206,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020020.json",
+      "sha256": "b7b9d77aeda186284a39c3e6f5a17aa5c29a7c7feeff45076e8deb5dbb25f374",
+      "bytes": 45023679,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020021.json",
+      "sha256": "c5734277450cbbabdf776eda891138ae436a99ed59c21e6f74cf067b1d568396",
+      "bytes": 41800813,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020022.json",
+      "sha256": "a8c56bb29c717b824551298fcfd914610cf53e0a1f00628cb7d7ea5a066e79c2",
+      "bytes": 46135016,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020023.json",
+      "sha256": "b27e4ebae0e45d32e6aea9632169b6547c4981c796702c77f786834e38d64a30",
+      "bytes": 41273158,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020024.json",
+      "sha256": "dfae2125935077daffee42fd862c949c7b905bf62cda1348dc9a0392c600e7ef",
+      "bytes": 39040260,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020025.json",
+      "sha256": "cb7a14f548edeb2b22d0cb64375865ec606a0caf6db5a016ae5ea54edfd4ec13",
+      "bytes": 43667788,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020026.json",
+      "sha256": "f1125761c294cb2fab78ebc8b39de3f3029a21a29e1e71138e9752e3a7eb80bd",
+      "bytes": 37193884,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020027.json",
+      "sha256": "dce74ddfc634f2bcc16f8c68efbf313600ac5a72bc84af02551b8bc2f0750de0",
+      "bytes": 41584561,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020028.json",
+      "sha256": "d9f007d1c41c7e5dd7f2d508000e6269c5455ae37f36b4be2a04b85aad56bfb2",
+      "bytes": 44110860,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020029.json",
+      "sha256": "454b31d8bb6863574a195241f3736612bbe70649645c6a6e39dd97a7ef7050a3",
+      "bytes": 39058962,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020030.json",
+      "sha256": "11811c118e6a26190ac2242b2a6832fd6f4d2ad0f5f1c3b52e6ba6ec2ffc4aac",
+      "bytes": 45094243,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020031.json",
+      "sha256": "ec1bc02e082a5a066d84a41fe6c8846ef07907775eddf08c0446d068e0c58db1",
+      "bytes": 46822490,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020032.json",
+      "sha256": "f4ca60b1c175022dc3c19b34d6c3dc24ff38b2190fe65a7f248518279f9d04b7",
+      "bytes": 38619975,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020033.json",
+      "sha256": "16e8a527b91aafb7fb8227f0af1244196489e815a0b09c6d5efb91f969bf9065",
+      "bytes": 42911587,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020034.json",
+      "sha256": "4eed305fc630c5ee72237204e5d1b88f40562c99cf9f07af283a88eb7b3798bf",
+      "bytes": 43890525,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020035.json",
+      "sha256": "44a15134c19671048a7af9619b5599a3e638076d237641227dcd3e0df2819097",
+      "bytes": 52577156,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020036.json",
+      "sha256": "68dbb02e6074cc84f4716ea8d97c774f8eb0585caaa661dbb8c08a3967cd709d",
+      "bytes": 39024371,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020037.json",
+      "sha256": "16406e72f9a4a58836a53b26797f3eca2fda5a112864883f6cf0ec41adc14878",
+      "bytes": 46494334,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020038.json",
+      "sha256": "16e28cbdb009d9d4e1c91b7e2948a2063ee2279db762434809e43b4fbe50370e",
+      "bytes": 41855030,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020039.json",
+      "sha256": "aeb8e4e23a753ab56579ade183ac85230cca876cdc2a4f1b397700d573abef5b",
+      "bytes": 39151813,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020040.json",
+      "sha256": "43582571e49573449e1b3ebb11054c8d1364ea7182c7730dff1e0b977264018f",
+      "bytes": 41797013,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020041.json",
+      "sha256": "f5031ddde1f7b88002f2a35bfdb7869ee49d1bb1cc794022c16e9fd7ae2596b6",
+      "bytes": 35680158,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020042.json",
+      "sha256": "0a6f303c3fe7d0b3f342589a6d4a5680fc39dd640c31638402a40400f3c74a79",
+      "bytes": 41909586,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020043.json",
+      "sha256": "b3d42e047d18d836bcbb63b2da5d7b037fcfb7e8ebbb771affe0827b07dea04d",
+      "bytes": 42244493,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020044.json",
+      "sha256": "dfb8d2135c21c69574f7e93089c14baa740d884fc809f9e1acefce468e751d50",
+      "bytes": 43816033,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020045.json",
+      "sha256": "9ace5e83b6b75fab5c054338a1e7fdfd1c570edd8ca85efb711393726b9355cf",
+      "bytes": 37818704,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020046.json",
+      "sha256": "512027dda37d72a1404362643c3c3ab80ce7780cd25ddf557f1cfcbbd718191f",
+      "bytes": 45209008,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020047.json",
+      "sha256": "6153138e68a4b01b34cf94416d0db7af12ebd73f0a561b26116e2ea2b87e7c97",
+      "bytes": 41916282,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020048.json",
+      "sha256": "cb3a67463a425cc9cd5a999df07b1f4723ec5ecf2b28cf3fbf52a21507f944a3",
+      "bytes": 45110179,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020049.json",
+      "sha256": "3924398889760f2adadc089d09fa2b820ce6b6e1a47512a8ec81e50c547c389f",
+      "bytes": 40336657,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020050.json",
+      "sha256": "6b35cd518202cc2dd15d1931484a905aebff14b13f4aa169524052b072adb65d",
+      "bytes": 45064578,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020051.json",
+      "sha256": "7c5e5f355ff8871012da87e71b6eb016e34d5d4c0f10473ef0af2ac4abd58ff6",
+      "bytes": 45870482,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020052.json",
+      "sha256": "7600d0c56e83586cb1aab7d257890db00bab0dcc8a6f3d0d21a4e95dcddf377f",
+      "bytes": 46399647,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020053.json",
+      "sha256": "52231050a01b44767cbbddc525496b12e15ed2de5cb282601905b23cc4d0683b",
+      "bytes": 44291256,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020054.json",
+      "sha256": "c9ae3d727df72d3c07204cee11f22e417a1541f514efba8989f6a42ef969ef8c",
+      "bytes": 39471163,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020055.json",
+      "sha256": "3c48351aa37792b55fc42a3ab342363a91d055badada1b14ee0552dac55493c7",
+      "bytes": 40892160,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020056.json",
+      "sha256": "3a0fbc40d98ae2cba6e457a278528a5fd928cbe8f9fd3d606cede7c44e606726",
+      "bytes": 40761552,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020057.json",
+      "sha256": "65a05067c09a33d6dc0badc530e457e6f43eb5972687d840bcfb18c8a1810919",
+      "bytes": 41499073,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020058.json",
+      "sha256": "a52af609e3fa3d8d59015fdd6814a472c9cd4001f0309f9e7b9df63502b94242",
+      "bytes": 41960312,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020059.json",
+      "sha256": "b1d255f4b037c516e3472f58122ac682be580f3b22ff50b0266910dcced3425c",
+      "bytes": 38756937,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020060.json",
+      "sha256": "9c5b8d73d34fc1650a9b19af862151d7cb3ba3e4f7ca4bb37a797d5fa24c05a6",
+      "bytes": 43752860,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020061.json",
+      "sha256": "9fc70d654aa9ab4db9c30764dc75330c27578d50c9e9a4622666ffa2c57c66b2",
+      "bytes": 41133981,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020062.json",
+      "sha256": "08aef94c25f016a8fe516533c0d73c31c1b12aac0d9b80a4f27886c3d9ab7339",
+      "bytes": 43147319,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020063.json",
+      "sha256": "bee8af547c882296b1318757e9dcba2702bf95301dcd35314d1a5e4bf9f84b01",
+      "bytes": 46999271,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020064.json",
+      "sha256": "f16fc4e40106c2b4ca0f5d2f1b2d12bc0fd44d475de076e072f54eeb958be81e",
+      "bytes": 43994132,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020065.json",
+      "sha256": "2592474e97ae583d3f92dae37d4c5ee882750e4871273a586fc6db66ab8b2904",
+      "bytes": 43758038,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020066.json",
+      "sha256": "c81ac1025f526901be36e68698212283b65ca06c9bbc20275ec6793d41a7a88a",
+      "bytes": 41870405,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020067.json",
+      "sha256": "a6e60bc942d780cf84062504c4e319b4ffac8d6ecb34a8934560ae6477ccccd4",
+      "bytes": 45353560,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020068.json",
+      "sha256": "b75dbe4d317df7dda5d54f0f2003f41a534d076d7d74fed48387c5c733be94ed",
+      "bytes": 40535735,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020069.json",
+      "sha256": "d97ed6271a6f1f17a652be74ab02ba2fb1ab4ade418bc479056d43208c3cd2be",
+      "bytes": 42110626,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020070.json",
+      "sha256": "5fe2aa441838162892ba475fdf473d30a2c91f444ea8c7cb18c2dc682f465d60",
+      "bytes": 39662765,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020071.json",
+      "sha256": "33e1a15b23dcfb40e9d25f5bd35a10dd4c18e527b8a4e91c28b6bb2f7d0ea0bc",
+      "bytes": 38648171,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020072.json",
+      "sha256": "348dea425bc491a3b98de8810abec13e6ba4c91733040efce770425c0b8abaa8",
+      "bytes": 39894355,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020073.json",
+      "sha256": "0fbb370ed1024b084eeec4c8589c9b1208cbf219a4f42caf952080eff75443fe",
+      "bytes": 39529652,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020074.json",
+      "sha256": "cef10e8827c694b37e77177df5ab8ebea72bf125f59d7059415cd6dd0d67f56c",
+      "bytes": 41293369,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020075.json",
+      "sha256": "0c4694ef0c7ec9ac966cedbe8ebc121b0db7ea60801f44761bb3f9fd346b9dc0",
+      "bytes": 43004829,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020076.json",
+      "sha256": "253150b084811a8d293140825afe8778fd4b4e9fc4601aed1234ac04f7115fb2",
+      "bytes": 41125578,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020077.json",
+      "sha256": "daa1c50663df2acbe773d044b1920b46f4adc3ac3d4ab274d29eb40843c66229",
+      "bytes": 45457150,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020078.json",
+      "sha256": "20a2d1712053aec8d8090e3d10b457e4b15af8eabbf4d1857cf7f119b5203ab9",
+      "bytes": 41663407,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020079.json",
+      "sha256": "c8cb2920b3f42cbd3e5d3849b914524d923e25e8bc5538de9e943be7870da2fa",
+      "bytes": 42768657,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020080.json",
+      "sha256": "9a2f69aca1d79b844b54cde18efb55eb4ecf36d8e5288e1239a40013b0b9a73f",
+      "bytes": 43108882,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020081.json",
+      "sha256": "2fe904936b53e8e1e71d6d12d38d42f383f3f4c435ea70770984301da11418d6",
+      "bytes": 40807251,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020082.json",
+      "sha256": "3be174005818856b729e329f71d0339d993926360ff68f54951b95c565f5f74f",
+      "bytes": 45845778,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020083.json",
+      "sha256": "49c2f03977b90f4ba01731ebf6fd9d0d2ca4fe46b3208a4b6e36d20093dcaad9",
+      "bytes": 44956065,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020084.json",
+      "sha256": "6066ca2e7dafe36ea0e6fe5e3457aac5c59d34d02d09953f5ac74fd7620a1834",
+      "bytes": 40294157,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020085.json",
+      "sha256": "9bb62604ff1e88751dfae9e899a362a17fbd4e83c4756e5d08be8287711ab6b8",
+      "bytes": 39808530,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020086.json",
+      "sha256": "c77f03a6b7edcada16e24c82633a1acb7b0c3690e3ea721c95a936b0301b66ef",
+      "bytes": 48401789,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020087.json",
+      "sha256": "a84af936e14a90c7dcd550d5af0d0078a39e7f4c96b5c5778ad62d03ff47f7e5",
+      "bytes": 40690999,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020088.json",
+      "sha256": "ee56248145588c031fc8515f30c85ecd8aa479347528785654c863f23a9b3aa7",
+      "bytes": 42897896,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020089.json",
+      "sha256": "3bb73e3fab17a3fbede20d71d90601622ff2f7e170e7c774ee838d4758da7ed2",
+      "bytes": 39706278,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020090.json",
+      "sha256": "87f2797e9cd1e886d5b6d272446419e80706fad00a94d1d1268c8b0a8168420f",
+      "bytes": 39261573,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020091.json",
+      "sha256": "93db2cb24733ceb427cdb4c2c019bc877bccf8733cf130fcb2a96b1d0a1a8b57",
+      "bytes": 46163737,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/games/20212022/2021020092.json",
+      "sha256": "46c34dccc01ef267932a0fd8b50975ea2c8ef191862ab4262ecdc929d295a55d",
+      "bytes": 40363199,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01/selection.json",
+      "sha256": "ad1251a0a72d93c6f5927ef8d5d4ab7298fef2f0930a8885bdd2e366aa9a7787",
+      "bytes": 1319,
+      "group": "failed_unmanifested_92_game_output"
+    },
+    {
+      "path": "/private/tmp/hockey-v1-01-real/__pycache__/content.cpython-314.pyc",
+      "sha256": "815a2dcc57c240e5f0c0c179027fc01934dee52836afd44eb78a45a2c1d0e775",
+      "bytes": 46608,
+      "group": "private_tmp_real_helpers"
+    },
+    {
+      "path": "/private/tmp/hockey-v1-01-real/__pycache__/content.cpython-315.pyc",
+      "sha256": "7a047bb8cc28e13858f92fd609dc29364959807d64a8ac50999ba44e3a61e1fc",
+      "bytes": 46997,
+      "group": "private_tmp_real_helpers"
+    },
+    {
+      "path": "/private/tmp/hockey-v1-01-real/context-mutation.py",
+      "sha256": "65f4384f289d098e23ca4b24fb91ba91be81e513ccd1075617324b0e51a64e25",
+      "bytes": 1537,
+      "group": "private_tmp_real_helpers"
+    },
+    {
+      "path": "/private/tmp/hockey-v1-01-real/pending.json",
+      "sha256": "8080b3a17117cac28436191fd1f2150849a917562969af10e9e8991cae71a133",
+      "bytes": 814,
+      "group": "private_tmp_real_helpers"
+    },
+    {
+      "path": "/private/tmp/hockey-v1-01-real/preflight.py",
+      "sha256": "f853c65a6570ac480235213d999f8813944a71f2c0271de5a87b8b8260aa4da5",
+      "bytes": 2784,
+      "group": "private_tmp_real_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-check-native-support.log",
+      "sha256": "e10d9fc5854fa54f3e71e084a86b64e4e10b2a6abe8a34b1cf26bb78f39b99ea",
+      "bytes": 2887,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-check-native-support.py",
+      "sha256": "10a0d38e3dc63ceb9a08fd08c4dee8ee04f90e2183266f515ec74ff6ae51f6f5",
+      "bytes": 8990,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-context-audit.md",
+      "sha256": "54db1b1de35690ad5b0173d16dbc1d5f5dbf82ed2ba4ab667f3dc109985e75fd",
+      "bytes": 18947,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-feature-sample.json",
+      "sha256": "c556683cb6b78342f5b695fe95700a0b1b785fafecc0efe02b6345731f9c5dca",
+      "bytes": 908475,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-profile-0093-command.txt",
+      "sha256": "12a8cdcbf6cc25302573b002a4018b5245806ea1df439fed5a296c51a1a4cf69",
+      "bytes": 354,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-profile-0093.log",
+      "sha256": "d9c6a9b8237ef25a6c20a0cd9adb0dc40224d25d91ad8cc9623884d670aaf383",
+      "bytes": 83,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-reader-controller-check.json",
+      "sha256": "a3af779469abb3af40452b9f1da2f163464c38d210b7fa3c57c2a77b7b031723",
+      "bytes": 30377,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-reader-controller-identity.json",
+      "sha256": "934d66ca1f72fc9e27105418c5e604e90eaf83555e876101316b5e26f126f4ab",
+      "bytes": 538,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-reconcile-artifact.py",
+      "sha256": "165d0b4dd27474e36ba961c86c7bb6084d268d8e7058a58efb3639844405144a",
+      "bytes": 24264,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-reconcile-before-season.py",
+      "sha256": "336697281b131ea05307b4271e49965c71babd8961b9d90147350ea7cfed8b2d",
+      "bytes": 27672,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-reconstruction-audit.md",
+      "sha256": "3ee228b3ab8a018b203a82831dcb164781702b25d63aedf9c82637058642f39d",
+      "bytes": 18375,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-feature-history.py",
+      "sha256": "ea4fbfc1f0946967d2c1d4a7e662f4f5e0dd3e54656c9955d76f67cb7ecd6226",
+      "bytes": 20121,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-history.log",
+      "sha256": "ef508cf4e17233acdbd1443fd8c879fbd02aacd90a079f7da573ebacb851ea25",
+      "bytes": 2934,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-history.patch",
+      "sha256": "85a046374d5aaa34c5a04d5aa726ba05d8b6fb0cc54b6eb7c45216840d062cb3",
+      "bytes": 2248,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-history.py",
+      "sha256": "12e92eb7258557d55b7b8436fc212c95bb47880bfa00734cba53e2eac944704f",
+      "bytes": 7866,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-validate-function.py",
+      "sha256": "a2cb19db55a55127b4a339e356a32d7a8c69d5b29f36f50c20a853ab11b02060",
+      "bytes": 4082,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-validator.log",
+      "sha256": "859f3a75ee1752b012a127c7f12f253e28607e256e1f377a26f3e95d1ab94cb8",
+      "bytes": 2621,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-validator.patch",
+      "sha256": "80e7659cbec2fb0b935d9f0c423f819fe807d6823760e0b584e022c5cfa798fa",
+      "bytes": 1672,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-shadow-validator.py",
+      "sha256": "316375d03786eed280664366e1dafbd84fcaf2eed16038f06efa0331123c4fb7",
+      "bytes": 6838,
+      "group": "private_tmp_resumption_helpers"
+    },
+    {
+      "path": "/private/tmp/v1-01-systems-audit.md",
+      "sha256": "b9b425a58a7b0065f924d5ae5697acbce45b36948ca5d1a61aefe8902cb98695",
+      "bytes": 20618,
+      "group": "private_tmp_resumption_helpers"
+    }
+  ],
+  "removed_file_count": 183,
+  "removed_bytes": 4026247695,
+  "removed_groups": {
+    "boundary_replay_test_artifact": 5,
+    "failed_unmanifested_92_game_output": 93,
+    "local_campaign_code_probes_profiles_or_duplicates": 43,
+    "private_tmp_real_helpers": 5,
+    "private_tmp_resumption_helpers": 20,
+    "profiling_fixture_output": 5,
+    "profiling_trace": 1,
+    "real_run_temporary_logs_and_duplicate_receipts": 11
+  },
+  "retained": [
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance completed source jsonl/receipts and reason receipts",
+    "var/v1-01-root/root-r6 and selected native fixture inputs",
+    "fixtures/captures and original source references",
+    "var/v1-01-acceptance/identity-counts-real.json and checked fixture receipts/facts",
+    "docs/research/evidence-v1-01 compact and exact detailed receipts",
+    "expensive fits and current/previous publication databases"
+  ],
+  "test_only_dependencies_added": [],
+  "post_delete_verification": {
+    "all_183_recorded_files_absent": true,
+    "owned_campaign_python_and_bytecode_absent": true,
+    "temporary_private_tmp_helpers_absent": true,
+    "failed_unmanifested_and_profile_outputs_absent": true,
+    "prepared_real_and_fixture_artifacts_preserved": true,
+    "completed_source_and_reason_receipts_preserved": true,
+    "identity_counts_original_path_preserved": true
+  }
+}

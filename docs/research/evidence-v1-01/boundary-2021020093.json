@@ -1,5 +1,5 @@
 {
-  "status": "focused repair and preserved source boundary verified; full real acceptance pending",
+  "status": "focused repair and preserved source boundary verified; full real acceptance separately verified",
   "game_id": "2021020093",
   "production_file": {
     "path": "analysis/src/hockey_stats/analysis_support.py",
@@ -26,7 +26,17 @@
     "detached_source_network_denied": true
   },
   "fixture_admission": "fixtures/source-admission-v1-01.json",
-  "temporary_check_files_pending_deletion": [
+  "independent_receipts": [
+    {
+      "path": "fixed-36-public-readers.json",
+      "sha256": "7a973dce791a16dab1b153f105c919b47cb362084925c208e1145fe1f784a056"
+    },
+    {
+      "path": "boundary-2021020093-public-readback.json",
+      "sha256": "2ccd198695ea5e8fed9dc98d628b6d4631634bfc5f767cd72f03aaa294e62632"
+    }
+  ],
+  "temporary_check_files_deleted": [
     {
       "path": "var/v1-01-acceptance/check_boundary_0093.py",
       "sha256": "63e29b86a98e33a9d8ebec8d6d2c28077fd25af67f7684c68e085788bfcbaa0d",
@@ -48,8 +58,6 @@
       "bytes": 2075
     }
   ],
-  "independent_receipts": [
-    "var/v1-01-acceptance/detached-readers-fixed-36.json",
-    "var/v1-01-acceptance/replay-0093/public-readback.json"
-  ]
+  "deletion_receipt": "test-deletion-real.json",
+  "real_acceptance_review": "real-acceptance-independent-review.json"
 }

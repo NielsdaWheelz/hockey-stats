@@ -1,6 +1,6 @@
 # execution scoring verification
 
-status: software and canonical captured-data fixture verification complete. numerical/publication production is frozen at `41a003ba3e0254474a4294cd878bbb8ee6857fb0`; the final tested application copy refinement is `bea490b`. real acceptance remains blocked by upstream inputs. no real delivery, scientific admission or activation is claimed.
+status: software and canonical captured-data fixture verification complete. numerical/publication production is frozen at `41a003ba3e0254474a4294cd878bbb8ee6857fb0`; the final tested application copy refinement is `bea490b`. real acceptance still needs checked real v1-05 states and compatible factual results; accepted v1-01 preparation is now available. no real delivery, scientific admission or activation is claimed.
 
 the user assigned [the complete v1-06 specification](../../specs/v1-06-execution-scoring.md) in `implement/v1-06-execution-scoring`, worktree `/Users/nnandal/Documents/code/hockey-stats-v1-06`. the primary checkout and its current documentation drafts remain unchanged. the branch integrates frozen v1-05 commit `49956bf`, including the separately approved `cfbda18b` recipe and stopping amendment; this integration does not establish real-fit acceptance.
 
@@ -19,7 +19,7 @@ native non-astra agents own the numerical evaluator, matched reductions and appl
 | exchange2/schema8 | strict python/effect boundaries, skater/goalie dispatch, assessment paths, support and malformed-record checks pass; [schema checks](schema-green.txt), [application](application.md) |
 | fixture source-to-screen | five canonical captured-data fixture scores, all six summarize/publication groups and three-season application/API/history/evidence/export checks pass; [application receipt](application.md), [pipeline receipt](composition-canonical-summary.json) |
 | numerical propagation | canonical final-year propagation passes on 38 frozen pairs, all 32 neutral panels and the saved actual/synthetic probes; no new solve; [annual campaign](accepted-01-scores.json) |
-| real five-year scoring and three-year candidate | unavailable: accepted real preparation and twenty real fitted heads are absent |
+| real five-year scoring and three-year candidate | accepted real preparation is available; twenty checked real fitted heads/four probes, compatible real facts and downstream acceptance remain outstanding |
 | detached and preservation | strict candidate reader and sandboxed server/browser pass with actual external and local source/fit roots denied; control reads fail; candidate hash unchanged/no wal/shm; all 64 [protected files](protected-final.json) retain original bytes and mtimes |
 | temporary test deletion | deleted after final reviewed software/fixture green; [root cleanup](cleanup.json), [application cleanup](application-cleanup-inventory.md); fixtures, canonical outputs and scientific production mechanisms retained |
 
@@ -68,7 +68,7 @@ retained outputs are the external canonical five scores/selection, composed exch
 
 exact block origins, complete common panels and every selected skater are retained. no sampling, reduced season/strength population or relaxed margin is authorized as a performance repair. score artifacts and expensive outputs belong on the external drive. the schema cutover requires cheap factual regeneration; completed schema7 evidence, frozen states and live schema6 serving files remain preserved. point priors, shared-strength extrapolation and bounded propagation remain explicit limitations.
 
-the independently running five-season preparation still has no completion manifest. this task does not consume partial members or start upstream fits. fixture results cannot close the [real-delivery issue](../../issues/execution-v1-06-real-acceptance.md).
+v1-01 real preparation and acceptance are complete as of 2026-10-24. its manifest sha256 is `63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c`, with all 6,560 selected games. main `d2e61f7` and pr #54 are integrated without changing the previously verified analysis/application code or fixture payloads. frozen 2026-10-23 receipts retain their original partial-preparation observations. the remaining [real-delivery issue](../../issues/execution-v1-06-real-acceptance.md) needs checked real v1-05 states/four probes, compatible factual results and actual source-to-screen acceptance; this task starts no upstream fit.
 
 ## reviewed storage and source clarifications
 
@@ -77,3 +77,9 @@ fixed saved conditional probabilities preserve log-domain ratios when absolute p
 the factual fixture producer now distinguishes selected prepared games from scheduled inventory slots. omitted slots must have `missing_capture` and no source inputs; omitting any available source is rejected. the complete original observed aggregate and coverage remain unchanged. source-to-score composition still uses one exact preparation identity.
 
 setter likelihood support includes mean-coupled rows. on the reviewed fixture, this makes many players' union counts nearly tied despite different personal candidate counts. the required sparsity selector stays unchanged; readable coefficient support shows candidate, mean-coupled and union counts separately. this limits the selection's interpretation, rather than changing the preselected criterion.
+
+## accepted upstream integration — 2026-10-24
+
+[the dated handoff check](upstream-v1-01-2026-10-24.json) records main `d2e61f7`, the accepted real manifest and unchanged frozen fixture identity. production analysis/application code and all fixture payloads are byte-identical to `585c6eb`; this integration changes documentation and upstream receipts only. current plan/issue records close the preparation prerequisite without changing historical verification snapshots or admitting model claims. documentation checks and independent review suffice; no numerical/application tests are rerun.
+
+the compatible real factual exchange can be generated independently, but the existing bounded-memory writer makes six selected-game passes: 23,616 public game reads across the three displayed seasons. one measured game read extrapolates to about 17.7 reader-only hours, excluding native aggregation, reductions, writes and final validation. this is a planning estimate, not measured real-build capacity. keep that substantial batch with the real integration after checked v1-05 states arrive; no factual build, fit, score, publication or activation was launched by this prerequisite update.

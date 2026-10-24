@@ -1,14 +1,14 @@
 # factual reductions: real acceptance
 
-problem: the assigned v1-03 implementation cannot complete real acceptance before the exact five-season v1-01 preparation finishes and passes its public-reader/source checks. that independent process is still running; no completed manifest is available.
+problem: v1-03 software and fixture acceptance pass, but its real three-season factual reductions, candidate and application checks have not run. the v1-01 source prerequisite is complete; this issue tracks v1-03's own remaining acceptance.
 
 impact: fixture verification establishes software behavior, not complete real three-season factual delivery. all 3,936 displayed inventory games, real support totals, full observed preservation, final candidate resources and real current-view/history/export propagation remain open.
 
-evidence: [the delivery receipt](../research/facts-v1-03/verification.md) records source integration, frozen implementation and completed fixture command/api/browser/export checks. the explicit real input is `/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02`; its absence of a final manifest prevents legitimate consumption. the displayed native corpus hashes are the last three bindings in `docs/research/evidence-v1-01/selection-real.json`. no fixture may be relabeled as real and no latest-directory fallback is permitted.
+evidence: [the delivery receipt](../research/facts-v1-03/verification.md) records source integration, frozen implementation and completed fixture command/api/browser/export checks. [v1-01 real acceptance](../research/evidence-v1-01/verification.md) passes for all 6,560 selected games. its completed manifest is `/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json`, sha256 `63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c`. the displayed native corpus hashes are the last three bindings in `docs/research/evidence-v1-01/selection-real.json`. no fixture may be relabeled as real and no latest-directory fallback is permitted.
 
 resolution: consume the completed, independently checked selected preparation through `hockey-stats-analysis facts`, then the existing `publish` command into isolated external outputs. verify every spec arithmetic/source/application criterion, all 3,936 inventory games and exact old results; record hashes, per-season support/exclusions, source samples, resources and independent reviews. verify detached candidate reads and protected serving-state preservation, delete temporary controllers after final green, update the plan/receipt and remove this issue.
 
-remaining execution starts only after the selected preparation passes v1-01 acceptance. use [the exact observed selection](../research/facts-v1-03/selection-real.json) from the primary repository. the external parent below must be new; both production commands require fresh output directories.
+this v1-01 delivery assigns no v1-03 execution, acquisition, fitting or activation. when separately assigned, real execution consumes the verified v1-01 preparation and [the exact observed selection](../research/facts-v1-03/selection-real.json) from the primary repository. the external parent below must be new; both production commands require fresh output directories.
 
 ```sh
 cd /Users/nnandal/Documents/code/hockey-stats

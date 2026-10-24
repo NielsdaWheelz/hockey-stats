@@ -1,0 +1,51 @@
+{
+  "kind": "v1-06-upstream-preparation-handoff",
+  "checked_at": "2026-10-24T08:34:58.994760+00:00",
+  "incoming_main": "d2e61f7",
+  "upstream_merge": "a36536b",
+  "previous_task_commit": "585c6eb",
+  "scope": "integrate accepted upstream documentation and receipts; production code and frozen artifacts unchanged",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "purpose": "real",
+    "members": 6566,
+    "selected_games": {
+      "20212022": 1312,
+      "20222023": 1312,
+      "20232024": 1312,
+      "20242025": 1312,
+      "20252026": 1312
+    }
+  },
+  "fixture_prepared": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+  },
+  "remaining": [
+    "twenty checked real v1-05 heads and four final-year probes",
+    "compatible real factual exchange and its own real acceptance",
+    "five real scoring artifacts, composition/candidate and source-to-screen acceptance"
+  ],
+  "new_fit": false,
+  "new_scoring": false,
+  "new_publication": false,
+  "new_tests": false,
+  "verification_basis": "upstream accepted manifest and independent full-corpus receipts; no repeat 397.8 gb source scan",
+  "factual_rebuild_cost": {
+    "prepared_game_passes": 6,
+    "public_reads_for_three_seasons": 23616,
+    "reader_only_hours_extrapolated": 17.7,
+    "qualification": "one-game read benchmark extrapolation; not measured full-build time and excludes native aggregation, reductions, output and validation",
+    "sequence": "with real integration after checked annual states are available"
+  },
+  "review": {
+    "status": "clear",
+    "reviewer": "independent native non-astra agent",
+    "production_and_fixture_payloads_unchanged_from": "585c6eb",
+    "incoming_v1_01_receipts_identical_to": "d2e61f7",
+    "historical_execution_json_snapshots": "unchanged",
+    "conflicts": "four documentation conflicts resolved",
+    "checks": "local markdown links and whitespace pass; no source or application tests required"
+  }
+}

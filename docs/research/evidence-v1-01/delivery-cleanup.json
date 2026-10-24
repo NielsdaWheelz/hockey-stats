@@ -1,0 +1,91 @@
+{
+  "status": "complete",
+  "checked_at_utc": "2026-10-24T08:11:29Z",
+  "merged_main_commit": "a36536b8b3ec5eb283c8769463f18c8fec246dda",
+  "retired_local_branch": "v1-01-shared-evidence",
+  "retired_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-01",
+  "cleanup": {
+    "git_worktree_moved_then_removed": true,
+    "temporary_checkout_absent": true,
+    "local_branch_deleted_after_ancestor_check": true,
+    "retained_path_is_not_a_git_worktree": true,
+    "retained_path_has_no_git_metadata": true,
+    "retained_data_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var",
+    "retained_data_is_at_original_canonical_path": true,
+    "docs_symlink_target": "/Users/nnandal/Documents/code/hockey-stats/docs",
+    "whole_checkout_symlink": false,
+    "other_worktrees_modified": false,
+    "external_outputs_modified": false,
+    "remote_branch_deleted": true,
+    "own_autostash_restored_and_dropped": true,
+    "temporary_delivery_files_removed": [
+      {
+        "path": "var/v1-01-delivery/primary-drafts-before.json",
+        "bytes": 3836
+      },
+      {
+        "path": "var/v1-01-delivery/primary-drafts-before.patch",
+        "bytes": 167963
+      },
+      {
+        "path": "/private/tmp/hockey-v1-01-pr-body.md",
+        "bytes": 985
+      }
+    ]
+  },
+  "preserved_inputs": {
+    "fixture_manifest": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256_before_after": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+      "bound_task_local_inputs": 42
+    },
+    "fixture_selection_sha256_before_after": "6f5ac920a1c6474334f77c6f3998ad1e2fbe1c752ee1ef9b051d73a675dd64c2",
+    "real_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256_before_after": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bound_task_local_inputs": 1
+    },
+    "real_selection_sha256_before_after": "ad1251a0a72d93c6f5927ef8d5d4ab7298fef2f0930a8885bdd2e366aa9a7787",
+    "identity_counts_real_sha256_before_after": "e065fddf2639d29e88ec418b1c95eb624ec8f6d5b0a6649929d81adf41a09309",
+    "task_local_bound_inputs_checked_before_after": 43,
+    "task_local_bound_input_digest_mismatches": 0
+  },
+  "preserved_proofs": {
+    "merged_source_sha256_before_after": "7419ba23f1050d3abd0a11467a223253c922135e10250a4ace378d117185f210",
+    "merged_reason_sha256_before_after": "1304e54fa489c4b8c6f2f276dddf721d726c43dce13ceee0178f8ca419791fef",
+    "independent_review_sha256_before_after": "431d5db25659b450ef045c87f96aeff13d9e98c1852aa45006685b39399bfae5",
+    "external_merged_source_equals_repository_copy": true,
+    "external_merged_reason_equals_repository_copy": true
+  },
+  "bounded_reader_check": {
+    "read_prepared_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "manifest_purpose": "fixture",
+    "season": "20212022",
+    "game_id": "2021020001",
+    "people_count": 248,
+    "result": "manifest, one game and one season people read through the public reader after data restoration"
+  },
+  "pull_request": {
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/54",
+    "number": 54,
+    "reviewed_head": "4be79dcd5d6f66cc521a41821977284ce12de652",
+    "merged_commit": "a36536b8b3ec5eb283c8769463f18c8fec246dda",
+    "reviewed_and_merged_tree": "eeda5639084e16f626cb788e8ae7a868081fcffc",
+    "security_check": "GitGuardian Security Checks",
+    "security_conclusion": "SUCCESS"
+  },
+  "primary_drafts": {
+    "preexisting_files": 21,
+    "files_byte_identical_after_restore": 17,
+    "reconciled_documents": [
+      "docs/model-features.md",
+      "docs/plan.md",
+      "docs/research/council.md",
+      "docs/specs/experimental-player-analysis.md"
+    ],
+    "unrelated_draft_changes_committed": false,
+    "other_active_worktrees_preserved": true,
+    "restored_to_unstaged_state": true,
+    "preservation_review": "independent content review confirmed the original v1-05/v1-06/v1-16 drafts and deferred edge decisions remain intact; only v1-01 completion and shared-cli clauses were reconciled"
+  }
+}

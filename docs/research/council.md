@@ -1,5 +1,13 @@
 # council synthesis
 
+## v1-01 real implementation acceptance — 2026-10-24
+
+source, systems and content reviewers clear the complete [shared-evidence delivery](evidence-v1-01/verification.md). all 6,560 selected games pass public-reader/source reconciliation, conserving 2,060,996 original events and exact seasonal physical, team and actual-member slot accounting. independent original-source samples, dated identities, future invariance, guarded downstream selections and preserved observed/research consumers pass. [independent receipt review](evidence-v1-01/real-acceptance-independent-review.json) binds the exact artifact and five disjoint season proofs.
+
+real execution exposed one producer defect: two other-state boundary neighbors could emit the same empty-affected strength diagnostic twice. the strict reader correctly rejected it. review required deduplicating that diagnostic while preserving every source row and support decision; the complete original capture bundle and red/green/parity receipts remain. the saved-mask supplement reconciles 444,786 excluded seconds, including 12,195 seconds covered by multiple reason codes. per-code losses overlap; 542,339 unresolved known seconds and one unknown horizon remain separate.
+
+material costs are measured: 397.8 gb, 9.37 preparation hours and 5.42 gb peak resident memory, plus explicitly reported reader costs. retain the specified direct-fact format for this delivery; a normalized representation needs a separate storage contract. conservative support loss, piecewise-constant elapsed context and missing history/optional height remain visible. temporary tests/controllers were deleted after final green; original fixtures, completed artifacts and compact checked facts remain. no acquisition, fitting, application change, activation or scientific admission occurred. v1-13's delivery root retains shared cli integration; no merge was assigned here.
+
 ## v1-06 execution-scoring implementation review — 2026-10-23
 
 native non-astra implementers, root and an independent claude reviewer completed [v1-06 software and canonical fixture verification](execution-v1-06/verification.md). one execution evaluator owns reference probabilities, common-panel projections and exact four-group allocation; annual artifacts and source/factual composition have separate cohesive owners. matched values reuse the existing interval/membership projection. exchange2/schema8, checked skater/goalie dispatch and the existing profile/history/evidence/export paths cut over together.

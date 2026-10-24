@@ -1,5 +1,7 @@
 # v1-01 independent adversarial review
 
+completion note — 2026-10-24: this dated review remains historical. the later [verification](verification.md) and [independent real acceptance review](real-acceptance-independent-review.json) close the five-season acceptance and operating-cost items recorded below. all 6,560 selected games and 2,060,996 original events reconcile; the original findings and verdicts below are preserved.
+
 reviewer: claude (opus 5.5), read-only. started 2026-10-22 14:40 pdt. probes and source snapshots live under `var/v1-01-root/claude-review/` (`snapshot-1/` = sources at 14:44, with sha256s). line numbers refer to the working tree at the time each finding was written; code is churning, so each finding names the function as well.
 
 status vocabulary: **defect** = wrong meaning or crash in written code; **design** = spec/interface flaw that code faithfully reproduces; **evolving** = not-yet-written or knowingly in progress, listed only so final review can check it. root's already-requested fixes (negative scalar validation, pointer array indexes, ordinary live anchors, chronology-unproved known prefixes, selection-parent exclusion, compact serialization, included-mask team/slot coverage) are not repeated.

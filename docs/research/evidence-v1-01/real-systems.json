@@ -1,0 +1,167 @@
+{
+  "status": "pass",
+  "scope": "public manifest, all five season people files and coverage; three selected game views under process-local source and producer denial. this is not the full per-game source reconciliation.",
+  "prepared_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "selected_games": 6560,
+    "members": 6566
+  },
+  "detailed_receipt": {
+    "path": "real-systems-details.json",
+    "sha256": "51e9c53e4efa8f38b5c7b371c1f81472badd9df583e0101130f5480d6267841c",
+    "temporary_checker_sha256": "3d9267cd4c139f365a9d956d90b159c02878779e2cc3139416d49c32a8bd12d4",
+    "wall_seconds": 15.756130833993666
+  },
+  "identity_counts": {
+    "path": "real-identity-counts.json",
+    "sha256": "e065fddf2639d29e88ec418b1c95eb624ec8f6d5b0a6649929d81adf41a09309",
+    "total_people": 5369,
+    "matches_coverage": true
+  },
+  "guards": {
+    "scope": "process-local patched source opens/parsers, network calls, numerical/publication imports and subprocesses; no permissions or files changed",
+    "probes": [
+      "source_open",
+      "network",
+      "fitting_import"
+    ],
+    "unexpected_denied_calls": []
+  },
+  "seasons": [
+    {
+      "season": "20212022",
+      "inventory_games": 1312,
+      "selected_games": 1312,
+      "reconstructed_games": 1312,
+      "original_events": 404656,
+      "report_only_attempts": 909,
+      "resolved_physical_seconds": 4708751,
+      "included_seconds": 4611732,
+      "excluded_seconds": 97019,
+      "unknown_horizon_games": 1,
+      "people": 1147,
+      "identity_completeness": {
+        "available": 0,
+        "partial": 1147,
+        "unavailable": 0,
+        "not_applicable": 0
+      }
+    },
+    {
+      "season": "20222023",
+      "inventory_games": 1312,
+      "selected_games": 1312,
+      "reconstructed_games": 1312,
+      "original_events": 408732,
+      "report_only_attempts": 825,
+      "resolved_physical_seconds": 4753543,
+      "included_seconds": 4670390,
+      "excluded_seconds": 83153,
+      "unknown_horizon_games": 0,
+      "people": 1077,
+      "identity_completeness": {
+        "available": 0,
+        "partial": 1077,
+        "unavailable": 0,
+        "not_applicable": 0
+      }
+    },
+    {
+      "season": "20232024",
+      "inventory_games": 1312,
+      "selected_games": 1312,
+      "reconstructed_games": 1312,
+      "original_events": 413676,
+      "report_only_attempts": 836,
+      "resolved_physical_seconds": 4645868,
+      "included_seconds": 4587763,
+      "excluded_seconds": 58105,
+      "unknown_horizon_games": 0,
+      "people": 1041,
+      "identity_completeness": {
+        "available": 0,
+        "partial": 1041,
+        "unavailable": 0,
+        "not_applicable": 0
+      }
+    },
+    {
+      "season": "20242025",
+      "inventory_games": 1312,
+      "selected_games": 1312,
+      "reconstructed_games": 1312,
+      "original_events": 420073,
+      "report_only_attempts": 736,
+      "resolved_physical_seconds": 4513102,
+      "included_seconds": 4420410,
+      "excluded_seconds": 92692,
+      "unknown_horizon_games": 0,
+      "people": 1041,
+      "identity_completeness": {
+        "available": 0,
+        "partial": 1041,
+        "unavailable": 0,
+        "not_applicable": 0
+      }
+    },
+    {
+      "season": "20252026",
+      "inventory_games": 1312,
+      "selected_games": 1312,
+      "reconstructed_games": 1312,
+      "original_events": 413859,
+      "report_only_attempts": 983,
+      "resolved_physical_seconds": 4731790,
+      "included_seconds": 4617973,
+      "excluded_seconds": 113817,
+      "unknown_horizon_games": 0,
+      "people": 1063,
+      "identity_completeness": {
+        "available": 0,
+        "partial": 1063,
+        "unavailable": 0,
+        "not_applicable": 0
+      }
+    }
+  ],
+  "downstream_views": [
+    {
+      "season": "20252026",
+      "game_id": "2025020006",
+      "ordinary_physical_attempts": 123,
+      "recorded_events": 374,
+      "included_chunks": 1434,
+      "included_physical_seconds": 3900,
+      "future_label_groups_excluded": [
+        "outcome",
+        "immediate_outcomes"
+      ]
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024021235",
+      "ordinary_physical_attempts": 110,
+      "recorded_events": 292,
+      "included_chunks": 0,
+      "included_physical_seconds": 0,
+      "future_label_groups_excluded": [
+        "outcome",
+        "immediate_outcomes"
+      ]
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025021094",
+      "ordinary_physical_attempts": 119,
+      "recorded_events": 307,
+      "included_chunks": 1329,
+      "included_physical_seconds": 3497,
+      "future_label_groups_excluded": [
+        "outcome",
+        "immediate_outcomes"
+      ]
+    }
+  ],
+  "limits": "coverage and people were read completely; only the three named games were read here. source-final owns the separate 6,560-game original-source pass. this receipt establishes delivery and guarded downstream access, not fitted quality or scientific admission."
+}

@@ -1,0 +1,312 @@
+{
+  "result": "pass",
+  "artifact": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/replay-0093/prepared-fixed/manifest.json",
+    "sha256": "4d97ca734fd999b455b4d2bf9cc3fbb0eb6c85290e0f1ac89dbfdb678676098a"
+  },
+  "implementation": {
+    "git_commit": "91754cff29770b862daa929abf2bc513bdb66611",
+    "git_dirty": true,
+    "python_version": "3.14.8",
+    "preparation_policy_sha256": "28624b42c78254a0000c97205b73a5ff5ff59fbc237264c77d4cd4e339178795",
+    "source_code_sha256": "194f8f2c2443c03990cd5496aad3ef017f44b4c8467a8c68371fe52343a70ea2"
+  },
+  "source_code_support_sha256": "d1b340d2ea90bbe3de790f5bcff50fc7a5534fd8bf067df60ed62d5496c19edc",
+  "selected_game": "2021020093",
+  "people": 40,
+  "reason": {
+    "code": "strength_conflict",
+    "scope": "segment",
+    "period_number": 3,
+    "event_source_indices": [
+      217
+    ],
+    "report_source_indices": [
+      220
+    ],
+    "affected_segment_indices": [],
+    "evidence": [
+      {
+        "input_ref": {
+          "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/games/2021020093.json",
+          "sha256": "f04882bf8193929e0a537c2b7799ffd3e0a02c2d9223dada64500e238aae8842"
+        },
+        "source": "play-by-play",
+        "path": "/plays/217"
+      },
+      {
+        "input_ref": {
+          "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010-02/20212022/games/2021020093.json",
+          "sha256": "f04882bf8193929e0a537c2b7799ffd3e0a02c2d9223dada64500e238aae8842"
+        },
+        "source": "play-report",
+        "path": "/rows/220[PL-221]"
+      }
+    ]
+  },
+  "event_support": {
+    "source_index": 217,
+    "disposition": "unresolved",
+    "segment_index": null,
+    "chunk_index": null,
+    "reason_indices": [
+      0
+    ]
+  },
+  "touching_segments": [
+    {
+      "segment_index": 166,
+      "start_seconds": 122,
+      "end_seconds": 138,
+      "disposition": "included"
+    },
+    {
+      "segment_index": 167,
+      "start_seconds": 138,
+      "end_seconds": 171,
+      "disposition": "included"
+    }
+  ],
+  "coverage": {
+    "season": "20212022",
+    "inventory_games": 1312,
+    "selected_games": 1,
+    "game_status_counts": {
+      "missing_capture": 0,
+      "input_error": 0,
+      "identity_unavailable": 0,
+      "identity_mismatch": 0,
+      "reconstructed": 1
+    },
+    "game_sources": [
+      {
+        "source": "play-by-play",
+        "available_games": 1,
+        "unavailable_games": 0
+      },
+      {
+        "source": "boxscore",
+        "available_games": 1,
+        "unavailable_games": 0
+      },
+      {
+        "source": "shifts",
+        "available_games": 1,
+        "unavailable_games": 0
+      },
+      {
+        "source": "game-summary",
+        "available_games": 1,
+        "unavailable_games": 0
+      },
+      {
+        "source": "play-report",
+        "available_games": 1,
+        "unavailable_games": 0
+      },
+      {
+        "source": "landing",
+        "available_games": 1,
+        "unavailable_games": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "blocked-shot",
+        "outcome": "block",
+        "count": 38
+      },
+      {
+        "kind": "delayed-penalty",
+        "outcome": null,
+        "count": 1
+      },
+      {
+        "kind": "faceoff",
+        "outcome": null,
+        "count": 53
+      },
+      {
+        "kind": "game-end",
+        "outcome": null,
+        "count": 1
+      },
+      {
+        "kind": "giveaway",
+        "outcome": null,
+        "count": 15
+      },
+      {
+        "kind": "goal",
+        "outcome": null,
+        "count": 1
+      },
+      {
+        "kind": "goal",
+        "outcome": "goal",
+        "count": 3
+      },
+      {
+        "kind": "hit",
+        "outcome": null,
+        "count": 43
+      },
+      {
+        "kind": "missed-shot",
+        "outcome": "miss",
+        "count": 21
+      },
+      {
+        "kind": "penalty",
+        "outcome": null,
+        "count": 10
+      },
+      {
+        "kind": "period-end",
+        "outcome": null,
+        "count": 3
+      },
+      {
+        "kind": "period-start",
+        "outcome": null,
+        "count": 3
+      },
+      {
+        "kind": "shot-on-goal",
+        "outcome": "save",
+        "count": 52
+      },
+      {
+        "kind": "stoppage",
+        "outcome": null,
+        "count": 44
+      },
+      {
+        "kind": "takeaway",
+        "outcome": null,
+        "count": 12
+      }
+    ],
+    "report_only_attempts": 0,
+    "time": [
+      {
+        "away_skaters": 4,
+        "home_skaters": 4,
+        "away_goalies": 1,
+        "home_goalies": 1,
+        "physical_seconds": 178,
+        "included_seconds": 178,
+        "excluded_seconds": 0,
+        "team_seconds": 356,
+        "skater_slot_seconds": 1424,
+        "goalie_slot_seconds": 356
+      },
+      {
+        "away_skaters": 4,
+        "home_skaters": 5,
+        "away_goalies": 1,
+        "home_goalies": 1,
+        "physical_seconds": 240,
+        "included_seconds": 240,
+        "excluded_seconds": 0,
+        "team_seconds": 480,
+        "skater_slot_seconds": 2160,
+        "goalie_slot_seconds": 480
+      },
+      {
+        "away_skaters": 5,
+        "home_skaters": 4,
+        "away_goalies": 1,
+        "home_goalies": 1,
+        "physical_seconds": 362,
+        "included_seconds": 362,
+        "excluded_seconds": 0,
+        "team_seconds": 724,
+        "skater_slot_seconds": 3258,
+        "goalie_slot_seconds": 724
+      },
+      {
+        "away_skaters": 5,
+        "home_skaters": 5,
+        "away_goalies": 1,
+        "home_goalies": 1,
+        "physical_seconds": 2739,
+        "included_seconds": 2739,
+        "excluded_seconds": 0,
+        "team_seconds": 5478,
+        "skater_slot_seconds": 27390,
+        "goalie_slot_seconds": 5478
+      },
+      {
+        "away_skaters": 5,
+        "home_skaters": 6,
+        "away_goalies": 1,
+        "home_goalies": 0,
+        "physical_seconds": 81,
+        "included_seconds": 81,
+        "excluded_seconds": 0,
+        "team_seconds": 162,
+        "skater_slot_seconds": 891,
+        "goalie_slot_seconds": 81
+      }
+    ],
+    "unknown_horizon_games": 0,
+    "unresolved_known_seconds": 0,
+    "completeness": {
+      "order": {
+        "available": 1,
+        "partial": 0,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "score": {
+        "available": 1,
+        "partial": 0,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "frame": {
+        "available": 1,
+        "partial": 0,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "identity": {
+        "available": 0,
+        "partial": 40,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "history": {
+        "available": 0,
+        "partial": 40,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "event_context": {
+        "available": 111,
+        "partial": 189,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "elapsed_context": {
+        "available": 357,
+        "partial": 550,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "immediate_stop": {
+        "available": 55,
+        "partial": 0,
+        "unavailable": 1,
+        "not_applicable": 59
+      },
+      "reattempt": {
+        "available": 52,
+        "partial": 0,
+        "unavailable": 1,
+        "not_applicable": 62
+      }
+    }
+  }
+}

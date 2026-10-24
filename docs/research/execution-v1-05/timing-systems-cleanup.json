@@ -1,0 +1,55 @@
+{
+  "owner": "independent_systems_review",
+  "completed_utc": "2026-10-24T13:53:32.693654+00:00",
+  "authorization": "root accepted current local fixture peer review and authorized deletion of exactly eight manifest-owned temporary witnesses",
+  "manifest": {
+    "path": "/tmp/v105-current-owned-cleanup.json",
+    "sha256": "33aec7b280afc12494f92d410ca7932e886ef6c5dfb87716da526a63582478e6"
+  },
+  "deleted_count": 8,
+  "absence_checks": [
+    {
+      "path": "/tmp/v105-integrated-cli-parity.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-preclock-system-readiness.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-preclock-artifact-review.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-preclock-artifact-review.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-incomplete-system-readiness.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-current-final-artifact-review.json",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-current-content-review.py",
+      "absent": true
+    },
+    {
+      "path": "/tmp/v105-current-content-review.json",
+      "absent": true
+    }
+  ],
+  "preserved_proofs": [
+    {
+      "path": "docs/research/execution-v1-05/timing-systems-review.md",
+      "sha256": "4a61e5e523138e65984bc13796e7986a25526307d1c76f5035fa19dc48506235"
+    },
+    {
+      "path": "docs/research/execution-v1-05/timing-systems-checks.json",
+      "sha256": "c6d34d00ff94d03a46eb8905e0545d9a0cb65ce1450b439b68e0797bc1bc180b"
+    }
+  ],
+  "preservation": "only exact manifest files were unlinked; historical states, raw sources, existing receipts, user drafts and all other paths were outside deletion scope; no tests or git index commands were run"
+}

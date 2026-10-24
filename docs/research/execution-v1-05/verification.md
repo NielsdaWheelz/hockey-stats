@@ -1,6 +1,6 @@
 # v1-05 execution verification
 
-status: the source-to-cli-to-reader-to-probabilities path and bounded numerical resolution are checked on fixtures. **real delivery is incomplete.** the current strict pre-clock `0cbf1872` recipe completed twenty fixture head fits and passed all four final-year numerical comparisons. accepted real inputs are available; the representative real fit is next. the earlier `cfbda18b` qualification remains historical. [real-input acceptance](../../issues/execution-v1-05-real-acceptance.md) remains open. no scientific admission, publication or activation follows.
+status: the source-to-cli-to-reader-to-probabilities path and bounded numerical resolution are checked on fixtures. **real delivery is incomplete.** the current strict pre-clock `0cbf1872` recipe completed twenty fixture head fits and passed all four final-year numerical comparisons. accepted real inputs are available. a later source audit confirmed duplicate strength-transition availability encodings, so the first real command was [stopped during preparation](real-first-year-interruption.json), before any fitted output. the affected `0cbf1872` fixture states remain diagnostic; a repaired shared-availability design and new recipe require fresh qualification. the earlier `cfbda18b` qualification remains historical. [real-input acceptance](../../issues/execution-v1-05-real-acceptance.md) remains open. no scientific admission, publication or activation follows.
 
 ## contract
 

@@ -1,0 +1,102 @@
+{
+  "recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
+  "previous_recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "states": [
+    {
+      "name": "known_absent",
+      "record": {
+        "exists": false,
+        "side": null,
+        "age": null
+      },
+      "unavailable_indicator": 0.0
+    },
+    {
+      "name": "known_return",
+      "record": {
+        "exists": true,
+        "side": "same",
+        "age": 1
+      },
+      "unavailable_indicator": 0.0
+    },
+    {
+      "name": "unknown",
+      "record": {
+        "exists": null,
+        "side": null,
+        "age": null
+      },
+      "unavailable_indicator": 1.0
+    }
+  ],
+  "head_condition_registry": "one shared strength_transition condition in u/q/r/g",
+  "direct_head_penalty": "each head: coefficient1 gives penalty2 and gradient4",
+  "duplicate_penalty_witness": {
+    "shared_logit_effect": 1,
+    "old_split_coefficients": [
+      0.5,
+      0.5
+    ],
+    "old_penalty": 1.0,
+    "old_effective_precision": 2,
+    "new_penalty": 2.0,
+    "new_precision": 4
+  },
+  "preserved": "all transformed values/statuses and other feature records exact; only age condition changes and duplicate flag is removed",
+  "scope_scan": "recent fields already share preceding_status; transition now one condition; setter completeness selects existing mixture and adds no duplicate circumstance indicator",
+  "fits_run": false,
+  "red": {
+    "result": "failed before source edit",
+    "message": "u transition registry contains both strength_transition and strength_transition_age"
+  },
+  "production_scope": "one availability-condition tag and its literal definition; no transition arithmetic, solver, objective, prior or penalty-constant changes",
+  "historical_recipe": "old 0cb fixture families and interrupted real-run logs retained; no acceptance promoted",
+  "pending": [
+    "fresh full five-year fixture chain and four final probes",
+    "clean real run under new recipe"
+  ],
+  "temporary_checks": [
+    {
+      "path": "/tmp/v105-transition-availability-check.py",
+      "sha256": "1306847a4b75a2561352917249a4f5c82dd0376d8fae7194c4e1619ba4fb8547",
+      "deleted_after_green": true
+    },
+    {
+      "path": "/tmp/v105-transition-availability-result.json",
+      "sha256": "395f852a72359322d30618cf5c6d12651028f1f35e0eaf831834ef085de2c17f",
+      "deleted_after_green": true
+    }
+  ],
+  "source_base_commit": "2281d55bc2aa8d8efa3edc8d5f01800769acba7d",
+  "production_hashes": {
+    "analysis/src/hockey_stats/execution_design.py": "fb83cd974a3ac3d9d46934de79f007d302a24f4d98ba728ddefb0c1d9a6cccd6",
+    "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+    "analysis/src/hockey_stats/execution_state.py": "d5e8c23473422a770cc1e72479444afb1020ddc0ab474ac7570fd84682cb9277",
+    "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+    "analysis/src/hockey_stats/execution_fit.py": "0b52fa0b1812269e3f5e4e1c35d2cd31a62cc109f5ce13a6eaa1dfdc255bbf8a"
+  },
+  "literal_definition": {
+    "preceding_status": [
+      "recent_additive",
+      "recent_interactions",
+      "recent_geometry",
+      "recent_exists"
+    ],
+    "preceding_status_rule": "one shared unavailable indicator; producer status recent requires complete applicable preceding facts; none remains structural absence",
+    "strength_transition": [
+      "previous_strength:same_fewer",
+      "previous_strength:same_more",
+      "return_to_5v5_age_seconds/60"
+    ],
+    "strength_transition_rule": "one shared unavailable indicator; strict query returns known side and age together when a return exists, known structural absence when none exists, otherwise all unavailable",
+    "independent_fields": "separate supported selected counter/sequence fields retain their own availability; do not group empirical co-missingness"
+  },
+  "independent_review": {
+    "reviewer": "independent_systems_review",
+    "verdict": "pass",
+    "accepted_by": "root",
+    "scope": "all four head registries, three record states, actual penalty and narrow production diff"
+  }
+}

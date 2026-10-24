@@ -91,6 +91,8 @@ DEFINITION = {
                                "unknown_coach": "no actor identity; unavailable circumstance; known-only center applicability"},
     "availability_conditions": {"preceding_status": ["recent_additive", "recent_interactions", "recent_geometry", "recent_exists"],
                                 "preceding_status_rule": "one shared unavailable indicator; producer status recent requires complete applicable preceding facts; none remains structural absence",
+                                "strength_transition": ["previous_strength:same_fewer", "previous_strength:same_more", "return_to_5v5_age_seconds/60"],
+                                "strength_transition_rule": "one shared unavailable indicator; strict query returns known side and age together when a return exists, known structural absence when none exists, otherwise all unavailable",
                                 "independent_fields": "separate supported selected counter/sequence fields retain their own availability; do not group empirical co-missingness"},
     "setter_definition": {"none_mass": .2, "setup_mass": .8, "forward_shooter_forward_weight": 2.,
                           "defense_shooter_forward_weight": 3., "other_weight": 1.,
@@ -293,7 +295,7 @@ def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_res
             "strength_transition", kind="indicator", absent=transition is False)
     put("return_to_5v5_age_seconds/60", history["transition"]["age"] / 60
         if history["transition"]["age"] is not None else None,
-        "strength_transition_age", absent=transition is False)
+        "strength_transition", absent=transition is False)
 
     goalie_prefix = prefixes.get(str(goalie), {})
     for field, scale in (("toi_all_seconds", 3600), ("on_net_faced", 30)):

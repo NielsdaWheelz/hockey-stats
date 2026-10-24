@@ -1,0 +1,692 @@
+{
+  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "scope": "bounded prior-clock amendment controls; no fit, no raw capture parse or reprepare",
+  "witnesses": [
+    {
+      "game_id": "2021020942",
+      "focal_source_index": 301,
+      "excluded_same_clock_reset": 300,
+      "cutoff": {
+        "period": 3,
+        "elapsed_seconds": 829,
+        "source_order": 301
+      },
+      "phase_status": "live",
+      "phase_reason": "supported_prior_clock_faceoff",
+      "strict_prefix_source_indices": [
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299
+      ],
+      "changed_columns": [
+        "recent_kind:faceoff",
+        "recent_kind:hit",
+        "recent_kind:giveaway",
+        "recent_kind:takeaway",
+        "recent_kind:shot-on-goal",
+        "recent_kind:missed-shot",
+        "recent_kind:blocked-shot",
+        "recent_team:same",
+        "recent_team:opponent",
+        "recent_delay:0",
+        "recent_delay:1",
+        "recent_delay:2",
+        "recent_delay:3",
+        "recent_delay:4",
+        "recent_delay:5",
+        "recent_zone:attacking",
+        "recent_zone:other",
+        "recent_shooter:same",
+        "recent_shooter:different",
+        "recent_exists",
+        "recent_kind:hit:recent_team:same",
+        "recent_kind:giveaway:recent_team:same",
+        "recent_kind:takeaway:recent_team:same",
+        "recent_kind:shot-on-goal:recent_team:same",
+        "recent_kind:missed-shot:recent_team:same",
+        "recent_kind:blocked-shot:recent_team:same",
+        "recent_kind:hit:recent_delay:1",
+        "recent_kind:hit:recent_delay:2",
+        "recent_kind:hit:recent_delay:3",
+        "recent_kind:hit:recent_delay:4",
+        "recent_kind:hit:recent_delay:5",
+        "recent_kind:giveaway:recent_delay:1",
+        "recent_kind:giveaway:recent_delay:2",
+        "recent_kind:giveaway:recent_delay:3",
+        "recent_kind:giveaway:recent_delay:4",
+        "recent_kind:giveaway:recent_delay:5",
+        "recent_kind:takeaway:recent_delay:1",
+        "recent_kind:takeaway:recent_delay:2",
+        "recent_kind:takeaway:recent_delay:3",
+        "recent_kind:takeaway:recent_delay:4",
+        "recent_kind:takeaway:recent_delay:5",
+        "recent_kind:shot-on-goal:recent_delay:1",
+        "recent_kind:shot-on-goal:recent_delay:2",
+        "recent_kind:shot-on-goal:recent_delay:3",
+        "recent_kind:shot-on-goal:recent_delay:4",
+        "recent_kind:shot-on-goal:recent_delay:5",
+        "recent_kind:missed-shot:recent_delay:1",
+        "recent_kind:missed-shot:recent_delay:2",
+        "recent_kind:missed-shot:recent_delay:3",
+        "recent_kind:missed-shot:recent_delay:4",
+        "recent_kind:missed-shot:recent_delay:5",
+        "recent_kind:blocked-shot:recent_delay:1",
+        "recent_kind:blocked-shot:recent_delay:2",
+        "recent_kind:blocked-shot:recent_delay:3",
+        "recent_kind:blocked-shot:recent_delay:4",
+        "recent_kind:blocked-shot:recent_delay:5",
+        "dx_ft/100",
+        "dy_ft/100",
+        "displacement_ft/100",
+        "crossed_centerline",
+        "unavailable:preceding_status"
+      ],
+      "unaffected_columns_equal": true,
+      "excluded_reset_kind_and_validity_invariant": true,
+      "focal_outcome_kind_invariant": true,
+      "old_recent_status": "none",
+      "new_recent": {
+        "status": "unavailable",
+        "kind": null,
+        "time_gap_seconds": null,
+        "owner_team_relation": null,
+        "current_attack_x": null,
+        "current_attack_y": null,
+        "same_shooter": null
+      },
+      "old_episode_index": null,
+      "proxy_complete": true,
+      "setter_prior": [
+        {
+          "actor_id": null,
+          "kind": "none",
+          "probability": 0.2
+        },
+        {
+          "actor_id": "8467950",
+          "kind": "goalie",
+          "probability": 0.06153846153846154
+        },
+        {
+          "actor_id": "8473449",
+          "kind": "skater",
+          "probability": 0.12307692307692308
+        },
+        {
+          "actor_id": "8475796",
+          "kind": "skater",
+          "probability": 0.06153846153846154
+        },
+        {
+          "actor_id": "8477462",
+          "kind": "skater",
+          "probability": 0.06153846153846154
+        },
+        {
+          "actor_id": "8478109",
+          "kind": "skater",
+          "probability": 0.12307692307692308
+        },
+        {
+          "actor_id": "8479999",
+          "kind": "skater",
+          "probability": 0.12307692307692308
+        },
+        {
+          "actor_id": "8480196",
+          "kind": "skater",
+          "probability": 0.06153846153846154
+        },
+        {
+          "actor_id": "8480807",
+          "kind": "skater",
+          "probability": 0.06153846153846154
+        },
+        {
+          "actor_id": "8481528",
+          "kind": "skater",
+          "probability": 0.12307692307692308
+        }
+      ]
+    },
+    {
+      "game_id": "2022020001",
+      "focal_source_index": 139,
+      "excluded_same_clock_reset": 138,
+      "cutoff": {
+        "period": 2,
+        "elapsed_seconds": 84,
+        "source_order": 139
+      },
+      "phase_status": "live",
+      "phase_reason": "supported_prior_clock_faceoff",
+      "strict_prefix_source_indices": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137
+      ],
+      "changed_columns": [],
+      "unaffected_columns_equal": true,
+      "excluded_reset_kind_and_validity_invariant": true,
+      "focal_outcome_kind_invariant": true,
+      "old_recent_status": "none",
+      "new_recent": {
+        "status": "none",
+        "kind": null,
+        "time_gap_seconds": null,
+        "owner_team_relation": null,
+        "current_attack_x": null,
+        "current_attack_y": null,
+        "same_shooter": null
+      },
+      "old_episode_index": null,
+      "proxy_complete": true,
+      "setter_prior": [
+        {
+          "actor_id": null,
+          "kind": "none",
+          "probability": 0.2
+        },
+        {
+          "actor_id": "8474151",
+          "kind": "skater",
+          "probability": 0.05714285714285715
+        },
+        {
+          "actor_id": "8474697",
+          "kind": "skater",
+          "probability": 0.05714285714285715
+        },
+        {
+          "actor_id": "8475168",
+          "kind": "skater",
+          "probability": 0.1142857142857143
+        },
+        {
+          "actor_id": "8475218",
+          "kind": "skater",
+          "probability": 0.05714285714285715
+        },
+        {
+          "actor_id": "8475798",
+          "kind": "skater",
+          "probability": 0.1142857142857143
+        },
+        {
+          "actor_id": "8476887",
+          "kind": "skater",
+          "probability": 0.1142857142857143
+        },
+        {
+          "actor_id": "8477424",
+          "kind": "goalie",
+          "probability": 0.05714285714285715
+        },
+        {
+          "actor_id": "8479371",
+          "kind": "skater",
+          "probability": 0.05714285714285715
+        },
+        {
+          "actor_id": "8479996",
+          "kind": "skater",
+          "probability": 0.1142857142857143
+        },
+        {
+          "actor_id": "8482062",
+          "kind": "skater",
+          "probability": 0.05714285714285715
+        }
+      ]
+    },
+    {
+      "game_id": "2024020022",
+      "focal_source_index": 236,
+      "excluded_same_clock_reset": 235,
+      "cutoff": {
+        "period": 3,
+        "elapsed_seconds": 168,
+        "source_order": 236
+      },
+      "phase_status": "live",
+      "phase_reason": "supported_prior_clock_faceoff",
+      "strict_prefix_source_indices": [
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234
+      ],
+      "changed_columns": [],
+      "unaffected_columns_equal": true,
+      "excluded_reset_kind_and_validity_invariant": true,
+      "focal_outcome_kind_invariant": true,
+      "old_recent_status": "none",
+      "new_recent": {
+        "status": "none",
+        "kind": null,
+        "time_gap_seconds": null,
+        "owner_team_relation": null,
+        "current_attack_x": null,
+        "current_attack_y": null,
+        "same_shooter": null
+      },
+      "old_episode_index": null,
+      "proxy_complete": true,
+      "setter_prior": [
+        {
+          "actor_id": null,
+          "kind": "none",
+          "probability": 0.2
+        },
+        {
+          "actor_id": "8476461",
+          "kind": "skater",
+          "probability": 0.10909090909090911
+        },
+        {
+          "actor_id": "8476872",
+          "kind": "skater",
+          "probability": 0.10909090909090911
+        },
+        {
+          "actor_id": "8477499",
+          "kind": "skater",
+          "probability": 0.03636363636363637
+        },
+        {
+          "actor_id": "8477903",
+          "kind": "skater",
+          "probability": 0.10909090909090911
+        },
+        {
+          "actor_id": "8477948",
+          "kind": "skater",
+          "probability": 0.03636363636363637
+        },
+        {
+          "actor_id": "8480068",
+          "kind": "skater",
+          "probability": 0.10909090909090911
+        },
+        {
+          "actor_id": "8480797",
+          "kind": "skater",
+          "probability": 0.10909090909090911
+        },
+        {
+          "actor_id": "8481035",
+          "kind": "goalie",
+          "probability": 0.03636363636363637
+        },
+        {
+          "actor_id": "8481178",
+          "kind": "skater",
+          "probability": 0.03636363636363637
+        },
+        {
+          "actor_id": "8481553",
+          "kind": "skater",
+          "probability": 0.10909090909090911
+        }
+      ]
+    },
+    {
+      "game_id": "2025020006",
+      "focal_source_index": 183,
+      "excluded_same_clock_reset": 182,
+      "cutoff": {
+        "period": 2,
+        "elapsed_seconds": 887,
+        "source_order": 183
+      },
+      "phase_status": "live",
+      "phase_reason": "supported_prior_clock_faceoff",
+      "strict_prefix_source_indices": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "changed_columns": [
+        "recent_kind:faceoff",
+        "recent_kind:hit",
+        "recent_kind:giveaway",
+        "recent_kind:takeaway",
+        "recent_kind:shot-on-goal",
+        "recent_kind:missed-shot",
+        "recent_kind:blocked-shot",
+        "recent_team:same",
+        "recent_team:opponent",
+        "recent_delay:0",
+        "recent_delay:1",
+        "recent_delay:2",
+        "recent_delay:3",
+        "recent_delay:4",
+        "recent_delay:5",
+        "recent_zone:attacking",
+        "recent_zone:other",
+        "recent_shooter:same",
+        "recent_shooter:different",
+        "recent_exists",
+        "recent_kind:hit:recent_team:same",
+        "recent_kind:giveaway:recent_team:same",
+        "recent_kind:takeaway:recent_team:same",
+        "recent_kind:shot-on-goal:recent_team:same",
+        "recent_kind:missed-shot:recent_team:same",
+        "recent_kind:blocked-shot:recent_team:same",
+        "recent_kind:hit:recent_delay:1",
+        "recent_kind:hit:recent_delay:2",
+        "recent_kind:hit:recent_delay:3",
+        "recent_kind:hit:recent_delay:4",
+        "recent_kind:hit:recent_delay:5",
+        "recent_kind:giveaway:recent_delay:1",
+        "recent_kind:giveaway:recent_delay:2",
+        "recent_kind:giveaway:recent_delay:3",
+        "recent_kind:giveaway:recent_delay:4",
+        "recent_kind:giveaway:recent_delay:5",
+        "recent_kind:takeaway:recent_delay:1",
+        "recent_kind:takeaway:recent_delay:2",
+        "recent_kind:takeaway:recent_delay:3",
+        "recent_kind:takeaway:recent_delay:4",
+        "recent_kind:takeaway:recent_delay:5",
+        "recent_kind:shot-on-goal:recent_delay:1",
+        "recent_kind:shot-on-goal:recent_delay:2",
+        "recent_kind:shot-on-goal:recent_delay:3",
+        "recent_kind:shot-on-goal:recent_delay:4",
+        "recent_kind:shot-on-goal:recent_delay:5",
+        "recent_kind:missed-shot:recent_delay:1",
+        "recent_kind:missed-shot:recent_delay:2",
+        "recent_kind:missed-shot:recent_delay:3",
+        "recent_kind:missed-shot:recent_delay:4",
+        "recent_kind:missed-shot:recent_delay:5",
+        "recent_kind:blocked-shot:recent_delay:1",
+        "recent_kind:blocked-shot:recent_delay:2",
+        "recent_kind:blocked-shot:recent_delay:3",
+        "recent_kind:blocked-shot:recent_delay:4",
+        "recent_kind:blocked-shot:recent_delay:5",
+        "dx_ft/100",
+        "dy_ft/100",
+        "displacement_ft/100",
+        "crossed_centerline"
+      ],
+      "unaffected_columns_equal": true,
+      "excluded_reset_kind_and_validity_invariant": true,
+      "focal_outcome_kind_invariant": true,
+      "old_recent_status": "none",
+      "new_recent": {
+        "status": "recent",
+        "kind": "blocked-shot",
+        "time_gap_seconds": 2,
+        "owner_team_relation": "same",
+        "current_attack_x": 82,
+        "current_attack_y": -2,
+        "same_shooter": false
+      },
+      "old_episode_index": null,
+      "proxy_complete": true,
+      "setter_prior": [
+        {
+          "actor_id": null,
+          "kind": "none",
+          "probability": 0.2
+        },
+        {
+          "actor_id": "8475172",
+          "kind": "skater",
+          "probability": 0.10666666666666667
+        },
+        {
+          "actor_id": "8477346",
+          "kind": "skater",
+          "probability": 0.05333333333333334
+        },
+        {
+          "actor_id": "8478397",
+          "kind": "skater",
+          "probability": 0.05333333333333334
+        },
+        {
+          "actor_id": "8480028",
+          "kind": "skater",
+          "probability": 0.10666666666666667
+        },
+        {
+          "actor_id": "8480797",
+          "kind": "skater",
+          "probability": 0.10666666666666667
+        },
+        {
+          "actor_id": "8481692",
+          "kind": "goalie",
+          "probability": 0.05333333333333334
+        },
+        {
+          "actor_id": "8482679",
+          "kind": "skater",
+          "probability": 0.10666666666666667
+        },
+        {
+          "actor_id": "8483609",
+          "kind": "skater",
+          "probability": 0.10666666666666667
+        },
+        {
+          "actor_id": "8484860",
+          "kind": "skater",
+          "probability": 0.10666666666666667
+        }
+      ]
+    }
+  ],
+  "old_research_transition_implementation_exact": true,
+  "synthetic_controls": {
+    "red_before_edit": "same-clock invalid row poisoned baseline strength availability: existsNone versus expectedTrue",
+    "green": [
+      "same-clock unknown kind/validity excluded",
+      "same-clock faceoff excluded; known absent phase means current unit only",
+      "r<t return between recorded events included",
+      "r==t return excluded",
+      "earlier unknown clock and period is unavailable",
+      "supported earlier reset restores known zero"
+    ]
+  },
+  "synthetic_expectations": {
+    "path": "fixtures/execution-v1-05/preclock-controls.json",
+    "sha256": "12c6322c5ded4468fc3daccaadfa730e5eb360bb100606c914734c7a5bcd4711",
+    "cases": 6,
+    "status": "pass"
+  },
+  "independent_review": {
+    "status": "pass",
+    "reviewer": "independent non-astra mathematical/source-history reviewer",
+    "production_edits": false,
+    "finding": "irrelevant native association poisoned transition restoration",
+    "repair": "remove native association dependency; computational prefix before-boundary descriptors",
+    "post_repair_bounded_checks": "pass",
+    "randomized_boundary_comparisons": 120000,
+    "synthetic_interval_histories": 30000
+  },
+  "pipeline_smoke": {
+    "season": "20212022",
+    "predictors": 771,
+    "head_training_attempts": {
+      "u": 771,
+      "q": 618,
+      "r": 439,
+      "g": 335
+    },
+    "fit": "not_run"
+  },
+  "pending": [
+    "fresh complete five-year fixture chain and four final-head continuations",
+    "final systems/content acceptance",
+    "all real design/fitting acceptance"
+  ]
+}

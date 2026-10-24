@@ -23,6 +23,7 @@ from .chance_features import (_columns, _transform_definition, candidate_columns
 from .coaches import read_coaches
 from .feature_data import ACTION_KINDS
 from .feature_history import _team_rest
+from .execution_history import _value, preclock_history, recent_context
 from .shot_origins import cell_id, forward_kernel, grid, mirror_cell_representatives
 
 HEADS = ("u", "q", "r", "g")
@@ -43,7 +44,18 @@ DEFINITION = {
     "strength": "32 membership categories, (5,5,1) reference",
     "missingness": "head-training applicable weighted mean; unavailable and structural absence distinct; constant indicators zero",
     "actors": "tip-masked shooter; q/r/g goalie; g setter; separate known coach directions",
-    "setter": ".2 none,.8 role-weighted supported pre-event and earlier-episode participants; incomplete unknown; current-skater linear mean",
+    "setter": ".2 none,.8 role-weighted current unit and supported prior-clock phase participants; unknown phase unknown; current-skater linear mean",
+    "history_cutoff": {"version": "strict-prior-clock-1", "selection": "supported earlier source order AND strictly earlier period/game clock",
+                       "affected": ["recent_additive", "recent_interactions", "recent_geometry", "strength_transition", "setter_prior"],
+                       "same_clock": "ignore every row including faceoff, reset, review and unknown kind before examining its contents",
+                       "phase": "coarsened recorded prior-clock proxy; current membership retained; no recovered physical uninterrupted-play claim",
+                       "period": "history is within the focal period; known earlier periods are outside it, unknown prior period is a barrier",
+                       "phase_boundary": "supported prior reset gives known absence; supported faceoff or action after a known reset starts a known recorded phase; unanchored live history is censored",
+                       "known_absence": "empty known phase participants; complete current-unit-only proxy candidates",
+                       "unknown": "unknown clock/order/kind or censored phase remains unavailable until a supported earlier reset/anchor",
+                       "transition": "shared native membership algebra at strict before-clock query; includes interval returns r<t without intervening events, excludes r==t",
+                       "transition_evidence": "supported native intervals plus selected earlier source reset/clock facts; no per-event elapsed association prerequisite",
+                       "unchanged": ["focal membership", "sequence", "deployment", "shift start", "event-prefix workloads", "calendar rest", "labels"]},
     "history": "entry OR carry; last likelihood-supported raw state; separate block/head/role age curves; no role-change reset",
     "penalties": {"base_map": .25, "type_map": 1., "neighbor": 4., "circumstance": 4.,
                   "shooter": [4., 16.], "setter": [4., 16.], "goalie": [16., 64.],
@@ -82,7 +94,7 @@ DEFINITION = {
                                 "independent_fields": "separate supported selected counter/sequence fields retain their own availability; do not group empirical co-missingness"},
     "setter_definition": {"none_mass": .2, "setup_mass": .8, "forward_shooter_forward_weight": 2.,
                           "defense_shooter_forward_weight": 3., "other_weight": 1.,
-                          "candidate_universe": "pre-event teammates and every supported earlier episode event's complete attacking unit plus named participants, excluding shooter; incomplete earlier membership or order -> unknown",
+                          "candidate_universe": "current teammates plus every supported strictly prior-clock phase event's attacking unit and named participants, excluding shooter; known absent phase is empty, unknown/censored phase -> unknown",
                           "known_assist": "likelihood-only local candidate position; never enlarge universe",
                           "unknown_or_goalie": "fixed pre-outcome skater candidate-weighted current linear mean; differentiate coupling",
                           "empty_mean": "prior-only zero", "setup": "I[candidate!=none]",
@@ -103,9 +115,13 @@ DEFINITION = {
                       "select": "minimum completed exact objective; zero start wins exact tie"},
 }
 DEFINITION["fixed_transforms"].update(
+    recent_additive="fixed category indicators over last allowed earlier-source-order, strictly earlier-clock record; known none zeros",
+    recent_interactions="unchanged fixed kind×same-team and kind×delay contrasts over strict prior-clock recent record",
+    recent_geometry="candidate minus strict prior-clock preceding attacking coordinates; dx,dy,hypot/100; opposite nonzero y signs",
     shift_age="original shooter and complete actual opposing-unit min,mean,max compatible shift ages/60",
     shift_start="on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
     workload="shooter prefix toi/3600,completed shifts/30,attempts/10; complete actual opposing-unit mean,max prefix toi/3600; shooter7,14-day toi/3600,shifts/30,attempts/10",
+    strength_transition="shared genuine unequal-strength→5v5 membership history evaluated strictly before focal clock; previous fewer/more and return age/60; known none zeros",
 )
 RECIPE = {"name": "experimental-v1", "version": "execution-v1-05-1",
           "sha256": hashlib.sha256(json.dumps(DEFINITION, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
@@ -152,19 +168,12 @@ def _sha(path):
         return hashlib.file_digest(source, "sha256").hexdigest()
 
 
-def _value(record, field):
-    """supported selected fields survive unrelated missing counters."""
-    if not isinstance(record, dict) or field in record.get("problems", {}):
-        return None
-    return record.get("values", {}).get(field)
-
-
 def _role(person):
     role = _value(person.get("people", {}), "reported_position")
     return "F" if role in ("F", "C", "L", "R") else role if role in ("D", "G") else None
 
 
-def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_rest):
+def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_rest, history):
     """reuse fixed family columns/scales while retaining optional fact status."""
     facts = attempt["feature_facts"]
     local_people = game.get("people") or {}
@@ -202,21 +211,21 @@ def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_res
     for field, value in game_categories.items():
         categorical(field, value, CONTEXT_CATEGORIES[field], CONTEXT_REFERENCES[field])
 
-    preceding = facts["preceding"]
-    preceding_status = _value(preceding, "status")
+    preceding = recent_context(history, attempt, game)
+    preceding_status = preceding["status"]
     recent = preceding_status == "recent"
     absent = preceding_status == "none"
-    prior_kind = _value(preceding, "kind") if recent else None
-    gap = _value(preceding, "time_gap_seconds") if recent else None
-    prior_x = _value(preceding, "current_attack_x") if recent else None
-    prior_y = _value(preceding, "current_attack_y") if recent else None
+    prior_kind = preceding["kind"] if recent else None
+    gap = preceding["time_gap_seconds"] if recent else None
+    prior_x = preceding["current_attack_x"] if recent else None
+    prior_y = preceding["current_attack_y"] if recent else None
     recent_categories = {
         "recent_kind": prior_kind,
-        "recent_team": _value(preceding, "owner_team_relation") if recent else None,
+        "recent_team": preceding["owner_team_relation"] if recent else None,
         "recent_delay": gap,
         "recent_zone": ("attacking" if prior_x > 25 else "other") if prior_x is not None else None,
-        "recent_shooter": ("same" if _value(preceding, "same_shooter") else "different")
-        if recent and _value(preceding, "same_shooter") is not None else None,
+        "recent_shooter": ("same" if preceding["same_shooter"] else "different")
+        if recent and preceding["same_shooter"] is not None else None,
     }
     for field, value in recent_categories.items():
         not_applicable = absent or field == "recent_shooter" and recent and prior_kind not in ACTION_KINDS[4:]
@@ -277,13 +286,14 @@ def _feature_context(attempt, game, shooter, goalie, strength, coaches, team_res
         numeric(f"{who}:calendar_gap_days", record, "calendar_gap_days", absent=exists is False)
         for field in ("prior_one_date", "prior_two_date", "games_days_7", "games_days_14"):
             numeric(f"{who}:{field}", record, field)
-    transition = _value(deployment, "strength_transition_exists")
-    previous_side = _value(deployment, "previous_strength_side")
+    transition = history["transition"]["exists"]
+    previous_side = history["transition"]["side"]
     for name, side in (("same_fewer", "same"), ("same_more", "opponent")):
         put("previous_strength:" + name, None if transition is None or transition and previous_side is None else float(previous_side == side),
             "strength_transition", kind="indicator", absent=transition is False)
-    numeric("return_to_5v5_age_seconds/60", deployment, "strength_transition_age_seconds", 60,
-            "strength_transition_age", absent=transition is False)
+    put("return_to_5v5_age_seconds/60", history["transition"]["age"] / 60
+        if history["transition"]["age"] is not None else None,
+        "strength_transition_age", absent=transition is False)
 
     goalie_prefix = prefixes.get(str(goalie), {})
     for field, scale in (("toi_all_seconds", 3600), ("on_net_faced", 30)):
@@ -402,9 +412,8 @@ def predictor_matrix(layout, predictors, origin_cells):
     return matrix
 
 
-def _setter_prior(game, attempt, event, state, people):
-    """pre-event membership and supported earlier episode participants only."""
-    source_index = attempt["source_index"]
+def _setter_prior(game, attempt, state, people, history):
+    """current membership plus supported prior-clock phase participants."""
     shooter = _value(attempt["details"], "physical_shooter_id")
     side = _value(state, "home_away")
     team = _value(state, "shooting_team_id")
@@ -413,20 +422,11 @@ def _setter_prior(game, attempt, event, state, people):
     complete = members is not None and goalies is not None
     candidates = set((members or []) + (goalies or [])) - {shooter}
     goalie_candidates = set(goalies or [])
-    episode = _value(event["chronology"], "episode_index")
-    order = _value(event["chronology"], "order_index")
-    if episode is None or order is None:
+    if history["phase_status"] == "unavailable":
         complete = False
     else:
-        episode_record = next((row for row in game.get("episodes") or [] if row["episode_index"] == episode), None)
-        if episode_record is None or episode_record["left_censored"]:
-            complete = False
-        earlier = [e for e in game["events"] or []
-                   if _value(e["chronology"], "episode_index") == episode
-                   and _value(e["chronology"], "order_index") is not None
-                   and _value(e["chronology"], "order_index") < order]
         associations = {row["source_index"]: row["native"] for row in game.get("associations") or []}
-        for prior in earlier:
+        for prior in history["phase_events"]:
             if not prior["source"]["kind_valid"]:
                 complete = False
             membership = associations.get(prior["source"]["source_index"])
@@ -782,10 +782,12 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                     source_actors[block][coach_id] += 1
         events = {event["source"]["source_index"]: event for event in game["events"] or []}
         event_positions = {event["source"]["source_index"]: i for i, event in enumerate(game["events"] or [])}
+        histories = preclock_history(game)
         credits = {credit["source_index"]: credit for credit in game["credits"] or []}
         start_count = len(coverage_rows)
         for attempt in game["attempts"] or []:
             source_index = attempt["source_index"]
+            history = histories[source_index]
             key = game_id + ":" + str(source_index)
             event = events.get(source_index)
             facts = attempt["feature_facts"]
@@ -868,16 +870,19 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                 actor_coaches = {"attacking_coach": coach_game[side]["coach_id"],
                                  "defending_coach": coach_game[opposing_side]["coach_id"]}
                 actors = {"shooter": str(shooter), "goalie": str(goalie) if goalie is not None else None, **actor_coaches}
-                setter_prior, candidate_complete = _setter_prior(game, attempt, event, state, local_people)
+                setter_prior, candidate_complete = _setter_prior(game, attempt, state, local_people, history)
                 team_rest = _team_rest(team_schedules.get(_value(state, "opponent_team_id")), inventory["game_date"],
                                        {"input_ref": prepared_identity,
                                         "source": "prepared-analysis", "path": "/seasons"})
                 context = _feature_context(attempt, game, shooter, goalie,
-                                           (strength[0][0], strength[1][0], strength[0][1]), actor_coaches, team_rest)
+                                           (strength[0][0], strength[1][0], strength[0][1]), actor_coaches, team_rest, history)
                 context["setter_universe_complete"] = candidate_complete
                 context["attacking_skaters"] = [str(actor) for actor in _value(state, side + "_skaters")]
                 context["attacking_goalies"] = [str(actor) for actor in _value(state, side + "_goalies")]
-                context["setter_universe_reason"] = None if candidate_complete else "pre_event_membership_or_uninterrupted_prior_participants_unavailable"
+                context["setter_universe_reason"] = None if candidate_complete else "current_membership_or_prior_clock_phase_unavailable"
+                context["history_cutoff"] = history["cutoff"]
+                context["setter_phase_status"] = history["phase_status"]
+                context["setter_phase_reason"] = history["phase_reason"]
                 predictor = ExecutionPredictor(key, TYPES.index(shot_type), proxy, outcome == "block", shot_type == "tip",
                                                actors, {actor: people.get(actor) for actor in actors.values() if actor is not None}, setter_prior, context)
                 head_labels["u"] = float(outcome != "block")
@@ -954,20 +959,12 @@ def build_resolution_witness(design, requirement, block, actor_id):
     attempt = deepcopy(original)
     attempt["details"]["values"]["physical_shooter_id"] = int(actor_id)
     attempt["details"]["problems"].pop("physical_shooter_id", None)
-    preceding = attempt["feature_facts"]["preceding"]
-    if _value(preceding, "status") == "recent" and _value(preceding, "kind") in ACTION_KINDS[4:]:
-        previous_index = _value(preceding, "source_index")
-        previous = next((row for row in game["attempts"] if row["source_index"] == previous_index), None)
-        previous_actor = _value(previous["details"], "physical_shooter_id") if previous is not None else None
-        preceding["values"]["same_shooter"] = previous_actor == int(actor_id) if previous_actor is not None else None
-        if previous_actor is not None:
-            preceding["problems"].pop("same_shooter", None)
+    history = preclock_history(game)[source_index]
     state = attempt["feature_facts"]["state"]
-    event = next(row for row in game["events"] if row["source"]["source_index"] == source_index)
-    prior, complete = _setter_prior(game, attempt, event, state, people)
+    prior, complete = _setter_prior(game, attempt, state, people, history)
     coaches = {name: context.actors[name] for name in ("attacking_coach", "defending_coach")}
     features = _feature_context(attempt, game, int(actor_id), int(context.actors["goalie"]),
-                                tuple(context.context["strength"]), coaches, {})
+                                tuple(context.context["strength"]), coaches, {}, history)
     # opponent-team rest is unchanged and already source-bound; do not fabricate
     # a second schedule from this one game while rebuilding actor circumstances.
     for name, value in context.context["features"].items():
@@ -976,7 +973,9 @@ def build_resolution_witness(design, requirement, block, actor_id):
     features.update(attacking_skaters=list(context.context["attacking_skaters"]),
                     attacking_goalies=list(context.context["attacking_goalies"]),
                     setter_universe_complete=complete,
-                    setter_universe_reason=None if complete else "pre_event_membership_or_uninterrupted_prior_participants_unavailable")
+                    setter_universe_reason=None if complete else "current_membership_or_prior_clock_phase_unavailable")
+    features.update(history_cutoff=history["cutoff"], setter_phase_status=history["phase_status"],
+                    setter_phase_reason=history["phase_reason"])
     actors = dict(context.actors, shooter=actor_id)
     actor_facts = dict(context.actor_facts)
     actor_facts[actor_id] = people[actor_id]["people"]

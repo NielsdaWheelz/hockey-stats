@@ -2,7 +2,7 @@
 
 status: complete, 2026-10-24. all 6,560 selected games and 2,060,996 original events pass full source/public-reader reconciliation, partition and coverage checks. original-source samples, guarded downstream reads and the reason-time supplement pass. [independent final review](real-acceptance-independent-review.json) clears the receipt chain; [temporary tests/controllers are deleted](test-deletion-real.json). the [requested pause](pause-2026-10-23.json) remains historical.
 
-implementation: branch `v1-01-shared-evidence`, worktree `/Users/nnandal/Documents/code/hockey-stats-v1-01`. three non-astra implementers covered source/support, factual context and artifacts; root, peer reviewers and a separate claude session challenged the boundaries. the primary checkout and serving files were not modified by this work.
+initial implementation: branch `v1-01-shared-evidence`, worktree `/Users/nnandal/Documents/code/hockey-stats-v1-01`. three non-astra implementers covered source/support, factual context and artifacts; root, peer reviewers and a separate claude session challenged the boundaries. the detached implementation left the primary checkout and serving files unchanged; subsequent source delivery and scoped cleanup are recorded below.
 
 ## delivered contract
 
@@ -202,3 +202,11 @@ uv run --project analysis hockey-stats-analysis prepare \
 ```
 
 the [checkpoint](pause-2026-10-23.json) retains the historical two passing receipts and three partial source streams from the requested pause. the later [source](real-source-reconciliation.json) and [reason](real-reason-coverage.json) merges supersede those partial streams. the [plan](../../plan.md#current-boundary) records completion and owns further progression.
+
+## pr merge and task cleanup
+
+[pr #54](https://github.com/NielsdaWheelz/hockey-stats/pull/54) merged as `a36536b` after the security check passed. the merged tree exactly matches reviewed head `4be79dc` (tree `eeda5639084e16f626cb788e8ae7a868081fcffc`). [integration checks and peer review](integration-checks.json) retain the fresh one-game preparation/public-read result, parser/error checks and single-entry-point repair. the existing `prepare`, `publish` and `facts` routes retain their owners.
+
+the task git worktree, local/remote branch, duplicate environment and temporary integration files are removed. [cleanup evidence](delivery-cleanup.json) checks all 43 bound task-local inputs before and after removal, the retained artifact/proof hashes and a bounded public read. the old checkout path is now a data-only directory containing required fixture/native inputs and small checked receipts, with only `docs` linked to the primary checkout. active v1-05/v1-06 fixtures require those exact canonical paths; moving them behind a whole-root alias would change design identity. no duplicate source checkout remains.
+
+primary synchronization restored all 21 preexisting draft files: 17 are byte-identical, while three document overlaps and two shared-cli clauses were reconciled with the completed v1-01 status. those drafts remain unstaged and uncommitted. other active worktrees, original captures, external prepared evidence, source/reason proofs, expensive fits and published databases are preserved. no activation, fit or new acquisition follows.

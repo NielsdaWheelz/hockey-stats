@@ -1,0 +1,9 @@
+# counterpart qualification repair
+
+2026-10-22. current comparative tiles had finite counterpart usage but no ranked peers because the producer always emitted null `coverage.included_seconds`. v1-14 requires the focal matched five-on-five elapsed support, alongside separate known/all slot weights.
+
+`_counterparts` now receives the original observed focal `Metrics`: each relation and role child retains its exact included seconds, known excluded seconds and source reasons. missing counterpart usage/position adds visible coverage gaps without replacing focal time with slot weight. an absent old row retains null elapsed support. the existing selector continues to require positive known slot weight. no cohort, cutoff or frontend calculation changed.
+
+[the red integration](../receipts/counterpart-qualification-red.txt) traverses the existing candidate's typed overview, `analysis-values` and cohort owner: 226 finite teammate magnitudes, null qualification and zero qualified peers at a zero-minute viewing cutoff. [the bounded producer check](../receipts/counterpart-producer-green.txt) rebuilds all 245 published `20242025` contexts through the repaired owner, verifying exact original elapsed/excluded/reason support and unchanged counterpart magnitudes/slot weights. [the same consumer path turns green](../receipts/counterpart-qualification-green.txt): both selected relations retain 820 focal seconds and rank among 77 reported defenders. this establishes relative standing; missing-weight flags remain visible and do not claim precision.
+
+this bounded check replaces only context payloads with actual producer returns before the existing typed selectors. root owns the final full facts/publication/browser rerun. temporary controllers were deleted after independent review; retained receipts contain the checked expectations and outcomes.

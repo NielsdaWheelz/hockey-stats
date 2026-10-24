@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "frozen_before_requests": true,
+  "request_limit": 12,
+  "automatic_retries": 0,
+  "follow_redirects": false,
+  "requests": [
+    {
+      "request_id": "detail-8478402-20232024",
+      "kind": "detail",
+      "season": "20232024",
+      "player_id": "8478402",
+      "phase": "initial"
+    },
+    {
+      "request_id": "detail-8478402-20242025",
+      "kind": "detail",
+      "season": "20242025",
+      "player_id": "8478402",
+      "phase": "initial"
+    },
+    {
+      "request_id": "detail-8478402-20252026",
+      "kind": "detail",
+      "season": "20252026",
+      "player_id": "8478402",
+      "phase": "initial"
+    },
+    {
+      "request_id": "detail-8480800-20232024",
+      "kind": "detail",
+      "season": "20232024",
+      "player_id": "8480800",
+      "phase": "conditional"
+    },
+    {
+      "request_id": "listing-20232024",
+      "kind": "listing",
+      "season": "20232024",
+      "player_id": null,
+      "phase": "conditional"
+    },
+    {
+      "request_id": "detail-8480800-20242025",
+      "kind": "detail",
+      "season": "20242025",
+      "player_id": "8480800",
+      "phase": "conditional"
+    },
+    {
+      "request_id": "listing-20242025",
+      "kind": "listing",
+      "season": "20242025",
+      "player_id": null,
+      "phase": "conditional"
+    },
+    {
+      "request_id": "detail-8480800-20252026",
+      "kind": "detail",
+      "season": "20252026",
+      "player_id": "8480800",
+      "phase": "conditional"
+    },
+    {
+      "request_id": "listing-20252026",
+      "kind": "listing",
+      "season": "20252026",
+      "player_id": null,
+      "phase": "conditional"
+    },
+    {
+      "request_id": "glossary",
+      "kind": "glossary",
+      "season": null,
+      "player_id": null,
+      "phase": "conditional"
+    }
+  ],
+  "adaptive_slots": [
+    {
+      "slot": 1,
+      "selection": null
+    },
+    {
+      "slot": 2,
+      "selection": null
+    }
+  ],
+  "stop_rules": "three distinct initial seasons unless 429 or two consecutive transport failures; optional only after usable season measurement; optional 403/429 or two consecutive transport failures stop all optional work"
+}

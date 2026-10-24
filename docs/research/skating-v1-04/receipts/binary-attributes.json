@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "change": "exact narrow binary attribute for fixtures/skating-v1-04/**/body.bin",
+  "network_requests": 0,
+  "behavior_tests_run": false,
+  "command": "git check-attr -z text diff merge -- <each original body>",
+  "all_three_original_bytes_unchanged": true,
+  "checks": [
+    {
+      "path": "fixtures/skating-v1-04/primary/detail-8478402-20232024/edge-skating-detail/body.bin",
+      "sha256": "047c9a7ef6ef4e65cff78bee1b0e69cd1acfb16b1da954d5458ddda130019a19",
+      "bytes": 9478,
+      "matches_original_receipt": true,
+      "attributes": {
+        "text": "unset",
+        "diff": "unset",
+        "merge": "unset"
+      }
+    },
+    {
+      "path": "fixtures/skating-v1-04/primary/detail-8478402-20242025/edge-skating-detail/body.bin",
+      "sha256": "f588738066e430839ffb201cedc6d64e2da3ffa21f1111111d91fa02008c116d",
+      "bytes": 9673,
+      "matches_original_receipt": true,
+      "attributes": {
+        "text": "unset",
+        "diff": "unset",
+        "merge": "unset"
+      }
+    },
+    {
+      "path": "fixtures/skating-v1-04/primary/detail-8478402-20252026/edge-skating-detail/body.bin",
+      "sha256": "87f706f5e2d18a7133ab8fd936ada756a6045ec3789b05f59fdb068328b6eacd",
+      "bytes": 9456,
+      "matches_original_receipt": true,
+      "attributes": {
+        "text": "unset",
+        "diff": "unset",
+        "merge": "unset"
+      }
+    }
+  ]
+}

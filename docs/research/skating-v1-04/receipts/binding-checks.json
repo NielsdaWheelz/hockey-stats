@@ -1,0 +1,30 @@
+{
+  "command": [
+    "env",
+    "PYTHONPATH=analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "/tmp/skating-binding-check.py"
+  ],
+  "exit_code": 0,
+  "checks": 40,
+  "temporary_script_sha256": "d2601a681a5068b09845bd1409116631ae78241e64fcebb79747c5919e56d127",
+  "source_sha256": {
+    "analysis/src/hockey_stats/skating.py": "1c24bc838252410b63c5c4a6460dfe9f604ee8840af272ee99fd1d281216b440",
+    "analysis/src/hockey_stats/captures.py": "eed8a2ecc0733297e084746e28cc2e2780b673e7a42bee7f3f3997ca2ae028ee"
+  },
+  "stdout": "binding-green.txt",
+  "scope": "controlled transport bytes, strict selection/receipt validation, unavailable binding, observed primary context gap, compact independence, module cli, bios-only references and unchanged core/right-rail boundary; no measurement parser acceptance",
+  "tests_deleted": true,
+  "cleanup_authority": "root source review and independent final green at aa9ff18; remove only owned temporary controller, baseline and generated scratch",
+  "removed_paths": [
+    "/private/tmp/skating-binding-check.py",
+    "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-1cg055hh",
+    "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-9o6dx5zz",
+    "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-17yl0p19",
+    "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-check-d_kjsodx",
+    "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-baseline-twszcjda",
+    "/private/tmp/skating-real-binding-first",
+    "/private/tmp/skating-v102-captures.py"
+  ],
+  "preserved": "source, original primary captures, reference captures, durable bound-real output and documentation receipts"
+}

@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import type { PlayerSummary } from "../shared/observed";
+import type { PlayerIdentity } from "./presentation";
 import { matchingPlayers, nameOrder, playerName, teamName } from "./presentation";
 
-export default function PlayerPicker({
+export default function PlayerPicker<T extends PlayerIdentity>({
   slot,
   players,
   selected,
@@ -13,12 +13,12 @@ export default function PlayerPicker({
   onClear,
 }: {
   readonly slot: "first" | "second";
-  readonly players: readonly PlayerSummary[];
-  readonly selected: PlayerSummary | undefined;
+  readonly players: readonly T[];
+  readonly selected: T | undefined;
   readonly error: string | undefined;
   readonly otherId: string | undefined;
   readonly committedPair: string;
-  readonly onChoose: (player: PlayerSummary) => void;
+  readonly onChoose: (player: T) => void;
   readonly onClear: () => void;
 }) {
   const [search, setSearch] = useState({ committedPair, draft: "" });
@@ -38,7 +38,7 @@ export default function PlayerPicker({
         {selected ? (
           <>
             {playerName(selected)} · {selected.teams.map(teamName).join(" / ")} ·
-            reported position {selected.reported_position} · player{" "}
+            reported position {selected.reported_position ?? "unavailable"} · player{" "}
             {selected.player_id}
           </>
         ) : (
@@ -101,7 +101,7 @@ export default function PlayerPicker({
                   <span>{playerName(player)}</span>
                   <span>
                     {player.teams.map(teamName).join(" / ")} · reported position{" "}
-                    {player.reported_position} · player {player.player_id}
+                    {player.reported_position ?? "unavailable"} · player {player.player_id}
                   </span>
                 </button>
               </li>

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "kind": "independent-real-coaches-final-acceptance",
+  "status": "pass",
+  "groups": 6,
+  "wall_seconds": 5.706620583019685,
+  "artifact": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+  "artifact_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+  "driver_sha256": "1a23462da69d4b8cf8f8d45161301148c8410587e5a1ca5e30f354d5e48b1db7",
+  "implementation_sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+  "evidence": {
+    "resolved_slots": 13120,
+    "issues": 0,
+    "retrieval_range": {
+      "first": "2026-10-23T01:48:32.654Z",
+      "last": "2026-10-23T02:47:32.361Z"
+    },
+    "detached_artifact_only_read": "pass",
+    "consumer_join": "native-key contract exercise only; no v1-01 implementation or fit",
+    "distinct_reported_names": 65,
+    "identity_catalogue": 65,
+    "aliases": 65,
+    "captured_body_bytes": 32311101,
+    "multiple_source_names_per_id": {},
+    "native_games": 6560,
+    "native_slots": 13120,
+    "protected_files_unchanged": 483,
+    "prior_requests": 10,
+    "new_requests": 6550,
+    "unique_requests": 6560,
+    "deferred_games": 0,
+    "repeated_game_requests": 0
+  },
+  "failures": [],
+  "errors": [],
+  "reviewer_network_requests": 0,
+  "limits": [
+    "human source/distribution identity review is recorded separately in the linked independent manual receipt",
+    "consumer joins exercise the declared future contract, not a fit or v1-01 implementation"
+  ],
+  "manual_identity_review": {
+    "status": "pass",
+    "separate_receipt": "/tmp/hockey-v1-02-final-identities-independent.json"
+  }
+}

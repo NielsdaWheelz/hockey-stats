@@ -38,7 +38,7 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05h-candidate/observed.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-7-candidate/player-analysis.sqlite --port 3067
 ```
 
 to review another revision, build a separate checkout with the pinned node path above and serve it on a separate port:
@@ -48,10 +48,10 @@ cd /absolute/review-checkout/app
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05h-candidate/observed.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-7-candidate/player-analysis.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. this revision reads schema 6 only. the checked 05h database has an identical local serving copy for browsing without the external drive; only that sqlite file is needed. rebuilding its application does not activate it. schema-3 code can be reconstructed from `d3dee76`. rebuild applications from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. this revision reads schema 7 only. the active schema-6 site remains paired with `cb13d99`; this source cutover does not change its files or listener. use a separately built checkout and unused port to inspect a schema-7 candidate. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
 
 the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
@@ -84,7 +84,7 @@ the peer minute cutoff is a viewing rule, not evidence of reliability. each elig
 development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
-npm run dev:api -- --publication /Users/nnandal/Documents/code/hockey-stats-local/observed-05h-candidate/observed.sqlite
+npm run dev:api -- --publication /absolute/schema-7-candidate/player-analysis.sqlite
 ```
 
 ```sh
@@ -98,10 +98,10 @@ to build a new candidate, prepare the locked python environment from the reposit
 ```sh
 cd analysis
 uv sync --locked
-.venv/bin/hockey-stats-observed --selection /Users/nnandal/Documents/code/hockey-stats-local/source-02d-20261021/selection.json --out /Volumes/Expansion/hockey-stats/runs/observed-05h-20261021/candidate-next
+.venv/bin/hockey-stats-analysis publish --observed /absolute/observed-selection.json --results /absolute/completed-results --out /absolute/new-candidate
 ```
 
-the selection has exactly `schema_version:1`, `purpose:"real"|"fixture"` and an ascending `corpora` list of `{season,path,sha256}`. corpus paths are absolute existing files with distinct resolved identities; digests bind their exact bytes. real selections require all three declared seasons and both pinned 2024–25/2025–26 corpus identities. 2023–24 uses the freshly prepared, frozen corpus recorded in verification; preparation uses the existing native command and local originals specified in the history contract. fixtures select one to three explicitly marked fixture corpora and cannot become real. no implicit discovery, acquisition or subset selector exists.
+the observed selection has exactly `schema_version:1`, `purpose:"real"|"fixture"` and an ascending `corpora` list of `{season,path,sha256}`. corpus paths are absolute existing files with distinct resolved identities; digests bind their exact bytes. real selections require all three declared seasons and both pinned 2024–25/2025–26 corpus identities. 2023–24 uses the freshly prepared, frozen corpus recorded in verification; preparation uses the existing native command and local originals specified in the history contract. fixtures select one to three explicitly marked fixture corpora and cannot become real. no implicit discovery, acquisition or subset selector exists.
 
 02d's offline recovery review and assessment use fresh output directories. from the repository root, after preparing the locked python and application environments:
 
@@ -121,31 +121,41 @@ analysis/.venv/bin/python analysis/research/source_exposure.py assess \
 
 recovery performs no acquisition; its capture directory must already contain the exact three probes. conditional expansion uses `--probe-receipt` and all 57 complete bundles only after useful matched support is verified. assessment reuses the pinned application peer calculator, so `app/node_modules` and the pinned node executable must be available. assessment exits `0` when complete, `1` when required research evidence remains pending, and `2` on an input error. [02d verification](docs/research/source-02d/verification.md) binds the real selection, failed recovery, checked candidate and complete acceptance evidence.
 
-for `hockey-stats-observed`, argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates, writes, reads back and receipts each season independently before releasing its heavy results. `seasons/<season>/verification.json` retains complete consumed sources, exclusions and reductions. the top-level receipt binds the original selection copy, each season receipt and final database digest/cost. only complete all-season validation permits the final rename from `observed.sqlite.incomplete` to `observed.sqlite`. failed work stays incomplete and never touches active/previous files. only the completed database is needed for serving.
+`publish` requires both the observed selection and an explicitly selected result bundle. [v1-13](docs/specs/v1-13-typed-publication.md) defines the fixed manifest, catalogs, family tables and missing states; producers call `write_results` to serialize them. an observed-only candidate supplies explicit pending-family dispositions. fixtures remain fixtures, including captured-game examples. no fit, discovery, acquisition or real-model activation is implied.
 
-the api retains two endpoints: `/api/league?season=20242025` optionally adds `&spatial=<id>[,<id>]`; `/api/players/<id>?season=20242025` adds that player's compact history and complete `deployment` arrays. league/comparison responses carry no pairs. responses separate global `publication` from seasonal `season` evidence and list ordered `available_seasons`. empty/repeated/malformed season values return `InvalidSeasonSelection` (400); well-formed unpublished values return `SeasonNotFound` (404), both with recovery catalogs. a globally known player absent from the selected year returns its selected-season league, empty games, null deployment/map and real history; globally unknown ids remain 404. a present player with zero included time has empty deployment arrays, with availability explained by existing coverage.
+argument errors exit 2, help exits 0, and contract/i/o failures exit 1. the builder aggregates and independently reads back observed facts, streams strict family members, validates source/method/support identities and cross-record closure, then writes receipts before renaming `player-analysis.sqlite.incomplete` to `player-analysis.sqlite`. existing output is refused. only a completed database is needed for serving; reads never open preparation, fit or receipt paths.
 
-for a separately assigned same-schema publication, from `app/`, check the candidate, stop any serving process, then activate explicitly:
+the typed api has five endpoints:
+
+- `/api/league?season=20242025&kind=skater&family=observed&strength=5v5` returns the selected cohort. only league/profile default to the newest season.
+- `/api/players/<id>?season=20242025` returns identity, scalar families, observed games/deployment and three-year history, without a league payload.
+- `/api/maps?season=20242025&players=<id>[,<id>]&family=observed&strength=5v5&view=effect` returns selected maps and the shared display scale.
+- `/api/players/<id>/evidence?season=20242025&family=personal_shots&strength=5v5&outcome=all_unblocked` returns finalized evidence, including unlocated attempts.
+- `/api/players/<id>/context?season=20242025&mode=on_off&population=recorded_all_attempts` returns matched dressed-game groups; `with_without` additionally requires one/two teammates.
+
+[v1-13's selector matrix](docs/specs/v1-13-typed-publication.md#reader-and-api-contract) fixes analytical families and compatible selectors. invalid/duplicate/unknown selectors return typed 400; unknown season/person returns 404. a known person absent this season returns 200 with null selected identity and an explicit API `absent` state. unfinished work returns `not_computed`, not zero; ordinary read failures return 500 with retry copy. every response carries publication/season identity and resolving source/method/support catalogs. the old `spatial=` query is removed.
+
+for separately assigned activation, check the candidate, stop serving, then copy/rotate explicitly:
 
 ```sh
-npm run publication -- check --candidate /absolute/schema-6-candidate/observed.sqlite
-npm run publication -- activate --candidate /absolute/schema-6-candidate/observed.sqlite --directory /absolute/schema-6-publication
-npm run serve -- --publication /absolute/schema-6-publication/active.sqlite
+npm run publication -- check --candidate /absolute/schema-7-candidate/player-analysis.sqlite
+npm run publication -- activate --candidate /absolute/schema-7-candidate/player-analysis.sqlite --directory /absolute/publication
+npm run serve -- --publication /absolute/publication/active.sqlite
 ```
 
-activation verifies an exclusive incoming copy and any existing active database before rotation. it retains at most one `previous.sqlite`; an invalid active stops rotation and preserves the backup. for same-schema rollback, stop serving, run the following, restart and reload. this command requires schema-6 active/previous files. the current previous database is schema 3, so its rollback requires compatible code and the manual cross-version procedure instead:
+activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. for schema-7 restore, stop serving, run the following, restart and reload:
 
 ```sh
-npm run publication -- restore --directory /absolute/schema-6-publication
+npm run publication -- restore --directory /absolute/publication
 ```
 
-the current implementation reads schema **6** only, retaining 02d's `matched_attempts_v2` / `matched_personal_credits_v2` and `matched_unblocked_locations_v2` / `rect5_gaussian10_v1`. 02d excludes a maximal constant-lineup segment when supported strict-interior event evidence contradicts its 5v5 classification; boundary cases remain diagnostics. deployment inherits exactly that final on-ice mask. every fact/reference belongs to its season. building or checking a candidate does not activate it.
+a cross-schema previous file requires the manual procedure below. the current source reads schema **7** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. current pages still present the supported observed journeys; direct goalie profiles show identity/history and the explicit unfinished-presentation message.
 
 ### manual cross-version cutover and rollback
 
 the assigned schema-3 → schema-6 activation is complete. current schema-6 publication `24e41fa7-256c-4f0a-9876-e8d7f8f42056` uses application code `cb13d99`; previous schema-3 publication `84a9da75-2cdf-44e7-a463-21e79a02929e` requires code `d3dee76`. recreate it with `git worktree add --detach <old-checkout> d3dee76`; install its pinned lockfile and rebuild. the old schema-2 backup was replaced by that validated schema-3 active. the separate checked schema-5 baseline still uses `523a4d4`.
 
-the forward example describes the manual procedure used for the completed cutover; future activation still requires assignment. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation. the completed activation staged and validated the incoming copy before stopping, reducing the interruption.
+the forward example below describes the completed schema-3 → schema-6 procedure. a future schema-7 activation still requires assignment and uses the new operator above, which preserves its predecessor opaquely. cross-schema rollback always uses manual copies and each database's matching build. build and preflight compatible code on a separate port first, then set paths and stop serving. the subshell aborts on any failed check; an existing incoming file is an error. `cmp` requires exact copy equality before rotation. the completed activation staged and validated the incoming copy before stopping, reducing the interruption.
 
 ```sh
 (
@@ -188,7 +198,7 @@ mv "$publication_directory/incoming.sqlite" "$publication_directory/active.sqlit
 
 rebuild the old checkout from git and its pinned lockfile before serving when needed; reload the browser after either restart. same-version activation/restore continue to use the existing commands above. there is no migration or historical-schema reader.
 
-if replacement is interrupted, inspect the intact `active.sqlite`, `previous.sqlite` and `incoming.sqlite` with `publication check`, repair the names manually, then restart. an existing incoming file stops another copy. use compatible code from git when needed. there is no hot switching, release manager or automatic cleanup.
+if replacement is interrupted, inspect the intact `active.sqlite`, `previous.sqlite` and `incoming.sqlite` with their matching build's `publication check`, repair the names manually, then restart. an existing incoming file stops another copy. use compatible code from git when needed. there is no hot switching, release manager or automatic cleanup.
 
 matched counts and time lose the same uncertain segments. valid zero-event time survives; missing counts remain missing, while supported zero counts remain zero. incomplete player associations limit every season summary and are listed in coverage details. included minutes are not official full ice time; `covered` means no known relevant gap in source-supported listed evidence. conservative exclusions, source selection and manual publication interruptions are accepted costs. source/model verdicts are unchanged by website completion.
 

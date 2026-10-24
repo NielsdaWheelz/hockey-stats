@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "purpose": "real",
+  "status": "complete_manual_review",
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/expansion-execution-01/selection.json",
+    "sha256": "77d982f6c9bc9e7752f2b33ffa7a5fa61d793d3ac25d0369294bf427f53db05d"
+  },
+  "table": {
+    "path": "analysis/data/coach-identities.json",
+    "sha256": "39ae4a471863f15ed4526c525f9af5c38a6974e6a4cd2419d9dcb22c449d7694"
+  },
+  "games": 6560,
+  "game_team_slots": 13120,
+  "reported_name_slots": 13120,
+  "coaches": 65,
+  "aliases": 65,
+  "anchors": 184,
+  "variant_name_merges": [],
+  "unresolved_names": [],
+  "unreviewed_names": [],
+  "all_names": [
+    "Adam Foote",
+    "Alain Vigneault",
+    "Anders Sorensen",
+    "Andrew Brunette",
+    "André Tourigny",
+    "Barry Trotz",
+    "Bob Boughner",
+    "Brad Larsen",
+    "Brad Shaw",
+    "Bruce Boudreau",
+    "Bruce Cassidy",
+    "Craig Berube",
+    "D.J. Smith",
+    "Dallas Eakins",
+    "Dan Bylsma",
+    "Dan Muse",
+    "Darryl Sutter",
+    "Dave Hakstol",
+    "Dave Lowry",
+    "Dave Tippett",
+    "David Quinn",
+    "Dean Evason",
+    "Derek King",
+    "Derek Lalonde",
+    "Dominique Ducharme",
+    "Don Granato",
+    "Drew Bannister",
+    "Gerard Gallant",
+    "Glen Gulutzan",
+    "Greg Cronin",
+    "Jacques Martin",
+    "Jared Bednar",
+    "Jay Woodcroft",
+    "Jeff Blashill",
+    "Jeremy Colliton",
+    "Jim Hiller",
+    "Jim Montgomery",
+    "Joe Sacco",
+    "Joel Quenneville",
+    "John Hynes",
+    "John Tortorella",
+    "Jon Cooper",
+    "Kris Knoblauch",
+    "Lane Lambert",
+    "Lindy Ruff",
+    "Luke Richardson",
+    "Marco Sturm",
+    "Martin St. Louis",
+    "Mike Sullivan",
+    "Mike Yeo",
+    "Pascal Vincent",
+    "Patrick Roy",
+    "Paul Maurice",
+    "Peter DeBoer",
+    "Peter Laviolette",
+    "Rick Bowness",
+    "Rick Tocchet",
+    "Rod Brind'Amour",
+    "Ryan Huska",
+    "Ryan Warsofsky",
+    "Scott Arniel",
+    "Sheldon Keefe",
+    "Spencer Carbery",
+    "Todd McLellan",
+    "Travis Green"
+  ],
+  "by_season": [
+    {
+      "season": "20212022",
+      "games": 1312,
+      "slots": 2624,
+      "reported_slots": 2624,
+      "distinct_names": 39
+    },
+    {
+      "season": "20222023",
+      "games": 1312,
+      "slots": 2624,
+      "reported_slots": 2624,
+      "distinct_names": 33
+    },
+    {
+      "season": "20232024",
+      "games": 1312,
+      "slots": 2624,
+      "reported_slots": 2624,
+      "distinct_names": 39
+    },
+    {
+      "season": "20242025",
+      "games": 1312,
+      "slots": 2624,
+      "reported_slots": 2624,
+      "distinct_names": 36
+    },
+    {
+      "season": "20252026",
+      "games": 1312,
+      "slots": 2624,
+      "reported_slots": 2624,
+      "distinct_names": 36
+    }
+  ],
+  "evidence": {
+    "snapshot": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/identity-review-final/snapshot.json",
+      "sha256": "342d91d0710e67bfc6cb7f30b3194705e99bfb0247cc410f83fc2a0b647dd6b5"
+    },
+    "distribution": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/identity-review-final/distribution.json",
+      "sha256": "44cf95cf7985feb68baa9f688bc7a882c04dfda0d1700f5ac71bb41c5ecb24a8"
+    },
+    "observations": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/identity-review-final/observations.json",
+      "sha256": "8bbea920c25acb4e8e4ec03da31ec6751ebf1d2563d5e44fe17072349e93cf91"
+    },
+    "manual-review": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/identity-review-final/manual-review.json",
+      "sha256": "9a5af0a8f896224068dd66a85f87e3964c805cc5ddd4a434623737292461c81e"
+    }
+  },
+  "limitation": "the identity catalogue resolves reported source strings; it does not establish acting bench attendance, tenure, career credit or causal coaching quality"
+}

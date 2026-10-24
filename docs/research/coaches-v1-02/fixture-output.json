@@ -1,0 +1,39 @@
+{
+  "software_status": "pass_detached",
+  "acquisition_status": "not_run",
+  "artifact": "/Users/nnandal/Documents/code/hockey-stats-local/coaches-v1-02/fixture-20261022/coaches.json",
+  "purpose": "fixture",
+  "games": 49,
+  "slots": 98,
+  "resolved_slots": 36,
+  "output_files": {
+    "coaches.json": {
+      "sha256": "6bf1271d9d681483c5bcdbc1f5bf4aeb9af63914aab0fe1d2f795f7c470f7301",
+      "bytes": 157804
+    },
+    "coverage.json": {
+      "sha256": "358196733b2212ccc0c49b93f942fd86d49d435aaeeb6983ba7fe2ed35f5294d",
+      "bytes": 29981
+    },
+    "identities.json": {
+      "sha256": "8d1dfbc2774f2cf8cd5cb59c06dcc5758de2822d12f31a5f533fbbcecd6882a4",
+      "bytes": 4549
+    },
+    "selection.json": {
+      "sha256": "34aa6d9f32ae528d09d70f481baba14932622589f888208e08d044d53b10cbff",
+      "bytes": 16382
+    }
+  },
+  "resources": {
+    "wall_seconds": 0.009014333016239107,
+    "peak_memory_bytes": 60719104,
+    "output_bytes": 50912
+  },
+  "implementation": {
+    "git_commit": "ee9d389477bfc6d7731097c6151893cb4638b701",
+    "git_dirty": true,
+    "python_version": "3.14.8"
+  },
+  "real_report_schema": "not_run",
+  "real_identity_review": "not_run"
+}

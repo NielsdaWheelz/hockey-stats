@@ -1,6 +1,7 @@
 import type { PlayerSummary } from "../shared/observed";
 import type { PeerSettings } from "./explorer";
 import { nameOrder } from "./presentation";
+import { midpointPercentile, positionGroup } from "./analysis-cohorts";
 
 export type ObservedRateKey =
   | "sog60"
@@ -14,7 +15,7 @@ export type Standing =
   | { readonly kind: "outside" }
   | { readonly kind: "unavailable" };
 export type PeerGroup = {
-  readonly key: "all" | "f" | "d";
+  readonly key: "all" | "f" | "d" | "unknown";
   readonly population: PeerPopulation;
   readonly members: readonly PlayerSummary[];
   readonly selected: readonly {
@@ -101,7 +102,9 @@ export const peerGroupName = (key: PeerGroup["key"]) =>
     ? "all skaters"
     : key === "f"
       ? "reported forwards"
-      : "reported defense";
+      : key === "d"
+        ? "reported defense"
+        : "unknown position";
 
 export function selectPeerGroups(
   players: readonly PlayerSummary[],
@@ -115,10 +118,10 @@ export function selectPeerGroups(
   const keys: PeerGroup["key"][] =
     settings.peers === "all"
       ? ["all"]
-      : (["f", "d"] as const).filter((key) =>
+      : (["f", "d", "unknown"] as const).filter((key) =>
           selections.some(
             ({ player }) =>
-              (player.reported_position === "D" ? "d" : "f") === key,
+              (positionGroup(player.reported_position) ?? "unknown") === key,
           ),
         );
   const metrics = observedMetrics.filter(
@@ -130,7 +133,7 @@ export function selectPeerGroups(
         const support = populationSupport(player, population);
         return (
           (key === "all" ||
-            (player.reported_position === "D" ? "d" : "f") === key) &&
+            key !== "unknown" && positionGroup(player.reported_position) === key) &&
           support.included_seconds > 0 &&
           support.included_seconds >= settings.peerMin * 60 &&
           metrics.every((metric) => metric.rate(player) !== null)
@@ -148,7 +151,7 @@ export function selectPeerGroups(
       selected: selections.filter(
         ({ player }) =>
           key === "all" ||
-          (player.reported_position === "D" ? "d" : "f") === key,
+          (positionGroup(player.reported_position) ?? "unknown") === key,
       ),
     };
   });
@@ -160,21 +163,12 @@ export function observedStanding(
   group: PeerGroup,
   metric: ObservedRateKey,
 ): Standing {
-  if (rate === null) return { kind: "unavailable" };
+  if (rate === null || group.key === "unknown") return { kind: "unavailable" };
   if (!group.members.some((player) => player.player_id === playerId))
     return { kind: "outside" };
   const definition = metricDefinition(metric);
-  let lower = 0;
-  let equal = 0;
-  for (const player of group.members) {
-    const value = definition.rate(player)!;
-    if (value < rate) lower += 1;
-    if (value === rate) equal += 1;
-  }
-  return {
-    kind: "ranked",
-    percentile: (100 * (lower + equal / 2)) / group.members.length,
-  };
+  const percentile = midpointPercentile(rate, group.members.map(player => definition.rate(player)!).filter(value => value !== null));
+  return percentile === null ? { kind: "unavailable" } : { kind: "ranked", percentile };
 }
 
 export function formatPercentile(percentile: number): string {

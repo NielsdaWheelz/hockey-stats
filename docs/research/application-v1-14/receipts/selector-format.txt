@@ -1,0 +1,5 @@
+node v24.21.0
+formatting proof: complete parsed syntax trees equal after removing source locations, comments and parser formatting metadata. no dependency was added.
+analysis-values: exact syntax tree preserved; before 1ea580a20f368ee03919f06d271338998d6266e83c17b9d255dc624352b492b3; formatted 8e709f9a5eb5a348c551a2d92696e27e827bf551e0213eb23006553d4c493dd3
+analysis-cohorts: exact syntax tree preserved; before 046ec00cc91ca2e49e9da2dc368dee1907e9df62afd66923c82e02ba452e2bc3; formatted 96fdf8b4da04e656eb2822e1cf1920dc9ed2bed8924f5ba4d8ae30e0f72e920b
+subsequent approved interface cleanup: qualificationReason is made private; all production uses are in analysis-cohorts.ts. completed distributionRows test-only import checks are removed after the renderer made that helper private; root had already completed those checks.

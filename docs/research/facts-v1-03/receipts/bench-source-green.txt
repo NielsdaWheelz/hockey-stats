@@ -1,0 +1,2 @@
+{'source_index': 163, 'type': 'BEN', 'description': 'too-many-men-on-the-ice', 'duration_minutes': 2, 'roles': {'taken': {'player_id': None, 'disposition': 'not_recorded'}, 'drawn': {'player_id': None, 'disposition': 'not_recorded'}, 'served': {'player_id': 8480797, 'disposition': 'attributed'}}}
+pass source-explicit BEN with absent individual taker is not_recorded; served role remains attributed

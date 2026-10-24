@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "independent-coach-boundary-review",
+  "status": "pass",
+  "raw_game_checks": [
+    {
+      "game_id": "2022020744",
+      "game_date": "2023-01-21",
+      "side": "home",
+      "team_id": 23,
+      "reported_name": "Bruce Boudreau",
+      "source_pointer": "/gameInfo/homeTeam/headCoach/default",
+      "receipt_sha256": "f8f326a84d92e20f3f775ff5b95a56e0adc6116d883ed45fabe5b8eaa8f3bb9b",
+      "body_sha256": "4a91c959dbd09d5b3937eda43487dfbfbe8a37d4d28c8600364eba510442a283",
+      "six_core_source_files_byte_identical": true,
+      "supplemental_receipt_body_byte_identical": true,
+      "preserved_core_bytes": 1450595,
+      "inventory_and_selected_source_context_agree": true
+    },
+    {
+      "game_id": "2022020765",
+      "game_date": "2023-01-24",
+      "side": "home",
+      "team_id": 23,
+      "reported_name": "Rick Tocchet",
+      "source_pointer": "/gameInfo/homeTeam/headCoach/default",
+      "receipt_sha256": "0e2c94b74d3f0ea2bcdb7dc0c1b01814bcb0c88f57d307fceced821d68a1fd23",
+      "body_sha256": "3aa8ec2acbec256caa513ae4456fe271a02b05b3736eb19c2fa971d73eefbbfa",
+      "six_core_source_files_byte_identical": true,
+      "supplemental_receipt_body_byte_identical": true,
+      "preserved_core_bytes": 1487911,
+      "inventory_and_selected_source_context_agree": true
+    },
+    {
+      "game_id": "2023020077",
+      "game_date": "2023-10-21",
+      "side": "away",
+      "team_id": 52,
+      "reported_name": "Rick Bowness",
+      "source_pointer": "/gameInfo/awayTeam/headCoach/default",
+      "receipt_sha256": "199eecc6a36728fbe1b79d66ef3da5552a38a80bc95ad42dd7aaec2fd7857033",
+      "body_sha256": "a4bbbf9a06b4c87d9d5fbad30a35be6fe0cbfca70b3c62a27b472ba460a1466e",
+      "six_core_source_files_byte_identical": true,
+      "supplemental_receipt_body_byte_identical": true,
+      "preserved_core_bytes": 1798786,
+      "inventory_and_selected_source_context_agree": true
+    },
+    {
+      "game_id": "2023020093",
+      "game_date": "2023-10-24",
+      "side": "home",
+      "team_id": 52,
+      "reported_name": "Rick Bowness",
+      "source_pointer": "/gameInfo/homeTeam/headCoach/default",
+      "receipt_sha256": "d4787700a5c9444651a3c39e1a60889c582946c95ecb28f6132aa2c0b10e4c88",
+      "body_sha256": "682f193c3c177002045f48b8f7f6711d78d24e70c1fb0463c7216e8cb8e1bf7b",
+      "six_core_source_files_byte_identical": true,
+      "supplemental_receipt_body_byte_identical": true,
+      "preserved_core_bytes": 1509874,
+      "inventory_and_selected_source_context_agree": true
+    }
+  ],
+  "official_corroboration": [
+    {
+      "url": "https://www.nhl.com/canucks/news/canucks-changes-to-coaching-staff-340293164",
+      "announcement_date": "2023-01-22",
+      "checked_fact": "vancouver dismissed bruce boudreau and hired rick tocchet"
+    },
+    {
+      "url": "https://www.nhl.com/jets/news/head-coach-rick-bowness-to-take-leave-of-absence",
+      "announcement_date": "2023-10-23",
+      "checked_fact": "winnipeg announced rick bowness leave and scott arniel interim role"
+    }
+  ],
+  "interpretation": "permanent appointment boundary changes reported name; temporary absence example retains nominal reported head coach despite documented interim service",
+  "limits": [
+    "these feed fields do not establish bench attendance",
+    "official announcements corroborate meaning and do not replace source names",
+    "whole-census identity and final artifact acceptance pending"
+  ],
+  "reviewer_right_rail_requests": 0,
+  "reviewer_official_announcement_pages_opened": 2
+}

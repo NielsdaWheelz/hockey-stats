@@ -1,0 +1,116 @@
+{
+  "status": "passed_fixture",
+  "purpose": "fixture",
+  "controller_sha256": "bd1d500dbb029ecfdafcd9b90d10ef46c2a5a0a9f5207ab36de389e4d89ded9e",
+  "prepared_manifest_sha256": "2f4bd2bd134bf039cbd3a346b3d75d0812d02318f8344ebd169519d1703fdecf",
+  "facts_manifest_sha256": "86833e0dd6bf26b0ebeb621705c709084b610a0092f551368f37e9d4b48200a1",
+  "observed_selection_path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/observed-fixture.json",
+  "observed_selection_sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+  "method": "independent prepared membership/support/credit fold; public readers and original observed owner; no factual reducer calls",
+  "seasons": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "skaters": 201,
+      "checks": {
+        "inventory_games": 1312,
+        "status_reconstructed": 6,
+        "supported_skater_seconds": 214145,
+        "matched_goals": 15,
+        "matched_primary_assists": 15,
+        "status_missing_capture": 1306,
+        "usage_states": 703,
+        "scoring_states": 703,
+        "frozen_five_rows": 201,
+        "usage_groups": 1005,
+        "scoring_groups": 804,
+        "unclassified_rows": 201
+      }
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "skaters": 245,
+      "checks": {
+        "inventory_games": 1312,
+        "status_reconstructed": 9,
+        "supported_skater_seconds": 283848,
+        "known_state_unmatched_goals": 3,
+        "known_state_unmatched_primary_assists": 3,
+        "status_missing_capture": 1303,
+        "matched_goals": 17,
+        "matched_primary_assists": 17,
+        "usage_states": 828,
+        "scoring_states": 828,
+        "frozen_five_rows": 245,
+        "usage_groups": 1225,
+        "scoring_groups": 980,
+        "unclassified_rows": 245
+      }
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "skaters": 277,
+      "checks": {
+        "inventory_games": 1312,
+        "status_reconstructed": 9,
+        "supported_skater_seconds": 248680,
+        "matched_goals": 7,
+        "matched_primary_assists": 6,
+        "status_missing_capture": 1303,
+        "known_state_unmatched_goals": 10,
+        "known_state_unmatched_primary_assists": 10,
+        "usage_states": 815,
+        "scoring_states": 815,
+        "frozen_five_rows": 277,
+        "usage_groups": 1385,
+        "scoring_groups": 1108,
+        "unclassified_rows": 277
+      }
+    }
+  ],
+  "checks": {
+    "inventory_games": 3936,
+    "status_reconstructed": 24,
+    "supported_skater_seconds": 746673,
+    "matched_goals": 39,
+    "matched_primary_assists": 38,
+    "status_missing_capture": 3912,
+    "usage_states": 2346,
+    "scoring_states": 2346,
+    "frozen_five_rows": 723,
+    "usage_groups": 3615,
+    "scoring_groups": 2892,
+    "unclassified_rows": 723,
+    "known_state_unmatched_goals": 13,
+    "known_state_unmatched_primary_assists": 13
+  },
+  "wall_seconds": 71.40760987496469,
+  "maximum_resident_bytes": 1252737024,
+  "command": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-03",
+    "environment": {
+      "PYTHONPATH": "analysis/src"
+    },
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "var/v1-03/real-strength-closure.py",
+      "--purpose",
+      "fixture",
+      "--prepared",
+      "var/v1-03/prepared-fixture",
+      "--observed",
+      "var/v1-03/observed-fixture.json",
+      "--facts",
+      "var/v1-03/root-green-03/results",
+      "--out",
+      "docs/research/facts-v1-03/receipts/parameterized-strength-closure-fixture.json"
+    ]
+  },
+  "production_source_unchanged": {
+    "analysis/src/hockey_stats/descriptive.py": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+    "analysis/src/hockey_stats/microstats.py": "c36b2ffcb7e630e00545d7fc38632b7a8f96161fe577d6f06b725fe807ea807f",
+    "analysis/src/hockey_stats/scoring_credits.py": "d079e6b3055ea0d2248338f0a489eba4e252d9e70dd5ca9d94613eb270314bf3"
+  }
+}

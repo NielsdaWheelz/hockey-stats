@@ -1,0 +1,239 @@
+[
+  {
+    "filename": "hockey-stats-20232024-8473507-5v5.png",
+    "sha256": "f3ded747071e939d49fcab0b72fcbdf1971d37aa603d01041315751f1a48c975",
+    "bytes": 405831,
+    "dimensions": [
+      1200,
+      1695
+    ]
+  },
+  {
+    "filename": "hockey-stats-8473507-sog60-20232024-20252026-history-raw.png",
+    "sha256": "1bd7fe2e7d0841e5c5fc606dc1c8b28d2d55ffc110e30981de103f6c1bbf4f7c",
+    "bytes": 536733,
+    "dimensions": [
+      1200,
+      2172
+    ]
+  },
+  {
+    "filename": "hockey-stats-8473507-sog60-20232024-20252026-history.csv",
+    "sha256": "6db31447057b108f9f6c2406f90710e2d751fbb613dcb16a368d6b931eb75313",
+    "bytes": 3640,
+    "columns": 58,
+    "row_count": 3,
+    "checked_rows": [
+      {
+        "season": "20232024",
+        "player_id": "8473507",
+        "display_name": "Jeff Petry",
+        "value": "3.5749751737835154",
+        "percentile": "43.75",
+        "peer_group": "reported defense",
+        "cohort_n": "24",
+        "standing_reason": "",
+        "included_seconds": "1007"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8473507",
+        "display_name": "",
+        "value": "",
+        "percentile": "",
+        "peer_group": "",
+        "cohort_n": "",
+        "standing_reason": "absent season",
+        "included_seconds": ""
+      },
+      {
+        "season": "20252026",
+        "player_id": "8473507",
+        "display_name": "Jeff Petry",
+        "value": "4.787234042553192",
+        "percentile": "52.083333333333336",
+        "peer_group": "reported defense",
+        "cohort_n": "24",
+        "standing_reason": "",
+        "included_seconds": "752"
+      }
+    ]
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile.png",
+    "sha256": "3b2f0b610907d7bcc24c8dd57d484e8f936232c73d38d220f6e161001991d6d2",
+    "bytes": 623676,
+    "dimensions": [
+      1200,
+      2372
+    ]
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (1).png",
+    "sha256": "3b2f0b610907d7bcc24c8dd57d484e8f936232c73d38d220f6e161001991d6d2",
+    "bytes": 623676,
+    "dimensions": [
+      1200,
+      2372
+    ]
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history.csv",
+    "sha256": "5714d1155303341d46d039a2091da5d1ae376220a6e2106e4af4ddcf8ba46bc3",
+    "bytes": 3964,
+    "columns": 58,
+    "row_count": 3,
+    "checked_rows": [
+      {
+        "season": "20232024",
+        "player_id": "9000004",
+        "display_name": "fixture person 4",
+        "value": "-2.5",
+        "percentile": "50",
+        "peer_group": "goalies",
+        "cohort_n": "1",
+        "standing_reason": "",
+        "included_seconds": "18000"
+      },
+      {
+        "season": "20242025",
+        "player_id": "9000004",
+        "display_name": "fixture person 4",
+        "value": "",
+        "percentile": "",
+        "peer_group": "goalies",
+        "cohort_n": "",
+        "standing_reason": "not computed; later-season fixture family pending",
+        "included_seconds": ""
+      },
+      {
+        "season": "20252026",
+        "player_id": "9000004",
+        "display_name": "",
+        "value": "",
+        "percentile": "",
+        "peer_group": "",
+        "cohort_n": "",
+        "standing_reason": "absent season",
+        "included_seconds": ""
+      }
+    ]
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (2).png",
+    "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+    "bytes": 659911,
+    "dimensions": [
+      1200,
+      2449
+    ]
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history (1).csv",
+    "sha256": "60ba8f613096ff4a3a3e369fd214a12b1e2fbd1565895468e924e1fd4ec90f2d",
+    "bytes": 4064,
+    "columns": 58,
+    "row_count": 3,
+    "checked_rows": [
+      {
+        "season": "20232024",
+        "player_id": "9000004",
+        "display_name": "'=fixture goalie \"long, deliberately elaborate identity for checking wrapped history headers and spreadsheet text\"",
+        "value": "-2.5",
+        "percentile": "50",
+        "peer_group": "goalies",
+        "cohort_n": "1",
+        "standing_reason": "",
+        "included_seconds": "18000"
+      },
+      {
+        "season": "20242025",
+        "player_id": "9000004",
+        "display_name": "fixture person 4",
+        "value": "",
+        "percentile": "",
+        "peer_group": "goalies",
+        "cohort_n": "",
+        "standing_reason": "not computed; later-season fixture family pending",
+        "included_seconds": ""
+      },
+      {
+        "season": "20252026",
+        "player_id": "9000004",
+        "display_name": "",
+        "value": "",
+        "percentile": "",
+        "peer_group": "",
+        "cohort_n": "",
+        "standing_reason": "absent season",
+        "included_seconds": ""
+      }
+    ]
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (3).png",
+    "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+    "bytes": 659911,
+    "dimensions": [
+      1200,
+      2449
+    ]
+  },
+  {
+    "filename": "hockey-stats-8473507-8474564-for60-20232024-distribution.csv",
+    "sha256": "c8cef2741c73abffc96991782f204df9f988ce93740f31d7ee6c81069da49002",
+    "bytes": 72340,
+    "columns": 58,
+    "row_count": 72,
+    "checked_rows": [
+      {
+        "season": "20232024",
+        "player_id": "8473507",
+        "display_name": "Jeff Petry",
+        "value": "28.599801390268123",
+        "percentile": "2.0833333333333335",
+        "peer_group": "reported defense",
+        "cohort_n": "24",
+        "standing_reason": "",
+        "included_seconds": "1007"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8474564",
+        "display_name": "Steven Stamkos",
+        "value": "58.37837837837838",
+        "percentile": "48.958333333333336",
+        "peer_group": "reported forwards",
+        "cohort_n": "48",
+        "standing_reason": "",
+        "included_seconds": "740"
+      }
+    ],
+    "groups": {
+      "reported defense": 24,
+      "reported forwards": 48
+    }
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (4).png",
+    "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+    "bytes": 659911,
+    "dimensions": [
+      1200,
+      2449
+    ],
+    "mtime_epoch": 1792714386.018152,
+    "case": "native navigation during export; saved original2023selection, destination2024, visually inspected; identical bytes to preceding long-name2023png"
+  },
+  {
+    "filename": "hockey-stats-9000004-goalie.ev.stopping_goals_per100_on_net-20232024-20252026-history-percentile (5).png",
+    "sha256": "4ae92d4ef1d536dd691cd32045554043bb831fb4e6e2c855b2df14caf48cc409",
+    "bytes": 659911,
+    "dimensions": [
+      1200,
+      2449
+    ],
+    "mtime_epoch": 1792714562.0703204,
+    "case": "native navigation during export; saved original2023selection, destination2024, visually inspected; identical bytes to preceding long-name2023png"
+  }
+]

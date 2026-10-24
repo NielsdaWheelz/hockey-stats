@@ -1,0 +1,18 @@
+pass  league: one fixed observed cohort request, url season verbatim, no spatial selector
+pass  league: duplicate url seasons reach the server; typed 400 keeps tag and available seasons
+pass  profile: detail and cohort start together, then one selected-player observed map
+pass  profile: absolute map mode requests the complete view
+pass  profile: goalie requests no skater map and yields no skater values
+pass  profile: absent selected season keeps real history and requests no map
+pass  profile: present skater identity without observed facts is not a 500 and requests no map
+pass  profile: unknown person is a typed 404
+pass  composition: publication, season, map order, map view and join mismatches are logged 500s
+pass  comparison: cohort only until a valid distinct pair; one ordered map request
+pass  abort: route signal reaches fetch and the load does not resolve
+pass  render: present skater profile uses server scale, descending history and existing sections
+pass  render: goalie profile shows identity, history and required copy, never skater values
+pass  render: absent season keeps existing absence copy and historical name
+pass  render: present identity without observed facts shows identity and explicit no observed results
+pass  render: comparison names a non-skater selection without substitution; pair renders maps
+pass  render: league table lists the observed cohort
+17/17 checks passed

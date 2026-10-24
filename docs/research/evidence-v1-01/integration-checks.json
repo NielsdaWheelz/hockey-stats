@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "green": "single analysis entrypoint parsed by tomllib",
+      "name": "toml_duplicate_key",
+      "red": "duplicate hockey-stats-analysis rejected by tomllib before resolution"
+    },
+    {
+      "name": "cli_parser",
+      "result": "prepare, facts, publish help exit 0; absent command, abbreviated selection, duplicated selection exit 2"
+    },
+    {
+      "game_id": "2024020001",
+      "manifest_sha256": "d6f006a58e6a2a0fa0f427d63c26742916b0331874b3f7cfc7acc6aa0f2b0ae5",
+      "name": "one_game_prepare",
+      "result": "exit 0, fixture artifact complete; public manifest, game, people and coverage read successfully",
+      "season": "20242025",
+      "selection_sha256": "342a6c2b289a6c2ae87c5acd1b75d0fe4717b25bb84dfde0b8b5e6ae77800c8f"
+    },
+    {
+      "name": "retained_fixture_comparison",
+      "result": "game core and all person fields except selection-dependent history equal root-r6 public game read exactly"
+    },
+    {
+      "name": "facts_publish_error_routing",
+      "result": "both direct command imports return exit 1 for nonexistent observed selection; no output produced"
+    },
+    {
+      "evidence": [
+        "docs/research/publication-v1-13/verification.md",
+        "docs/research/facts-v1-03/verification.md"
+      ],
+      "name": "prior_downstream_fixture",
+      "result": "no second full native corpus pass for this merge because shared v1-01 owners match main stage except additive scoring_credits factual path"
+    }
+  ],
+  "code": {
+    "cli_sha256": "7895a458ed43a91b6cdf80f3ca56f6fbdf3cf67c619415ae00669912bd2d391d",
+    "pyproject_sha256": "469c5d31ba4376769c054922f11af1114fdae297e3ad22caa46189ed7c7b6d01",
+    "resolved_cli_equals_main_stage": true,
+    "scoring_credits_sha256": "d079e6b3055ea0d2248338f0a489eba4e252d9e70dd5ca9d94613eb270314bf3",
+    "v1_01_owner_modules_equal_main_stage_except_scoring_credits": true
+  },
+  "limits": [
+    "single selected game cannot produce factual results against a full 1312-game native observed corpus; facts and publish success remain covered by their prior fixture verification"
+  ],
+  "peer_review": {
+    "status": "pass",
+    "base_commit": "3b894b456f8e5117285c8bf8a182272cb9f6504e",
+    "scope": "read-only staged merge review of analysis_cli.py, scoring_credits.py and pyproject.toml; no original source or full-corpus read",
+    "comparison": "staged cli and scoring credits equal main; staged pyproject removes only main's duplicate hockey-stats-analysis key and retains one entry point",
+    "checked_sha256": {
+      "analysis_cli.py": "7895a458ed43a91b6cdf80f3ca56f6fbdf3cf67c619415ae00669912bd2d391d",
+      "scoring_credits.py": "d079e6b3055ea0d2248338f0a489eba4e252d9e70dd5ca9d94613eb270314bf3",
+      "pyproject.toml": "469c5d31ba4376769c054922f11af1114fdae297e3ad22caa46189ed7c7b6d01"
+    },
+    "semantics": "prepare, facts and publish cli routes and scoring actor/factual callers align; staged whitespace check clean"
+  },
+  "scope": "main integration of v1-01 preparation with facts and publication cli routes",
+  "status": "pass",
+  "temporary_deleted": {
+    "bytes": 57105664,
+    "files": 6,
+    "manifest_sha256": "d6f006a58e6a2a0fa0f427d63c26742916b0331874b3f7cfc7acc6aa0f2b0ae5",
+    "path": "var/v1-01-integration",
+    "selection_sha256": "342a6c2b289a6c2ae87c5acd1b75d0fe4717b25bb84dfde0b8b5e6ae77800c8f"
+  }
+}

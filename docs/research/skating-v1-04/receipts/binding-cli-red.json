@@ -1,0 +1,17 @@
+{
+  "description": "baseline module cli red check against unchanged HEAD package before skating.py exists; reproduced from the baseline git object after implementation",
+  "baseline_commit": "30a3da5dadd00d3aa49c60e5560f6221d4044498",
+  "command": [
+    "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.skating",
+    "--selection",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-04/fixtures/skating-v1-04/selection-real.json",
+    "--out",
+    "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-baseline-twszcjda/output"
+  ],
+  "pythonpath": "/private/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/skating-binding-baseline-twszcjda",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python: No module named hockey_stats.skating\n"
+}

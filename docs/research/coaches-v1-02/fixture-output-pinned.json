@@ -1,0 +1,20 @@
+{
+  "software_status": "pass",
+  "purpose": "fixture",
+  "source_sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+  "games": 49,
+  "slots": 98,
+  "independent_expected_dispositions": "all_match",
+  "artifact": "/Users/nnandal/Documents/code/hockey-stats-local/coaches-v1-02/fixture-pinned-20261022/coaches.json",
+  "artifact_sha256": "69d85391858bfb04de6c945b6a268488ddd8d864a6db039e23c396b4b4d8c35e",
+  "resources": {
+    "wall_seconds": 0.04026458301814273,
+    "peak_memory_bytes": 60686336,
+    "output_bytes": 50912
+  },
+  "implementation": {
+    "git_commit": "c33c10fce8b77e26b10dd1d435f2663a0ddaff38",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  }
+}

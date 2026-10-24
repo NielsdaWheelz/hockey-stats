@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "independent-real-probe-review",
+  "purpose": "real",
+  "status": "pass_probes_only",
+  "request_count_observed": 5,
+  "network_requests_by_reviewer": 0,
+  "probes": [
+    {
+      "season": "20212022",
+      "game_id": "2021020001",
+      "receipt_path": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20212022/2021020001/right-rail/capture.json",
+      "receipt_sha256": "507563a9d6af64d42ba1493226b8325cce9d077a6edd838852ecf6115f66b700",
+      "body_sha256": "5dcb8ace2121169508313846e4a3e0128bc8cccbeec2832ffe3242a77240cfbb",
+      "away_name": "Mike Sullivan",
+      "home_name": "Jon Cooper",
+      "selected_season_series_index": 0,
+      "html_report_links": 9,
+      "shift_chart_url": "https://www.nhl.com/stats/shiftcharts?id=2021020001",
+      "all_inventory_context_agrees": true
+    },
+    {
+      "season": "20222023",
+      "game_id": "2022020001",
+      "receipt_path": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20222023/2022020001/right-rail/capture.json",
+      "receipt_sha256": "4241478cf91e30ba0bfeb3ea79dffdf80a0c53f7bb9a8e61be8c41ca1f602007",
+      "body_sha256": "c819ce446b4b69e831b1bb632e73a3472795f4d023ca86e31c546d8c54021d87",
+      "away_name": "David Quinn",
+      "home_name": "John Hynes",
+      "selected_season_series_index": 0,
+      "html_report_links": 9,
+      "shift_chart_url": "https://www.nhl.com/stats/shiftcharts?id=2022020001",
+      "all_inventory_context_agrees": true
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "receipt_path": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20232024/2023020001/right-rail/capture.json",
+      "receipt_sha256": "114e82c0b0d18994853502beb5439ac46901a04441aa44393d07bb1e6b74689f",
+      "body_sha256": "4a7635daa3d314f13cafd7c02bd7e727c10ce8a7cae107f96493f85edd27af01",
+      "away_name": "Andrew Brunette",
+      "home_name": "Jon Cooper",
+      "selected_season_series_index": 0,
+      "html_report_links": 9,
+      "shift_chart_url": "https://www.nhl.com/stats/shiftcharts?id=2023020001",
+      "all_inventory_context_agrees": true
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001",
+      "receipt_path": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20242025/2024020001/right-rail/capture.json",
+      "receipt_sha256": "1ba99038af21a8d068223e81ae5214536ac92b9fcfb37b19bb4a3f93680bdf8e",
+      "body_sha256": "e022102d3eaddcbb9003587f9b00c72973553ebc5a7fb2513a4814e0b79d5f70",
+      "away_name": "Sheldon Keefe",
+      "home_name": "Lindy Ruff",
+      "selected_season_series_index": 0,
+      "html_report_links": 9,
+      "shift_chart_url": "https://www.nhl.com/stats/shiftcharts?id=2024020001",
+      "all_inventory_context_agrees": true
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020001",
+      "receipt_path": "/Volumes/Expansion/hockey-stats/captures/coaches-v1-02-20261022-01/20252026/2025020001/right-rail/capture.json",
+      "receipt_sha256": "e9558307eaeaf6ab9c938e34e0cc2afed51576464d240996fb4e2deb43903393",
+      "body_sha256": "284a2c05a55228e3bf16fd17478d5695df40f52e75ed0a8cd760e68a20901a28",
+      "away_name": "Jeff Blashill",
+      "home_name": "Paul Maurice",
+      "selected_season_series_index": 0,
+      "html_report_links": 9,
+      "shift_chart_url": "https://www.nhl.com/stats/shiftcharts?id=2025020001",
+      "all_inventory_context_agrees": true
+    }
+  ],
+  "blockers": [
+    "existing generic html-report validator rejects observed shiftChart URL",
+    "selected seasonSeries corroborators not yet pinned in existing parser"
+  ],
+  "limits": [
+    "five probes do not establish full-season access or acquisition completion",
+    "identity catalogue and change/absence review pending",
+    "no expansion reviewed yet"
+  ],
+  "independent_native_manifest_recheck": [
+    {
+      "season": "20212022",
+      "sha256": "30eb12b290ccd9af9eae7ade8c7dcd5f285129b52b646eec3fced3e2628badc8",
+      "games": 1312,
+      "probe_exact_native_record": true
+    },
+    {
+      "season": "20222023",
+      "sha256": "735c741115725e7c4fe8a28782f352c787895db5eea2123b2b7ec27b4db1e02a",
+      "games": 1312,
+      "probe_exact_native_record": true
+    },
+    {
+      "season": "20232024",
+      "sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "games": 1312,
+      "probe_exact_native_record": true
+    },
+    {
+      "season": "20242025",
+      "sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "games": 1312,
+      "probe_exact_native_record": true
+    },
+    {
+      "season": "20252026",
+      "sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "games": 1312,
+      "probe_exact_native_record": true
+    }
+  ]
+}

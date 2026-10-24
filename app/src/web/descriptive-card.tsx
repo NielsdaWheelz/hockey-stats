@@ -1,6 +1,11 @@
 import { useRef, useState, type ReactNode } from "react";
-import type { PlayerSummary, Publication, SeasonEvidence } from "../shared/observed";
+import type {
+  PlayerSummary,
+  Publication,
+  SeasonEvidence,
+} from "../shared/observed";
 import type { PeerSettings } from "./explorer";
+import { downloadBlob, svgPng } from "./export";
 import {
   formatPercentile,
   metricDefinition,
@@ -429,7 +434,8 @@ export function cardSvg({ comparison, publication, season }: Card): string {
       20,
     );
     paragraph(
-      season.source_requested_min !== null && season.source_requested_max !== null
+      season.source_requested_min !== null &&
+        season.source_requested_max !== null
         ? `season source retrieval: ${season.source_requested_min} to ${season.source_requested_max}; ${season.undated_sources} undated receipts.`
         : `season source retrieval interval unavailable; ${season.undated_sources} undated receipts.`,
       20,
@@ -449,38 +455,7 @@ export function cardSvg({ comparison, publication, season }: Card): string {
   }
 }
 
-export async function cardPng(card: Card): Promise<Blob> {
-  const svg = cardSvg(card);
-  const source = URL.createObjectURL(
-    new Blob([svg], { type: "image/svg+xml;charset=utf-8" }),
-  );
-  try {
-    const image = new Image();
-    await new Promise<void>((resolve, reject) => {
-      image.onload = () => resolve();
-      image.onerror = () =>
-        reject(new Error("the card image could not be rendered"));
-      image.src = source;
-    });
-    const canvas = document.createElement("canvas");
-    canvas.width = image.naturalWidth;
-    canvas.height = image.naturalHeight;
-    const context = canvas.getContext("2d");
-    if (!context) throw new Error("image rendering is unavailable");
-    context.drawImage(image, 0, 0);
-    return await new Promise<Blob>((resolve, reject) =>
-      canvas.toBlob(
-        (blob) =>
-          blob
-            ? resolve(blob)
-            : reject(new Error("the png could not be created")),
-        "image/png",
-      ),
-    );
-  } finally {
-    URL.revokeObjectURL(source);
-  }
-}
+export const cardPng = (card: Card): Promise<Blob> => svgPng(cardSvg(card));
 
 export default function DescriptiveCard({
   comparison,
@@ -545,20 +520,10 @@ export default function DescriptiveCard({
             try {
               const snapshot = { comparison, publication, season };
               const blob = await cardPng(snapshot);
-              const url = URL.createObjectURL(blob);
-              try {
-                const link = document.createElement("a");
-                link.href = url;
-                link.download = `hockey-stats-${snapshot.season.season}-${snapshot.comparison.cards[0]!.player.player_id}-5v5.png`;
-                document.body.append(link);
-                try {
-                  link.click();
-                } finally {
-                  link.remove();
-                }
-              } finally {
-                window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-              }
+              downloadBlob(
+                blob,
+                `hockey-stats-${snapshot.season.season}-${snapshot.comparison.cards[0]!.player.player_id}-5v5.png`,
+              );
               setState("saved");
             } catch {
               setState("failed");

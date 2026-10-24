@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "pr": {
+    "number": 52,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/52",
+    "head": "65645644361d02682cd882d9222704c44a303e86",
+    "merge": "95ea485c165a6eec75b271828c66d58d93afff95",
+    "merged_at": "2026-10-23T03:07:50Z",
+    "reviewed_tree": "9ea2314c757df792770c00aa05c6c8853ed49ff9",
+    "merge_tree": "9ea2314c757df792770c00aa05c6c8853ed49ff9",
+    "reviewed_merge_tree_equal": true,
+    "hosted_check": "GitGuardian Security Checks: SUCCESS"
+  },
+  "integration": {
+    "source_review": "integration-independent.json; final exact-tree review retained externally",
+    "pinned_typecheck": "pass on integrated task and synchronized primary",
+    "fixture_games": 49,
+    "expected_fixture_slots": 98,
+    "prior_fixture_game_records": "identical",
+    "shared_reader_groups": 5,
+    "independent_groups": 3,
+    "shared_reader_sha256": "8571b6cef87c991a41a0f2c666828bec31a1d37a07b3156569e3bb0ee8a69e4e"
+  },
+  "cleanup": {
+    "status": "pass",
+    "worktree_removed": "/Users/nnandal/Documents/code/hockey-stats-v1-02",
+    "local_branch_removed": "implement/v1-02-dated-coaches",
+    "remote_branch_removed": "implement/v1-02-dated-coaches",
+    "task_alias_created": false,
+    "cheap_fixture_root_removed": "/Users/nnandal/Documents/code/hockey-stats-local/coaches-v1-02",
+    "cheap_fixture_files_removed": 9,
+    "cheap_fixture_bytes_removed": 440226,
+    "scratch_removed": [
+      "/tmp/hockey-v1-02-integration",
+      "/tmp/hockey-v1-02-pr-body.md"
+    ],
+    "task_cache_removed": "/Users/nnandal/Documents/code/hockey-stats-v1-02/analysis/src/hockey_stats/__pycache__",
+    "retained_real_artifact": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "retained_worktrees": "worktree /Users/nnandal/Documents/code/hockey-stats\nHEAD 95ea485c165a6eec75b271828c66d58d93afff95\nbranch refs/heads/main\n\nworktree /Users/nnandal/Documents/code/hockey-stats-v1-01\nHEAD 5503c7bc2f9883546a2e6da6d90684d2afc12eae\nbranch refs/heads/v1-01-shared-evidence",
+    "stashes_unchanged": true
+  },
+  "preservation": {
+    "protected_serving_files": 30,
+    "hash_size_mtime": "unchanged",
+    "original_process": "unchanged",
+    "real_artifact": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "real_games_after_task_removal": 6560,
+    "resolved_slots_after_task_removal": 13120,
+    "implementation_commit_in_main_ancestry": true,
+    "external_captures_native_inputs_fits_and_receipts": "retained",
+    "no_activation": true
+  },
+  "external_evidence": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/pr-delivery",
+  "independent_postmerge_review": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/pr-delivery/post-merge-independent-review.json",
+    "sha256": "e8d27b484c9ac1af1c7d8e1fff1a17f5f61f23ee5e9d7e0b011182a8d50e84d9",
+    "status": "clear"
+  }
+}

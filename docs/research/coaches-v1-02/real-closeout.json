@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "software_status": "pass",
+  "acquisition_status": "complete",
+  "admission": "usable_with_documented_gaps",
+  "native_manifests_rehashed": 5,
+  "protected_files": 483,
+  "protected_hashes_and_mtimes": "unchanged",
+  "source_sha256": {
+    "analysis/src/hockey_stats/coaches.py": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+    "analysis/src/hockey_stats/captures.py": "21ea6b23b6748c67d13bbc52f65ebb39ed79bf74df8a083e4b7d8cea6fe0808a",
+    "app/src/operator/capture.ts": "54e98fbf7cb4ddbe46661ddb601f8e68e4a5c52b02d93a748e82540e105869f9",
+    "app/src/operator/cli.ts": "cb645beb477a0cadb5214ecec32686f62a24da9abb908c1d798656456fa3b656",
+    "app/src/operator/capture-report.ts": "9e7e9e3c5ecb27bfd6c7589194e53b8f8e003e327d5b00ad33494da457d8cf57"
+  },
+  "identity_table_sha256": "39ae4a471863f15ed4526c525f9af5c38a6974e6a4cd2419d9dcb22c449d7694",
+  "artifact": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+  "artifact_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+  "artifact_implementation": {
+    "git_commit": "947b16d371501bf436b8d876afbad02ac7df1758",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "independent_final_acceptance": "six groups pass; all 6560 raw captures and 13120 assignments checked",
+  "identity_review": "65 exact identities/aliases,184 selected anchors; complete manual and independent cohort review",
+  "temporary_tooling": {
+    "schema_version": 1,
+    "status": "pass",
+    "deleted_at": "2026-10-23T02:53:51.299885+00:00",
+    "manifest": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/temporary-cleanup-manifest.json",
+    "deleted_roots_or_files": 22,
+    "deleted_files": 110,
+    "dependency_symlink": "removed; target unchanged",
+    "temporary_identity_tooling": "already removed by identity owner; separate receipt identity-review-final/temporary-tooling-deletion.json",
+    "retained_receipts": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/temporary-verification-receipts",
+    "external_captures_and_artifact": "retained",
+    "test_only_dependencies_added": false
+  },
+  "fixture_copy_files": 66,
+  "fixture_copy_bytes": 6299508,
+  "fixture_available_source_pairs": 274,
+  "typescript_check": {
+    "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-02/app",
+    "exit_code": 0
+  },
+  "test_only_dependencies_added": false,
+  "core_recapture": false,
+  "fit": false,
+  "publication_change": false,
+  "site_build": false,
+  "activation": false,
+  "unresolved_v1_02_issues": [],
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-02",
+  "branch": "implement/v1-02-dated-coaches",
+  "scope": "source implementation and real acceptance; branch retained for review"
+}

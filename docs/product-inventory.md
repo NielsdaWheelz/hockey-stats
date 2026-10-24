@@ -86,7 +86,7 @@ content owner: analytical skater sheet under spatial/execution plus shared summa
 | d12 teammate/opponent context scatter | `skater_context` F/D usage-band coordinates, raw weighted usage and coverage | e/p; pair seconds already exist; reported counterpart usage/ranks are new factual reduction, not fitted quality |
 | d13 history/evidence/footer | annual factual rows and game records, source/coverage/unit/reference keys | e/p; three-season table/selected-field history, required method/support text in png |
 
-content owner: descriptive card with context/history owners. retain its two scatter panels and lower compositional bars/context scatter; a generic stats table alone does not close it. [factual appendix](specs/experimental-card-facts.md) defines each numerator/exposure and new source check.
+content owner: descriptive card with context/history owners. retain its two scatter panels and lower compositional bars/context scatter; a generic stats table alone does not close it. [factual appendix](specs/experimental-card-facts.md) defines each numerator/exposure and new source check. [v1-03](specs/v1-03-factual-card-reductions.md) supplies the shared factual reductions and source/context rows; v1-16 owns the full composition, so producer verification alone does not close this card.
 
 #### goalie — public saving/type/danger examples and documented subskills
 
@@ -121,7 +121,7 @@ content owner: goalie card/details with shared rink/history. default modeled sto
 | embedded component history | three annual 5v5 offense/defense/finishing percentiles/magnitudes | m; same ledger values, no three-year forecast/trailing average |
 | footer/detail/export | common metadata, explicit observed/model tiles, n/cutoff, workload/prior-only roles; all ten components in detail | m/e/p; full-card png includes both histories |
 
-content owner: compact card/cohort plus shared history/export. the ten tiles are fixed; setting/territory stay in the complete analytical card and ledger detail rather than silently enter an undocumented extra total.
+content owner: compact card/cohort plus shared history/export. the ten tiles are fixed; setting/territory stay in the complete analytical card and ledger detail rather than silently enter an undocumented extra total. [v1-15](specs/v1-15-comparative-card-discovery.md) fixes complete composition, discovery, two-card comparison and exports over schema7; fixture software acceptance and real v1-03/06/12 card closure remain separate receipts.
 
 #### microstat skater — s02 and documented F/D variants
 
@@ -159,7 +159,7 @@ all twenty-nine unique fields below have their exact construction, evidence clas
 | possession-entry denial / `possession_entry_denial_fraction` | d | t |
 | blocking share / `blocked_attempt_share` | d | p |
 
-six fields are constructible from admitted events plus specified execution; skating is a separate unresolved acquisition task; twenty-two fields need absent tracking. no claim that every possible public dataset is inaccessible. raw preservation, prepared facts, encoding, exercised implementation, activation and scientific support remain separate. [source limitations](issues/microstat-inputs.md) records the checked access boundary and what would resolve it.
+six fields are constructible from admitted events plus specified execution; skating is a separate unresolved acquisition task; twenty-two fields need absent tracking. [v1-04](specs/v1-04-skating-source-feasibility.md) specifies bounded skating probes and a costed acquisition handoff; [current inspection](research/skating-v1-04/source-audit.md) does not admit values or a percentile population. v1-17 retains publication/cohort/card integration. no claim that every possible public dataset is inaccessible. raw preservation, prepared facts, encoding, exercised implementation, activation and scientific support remain separate. [source limitations](issues/microstat-inputs.md) records the checked access boundary and what would resolve it.
 
 complete microstat content includes identity/season, four grouped field sections, raw units and available percentiles/distributions, annual field history in detail, source attribution/coverage, unavailable reasons and full-card png. higher percentile means higher raw quantity; mixed units are explicit. missing observations get no numeric value/rank, not a bottom-percentile color. public-guide component context requires the comparative six-component strip within microstat detail; it adds no second value model. no tracking gap excuses omission of available unblocked shots, hits or blockers.
 

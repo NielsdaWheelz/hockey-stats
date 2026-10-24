@@ -1,0 +1,20 @@
+[
+  {
+    "argv": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-m",
+      "hockey_stats.analysis_cli",
+      "facts",
+      "--prepared",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+      "--observed",
+      "var/v1-03/observed-fixture.json",
+      "--out",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-red/results"
+    ],
+    "returncode": 1,
+    "seconds": 0.17369433300336823,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 203, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_cli.py\", line 51, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_cli.py\", line 34, in main\n    from .descriptive import build_factual_results\nImportError: cannot import name 'build_factual_results' from 'hockey_stats.descriptive' (/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/descriptive.py)\n"
+  }
+]

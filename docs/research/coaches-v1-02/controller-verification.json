@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "results": [
+    {
+      "name": "reuse-403",
+      "requests": 3,
+      "counts": {
+        "requested": 3,
+        "reused": 1,
+        "deferred": 2,
+        "unsuccessful": 1
+      },
+      "dispositions": [
+        "capture",
+        "capture",
+        "capture",
+        "probe_deferred",
+        "probe_deferred",
+        "capture"
+      ]
+    },
+    {
+      "name": "429",
+      "requests": 2,
+      "counts": {
+        "requested": 2,
+        "reused": 0,
+        "deferred": 1,
+        "unsuccessful": 1
+      },
+      "dispositions": [
+        "capture",
+        "probe_deferred",
+        "capture"
+      ]
+    },
+    {
+      "name": "transport-reset",
+      "requests": 5,
+      "counts": {
+        "requested": 5,
+        "reused": 0,
+        "deferred": 1,
+        "unsuccessful": 3
+      },
+      "dispositions": [
+        "capture",
+        "capture",
+        "capture",
+        "capture",
+        "probe_deferred",
+        "capture"
+      ]
+    },
+    {
+      "name": "transport-timeout",
+      "requests": 3,
+      "counts": {
+        "requested": 3,
+        "reused": 0,
+        "deferred": 1,
+        "unsuccessful": 2
+      },
+      "dispositions": [
+        "capture",
+        "capture",
+        "probe_deferred",
+        "capture"
+      ]
+    },
+    {
+      "name": "occupied-preflight",
+      "requests": 0,
+      "preflight": "/Users/nnandal/Documents/code/hockey-stats-v1-02/app/.v1-02-capture-temp.ts:45\n      if (exists) throw new Error(`new capture directory is occupied: ${game.capture_directory}`);\n                        ^\n\nError: new capture directory is occupied: /var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v102-occupied-preflight-wMiLyN/capture-2021020001\n    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-02/app/.v1-02-capture-temp.ts:45:25)\n\nNode.js v24.21.0"
+    }
+  ]
+}

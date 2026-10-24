@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import type { LeagueResponse, PlayerResponse } from "../shared/observed";
+import type { ComparisonView, LeagueView, ProfileView } from "./client";
 import {
   Link,
   Links,
@@ -18,17 +18,18 @@ import { pendingSeasonChange, seasonSearch, viewSearch } from "./explorer";
 
 export const links = () => [{ rel: "stylesheet", href: stylesheet }];
 export const meta = () => [
-  { title: "hockey statistics · recorded results" },
+  { title: "hockey statistics · published player analysis" },
   {
     name: "description",
-    content: "included 5v5 recorded results and source coverage",
+    content:
+      "published observations, experimental estimates and their evidence",
   },
 ];
 
 export function Layout({ children }: { readonly children: ReactNode }) {
-  const league = useRouteLoaderData<LeagueResponse>("routes/league");
-  const player = useRouteLoaderData<PlayerResponse>("routes/player");
-  const comparison = useRouteLoaderData<LeagueResponse>("routes/compare");
+  const league = useRouteLoaderData<LeagueView>("routes/league");
+  const player = useRouteLoaderData<ProfileView>("routes/player");
+  const comparison = useRouteLoaderData<ComparisonView>("routes/compare");
   const data = player ?? league ?? comparison;
   const season = data?.season.season;
   const location = useLocation();
@@ -39,6 +40,20 @@ export function Layout({ children }: { readonly children: ReactNode }) {
     pending.length === 1 && data?.available_seasons.includes(pending[0]!)
       ? pending[0]!
       : season;
+  const leagueState = typeof location.state?.leagueSearch === "string"
+    ? location.state.leagueSearch : "";
+  const leagueSearch = season
+    ? seasonSearch(location.pathname === "/" ? location.search : leagueState, season)
+    : new URLSearchParams();
+  for (const key of ["peers", "peerMin", "specialtyMin", "history", "metric"]) {
+    const value = new URLSearchParams(location.search).get(key);
+    if (value !== null) leagueSearch.set(key, value);
+  }
+  const recordedSearch = new URLSearchParams(leagueSearch);
+  recordedSearch.set("table", "observed");
+  recordedSearch.delete("strength");
+  recordedSearch.delete("sort");
+  recordedSearch.delete("dir");
   const changingSeason =
     navigation.state !== "idle" &&
     pendingSeasonChange(location, navigation.location);
@@ -62,20 +77,31 @@ export function Layout({ children }: { readonly children: ReactNode }) {
           skip to results
         </a>
         <div className="sheet">
+          {data?.publication.purpose === "fixture" && (
+            <p className="fixture-banner" role="note">
+              fixture publication · development evidence, not real results
+            </p>
+          )}
           <header className="site-heading">
             <p className="eyebrow">
               <Link to={season ? `/?${seasonSearch("", season)}` : "/"}>
-                hockey statistics / included results
+                hockey statistics / player analysis
               </Link>
             </p>
             <h1>
-              {season && !changingSeason && `${seasonLabel(season)} · `}regular season · 5v5 recorded
-              results
+              {season && !changingSeason && `${seasonLabel(season)} · `}regular
+              season · published player analysis
             </h1>
             <p>
-              personal production and team attempts while on ice; unadjusted for
-              teammates, opponents, score or deployment.
+              recorded results and experimental estimates retain their own
+              populations, numerical references and support.
             </p>
+            {data && (
+              <nav className="site-navigation" aria-label="player analysis navigation">
+                <Link to={`/?${leagueSearch}`}>player tables</Link>
+                <Link to={`/?${recordedSearch}`}>recorded 5v5 table</Link>
+              </nav>
+            )}
             {data && (
               <div className="season-control">
                 <label htmlFor="season-selection">season</label>
@@ -108,7 +134,8 @@ export function Layout({ children }: { readonly children: ReactNode }) {
           </header>
           {children}
           <footer>
-            source-supported observations · no estimate of player ability
+            observations and experimental estimates · limitations belong to each
+            quantity
           </footer>
         </div>
         <ScrollRestoration />
@@ -121,7 +148,7 @@ export function Layout({ children }: { readonly children: ReactNode }) {
 export function HydrateFallback() {
   return (
     <main id="main">
-      <p role="status">loading recorded results…</p>
+      <p role="status">loading published results…</p>
     </main>
   );
 }
@@ -140,7 +167,7 @@ export default function App() {
   return (
     <main id="main" ref={main} tabIndex={-1}>
       {changingPage ? (
-        <p role="status">loading recorded results…</p>
+        <p role="status">loading published results…</p>
       ) : (
         <Outlet />
       )}

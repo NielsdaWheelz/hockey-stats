@@ -1,12 +1,10 @@
 import { useId } from "react";
-import type {
-  PlayerSpatialCell,
-  PlayerSummary,
-  SpatialSelection,
-} from "../shared/observed";
+import type { PlayerSpatialCell, SpatialSelection } from "../shared/observed";
+import type { ObservedMaps } from "./client";
 import type { MapMode } from "./explorer";
 import {
   CoverageDetail,
+  type PlayerIdentity,
   Minutes,
   Quantity,
   playerName,
@@ -98,41 +96,29 @@ function Rink({
 }
 
 export default function SpatialViews({
-  spatial,
+  maps,
   players,
   season,
   mode,
   onModeChange,
 }: {
-  readonly spatial: SpatialSelection | null;
-  readonly players: readonly PlayerSummary[];
+  readonly maps: ObservedMaps | null;
+  readonly players: readonly PlayerIdentity[];
   readonly season: string;
   readonly mode: MapMode;
   readonly onModeChange: (mode: MapMode) => void;
 }) {
   const id = useId();
+  const spatial = maps?.selection ?? null;
   const selected = players.map((player) => ({
     player,
     data:
       spatial?.players.find((row) => row.player_id === player.player_id)
         ?.data ?? null,
   }));
-  let maximum = 0;
-  let available = false;
-  for (const { data } of selected) {
-    if (!data?.cells) continue;
-    available = true;
-    for (const cell of data.cells)
-      for (const direction of ["for", "against"] as const)
-        maximum = Math.max(
-          maximum,
-          Math.abs(
-            cell[
-              `${direction}_${mode === "absolute" ? "density" : "difference"}`
-            ],
-          ),
-        );
-  }
+  // the publication owns the shared scale: [-m,m] for differences, [0,m] for absolute rates.
+  const maximum = maps?.scale.maximum ?? 0;
+  const available = selected.some(({ data }) => data?.cells);
   const extent = maximum || 1;
   const support = spatial?.league_support;
   return (
@@ -217,7 +203,11 @@ export default function SpatialViews({
         totals: attempts per 60 spatial minutes.
       </p>
       {available && (
-        <div className="spatial-legend" role="group" aria-label="shared map legend">
+        <div
+          className="spatial-legend"
+          role="group"
+          aria-label="shared map legend"
+        >
           <p>
             {mode === "difference"
               ? "difference from included league average"

@@ -1,0 +1,154 @@
+{
+  "production_requests_by_reviewer": 0,
+  "observed_shape": "actual primary json with candidate raw fields and incomplete aggregate context",
+  "seasons": [
+    {
+      "season": "20232024",
+      "http_status": 200,
+      "bytes": 9478,
+      "body_sha256": "047c9a7ef6ef4e65cff78bee1b0e69cd1acfb16b1da954d5458ddda130019a19",
+      "top_level_keys": [
+        "topSkatingSpeeds",
+        "skatingSpeedDetails"
+      ],
+      "candidate_raw_fields": {
+        "/skatingSpeedDetails/maxSkatingSpeed/imperial": 24.191,
+        "/skatingSpeedDetails/bursts20To22/value": 390,
+        "/skatingSpeedDetails/burstsOver22/value": 66
+      },
+      "overlay": {
+        "player": {
+          "firstName": {
+            "default": "Connor"
+          },
+          "lastName": {
+            "default": "McDavid"
+          }
+        },
+        "gameDate": "2024-04-05",
+        "awayTeam": {
+          "abbrev": "COL",
+          "score": 2
+        },
+        "homeTeam": {
+          "abbrev": "EDM",
+          "score": 6
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        },
+        "periodDescriptor": {
+          "maxRegulationPeriods": 3,
+          "number": 1,
+          "periodType": "REG"
+        },
+        "timeInPeriod": "19:18",
+        "gameType": 2
+      },
+      "aggregate_player_id_present": false,
+      "aggregate_season_id_present": false,
+      "aggregate_game_type_present": false,
+      "verdict": "context_unresolved",
+      "reason": "max-event identity/date/game type corroborate an event; no aggregate identity/season/regular-season scope is asserted in the received report"
+    },
+    {
+      "season": "20242025",
+      "http_status": 200,
+      "bytes": 9673,
+      "body_sha256": "f588738066e430839ffb201cedc6d64e2da3ffa21f1111111d91fa02008c116d",
+      "top_level_keys": [
+        "topSkatingSpeeds",
+        "skatingSpeedDetails"
+      ],
+      "candidate_raw_fields": {
+        "/skatingSpeedDetails/maxSkatingSpeed/imperial": 23.969,
+        "/skatingSpeedDetails/bursts20To22/value": 359,
+        "/skatingSpeedDetails/burstsOver22/value": 83
+      },
+      "overlay": {
+        "player": {
+          "firstName": {
+            "default": "Connor"
+          },
+          "lastName": {
+            "default": "McDavid"
+          }
+        },
+        "gameDate": "2024-12-31",
+        "awayTeam": {
+          "abbrev": "UTA",
+          "score": 1
+        },
+        "homeTeam": {
+          "abbrev": "EDM",
+          "score": 4
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        },
+        "periodDescriptor": {
+          "maxRegulationPeriods": 3,
+          "number": 2,
+          "periodType": "REG"
+        },
+        "timeInPeriod": "08:49",
+        "gameType": 2
+      },
+      "aggregate_player_id_present": false,
+      "aggregate_season_id_present": false,
+      "aggregate_game_type_present": false,
+      "verdict": "context_unresolved",
+      "reason": "max-event identity/date/game type corroborate an event; no aggregate identity/season/regular-season scope is asserted in the received report"
+    },
+    {
+      "season": "20252026",
+      "http_status": 200,
+      "bytes": 9456,
+      "body_sha256": "87f706f5e2d18a7133ab8fd936ada756a6045ec3789b05f59fdb068328b6eacd",
+      "top_level_keys": [
+        "topSkatingSpeeds",
+        "skatingSpeedDetails"
+      ],
+      "candidate_raw_fields": {
+        "/skatingSpeedDetails/maxSkatingSpeed/imperial": 24.6119,
+        "/skatingSpeedDetails/bursts20To22/value": 530,
+        "/skatingSpeedDetails/burstsOver22/value": 151
+      },
+      "overlay": {
+        "player": {
+          "firstName": {
+            "default": "Connor"
+          },
+          "lastName": {
+            "default": "McDavid"
+          }
+        },
+        "gameDate": "2025-10-08",
+        "awayTeam": {
+          "abbrev": "CGY",
+          "score": 4
+        },
+        "homeTeam": {
+          "abbrev": "EDM",
+          "score": 3
+        },
+        "gameOutcome": {
+          "lastPeriodType": "SO"
+        },
+        "periodDescriptor": {
+          "maxRegulationPeriods": 3,
+          "number": 2,
+          "periodType": "REG"
+        },
+        "timeInPeriod": "08:04",
+        "gameType": 2
+      },
+      "aggregate_player_id_present": false,
+      "aggregate_season_id_present": false,
+      "aggregate_game_type_present": false,
+      "verdict": "context_unresolved",
+      "reason": "max-event identity/date/game type corroborate an event; no aggregate identity/season/regular-season scope is asserted in the received report"
+    }
+  ],
+  "successful_production_adapter_exercised": false
+}

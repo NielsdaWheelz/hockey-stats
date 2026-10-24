@@ -1,0 +1,10 @@
+{
+  "checks": 5,
+  "passed": [
+    "people missing primary key",
+    "source nonobject row",
+    "method missing primary key",
+    "support wrong key type",
+    "fact missing primary key"
+  ]
+}

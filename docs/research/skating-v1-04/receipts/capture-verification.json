@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "owner": "skating capture",
+  "live_requests": 0,
+  "runtime": {
+    "node": "24.21.0",
+    "node_path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "dependencies": "existing pinned primary app/node_modules through worktree symlink"
+  },
+  "commands": [
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-04",
+      "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /tmp/hockey-skating-capture-eiDfZm/check.mjs docs/research/skating-v1-04/receipts/capture-red.json",
+      "result": "expected red: missing cli and npm registration; 9 failures, 18 vacuous pre-implementation rejection passes"
+    },
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-04",
+      "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /tmp/hockey-skating-capture-eiDfZm/check.mjs docs/research/skating-v1-04/receipts/capture-green.json",
+      "result": "green: 29 passed, 0 failed, 0 live requests"
+    },
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-04",
+      "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /tmp/hockey-skating-capture-eiDfZm/compatibility.mjs docs/research/skating-v1-04/receipts/capture-compatibility.json",
+      "result": "green: 3 passed, 0 failed, 0 live requests"
+    },
+    {
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-04/app",
+      "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node node_modules/typescript/bin/tsc -p tsconfig.json",
+      "exit_code": 0
+    }
+  ],
+  "temporary_controllers": [
+    {
+      "path": "/tmp/hockey-skating-capture-eiDfZm/check.mjs",
+      "sha256": "27930b8bd85e90a77e24a1bdbb2b904873c83d09155a65bed2fb36ef277c0daa"
+    },
+    {
+      "path": "/tmp/hockey-skating-capture-eiDfZm/transport.mjs",
+      "sha256": "26db6da770a2970f21900748452e3dd351616f18bbf2f809c9ce11ef78c28491"
+    },
+    {
+      "path": "/tmp/hockey-skating-capture-eiDfZm/compatibility.mjs",
+      "sha256": "a7e62f20bf76a3429f9f739e3bf7107807e4944c1054eadcd6d228f2c9fac66f"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "app/src/operator/skating-capture.ts",
+      "sha256": "e809470a17b8558d8bd0cb99c4fa05115c6ffe25033e5df82c9138cbd5f240cb"
+    },
+    {
+      "path": "app/src/operator/skating-cli.ts",
+      "sha256": "308ff83adb0ea85e17e6b70d0b13ea4e75cc8e0e30eb510811510b8f1e872515"
+    },
+    {
+      "path": "app/src/operator/capture.ts",
+      "sha256": "08965371801211f4d88247c4b53a412296c545ee9f1e349caab5965ebba21c22"
+    },
+    {
+      "path": "app/package.json",
+      "sha256": "a6c6b5deadbc1f76e98038ea048d03719643f6f95bef9ed0e07a0611195b7980"
+    }
+  ],
+  "limits": [
+    "controlled fetch proves software behavior only; it supplies no primary skating measurement or source-schema evidence",
+    "temporary checks retained pending root review and final rerun; no permanent test harness",
+    "compatibility driver initially used an incorrect local dependency path; corrected to the installed effect/dist/http module before the green receipt"
+  ]
+}

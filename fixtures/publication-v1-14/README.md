@@ -1,0 +1,7 @@
+# history, cohort and export fixture
+
+reuse the frozen [v1-13 exchange and six captured games](../publication-v1-13/README.md). recorded observations retain their capture attribution; analytical constants and deliberately altered interface cases are synthetic. these inputs establish browser behavior, not real analytical card completion or scientific support.
+
+the task's disposable candidate reconstructs the same six captures in its own worktree, explicitly marks the generated corpora `purpose:fixture`, and rebinds a disposable copy of the results manifest to those corpus hashes. analytical member bytes remain identical to v1-13. the original exchange, captured bodies and receipts are unchanged. generated corpora, candidate sqlite and temporary controllers are not committed fixture members.
+
+[checked facts](checked-facts.json) record the finite inventory and independently calculated scalar/cohort expectations. [composition cases](composition-checked-facts.json) retain declared annual transformations and request expectations. [browser cases](browser-cases.json) retain the explicit synthetic goalie values and long formula-like identity used by the disposable browser proxy; the frozen v1-13 goalie contains no provided ev/pk magnitude. [verification](../../docs/research/application-v1-14/verification.md) records the exercised boundaries, exact identities and limitations. runtime mutations exercise support thresholds, positions, definitions and failures without replacing original evidence.

@@ -3,7 +3,7 @@
   "recipe": {
     "name": "experimental-v1",
     "version": "execution-v1-05-1",
-    "sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+    "sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
     "definition": {
       "version": "execution-v1-05-1",
       "heads": {
@@ -339,6 +339,12 @@
           "recent_exists"
         ],
         "preceding_status_rule": "one shared unavailable indicator; producer status recent requires complete applicable preceding facts; none remains structural absence",
+        "strength_transition": [
+          "previous_strength:same_fewer",
+          "previous_strength:same_more",
+          "return_to_5v5_age_seconds/60"
+        ],
+        "strength_transition_rule": "one shared unavailable indicator; strict query returns known side and age together when a return exists, known structural absence when none exists, otherwise all unavailable",
         "independent_fields": "separate supported selected counter/sequence fields retain their own availability; do not group empirical co-missingness"
       },
       "setter_definition": {
@@ -396,7 +402,7 @@
       }
     }
   },
-  "producer_commit": "f123566f2e2ccfe139e30fd3a29752944bfba7ab",
+  "producer_commit": "cd45e97d5eb8b28ba0a516008d7a047673d2a398",
   "years": [
     {
       "season": "20212022",
@@ -412,22 +418,22 @@
         "--season",
         "20212022",
         "--out",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20212022"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 27.403048083069734,
+      "command_wall_seconds": 27.316796167055145,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022/manifest.json",
-        "sha256": "74c8441e76d62d5b5526d243fad72e8e2d13babfa4e1bfcf587f1508142fa4e8"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20212022/manifest.json",
+        "sha256": "84161da1bb5c86862ea7359d275169b6372d14e65cc63cbac4deb989d1d9556a"
       },
       "resources": {
-        "wall_seconds": 27.04256354016252,
-        "peak_memory_bytes": 907116544,
-        "design_wall_seconds": 20.640724541037343,
-        "input_read_wall_seconds": 0.008708791108801961,
-        "fit_wall_seconds": 6.393130208016373,
+        "wall_seconds": 26.95288629201241,
+        "peak_memory_bytes": 912048128,
+        "design_wall_seconds": 20.574747584061697,
+        "input_read_wall_seconds": 0.008714083000086248,
+        "fit_wall_seconds": 6.369424624950625,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 3450179,
+        "output_bytes": 3447557,
         "origin_rows": {
           "u": 100986,
           "q": 618,
@@ -447,10 +453,10 @@
           "g": 0
         },
         "dimensions": {
-          "u": 2572,
-          "q": 2611,
-          "r": 2611,
-          "g": 2842
+          "u": 2571,
+          "q": 2610,
+          "r": 2610,
+          "g": 2841
         },
         "solve_counts": {
           "u": 1,
@@ -504,24 +510,24 @@
         "--season",
         "20222023",
         "--out",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20222023",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20222023",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20212022/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 34.781112542026676,
+      "command_wall_seconds": 35.08579416607972,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20222023/manifest.json",
-        "sha256": "cdb4cc6da0044d7a8a0c543fd6670f3f4996027007d235527758484270a90051"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20222023/manifest.json",
+        "sha256": "01291cf1b582aa387138b420df799a08681c818d2cd9a7a98ef475dacfe4fe7f"
       },
       "resources": {
-        "wall_seconds": 34.35487475001719,
-        "peak_memory_bytes": 991019008,
-        "design_wall_seconds": 16.849252708023414,
-        "input_read_wall_seconds": 0.004033416975289583,
-        "fit_wall_seconds": 17.501588625018485,
+        "wall_seconds": 34.66688187292311,
+        "peak_memory_bytes": 990871552,
+        "design_wall_seconds": 16.952443832997233,
+        "input_read_wall_seconds": 0.003954333020374179,
+        "fit_wall_seconds": 17.710483706905507,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 3187913,
+        "output_bytes": 3185299,
         "origin_rows": {
           "u": 99490,
           "q": 434,
@@ -541,10 +547,10 @@
           "g": 0
         },
         "dimensions": {
-          "u": 2521,
-          "q": 2558,
-          "r": 2558,
-          "g": 2744
+          "u": 2520,
+          "q": 2557,
+          "r": 2557,
+          "g": 2743
         },
         "solve_counts": {
           "u": 2,
@@ -598,24 +604,24 @@
         "--season",
         "20232024",
         "--out",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20232024",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20232024",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20222023/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20222023/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 38.89992487500422,
+      "command_wall_seconds": 39.215025207959116,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20232024/manifest.json",
-        "sha256": "d494ce963978547552a28fa9f726d04310b9a744a5b2fed7e7ed90d323e19eda"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20232024/manifest.json",
+        "sha256": "9813949153cdac4ef95e70ab9cec7068a04ce1a31c88f4b41b2606d59cbce03e"
       },
       "resources": {
-        "wall_seconds": 38.481617706944235,
-        "peak_memory_bytes": 784515072,
-        "design_wall_seconds": 20.279766750056297,
-        "input_read_wall_seconds": 0.0039717910112813115,
-        "fit_wall_seconds": 18.197879165876657,
+        "wall_seconds": 38.76035774999764,
+        "peak_memory_bytes": 795377664,
+        "design_wall_seconds": 20.378523166989908,
+        "input_read_wall_seconds": 0.005462000030092895,
+        "fit_wall_seconds": 18.376372582977638,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 3595301,
+        "output_bytes": 3592723,
         "origin_rows": {
           "u": 103440,
           "q": 448,
@@ -635,10 +641,10 @@
           "g": 0
         },
         "dimensions": {
-          "u": 2547,
-          "q": 2586,
-          "r": 2586,
-          "g": 2794
+          "u": 2546,
+          "q": 2585,
+          "r": 2585,
+          "g": 2793
         },
         "solve_counts": {
           "u": 2,
@@ -692,24 +698,24 @@
         "--season",
         "20242025",
         "--out",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20242025",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20242025",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20232024/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20232024/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 65.92759891611058,
+      "command_wall_seconds": 66.46136429195758,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20242025/manifest.json",
-        "sha256": "1f5041349d62c6066e0a189915d872626f3ba43a1aef065cbbc355266c8dafb2"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20242025/manifest.json",
+        "sha256": "2b599c9f530149c1dcaf5c08a5f6d53c01d954e90a84a4c9db934a04947f3358"
       },
       "resources": {
-        "wall_seconds": 65.48961491696537,
-        "peak_memory_bytes": 1052459008,
-        "design_wall_seconds": 28.909712541964836,
-        "input_read_wall_seconds": 0.004266583011485636,
-        "fit_wall_seconds": 36.57563579198904,
+        "wall_seconds": 65.98937133303843,
+        "peak_memory_bytes": 1056899072,
+        "design_wall_seconds": 28.840017791022547,
+        "input_read_wall_seconds": 0.004067417001351714,
+        "fit_wall_seconds": 37.145286125014536,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 4413266,
+        "output_bytes": 4410661,
         "origin_rows": {
           "u": 202147,
           "q": 755,
@@ -729,10 +735,10 @@
           "g": 0
         },
         "dimensions": {
-          "u": 2597,
-          "q": 2638,
-          "r": 2638,
-          "g": 2890
+          "u": 2596,
+          "q": 2637,
+          "r": 2637,
+          "g": 2889
         },
         "solve_counts": {
           "u": 2,
@@ -775,7 +781,7 @@
     {
       "season": "20252026",
       "command": [
-        "analysis/.venv/bin/hockey-stats-analysis",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/hockey-stats-analysis",
         "fit",
         "--family",
         "execution",
@@ -785,27 +791,25 @@
         "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
         "--season",
         "20252026",
-        "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20242025/manifest.json",
         "--out",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-02/20252026"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20252026",
+        "--previous",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20242025/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 82.82,
-      "wall_measurement": "/usr/bin/time -l reported seconds, precision0.01",
-      "peak_memory_bytes": 1177993216,
+      "command_wall_seconds": 81.8129052920267,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-02/20252026/manifest.json",
-        "sha256": "f07de426ebaae5eb3faca4676fbc880e0bcc562c14086cd1ab1df043f541ea73"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20252026/manifest.json",
+        "sha256": "bd7bc466e2a3fecc568af5c1751b85d8ced2303a19cc0177a56e22be85fe7a02"
       },
       "resources": {
-        "wall_seconds": 82.23208512482233,
-        "peak_memory_bytes": 1177993216,
-        "design_wall_seconds": 28.574796374887228,
-        "input_read_wall_seconds": 0.007674874970689416,
-        "fit_wall_seconds": 53.649613874964416,
+        "wall_seconds": 81.21530153998174,
+        "peak_memory_bytes": 1177436160,
+        "design_wall_seconds": 28.72835591598414,
+        "input_read_wall_seconds": 0.0054290409898385406,
+        "fit_wall_seconds": 52.48151658300776,
         "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
-        "output_bytes": 8134642,
+        "output_bytes": 8130747,
         "origin_rows": {
           "u": 202153,
           "q": 761,
@@ -825,10 +829,10 @@
           "g": 1
         },
         "dimensions": {
-          "u": 2634,
-          "q": 2676,
-          "r": 2676,
-          "g": 2960
+          "u": 2633,
+          "q": 2675,
+          "r": 2675,
+          "g": 2959
         },
         "solve_counts": {
           "u": 2,
@@ -845,40 +849,40 @@
             "status": "passed",
             "baseline": {
               "path": "resolution/baseline.json",
-              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+              "sha256": "0dee4c1268148f19cfa3e3d5e68960176b5f00d131be564be29514b5b1bc95f6"
             },
             "probe": {
               "path": "resolution/u.json",
-              "sha256": "99309904ce508d429e534aa5e6200cfe84ed123bd35ecd194b524fe1bb725272"
+              "sha256": "f0ecae1532ae75404943f4f9dfc9c05a3df9f60032cdb010320c5693e1e027e3"
             },
             "comparison": {
-              "base_objective": 568.6115016491054,
-              "base_gradient_max": 4.123260196831069e-05,
+              "base_objective": 568.6119636132913,
+              "base_gradient_max": 1.97374307659981e-05,
               "optimizer_maxiter": 2000,
               "optimizer_ftol": 1e-15,
               "optimizer_gtol": 1e-07,
               "em_maxiter": 100,
               "em_relative_tolerance": 1e-09,
               "em_responsibility_tolerance": 1e-07,
-              "tightened_objective": 568.611501649016,
-              "objective_change": -8.947154128691182e-11,
-              "tightened_gradient_max": 8.719206328722251e-06,
-              "gradient_max_change": 4.221697949180481e-05,
-              "coefficient_max_change": 1.1773097508896435e-06,
-              "coefficient_l2_change": 9.495192644194196e-06,
-              "maximum_probability_change": 4.78426317340741e-07,
+              "tightened_objective": 568.6119636132488,
+              "objective_change": -4.2518877307884395e-11,
+              "tightened_gradient_max": 2.1262572346802955e-05,
+              "gradient_max_change": 2.656825206748259e-05,
+              "coefficient_max_change": 8.314622271902994e-07,
+              "coefficient_l2_change": 4.795538454963992e-06,
+              "maximum_probability_change": 2.880945155769865e-07,
               "head_maximum_changes": {
-                "u": 4.78426317340741e-07,
+                "u": 2.880945155769865e-07,
                 "q": 0.0,
                 "r": 0.0,
                 "g": 0.0
               },
               "terminal_maximum_changes": {
-                "block": 4.78426317340741e-07,
-                "miss": 2.8071655805428364e-07,
-                "stopped": 1.4388733932113595e-07,
-                "continuing": 2.7654260553733323e-07,
-                "goal": 7.173572597052313e-08
+                "block": 2.880945155769865e-07,
+                "miss": 1.9709197052186767e-07,
+                "stopped": 9.17461128735475e-08,
+                "continuing": 1.7919205447247677e-07,
+                "goal": 3.5247650756464743e-08
               },
               "evaluated_origins": 117118,
               "evaluated_branches": 900394
@@ -892,40 +896,40 @@
             "status": "passed",
             "baseline": {
               "path": "resolution/baseline.json",
-              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+              "sha256": "0dee4c1268148f19cfa3e3d5e68960176b5f00d131be564be29514b5b1bc95f6"
             },
             "probe": {
               "path": "resolution/q.json",
-              "sha256": "2547fb30d30e68d873b94d93ea8c32f5bfd2f6fa5187ed8ac8c8c403809a39b2"
+              "sha256": "57767f4add3e230b766ad4c505b89327f91ea37164925dacb3cf18668ccf1937"
             },
             "comparison": {
-              "base_objective": 440.94124429527005,
-              "base_gradient_max": 2.0077005536967008e-05,
+              "base_objective": 440.9491603433561,
+              "base_gradient_max": 1.3696981169795258e-05,
               "optimizer_maxiter": 2000,
               "optimizer_ftol": 1e-15,
               "optimizer_gtol": 1e-07,
               "em_maxiter": 100,
               "em_relative_tolerance": 1e-09,
               "em_responsibility_tolerance": 1e-07,
-              "tightened_objective": 440.9412442951777,
-              "objective_change": -9.237055564881302e-11,
-              "tightened_gradient_max": 8.623947053809644e-06,
-              "gradient_max_change": 2.0635403375379724e-05,
-              "coefficient_max_change": 1.5170843015795306e-06,
-              "coefficient_l2_change": 1.2123589200979058e-05,
-              "maximum_probability_change": 4.649230004316607e-07,
+              "tightened_objective": 440.949160343307,
+              "objective_change": -4.905587047687732e-11,
+              "tightened_gradient_max": 1.7632628404040673e-05,
+              "gradient_max_change": 2.9048324201585984e-05,
+              "coefficient_max_change": 5.823375404806486e-07,
+              "coefficient_l2_change": 5.949208174057229e-06,
+              "maximum_probability_change": 3.47720898408177e-07,
               "head_maximum_changes": {
                 "u": 0.0,
-                "q": 4.649230004316607e-07,
+                "q": 3.47720898408177e-07,
                 "r": 0.0,
                 "g": 0.0
               },
               "terminal_maximum_changes": {
                 "block": 0.0,
-                "miss": 2.804305416215236e-07,
-                "stopped": 1.238753946919413e-07,
-                "continuing": 2.1366386240839752e-07,
-                "goal": 9.109851864530505e-08
+                "miss": 1.9200597720092638e-07,
+                "stopped": 7.387289344129577e-08,
+                "continuing": 1.3908870404033546e-07,
+                "goal": 7.325510131828139e-08
               },
               "evaluated_origins": 117118,
               "evaluated_branches": 900394
@@ -939,40 +943,40 @@
             "status": "passed",
             "baseline": {
               "path": "resolution/baseline.json",
-              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+              "sha256": "0dee4c1268148f19cfa3e3d5e68960176b5f00d131be564be29514b5b1bc95f6"
             },
             "probe": {
               "path": "resolution/r.json",
-              "sha256": "2a386ec8a4e040789ec18a21046fed54aece0e15d66de52f4c605ecc607c9847"
+              "sha256": "41606898dc961204841dc6d4b202727b3abd9acf93bc79eb9f280cad230bfa32"
             },
             "comparison": {
-              "base_objective": 228.73745135072588,
-              "base_gradient_max": 7.823197483242117e-06,
+              "base_objective": 228.75493141685138,
+              "base_gradient_max": 2.2939677083444465e-05,
               "optimizer_maxiter": 2000,
               "optimizer_ftol": 1e-15,
               "optimizer_gtol": 1e-07,
               "em_maxiter": 100,
               "em_relative_tolerance": 1e-09,
               "em_responsibility_tolerance": 1e-07,
-              "tightened_objective": 228.7374513507035,
-              "objective_change": -2.2367885321727954e-11,
-              "tightened_gradient_max": 8.617541308764132e-06,
-              "gradient_max_change": 1.4561454944272967e-05,
-              "coefficient_max_change": 4.6588333307145957e-07,
-              "coefficient_l2_change": 4.4173888440908875e-06,
-              "maximum_probability_change": 1.937037141797049e-07,
+              "tightened_objective": 228.75493141682983,
+              "objective_change": -2.1543655748246238e-11,
+              "tightened_gradient_max": 1.0762595585411816e-05,
+              "gradient_max_change": 2.5434976671512288e-05,
+              "coefficient_max_change": 5.334516727517613e-07,
+              "coefficient_l2_change": 3.880647843753367e-06,
+              "maximum_probability_change": 2.68491713195651e-07,
               "head_maximum_changes": {
                 "u": 0.0,
                 "q": 0.0,
-                "r": 1.937037141797049e-07,
+                "r": 2.68491713195651e-07,
                 "g": 0.0
               },
               "terminal_maximum_changes": {
                 "block": 0.0,
                 "miss": 0.0,
-                "stopped": 1.1927404339195924e-07,
-                "continuing": 1.0704946074024946e-07,
-                "goal": 3.384974361919646e-08
+                "stopped": 1.7296944249123314e-07,
+                "continuing": 1.5525402397020827e-07,
+                "goal": 3.608798269938429e-08
               },
               "evaluated_origins": 117118,
               "evaluated_branches": 900394
@@ -986,40 +990,40 @@
             "status": "passed",
             "baseline": {
               "path": "resolution/baseline.json",
-              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+              "sha256": "0dee4c1268148f19cfa3e3d5e68960176b5f00d131be564be29514b5b1bc95f6"
             },
             "probe": {
               "path": "resolution/g.json",
-              "sha256": "cbc374e5c08ae03d1926603ac1af3337e46e2646463fe3b4befb810bb4ecb0a9"
+              "sha256": "03c7d1c87a7ff79d82848b3cfb07fbb973dc90ac25ff1458e5a8df72299734da"
             },
             "comparison": {
-              "base_objective": 207.5674952184101,
-              "base_gradient_max": 1.143086939436877e-05,
+              "base_objective": 207.58022701969463,
+              "base_gradient_max": 1.1271373533849882e-05,
               "optimizer_maxiter": 2000,
               "optimizer_ftol": 1e-15,
               "optimizer_gtol": 1e-07,
               "em_maxiter": 100,
               "em_relative_tolerance": 1e-09,
               "em_responsibility_tolerance": 1e-07,
-              "tightened_objective": 207.56749521839413,
-              "objective_change": -1.5973000699887052e-11,
-              "tightened_gradient_max": 6.682322148288122e-06,
-              "gradient_max_change": 1.459620182953092e-05,
-              "coefficient_max_change": 4.039064209315768e-06,
-              "coefficient_l2_change": 4.568848047051823e-06,
-              "maximum_probability_change": 5.005118852707824e-07,
+              "tightened_objective": 207.58022701967923,
+              "objective_change": -1.5404566511278972e-11,
+              "tightened_gradient_max": 5.42156239924374e-06,
+              "gradient_max_change": 1.6692935933093622e-05,
+              "coefficient_max_change": 3.5306834713644264e-06,
+              "coefficient_l2_change": 4.33325640867274e-06,
+              "maximum_probability_change": 5.414863393782277e-07,
               "head_maximum_changes": {
                 "u": 0.0,
                 "q": 0.0,
                 "r": 0.0,
-                "g": 5.005118852707824e-07
+                "g": 5.414863393782277e-07
               },
               "terminal_maximum_changes": {
                 "block": 0.0,
                 "miss": 0.0,
                 "stopped": 0.0,
-                "continuing": 2.06058730189973e-07,
-                "goal": 2.0605873016221743e-07
+                "continuing": 2.7125821489004664e-07,
+                "goal": 2.7125821486229107e-07
               },
               "evaluated_origins": 117118,
               "evaluated_branches": 900394
@@ -1029,8 +1033,5 @@
       }
     }
   ],
-  "wall_seconds": 249.8316844162112,
-  "producer_commit_meaning": "first four years f123566; final year9a581e5 after probe-only attribution repair; each original implementation receipt retained",
-  "initial_missing_case_diagnosis": "timing-fixture-chain.json",
-  "training_recipe_unchanged": true
+  "wall_seconds": 250.40699883294292
 }

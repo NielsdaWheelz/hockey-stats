@@ -2,14 +2,14 @@
   "kind": "attributed-execution-predictors",
   "purpose": "fixture",
   "season": "20212022",
-  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
   "prepared": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
     "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
   },
   "state": {
-    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022/manifest.json",
-    "sha256": "74c8441e76d62d5b5526d243fad72e8e2d13babfa4e1bfcf587f1508142fa4e8"
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20212022/manifest.json",
+    "sha256": "84161da1bb5c86862ea7359d275169b6372d14e65cc63cbac4deb989d1d9556a"
   },
   "signature": "sha256 of concatenated C-order little-endian float64 prior,u,q,r,g,block,miss,stopped,continuing,goal",
   "examples": [
@@ -895,7 +895,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -1378,12 +1378,6 @@
               "condition": "flag:strength_transition",
               "kind": "indicator"
             },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
-              "kind": "indicator"
-            },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
               "value": 0.0,
               "status": "available",
@@ -1677,8 +1671,8 @@
       "origin_cells": [
         534
       ],
-      "actual_sha256": "9f510420a1d4dfdc6aeae19d9f57b368c42fbf5a5e46c0cdfea9b07f499c508b",
-      "neutral_sha256": "b68f3c02b5f1160d16f768915ee57e346e15da4d94589eb357b495bc97b1abe8"
+      "actual_sha256": "7140cfafff899a2a34ac5558541427818be7859bfadd92d006a15ee565702a26",
+      "neutral_sha256": "3c7297b7e95630729ca538f7f934ff3059402fd227e5b1aac10b6d1b97e3cb0c"
     },
     {
       "source_key": "2021020001:57",
@@ -2552,7 +2546,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -3035,12 +3029,6 @@
               "condition": "flag:strength_transition",
               "kind": "indicator"
             },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
-              "kind": "indicator"
-            },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
               "value": 0.0,
               "status": "available",
@@ -3334,8 +3322,8 @@
       "origin_cells": [
         431
       ],
-      "actual_sha256": "0f44589e86f14468c581daeab45e9bb87a2675bfd900aaf68bcdccd78f3b802d",
-      "neutral_sha256": "c1f704f7f3e96a42085782b49d29a7e1a11bcb5c17329c129fe37f90a7d51e38"
+      "actual_sha256": "393e4b11234f7b828169a32b8989016c5d1ecba78d5f8f03b14397f106c2ab06",
+      "neutral_sha256": "5eeb6f29865c0c5184268a485b8def26faecd7a3a0f422fa3f0b4c6df9337f37"
     },
     {
       "source_key": "2021020001:31",
@@ -4209,7 +4197,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -4692,12 +4680,6 @@
               "condition": "flag:strength_transition",
               "kind": "indicator"
             },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
-              "kind": "indicator"
-            },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
               "value": 0.0,
               "status": "available",
@@ -4991,8 +4973,8 @@
       "origin_cells": [
         542
       ],
-      "actual_sha256": "c109285072081e5340c544e58d9ca13817129d48635bf575bfb88d47041bf2db",
-      "neutral_sha256": "c315207b3c0d2bc872ce9d74592be5d0665e9f31f0101b6c568fbe6bd0e7c4e8"
+      "actual_sha256": "e861b6c3f28b28b8bfc70fa7eb430e0a6fd1f79a0a7c0d1949734d0eb51d78c1",
+      "neutral_sha256": "81fee95e1f04293b1a54a1a7b0873955eac57307b9708a6df611a5e36a59a93a"
     },
     {
       "source_key": "2021020001:37",
@@ -5866,7 +5848,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -6349,12 +6331,6 @@
               "condition": "flag:strength_transition",
               "kind": "indicator"
             },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
-              "kind": "indicator"
-            },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
               "value": 0.0,
               "status": "available",
@@ -6648,8 +6624,8 @@
       "origin_cells": [
         576
       ],
-      "actual_sha256": "ad47220b1db65e5dd2bcc5cf777574b827666c5301467310e052e9012d3a7750",
-      "neutral_sha256": "0a3d92f836fe1641948f420d4649391cdc62f6b6c50dec3c58a6bc29e41f0866"
+      "actual_sha256": "7d923cc274909f224df4a1705c32e263134e60f0ec007be09203cb30fdb0b1b6",
+      "neutral_sha256": "b2de82ff3e44daa6be48d644a46dbcee63e1f990650106956b4c344ff7a355ef"
     },
     {
       "source_key": "2021020001:51",
@@ -7523,7 +7499,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -8006,12 +7982,6 @@
               "condition": "flag:strength_transition",
               "kind": "indicator"
             },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
-              "kind": "indicator"
-            },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
               "value": 0.0,
               "status": "available",
@@ -8305,8 +8275,8 @@
       "origin_cells": [
         574
       ],
-      "actual_sha256": "084074d6ec7ed2bf8f5ccf9e1ab50a68d82fe7e1e57d8c142655dc1e6c70067d",
-      "neutral_sha256": "e85420d0cff4ddf2da994277b7ba713dbbc72650dd01ad24c980654cf426ba27"
+      "actual_sha256": "45e87fe65286907f878885a69f4c7c731272c957ac806b6872de68656d575004",
+      "neutral_sha256": "b38b105e9736a82da6fecd1a111ad62314cb22b99463fcc67f6b2413455b975d"
     },
     {
       "source_key": "2021020001:158",
@@ -9205,7 +9175,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -9688,12 +9658,6 @@
               "condition": "flag:strength_transition",
               "kind": "indicator"
             },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
-              "kind": "indicator"
-            },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
               "value": 0.0,
               "status": "available",
@@ -9987,8 +9951,8 @@
       "origin_cells": [
         609
       ],
-      "actual_sha256": "e19cfba12d638f68ab1a2a75d88006b5dd7e08fa85ba14e91fe5b8b812fd5ac9",
-      "neutral_sha256": "30014cb65d015937279d745199f18fb58208595f57cde9a6c13f548493371cf3"
+      "actual_sha256": "ff26abe8e3732aba411fdbccfbd111491ec6e9352b559866928fc68e09eb15a1",
+      "neutral_sha256": "7e29ff5659069520ea106da3642b6f1af3b38ed2c0fe274a86c3f65fe8af3ced"
     },
     {
       "source_key": "2021020001:10",
@@ -10839,7 +10803,7 @@
             "return_to_5v5_age_seconds/60": {
               "value": null,
               "status": "absent",
-              "condition": "strength_transition_age",
+              "condition": "strength_transition",
               "kind": "numeric"
             },
             "goalie_prefix_toi_all_seconds/3600": {
@@ -11320,12 +11284,6 @@
               "value": 0.0,
               "status": "available",
               "condition": "flag:strength_transition",
-              "kind": "indicator"
-            },
-            "unavailable:strength_transition_age": {
-              "value": 0.0,
-              "status": "available",
-              "condition": "flag:strength_transition_age",
               "kind": "indicator"
             },
             "unavailable:goalie_prefix_toi_all_seconds/3600": {
@@ -12276,8 +12234,8 @@
         654,
         655
       ],
-      "actual_sha256": "3d48935ca0401777a2ac5c0f6a17ca12aa90ac61c094fea210931b665f790312",
-      "neutral_sha256": "a63af73884c5886ed5892430715408615c5c2a350a2e3511f1cfae5b6d3a9c20"
+      "actual_sha256": "30e69ec30620ce646e9a42768d3aa832f971d661122c7dc0a96f1f8349708896",
+      "neutral_sha256": "8e1af4bee9532d5afd9a09681c51030f7b5da27b290d975e73cf9f604548e93e"
     }
   ]
 }

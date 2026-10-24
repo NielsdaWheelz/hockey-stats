@@ -631,8 +631,8 @@ def _head_design(head, predictors, labels, people, source_actors=None):
                         setter_mean_weights=np.asarray(layout["setter_mean_weights"], dtype=np.float64))
 
     # retain one compact physical-row matrix, never its blocked origin expansion.
-    # optimizer iterations expand bounded sparse rows and just five geometry
-    # columns; they do not repeatedly interpret source facts.
+    # optimizer iterations emit only native maps and five geometry columns;
+    # fixed logits and transpose gradients stay on physical rows.
     selected_predictors = [predictors[i] for i in rows]
     fixed = predictor_matrix(layout, selected_predictors, [p.proxy_cell for p in selected_predictors]).tocoo()
     dynamic_names = _columns("recent_geometry") + _columns("off_wing")
@@ -641,6 +641,8 @@ def _head_design(head, predictors, labels, people, source_actors=None):
     removed = np.asarray(sorted(set(np.asarray(maps).ravel()) | set(dynamic_coordinates)), dtype=np.int64)
     keep = ~np.isin(fixed.col, removed)
     fixed = csr_matrix((fixed.data[keep], (fixed.row[keep], fixed.col[keep])), shape=fixed.shape)
+    result["fixed_matrix"] = fixed
+    fixed_nonzeros = np.diff(fixed.indptr)
     candidate_inputs = {
         field: np.asarray([p.context["candidate"][field] if p.context["candidate"][field] is not None else np.nan
                            for p in selected_predictors], dtype=np.float64)
@@ -654,10 +656,9 @@ def _head_design(head, predictors, labels, people, source_actors=None):
     selected_types = np.asarray([p.shot_type for p in selected_predictors], dtype=np.int64)
     map_array = np.asarray(maps, dtype=np.int64)
 
-    def expanded_matrix(local_rows, cells):
+    def dynamic_matrix(local_rows, cells):
         count = len(local_rows)
         expanded_rows = np.arange(count, dtype=np.int64)
-        matrix = fixed[local_rows]
         map_rows = [expanded_rows]; map_columns = [map_array[0, cells]]
         map_values = [np.ones(count)]
         typed = selected_types[local_rows] != 0
@@ -678,13 +679,18 @@ def _head_design(head, predictors, labels, people, source_actors=None):
                 nonzero = values != 0
                 map_rows.append(expanded_rows[nonzero]); map_columns.append(np.full(np.count_nonzero(nonzero), circumstance_indices[column], dtype=np.int64))
                 map_values.append(values[nonzero])
-        return matrix + csr_matrix((np.concatenate(map_values), (np.concatenate(map_rows), np.concatenate(map_columns))), shape=matrix.shape)
+        return csr_matrix((np.concatenate(map_values), (np.concatenate(map_rows), np.concatenate(map_columns))),
+                          shape=(count, layout["size"]))
 
     def batches():
         expanded_predictors, cell_batch, row_batch, weight_batch, observed = [], [], [], [], []
         def emit():
-            batch = {"matrix": expanded_matrix(np.asarray(row_batch, dtype=np.int64), np.asarray(cell_batch, dtype=np.int64)),
-                     "row": np.asarray(row_batch, dtype=np.int64), "weight": np.asarray(weight_batch, dtype=np.float64)}
+            row = np.asarray(row_batch, dtype=np.int64)
+            dynamic = dynamic_matrix(row, np.asarray(cell_batch, dtype=np.int64))
+            # fixed and dynamic coordinates are disjoint and store no zeros:
+            # this is exactly the former expanded matrix's nonzero count.
+            batch = {"dynamic_matrix": dynamic, "row": row, "weight": np.asarray(weight_batch, dtype=np.float64),
+                     "base_matrix_nonzeros": int(fixed_nonzeros[row].sum() + dynamic.nnz)}
             if head == "g":
                 offsets, indices, prior = [0], [], []
                 for predictor in expanded_predictors:

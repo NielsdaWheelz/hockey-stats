@@ -1,0 +1,193 @@
+{
+  "event_dispositions": {
+    "excluded": 16685,
+    "included": 735216,
+    "not_applicable": 1291234,
+    "unresolved": 17861
+  },
+  "identity_counts_input": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/identity-counts-real.json",
+    "sha256": "e065fddf2639d29e88ec418b1c95eb624ec8f6d5b0a6649929d81adf41a09309"
+  },
+  "interpretation": "known resolved excluded seconds are a union of positive segments with full membership. each reason code has its own distinct-segment union, so per-code seconds can overlap and must not be added. seconds_with_multiple_reason_codes counts a segment once when two or more distinct codes affect it. zero known resolved excluded time retains reason witnesses; unknown horizon and unresolved known seconds remain separate.",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "merger": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/merge_reason_time.py",
+    "sha256": "3e11da5d026f161fd98c5772c0843c2e7375122ac9a31a9b29f0d2a62fee78a6"
+  },
+  "per_reason": {
+    "count_accounting_conflict": {
+      "excluded_seconds": 392921,
+      "excluded_segments": 41739,
+      "witnesses": 218
+    },
+    "event_evidence_unresolved": {
+      "excluded_seconds": 11940,
+      "excluded_segments": 431,
+      "witnesses": 889
+    },
+    "horizon_unavailable": {
+      "excluded_seconds": 0,
+      "excluded_segments": 0,
+      "witnesses": 16
+    },
+    "identity_conflict": {
+      "excluded_seconds": 21730,
+      "excluded_segments": 1309,
+      "witnesses": 1321
+    },
+    "membership_unavailable": {
+      "excluded_seconds": 5920,
+      "excluded_segments": 294,
+      "witnesses": 17969
+    },
+    "strength_conflict": {
+      "excluded_seconds": 3935,
+      "excluded_segments": 167,
+      "witnesses": 457
+    },
+    "unmatched_report_attempt": {
+      "excluded_seconds": 20849,
+      "excluded_segments": 1250,
+      "witnesses": 923
+    }
+  },
+  "prepared_game_reader_calls": 1345,
+  "purpose": "real",
+  "reason_controller": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/reason_time_audit.py",
+    "sha256": "50961cdea2f6d0a7dba2cc60e2dc8fa7e3be60d650877cf95b09d4ecf46f509c"
+  },
+  "reason_witness_counts": {
+    "count_accounting_conflict": 218,
+    "event_evidence_unresolved": 889,
+    "horizon_unavailable": 16,
+    "identity_conflict": 1321,
+    "membership_unavailable": 17969,
+    "strength_conflict": 457,
+    "unmatched_report_attempt": 923
+  },
+  "selected_games": 6560,
+  "shards": [
+    {
+      "prepared_game_reader_calls": 398,
+      "reason_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/reason-coverage-resumed/20212022.json",
+        "sha256": "3122f9aa7e834740fc971273426969f982c72e8ed140eefd5f3c3f2893c64298"
+      },
+      "resources": {
+        "peak_memory_bytes": 1387577344,
+        "wall_seconds": 2397.1073181669926
+      },
+      "season": "20212022",
+      "selected_games": 1312,
+      "source_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20212022/receipt.json",
+        "sha256": "8a8be6ab36e50a51efdb6c040fd001643025cbfb7704512bf7a65af7273fe080"
+      }
+    },
+    {
+      "prepared_game_reader_calls": 229,
+      "reason_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/reason-coverage-resumed/20222023.json",
+        "sha256": "8ac59a0b1d6c27c3eeaeb26e39e61b12109cd9aacc133ed139caee7c38dd54ee"
+      },
+      "resources": {
+        "peak_memory_bytes": 1573437440,
+        "wall_seconds": 1763.7285071250517
+      },
+      "season": "20222023",
+      "selected_games": 1312,
+      "source_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation/20222023/receipt.json",
+        "sha256": "e4369ee2113015e40c3410a94119ece64068c90ccbfc432c9d63e66f456b293e"
+      }
+    },
+    {
+      "prepared_game_reader_calls": 284,
+      "reason_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/reason-coverage-resumed/20232024.json",
+        "sha256": "7e04d252b12234460c36413f8689a5fca1a9e4a8ea49ee96ad9b2b615d087fb6"
+      },
+      "resources": {
+        "peak_memory_bytes": 1549713408,
+        "wall_seconds": 3774.086855957983
+      },
+      "season": "20232024",
+      "selected_games": 1312,
+      "source_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20232024/receipt.json",
+        "sha256": "af68d1022226d3db87b1ac16946d3ce169812c31d43474291673fb32653027e5"
+      }
+    },
+    {
+      "prepared_game_reader_calls": 231,
+      "reason_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/reason-coverage-resumed/20242025.json",
+        "sha256": "fdb749e1894c4cefcfd274e72239a9871fd84618aa1550ecdab520be1234df54"
+      },
+      "resources": {
+        "peak_memory_bytes": 1510064128,
+        "wall_seconds": 3264.7141402079724
+      },
+      "season": "20242025",
+      "selected_games": 1312,
+      "source_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20242025/receipt.json",
+        "sha256": "1d07f4506d531d0d0c854fab88e261938feca00c876f698ae91fb5bacf51f83d"
+      }
+    },
+    {
+      "prepared_game_reader_calls": 203,
+      "reason_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/reason-coverage-resumed/20252026.json",
+        "sha256": "7a3d2bc324b2a2e1cc3e199b96c4c61d6c59f0aa7af2e1bec5d71c711d215099"
+      },
+      "resources": {
+        "peak_memory_bytes": 1656619008,
+        "wall_seconds": 2701.6904558750102
+      },
+      "season": "20252026",
+      "selected_games": 1312,
+      "source_receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/20252026/receipt.json",
+        "sha256": "3a0e32942d871b9b7ba841914389335d05bfb3bc17ca7ac1fd46f40c2f4c671b"
+      }
+    }
+  ],
+  "source_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/reconcile_artifact.py",
+    "sha256": "11f47738af4b62eb6a470b3617382a4d2977459d5eec3cc785051b68c0f88b27"
+  },
+  "source_merge": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-acceptance/source-reconciliation-resumed/receipt.json",
+    "sha256": "7419ba23f1050d3abd0a11467a223253c922135e10250a4ace378d117185f210"
+  },
+  "source_merger": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-acceptance/merge_reconciliation.py",
+    "sha256": "50b9abe9394892a26bb8349b7b322367fc67ba55fd7ec7b9218258c7667507b5"
+  },
+  "status": "passed",
+  "time": {
+    "excluded_seconds": 444786,
+    "excluded_segments": 44725,
+    "included_seconds": 22908268,
+    "physical_seconds": 23353054,
+    "seconds_with_multiple_reason_codes": 12195,
+    "unknown_horizon_games": 1,
+    "unresolved_known_seconds": 542339
+  },
+  "zero_known_resolved_excluded_games": 5215,
+  "zero_known_resolved_excluded_games_with_reason_witnesses": 877,
+  "zero_known_resolved_excluded_reason_witness_counts": {
+    "count_accounting_conflict": 2,
+    "event_evidence_unresolved": 53,
+    "horizon_unavailable": 16,
+    "membership_unavailable": 13891,
+    "strength_conflict": 83,
+    "unmatched_report_attempt": 31
+  }
+}

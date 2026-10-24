@@ -1,0 +1,72 @@
+{
+  "status": "complete preparation; full source reconciliation is a separate receipt",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "bytes": 18633830
+  },
+  "purpose": "real",
+  "preparation_id": "experimental-evidence-v1",
+  "implementation": {
+    "git_commit": "5503c7bc2f9883546a2e6da6d90684d2afc12eae",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "preparation_policy_sha256": "28624b42c78254a0000c97205b73a5ff5ff59fbc237264c77d4cd4e339178795",
+    "source_code_sha256": "194f8f2c2443c03990cd5496aad3ef017f44b4c8467a8c68371fe52343a70ea2"
+  },
+  "resources": {
+    "wall_seconds": 33732.70182795898,
+    "peak_memory_bytes": 5420793856,
+    "output_bytes": 397784660779
+  },
+  "independently_checked": {
+    "exact_file_set": true,
+    "files_including_selection_and_manifest": 6568,
+    "bytes_excluding_manifest": 397784660779,
+    "selection_bytes_exact": true,
+    "package_source_hash_exact": true,
+    "preparation_policy_hash_exact": true,
+    "cli_success_manifest_path": true
+  },
+  "member_kinds": {
+    "game": 6560,
+    "people": 5,
+    "coverage": 1
+  },
+  "input_kinds": {
+    "selection": 1,
+    "corpus": 5,
+    "reference-capture": 20,
+    "reference-body": 20,
+    "game": 6560,
+    "source-capture": 39360,
+    "source-body": 39360
+  },
+  "seasons": [
+    {
+      "season": "20212022",
+      "inventory_games": 1312,
+      "selected_games": 1312
+    },
+    {
+      "season": "20222023",
+      "inventory_games": 1312,
+      "selected_games": 1312
+    },
+    {
+      "season": "20232024",
+      "inventory_games": 1312,
+      "selected_games": 1312
+    },
+    {
+      "season": "20242025",
+      "inventory_games": 1312,
+      "selected_games": 1312
+    },
+    {
+      "season": "20252026",
+      "inventory_games": 1312,
+      "selected_games": 1312
+    }
+  ]
+}

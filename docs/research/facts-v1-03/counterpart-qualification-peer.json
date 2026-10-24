@@ -1,0 +1,41 @@
+{
+  "purpose": "explicitly synthetic producer-to-existing-selector/cohort boundary; no publication or analytical values fabricated",
+  "results": [
+    {
+      "case": "known",
+      "value": 15,
+      "qualification_seconds": 100,
+      "standing": {
+        "kind": "ranked",
+        "percentile": 50,
+        "n": 1,
+        "peerGroup": "all skaters",
+        "cutoffMinutes": 0
+      }
+    },
+    {
+      "case": "missing",
+      "value": 15,
+      "qualification_seconds": null,
+      "standing": {
+        "kind": "unavailable",
+        "reason": "qualification unavailable",
+        "n": 0,
+        "peerGroup": "all skaters",
+        "cutoffMinutes": 0
+      }
+    },
+    {
+      "case": "empty",
+      "value": null,
+      "qualification_seconds": null,
+      "standing": {
+        "kind": "unavailable",
+        "reason": "no_exposure",
+        "n": 0,
+        "peerGroup": "all skaters",
+        "cutoffMinutes": 0
+      }
+    }
+  ]
+}

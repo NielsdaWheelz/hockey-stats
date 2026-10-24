@@ -1,0 +1,314 @@
+{
+  "pr": {
+    "number": 53,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/53",
+    "state": "merged",
+    "reviewed_head": "cde016576fe54186faa80abdb4469dad27874bc3",
+    "reviewed_tree": "18bcf20db3129c6c7f970f421e91304fa476404b",
+    "merge_commit": "309d7088c32e2ffbd284be592cf82c563917a25f",
+    "merge_tree": "18bcf20db3129c6c7f970f421e91304fa476404b",
+    "exact_reviewed_tree": true,
+    "hosted_check": "GitGuardian Security Checks: success"
+  },
+  "qualification": {
+    "fixture_acceptance": "passed; exact committed verification and receipts retained",
+    "real_acceptance": "open in docs/issues/facts-v1-03-real-acceptance.md; selected preparation has no manifest",
+    "v1_01_real_acceptance": "open; running preparation preserved",
+    "scientific_admission": "not_performed",
+    "activation": "not_performed"
+  },
+  "cleanup": {
+    "worktree_absent": true,
+    "local_task_branch_removed": true,
+    "remote_task_branch_removed": true,
+    "owned_ignored_groups": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/__pycache__",
+        "files": 42,
+        "bytes": 2136463
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/app/.react-router",
+        "files": 6,
+        "bytes": 9753
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/app/dist",
+        "files": 38,
+        "bytes": 1202493
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var",
+        "files": 6901,
+        "bytes": 2892723847
+      }
+    ],
+    "owned_ignored_files": 6987,
+    "owned_ignored_bytes": 2896072556,
+    "temporary_controllers_deleted": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/discovery.mjs",
+        "sha256": "fa657bacc8f1a3962781f350d27711a8e8a502db5eb953941917bce7f5918765",
+        "bytes": 3305
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/observed-identity.py",
+        "sha256": "97e0a5693f617c0a10e5f5ab73978e9fc1fe2c534926cf7237d1d098e0d6850e",
+        "bytes": 1880
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/acceptance.py",
+        "sha256": "7c835ffab5d7cc2e1fe4093f2c5e0724b0f7966bc985a14c47d2cfe802667e35",
+        "bytes": 8470
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser.mjs",
+        "sha256": "311d395d89782494673b06ff3477253cb7d1226768cca5798d3d77cb37c1aff8",
+        "bytes": 3773
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/live.mjs",
+        "sha256": "9652deda495d4a68478540df8fbf057d5597442af248fcc9bac2ed99fcb1ccab",
+        "bytes": 6027
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/real-strength-closure.py",
+        "sha256": "bd1d500dbb029ecfdafcd9b90d10ef46c2a5a0a9f5207ab36de389e4d89ded9e",
+        "bytes": 22301
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/check-protected.py",
+        "sha256": "dc35f9ce73a3ad84125ef69fabef3fdda033b1bf20ff6960355af3fe50404c2d",
+        "bytes": 1019
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/deny-inputs.mjs",
+        "sha256": "bb4564a22420df9a7f537b3bc319c8b5f48a41f423599ddfc545a15cbac2f143",
+        "bytes": 1519
+      }
+    ],
+    "controller_archive": false,
+    "independent_worktrees_preserved": [
+      "hockey-stats-v1-01",
+      "hockey-stats-v1-05",
+      "hockey-stats-v1-16"
+    ],
+    "temporary_primary_stash_removed": true,
+    "original_stash_state_restored": true
+  },
+  "primary_preservation": {
+    "snapshot_paths": 20,
+    "byte_identical_drafts_at_restore": 18,
+    "integrated_drafts": [
+      "docs/plan.md",
+      "docs/research/council.md"
+    ],
+    "restored_files": [
+      {
+        "path": "docs/architecture.md",
+        "sha256": "33dbd5cf70679f4945416be5c2fc8a4f201e7df20f33f37284c970b724ac022f",
+        "bytes": 104359,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/brief.md",
+        "sha256": "a0dec65addf934ade7f02725a970d5ef9a8990c7d4ee44733e3a3ab156509ff5",
+        "bytes": 59077,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/issues/comparative-export-density.md",
+        "sha256": "ae1fc597689f42da40533d45c96c90567282c3e35ce2cd8651034ad12840f17b",
+        "bytes": 1945,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/issues/descriptive-fixture-consistency.md",
+        "sha256": "c3af05d0a9947135c6d0c8a1f8b21e211ca892a50fa57968efb649f3987f78ff",
+        "bytes": 1853,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/issues/microstat-inputs.md",
+        "sha256": "90b673e2d07ab297c0040da1d126d6660e4293b3aea85010e77846b9268d16a9",
+        "bytes": 7557,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/model-features.md",
+        "sha256": "88c70683dc765a95d735754e4f6957b53557185094231db4aecf2bd7c55b0f99",
+        "bytes": 25576,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/plan.md",
+        "sha256": "466d0ae061cf03a1f789c11bc1b0abff6e45ed92b0a9eafacd953432892a83cd",
+        "bytes": 134561,
+        "mode": 33188,
+        "changed_by_integration": true
+      },
+      {
+        "path": "docs/product-inventory.md",
+        "sha256": "7b1f9dcbe1ccd016365022e162a190475cd26a3e7daf16ef790bb83cc67efe1a",
+        "bytes": 59251,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/research/council.md",
+        "sha256": "49734277090594180b047e007d590bef0a86a1fdfe0c1a63b79dc80e7b421295",
+        "bytes": 155331,
+        "mode": 33188,
+        "changed_by_integration": true
+      },
+      {
+        "path": "docs/research/player-card-references.md",
+        "sha256": "b36d710fd90de44a0574917dbb7c79f02a775f7d6f357c996cc01aac82550150",
+        "bytes": 16522,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/research/skating-v1-04-follow-up/source-audit.md",
+        "sha256": "bad532516d5f69d7ab306958d07f52932dc3c2947e4bd057a9f05aa5372d7b20",
+        "bytes": 7299,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/roadmap.md",
+        "sha256": "e36d53a1531ff5faccf5fb17b0a63d2833e3e370ebcd3930b7a3310f5205ff79",
+        "bytes": 14603,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/experimental-application.md",
+        "sha256": "918412548b1b86d4e84d5f07b325a38691b5fe80fd32352e7efed2698b213969",
+        "bytes": 50814,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/experimental-card-facts.md",
+        "sha256": "8bf54665c6a43534adc25dfe659d6c2418f95c7bac10a01be3757f8bc639ea9f",
+        "bytes": 26061,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/experimental-chance.md",
+        "sha256": "729af4ca8b172d23657f04ed475a5101e423b31b07c5ce6a15317af32f8813ca",
+        "bytes": 26912,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/experimental-player-analysis.md",
+        "sha256": "223950d0c90f4bdec890658a2916d8b2f2d70ba8cd17232f6faaebd076f10612",
+        "bytes": 31367,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/v1-03-factual-card-reductions.md",
+        "sha256": "6c5c3dd7b2b6b55ffd0274c27e7c7f19d8bc45824c56ca81c724a8ad408e5621",
+        "bytes": 28998,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/v1-05-execution-base.md",
+        "sha256": "089767cff13da561ef267596213232d03c47389c30814d5a010614099bd76bd7",
+        "bytes": 28441,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/v1-13-typed-publication.md",
+        "sha256": "5f56254b9a0c05eaf0307b8fb492b624d2a8b29e7b6c1eb3ecf6a644a6a4e15e",
+        "bytes": 42656,
+        "mode": 33188,
+        "changed_by_integration": false
+      },
+      {
+        "path": "docs/specs/v1-16-descriptive-card-context.md",
+        "sha256": "421a2f77169f0f3e8ec9f6f083de601ef07525e16e94f1c3ead09ee4ddfdc62b",
+        "bytes": 24006,
+        "mode": 33188,
+        "changed_by_integration": false
+      }
+    ],
+    "concurrent_changes_after_verified_restore": [],
+    "user_work_remains_uncommitted": true
+  },
+  "serving_preservation": {
+    "exact_bytes_sizes_mtimes": 30,
+    "original_port3000_pid": 70045,
+    "independent_fixture_copies_preserved": [
+      {
+        "path": "/tmp/hockey-stats-v1-16/v1-03-changed-old-affiliation.sqlite",
+        "symlink": false,
+        "bytes": 105893888,
+        "device": 16777234,
+        "inode": 157083822,
+        "sha256": "2865308f3ff640af69a2106b52a0fc3051235b6363c3fa9c49b2dcde4300791c",
+        "independent_of_task_source": true
+      },
+      {
+        "path": "/tmp/hockey-stats-v1-16/v1-03-malformed-affiliation.sqlite",
+        "symlink": false,
+        "bytes": 105893888,
+        "device": 16777234,
+        "inode": 157082551,
+        "sha256": "f9773bdb691b213e993ca58b75fe7bae1cd8e6e8f1755e05cc34f5f854d085b7",
+        "independent_of_task_source": true
+      },
+      {
+        "path": "/tmp/hockey-stats-v1-16/v1-03-preliminary.sqlite",
+        "symlink": false,
+        "bytes": 105590784,
+        "device": 16777234,
+        "inode": 156455007,
+        "sha256": "cd8f8fe10d5e530afb34d7d08f50c0c179065e39dc73c3c9fea5ac20df06390d",
+        "independent_of_task_source": true
+      },
+      {
+        "path": "/tmp/hockey-stats-v1-16/v1-03-verified-fixture.sqlite",
+        "symlink": false,
+        "bytes": 105893888,
+        "device": 16777234,
+        "inode": 157081992,
+        "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+        "independent_of_task_source": true
+      },
+      {
+        "path": "/tmp/hockey-stats-v1-16/v1-03-verified-reader.sqlite",
+        "symlink": false,
+        "bytes": 105893888,
+        "device": 16777234,
+        "inode": 157082041,
+        "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+        "independent_of_task_source": true
+      }
+    ],
+    "independent_processes_preserved": [
+      63973,
+      70045,
+      96288,
+      96400
+    ]
+  },
+  "post_merge_checks": {
+    "primary_typecheck": "passed",
+    "primary_cli": "prepare/publish/facts exposed",
+    "primary_factual_imports": "passed",
+    "real_followup": "production commands run from primary with pinned inputs; recreate and delete bounded acceptance checks after the prerequisite is verified"
+  }
+}

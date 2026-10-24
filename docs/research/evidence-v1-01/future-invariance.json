@@ -1,0 +1,25 @@
+{
+  "boundary": "trusted derived owner inputs; not raw source admission",
+  "variants": 2,
+  "verified_order": true,
+  "goal_accounting": {
+    "away": 1,
+    "home": 0
+  },
+  "identical_event_kind_counts": {
+    "hit": 2,
+    "shot-on-goal": 3,
+    "missed-shot": 1,
+    "stoppage": 1,
+    "goal": 1,
+    "period-end": 1
+  },
+  "earlier_event_snapshots": 4,
+  "elapsed_prefix_snapshots": 2,
+  "earlier_elapsed_transition_snapshots": 1,
+  "predictor_bytes": 77671,
+  "predictor_sha256": "0fbd27d8a4f1a4dc272608148d5ceb63e75f8663cd15b947026bca4d9e350c9e",
+  "focal_stop_label_changed": true,
+  "prior_same_clock_prefix_verified": true,
+  "label_mutation_separation": true
+}

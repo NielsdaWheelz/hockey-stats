@@ -1,0 +1,121 @@
+[
+  {
+    "game_id": "2025020006",
+    "source_index": 342,
+    "period": 4,
+    "clock": "03:31",
+    "details": {
+      "xCoord": -25,
+      "yCoord": 4,
+      "zoneCode": "D",
+      "typeCode": "MIN",
+      "descKey": "holding",
+      "duration": 2,
+      "committedByPlayerId": 8477346,
+      "drawnByPlayerId": 8478402,
+      "servedByPlayerId": 8482679,
+      "eventOwnerTeamId": 20
+    },
+    "checked_expectation": "one holding infraction: taken 8477346, drawn 8478402, served 8482679",
+    "api_body_sha256": "e5c79066faafe9daac9bc1daa12dda899d8cd7382d7f2484085ade1a9c1e57ad",
+    "report_body_sha256": "37e8a9c8d8f32428890a9be0ee32abeaa847a5579615e212c61e90084e56a310"
+  },
+  {
+    "game_id": "2025020006",
+    "source_index": 343,
+    "period": 4,
+    "clock": "03:31",
+    "details": {
+      "xCoord": -1,
+      "yCoord": -40,
+      "zoneCode": "N",
+      "typeCode": "MIS",
+      "descKey": "misconduct",
+      "duration": 10,
+      "committedByPlayerId": 8477346,
+      "eventOwnerTeamId": 20
+    },
+    "checked_expectation": "one distinct misconduct at the same clock: taken 8477346, drawn/served not recorded",
+    "api_body_sha256": "e5c79066faafe9daac9bc1daa12dda899d8cd7382d7f2484085ade1a9c1e57ad",
+    "report_body_sha256": "37e8a9c8d8f32428890a9be0ee32abeaa847a5579615e212c61e90084e56a310"
+  },
+  {
+    "game_id": "2024020022",
+    "source_index": 163,
+    "period": 2,
+    "clock": "08:24",
+    "details": {
+      "xCoord": -33,
+      "yCoord": 36,
+      "zoneCode": "O",
+      "typeCode": "BEN",
+      "descKey": "too-many-men-on-the-ice",
+      "duration": 2,
+      "servedByPlayerId": 8480797,
+      "eventOwnerTeamId": 4
+    },
+    "checked_expectation": "bench infraction: taken not recorded; drawn not recorded; served 8480797",
+    "api_body_sha256": "1de0659952b3c8036ac8aee8b36756ede20e1e5d0751521f5d090fa7135204c3",
+    "report_body_sha256": "2c4bb1a6d02d2b59611199b9cfe5179fdc20cacb45316811cd14323fa0386ae5"
+  },
+  {
+    "game_id": "2025021094",
+    "source_index": 106,
+    "period": 2,
+    "clock": "01:57",
+    "details": {
+      "xCoord": -97,
+      "yCoord": -13,
+      "zoneCode": "D",
+      "typeCode": "MIN",
+      "descKey": "high-sticking-double-minor",
+      "duration": 4,
+      "committedByPlayerId": 8478443,
+      "drawnByPlayerId": 8480762,
+      "eventOwnerTeamId": 10
+    },
+    "checked_expectation": "one double-minor infraction, not two: taken 8478443, drawn 8480762, served not recorded",
+    "api_body_sha256": "1cb5834471bb57a2f42084290c949adcf1fa6da0ca962057da1dfa13e5c4b2a6",
+    "report_body_sha256": "eb0bf73de066f115e69f1d259829106a61c1b2bc16ecfe4e753cb2c0305e68a9"
+  },
+  {
+    "game_id": "2025020001",
+    "source_index": 113,
+    "period": 1,
+    "clock": "16:50",
+    "details": {
+      "xCoord": 6,
+      "yCoord": 7,
+      "zoneCode": "N",
+      "typeCode": "MAJ",
+      "descKey": "fighting",
+      "duration": 5,
+      "committedByPlayerId": 8473422,
+      "drawnByPlayerId": 8478421,
+      "eventOwnerTeamId": 16
+    },
+    "checked_expectation": "separate major: taken 8473422, drawn 8478421",
+    "api_body_sha256": "9d89ab3e9fcb50ca9be6957eb31dd0df585bb98005f0a3577a054762fecdb299",
+    "report_body_sha256": "2911d9f2cc567284aad4dc161e04f0fa9cb9153ad1088fb8b492d56aa2061837"
+  },
+  {
+    "game_id": "2025020001",
+    "source_index": 114,
+    "period": 1,
+    "clock": "16:50",
+    "details": {
+      "xCoord": 6,
+      "yCoord": 7,
+      "zoneCode": "N",
+      "typeCode": "MAJ",
+      "descKey": "fighting",
+      "duration": 5,
+      "committedByPlayerId": 8478421,
+      "drawnByPlayerId": 8473422,
+      "eventOwnerTeamId": 13
+    },
+    "checked_expectation": "separate major: taken 8478421, drawn 8473422",
+    "api_body_sha256": "9d89ab3e9fcb50ca9be6957eb31dd0df585bb98005f0a3577a054762fecdb299",
+    "report_body_sha256": "2911d9f2cc567284aad4dc161e04f0fa9cb9153ad1088fb8b492d56aa2061837"
+  }
+]

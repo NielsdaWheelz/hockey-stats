@@ -1,0 +1,85 @@
+{
+  "deleted": [
+    {
+      "path": "app/.v1-03-affiliation-check.ts",
+      "sha256": "c2402db128d3cb2f009760fa5f956391200e98b4b2114c1d4ff93d40ba4c2478"
+    },
+    {
+      "path": "app/.v1-03-score-check.ts",
+      "sha256": "76e471746f5c544c8de0ca1c0eea090ae618ba5e5236d4da0b2842522807a7f1"
+    },
+    {
+      "path": "app/.v1-03-score-baseline-check.ts",
+      "sha256": "98061018dfd6766ee609a7721c3d0494c0fa8e650520474cb1dd8f3f826e69de"
+    },
+    {
+      "path": "app/.v1-03-goalie-reader-check.ts",
+      "sha256": "61fc58cc17c17f2e96c0829b95906b7e1189b272a699650b854da585b03c3660"
+    },
+    {
+      "path": "app/.v1-03-goalie-reader-baseline-check.ts",
+      "sha256": "59a1bf55965aa1f98e3551e750ff2fed1fc189ee69493ef52067dea35c0ca3a1"
+    },
+    {
+      "path": "app/.v1-03-http-check.ts",
+      "sha256": "9cbcfa3913cb006f19868b33a76c28d2740e888318b2d0b770a8cfbd35b5e035"
+    },
+    {
+      "path": "app/.v1-03-candidate-negative-check.ts",
+      "sha256": "c86da1d703d47493cf12dcbe4930387d49b6a785f62fa97448f5b1590ff9ce8e"
+    },
+    {
+      "path": "app/src/shared/.v1-03-player-analysis-baseline.ts",
+      "sha256": "f9f35d13cf190c9d25c67d6f40818487ac83f59ee67d9888f9c8aede677b8966"
+    },
+    {
+      "path": "app/src/server/.v1-03-analysis-publication-baseline.ts",
+      "sha256": "f975fb7ed0497bf12c8935dba23c9942c0aba97eac4da62a45186015d124251d"
+    },
+    {
+      "path": "var/v1-03/banner-browser.mjs",
+      "sha256": "43490df2932159a59de3b922a31cc3c0ac41ec857053bf2e58d9656434d66df8"
+    },
+    {
+      "path": "/tmp/v1-03-publication-checks.py",
+      "sha256": "32d4548daa985fcbb55a82b7850bb6ea694273f68916c0c76330c0a0c045ed17"
+    },
+    {
+      "path": "/tmp/v1-03-affiliation-sql-check.py",
+      "sha256": "93a33a4f420e14168ef74f3d7d7197879bf47abd244145e3e5593160b5470d52"
+    },
+    {
+      "path": "/tmp/v1-03-writer-check.py",
+      "sha256": "3e99e2ad076d8cec0ccd9c32d465b1373cc4892615060b0efa5a6eb0080b4e82"
+    },
+    {
+      "path": "/tmp/v1-03-bench-check.py",
+      "sha256": "4ff0a588d865cf1c2c755298e9c3304bce112cd8e758f4ed0e81f7fe09230945"
+    },
+    {
+      "path": "/tmp/v1-03-missing-support-check.py",
+      "sha256": "f265aa7fbb235c2d073ab8f51ac78802f70654117de406f67dfb54faace84aec"
+    },
+    {
+      "path": "/tmp/v1-03-penalty-disposition-check.py",
+      "sha256": "ecf15cba3248e24b6eac15d934a74d57e469fdfdb8f3da0512496784399bd230"
+    },
+    {
+      "path": "/tmp/v1-03-goalie-shooter-check.py",
+      "sha256": "37a69a13c6bebaf425aa0fb7b7b2f61626f557d6c960e8d0763f804d78ec3faa"
+    },
+    {
+      "path": "/tmp/v1-03-http-arithmetic-check.py",
+      "sha256": "af2a81935c5c86a31b9166f2ccf305de88d42692096ab8ac017a3b14a1b053d4"
+    },
+    {
+      "path": "/tmp/v1-03-final-refactor-review.py",
+      "sha256": "39e54a7fd8ef8d6f2d1b69ebd529e28f27eb11db3b74b8545a66b920e9de728c"
+    }
+  ],
+  "stopped_pid": 39779,
+  "verified_command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node --require /Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/preflight.cjs --import file:///Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/loader.mjs app/src/server/main.ts --publication var/v1-03/root-green-01/candidate/player-analysis.sqlite --port 41904 --api-only",
+  "retained": "durable receipts, original capture fixtures and other owners files; app/dist untouched",
+  "port_41904_listening_after": false,
+  "deleted_paths_verified_absent": true
+}

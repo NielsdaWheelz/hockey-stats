@@ -1,0 +1,39 @@
+{
+  "authorization": "root final green and scoped cleanup instruction",
+  "removed": [
+    {
+      "path": "/tmp/hockey-v1-03-microstats",
+      "files": [
+        "__pycache__/scoring_credits_baseline.cpython-314.pyc",
+        "boundaries.py",
+        "check.py",
+        "counterpart-qualification-cases.json",
+        "counterpart_missingness.py",
+        "counterpart_qualification.py",
+        "credits.py",
+        "descriptive_review.py",
+        "fixture-receipt.json",
+        "fixtures.py",
+        "goalie-attempt-row.json",
+        "goalie-prepared.json",
+        "goalie-witness.json",
+        "goalie_witness.py",
+        "preserve_goalie.py",
+        "scoring_credits_baseline.py",
+        "secondary_audit.py",
+        "strength_closure.py"
+      ]
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/app/.v1-03-counterpart-peer-check.ts",
+      "files": 1
+    }
+  ],
+  "preserved": "durable review receipts and fixture originals; root command/live/browser controllers, shared outputs/preparation, other owner probes, node_modules and app/dist remain untouched",
+  "source_files": {
+    "analysis/src/hockey_stats/descriptive.py": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+    "analysis/src/hockey_stats/microstats.py": "c36b2ffcb7e630e00545d7fc38632b7a8f96161fe577d6f06b725fe807ea807f",
+    "analysis/src/hockey_stats/scoring_credits.py": "d079e6b3055ea0d2248338f0a489eba4e252d9e70dd5ca9d94613eb270314bf3"
+  },
+  "production_changed": false
+}

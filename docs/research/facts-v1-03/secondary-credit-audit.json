@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "purpose": "read-only paired factual-credit source audit; not prepared acceptance or scientific admission",
+  "baseline_commit": "5503c7b",
+  "baseline_source_sha256": "ee080030e48bd936876a83cfee9ef99a0c2f6900be4cc677f8a97396ad73325a",
+  "current_source_sha256": "d079e6b3055ea0d2248338f0a489eba4e252d9e70dd5ca9d94613eb270314bf3",
+  "selection_sha256": "ad1251a0a72d93c6f5927ef8d5d4ab7298fef2f0930a8885bdd2e366aa9a7787",
+  "input_contract": "existing validate_envelope; score_chronology ordered kind-valid goal/save events; feature_data._people reconciled identities; one unchanged _bound_sources validation reused by both scoring owners",
+  "seasons": [
+    {
+      "season": "20232024",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json",
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "inventory_games": 1312,
+      "reconstructed_games": 1312,
+      "unavailable_games": 0,
+      "selected_events": 79983,
+      "credit_outcome_differences": 0,
+      "reason_only_differences": 0,
+      "baseline_status_counts": {
+        "credited": 79883,
+        "unresolved": 100
+      },
+      "current_status_counts": {
+        "credited": 79883,
+        "unresolved": 100
+      },
+      "baseline_reason_counts": {
+        "goal_identity_unavailable": 100
+      },
+      "current_reason_counts": {
+        "goal_identity_unavailable": 100
+      }
+    },
+    {
+      "season": "20242025",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/corpus.json",
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "inventory_games": 1312,
+      "reconstructed_games": 1312,
+      "unavailable_games": 0,
+      "selected_events": 74641,
+      "credit_outcome_differences": 0,
+      "reason_only_differences": 0,
+      "baseline_status_counts": {
+        "credited": 74549,
+        "unresolved": 92
+      },
+      "current_status_counts": {
+        "credited": 74549,
+        "unresolved": 92
+      },
+      "baseline_reason_counts": {
+        "goal_identity_unavailable": 92
+      },
+      "current_reason_counts": {
+        "goal_identity_unavailable": 92
+      }
+    },
+    {
+      "season": "20252026",
+      "corpus_manifest": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "inventory_games": 1312,
+      "reconstructed_games": 1312,
+      "unavailable_games": 0,
+      "selected_events": 73720,
+      "credit_outcome_differences": 0,
+      "reason_only_differences": 0,
+      "baseline_status_counts": {
+        "credited": 73575,
+        "unresolved": 145
+      },
+      "current_status_counts": {
+        "credited": 73575,
+        "unresolved": 145
+      },
+      "baseline_reason_counts": {
+        "goal_identity_unavailable": 145
+      },
+      "current_reason_counts": {
+        "goal_identity_unavailable": 145
+      }
+    }
+  ],
+  "differences": [],
+  "reason_only_differences": [],
+  "complete": true,
+  "elapsed_seconds": 246.11,
+  "completed_at": "2026-10-23T05:02:45.743794+00:00"
+}

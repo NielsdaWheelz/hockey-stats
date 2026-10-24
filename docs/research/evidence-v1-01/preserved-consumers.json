@@ -1,0 +1,31 @@
+{
+  "observed_seasons": [
+    {
+      "season": "20232024",
+      "canonical_sha256": "8a5e2ce73386d97186d0b6fd176f199b62ca7441d9b3ce4112d4b2c2c1a6deff",
+      "canonical_bytes": 694724029,
+      "before_wall_seconds": 170.36311895796098,
+      "after_wall_seconds": 133.58902574999956,
+      "exact": true
+    },
+    {
+      "season": "20242025",
+      "canonical_sha256": "f39b1ee4b6f4e47344d07e4136608e5207e4ed0175ae752b730fd427ca83a66f",
+      "canonical_bytes": 676497700,
+      "before_wall_seconds": 136.62947258300846,
+      "after_wall_seconds": 124.43504812498577,
+      "exact": true
+    },
+    {
+      "season": "20252026",
+      "canonical_sha256": "bf0dabc4bf15efa8409b647c5f9a9ee0cbd6b6706513e836e80573bf974559b6",
+      "canonical_bytes": 685213701,
+      "before_wall_seconds": 156.4921482920181,
+      "after_wall_seconds": 138.6133235419984,
+      "exact": true
+    }
+  ],
+  "research_fixture_games": 36,
+  "research_exact": true,
+  "research_rows_sha256": "28b6015ed0a26d2e18cf96fdc96ad14ad6bf7895de3b159820a78d59316063c1"
+}

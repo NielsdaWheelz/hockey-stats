@@ -1,0 +1,122 @@
+{
+  "audited_at": "2026-10-23T06:00:29.669003+00:00",
+  "scope": "cleanup ownership and active references; no deletion, process stop or source mutation",
+  "status": "clear for scoped task cleanup after reviewed merge identity is verified",
+  "task_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-03",
+  "task_head": "a7e5d61652bda23cc6b17f99ba56f0f6b1e2161a",
+  "task_source_sha256": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+  "task_source_candidate": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/candidate/player-analysis.sqlite",
+    "bytes": 105893888,
+    "device": 16777234,
+    "inode": 156449842,
+    "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b"
+  },
+  "preserve_v1_16_copies": [
+    {
+      "path": "/tmp/hockey-stats-v1-16/v1-03-changed-old-affiliation.sqlite",
+      "symlink": false,
+      "bytes": 105893888,
+      "device": 16777234,
+      "inode": 157083822,
+      "sha256": "2865308f3ff640af69a2106b52a0fc3051235b6363c3fa9c49b2dcde4300791c",
+      "independent_of_task_source": true
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/v1-03-malformed-affiliation.sqlite",
+      "symlink": false,
+      "bytes": 105893888,
+      "device": 16777234,
+      "inode": 157082551,
+      "sha256": "f9773bdb691b213e993ca58b75fe7bae1cd8e6e8f1755e05cc34f5f854d085b7",
+      "independent_of_task_source": true
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/v1-03-preliminary.sqlite",
+      "symlink": false,
+      "bytes": 105590784,
+      "device": 16777234,
+      "inode": 156455007,
+      "sha256": "cd8f8fe10d5e530afb34d7d08f50c0c179065e39dc73c3c9fea5ac20df06390d",
+      "independent_of_task_source": true
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/v1-03-verified-fixture.sqlite",
+      "symlink": false,
+      "bytes": 105893888,
+      "device": 16777234,
+      "inode": 157081992,
+      "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+      "independent_of_task_source": true
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/v1-03-verified-reader.sqlite",
+      "symlink": false,
+      "bytes": 105893888,
+      "device": 16777234,
+      "inode": 157082041,
+      "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+      "independent_of_task_source": true
+    }
+  ],
+  "preserve_processes": [
+    {
+      "pid": 63973,
+      "owner": "v1-01",
+      "purpose": "external five-season preparation",
+      "observation": "63973  7426 03:07:08 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli prepare --selection docs/research/evidence-v1-01/selection-real.json --out /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02"
+    },
+    {
+      "pid": 70045,
+      "owner": "primary",
+      "purpose": "active schema6 serving on port3000",
+      "observation": "70045     1 01-01:03:53 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats/app/dist/node/server/main.js --publication /Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite --port 3000"
+    },
+    {
+      "pid": 96288,
+      "owner": "v1-16",
+      "purpose": "independent api reader on port41916",
+      "observation": "96288  4237 11:59 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node --import tsx src/server/main.ts --api-only --publication /tmp/hockey-stats-v1-16/candidate/player-analysis.sqlite --port 41916"
+    },
+    {
+      "pid": 96400,
+      "owner": "v1-16",
+      "purpose": "independent built reader on port41917",
+      "observation": "96400  4237 11:58 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node dist/node/server/main.js --publication /tmp/hockey-stats-v1-16/candidate/player-analysis.sqlite --port 41917"
+    }
+  ],
+  "preserve_scopes": [
+    "/Users/nnandal/Documents/code/hockey-stats and its dirty/untracked documentation, active/previous publication and serving build",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01 including dirty acceptance work and fixture/native evidence",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05 including dirty numerical work and outputs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-16 including dirty source/docs, .tmp, /tmp/hockey-stats-v1-16 and active independent readers",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 and all external current raw/corpora/fits",
+    "tracked docs/research/facts-v1-03 receipts/reviews and fixtures/source-admission-v1-03.json plus original captures/references"
+  ],
+  "safe_task_only_resources_after_merge": [
+    "the eight var/v1-03 acceptance/source/live/browser/preservation controllers and their __pycache__",
+    "var/v1-03/prepared-fixture, root-red/root-green-01/root-green-02/root-green-03, package3 synthetic/negative outputs, task-only screenshots/downloads/logs and copied source inputs",
+    "the registered v1-03 worktree, its disposable task build and only its task branch refs after reviewed merge/tree identity checks"
+  ],
+  "runtime_reference_findings": [
+    "no task-owned reader/process found; observed task cwd entries were the audit shell/lsof/python themselves and had exited",
+    "current primary/v1-01/v1-05 tracked/dirty docs/source contain no runtime task-artifact references",
+    "v1-16 records historical preliminary and verified task candidate source locators but consumes independent regular-file copies; all independent copies and worktree resources remain protected",
+    "fixed fixtures/source-admission and real observed selection bind external original paths or repository-relative fixture paths, not the disposable task path",
+    "task fixture acceptance absolute paths are frozen historical locators/hashes, not required runtime aliases; no task-path symlink or artifact relocation is justified"
+  ],
+  "real_followup": {
+    "issue": "docs/issues/facts-v1-03-real-acceptance.md",
+    "preparation": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "selection": "docs/research/facts-v1-03/selection-real.json",
+    "commands": "ordinary facts then publish from the primary repository into fresh isolated external output directories",
+    "acceptance": "after verified v1-01 completion, create fresh disposable independent source/arithmetic/application checks from the fixed specification and checked expectations; production commands alone do not close acceptance",
+    "no_controller_archive": true
+  },
+  "documentation_changes": [
+    "updated only acceptance-coverage handoff row/final paragraph to supersede original fixture-seal controller retention",
+    "root independently updated the real-acceptance issue to primary-repository commands and verification cleanup status"
+  ],
+  "deletion_performed": false,
+  "process_stop_performed": false
+}

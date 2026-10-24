@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "commands": [
+    "PATH=/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH npm --prefix app run typecheck",
+    "PATH=/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH npm --prefix app run build"
+  ],
+  "deleted_test_modules": true,
+  "clean_build_directory": "task app/dist only",
+  "client_files": {
+    "index.html": "60d551263775a60b1a9008753f4ffbaa30d1ec27d93b4a56b2983713b322b948",
+    "assets/player-main-Bh372EBJ.js": "ae0504a2167218ff692b16cf335b4a7d2cf62658fbf4b50ed316513e780fd13e",
+    "assets/client-DipivzY0.js": "9f56417906c392d0bd6136ef7213593b0ef55db48e7a100b3a492163898c2d32",
+    "assets/root-Dh1aSYV2.js": "203eea66dfcb6c13eeb27d58b06a8d2450902f27d7aba600bec8f8eb230c6a53",
+    "assets/descriptive-card-CgryGlIW.js": "86053c1a86a93026aad0fd4f0a03f73dd797d0b77526025eeb4897347a200681",
+    "assets/peer-distributions-BgIhRQdr.js": "fa584c6d7a4672df223bf61e176125d87d22e31e157b1bcfbaa42868a30213fb",
+    "assets/explorer-IQTzxZUI.js": "3b47aae34b013ffc48c4c6da9e5877a1d448916b45760c404035bcbe5788482c",
+    "assets/jsx-runtime-Bcb-PiJy.js": "124bc89765020c2632a94bba506ddbc28f0ad97a82a099ee96c4459d56a89f2e",
+    "assets/league-main-G5-iFxW3.js": "b44647f158ddc9bb3fa128f256e8c89ae942efaa144cc079970b871fb2f665c8",
+    "assets/styles-lCb9vC0K.css": "7fc986cc21ac70d78d0ac3dc906efccf74bff302b0c83b0e86f3545c478d3ea3",
+    "assets/player-client-loader-Dn0-He2n.js": "4533073f77ee42edaa567acb6c6799200148869987adcc255873a7ed574532c5",
+    "assets/manifest-69cbd67e.js": "26274d9c37338538712212c8596a17640fe83e3d43fb0d9fc0f48c4982f39969",
+    "assets/league-client-loader-CJ1Y5hH6.js": "0524d6e91f221c9f9457fd17e880b2d1458f3ed2369dabca9e827a64f75d2c97",
+    "assets/entry.client-CimxyNE3.js": "f123592f11d56cc3c499149ae7c2b8ef315cfbadf89ad6c66dd6a55ea1f22785",
+    "assets/compare-client-loader-BOlza-9V.js": "863014b84a8565f203b6c7c3f9d7c66f6989a0f38bd62cdecf991bb67037780d",
+    "assets/compare-main-B9TbZcYg.js": "59f4f79d8eff5dbe10d6b7f4435e969eb27dbad0c794cc3a3e8b0a7f18a14644"
+  },
+  "exact_client_bytes_before_after": true,
+  "owned_listeners_stopped": [
+    {
+      "pid": 14483,
+      "port": 41903
+    },
+    {
+      "pid": 39779,
+      "port": 41904
+    }
+  ],
+  "primary_listener_preserved": 70045
+}

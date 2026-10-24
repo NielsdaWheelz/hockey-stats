@@ -1,0 +1,6 @@
+[21:54:14.390] ERROR (#1): UnknownError: An error occurred in Effect.try
+    at catcher (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/effect/src/internal/effect.ts:1074:28) {
+  [cause]: Error: analytical subject kind/identity differs
+      at present (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/src/server/analysis-publication.ts:460:15)
+      at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-03/app/src/server/analysis-publication.ts:599:13)
+}

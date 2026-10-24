@@ -1,0 +1,66 @@
+{
+  "phase": "after",
+  "prepared_sha256": "2f4bd2bd134bf039cbd3a346b3d75d0812d02318f8344ebd169519d1703fdecf",
+  "source_sha256": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+  "seasons": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "actual_games": 6,
+      "skaters": 201,
+      "canonical_sha256": "c4e6a1abbefd89d9c21a28b8dec45cb226a7a707a1befa8bff6aa2b58b0e7377",
+      "canonical_bytes": 41498446
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "actual_games": 9,
+      "skaters": 245,
+      "canonical_sha256": "e796cb167f018c7b33a8ddb8b405abac310558574d09252617f0ff48863346c1",
+      "canonical_bytes": 53629257
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "actual_games": 9,
+      "skaters": 277,
+      "canonical_sha256": "5e699626139bf2b3eb248aae3a959a8393e1d97bb7fc2d186cb07e6ef5031a84",
+      "canonical_bytes": 50781864
+    }
+  ],
+  "same_before_after": true,
+  "wall_seconds": 81.66217570897425,
+  "before_source_sha256": "16622c087542f967f63a54c2a7016e28f0f0886673383c4d4debf7999053228a",
+  "before_wall_seconds": 82.87550133303739,
+  "counts": {
+    "actual_games": 24,
+    "skaters": 723
+  },
+  "scope": [
+    "fixed per-game evidence rows, masks and dispositions",
+    "complete per-game descriptive and microstat reductions",
+    "season people, descriptive/context/coverage summaries and all thirty-key microstat records"
+  ],
+  "canonical_contract": "recursive class-tagged values distinguish dict, Counter, defaultdict and its factory, dataclass class/fields, list, tuple, set, scalar types and dictionary-key types; exact decoded canonical equality plus equal sha256 per season",
+  "consumer": [
+    {
+      "relation": "teammates",
+      "exact_value_rows": 245,
+      "exact_cohort_and_standing": true,
+      "members": 77
+    },
+    {
+      "relation": "opponents",
+      "exact_value_rows": 245,
+      "exact_cohort_and_standing": true,
+      "members": 77
+    }
+  ],
+  "refactor": [
+    "remove unused SEASONS import",
+    "inline one-use _new_person constructor into reduce_game",
+    "remove unused source_id arguments from _usage and _scoring",
+    "remove never-used source_id path from estimate; unavailable evidence remains empty list",
+    "name strength cardinalities/goalie presence and goal/on-net conversion variables explicitly"
+  ]
+}

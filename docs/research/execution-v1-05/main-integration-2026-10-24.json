@@ -1,0 +1,266 @@
+{
+  "base_commit": "49956bf628bbd93791783983194a9ed118e1df8a",
+  "main_commit": "d2e61f79e1f8a073d27bb0f2ab3fe8fc3a35e134",
+  "protected_primary": {
+    "docs/issues/descriptive-fixture-consistency.md": "c3af05d0a9947135c6d0c8a1f8b21e211ca892a50fa57968efb649f3987f78ff",
+    "docs/research/skating-v1-04-follow-up/source-audit.md": "bad532516d5f69d7ab306958d07f52932dc3c2947e4bd057a9f05aa5372d7b20",
+    "docs/specs/v1-05-execution-base.md": "531de9753e3ee83b6088b01b611395ca4d453f6eb50b069cdc2626f22dd147d7",
+    "docs/specs/v1-06-execution-scoring.md": "e5d10221b21f63978d563f1e282c4a1728fda50124fa4678ca413e2894d5a021",
+    "docs/specs/v1-16-descriptive-card-context.md": "421a2f77169f0f3e8ec9f6f083de601ef07525e16e94f1c3ead09ee4ddfdc62b",
+    "docs/architecture.md": "5e61757e73069cb1bc39fbf5a28a6228fd130dd8d2e7d083c3ad6d5b4a6e3776",
+    "docs/brief.md": "a0dec65addf934ade7f02725a970d5ef9a8990c7d4ee44733e3a3ab156509ff5",
+    "docs/issues/microstat-inputs.md": "90b673e2d07ab297c0040da1d126d6660e4293b3aea85010e77846b9268d16a9",
+    "docs/model-features.md": "251bb2eeb165c62e2d13730b877625951cd5200e3c306d1c5163c45a9771a9ec",
+    "docs/plan.md": "a18b5840982f3ca6aee16635df125ac520926eb1a92592e0669ff78f70d0b6fb",
+    "docs/product-inventory.md": "75696bc5301da78fdb0b5c2da1ccd9dd7614605b26c22ee47cfb9ef0bc799515",
+    "docs/research/council.md": "38106e92e9133d09f6c573bffcb5c316fbafcb527c6e050b4cd07fb92c35997d",
+    "docs/research/player-card-references.md": "b36d710fd90de44a0574917dbb7c79f02a775f7d6f357c996cc01aac82550150",
+    "docs/roadmap.md": "50f45e7889015f53bf405380bc81c2a17d3b846e85a10a65170acf4776854e89",
+    "docs/specs/experimental-application.md": "f9bef41223b9c2cf7d3bed37b415ec67418facae55cfe6189f8f283ed34fc5dc",
+    "docs/specs/experimental-card-facts.md": "00c18e83348426d98fe4738376f521f3384bfe508cceff2cc2e2da3ccab24b2d",
+    "docs/specs/experimental-chance.md": "afcc48b8e47f71f327125991c68591775a2a0b43b01fb415fbf73198d3b8c7ce",
+    "docs/specs/experimental-player-analysis.md": "f291630c30700f3c25a36ba83adc4bd94ddc3b5adee1e2853a1c2bcbcb0a0a89",
+    "docs/specs/v1-03-factual-card-reductions.md": "6c5c3dd7b2b6b55ffd0274c27e7c7f19d8bc45824c56ca81c724a8ad408e5621",
+    "docs/specs/v1-13-typed-publication.md": "49873c86df4c2d405f09b302969c66551ac3a72373e392f33051684aa4485329",
+    "docs/specs/v1-14-history-cohorts-exports.md": "9eb035ecc6564e30f19d53ad6ad053edb0958c3353c3fec0a79706c1ceb87e10"
+  },
+  "frozen_fixture": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+    "members_exist": true,
+    "input_locators_exist": true
+  },
+  "checks": [
+    {
+      "name": "facts_route_before_merge",
+      "expected": 0,
+      "actual": 2,
+      "red": true,
+      "stderr": "usage: python -m hockey_stats.analysis_cli [-h] {publish,prepare,fit} ...\npython -m hockey_stats.analysis_cli: error: argument command: invalid choice: 'facts' (choose from 'publish', 'prepare', 'fit')"
+    },
+    {
+      "name": "prepare_help",
+      "exit_code": 0
+    },
+    {
+      "name": "facts_help",
+      "exit_code": 0
+    },
+    {
+      "name": "publish_help",
+      "exit_code": 0
+    },
+    {
+      "name": "fit_help",
+      "exit_code": 0
+    },
+    {
+      "name": "command_owner_dispatch",
+      "calls": [
+        [
+          "prepare",
+          "s",
+          "p"
+        ],
+        [
+          "facts",
+          "p",
+          "o",
+          "f"
+        ],
+        [
+          "publish",
+          "o",
+          "r",
+          "d"
+        ]
+      ]
+    },
+    {
+      "name": "frozen_public_prepared_game",
+      "game_id": "2024020001",
+      "purpose": "fixture"
+    },
+    {
+      "name": "approved_fixture_family_readback",
+      "seasons": [
+        "20212022",
+        "20222023",
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "complete_heads": 20,
+      "checked_probe_variants": 4
+    },
+    {
+      "name": "one_analysis_entrypoint",
+      "count": 1
+    },
+    {
+      "name": "primary_drafts_and_frozen_paths_preserved",
+      "primary_files": 21
+    },
+    {
+      "name": "prepare_missing_input",
+      "exit_code": 1,
+      "stderr": "prepare failed: [Errno 2] No such file or directory: '/private/tmp/v105-absent-selection'"
+    },
+    {
+      "name": "facts_missing_input",
+      "exit_code": 1,
+      "stderr": "facts failed: [Errno 2] No such file or directory: '/private/tmp/v105-absent-observed'"
+    },
+    {
+      "name": "publish_missing_input",
+      "exit_code": 1,
+      "stderr": "publish failed: [Errno 2] No such file or directory: '/private/tmp/v105-absent-observed'"
+    },
+    {
+      "name": "fit_missing_input",
+      "exit_code": 1,
+      "stderr": "fit failed: [Errno 2] No such file or directory: '/tmp/v105-absent-prepared/manifest.json'"
+    },
+    {
+      "name": "v1_01_owner_identity",
+      "unchanged_from_5503c7b_and_accepted_main": [
+        "analysis/src/hockey_stats/analysis_context.py",
+        "analysis/src/hockey_stats/analysis_data.py",
+        "analysis/src/hockey_stats/analysis_records.py",
+        "analysis/src/hockey_stats/analysis_support.py",
+        "analysis/src/hockey_stats/feature_data.py",
+        "analysis/src/hockey_stats/feature_history.py",
+        "analysis/src/hockey_stats/game_chronology.py",
+        "analysis/src/hockey_stats/reconstruct.py",
+        "analysis/src/hockey_stats/artifacts.py"
+      ]
+    },
+    {
+      "name": "accepted_factual_owners_preserved",
+      "modules": [
+        "scoring_credits",
+        "analysis_publication",
+        "descriptive",
+        "microstats",
+        "publication"
+      ],
+      "equals_main": true
+    },
+    {
+      "name": "prepare_help",
+      "exit_code": 0
+    },
+    {
+      "name": "facts_help",
+      "exit_code": 0
+    },
+    {
+      "name": "publish_help",
+      "exit_code": 0
+    },
+    {
+      "name": "fit_help",
+      "exit_code": 0
+    },
+    {
+      "name": "command_owner_dispatch",
+      "calls": [
+        [
+          "prepare",
+          "s",
+          "p"
+        ],
+        [
+          "facts",
+          "p",
+          "o",
+          "f"
+        ],
+        [
+          "publish",
+          "o",
+          "r",
+          "d"
+        ]
+      ]
+    },
+    {
+      "name": "frozen_public_prepared_game",
+      "game_id": "2024020001",
+      "purpose": "fixture"
+    },
+    {
+      "name": "approved_fixture_family_readback",
+      "seasons": [
+        "20212022",
+        "20222023",
+        "20232024",
+        "20242025",
+        "20252026"
+      ],
+      "complete_heads": 20,
+      "checked_probe_variants": 4
+    },
+    {
+      "name": "one_analysis_entrypoint",
+      "count": 1
+    },
+    {
+      "name": "primary_drafts_and_frozen_paths_preserved",
+      "primary_files": 21
+    }
+  ],
+  "recipe_sha256": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09",
+  "status": "pass",
+  "scope": "deliberate accepted-main integration before real fitting; no fits or raw source recomputation",
+  "primary_spec_comparison": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-05-execution-base.md",
+    "decision": "preserve committed worktree specification; leave primary draft unchanged",
+    "material_differences": [
+      "primary draft uses superseded ftol1e-10 and omits approved stopping amendment",
+      "primary draft omits baseline descriptor DAG and u-only joint probe withholding",
+      "primary draft omits attributed sparse source-present actor witness contract",
+      "primary draft adds downstream v1-06 versus v1-08/12 propagation clarification; no primary draft copied"
+    ]
+  },
+  "upstream_semantics": {
+    "v1_01_core": "byte-identical to5503c7b and acceptedmain",
+    "scoring_credits": "accepted main factual path preserves supported primary assist despite secondary-assist failure; frozen prepared input retains its original source dispositions",
+    "episode_source_order": "upstream issue explicitly remains a pre-fit consumer policy boundary; source order remains unchanged"
+  },
+  "conflict_resolution": {
+    "source": "analysis_cli combines prepare,facts,publish,fit at their existing owners; approved fit behavior unchanged",
+    "documentation_owner": "root reconciled five committed branch/main documentation files; primary drafts not copied"
+  },
+  "unchanged_execution_files": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "8222df648b09e02835a36107dc979839c7233ea132ef4f85412800e4ca99cea5"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "0b52fa0b1812269e3f5e4e1c35d2cd31a62cc109f5ce13a6eaa1dfdc255bbf8a"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "9528af8c3a574e591ff7667e7d7a917f9f69fe174fbc2724db09b3be6ff6f699"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "5ef7a9c2bc8e16de0f4a1955edfddd6cebed9b086e2901682b8e0dcf05477f0e"
+    },
+    {
+      "path": "analysis/src/hockey_stats/chance.py",
+      "sha256": "02a7a840fc1c4aea232d757d6d98a3185931603edb193582d443f06f8b313e20"
+    },
+    {
+      "path": "analysis/src/hockey_stats/shot_origins.py",
+      "sha256": "34cc5ea4b5364aac502593a2d65d5b2192498ae63d006c187009d5f7a1d4340e"
+    }
+  ],
+  "temporary_deleted": {
+    "path": "/tmp/v105-integration-checks.py",
+    "sha256": "4d2b96e88d81b44b487d5ea70912eecbc6457a785122fbac7e42b8145c060e4b",
+    "scope": "focused integration controller; no retained harness"
+  }
+}

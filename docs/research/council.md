@@ -1,5 +1,13 @@
 # council synthesis
 
+## v1-01 real implementation acceptance — 2026-10-24
+
+source, systems and content reviewers clear the complete [shared-evidence delivery](evidence-v1-01/verification.md). all 6,560 selected games pass public-reader/source reconciliation, conserving 2,060,996 original events and exact seasonal physical, team and actual-member slot accounting. independent original-source samples, dated identities, future invariance, guarded downstream selections and preserved observed/research consumers pass. [independent receipt review](evidence-v1-01/real-acceptance-independent-review.json) binds the exact artifact and five disjoint season proofs.
+
+real execution exposed one producer defect: two other-state boundary neighbors could emit the same empty-affected strength diagnostic twice. the strict reader correctly rejected it. review required deduplicating that diagnostic while preserving every source row and support decision; the complete original capture bundle and red/green/parity receipts remain. the saved-mask supplement reconciles 444,786 excluded seconds, including 12,195 seconds covered by multiple reason codes. per-code losses overlap; 542,339 unresolved known seconds and one unknown horizon remain separate.
+
+material costs are measured: 397.8 gb, 9.37 preparation hours and 5.42 gb peak resident memory, plus explicitly reported reader costs. retain the specified direct-fact format for this delivery; a normalized representation needs a separate storage contract. conservative support loss, piecewise-constant elapsed context and missing history/optional height remain visible. temporary tests/controllers were deleted after final green; original fixtures, completed artifacts and compact checked facts remain. no acquisition, fitting, application change, activation or scientific admission occurred. v1-13's delivery root retains shared cli integration; no merge was assigned here.
+
 ## v1-05 execution-base specification review — 2026-10-22
 
 three independent read-only reviewers examined mathematics, systems/source contracts and content for [v1-05](../specs/v1-05-execution-base.md). root inspected current numerical owners, the in-progress v1-01 contract and merged coach interface, reconciled the handoff and amended the canonical appendix. reviewers checked the source meanings against v1-01's worktree; this does not establish upstream acceptance. [hockeyviz xg8](https://hockeyviz.com/txt/xg8) supports the four-layer inspiration, symmetry, tip masking and actor placement, not equivalence of our independent estimator.
@@ -11,6 +19,26 @@ review resolved weighted-log versus marginalized-origin likelihood, auxiliary-as
 the boundary is twenty annual base states and four final-head resolution checks. v1-06 owns reference panels, card quantities, allocation and publication; v1-07 owns the other two heads. source-backed factual and frontend work can proceed independently. fixed origin imputation, mirrored geometry, missing-feature imputation, finite exact-strength contrasts, local mixture optimization and absent calibrated uncertainty are explicit costs, not scientific gates. diagnostics describe training data and assumption-dependent probabilities; software completion does not admit ability.
 
 independent findings were resolved in the documents; link/anchor, consistency and whitespace checks cover this documentation work. no source code, acquisition, fitting, published artifact or serving file changed. the earlier v1-03 and other primary drafts remain preserved. this records specification review, not numerical or software acceptance; [the plan](../plan.md#current-boundary) owns assignment.
+
+## v1-01 detached implementation review — 2026-10-22
+
+three non-astra implementers, peer review, root and an independent claude session completed the detached [shared-evidence implementation](evidence-v1-01/verification.md). the strict preparation command and public readers deliver all-strength event facts, matched elapsed masks/chunks, actual-unit context, immediate labels and dated people. 36 original fixture games retain 11,659 source events; all 37 native cases and the old research projections remain exact. canonical observed reducers on all three displayed seasons also remain exact. this is computational and interface verification, not scientific admission.
+
+adversarial review repaired focal outcome leakage, unsupported participation, goalie applicability, label missingness, support closure and finite artifact consistency defects. distinct overlapping own shift rows are omitted from known participation with original witnesses; exact duplicates and valid adjacency remain supported. actual multi-team identity checks and trusted-input future-mutation invariance pass. [receipts](evidence-v1-01/verification.md) retain the checked boundaries; temporary tests/controllers are deleted after final green.
+
+material costs remain visible: conservative lost support, piecewise-constant elapsed workload, two source passes and a measured 1.94 gb fixture artifact. the closed schema's repeated evidence needs a real operating-cost measurement and possibly a separately specified storage revision. source-order episode availability and explicitly future outcome groups need care in later execution encoders. these limits neither erase the facts nor establish model quality.
+
+work is paused at the user's instruction. the external drive is absent, so all 6,560 real games, full reconciliation/original-source spot checks and real resource measurements remain pending. v1-13 fixtures develop independently; its root owns final shared cli reconciliation. no acquisition, fitting, database change, application rebuild or activation occurred.
+
+## v1-01 shared-evidence specification review — 2026-10-22
+
+three independent source/reconstruction, context/identity and systems/consumer reviewers clear the [v1-01 handoff](../specs/v1-01-shared-evidence.md). root inspected the existing owners and integrated their findings. this is documentation/code inspection, not implemented behavior, a corpus audit or scientific verification. no settled product choice needed reopening.
+
+native reconstruction already retains other strengths; the extension belongs in shared preparation. review fixes actual-unit shift/workload summaries, normalized non-attempt locations, goalie faced prefixes, episode censoring, immediate outcome labels and separate event/elapsed snapshots. source-supported events can survive missing elapsed time; rate consumers require paired counts/time. saved masks cover missing collections, accounting conflicts, unresolved events and lineup contradictions without rewriting existing observed 5v5 populations. the new product's incoming-goal/pre-score exception stays distinct from frozen research exclusions.
+
+systems review closes strict selection/member schemas, cardinality, unavailable collections, reader boundaries and persisted support decisions. base preparation is independent of v1-02 coaching; later fits/scoring bind that separate input. factual reductions and additional actor-specific masks remain v1-03 work. content owns truthful coverage receipts and source/elapsed/model distinctions, not a premature card or calibration claim.
+
+accepted costs: wider prepared data, complete five-season acceptance, conservative run-level exclusions, fixed elapsed-workload approximation and one explicit coach input later. optional height stays unavailable pending [unit evidence](../issues/bio-height-units.md); existing fields remain usable. fixtures permit detached development, not full acceptance. no acquisition, fitting, application rebuild, publication, persistent harness or execution assignment follows. documentation link/anchor and whitespace checks pass; historical source/research artifacts and serving files remain untouched.
 
 ## v1-03 factual-reduction specification review — 2026-10-22
 

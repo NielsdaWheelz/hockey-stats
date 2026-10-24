@@ -20,6 +20,7 @@ import type {
   SkaterMicrostats,
   QuantityPath,
 } from "../shared/player-analysis";
+import { preservesObservedAffiliations } from "../shared/player-analysis";
 import type { Family, Publication } from "../shared/publication";
 import type { PlayerSummary } from "../shared/observed";
 import { observedMetrics, type ObservedRateKey } from "./observed-comparison";
@@ -961,11 +962,7 @@ export function checkObservedIdentity(person: Person, summary: PlayerSummary): v
     person.player_id !== summary.player_id ||
     person.display_name !== summary.display_name ||
     person.reported_position !== summary.reported_position ||
-    person.teams.length !== summary.teams.length ||
-    person.teams.some((team, index) =>
-      team.id !== summary.teams[index].id ||
-      team.abbreviation !== summary.teams[index].abbreviation,
-    )
+    !preservesObservedAffiliations(person.teams, summary.teams)
   )
     throw new Error(`player ${person.player_id}: observed summary identity differs from its overview person`);
 }

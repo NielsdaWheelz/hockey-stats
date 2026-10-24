@@ -193,7 +193,7 @@ QUANTITY_PATHS = frozenset((
 
 SUPPORT_REASON_CODES = frozenset((
     "required_source_unavailable", "count_accounting_conflict", "event_evidence_unresolved", "unpaired_report_attempt", "elapsed_membership_unresolved", "period_horizon_unavailable", "player_toi_conflict", "roster_identity_unresolved", "unassigned_player_games", "event_exposure_conflict", "shift_source_empty", "no_5v5_exposure", "no_personal_5v5_exposure", "personal_credit_unresolved", "spatial_coordinates_missing", "spatial_frame_unresolved", "spatial_location_outside_rink", "no_spatial_5v5_exposure",
-    "source_unavailable", "membership_unavailable", "identity_conflict", "strength_conflict", "ambiguous_assignment", "unmatched_report_attempt", "clock_unavailable", "horizon_unavailable", "not_computed", "not_applicable", "no_exposure", "missing_source", "failed_fit", "type_unavailable", "context_unavailable", "elapsed_unavailable", "value_unavailable",
+    "reported_shifts_unavailable", "source_unavailable", "membership_unavailable", "identity_conflict", "strength_conflict", "ambiguous_assignment", "unmatched_report_attempt", "clock_unavailable", "horizon_unavailable", "not_computed", "not_applicable", "no_exposure", "missing_source", "failed_fit", "type_unavailable", "context_unavailable", "elapsed_unavailable", "value_unavailable",
 ))
 
 
@@ -952,11 +952,12 @@ def _descriptive(value, catalogs):
                         fields(item, (field, 'share'))
                         number(item[field], minimum=0, integer=field == 'count', nullable=True)
                         estimate(item['share'], catalogs, probability=True)
-                    known = [item[field] for item in row[group].values()]
-                    total = sum(known) if all(item is not None for item in known) else None
-                    for item in row[group].values():
+                    for key, item in row[group].items():
+                        denominator_keys = names if group == 'shift_starts' or key == 'unknown' else names[:-1]
+                        parts = [row[group][name][field] for name in denominator_keys]
+                        total = sum(parts) if all(part is not None for part in parts) else None
                         if item['share']['value'] is not None:
-                            require(total is not None and total > 0 and close(item['share']['value'], item[field]/total), 'deployment share differs')
+                            require(item[field] is not None and total is not None and total > 0 and close(item['share']['value'], item[field]/total), 'deployment share differs')
 
 
 def _strength_usage(value, catalogs, *, state=False):
@@ -1372,10 +1373,10 @@ def validate_fact(table, row, catalogs, people):
             actual_state(row['actual_state'])
         require(row['outcome'] in ('goal','save','miss','block'), 'invalid attempt outcome')
         require(row['shot_type'] is None or type(row['shot_type']) is str and bool(row['shot_type'].strip()), 'invalid source shot type')
-        for key,kind in (('shooter_id','skater'),('goalie_id','goalie')):
+        for key,kind in (('shooter_id',None),('goalie_id','goalie')):
             if row[key] is not None:
                 identifier(row[key])
-            require(row[key] is None or (year,row[key]) in people and people[(year,row[key])]['kind'] == kind, 'attempt recipient kind differs')
+            require(row[key] is None or (year,row[key]) in people and (kind is None or people[(year,row[key])]['kind'] == kind), 'attempt recipient kind differs')
         require((row['x_ft'] is None) == (row['y_ft'] is None), 'incomplete coordinate pair')
         number(row['x_ft'],minimum=-100,maximum=100,nullable=True)
         number(row['y_ft'],minimum=-42.5,maximum=42.5,nullable=True)
@@ -1639,8 +1640,6 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
                 sha.update(data)
                 count += 1
         return dict(path=path,sha256=sha.hexdigest(),rows=count)
-    for table,rows in catalogs.items():
-        manifest['catalogs'][table] = member(table+'.jsonl',rows,table)
     for family in family_rows:
         fields(family,('season','family','availability','explanation','tables'))
         require(family['season'] in SEASONS and family['family'] in FAMILY_TABLES, 'invalid producer family selector')
@@ -1649,6 +1648,8 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
         record = {key:family[key] for key in ('season','family','availability','explanation')}
         record['tables'] = {table:member(f"{family['season']}-{family['family']}-{table}.jsonl",rows,table) for table,rows in family['tables'].items()}
         manifest['families'].append(record)
+    for table,rows in catalogs.items():
+        manifest['catalogs'][table] = member(table+'.jsonl',rows,table)
     staging = output/'manifest.json.incomplete'
     write_json(staging,manifest)
     _read_results(output, 'manifest.json.incomplete')
@@ -1841,6 +1842,14 @@ def check_results(connection, results):
 
 
 def _check_intervals(connection):
+    require(connection.execute("""SELECT 1 FROM person p JOIN json_each(p.teams_json) t
+        LEFT JOIN player_season s USING(season,player_id)
+        WHERE NOT EXISTS(SELECT 1 FROM json_each(coalesce(s.teams_json,'[]')) old WHERE json_extract(old.value,'$.id')=json_extract(t.value,'$.id'))
+        AND NOT EXISTS(SELECT 1 FROM dressed_game d JOIN game g USING(season,game_id)
+            WHERE d.season=p.season AND d.player_id=p.player_id AND d.team_id=json_extract(t.value,'$.id')
+            AND ((d.team_id=g.away_team_id AND (g.away_abbreviation IS NULL OR g.away_abbreviation IS json_extract(t.value,'$.abbreviation')))
+                OR (d.team_id=g.home_team_id AND (g.home_abbreviation IS NULL OR g.home_abbreviation IS json_extract(t.value,'$.abbreviation'))))) LIMIT 1""").fetchone() is None,
+        'person affiliation lacks matching dressed-game/game-team evidence')
     require(connection.execute('SELECT 1 FROM interval_fact GROUP BY season,game_id,interval_id HAVING min(period_number)!=max(period_number) OR min(start_seconds)!=max(start_seconds) OR min(end_seconds)!=max(end_seconds) LIMIT 1').fetchone() is None, 'interval id reuses different bounds')
     require(connection.execute('SELECT 1 FROM interval_fact GROUP BY season,game_id,period_number HAVING min(period_horizon_seconds)!=max(period_horizon_seconds) LIMIT 1').fetchone() is None, 'period horizon differs across source-supported intervals')
     previous_domain = None

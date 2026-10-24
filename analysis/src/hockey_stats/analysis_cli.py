@@ -1,4 +1,4 @@
-"""explicit offline product commands."""
+"""explicit offline player-analysis commands."""
 
 import argparse
 from pathlib import Path
@@ -11,7 +11,7 @@ from .cli import Once
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(description="prepare evidence, fit annual execution, or publish checked analysis", allow_abbrev=False)
+    parser = argparse.ArgumentParser(prog="hockey-stats-analysis", description="prepare evidence, fit annual execution, or publish checked analysis", allow_abbrev=False)
     commands = parser.add_subparsers(dest="command", required=True)
     publish = commands.add_parser("publish", allow_abbrev=False)
     publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
@@ -20,6 +20,10 @@ def main(argv=None) -> int:
     prepare = commands.add_parser("prepare", allow_abbrev=False)
     prepare.add_argument("--selection", required=True, action=Once, metavar="FILE")
     prepare.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    facts = commands.add_parser("facts", allow_abbrev=False)
+    facts.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
+    facts.add_argument("--observed", required=True, action=Once, metavar="FILE")
+    facts.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     fit = commands.add_parser("fit", allow_abbrev=False)
     fit.add_argument("--family", required=True, choices=("execution",), action=Once)
     fit.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
@@ -34,6 +38,11 @@ def main(argv=None) -> int:
             from .analysis_data import prepare_analysis
             manifest = prepare_analysis(args.selection, args.out)
             print(str(manifest.directory / "manifest.json"))
+            return 0
+        if args.command == "facts":
+            from .descriptive import build_factual_results
+            manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
+            print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
             return 0
         if args.command == "fit":
             from .analysis_data import read_prepared

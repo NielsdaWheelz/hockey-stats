@@ -1,0 +1,971 @@
+{
+  "status": "passed_fixture_only",
+  "purpose": "fixture",
+  "branch": "implement/v1-03-factual-card-reductions",
+  "prepared": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/prepared-fixture/manifest.json",
+    "bytes": 1341906,
+    "sha256": "2f4bd2bd134bf039cbd3a346b3d75d0812d02318f8344ebd169519d1703fdecf"
+  },
+  "source_files": {
+    "analysis/src/hockey_stats/descriptive.py": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+    "analysis/src/hockey_stats/microstats.py": "c36b2ffcb7e630e00545d7fc38632b7a8f96161fe577d6f06b725fe807ea807f",
+    "analysis/src/hockey_stats/scoring_credits.py": "d079e6b3055ea0d2248338f0a489eba4e252d9e70dd5ca9d94613eb270314bf3",
+    "analysis/src/hockey_stats/analysis_cli.py": "7895a458ed43a91b6cdf80f3ca56f6fbdf3cf67c619415ae00669912bd2d391d",
+    "analysis/src/hockey_stats/analysis_publication.py": "8b054b8e97c2391142f13bdeed3343d5454fe585c60662caec2d993e0b3f796b",
+    "analysis/src/hockey_stats/publication.py": "0052957f20d7d1bb953cd21146be61dc203ab5e02371b39ed4991f847569de9c",
+    "app/src/shared/player-analysis.ts": "d0dd2cad929b7c5b95cba0fea2b6b01fa1d3f2125b78d604409df03dd93cca2d",
+    "app/src/server/analysis-publication.ts": "8cfcc50d09e49a54218337850f43842d6c0918f7813d470f59d856925e140dda",
+    "app/src/server/observed-publication.ts": "e641e93b122acbc33c17f50499677a7e0c5f939d71e4b34b6108b5d752f16a16",
+    "app/src/web/analysis-values.ts": "6ee2ae0c1dea8a249088d217655e964e7d671facf91c1443266d5dc5f0fcd214",
+    "app/src/web/comparative-card.tsx": "37fae86a0b3619611d1d38fa09de2f6c616a470cfc9d1ada714536abc301a4a0"
+  },
+  "artifact_production_note": "candidate uses pre-refactor descriptive source; exact full 24-game and three-season type/value equivalence binds the inert final refactor",
+  "commands": [
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "facts",
+        "--prepared",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/prepared-fixture",
+        "--observed",
+        "var/v1-03/observed-fixture.json",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results"
+      ],
+      "returncode": 0,
+      "seconds": 418.393510749971,
+      "stdout": "factual results: fixture; /Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results/manifest.json\n",
+      "stderr": "",
+      "child_high_water_rss_bytes": 1232928768
+    },
+    {
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "publish",
+        "--observed",
+        "var/v1-03/observed-fixture.json",
+        "--results",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/candidate"
+      ],
+      "returncode": 0,
+      "seconds": 15.741543833981268,
+      "stdout": "publication 49d46e4d-8363-480e-9dac-594b442c748d: fixture\noutput: /Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/candidate/player-analysis.sqlite; scientific admission not performed\n",
+      "stderr": "",
+      "child_high_water_rss_bytes": 1232928768
+    }
+  ],
+  "checks": {
+    "checks": {
+      "exact_old_game": 3936,
+      "exact_old_player_game": 864,
+      "exact_old_player_season": 723,
+      "exact_old_player_game_spatial": 9961,
+      "exact_old_player_season_spatial": 381428,
+      "exact_old_player_season_pair": 10448,
+      "complete_skater_payloads": 723,
+      "raw_boxscore_usage": 723
+    },
+    "source_expectations": {
+      "20232024": {
+        "skaters": 201,
+        "original_listings": 240
+      },
+      "20242025": {
+        "skaters": 245,
+        "original_listings": 360
+      },
+      "20252026": {
+        "skaters": 277,
+        "original_listings": 360
+      }
+    }
+  },
+  "artifacts": {
+    "results/manifest.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results/manifest.json",
+      "bytes": 13836,
+      "sha256": "86833e0dd6bf26b0ebeb621705c709084b610a0092f551368f37e9d4b48200a1"
+    },
+    "candidate/player-analysis.sqlite": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/candidate/player-analysis.sqlite",
+      "bytes": 105893888,
+      "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b"
+    },
+    "candidate/verification.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/candidate/verification.json",
+      "bytes": 15437,
+      "sha256": "62ae8c32a3631a36a4ceb95fa6c4c13685573ecc65a14433d856052da9383940"
+    }
+  },
+  "output_bytes": {
+    "results": 71399062,
+    "candidate": 183745965
+  },
+  "seasons": [
+    {
+      "season": "20232024",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 6,
+        "partial_games": 2,
+        "unavailable_games": 1306,
+        "games_with_unassigned_player_associations": 1306
+      },
+      "spatial_coverage": {
+        "included_seconds": 15956,
+        "known_excluded_seconds": 1129,
+        "unblocked_attempts": 330,
+        "unblocked_per60": 37.22737528202557,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "elapsed_membership_unresolved",
+          "required_source_unavailable",
+          "spatial_frame_unresolved"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 6,
+        "partial_games": 3,
+        "unavailable_games": 1306,
+        "reason_game_counts": [
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 2
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1306
+          },
+          {
+            "code": "spatial_frame_unresolved",
+            "games": 1
+          }
+        ]
+      },
+      "observed_checks": {
+        "physical_seconds": 17085,
+        "player_seconds": 170850,
+        "physical_attempts": 539,
+        "player_attempts_for": 2695,
+        "player_attempts_against": 2695,
+        "personal_physical_seconds": 17085,
+        "personal_player_seconds": 170850,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 3557,
+        "teammate_pair_seconds": 341700,
+        "opponent_pair_seconds": 427125
+      },
+      "factual_receipt": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results/20232024-factual-receipt.json",
+        "bytes": 2154362,
+        "sha256": "e4ef609ef3c5cd802940c49d1f562c127efb1a1caa19f47950663f9b470fa4e4"
+      },
+      "game_dispositions": {
+        "reconstructed": 6,
+        "missing_capture": 1306
+      },
+      "penalty_role_dispositions": {
+        "taken": {
+          "attributed": 54
+        },
+        "drawn": {
+          "attributed": 50,
+          "not_recorded": 4
+        },
+        "served": {
+          "not_recorded": 53,
+          "attributed": 1
+        }
+      },
+      "microstat_totals": {
+        "u": {
+          "included_player_seconds": 170850,
+          "excluded_player_seconds": 0,
+          "count": 395,
+          "opportunities": 0
+        },
+        "h": {
+          "included_player_seconds": 170560,
+          "excluded_player_seconds": 290,
+          "count": 253,
+          "opportunities": 0
+        },
+        "b": {
+          "included_player_seconds": 167400,
+          "excluded_player_seconds": 3450,
+          "count": 129,
+          "opportunities": 2560
+        }
+      },
+      "microstat_issue_counts": {
+        "u": {},
+        "h": {
+          "event_evidence_unresolved": 8,
+          "source_unavailable": 1306
+        },
+        "b": {
+          "identity_conflict": 14
+        }
+      }
+    },
+    {
+      "season": "20242025",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 8,
+        "partial_games": 3,
+        "unavailable_games": 1304,
+        "games_with_unassigned_player_associations": 1303
+      },
+      "spatial_coverage": {
+        "included_seconds": 21601,
+        "known_excluded_seconds": 56,
+        "unblocked_attempts": 493,
+        "unblocked_per60": 41.08143141521226,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "required_source_unavailable",
+          "shift_source_empty",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 8,
+        "partial_games": 3,
+        "unavailable_games": 1304,
+        "reason_game_counts": [
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 3
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 4
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1303
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 1
+          }
+        ]
+      },
+      "observed_checks": {
+        "physical_seconds": 21601,
+        "player_seconds": 216010,
+        "physical_attempts": 695,
+        "player_attempts_for": 3475,
+        "player_attempts_against": 3475,
+        "personal_physical_seconds": 21601,
+        "personal_player_seconds": 216010,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 4484,
+        "teammate_pair_seconds": 432020,
+        "opponent_pair_seconds": 540025
+      },
+      "factual_receipt": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results/20242025-factual-receipt.json",
+        "bytes": 2684467,
+        "sha256": "f3f2c24cd0968a235bca40775a40e2db9256770dc133ebe9b9bb2662660506fb"
+      },
+      "game_dispositions": {
+        "reconstructed": 9,
+        "missing_capture": 1303
+      },
+      "penalty_role_dispositions": {
+        "taken": {
+          "attributed": 71,
+          "not_recorded": 3
+        },
+        "drawn": {
+          "attributed": 64,
+          "not_recorded": 10
+        },
+        "served": {
+          "not_recorded": 69,
+          "attributed": 5
+        }
+      },
+      "microstat_totals": {
+        "u": {
+          "included_player_seconds": 208080,
+          "excluded_player_seconds": 8490,
+          "count": 470,
+          "opportunities": 0
+        },
+        "h": {
+          "included_player_seconds": 208640,
+          "excluded_player_seconds": 7930,
+          "count": 329,
+          "opportunities": 0
+        },
+        "b": {
+          "included_player_seconds": 203340,
+          "excluded_player_seconds": 13230,
+          "count": 170,
+          "opportunities": 3135
+        }
+      },
+      "microstat_issue_counts": {
+        "u": {},
+        "h": {
+          "event_evidence_unresolved": 42,
+          "source_unavailable": 1303
+        },
+        "b": {
+          "identity_conflict": 16
+        }
+      }
+    },
+    {
+      "season": "20252026",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 4,
+        "partial_games": 1,
+        "unavailable_games": 1308,
+        "games_with_unassigned_player_associations": 1303
+      },
+      "spatial_coverage": {
+        "included_seconds": 11488,
+        "known_excluded_seconds": 8364,
+        "unblocked_attempts": 241,
+        "unblocked_per60": 37.76114206128134,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "required_source_unavailable",
+          "roster_identity_unresolved",
+          "spatial_location_outside_rink"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 4,
+        "partial_games": 2,
+        "unavailable_games": 1308,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 3
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 4
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 4
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1303
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          }
+        ]
+      },
+      "observed_checks": {
+        "physical_seconds": 11512,
+        "player_seconds": 115120,
+        "physical_attempts": 359,
+        "player_attempts_for": 1795,
+        "player_attempts_against": 1795,
+        "personal_physical_seconds": 11512,
+        "personal_player_seconds": 115120,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 2407,
+        "teammate_pair_seconds": 230240,
+        "opponent_pair_seconds": 287800
+      },
+      "factual_receipt": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/root-green-03/results/20252026-factual-receipt.json",
+        "bytes": 3441078,
+        "sha256": "92c2ecae8aa1eea5322e6bd0ad6f44d5c9749c2d6959819dcde8c7fd261c89c6"
+      },
+      "game_dispositions": {
+        "reconstructed": 9,
+        "missing_capture": 1303
+      },
+      "penalty_role_dispositions": {
+        "taken": {
+          "attributed": 56,
+          "not_recorded": 2
+        },
+        "drawn": {
+          "attributed": 49,
+          "not_recorded": 9
+        },
+        "served": {
+          "not_recorded": 54,
+          "attributed": 4
+        }
+      },
+      "microstat_totals": {
+        "u": {
+          "included_player_seconds": 115120,
+          "excluded_player_seconds": 83400,
+          "count": 242,
+          "opportunities": 0
+        },
+        "h": {
+          "included_player_seconds": 198500,
+          "excluded_player_seconds": 20,
+          "count": 278,
+          "opportunities": 0
+        },
+        "b": {
+          "included_player_seconds": 112650,
+          "excluded_player_seconds": 85870,
+          "count": 104,
+          "opportunities": 1710
+        }
+      },
+      "microstat_issue_counts": {
+        "u": {},
+        "h": {
+          "source_unavailable": 1303,
+          "event_evidence_unresolved": 89
+        },
+        "b": {
+          "identity_conflict": 12
+        }
+      }
+    }
+  ],
+  "live_checks": {
+    "checks": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "exact_payloads": 201
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "exact_payloads": 201
+      },
+      {
+        "season": "20232024",
+        "pid": "8481559",
+        "partner": "8475726",
+        "population": "recorded_all_attempts",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 42,
+            "against_mass": 30,
+            "seconds": 2041,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 72,
+            "against_mass": 45,
+            "seconds": 3506,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20232024",
+        "pid": "8481559",
+        "partner": "8475726",
+        "population": "recorded_all_attempts",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 27,
+            "against_mass": 22,
+            "seconds": 1166,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 15,
+            "against_mass": 8,
+            "seconds": 875,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20232024",
+        "pid": "8481559",
+        "partner": "8475726",
+        "population": "recorded_goals",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 3,
+            "against_mass": 2,
+            "seconds": 2041,
+            "on_net_for": 27,
+            "on_net_against": 17
+          },
+          {
+            "for_mass": 0,
+            "against_mass": 3,
+            "seconds": 3506,
+            "on_net_for": 32,
+            "on_net_against": 27
+          }
+        ]
+      },
+      {
+        "season": "20232024",
+        "pid": "8481559",
+        "partner": "8475726",
+        "population": "recorded_goals",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 3,
+            "against_mass": 2,
+            "seconds": 1166,
+            "on_net_for": 17,
+            "on_net_against": 14
+          },
+          {
+            "for_mass": 0,
+            "against_mass": 0,
+            "seconds": 875,
+            "on_net_for": 10,
+            "on_net_against": 3
+          }
+        ]
+      },
+      {
+        "season": "20232024",
+        "pid": "8481559",
+        "partner": "8475726",
+        "population": "recorded_locatable_unblocked",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 34,
+            "against_mass": 21,
+            "seconds": 2041,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 55,
+            "against_mass": 37,
+            "seconds": 3506,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20232024",
+        "pid": "8481559",
+        "partner": "8475726",
+        "population": "recorded_locatable_unblocked",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 23,
+            "against_mass": 16,
+            "seconds": 1166,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 11,
+            "against_mass": 5,
+            "seconds": 875,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "exact_payloads": 245
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "exact_payloads": 245
+      },
+      {
+        "season": "20242025",
+        "pid": "8482175",
+        "partner": "8479420",
+        "population": "recorded_all_attempts",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 43,
+            "against_mass": 29,
+            "seconds": 1683,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 63,
+            "against_mass": 44,
+            "seconds": 3640,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "pid": "8482175",
+        "partner": "8479420",
+        "population": "recorded_all_attempts",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 34,
+            "against_mass": 26,
+            "seconds": 1453,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 9,
+            "against_mass": 3,
+            "seconds": 230,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "pid": "8482175",
+        "partner": "8479420",
+        "population": "recorded_goals",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 1,
+            "against_mass": 3,
+            "seconds": 1683,
+            "on_net_for": 21,
+            "on_net_against": 16
+          },
+          {
+            "for_mass": 3,
+            "against_mass": 2,
+            "seconds": 3640,
+            "on_net_for": 28,
+            "on_net_against": 19
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "pid": "8482175",
+        "partner": "8479420",
+        "population": "recorded_goals",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 1,
+            "against_mass": 3,
+            "seconds": 1453,
+            "on_net_for": 18,
+            "on_net_against": 15
+          },
+          {
+            "for_mass": 0,
+            "against_mass": 0,
+            "seconds": 230,
+            "on_net_for": 3,
+            "on_net_against": 1
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "pid": "8482175",
+        "partner": "8479420",
+        "population": "recorded_locatable_unblocked",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 33,
+            "against_mass": 22,
+            "seconds": 1683,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 45,
+            "against_mass": 33,
+            "seconds": 3640,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "pid": "8482175",
+        "partner": "8479420",
+        "population": "recorded_locatable_unblocked",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 28,
+            "against_mass": 20,
+            "seconds": 1453,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 5,
+            "against_mass": 2,
+            "seconds": 230,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "exact_payloads": 277
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "exact_payloads": 277
+      },
+      {
+        "season": "20252026",
+        "pid": "8477935",
+        "partner": "8477409",
+        "population": "recorded_all_attempts",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 27,
+            "against_mass": 9,
+            "seconds": 1012,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 32,
+            "against_mass": 31,
+            "seconds": 1950,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "pid": "8477935",
+        "partner": "8477409",
+        "population": "recorded_all_attempts",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 25,
+            "against_mass": 8,
+            "seconds": 911,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 2,
+            "against_mass": 1,
+            "seconds": 101,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "pid": "8477935",
+        "partner": "8477409",
+        "population": "recorded_goals",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 0,
+            "against_mass": 1,
+            "seconds": 1012,
+            "on_net_for": 14,
+            "on_net_against": 4
+          },
+          {
+            "for_mass": 2,
+            "against_mass": 1,
+            "seconds": 1950,
+            "on_net_for": 17,
+            "on_net_against": 13
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "pid": "8477935",
+        "partner": "8477409",
+        "population": "recorded_goals",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 0,
+            "against_mass": 1,
+            "seconds": 911,
+            "on_net_for": 13,
+            "on_net_against": 4
+          },
+          {
+            "for_mass": 0,
+            "against_mass": 0,
+            "seconds": 101,
+            "on_net_for": 1,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "pid": "8477935",
+        "partner": "8477409",
+        "population": "recorded_locatable_unblocked",
+        "mode": "on_off",
+        "groups": [
+          {
+            "for_mass": 18,
+            "against_mass": 5,
+            "seconds": 1012,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 24,
+            "against_mass": 22,
+            "seconds": 1950,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "pid": "8477935",
+        "partner": "8477409",
+        "population": "recorded_locatable_unblocked",
+        "mode": "with_without",
+        "groups": [
+          {
+            "for_mass": 17,
+            "against_mass": 4,
+            "seconds": 911,
+            "on_net_for": 0,
+            "on_net_against": 0
+          },
+          {
+            "for_mass": 1,
+            "against_mass": 1,
+            "seconds": 101,
+            "on_net_for": 0,
+            "on_net_against": 0
+          }
+        ]
+      }
+    ]
+  },
+  "browser": {
+    "compare": "http://127.0.0.1:41903/compare?season=20252026&a=8475149&b=8478493&peerMin=0",
+    "desktop": [
+      1440,
+      1000
+    ],
+    "narrow": [
+      375,
+      1000
+    ],
+    "png": "hockey-stats-8475149-20252026-49d46e4d-8363-480e-9dac-594b442c748d-comparative.png",
+    "csv": "observed-20252026-49d46e4d-8363-480e-9dac-594b442c748d.csv",
+    "runtimeErrors": []
+  },
+  "browser_artifacts": {
+    "browser-receipt.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/browser-receipt.json",
+      "bytes": 361,
+      "sha256": "eda0b6d59b85cefab4a6e5750996330b2589904b3a98c53081f4027e8e3b0714"
+    },
+    "compare-wide.png": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/compare-wide.png",
+      "bytes": 114591,
+      "sha256": "b8fbb2684ac294cbfa0dc0515f7b1a461536b7597cf90a4275815a8bacd23b3b"
+    },
+    "comparative-export.png": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/comparative-export.png",
+      "bytes": 2975623,
+      "sha256": "b80c0f7e68d76a3ecf61e16fc195a4a97a3ee51dfe570d477fd0598333c3b93c"
+    },
+    "comparative-export.svg": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/comparative-export.svg",
+      "bytes": 58036,
+      "sha256": "37b0aba699715746792f7b0a897715a791f51c3780cc16b61f7b2eb96e74213a"
+    },
+    "compare-narrow.png": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/compare-narrow.png",
+      "bytes": 70019,
+      "sha256": "b908e070008f5dd0398fc43a6e2e8fee3abc127d297d1d70c84473616550e4ac"
+    },
+    "card-wide.png": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/card-wide.png",
+      "bytes": 245443,
+      "sha256": "5ff1883a100f1226a0c9682e56756ef513b3b8331c231d2d2ad9840d82c0651b"
+    },
+    "compare.txt": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/compare.txt",
+      "bytes": 19868,
+      "sha256": "98e4c8830563d85bb48c2e975fb3cfa64aa91341629bb58e3ab384d45487146f"
+    },
+    "observed-export.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/browser-fixture-final/observed-export.csv",
+      "bytes": 2621732,
+      "sha256": "8575a6aa819971cbb8e8153c8d28634f096452e660cf78b765a9347e3387432c"
+    }
+  },
+  "detached": "node preload denies raw, preparation, fixture and fit paths; startup and all api/browser checks pass",
+  "scientific_admission": "not_performed",
+  "activation": "not_performed",
+  "real_acceptance": "pending complete verified v1-01 preparation; fixture inventory contains explicit missing captures"
+}

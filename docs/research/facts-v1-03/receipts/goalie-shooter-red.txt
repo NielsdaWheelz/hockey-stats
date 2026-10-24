@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/tmp/v1-03-goalie-shooter-check.py", line 18, in <module>
+    a.write_results(selection,dict(people=people,sources=[source],methods=[],supports=[support]),families,out/'results')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_publication.py", line 1655, in write_results
+    _read_results(output, 'manifest.json.incomplete')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_publication.py", line 1613, in _read_results
+    for row in result.rows(member,table,family['family']):
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_publication.py", line 1541, in rows
+    validate_row(table,row,family,self.catalogs,self.people)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_publication.py", line 1466, in validate_row
+    validate_fact(table,row,catalogs,people)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/analysis_publication.py", line 1379, in validate_fact
+    require(row[key] is None or (year,row[key]) in people and people[(year,row[key])]['kind'] == kind, 'attempt recipient kind differs')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-03/analysis/src/hockey_stats/artifacts.py", line 72, in require
+    raise InputContractError(message)
+hockey_stats.captures.InputContractError: attempt recipient kind differs

@@ -1,0 +1,167 @@
+{
+  "status": "passed",
+  "browser": {
+    "status": "passed",
+    "usage": {
+      "listed_games": 1,
+      "minutes_per_appearance": {
+        "reason_detail": null,
+        "unavailable_reason": null,
+        "uncertainty": {
+          "kind": "not_estimated"
+        },
+        "value": 13.766666666666667
+      },
+      "missing_games": 0,
+      "positive_toi_appearances": 1,
+      "provenance": {
+        "id": "factual-20252026",
+        "kind": "source"
+      },
+      "reported_seconds": 826,
+      "reported_shifts": 20,
+      "support": {
+        "current_season_information": true,
+        "eligible_weight": null,
+        "events": null,
+        "included_seconds": 826,
+        "inferred_inputs": [],
+        "known_excluded_seconds": 0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "supported_games": 1,
+      "teams": [
+        {
+          "listed_games": 1,
+          "minutes_per_appearance": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 13.766666666666667
+          },
+          "missing_games": 0,
+          "positive_toi_appearances": 1,
+          "reported_seconds": 826,
+          "reported_shifts": 20,
+          "support": {
+            "current_season_information": true,
+            "eligible_weight": null,
+            "events": null,
+            "included_seconds": 826,
+            "inferred_inputs": [],
+            "known_excluded_seconds": 0,
+            "prior_only": false,
+            "prior_seasons": [],
+            "reason_counts": [],
+            "unquantified_gap": false
+          },
+          "supported_games": 1,
+          "team_id": "30"
+        }
+      ]
+    },
+    "history": [
+      {
+        "metric": "microstats.unblocked_attempts_per60",
+        "season": "20232024",
+        "value": null
+      },
+      {
+        "metric": "microstats.unblocked_attempts_per60",
+        "season": "20242025",
+        "value": null
+      },
+      {
+        "metric": "microstats.unblocked_attempts_per60",
+        "season": "20252026",
+        "value": 16.9811320754717
+      },
+      {
+        "metric": "context.opponents.usage_minutes_per_appearance",
+        "season": "20232024",
+        "value": null
+      },
+      {
+        "metric": "context.opponents.usage_minutes_per_appearance",
+        "season": "20242025",
+        "value": null
+      },
+      {
+        "metric": "context.opponents.usage_minutes_per_appearance",
+        "season": "20252026",
+        "value": 17.32471174004193
+      }
+    ],
+    "errors": []
+  },
+  "exact_csv_history": [
+    {
+      "metric": "microstats.unblocked_attempts_per60",
+      "season": "20232024",
+      "exact_value": null,
+      "status": "absent"
+    },
+    {
+      "metric": "microstats.unblocked_attempts_per60",
+      "season": "20242025",
+      "exact_value": null,
+      "status": "absent"
+    },
+    {
+      "metric": "microstats.unblocked_attempts_per60",
+      "season": "20252026",
+      "exact_value": 16.9811320754717,
+      "status": "provided"
+    },
+    {
+      "metric": "context.opponents.usage_minutes_per_appearance",
+      "season": "20232024",
+      "exact_value": null,
+      "status": "absent"
+    },
+    {
+      "metric": "context.opponents.usage_minutes_per_appearance",
+      "season": "20242025",
+      "exact_value": null,
+      "status": "absent"
+    },
+    {
+      "metric": "context.opponents.usage_minutes_per_appearance",
+      "season": "20252026",
+      "exact_value": 17.32471174004193,
+      "status": "provided"
+    }
+  ],
+  "files": {
+    "card-narrow.png": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/discovery-fixture-final/card-narrow.png",
+      "bytes": 77392,
+      "sha256": "89f187bef815165451a4c81a18da928c40f4637d1fe1de3c0bc4d1965c5187f0"
+    },
+    "microstats.unblocked_attempts_per60.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/discovery-fixture-final/microstats.unblocked_attempts_per60.csv",
+      "bytes": 4218,
+      "sha256": "c28c290c9625a5b6149e59d83a917a69ae548331ded24a661495b514750ea00a"
+    },
+    "overview.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/discovery-fixture-final/overview.csv",
+      "bytes": 56396,
+      "sha256": "5404e0d4cbb02637ceeac175b6315a4e696128ce907f8940a4da61c026f95b87"
+    },
+    "context.opponents.usage_minutes_per_appearance.csv": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/discovery-fixture-final/context.opponents.usage_minutes_per_appearance.csv",
+      "bytes": 5085,
+      "sha256": "336ca78adeebcfc4f123a6878729e08d5a3f14f7c11de443ee14fdff61360c50"
+    },
+    "receipt.json": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/discovery-fixture-final/receipt.json",
+      "bytes": 2461,
+      "sha256": "b59d070b1e337122a8ec6e40074020bd216fc71d2ce089369058ce26443f4204"
+    }
+  }
+}

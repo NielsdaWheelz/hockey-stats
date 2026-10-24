@@ -1,0 +1,39 @@
+{
+  "removed": [
+    {
+      "path": "/tmp/v1-03-descriptive-equivalence.py",
+      "bytes": 3883
+    },
+    {
+      "path": "/tmp/v1-03-content-boundaries.py",
+      "bytes": 11637
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/app/.v1-03-refactor-values.ts",
+      "bytes": 1920
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/refactor-equivalence",
+      "bytes": 148675189
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/descriptive-peer",
+      "bytes": 1654
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/facts-green-01",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/facts-green-02",
+      "bytes": 70607972
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-03/var/v1-03/facts-green-03",
+      "bytes": 2154362
+    }
+  ],
+  "total_bytes": 221456617,
+  "production_source_sha256": "191b33425ebd5f833ec9c42a4bfd89376c2c7e53f5ba4805b5f7ff3a581431de",
+  "retained": "durable docs receipts and source fixtures; shared candidates/preparation; other owners probes; node_modules and app/dist"
+}

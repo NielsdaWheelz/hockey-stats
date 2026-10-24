@@ -1,5 +1,5 @@
 {
-  "status": "input identities checked; fitting not started; awaiting source-order policy, integration freeze and root go",
+  "status": "accepted input identities and strict metadata checked; approved timing repair and current fixture qualification passed; representative real2021 next after independent content receipt and committed-source freeze",
   "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
   "coach_artifact_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
   "annual_input_sizes": [
@@ -52,5 +52,5 @@
   ],
   "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-05",
   "output_policy": "new ordinary external directory; one heavy fit at a time; independent manual annual cli calls with previous completed annual path; no runner/checkpoint/retry machinery",
-  "producer_freeze": "pending integration; no fit may use this preflight alone as production freeze"
+  "producer_freeze": "timing-production-freeze.json plus probe-only incomplete-setter-freeze.json; no numerical option or recipe change from the probe coverage repair"
 }

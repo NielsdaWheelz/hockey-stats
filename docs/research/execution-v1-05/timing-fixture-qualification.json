@@ -1,0 +1,30 @@
+{
+  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "first_four_years": "chain-history-01, unchanged",
+  "final_year": "chain-history-02, prospectively frozen selector before fresh baseline and continuations",
+  "baseline_coefficients_exactly_equal_to_initial_case_missing_run": {
+    "u": true,
+    "q": true,
+    "r": true,
+    "g": true
+  },
+  "initial_run": {
+    "receipt": "timing-fixture-chain.json",
+    "status": "twenty baseline heads and four numerical comparisons completed; incomplete_setter witness absent; all resolutions failed; CLI1",
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20252026",
+    "content_receipt_path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/content.json",
+    "content_sha256": "9b0c404581f59814df72715ffeff005c94c49d14613d3f774657183944fb83e5"
+  },
+  "current": {
+    "status": "twenty heads complete; four passed probes; all required cases actual or attributed fixture",
+    "content_sha256": "78e66efe7efbbd47fdc2d2b47aef23e2e88433d6e93c67b4a30c8e19632adb15",
+    "maximum_probability_change": {
+      "u": 4.78426317340741e-07,
+      "q": 4.649230004316607e-07,
+      "r": 1.937037141797049e-07,
+      "g": 5.005118852707824e-07
+    }
+  },
+  "historical_preclock_predecessor_contract": "earlier cfbda18b fixture content and proofs remain exact at commit49956bf; their timing semantics are historical, not current acceptance",
+  "no_promotion": "no old-recipe coefficients were promoted; the final-year rerun used ordinary CLI, the current recipe and the exact completed current-recipe2024 predecessor"
+}

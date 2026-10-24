@@ -1,0 +1,92 @@
+{
+  "scope": "independent local source composition and saved fixture handoff; no reviewer fits or corpus-wide reads",
+  "source_commits": [
+    "fd24f96371f47d65c4e192acf34d754fdab244c7",
+    "936044b68c045c16bf73c9fb1fcc955bb737a65f"
+  ],
+  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "content": {
+    "scope": "saved fixture states only; no fit or original/prepared member reads",
+    "producer_commit": "936044b",
+    "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+    "content_receipt": {
+      "path": "docs/research/execution-v1-05/content.json",
+      "sha256": "78e66efe7efbbd47fdc2d2b47aef23e2e88433d6e93c67b4a30c8e19632adb15"
+    },
+    "rows_checked": 20,
+    "years": 5,
+    "games": 36,
+    "recognized_attempts": 4328,
+    "saved_state_content": "pass",
+    "probe_identity_and_verdicts": "pass",
+    "uncovered_requirements": [],
+    "comparisons": {
+      "u": {
+        "status": "passed",
+        "maximum_probability_change": 4.78426317340741e-07
+      },
+      "q": {
+        "status": "passed",
+        "maximum_probability_change": 4.649230004316607e-07
+      },
+      "r": {
+        "status": "passed",
+        "maximum_probability_change": 1.937037141797049e-07
+      },
+      "g": {
+        "status": "passed",
+        "maximum_probability_change": 5.005118852707824e-07
+      }
+    },
+    "completion": "local fixture handoff pass; real fitting remains separately assigned"
+  },
+  "final_manifest": {
+    "path": "var/v1-05-real-checks/chain-history-02/20252026/manifest.json",
+    "sha256": "f07de426ebaae5eb3faca4676fbc880e0bcc562c14086cd1ab1df043f541ea73"
+  },
+  "incomplete_setter_attribution": {
+    "kind": "synthetic",
+    "source_key": "2025020001:2",
+    "projection": "incomplete_setter",
+    "reason": "synthetic source-evidence withholding: last eligible prior-clock record kind support removed",
+    "changed_fields": [
+      "/events/1/source/kind_valid"
+    ],
+    "source_prepared_member": {
+      "kind": "game",
+      "season": "20252026",
+      "game_id": "2025020001",
+      "path": "games/20252026/2025020001.json",
+      "sha256": "7c405680185b2c76e93697dc071d7768b3d3e9ec9bc71832214b5082ec2afcf1"
+    },
+    "withheld_history": {
+      "source_index": 1,
+      "pointer": "/events/1/source/kind_valid",
+      "before": true,
+      "after": false
+    },
+    "setter_universe_complete": false,
+    "expected_prior": [
+      {
+        "kind": "none",
+        "probability": 0.2
+      },
+      {
+        "kind": "unknown",
+        "probability": 0.8
+      }
+    ]
+  },
+  "detached_proof_review": {
+    "receipt": "timing-detached-reader.json",
+    "recipe": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+    "examples": 7,
+    "source_control": "permission_denied",
+    "reader": "passed",
+    "prediction": "exact saved-only equality",
+    "examples_sha256": "fcacf6e1f584b5353acf140d7668857c8f83dc7262040f3798691a1ab5db14e6",
+    "independent_example_hash_check": "pass",
+    "scope": "artifact owner operating-system-denial run reviewed; not rerun by this reviewer"
+  },
+  "verdict": "local fixture handoff accepted; real fit acceptance remains separate"
+}

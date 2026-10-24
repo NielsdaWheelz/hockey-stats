@@ -1,8 +1,9 @@
 {
+  "purpose": "fixture",
   "recipe": {
     "name": "experimental-v1",
     "version": "execution-v1-05-1",
-    "sha256": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09",
+    "sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
     "definition": {
       "version": "execution-v1-05-1",
       "heads": {
@@ -41,7 +42,35 @@
       "strength": "32 membership categories, (5,5,1) reference",
       "missingness": "head-training applicable weighted mean; unavailable and structural absence distinct; constant indicators zero",
       "actors": "tip-masked shooter; q/r/g goalie; g setter; separate known coach directions",
-      "setter": ".2 none,.8 role-weighted supported pre-event and earlier-episode participants; incomplete unknown; current-skater linear mean",
+      "setter": ".2 none,.8 role-weighted current unit and supported prior-clock phase participants; unknown phase unknown; current-skater linear mean",
+      "history_cutoff": {
+        "version": "strict-prior-clock-1",
+        "selection": "supported earlier source order AND strictly earlier period/game clock",
+        "affected": [
+          "recent_additive",
+          "recent_interactions",
+          "recent_geometry",
+          "strength_transition",
+          "setter_prior"
+        ],
+        "same_clock": "ignore every row including faceoff, reset, review and unknown kind before examining its contents",
+        "phase": "coarsened recorded prior-clock proxy; current membership retained; no recovered physical uninterrupted-play claim",
+        "period": "history is within the focal period; known earlier periods are outside it, unknown prior period is a barrier",
+        "phase_boundary": "supported prior reset gives known absence; supported faceoff or action after a known reset starts a known recorded phase; unanchored live history is censored",
+        "known_absence": "empty known phase participants; complete current-unit-only proxy candidates",
+        "unknown": "unknown clock/order/kind or censored phase remains unavailable until a supported earlier reset/anchor",
+        "transition": "shared native membership algebra at strict before-clock query; includes interval returns r<t without intervening events, excludes r==t",
+        "transition_evidence": "supported native intervals plus selected earlier source reset/clock facts; no per-event elapsed association prerequisite",
+        "unchanged": [
+          "focal membership",
+          "sequence",
+          "deployment",
+          "shift start",
+          "event-prefix workloads",
+          "calendar rest",
+          "labels"
+        ]
+      },
       "history": "entry OR carry; last likelihood-supported raw state; separate block/head/role age curves; no role-change reset",
       "penalties": {
         "base_map": 0.25,
@@ -263,16 +292,16 @@
       },
       "fixed_transforms": {
         "game_additive": "fixed category contrasts; tied,period1,away,middle references",
-        "recent_additive": "fixed category indicators; supported none zeros",
-        "recent_interactions": "six non-faceoff kind \u00d7 same-team and kind \u00d7 delay1..5 indicators",
-        "recent_geometry": "candidate minus preceding current attacking coordinates; dx,dy,hypot/100; opposite nonzero y signs",
+        "recent_additive": "fixed category indicators over last allowed earlier-source-order, strictly earlier-clock record; known none zeros",
+        "recent_interactions": "unchanged fixed kind\u00d7same-team and kind\u00d7delay contrasts over strict prior-clock recent record",
+        "recent_geometry": "candidate minus strict prior-clock preceding attacking coordinates; dx,dy,hypot/100; opposite nonzero y signs",
         "off_wing": "original reported right hand and candidate y>0, or left hand and y<0; supported centerline false",
         "sequence": "persistent defender index2,index3,index4+ indicators and age/60; index1 reference",
         "shift_age": "original shooter and complete actual opposing-unit min,mean,max compatible shift ages/60",
         "shift_start": "on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
         "workload": "shooter prefix toi/3600,completed shifts/30,attempts/10; complete actual opposing-unit mean,max prefix toi/3600; shooter7,14-day toi/3600,shifts/30,attempts/10",
         "calendar_rest": "shooter then opposing team: prior exists,gap days,prior-one/two-date,7/14-day games; proven no prior gap0",
-        "strength_transition": "preceding same-team fewer/more membership indicators and return age/60; supported none zeros"
+        "strength_transition": "shared genuine unequal-strength\u21925v5 membership history evaluated strictly before focal clock; previous fewer/more and return age/60; known none zeros"
       },
       "adaptations": {
         "unit": "all actual opposing members; no known-only sums",
@@ -318,7 +347,7 @@
         "forward_shooter_forward_weight": 2.0,
         "defense_shooter_forward_weight": 3.0,
         "other_weight": 1.0,
-        "candidate_universe": "pre-event teammates and every supported earlier episode event's complete attacking unit plus named participants, excluding shooter; incomplete earlier membership or order -> unknown",
+        "candidate_universe": "current teammates plus every supported strictly prior-clock phase event's attacking unit and named participants, excluding shooter; known absent phase is empty, unknown/censored phase -> unknown",
         "known_assist": "likelihood-only local candidate position; never enlarge universe",
         "unknown_or_goalie": "fixed pre-outcome skater candidate-weighted current linear mean; differentiate coupling",
         "empty_mean": "prior-only zero",
@@ -367,11 +396,12 @@
       }
     }
   },
+  "producer_commit": "f123566f2e2ccfe139e30fd3a29752944bfba7ab",
   "years": [
     {
       "season": "20212022",
       "command": [
-        "hockey-stats-analysis",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/hockey-stats-analysis",
         "fit",
         "--family",
         "execution",
@@ -382,41 +412,88 @@
         "--season",
         "20212022",
         "--out",
-        "var/v1-05-checks/chain-06/20212022"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 27.737830084050074,
+      "command_wall_seconds": 27.403048083069734,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json",
-        "sha256": "f488dc9f0101e35d9441ac539d5d6a4ac53f8e7b634e73a2c35412f9558ccc87"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022/manifest.json",
+        "sha256": "74c8441e76d62d5b5526d243fad72e8e2d13babfa4e1bfcf587f1508142fa4e8"
+      },
+      "resources": {
+        "wall_seconds": 27.04256354016252,
+        "peak_memory_bytes": 907116544,
+        "design_wall_seconds": 20.640724541037343,
+        "input_read_wall_seconds": 0.008708791108801961,
+        "fit_wall_seconds": 6.393130208016373,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 3450179,
+        "origin_rows": {
+          "u": 100986,
+          "q": 618,
+          "r": 439,
+          "g": 335
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 3061
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2572,
+          "q": 2611,
+          "r": 2611,
+          "g": 2842
+        },
+        "solve_counts": {
+          "u": 1,
+          "q": 1,
+          "r": 1,
+          "g": 5
+        }
       },
       "heads": {
         "u": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "q": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "r": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "g": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         }
       }
     },
     {
       "season": "20222023",
       "command": [
-        "hockey-stats-analysis",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/hockey-stats-analysis",
         "fit",
         "--family",
         "execution",
@@ -427,43 +504,90 @@
         "--season",
         "20222023",
         "--out",
-        "var/v1-05-checks/chain-06/20222023",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20222023",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20212022/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20212022/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 40.66612195799826,
+      "command_wall_seconds": 34.781112542026676,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json",
-        "sha256": "aedba02bcd02f90aed9e90b070d44dd1125dc10d35a89685de1a31694a881494"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20222023/manifest.json",
+        "sha256": "cdb4cc6da0044d7a8a0c543fd6670f3f4996027007d235527758484270a90051"
+      },
+      "resources": {
+        "wall_seconds": 34.35487475001719,
+        "peak_memory_bytes": 991019008,
+        "design_wall_seconds": 16.849252708023414,
+        "input_read_wall_seconds": 0.004033416975289583,
+        "fit_wall_seconds": 17.501588625018485,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 3187913,
+        "origin_rows": {
+          "u": 99490,
+          "q": 434,
+          "r": 321,
+          "g": 235
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 2108
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2521,
+          "q": 2558,
+          "r": 2558,
+          "g": 2744
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 8
+        }
       },
       "heads": {
         "u": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "q": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "r": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "g": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         }
       }
     },
     {
       "season": "20232024",
       "command": [
-        "hockey-stats-analysis",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/hockey-stats-analysis",
         "fit",
         "--family",
         "execution",
@@ -474,43 +598,90 @@
         "--season",
         "20232024",
         "--out",
-        "var/v1-05-checks/chain-06/20232024",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20232024",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20222023/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20222023/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 46.539477416023146,
+      "command_wall_seconds": 38.89992487500422,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json",
-        "sha256": "0529f1c7495694ec3b96720eac7c8009f175079103671cce627a4cd3e84514a2"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20232024/manifest.json",
+        "sha256": "d494ce963978547552a28fa9f726d04310b9a744a5b2fed7e7ed90d323e19eda"
+      },
+      "resources": {
+        "wall_seconds": 38.481617706944235,
+        "peak_memory_bytes": 784515072,
+        "design_wall_seconds": 20.279766750056297,
+        "input_read_wall_seconds": 0.0039717910112813115,
+        "fit_wall_seconds": 18.197879165876657,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 3595301,
+        "origin_rows": {
+          "u": 103440,
+          "q": 448,
+          "r": 312,
+          "g": 250
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 2190
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2547,
+          "q": 2586,
+          "r": 2586,
+          "g": 2794
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 10
+        }
       },
       "heads": {
         "u": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "q": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "r": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "g": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         }
       }
     },
     {
       "season": "20242025",
       "command": [
-        "hockey-stats-analysis",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/hockey-stats-analysis",
         "fit",
         "--family",
         "execution",
@@ -521,43 +692,90 @@
         "--season",
         "20242025",
         "--out",
-        "var/v1-05-checks/chain-06/20242025",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20242025",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20232024/manifest.json"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 72.19385712500662,
+      "command_wall_seconds": 65.92759891611058,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json",
-        "sha256": "54eeb5891a06d77038e1ea366a9468831a0e86587393c47a3493a11fd1c9fe68"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20242025/manifest.json",
+        "sha256": "1f5041349d62c6066e0a189915d872626f3ba43a1aef065cbbc355266c8dafb2"
+      },
+      "resources": {
+        "wall_seconds": 65.48961491696537,
+        "peak_memory_bytes": 1052459008,
+        "design_wall_seconds": 28.909712541964836,
+        "input_read_wall_seconds": 0.004266583011485636,
+        "fit_wall_seconds": 36.57563579198904,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 4413266,
+        "origin_rows": {
+          "u": 202147,
+          "q": 755,
+          "r": 494,
+          "g": 390
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 3369
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2597,
+          "q": 2638,
+          "r": 2638,
+          "g": 2890
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 10
+        }
       },
       "heads": {
         "u": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "q": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "r": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         },
         "g": {
           "status": "complete",
           "reasons": [],
-          "resolution": "not_applicable"
+          "resolution": {
+            "status": "not_applicable"
+          }
         }
       }
     },
     {
       "season": "20252026",
       "command": [
-        "hockey-stats-analysis",
+        "analysis/.venv/bin/hockey-stats-analysis",
         "fit",
         "--family",
         "execution",
@@ -567,40 +785,252 @@
         "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
         "--season",
         "20252026",
-        "--out",
-        "var/v1-05-checks/chain-06/20252026",
         "--previous",
-        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20242025/manifest.json"
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01/20242025/manifest.json",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-02/20252026"
       ],
       "exit_code": 0,
-      "command_wall_seconds": 83.50991620798595,
+      "command_wall_seconds": 82.82,
+      "wall_measurement": "/usr/bin/time -l reported seconds, precision0.01",
+      "peak_memory_bytes": 1177993216,
       "manifest": {
-        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-06/20252026/manifest.json",
-        "sha256": "93138c5fa2f7da78e77d547ae020246224468d2aff0ce402cd77807878686b18"
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-02/20252026/manifest.json",
+        "sha256": "f07de426ebaae5eb3faca4676fbc880e0bcc562c14086cd1ab1df043f541ea73"
+      },
+      "resources": {
+        "wall_seconds": 82.23208512482233,
+        "peak_memory_bytes": 1177993216,
+        "design_wall_seconds": 28.574796374887228,
+        "input_read_wall_seconds": 0.007674874970689416,
+        "fit_wall_seconds": 53.649613874964416,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 8134642,
+        "origin_rows": {
+          "u": 202153,
+          "q": 761,
+          "r": 508,
+          "g": 401
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 3663
+        },
+        "resolution_solve_counts": {
+          "u": 1,
+          "q": 1,
+          "r": 1,
+          "g": 1
+        },
+        "dimensions": {
+          "u": 2634,
+          "q": 2676,
+          "r": 2676,
+          "g": 2960
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 10
+        }
       },
       "heads": {
         "u": {
           "status": "complete",
           "reasons": [],
-          "resolution": "passed"
+          "resolution": {
+            "status": "passed",
+            "baseline": {
+              "path": "resolution/baseline.json",
+              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+            },
+            "probe": {
+              "path": "resolution/u.json",
+              "sha256": "99309904ce508d429e534aa5e6200cfe84ed123bd35ecd194b524fe1bb725272"
+            },
+            "comparison": {
+              "base_objective": 568.6115016491054,
+              "base_gradient_max": 4.123260196831069e-05,
+              "optimizer_maxiter": 2000,
+              "optimizer_ftol": 1e-15,
+              "optimizer_gtol": 1e-07,
+              "em_maxiter": 100,
+              "em_relative_tolerance": 1e-09,
+              "em_responsibility_tolerance": 1e-07,
+              "tightened_objective": 568.611501649016,
+              "objective_change": -8.947154128691182e-11,
+              "tightened_gradient_max": 8.719206328722251e-06,
+              "gradient_max_change": 4.221697949180481e-05,
+              "coefficient_max_change": 1.1773097508896435e-06,
+              "coefficient_l2_change": 9.495192644194196e-06,
+              "maximum_probability_change": 4.78426317340741e-07,
+              "head_maximum_changes": {
+                "u": 4.78426317340741e-07,
+                "q": 0.0,
+                "r": 0.0,
+                "g": 0.0
+              },
+              "terminal_maximum_changes": {
+                "block": 4.78426317340741e-07,
+                "miss": 2.8071655805428364e-07,
+                "stopped": 1.4388733932113595e-07,
+                "continuing": 2.7654260553733323e-07,
+                "goal": 7.173572597052313e-08
+              },
+              "evaluated_origins": 117118,
+              "evaluated_branches": 900394
+            }
+          }
         },
         "q": {
           "status": "complete",
           "reasons": [],
-          "resolution": "passed"
+          "resolution": {
+            "status": "passed",
+            "baseline": {
+              "path": "resolution/baseline.json",
+              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+            },
+            "probe": {
+              "path": "resolution/q.json",
+              "sha256": "2547fb30d30e68d873b94d93ea8c32f5bfd2f6fa5187ed8ac8c8c403809a39b2"
+            },
+            "comparison": {
+              "base_objective": 440.94124429527005,
+              "base_gradient_max": 2.0077005536967008e-05,
+              "optimizer_maxiter": 2000,
+              "optimizer_ftol": 1e-15,
+              "optimizer_gtol": 1e-07,
+              "em_maxiter": 100,
+              "em_relative_tolerance": 1e-09,
+              "em_responsibility_tolerance": 1e-07,
+              "tightened_objective": 440.9412442951777,
+              "objective_change": -9.237055564881302e-11,
+              "tightened_gradient_max": 8.623947053809644e-06,
+              "gradient_max_change": 2.0635403375379724e-05,
+              "coefficient_max_change": 1.5170843015795306e-06,
+              "coefficient_l2_change": 1.2123589200979058e-05,
+              "maximum_probability_change": 4.649230004316607e-07,
+              "head_maximum_changes": {
+                "u": 0.0,
+                "q": 4.649230004316607e-07,
+                "r": 0.0,
+                "g": 0.0
+              },
+              "terminal_maximum_changes": {
+                "block": 0.0,
+                "miss": 2.804305416215236e-07,
+                "stopped": 1.238753946919413e-07,
+                "continuing": 2.1366386240839752e-07,
+                "goal": 9.109851864530505e-08
+              },
+              "evaluated_origins": 117118,
+              "evaluated_branches": 900394
+            }
+          }
         },
         "r": {
           "status": "complete",
           "reasons": [],
-          "resolution": "passed"
+          "resolution": {
+            "status": "passed",
+            "baseline": {
+              "path": "resolution/baseline.json",
+              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+            },
+            "probe": {
+              "path": "resolution/r.json",
+              "sha256": "2a386ec8a4e040789ec18a21046fed54aece0e15d66de52f4c605ecc607c9847"
+            },
+            "comparison": {
+              "base_objective": 228.73745135072588,
+              "base_gradient_max": 7.823197483242117e-06,
+              "optimizer_maxiter": 2000,
+              "optimizer_ftol": 1e-15,
+              "optimizer_gtol": 1e-07,
+              "em_maxiter": 100,
+              "em_relative_tolerance": 1e-09,
+              "em_responsibility_tolerance": 1e-07,
+              "tightened_objective": 228.7374513507035,
+              "objective_change": -2.2367885321727954e-11,
+              "tightened_gradient_max": 8.617541308764132e-06,
+              "gradient_max_change": 1.4561454944272967e-05,
+              "coefficient_max_change": 4.6588333307145957e-07,
+              "coefficient_l2_change": 4.4173888440908875e-06,
+              "maximum_probability_change": 1.937037141797049e-07,
+              "head_maximum_changes": {
+                "u": 0.0,
+                "q": 0.0,
+                "r": 1.937037141797049e-07,
+                "g": 0.0
+              },
+              "terminal_maximum_changes": {
+                "block": 0.0,
+                "miss": 0.0,
+                "stopped": 1.1927404339195924e-07,
+                "continuing": 1.0704946074024946e-07,
+                "goal": 3.384974361919646e-08
+              },
+              "evaluated_origins": 117118,
+              "evaluated_branches": 900394
+            }
+          }
         },
         "g": {
           "status": "complete",
           "reasons": [],
-          "resolution": "passed"
+          "resolution": {
+            "status": "passed",
+            "baseline": {
+              "path": "resolution/baseline.json",
+              "sha256": "84f591fe3752e9257e34d428342da3cc2b180c80fa2fccf51fd452188f513f7e"
+            },
+            "probe": {
+              "path": "resolution/g.json",
+              "sha256": "cbc374e5c08ae03d1926603ac1af3337e46e2646463fe3b4befb810bb4ecb0a9"
+            },
+            "comparison": {
+              "base_objective": 207.5674952184101,
+              "base_gradient_max": 1.143086939436877e-05,
+              "optimizer_maxiter": 2000,
+              "optimizer_ftol": 1e-15,
+              "optimizer_gtol": 1e-07,
+              "em_maxiter": 100,
+              "em_relative_tolerance": 1e-09,
+              "em_responsibility_tolerance": 1e-07,
+              "tightened_objective": 207.56749521839413,
+              "objective_change": -1.5973000699887052e-11,
+              "tightened_gradient_max": 6.682322148288122e-06,
+              "gradient_max_change": 1.459620182953092e-05,
+              "coefficient_max_change": 4.039064209315768e-06,
+              "coefficient_l2_change": 4.568848047051823e-06,
+              "maximum_probability_change": 5.005118852707824e-07,
+              "head_maximum_changes": {
+                "u": 0.0,
+                "q": 0.0,
+                "r": 0.0,
+                "g": 5.005118852707824e-07
+              },
+              "terminal_maximum_changes": {
+                "block": 0.0,
+                "miss": 0.0,
+                "stopped": 0.0,
+                "continuing": 2.06058730189973e-07,
+                "goal": 2.0605873016221743e-07
+              },
+              "evaluated_origins": 117118,
+              "evaluated_branches": 900394
+            }
+          }
         }
       }
     }
   ],
-  "wall_seconds": 291.9407135840156
+  "wall_seconds": 249.8316844162112,
+  "producer_commit_meaning": "first four years f123566; final year9a581e5 after probe-only attribution repair; each original implementation receipt retained",
+  "initial_missing_case_diagnosis": "timing-fixture-chain.json",
+  "training_recipe_unchanged": true
 }

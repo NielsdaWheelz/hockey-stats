@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "scope": "exact old observed table replay for all three selected real seasons",
+  "selection_sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+  "candidate_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+  "controller_sha256": "b46feb08c1d318073ed800dcb621cc45390570214726b98e539ee317216c77f8",
+  "method": "one native observed aggregate replay per selected season; compare every stored row and exact table count in game, player_game, player_season, spatial_cell, player_game_spatial, player_season_spatial and player_season_pair; compare each old skater identity, source identity and affiliation preservation",
+  "command": "env PYTHONPATH=analysis/src uv run --project analysis python var/v1-03-real/check_old.py --selection docs/research/facts-v1-03/selection-real.json --candidate /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/candidate/player-analysis.sqlite --season <season> --receipt /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/old-<season>.json",
+  "seasons": {
+    "20232024": {
+      "counts": {"game": 1312, "old_person_identity": 924, "player_game": 47221, "player_game_spatial": 799609, "player_season": 924, "player_season_pair": 238489, "player_season_spatial": 617232, "spatial_cell": 668},
+      "wall_seconds": 175.03,
+      "maximum_resident_bytes": 1837481984,
+      "external_receipt_sha256": "ebb9d351ea23a3206ea2b38fe9e0f5ccfa5b6b194c4c2781e98f2e72b3153a71"
+    },
+    "20242025": {
+      "counts": {"game": 1312, "old_person_identity": 920, "player_game": 47225, "player_game_spatial": 769750, "player_season": 920, "player_season_pair": 231692, "player_season_spatial": 607880, "spatial_cell": 668},
+      "wall_seconds": 157.06,
+      "maximum_resident_bytes": 1827897344,
+      "external_receipt_sha256": "33587cd9e3694919ff17b3df6020404ad73a2dac3d964d2cd9fef25c472690ef"
+    },
+    "20252026": {
+      "counts": {"game": 1312, "old_person_identity": 940, "player_game": 47231, "player_game_spatial": 778894, "player_season": 940, "player_season_pair": 240584, "player_season_spatial": 627920, "spatial_cell": 668},
+      "wall_seconds": 137.62,
+      "maximum_resident_bytes": 1846788096,
+      "external_receipt_sha256": "5e6dc198b3579d8422eb37063bc9ea67e3fd1c396919092b45aad70951aa7fd3"
+    }
+  },
+  "not_checked_here": "new factual source folds and full candidate consumption; separate acceptance checks remain running"
+}

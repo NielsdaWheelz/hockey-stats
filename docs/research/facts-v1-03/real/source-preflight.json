@@ -79,7 +79,8 @@
     ],
     "receipt_conditioned": [
       "credit issue masks and ordinary matched scoring time after independent issue-index/affected-interval verification",
-      "u/h/b family masks, event dispositions and game-to-season count/time/opportunity closure"
+      "u/h/b family masks, event dispositions and game-to-season count/time/opportunity closure",
+      "capped per-season located scoring examples extracted during the existing one-pass source fold, with original play/landing capture hashes, matched state/time and any credit issue; presence in the real corpus remains to be observed"
     ],
     "not_yet_verified": [
       "full real three-season candidate and factual receipts",
@@ -120,5 +121,40 @@
       }
     },
     "source_controller_sha256": "40117253d9787647b29259418ceaa12a4255c17fe1491a0668817badf721af62"
+  },
+  "located_scoring_witness_smoke": {
+    "status": "bounded_fixture_game_passed; actual real witness presence not yet known",
+    "prepared_purpose": "fixture",
+    "season": "20232024",
+    "game_id": "2023020001",
+    "controller_sha256": "13842c8d9c59f2a5cc3f25da9ce11cab6b365c978fa4a651341d68f1a9184c7f",
+    "candidate_sha256": "ec9b99063b3918d90b40ab419791318830fcf7d3d3ad0b4cc43a2903b543c141",
+    "located_non_five_scoring_examples": [
+      {
+        "source_index": 227,
+        "play_locator": "/plays/227",
+        "strength_group": "pp",
+        "scorer_id": "8477426",
+        "primary_assister_id": "8478010"
+      },
+      {
+        "source_index": 260,
+        "play_locator": "/plays/260",
+        "strength_group": "pp",
+        "scorer_id": "8478438",
+        "primary_assister_id": "8481577"
+      }
+    ],
+    "empty_kinds_in_bounded_game": [
+      "ev_non_five_scoring",
+      "off_ice_primary_assist",
+      "zero_time_off_ice_primary_assist",
+      "known_state_unmatched_credit",
+      "unclassified_credit",
+      "credit_issue"
+    ],
+    "method": "capped at two located examples per kind during the existing independent source read; empty lists after the full pass mean no case found in that season",
+    "command": "uv run --project analysis python var/v1-03-real/check_source.py --prepared var/v1-03-real/streaming-check/prepared --prepared-purpose fixture --candidate var/v1-03-real/availability/repaired-candidate/player-analysis.sqlite --results var/v1-03-real/availability/repaired-results --season 20232024 --games 1 --receipt var/v1-03-real/availability/scoring-witness-smoke.json",
+    "positive_example_rule": "non-five and ev witness slots require a positive matched skater goal or primary-assist contribution; off-ice a1 requires a dressed season skater with a matched assist; issue and unclassified examples remain separate"
   }
 }

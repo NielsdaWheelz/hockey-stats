@@ -1,0 +1,830 @@
+{
+  "candidate_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+  "controller_sha256": "7b58ac3c1020a9775af56ad125195e02ac92d0715eb3b7c865ca00e0ba8e3390",
+  "empty_located_scoring_categories": [
+    "credit_issue",
+    "unclassified_credit",
+    "zero_time_off_ice_primary_assist"
+  ],
+  "execution": {
+    "commands": {
+      "20232024": "/usr/bin/time -l env PYTHONPATH=analysis/src uv run --project analysis python var/v1-03-real/check_source.py --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --candidate /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/candidate/player-analysis.sqlite --results /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results --season 20232024 --receipt /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20232024-02.json >/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20232024-02.stdout 2>/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20232024-02.stderr",
+      "20242025": "/usr/bin/time -l env PYTHONPATH=analysis/src uv run --project analysis python var/v1-03-real/check_source.py --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --candidate /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/candidate/player-analysis.sqlite --results /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results --season 20242025 --receipt /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20242025-02.json >/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20242025-02.stdout 2>/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20242025-02.stderr",
+      "20252026": "/usr/bin/time -l env PYTHONPATH=analysis/src uv run --project analysis python var/v1-03-real/check_source.py --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --candidate /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/candidate/player-analysis.sqlite --results /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results --season 20252026 --receipt /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20252026-02.json >/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20252026-02.stdout 2>/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/source-20252026-02.stderr"
+    },
+    "concurrent_disjoint_seasons": true,
+    "maximum_per_process_wall_seconds": 9977.77,
+    "wall_seconds_are_per_process_not_additive": true
+  },
+  "factual_results_manifest_sha256": "3348c40ac8849b44a0c9a1ce00271088d0f6c80a244714ce6b5d83196efda368",
+  "method_limit": "all selected game-to-season factual counts, time, masks, penalties and candidate summaries close against original prepared fields and declared receipts; u/h/b sums are conditional on declared family masks after independent mask-domain and selected original actor/report checks; this is not a second full factual reducer",
+  "named_original_micro_event_cases": [
+    {
+      "candidate_factual_disposition": {
+        "player_id": "8476453",
+        "segment_index": 93,
+        "source_index": 41,
+        "status": "included"
+      },
+      "family": "u",
+      "game_id": "2023020001",
+      "masked": false,
+      "original_play_locator": "/plays/41",
+      "original_report_source_index": 44,
+      "result": "exact original actor and matched segment included",
+      "season": "20232024",
+      "source_index": 41
+    },
+    {
+      "candidate_factual_disposition": {
+        "player_id": "8476887",
+        "segment_index": 30,
+        "source_index": 18,
+        "status": "included"
+      },
+      "family": "u",
+      "game_id": "2023020001",
+      "masked": false,
+      "original_play_locator": "/plays/18",
+      "original_report_source_index": 21,
+      "result": "exact original actor and matched segment included",
+      "season": "20232024",
+      "source_index": 18
+    },
+    {
+      "candidate_factual_disposition": {
+        "player_id": "8478178",
+        "segment_index": 65,
+        "source_index": 26,
+        "status": "included"
+      },
+      "family": "b",
+      "game_id": "2023020001",
+      "masked": false,
+      "original_play_locator": "/plays/26",
+      "original_report_source_index": 29,
+      "result": "exact original actor and matched segment included",
+      "season": "20232024",
+      "source_index": 26
+    },
+    {
+      "candidate_factual_disposition": {
+        "player_id": "8474568",
+        "segment_index": 7,
+        "source_index": 4,
+        "status": "included"
+      },
+      "family": "h",
+      "game_id": "2023020001",
+      "masked": false,
+      "original_play_locator": "/plays/4",
+      "original_report_source_index": 7,
+      "result": "exact original actor and matched segment included",
+      "season": "20232024",
+      "source_index": 4
+    }
+  ],
+  "named_original_penalty_role_cases": [
+    {
+      "candidate_factual_ledger": {
+        "description": "holding",
+        "duration_minutes": 2,
+        "roles": {
+          "drawn": {
+            "disposition": "attributed",
+            "player_id": 8478402
+          },
+          "served": {
+            "disposition": "attributed",
+            "player_id": 8482679
+          },
+          "taken": {
+            "disposition": "attributed",
+            "player_id": 8477346
+          }
+        },
+        "source_index": 342,
+        "type": "MIN"
+      },
+      "game_id": "2025020006",
+      "original_api_locator": "fixtures/captures/2025020006/play-by-play/body.bin#/plays/342",
+      "original_report_locator": "fixtures/captures/2025020006/play-report/body.bin#tr[id=PL-346]",
+      "result": "exact original role, type, description and duration match",
+      "season": "20252026",
+      "source_index": 342
+    },
+    {
+      "candidate_factual_ledger": {
+        "description": "misconduct",
+        "duration_minutes": 10,
+        "roles": {
+          "drawn": {
+            "disposition": "not_recorded",
+            "player_id": null
+          },
+          "served": {
+            "disposition": "not_recorded",
+            "player_id": null
+          },
+          "taken": {
+            "disposition": "attributed",
+            "player_id": 8477346
+          }
+        },
+        "source_index": 343,
+        "type": "MIS"
+      },
+      "game_id": "2025020006",
+      "original_api_locator": "fixtures/captures/2025020006/play-by-play/body.bin#/plays/343",
+      "original_report_locator": "fixtures/captures/2025020006/play-report/body.bin#tr[id=PL-347]",
+      "result": "exact original role, type, description and duration match",
+      "season": "20252026",
+      "source_index": 343
+    },
+    {
+      "candidate_factual_ledger": {
+        "description": "too-many-men-on-the-ice",
+        "duration_minutes": 2,
+        "roles": {
+          "drawn": {
+            "disposition": "not_recorded",
+            "player_id": null
+          },
+          "served": {
+            "disposition": "attributed",
+            "player_id": 8480797
+          },
+          "taken": {
+            "disposition": "not_recorded",
+            "player_id": null
+          }
+        },
+        "source_index": 163,
+        "type": "BEN"
+      },
+      "game_id": "2024020022",
+      "original_api_locator": "fixtures/captures/2024020022/play-by-play/body.bin#/plays/163",
+      "original_report_locator": "fixtures/captures/2024020022/play-report/body.bin#tr[id=PL-167]",
+      "result": "exact original role, type, description and duration match",
+      "season": "20242025",
+      "source_index": 163
+    },
+    {
+      "candidate_factual_ledger": {
+        "description": "high-sticking-double-minor",
+        "duration_minutes": 4,
+        "roles": {
+          "drawn": {
+            "disposition": "attributed",
+            "player_id": 8480762
+          },
+          "served": {
+            "disposition": "not_recorded",
+            "player_id": null
+          },
+          "taken": {
+            "disposition": "attributed",
+            "player_id": 8478443
+          }
+        },
+        "source_index": 106,
+        "type": "MIN"
+      },
+      "game_id": "2025021094",
+      "original_api_locator": "fixtures/captures/2025021094/play-by-play/body.bin#/plays/106",
+      "original_report_locator": "fixtures/captures/2025021094/play-report/body.bin#tr[id=PL-110]",
+      "result": "exact original role, type, description and duration match",
+      "season": "20252026",
+      "source_index": 106
+    },
+    {
+      "candidate_factual_ledger": {
+        "description": "fighting",
+        "duration_minutes": 5,
+        "roles": {
+          "drawn": {
+            "disposition": "attributed",
+            "player_id": 8478421
+          },
+          "served": {
+            "disposition": "not_recorded",
+            "player_id": null
+          },
+          "taken": {
+            "disposition": "attributed",
+            "player_id": 8473422
+          }
+        },
+        "source_index": 113,
+        "type": "MAJ"
+      },
+      "game_id": "2025020001",
+      "original_api_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/113",
+      "original_report_locator": "fixtures/captures/2025020001/play-report/body.bin#tr[id=PL-117]",
+      "result": "exact original role, type, description and duration match",
+      "season": "20252026",
+      "source_index": 113
+    },
+    {
+      "candidate_factual_ledger": {
+        "description": "fighting",
+        "duration_minutes": 5,
+        "roles": {
+          "drawn": {
+            "disposition": "attributed",
+            "player_id": 8473422
+          },
+          "served": {
+            "disposition": "not_recorded",
+            "player_id": null
+          },
+          "taken": {
+            "disposition": "attributed",
+            "player_id": 8478421
+          }
+        },
+        "source_index": 114,
+        "type": "MAJ"
+      },
+      "game_id": "2025020001",
+      "original_api_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/114",
+      "original_report_locator": "fixtures/captures/2025020001/play-report/body.bin#tr[id=PL-118]",
+      "result": "exact original role, type, description and duration match",
+      "season": "20252026",
+      "source_index": 114
+    }
+  ],
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "scope": "independent full real prepared-source and candidate arithmetic acceptance for v1-03",
+  "seasons": {
+    "20232024": {
+      "checked_games": 1312,
+      "counts": {
+        "attempt_facts": 159470,
+        "b_event_dispositions": 32138,
+        "b_masks": 7358,
+        "dressed": 52468,
+        "games": 1312,
+        "h_event_dispositions": 53834,
+        "h_masks": 281,
+        "interval_rows": 2564298,
+        "penalty_events": 10008,
+        "penalty_summaries": 8316,
+        "skater_summaries": 924,
+        "u_event_dispositions": 85937,
+        "u_masks": 4843
+      },
+      "external_receipt_sha256": "dc1d27005a96962b54edc2061416cf1cad48a3a242ad2f5dc51b46e7daa671e3",
+      "located_scoring_examples": {
+        "credit_issue": [],
+        "ev_non_five_scoring": [
+          {
+            "assistant_matched_game_seconds": 76,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020017",
+            "issue": null,
+            "landing_locator": "/summary/scoring/1/goals/1/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "eecf76531cc62c2038aaf8048ce2f63c1d77462953bb67bb9c776ffbbcce2996",
+            "play_locator": "/plays/140",
+            "primary_assister_id": "8481559",
+            "scorer_id": "8479407",
+            "scorer_matched_game_seconds": 76,
+            "source_index": 140,
+            "strength_group": "ev"
+          },
+          {
+            "assistant_matched_game_seconds": 35,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020024",
+            "issue": null,
+            "landing_locator": "/summary/scoring/2/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "596f40ba3bff96523b0d2696dee192ce273499bb19493dfbbeb763c7a3b2b85a",
+            "play_locator": "/plays/228",
+            "primary_assister_id": "8477495",
+            "scorer_id": "8474870",
+            "scorer_matched_game_seconds": 35,
+            "source_index": 228,
+            "strength_group": "ev"
+          }
+        ],
+        "known_state_unmatched_credit": [
+          {
+            "assistant_matched_game_seconds": 0,
+            "expected_matched_goals": 0,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020034",
+            "issue": "credit_without_matched_elapsed_support",
+            "landing_locator": "/summary/scoring/2/goals/2/eventId",
+            "ordinary_disposition": "unresolved",
+            "play_body_sha256": "d085564b7880340f119fc65457f08278d919c9becbcd2816f34dfbcc740de076",
+            "play_locator": "/plays/282",
+            "primary_assister_id": "8478873",
+            "scorer_id": "8475764",
+            "scorer_matched_game_seconds": 0,
+            "source_index": 282,
+            "strength_group": "other"
+          },
+          {
+            "assistant_matched_game_seconds": 0,
+            "expected_matched_goals": 0,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020034",
+            "issue": "credit_without_matched_elapsed_support",
+            "landing_locator": "/summary/scoring/2/goals/3/eventId",
+            "ordinary_disposition": "unresolved",
+            "play_body_sha256": "d085564b7880340f119fc65457f08278d919c9becbcd2816f34dfbcc740de076",
+            "play_locator": "/plays/287",
+            "primary_assister_id": "8482745",
+            "scorer_id": "8478366",
+            "scorer_matched_game_seconds": 0,
+            "source_index": 287,
+            "strength_group": "other"
+          }
+        ],
+        "non_five_scoring": [
+          {
+            "assistant_matched_game_seconds": 408,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020001",
+            "issue": null,
+            "landing_locator": "/summary/scoring/2/goals/1/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13",
+            "play_locator": "/plays/227",
+            "primary_assister_id": "8478010",
+            "scorer_id": "8477426",
+            "scorer_matched_game_seconds": 390,
+            "source_index": 227,
+            "strength_group": "pp"
+          },
+          {
+            "assistant_matched_game_seconds": 105,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020001",
+            "issue": null,
+            "landing_locator": "/summary/scoring/2/goals/3/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13",
+            "play_locator": "/plays/260",
+            "primary_assister_id": "8481577",
+            "scorer_id": "8478438",
+            "scorer_matched_game_seconds": 180,
+            "source_index": 260,
+            "strength_group": "pp"
+          }
+        ],
+        "off_ice_primary_assist": [
+          {
+            "assistant_matched_game_seconds": 52,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020040",
+            "issue": null,
+            "landing_locator": "/summary/scoring/3/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "6024527c05f3ffb0dc74a554e3ebe4cb144636569ef2d3c4327f47201b335a15",
+            "play_locator": "/plays/287",
+            "primary_assister_id": "8478413",
+            "scorer_id": "8481528",
+            "scorer_matched_game_seconds": 8,
+            "source_index": 287,
+            "strength_group": "ev"
+          },
+          {
+            "assistant_matched_game_seconds": 111,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2023020041",
+            "issue": null,
+            "landing_locator": "/summary/scoring/0/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "31f837f0c9345fd00cf3e7a5a7734e46781edd134dd46effbf3b8062efd75e3e",
+            "play_locator": "/plays/48",
+            "primary_assister_id": "8478136",
+            "scorer_id": "8479520",
+            "scorer_matched_game_seconds": 43,
+            "source_index": 48,
+            "strength_group": "pk"
+          }
+        ],
+        "unclassified_credit": [],
+        "zero_time_off_ice_primary_assist": []
+      },
+      "maximum_resident_bytes": 2554527744,
+      "wall_seconds_concurrent": 9868.52
+    },
+    "20242025": {
+      "checked_games": 1312,
+      "counts": {
+        "attempt_facts": 156084,
+        "b_event_dispositions": 30761,
+        "b_masks": 11354,
+        "dressed": 52473,
+        "games": 1312,
+        "h_event_dispositions": 50288,
+        "h_masks": 432,
+        "interval_rows": 2524270,
+        "penalty_events": 9011,
+        "penalty_summaries": 8280,
+        "skater_summaries": 920,
+        "u_event_dispositions": 82419,
+        "u_masks": 8463
+      },
+      "external_receipt_sha256": "d1726762e72a4b56a5584e59d0d6d931ef377137993341ddeb5622d831133453",
+      "located_scoring_examples": {
+        "credit_issue": [],
+        "ev_non_five_scoring": [
+          {
+            "assistant_matched_game_seconds": 34,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020009",
+            "issue": null,
+            "landing_locator": "/summary/scoring/3/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "ca6dcf6eba136b9246790d916b3c5981466a4000c50868e610748f7232764b7c",
+            "play_locator": "/plays/320",
+            "primary_assister_id": "8481028",
+            "scorer_id": "8482074",
+            "scorer_matched_game_seconds": 29,
+            "source_index": 320,
+            "strength_group": "ev"
+          },
+          {
+            "assistant_matched_game_seconds": 62,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020016",
+            "issue": null,
+            "landing_locator": "/summary/scoring/3/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "4188c484662c4d672149877f9cad73ad433d39f13eb6b4bf57c1c34db5c7f4aa",
+            "play_locator": "/plays/347",
+            "primary_assister_id": "8480434",
+            "scorer_id": "8482699",
+            "scorer_matched_game_seconds": 46,
+            "source_index": 347,
+            "strength_group": "ev"
+          }
+        ],
+        "known_state_unmatched_credit": [
+          {
+            "assistant_matched_game_seconds": 13,
+            "expected_matched_goals": 0,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020001",
+            "issue": "credit_without_matched_elapsed_support",
+            "landing_locator": "/summary/scoring/2/goals/1/eventId",
+            "ordinary_disposition": "excluded",
+            "play_body_sha256": "a0dfedbfe384c7d988d44aeb72bd3555138a5ef4ddc89375cbccfbee8e178bfe",
+            "play_locator": "/plays/334",
+            "primary_assister_id": "8479414",
+            "scorer_id": "8481032",
+            "scorer_matched_game_seconds": 14,
+            "source_index": 334,
+            "strength_group": "other"
+          },
+          {
+            "assistant_matched_game_seconds": 25,
+            "expected_matched_goals": 0,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020025",
+            "issue": "credit_without_matched_elapsed_support",
+            "landing_locator": "/summary/scoring/1/goals/2/eventId",
+            "ordinary_disposition": "unresolved",
+            "play_body_sha256": "939bd56d19891fb0b6272edcb77b16e5de7713fbcd88d6439c38ed83619a7e7d",
+            "play_locator": "/plays/224",
+            "primary_assister_id": "8477933",
+            "scorer_id": "8477935",
+            "scorer_matched_game_seconds": 25,
+            "source_index": 224,
+            "strength_group": "pp"
+          }
+        ],
+        "non_five_scoring": [
+          {
+            "assistant_matched_game_seconds": 127,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020002",
+            "issue": null,
+            "landing_locator": "/summary/scoring/1/goals/1/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "17b6dc96f76dcb3961143e8acf5375594cc6e1bf192860f8fd737cae0850b923",
+            "play_locator": "/plays/188",
+            "primary_assister_id": "8475287",
+            "scorer_id": "8483429",
+            "scorer_matched_game_seconds": 183,
+            "source_index": 188,
+            "strength_group": "pp"
+          },
+          {
+            "assistant_matched_game_seconds": 134,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020003",
+            "issue": null,
+            "landing_locator": "/summary/scoring/1/goals/2/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "964736c839d926731911ab1d1c76cbf9cc7383a075610412b6e9e781c9110797",
+            "play_locator": "/plays/223",
+            "primary_assister_id": "8480023",
+            "scorer_id": "8479385",
+            "scorer_matched_game_seconds": 133,
+            "source_index": 223,
+            "strength_group": "pp"
+          }
+        ],
+        "off_ice_primary_assist": [
+          {
+            "assistant_matched_game_seconds": 94,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020066",
+            "issue": null,
+            "landing_locator": "/summary/scoring/0/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "7137e3dcabfcda1f6874dde371895f0107f890a3fe32936f37b348f22f42f624",
+            "play_locator": "/plays/67",
+            "primary_assister_id": "8480840",
+            "scorer_id": "8476278",
+            "scorer_matched_game_seconds": 224,
+            "source_index": 67,
+            "strength_group": "pk"
+          },
+          {
+            "assistant_matched_game_seconds": 142,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2024020074",
+            "issue": null,
+            "landing_locator": "/summary/scoring/3/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "b52df9acf40d2245ff02638358511a8c34e2b26e4de28ddd6720398e9acd0919",
+            "play_locator": "/plays/347",
+            "primary_assister_id": "8478420",
+            "scorer_id": "8477492",
+            "scorer_matched_game_seconds": 185,
+            "source_index": 347,
+            "strength_group": "ev"
+          }
+        ],
+        "unclassified_credit": [],
+        "zero_time_off_ice_primary_assist": []
+      },
+      "maximum_resident_bytes": 2989162496,
+      "wall_seconds_concurrent": 9866.8
+    },
+    "20252026": {
+      "checked_games": 1312,
+      "counts": {
+        "attempt_facts": 152924,
+        "b_event_dispositions": 29554,
+        "b_masks": 13192,
+        "dressed": 52478,
+        "games": 1312,
+        "h_event_dispositions": 50215,
+        "h_masks": 42,
+        "interval_rows": 2583316,
+        "penalty_events": 9692,
+        "penalty_summaries": 8460,
+        "skater_summaries": 940,
+        "u_event_dispositions": 84184,
+        "u_masks": 10354
+      },
+      "external_receipt_sha256": "871a4467e31ead9f44306029c2663ccb2042d606f52a782c0ff99f34334a2923",
+      "located_scoring_examples": {
+        "credit_issue": [],
+        "ev_non_five_scoring": [
+          {
+            "assistant_matched_game_seconds": null,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020008",
+            "issue": null,
+            "landing_locator": "/summary/scoring/3/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "dd79b9f9aa3bce71d0a96fd1bc1d8f8431bac90a03a7dd472339926d93153e4c",
+            "play_locator": "/plays/327",
+            "primary_assister_id": null,
+            "scorer_id": "8483489",
+            "scorer_matched_game_seconds": 63,
+            "source_index": 327,
+            "strength_group": "ev"
+          },
+          {
+            "assistant_matched_game_seconds": 84,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020020",
+            "issue": null,
+            "landing_locator": "/summary/scoring/3/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "4dc76d2613c4fbdb128ea6ce4fcccb93e41fae2d6c26bf510782fe9bc4114342",
+            "play_locator": "/plays/338",
+            "primary_assister_id": "8477447",
+            "scorer_id": "8475191",
+            "scorer_matched_game_seconds": 16,
+            "source_index": 338,
+            "strength_group": "ev"
+          }
+        ],
+        "known_state_unmatched_credit": [
+          {
+            "assistant_matched_game_seconds": null,
+            "expected_matched_goals": 0,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020014",
+            "issue": "credit_without_matched_elapsed_support",
+            "landing_locator": "/summary/scoring/2/goals/3/eventId",
+            "ordinary_disposition": "excluded",
+            "play_body_sha256": "bbd20d9f2025325fb5a377af38973e9ad8b0872ad6c6a0decbcf95ce82e631ad",
+            "play_locator": "/plays/349",
+            "primary_assister_id": null,
+            "scorer_id": "8482093",
+            "scorer_matched_game_seconds": 2,
+            "source_index": 349,
+            "strength_group": "other"
+          },
+          {
+            "assistant_matched_game_seconds": 54,
+            "expected_matched_goals": 0,
+            "expected_matched_primary_assists": 0,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020022",
+            "issue": "credit_without_matched_elapsed_support",
+            "landing_locator": "/summary/scoring/0/goals/0/eventId",
+            "ordinary_disposition": "unresolved",
+            "play_body_sha256": "bd5d4ce83c796beae0c98fe9d37409f73cfad81a2ca3b5959ab000e2bfed7ffd",
+            "play_locator": "/plays/29",
+            "primary_assister_id": "8478398",
+            "scorer_id": "8480113",
+            "scorer_matched_game_seconds": 60,
+            "source_index": 29,
+            "strength_group": "pp"
+          }
+        ],
+        "non_five_scoring": [
+          {
+            "assistant_matched_game_seconds": 68,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020001",
+            "issue": null,
+            "landing_locator": "/summary/scoring/0/goals/2/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "9d89ab3e9fcb50ca9be6957eb31dd0df585bb98005f0a3577a054762fecdb299",
+            "play_locator": "/plays/90",
+            "primary_assister_id": "8482713",
+            "scorer_id": "8477409",
+            "scorer_matched_game_seconds": 82,
+            "source_index": 90,
+            "strength_group": "pp"
+          },
+          {
+            "assistant_matched_game_seconds": 11,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020002",
+            "issue": null,
+            "landing_locator": "/summary/scoring/2/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "670aba0f923a4876f0fcab857a0fa843cba9a034d73fc0060b4e4674a9aa8ddd",
+            "play_locator": "/plays/289",
+            "primary_assister_id": "8471215",
+            "scorer_id": "8479638",
+            "scorer_matched_game_seconds": 11,
+            "source_index": 289,
+            "strength_group": "other"
+          }
+        ],
+        "off_ice_primary_assist": [
+          {
+            "assistant_matched_game_seconds": 55,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020144",
+            "issue": null,
+            "landing_locator": "/summary/scoring/2/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "f42d64b1d13257cc9ee1c8c574e02351d079d7d3350a5f5858c7934b9df84d8d",
+            "play_locator": "/plays/301",
+            "primary_assister_id": "8477960",
+            "scorer_id": "8476469",
+            "scorer_matched_game_seconds": 58,
+            "source_index": 301,
+            "strength_group": "other"
+          },
+          {
+            "assistant_matched_game_seconds": 129,
+            "expected_matched_goals": 1,
+            "expected_matched_primary_assists": 1,
+            "expected_unclassified_goals": 0,
+            "expected_unclassified_primary_assists": 0,
+            "game_id": "2025020191",
+            "issue": null,
+            "landing_locator": "/summary/scoring/2/goals/0/eventId",
+            "ordinary_disposition": "included",
+            "play_body_sha256": "ae8483bd85318052561c2c0064db0815e51ddf6522f0a1f2afa50b2c2d48fbd2",
+            "play_locator": "/plays/246",
+            "primary_assister_id": "8478399",
+            "scorer_id": "8482110",
+            "scorer_matched_game_seconds": 197,
+            "source_index": 246,
+            "strength_group": "pk"
+          }
+        ],
+        "unclassified_credit": [],
+        "zero_time_off_ice_primary_assist": []
+      },
+      "maximum_resident_bytes": 2539634688,
+      "wall_seconds_concurrent": 9977.77
+    }
+  },
+  "selection": {
+    "checked_game_union": 3936,
+    "overlap": 0,
+    "seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "selected_games_per_season": {
+      "20232024": 1312,
+      "20242025": 1312,
+      "20252026": 1312
+    }
+  },
+  "separate_acceptance": "old seven-table exact replay is in old-observed-real02.json; api and application content checks are owned by other acceptance controllers",
+  "source_witness_prior_manual_receipts": [
+    "penalty-source-witnesses.json",
+    "micro-source-witnesses.json"
+  ],
+  "status": "passed",
+  "total_checked_counts": {
+    "attempt_facts": 468478,
+    "b_event_dispositions": 92453,
+    "b_masks": 31904,
+    "dressed": 157419,
+    "games": 3936,
+    "h_event_dispositions": 154337,
+    "h_masks": 755,
+    "interval_rows": 7671884,
+    "penalty_events": 28711,
+    "penalty_summaries": 25056,
+    "skater_summaries": 2784,
+    "u_event_dispositions": 252540,
+    "u_masks": 23660
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "controller_sha256_before_deletion": {
+    "check_old.py": "b46feb08c1d318073ed800dcb621cc45390570214726b98e539ee317216c77f8",
+    "check_source.py": "7b58ac3c1020a9775af56ad125195e02ac92d0715eb3b7c865ca00e0ba8e3390"
+  },
+  "preserved": "durable docs, retained source fixtures, shared fixture inputs, delivery preview/backups, protected-before and all external factual/acceptance artifacts",
+  "removed_empty_directories": [
+    "var/v1-03-real/real02",
+    "var/v1-03-real/__pycache__"
+  ],
+  "removed_files": [
+    "var/v1-03-real/check_source.py",
+    "var/v1-03-real/check_old.py",
+    "var/v1-03-real/__pycache__/check_source.cpython-314.pyc",
+    "var/v1-03-real/__pycache__/check_source.cpython-315.pyc",
+    "var/v1-03-real/__pycache__/check_old.cpython-315.pyc",
+    "var/v1-03-real/real02/source-smoke-20232024.json",
+    "var/v1-03-real/real02/source-smoke-20242025.json",
+    "var/v1-03-real/real02/source-smoke-20252026.json",
+    "var/v1-03-real/source-review-smoke.json",
+    "var/v1-03-real/source-audit-fixture-20232024.json",
+    "var/v1-03-real/availability/scoring-witness-smoke.json",
+    "var/v1-03-real/availability/source-green-20232024.json",
+    "var/v1-03-real/availability/source-green-20242025.json",
+    "var/v1-03-real/availability/source-green-20252026.json"
+  ],
+  "scope": "owned temporary source acceptance control cleanup after full real green and systems peer release",
+  "status": "passed"
+}

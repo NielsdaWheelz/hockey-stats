@@ -933,32 +933,49 @@ def prepare_execution(base_prepared, coaches, recipe, season):
 
 
 def build_resolution_witness(design, requirement, block, actor_id):
-    """construct an attributed synthetic shot for a present zero-shot actor."""
-    if block != "shooter":
+    """construct a named source projection for an absent resolution case."""
+    incomplete = requirement == "incomplete_setter"
+    if not incomplete and block != "shooter":
         return None
-    actor_id = str(actor_id)
-    context = next((predictor for predictor in sorted(design.predictors, key=lambda row: (row.key.split(":")[0], int(row.key.split(":")[1])))
-                    if not predictor.tip and predictor.actors["goalie"] is not None
-                    and actor_id in predictor.context["attacking_skaters"] + predictor.context["attacking_goalies"]), None)
+    ordered = sorted(design.predictors, key=lambda row: (row.key.split(":")[0], int(row.key.split(":")[1])))
+    if incomplete:
+        supported = {row["key"] for row in design.coverage["attempts"] if row["full_probability_context"]}
+        context = next((row for row in ordered if row.key in supported
+                        and row.context["setter_universe_complete"]
+                        and row.context["setter_phase_status"] in ("live", "absent")), None)
+    else:
+        actor_id = str(actor_id)
+        context = next((row for row in ordered if not row.tip and row.actors["goalie"] is not None
+                        and actor_id in row.context["attacking_skaters"] + row.context["attacking_goalies"]), None)
     if context is None:
         return None
-    source_head = requirement.split(":")[1]
-    actor = next((row for row in design.heads[source_head]["actors"]
-                  if row["block"] == block and row["id"] == actor_id), None)
-    if actor is None:
-        return None
+    if not incomplete:
+        source_head = requirement.split(":")[1]
+        actor = next((row for row in design.heads[source_head]["actors"]
+                      if row["block"] == block and row["id"] == actor_id), None)
+        if actor is None:
+            return None
     prepared = read_prepared(design.prepared["path"], design.purpose)
     _require(_sha(design.prepared["path"]) == design.prepared["sha256"], "resolution prepared identity differs")
     game_id, source_index = context.key.split(":")
     source_index = int(source_index)
     game = read_prepared_game(prepared, design.season, game_id)
     people = game["people"] or {}
-    if actor_id not in people:
+    if not incomplete and actor_id not in people:
         return None
+    if incomplete:
+        history = preclock_history(game)[source_index]
+        last_index = history["source_indices"][-1]
+        position = next(i for i, row in enumerate(game["events"]) if row["source"]["source_index"] == last_index)
+        _require(game["events"][position]["source"]["kind_valid"] is True, "projection requires supported prior kind")
+        game = deepcopy(game)
+        game["events"][position]["source"]["kind_valid"] = False
+        actor_id = context.actors["shooter"]
     original = next(row for row in game["attempts"] if row["source_index"] == source_index)
     attempt = deepcopy(original)
-    attempt["details"]["values"]["physical_shooter_id"] = int(actor_id)
-    attempt["details"]["problems"].pop("physical_shooter_id", None)
+    if not incomplete:
+        attempt["details"]["values"]["physical_shooter_id"] = int(actor_id)
+        attempt["details"]["problems"].pop("physical_shooter_id", None)
     history = preclock_history(game)[source_index]
     state = attempt["feature_facts"]["state"]
     prior, complete = _setter_prior(game, attempt, state, people, history)
@@ -978,16 +995,30 @@ def build_resolution_witness(design, requirement, block, actor_id):
                     setter_phase_reason=history["phase_reason"])
     actors = dict(context.actors, shooter=actor_id)
     actor_facts = dict(context.actor_facts)
-    actor_facts[actor_id] = people[actor_id]["people"]
-    predictor = ExecutionPredictor("synthetic-resolution:" + context.key + ":shooter:" + actor_id,
-                                   context.shot_type, context.proxy_cell, context.blocked, False,
+    if not incomplete:
+        actor_facts[actor_id] = people[actor_id]["people"]
+    suffix = ":incomplete-setter" if incomplete else ":shooter:" + actor_id
+    predictor = ExecutionPredictor("synthetic-resolution:" + context.key + suffix,
+                                   context.shot_type, context.proxy_cell, context.blocked, context.tip,
                                    actors, actor_facts, prior, features)
+    member = next(row for row in design.prepared["members"] if row["kind"] == "game" and row["game_id"] == game_id)
+    if incomplete:
+        _require(not complete and [(row.kind, row.probability) for row in prior] == [("none", .2), ("unknown", .8)],
+                 "withheld prior kind did not produce incomplete setter history")
+        pointer = f"/events/{position}/source/kind_valid"
+        witness = {"kind": "synthetic", "source_key": context.key, "projection": "incomplete_setter",
+                   "reason": "synthetic source-evidence withholding: last eligible prior-clock record kind support removed",
+                   "changed_fields": [pointer], "source_prepared_member": member,
+                   "withheld_history": {"source_index": last_index, "pointer": pointer, "before": True, "after": False},
+                   "setter_universe_complete": False,
+                   "expected_prior": [{"kind": row.kind, "probability": row.probability} for row in prior]}
+        return predictor, witness
     witness = {"kind": "synthetic", "source_key": context.key,
                "reason": "supported current actor has no focal shot; hypothetical shot at an actual on-ice source context",
                "changed_fields": ["shooter", "shooter_deployment", "shooter_prefix_workload", "shooter_calendar_rest",
                                   "reported_hand_off_wing", "recent_same_shooter", "setter_candidates_and_role_weights"],
                "actor": {"block": block, "id": actor_id, "role": actor["role"], "likelihood_support": actor["likelihood_support"]},
-               "source_prepared_member": next(row for row in design.prepared["members"] if row["kind"] == "game" and row["game_id"] == game_id),
+               "source_prepared_member": member,
                "actual_attacking_skaters": list(context.context["attacking_skaters"]),
                "actual_attacking_goalies": list(context.context["attacking_goalies"]),
                "setter_universe_complete": complete}

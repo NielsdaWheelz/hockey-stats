@@ -563,7 +563,7 @@ def _selector(value, manifest, heads, coverage):
     require(geometry == dict(context_key=keys[0], types=list(TYPES), cells=list(range(656)), execution=['actual','neutral']), 'synthetic geometry coverage differs')
     fixtures = value['fixture_witnesses']
     require(type(fixtures) is list, 'missing attributed fixture witnesses')
-    fixture_keys = set()
+    fixture_keys, fixture_cases = set(), {}
     for record in fixtures:
         _closed(record, ('key','attribution'), 'fixture witness')
         require(type(record['key']) is str and record['key'].startswith('synthetic-resolution:')
@@ -574,7 +574,32 @@ def _selector(value, manifest, heads, coverage):
                 and attribution.get('source_key') in supported
                 and type(attribution.get('reason')) is str and bool(attribution['reason'])
                 and type(attribution.get('changed_fields')) is list and bool(attribution['changed_fields'])
-                and type(attribution.get('actor')) is dict, 'unattributed synthetic fixture')
+                and all(type(field) is str and bool(field) for field in attribution['changed_fields']), 'unattributed synthetic fixture')
+        if attribution.get('projection') == 'incomplete_setter':
+            _closed(attribution, ('kind','source_key','projection','reason','changed_fields','source_prepared_member',
+                                  'withheld_history','setter_universe_complete','expected_prior'), 'incomplete setter fixture')
+            history = attribution['withheld_history']
+            _closed(history, ('source_index','pointer','before','after'), 'withheld history evidence')
+            game_id, source_index = attribution['source_key'].split(':')
+            require(type(history['source_index']) is int and history['source_index'] >= 0
+                    and history['source_index'] != int(source_index)
+                    and type(history['pointer']) is str
+                    and re.fullmatch(r'/events/(0|[1-9]\d*)/source/kind_valid', history['pointer'])
+                    and history['before'] is True and history['after'] is False
+                    and attribution['changed_fields'] == [history['pointer']], 'invalid withheld history projection')
+            require(attribution['source_prepared_member'] in manifest['prepared']['members']
+                    and attribution['source_prepared_member']['kind'] == 'game'
+                    and attribution['source_prepared_member']['game_id'] == game_id, 'unbound projected source member')
+            require(attribution['setter_universe_complete'] is False
+                    and attribution['expected_prior'] == [dict(kind='none', probability=.2), dict(kind='unknown', probability=.8)],
+                    'projected setter prior differs')
+            fixture_cases[record['key']] = 'incomplete_setter'
+        else:
+            actor = attribution.get('actor')
+            _closed(actor, ('block','id','role','likelihood_support'), 'synthetic actor')
+            require(any(all(row.get(key) == actor[key] for key in actor) for head in HEADS for row in heads[head]['actors']),
+                    'synthetic actor has no current support')
+            fixture_cases[record['key']] = actor
     requirements = value['requirements']
     require(type(requirements) is list and bool(requirements), 'missing numerical requirements')
     names = []
@@ -585,6 +610,16 @@ def _selector(value, manifest, heads, coverage):
         require(row['disposition'] in ('actual','fixture','unavailable'), 'invalid probe requirement disposition')
         expected = keys if row['disposition'] == 'actual' else fixture_keys if row['disposition'] == 'fixture' else (None,)
         require(row['key'] in expected, 'probe requirement has no checked witness')
+        if row['disposition'] == 'fixture':
+            case = fixture_cases[row['key']]
+            if case == 'incomplete_setter':
+                require(row['requirement'] == 'incomplete_setter', 'source projection used for another requirement')
+            else:
+                parts = row['requirement'].split(':')
+                require(len(parts) == 4 and parts[0] == 'sparse' and parts[1] in HEADS
+                        and parts[2:] == [case['block'], case['id']]
+                        and any(all(actor.get(key) == case[key] for key in case) for actor in heads[parts[1]]['actors']),
+                        'synthetic actor does not witness its sparse requirement')
     expected_names = {'type:' + name for name in TYPES} | {'outcome:' + name for name in ('block','miss','save','goal')} | {'missing_context','tip','off_ice_setter','incomplete_setter'}
     expected_names.update(key for key,count in coverage['heads']['u'].items() if key.startswith('strength:') and count > withheld_strengths.get(key,0))
     for head in HEADS:

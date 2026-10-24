@@ -156,7 +156,7 @@ def _resolution_selector(design):
             if len(selected) < 256:
                 selected[witness.key] = witness
             return
-        if block is not None:
+        if block is not None or name == 'incomplete_setter':
             from .execution_design import build_resolution_witness
             built = build_resolution_witness(design, name, block, actor)
             if built is not None:

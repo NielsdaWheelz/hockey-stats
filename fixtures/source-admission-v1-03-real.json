@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "purpose": "original complete capture for the newly exposed singleton real-card support boundary; no source correction",
+  "game_id": "2024021273",
+  "season": "20242025",
+  "original_corpus": {
+    "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/corpus.json",
+    "sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+  },
+  "original_native": {
+    "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/games/2024021273.json",
+    "sha256": "6f0883394ead1043434bffc3e9888dbaf5043c02491213bfa4c2688569d4fa0f"
+  },
+  "prepared": {
+    "manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "game_member_sha256": "d881061023e2df3d08ab91a5bfdafb0625725e6facb2dfc9b1b33226be966b23",
+    "people_member_sha256": "5acb6ffd2f88d7049a746f99e516d7e46fac7089a6a8bc10fdfc1b11a2c7bec8"
+  },
+  "copies": [
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/play-by-play/body.bin",
+      "fixture": "captures/2024021273/play-by-play/body.bin",
+      "bytes": 126247,
+      "sha256": "3a0fb92cc88379d32f7868c7dca4109cdb4ca18a4b62d8edde56625da9d35e8b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/play-by-play/capture.json",
+      "fixture": "captures/2024021273/play-by-play/capture.json",
+      "bytes": 671,
+      "sha256": "8166b0d26dfc9bfbd5225f53895133244427c21b09d0f29d5231cd6f6102a983"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/boxscore/body.bin",
+      "fixture": "captures/2024021273/boxscore/body.bin",
+      "bytes": 13683,
+      "sha256": "39d240aab03c63c5749b8311636ec377593d15883157ba62d043517f229c97a1"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/boxscore/capture.json",
+      "fixture": "captures/2024021273/boxscore/capture.json",
+      "bytes": 662,
+      "sha256": "16df69f46e63e50fe3668be6fffe332ca13ad5dba8f01515b8918ca152f3a5ea"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/shifts/body.bin",
+      "fixture": "captures/2024021273/shifts/body.bin",
+      "bytes": 21,
+      "sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/shifts/capture.json",
+      "fixture": "captures/2024021273/shifts/capture.json",
+      "bytes": 645,
+      "sha256": "b7bde737d2efd8cfcfcb6d3b498e7b71af574bdb5fb2d8dd6fb2567c2b4ad92b"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/game-summary/body.bin",
+      "fixture": "captures/2024021273/game-summary/body.bin",
+      "bytes": 35269,
+      "sha256": "19ae7c005aad9df9b8a9d4e53d1699ac0b4b43e4ac7f1d3f9590384d5bd48df5"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/game-summary/capture.json",
+      "fixture": "captures/2024021273/game-summary/capture.json",
+      "bytes": 694,
+      "sha256": "c1504a2d68070592ed605e3799017a0ed865e1cc94c5313764adaddaf22132be"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/play-report/body.bin",
+      "fixture": "captures/2024021273/play-report/body.bin",
+      "bytes": 1196586,
+      "sha256": "9daa618b1b37af6ce3ffdc594bed53f3abb60dbdd712fdc257cecda807aa12a2"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/play-report/capture.json",
+      "fixture": "captures/2024021273/play-report/capture.json",
+      "bytes": 695,
+      "sha256": "2fca78f8083331348fb4f413c6ca4ce8e04e6b75544bef94e9d2ed5e7344881a"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/landing/body.bin",
+      "fixture": "captures/2024021273/landing/body.bin",
+      "bytes": 11983,
+      "sha256": "47ce5ab392462fd4714c0445399f469d9cb0197fede017bd0e5f24753cea6685"
+    },
+    {
+      "original": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2024021273/landing/capture.json",
+      "fixture": "captures/2024021273/landing/capture.json",
+      "bytes": 660,
+      "sha256": "f61b757d83a211d8ada4624d844c8ad7d7bdc73be5869971dd66bd6c480d862f"
+    }
+  ],
+  "preserved_season_references": [
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/goalie-bios/body.bin",
+      "fixture": "references/20242025/goalie-bios/body.bin",
+      "bytes": 47171,
+      "sha256": "18727d78eced5056a15e8dd1b4e5f131f99612d55b2880fad1ca6f2907d687eb"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/goalie-bios/capture.json",
+      "fixture": "references/20242025/goalie-bios/capture.json",
+      "bytes": 711,
+      "sha256": "0fd86d0b478df2e7e156fb718543ab5cdc3eab900a6dce945849ee2846ef1c38"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-games/body.bin",
+      "fixture": "references/20242025/season-games/body.bin",
+      "bytes": 327490,
+      "sha256": "3ea9dceb4a984c869e438d9ca665d5935f45d1beb6682f5bc00b1fe2333d48f1"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-games/capture.json",
+      "fixture": "references/20242025/season-games/capture.json",
+      "bytes": 671,
+      "sha256": "5b862c889a8ec496b75955591001d8fb3c4f719daf59eb6c6cde743b323bd349"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-summary/body.bin",
+      "fixture": "references/20242025/season-summary/body.bin",
+      "bytes": 634,
+      "sha256": "0587d6c48dc8274640d3abb401e0251fc4d4a23b96dee877ccaa03f510b407ae"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/season-summary/capture.json",
+      "fixture": "references/20242025/season-summary/capture.json",
+      "bytes": 676,
+      "sha256": "03aed697f50917a45a98b20facc8c8a336d3264dea1b32f15d4da76c1638d525"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/skater-bios/body.bin",
+      "fixture": "references/20242025/skater-bios/body.bin",
+      "bytes": 448170,
+      "sha256": "ac33fd7673dfbe6f57b1f7a30fb70d46fcb72caa5957d9bc60bfb4c9add2a396"
+    },
+    {
+      "original": "/Users/nnandal/Documents/code/hockey-stats-raw/fresh-20260930/references/20242025/skater-bios/capture.json",
+      "fixture": "references/20242025/skater-bios/capture.json",
+      "bytes": 712,
+      "sha256": "df0c11d0df15aa86ed3018de978fdb9e3f2daab17dd8db5287a320d7241bbc3a"
+    }
+  ],
+  "source_receipts": [
+    {
+      "source": "play-by-play",
+      "requested_at": "2026-09-30T19:28:07.674Z",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024021273/play-by-play",
+      "http_status": 200,
+      "body_sha256": "3a0fb92cc88379d32f7868c7dca4109cdb4ca18a4b62d8edde56625da9d35e8b"
+    },
+    {
+      "source": "boxscore",
+      "requested_at": "2026-09-30T19:28:07.946Z",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024021273/boxscore",
+      "http_status": 200,
+      "body_sha256": "39d240aab03c63c5749b8311636ec377593d15883157ba62d043517f229c97a1"
+    },
+    {
+      "source": "shifts",
+      "requested_at": "2026-09-30T19:28:08.418Z",
+      "url": "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId%3D2024021273&limit=-1",
+      "http_status": 200,
+      "body_sha256": "93fd5b4feec7a9fd7bd879aabf27c59c8638cfeb001d4a78c2fc033d5b813868"
+    },
+    {
+      "source": "game-summary",
+      "requested_at": "2026-09-30T19:28:08.516Z",
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/GS021273.HTM",
+      "http_status": 200,
+      "body_sha256": "19ae7c005aad9df9b8a9d4e53d1699ac0b4b43e4ac7f1d3f9590384d5bd48df5"
+    },
+    {
+      "source": "play-report",
+      "requested_at": "2026-09-30T19:28:08.742Z",
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/PL021273.HTM",
+      "http_status": 200,
+      "body_sha256": "9daa618b1b37af6ce3ffdc594bed53f3abb60dbdd712fdc257cecda807aa12a2"
+    },
+    {
+      "source": "landing",
+      "requested_at": "2026-09-30T19:28:09.069Z",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024021273/landing",
+      "http_status": 200,
+      "body_sha256": "47ce5ab392462fd4714c0445399f469d9cb0197fede017bd0e5f24753cea6685"
+    }
+  ],
+  "checked_facts": {
+    "raw_boxscore_locator": "/playerByGameStats/awayTeam/defense/4",
+    "raw_game_date": "2025-04-12",
+    "raw_teams": [
+      "MIN",
+      "VAN"
+    ],
+    "reported_toi": "05:08",
+    "reported_seconds": 308,
+    "reported_shifts": 6,
+    "shifts_body": {
+      "data": [],
+      "total": 0
+    },
+    "prepared_singleton_game_ids": [
+      "2024021273"
+    ],
+    "prepared_segments": 0,
+    "prepared_ordinary_segments": 0,
+    "unresolved_native_intervals": 4,
+    "observed_game_included_seconds": 0,
+    "observed_game_unresolved_seconds": 3767,
+    "observed_game_status": "unavailable",
+    "observed_player_included_seconds": 0,
+    "observed_player_status": "unavailable",
+    "observed_player_personal_goals": null,
+    "observed_player_reasons": [
+      "elapsed_membership_unresolved",
+      "event_evidence_unresolved",
+      "player_toi_conflict",
+      "shift_source_empty"
+    ],
+    "other_skater_singleton_empty_shift_cases": [
+      {
+        "player_id": "8478173",
+        "name": "Hayden Hodgson",
+        "game_ids": [
+          "2024021260",
+          "2024021276"
+        ]
+      },
+      {
+        "player_id": "8480075",
+        "name": "Cameron Crotty",
+        "game_ids": [
+          "2024021273"
+        ]
+      },
+      {
+        "player_id": "8481558",
+        "name": "John Farinacci",
+        "game_ids": [
+          "2024021291"
+        ]
+      },
+      {
+        "player_id": "8482072",
+        "name": "Jack Ahcan",
+        "game_ids": [
+          "2024021267",
+          "2024021284"
+        ]
+      },
+      {
+        "player_id": "8482133",
+        "name": "Thomas Bordeleau",
+        "game_ids": [
+          "2024021283"
+        ]
+      },
+      {
+        "player_id": "8482213",
+        "name": "Riley Duran",
+        "game_ids": [
+          "2024021250",
+          "2024021278"
+        ]
+      },
+      {
+        "player_id": "8482715",
+        "name": "Ryan Ufko",
+        "game_ids": [
+          "2024021288"
+        ]
+      },
+      {
+        "player_id": "8483017",
+        "name": "Frederic Brunet",
+        "game_ids": [
+          "2024021291"
+        ]
+      },
+      {
+        "player_id": "8483569",
+        "name": "Wyatt Aamodt",
+        "game_ids": [
+          "2024021267",
+          "2024021284"
+        ]
+      },
+      {
+        "player_id": "8484406",
+        "name": "Ty Mueller",
+        "game_ids": [
+          "2024021273",
+          "2024021290"
+        ]
+      }
+    ]
+  },
+  "expected_behavior": "reported 308 seconds and six shifts remain source facts; strength usage and non-five-on-five matched scoring are unavailable when the only dated game has no supported elapsed segment; no zero matched result or rate is inferred; old five-on-five personal values remain exact"
+}

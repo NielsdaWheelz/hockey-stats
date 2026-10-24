@@ -1,0 +1,143 @@
+{
+  "status": "green_fixture_only",
+  "integration_commit": "2ddc2d6",
+  "candidate": {
+    "publication_id": "84d03b43-a9b8-460b-bc5e-e56c4596cc17",
+    "purpose": "fixture",
+    "sha256": "0b54ae0e9ac4f0be73ef99654b009220d722963b6d80093d5d0fd40c2f28a4d9",
+    "bytes": 105893888
+  },
+  "typed_api": {
+    "groups": 30,
+    "full_league": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "players": 201,
+        "bytes": 5875081,
+        "ms": 209
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "players": 201,
+        "bytes": 4963212,
+        "ms": 139
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "players": 245,
+        "bytes": 7422853,
+        "ms": 211
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "players": 245,
+        "bytes": 6059351,
+        "ms": 133
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "players": 277,
+        "bytes": 8533647,
+        "ms": 234
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "players": 277,
+        "bytes": 6902624,
+        "ms": 148
+      }
+    ],
+    "selected_people": [
+      {
+        "season": "20232024",
+        "player_id": "8481559"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8478397"
+      },
+      {
+        "season": "20252026",
+        "player_id": "8477495"
+      }
+    ],
+    "personal_shots_and_context": "stored original keys/outcomes; independent interval, membership and location iteration for three recorded populations in on_off and one-teammate with_without; all mass/time/rate/on-net/support/sparse-cell checks passed"
+  },
+  "browser": {
+    "cases": [
+      {
+        "season": "20232024",
+        "player_id": "8481559",
+        "label": "complete",
+        "render_ms": 1792,
+        "export_ms": 82,
+        "png_width": 1200,
+        "png_height": 2348,
+        "png_bytes": 474724,
+        "csv_bytes": 892609
+      },
+      {
+        "season": "20242025",
+        "player_id": "8480879",
+        "label": "traded",
+        "render_ms": 1811,
+        "export_ms": 82,
+        "png_width": 1200,
+        "png_height": 2348,
+        "png_bytes": 488023,
+        "csv_bytes": 781689
+      },
+      {
+        "season": "20242025",
+        "player_id": "8470613",
+        "label": "missing_shifts",
+        "render_ms": 1834,
+        "export_ms": 70,
+        "png_width": 1200,
+        "png_height": 2348,
+        "png_bytes": 521117,
+        "csv_bytes": 716654
+      },
+      {
+        "season": "20252026",
+        "player_id": "8482093",
+        "label": "latest",
+        "render_ms": 1840,
+        "export_ms": 79,
+        "png_width": 1200,
+        "png_height": 2348,
+        "png_bytes": 474595,
+        "csv_bytes": 859509
+      }
+    ],
+    "discovery": {
+      "season": "20232024",
+      "table": "descriptive"
+    },
+    "comparison": {
+      "season": "20242025",
+      "players": [
+        "8480879",
+        "8470613"
+      ],
+      "cards": 2
+    },
+    "narrow_200_percent": "all four scroll regions and saved png/csv checks passed",
+    "native_csv_leaves": 1524,
+    "csv_columns": 35
+  },
+  "detached_reader": {
+    "candidate_copy": "byte-identical isolated copy; deleted after proof",
+    "source_path_denial": "node preload rejected external and fixture paths; direct node:fs/promises.readFile denial exercised",
+    "api_groups": 30,
+    "listener_port": 41924,
+    "listener_stopped": true
+  },
+  "limitations": "captured-source fixture with 24 displayed-season games; no full three-season real acceptance or activation"
+}

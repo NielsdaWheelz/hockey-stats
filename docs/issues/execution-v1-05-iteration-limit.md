@@ -1,0 +1,11 @@
+# v1-05 real optimizer iteration limit
+
+problem: the original 2021–22 real `u` and `q` starts exhausted the fixed 2,000-iteration budget. both are correctly unavailable, so the annual family cannot be completed or used as a predecessor.
+
+impact: advancement, the planned implementation cutover and real numerical acceptance are stopped. other heads may finish independently; none can substitute for `u`.
+
+evidence: external run `/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022`, source `4041443`, recipe `9abbc436`. `heads/u.json` sha256 `f635ab5151eaa36de6eb24cd1ba730d7ec88c11817608b4de2877038771461a3` records status 1, 2,000 iterations, 2,190 evaluations, objective `63798.40637900731`, maximum raw gradient `0.015580808468975471` and solve wall `12099.32927108393` seconds. `heads/q.json` sha256 `c139489f07c6dcb8b21bf1bed4e0237126f0a7df402dd1ab243f339f8b552b46` independently records the same iteration-limit termination, 2,000 iterations, 2,200 evaluations, objective `61491.75009298523`, maximum raw gradient `0.4536119664147762` and solve wall `372.5802658330649` seconds. both prior-mean starts deduplicated to zero. selected start and arrays are null. the submission and logs preserve exact inputs and command. inspect this metadata to reproduce the finding; do not repeat the expensive command merely to confirm it.
+
+blocker: the user approved the exact uniform `maxiter=10000` amendment on 2026-10-24. isolated source now binds recipe `59509c18` and passes bounded intercepted-call/reader checks. [the dated amendment](../research/execution-v1-05/iteration-cap-amendment-2026-10-24.md) records unchanged criteria and costs. fresh full fixture qualification, independent review and a new completed real family remain pending. neither finite loss nor an iteration-limit endpoint establishes completion.
+
+resolution: bind the approved numerical amendment and new recipe, qualify the fresh fixture chain and complete a fresh real annual family under that contract with strict read-back and independently reconciled inputs/resources. preserve this failed run, retain the unchanged convergence/probability criteria, and stop on any further failure. full twenty-head/four-probe acceptance remains owned by the separate real-acceptance issue.

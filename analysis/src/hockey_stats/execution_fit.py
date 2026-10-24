@@ -6,6 +6,7 @@ import numpy as np
 from scipy.special import expit, log_expit
 
 from .chance import _map_penalty, solve_logistic
+from .execution_design import DEFINITION
 
 
 def annual_priors(design, ledger):
@@ -213,7 +214,7 @@ def head_diagnostics(beta, design):
 
 def _solve_start(design, actors, initial, tightened):
     scale = .1 if tightened else 1.
-    options = dict(maxiter=2000, ftol=1e-14*scale, gtol=1e-6*scale)
+    options = dict(maxiter=DEFINITION["solver"]["maxiter"], ftol=1e-14*scale, gtol=1e-6*scale)
     if design["head"] != "g":
         beta, result = solve_logistic(lambda b: objective(b, design, actors), initial, **options)
         value, gradient = objective(beta, design, actors)
@@ -332,7 +333,7 @@ def continue_head(design, previous_ledger, baseline_coefficients):
     result = fit_head(design, previous_ledger, tightened=True, initial=baseline)
     result["comparison"] = dict(
         base_objective=base_value, base_gradient_max=float(np.max(np.abs(base_gradient))),
-        optimizer_maxiter=2000, optimizer_ftol=1e-15, optimizer_gtol=1e-7,
+        optimizer_maxiter=DEFINITION["solver"]["maxiter"], optimizer_ftol=1e-15, optimizer_gtol=1e-7,
         em_maxiter=100, em_relative_tolerance=1e-9, em_responsibility_tolerance=1e-7,
     )
     if result["status"] == "complete":

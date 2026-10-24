@@ -1,6 +1,6 @@
 # v1-05 real execution acceptance
 
-problem: the required real execution chain remains unverified. accepted v1-01 input is now available; the first real command was stopped during preparation after a confirmed duplicate strength-transition availability encoding exposed a correctness defect. the shared-availability repair and new `9abbc436` recipe now pass a full fresh five-year fixture qualification. representative real run `02` follows the final independent content receipt and clean committed-source check. fixture execution does not satisfy real acceptance.
+problem: the required real execution chain remains incomplete. real run `02` under `4041443`/`9abbc436` exhausted the fixed iteration cap in `u/q`, with no fitted arrays for either. the user approved a uniform 10,000-iteration amendment, implemented only in the isolated factoring candidate under recipe `59509c18`. its fresh five-year fixture qualification, independent review and fresh real first year remain pending. preserve the running original process, completed expensive pieces and unavailable diagnostics. [the iteration issue](execution-v1-05-iteration-limit.md) retains exact evidence. fixture execution does not satisfy real acceptance.
 
 impact: twenty real annual `u/q/r/g` states, the representative real design/fit measurement and four final-year numerical continuations remain unverified. no complete v1-05 handoff or scientific admission is claimed.
 

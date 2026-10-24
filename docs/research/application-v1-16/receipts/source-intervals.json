@@ -1,0 +1,142 @@
+[
+  {
+    "season": "20232024",
+    "player_id": "8481559",
+    "label": "hughes",
+    "independent_dressed_membership_partition": {
+      "recorded_all_attempts": {
+        "on": {
+          "for_count": 42.0,
+          "against_count": 30.0,
+          "seconds": 2041.0,
+          "rows": 253
+        },
+        "off": {
+          "for_count": 72.0,
+          "against_count": 45.0,
+          "seconds": 3506.0,
+          "rows": 412
+        }
+      },
+      "recorded_goals": {
+        "on": {
+          "for_count": 3.0,
+          "against_count": 2.0,
+          "seconds": 2041.0,
+          "rows": 253
+        },
+        "off": {
+          "for_count": 0.0,
+          "against_count": 3.0,
+          "seconds": 3506.0,
+          "rows": 412
+        }
+      }
+    }
+  },
+  {
+    "season": "20242025",
+    "player_id": "8480879",
+    "label": "traded",
+    "independent_dressed_membership_partition": {
+      "recorded_all_attempts": {
+        "on": {
+          "for_count": 12.0,
+          "against_count": 3.0,
+          "seconds": 588.0,
+          "rows": 81
+        },
+        "off": {
+          "for_count": 26.0,
+          "against_count": 37.0,
+          "seconds": 1850.0,
+          "rows": 219
+        }
+      },
+      "recorded_goals": {
+        "on": {
+          "for_count": 1.0,
+          "against_count": 0.0,
+          "seconds": 588.0,
+          "rows": 81
+        },
+        "off": {
+          "for_count": 1.0,
+          "against_count": 1.0,
+          "seconds": 1850.0,
+          "rows": 219
+        }
+      }
+    }
+  },
+  {
+    "season": "20242025",
+    "player_id": "8470613",
+    "label": "missing-shifts",
+    "independent_dressed_membership_partition": {
+      "recorded_all_attempts": {
+        "on": {
+          "for_count": null,
+          "against_count": null,
+          "seconds": 0,
+          "rows": 0
+        },
+        "off": {
+          "for_count": null,
+          "against_count": null,
+          "seconds": 0,
+          "rows": 0
+        }
+      },
+      "recorded_goals": {
+        "on": {
+          "for_count": null,
+          "against_count": null,
+          "seconds": 0,
+          "rows": 0
+        },
+        "off": {
+          "for_count": null,
+          "against_count": null,
+          "seconds": 0,
+          "rows": 0
+        }
+      }
+    }
+  },
+  {
+    "season": "20252026",
+    "player_id": "8482093",
+    "label": "jarvis",
+    "independent_dressed_membership_partition": {
+      "recorded_all_attempts": {
+        "on": {
+          "for_count": 12.0,
+          "against_count": 7.0,
+          "seconds": 682.0,
+          "rows": 90
+        },
+        "off": {
+          "for_count": 40.0,
+          "against_count": 25.0,
+          "seconds": 2031.0,
+          "rows": 236
+        }
+      },
+      "recorded_goals": {
+        "on": {
+          "for_count": 0.0,
+          "against_count": 1.0,
+          "seconds": 682.0,
+          "rows": 90
+        },
+        "off": {
+          "for_count": 0.0,
+          "against_count": 1.0,
+          "seconds": 2031.0,
+          "rows": 236
+        }
+      }
+    }
+  }
+]

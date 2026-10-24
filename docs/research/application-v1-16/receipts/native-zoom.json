@@ -1,0 +1,15 @@
+{
+  "zoom": 2,
+  "before": {
+    "innerWidth": 1280,
+    "devicePixelRatio": 1
+  },
+  "after": {
+    "innerWidth": 640,
+    "devicePixelRatio": 2,
+    "documentWidth": 640,
+    "bodyFont": "16px",
+    "svgWidth": 1200
+  },
+  "method": "chrome.tabs.setZoom actual browser zoom"
+}

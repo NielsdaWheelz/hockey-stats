@@ -1,6 +1,7 @@
 """fixed player-analysis exchange and sqlite storage; no source or fit interpretation."""
 
 from dataclasses import dataclass
+from contextlib import ExitStack
 from datetime import date
 import hashlib
 import json
@@ -1626,27 +1627,64 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
     manifest = dict(schema_version=1,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
+    def write_row(destination, sha, table, row, previous):
+        key = tuple(row[field] for field in KEYS[table])
+        require(previous is None or previous < key, f'{table}: producer rows must be sorted and unique')
+        data = json_bytes(row)+b'\n'
+        destination.write(data)
+        sha.update(data)
+        return key
     def member(path, rows, table):
         count = 0
         previous = None
         with (output/path).open('xb') as destination:
             sha = hashlib.sha256()
             for row in rows:
-                key = tuple(row[field] for field in KEYS[table])
-                require(previous is None or previous < key, f'{table}: producer rows must be sorted and unique')
-                previous = key
-                data = json_bytes(row)+b'\n'
-                destination.write(data)
-                sha.update(data)
+                previous = write_row(destination, sha, table, row, previous)
                 count += 1
         return dict(path=path,sha256=sha.hexdigest(),rows=count)
     for family in family_rows:
-        fields(family,('season','family','availability','explanation','tables'))
+        streamed_evidence = family.get('family') == 'evidence' and 'game_rows' in family
+        fields(family,('season','family','availability','explanation','tables','game_ids','game_rows') if streamed_evidence
+               else ('season','family','availability','explanation','tables'))
         require(family['season'] in SEASONS and family['family'] in FAMILY_TABLES, 'invalid producer family selector')
         disposition(family)
-        fields(family['tables'],FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
+        require(not streamed_evidence or family['availability'] == 'provided', 'streamed evidence must be provided')
+        fields(family['tables'],('context_coverage',) if streamed_evidence else
+               FAMILY_TABLES[family['family']] if family['availability'] == 'provided' else ())
         record = {key:family[key] for key in ('season','family','availability','explanation')}
-        record['tables'] = {table:member(f"{family['season']}-{family['family']}-{table}.jsonl",rows,table) for table,rows in family['tables'].items()}
+        if streamed_evidence:
+            game_ids = family['game_ids']
+            require(type(game_ids) is list and bool(game_ids) and all(type(gid) is str for gid in game_ids)
+                    and game_ids == sorted(set(game_ids)), 'evidence selected games must be sorted and unique')
+            game_tables = ('attempt_fact','interval_fact','interval_player','interval_location')
+            paths = {table:f"{family['season']}-evidence-{table}.jsonl" for table in game_tables}
+            hashes = {table:hashlib.sha256() for table in game_tables}
+            counts = {table:0 for table in game_tables}
+            previous = {table:None for table in game_tables}
+            dressed = []
+            with ExitStack() as stack:
+                destinations = {table:stack.enter_context((output/path).open('xb')) for table,path in paths.items()}
+                for game_id,batch in zip(game_ids,family['game_rows'],strict=True):
+                    fields(batch,('game_id',*game_tables,'dressed_game'))
+                    require(batch['game_id'] == game_id, 'evidence batch differs from selected game')
+                    for table in (*game_tables,'dressed_game'):
+                        rows = batch[table]
+                        require(type(rows) is list, f'{table}: evidence batch rows must be a list')
+                        for row in rows:
+                            require(row['game_id'] == game_id, f'{table}: evidence row game differs')
+                            if table == 'dressed_game':
+                                dressed.append(row)
+                            else:
+                                previous[table] = write_row(destinations[table], hashes[table], table, row, previous[table])
+                                counts[table] += 1
+            record['tables'] = {table:dict(path=paths[table],sha256=hashes[table].hexdigest(),rows=counts[table]) for table in game_tables}
+            record['tables']['dressed_game'] = member(f"{family['season']}-evidence-dressed_game.jsonl",
+                sorted(dressed,key=lambda row:tuple(row[key] for key in KEYS['dressed_game'])), 'dressed_game')
+            record['tables']['context_coverage'] = member(f"{family['season']}-evidence-context_coverage.jsonl",
+                family['tables']['context_coverage'], 'context_coverage')
+        else:
+            record['tables'] = {table:member(f"{family['season']}-{family['family']}-{table}.jsonl",rows,table) for table,rows in family['tables'].items()}
         manifest['families'].append(record)
     for table,rows in catalogs.items():
         manifest['catalogs'][table] = member(table+'.jsonl',rows,table)

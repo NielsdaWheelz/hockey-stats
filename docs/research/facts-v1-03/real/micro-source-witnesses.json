@@ -1,0 +1,62 @@
+{
+  "status": "source_preconditions_checked; candidate_dispositions_not_run",
+  "purpose": "selected real u/h/b source witnesses before factual candidate inspection",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "prepared_game_member": "20232024/2023020001",
+  "prepared_game_sha256": "9fab764290f5fcdab25c7257b51860af86c2b0c8e79064cacc6d8af240f3fdd9",
+  "source_bodies": {
+    "play-by-play": "a9e87fc286b5df3c4abfad62d0532ba9958808c0d3ce7eb51b7300ae02fb8f13",
+    "play-report": "67c6e491003ca3cc09f7e0685841518d75e23b12a70007bb3a876c3ec5dfd8a5"
+  },
+  "witnesses": [
+    {
+      "family": "u",
+      "source_index": 41,
+      "event": "goal",
+      "period": 1,
+      "elapsed_seconds": 588,
+      "prepared_segment_index": 93,
+      "report_source_index": 44,
+      "source_actor": "8476453",
+      "source_team": "14",
+      "source_check": "ordinary physical shooter equals credited scorer; actor appears among the five home skaters, with both goalies present"
+    },
+    {
+      "family": "u",
+      "source_index": 18,
+      "event": "missed-shot",
+      "period": 1,
+      "elapsed_seconds": 231,
+      "prepared_segment_index": 30,
+      "report_source_index": 21,
+      "source_actor": "8476887",
+      "source_team": "18",
+      "source_check": "ordinary physical shooter agrees with source shooter and appears among the five away skaters"
+    },
+    {
+      "family": "b",
+      "source_index": 26,
+      "event": "blocked-shot",
+      "period": 1,
+      "elapsed_seconds": 418,
+      "prepared_segment_index": 65,
+      "report_source_index": 29,
+      "source_actor": "8478178",
+      "source_team": "14",
+      "source_check": "source blocker appears among home skaters; physical shooter 8475158 appears among away skaters; both goalies present"
+    },
+    {
+      "family": "h",
+      "source_index": 4,
+      "event": "hit",
+      "period": 1,
+      "elapsed_seconds": 48,
+      "prepared_segment_index": 7,
+      "report_source_index": 7,
+      "source_actor": "8474568",
+      "source_team": "18",
+      "source_check": "api hit matches one report hit; hitter appears among away skaters, hittee 8476453 among home skaters, both goalies present"
+    }
+  ],
+  "candidate_rule": "inspect each declared event disposition and its segment mask; count the source actor only when the segment remains included"
+}

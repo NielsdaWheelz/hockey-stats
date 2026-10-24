@@ -1,0 +1,16 @@
+publication command failed; active/previous are unchanged unless rotation began; inspect any incoming.sqlite before retrying {
+  message: 'An error occurred in Effect.try',
+  cause: Error: analytical subject kind/identity differs
+      at present (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/src/server/analysis-publication.ts:460:15)
+      at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/src/server/analysis-publication.ts:599:13)
+      at PrimitiveImpl.~effect/Effect/args (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/internal/effect.ts:1078:22)
+      at PrimitiveImpl.~effect/Effect/evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/internal/effect.ts:981:22)
+      at FiberImpl.runLoop (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/internal/effect.ts:654:41)
+      at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/internal/effect.ts:595:23)
+      at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+      at FiberImpl.evaluate (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/internal/effect.ts:589:27)
+      at Array.<anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/internal/effect.ts:1025:13)
+      at MixedSchedulerDispatcher.runTasks (/Users/nnandal/Documents/code/hockey-stats-v1-16/app/node_modules/effect/src/Scheduler.ts:254:17),
+  _tag: 'UnknownError',
+  '~effect/Cause/UnknownError': '~effect/Cause/UnknownError'
+}

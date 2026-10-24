@@ -1,0 +1,28 @@
+{
+  "rawCalls": [
+    "/api/players/9000001?season=20232024",
+    "/api/league?season=20232024&kind=skater&family=overview",
+    "/api/league?season=20232024&kind=skater&family=descriptive"
+  ],
+  "comparisonCalls": [
+    "/api/league?season=20232024&kind=skater&family=overview",
+    "/api/players/9000001?season=20232024",
+    "/api/players/9000003?season=20232024",
+    "/api/league?season=20232024&kind=skater&family=descriptive",
+    "/api/maps?season=20232024&players=9000001%2C9000003&family=observed&strength=5v5&view=effect"
+  ],
+  "identityRejections": [
+    "person",
+    "body",
+    "catalog",
+    "season",
+    "publication",
+    "pending",
+    "omitted_available"
+  ],
+  "omittedPendingIdentityRetained": true,
+  "cancelled": true,
+  "activeFetchAborted": true,
+  "rankedAnnualOverviewReads": 3,
+  "comparativeAnnualOverviewReads": 3
+}

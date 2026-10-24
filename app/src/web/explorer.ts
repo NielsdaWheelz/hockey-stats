@@ -22,11 +22,14 @@ export type Sort =
   | "minutes"
   | "personalMinutes"
   | "reportedAppearances"
-  | "reportedMinutes";
+  | "reportedMinutes"
+  | "evScoringMinutes"
+  | "ppScoringMinutes";
 export type AnalysisView = "comparative" | "observed";
 export type DiscoveryTable =
   | "overview"
   | "observed"
+  | "descriptive"
   | "spatial"
   | "execution"
   | "shootiness"
@@ -65,7 +68,7 @@ export function readTableSelection(search: URLSearchParams): {
 } {
   const next = new URLSearchParams(search);
   const tables: readonly DiscoveryTable[] = [
-    "overview", "observed", "spatial", "execution", "shootiness", "penalties", "territory",
+    "overview", "observed", "descriptive", "spatial", "execution", "shootiness", "penalties", "territory",
   ];
   const values = search.getAll("table");
   const selected = values.length === 1 ? values[0] : undefined;
@@ -197,14 +200,15 @@ export function readMetric(
   };
 }
 
-export function readHistoryScale(search: URLSearchParams): {
+export function readHistoryScale(search: URLSearchParams, metric = analysisMetric(search.get("metric") ?? "")): {
   readonly scale: "raw" | "percentile";
   readonly search: URLSearchParams;
 } {
   const next = new URLSearchParams(search);
   const values = search.getAll("history");
   const selected = values.length === 1 ? values[0] : undefined;
-  const scale = selected === "percentile" ? "percentile" : "raw";
+  const scale = metric?.standingPolicy !== "raw_only" && selected === "percentile" ? "percentile" : "raw";
+  if (metric?.standingPolicy === "raw_only" && selected === "percentile") next.set("history", "raw");
   if (values.length && selected !== "raw" && selected !== "percentile")
     next.delete("history");
   return { scale, search: next };

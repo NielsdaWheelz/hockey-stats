@@ -34,6 +34,8 @@ export type MetadataId =
   | "minutes"
   | "reportedAppearances"
   | "reportedMinutes"
+  | "evScoringMinutes"
+  | "ppScoringMinutes"
   | "games"
   | "personalMinutes";
 export type DiscoveryColumn = {
@@ -73,6 +75,7 @@ export type DiscoveryRow = {
 export const discoveryTables: readonly DiscoveryTable[] = [
   "overview",
   "observed",
+  "descriptive",
   "spatial",
   "execution",
   "shootiness",
@@ -83,6 +86,8 @@ const metadataLabels: Record<MetadataId, string> = {
   minutes: "included observed 5v5 min",
   reportedAppearances: "reported appearances",
   reportedMinutes: "reported min / appearance",
+  evScoringMinutes: "ev scoring min",
+  ppScoringMinutes: "pp scoring min",
   games: "included on-ice games",
   personalMinutes: "personal included 5v5 min",
 };
@@ -114,6 +119,14 @@ export function discoveryPreset(table: DiscoveryTable, strength: string | null) 
         "primaryAssists60",
       ];
       defaultSort = "minutes";
+      break;
+    case "descriptive":
+      ids = [
+        "reportedAppearances", "minutes", "descriptive.usage.minutes_per_appearance",
+        "evScoringMinutes", "descriptive.scoring.ev.primary_points_per60",
+        "ppScoringMinutes", "descriptive.scoring.pp.primary_points_per60",
+      ];
+      defaultSort = "descriptive.usage.minutes_per_appearance";
       break;
     case "spatial": {
       const selected = strength ?? "5v5";
@@ -178,8 +191,43 @@ function metadataValue(
   overview: Overview,
   row: Overview["players"][number],
   id: MetadataId,
+  selectedCohort: LeagueResponse,
 ): MetadataValue {
-  const usageField = id === "reportedAppearances" || id === "reportedMinutes";
+  if (id === "evScoringMinutes" || id === "ppScoringMinutes") {
+    if (selectedCohort.kind !== "skater" || selectedCohort.family !== "descriptive")
+      throw new Error("scoring exposure requires the descriptive cohort");
+    const result = selectedCohort.players.find(
+      candidate => candidate.person.player_id === row.person.player_id,
+    )?.result;
+    const strength = id === "evScoringMinutes" ? "ev" : "pp";
+    const scoring = result?.availability === "provided"
+      ? result.data.scoring_by_strength[strength] : null;
+    const source = result?.availability === "provided"
+      ? selectedCohort.sources[result.data.provenance.id] : null;
+    if (result?.availability === "provided" && !source)
+      throw new Error(`unresolved source ${result.data.provenance.id}`);
+    const available = scoring !== null && scoring.seconds !== null;
+    const definition = `${metadataLabels[id]}; own ${strength} personal scoring exposure${
+      source ? `; ${source.construction}; ${source.population}; ${source.definition}` : ""
+    }`;
+    return {
+      value: scoring?.seconds ?? null,
+      unit: "seconds", displayScale: 1 / 60, displayUnit: "minutes",
+      status: available ? "provided" : result?.availability === "provided" ? "unavailable" : result?.availability ?? "unavailable",
+      reason: available ? null
+        : result?.availability === "provided" ? "scoring exposure unavailable"
+          : result?.explanation ?? "player absent from descriptive cohort",
+      support: scoring?.support ?? null,
+      observedSupport: null,
+      source: source ?? null,
+      original: null,
+      evidence: { field_path: `scoring_by_strength.${strength}.seconds`, scoring, result },
+      semanticKey: JSON.stringify([id, source?.construction, source?.population, source?.definition]),
+      semanticIdentityKnown: Boolean(source),
+      definition,
+    };
+  }
+  const usageField = id === "reportedAppearances";
   const envelope = row.result.availability === "provided"
     ? usageField ? row.result.data.reported_usage : row.result.data.observed
     : row.result;
@@ -219,19 +267,14 @@ function metadataValue(
     const usage = row.result.data.reported_usage.data;
     const source = overview.sources[usage.provenance.id];
     if (!source) throw new Error(`unresolved source ${usage.provenance.id}`);
-    const original = id === "reportedMinutes" ? usage.minutes_per_appearance : null;
     return {
       ...common,
-      value: id === "reportedAppearances"
-        ? usage.positive_toi_appearances
-        : usage.minutes_per_appearance.value,
-      status: original?.value === null ? "unavailable" : "provided",
-      reason: original?.value === null
-        ? original.reason_detail?.explanation ?? original.unavailable_reason
-        : null,
+      value: usage.positive_toi_appearances,
+      status: "provided",
+      reason: null,
       support: usage.support,
       source,
-      original,
+      original: null,
       observedSupport: null,
       evidence: { reported_usage: usage, source },
       semanticKey: JSON.stringify([
@@ -277,19 +320,21 @@ export function composeDiscoveryRows(
     cells: {} as Record<string, DiscoveryCell>,
   }));
   for (const column of columns) {
-    const metric = analysisMetric(column.id);
+    const metric = analysisMetric(column.id === "reportedMinutes"
+      ? "descriptive.usage.minutes_per_appearance" : column.id);
     if (!metric) {
       overview.players.forEach((row, index) => {
         rows[index]!.cells[column.id] = {
           kind: "metadata",
-          ...metadataValue(overview, row, column.id as MetadataId),
+          ...metadataValue(overview, row, column.id as MetadataId, selectedCohort),
         };
       });
       continue;
     }
-    const response = metric.family === "overview" || metric.family === "observed"
+    const response = metric.family === "overview" || metric.family === "observed" ||
+      column.id === "reportedMinutes" && selectedCohort.family !== "descriptive"
       ? overview : selectedCohort;
-    const datums = selectLeagueValues(response, metric);
+    const datums = selectLeagueValues(response, metric, overview);
     const present = new Set(datums.map(datum => datum.playerId));
     for (const row of rows) {
       if (!present.has(row.person.player_id))
@@ -302,8 +347,10 @@ export function composeDiscoveryRows(
         {
           datum: selection.datum,
           standing: selection.standing,
-          member: group.members.some(member => member.playerId === selection.datum.playerId),
-          incompatiblePeerCount: group.incompatiblePeerCount,
+          member: metric.standingPolicy === "raw_only" ? null
+            : group.members.some(member => member.playerId === selection.datum.playerId),
+          incompatiblePeerCount: metric.standingPolicy === "raw_only" ? null
+            : group.incompatiblePeerCount,
         },
       ] as const),
     ));

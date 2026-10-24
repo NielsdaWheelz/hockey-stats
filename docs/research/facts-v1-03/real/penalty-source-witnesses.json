@@ -1,0 +1,199 @@
+{
+  "status": "original_api_and_report_manually_checked; candidate_comparison_not_run",
+  "purpose": "independent named penalty role/source witnesses for v1-03 real acceptance",
+  "source_bodies_and_receipts": {
+    "2024020022": {
+      "play-by-play": {
+        "body.bin_sha256": "1de0659952b3c8036ac8aee8b36756ede20e1e5d0751521f5d090fa7135204c3",
+        "capture.json_sha256": "c846d14b6f7e2d9e721717b4ba714b1406d912575ba3354e22da1487f633fe84"
+      },
+      "play-report": {
+        "body.bin_sha256": "2c4bb1a6d02d2b59611199b9cfe5179fdc20cacb45316811cd14323fa0386ae5",
+        "capture.json_sha256": "69d18dd353e72f58daa04545d64c2348aea4d75020673e2fa61e2bb2e84648d0"
+      }
+    },
+    "2025020001": {
+      "play-by-play": {
+        "body.bin_sha256": "9d89ab3e9fcb50ca9be6957eb31dd0df585bb98005f0a3577a054762fecdb299",
+        "capture.json_sha256": "e67452380839260d0f850b562d3a531303d04bdac61650730361998bd89eea38"
+      },
+      "play-report": {
+        "body.bin_sha256": "2911d9f2cc567284aad4dc161e04f0fa9cb9153ad1088fb8b492d56aa2061837",
+        "capture.json_sha256": "42816729d01707ef5101230ab183420b0f12be1bc071ddab5850a5c416e3bb6b"
+      }
+    },
+    "2025020006": {
+      "play-by-play": {
+        "body.bin_sha256": "e5c79066faafe9daac9bc1daa12dda899d8cd7382d7f2484085ade1a9c1e57ad",
+        "capture.json_sha256": "1b6867cc24ff48ce85ede93123afe87b760720ae8c7dea31164237bb69276c8b"
+      },
+      "play-report": {
+        "body.bin_sha256": "37e8a9c8d8f32428890a9be0ee32abeaa847a5579615e212c61e90084e56a310",
+        "capture.json_sha256": "161f0281c707598ebcb9154b27cbcfb8de2a833b90f9bfc97601a4a3c1f0ecd8"
+      }
+    },
+    "2025021094": {
+      "play-by-play": {
+        "body.bin_sha256": "1cb5834471bb57a2f42084290c949adcf1fa6da0ca962057da1dfa13e5c4b2a6",
+        "capture.json_sha256": "a13a00c460164583feac2cea764d57f2efa1ac22576ebe3d73136fa7fb71a9b0"
+      },
+      "play-report": {
+        "body.bin_sha256": "eb0bf73de066f115e69f1d259829106a61c1b2bc16ecfe4e753cb2c0305e68a9",
+        "capture.json_sha256": "d30bd3e14d819f7efa4445e1e0d2662d33d3a39df491ca15df902ed35440203c"
+      }
+    }
+  },
+  "cases": [
+    {
+      "game_id": "2025020006",
+      "source_index": 342,
+      "report_row_id": "PL-346",
+      "report_row_source_index": 345,
+      "period": 4,
+      "clock": "03:31",
+      "type": "MIN",
+      "description": "holding",
+      "duration_minutes": 2,
+      "offending_team_id": 20,
+      "roles": {
+        "taken": 8477346,
+        "drawn": 8478402,
+        "served": 8482679
+      },
+      "expected": {
+        "taken": "attributed",
+        "drawn": "attributed",
+        "served": "attributed"
+      },
+      "report_check": "weegar takes the holding minor; coronato serves; mcdavid draws",
+      "api_locator": "fixtures/captures/2025020006/play-by-play/body.bin#/plays/342",
+      "report_locator": "fixtures/captures/2025020006/play-report/body.bin#tr[id=PL-346]"
+    },
+    {
+      "game_id": "2025020006",
+      "source_index": 343,
+      "report_row_id": "PL-347",
+      "report_row_source_index": 346,
+      "period": 4,
+      "clock": "03:31",
+      "type": "MIS",
+      "description": "misconduct",
+      "duration_minutes": 10,
+      "offending_team_id": 20,
+      "roles": {
+        "taken": 8477346,
+        "drawn": null,
+        "served": null
+      },
+      "expected": {
+        "taken": "attributed",
+        "drawn": "not_recorded",
+        "served": "not_recorded"
+      },
+      "report_check": "a distinct same-clock misconduct credits weegar; no drawn or served person is reported",
+      "api_locator": "fixtures/captures/2025020006/play-by-play/body.bin#/plays/343",
+      "report_locator": "fixtures/captures/2025020006/play-report/body.bin#tr[id=PL-347]"
+    },
+    {
+      "game_id": "2024020022",
+      "source_index": 163,
+      "report_row_id": "PL-167",
+      "report_row_source_index": 166,
+      "period": 2,
+      "clock": "08:24",
+      "type": "BEN",
+      "description": "too-many-men-on-the-ice",
+      "duration_minutes": 2,
+      "offending_team_id": 4,
+      "roles": {
+        "taken": null,
+        "drawn": null,
+        "served": 8480797
+      },
+      "expected": {
+        "taken": "not_recorded",
+        "drawn": "not_recorded",
+        "served": "attributed"
+      },
+      "report_check": "team bench infraction has no individual taker; farabee is the explicit server",
+      "api_locator": "fixtures/captures/2024020022/play-by-play/body.bin#/plays/163",
+      "report_locator": "fixtures/captures/2024020022/play-report/body.bin#tr[id=PL-167]"
+    },
+    {
+      "game_id": "2025021094",
+      "source_index": 106,
+      "report_row_id": "PL-110",
+      "report_row_source_index": 109,
+      "period": 2,
+      "clock": "01:57",
+      "type": "MIN",
+      "description": "high-sticking-double-minor",
+      "duration_minutes": 4,
+      "offending_team_id": 10,
+      "roles": {
+        "taken": 8478443,
+        "drawn": 8480762,
+        "served": null
+      },
+      "expected": {
+        "taken": "attributed",
+        "drawn": "attributed",
+        "served": "not_recorded"
+      },
+      "report_check": "carlo takes one four-minute double minor; robinson draws; count one source event",
+      "api_locator": "fixtures/captures/2025021094/play-by-play/body.bin#/plays/106",
+      "report_locator": "fixtures/captures/2025021094/play-report/body.bin#tr[id=PL-110]"
+    },
+    {
+      "game_id": "2025020001",
+      "source_index": 113,
+      "report_row_id": "PL-117",
+      "report_row_source_index": 116,
+      "period": 1,
+      "clock": "16:50",
+      "type": "MAJ",
+      "description": "fighting",
+      "duration_minutes": 5,
+      "offending_team_id": 16,
+      "roles": {
+        "taken": 8473422,
+        "drawn": 8478421,
+        "served": null
+      },
+      "expected": {
+        "taken": "attributed",
+        "drawn": "attributed",
+        "served": "not_recorded"
+      },
+      "report_check": "foligno takes one fighting major drawn by greer",
+      "api_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/113",
+      "report_locator": "fixtures/captures/2025020001/play-report/body.bin#tr[id=PL-117]"
+    },
+    {
+      "game_id": "2025020001",
+      "source_index": 114,
+      "report_row_id": "PL-118",
+      "report_row_source_index": 117,
+      "period": 1,
+      "clock": "16:50",
+      "type": "MAJ",
+      "description": "fighting",
+      "duration_minutes": 5,
+      "offending_team_id": 13,
+      "roles": {
+        "taken": 8478421,
+        "drawn": 8473422,
+        "served": null
+      },
+      "expected": {
+        "taken": "attributed",
+        "drawn": "attributed",
+        "served": "not_recorded"
+      },
+      "report_check": "greer takes a separate reciprocal same-clock major drawn by foligno",
+      "api_locator": "fixtures/captures/2025020001/play-by-play/body.bin#/plays/114",
+      "report_locator": "fixtures/captures/2025020001/play-report/body.bin#tr[id=PL-118]"
+    }
+  ],
+  "interpretation": "the report descriptions corroborate named taker, drawer, server and bench status in these selected cases; other event roles are checked against structured original api fields and dated teams. report text is not parsed into roles for all games."
+}

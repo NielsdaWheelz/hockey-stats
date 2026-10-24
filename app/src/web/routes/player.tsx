@@ -25,20 +25,15 @@ import {
 } from "../explorer";
 import SpatialViews from "../spatial-views";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
-import {
-  selectHistoryValue,
-  selectLeagueValues,
-  type AnalysisMetric,
-} from "../analysis-values";
-import { buildAnalysisCohort } from "../analysis-cohorts";
+import { type AnalysisMetric } from "../analysis-values";
 import AnalysisHistory, {
-  type HistoryPoint,
+  prepareHistoryPoint,
   type HistoryScale,
 } from "../analysis-history";
 import DescriptiveCard from "../descriptive-card";
+import { buildDescriptiveCard } from "../descriptive-values";
 import ComparativeCard, { prepareComparativeCard } from "../comparative-card";
 import DeploymentTables from "../deployment-tables";
-import { buildObservedComparison } from "../observed-comparison";
 import {
   CoverageDetail,
   Evidence,
@@ -133,7 +128,7 @@ export default function Player() {
     person,
     player,
   } = data;
-  const identity: Identity | null = player ?? person;
+  const identity: Identity | null = person ?? player ?? null;
   const historicalIdentity = history.find((row) => row.person !== null);
   const location = useLocation();
   const navigation = useNavigation();
@@ -146,7 +141,7 @@ export default function Player() {
     mapNormalized,
     data.kind,
   );
-  const { scale, search: normalized } = readHistoryScale(metricNormalized);
+  const { scale, search: normalized } = readHistoryScale(metricNormalized, metric);
   useCanonicalSearch(season.season, normalized);
   const leagueSearch =
     historySearch(location.state?.leagueSearch) ||
@@ -206,37 +201,11 @@ export default function Player() {
       flushSync: true,
     });
   };
-  const comparison = useMemo(
-    () =>
-      player ? buildObservedComparison(players, [player], settings) : undefined,
-    [players, player, settings.peers, settings.peerMin],
-  );
   const scalarViews = useMemo(
     () =>
-      data.scalarHistory.map((row) => {
-        const datum = selectHistoryValue(
-          row,
-          row.cohort,
-          metric,
-          data.player_id,
-        );
-        const cohort = buildAnalysisCohort(
-          selectLeagueValues(row.cohort, metric),
-          [datum],
-          settings,
-        );
-        const group = cohort.groups[0];
-        const point: HistoryPoint = {
-          datum,
-          season: row.season,
-          standing: group.selected[0].standing,
-          member: group.members.some(
-            (member) => member.playerId === datum.playerId,
-          ),
-          incompatiblePeerCount: group.incompatiblePeerCount,
-        };
-        return { point, cohort };
-      }),
+      data.scalarHistory.map(row =>
+        prepareHistoryPoint(row, data.detail, metric, data.player_id, settings),
+      ),
     [
       data.scalarHistory,
       data.player_id,
@@ -271,6 +240,11 @@ export default function Player() {
       settings.peerMin,
       settings.specialtyMin,
     ],
+  );
+  const descriptive = useMemo(
+    () => data.kind === "skater" && observedView
+      ? buildDescriptiveCard(data, data.player_id, settings) : null,
+    [data, observedView, settings.peers, settings.peerMin, settings.specialtyMin],
   );
   const comparisonQuery = new URLSearchParams(viewQuery);
   comparisonQuery.set("a", data.player_id);
@@ -365,21 +339,25 @@ export default function Player() {
           }}
         />
       )}
-      {observedView && comparison && (
+      {descriptive && (
         <DescriptiveCard
-          comparison={comparison}
-          publication={publication}
-          season={season}
+          model={descriptive}
+          detailLink={id => {
+            const next = seasonSearch(search, season.season);
+            next.set("metric", id);
+            next.delete("history");
+            return { to: `${location.pathname}?${next}`, state: location.state };
+          }}
           controls={
             <>
-              <h4>observed 5v5 reference</h4>
-              <PeerControls settings={settings} onChange={changePeers} />
+              <h4>factual card guide populations</h4>
+              <PeerControls settings={settings} onChange={changePeers} allCutoffs />
             </>
           }
         />
       )}
       <PeerDistributions
-        showPeerControls={observedView}
+        showPeerControls={observedView && metric.standingPolicy !== "raw_only"}
         cohort={selectedScalar.cohort}
         metric={metric}
         onMetricChange={changeMetric}
@@ -603,7 +581,7 @@ export default function Player() {
         </section>
       ) : null}
       {observedView && data.kind === "skater" && <GlobalGap season={season} />}
-      {observedView && player && comparison && (
+      {observedView && player && (
         <>
           <DeploymentTables
             key={`${season.season}:${player.player_id}`}
@@ -620,10 +598,16 @@ export default function Player() {
             mode={mode}
             onModeChange={changeMode}
           />
+        </>
+      )}
+      {observedView && data.kind === "skater" && (
           <section aria-labelledby="games-heading">
             <h3 id="games-heading" tabIndex={-1}>
               listed-game evidence
             </h3>
+            {games.length === 0 ? (
+              <p>no published observed game rows for this selected season. this does not imply zero games played.</p>
+            ) : (
             <div
               className="table-scroll"
               tabIndex={0}
@@ -754,8 +738,8 @@ export default function Player() {
                 </tbody>
               </table>
             </div>
+            )}
           </section>
-        </>
       )}
       <Evidence publication={publication} season={season} />
     </>

@@ -1,0 +1,193 @@
+{
+  "purpose": "fixture",
+  "parent": "fixtures/publication-v1-13/results",
+  "people": {
+    "complete": "9000001",
+    "partial": "9000003",
+    "long_name": "9000005"
+  },
+  "usage": {
+    "reported_seconds": 1200,
+    "reported_minutes_per_appearance": 10,
+    "included_seconds": 960,
+    "ev": 600,
+    "pp": 180,
+    "pk": 120,
+    "other": 60,
+    "five_on_five": 60
+  },
+  "scoring": {
+    "ev": {
+      "seconds": 600,
+      "goals": 1,
+      "primary_assists": 2,
+      "primary_points_per60": 18
+    },
+    "pp": {
+      "seconds": 120,
+      "goals": 0,
+      "primary_assists": 1,
+      "primary_points_per60": 30
+    }
+  },
+  "on_off": {
+    "on_off_attempts": {
+      "on": {
+        "for_count": 5,
+        "against_count": 3,
+        "seconds": 60.0,
+        "share_minus_half": 12.5
+      },
+      "off": {
+        "for_count": 4,
+        "against_count": 2,
+        "seconds": 40.0,
+        "share_minus_half": 16.666666666666664
+      },
+      "league": {
+        "for_count": 14,
+        "against_count": 14,
+        "seconds": 200.0,
+        "share_minus_half": 0.0
+      }
+    },
+    "on_off_goals": {
+      "on": {
+        "for_count": 1,
+        "against_count": 1,
+        "seconds": 60.0,
+        "share_minus_half": 0.0
+      },
+      "off": {
+        "for_count": 1,
+        "against_count": 0,
+        "seconds": 40.0,
+        "share_minus_half": 50.0
+      },
+      "league": {
+        "for_count": 3,
+        "against_count": 3,
+        "seconds": 200.0,
+        "share_minus_half": 0.0
+      }
+    }
+  },
+  "penalties": {
+    "reported_seconds": 1200,
+    "drawn": 2,
+    "taken": 1,
+    "served": 3
+  },
+  "starts": {
+    "offensive": 3,
+    "neutral": 1,
+    "defensive": 2,
+    "on_the_fly": 2,
+    "unknown": 2
+  },
+  "score": {
+    "leading": 20,
+    "tied": 20,
+    "trailing": 20,
+    "unknown": 40,
+    "known_seconds": 60
+  },
+  "limitations": [
+    "synthetic populations; no real player analytics",
+    "on/off rows are independently reduced from unchanged frozen interval evidence",
+    "reported usage, ev/pp scoring, penalty roles and deployment are declared synthetic cases; they do not purport to derive from captured games"
+  ],
+  "counterpart_weights": {
+    "teammates": {
+      "9000002": 30.0,
+      "9000003": 10.0,
+      "9000005": 60.0,
+      "9000006": 60.0,
+      "9000012": 50.0,
+      "9000013": 30.0
+    },
+    "opponents": {
+      "9000007": 60.0,
+      "9000008": 60.0,
+      "9000009": 60.0,
+      "9000010": 60.0,
+      "9000011": 60.0
+    }
+  },
+  "declared_counterpart_usage_minutes_per_appearance": {
+    "9000002": 5,
+    "9000003": 10,
+    "9000005": 10,
+    "9000006": 5,
+    "9000012": 5,
+    "9000013": 5,
+    "9000007": 5,
+    "9000008": 5,
+    "9000009": 5,
+    "9000010": 5,
+    "9000011": 5
+  },
+  "context": {
+    "opponents": {
+      "known_slot_seconds": 300.0,
+      "all_slot_seconds": 300.0,
+      "usage_minutes_per_appearance": 5.0,
+      "forward_mean_band_index": 1,
+      "defense_mean_band_index": 1
+    },
+    "teammates": {
+      "known_slot_seconds": 240.0,
+      "all_slot_seconds": 240.0,
+      "usage_minutes_per_appearance": 6.458333333333333,
+      "forward_mean_band_index": 1,
+      "defense_mean_band_index": 1
+    }
+  },
+  "conversion": {
+    "focal": {
+      "goals_for": 1,
+      "goals_against": 1,
+      "on_net_for": 2,
+      "on_net_against": 2,
+      "seconds": 60
+    },
+    "team": {
+      "goals_for": 2,
+      "goals_against": 1,
+      "on_net_for": 4,
+      "on_net_against": 3,
+      "seconds": 100
+    },
+    "league": {
+      "goals_for": 3,
+      "goals_against": 3,
+      "on_net_for": 7,
+      "on_net_against": 7,
+      "seconds": 200
+    }
+  },
+  "declared_off_ice_primary_credit": {
+    "player_id": "9000001",
+    "strength": "five_on_five",
+    "interval_id": "fixture:3",
+    "primary_assists": 1,
+    "meaning": "declared synthetic source credit after focal leaves the ice; included in the existing one-assist 5v5 scoring total"
+  },
+  "browser_variants": {
+    "partial": {
+      "player_id": "9000001",
+      "missing_strength": "pk",
+      "known_seconds": 840,
+      "missing_coordinate": "opponents.forward.mean_band_index",
+      "preserved_coordinate": "opponents.defense.mean_band_index"
+    },
+    "long": {
+      "player_id": "9000001",
+      "display_name": "synthetic alexandros theophylaktos konstantinopolit\u0113s of the extraordinarily long compound surname"
+    },
+    "identity_only": [
+      "9000003",
+      "9000005"
+    ]
+  }
+}

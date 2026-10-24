@@ -1,0 +1,17 @@
+/private/tmp/hockey-stats-v1-16/scalar-check.ts:6
+assert.equal(descriptiveMetricIds.length,3);
+                                  ^
+
+TypeError: Cannot read properties of undefined (reading 'length')
+    at assert (/private/tmp/hockey-stats-v1-16/scalar-check.ts:6:35)
+    at Object.<anonymous> (/private/tmp/hockey-stats-v1-16/scalar-check.ts:20:45)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object.transformer (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-B1c7OH6V.cjs:22:2188)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:377:15)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:249:9)
+    at #evaluateSync (node:internal/modules/esm/module_job:702:24)
+
+Node.js v26.12.0

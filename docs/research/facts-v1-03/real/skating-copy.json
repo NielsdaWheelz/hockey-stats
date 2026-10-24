@@ -1,0 +1,17 @@
+{
+  "status": "passed_bounded_roundtrip",
+  "source": "analysis/src/hockey_stats/microstats.py",
+  "source_sha256": "fbb89684d558245c44d56bdf101be077b627e7547921af0fa15fe91452e6cc94",
+  "changed_fields": [
+    "skating_max_speed_mph",
+    "skating_bursts_over20_count"
+  ],
+  "required_text": "skating acquisition deferred; no admitted measurements",
+  "checks": {
+    "both_fields_null_missing_source_with_source_provenance": true,
+    "both_fields_keep_prior_units_and_other_payload_members": true,
+    "other_28_fields_exact": true,
+    "root_peer_review": "approved"
+  },
+  "scope": "one skater with unavailable source inputs; real candidate content remains not run"
+}

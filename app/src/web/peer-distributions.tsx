@@ -284,7 +284,8 @@ export default function PeerDistributions({
       family.season === season.season &&
       family.family === metric.publicationFamily,
   );
-  const allRows = cohort.groups.flatMap(distributionRows);
+  const rawOnly = metric.standingPolicy === "raw_only";
+  const allRows = rawOnly ? [] : cohort.groups.flatMap(distributionRows);
   const domain = plotDomain(
     allRows
       .map(({ datum }) => displayValue(datum))
@@ -357,7 +358,7 @@ export default function PeerDistributions({
           analytical examples are synthetic.
         </p>
       )}
-      {showPeerControls && (
+      {showPeerControls && !rawOnly && (
         <PeerControls
           key={metric.cutoff}
           settings={settings}
@@ -388,10 +389,10 @@ export default function PeerDistributions({
               <strong>{valueText(datum)}</strong> {metric.displayUnit}
             </p>
             <p>
-              {standingText(standing)} ·{" "}
+              {rawOnly ? "no percentile defined" : <>{standingText(standing)} ·{" "}
               {standing.peerGroup ?? "reference unavailable"} · n=
               {standing.n ?? "unavailable"} · cutoff{" "}
-              {standing.cutoffMinutes ?? "unavailable"} min
+              {standing.cutoffMinutes ?? "unavailable"} min</>}
             </p>
             <p>
               {datum.construction} · {datum.population} ·{" "}
@@ -406,7 +407,7 @@ export default function PeerDistributions({
           </article>
         ))}
       </div>
-      {!mismatch && (
+      {!mismatch && !rawOnly && (
         <figure
           className="peer-figure"
           data-metric={metric.id}
@@ -539,7 +540,7 @@ export default function PeerDistributions({
           </figcaption>
         </figure>
       )}
-      {cohort.groups.map((group) => (
+      {!rawOnly && cohort.groups.map((group) => (
         <details className="peer-values" key={group.key}>
           <summary>
             {group.peerGroup}: numeric values ({distributionRows(group).length}{" "}
@@ -615,7 +616,7 @@ export default function PeerDistributions({
           </div>
         </details>
       ))}
-      {exportValues && (
+      {exportValues && !rawOnly && (
         <div className="card-actions">
           <button
             type="button"

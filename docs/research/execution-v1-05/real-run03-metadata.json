@@ -1,0 +1,100 @@
+{
+  "status": "prepared_not_run",
+  "scope": "metadata-only run03 pins; accepted seasonal references reused unchanged; no external body or unfinished-state checks",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "expected_metadata": [
+    {
+      "season": "20212022",
+      "path": "/tmp/v105-real2021-expected-03.json",
+      "sha256": "9f7e7d8f9944876a99fede4c58edc303c0a5464d4c50a2243c15ede2e0f2bd96",
+      "bytes": 410957,
+      "recognized_attempts": 149412,
+      "selected_games": 1312,
+      "prepared_members": 1313,
+      "prior_expected": {
+        "path": "/tmp/v105-real2021-expected.json",
+        "sha256": "3a443aa98cedd4bcca3979e7132913edb7d93b4a48caba7437d673dae93f44cc"
+      }
+    },
+    {
+      "season": "20222023",
+      "path": "/tmp/v105-real2022-expected-03.json",
+      "sha256": "43eabc710f6dfb1f9a1235bb1ac7d20d40436e9be1c40299d8d7e4247c5c1047",
+      "bytes": 411297,
+      "recognized_attempts": 153348,
+      "selected_games": 1312,
+      "prepared_members": 1313,
+      "prior_expected": {
+        "path": "/tmp/v105-real2022-expected.json",
+        "sha256": "f2a04c0c22f0aa1e22ca127595b54bef9a60c2cbbf9d3daeae2ab9df0dea21a2"
+      }
+    },
+    {
+      "season": "20232024",
+      "path": "/tmp/v105-real2023-expected-03.json",
+      "sha256": "992e4613d9fe357544bcd3766deea27d070b77642477ed292405a3e8cdf35470",
+      "bytes": 411301,
+      "recognized_attempts": 160123,
+      "selected_games": 1312,
+      "prepared_members": 1313,
+      "prior_expected": {
+        "path": "/tmp/v105-real2023-expected.json",
+        "sha256": "84bc6fea1fbb5ded9277060b60fd0961f979f0614654100e2d74a7790e82d9a8"
+      }
+    },
+    {
+      "season": "20242025",
+      "path": "/tmp/v105-real2024-expected-03.json",
+      "sha256": "c5aa970d2b17cfea0919b6359a3c5d3af1adc9a262101969c965508c749a6e34",
+      "bytes": 411300,
+      "recognized_attempts": 156622,
+      "selected_games": 1312,
+      "prepared_members": 1313,
+      "prior_expected": {
+        "path": "/tmp/v105-real2024-expected.json",
+        "sha256": "389cd04801541d3bad9d98fa8f2e866266012aa65cc4a293b43f5515bed3ed25"
+      }
+    },
+    {
+      "season": "20252026",
+      "path": "/tmp/v105-real2025-expected-03.json",
+      "sha256": "80fcf6425efb68fb488426db7334b68749ce00d6a43d2138a25987df06b54873",
+      "bytes": 411297,
+      "recognized_attempts": 153754,
+      "selected_games": 1312,
+      "prepared_members": 1313,
+      "prior_expected": {
+        "path": "/tmp/v105-real2025-expected.json",
+        "sha256": "59917f603e2f72fa451a6a41dd53e89bab90fd2d252a1ed089834fde750bacf6"
+      }
+    }
+  ],
+  "checker": {
+    "path": "/tmp/v105-real-year-check.py",
+    "sha256": "9e31c4a6727f692d84e6c5be36aba88015312ab910ab38360e053364a5a3780a"
+  },
+  "preserved_prior_checker": {
+    "path": "/tmp/v105-real-year-check-02.py",
+    "sha256": "040f0203ee5747ac5f2adc2d3540e813059ea19b5039fdd3409deaecdad2bde1"
+  },
+  "probability_contexts_sha256": "3f5d749efd13a772d56d744f78cecbd86e4b12ac3f3b9cf14c01203b66eb6efa",
+  "production_files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "2a3685562c0045d27c59e2a7557104bde31c1f094a1fd2962bc40789f0933025"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d"
+    }
+  ],
+  "runtime_contract_test": {
+    "positive": "pass",
+    "incorrect_source_hash_rejected": "pass",
+    "scope": "helper only against candidate source; no real-state checker invocation"
+  }
+}

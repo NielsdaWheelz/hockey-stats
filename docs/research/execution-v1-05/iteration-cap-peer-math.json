@@ -1,0 +1,63 @@
+{
+  "scope": "independent saved-state and source review; no fits or prepared-body reads",
+  "observed_head": "de52bdfc395140df862aa5d06d34188f61643491",
+  "production_freeze": "debb6ee416d4d6bd658ca0ff33b8a243e83b7855",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "source_files": {
+    "analysis/src/hockey_stats/execution_design.py": "2a3685562c0045d27c59e2a7557104bde31c1f094a1fd2962bc40789f0933025",
+    "analysis/src/hockey_stats/execution_fit.py": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c",
+    "analysis/src/hockey_stats/execution_state.py": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d"
+  },
+  "literal_definition_delta": "solver.maxiter 2000 to10000 only",
+  "native_chance_unchanged": true,
+  "annual": [
+    {
+      "season": "20212022",
+      "heads_complete": 4,
+      "coefficients_priors_centers_ledgers_exact_to_old": true
+    },
+    {
+      "season": "20222023",
+      "heads_complete": 4,
+      "coefficients_priors_centers_ledgers_exact_to_old": true
+    },
+    {
+      "season": "20232024",
+      "heads_complete": 4,
+      "coefficients_priors_centers_ledgers_exact_to_old": true
+    },
+    {
+      "season": "20242025",
+      "heads_complete": 4,
+      "coefficients_priors_centers_ledgers_exact_to_old": true
+    },
+    {
+      "season": "20252026",
+      "heads_complete": 4,
+      "coefficients_priors_centers_ledgers_exact_to_old": true
+    }
+  ],
+  "public_probes": {
+    "u": {
+      "status": "passed",
+      "maximum_probability_change": 4.898506995587582e-07
+    },
+    "q": {
+      "status": "passed",
+      "maximum_probability_change": 4.381059092173345e-07
+    },
+    "r": {
+      "status": "passed",
+      "maximum_probability_change": 3.04643199333654e-07
+    },
+    "g": {
+      "status": "passed",
+      "maximum_probability_change": 5.32924022467185e-07
+    }
+  },
+  "uncovered_requirements": 0,
+  "old_recipe_rejected": true,
+  "documentation_finding": "experimental-chance.md97 still says maxiter2000; root notified",
+  "real_acceptance": "not established",
+  "owned_file": "/tmp/v105-iteration-cap-peer-math-20261024.json"
+}

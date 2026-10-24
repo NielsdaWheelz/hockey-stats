@@ -1,0 +1,70 @@
+{
+  "kind": "execution-fixture-copy",
+  "purpose": "fixture",
+  "source": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20212022",
+  "destination": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-cap-01/20212022",
+  "manifest_sha256": "51e3a3612b0cc38671c2f3a3f537cee802927708c0d85013936963aca4e36cc1",
+  "files": [
+    {
+      "path": "coverage.json",
+      "bytes": 1268512,
+      "sha256": "fab7cd3c2960c55770496c33ea2d7960a3d838c3571ec55eb12fa610c75b7076"
+    },
+    {
+      "path": "heads/g.json",
+      "bytes": 664438,
+      "sha256": "8a9a772276995f91ecab2a079b45d06db76077970a66fef970982851034192b1"
+    },
+    {
+      "path": "heads/g.npz",
+      "bytes": 23006,
+      "sha256": "e10de8c0e4c30e6debc33f41372de74cc4b2d188659a8b8c3d7b3175d900dc07"
+    },
+    {
+      "path": "heads/q.json",
+      "bytes": 483181,
+      "sha256": "baa33ae616f27256e744181e117a70291f0de5b5661c82179d6c648b93b1d7f9"
+    },
+    {
+      "path": "heads/q.npz",
+      "bytes": 21158,
+      "sha256": "e896783e47b03f9d072bd40fabcc3d4a4afdb3ccd225b0500d0053679bd0ac38"
+    },
+    {
+      "path": "heads/r.json",
+      "bytes": 479131,
+      "sha256": "7392c82522d5128193eb4189c942da8ba75eed534cd82a2055ec446deaaec1e6"
+    },
+    {
+      "path": "heads/r.npz",
+      "bytes": 21158,
+      "sha256": "d349b5756f032bb84c2dc0f20d01277cd04c6f00e7326236fdeb56753b74f1a5"
+    },
+    {
+      "path": "heads/u.json",
+      "bytes": 466138,
+      "sha256": "aae2728680e22c0944b5501ea24e99dc2949820df215372733cb32a7bd3f6375"
+    },
+    {
+      "path": "heads/u.npz",
+      "bytes": 20846,
+      "sha256": "0a8677def99726d060fc9a0c4da8cd89d3e4b0b27e74a3914c744d96359d5e0c"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 22774,
+      "sha256": "51e3a3612b0cc38671c2f3a3f537cee802927708c0d85013936963aca4e36cc1"
+    }
+  ],
+  "total_bytes": 3470342,
+  "reason": "retain first-year example state under the established task data path; source and destination member bytes match",
+  "original_examples_sha256": "2187be74752b12707ff3c62d2801cd4e790263b3cecf0effec88239bc276739c",
+  "generated_examples_sha256": "75b5791ead7e13b44deadb7a0c1e202759dcb0f21526e4411dba0ae6f3950d03",
+  "current_examples_sha256": "3f5d749efd13a772d56d744f78cecbd86e4b12ac3f3b9cf14c01203b66eb6efa",
+  "unchanged_input_contexts": 7,
+  "changed_example_fields": [
+    "actual_sha256",
+    "neutral_sha256"
+  ],
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52"
+}

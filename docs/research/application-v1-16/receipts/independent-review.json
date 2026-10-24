@@ -1,0 +1,38 @@
+{
+  "review": "independent adversarial implementation review",
+  "blocking_findings_remaining": [],
+  "cleared_findings": [
+    "missing descriptive member contradicted available overview usage; now rejected",
+    "Estimate.reason_detail explanation omitted from detail/csv; now retained",
+    "Person null identity fields inherited descriptive-family unavailable state; now retain their own exact reasons",
+    "lower composition did not place bars beside counterpart scatter; corrected and visually inspected",
+    "guide export falsely cited focal support/source; now cites only qualifying peer sources with null aggregate support"
+  ],
+  "independent_checks": [
+    "live missing-member response mutation rejected by loadLeague",
+    "live selected 9000005 identity null reasons preserved despite not_computed descriptive family",
+    "unique unavailable-value explanation retained in card-data csv",
+    "guide scalar exact cutoffs/ties/singleton/empty/unknown positions passed existing scalar checks",
+    "source-distinct sole qualifying peer produces q50=9,n=1,selected member=false,sourceIds=[peer_only_source],support=null",
+    "fractional teammate F2.5/D2 maps to svg995/1380; independently missing opponent forward preserves D2.1 and exact reason",
+    "fresh source SVG complete/partial/long/absent/zero cases all1200x2348 with no transformed text overflow and all labels>=18px",
+    "complete layout visually inspected"
+  ],
+  "limits": [
+    "real source-backed v1-03 candidate closure remains pending; no real analytical capability inferred",
+    "native200percent zoom and complete navigation/download campaigns are root-owned checks, not independently repeated here",
+    "source may receive later receipt/formatting changes; hashes bind current inspected files"
+  ],
+  "source_sha256": {
+    "app/src/web/client.ts": "d80cb013924097fcd30c25902b18f8f367be062259c32bc021ac21cdd07e3141",
+    "app/src/web/descriptive-values.ts": "0c8311dce1d304041b235cc198c51b427e1bf97a1e888c5e8471d7fa5706c836",
+    "app/src/web/descriptive-card.tsx": "4390ef0fae1d60b9ea1abce29f921fa7fb8dc8111daf70e73e8dc1abdd7d2125",
+    "app/src/web/analysis-cohorts.ts": "6439a2f6f54e0024e10703f681148e6f4787b7f36432a8e7b19aed7389b5cd52",
+    "app/src/web/analysis-values.ts": "15d850913ff079dcfefdd09fa6b2043bd853e0c13e10d0d1a0e0a7bf97d7fac4"
+  },
+  "geometry_receipt": "reviewer-geometry.json",
+  "screenshots": [
+    "reviewer-complete.png",
+    "reviewer-partial.png"
+  ]
+}

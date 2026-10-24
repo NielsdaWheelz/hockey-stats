@@ -54,10 +54,11 @@ export const clientLoader = ({ request }: ClientLoaderFunctionArgs) =>
 export const ErrorBoundary = LoadError;
 
 export const shouldRevalidate = (args: ShouldRevalidateFunctionArgs) => {
-  const selection = readTableSelection(args.nextUrl.searchParams).selection;
+  const selections = [args.currentUrl, args.nextUrl].map(url => readTableSelection(url.searchParams).selection);
   const needsExactFamily =
-    (selection.table === "execution" || selection.table === "shootiness") &&
-    selection.strength !== "5v5";
+    selections.some(selection => selection.table === "descriptive" ||
+      (selection.table === "execution" || selection.table === "shootiness") &&
+      selection.strength !== "5v5");
   return shouldRevalidateView(args, [
     "q", "sort", "dir", "position", "team", "min",
     "peers", "peerMin", "specialtyMin", "history",
@@ -121,7 +122,7 @@ export default function League() {
     const next = seasonSearch("", data.season.season);
     for (const key of ["peers", "peerMin", "specialtyMin", "history"])
       if (search.has(key)) next.set(key, search.get(key)!);
-    if (selection.table === "observed") next.set("view", "observed");
+    if (selection.table === "observed" || selection.table === "descriptive") next.set("view", "observed");
     const selectedMetric = metric ?? search.get("metric");
     if (selectedMetric && analysisMetric(selectedMetric)?.kind === "skater")
       next.set("metric", selectedMetric);
@@ -214,7 +215,8 @@ export default function League() {
             }}
           >
             {table === "overview" ? "value overview"
-              : table === "observed" ? "recorded 5v5" : table}
+              : table === "observed" ? "recorded 5v5"
+              : table === "descriptive" ? "recorded card facts" : table}
           </button>
         ))}
       </nav>
@@ -243,7 +245,9 @@ export default function League() {
           </select>
         </div>
       )}
-      <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+      {selection.table !== "descriptive" && (
+        <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+      )}
       <GlobalGap season={data.season} />
       <div className="discovery-controls">
         <div className="search-control">
@@ -366,7 +370,7 @@ export default function League() {
       </div>
       <p className="control-note">
         matches listed season teams; results still cover all included season
-        games. display filters never change percentile cohorts. a zero minimum includes
+        games. display filters never change peer populations. a zero minimum includes
         missing or zero observed time; a positive minimum uses available included observed 5v5 time in every table.
         {min > 0 && ` ${unknownTimeExcluded} otherwise matching skaters excluded because observed time is unavailable.`}
       </p>
@@ -405,9 +409,10 @@ export default function League() {
         >
           <table className="league-table discovery-table">
             <caption>
-              {selection.table} {selection.strength ?? ""} · raw values and neutral
-              standings; higher percentile means higher named value. included time
-              is observed 5v5. reported usage/count/time columns have no percentile.
+              {selection.table} {selection.strength ?? ""} · {selection.table === "descriptive"
+                ? "unadjusted recorded values; no percentile defined. ev and pp use their own scoring minutes."
+                : "raw values and neutral standings; higher percentile means higher named value."}
+              {" "}included observed time is 5v5. reported usage/count/time columns have no percentile.
             </caption>
             <thead>
               <tr>
@@ -459,12 +464,12 @@ export default function League() {
                                 >
                                   {valueText(cell.row.datum)} {cell.row.datum.metric.displayUnit}
                                 </Link>
-                                <span className="cell-standing">
+                                {cell.row.datum.metric.standingPolicy !== "raw_only" && <span className="cell-standing">
                                   {standingText(cell.row.standing)}
                                   {cell.row.standing.peerGroup && ` · ${cell.row.standing.peerGroup}`}
                                   {cell.row.standing.n !== null && ` · n=${cell.row.standing.n}`}
                                   {cell.row.standing.cutoffMinutes !== null && ` · ≥${cell.row.standing.cutoffMinutes} min`}
-                                </span>
+                                </span>}
                                 <details>
                                   <summary>field evidence</summary>
                                   <DatumEvidence datum={cell.row.datum} />

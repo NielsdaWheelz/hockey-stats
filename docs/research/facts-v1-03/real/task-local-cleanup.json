@@ -1,0 +1,89 @@
+{
+  "checked_at_utc": "2026-10-24T21:59:23.913373+00:00",
+  "task_branch": "implement/v1-03-real-acceptance",
+  "scope": "task-local disposable files and task-owned app dependency symlink only",
+  "ownership_checks": {
+    "task_var_exact_children": [
+      "availability",
+      "delivery-preview",
+      "fixture-candidate",
+      "fixture-publish.stderr",
+      "fixture-publish.stdout",
+      "micro-before.json",
+      "protected-before.json",
+      "real02-sample.txt",
+      "streaming-check"
+    ],
+    "symlink_target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules",
+    "symlink_target_preserved": true,
+    "published_source_members": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/sources.jsonl",
+        "bytes": 22359,
+        "sha256": "48c6cd8282ee5f0ca690e896b9be8a3340b46bf4572c0c7a3885d77c3dd2f25f",
+        "task_var_refs": 0
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/methods.jsonl",
+        "bytes": 4437,
+        "sha256": "7e02fb8ceba8b0949772384006478033080c95a54c41922c52070f779b58b8df",
+        "task_var_refs": 0
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/people.jsonl",
+        "bytes": 10254671,
+        "sha256": "d3448bdde7e927357ac5296274d47e60af43031ce91eeb6b73c4e45ebba01d41",
+        "task_var_refs": 0
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/supports.jsonl",
+        "bytes": 3705,
+        "sha256": "d90844aea0d036f76d67d6d61bd85aa60d06a0e5543054cbe2215ba2a62ce4bd",
+        "task_var_refs": 0
+      }
+    ]
+  },
+  "removed": [
+    {
+      "path": "var/v1-03-real/availability",
+      "kind": "directory"
+    },
+    {
+      "path": "var/v1-03-real/fixture-candidate",
+      "kind": "directory"
+    },
+    {
+      "path": "var/v1-03-real/fixture-publish.stderr",
+      "kind": "file"
+    },
+    {
+      "path": "var/v1-03-real/fixture-publish.stdout",
+      "kind": "file"
+    },
+    {
+      "path": "var/v1-03-real/micro-before.json",
+      "kind": "file"
+    },
+    {
+      "path": "var/v1-03-real/real02-sample.txt",
+      "kind": "file"
+    },
+    {
+      "path": "var/v1-03-real/streaming-check",
+      "kind": "directory"
+    },
+    {
+      "path": "app/node_modules",
+      "kind": "symlink",
+      "target": "/Users/nnandal/Documents/code/hockey-stats/app/node_modules"
+    }
+  ],
+  "retained": [
+    "var/v1-03-real/delivery-preview",
+    "var/v1-03-real/protected-before.json"
+  ],
+  "external_candidate": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/candidate/player-analysis.sqlite",
+  "external_candidate_exists": true,
+  "external_candidate_bytes": 4635877376,
+  "limits": "published result members were scanned for task-local path references; historical command paths in receipts are not runtime source inputs. no external artifact or primary serving file was changed."
+}

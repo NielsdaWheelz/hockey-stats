@@ -1,0 +1,161 @@
+{
+  "purpose": "fixture",
+  "source_construction": "actual captured-source producer outputs; incomplete season inventory",
+  "publication_id": "49d46e4d-8363-480e-9dac-594b442c748d",
+  "representatives": [
+    {
+      "season": "20232024",
+      "player_id": "8481559",
+      "label": "hughes",
+      "render_ms": 865,
+      "export_ms": 103,
+      "width": 1200,
+      "height": 2348,
+      "requests": [
+        {
+          "url": "/api/players/8481559?season=20232024",
+          "status": 200,
+          "bytes": 976091
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+          "status": 200,
+          "bytes": 5874532
+        },
+        {
+          "url": "/api/league?season=20232024&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 1919305
+        },
+        {
+          "url": "/api/maps?season=20232024&players=8481559&family=observed&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 511774
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "player_id": "8480879",
+      "label": "traded",
+      "render_ms": 836,
+      "export_ms": 75,
+      "width": 1200,
+      "height": 2348,
+      "requests": [
+        {
+          "url": "/api/players/8480879?season=20242025",
+          "status": 200,
+          "bytes": 852265
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=descriptive",
+          "status": 200,
+          "bytes": 7422304
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 2416483
+        },
+        {
+          "url": "/api/maps?season=20242025&players=8480879&family=observed&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 512599
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "player_id": "8470613",
+      "label": "missing-shifts",
+      "render_ms": 825,
+      "export_ms": 56,
+      "width": 1200,
+      "height": 2348,
+      "requests": [
+        {
+          "url": "/api/players/8470613?season=20242025",
+          "status": 200,
+          "bytes": 919343
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=descriptive",
+          "status": 200,
+          "bytes": 7422304
+        },
+        {
+          "url": "/api/league?season=20242025&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 2416483
+        },
+        {
+          "url": "/api/maps?season=20242025&players=8470613&family=observed&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 349782
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "player_id": "8482093",
+      "label": "jarvis",
+      "render_ms": 836,
+      "export_ms": 77,
+      "width": 1200,
+      "height": 2348,
+      "requests": [
+        {
+          "url": "/api/players/8482093?season=20252026",
+          "status": 200,
+          "bytes": 918074
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=descriptive",
+          "status": 200,
+          "bytes": 8533098
+        },
+        {
+          "url": "/api/league?season=20252026&kind=skater&family=overview",
+          "status": 200,
+          "bytes": 2752604
+        },
+        {
+          "url": "/api/maps?season=20252026&players=8482093&family=observed&strength=5v5&view=effect",
+          "status": 200,
+          "bytes": 511606
+        }
+      ]
+    }
+  ],
+  "comparison": true,
+  "comparison_requests": [
+    {
+      "url": "/api/league?season=20242025&kind=skater&family=overview",
+      "status": 200,
+      "bytes": 2416483
+    },
+    {
+      "url": "/api/players/8480879?season=20242025",
+      "status": 200,
+      "bytes": 852265
+    },
+    {
+      "url": "/api/players/8470613?season=20242025",
+      "status": 200,
+      "bytes": 919343
+    },
+    {
+      "url": "/api/league?season=20242025&kind=skater&family=descriptive",
+      "status": 200,
+      "bytes": 7422304
+    },
+    {
+      "url": "/api/maps?season=20242025&players=8480879%2C8470613&family=observed&strength=5v5&view=effect",
+      "status": 200,
+      "bytes": 512967
+    }
+  ],
+  "no_old_summary": "not represented in verified source-backed fixture; separate coherent synthetic acceptance retained",
+  "errors": []
+}

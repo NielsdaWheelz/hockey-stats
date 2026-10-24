@@ -1,0 +1,50 @@
+{
+  "purpose": "fixture",
+  "real_analytics": false,
+  "parent_attribution": {
+    "descriptive": "fixtures/publication-v1-16/complete-descriptive.json",
+    "context": "fixtures/publication-v1-16/complete-context.json",
+    "identity_and_catalogs": "fixtures/publication-v1-13/results/manifest.json",
+    "source_id": "fixture_source",
+    "selected_person": "9000001",
+    "season": "20232024",
+    "meaning": "declared synthetic projections of one ordinary typed api snapshot; no raw capture, historical fixture or producer is changed"
+  },
+  "reported_minutes_per_appearance": 10,
+  "trade": {
+    "meaning": "two declared season teams split two positive-toi appearances and 1,200 reported seconds; the already-published dressed-team references remain fixed",
+    "teams": [
+      { "id": "18", "abbreviation": "NSH" },
+      { "id": "21", "abbreviation": "COL" }
+    ],
+    "reported_usage": [
+      ["18", 1, 600, 10],
+      ["21", 1, 600, 10]
+    ],
+    "fixed_references": "on/off, conversion, penalty and deployment references retain their published values; the browser does not average or reconstruct team references"
+  },
+  "missing_reported_shifts": {
+    "meaning": "reported shift counts are unavailable in the aggregate and declared team row; positive-toi appearances and reported time remain available",
+    "reported_shifts": null,
+    "support_reason": "missing_source",
+    "support_unquantified_gap": true
+  },
+  "incomplete_personal_credit": {
+    "meaning": "ev personal goals, primary assists, primary points and their rates are unavailable; ev scoring time remains known and independent recorded-goal context remains intact",
+    "reason": "declared synthetic unresolved ev personal credit",
+    "support_reason": "personal_credit_unresolved",
+    "scoring_seconds": 600,
+    "personal_goals": null,
+    "personal_primary_assists": null,
+    "personal_primary_points": null,
+    "personal_primary_points_per60": null
+  },
+  "goal_context": {
+    "on_for_count": 1,
+    "on_against_count": 1,
+    "on_seconds": 60,
+    "on_for_per60": 60,
+    "on_against_per60": 60,
+    "meaning": "the complete on/off recorded-goal body and d07 csv rows are unchanged, apart from explicit team identity metadata in the trade case"
+  }
+}

@@ -303,7 +303,6 @@ def reduce_game(prepared_game: PreparedGame, observed_game: list[PlayerGame],
             usage=Counter(),scoring={},unclassified=Counter(),starts=Counter(),score=Counter(),
             penalties={},context={},issues=[],scoring_excluded=Counter(),scoring_reasons=defaultdict(list))
     segments = prepared_game['segments'] or []
-    elapsed_available = prepared_game['segments'] is not None and bool(prepared_game['game']['periods'])
     def valid_membership(segment):
         for side,team in zip(('away','home'),teams):
             for kind in ('skaters','goalies'):
@@ -322,6 +321,7 @@ def reduce_game(prepared_game: PreparedGame, observed_game: list[PlayerGame],
                         return False
         return True
     valid_segments = {s['segment_index'] for s in segments if valid_membership(s)}
+    elapsed_available = bool(valid_segments) and bool(prepared_game['game']['periods'])
     # strength usage is elapsed membership, independent of ordinary attempts.
     for segment in segments:
         if segment['segment_index'] not in valid_segments:
@@ -361,6 +361,7 @@ def reduce_game(prepared_game: PreparedGame, observed_game: list[PlayerGame],
             credit_mask.update(targets)
             credit_issues.append(dict(source_index=index,reason=issue or credit['reason'],affected_segment_indices=targets))
     good = ordinary - credit_mask
+    scoring_available = bool(good & valid_segments) and prepared_game['events'] is not None
     ordinary_rows = {r['segment_index']:r for r in support_rows['segments'] or []}
     for segment in segments:
         index = segment['segment_index']
@@ -419,7 +420,7 @@ def reduce_game(prepared_game: PreparedGame, observed_game: list[PlayerGame],
         person['elapsed_available'] = elapsed_available
         person['starts_available'] = elapsed_available and prepared_game['player_shifts'] is not None
         person['score_available'] = elapsed_available and prepared_game['chunks'] is not None
-        person['scoring_available'] = prepared_game['ordinary_attempt_support']['segments'] is not None and prepared_game['events'] is not None
+        person['scoring_available'] = scoring_available
     # the original coalesced shift start must lie within a supported
     # five-on-five segment; a later strength transition cannot create a start.
     five_segments = [s for s in segments if s['segment_index'] in valid_segments and state_tuple(s['membership']) == _FIVE]
@@ -864,7 +865,7 @@ def _catalogs(manifest, prepared_sha, observed_selection):
                 population=label+'; regular-season five-on-five with both goalies present',definition=definition,
                 receipts=[dict(uri=str(manifest.directory/'manifest.json'),sha256=prepared_sha),dict(uri=selected['path'],sha256=selected['sha256'])],
                 limitations=['family-local matched count and elapsed support; zero denominator remains unavailable','recorded actions do not establish player ability']))
-        for kind,limitation in (('tracking','no admitted observed tracking windows, pass links, possession transitions, retrievals or player puck actions'),('skating','v1-04 observed successful http 200 detail responses but admitted no player-season skating context or enumeration census; historical collection remains unassigned')):
+        for kind,limitation in (('tracking','no admitted observed tracking windows, pass links, possession transitions, retrievals or player puck actions'),('skating','v1-04 observed successful http 200 detail responses; skating acquisition deferred; no admitted measurements, player-season context or checked census')):
             sources.append(dict(source_id=source_ids[kind],label=f'{kind} source limitation',purpose=purpose,origin='source_capture',
                 acquisition='not_acquired' if kind == 'tracking' else 'access_unverified',construction='recorded',population='recorded tracking windows' if kind == 'tracking' else 'all-situations source-season skating aggregates',
                 definition=limitation,receipts=[],limitations=[limitation]))
@@ -957,20 +958,15 @@ def build_factual_results(prepared: Path, observed: Path, output: Path) -> dict:
             records = [dict(season=year,family='descriptive',availability='provided',explanation=None,
                 tables={k:summary[k] for k in FAMILY_TABLES['descriptive']})]
             records.append(dict(season=year,family='microstats',availability='provided',explanation=None,tables=dict(skater_microstats=micro)))
-            def evidence_rows(table):
+            def evidence_games():
                 for gid in games:
                     game = read_prepared_game(manifest,year,gid)
-                    rows = recorded_evidence(game,receipts[gid],source_ids,support_ids)[table]
-                    yield from sorted(rows,key=lambda r:tuple(r[k] for k in KEYS[table]))
-            # dressed_game's fixed primary key puts player before game; its rows
-            # are compact dated affiliations rather than interval/event arrays.
-            dressed_rows = []
-            for gid in games:
-                game = read_prepared_game(manifest,year,gid)
-                dressed_rows.extend(dict(season=year,player_id=pid,game_id=gid,team_id=team,source=dict(kind='source',id=source_ids['facts'])) for pid,team in _dressed(game).items())
-            evidence = {table:evidence_rows(table) for table in ('attempt_fact','interval_fact','interval_player','interval_location')}
-            evidence.update(dressed_game=sorted(dressed_rows,key=lambda r:tuple(r[k] for k in KEYS['dressed_game'])),context_coverage=summary['context_coverage'])
-            records.append(dict(season=year,family='evidence',availability='provided',explanation=None,tables=evidence))
+                    rows = recorded_evidence(game,receipts[gid],source_ids,support_ids)
+                    yield dict(game_id=gid, **{table:sorted(rows[table],key=lambda r:tuple(r[k] for k in KEYS[table]))
+                        for table in ('attempt_fact','interval_fact','interval_player','interval_location')},
+                        dressed_game=rows['dressed_game'])
+            records.append(dict(season=year,family='evidence',availability='provided',explanation=None,
+                tables=dict(context_coverage=summary['context_coverage']),game_ids=games,game_rows=evidence_games()))
             for family in FAMILY_TABLES:
                 if family not in ('descriptive','microstats','evidence'):
                     records.append(dict(season=year,family=family,availability='not_computed',explanation=f'{family} estimation is outside factual reductions; its assigned numerical producer remains pending',tables={}))

@@ -17,6 +17,8 @@ import type {
   ValueLedger,
   GoalieResult,
   SkaterContext,
+  SkaterDescriptive,
+  ReportedUsage,
   SkaterMicrostats,
   QuantityPath,
 } from "../shared/player-analysis";
@@ -68,6 +70,8 @@ export type AnalysisMetricId = ObservedRateKey
   | `territory.${"ice_won_goals_per_basket" | "ice_lost_goals_per_basket"}`
   | `territory.${"exit_offense" | "entry_offense" | "zone_retention" | "entry_prevention"}.one_second_probability`
   | `context.${"teammates" | "opponents"}.usage_minutes_per_appearance`
+  | "descriptive.usage.minutes_per_appearance"
+  | `descriptive.scoring.${"ev" | "pp"}.primary_points_per60`
   | `microstats.${keyof SkaterMicrostats}`
   | `goalie.${"ev" | "pk"}.${typeof goalieFields[number]}`;
 
@@ -100,6 +104,7 @@ export type AnalysisMetric = {
   readonly construction: string;
   readonly numericReference: string;
   readonly rankDirection: "increasing";
+  readonly standingPolicy: "percentile" | "raw_only";
   readonly cutoff: "general" | "specialty" | "census";
   readonly qualificationLabel: string;
   readonly observedPopulation?: "personal" | "onIce";
@@ -124,6 +129,7 @@ export type AnalysisDatum = {
   readonly methods: readonly Method[];
   readonly sources: readonly Source[];
   readonly semanticKey: string;
+  readonly guideSemanticKey: string;
   readonly semanticIdentityKnown: boolean;
   readonly supportPolicyId: string;
   readonly referenceId: string;
@@ -146,6 +152,8 @@ type ValueInputs = {
   territory: Result<Territory>;
   ledger: Result<Ledger>;
   context: Result<SkaterContext>;
+  descriptive: Result<SkaterDescriptive>;
+  reportedUsage: Result<typeof ReportedUsage.Type>;
   microstats: Result<SkaterMicrostats>;
   goalie: (strength: "ev" | "pk") => Result<Goalie>;
 };
@@ -202,10 +210,11 @@ const estimate = (
 });
 
 const definition = (
-  metric: Omit<AnalysisMetric, "rankDirection" | "displayScale" | "displayUnit">,
+  metric: Omit<AnalysisMetric, "rankDirection" | "displayScale" | "displayUnit" | "standingPolicy"> & Partial<Pick<AnalysisMetric, "standingPolicy">>,
 ): AnalysisMetric => ({
   ...metric,
   rankDirection: "increasing",
+  standingPolicy: metric.standingPolicy ?? "percentile",
   displayScale: metric.unit === "fraction" ? 100 : 1,
   displayUnit: metric.unit === "fraction"
     ? metric.id.endsWith("difference") ? "percentage points" : "%"
@@ -487,6 +496,49 @@ const context = (["teammates", "opponents"] as const).map(field => definition({
     };
   })
 }));
+
+export const descriptiveMetricIds = [
+  "descriptive.usage.minutes_per_appearance",
+  "descriptive.scoring.ev.primary_points_per60",
+  "descriptive.scoring.pp.primary_points_per60",
+] as const satisfies readonly AnalysisMetricId[];
+
+const descriptive = descriptiveMetricIds.map(id => {
+  const strength = id === descriptiveMetricIds[1] ? "ev" : "pp";
+  const usage = id === descriptiveMetricIds[0];
+  return definition({
+    ...base,
+    id,
+    family: "descriptive",
+    publicationFamily: "descriptive",
+    standingPolicy: "raw_only",
+    group: "recorded descriptive",
+    label: usage ? "reported minutes per appearance" : `${strength} primary points per 60`,
+    unit: usage ? "minutes_per_appearance" : "per60",
+    population: usage ? "reported all-strength positive-toi appearances" : `${strength} matched personal scoring`,
+    qualificationLabel: usage ? "observed on-ice 5v5 included seconds (viewing population)" : `${strength} scoring seconds`,
+    construction: "recorded",
+    numericReference: "published recorded value",
+    cutoff: usage || strength === "ev" ? "general" : "specialty",
+    select: inputs => usage
+      ? fromResult(inputs.reportedUsage, data => ({
+          ...estimate(data.minutes_per_appearance, data.support, "", "overview.observed.metrics.included_seconds"),
+          methodId: undefined,
+          sourceId: data.provenance.id,
+          qualificationSeconds: inputs.observed.data?.metrics.included_seconds ?? null,
+        }))
+      : fromResult(inputs.descriptive, data => {
+      const group = data.scoring_by_strength[strength];
+      const value = group.primary_points_per60;
+      return {
+        ...estimate(value, group.support, "", `descriptive.scoring_by_strength.${strength}.seconds`),
+        methodId: undefined,
+        sourceId: data.provenance.id,
+        qualificationSeconds: group.seconds,
+      };
+    }),
+  });
+});
 
 const microstatFields = [
   "goals_per60",
@@ -779,6 +831,7 @@ export const analysisMetrics: readonly AnalysisMetric[] = [
   ...penalties,
   ...territory,
   ...context,
+  ...descriptive,
   ...microstats,
   ...goalie,
 ];
@@ -800,6 +853,8 @@ function emptyInputs(explanation?: string): ValueInputs {
     territory: unavailable,
     ledger: unavailable,
     context: unavailable,
+    descriptive: unavailable,
+    reportedUsage: unavailable,
     microstats: unavailable,
     goalie: () => unavailable
   };
@@ -822,6 +877,8 @@ function historyInputs(families: PlayerFamilies, metric: AnalysisMetric): ValueI
       territory: absent,
       ledger: absent,
       context: absent,
+      descriptive: absent,
+      reportedUsage: absent,
       microstats: absent,
       goalie: () => absent
     };
@@ -851,6 +908,10 @@ function historyInputs(families: PlayerFamilies, metric: AnalysisMetric): ValueI
     territory: families.territory,
     ledger: families.ledger,
     context: families.context,
+    descriptive: families.descriptive,
+    reportedUsage: families.descriptive.availability === "provided"
+      ? { availability: "provided", data: families.descriptive.data.reported_usage, explanation: null }
+      : families.descriptive,
     microstats: families.microstats,
     goalie: () => pending("not applicable to skaters")
   };
@@ -932,6 +993,9 @@ function datum(
     methods,
     sources,
     semanticKey,
+    guideSemanticKey: metric.id === descriptiveMetricIds[0]
+      ? JSON.stringify([semanticKey, "overview.observed.metrics.included_seconds", catalogs.publication.population_version])
+      : semanticKey,
     semanticIdentityKnown: Boolean(method || source || metric.observedPopulation),
     supportPolicyId,
     referenceId,
@@ -967,16 +1031,21 @@ export function checkObservedIdentity(person: Person, summary: PlayerSummary): v
     throw new Error(`player ${person.player_id}: observed summary identity differs from its overview person`);
 }
 
-export function selectLeagueValues(response: LeagueResponse, metric: AnalysisMetric): AnalysisDatum[] {
+export function selectLeagueValues(
+  response: LeagueResponse,
+  metric: AnalysisMetric,
+  overview?: Extract<LeagueResponse, { kind: "skater"; family: "overview" }>,
+): AnalysisDatum[] {
   // the overview already contains the exact recorded 5v5 envelope. keep the
   // metric and its observed population semantics unchanged while selecting it.
+  const usageOverview = response.kind === "skater" && response.family === "overview" && response.strength === null && metric.id === descriptiveMetricIds[0];
   const observedOverview = response.kind === "skater" && response.family === "overview" &&
     response.strength === null && metric.kind === "skater" &&
     metric.family === "observed" && metric.strength === "5v5" &&
     observed.some(field => field.id === metric.id);
   if (
     response.kind !== metric.kind ||
-    !observedOverview && (response.family !== metric.family || response.strength !== metric.strength)
+    !observedOverview && !usageOverview && (response.family !== metric.family || response.strength !== metric.strength)
   )
     throw new Error("league response does not match the selected quantity request");
   const make = (person: Person, inputs: ValueInputs) => {
@@ -1006,8 +1075,22 @@ export function selectLeagueValues(response: LeagueResponse, metric: AnalysisMet
           territory: data.territory,
           ledger: data.ledger,
           context: data.context,
+          descriptive: pending(),
+          reportedUsage: data.reported_usage,
           microstats: pending(),
           goalie: () => pending()
+        });
+      });
+    case "descriptive":
+      return response.players.map(row => {
+        const member = overview?.players.find(member => member.person.player_id === row.person.player_id);
+        return make(row.person, {
+          ...emptyInputs(),
+          descriptive: row.result,
+          reportedUsage: row.result.availability === "provided"
+            ? { availability: "provided", data: row.result.data.reported_usage, explanation: null }
+            : row.result,
+          observed: member?.result.availability === "provided" ? member.result.data.observed : pending(),
         });
       });
     case "observed":

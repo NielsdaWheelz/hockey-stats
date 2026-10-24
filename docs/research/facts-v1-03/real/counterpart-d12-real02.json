@@ -1,0 +1,569 @@
+{
+  "candidate_database_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+  "cases": [
+    {
+      "focal_old_included_seconds": 88946,
+      "focal_old_known_excluded_seconds": 83,
+      "inventory_teams": 32,
+      "name": "john carlson",
+      "player_id": "8474590",
+      "rank_population": {
+        "D": 315,
+        "F": 609
+      },
+      "relations": {
+        "opponent": {
+          "all_slot_seconds": 444730,
+          "known_slot_seconds": 444730,
+          "pair_rows": 669,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 178168,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 59,
+                  "slot_seconds": 63771
+                },
+                {
+                  "band": 2,
+                  "counterparts": 58,
+                  "slot_seconds": 45869
+                },
+                {
+                  "band": 3,
+                  "counterparts": 117,
+                  "slot_seconds": 68528
+                }
+              ],
+              "known_slot_seconds": 178168,
+              "mean_band_index": 2.026699519554578,
+              "unique_counterparts": 234,
+              "usage_minutes_per_appearance": 19.80806646279851
+            },
+            "F": {
+              "all_slot_seconds": 266562,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 91,
+                  "slot_seconds": 87159
+                },
+                {
+                  "band": 2,
+                  "counterparts": 84,
+                  "slot_seconds": 64125
+                },
+                {
+                  "band": 3,
+                  "counterparts": 77,
+                  "slot_seconds": 44874
+                },
+                {
+                  "band": 4,
+                  "counterparts": 183,
+                  "slot_seconds": 70404
+                }
+              ],
+              "known_slot_seconds": 266562,
+              "mean_band_index": 2.3696063204807887,
+              "unique_counterparts": 435,
+              "usage_minutes_per_appearance": 16.074262899714842
+            }
+          },
+          "unique_counterparts": 669,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": 17.570101528157924
+        },
+        "teammate": {
+          "all_slot_seconds": 355784,
+          "known_slot_seconds": 355784,
+          "pair_rows": 31,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 89382,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 2,
+                  "counterparts": 3,
+                  "slot_seconds": 68555
+                },
+                {
+                  "band": 3,
+                  "counterparts": 8,
+                  "slot_seconds": 20827
+                }
+              ],
+              "known_slot_seconds": 89382,
+              "mean_band_index": 2.2330111208073213,
+              "unique_counterparts": 11,
+              "usage_minutes_per_appearance": 19.302582026197364
+            },
+            "F": {
+              "all_slot_seconds": 266402,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 2,
+                  "slot_seconds": 50228
+                },
+                {
+                  "band": 2,
+                  "counterparts": 4,
+                  "slot_seconds": 78091
+                },
+                {
+                  "band": 3,
+                  "counterparts": 6,
+                  "slot_seconds": 86204
+                },
+                {
+                  "band": 4,
+                  "counterparts": 8,
+                  "slot_seconds": 51879
+                }
+              ],
+              "known_slot_seconds": 266402,
+              "mean_band_index": 2.524523089165997,
+              "unique_counterparts": 20,
+              "usage_minutes_per_appearance": 15.47959661795559
+            }
+          },
+          "unique_counterparts": 31,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": 16.44002789580807
+        }
+      },
+      "season": "20232024"
+    },
+    {
+      "focal_old_included_seconds": 73356,
+      "focal_old_known_excluded_seconds": 1135,
+      "inventory_teams": 32,
+      "name": "mikko rantanen",
+      "player_id": "8478420",
+      "rank_population": {
+        "D": 319,
+        "F": 601
+      },
+      "relations": {
+        "opponent": {
+          "all_slot_seconds": 366780,
+          "known_slot_seconds": 366780,
+          "pair_rows": 636,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 147062,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 59,
+                  "slot_seconds": 57905
+                },
+                {
+                  "band": 2,
+                  "counterparts": 51,
+                  "slot_seconds": 41956
+                },
+                {
+                  "band": 3,
+                  "counterparts": 111,
+                  "slot_seconds": 47201
+                }
+              ],
+              "known_slot_seconds": 147062,
+              "mean_band_index": 1.9272143721695612,
+              "unique_counterparts": 221,
+              "usage_minutes_per_appearance": 20.24575606990665
+            },
+            "F": {
+              "all_slot_seconds": 219718,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 87,
+                  "slot_seconds": 67959
+                },
+                {
+                  "band": 2,
+                  "counterparts": 85,
+                  "slot_seconds": 49205
+                },
+                {
+                  "band": 3,
+                  "counterparts": 79,
+                  "slot_seconds": 50641
+                },
+                {
+                  "band": 4,
+                  "counterparts": 164,
+                  "slot_seconds": 51913
+                }
+              ],
+              "known_slot_seconds": 219718,
+              "mean_band_index": 2.393722862942499,
+              "unique_counterparts": 415,
+              "usage_minutes_per_appearance": 15.935125371027386
+            }
+          },
+          "unique_counterparts": 636,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": 17.663491072097735
+        },
+        "teammate": {
+          "all_slot_seconds": 293424,
+          "known_slot_seconds": 293424,
+          "pair_rows": 74,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 146627,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 5,
+                  "slot_seconds": 70991
+                },
+                {
+                  "band": 2,
+                  "counterparts": 4,
+                  "slot_seconds": 27563
+                },
+                {
+                  "band": 3,
+                  "counterparts": 15,
+                  "slot_seconds": 48073
+                }
+              ],
+              "known_slot_seconds": 146627,
+              "mean_band_index": 1.8436986366767376,
+              "unique_counterparts": 24,
+              "usage_minutes_per_appearance": 21.11656917016898
+            },
+            "F": {
+              "all_slot_seconds": 146797,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 8,
+                  "slot_seconds": 78337
+                },
+                {
+                  "band": 2,
+                  "counterparts": 6,
+                  "slot_seconds": 32527
+                },
+                {
+                  "band": 3,
+                  "counterparts": 11,
+                  "slot_seconds": 22805
+                },
+                {
+                  "band": 4,
+                  "counterparts": 25,
+                  "slot_seconds": 13128
+                }
+              ],
+              "known_slot_seconds": 146797,
+              "mean_band_index": 1.8005681315013249,
+              "unique_counterparts": 50,
+              "usage_minutes_per_appearance": 18.377846814656625
+            }
+          },
+          "unique_counterparts": 74,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": 19.74641463058753
+        }
+      },
+      "season": "20242025"
+    },
+    {
+      "focal_old_included_seconds": 0,
+      "focal_old_known_excluded_seconds": 0,
+      "inventory_teams": 32,
+      "name": "cameron crotty",
+      "player_id": "8480075",
+      "rank_population": {
+        "D": 319,
+        "F": 601
+      },
+      "relations": {
+        "opponent": {
+          "all_slot_seconds": 0,
+          "known_slot_seconds": 0,
+          "pair_rows": 0,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 0,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 2,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 3,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                }
+              ],
+              "known_slot_seconds": 0,
+              "mean_band_index": null,
+              "unique_counterparts": 0,
+              "usage_minutes_per_appearance": null
+            },
+            "F": {
+              "all_slot_seconds": 0,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 2,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 3,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 4,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                }
+              ],
+              "known_slot_seconds": 0,
+              "mean_band_index": null,
+              "unique_counterparts": 0,
+              "usage_minutes_per_appearance": null
+            }
+          },
+          "unique_counterparts": 0,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": null
+        },
+        "teammate": {
+          "all_slot_seconds": 0,
+          "known_slot_seconds": 0,
+          "pair_rows": 0,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 0,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 2,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 3,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                }
+              ],
+              "known_slot_seconds": 0,
+              "mean_band_index": null,
+              "unique_counterparts": 0,
+              "usage_minutes_per_appearance": null
+            },
+            "F": {
+              "all_slot_seconds": 0,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 2,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 3,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                },
+                {
+                  "band": 4,
+                  "counterparts": 0,
+                  "slot_seconds": 0
+                }
+              ],
+              "known_slot_seconds": 0,
+              "mean_band_index": null,
+              "unique_counterparts": 0,
+              "usage_minutes_per_appearance": null
+            }
+          },
+          "unique_counterparts": 0,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": null
+        }
+      },
+      "season": "20242025"
+    },
+    {
+      "focal_old_included_seconds": 74037,
+      "focal_old_known_excluded_seconds": 3208,
+      "inventory_teams": 32,
+      "name": "cale makar",
+      "player_id": "8480069",
+      "rank_population": {
+        "D": 325,
+        "F": 615
+      },
+      "relations": {
+        "opponent": {
+          "all_slot_seconds": 370185,
+          "known_slot_seconds": 370185,
+          "pair_rows": 651,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 148627,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 57,
+                  "slot_seconds": 54298
+                },
+                {
+                  "band": 2,
+                  "counterparts": 56,
+                  "slot_seconds": 45225
+                },
+                {
+                  "band": 3,
+                  "counterparts": 106,
+                  "slot_seconds": 49104
+                }
+              ],
+              "known_slot_seconds": 148627,
+              "mean_band_index": 1.9650534559669508,
+              "unique_counterparts": 219,
+              "usage_minutes_per_appearance": 20.19691567908528
+            },
+            "F": {
+              "all_slot_seconds": 221558,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 87,
+                  "slot_seconds": 72632
+                },
+                {
+                  "band": 2,
+                  "counterparts": 84,
+                  "slot_seconds": 52827
+                },
+                {
+                  "band": 3,
+                  "counterparts": 80,
+                  "slot_seconds": 38358
+                },
+                {
+                  "band": 4,
+                  "counterparts": 181,
+                  "slot_seconds": 57741
+                }
+              ],
+              "known_slot_seconds": 221558,
+              "mean_band_index": 2.366531562841333,
+              "unique_counterparts": 432,
+              "usage_minutes_per_appearance": 16.140759244544224
+            }
+          },
+          "unique_counterparts": 651,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": 17.76928109820262
+        },
+        "teammate": {
+          "all_slot_seconds": 296148,
+          "known_slot_seconds": 296148,
+          "pair_rows": 32,
+          "roles": {
+            "D": {
+              "all_slot_seconds": 74360,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 1,
+                  "slot_seconds": 44150
+                },
+                {
+                  "band": 2,
+                  "counterparts": 2,
+                  "slot_seconds": 9767
+                },
+                {
+                  "band": 3,
+                  "counterparts": 7,
+                  "slot_seconds": 20443
+                }
+              ],
+              "known_slot_seconds": 74360,
+              "mean_band_index": 1.6811861215707369,
+              "unique_counterparts": 10,
+              "usage_minutes_per_appearance": 20.56416187971635
+            },
+            "F": {
+              "all_slot_seconds": 221788,
+              "bands": [
+                {
+                  "band": 1,
+                  "counterparts": 5,
+                  "slot_seconds": 128486
+                },
+                {
+                  "band": 2,
+                  "counterparts": 2,
+                  "slot_seconds": 30355
+                },
+                {
+                  "band": 3,
+                  "counterparts": 2,
+                  "slot_seconds": 12556
+                },
+                {
+                  "band": 4,
+                  "counterparts": 13,
+                  "slot_seconds": 50391
+                }
+              ],
+              "known_slot_seconds": 221788,
+              "mean_band_index": 1.9317005428607499,
+              "unique_counterparts": 22,
+              "usage_minutes_per_appearance": 17.761135714775346
+            }
+          },
+          "unique_counterparts": 32,
+          "unknown_usage_counterparts": 0,
+          "usage_minutes_per_appearance": 18.464949435026753
+        }
+      },
+      "season": "20252026"
+    }
+  ],
+  "kind": "facts_v1_03_real_counterpart_independent_check",
+  "method": "read-only final sqlite player_season_pair, player_season, person, game inventory and skater_descriptive reported usage; independent spec equations compared with stored skater_context; no producer reducer or browser vm",
+  "source_conditions": "old seven-table replay is exact for all three seasons in old-observed-real02.json; reported usage is read from the final candidate and its original source fold remains under the independent full source audit",
+  "status": "passed"
+}

@@ -1,0 +1,229 @@
+{
+  "status": "complete",
+  "owned_roots": [
+    "/tmp/hockey-stats-v1-16",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-16/analysis/.venv"
+  ],
+  "temporary_controllers": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/card-api.mts",
+      "bytes": 2583,
+      "sha256": "185a9e82cfa5ff73879daaa8da8771f42d621acdb795758edcf0c7f63b99e509"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/card-bbox.cjs",
+      "bytes": 1437,
+      "sha256": "e61d54913109b0ecdaf6607ac9bafa27175fb6602eb6ebe752a447eedcf62462"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/card-integration.mts",
+      "bytes": 6175,
+      "sha256": "a2e8be43e473d87b55c41c27e9f3d80d0cd2e55ef9bfe9313901c07cce7a7f0b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/card-red.mts",
+      "bytes": 403,
+      "sha256": "3e2095a105fd3364c96c9a319504e791423c35557a3d6e3404b5ca9b9072f7fa"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/deployment-denominators.mts",
+      "bytes": 2997,
+      "sha256": "68491d93c21dab131e7c5f5f7133f7f9c0e0b530185f60b6787728077e862bb9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/guide-provenance.mts",
+      "bytes": 1887,
+      "sha256": "362c9ae5243afe04674a20ae73486df289d77a02d782c47338114bffbf500975"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/metadata-extra.mts",
+      "bytes": 1218,
+      "sha256": "537d143be282b763cebb61b97e742224f783b9e55d98275c561c899ae8df9bd8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/.tmp/v1-16/semantic-cases.mts",
+      "bytes": 9187,
+      "sha256": "673723ba1ecd75574d06eb76bb3cb015314101f0c2f4f56b477bd7b4f42b3e0e"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/app/.v1-16-content-review.ts",
+      "bytes": 3974,
+      "sha256": "a0eac2a8b340e0a1bb3bf1018d72fa9efcca6afb8f610e8c5f812b95c2ab120b"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/app/.v1-16-decode-check.ts",
+      "bytes": 327,
+      "sha256": "f0c71c9a9c7aab624ba17978f11d1a418fa78098af7e3efc34ca63d778d964f8"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-16/app/.v1-16-discovery-check.ts",
+      "bytes": 5343,
+      "sha256": "9ee6d277a0416309f44dc17149825d9045cbae7f93ad92cf24cf7e592fae60e2"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/affiliation-check.ts",
+      "bytes": 1035,
+      "sha256": "0e6ac86aea5fd87a77949f6da063e5b712c4c43088fe036a90da22036b648ae0"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/browser-check.cjs",
+      "bytes": 2444,
+      "sha256": "b0f69da0b9a96018b80f63b47a592043eb58b6a466063231efa7f84fd76c698d"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/browser-journey.cjs",
+      "bytes": 6742,
+      "sha256": "6770da94ca3ea291320f5177c9c7197094093cdfc7e622d84594de5d64785d3f"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/browser-snapshot.cjs",
+      "bytes": 2787,
+      "sha256": "889e228cc5d32b27b031e53c422fb91b481f7fd62fecea970a2ebcd28cbd2e54"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/finish_fixture.py",
+      "bytes": 6281,
+      "sha256": "64480ae81d70c281e937bc8eb7e866146a0aa810b7c8e7900d0d48084156c1e6"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/mixed-comparison.cjs",
+      "bytes": 1179,
+      "sha256": "f877a8b73102c3523d4c2c240317f3bce6626110b6882ef3d41f6e4f7903b776"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/native-zoom.cjs",
+      "bytes": 2127,
+      "sha256": "1e40d36d00f85e1bd40ae7593560b2768cf621ae31a51f0fb4db4f85f0f05976"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/prepare_fixture.py",
+      "bytes": 8744,
+      "sha256": "faa5e1d8c614a0e510cb966d4a11a05ca017c204db7b1fc1193316dee7de4adc"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/rebuild_identity.py",
+      "bytes": 625,
+      "sha256": "c5d4892b26c4cc7422b06209df0d1061f658af462922aa292e38c4b0ce5ce782"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/repair_identity.py",
+      "bytes": 2570,
+      "sha256": "dd0d0aa71e7c90d2058f0e4cf555499fda72285db5aa597e32bf8c86056d292a"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/scalar-check.ts",
+      "bytes": 3765,
+      "sha256": "68ef1a1d108068cf21c75025f82ca56bed87ac56f836fd12b1065af43260c03b"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/scalar-client-check.ts",
+      "bytes": 5672,
+      "sha256": "b31add731463df5e5bb4db56b5074c0c2adbd5cd1e887c2aae66f07ba02d7bd0"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/scalar-fixture-check.ts",
+      "bytes": 4094,
+      "sha256": "5e0491c17d9864013a320b816ea1905c6ccbbf1639e5fecfc3710db3de943430"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/score-contract-check.py",
+      "bytes": 934,
+      "sha256": "07c5674c1b21e570ca4f5f3bf9fe4e636b1805341a5c23f1de3223ca3126a181"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/score-contract-check.ts",
+      "bytes": 2087,
+      "sha256": "441c010a71e741bf3d4a16c7e443d5076e5d7d4221e6651ca795d5985e571b05"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/source-browser.cjs",
+      "bytes": 3465,
+      "sha256": "dfff92b35ce8e7952011cdc987805304ba23191c3944b120be6dc8c8a77ebcbe"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/source-intervals.py",
+      "bytes": 2075,
+      "sha256": "4df93694c13aa32b98d48dfaf67fc31881688741ec00360d33dd8a1456f63162"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/source-usage.py",
+      "bytes": 1834,
+      "sha256": "4ef1a3c79006140a91c29ec68e9eaff203a6aa8d2929c3d01fe9720124c79d77"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/source-values.py",
+      "bytes": 3135,
+      "sha256": "e7d20e4a6cfbb9c69d17ce59dab05e1d02a99560f45bc7c0f76c54de75571049"
+    }
+  ],
+  "owned_application_checks": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-16/app/.v1-16-content-review.ts",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-16/app/.v1-16-decode-check.ts",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-16/app/.v1-16-discovery-check.ts"
+  ],
+  "candidates": [
+    {
+      "path": "/tmp/hockey-stats-v1-16/candidate/player-analysis.sqlite",
+      "bytes": 20307968,
+      "sha256": "69f55adda01d1382ceb122b087963895a5f1d55ecdc3af747ddeb86382f6c241"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/candidate-before-identity-repair/player-analysis.sqlite",
+      "bytes": 20303872,
+      "sha256": "be74c83cd6650ec4fa49361cfa1d3cbc147eda3188fbb56bb9810e9adee595ea"
+    },
+    {
+      "path": "/tmp/hockey-stats-v1-16/v1-03-verified-fixture.sqlite",
+      "bytes": 105893888,
+      "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b"
+    }
+  ],
+  "retained_browser_dependency_changes": false,
+  "protection_receipt": "protected-state.json",
+  "pr_merge_activation": "unassigned",
+  "deleted_application_checks": true,
+  "deleted_owned_roots": true,
+  "temporary_tests_and_controllers_deleted": true,
+  "test_only_tooling_and_environment_deleted": true,
+  "task_listeners_stopped": [
+    41916,
+    41917,
+    41918,
+    41919
+  ],
+  "primary_listener": {
+    "pid": 70045,
+    "port": 3000,
+    "preserved": true
+  },
+  "protected_files_rechecked": 30,
+  "frozen_fixture_files_rechecked": 45,
+  "package_and_lockfile_changes": false,
+  "post_cleanup_checks": {
+    "node": "24.21.0",
+    "typecheck": "pass",
+    "build": "pass",
+    "documentation_links": "pass",
+    "git_diff_check": "pass"
+  },
+  "unrelated_resources_modified_by_this_task": false,
+  "independent_remaining_worktrees": [
+    "hockey-stats-v1-01",
+    "hockey-stats-v1-05"
+  ],
+  "branch_worktree_retained": true,
+  "upstream_candidate": {
+    "last_verified_sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+    "bytes": 105893888,
+    "original_path_status": "historical; upstream owner removed worktree and cheap candidate during independent delivery",
+    "delivery_commit": "3b894b4",
+    "merge_commit": "309d7088c32e2ffbd284be592cf82c563917a25f",
+    "delivery_json_sha256": "8210ab33ebbf1b71f11f496e206a40abddf58ea6b17990bb3d65b158164d5d95",
+    "v1_16_isolated_copy": "byte-identical tested copy independently preserved by upstream cleanup; removed by this task only after final green"
+  },
+  "original_browser_archive": {
+    "path": "/tmp/playwright-core-1.58.2.tgz",
+    "preserved": true
+  }
+}

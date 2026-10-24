@@ -1,0 +1,30 @@
+{
+  "status": "stopped_without_accepted_output",
+  "purpose": "real",
+  "source_commit": "35dcd93577689fe22ad2feb922a03952bc160f19",
+  "output": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-01",
+  "process": 68431,
+  "termination": "root sent SIGTERM after independent source review established unknown elapsed support was emitted as checked zero for singleton real-season skaters",
+  "exit_code": 143,
+  "wall_seconds": 438.95,
+  "maximum_resident_bytes": 3561046016,
+  "accepted_manifest": false,
+  "result_files": 0,
+  "witnesses": [
+    {
+      "season": "20242025",
+      "player_id": "8480075",
+      "game_id": "2024021273",
+      "reported_seconds": 308,
+      "reported_shifts": 6
+    },
+    {
+      "season": "20242025",
+      "player_id": "8481558",
+      "game_id": "2024021291",
+      "reported_seconds": 658,
+      "reported_shifts": 16
+    }
+  ],
+  "next": "repair producer availability, verify supported-zero and off-ice controls, start a fresh complete run; no partial resume, source correction or input rewrite"
+}

@@ -8,7 +8,7 @@ the task branch is `implement/v1-03-real-acceptance`, worktree `/Users/nnandal/D
 
 preparation: `/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json`, sha256 `63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c`. v1-01 independently accepted all 6,560 games. v1-03 selects only `20232024`, `20242025`, `20252026`, with 1,312 inventory games each, through the existing [pinned observed selection](../selection-real.json). unavailable games and family-local support remain explicit. no new local real-data mirror is created.
 
-planned fresh external output parent: `/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-01`, with `results` and `candidate` children. the existing `facts` and `publish` commands own production; temporary independent source and typed-api/browser checks own acceptance. no output is real merely because the input exists.
+the corrected real command is running under `/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02`, with `results` and `candidate` children. its source freeze binds production commit `9772b9950cc1938d6fefeeffb9576eeb95af9593`, all 88 analysis/application source-file hashes, the preparation manifest and the exact observed selection. later fixture/documentation commits do not change that loaded implementation. the existing `facts` and `publish` commands own production; temporary independent source and typed-api/browser checks own acceptance. no output is accepted merely because the command is running.
 
 ## measured operating choice
 

@@ -7,7 +7,7 @@
     "20242025": 84362473166,
     "20252026": 87054120600
   },
-  "source_controller_sha256": "7160d2a2ed1ab404aad36768b0590ef9b72511f5a3eb312463b99cbe044b4334",
+  "source_controller_sha256": "40117253d9787647b29259418ceaa12a4255c17fe1491a0668817badf721af62",
   "observed_controller_sha256": "b46feb08c1d318073ed800dcb621cc45390570214726b98e539ee317216c77f8",
   "bounded_probe": {
     "source": "20232024/2023020001",
@@ -40,5 +40,51 @@
     "actual results and candidate comparisons",
     "full 3936-game source pass",
     "exact old observed season replay"
-  ]
+  ],
+  "season_filter_smoke": {
+    "status": "bounded_control_flow_passed; no factual candidate comparison",
+    "method": "three disjoint --season and --games 1 invocations; public prepared game reader, stubbed sqlite publication and inventory only; temporary receipts removed",
+    "seasons": {
+      "20232024": "2023020001",
+      "20242025": "2024020001",
+      "20252026": "2025020001"
+    },
+    "selected_games_per_season": 1312,
+    "checked_games_per_invocation": 1,
+    "union_checked_games": 3,
+    "overlap": 0
+  },
+  "fixture_season_audit": {
+    "status": "passed_fixture_only",
+    "purpose": "fixture",
+    "season": "20232024",
+    "selected_games": 1312,
+    "checked_games": 1312,
+    "skater_summaries": 201,
+    "penalty_summaries": 1809,
+    "penalty_source_events": 54,
+    "micro_event_dispositions": 778,
+    "prepared_manifest_sha256": "15ca887751921aec5e07c13e5ce39ea6ae444cb63c119ee45dda22fef1cc2830",
+    "candidate_sha256": "0b54ae0e9ac4f0be73ef99654b009220d722963b6d80093d5d0fd40c2f28a4d9",
+    "controller_sha256": "40117253d9787647b29259418ceaa12a4255c17fe1491a0668817badf721af62",
+    "seconds": 17.69806541595608,
+    "command": "uv run --project analysis python var/v1-03-real/check_source.py --prepared var/v1-03-real/streaming-check/prepared --prepared-purpose fixture --candidate var/v1-03-real/fixture-candidate/player-analysis.sqlite --results var/v1-03-real/streaming-check/baseline-results --season 20232024 --receipt var/v1-03-real/source-audit-fixture-20232024.json"
+  },
+  "source_audit_scope": {
+    "independent_original_fields": [
+      "dated boxscore usage and original penalty event roles, categories and reported player minutes",
+      "all eligible goal/save credit index coverage and original scorer/primary-assist roles",
+      "selected original api/report penalty witnesses in penalty-source-witnesses.json",
+      "selected original u/h/b actor and report witnesses in micro-source-witnesses.json"
+    ],
+    "receipt_conditioned": [
+      "credit issue masks and ordinary matched scoring time after independent issue-index/affected-interval verification",
+      "u/h/b family masks, event dispositions and game-to-season count/time/opportunity closure"
+    ],
+    "not_yet_verified": [
+      "full real three-season candidate and factual receipts",
+      "selected real all-strength scoring/off-ice primary-assist cases and group closure in actual candidate",
+      "named penalty witnesses in actual candidate"
+    ]
+  }
 }

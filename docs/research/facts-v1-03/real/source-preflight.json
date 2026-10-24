@@ -1,0 +1,44 @@
+{
+  "status": "bounded_controller_smoke_passed",
+  "purpose": "real acceptance preflight; no candidate or real factual acceptance",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "selected_game_member_bytes": {
+    "20232024": 84283896177,
+    "20242025": 84362473166,
+    "20252026": 87054120600
+  },
+  "source_controller_sha256": "e8c20390aea31a7cadf9e78795919246a5878f6f1d68d138746a5c136722eaae",
+  "observed_controller_sha256": "b46feb08c1d318073ed800dcb621cc45390570214726b98e539ee317216c77f8",
+  "bounded_probe": {
+    "source": "20232024/2023020001",
+    "kind": "in-memory candidate fixture built from retained prepared member",
+    "dressed_player_rows": 40,
+    "five_on_five_interval": "1:0:28",
+    "physical_interval_rows": 2,
+    "result": "the controller accepted matching dated affiliations, two team sides and exact five-skater membership"
+  },
+  "synthetic_mask_probe": {
+    "source_template": "20232024/2023020001",
+    "construction": "all 294 prepared five-on-five segments masked separately in u, h and b; this is a controller check, not factual output",
+    "excluded_player_seconds_per_family": 24780,
+    "original_penalty_events_reconciled": 10,
+    "result": "each family closes declared masks to player exposure and per-game receipt totals"
+  },
+  "verified_prepared_reads": [
+    "20232024/2023020001",
+    "20242025/2024020001",
+    "20252026/2025020001"
+  ],
+  "cost_observation": {
+    "three_prepared_game_reads_seconds": 11.94,
+    "cold_single_game_read_seconds": 13.25,
+    "manifest_validation_seconds": 0.52,
+    "selected_member_bytes": 255700489943,
+    "estimate": "a full independent pass rereads about 238.2 gib of selected prepared game json; measured per-game time varied with cache state, so budget hours rather than extrapolating one precise runtime"
+  },
+  "not_run": [
+    "actual results and candidate comparisons",
+    "full 3936-game source pass",
+    "exact old observed season replay"
+  ]
+}

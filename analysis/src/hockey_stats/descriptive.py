@@ -864,7 +864,7 @@ def _catalogs(manifest, prepared_sha, observed_selection):
                 population=label+'; regular-season five-on-five with both goalies present',definition=definition,
                 receipts=[dict(uri=str(manifest.directory/'manifest.json'),sha256=prepared_sha),dict(uri=selected['path'],sha256=selected['sha256'])],
                 limitations=['family-local matched count and elapsed support; zero denominator remains unavailable','recorded actions do not establish player ability']))
-        for kind,limitation in (('tracking','no admitted observed tracking windows, pass links, possession transitions, retrievals or player puck actions'),('skating','v1-04 observed successful http 200 detail responses but admitted no player-season skating context or enumeration census; historical collection remains unassigned')):
+        for kind,limitation in (('tracking','no admitted observed tracking windows, pass links, possession transitions, retrievals or player puck actions'),('skating','v1-04 observed successful http 200 detail responses; skating acquisition deferred; no admitted measurements, player-season context or checked census')):
             sources.append(dict(source_id=source_ids[kind],label=f'{kind} source limitation',purpose=purpose,origin='source_capture',
                 acquisition='not_acquired' if kind == 'tracking' else 'access_unverified',construction='recorded',population='recorded tracking windows' if kind == 'tracking' else 'all-situations source-season skating aggregates',
                 definition=limitation,receipts=[],limitations=[limitation]))
@@ -957,20 +957,15 @@ def build_factual_results(prepared: Path, observed: Path, output: Path) -> dict:
             records = [dict(season=year,family='descriptive',availability='provided',explanation=None,
                 tables={k:summary[k] for k in FAMILY_TABLES['descriptive']})]
             records.append(dict(season=year,family='microstats',availability='provided',explanation=None,tables=dict(skater_microstats=micro)))
-            def evidence_rows(table):
+            def evidence_games():
                 for gid in games:
                     game = read_prepared_game(manifest,year,gid)
-                    rows = recorded_evidence(game,receipts[gid],source_ids,support_ids)[table]
-                    yield from sorted(rows,key=lambda r:tuple(r[k] for k in KEYS[table]))
-            # dressed_game's fixed primary key puts player before game; its rows
-            # are compact dated affiliations rather than interval/event arrays.
-            dressed_rows = []
-            for gid in games:
-                game = read_prepared_game(manifest,year,gid)
-                dressed_rows.extend(dict(season=year,player_id=pid,game_id=gid,team_id=team,source=dict(kind='source',id=source_ids['facts'])) for pid,team in _dressed(game).items())
-            evidence = {table:evidence_rows(table) for table in ('attempt_fact','interval_fact','interval_player','interval_location')}
-            evidence.update(dressed_game=sorted(dressed_rows,key=lambda r:tuple(r[k] for k in KEYS['dressed_game'])),context_coverage=summary['context_coverage'])
-            records.append(dict(season=year,family='evidence',availability='provided',explanation=None,tables=evidence))
+                    rows = recorded_evidence(game,receipts[gid],source_ids,support_ids)
+                    yield dict(game_id=gid, **{table:sorted(rows[table],key=lambda r:tuple(r[k] for k in KEYS[table]))
+                        for table in ('attempt_fact','interval_fact','interval_player','interval_location')},
+                        dressed_game=rows['dressed_game'])
+            records.append(dict(season=year,family='evidence',availability='provided',explanation=None,
+                tables=dict(context_coverage=summary['context_coverage']),game_ids=games,game_rows=evidence_games()))
             for family in FAMILY_TABLES:
                 if family not in ('descriptive','microstats','evidence'):
                     records.append(dict(season=year,family=family,availability='not_computed',explanation=f'{family} estimation is outside factual reductions; its assigned numerical producer remains pending',tables={}))

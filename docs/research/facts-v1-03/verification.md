@@ -1,6 +1,6 @@
 # v1-03 factual-reduction verification
 
-status: implementation, fixture command/candidate/detached api/browser acceptance and final refactor equivalence pass. real three-season acceptance remains open until the selected five-season v1-01 artifact is complete and checked. [remaining acceptance](../../issues/facts-v1-03-real-acceptance.md).
+status: implementation and fixture acceptance passed. on 2026-10-24 the user assigned real three-season acceptance and actual factual-card/v1-16 integration after completed v1-01 delivery. that real execution and its independent source/application checks are in progress. [remaining acceptance](../../issues/facts-v1-03-real-acceptance.md).
 
 implementation commit: `c8f19c9`. implementation used branch `implement/v1-03-factual-card-reductions`, in `/Users/nnandal/Documents/code/hockey-stats-v1-03`. v1-01 source is integrated through `5503c7b`; merge `9a65dc7` preserves the primary checkout's assigned specification edits and both existing analysis commands. the primary checkout, active/previous databases, built serving files and port 3000 remain protected.
 

@@ -272,7 +272,7 @@ function cardSvg(
     text(value, 44, idY + 30 + index * 25, 20),
   );
   text(
-    `age ${numberText(model.person?.age_years, 1)} as of ${model.person?.age_as_of ?? "unavailable"} · height ${numberText(model.person?.height_cm, 1)} cm`,
+    `age ${numberText(model.person?.age_years, 1)} as of ${model.person?.age_as_of ?? "unavailable"} · ${typeof model.person?.height_cm === "number" ? `height ${numberText(model.person.height_cm, 1)} cm` : "height unavailable"}`,
     44,
     idY + 60 + extraTeams,
     20,
@@ -361,7 +361,7 @@ function cardSvg(
     { "font-weight": 650 },
   );
   text(
-    `${numberText(usage?.positive_toi_appearances, 0)} appearances`,
+    `${numberText(usage?.positive_toi_appearances, 0)} ${usage?.positive_toi_appearances === 1 ? "appearance" : "appearances"}`,
     44,
     Y(374),
     20,
@@ -661,6 +661,8 @@ function cardSvg(
     const group = c?.[scope as "teammates"];
     const forward = group?.forward.mean_band_index.value;
     const defense = group?.defense.mean_band_index.value;
+    const forwardKnown = typeof forward === "number";
+    const defenseKnown = typeof defense === "number";
     const color = index === 0 ? "#087b73" : "#455c6f";
     const y = Y(1670 + index * 170);
     dot(scope, 824, y - 7, color);
@@ -676,12 +678,7 @@ function cardSvg(
       y + 35,
       20,
     );
-    if (
-      forward !== null &&
-      forward !== undefined &&
-      defense !== null &&
-      defense !== undefined
-    ) {
+    if (forwardKnown && defenseKnown) {
       dot(
         scope,
         cx + (cw * (3 - defense)) / 2,
@@ -690,7 +687,9 @@ function cardSvg(
       );
     } else
       wrap(
-        "point unavailable; known coordinate retained in detail",
+        !forwardKnown && !defenseKnown
+          ? "both usage bands unavailable"
+          : "point unavailable; known coordinate retained in detail",
         810,
         y + 70,
         346,

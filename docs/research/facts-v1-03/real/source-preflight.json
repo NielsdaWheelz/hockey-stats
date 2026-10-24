@@ -86,5 +86,39 @@
       "selected real all-strength scoring/off-ice primary-assist cases and group closure in actual candidate",
       "named penalty witnesses in actual candidate"
     ]
+  },
+  "refreshed_fixture_acceptance": {
+    "status": "passed_fixture_only; real candidate not run",
+    "prepared_manifest_sha256": "15ca887751921aec5e07c13e5ce39ea6ae444cb63c119ee45dda22fef1cc2830",
+    "results_manifest_sha256": "ad0ec92553a8d4eb27c8778743d1b1368fe67cef3cffa75b59f3089a2e7f544e",
+    "candidate_sha256": "ec9b99063b3918d90b40ab419791318830fcf7d3d3ad0b4cc43a2903b543c141",
+    "candidate_verification_sha256": "0496efae5f0dfcc28a04a4cdbdfbf3c1e745ae9681a6a0a9994f5242092601c7",
+    "producer_git_commit": "09f7527047b858260a9fc3fb576f5d0e39b260ce",
+    "commands": [
+      "uv run --project analysis hockey-stats-analysis facts --prepared var/v1-03-real/streaming-check/prepared --observed var/v1-03-real/streaming-check/observed-selection.json --out var/v1-03-real/availability/repaired-results",
+      "uv run --project analysis hockey-stats-analysis publish --observed var/v1-03-real/streaming-check/observed-selection.json --results var/v1-03-real/availability/repaired-results --out var/v1-03-real/availability/repaired-candidate",
+      "for fixture_year in 20232024 20242025 20252026; do uv run --project analysis python var/v1-03-real/check_source.py --prepared var/v1-03-real/streaming-check/prepared --prepared-purpose fixture --candidate var/v1-03-real/availability/repaired-candidate/player-analysis.sqlite --results var/v1-03-real/availability/repaired-results --season \"$fixture_year\" --receipt \"var/v1-03-real/availability/source-green-$fixture_year.json\" || exit 1; done"
+    ],
+    "season_source_passes": {
+      "20232024": {
+        "games": 1312,
+        "skater_summaries": 201,
+        "penalty_summaries": 1809,
+        "seconds": 17.961267958045937
+      },
+      "20242025": {
+        "games": 1312,
+        "skater_summaries": 245,
+        "penalty_summaries": 2205,
+        "seconds": 23.717063541989774
+      },
+      "20252026": {
+        "games": 1312,
+        "skater_summaries": 277,
+        "penalty_summaries": 2493,
+        "seconds": 24.25333145901095
+      }
+    },
+    "source_controller_sha256": "40117253d9787647b29259418ceaa12a4255c17fe1491a0668817badf721af62"
   }
 }

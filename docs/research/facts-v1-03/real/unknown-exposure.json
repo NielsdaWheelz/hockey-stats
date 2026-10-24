@@ -354,5 +354,73 @@
       }
     }
   ],
-  "real_candidate": "not_run"
+  "real_candidate": "not_run",
+  "retained_fixture_red_green": {
+    "status": "old fixture candidate red; refreshed current fixture candidate green; real candidate not run",
+    "prepared_manifest_sha256": "15ca887751921aec5e07c13e5ce39ea6ae444cb63c119ee45dda22fef1cc2830",
+    "old_fixture_candidate_sha256": "0b54ae0e9ac4f0be73ef99654b009220d722963b6d80093d5d0fd40c2f28a4d9",
+    "old_result_producer_commit": "2ddc2d6fc4a6785e04780f80137f554ee8575096",
+    "cases": [
+      {
+        "season": "20242025",
+        "game_id": "2024021235",
+        "player_id": "8470613",
+        "prepared_member_sha256": "cc554e2750914b86c0ea8be7426e6038a195c3ca015ea8a9b926b56194dac601",
+        "reported_seconds": 1179,
+        "reported_shifts": 24,
+        "resolved_segments": 0,
+        "ordinary_included_segments": 0,
+        "old_candidate_strength_ev_seconds": 0,
+        "old_candidate_scoring_pp_goals": 0,
+        "current_pure_elapsed_available": false,
+        "current_pure_scoring_available": false,
+        "expected_strength_ev_seconds": null,
+        "expected_scoring_pp_goals": null,
+        "refreshed_candidate": {
+          "reported_seconds": 1179,
+          "reported_shifts": 24,
+          "strength_five_on_five_seconds": null,
+          "strength_ev_seconds": null,
+          "scoring_pp_goals": null,
+          "scoring_unclassified_goals": null,
+          "old_five_on_five_goals": null,
+          "old_five_on_five_seconds": 0
+        }
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020184",
+        "player_id": "8470613",
+        "prepared_member_sha256": "baf0d2225296214fa66af85b37a43d84022fe3cb68124067f10353e404b70a90",
+        "reported_seconds": 1451,
+        "reported_shifts": 31,
+        "resolved_segments": 374,
+        "ordinary_included_segments": 0,
+        "old_candidate_strength_five_on_five_seconds": 1139,
+        "old_candidate_scoring_unclassified_goals": 0,
+        "current_pure_elapsed_available": true,
+        "current_pure_scoring_available": false,
+        "expected_strength_five_on_five_seconds": 1139,
+        "expected_scoring_unclassified_goals": null,
+        "expected_scoring_other_goals": null,
+        "refreshed_candidate": {
+          "reported_seconds": 1451,
+          "reported_shifts": 31,
+          "strength_five_on_five_seconds": 1139,
+          "strength_pp_seconds": 13,
+          "strength_pk_seconds": 189,
+          "scoring_other_goals": null,
+          "scoring_unclassified_goals": null,
+          "old_five_on_five_goals": null,
+          "old_five_on_five_seconds": 0
+        }
+      }
+    ],
+    "boundary": "elapsed membership and matched ordinary scoring have separate support; the old candidate predates the availability repair, so neither old sqlite failure is a new production defect or a green real candidate result",
+    "refreshed_results_manifest_sha256": "ad0ec92553a8d4eb27c8778743d1b1368fe67cef3cffa75b59f3089a2e7f544e",
+    "refreshed_fixture_candidate_sha256": "ec9b99063b3918d90b40ab419791318830fcf7d3d3ad0b4cc43a2903b543c141",
+    "source_controller_sha256": "40117253d9787647b29259418ceaa12a4255c17fe1491a0668817badf721af62",
+    "all_three_fixture_source_seasons_passed": true,
+    "bounded_pure_method": "current reduce_game on each public prepared game, with its public projection owner and an empty observed receipt wrapper solely to inspect elapsed/scoring availability; exact old five-on-five is checked separately against the refreshed published candidate"
+  }
 }

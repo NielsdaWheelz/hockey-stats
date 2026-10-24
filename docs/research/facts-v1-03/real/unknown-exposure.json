@@ -1,0 +1,358 @@
+{
+  "status": "bounded_green_candidate_pending",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "red": "actual public singleton assertion failed on unsupported strength zero",
+  "green": "actual public singleton assertions and public fixed-row serializer passed",
+  "cases": [
+    {
+      "season": "20242025",
+      "game_id": "2024021273",
+      "player_id": "8480075",
+      "prepared_member_sha256": "d881061023e2df3d08ab91a5bfdafb0625725e6facb2dfc9b1b33226be966b23",
+      "segments": 0,
+      "ordinary_included_segments": 0,
+      "unresolved_native_intervals": 4,
+      "reported_seconds": 308,
+      "reported_shifts": 6,
+      "old_five_on_five": {
+        "goals": null,
+        "seconds": 0
+      },
+      "old_strength": {
+        "five_on_five": {
+          "seconds": 0,
+          "gap": true
+        },
+        "ev": {
+          "seconds": 0,
+          "gap": true
+        },
+        "pp": {
+          "seconds": 0,
+          "gap": true
+        },
+        "pk": {
+          "seconds": 0,
+          "gap": true
+        },
+        "other": {
+          "seconds": 0,
+          "gap": true
+        }
+      },
+      "new_strength": {
+        "five_on_five": {
+          "seconds": null,
+          "gap": true
+        },
+        "ev": {
+          "seconds": null,
+          "gap": true
+        },
+        "pp": {
+          "seconds": null,
+          "gap": true
+        },
+        "pk": {
+          "seconds": null,
+          "gap": true
+        },
+        "other": {
+          "seconds": null,
+          "gap": true
+        }
+      },
+      "old_scoring": {
+        "five_on_five": {
+          "goals": null,
+          "seconds": 0,
+          "gap": true
+        },
+        "ev": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "pp": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": true
+        },
+        "pk": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": true
+        },
+        "other": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": true
+        }
+      },
+      "new_scoring": {
+        "five_on_five": {
+          "goals": null,
+          "seconds": 0,
+          "gap": true
+        },
+        "ev": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "pp": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "pk": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "other": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        }
+      },
+      "serialized_row_sha256": "513038513cf04ff09443bf1109e8beddd8ef6d6c09c2442e0463a6c23a8080de",
+      "synthetic_zero_time_primary_assist": null
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024021291",
+      "player_id": "8481558",
+      "prepared_member_sha256": "a47d7191f2ee9b5f0c333c7e3b234400a12759dce46eb3b53c29a4a2e9bfacce",
+      "segments": 0,
+      "ordinary_included_segments": 0,
+      "unresolved_native_intervals": 4,
+      "reported_seconds": 658,
+      "reported_shifts": 16,
+      "old_five_on_five": {
+        "goals": null,
+        "seconds": 0
+      },
+      "old_strength": {
+        "five_on_five": {
+          "seconds": 0,
+          "gap": true
+        },
+        "ev": {
+          "seconds": 0,
+          "gap": true
+        },
+        "pp": {
+          "seconds": 0,
+          "gap": true
+        },
+        "pk": {
+          "seconds": 0,
+          "gap": true
+        },
+        "other": {
+          "seconds": 0,
+          "gap": true
+        }
+      },
+      "new_strength": {
+        "five_on_five": {
+          "seconds": null,
+          "gap": true
+        },
+        "ev": {
+          "seconds": null,
+          "gap": true
+        },
+        "pp": {
+          "seconds": null,
+          "gap": true
+        },
+        "pk": {
+          "seconds": null,
+          "gap": true
+        },
+        "other": {
+          "seconds": null,
+          "gap": true
+        }
+      },
+      "old_scoring": {
+        "five_on_five": {
+          "goals": null,
+          "seconds": 0,
+          "gap": true
+        },
+        "ev": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "pp": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": true
+        },
+        "pk": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": true
+        },
+        "other": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": true
+        }
+      },
+      "new_scoring": {
+        "five_on_five": {
+          "goals": null,
+          "seconds": 0,
+          "gap": true
+        },
+        "ev": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "pp": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "pk": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        },
+        "other": {
+          "goals": null,
+          "seconds": null,
+          "gap": true
+        }
+      },
+      "serialized_row_sha256": "1f05d1ec4c292a94429f531f3451df6fa1244e7f5594fb3136147317ab64635c",
+      "synthetic_zero_time_primary_assist": null
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "player_id": "8474151",
+      "prepared_member_sha256": "9fab764290f5fcdab25c7257b51860af86c2b0c8e79064cacc6d8af240f3fdd9",
+      "segments": 385,
+      "ordinary_included_segments": 385,
+      "unresolved_native_intervals": 0,
+      "reported_seconds": 1248,
+      "reported_shifts": 27,
+      "old_five_on_five": {
+        "goals": 0,
+        "seconds": 884
+      },
+      "old_strength": {
+        "five_on_five": {
+          "seconds": 884,
+          "gap": false
+        },
+        "ev": {
+          "seconds": 884,
+          "gap": false
+        },
+        "pp": {
+          "seconds": 13,
+          "gap": false
+        },
+        "pk": {
+          "seconds": 351,
+          "gap": false
+        },
+        "other": {
+          "seconds": 0,
+          "gap": false
+        }
+      },
+      "new_strength": {
+        "five_on_five": {
+          "seconds": 884,
+          "gap": false
+        },
+        "ev": {
+          "seconds": 884,
+          "gap": false
+        },
+        "pp": {
+          "seconds": 13,
+          "gap": false
+        },
+        "pk": {
+          "seconds": 351,
+          "gap": false
+        },
+        "other": {
+          "seconds": 0,
+          "gap": false
+        }
+      },
+      "old_scoring": {
+        "five_on_five": {
+          "goals": 0,
+          "seconds": 884,
+          "gap": false
+        },
+        "ev": {
+          "goals": 0,
+          "seconds": 884,
+          "gap": false
+        },
+        "pp": {
+          "goals": 0,
+          "seconds": 13,
+          "gap": false
+        },
+        "pk": {
+          "goals": 0,
+          "seconds": 351,
+          "gap": false
+        },
+        "other": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": false
+        }
+      },
+      "new_scoring": {
+        "five_on_five": {
+          "goals": 0,
+          "seconds": 884,
+          "gap": false
+        },
+        "ev": {
+          "goals": 0,
+          "seconds": 884,
+          "gap": false
+        },
+        "pp": {
+          "goals": 0,
+          "seconds": 13,
+          "gap": false
+        },
+        "pk": {
+          "goals": 0,
+          "seconds": 351,
+          "gap": false
+        },
+        "other": {
+          "goals": 0,
+          "seconds": 0,
+          "gap": false
+        }
+      },
+      "serialized_row_sha256": "805aec1141b7507d48ec2b5b2991577ad1d2d62b23f069c233ae5d8d90ec598b",
+      "synthetic_zero_time_primary_assist": {
+        "count": 1,
+        "seconds": 0,
+        "rate": null
+      }
+    }
+  ],
+  "real_candidate": "not_run"
+}

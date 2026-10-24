@@ -1,0 +1,9 @@
+# factual zero from unknown elapsed exposure
+
+problem: the v1-03 reducer treats a present but empty prepared segment collection as checked elapsed and scoring availability. a successful empty shift response can leave every native interval unresolved, so zero elapsed seconds and zero non-5v5 personal goals are unsupported.
+
+impact: real skater cards can show factual zero strength time and scoring where the source supports only reported boxscore usage and unknown matched exposure. old five-on-five observed fields retain their own unavailable result.
+
+evidence: `2024021273` / `8480075` has 308 reported seconds and six reported shifts; `2024021291` / `8481558` has 658 seconds and sixteen shifts. each prepared game has zero resolved segments, zero ordinary support segments and four unresolved native intervals. each skater has only that game in the season. the inherited conditions at `descriptive.py` mark non-null empty segment lists available and publish zero strength groups and non-five scoring. [the source issue](empty-shift-source.md) records the successful empty shift responses. [bounded red/green](../research/facts-v1-03/real/unknown-exposure.json) proves the repair through the public prepared/observed singleton readers and fixed-row serializer, with a positive supported-zero control.
+
+resolution: the per-game owner now derives checked elapsed availability from valid positive segments and checked scoring availability from included ordinary segments. reported usage, the exact old five-on-five personal component and a zero-time attributed primary assist remain intact in bounded checks. the fresh full real result and candidate must prove the two players still have unavailable strength/scoring fields through sqlite, typed reads and the card. remove this issue after that acceptance.

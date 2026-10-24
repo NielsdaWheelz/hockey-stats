@@ -29,3 +29,9 @@ the independent source pass adds its own public read and is measured separately.
 v1-06's separate execution composition currently consumes the generic fixed-table serializer. the two-pass factual path must preserve that active table-copying interface while removing factual rereads; both inputs serialize the same fixed exchange. this is an existing consumer, not a hypothetical extension. the factual producer uses only the new explicit per-game streaming input.
 
 the v1-06 specification explicitly permits v1-03/v1-16 to finish their existing contracts independently and owns a later exchange2/schema8 cutover and factual regeneration. this delivery remains the assigned schema7 factual/card contract; it does not merge unfinished scoring work, invent numerical values or open a second model pipeline. the later owner can reuse the bounded serializer optimization. its required factual regeneration remains a separate accepted integration cost.
+
+## unknown elapsed-support repair
+
+the first real command was deliberately stopped after 438.95 seconds when independent source review found a producer availability defect, before any result member or accepted manifest existed. its maximum resident size was 3,561,046,016 bytes; this stopped run is not a completed performance measurement. [attempt receipt](attempt-01.json).
+
+actual 2024–25 singleton skaters cameron crotty (`8480075`, `2024021273`) and john farinacci (`8481558`, `2024021291`) have known reported usage but no resolved elapsed/ordinary segments. horizons and source collections alone cannot establish checked-zero strength or scoring support. the fix belongs at the factual availability owner and must retain positive supported zero-event time, legitimate zero-own-time assists, the old 5v5 component and reported facts. the failed output parent remains separate; the corrected complete command uses a fresh `facts-v1-03-20261024-02` parent.

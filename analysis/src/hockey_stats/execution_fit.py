@@ -213,8 +213,9 @@ def head_diagnostics(beta, design):
 
 
 def _solve_start(design, actors, initial, tightened):
-    scale = .1 if tightened else 1.
-    options = dict(maxiter=DEFINITION["solver"]["maxiter"], ftol=1e-14*scale, gtol=1e-6*scale)
+    solver = DEFINITION["solver"]
+    stopping = solver["continuation"] if tightened else solver
+    options = dict(maxiter=solver["maxiter"], ftol=stopping["ftol"], gtol=stopping["gtol"])
     if design["head"] != "g":
         beta, result = solve_logistic(lambda b: objective(b, design, actors), initial, **options)
         value, gradient = objective(beta, design, actors)
@@ -236,7 +237,7 @@ def _solve_start(design, actors, initial, tightened):
     relative = None
     converged = False
     termination = "setter em iteration limit"
-    for iteration in range(100):
+    for iteration in range(solver["em_maxiter"]):
         candidate, inner = solve_logistic(
             lambda b: objective(b, design, actors, posterior), beta, **options,
         )
@@ -261,7 +262,7 @@ def _solve_start(design, actors, initial, tightened):
         relative = abs(difference)/(1+abs(old_value))
         beta, posterior, old_value = candidate, new_posterior, new_value
         trace.append(new_value)
-        if relative <= 1e-8*scale and change <= 1e-6*scale:
+        if relative <= stopping["em_objective"] and change <= stopping["em_responsibility"]:
             converged = True
             termination = "setter em objective and responsibility tolerances satisfied"
             break
@@ -331,10 +332,13 @@ def continue_head(design, previous_ledger, baseline_coefficients):
     baseline = np.asarray(baseline_coefficients, dtype=np.float64)
     base_value, base_gradient = objective(baseline, design, actors)
     result = fit_head(design, previous_ledger, tightened=True, initial=baseline)
+    solver = DEFINITION["solver"]
+    stopping = solver["continuation"]
     result["comparison"] = dict(
         base_objective=base_value, base_gradient_max=float(np.max(np.abs(base_gradient))),
-        optimizer_maxiter=DEFINITION["solver"]["maxiter"], optimizer_ftol=1e-15, optimizer_gtol=1e-7,
-        em_maxiter=100, em_relative_tolerance=1e-9, em_responsibility_tolerance=1e-7,
+        optimizer_maxiter=solver["maxiter"], optimizer_ftol=stopping["ftol"], optimizer_gtol=stopping["gtol"],
+        em_maxiter=solver["em_maxiter"], em_relative_tolerance=stopping["em_objective"],
+        em_responsibility_tolerance=stopping["em_responsibility"],
     )
     if result["status"] == "complete":
         tighter = result["coefficients"]

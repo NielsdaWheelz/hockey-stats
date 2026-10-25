@@ -336,11 +336,13 @@ def _solve_record(row, head, tightened=False):
                 and type(row['gradient_max']) in (int,float) and row['gradient_max'] >= 0
                 and bool(row['objective_trace']) and row['objective_trace'][-1] == row['objective'], 'invalid completed objective/gradient trace')
         if head == 'g':
-            scale = .1 if tightened else 1.
+            from .execution_design import DEFINITION
+            solver = DEFINITION['solver']
+            stopping = solver['continuation'] if tightened else solver
             require(row['em_iterations'] == len(row['inner_solves']) > 0
                     and len(row['objective_trace']) == row['em_iterations'] + 1
-                    and type(row['responsibility_change']) in (int,float) and 0 <= row['responsibility_change'] <= 1e-6 * scale
-                    and type(row['relative_objective_change']) in (int,float) and 0 <= row['relative_objective_change'] <= 1e-8 * scale,
+                    and type(row['responsibility_change']) in (int,float) and 0 <= row['responsibility_change'] <= stopping['em_responsibility']
+                    and type(row['relative_objective_change']) in (int,float) and 0 <= row['relative_objective_change'] <= stopping['em_objective'],
                     'false setter em completion')
             require(all(inner.get('converged') is True and {'status','termination','iterations','evaluations','objective'} <= inner.keys() for inner in row['inner_solves']), 'unfinished setter m-step')
             require(all(new-old <= 1e-10*(1+abs(old)) for old,new in zip(row['objective_trace'],row['objective_trace'][1:])), 'setter observed objective increased')
@@ -845,9 +847,12 @@ def read_execution_probe(state, head):
     comparison = probe['comparison']
     require(resolution.get('baseline') == baseline and resolution.get('comparison') == comparison, 'probe comparison/baseline differs from resolution record')
     _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance tightened_objective objective_change tightened_gradient_max gradient_max_change coefficient_max_change coefficient_l2_change maximum_probability_change head_maximum_changes terminal_maximum_changes evaluated_origins evaluated_branches'.split(), 'resolution comparison')
-    require(comparison['optimizer_maxiter'] == DEFINITION['solver']['maxiter'] and comparison['optimizer_ftol'] == 1e-15
-            and comparison['optimizer_gtol'] == 1e-7 and comparison['em_maxiter'] == 100
-            and comparison['em_relative_tolerance'] == 1e-9 and comparison['em_responsibility_tolerance'] == 1e-7,
+    solver = DEFINITION['solver']
+    stopping = solver['continuation']
+    require(comparison['optimizer_maxiter'] == solver['maxiter'] and comparison['optimizer_ftol'] == stopping['ftol']
+            and comparison['optimizer_gtol'] == stopping['gtol'] and comparison['em_maxiter'] == solver['em_maxiter']
+            and comparison['em_relative_tolerance'] == stopping['em_objective']
+            and comparison['em_responsibility_tolerance'] == stopping['em_responsibility'],
             'resolution did not use tenfold tighter tolerances')
     require(metadata['diagnostics']['requested_starts'] == ['continuation']
             and metadata['selected_start'] == 'continuation', 'resolution is not a completed continuation')

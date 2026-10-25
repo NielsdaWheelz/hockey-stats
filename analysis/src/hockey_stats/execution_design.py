@@ -631,7 +631,7 @@ def _head_design(head, predictors, labels, people, source_actors=None):
                         setter_mean_weights=np.asarray(layout["setter_mean_weights"], dtype=np.float64))
 
     # retain one compact physical-row matrix, never its blocked origin expansion.
-    # optimizer iterations emit only native maps and five geometry columns;
+    # prepare only native maps and five geometry columns per origin;
     # fixed logits and transpose gradients stay on physical rows.
     selected_predictors = [predictors[i] for i in rows]
     fixed = predictor_matrix(layout, selected_predictors, [p.proxy_cell for p in selected_predictors]).tocoo()
@@ -713,7 +713,9 @@ def _head_design(head, predictors, labels, people, source_actors=None):
             observed.extend([labels[source_i]["observed_setter"]] * len(cells))
         if cell_batch:
             yield emit()
-    result["batches"] = batches
+    # prepared batches are immutable numerical input; each pass gets its own iterator.
+    prepared_batches = tuple(batches())
+    result["batches"] = lambda: iter(prepared_batches)
     return result
 
 

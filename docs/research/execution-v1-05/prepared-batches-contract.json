@@ -1,0 +1,184 @@
+{
+  "scope": "bounded exact preservation; no real fitting or source body replay",
+  "parent_commit": "269d8d04f57edf4b38fe1f0a9766eb399f5546b8",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "source_file": {
+    "path": "analysis/src/hockey_stats/execution_design.py",
+    "sha256": "43d086cdbb335406ea780e9ceaddc7193c50796285342295fa55e48e9e96179f"
+  },
+  "checks": {
+    "verdict": "pass",
+    "output": "candidate",
+    "head_batches": {
+      "u": [
+        3942,
+        1974
+      ],
+      "q": [
+        12
+      ],
+      "r": [
+        11
+      ],
+      "g": [
+        10
+      ]
+    },
+    "cases": 21,
+    "array_entries": 107
+  },
+  "baseline_comparison": "all107 arrays exact, full layouts/priors/objective/gradient/diagnostic records exact; old baseline passed before edits",
+  "empty_iteration": {
+    "u": {
+      "batches": 0,
+      "fixed_shape": [
+        0,
+        2095
+      ]
+    },
+    "q": {
+      "batches": 0,
+      "fixed_shape": [
+        0,
+        2101
+      ]
+    },
+    "r": {
+      "batches": 0,
+      "fixed_shape": [
+        0,
+        2101
+      ]
+    },
+    "g": {
+      "batches": 0,
+      "fixed_shape": [
+        0,
+        2108
+      ]
+    }
+  },
+  "bounded_array_storage": {
+    "u": {
+      "batches": 2,
+      "expanded_rows": 5915,
+      "dynamic_csr_bytes": 230476,
+      "other_batch_array_bytes": 94640,
+      "total_batch_array_payload_bytes": 325116,
+      "physical_fixed_array_payload_bytes": 3948
+    },
+    "q": {
+      "batches": 1,
+      "expanded_rows": 11,
+      "dynamic_csr_bytes": 408,
+      "other_batch_array_bytes": 176,
+      "total_batch_array_payload_bytes": 584,
+      "physical_fixed_array_payload_bytes": 2244
+    },
+    "r": {
+      "batches": 1,
+      "expanded_rows": 10,
+      "dynamic_csr_bytes": 380,
+      "other_batch_array_bytes": 160,
+      "total_batch_array_payload_bytes": 540,
+      "physical_fixed_array_payload_bytes": 2024
+    },
+    "g": {
+      "batches": 1,
+      "expanded_rows": 9,
+      "dynamic_csr_bytes": 340,
+      "other_batch_array_bytes": 1336,
+      "total_batch_array_payload_bytes": 1676,
+      "physical_fixed_array_payload_bytes": 1816
+    }
+  },
+  "bounded_total_batch_array_payload_bytes": 327916,
+  "storage_scope": "20 earlier bounded controls; numeric array payload only, excludes Python/SciPy object overhead and process peak; no timing, real capacity or speedup claim",
+  "temporary_files": [
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/baseline.json",
+      "sha256": "d31154499a662065a68f6b1c5bb4718c18c1196497d6dd1cd6ef8226a4bf2766"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/baseline.npz",
+      "sha256": "15285e95bad9a6bfca9ee63caac808173be0c7fe0ba5f2f22e4c5be0773956d7"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/baseline.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/baseline.stdout",
+      "sha256": "d85e7c886cc31b8543bd645acd17521e4b477d63cecc87af04424b10f3b8c0b6"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/candidate-storage.json",
+      "sha256": "00cbf7d74f131d7b21b102cd378ec9e442bdef2b4a7aef6a369463475635a571"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/candidate.json",
+      "sha256": "d31154499a662065a68f6b1c5bb4718c18c1196497d6dd1cd6ef8226a4bf2766"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/candidate.npz",
+      "sha256": "15285e95bad9a6bfca9ee63caac808173be0c7fe0ba5f2f22e4c5be0773956d7"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/candidate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/candidate.stdout",
+      "sha256": "018022dbd0b65a5b0409923823d9a4c649f3a238e6b0c4f45e1a27402ca7397d"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/cases.py",
+      "sha256": "71cbf34fbda15f01fd74f5c7b015a29e392d8885d0bd6b6fa1279a2dc9b259a8"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/check.py",
+      "sha256": "c9572b44b21e151fe757a7687b878d0daf30657b8ebb67fc6892645b3f56cb22"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/initial-serialization.stderr",
+      "sha256": "b218c36a46b249ec12ae12fa6bf06f151713c899831094bba4ad91a2c1181679"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/original-storage.json",
+      "sha256": "f0ba89dc64378fcefe5663375a8829ba5e091f9f1b1ce9d68e273f1dee470d41"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/readme.md",
+      "sha256": "bdc0f99f1331f8e5e2bddb72e4a744048a68ccdb85e625acf6e46c03a0fe6c97"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/receipt.json",
+      "sha256": "ef1acec6b87e4c0b3b98f391b20366b43cf55e5144cfdfdda55efad7ac1503e5"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/record.py",
+      "sha256": "ed70c9a6d0716f889491561692a62bb9d981c088f0a2c9492cb626ac937471b9"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/repeat.json",
+      "sha256": "d31154499a662065a68f6b1c5bb4718c18c1196497d6dd1cd6ef8226a4bf2766"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/repeat.npz",
+      "sha256": "15285e95bad9a6bfca9ee63caac808173be0c7fe0ba5f2f22e4c5be0773956d7"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/repeat.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/repeat.stdout",
+      "sha256": "b674b6de756612229682f6c2d6aabfcadf55c5c734b45e1e5de2296006c4e0c9"
+    },
+    {
+      "path": "/tmp/v105-prepared-batches-20261024/storage.py",
+      "sha256": "702745f305f6155c49c7c14b74d7c34015bc75cbe0bae2aec80975bafc5d22b6"
+    }
+  ],
+  "fixture_qualification": "pending fresh ordinary five-year chain; source review pending"
+}

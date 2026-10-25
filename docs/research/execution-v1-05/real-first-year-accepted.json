@@ -1,0 +1,550 @@
+{
+  "status": "pass",
+  "scope": "completed real20212022 computational annual acceptance only under frozen269/5950; remaining four annual families and final four numerical probes pending",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022/manifest.json",
+    "sha256": "e34cfc60015bda24d90dcc946f150295aa6aede1079ab23aa9092f3103678310"
+  },
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "producer": {
+    "git_commit": "269d8d04f57edf4b38fe1f0a9766eb399f5546b8",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "checker": {
+    "path": "/tmp/v105-real-year-check.py",
+    "sha256": "9e31c4a6727f692d84e6c5be36aba88015312ab910ab38360e053364a5a3780a"
+  },
+  "expected_metadata": {
+    "path": "/tmp/v105-real2021-expected-03.json",
+    "sha256": "9f7e7d8f9944876a99fede4c58edc303c0a5464d4c50a2243c15ede2e0f2bd96"
+  },
+  "detailed_checker_result": {
+    "path": "/tmp/v105-real2021-peer-result-03.json",
+    "sha256": "af627b8cdb33e87dea930c3b71e0b3871b8f0ed0608e5c9db18ea66c71f985ca"
+  },
+  "actual_members": [
+    {
+      "path": "coverage.json",
+      "sha256": "7aba2213ab3ad5b2000f927418e3d2e88c585e53c2ff96785facd4c5f300395b"
+    },
+    {
+      "path": "heads/u.npz",
+      "sha256": "30e5b327145fb430ab0de646149adea0dc1f61445c611ad54b606a56809b3d94"
+    },
+    {
+      "path": "heads/u.json",
+      "sha256": "461f2acbd26a0aae2bea6eafe73f18c3a52132e38f4abacb7b50f7007468e082"
+    },
+    {
+      "path": "heads/q.npz",
+      "sha256": "53e5d4f60d56db4b16f11690be4cbc6a85ec299965fb006889014e7f88218cd0"
+    },
+    {
+      "path": "heads/q.json",
+      "sha256": "7e89d0b99daa0c979e4472c31f91792b2a9e6337df0d0b58dd5d1f6e54dfb93c"
+    },
+    {
+      "path": "heads/r.npz",
+      "sha256": "267feaf5f39093e1e12a286237ee65a957b22af36b193baf450f880a8f07b4b9"
+    },
+    {
+      "path": "heads/r.json",
+      "sha256": "b8fd198385458a3f2f2dad3e1745b42d3226d9aba65e6c32ac3bcd7b1fff9a98"
+    },
+    {
+      "path": "heads/g.npz",
+      "sha256": "7a814f49443e160261a46a5c3acbce315000c2974373a79ad0d26799752f8140"
+    },
+    {
+      "path": "heads/g.json",
+      "sha256": "c12db384c140047caf0c6cfd6e6df3197043da5acffd3b2d50a5efff01b6cdd1"
+    }
+  ],
+  "actual_member_validation": "all nine digests and strict byte/semantic contracts checked by public read_execution_state; manifest separately pinned",
+  "selected_games": 1312,
+  "recognized_attempts": 149412,
+  "recognized_outcomes": [
+    {
+      "outcome": "block",
+      "count": 35375
+    },
+    {
+      "outcome": "miss",
+      "count": 30286
+    },
+    {
+      "outcome": "save",
+      "count": 74854
+    },
+    {
+      "outcome": "goal",
+      "count": 7657
+    },
+    {
+      "outcome": null,
+      "count": 1240
+    }
+  ],
+  "source_first_history": true,
+  "exact_selected_member_input_coach_bindings": true,
+  "per_game_index_scope": "all ids and member hashes independently pinned; source-index uniqueness/key/pointer partitions checked within every output game; independent coverage has no per-game count/index oracle, so exact per-game source-index extraction is not independently replayed here",
+  "heads": {
+    "u": {
+      "conditioning": "ordinary physical attempt: unblocked versus block",
+      "status": "complete",
+      "counts": {
+        "included": 147510,
+        "class:1": 112345,
+        "type:wrist": 86195,
+        "strength:5,5,1": 117676,
+        "class:0": 35165,
+        "type:slap": 21014,
+        "type:backhand": 9139,
+        "type:tip": 11152,
+        "type:snap": 18968,
+        "type:other": 1042,
+        "strength:5,4,1": 19186,
+        "strength:4,5,1": 3165,
+        "strength:6,5,0": 2832,
+        "excluded": 1902,
+        "strength:5,4,0": 40,
+        "strength:4,3,1": 324,
+        "strength:5,3,1": 561,
+        "strength:5,5,0": 35,
+        "strength:4,4,1": 1717,
+        "strength:6,4,0": 349,
+        "strength:3,3,1": 1552,
+        "strength:3,5,1": 18,
+        "strength:6,5,1": 4,
+        "strength:3,4,1": 30,
+        "strength:5,6,1": 3,
+        "strength:6,4,1": 1,
+        "strength:4,3,0": 9,
+        "strength:5,3,0": 4,
+        "strength:6,3,0": 4
+      },
+      "actors_by_block": {
+        "shooter": 1123,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_by_block": {
+        "shooter": 128
+      },
+      "exclusion_reasons": {
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "columns_with_unavailable": 83,
+      "class_fraction": 0.7616093824147515,
+      "mean_probability": 0.7616093862333444,
+      "imputation_weighted_nll": 0.4254343792606731,
+      "outcome_only_nll": 0.4254343792606731,
+      "optimizer": {
+        "iterations": 2394,
+        "evaluations": 2617,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "gradient_max": 0.028362851506219776,
+        "em_iterations": 0,
+        "responsibility_change": null,
+        "relative_objective_change": null,
+        "objective_increases": null
+      },
+      "wall_seconds": 13884.620873957989
+    },
+    "q": {
+      "conditioning": "unblocked attempt: on-net versus miss",
+      "status": "complete",
+      "counts": {
+        "included": 112345,
+        "class:1": 82328,
+        "type:wrist": 62608,
+        "strength:5,5,1": 89007,
+        "excluded": 37067,
+        "type:slap": 15306,
+        "type:backhand": 8256,
+        "type:tip": 10726,
+        "class:0": 30017,
+        "type:snap": 14535,
+        "type:other": 914,
+        "strength:5,4,1": 14793,
+        "strength:6,5,0": 2000,
+        "strength:4,5,1": 2800,
+        "strength:5,4,0": 31,
+        "strength:5,3,1": 445,
+        "strength:5,5,0": 23,
+        "strength:4,4,1": 1341,
+        "strength:6,4,0": 262,
+        "strength:3,3,1": 1334,
+        "strength:4,3,1": 247,
+        "strength:3,5,1": 16,
+        "strength:6,5,1": 4,
+        "strength:3,4,1": 26,
+        "strength:5,6,1": 3,
+        "strength:6,4,1": 1,
+        "strength:4,3,0": 7,
+        "strength:6,3,0": 3,
+        "strength:5,3,0": 2
+      },
+      "actors_by_block": {
+        "shooter": 1123,
+        "goalie": 119,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_by_block": {
+        "shooter": 135
+      },
+      "exclusion_reasons": {
+        "requires_unblocked": 35165,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "columns_with_unavailable": 85,
+      "class_fraction": 0.7328140994258756,
+      "mean_probability": 0.7328141029501007,
+      "imputation_weighted_nll": 0.5446226387601031,
+      "outcome_only_nll": 0.5446226387601031,
+      "optimizer": {
+        "iterations": 4212,
+        "evaluations": 4624,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "gradient_max": 0.023802834264944638,
+        "em_iterations": 0,
+        "responsibility_change": null,
+        "relative_objective_change": null,
+        "objective_increases": null
+      },
+      "wall_seconds": 708.5942882499658
+    },
+    "r": {
+      "conditioning": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+      "status": "complete",
+      "counts": {
+        "included": 82328,
+        "class:0": 19823,
+        "type:wrist": 47332,
+        "strength:5,5,1": 64961,
+        "excluded": 67084,
+        "class:1": 62505,
+        "type:slap": 10681,
+        "type:backhand": 6455,
+        "type:tip": 6058,
+        "type:snap": 11089,
+        "type:other": 713,
+        "strength:5,4,1": 10781,
+        "strength:6,5,0": 1437,
+        "strength:4,5,1": 2316,
+        "strength:5,4,0": 19,
+        "strength:5,3,1": 330,
+        "strength:5,5,0": 17,
+        "strength:4,4,1": 1029,
+        "strength:3,3,1": 1032,
+        "strength:4,3,1": 166,
+        "strength:6,4,0": 193,
+        "strength:3,5,1": 15,
+        "strength:6,5,1": 3,
+        "strength:3,4,1": 24,
+        "strength:6,3,0": 1,
+        "strength:5,6,1": 2,
+        "strength:4,3,0": 2
+      },
+      "actors_by_block": {
+        "shooter": 1123,
+        "goalie": 119,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_by_block": {
+        "shooter": 145
+      },
+      "exclusion_reasons": {
+        "requires_on_net": 65182,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "columns_with_unavailable": 85,
+      "class_fraction": 0.7592192206782625,
+      "mean_probability": 0.7592192168981464,
+      "imputation_weighted_nll": 0.524955403555361,
+      "outcome_only_nll": 0.524955403555361,
+      "optimizer": {
+        "iterations": 2787,
+        "evaluations": 3049,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "gradient_max": 0.014090667626489032,
+        "em_iterations": 0,
+        "responsibility_change": null,
+        "relative_objective_change": null,
+        "objective_increases": null
+      },
+      "wall_seconds": 341.81664779107086
+    },
+    "g": {
+      "conditioning": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
+      "status": "complete",
+      "counts": {
+        "excluded": 86907,
+        "included": 62505,
+        "class:0": 54858,
+        "type:wrist": 35848,
+        "strength:5,5,1": 48549,
+        "type:backhand": 4984,
+        "type:tip": 4742,
+        "type:snap": 8391,
+        "type:slap": 7934,
+        "class:1": 7647,
+        "strength:5,4,1": 8471,
+        "strength:6,5,0": 1172,
+        "strength:4,5,1": 2083,
+        "strength:5,4,0": 19,
+        "type:other": 606,
+        "strength:5,5,0": 14,
+        "strength:4,4,1": 761,
+        "strength:3,3,1": 843,
+        "strength:4,3,1": 133,
+        "strength:6,4,0": 156,
+        "strength:3,5,1": 14,
+        "strength:5,3,1": 263,
+        "strength:6,5,1": 2,
+        "strength:3,4,1": 21,
+        "strength:6,3,0": 1,
+        "strength:5,6,1": 1,
+        "strength:4,3,0": 2
+      },
+      "actors_by_block": {
+        "shooter": 1123,
+        "goalie": 119,
+        "setter": 1004,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_by_block": {
+        "shooter": 159
+      },
+      "exclusion_reasons": {
+        "recorded_stopped_save": 19823,
+        "requires_on_net": 65182,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "columns_with_unavailable": 85,
+      "class_fraction": 0.12234221262299017,
+      "mean_probability": 0.1207527936984142,
+      "imputation_weighted_nll": 0.5531776527597231,
+      "outcome_only_nll": 0.3174073367972516,
+      "optimizer": {
+        "iterations": 7559,
+        "evaluations": 8348,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "gradient_max": 0.004615090576176008,
+        "em_iterations": 9,
+        "responsibility_change": 1.648705810208817e-07,
+        "relative_objective_change": 1.0590537481174833e-14,
+        "objective_increases": []
+      },
+      "wall_seconds": 3041.3525349169504
+    }
+  },
+  "probability_controls": {
+    "status": "pass",
+    "supported_fixture_derived_contexts": 7,
+    "actual_and_fully_neutral_evaluations": 14,
+    "unsupported_ids": [],
+    "scope": "hypothetical fixture-derived contexts under real coefficients; software closure/finite-value controls, not actual real-population forecasts"
+  },
+  "resources": {
+    "manifest": {
+      "wall_seconds": 24702.75259904214,
+      "peak_memory_bytes": 18085445632,
+      "design_wall_seconds": 6591.49097116699,
+      "input_read_wall_seconds": 2.355126000009477,
+      "fit_wall_seconds": 18108.906501875143,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 202150357,
+      "origin_rows": {
+        "u": 23180585,
+        "q": 112345,
+        "r": 82328,
+        "g": 62505
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 568265
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 3511,
+        "q": 3656,
+        "r": 3656,
+        "g": 4667
+      },
+      "solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 9
+      }
+    },
+    "whole_command": {
+      "wall_seconds": 24803.22,
+      "user_seconds": 22319.16,
+      "system_seconds": 371.86,
+      "maximum_resident_set_size_bytes": 18085445632,
+      "peak_memory_footprint_bytes": 20131003176,
+      "swaps": 0
+    },
+    "whole_command_minus_manifest_wall_seconds": 100.46740095785935,
+    "difference_scope": "outer command work outside recorded read/design/fit-and-members scope; whole command separately retained",
+    "limit_bytes": 68719476736,
+    "maximum_rss_gib": 16.8433837890625,
+    "peak_footprint_gib": 18.748457707464695,
+    "within_limit": true,
+    "scope": [
+      "ordinary shared desktop; not a cold or isolated benchmark",
+      "ordinary os cache may be warmed by earlier preparation attempts",
+      "outside-owner historical factual pid89225 absent at launch; no outside-owner process control",
+      "manual process/file observations retained in monitor.jsonl",
+      "one root-authorized global resource observation retained separately; cause of utilization change unassessed"
+    ]
+  },
+  "source_preservation": {
+    "analysis/src/hockey_stats/execution_design.py": "2a3685562c0045d27c59e2a7557104bde31c1f094a1fd2962bc40789f0933025",
+    "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+    "analysis/src/hockey_stats/execution_state.py": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d",
+    "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+    "analysis/src/hockey_stats/execution_fit.py": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+  },
+  "preservation": {
+    "receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-preservation.json",
+      "sha256": "de2e71faed9509c3274c21119b09e878dc7f748ac53cbe620e961f90a08421c3"
+    },
+    "baseline": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/execution-v1-05/protected-real-before.json",
+      "sha256": "e53a93d2dc1a8703a21db690f03334d1be7b8fb5c967bc29f4679f110a141af2"
+    },
+    "files_checked": 40,
+    "exact_hash_size_mtime_baseline_equality": true,
+    "scope": "current serving build and active/previous databases; accepted prepared/coaching manifest and sidecars; first-year people, first/last selected game and full coverage members",
+    "excludes": "other owners moving outputs, primary documents under concurrent ownership, and all other bulk members; accepted upstream manifest references retain their exact identities without a 400 gb rehash",
+    "method": "independent receipt/hash/baseline reconciliation; no duplicate source-body rehash"
+  },
+  "operator_receipts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-result.json",
+      "sha256": "43d1e755c71332fbfbaf9c2aa77e76a3b87d0abb0e1ec520c163857689fffc4b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-submission.json",
+      "sha256": "d1777b32fbe8e7554586c7829a7f05130c975fbbbb0d34df5cd62a77518cd996"
+    }
+  ],
+  "adverse_cases": {
+    "accepted_coverage_completeness": {
+      "order": {
+        "available": 1312,
+        "partial": 0,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "score": {
+        "available": 1312,
+        "partial": 0,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "frame": {
+        "available": 1185,
+        "partial": 127,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "identity": {
+        "available": 0,
+        "partial": 1147,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "history": {
+        "available": 0,
+        "partial": 52460,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "event_context": {
+        "available": 307677,
+        "partial": 96515,
+        "unavailable": 464,
+        "not_applicable": 0
+      },
+      "elapsed_context": {
+        "available": 1147643,
+        "partial": 278678,
+        "unavailable": 0,
+        "not_applicable": 0
+      },
+      "immediate_stop": {
+        "available": 82481,
+        "partial": 0,
+        "unavailable": 476,
+        "not_applicable": 66455
+      },
+      "reattempt": {
+        "available": 74832,
+        "partial": 0,
+        "unavailable": 476,
+        "not_applicable": 74104
+      }
+    },
+    "unknown_horizon_games": 1,
+    "report_only_attempts": 909,
+    "unresolved_known_seconds": 69299,
+    "interpretation": "retained source limitations, not automatic experimental-model rejection"
+  },
+  "limitations": [
+    "native ftol completion does not assert raw gtol reached or global optimum",
+    "in-sample head means, reliability and nll retain conditioning and outcome-dependent imputation limits; g auxiliary-mixture and outcome-only nll separate",
+    "accepted upstream seasonal counts and exact selected member identities reused; external per-game extraction not independently replayed",
+    "no calibration, causal, ability or model-admission claim",
+    "2022 held for separately approved retained-geometry qualification and root go",
+    "no source/index edits, raw/prepared body replay, fits, profiles or process control"
+  ],
+  "owned_files": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-independent-acceptance.json",
+    "/tmp/v105-real2021-peer-result-03.json"
+  ],
+  "retention": "retain annual proof and temporary real checker/expected metadata until twenty real heads and four final probes qualify"
+}

@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "native_calls": [
+    {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    },
+    {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07
+    }
+  ],
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "scope": "tiny controlled native forwarding, em completion and recipe/receipt/reader boundaries only; no fixture or real annual qualification"
+}

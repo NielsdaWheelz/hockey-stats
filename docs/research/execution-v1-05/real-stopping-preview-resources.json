@@ -1,0 +1,23 @@
+{
+  "observed_utc": "2026-10-25T19:24:45.890871+00:00",
+  "exit_code": 0,
+  "actual_whole_command": {
+    "wall_seconds": 6909.79,
+    "user_seconds": 6016.93,
+    "system_seconds": 220.01,
+    "maximum_resident_set_size_bytes": 17231806464,
+    "peak_memory_footprint_bytes": 20725693632,
+    "swaps": 0
+  },
+  "controller_measurement_before_final_report": {
+    "wall_seconds": 6851.130174624996,
+    "peak_memory_bytes": 17231806464
+  },
+  "input_and_saved_read_seconds": 58.10049749999598,
+  "preparation_seconds": 6746.0911868340045,
+  "native_solve_seconds": {
+    "u": 27.361821500002407,
+    "q": 2.3569843750010477
+  },
+  "scope": "time-l is whole-command wall and process peak; controller wall ends before its final report and interpreter exit; shared desktop and os cache, not a controlled benchmark"
+}

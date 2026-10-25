@@ -1,0 +1,276 @@
+{
+  "status": "diagnostic_complete_no_adoption",
+  "observed_utc": "2026-10-25T19:24:45.890871+00:00",
+  "exit_code": 0,
+  "preview": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01/preview.json",
+    "sha256": "2a4acc3fd248c112755143b66566f5fcbcbfb4e70bec53f694bbdcaff67f2a53"
+  },
+  "scope": "one diagnostic u/q solve each under old2024 prior lineage; no new five-year recipe, acceptance, production artifact or promotion",
+  "actual_git_head": "4914a41e03e4021af5dbe39fb7e8757d21cc3dd8",
+  "git_clean": true,
+  "source_sha256": {
+    "analysis/src/hockey_stats/execution_design.py": "43d086cdbb335406ea780e9ceaddc7193c50796285342295fa55e48e9e96179f",
+    "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+    "analysis/src/hockey_stats/execution_state.py": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d",
+    "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+    "analysis/src/hockey_stats/execution_fit.py": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+  },
+  "chance_sha256": "02a7a840fc1c4aea232d757d6d98a3185931603edb193582d443f06f8b313e20",
+  "controller": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stopping-preview-20261025-ysj0q0r7/preview.py",
+    "sha256": "6644b8d8c16cb11030c66dbd385659492764d0879a3eb214a9973eda940016a4"
+  },
+  "pins": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01-pins.json",
+    "sha256": "01ecd53dc29da6f8287c215179356eadf290291f40a919867bbb26d72c80694e"
+  },
+  "temporary_ownership": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stopping-preview-20261025-ysj0q0r7/ownership.json",
+    "sha256": "c898296bfeb989d6dccb15885cddb62040169dd8b206b270abe64c847309642a"
+  },
+  "actual_whole_command": {
+    "wall_seconds": 6909.79,
+    "user_seconds": 6016.93,
+    "system_seconds": 220.01,
+    "maximum_resident_set_size_bytes": 17231806464,
+    "peak_memory_footprint_bytes": 20725693632,
+    "swaps": 0
+  },
+  "resource_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01-resource.json",
+    "sha256": "d6cefefa54a0f2daeee9a9e24a71ba4fa5b0b4f35888adbd032a5d10aba3f719"
+  },
+  "preservation": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01-preservation.json",
+    "sha256": "1ab88cde919c0e9c021b44d2c338a66c3e93a4b004aaa8fcc74a3d2d544b8614",
+    "status": "passed",
+    "files_checked": 99,
+    "differences": 0
+  },
+  "selector_exactly_matches_frozen": true,
+  "input_references": {
+    "prepared_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "coaches": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    },
+    "previous_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025/manifest.json",
+      "sha256": "65859989b3f69ec93649df62965b50a6c0e81d869ca39111865f36597afec475"
+    },
+    "previous_acceptance": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025-independent-acceptance.json",
+      "sha256": "d764b9fd4b5d2f55214ee42b7571490bb2d057a1ed01f023f79c923a1cfe92b8"
+    },
+    "annual_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/manifest.json",
+      "sha256": "f7ed612309a16bb0385694e27f8136f1eac8eab34c9eae2c3939605f43268e69"
+    },
+    "frozen_baseline": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/baseline.json",
+      "sha256": "06d2cc53b998afea4996f5886e408ae576f25b0b7bcdc2887c5ce314491cb5a8"
+    },
+    "protected_preservation": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-preservation.json",
+      "sha256": "1c1350d00688be4cc1e053bb7332360a40e2dc3ecae49beafa73ebfeb8b74583"
+    },
+    "u_probe": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.json",
+      "sha256": "310f59133e07cc59c785cdaa3197b3eba38a543de119e05700b9a94e858d0a5e"
+    },
+    "u_probe_arrays": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.npz",
+      "sha256": "7c6022ed71e40dc3e503ca6f87f3c639f614ddb9b926dd1f63e69744cb98f3a8"
+    },
+    "q_probe": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.json",
+      "sha256": "cbeabd5e299776a322a8cad90921b64ca6c4847160f4f4f0fd707d96128962a1"
+    },
+    "q_probe_arrays": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.npz",
+      "sha256": "dcc023aceeddecd65143f5c484b690f719b798e04a3551cc060cfac8695f976e"
+    }
+  },
+  "endpoint_checks": {
+    "u": {
+      "arrays": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01/u-diagnostic-coefficients.npz",
+        "sha256": "1e3709b9311226d9086b0bf002d66979b193c7cadcec54ecb2b1b705e78f8086"
+      },
+      "shape": [
+        3420
+      ],
+      "dtype": "float64",
+      "finite": true,
+      "saved_initial_array": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.npz",
+        "sha256": "7c6022ed71e40dc3e503ca6f87f3c639f614ddb9b926dd1f63e69744cb98f3a8"
+      },
+      "coefficient_changes_match_saved_arrays": true
+    },
+    "q": {
+      "arrays": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01/q-diagnostic-coefficients.npz",
+        "sha256": "b1986070bf41e5d4c95606ef7b5879dc2d28683747728b21fc7b112776cd9d0a"
+      },
+      "shape": [
+        3544
+      ],
+      "dtype": "float64",
+      "finite": true,
+      "saved_initial_array": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.npz",
+        "sha256": "dcc023aceeddecd65143f5c484b690f719b798e04a3551cc060cfac8695f976e"
+      },
+      "coefficient_changes_match_saved_arrays": true
+    }
+  },
+  "heads": {
+    "u": {
+      "saved_replay": {
+        "maximum_probability_change": 1.2808432675537329e-05,
+        "head_maximum_changes": {
+          "u": 1.2808432675537329e-05,
+          "q": 0.0,
+          "r": 0.0,
+          "g": 0.0
+        },
+        "terminal_maximum_changes": {
+          "block": 1.2808432675481818e-05,
+          "miss": 2.7872842130599595e-06,
+          "stopped": 1.2365335698844016e-06,
+          "continuing": 1.1427727549750966e-05,
+          "goal": 2.86629171419861e-06
+        },
+        "evaluated_origins": 123666,
+        "evaluated_branches": 1132870
+      },
+      "replay_absolute_tolerance": 1e-15,
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 12,
+        "evaluations": 43,
+        "objective": 69668.37388672311
+      },
+      "solve_seconds": 27.361821500002407,
+      "before_objective": 69668.37388672684,
+      "before_gradient_max": 0.006577573175729279,
+      "diagnostic_arrays": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01/u-diagnostic-coefficients.npz",
+        "sha256": "1e3709b9311226d9086b0bf002d66979b193c7cadcec54ecb2b1b705e78f8086"
+      },
+      "objective": 69668.37388672311,
+      "objective_change": -3.725290298461914e-09,
+      "gradient_max": 0.0019150458953917063,
+      "gradient_max_change": 0.008492619071120986,
+      "coefficient_max_change": 5.411396403181418e-07,
+      "coefficient_l2_change": 1.8857841909079152e-06,
+      "prior_only_profile_max_change": 7.914697786048919e-10,
+      "incremental_probability_change": {
+        "maximum_probability_change": 3.889186265260136e-07,
+        "head_maximum_changes": {
+          "u": 3.889186265260136e-07,
+          "q": 0.0,
+          "r": 0.0,
+          "g": 0.0
+        },
+        "terminal_maximum_changes": {
+          "block": 3.889186265260136e-07,
+          "miss": 2.0203456241318918e-07,
+          "stopped": 1.0440840664260875e-07,
+          "continuing": 2.7685402043120533e-07,
+          "goal": 1.4069940379446422e-07
+        },
+        "evaluated_origins": 123666,
+        "evaluated_branches": 1132870
+      },
+      "diagnostic_stability_within_existing_margin": true,
+      "status": "diagnostic_complete",
+      "wall_seconds": 33.11822762499651
+    },
+    "q": {
+      "saved_replay": {
+        "maximum_probability_change": 1.4692029087437497e-05,
+        "head_maximum_changes": {
+          "u": 0.0,
+          "q": 1.4692029087437497e-05,
+          "r": 0.0,
+          "g": 0.0
+        },
+        "terminal_maximum_changes": {
+          "block": 0.0,
+          "miss": 7.026632208348427e-06,
+          "stopped": 1.1491641880856385e-06,
+          "continuing": 6.4938165992844965e-06,
+          "goal": 1.096373888842539e-06
+        },
+        "evaluated_origins": 123666,
+        "evaluated_branches": 1132870
+      },
+      "replay_absolute_tolerance": 1e-15,
+      "native": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 179,
+        "evaluations": 201,
+        "objective": 68275.9194515477
+      },
+      "solve_seconds": 2.3569843750010477,
+      "before_objective": 68275.91945158108,
+      "before_gradient_max": 0.00531502624519719,
+      "diagnostic_arrays": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01/q-diagnostic-coefficients.npz",
+        "sha256": "b1986070bf41e5d4c95606ef7b5879dc2d28683747728b21fc7b112776cd9d0a"
+      },
+      "objective": 68275.9194515477,
+      "objective_change": -3.338209353387356e-08,
+      "gradient_max": 0.005199800064266975,
+      "gradient_max_change": 0.005345960734935324,
+      "coefficient_max_change": 8.568169698408568e-06,
+      "coefficient_l2_change": 7.085954811591264e-05,
+      "prior_only_profile_max_change": 2.1607785585797679e-07,
+      "incremental_probability_change": {
+        "maximum_probability_change": 2.2608070832097482e-06,
+        "head_maximum_changes": {
+          "u": 0.0,
+          "q": 2.2608070832097482e-06,
+          "r": 0.0,
+          "g": 0.0
+        },
+        "terminal_maximum_changes": {
+          "block": 0.0,
+          "miss": 1.3680316829078887e-06,
+          "stopped": 5.641156945457304e-07,
+          "continuing": 1.0706671964011427e-06,
+          "goal": 4.7238382877567986e-07
+        },
+        "evaluated_origins": 123666,
+        "evaluated_branches": 1132870
+      },
+      "diagnostic_stability_within_existing_margin": true,
+      "status": "diagnostic_complete",
+      "wall_seconds": 6.553240041997924
+    }
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01.log",
+    "sha256": "8d3d6474bf32bab127aa7296a8a4be5a1a505919f52c8c34146d13d713d85e88",
+    "mtime_ns": 1792955973586023750
+  },
+  "limitations": [
+    "diagnostic under the old2024 prior lineage; no new five-year recipe or annual acceptance",
+    "both native solves stop on relative objective reduction; raw gradient tolerances are not asserted reached",
+    "all comparisons use the exact existing frozen probes; no general accuracy/calibration claim",
+    "current final annual f7ed6123 remains incomplete_failed_resolution with u/q failed; no coefficient promotion",
+    "independent result review and explicit user approval precede any stopping amendment or new campaign"
+  ],
+  "next_action": "read-only independent result review; no more fitting, retry, adoption, source/document edits or cleanup by this operator"
+}

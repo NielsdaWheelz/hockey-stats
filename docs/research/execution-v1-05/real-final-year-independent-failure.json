@@ -1,0 +1,1579 @@
+{
+  "status": "incomplete_failed_resolution",
+  "checked_at_utc": "2026-10-25T17:05:08.009629+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/manifest.json",
+    "sha256": "f7ed612309a16bb0385694e27f8136f1eac8eab34c9eae2c3939605f43268e69"
+  },
+  "checker": {
+    "path": "/tmp/v105-acceptance-rebuilt-20261025-nbmdpegz/final-failed-resolution-check.py",
+    "sha256": "fa1c392919b039ac64a9f95f88f8753d88e7b1cfa4074397b474e2a0135efe89"
+  },
+  "frozen_helper": {
+    "path": "/tmp/v105-acceptance-rebuilt-20261025-nbmdpegz/annual-check.py",
+    "sha256": "5d7ae5f64b05bb791304afa971156c0f14ddb825574b4684c1c2f9083c7809bd"
+  },
+  "expected_metadata": {
+    "path": "/tmp/v105-acceptance-rebuilt-20261025-nbmdpegz/expected-20252026.json",
+    "sha256": "5af97a7d1959437f741c899ef33518d690b5d621aed11c0c32dd24749915c67d"
+  },
+  "previous_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025/manifest.json",
+    "sha256": "65859989b3f69ec93649df62965b50a6c0e81d869ca39111865f36597afec475"
+  },
+  "previous_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025-independent-acceptance.json",
+    "sha256": "d764b9fd4b5d2f55214ee42b7571490bb2d057a1ed01f023f79c923a1cfe92b8"
+  },
+  "baseline_invariants": {
+    "strict_public_reader_valid": true,
+    "all_four_baseline_heads_complete": true,
+    "exact_input_member_coaching_date_bindings": true,
+    "producer_runtime_and_six_source_hashes_match": true,
+    "float64_finite": true,
+    "selected_games": 1312,
+    "recognized_attempts": 153754,
+    "recognized_outcomes": [
+      {
+        "outcome": "block",
+        "count": 40866
+      },
+      {
+        "outcome": "miss",
+        "count": 39029
+      },
+      {
+        "outcome": "save",
+        "count": 64976
+      },
+      {
+        "outcome": "goal",
+        "count": 7554
+      },
+      {
+        "outcome": null,
+        "count": 1329
+      }
+    ],
+    "incoming_prior_rows_checked": 5674,
+    "unchanged_ledger_rows_checked": 3136,
+    "per_game_index_scope": "exact accepted ids/dates/member digests; internally checked output source-index uniqueness/key/pointer partitions; no independent per-game source-index/count oracle or raw event replay"
+  },
+  "heads": {
+    "u": {
+      "status": "complete",
+      "counts": {
+        "included": 151381,
+        "class:0": 40484,
+        "type:wrist": 69398,
+        "strength:5,5,1": 120912,
+        "class:1": 110897,
+        "type:slap": 18665,
+        "type:snap": 38584,
+        "type:other": 1924,
+        "type:tip": 13696,
+        "strength:5,4,1": 19552,
+        "type:backhand": 9114,
+        "strength:4,5,1": 2740,
+        "strength:6,5,0": 3424,
+        "excluded": 2373,
+        "strength:5,3,1": 637,
+        "strength:6,4,0": 426,
+        "strength:4,3,1": 419,
+        "strength:4,4,1": 1561,
+        "strength:3,3,1": 1599,
+        "strength:5,4,0": 37,
+        "strength:6,5,1": 1,
+        "strength:4,3,0": 11,
+        "strength:3,4,1": 21,
+        "strength:3,5,1": 10,
+        "strength:5,5,0": 26,
+        "strength:6,4,1": 2,
+        "strength:5,6,1": 1,
+        "strength:6,3,0": 2
+      },
+      "diagnostics": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 2581,
+        "evaluations": 2800,
+        "objective": 69668.37388695886,
+        "gradient_max": 0.007845808800575933,
+        "inner_solves": [],
+        "objective_trace": [
+          69668.37388695886
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null,
+        "in_sample": {
+          "attempts": 151381,
+          "positive": 110897,
+          "class_fraction": 0.7325688164300672,
+          "mean_predicted_probability": 0.7325688224723097,
+          "mean_imputation_weighted_negative_log_likelihood": 0.4524561551931195,
+          "mean_outcome_only_negative_log_likelihood": 0.4524561551931195,
+          "reliability": [
+            {
+              "lower": 0.0,
+              "upper": 0.05,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.05,
+              "upper": 0.1,
+              "count": 16,
+              "observed_positive": 15,
+              "predicted_mass": 1.3229898757023393
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.15,
+              "count": 99,
+              "observed_positive": 97,
+              "predicted_mass": 12.746818899773869
+            },
+            {
+              "lower": 0.15,
+              "upper": 0.2,
+              "count": 212,
+              "observed_positive": 170,
+              "predicted_mass": 37.74043254966068
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.25,
+              "count": 432,
+              "observed_positive": 279,
+              "predicted_mass": 98.4490522851807
+            },
+            {
+              "lower": 0.25,
+              "upper": 0.3,
+              "count": 888,
+              "observed_positive": 366,
+              "predicted_mass": 246.97194808036792
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.35,
+              "count": 1350,
+              "observed_positive": 400,
+              "predicted_mass": 441.5991428539752
+            },
+            {
+              "lower": 0.35,
+              "upper": 0.4,
+              "count": 2239,
+              "observed_positive": 560,
+              "predicted_mass": 843.3966119135314
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.45,
+              "count": 3263,
+              "observed_positive": 784,
+              "predicted_mass": 1394.0159111916012
+            },
+            {
+              "lower": 0.45,
+              "upper": 0.5,
+              "count": 5357,
+              "observed_positive": 1353,
+              "predicted_mass": 2554.0504052058805
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.55,
+              "count": 8490,
+              "observed_positive": 2260,
+              "predicted_mass": 4475.750877042494
+            },
+            {
+              "lower": 0.55,
+              "upper": 0.6,
+              "count": 12604,
+              "observed_positive": 4068,
+              "predicted_mass": 7262.545903754731
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.65,
+              "count": 14980,
+              "observed_positive": 6438,
+              "predicted_mass": 9365.342722119689
+            },
+            {
+              "lower": 0.65,
+              "upper": 0.7,
+              "count": 14324,
+              "observed_positive": 9224,
+              "predicted_mass": 9662.4351803115
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.75,
+              "count": 13627,
+              "observed_positive": 11999,
+              "predicted_mass": 9881.844485231144
+            },
+            {
+              "lower": 0.75,
+              "upper": 0.8,
+              "count": 14277,
+              "observed_positive": 13866,
+              "predicted_mass": 11068.606110759967
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.85,
+              "count": 15474,
+              "observed_positive": 15320,
+              "predicted_mass": 12766.128270850197
+            },
+            {
+              "lower": 0.85,
+              "upper": 0.9,
+              "count": 13694,
+              "observed_positive": 13651,
+              "predicted_mass": 11968.565362756282
+            },
+            {
+              "lower": 0.9,
+              "upper": 0.95,
+              "count": 10614,
+              "observed_positive": 10606,
+              "predicted_mass": 9819.7023459796
+            },
+            {
+              "lower": 0.95,
+              "upper": 1.0,
+              "count": 19441,
+              "observed_positive": 19441,
+              "predicted_mass": 18995.786343019434
+            }
+          ],
+          "origin_mass_error": 2.6645352591003757e-15,
+          "expanded_rows": 26668401,
+          "candidate_branches": 0,
+          "base_matrix_nonzeros": 1108095861,
+          "batches": 6748
+        },
+        "requested_starts": [
+          "zero",
+          "prior_mean"
+        ],
+        "wall_seconds": 3426.9935751660014
+      },
+      "selected_start": "zero",
+      "coefficient_bounds": {
+        "dtype": "float64",
+        "shape": [
+          3420
+        ],
+        "minimum": -2.4797045278375363,
+        "maximum": 3.1599265185823135
+      },
+      "prior_rows": 1110,
+      "incoming_prior_bindings_checked": true,
+      "absent_prior_only_history_preserved": true
+    },
+    "q": {
+      "status": "complete",
+      "counts": {
+        "excluded": 42857,
+        "included": 110897,
+        "class:1": 72381,
+        "type:wrist": 47855,
+        "strength:5,5,1": 87315,
+        "type:slap": 13201,
+        "class:0": 38516,
+        "type:snap": 27601,
+        "type:tip": 12492,
+        "strength:5,4,1": 14994,
+        "type:backhand": 8008,
+        "strength:4,5,1": 2442,
+        "strength:6,5,0": 2335,
+        "type:other": 1740,
+        "strength:5,3,1": 535,
+        "strength:6,4,0": 290,
+        "strength:4,3,1": 330,
+        "strength:3,3,1": 1348,
+        "strength:4,4,1": 1221,
+        "strength:6,5,1": 1,
+        "strength:4,3,0": 10,
+        "strength:5,4,0": 25,
+        "strength:3,5,1": 10,
+        "strength:3,4,1": 19,
+        "strength:5,5,0": 18,
+        "strength:6,4,1": 2,
+        "strength:5,6,1": 1,
+        "strength:6,3,0": 1
+      },
+      "diagnostics": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3693,
+        "evaluations": 4034,
+        "objective": 68275.91945289125,
+        "gradient_max": 0.027201503963368658,
+        "inner_solves": [],
+        "objective_trace": [
+          68275.91945289125
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null,
+        "in_sample": {
+          "attempts": 110897,
+          "positive": 72381,
+          "class_fraction": 0.6526867273235525,
+          "mean_predicted_probability": 0.652686736273501,
+          "mean_imputation_weighted_negative_log_likelihood": 0.6119567459929693,
+          "mean_outcome_only_negative_log_likelihood": 0.6119567459929693,
+          "reliability": [
+            {
+              "lower": 0.0,
+              "upper": 0.05,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.05,
+              "upper": 0.1,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.15,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.15,
+              "upper": 0.2,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.25,
+              "count": 3,
+              "observed_positive": 1,
+              "predicted_mass": 0.7059850304606304
+            },
+            {
+              "lower": 0.25,
+              "upper": 0.3,
+              "count": 54,
+              "observed_positive": 11,
+              "predicted_mass": 15.270412612676573
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.35,
+              "count": 369,
+              "observed_positive": 116,
+              "predicted_mass": 122.25241634704982
+            },
+            {
+              "lower": 0.35,
+              "upper": 0.4,
+              "count": 1391,
+              "observed_positive": 491,
+              "predicted_mass": 527.3580410020473
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.45,
+              "count": 3200,
+              "observed_positive": 1285,
+              "predicted_mass": 1367.7320112312218
+            },
+            {
+              "lower": 0.45,
+              "upper": 0.5,
+              "count": 5335,
+              "observed_positive": 2533,
+              "predicted_mass": 2544.0642049322087
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.55,
+              "count": 8268,
+              "observed_positive": 4246,
+              "predicted_mass": 4354.863176636872
+            },
+            {
+              "lower": 0.55,
+              "upper": 0.6,
+              "count": 13640,
+              "observed_positive": 7701,
+              "predicted_mass": 7868.619911012955
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.65,
+              "count": 18092,
+              "observed_positive": 11205,
+              "predicted_mass": 11323.904052785969
+            },
+            {
+              "lower": 0.65,
+              "upper": 0.7,
+              "count": 22740,
+              "observed_positive": 15362,
+              "predicted_mass": 15366.78860333814
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.75,
+              "count": 20510,
+              "observed_positive": 15143,
+              "predicted_mass": 14832.085752836214
+            },
+            {
+              "lower": 0.75,
+              "upper": 0.8,
+              "count": 9705,
+              "observed_positive": 7581,
+              "predicted_mass": 7481.866495322887
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.85,
+              "count": 3525,
+              "observed_positive": 2912,
+              "predicted_mass": 2893.8873017308424
+            },
+            {
+              "lower": 0.85,
+              "upper": 0.9,
+              "count": 1935,
+              "observed_positive": 1720,
+              "predicted_mass": 1690.8158563421198
+            },
+            {
+              "lower": 0.9,
+              "upper": 0.95,
+              "count": 1567,
+              "observed_positive": 1512,
+              "predicted_mass": 1449.2231176086684
+            },
+            {
+              "lower": 0.95,
+              "upper": 1.0,
+              "count": 563,
+              "observed_positive": 562,
+              "predicted_mass": 541.5636537521115
+            }
+          ],
+          "origin_mass_error": 0.0,
+          "expanded_rows": 110897,
+          "candidate_branches": 0,
+          "base_matrix_nonzeros": 5826148,
+          "batches": 28
+        },
+        "requested_starts": [
+          "zero",
+          "prior_mean"
+        ],
+        "wall_seconds": 87.44139354199433
+      },
+      "selected_start": "prior_mean",
+      "coefficient_bounds": {
+        "dtype": "float64",
+        "shape": [
+          3544
+        ],
+        "minimum": -1.9194896618150643,
+        "maximum": 1.6773771178507648
+      },
+      "prior_rows": 1208,
+      "incoming_prior_bindings_checked": true,
+      "absent_prior_only_history_preserved": true
+    },
+    "r": {
+      "status": "complete",
+      "counts": {
+        "excluded": 81373,
+        "included": 72381,
+        "class:0": 13753,
+        "type:wrist": 32732,
+        "strength:5,5,1": 56312,
+        "type:slap": 7689,
+        "class:1": 58628,
+        "type:snap": 18698,
+        "strength:5,4,1": 10006,
+        "type:backhand": 5462,
+        "strength:4,5,1": 1935,
+        "type:tip": 6752,
+        "type:other": 1048,
+        "strength:5,3,1": 361,
+        "strength:6,4,0": 182,
+        "strength:6,5,0": 1456,
+        "strength:4,3,1": 226,
+        "strength:3,3,1": 986,
+        "strength:4,4,1": 859,
+        "strength:6,5,1": 1,
+        "strength:3,5,1": 10,
+        "strength:3,4,1": 12,
+        "strength:5,4,0": 15,
+        "strength:5,5,0": 10,
+        "strength:4,3,0": 7,
+        "strength:6,4,1": 2,
+        "strength:5,6,1": 1
+      },
+      "diagnostics": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3391,
+        "evaluations": 3727,
+        "objective": 33361.818125796766,
+        "gradient_max": 0.004333268530365882,
+        "inner_solves": [],
+        "objective_trace": [
+          33361.818125796766
+        ],
+        "em_iterations": 0,
+        "responsibility_change": null,
+        "in_sample": {
+          "attempts": 72381,
+          "positive": 58628,
+          "class_fraction": 0.8099915723739656,
+          "mean_predicted_probability": 0.8099915714623624,
+          "mean_imputation_weighted_negative_log_likelihood": 0.4569673492814276,
+          "mean_outcome_only_negative_log_likelihood": 0.4569673492814276,
+          "reliability": [
+            {
+              "lower": 0.0,
+              "upper": 0.05,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.05,
+              "upper": 0.1,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.15,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.15,
+              "upper": 0.2,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.25,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.25,
+              "upper": 0.3,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.35,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.35,
+              "upper": 0.4,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.45,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.45,
+              "upper": 0.5,
+              "count": 13,
+              "observed_positive": 6,
+              "predicted_mass": 6.1810977244599625
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.55,
+              "count": 130,
+              "observed_positive": 71,
+              "predicted_mass": 69.03781879182509
+            },
+            {
+              "lower": 0.55,
+              "upper": 0.6,
+              "count": 510,
+              "observed_positive": 263,
+              "predicted_mass": 295.6876710309755
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.65,
+              "count": 1980,
+              "observed_positive": 1135,
+              "predicted_mass": 1245.7776272995757
+            },
+            {
+              "lower": 0.65,
+              "upper": 0.7,
+              "count": 5260,
+              "observed_positive": 3450,
+              "predicted_mass": 3568.5310676775034
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.75,
+              "count": 9800,
+              "observed_positive": 7067,
+              "predicted_mass": 7122.571340298449
+            },
+            {
+              "lower": 0.75,
+              "upper": 0.8,
+              "count": 12583,
+              "observed_positive": 9897,
+              "predicted_mass": 9760.797348422102
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.85,
+              "count": 15155,
+              "observed_positive": 12491,
+              "predicted_mass": 12515.319320372033
+            },
+            {
+              "lower": 0.85,
+              "upper": 0.9,
+              "count": 18568,
+              "observed_positive": 16302,
+              "predicted_mass": 16229.260329865974
+            },
+            {
+              "lower": 0.9,
+              "upper": 0.95,
+              "count": 5954,
+              "observed_positive": 5544,
+              "predicted_mass": 5468.574271715888
+            },
+            {
+              "lower": 0.95,
+              "upper": 1.0,
+              "count": 2428,
+              "observed_positive": 2402,
+              "predicted_mass": 2346.262040818466
+            }
+          ],
+          "origin_mass_error": 0.0,
+          "expanded_rows": 72381,
+          "candidate_branches": 0,
+          "base_matrix_nonzeros": 3798088,
+          "batches": 18
+        },
+        "requested_starts": [
+          "zero",
+          "prior_mean"
+        ],
+        "wall_seconds": 53.85007012499409
+      },
+      "selected_start": "zero",
+      "coefficient_bounds": {
+        "dtype": "float64",
+        "shape": [
+          3544
+        ],
+        "minimum": -1.6190325960627812,
+        "maximum": 2.3214536454235755
+      },
+      "prior_rows": 1208,
+      "incoming_prior_bindings_checked": true,
+      "absent_prior_only_history_preserved": true
+    },
+    "g": {
+      "status": "complete",
+      "counts": {
+        "excluded": 95126,
+        "included": 58628,
+        "class:0": 51080,
+        "type:snap": 14977,
+        "strength:5,5,1": 45163,
+        "type:slap": 5945,
+        "type:wrist": 26279,
+        "strength:5,4,1": 8187,
+        "class:1": 7548,
+        "type:backhand": 4618,
+        "strength:4,5,1": 1792,
+        "type:tip": 5930,
+        "type:other": 879,
+        "strength:5,3,1": 300,
+        "strength:6,4,0": 137,
+        "strength:6,5,0": 1210,
+        "strength:4,3,1": 190,
+        "strength:3,3,1": 891,
+        "strength:4,4,1": 707,
+        "strength:3,5,1": 10,
+        "strength:3,4,1": 9,
+        "strength:5,4,0": 14,
+        "strength:5,5,0": 9,
+        "strength:4,3,0": 7,
+        "strength:6,4,1": 2
+      },
+      "diagnostics": {
+        "converged": true,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "iterations": 6173,
+        "evaluations": 6788,
+        "objective": 34080.31527562185,
+        "gradient_max": 0.0026759961197940062,
+        "inner_solves": [
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 2852,
+            "evaluations": 3131,
+            "objective": 18287.33186751848
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 1670,
+            "evaluations": 1835,
+            "objective": 18256.183107905785
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 910,
+            "evaluations": 1000,
+            "objective": 18250.45376500017
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 357,
+            "evaluations": 390,
+            "objective": 18249.969446828818
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 231,
+            "evaluations": 251,
+            "objective": 18249.966294825244
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 104,
+            "evaluations": 119,
+            "objective": 18249.977276859405
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 48,
+            "evaluations": 59,
+            "objective": 18249.980930351856
+          },
+          {
+            "converged": true,
+            "status": 0,
+            "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 1,
+            "evaluations": 3,
+            "objective": 18249.981670294404
+          }
+        ],
+        "objective_trace": [
+          57960.34774791096,
+          34096.921585431155,
+          34080.513880542785,
+          34080.319159057864,
+          34080.31537864395,
+          34080.31527896829,
+          34080.31527575281,
+          34080.31527562191,
+          34080.31527562185
+        ],
+        "objective_increases": [],
+        "em_iterations": 8,
+        "responsibility_change": 2.082567394645629e-07,
+        "relative_objective_change": 1.9213935259855046e-15,
+        "in_sample": {
+          "attempts": 58628,
+          "positive": 7548,
+          "class_fraction": 0.12874394487275703,
+          "mean_predicted_probability": 0.12744666642483127,
+          "mean_imputation_weighted_negative_log_likelihood": 0.5744703584095944,
+          "mean_outcome_only_negative_log_likelihood": 0.3258816848714427,
+          "reliability": [
+            {
+              "lower": 0.0,
+              "upper": 0.05,
+              "count": 17338,
+              "observed_positive": 331,
+              "predicted_mass": 466.26675790796804
+            },
+            {
+              "lower": 0.05,
+              "upper": 0.1,
+              "count": 12194,
+              "observed_positive": 845,
+              "predicted_mass": 892.9424453266854
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.15,
+              "count": 8836,
+              "observed_positive": 1095,
+              "predicted_mass": 1101.1050569734875
+            },
+            {
+              "lower": 0.15,
+              "upper": 0.2,
+              "count": 7505,
+              "observed_positive": 1422,
+              "predicted_mass": 1306.0826592383708
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.25,
+              "count": 5272,
+              "observed_positive": 1225,
+              "predicted_mass": 1175.8987932469922
+            },
+            {
+              "lower": 0.25,
+              "upper": 0.3,
+              "count": 3276,
+              "observed_positive": 894,
+              "predicted_mass": 893.3945135226195
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.35,
+              "count": 1912,
+              "observed_positive": 644,
+              "predicted_mass": 616.4019701351276
+            },
+            {
+              "lower": 0.35,
+              "upper": 0.4,
+              "count": 922,
+              "observed_positive": 351,
+              "predicted_mass": 343.1419896336854
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.45,
+              "count": 549,
+              "observed_positive": 232,
+              "predicted_mass": 232.31921816628795
+            },
+            {
+              "lower": 0.45,
+              "upper": 0.5,
+              "count": 330,
+              "observed_positive": 181,
+              "predicted_mass": 156.31715301768617
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.55,
+              "count": 194,
+              "observed_positive": 105,
+              "predicted_mass": 101.29682845354913
+            },
+            {
+              "lower": 0.55,
+              "upper": 0.6,
+              "count": 140,
+              "observed_positive": 97,
+              "predicted_mass": 80.34343701321188
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.65,
+              "count": 84,
+              "observed_positive": 61,
+              "predicted_mass": 52.296837318636065
+            },
+            {
+              "lower": 0.65,
+              "upper": 0.7,
+              "count": 37,
+              "observed_positive": 28,
+              "predicted_mass": 24.69103782658039
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.75,
+              "count": 19,
+              "observed_positive": 17,
+              "predicted_mass": 13.666644070417071
+            },
+            {
+              "lower": 0.75,
+              "upper": 0.8,
+              "count": 14,
+              "observed_positive": 14,
+              "predicted_mass": 10.781030985190835
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.85,
+              "count": 4,
+              "observed_positive": 4,
+              "predicted_mass": 3.2511427224683116
+            },
+            {
+              "lower": 0.85,
+              "upper": 0.9,
+              "count": 2,
+              "observed_positive": 2,
+              "predicted_mass": 1.7456435960439485
+            },
+            {
+              "lower": 0.9,
+              "upper": 0.95,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            },
+            {
+              "lower": 0.95,
+              "upper": 1.0,
+              "count": 0,
+              "observed_positive": 0,
+              "predicted_mass": 0.0
+            }
+          ],
+          "origin_mass_error": 0.0,
+          "expanded_rows": 58628,
+          "candidate_branches": 530040,
+          "base_matrix_nonzeros": 3076494,
+          "batches": 15
+        },
+        "requested_starts": [
+          "zero",
+          "prior_mean"
+        ],
+        "wall_seconds": 382.06678741700307
+      },
+      "selected_start": "prior_mean",
+      "coefficient_bounds": {
+        "dtype": "float64",
+        "shape": [
+          4491
+        ],
+        "minimum": -5.128167088889619,
+        "maximum": 3.192602221931837
+      },
+      "prior_rows": 2148,
+      "incoming_prior_bindings_checked": true,
+      "absent_prior_only_history_preserved": true
+    }
+  },
+  "numerical_resolution": {
+    "required_bound": 1e-05,
+    "descriptor": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/baseline.json",
+      "sha256": "06d2cc53b998afea4996f5886e408ae576f25b0b7bcdc2887c5ce314491cb5a8"
+    },
+    "requirements": 48,
+    "dispositions": {
+      "actual": 44,
+      "fixture": 4
+    },
+    "uncovered_requirements": 0,
+    "variants": {
+      "u": {
+        "status": "failed",
+        "usage": "numerical_probe",
+        "comparison": {
+          "base_objective": 69668.37388695886,
+          "base_gradient_max": 0.007845808800575933,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-15,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 69668.37388672684,
+          "objective_change": -2.3201573640108109e-07,
+          "tightened_gradient_max": 0.006577573175729279,
+          "gradient_max_change": 0.014423381976305213,
+          "coefficient_max_change": 3.827501260579569e-05,
+          "coefficient_l2_change": 0.00028318625758863244,
+          "maximum_probability_change": 1.2808432675537329e-05,
+          "head_maximum_changes": {
+            "u": 1.2808432675537329e-05,
+            "q": 0.0,
+            "r": 0.0,
+            "g": 0.0
+          },
+          "terminal_maximum_changes": {
+            "block": 1.2808432675481818e-05,
+            "miss": 2.7872842130599595e-06,
+            "stopped": 1.2365335698844016e-06,
+            "continuing": 1.1427727549750966e-05,
+            "goal": 2.86629171419861e-06
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        },
+        "baseline_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/u.npz",
+          "sha256": "097cd43848904e6783dee37cf2f6cc4daadab5a01c2a6bafadd455d3641ee008"
+        },
+        "probe_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.json",
+          "sha256": "310f59133e07cc59c785cdaa3197b3eba38a543de119e05700b9a94e858d0a5e"
+        },
+        "probe_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.npz",
+          "sha256": "7c6022ed71e40dc3e503ca6f87f3c639f614ddb9b926dd1f63e69744cb98f3a8"
+        },
+        "probe_coefficient_bounds": {
+          "dtype": "float64",
+          "shape": [
+            3420
+          ],
+          "minimum": -2.4796914489431705,
+          "maximum": 3.1599260926308723
+        },
+        "baseline_coefficients_preserved_under_descriptor": true
+      },
+      "q": {
+        "status": "failed",
+        "usage": "numerical_probe",
+        "comparison": {
+          "base_objective": 68275.91945289125,
+          "base_gradient_max": 0.027201503963368658,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-15,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 68275.91945158108,
+          "objective_change": -1.3101671356707811e-06,
+          "tightened_gradient_max": 0.00531502624519719,
+          "gradient_max_change": 0.027347664634037008,
+          "coefficient_max_change": 0.00017772323186571182,
+          "coefficient_l2_change": 0.0017348910346290122,
+          "maximum_probability_change": 1.4692029087437497e-05,
+          "head_maximum_changes": {
+            "u": 0.0,
+            "q": 1.4692029087437497e-05,
+            "r": 0.0,
+            "g": 0.0
+          },
+          "terminal_maximum_changes": {
+            "block": 0.0,
+            "miss": 7.026632208348427e-06,
+            "stopped": 1.1491641880856385e-06,
+            "continuing": 6.4938165992844965e-06,
+            "goal": 1.096373888842539e-06
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        },
+        "baseline_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/q.npz",
+          "sha256": "089927ff7d9dff3b1116a7b01a57d49ac39326b03b995799d9dfbfe9fd1bfc83"
+        },
+        "probe_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.json",
+          "sha256": "cbeabd5e299776a322a8cad90921b64ca6c4847160f4f4f0fd707d96128962a1"
+        },
+        "probe_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.npz",
+          "sha256": "dcc023aceeddecd65143f5c484b690f719b798e04a3551cc060cfac8695f976e"
+        },
+        "probe_coefficient_bounds": {
+          "dtype": "float64",
+          "shape": [
+            3544
+          ],
+          "minimum": -1.9195825056780942,
+          "maximum": 1.677468528367042
+        },
+        "baseline_coefficients_preserved_under_descriptor": true
+      },
+      "r": {
+        "status": "passed",
+        "usage": "numerical_probe",
+        "comparison": {
+          "base_objective": 33361.818125796766,
+          "base_gradient_max": 0.004333268530365882,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-15,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 33361.81812564538,
+          "objective_change": -1.5138357412070036e-07,
+          "tightened_gradient_max": 0.0011353133192102236,
+          "gradient_max_change": 0.005468581849576106,
+          "coefficient_max_change": 3.506774032543958e-05,
+          "coefficient_l2_change": 0.00022370323741049546,
+          "maximum_probability_change": 7.778643741906954e-06,
+          "head_maximum_changes": {
+            "u": 0.0,
+            "q": 0.0,
+            "r": 7.778643741906954e-06,
+            "g": 0.0
+          },
+          "terminal_maximum_changes": {
+            "block": 0.0,
+            "miss": 0.0,
+            "stopped": 1.367979430434707e-06,
+            "continuing": 1.3547930086676985e-06,
+            "goal": 5.893276620039245e-07
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        },
+        "baseline_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/r.npz",
+          "sha256": "8e525dc6ae4847822fce982309dd87d680a6a06a1df07815b838ce080044cacd"
+        },
+        "probe_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/r.json",
+          "sha256": "133d6599035871cc4289be8ae93ac9d2c2834f2f1f05cdc123deeda84c654775"
+        },
+        "probe_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/r.npz",
+          "sha256": "fc6436c471e7db8bb3c4660eb95bf557339daad0cd5369129983630cb1d2a360"
+        },
+        "probe_coefficient_bounds": {
+          "dtype": "float64",
+          "shape": [
+            3544
+          ],
+          "minimum": -1.6190381402045142,
+          "maximum": 2.3214589362617915
+        },
+        "baseline_coefficients_preserved_under_descriptor": true
+      },
+      "g": {
+        "status": "passed",
+        "usage": "numerical_probe",
+        "comparison": {
+          "base_objective": 34080.31527562185,
+          "base_gradient_max": 0.0026759961197940062,
+          "optimizer_maxiter": 10000,
+          "optimizer_ftol": 1e-15,
+          "optimizer_gtol": 1e-07,
+          "em_maxiter": 100,
+          "em_relative_tolerance": 1e-09,
+          "em_responsibility_tolerance": 1e-07,
+          "tightened_objective": 34080.31527562178,
+          "objective_change": -6.548361852765083e-11,
+          "tightened_gradient_max": 0.0022601119809107324,
+          "gradient_max_change": 0.0007019764211102461,
+          "coefficient_max_change": 8.84281943155929e-09,
+          "coefficient_l2_change": 3.337602897600602e-08,
+          "maximum_probability_change": 3.055071906565843e-08,
+          "head_maximum_changes": {
+            "u": 0.0,
+            "q": 0.0,
+            "r": 0.0,
+            "g": 3.055071906565843e-08
+          },
+          "terminal_maximum_changes": {
+            "block": 0.0,
+            "miss": 0.0,
+            "stopped": 0.0,
+            "continuing": 2.151560124508123e-08,
+            "goal": 2.151560124508123e-08
+          },
+          "evaluated_origins": 123666,
+          "evaluated_branches": 1132870
+        },
+        "baseline_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/g.npz",
+          "sha256": "3a01f23ec9c822780960863b23d95ed8aa4160dc55359c025586c965766fa9d1"
+        },
+        "probe_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/g.json",
+          "sha256": "419df5d5e4675428d85345f7271359c9f6ebe4d37f6f0786d2133ec8dd36397f"
+        },
+        "probe_arrays": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/g.npz",
+          "sha256": "8272c56246c17eb654cee4448f4ed6281c340a55c5aa2e52afe98d695ce063e0"
+        },
+        "probe_coefficient_bounds": {
+          "dtype": "float64",
+          "shape": [
+            4491
+          ],
+          "minimum": -5.128167095113422,
+          "maximum": 3.1926022221225154
+        },
+        "baseline_coefficients_preserved_under_descriptor": true
+      }
+    },
+    "failed_heads": [
+      "u",
+      "q"
+    ],
+    "passed_heads": [
+      "r",
+      "g"
+    ],
+    "baseline_coefficients_not_promoted": true
+  },
+  "actual_members": [
+    {
+      "member": "coverage.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/coverage.json",
+      "sha256": "75816f47f807838259dcc3c6d840c4850e133f5b1e29a3988cb0f1f60d27900d"
+    },
+    {
+      "member": "heads/u.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/u.npz",
+      "sha256": "097cd43848904e6783dee37cf2f6cc4daadab5a01c2a6bafadd455d3641ee008"
+    },
+    {
+      "member": "heads/u.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/u.json",
+      "sha256": "ad13916c5e0f9e4cbc72d0e7eca9170c335864a15a9de2c8a02d02eef24222b0"
+    },
+    {
+      "member": "heads/q.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/q.npz",
+      "sha256": "089927ff7d9dff3b1116a7b01a57d49ac39326b03b995799d9dfbfe9fd1bfc83"
+    },
+    {
+      "member": "heads/q.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/q.json",
+      "sha256": "eb3a75453d40ca51ec04244987d3572c1ae11b7042231b3238a376c7a299ec7a"
+    },
+    {
+      "member": "heads/r.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/r.npz",
+      "sha256": "8e525dc6ae4847822fce982309dd87d680a6a06a1df07815b838ce080044cacd"
+    },
+    {
+      "member": "heads/r.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/r.json",
+      "sha256": "f54b107829c2af0e2186306e7f9eb58c813379b1eccb537a761783f6efc1bced"
+    },
+    {
+      "member": "heads/g.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/g.npz",
+      "sha256": "3a01f23ec9c822780960863b23d95ed8aa4160dc55359c025586c965766fa9d1"
+    },
+    {
+      "member": "heads/g.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/heads/g.json",
+      "sha256": "1b346287b4ffdcc2d8a06b9cafcd651c90c1759a48adf6c763a0f295aa021c5d"
+    },
+    {
+      "member": "resolution/baseline.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/baseline.json",
+      "sha256": "06d2cc53b998afea4996f5886e408ae576f25b0b7bcdc2887c5ce314491cb5a8"
+    },
+    {
+      "member": "resolution/u.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.json",
+      "sha256": "310f59133e07cc59c785cdaa3197b3eba38a543de119e05700b9a94e858d0a5e"
+    },
+    {
+      "member": "resolution/u.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.npz",
+      "sha256": "7c6022ed71e40dc3e503ca6f87f3c639f614ddb9b926dd1f63e69744cb98f3a8"
+    },
+    {
+      "member": "resolution/q.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.json",
+      "sha256": "cbeabd5e299776a322a8cad90921b64ca6c4847160f4f4f0fd707d96128962a1"
+    },
+    {
+      "member": "resolution/q.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.npz",
+      "sha256": "dcc023aceeddecd65143f5c484b690f719b798e04a3551cc060cfac8695f976e"
+    },
+    {
+      "member": "resolution/r.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/r.json",
+      "sha256": "133d6599035871cc4289be8ae93ac9d2c2834f2f1f05cdc123deeda84c654775"
+    },
+    {
+      "member": "resolution/r.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/r.npz",
+      "sha256": "fc6436c471e7db8bb3c4660eb95bf557339daad0cd5369129983630cb1d2a360"
+    },
+    {
+      "member": "resolution/g.json",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/g.json",
+      "sha256": "419df5d5e4675428d85345f7271359c9f6ebe4d37f6f0786d2133ec8dd36397f"
+    },
+    {
+      "member": "resolution/g.npz",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/g.npz",
+      "sha256": "8272c56246c17eb654cee4448f4ed6281c340a55c5aa2e52afe98d695ce063e0"
+    }
+  ],
+  "probability_sanity": {
+    "status": "partial",
+    "scope": "20212022 fixture-derived contexts reused as hypothetical software controls under another annual coefficient state; not observations from that year; unknown ids skipped without replacement",
+    "context_source_season": "20212022",
+    "coefficient_season": "20252026",
+    "supported_contexts": 1,
+    "unsupported_contexts": [
+      {
+        "key": "2021020001:6",
+        "unknown_ids": [
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8480172"
+          }
+        ]
+      },
+      {
+        "key": "2021020001:57",
+        "unknown_ids": [
+          {
+            "head": "u",
+            "block": "shooter",
+            "id": "8477244"
+          },
+          {
+            "head": "q",
+            "block": "shooter",
+            "id": "8477244"
+          },
+          {
+            "head": "r",
+            "block": "shooter",
+            "id": "8477244"
+          },
+          {
+            "head": "g",
+            "block": "shooter",
+            "id": "8477244"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8476934"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8478017"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8478866"
+          }
+        ]
+      },
+      {
+        "key": "2021020001:31",
+        "unknown_ids": [
+          {
+            "head": "u",
+            "block": "shooter",
+            "id": "8478866"
+          },
+          {
+            "head": "q",
+            "block": "shooter",
+            "id": "8478866"
+          },
+          {
+            "head": "r",
+            "block": "shooter",
+            "id": "8478866"
+          },
+          {
+            "head": "g",
+            "block": "shooter",
+            "id": "8478866"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8476934"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8477244"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8478017"
+          }
+        ]
+      },
+      {
+        "key": "2021020001:37",
+        "unknown_ids": [
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8470604"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8477244"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8478017"
+          }
+        ]
+      },
+      {
+        "key": "2021020001:51",
+        "unknown_ids": [
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8470604"
+          }
+        ]
+      },
+      {
+        "key": "2021020001:158",
+        "unknown_ids": [
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8470604"
+          },
+          {
+            "head": "g",
+            "block": "setter",
+            "id": "8470619"
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "key": "2021020001:10",
+        "execution": "actual",
+        "origins": 656,
+        "setter_branches": 6,
+        "maximum_branch_mass_error": 2.220446049250313e-16,
+        "integrated_terminal_probabilities": {
+          "block": 0.49819929968785126,
+          "miss": 0.1464074141374843,
+          "stopped": 0.07535071502909284,
+          "continuing": 0.2676295140193662,
+          "goal": 0.012413057126205355
+        }
+      },
+      {
+        "key": "2021020001:10",
+        "execution": "fully_neutral",
+        "origins": 656,
+        "setter_branches": 6,
+        "maximum_branch_mass_error": 2.220446049250313e-16,
+        "integrated_terminal_probabilities": {
+          "block": 0.4456782379226848,
+          "miss": 0.1700230560559571,
+          "stopped": 0.10074034171755211,
+          "continuing": 0.27257194578102373,
+          "goal": 0.010986418522782126
+        }
+      }
+    ]
+  },
+  "resources": {
+    "wall_seconds": 9821.742660791999,
+    "peak_memory_bytes": 19980206080,
+    "design_wall_seconds": 5644.933415499996,
+    "input_read_wall_seconds": 0.7045734170023934,
+    "fit_wall_seconds": 4176.104671875,
+    "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "output_bytes": 219169862,
+    "origin_rows": {
+      "u": 26668401,
+      "q": 110897,
+      "r": 72381,
+      "g": 58628
+    },
+    "candidate_branches": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 530040
+    },
+    "resolution_solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 2
+    },
+    "dimensions": {
+      "u": 3420,
+      "q": 3544,
+      "r": 3544,
+      "g": 4491
+    },
+    "solve_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 16
+    }
+  },
+  "failure_reason": "u and q exceed the unchanged 1e-5 baseline-versus-tenfold-tighter maximum probability-change bound; all four saved continuation solves and all 48 selector requirements are structurally complete",
+  "limits": [
+    "no annual acceptance; no weakened threshold; no retry, promotion or numerical repair",
+    "saved probability-comparison values and strict reader consistency checked; independent arithmetic replay belongs to separate math reviewer",
+    "source proof reused from accepted upstream metadata; no raw-event or prepared-game-body replay",
+    "actual command exit/resources and preservation remain operator-owned",
+    "no scientific admission or calibrated ability claim"
+  ]
+}

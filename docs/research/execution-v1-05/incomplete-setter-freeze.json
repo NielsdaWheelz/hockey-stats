@@ -1,0 +1,133 @@
+{
+  "kind": "execution-probe-source-freeze",
+  "source_commit": "936044b68c045c16bf73c9fb1fcc955bb737a65f",
+  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "recipe_change": false,
+  "training_change": false,
+  "training_fingerprint": {
+    "contents": "all predictor dataclasses, coverage and every head target/design/actor row",
+    "comparison": "exact before/after equality"
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "290689950aaf121f296d94bfba205bc6803c96cf3b94ab0e6d8003ca7627b25d"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "d5e8c23473422a770cc1e72479444afb1020ddc0ab474ac7570fd84682cb9277"
+    },
+    {
+      "path": "docs/specs/v1-05-execution-base.md",
+      "sha256": "a93e96cae5294f76a55086f73494fac5ab594f48361661f389f2b983d9b740a0"
+    },
+    {
+      "path": "fixtures/execution-v1-05/incomplete-setter.json",
+      "sha256": "34836b9d916ee9b4782d682d80457097d60c78e19be0048f60c78ab79fd2e423"
+    }
+  ],
+  "red": {
+    "builder": "absent incomplete_setter witness",
+    "old_reader": "rejects attributed non-actor projection"
+  },
+  "green": {
+    "source_member_sha256_unchanged": true,
+    "training_design_unchanged": true,
+    "focal_identity_membership_type_location_tip_unchanged": true,
+    "unaffected_circumstance_columns": 170,
+    "changed_circumstance_columns": [
+      "recent_kind:faceoff",
+      "recent_kind:hit",
+      "recent_kind:giveaway",
+      "recent_kind:takeaway",
+      "recent_kind:shot-on-goal",
+      "recent_kind:missed-shot",
+      "recent_kind:blocked-shot",
+      "recent_team:same",
+      "recent_team:opponent",
+      "recent_delay:0",
+      "recent_delay:1",
+      "recent_delay:2",
+      "recent_delay:3",
+      "recent_delay:4",
+      "recent_delay:5",
+      "recent_zone:attacking",
+      "recent_zone:other",
+      "recent_shooter:same",
+      "recent_shooter:different",
+      "recent_exists",
+      "recent_kind:hit:recent_team:same",
+      "recent_kind:giveaway:recent_team:same",
+      "recent_kind:takeaway:recent_team:same",
+      "recent_kind:shot-on-goal:recent_team:same",
+      "recent_kind:missed-shot:recent_team:same",
+      "recent_kind:blocked-shot:recent_team:same",
+      "recent_kind:hit:recent_delay:1",
+      "recent_kind:hit:recent_delay:2",
+      "recent_kind:hit:recent_delay:3",
+      "recent_kind:hit:recent_delay:4",
+      "recent_kind:hit:recent_delay:5",
+      "recent_kind:giveaway:recent_delay:1",
+      "recent_kind:giveaway:recent_delay:2",
+      "recent_kind:giveaway:recent_delay:3",
+      "recent_kind:giveaway:recent_delay:4",
+      "recent_kind:giveaway:recent_delay:5",
+      "recent_kind:takeaway:recent_delay:1",
+      "recent_kind:takeaway:recent_delay:2",
+      "recent_kind:takeaway:recent_delay:3",
+      "recent_kind:takeaway:recent_delay:4",
+      "recent_kind:takeaway:recent_delay:5",
+      "recent_kind:shot-on-goal:recent_delay:1",
+      "recent_kind:shot-on-goal:recent_delay:2",
+      "recent_kind:shot-on-goal:recent_delay:3",
+      "recent_kind:shot-on-goal:recent_delay:4",
+      "recent_kind:shot-on-goal:recent_delay:5",
+      "recent_kind:missed-shot:recent_delay:1",
+      "recent_kind:missed-shot:recent_delay:2",
+      "recent_kind:missed-shot:recent_delay:3",
+      "recent_kind:missed-shot:recent_delay:4",
+      "recent_kind:missed-shot:recent_delay:5",
+      "recent_kind:blocked-shot:recent_delay:1",
+      "recent_kind:blocked-shot:recent_delay:2",
+      "recent_kind:blocked-shot:recent_delay:3",
+      "recent_kind:blocked-shot:recent_delay:4",
+      "recent_kind:blocked-shot:recent_delay:5",
+      "dx_ft/100",
+      "dy_ft/100",
+      "displacement_ft/100",
+      "crossed_centerline",
+      "previous_strength:same_fewer",
+      "previous_strength:same_more",
+      "return_to_5v5_age_seconds/60",
+      "unavailable:preceding_status",
+      "unavailable:strength_transition",
+      "unavailable:strength_transition_age"
+    ],
+    "actual_and_fully_neutral_evaluator": "finite; prior [.2,.8]; terminal sum1",
+    "old_reader_rejects_new_projection": true,
+    "current_reader_accepts_projection": true,
+    "malformed_projection_cases_rejected": 8,
+    "selector_unavailable_requirements": 0
+  },
+  "independent_review": {
+    "agent": "timing_math_fresh",
+    "verdict": "pass",
+    "scope": "source projection, shared timing/prior owner, focal preservation, selector and strict attribution; no fits"
+  },
+  "temporary_check": {
+    "path": "/tmp/v105-incomplete-witness-check.py",
+    "sha256": "7afe40565bbeb6ba6f644366971a6c014bf6cdad62cebbf41416177e81b72406",
+    "deleted_after_green": true
+  },
+  "prior_source_freeze": "timing-production-freeze.json remains historical; its implementation hashes precede these probe-only changes",
+  "pending": [
+    "fresh prospectively frozen final-year baseline and four continuations",
+    "final systems/content acceptance",
+    "real fitting"
+  ],
+  "preservation": "original prepared member bytes, captures, old numerical families and primary checkout drafts unchanged"
+}

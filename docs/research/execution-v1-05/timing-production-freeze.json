@@ -1,0 +1,98 @@
+{
+  "scope": "committed prior-clock source freeze before fresh fixture and real fitting",
+  "production_code_commit": "fd24f96371f47d65c4e192acf34d754fdab244c7",
+  "git_clean_before_receipt": true,
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-1",
+    "sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+    "history_cutoff": {
+      "version": "strict-prior-clock-1",
+      "selection": "supported earlier source order AND strictly earlier period/game clock",
+      "affected": [
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "strength_transition",
+        "setter_prior"
+      ],
+      "same_clock": "ignore every row including faceoff, reset, review and unknown kind before examining its contents",
+      "phase": "coarsened recorded prior-clock proxy; current membership retained; no recovered physical uninterrupted-play claim",
+      "period": "history is within the focal period; known earlier periods are outside it, unknown prior period is a barrier",
+      "phase_boundary": "supported prior reset gives known absence; supported faceoff or action after a known reset starts a known recorded phase; unanchored live history is censored",
+      "known_absence": "empty known phase participants; complete current-unit-only proxy candidates",
+      "unknown": "unknown clock/order/kind or censored phase remains unavailable until a supported earlier reset/anchor",
+      "transition": "shared native membership algebra at strict before-clock query; includes interval returns r<t without intervening events, excludes r==t",
+      "transition_evidence": "supported native intervals plus selected earlier source reset/clock facts; no per-event elapsed association prerequisite",
+      "unchanged": [
+        "focal membership",
+        "sequence",
+        "deployment",
+        "shift start",
+        "event-prefix workloads",
+        "calendar rest",
+        "labels"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_history.py",
+      "sha256": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+      "bytes": 7158
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "895e7670d1c2f78c397bd8bcac60254b3551a6260248a56c8044d7e5d123f565",
+      "bytes": 67153
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_data.py",
+      "sha256": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+      "bytes": 90926
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "8222df648b09e02835a36107dc979839c7233ea132ef4f85412800e4ca99cea5",
+      "bytes": 22197
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "0b52fa0b1812269e3f5e4e1c35d2cd31a62cc109f5ce13a6eaa1dfdc255bbf8a",
+      "bytes": 16677
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "9528af8c3a574e591ff7667e7d7a917f9f69fe174fbc2724db09b3be6ff6f699",
+      "bytes": 60050
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_cli.py",
+      "sha256": "af820dd7a4b5ba21c341ad068df9bf2a880c5e827edfda86d1a07d50c54a31df",
+      "bytes": 4835
+    },
+    {
+      "path": "docs/specs/v1-05-execution-base.md",
+      "sha256": "f488fd0b8322ae0ff41566a54705e1ff9abd3183fb5947c698f70dabb59ea54b",
+      "bytes": 32963
+    },
+    {
+      "path": "docs/specs/experimental-chance.md",
+      "sha256": "38a0d9740c76555fc0e049dcd491eba8f4308bb5df49ac24d56b0e82f2909cf2",
+      "bytes": 27733
+    }
+  ],
+  "verification": {
+    "bounded_controls": "pass",
+    "four_original_review_witnesses": "pass",
+    "unaffected_columns_equal_per_witness": 170,
+    "old_research_transition_implementation": "exactly unchanged",
+    "first_year_fixture_design": "pass; 771u/618q/439r/335g; no fit",
+    "independent_mathematical_source_history_review": "pass after association-dependency repair",
+    "fresh_five_year_fixture_chain": "not_run",
+    "final_systems_content_acceptance": "not_run",
+    "real_fits": "not_run"
+  },
+  "public_interfaces": "unchanged; annual state schema unchanged; no old recipe compatibility",
+  "preservation": "original captures, prepared evidence, old numerical families and primary draft files unchanged"
+}

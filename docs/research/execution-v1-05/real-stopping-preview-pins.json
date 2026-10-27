@@ -1,0 +1,63 @@
+{
+  "repo": "/Users/nnandal/Documents/code/hockey-stats-v1-05",
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01",
+  "qualified_source_commit": "e2f98d56f7c8ea6fd7ad23466762d3b0f28f6bc5",
+  "source_sha256": {
+    "analysis/src/hockey_stats/execution_design.py": "43d086cdbb335406ea780e9ceaddc7193c50796285342295fa55e48e9e96179f",
+    "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+    "analysis/src/hockey_stats/execution_state.py": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d",
+    "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+    "analysis/src/hockey_stats/execution_fit.py": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+  },
+  "chance_sha256": "02a7a840fc1c4aea232d757d6d98a3185931603edb193582d443f06f8b313e20",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "inputs": {
+    "prepared_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "coaches": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    },
+    "previous_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025/manifest.json",
+      "sha256": "65859989b3f69ec93649df62965b50a6c0e81d869ca39111865f36597afec475"
+    },
+    "previous_acceptance": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025-independent-acceptance.json",
+      "sha256": "d764b9fd4b5d2f55214ee42b7571490bb2d057a1ed01f023f79c923a1cfe92b8"
+    },
+    "annual_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/manifest.json",
+      "sha256": "f7ed612309a16bb0385694e27f8136f1eac8eab34c9eae2c3939605f43268e69"
+    },
+    "frozen_baseline": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/baseline.json",
+      "sha256": "06d2cc53b998afea4996f5886e408ae576f25b0b7bcdc2887c5ce314491cb5a8"
+    },
+    "protected_preservation": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-preservation.json",
+      "sha256": "1c1350d00688be4cc1e053bb7332360a40e2dc3ecae49beafa73ebfeb8b74583"
+    },
+    "u_probe": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.json",
+      "sha256": "310f59133e07cc59c785cdaa3197b3eba38a543de119e05700b9a94e858d0a5e"
+    },
+    "u_probe_arrays": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/u.npz",
+      "sha256": "7c6022ed71e40dc3e503ca6f87f3c639f614ddb9b926dd1f63e69744cb98f3a8"
+    },
+    "q_probe": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.json",
+      "sha256": "cbeabd5e299776a322a8cad90921b64ca6c4847160f4f4f0fd707d96128962a1"
+    },
+    "q_probe_arrays": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/resolution/q.npz",
+      "sha256": "dcc023aceeddecd65143f5c484b690f719b798e04a3551cc060cfac8695f976e"
+    }
+  },
+  "limit_bytes": 68719476736,
+  "scope": "one diagnostic u/q solve each under old2024 prior lineage; no new five-year recipe, acceptance, production artifact or promotion"
+}

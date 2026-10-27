@@ -1,0 +1,189 @@
+{
+  "status": "passed",
+  "kind": "numerical-integration-qualification",
+  "date": "2026-10-26",
+  "upstream": "e7bcfa2",
+  "premerge": "4e840ea",
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "code": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "6d688021d75d386f545a0ff44f86efc9040ea84ca6cc27622e9bd3518f6a1cbd",
+      "upstream_e7bcfa2_sha256": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+      "equals_upstream": false
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "2f8a40a5d9d05ba02ac990f1e0faa1a8240a79324370e457f8b5741895e36f22",
+      "upstream_e7bcfa2_sha256": "c7b30b73fe4b06e52e776a962a50098e1381600915a2294499c53099bee48032",
+      "equals_upstream": false
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "341ba29d8405c0a4b0e6bff11c8cd6fc9afb0a2300f1adbd44c859674058a800",
+      "upstream_e7bcfa2_sha256": "341ba29d8405c0a4b0e6bff11c8cd6fc9afb0a2300f1adbd44c859674058a800",
+      "equals_upstream": true
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "bcedcbc7f4f4a8c57d8482fd41afa7f5371a8873a5a0d50b52290a0d38737ae8",
+      "upstream_e7bcfa2_sha256": "bcedcbc7f4f4a8c57d8482fd41afa7f5371a8873a5a0d50b52290a0d38737ae8",
+      "equals_upstream": true
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_history.py",
+      "sha256": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+      "upstream_e7bcfa2_sha256": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+      "equals_upstream": true
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_data.py",
+      "sha256": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+      "upstream_e7bcfa2_sha256": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+      "equals_upstream": true
+    }
+  ],
+  "negative_control": "Traceback (most recent call last):\n  File \"/tmp/v106-numerical-20261026-5itvy6tr/contract_check.py\", line 10, in <module>\n    assert RECIPE['sha256'] == EXPECTED, (RECIPE['sha256'], EXPECTED)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09', '14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5')\n",
+  "fixture_contract": {
+    "status": "passed",
+    "recipe": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+    "annual": [
+      {
+        "season": "20212022",
+        "manifest_sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6",
+        "heads": {
+          "u": "complete",
+          "q": "complete",
+          "r": "complete",
+          "g": "complete"
+        }
+      },
+      {
+        "season": "20222023",
+        "manifest_sha256": "52a2b0fa755608779f332e8898f981ff30786aeb73beb7e63d2d6f1716b4f96b",
+        "heads": {
+          "u": "complete",
+          "q": "complete",
+          "r": "complete",
+          "g": "complete"
+        }
+      },
+      {
+        "season": "20232024",
+        "manifest_sha256": "e2ad6fdadc40698338bda795b1a091d19712b37e5e7de334528579e442bd2ca5",
+        "heads": {
+          "u": "complete",
+          "q": "complete",
+          "r": "complete",
+          "g": "complete"
+        }
+      },
+      {
+        "season": "20242025",
+        "manifest_sha256": "1a69f2b46f40191f9cee4e8d2bbb397779e75f1d560b3762a284787801b22841",
+        "heads": {
+          "u": "complete",
+          "q": "complete",
+          "r": "complete",
+          "g": "complete"
+        }
+      },
+      {
+        "season": "20252026",
+        "manifest_sha256": "87124257df7c6cddc25b820de91c98b7d9aac5f5f40b80b83b555b76645ccc50",
+        "heads": {
+          "u": "complete",
+          "q": "complete",
+          "r": "complete",
+          "g": "complete"
+        }
+      }
+    ],
+    "heads": 20,
+    "probes": 4,
+    "writes": false,
+    "fits": false
+  },
+  "fixture_integration": {
+    "status": "passed",
+    "purpose": "fixture",
+    "recipe": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+    "season": "20252026",
+    "recognized": 1101,
+    "complete": 1068,
+    "panels": 32,
+    "independent_event_keys": [
+      "2025020001:2",
+      "2025020001:66",
+      "2025020001:18",
+      "2025020001:10",
+      "2025020001:84",
+      "2025020001:35",
+      "2025020001:15",
+      "2025020001:37"
+    ],
+    "independent_coalitions": 16,
+    "independent_permutations": 24,
+    "maximum_differences": {
+      "probability": 2.220446049250313e-16,
+      "prefix": 2.220446049250313e-16,
+      "share": 3.5561831257524545e-17,
+      "coalition": 8.326672684688674e-17,
+      "conditional": 1.1102230246251565e-16
+    },
+    "prepared_batches": {
+      "u": {
+        "expanded_rows": 7904,
+        "maximum_matrix_difference": 0.0
+      },
+      "q": {
+        "expanded_rows": 761,
+        "maximum_matrix_difference": 0.0
+      },
+      "r": {
+        "expanded_rows": 508,
+        "maximum_matrix_difference": 0.0
+      },
+      "g": {
+        "expanded_rows": 401,
+        "maximum_matrix_difference": 0.0
+      }
+    },
+    "witnesses": [
+      {
+        "key": "synthetic-resolution:2025020001:2:incomplete-setter",
+        "requirement": "incomplete_setter"
+      },
+      {
+        "key": "synthetic-resolution:2025020565:20:shooter:8474596",
+        "requirement": "sparse:u:shooter:8474596"
+      }
+    ],
+    "projections": 5,
+    "timing_control": {
+      "game_id": "2025020001",
+      "source_index": 321,
+      "mutated_same_clock_rows": [
+        320
+      ]
+    },
+    "design_wall_seconds": 29.27077895900584,
+    "scoring_wall_seconds": 7.636543957996764,
+    "total_wall_seconds": 46.18909816700034,
+    "peak_resident_bytes": 1076019200,
+    "fit_calls": 0,
+    "input_writes": 0
+  },
+  "semantic_repairs": [],
+  "conclusion": "automatic numerical merge preserves accepted upstream semantics and v1-06 scoring contracts; no additional production repair demonstrated",
+  "limits": [
+    "fixture-only numerical exercise",
+    "real representative design/scoring awaits root source freeze",
+    "no scientific admission",
+    "no all-player numerical bound"
+  ],
+  "temporary_root": "/tmp/v106-numerical-20261026-5itvy6tr",
+  "temporary_files": 56,
+  "temporary_policy": "owned source negative-control copy and checkers remain until final green, then delete; no accepted input/state copy is present",
+  "preservation": "read-only accepted fixture/preparation/coaches inputs; all test outputs only in the owned temporary directory; zero fitting calls"
+}

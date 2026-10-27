@@ -158,7 +158,7 @@ def _season(facts, annual, prepared, year, execution_method, xg_method, output, 
                    numerical_only=[list(k) for k in sorted(event_scores.keys() - source_keys)])
     valued_facts,valued_locations,micro = [],[],[]
     coverage,game_participation = {},[]
-    prepared_attempts,credits = {},{}
+    physical_statuses,credits = {},{}
     source_gaps = Counter()
     receipt['missing_source_collections'] = []
     receipt['valued_exclusions'] = []
@@ -176,7 +176,15 @@ def _season(facts, annual, prepared, year, execution_method, xg_method, output, 
         valued_facts.extend(valued['interval_fact']);valued_locations.extend(valued['interval_location'])
         receipt['valued_exclusions'].extend(dict(row,game_id=gid) for row in valued['dispositions'] if row['reason'] is not None or row.get('personal_reason'))
         micro.append(reduce_reference_xg(valued))
-        prepared_attempts.update({(gid,r['source_index']):r for r in game['attempts'] or []})
+        attempts = {r['source_index']:r for r in game['attempts'] or []}
+        for source in evidence['attempt_fact']:
+            key = gid,source['source_index']
+            attempt = attempts.get(source['source_index'])
+            physical_statuses[key] = attempt['details']['values'].get('physical_status') if attempt is not None else None
+            score = event_scores.get(key)
+            if score is not None and score['status'] == 'complete':
+                require(attempt is not None, 'completed source key has no prepared attempt')
+                _check_source_score(source,score,attempt)
         credits.update({(gid,r['source_index']):r for r in game['credits'] or []})
         game_participation.append(execution_participation(game))
         for row in valued['context_coverage']:
@@ -205,13 +213,9 @@ def _season(facts, annual, prepared, year, execution_method, xg_method, output, 
     for gid in sorted(by_game['attempt_fact']):
         for source in by_game['attempt_fact'][gid]:
             key = gid,source['source_index'];score = event_scores.get(key)
-            attempt = prepared_attempts.get(key)
-            details = attempt['details']['values'] if attempt is not None else {}
+            physical_status = physical_statuses.get(key)
             complete = score is not None and score['status'] == 'complete'
-            if complete:
-                require(attempt is not None, 'completed source key has no prepared attempt')
-                _check_source_score(source,score,attempt)
-            outside = details.get('physical_status') == 'outside_population'
+            outside = physical_status == 'outside_population'
             reason = 'not_applicable' if outside else 'missing_source'
             explanation = 'source outcome is outside the physical ordinary-attempt population' if outside else (
                 '; '.join(r['code'] for r in score['reasons']) if score is not None else 'source key has no numerical event disposition')
@@ -226,7 +230,7 @@ def _season(facts, annual, prepared, year, execution_method, xg_method, output, 
             values.append(row)
             if not complete:
                 receipt['unvalued_source_attempts'].append(dict(game_id=gid,source_index=source['source_index'],
-                    reason=reason,physical_status=details.get('physical_status'),model_reasons=score['reasons'] if score else []))
+                    reason=reason,physical_status=physical_status,model_reasons=score['reasons'] if score else []))
             state = source['actual_state']
             strength = f"{state['attacking_skaters']}v{state['defending_skaters']}" if state and state['attacking_goalie_present'] and state['defending_goalie_present'] else None
             if source['shooter_id'] is not None and strength in publication.EXECUTION_STRENGTHS:

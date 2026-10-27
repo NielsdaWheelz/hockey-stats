@@ -1,0 +1,30 @@
+{
+  "kind": "composition-prepared-attempt-lifetime-check",
+  "checked_at": "2026-10-27T06:12:55.056045+00:00",
+  "status": "local_lifetime_green; retained-capture byte differential pending external access",
+  "cause": "whole prepared attempts were kept for an entire season although only source binding and physical_status were used",
+  "change": "run existing completed-source binding while its game is loaded; retain keyed physical_status only",
+  "red": {
+    "exit_code": 1,
+    "retained_full_attempts_after_two_games": 10
+  },
+  "green": {
+    "exit_code": 0,
+    "scope": "isolated _season lifetime check with unrelated reducers stubbed",
+    "retained_full_attempts_after_two_games": 0
+  },
+  "numerical_or_source_policy_change": false,
+  "source_artifacts_changed": false,
+  "fixture_differential": {
+    "status": "not_completed",
+    "reason": "normal reads of existing external artifacts began raising OS-wide EPERM during baseline; no permissions changed or source copies attempted"
+  },
+  "sha256": {
+    "analysis/src/hockey_stats/execution_composition.py": "7b68f1229b8236220a542556ea921d93270e7593a1921377a3a429ad92459479",
+    "var/v1-06-real/check_composition_retention.py": "53163e2131ee3519086090d0fd15f55af585c7029894966731b6fb3146448959",
+    "var/v1-06-real/composition-retention-red.log": "f138fe610e7b04c82ac0e2844974dced86b5c0cb778b20f292d3ef0719e329fb",
+    "var/v1-06-real/composition-retention-green.log": "c4e0fdf94123be11d66d1b101eb1cab2beb0b2fa3e91aeab90a9497c28050aad",
+    "var/v1-06-real/check_composition_memory.py": "c1127e122c72310f2cf30a784b281ae55069514677bdc6301b3a7ab1203a1630",
+    "var/v1-06-real/composition-memory-red.log": "b33fd258bd3365d49bf62b80ca3d6177260a207d07ef03988a63f0c450ae19bb"
+  }
+}

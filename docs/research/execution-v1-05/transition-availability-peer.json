@@ -1,0 +1,98 @@
+{
+  "scope": "three explicitly synthetic feature/design states and isolated ridge term; no fits, full game reads or production edits",
+  "recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
+  "states": [
+    {
+      "state": "absent",
+      "unavailable_indicator": 0.0,
+      "age_status": "absent"
+    },
+    {
+      "state": "known",
+      "unavailable_indicator": 0.0,
+      "age_status": "available"
+    },
+    {
+      "state": "unknown",
+      "unavailable_indicator": 1.0,
+      "age_status": "unavailable"
+    }
+  ],
+  "heads": {
+    "u": {
+      "one_shared_condition": true,
+      "flag_values": [
+        0,
+        0,
+        1
+      ],
+      "coefficient": 1,
+      "penalty": 2.0,
+      "gradient": 4.0
+    },
+    "q": {
+      "one_shared_condition": true,
+      "flag_values": [
+        0,
+        0,
+        1
+      ],
+      "coefficient": 1,
+      "penalty": 2.0,
+      "gradient": 4.0
+    },
+    "r": {
+      "one_shared_condition": true,
+      "flag_values": [
+        0,
+        0,
+        1
+      ],
+      "coefficient": 1,
+      "penalty": 2.0,
+      "gradient": 4.0
+    },
+    "g": {
+      "one_shared_condition": true,
+      "flag_values": [
+        0,
+        0,
+        1
+      ],
+      "coefficient": 1,
+      "penalty": 2.0,
+      "gradient": 4.0
+    }
+  },
+  "hand_ridge": {
+    "same_logit_effect": 1,
+    "old_two_coefficient_penalty": 1.0,
+    "old_effective_precision": 2,
+    "new_one_coefficient_penalty": 2.0,
+    "new_precision": 4
+  },
+  "unaffected_features": "every old value/status/condition exact except age condition ownership; sole duplicate flag removed",
+  "verdict": "pass",
+  "previous_recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "changed_production_file": {
+    "path": "analysis/src/hockey_stats/execution_design.py",
+    "sha256": "fb83cd974a3ac3d9d46934de79f007d302a24f4d98ba728ddefb0c1d9a6cccd6"
+  },
+  "acceptance_bound": "bounded source/design correction passes; fresh five-year fixture chain and new real execution remain pending",
+  "temporary_cleanup": {
+    "authorization": "assigned temporary witnesses deleted after bounded green and durable proof",
+    "files": [
+      {
+        "path": "/tmp/v105-transition-peer-check.py",
+        "sha256": "ce67e33edeb562c20c03cf073c16afd0c8d1ff8e7874e9210fe4d64da82e4c2b",
+        "absent": true
+      },
+      {
+        "path": "/tmp/v105-transition-peer-check.json",
+        "sha256": "469bddfe30313cc207d1fff94473e80a1ff1c61458b83138c2f4f537beb27a85",
+        "absent": true
+      }
+    ],
+    "preservation": "only these two peer-owned witnesses deleted; real acceptance checker, input references, historical states and user drafts untouched"
+  }
+}

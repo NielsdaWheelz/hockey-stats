@@ -11,12 +11,13 @@
   },
   "green": {
     "exit_code": 0,
-    "wall_seconds": 5.936,
+    "wall_seconds": 9.716,
     "cases": [
       "real2024021273 retains308reportedseconds with unavailable elapsed/scoring",
       "real2023020001 retains1248reportedseconds and valid zero other-strength exposure",
       "provided nonempty schema2 fixture generic/per-game streaming manifests semantically equal; every member byte equal",
-      "missing selected batch and wrong game batch reject without final manifest"
+      "missing selected batch and wrong game batch reject without final manifest",
+      "shared execution game/annual participation preserves missing versus positive and zero exposure"
     ]
   },
   "source_changes": [
@@ -27,12 +28,20 @@
   ],
   "sha256": {
     "analysis/src/hockey_stats/analysis_publication.py": "84502a2bbea593bc28ce85dd02719f9c433a0074ec529450aee0222f4feb6b2d",
-    "analysis/src/hockey_stats/descriptive.py": "f5a963eaa63bbc22ea8af7963aea1195495f7802484e1afb2ad0142564e80142",
+    "analysis/src/hockey_stats/descriptive.py": "368153aa6c3a158a61c5dd4c17dd538e1182058cf07ea01f87439b4ae8f83faa",
     "analysis/src/hockey_stats/microstats.py": "1f9870656ad7480fd54218864bac9afa6dd3f9fa7c608e9968f44f62b48a982f",
-    "var/v1-06-real/check_merge.py": "7437eaa85475f37108c9b0a9933d3c218b0bffcbb4f27b8451bd16439db20053",
+    "var/v1-06-real/check_merge.py": "dd89abc53f668dff6922386ec79d63f6bc526a46c0f95433bc6f503189d9ac95",
     "var/v1-06-real/merge-red.log": "87a98e86b0134849fd775f03aeec97407775d985c7b5d577bc60c1e4df462dc2",
-    "var/v1-06-real/merge-green.log": "f09da8d30a5bb3a59bf50aca560f2b586a17c3824947465e1efaaa72a7bf11b8"
+    "var/v1-06-real/merge-green.log": "f09da8d30a5bb3a59bf50aca560f2b586a17c3824947465e1efaaa72a7bf11b8",
+    "var/v1-06-real/participation-red.log": "9b22ef2e8f8a55640848658c1b9e08d1a925ff200cf96a012c0db366f1be948b",
+    "var/v1-06-real/participation-green.log": "16dc240ba5970f5752ee3f2fa40d3412410547efa1252875cced27306073a851"
   },
   "heavy_job_started": false,
-  "temporary_checks": "retain until final real acceptance then delete"
+  "temporary_checks": "retain until final real acceptance then delete",
+  "participation_availability": {
+    "red": "real2024021273/8480075 returned0 instead ofNone for seven exact strengths despite no checked elapsed membership",
+    "green": "game and annual source qualification preserve unknownNone, known5v5=884, checked3v5=0",
+    "source_fix": "reuse checked membership segment ids at the shared execution_participation owner",
+    "coefficient_or_fit_change": false
+  }
 }

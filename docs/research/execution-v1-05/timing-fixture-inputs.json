@@ -1,0 +1,51 @@
+{
+  "purpose": "fixture",
+  "status": "input identities verified; new timing source frozen; fresh fixture fitting not started",
+  "prepared_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+    "bytes": 113142
+  },
+  "coaches_artifact": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+    "bytes": 218717
+  },
+  "members": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+      "bytes": 113142
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/selection.json",
+      "sha256": "6f5ac920a1c6474334f77c6f3998ad1e2fbe1c752ee1ef9b051d73a675dd64c2",
+      "bytes": 2221
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+      "bytes": 218717
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/selection.json",
+      "sha256": "9ac6deac4a9ebfe7fc7de837614736638779dc9cb0eebb49f50dd03e23ae47cf",
+      "bytes": 15789
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/identities.json",
+      "sha256": "16db385d3f5fc84f105f28a93c74e869824f81b6a84215b3d0eb611dd6ed1625",
+      "bytes": 27778
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coverage.json",
+      "sha256": "7f133bd191512569c0644468920342cb11839daf682f5d763666fce7334ae9ae",
+      "bytes": 4058
+    }
+  ],
+  "population": "existing upstream root-r6, thirty-six original capture cases across five seasons; no copies, capture acquisition or relabeling as real",
+  "planned_output": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-history-01",
+  "previous_fixture_recipe": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09",
+  "new_recipe": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "preservation": "earlier chain06 and earlier adverse states remain untouched"
+}

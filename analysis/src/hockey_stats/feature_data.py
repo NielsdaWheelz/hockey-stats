@@ -1129,6 +1129,32 @@ def _strength_transitions(ordered, reconstruction, game, order_supported, *, pro
     return result
 
 
+def preclock_strength_transition(prefix_events, native_intervals, focal, game, supported):
+    """query existing transition algebra strictly before one focal clock.
+
+    the transient negative-index row is a computational query, never a source
+    observation. its before-boundary relation excludes interval starts at the
+    query clock while retaining supported returns between recorded events.
+    prefix boundary descriptors are computational, not native associations:
+    every prefix endpoint precedes the query, so its coincident interval is
+    consumed by the query regardless of that endpoint's before/after relation.
+    """
+    unavailable = dict(exists=None, side=None, age=None)
+    if not supported or native_intervals is None or _clock(focal) is None:
+        return unavailable
+    links = [dict(source_index=row["source_index"], shift_relation="before") for row in prefix_events]
+    query = dict(source_index=-1, period_number=focal["period_number"],
+                 elapsed_seconds=focal["elapsed_seconds"], timed_period=True,
+                 kind_valid=True, type_key="execution_context_query",
+                 shooting_team_id=focal["shooting_team_id"])
+    reconstruction = dict(intervals=native_intervals,
+                          events=links + [dict(source_index=-1, shift_relation="before")])
+    value = _strength_transitions(prefix_events + [query], reconstruction, game, True, product=True)[-1]
+    if value["exists"] is not True:
+        return dict(exists=value["exists"], side=None, age=None)
+    return value
+
+
 def _history_summary(document, reconstruction, identities, attempts, normal_attempts, input_ref, link):
     game = document["game"]
     exposures = {row["player_id"]: row for row in reconstruction["player_exposure"] or []}

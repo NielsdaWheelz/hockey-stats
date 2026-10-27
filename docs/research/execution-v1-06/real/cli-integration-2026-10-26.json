@@ -1,0 +1,165 @@
+{
+  "kind": "execution-v1-06-cli-current-integration",
+  "checked_at": "2026-10-27T06:20:20.334409+00:00",
+  "status": "bounded_checks_passed; fresh_five_year_fixture_scoring_pending_root_freeze",
+  "source": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/analysis_cli.py",
+      "sha256": "451fb5fc6a5526355367dd34b4bc162367cb11924ed4bad979ab435cc5795320"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/execution_scores.py",
+      "sha256": "ee2be6e84ddccb90bec07cdc540a08a4c9e55e9acdb90064b0bfc09ab877964a"
+    }
+  ],
+  "checks": [
+    {
+      "check": "frozen synthetic requirement dispatch",
+      "status": "passed",
+      "command": [
+        "analysis/.venv/bin/python",
+        "/tmp/v106-resolution-witness-dispatch.py"
+      ],
+      "observed_calls": [
+        [
+          "incomplete_setter",
+          null,
+          null
+        ],
+        [
+          "sparse:u:shooter:8474596",
+          "shooter",
+          "8474596"
+        ]
+      ],
+      "boundary": "_resolve reaches scoring with the current frozen fixture selector; no numerical scoring performed"
+    },
+    {
+      "check": "score/summarize/fit help",
+      "status": "passed",
+      "boundary": "all specified commands and flags exposed; existing fit interface preserved"
+    },
+    {
+      "check": "occupied historical annual output",
+      "status": "passed",
+      "exit_code": 1,
+      "message": "output already exists; choose a new output path",
+      "boundary": "rejected after reading current inputs and before design/scoring"
+    },
+    {
+      "check": "repeated family",
+      "status": "passed",
+      "exit_code": 2,
+      "message": "--family must occur exactly once"
+    },
+    {
+      "check": "unknown --latest",
+      "status": "passed",
+      "exit_code": 2,
+      "message": "unrecognized arguments: --latest"
+    },
+    {
+      "check": "abbreviated --fam",
+      "status": "passed",
+      "exit_code": 2,
+      "boundary": "allow_abbrev=False"
+    },
+    {
+      "check": "protected manifest byte comparison around cli negative checks",
+      "status": "passed",
+      "boundary": "fixture preparation, coaches, final-year current state and historical accepted-01 final-year score manifest unchanged"
+    },
+    {
+      "check": "five fixture and five real state manifest metadata",
+      "status": "passed",
+      "boundary": "all purposes/seasons correct; all recipe sha256 14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5"
+    },
+    {
+      "check": "final-year frozen incomplete-setter dispositions",
+      "status": "passed",
+      "fixture": "synthetic-resolution:2025020001:2:incomplete-setter",
+      "real": "actual 2025020010:66"
+    }
+  ],
+  "state_manifests": {
+    "fixture": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20212022/manifest.json",
+        "sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20222023/manifest.json",
+        "sha256": "52a2b0fa755608779f332e8898f981ff30786aeb73beb7e63d2d6f1716b4f96b"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/manifest.json",
+        "sha256": "e2ad6fdadc40698338bda795b1a091d19712b37e5e7de334528579e442bd2ca5"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20242025/manifest.json",
+        "sha256": "1a69f2b46f40191f9cee4e8d2bbb397779e75f1d560b3762a284787801b22841"
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20252026/manifest.json",
+        "sha256": "87124257df7c6cddc25b820de91c98b7d9aac5f5f40b80b83b555b76645ccc50"
+      }
+    ],
+    "real": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+        "sha256": "592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/manifest.json",
+        "sha256": "a99521505f86bf97bf6fa35ae9538e3df5ebe0ab92266a5cd6fd8d95fcced20e"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/manifest.json",
+        "sha256": "59fb55be53110e6c01303a0a1ac135f1af2ac67db3fd6e5a65401d58e6cc4792"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/manifest.json",
+        "sha256": "acc9b6969f479cd0a61b6cfd389572905c2b36dffcea12b148fde1c9c0b2ae77"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/manifest.json",
+        "sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be"
+      }
+    ]
+  },
+  "temporary_checks": {
+    "dispatch": {
+      "path": "/tmp/v106-resolution-witness-dispatch.py",
+      "sha256": "bd77cd908faafcd2c613a7b3ae6938d47656c7e96b0720efcf308c60d8fae73b"
+    },
+    "batch": {
+      "path": "/tmp/v106-current-fixture-score-batch.py",
+      "sha256": "cf0ea353b33543fe4840c3091b5e8a13b72f3b21470594ecc02a11173311e315"
+    },
+    "batch_status": "compiled only; never executed",
+    "deletion": "delete temporary checks/controllers and pycache after final real acceptance; no retained harness"
+  },
+  "planned_fixture_batch": {
+    "command": [
+      "analysis/.venv/bin/python",
+      "/tmp/v106-current-fixture-score-batch.py",
+      "<root-authorized-full-frozen-commit>"
+    ],
+    "out": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-01",
+    "years": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "behavior": "five explicit sequential score commands; no retries; stop at first failure; refuse occupied batch path; pin source and input/probe manifests; write individual stdout/stderr and measured wall/rss; strict detached read after each completion; final passed propagation and earlier not_applicable; explicit ordered selection and campaign receipt",
+    "resource_scope": "wall/rss are individual score subprocess measurements; parent strict-reader acceptance is timed separately and excluded from score command resources",
+    "historical_estimate": "old accepted-01 fixture total 561.8 seconds and maximum child peak rss 1197998080 bytes; current costs remain unmeasured"
+  },
+  "heavy_job_started": false,
+  "fits": false,
+  "activation": false,
+  "production_source_writes": false,
+  "limitations": "dispatch check stubs numerical work; command parsing and existing-output protection do not establish fresh scoring, propagation or real application acceptance"
+}

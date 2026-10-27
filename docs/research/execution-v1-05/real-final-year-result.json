@@ -1,0 +1,223 @@
+{
+  "status": "incomplete_failed_resolution",
+  "observed_utc": "2026-10-25T17:03:22.626516+00:00",
+  "exit_code": 1,
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026/manifest.json",
+    "sha256": "f7ed612309a16bb0385694e27f8136f1eac8eab34c9eae2c3939605f43268e69"
+  },
+  "purpose": "real",
+  "season": "20252026",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "implementation": {
+    "git_commit": "e2f98d56f7c8ea6fd7ad23466762d3b0f28f6bc5",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "source_preservation": {
+    "git_head": "e2f98d56f7c8ea6fd7ad23466762d3b0f28f6bc5",
+    "git_clean": true,
+    "code_sha256": {
+      "analysis/src/hockey_stats/execution_design.py": "43d086cdbb335406ea780e9ceaddc7193c50796285342295fa55e48e9e96179f",
+      "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+      "analysis/src/hockey_stats/execution_state.py": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d",
+      "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+      "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+      "analysis/src/hockey_stats/execution_fit.py": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+    },
+    "inputs": {
+      "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "coaches_manifest_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    }
+  },
+  "whole_command": {
+    "wall_seconds": 9922.36,
+    "user_seconds": 9306.3,
+    "system_seconds": 75.52,
+    "maximum_resident_set_size_bytes": 19980206080,
+    "peak_memory_footprint_bytes": 20214168672,
+    "swaps": 0
+  },
+  "manifest_resources": {
+    "wall_seconds": 9821.742660791999,
+    "peak_memory_bytes": 19980206080,
+    "design_wall_seconds": 5644.933415499996,
+    "input_read_wall_seconds": 0.7045734170023934,
+    "fit_wall_seconds": 4176.104671875,
+    "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "output_bytes": 219169862,
+    "origin_rows": {
+      "u": 26668401,
+      "q": 110897,
+      "r": 72381,
+      "g": 58628
+    },
+    "candidate_branches": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 530040
+    },
+    "resolution_solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 2
+    },
+    "dimensions": {
+      "u": 3420,
+      "q": 3544,
+      "r": 3544,
+      "g": 4491
+    },
+    "solve_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 16
+    }
+  },
+  "heads": {
+    "u": {
+      "status": "complete",
+      "metadata_sha256": "ad13916c5e0f9e4cbc72d0e7eca9170c335864a15a9de2c8a02d02eef24222b0",
+      "selected_start": "zero",
+      "wall_seconds": 3426.9935751660014,
+      "resolution_status": "failed",
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-u-completion.json"
+    },
+    "q": {
+      "status": "complete",
+      "metadata_sha256": "eb3a75453d40ca51ec04244987d3572c1ae11b7042231b3238a376c7a299ec7a",
+      "selected_start": "prior_mean",
+      "wall_seconds": 87.44139354199433,
+      "resolution_status": "failed",
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-q-completion.json"
+    },
+    "r": {
+      "status": "complete",
+      "metadata_sha256": "f54b107829c2af0e2186306e7f9eb58c813379b1eccb537a761783f6efc1bced",
+      "selected_start": "zero",
+      "wall_seconds": 53.85007012499409,
+      "resolution_status": "passed",
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-r-completion.json"
+    },
+    "g": {
+      "status": "complete",
+      "metadata_sha256": "1b346287b4ffdcc2d8a06b9cafcd651c90c1759a48adf6c763a0f295aa021c5d",
+      "selected_start": "prior_mean",
+      "wall_seconds": 382.06678741700307,
+      "resolution_status": "passed",
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-g-completion.json"
+    }
+  },
+  "bound_members": [
+    {
+      "path": "coverage.json",
+      "sha256": "75816f47f807838259dcc3c6d840c4850e133f5b1e29a3988cb0f1f60d27900d"
+    },
+    {
+      "path": "heads/u.npz",
+      "sha256": "097cd43848904e6783dee37cf2f6cc4daadab5a01c2a6bafadd455d3641ee008"
+    },
+    {
+      "path": "heads/u.json",
+      "sha256": "ad13916c5e0f9e4cbc72d0e7eca9170c335864a15a9de2c8a02d02eef24222b0"
+    },
+    {
+      "path": "heads/q.npz",
+      "sha256": "089927ff7d9dff3b1116a7b01a57d49ac39326b03b995799d9dfbfe9fd1bfc83"
+    },
+    {
+      "path": "heads/q.json",
+      "sha256": "eb3a75453d40ca51ec04244987d3572c1ae11b7042231b3238a376c7a299ec7a"
+    },
+    {
+      "path": "heads/r.npz",
+      "sha256": "8e525dc6ae4847822fce982309dd87d680a6a06a1df07815b838ce080044cacd"
+    },
+    {
+      "path": "heads/r.json",
+      "sha256": "f54b107829c2af0e2186306e7f9eb58c813379b1eccb537a761783f6efc1bced"
+    },
+    {
+      "path": "heads/g.npz",
+      "sha256": "3a01f23ec9c822780960863b23d95ed8aa4160dc55359c025586c965766fa9d1"
+    },
+    {
+      "path": "heads/g.json",
+      "sha256": "1b346287b4ffdcc2d8a06b9cafcd651c90c1759a48adf6c763a0f295aa021c5d"
+    },
+    {
+      "path": "resolution/baseline.json",
+      "sha256": "06d2cc53b998afea4996f5886e408ae576f25b0b7bcdc2887c5ce314491cb5a8"
+    },
+    {
+      "path": "resolution/u.json",
+      "sha256": "310f59133e07cc59c785cdaa3197b3eba38a543de119e05700b9a94e858d0a5e"
+    },
+    {
+      "path": "resolution/u.npz",
+      "sha256": "7c6022ed71e40dc3e503ca6f87f3c639f614ddb9b926dd1f63e69744cb98f3a8"
+    },
+    {
+      "path": "resolution/q.json",
+      "sha256": "cbeabd5e299776a322a8cad90921b64ca6c4847160f4f4f0fd707d96128962a1"
+    },
+    {
+      "path": "resolution/q.npz",
+      "sha256": "dcc023aceeddecd65143f5c484b690f719b798e04a3551cc060cfac8695f976e"
+    },
+    {
+      "path": "resolution/r.json",
+      "sha256": "133d6599035871cc4289be8ae93ac9d2c2834f2f1f05cdc123deeda84c654775"
+    },
+    {
+      "path": "resolution/r.npz",
+      "sha256": "fc6436c471e7db8bb3c4660eb95bf557339daad0cd5369129983630cb1d2a360"
+    },
+    {
+      "path": "resolution/g.json",
+      "sha256": "419df5d5e4675428d85345f7271359c9f6ebe4d37f6f0786d2133ec8dd36397f"
+    },
+    {
+      "path": "resolution/g.npz",
+      "sha256": "8272c56246c17eb654cee4448f4ed6281c340a55c5aa2e52afe98d695ce063e0"
+    }
+  ],
+  "strict_public_reader": "passed all 18 saved members under frozen source; failed numerical status remains explicit",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025/manifest.json",
+    "sha256": "65859989b3f69ec93649df62965b50a6c0e81d869ca39111865f36597afec475",
+    "season": "20242025",
+    "purpose": "real",
+    "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+    "usage": "annual"
+  },
+  "protected_preservation": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-preservation.json",
+    "sha256": "1c1350d00688be4cc1e053bb7332360a40e2dc3ecae49beafa73ebfeb8b74583",
+    "status": "passed",
+    "files_checked": 80,
+    "differences": 0
+  },
+  "resolution_failure": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026-resolution-failure.json",
+    "sha256": "54bcfda17d13d74122e020de7d0aac52cd1d63c03a0de9dc8574920c2a4b0070"
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20252026.log",
+    "sha256": "629014e326a76e6b335307102d2a4f4927ce9375204f671f6e103c876f4bad02",
+    "mtime_ns": 1792947349689029592
+  },
+  "resource_scope": [
+    "ordinary shared desktop and os cache; not a cold or isolated benchmark",
+    "actual whole-process rss measured; declining rss samples do not establish a cause or replace the measured peak"
+  ],
+  "acceptance": "not accepted; u/q fail fixed final probability stability despite completed solves and covered selector",
+  "handoff": null,
+  "next_status": "no further fit, retry, numerical change, promotion or campaign cleanup; independent diagnosis and user decision required"
+}

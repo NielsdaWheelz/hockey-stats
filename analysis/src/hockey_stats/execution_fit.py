@@ -6,6 +6,7 @@ import numpy as np
 from scipy.special import expit, log_expit
 
 from .chance import _map_penalty, solve_logistic
+from .execution_design import DEFINITION
 
 
 def annual_priors(design, ledger):
@@ -70,12 +71,19 @@ def penalty(beta, design, actors):
     return float(value), gradient
 
 
-def setter_logits(beta, design, batch):
+def _logit_batches(beta, design):
+    """evaluate fixed terms once per physical attempt, then bounded origins."""
+    fixed = np.asarray(design["fixed_matrix"] @ beta).ravel()
+    for batch in design["batches"]():
+        yield batch, fixed[batch["row"]] + np.asarray(batch["dynamic_matrix"] @ beta).ravel()
+
+
+def setter_logits(beta, design, batch, base_logits):
     """unknown/goalie setting uses the current, differentiable skater mean."""
     offsets = batch["offsets"]
     setter = batch["setter_index"]
     rows = np.repeat(np.arange(len(offsets)-1), np.diff(offsets))
-    logits = np.asarray(batch["matrix"] @ beta).ravel()[rows]
+    logits = base_logits[rows]
     setup = setter != -1
     logits[setup] += beta[design["setup_index"]]
     known = setter >= 0
@@ -86,9 +94,9 @@ def setter_logits(beta, design, batch):
     return logits, rows
 
 
-def setter_responsibilities(beta, design, batch):
+def setter_responsibilities(beta, design, batch, base_logits):
     """return exact observed log likelihoods and posterior branch mass."""
-    logits, rows = setter_logits(beta, design, batch)
+    logits, rows = setter_logits(beta, design, batch, base_logits)
     targets = design["target"][batch["row"]]
     log_joint = np.log(batch["prior"]) + log_expit((2*targets[rows]-1)*logits)
     offsets = batch["offsets"]
@@ -107,14 +115,14 @@ def setter_responsibilities(beta, design, batch):
     return normalizer, posterior
 
 
-def _setter_gradient(beta, design, batch, posterior):
-    logits, rows = setter_logits(beta, design, batch)
+def _setter_gradient(beta, design, batch, posterior, base_logits):
+    logits, rows = setter_logits(beta, design, batch, base_logits)
     targets = design["target"][batch["row"]][rows]
     weights = batch["weight"][rows] * posterior
     value = -np.dot(weights, log_expit((2*targets-1)*logits))
     residual = weights * (expit(logits)-targets)
     row_residual = np.add.reduceat(residual, batch["offsets"][:-1])
-    gradient = np.asarray(batch["matrix"].T @ row_residual).ravel()
+    gradient = np.zeros_like(beta)
     setter = batch["setter_index"]
     gradient[design["setup_index"]] += np.sum(residual[setter != -1])
     known = setter >= 0
@@ -122,29 +130,30 @@ def _setter_gradient(beta, design, batch, posterior):
     gradient[design["setter_mean_indices"]] += (
         np.sum(residual[setter == -2]) * design["setter_mean_weights"]
     )
-    return float(value), gradient
+    return float(value), row_residual, gradient
 
 
 def objective(beta, design, actors, responsibilities=None):
     """weighted sum of origin log losses, never a log of averaged origins."""
     value, gradient = penalty(beta, design, actors)
-    for number, batch in enumerate(design["batches"]()):
+    physical_residual = np.zeros(len(design["target"]))
+    for number, (batch, logits) in enumerate(_logit_batches(beta, design)):
         if design["head"] == "g":
             if responsibilities is None:
-                log_likelihood, posterior = setter_responsibilities(beta, design, batch)
-                _, partial = _setter_gradient(beta, design, batch, posterior)
+                log_likelihood, posterior = setter_responsibilities(beta, design, batch, logits)
+                _, residual, partial = _setter_gradient(beta, design, batch, posterior, logits)
                 value -= np.dot(batch["weight"], log_likelihood)
             else:
-                loss, partial = _setter_gradient(beta, design, batch, responsibilities[number])
+                loss, residual, partial = _setter_gradient(beta, design, batch, responsibilities[number], logits)
                 value += loss
             gradient += partial
         else:
-            logits = np.asarray(batch["matrix"] @ beta).ravel()
             targets = design["target"][batch["row"]]
             value -= np.dot(batch["weight"], log_expit((2*targets-1)*logits))
-            gradient += np.asarray(batch["matrix"].T @ (
-                batch["weight"] * (expit(logits)-targets)
-            )).ravel()
+            residual = batch["weight"] * (expit(logits)-targets)
+        gradient += np.asarray(batch["dynamic_matrix"].T @ residual).ravel()
+        np.add.at(physical_residual, batch["row"], residual)
+    gradient += np.asarray(design["fixed_matrix"].T @ physical_residual).ravel()
     return float(value), gradient
 
 
@@ -164,19 +173,19 @@ def head_diagnostics(beta, design):
     likelihood_loss = 0.
     outcome_loss = 0.
     expanded_rows = candidate_branches = nonzeros = batches = 0
-    for batch in design["batches"]():
+    for batch, base_logits in _logit_batches(beta, design):
         batches += 1
         expanded_rows += len(batch["row"])
-        nonzeros += batch["matrix"].nnz
+        nonzeros += batch["base_matrix_nonzeros"]
         if design["head"] == "g":
-            logits, _ = setter_logits(beta, design, batch)
+            logits, _ = setter_logits(beta, design, batch, base_logits)
             predicted = np.add.reduceat(batch["prior"] * expit(logits), batch["offsets"][:-1])
-            log_likelihood, _ = setter_responsibilities(beta, design, batch)
+            log_likelihood, _ = setter_responsibilities(beta, design, batch, base_logits)
             outcome_batch = dict(batch, observed=np.full(len(batch["row"]), -1, dtype=np.int64))
-            outcome_log_likelihood, _ = setter_responsibilities(beta, design, outcome_batch)
+            outcome_log_likelihood, _ = setter_responsibilities(beta, design, outcome_batch, base_logits)
             candidate_branches += len(logits)
         else:
-            logits = np.asarray(batch["matrix"] @ beta).ravel()
+            logits = base_logits
             predicted = expit(logits)
             log_likelihood = log_expit((2*target[batch["row"]]-1)*logits)
             outcome_log_likelihood = log_likelihood
@@ -204,8 +213,9 @@ def head_diagnostics(beta, design):
 
 
 def _solve_start(design, actors, initial, tightened):
-    scale = .1 if tightened else 1.
-    options = dict(maxiter=2000, ftol=1e-14*scale, gtol=1e-6*scale)
+    solver = DEFINITION["solver"]
+    stopping = solver["continuation"] if tightened else solver
+    options = dict(maxiter=solver["maxiter"], ftol=stopping["ftol"], gtol=stopping["gtol"])
     if design["head"] != "g":
         beta, result = solve_logistic(lambda b: objective(b, design, actors), initial, **options)
         value, gradient = objective(beta, design, actors)
@@ -218,8 +228,8 @@ def _solve_start(design, actors, initial, tightened):
         return _complete_prior_only(beta, actors), result
     beta = initial.copy()
     old_value, _ = objective(beta, design, actors)
-    posterior = [setter_responsibilities(beta, design, batch)[1]
-                 for batch in design["batches"]()]
+    posterior = [setter_responsibilities(beta, design, batch, logits)[1]
+                 for batch, logits in _logit_batches(beta, design)]
     trace = [old_value]
     inners = []
     increases = []
@@ -227,7 +237,7 @@ def _solve_start(design, actors, initial, tightened):
     relative = None
     converged = False
     termination = "setter em iteration limit"
-    for iteration in range(100):
+    for iteration in range(solver["em_maxiter"]):
         candidate, inner = solve_logistic(
             lambda b: objective(b, design, actors, posterior), beta, **options,
         )
@@ -246,13 +256,13 @@ def _solve_start(design, actors, initial, tightened):
         if difference > 1e-10*(1+abs(old_value)):
             termination = "setter em observed objective increased"
             break
-        new_posterior = [setter_responsibilities(candidate, design, batch)[1]
-                         for batch in design["batches"]()]
+        new_posterior = [setter_responsibilities(candidate, design, batch, logits)[1]
+                         for batch, logits in _logit_batches(candidate, design)]
         change = max(float(np.max(np.abs(a-b))) for a, b in zip(posterior, new_posterior))
         relative = abs(difference)/(1+abs(old_value))
         beta, posterior, old_value = candidate, new_posterior, new_value
         trace.append(new_value)
-        if relative <= 1e-8*scale and change <= 1e-6*scale:
+        if relative <= stopping["em_objective"] and change <= stopping["em_responsibility"]:
             converged = True
             termination = "setter em objective and responsibility tolerances satisfied"
             break
@@ -322,10 +332,13 @@ def continue_head(design, previous_ledger, baseline_coefficients):
     baseline = np.asarray(baseline_coefficients, dtype=np.float64)
     base_value, base_gradient = objective(baseline, design, actors)
     result = fit_head(design, previous_ledger, tightened=True, initial=baseline)
+    solver = DEFINITION["solver"]
+    stopping = solver["continuation"]
     result["comparison"] = dict(
         base_objective=base_value, base_gradient_max=float(np.max(np.abs(base_gradient))),
-        optimizer_maxiter=2000, optimizer_ftol=1e-15, optimizer_gtol=1e-7,
-        em_maxiter=100, em_relative_tolerance=1e-9, em_responsibility_tolerance=1e-7,
+        optimizer_maxiter=solver["maxiter"], optimizer_ftol=stopping["ftol"], optimizer_gtol=stopping["gtol"],
+        em_maxiter=solver["em_maxiter"], em_relative_tolerance=stopping["em_objective"],
+        em_responsibility_tolerance=stopping["em_responsibility"],
     )
     if result["status"] == "complete":
         tighter = result["coefficients"]

@@ -336,11 +336,13 @@ def _solve_record(row, head, tightened=False):
                 and type(row['gradient_max']) in (int,float) and row['gradient_max'] >= 0
                 and bool(row['objective_trace']) and row['objective_trace'][-1] == row['objective'], 'invalid completed objective/gradient trace')
         if head == 'g':
-            scale = .1 if tightened else 1.
+            from .execution_design import DEFINITION
+            solver = DEFINITION['solver']
+            stopping = solver['continuation'] if tightened else solver
             require(row['em_iterations'] == len(row['inner_solves']) > 0
                     and len(row['objective_trace']) == row['em_iterations'] + 1
-                    and type(row['responsibility_change']) in (int,float) and 0 <= row['responsibility_change'] <= 1e-6 * scale
-                    and type(row['relative_objective_change']) in (int,float) and 0 <= row['relative_objective_change'] <= 1e-8 * scale,
+                    and type(row['responsibility_change']) in (int,float) and 0 <= row['responsibility_change'] <= stopping['em_responsibility']
+                    and type(row['relative_objective_change']) in (int,float) and 0 <= row['relative_objective_change'] <= stopping['em_objective'],
                     'false setter em completion')
             require(all(inner.get('converged') is True and {'status','termination','iterations','evaluations','objective'} <= inner.keys() for inner in row['inner_solves']), 'unfinished setter m-step')
             require(all(new-old <= 1e-10*(1+abs(old)) for old,new in zip(row['objective_trace'],row['objective_trace'][1:])), 'setter observed objective increased')
@@ -563,7 +565,7 @@ def _selector(value, manifest, heads, coverage):
     require(geometry == dict(context_key=keys[0], types=list(TYPES), cells=list(range(656)), execution=['actual','neutral']), 'synthetic geometry coverage differs')
     fixtures = value['fixture_witnesses']
     require(type(fixtures) is list, 'missing attributed fixture witnesses')
-    fixture_keys = set()
+    fixture_keys, fixture_cases = set(), {}
     for record in fixtures:
         _closed(record, ('key','attribution'), 'fixture witness')
         require(type(record['key']) is str and record['key'].startswith('synthetic-resolution:')
@@ -574,7 +576,32 @@ def _selector(value, manifest, heads, coverage):
                 and attribution.get('source_key') in supported
                 and type(attribution.get('reason')) is str and bool(attribution['reason'])
                 and type(attribution.get('changed_fields')) is list and bool(attribution['changed_fields'])
-                and type(attribution.get('actor')) is dict, 'unattributed synthetic fixture')
+                and all(type(field) is str and bool(field) for field in attribution['changed_fields']), 'unattributed synthetic fixture')
+        if attribution.get('projection') == 'incomplete_setter':
+            _closed(attribution, ('kind','source_key','projection','reason','changed_fields','source_prepared_member',
+                                  'withheld_history','setter_universe_complete','expected_prior'), 'incomplete setter fixture')
+            history = attribution['withheld_history']
+            _closed(history, ('source_index','pointer','before','after'), 'withheld history evidence')
+            game_id, source_index = attribution['source_key'].split(':')
+            require(type(history['source_index']) is int and history['source_index'] >= 0
+                    and history['source_index'] != int(source_index)
+                    and type(history['pointer']) is str
+                    and re.fullmatch(r'/events/(0|[1-9]\d*)/source/kind_valid', history['pointer'])
+                    and history['before'] is True and history['after'] is False
+                    and attribution['changed_fields'] == [history['pointer']], 'invalid withheld history projection')
+            require(attribution['source_prepared_member'] in manifest['prepared']['members']
+                    and attribution['source_prepared_member']['kind'] == 'game'
+                    and attribution['source_prepared_member']['game_id'] == game_id, 'unbound projected source member')
+            require(attribution['setter_universe_complete'] is False
+                    and attribution['expected_prior'] == [dict(kind='none', probability=.2), dict(kind='unknown', probability=.8)],
+                    'projected setter prior differs')
+            fixture_cases[record['key']] = 'incomplete_setter'
+        else:
+            actor = attribution.get('actor')
+            _closed(actor, ('block','id','role','likelihood_support'), 'synthetic actor')
+            require(any(all(row.get(key) == actor[key] for key in actor) for head in HEADS for row in heads[head]['actors']),
+                    'synthetic actor has no current support')
+            fixture_cases[record['key']] = actor
     requirements = value['requirements']
     require(type(requirements) is list and bool(requirements), 'missing numerical requirements')
     names = []
@@ -585,6 +612,16 @@ def _selector(value, manifest, heads, coverage):
         require(row['disposition'] in ('actual','fixture','unavailable'), 'invalid probe requirement disposition')
         expected = keys if row['disposition'] == 'actual' else fixture_keys if row['disposition'] == 'fixture' else (None,)
         require(row['key'] in expected, 'probe requirement has no checked witness')
+        if row['disposition'] == 'fixture':
+            case = fixture_cases[row['key']]
+            if case == 'incomplete_setter':
+                require(row['requirement'] == 'incomplete_setter', 'source projection used for another requirement')
+            else:
+                parts = row['requirement'].split(':')
+                require(len(parts) == 4 and parts[0] == 'sparse' and parts[1] in HEADS
+                        and parts[2:] == [case['block'], case['id']]
+                        and any(all(actor.get(key) == case[key] for key in case) for actor in heads[parts[1]]['actors']),
+                        'synthetic actor does not witness its sparse requirement')
     expected_names = {'type:' + name for name in TYPES} | {'outcome:' + name for name in ('block','miss','save','goal')} | {'missing_context','tip','off_ice_setter','incomplete_setter'}
     expected_names.update(key for key,count in coverage['heads']['u'].items() if key.startswith('strength:') and count > withheld_strengths.get(key,0))
     for head in HEADS:
@@ -777,6 +814,7 @@ def read_execution_state(path, expected_purpose):
 
 def read_execution_probe(state, head):
     """return a tagged saved tighter-head variant; never a predecessor."""
+    from .execution_design import DEFINITION
     require(isinstance(state, ExecutionState) and state.usage == 'annual' and head in HEADS, 'invalid probe base')
     resolution = state.heads[head]['resolution']
     require(state.manifest['season'] == '20252026' and resolution['status'] in ('passed', 'failed')
@@ -809,9 +847,12 @@ def read_execution_probe(state, head):
     comparison = probe['comparison']
     require(resolution.get('baseline') == baseline and resolution.get('comparison') == comparison, 'probe comparison/baseline differs from resolution record')
     _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance tightened_objective objective_change tightened_gradient_max gradient_max_change coefficient_max_change coefficient_l2_change maximum_probability_change head_maximum_changes terminal_maximum_changes evaluated_origins evaluated_branches'.split(), 'resolution comparison')
-    require(comparison['optimizer_maxiter'] == 2000 and comparison['optimizer_ftol'] == 1e-15
-            and comparison['optimizer_gtol'] == 1e-7 and comparison['em_maxiter'] == 100
-            and comparison['em_relative_tolerance'] == 1e-9 and comparison['em_responsibility_tolerance'] == 1e-7,
+    solver = DEFINITION['solver']
+    stopping = solver['continuation']
+    require(comparison['optimizer_maxiter'] == solver['maxiter'] and comparison['optimizer_ftol'] == stopping['ftol']
+            and comparison['optimizer_gtol'] == stopping['gtol'] and comparison['em_maxiter'] == solver['em_maxiter']
+            and comparison['em_relative_tolerance'] == stopping['em_objective']
+            and comparison['em_responsibility_tolerance'] == stopping['em_responsibility'],
             'resolution did not use tenfold tighter tolerances')
     require(metadata['diagnostics']['requested_starts'] == ['continuation']
             and metadata['selected_start'] == 'continuation', 'resolution is not a completed continuation')

@@ -1,0 +1,25 @@
+{
+  "recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
+  "producer_commit": "cd45e97d5eb8b28ba0a516008d7a047673d2a398",
+  "scope": "one fresh full five-year chain with new first-year entry priors and only new consecutive predecessors; no old0cb coefficient or ledger reuse",
+  "state_path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01",
+  "head_statuses": "twenty complete",
+  "resolution": "all four passed",
+  "maximum_probability_changes": {
+    "u": 2.880945155769865e-07,
+    "q": 3.47720898408177e-07,
+    "r": 2.68491713195651e-07,
+    "g": 5.414863393782277e-07
+  },
+  "content_sha256": "955a03abf5b86db897e9f52005efc0d062a000b987e6a577220249bfaeab1e7d",
+  "resources": {
+    "total_command_wall_seconds": 250.67,
+    "maximum_resident_bytes": 1177436160
+  },
+  "superseded": "0cb fixture qualifications remain historical diagnostic states after the confirmed duplicate transition-indicator defect; their exact receipts remain at commit2281d55 and stopped real01 records remain unchanged",
+  "proofs": [
+    "transition-availability.json",
+    "transition-availability-peer.json",
+    "real-first-year-interruption.json"
+  ]
+}

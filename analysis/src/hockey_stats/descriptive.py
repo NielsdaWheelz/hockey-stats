@@ -199,15 +199,18 @@ def execution_participation(prepared_game: PreparedGame) -> dict:
     teams = (str(identity['away_team_id']),str(identity['home_team_id']))
     dressed = _dressed(prepared_game)
     identities = _actor_identities(prepared_game,dressed)
-    available = prepared_game['segments'] is not None and bool(prepared_game['game']['periods'])
+    segments = prepared_game['segments'] or []
+    valid_segments = {s['segment_index'] for s in segments if _valid_membership(
+        s,teams,dressed,identities,prepared_game['people'] or {})}
+    available = bool(valid_segments) and bool(prepared_game['game']['periods'])
     gap = not available or any(p['status'] != 'supported' for p in prepared_game['game']['periods'] or []) or any(
         row['classification'] == 'unresolved' for row in prepared_game['game']['native_intervals'] or [])
     result = {(str(pid),strength):support(0 if available else None,gap=gap,
               reasons=['elapsed_unavailable'] if gap else ())
               for pid,actor in identities.items() if actor['reported_position'] in ('C','L','R','D','F')
               for strength in EXECUTION_STRENGTHS}
-    for segment in prepared_game['segments'] or []:
-        valid = _valid_membership(segment,teams,dressed,identities,prepared_game['people'] or {})
+    for segment in segments:
+        valid = segment['segment_index'] in valid_segments
         seconds = segment['end_seconds']-segment['start_seconds']
         for side in ('away','home'):
             state = state_tuple(segment['membership'],side)

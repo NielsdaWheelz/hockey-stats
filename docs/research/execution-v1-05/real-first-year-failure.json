@@ -1,0 +1,373 @@
+{
+  "kind": "unavailable-real-execution-diagnosis",
+  "purpose": "real",
+  "recorded_utc": "2026-10-24T20:10:47.270232+00:00",
+  "exit_code": 1,
+  "strict_public_read": "passed in ordinary CLI write_execution_state save/read; returned inspectable unavailable family",
+  "completion": "no fitted annual family, all heads unavailable; no fitted arrays, carry, warmstart or promotion",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022/manifest.json",
+    "sha256": "3f739d2859ffeac907a40ac2d169a83d95653808337c327b9fe4e141612001bc"
+  },
+  "members": [
+    {
+      "path": "coverage.json",
+      "sha256": "7aba2213ab3ad5b2000f927418e3d2e88c585e53c2ff96785facd4c5f300395b",
+      "bytes": 196154100
+    },
+    {
+      "path": "heads/u.json",
+      "sha256": "f635ab5151eaa36de6eb24cd1ba730d7ec88c11817608b4de2877038771461a3",
+      "bytes": 984432
+    },
+    {
+      "path": "heads/q.json",
+      "sha256": "c139489f07c6dcb8b21bf1bed4e0237126f0a7df402dd1ab243f339f8b552b46",
+      "bytes": 1064713
+    },
+    {
+      "path": "heads/r.json",
+      "sha256": "1716b52f8d8dc517939e5d0d65e9c3bd7df2deaf0df26f983b28c3664b07c8e2",
+      "bytes": 1064206
+    },
+    {
+      "path": "heads/g.json",
+      "sha256": "00aa6c76cc27635c5cd9a712bda2ee4b20cf86f980cf00ffc9203170b1043da6",
+      "bytes": 1713867
+    }
+  ],
+  "recognized_attempts": 149412,
+  "selected_games": 1312,
+  "heads": {
+    "u": {
+      "status": "unavailable",
+      "reasons": [
+        "no_completed_start"
+      ],
+      "selected_start": null,
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": false,
+          "status": 1,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 2000,
+          "evaluations": 2190,
+          "objective": 63798.40637900731,
+          "gradient_max": 0.015580808468975471,
+          "inner_solves": [],
+          "objective_trace": [
+            63798.40637900731
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": "zero"
+        }
+      ],
+      "wall_seconds": 12099.32927108393,
+      "counts": {
+        "included": 147510,
+        "class:1": 112345,
+        "type:wrist": 86195,
+        "strength:5,5,1": 117676,
+        "class:0": 35165,
+        "type:slap": 21014,
+        "type:backhand": 9139,
+        "type:tip": 11152,
+        "type:snap": 18968,
+        "type:other": 1042,
+        "strength:5,4,1": 19186,
+        "strength:4,5,1": 3165,
+        "strength:6,5,0": 2832,
+        "excluded": 1902,
+        "strength:5,4,0": 40,
+        "strength:4,3,1": 324,
+        "strength:5,3,1": 561,
+        "strength:5,5,0": 35,
+        "strength:4,4,1": 1717,
+        "strength:6,4,0": 349,
+        "strength:3,3,1": 1552,
+        "strength:3,5,1": 18,
+        "strength:6,5,1": 4,
+        "strength:3,4,1": 30,
+        "strength:5,6,1": 3,
+        "strength:6,4,1": 1,
+        "strength:4,3,0": 9,
+        "strength:5,3,0": 4,
+        "strength:6,3,0": 4
+      },
+      "ledger_rows": 0,
+      "arrays": null
+    },
+    "q": {
+      "status": "unavailable",
+      "reasons": [
+        "no_completed_start"
+      ],
+      "selected_start": null,
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": false,
+          "status": 1,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 2000,
+          "evaluations": 2200,
+          "objective": 61491.75009298523,
+          "gradient_max": 0.4536119664147762,
+          "inner_solves": [],
+          "objective_trace": [
+            61491.75009298523
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": "zero"
+        }
+      ],
+      "wall_seconds": 372.5802658330649,
+      "counts": {
+        "included": 112345,
+        "class:1": 82328,
+        "type:wrist": 62608,
+        "strength:5,5,1": 89007,
+        "excluded": 37067,
+        "type:slap": 15306,
+        "type:backhand": 8256,
+        "type:tip": 10726,
+        "class:0": 30017,
+        "type:snap": 14535,
+        "type:other": 914,
+        "strength:5,4,1": 14793,
+        "strength:6,5,0": 2000,
+        "strength:4,5,1": 2800,
+        "strength:5,4,0": 31,
+        "strength:5,3,1": 445,
+        "strength:5,5,0": 23,
+        "strength:4,4,1": 1341,
+        "strength:6,4,0": 262,
+        "strength:3,3,1": 1334,
+        "strength:4,3,1": 247,
+        "strength:3,5,1": 16,
+        "strength:6,5,1": 4,
+        "strength:3,4,1": 26,
+        "strength:5,6,1": 3,
+        "strength:6,4,1": 1,
+        "strength:4,3,0": 7,
+        "strength:6,3,0": 3,
+        "strength:5,3,0": 2
+      },
+      "ledger_rows": 0,
+      "arrays": null
+    },
+    "r": {
+      "status": "unavailable",
+      "reasons": [
+        "no_completed_start"
+      ],
+      "selected_start": null,
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": false,
+          "status": 1,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "iterations": 2000,
+          "evaluations": 2206,
+          "objective": 43428.52154360975,
+          "gradient_max": 0.15330684205946454,
+          "inner_solves": [],
+          "objective_trace": [
+            43428.52154360975
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": "zero"
+        }
+      ],
+      "wall_seconds": 281.6692812910769,
+      "counts": {
+        "included": 82328,
+        "class:0": 19823,
+        "type:wrist": 47332,
+        "strength:5,5,1": 64961,
+        "excluded": 67084,
+        "class:1": 62505,
+        "type:slap": 10681,
+        "type:backhand": 6455,
+        "type:tip": 6058,
+        "type:snap": 11089,
+        "type:other": 713,
+        "strength:5,4,1": 10781,
+        "strength:6,5,0": 1437,
+        "strength:4,5,1": 2316,
+        "strength:5,4,0": 19,
+        "strength:5,3,1": 330,
+        "strength:5,5,0": 17,
+        "strength:4,4,1": 1029,
+        "strength:3,3,1": 1032,
+        "strength:4,3,1": 166,
+        "strength:6,4,0": 193,
+        "strength:3,5,1": 15,
+        "strength:6,5,1": 3,
+        "strength:3,4,1": 24,
+        "strength:6,3,0": 1,
+        "strength:5,6,1": 2,
+        "strength:4,3,0": 2
+      },
+      "ledger_rows": 0,
+      "arrays": null
+    },
+    "g": {
+      "status": "unavailable",
+      "reasons": [
+        "no_completed_start"
+      ],
+      "selected_start": null,
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": false,
+          "termination": "setter em inner solve failed",
+          "iterations": 2000,
+          "evaluations": 2191,
+          "objective": 59344.5650946786,
+          "gradient_max": 23605.5,
+          "inner_solves": [
+            {
+              "converged": false,
+              "status": 1,
+              "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+              "iterations": 2000,
+              "evaluations": 2191,
+              "objective": 19175.360434283884
+            }
+          ],
+          "objective_trace": [
+            59344.5650946786
+          ],
+          "objective_increases": [],
+          "em_iterations": 1,
+          "responsibility_change": null,
+          "relative_objective_change": null
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": "zero"
+        }
+      ],
+      "wall_seconds": 1577.7115564169362,
+      "counts": {
+        "excluded": 86907,
+        "included": 62505,
+        "class:0": 54858,
+        "type:wrist": 35848,
+        "strength:5,5,1": 48549,
+        "type:backhand": 4984,
+        "type:tip": 4742,
+        "type:snap": 8391,
+        "type:slap": 7934,
+        "class:1": 7647,
+        "strength:5,4,1": 8471,
+        "strength:6,5,0": 1172,
+        "strength:4,5,1": 2083,
+        "strength:5,4,0": 19,
+        "type:other": 606,
+        "strength:5,5,0": 14,
+        "strength:4,4,1": 761,
+        "strength:3,3,1": 843,
+        "strength:4,3,1": 133,
+        "strength:6,4,0": 156,
+        "strength:3,5,1": 14,
+        "strength:5,3,1": 263,
+        "strength:6,5,1": 2,
+        "strength:3,4,1": 21,
+        "strength:6,3,0": 1,
+        "strength:5,6,1": 1,
+        "strength:4,3,0": 2
+      },
+      "ledger_rows": 0,
+      "arrays": null
+    }
+  },
+  "resources": {
+    "wall_seconds": 19084.68417379097,
+    "peak_memory_bytes": 17182834688,
+    "design_wall_seconds": 4553.814337083022,
+    "input_read_wall_seconds": 0.5952106249751523,
+    "fit_wall_seconds": 14530.274626082974,
+    "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "output_bytes": 200981318,
+    "origin_rows": {
+      "u": null,
+      "q": null,
+      "r": null,
+      "g": null
+    },
+    "candidate_branches": {
+      "u": null,
+      "q": null,
+      "r": null,
+      "g": null
+    },
+    "resolution_solve_counts": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 0
+    },
+    "dimensions": {
+      "u": 3511,
+      "q": 3656,
+      "r": 3656,
+      "g": 4667
+    },
+    "solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 1
+    }
+  },
+  "whole_command": {
+    "wall_seconds": 19213.89,
+    "user_seconds": 17788.72,
+    "system_seconds": 128.18,
+    "maximum_resident_bytes": 17182834688,
+    "peak_memory_footprint_bytes": 19560659440,
+    "swaps": 0,
+    "scope": "entire command including post-manifest readback; shared drive/CPU load and possible OS cache warming as recorded in submission"
+  },
+  "implementation": {
+    "git_commit": "404144375613c7d30cb962711efe7851b506caa8",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "source_preservation": "original404 clean and code hashes unchanged; every saved member hash matches sealed manifest",
+  "resource_scope_reference": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022-submission.json",
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022.log",
+    "sha256": "a2bfaa903cccf1f681638768f14850a816c05e44b5fe9771decfe8cedb9efc2e"
+  },
+  "monitor": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022-monitor.jsonl",
+    "sha256": "e1fafcba5ae6997a041fc28a5175f03c8621ee41024ac9c981d82314ab9f70d1"
+  },
+  "g_gradient_scope": "failed first EM inner objective19175.360434283884; outer objective59344.5650946786 and gradient23605.5 belong to unchanged initial beta, not the rejected inner endpoint",
+  "advance": "blocked; no next year or source cutover. new approved cap requires fresh qualified implementation and new run03 root go"
+}

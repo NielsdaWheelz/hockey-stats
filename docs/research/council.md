@@ -1,5 +1,17 @@
 # council synthesis
 
+## v1-05 execution-base specification review — 2026-10-22
+
+three independent read-only reviewers examined mathematics, systems/source contracts and content for [v1-05](../specs/v1-05-execution-base.md). root inspected current numerical owners, the in-progress v1-01 contract and merged coach interface, reconciled the handoff and amended the canonical appendix. reviewers checked the source meanings against v1-01's worktree; this does not establish upstream acceptance. [hockeyviz xg8](https://hockeyviz.com/txt/xg8) supports the four-layer inspiration, symmetry, tip masking and actor placement, not equivalence of our independent estimator.
+
+the material preference was annual shrinkage. the earlier prose named a carried prior mean but did not say whether returning actors also received a zero-centered level penalty. the user selected entry **or** carry, preserving that mean rather than automatically shrinking it another 20%. the contract keeps age-neutral transitions for unknown/changed roles, separate raw coordinates/reference centers, and last-supported ledgers through absences. point priors remain conditional and may lag changes.
+
+review resolved weighted-log versus marginalized-origin likelihood, auxiliary-assist likelihood versus outcome-blind prediction, exact em completion, tip/applicability centering, prior-only actor evidence and strict unavailable-head serialization. later successor uncertainty removes only dependent labels; optional context gaps do not silently become complete-case exclusions. native mirror penalties and head-specific missingness use one authoritative numerical owner; frozen research wrappers are not repurposed under misleading stage names.
+
+the boundary is twenty annual base states and four final-head resolution checks. v1-06 owns reference panels, card quantities, allocation and publication; v1-07 owns the other two heads. source-backed factual and frontend work can proceed independently. fixed origin imputation, mirrored geometry, missing-feature imputation, finite exact-strength contrasts, local mixture optimization and absent calibrated uncertainty are explicit costs, not scientific gates. diagnostics describe training data and assumption-dependent probabilities; software completion does not admit ability.
+
+independent findings were resolved in the documents; link/anchor, consistency and whitespace checks cover this documentation work. no source code, acquisition, fitting, published artifact or serving file changed. the earlier v1-03 and other primary drafts remain preserved. this records specification review, not numerical or software acceptance; [the plan](../plan.md#current-boundary) owns assignment.
+
 ## v1-03 real facts and v1-16 integration acceptance — 2026-10-24
 
 source/arithmetic, systems and content reviewers clear [real factual delivery](facts-v1-03/real/verification.md) and [real descriptive-card integration](application-v1-16/verification.md). all 3,936 selected games and 2,784 skater seasons pass the independent source fold; every old observed table remains exact. publication integrity, foreign keys, conservation and readback pass. 48 typed api groups, independently recomputed counterpart means/bands, six actual card/png and csv pairs, annual history, discovery/comparison and headed native 200% zoom pass. root inspected complete, traded and sparse exports plus all four revised native viewport captures. no real skater lacks an old summary; the coherent fixture covers that branch without an invented real example.

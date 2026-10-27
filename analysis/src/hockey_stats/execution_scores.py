@@ -268,8 +268,13 @@ def _resolve(state, design, scored, records, people, participation):
     synthetic = []
     for row in selector['requirements']:
         if row['disposition'] == 'fixture' and row['key'] not in {key for key, _, _ in synthetic}:
-            _, _, block, actor = row['requirement'].split(':')
-            built = build_resolution_witness(design, row['requirement'], block, actor)
+            requirement = row['requirement']
+            if requirement == 'incomplete_setter':
+                block = actor = None
+            else:
+                kind, _, block, actor = requirement.split(':')
+                require(kind == 'sparse', 'unknown synthetic resolution requirement')
+            built = build_resolution_witness(design, requirement, block, actor)
             require(built is not None and built[0].key == row['key'], 'frozen synthetic witness cannot be rebuilt')
             synthetic.append((row['key'], built[0], None))
     require([key for key, _, _ in synthetic] == [row['key'] for row in selector['fixture_witnesses']], 'synthetic witnesses differ from the frozen selector')

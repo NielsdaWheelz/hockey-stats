@@ -1,0 +1,431 @@
+{
+  "source_commit": "ba8ffb7dfb22efa67dafe99a1bb3c55c4bc3937c",
+  "parent_commit": "b8a4401841569ebb80816603d71a3fcbe805eee4",
+  "git_clean": true,
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-1",
+    "sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+    "definition": {
+      "version": "execution-v1-05-1",
+      "heads": {
+        "u": "ordinary physical attempt: unblocked versus block",
+        "q": "unblocked attempt: on-net versus miss",
+        "r": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+        "g": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture"
+      },
+      "families": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition"
+      ],
+      "types": [
+        "wrist",
+        "snap",
+        "slap",
+        "backhand",
+        "tip",
+        "other"
+      ],
+      "grid": "native-656-mirror-y; full native penalty",
+      "origin": {
+        "distance_ft": 20,
+        "direction_strength": 4,
+        "blocks": "K(contact|origin) normalized over all origins"
+      },
+      "strength": "32 membership categories, (5,5,1) reference",
+      "missingness": "head-training applicable weighted mean; unavailable and structural absence distinct; constant indicators zero",
+      "actors": "tip-masked shooter; q/r/g goalie; g setter; separate known coach directions",
+      "setter": ".2 none,.8 role-weighted current unit and supported prior-clock phase participants; unknown phase unknown; current-skater linear mean",
+      "history_cutoff": {
+        "version": "strict-prior-clock-1",
+        "selection": "supported earlier source order AND strictly earlier period/game clock",
+        "affected": [
+          "recent_additive",
+          "recent_interactions",
+          "recent_geometry",
+          "strength_transition",
+          "setter_prior"
+        ],
+        "same_clock": "ignore every row including faceoff, reset, review and unknown kind before examining its contents",
+        "phase": "coarsened recorded prior-clock proxy; current membership retained; no recovered physical uninterrupted-play claim",
+        "period": "history is within the focal period; known earlier periods are outside it, unknown prior period is a barrier",
+        "phase_boundary": "supported prior reset gives known absence; supported faceoff or action after a known reset starts a known recorded phase; unanchored live history is censored",
+        "known_absence": "empty known phase participants; complete current-unit-only proxy candidates",
+        "unknown": "unknown clock/order/kind or censored phase remains unavailable until a supported earlier reset/anchor",
+        "transition": "shared native membership algebra at strict before-clock query; includes interval returns r<t without intervening events, excludes r==t",
+        "transition_evidence": "supported native intervals plus selected earlier source reset/clock facts; no per-event elapsed association prerequisite",
+        "unchanged": [
+          "focal membership",
+          "sequence",
+          "deployment",
+          "shift start",
+          "event-prefix workloads",
+          "calendar rest",
+          "labels"
+        ]
+      },
+      "history": "entry OR carry; last likelihood-supported raw state; separate block/head/role age curves; no role-change reset",
+      "penalties": {
+        "base_map": 0.25,
+        "type_map": 1.0,
+        "neighbor": 4.0,
+        "circumstance": 4.0,
+        "shooter": [
+          4.0,
+          16.0
+        ],
+        "setter": [
+          4.0,
+          16.0
+        ],
+        "goalie": [
+          16.0,
+          64.0
+        ],
+        "attacking_coach": [
+          256.0,
+          1024.0
+        ],
+        "defending_coach": [
+          256.0,
+          1024.0
+        ],
+        "age": 64.0
+      },
+      "solver": {
+        "maxiter": 10000,
+        "ftol": 1e-15,
+        "gtol": 1e-06,
+        "em_maxiter": 100,
+        "em_objective": 1e-08,
+        "em_responsibility": 1e-06,
+        "continuation": {
+          "ftol": 1e-16,
+          "gtol": 1e-07,
+          "em_objective": 1e-09,
+          "em_responsibility": 1e-07
+        }
+      },
+      "reference": "raw-minus-training-centers; preserve applicability offsets; virtual neutral execution",
+      "population": {
+        "game_type": 2,
+        "physical_status": "ordinary",
+        "skaters_each": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "opposing_goalies": 1,
+        "attacking_goalies": [
+          0,
+          1
+        ],
+        "required": [
+          "focal_identity",
+          "shooting_team",
+          "membership",
+          "shooter",
+          "six_type",
+          "normalized_location",
+          "outcome"
+        ],
+        "goalie_identity": "q/r/g only: exact opposing-goalie member and supported dated team identity; optional reported position; conflicting positive credited/native ids withheld; u uses cardinality only",
+        "elapsed_clock": "optional; resolved membership suffices",
+        "u": {
+          "block": 0,
+          "miss": 1,
+          "save": 1,
+          "goal": 1
+        },
+        "q": {
+          "miss": 0,
+          "save": 1,
+          "goal": 1
+        },
+        "r": {
+          "recorded_stopped_save": 0,
+          "continuing_save": 1,
+          "goal": 1
+        },
+        "g": {
+          "continuing_save": 0,
+          "goal": 1
+        },
+        "stop": "v1-01 recorded_goalie_stop; unavailable withholds r/g only"
+      },
+      "family_columns": {
+        "game_additive": [
+          "score_bucket:trailing_2_plus",
+          "score_bucket:trailing_1",
+          "score_bucket:leading_1",
+          "score_bucket:leading_2_plus",
+          "period:2",
+          "period:3",
+          "period:OT",
+          "home_away:home",
+          "minute_band:first",
+          "minute_band:last"
+        ],
+        "recent_additive": [
+          "recent_kind:faceoff",
+          "recent_kind:hit",
+          "recent_kind:giveaway",
+          "recent_kind:takeaway",
+          "recent_kind:shot-on-goal",
+          "recent_kind:missed-shot",
+          "recent_kind:blocked-shot",
+          "recent_team:same",
+          "recent_team:opponent",
+          "recent_delay:0",
+          "recent_delay:1",
+          "recent_delay:2",
+          "recent_delay:3",
+          "recent_delay:4",
+          "recent_delay:5",
+          "recent_zone:attacking",
+          "recent_zone:other",
+          "recent_shooter:same",
+          "recent_shooter:different"
+        ],
+        "recent_interactions": [
+          "recent_kind:hit:recent_team:same",
+          "recent_kind:giveaway:recent_team:same",
+          "recent_kind:takeaway:recent_team:same",
+          "recent_kind:shot-on-goal:recent_team:same",
+          "recent_kind:missed-shot:recent_team:same",
+          "recent_kind:blocked-shot:recent_team:same",
+          "recent_kind:hit:recent_delay:1",
+          "recent_kind:hit:recent_delay:2",
+          "recent_kind:hit:recent_delay:3",
+          "recent_kind:hit:recent_delay:4",
+          "recent_kind:hit:recent_delay:5",
+          "recent_kind:giveaway:recent_delay:1",
+          "recent_kind:giveaway:recent_delay:2",
+          "recent_kind:giveaway:recent_delay:3",
+          "recent_kind:giveaway:recent_delay:4",
+          "recent_kind:giveaway:recent_delay:5",
+          "recent_kind:takeaway:recent_delay:1",
+          "recent_kind:takeaway:recent_delay:2",
+          "recent_kind:takeaway:recent_delay:3",
+          "recent_kind:takeaway:recent_delay:4",
+          "recent_kind:takeaway:recent_delay:5",
+          "recent_kind:shot-on-goal:recent_delay:1",
+          "recent_kind:shot-on-goal:recent_delay:2",
+          "recent_kind:shot-on-goal:recent_delay:3",
+          "recent_kind:shot-on-goal:recent_delay:4",
+          "recent_kind:shot-on-goal:recent_delay:5",
+          "recent_kind:missed-shot:recent_delay:1",
+          "recent_kind:missed-shot:recent_delay:2",
+          "recent_kind:missed-shot:recent_delay:3",
+          "recent_kind:missed-shot:recent_delay:4",
+          "recent_kind:missed-shot:recent_delay:5",
+          "recent_kind:blocked-shot:recent_delay:1",
+          "recent_kind:blocked-shot:recent_delay:2",
+          "recent_kind:blocked-shot:recent_delay:3",
+          "recent_kind:blocked-shot:recent_delay:4",
+          "recent_kind:blocked-shot:recent_delay:5"
+        ],
+        "recent_geometry": [
+          "dx_ft/100",
+          "dy_ft/100",
+          "displacement_ft/100",
+          "crossed_centerline"
+        ],
+        "off_wing": [
+          "off_wing"
+        ],
+        "sequence": [
+          "defender_sequence_index:2",
+          "defender_sequence_index:3",
+          "defender_sequence_index:4+",
+          "defender_sequence_age_seconds/60"
+        ],
+        "shift_age": [
+          "shooter_age_seconds/60",
+          "opposing_age_min_seconds/60",
+          "opposing_age_mean_seconds/60",
+          "opposing_age_max_seconds/60"
+        ],
+        "shift_start": [
+          "shooter_start_zone:offensive",
+          "shooter_start_zone:neutral",
+          "shooter_start_zone:defensive",
+          "last_faceoff:none",
+          "last_faceoff_zone:offensive",
+          "last_faceoff_zone:defensive",
+          "last_faceoff_age_seconds/60"
+        ],
+        "workload": [
+          "shooter_prefix_toi_all_seconds/3600",
+          "shooter_prefix_shifts_completed/30",
+          "shooter_prefix_attempts/10",
+          "opposing_prefix_toi_all_mean_seconds/3600",
+          "opposing_prefix_toi_all_max_seconds/3600",
+          "shooter_days_7_toi_all_seconds/3600",
+          "shooter_days_7_shifts/30",
+          "shooter_days_7_attempts/10",
+          "shooter_days_14_toi_all_seconds/3600",
+          "shooter_days_14_shifts/30",
+          "shooter_days_14_attempts/10"
+        ],
+        "calendar_rest": [
+          "shooter:prior_exists",
+          "shooter:calendar_gap_days",
+          "shooter:prior_one_date",
+          "shooter:prior_two_date",
+          "shooter:games_days_7",
+          "shooter:games_days_14",
+          "opposing_team:prior_exists",
+          "opposing_team:calendar_gap_days",
+          "opposing_team:prior_one_date",
+          "opposing_team:prior_two_date",
+          "opposing_team:games_days_7",
+          "opposing_team:games_days_14"
+        ],
+        "strength_transition": [
+          "previous_strength:same_fewer",
+          "previous_strength:same_more",
+          "return_to_5v5_age_seconds/60"
+        ]
+      },
+      "fixed_transforms": {
+        "game_additive": "fixed category contrasts; tied,period1,away,middle references",
+        "recent_additive": "fixed category indicators over last allowed earlier-source-order, strictly earlier-clock record; known none zeros",
+        "recent_interactions": "unchanged fixed kind\u00d7same-team and kind\u00d7delay contrasts over strict prior-clock recent record",
+        "recent_geometry": "candidate minus strict prior-clock preceding attacking coordinates; dx,dy,hypot/100; opposite nonzero y signs",
+        "off_wing": "original reported right hand and candidate y>0, or left hand and y<0; supported centerline false",
+        "sequence": "persistent defender index2,index3,index4+ indicators and age/60; index1 reference",
+        "shift_age": "original shooter and complete actual opposing-unit min,mean,max compatible shift ages/60",
+        "shift_start": "on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
+        "workload": "shooter prefix toi/3600,completed shifts/30,attempts/10; complete actual opposing-unit mean,max prefix toi/3600; shooter7,14-day toi/3600,shifts/30,attempts/10",
+        "calendar_rest": "shooter then opposing team: prior exists,gap days,prior-one/two-date,7/14-day games; proven no prior gap0",
+        "strength_transition": "shared genuine unequal-strength\u21925v5 membership history evaluated strictly before focal clock; previous fewer/more and return age/60; known none zeros"
+      },
+      "adaptations": {
+        "unit": "all actual opposing members; no known-only sums",
+        "shift_start": "on_the_fly reference; faceoff offensive/neutral/defensive; unknown unavailable",
+        "recent_geometry": "candidate origin; none absent; unavailable predecessor unavailable",
+        "team_rest": "feature_history._team_rest; verified complete prepared current-season inventory only",
+        "goalie_columns": [
+          "prefix_toi_all_seconds/3600",
+          "prefix_on_net_faced/30",
+          "days_7.shots_against/30",
+          "days_14.shots_against/30",
+          "prior_appearance_exists",
+          "calendar_gap_days",
+          "prior_one_date",
+          "prior_two_date",
+          "games_days_7",
+          "games_days_14"
+        ],
+        "goalie_prefix": "all supported earlier actions including penalty shots; never focal or later actions",
+        "source_support": "supported segment/event membership and candidate occurrences; coaches in dated assignments"
+      },
+      "missingness_definition": {
+        "numeric": "head-training mean among available applicable transformed values, weighted by frozen origin mass",
+        "unavailable": "centered zero plus one shared condition indicator",
+        "structural_absence": "centered zero plus declared existence/category indicator",
+        "categories": "fixed ordered contrasts with separate unavailable indicator",
+        "unsupported_or_constant_indicator": "zero coefficient and explicit training support",
+        "unknown_coach": "no actor identity; unavailable circumstance; known-only center applicability"
+      },
+      "availability_conditions": {
+        "preceding_status": [
+          "recent_additive",
+          "recent_interactions",
+          "recent_geometry",
+          "recent_exists"
+        ],
+        "preceding_status_rule": "one shared unavailable indicator; producer status recent requires complete applicable preceding facts; none remains structural absence",
+        "strength_transition": [
+          "previous_strength:same_fewer",
+          "previous_strength:same_more",
+          "return_to_5v5_age_seconds/60"
+        ],
+        "strength_transition_rule": "one shared unavailable indicator; strict query returns known side and age together when a return exists, known structural absence when none exists, otherwise all unavailable",
+        "independent_fields": "separate supported selected counter/sequence fields retain their own availability; do not group empirical co-missingness"
+      },
+      "setter_definition": {
+        "none_mass": 0.2,
+        "setup_mass": 0.8,
+        "forward_shooter_forward_weight": 2.0,
+        "defense_shooter_forward_weight": 3.0,
+        "other_weight": 1.0,
+        "candidate_universe": "current teammates plus every supported strictly prior-clock phase event's attacking unit and named participants, excluding shooter; known absent phase is empty, unknown/censored phase -> unknown",
+        "known_assist": "likelihood-only local candidate position; never enlarge universe",
+        "unknown_or_goalie": "fixed pre-outcome skater candidate-weighted current linear mean; differentiate coupling",
+        "empty_mean": "prior-only zero",
+        "setup": "I[candidate!=none]",
+        "objective": "sum origin weights times negative log branch mixture, not log origin mixture"
+      },
+      "age_definition": {
+        "reference": "february-1 of season ending year",
+        "days_per_year": 365.2425,
+        "center": 27.0,
+        "scale": 10.0,
+        "powers": [
+          1,
+          2
+        ],
+        "roles": [
+          "F",
+          "D",
+          "G"
+        ],
+        "transition": "last-supported raw + (z(current_age)-z(last_age)) dot current annual block/head/role curve",
+        "unavailable_or_role_change": "age-neutral carry, no history reset",
+        "coach": "age-neutral"
+      },
+      "role_definition": "actual typed goalie membership supports G without biographical position; conflicting goalie/skater membership or dated position makes role unknown; F/D requires supported dated position; reasons retained",
+      "history_definition": {
+        "first": "source-first entry ridge only",
+        "returning": "carry around declared mean only, no additional level ridge",
+        "ledger": "only likelihood-supported completed state updates; absent and prior-only years preserve last observation",
+        "zero_likelihood": "analytic current prior mean after age estimation",
+        "centers": "included pre-outcome opportunity weights; exclude tips for shooter, unknown coaches, none/unknown/goalie setters",
+        "setter_mean_coupling": "actual derivative support; reference weights alone not support"
+      },
+      "em_definition": {
+        "max_updates": 100,
+        "objective_relative_change": 1e-08,
+        "max_responsibility_change": 1e-06,
+        "allowed_increase": 1e-10,
+        "increase_scale": "1+abs(previous observed penalized objective)",
+        "inner_failure": "fails start",
+        "starts": [
+          "zero",
+          "current actor prior means, other terms zero"
+        ],
+        "select": "minimum completed exact objective; zero start wins exact tie"
+      }
+    }
+  },
+  "source_sha256": {
+    "analysis/src/hockey_stats/execution_design.py": "c7b30b73fe4b06e52e776a962a50098e1381600915a2294499c53099bee48032",
+    "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+    "analysis/src/hockey_stats/execution_state.py": "bcedcbc7f4f4a8c57d8482fd41afa7f5371a8873a5a0d50b52290a0d38737ae8",
+    "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+    "analysis/src/hockey_stats/execution_fit.py": "341ba29d8405c0a4b0e6bff11c8cd6fc9afb0a2300f1adbd44c859674058a800"
+  },
+  "chance_sha256": "02a7a840fc1c4aea232d757d6d98a3185931603edb193582d443f06f8b313e20",
+  "temporary_check": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stopping-amendment-20261025-53n3ot88/contract.py",
+    "sha256": "53f3760d24d71d809645d61a9f016a6d0213fa5a39ad6bcab39e915fac6f9bd7"
+  },
+  "old_definition": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stopping-amendment-20261025-53n3ot88/old-definition.json",
+    "sha256": "65f278a622c70f7de4c8d392369069ea6785505c5f75346284481e10942ae6b5"
+  },
+  "scope": "new-source contract only; old artifacts and scientific verdicts preserved; no compatible-old-recipe fallback"
+}

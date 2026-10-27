@@ -1,0 +1,580 @@
+{
+  "scope": "one fresh full five-year fixture qualification under approved iteration cap; no real acceptance, source cutover or scientific admission",
+  "source_commit": "debb6ee416d4d6bd658ca0ff33b8a243e83b7855",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "module_paths": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution_design.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution_fit.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution_state.py"
+  ],
+  "source_files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "2a3685562c0045d27c59e2a7557104bde31c1f094a1fd2962bc40789f0933025"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    }
+  ],
+  "timestamp_scope": "start_utc recorded immediately before manual tool launch; end_utc observed after command exit; time_l is measured command duration; gaps are not fitted work",
+  "calls": [
+    {
+      "season": "20212022",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "fit",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+        "--coaches",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "--season",
+        "20212022",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20212022"
+      ],
+      "time_prefix": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src"
+      ],
+      "status": "complete",
+      "start_utc": "2026-10-24T19:41:25.809805+00:00",
+      "end_utc": "2026-10-24T19:43:56.104998+00:00",
+      "exit_code": 0,
+      "pid": 57302,
+      "heads": {
+        "u": "complete",
+        "q": "complete",
+        "r": "complete",
+        "g": "complete"
+      },
+      "resources": {
+        "wall_seconds": 134.94638070790097,
+        "peak_memory_bytes": 652279808,
+        "design_wall_seconds": 106.81036983395461,
+        "input_read_wall_seconds": 0.024806874920614064,
+        "fit_wall_seconds": 28.111203999025747,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 3447568,
+        "origin_rows": {
+          "u": 100986,
+          "q": 618,
+          "r": 439,
+          "g": 335
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 3061
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2571,
+          "q": 2610,
+          "r": 2610,
+          "g": 2841
+        },
+        "solve_counts": {
+          "u": 1,
+          "q": 1,
+          "r": 1,
+          "g": 5
+        }
+      },
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20212022/manifest.json",
+        "sha256": "51e3a3612b0cc38671c2f3a3f537cee802927708c0d85013936963aca4e36cc1"
+      },
+      "logs": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20212022.stdout",
+          "sha256": "322f7ab4c8ffb027043ce104c79a525a4d3a21c506e73550d3e0e81994864e67"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20212022.stderr",
+          "sha256": "b07ef0febcf245bff6fed6a75754c9a25ea52bc08eb0654a746b030ca224a3a9"
+        }
+      ],
+      "time_l": {
+        "wall_seconds": 137.21,
+        "maximum_resident_bytes": 652279808
+      }
+    },
+    {
+      "season": "20222023",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "fit",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+        "--coaches",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "--season",
+        "20222023",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20222023",
+        "--previous",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20212022/manifest.json"
+      ],
+      "time_prefix": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src"
+      ],
+      "status": "complete",
+      "start_utc": "2026-10-24T19:43:59.457929+00:00",
+      "end_utc": "2026-10-24T19:47:13.016513+00:00",
+      "exit_code": 0,
+      "pid": 57704,
+      "heads": {
+        "u": "complete",
+        "q": "complete",
+        "r": "complete",
+        "g": "complete"
+      },
+      "resources": {
+        "wall_seconds": 179.65552024985664,
+        "peak_memory_bytes": 671776768,
+        "design_wall_seconds": 82.92713354190346,
+        "input_read_wall_seconds": 0.06549737497698516,
+        "fit_wall_seconds": 96.66288933297619,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 3185301,
+        "origin_rows": {
+          "u": 99490,
+          "q": 434,
+          "r": 321,
+          "g": 235
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 2108
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2520,
+          "q": 2557,
+          "r": 2557,
+          "g": 2743
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 8
+        }
+      },
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20222023/manifest.json",
+        "sha256": "ff873f7bfed2aa7f9479db8aa9751ee84e92c339578e399be90a57432ae39d35"
+      },
+      "logs": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20222023.stdout",
+          "sha256": "602cbf64c9b91e281f5cd6828683d2b16efd14139384b78c3e51c6aefe77be23"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20222023.stderr",
+          "sha256": "068c604e6f83ec03ecbdd36aebbeb32dc082ee88ed1f7d87dc9ba139afedb0ed"
+        }
+      ],
+      "time_l": {
+        "wall_seconds": 182.5,
+        "maximum_resident_bytes": 671776768
+      }
+    },
+    {
+      "season": "20232024",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "fit",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+        "--coaches",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "--season",
+        "20232024",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20232024",
+        "--previous",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20222023/manifest.json"
+      ],
+      "time_prefix": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src"
+      ],
+      "status": "complete",
+      "start_utc": "2026-10-24T19:47:16.107420+00:00",
+      "end_utc": "2026-10-24T19:50:52.494524+00:00",
+      "exit_code": 0,
+      "pid": 58179,
+      "heads": {
+        "u": "complete",
+        "q": "complete",
+        "r": "complete",
+        "g": "complete"
+      },
+      "resources": {
+        "wall_seconds": 198.086240042001,
+        "peak_memory_bytes": 675643392,
+        "design_wall_seconds": 107.2474558330141,
+        "input_read_wall_seconds": 0.02577416703570634,
+        "fit_wall_seconds": 90.8130100419512,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 3592761,
+        "origin_rows": {
+          "u": 103440,
+          "q": 448,
+          "r": 312,
+          "g": 250
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 2190
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2546,
+          "q": 2585,
+          "r": 2585,
+          "g": 2793
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 10
+        }
+      },
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20232024/manifest.json",
+        "sha256": "5b8df7705bc2c77e10e38e39b356acf6aefb808e99dc123b97ce5c538ac5dc60"
+      },
+      "logs": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20232024.stdout",
+          "sha256": "f4720751053148da6f11d63ecbe1d3aa3dbae3af6701a2ad58af9d8be63640a6"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20232024.stderr",
+          "sha256": "7c131cfc5770a3c96808e84f20775b6e1647f438272a1f3433817f813496cb92"
+        }
+      ],
+      "time_l": {
+        "wall_seconds": 201.18,
+        "maximum_resident_bytes": 675643392
+      }
+    },
+    {
+      "season": "20242025",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "fit",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+        "--coaches",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "--season",
+        "20242025",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20242025",
+        "--previous",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20232024/manifest.json"
+      ],
+      "time_prefix": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src"
+      ],
+      "status": "complete",
+      "start_utc": "2026-10-24T19:50:54.935263+00:00",
+      "end_utc": "2026-10-24T19:57:01.715487+00:00",
+      "exit_code": 0,
+      "pid": 58681,
+      "heads": {
+        "u": "complete",
+        "q": "complete",
+        "r": "complete",
+        "g": "complete"
+      },
+      "resources": {
+        "wall_seconds": 322.3107687490992,
+        "peak_memory_bytes": 679444480,
+        "design_wall_seconds": 161.41437729098834,
+        "input_read_wall_seconds": 0.017258625011891127,
+        "fit_wall_seconds": 160.879132833099,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 4410663,
+        "origin_rows": {
+          "u": 202147,
+          "q": 755,
+          "r": 494,
+          "g": 390
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 3369
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 2596,
+          "q": 2637,
+          "r": 2637,
+          "g": 2889
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 10
+        }
+      },
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20242025/manifest.json",
+        "sha256": "e3f4d6c4b1c887ce1d6c00036c0961bf0b1d7e07e86fd8225709ca99cb6cb67a"
+      },
+      "logs": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20242025.stdout",
+          "sha256": "aef3f70c5e2c652fc099a45597761516ae6985dfa74adc2faa07e22f6650a805"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20242025.stderr",
+          "sha256": "22a4a3f3ca9e8aa9c954bfbb01e4b711432fc3bbdd4518de51cca6610bd85d67"
+        }
+      ],
+      "time_l": {
+        "wall_seconds": 325.29,
+        "maximum_resident_bytes": 679444480
+      }
+    },
+    {
+      "season": "20252026",
+      "argv": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "fit",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+        "--coaches",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "--season",
+        "20252026",
+        "--out",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20252026",
+        "--previous",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20242025/manifest.json"
+      ],
+      "time_prefix": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src"
+      ],
+      "status": "complete",
+      "start_utc": "2026-10-24T19:57:03.933742+00:00",
+      "end_utc": "2026-10-24T20:03:17.348933+00:00",
+      "exit_code": 0,
+      "pid": 59480,
+      "heads": {
+        "u": "complete",
+        "q": "complete",
+        "r": "complete",
+        "g": "complete"
+      },
+      "resources": {
+        "wall_seconds": 348.6150606251322,
+        "peak_memory_bytes": 698793984,
+        "design_wall_seconds": 131.38315800006967,
+        "input_read_wall_seconds": 0.020761708030477166,
+        "fit_wall_seconds": 217.21114091703203,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 8130550,
+        "origin_rows": {
+          "u": 202153,
+          "q": 761,
+          "r": 508,
+          "g": 401
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 3663
+        },
+        "resolution_solve_counts": {
+          "u": 1,
+          "q": 1,
+          "r": 1,
+          "g": 1
+        },
+        "dimensions": {
+          "u": 2633,
+          "q": 2675,
+          "r": 2675,
+          "g": 2959
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 10
+        }
+      },
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20252026/manifest.json",
+        "sha256": "063d4739828e517a03260cd6634f3275b68996cdcc45638bca5d523c4cb4c4f9"
+      },
+      "logs": [
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20252026.stdout",
+          "sha256": "7f5bb61befd87ccf8bb5acf4d96b8fef408114014d3b8c8bcd521c3d18d88200"
+        },
+        {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/20252026.stderr",
+          "sha256": "a6ead508089de29c58cb75574011d108ba3462216e7a97286961496077413951"
+        }
+      ],
+      "time_l": {
+        "wall_seconds": 351.83,
+        "maximum_resident_bytes": 698793984
+      },
+      "resolution": {
+        "u": "passed",
+        "q": "passed",
+        "r": "passed",
+        "g": "passed"
+      }
+    }
+  ],
+  "twenty_heads_complete": true,
+  "final_public_probes": {
+    "u": {
+      "status": "passed",
+      "maximum_probability_change": 4.898506995587582e-07,
+      "optimizer_maxiter": 10000
+    },
+    "q": {
+      "status": "passed",
+      "maximum_probability_change": 4.381059092173345e-07,
+      "optimizer_maxiter": 10000
+    },
+    "r": {
+      "status": "passed",
+      "maximum_probability_change": 3.04643199333654e-07,
+      "optimizer_maxiter": 10000
+    },
+    "g": {
+      "status": "passed",
+      "maximum_probability_change": 5.32924022467185e-07,
+      "optimizer_maxiter": 10000
+    }
+  },
+  "uncovered_requirements": 0,
+  "selector_exactly_equal": true,
+  "maximum_raw_coefficient_change_from_9abb_factored_chain": 0.0,
+  "exact_coverage_layouts_actor_axes_and_diagnostic_counts": true,
+  "resources": {
+    "sum_active_command_wall_seconds": 1198.01,
+    "maximum_resident_bytes": 698793984,
+    "overall_first_start_utc": "2026-10-24T19:41:25.809805+00:00",
+    "overall_last_end_utc": "2026-10-24T20:03:17.348933+00:00",
+    "limitation": "observed timestamps include manual gaps; time_l measures commands; no speedup or real-capacity claim"
+  },
+  "references": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/qualification.json",
+      "sha256": "d789200a1e3798b0462f814df823a0fb1f5ec65ee554280116957ea93d7f3d25"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-factor-checks/chain-cap-01/comparison.json",
+      "sha256": "92704e8c742e600e0958c832cc9d0f7a02ccd08a73569f977025c594f5c7539b"
+    },
+    {
+      "path": "/private/tmp/v105-iteration-cap-20261024/predictors-cap.json",
+      "sha256": "75b5791ead7e13b44deadb7a0c1e202759dcb0f21526e4411dba0ae6f3950d03"
+    },
+    {
+      "path": "/private/tmp/v105-iteration-cap-20261024/first-year-members.json",
+      "sha256": "1f7dc539a6960b365a7d66698192930a1029f7a8fe58d045bd1fda12c4d6bbca"
+    }
+  ],
+  "temporary_checks": "retained in /tmp/v105-iteration-cap-20261024 for independent review; no retained harness",
+  "pending": [
+    "independent source and saved-state qualification review",
+    "original real annual writer completion",
+    "stable first-year example copy/rebind by root",
+    "fresh external real first year and full real acceptance"
+  ]
+}

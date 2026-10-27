@@ -1,0 +1,179 @@
+{
+  "scope": "one independent saved-fixture handoff pass; no fits, raw/full prepared game reads or old corruption campaign",
+  "source_commit": "cd45e97",
+  "recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
+  "content_receipt": {
+    "path": "docs/research/execution-v1-05/content.json",
+    "sha256": "955a03abf5b86db897e9f52005efc0d062a000b987e6a577220249bfaeab1e7d"
+  },
+  "final_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-transition-01/20252026/manifest.json",
+    "sha256": "bd7bc466e2a3fecc568af5c1751b85d8ced2303a19cc0177a56e22be85fe7a02"
+  },
+  "annual_heads": 20,
+  "probe_variants": 4,
+  "years": 5,
+  "games": 36,
+  "recognized_attempts": 4328,
+  "shared_registry_and_dimensions": {
+    "20212022": {
+      "u": {
+        "coefficients": 2571,
+        "circumstances": 215,
+        "transition_flags": 1
+      },
+      "q": {
+        "coefficients": 2610,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "r": {
+        "coefficients": 2610,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "g": {
+        "coefficients": 2841,
+        "circumstances": 235,
+        "transition_flags": 1
+      }
+    },
+    "20222023": {
+      "u": {
+        "coefficients": 2520,
+        "circumstances": 215,
+        "transition_flags": 1
+      },
+      "q": {
+        "coefficients": 2557,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "r": {
+        "coefficients": 2557,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "g": {
+        "coefficients": 2743,
+        "circumstances": 235,
+        "transition_flags": 1
+      }
+    },
+    "20232024": {
+      "u": {
+        "coefficients": 2546,
+        "circumstances": 215,
+        "transition_flags": 1
+      },
+      "q": {
+        "coefficients": 2585,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "r": {
+        "coefficients": 2585,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "g": {
+        "coefficients": 2793,
+        "circumstances": 235,
+        "transition_flags": 1
+      }
+    },
+    "20242025": {
+      "u": {
+        "coefficients": 2596,
+        "circumstances": 215,
+        "transition_flags": 1
+      },
+      "q": {
+        "coefficients": 2637,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "r": {
+        "coefficients": 2637,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "g": {
+        "coefficients": 2889,
+        "circumstances": 235,
+        "transition_flags": 1
+      }
+    },
+    "20252026": {
+      "u": {
+        "coefficients": 2633,
+        "circumstances": 215,
+        "transition_flags": 1
+      },
+      "q": {
+        "coefficients": 2675,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "r": {
+        "coefficients": 2675,
+        "circumstances": 235,
+        "transition_flags": 1
+      },
+      "g": {
+        "coefficients": 2959,
+        "circumstances": 235,
+        "transition_flags": 1
+      }
+    }
+  },
+  "annual_ledger_ancestry": "exact predecessor hashes and incoming last-supported states match; untouched ledger rows preserved",
+  "uncovered_requirements": 0,
+  "maximum_probability_changes": {
+    "u": 2.880945155769865e-07,
+    "q": 3.47720898408177e-07,
+    "r": 2.68491713195651e-07,
+    "g": 5.414863393782277e-07
+  },
+  "fixture_attributions": "explicit incomplete source-withholding and sparse goalie projections verified",
+  "detached_receipt_review": {
+    "path": "docs/research/execution-v1-05/timing-detached-reader.json",
+    "examples": 7,
+    "examples_sha256": "2187be74752b12707ff3c62d2801cd4e790263b3cecf0effec88239bc276739c",
+    "scope": "owner OS-denial proof reviewed and example bytes pinned; not independently rerun"
+  },
+  "verdict": "local fixture handoff passes; real acceptance remains separate",
+  "real_checker_retarget": {
+    "path": "/tmp/v105-real2021-expected.json",
+    "previous_metadata_sha256": "cd26bc17cb3c20f3770b8bd7d565fe1d3c43e89e940c5163b6abd17b983b9e5a",
+    "current_metadata_sha256": "3a443aa98cedd4bcca3979e7132913edb7d93b4a48caba7437d673dae93f44cc",
+    "changed_fields": [
+      "probability_contexts",
+      "recipe_sha256",
+      "state_path"
+    ],
+    "accepted_reference": "all other fields exactly preserved, including 1312 game ids, member/input hashes, dates, corpus binding and 149412 outcome counts",
+    "completion_manifest_check": "not rerun",
+    "new_state_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022",
+    "probability_contexts": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/fixtures/execution-v1-05/predictors.json",
+      "sha256": "2187be74752b12707ff3c62d2801cd4e790263b3cecf0effec88239bc276739c"
+    }
+  },
+  "temporary_cleanup": {
+    "authorization": "assigned temporary witnesses deleted after current bounded green and durable proof",
+    "files": [
+      {
+        "path": "/tmp/v105-transition-fixture-peer.py",
+        "sha256": "3540aef4d0b38629cda95d906ce94f065525a7ec4d3f7807264f861b63928afb",
+        "absent": true
+      },
+      {
+        "path": "/tmp/v105-transition-fixture-peer.json",
+        "sha256": "cce833dab73b883dbe6587f9014f3140b55fd0cec220ffba7bfe32083f414f21",
+        "absent": true
+      }
+    ],
+    "preservation": "real checker, independent expected metadata, previous receipts, original/campaign states and user drafts untouched"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_control": "permission_denied",
+  "reader": "passed",
+  "prediction": "exact saved-only equality",
+  "examples": 7,
+  "season": "20212022",
+  "recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
+  "heads": [
+    "u",
+    "q",
+    "r",
+    "g"
+  ],
+  "examples_sha256": "2187be74752b12707ff3c62d2801cd4e790263b3cecf0effec88239bc276739c",
+  "denied": "original prepared input, external drive, original fixture captures, network",
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "var/v1-05-real-checks/denied-history-source.sb",
+    "analysis/.venv/bin/python",
+    "var/v1-05-real-checks/predictor_contexts_transition.py",
+    "check"
+  ]
+}

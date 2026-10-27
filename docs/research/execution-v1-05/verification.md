@@ -1,6 +1,6 @@
 # v1-05 execution verification
 
-status: the approved stricter recipe `14267557` passes fresh five-year fixture qualification and independent review: twenty completed heads, four passed probes and zero uncovered requirements. no replacement real family is accepted yet. the authorized fresh real chain follows final source/example handoff. the old `59509c18` chain retains sixteen accepted annual heads, twenty completed baselines and final `u/q` resolution failures, preserved below with their exact verdicts. [real acceptance](../../issues/execution-v1-05-real-acceptance.md) and [numerical resolution](../../issues/execution-v1-05-numerical-resolution.md) remain open. full handoff and temporary-test cleanup remain incomplete; scientific admission and publication/activation are separate.
+status: the approved stricter recipe `14267557` has twenty independently accepted real annual heads, four passed final-year probes and zero uncovered requirements. the five-year content reduction and independent content review pass; their receipts remain under `/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02`. implementation, real verification and owned campaign cleanup are complete; [dated deletion evidence](test-deletion.json) records 199 actual files removed and preserved fixture/source identities. the old `59509c18` chain retains sixteen accepted annual heads, twenty completed baselines and final `u/q` resolution failures, preserved below with their exact verdicts. scientific admission and publication/activation are separate. conditional training estimates, latent-setter assumptions and point-prior limitations remain.
 
 ## contract
 
@@ -109,7 +109,7 @@ the repository copies are byte-identical to their source receipts; the independe
 
 `u` training requires supported opposing-goalie cardinality; `q/r/g` and all-head probability scoring require the checked individual goalie. the saved head diagnostics retain their own conditional populations. weighted origin imputation and auxiliary setter likelihood remain distinct from honest unconditional forecasts: conditional in-sample quality, calibration, causal attribution and scientific admission are not established by completed solves or strict reading.
 
-the completed diagnostic preview below supplies bounded evidence for the subsequently [approved stopping amendment](real-stopping-amendment-2026-10-25.md). it does not repair the saved final failures or qualify a new prior chain. the approved replacement campaign requires a new recipe and fresh fixture then real chains; full handoff remains incomplete, scientific admission is not asserted, and cleanup awaits final verification. the [numerical issue](../../issues/execution-v1-05-numerical-resolution.md) owns resolution criteria; expensive outputs and temporary diagnostic/checker evidence remain retained.
+the completed diagnostic preview below supplies bounded evidence for the subsequently [approved stopping amendment](real-stopping-amendment-2026-10-25.md). it does not repair the saved final failures or qualify a new prior chain. the approved replacement campaign requires a new recipe and fresh fixture then real chains; full handoff remains incomplete, scientific admission is not asserted, and cleanup awaits final verification. the [numerical issue](#real-replacement-chain-accepted--2026-10-26) owns resolution criteria; expensive outputs and temporary diagnostic/checker evidence remain retained.
 
 
 ## real stopping preview — 2026-10-25
@@ -121,3 +121,32 @@ the [diagnostic report](real-stopping-preview.json), sha256 `2a4acc3fd248c112755
 [operator result](real-stopping-preview-result.json), [resources](real-stopping-preview-resources.json), [preservation](real-stopping-preview-preservation.json) and [pins](real-stopping-preview-pins.json) are exact receipt copies. whole-command exit is `0`, wall `6909.79s`, peak resident memory `17231806464` bytes, zero swaps. all 99 protected paths, original failed outputs and source hashes remain unchanged.
 
 the historical [proposal](real-stopping-amendment-proposal-2026-10-25.md) was [approved by the user](real-stopping-amendment-2026-10-25.md) on 2026-10-25; its original pending-status copy remains unchanged. it selects uniform baseline `ftol=1e-15` / continuation `1e-16`, retaining all other criteria and requiring a new recipe with fresh five-year fixture then real qualification. no old-recipe predecessors, probe promotion or recipe mixing; new-chain `zero`/`prior_mean` starts use new-chain prior history. the roughly 12–15-hour real-chain cost is an estimate, with stricter solves and caps able to fail. full handoff remains incomplete and cleanup awaits final verification.
+
+## real replacement chain accepted — 2026-10-26
+
+the approved stricter recipe `14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5`, produced by clean frozen source `7f6edf158f2d2e8387a12538b53edbe3f000f0c7`, completes all five real annual families: twenty independently accepted heads, four passed final-year probes and zero uncovered selector requirements. no old-recipe predecessor or diagnostic endpoint was reused; each successor binds its immediately preceding newly accepted annual state.
+
+[accepted real content](real-accepted-content.json), sha256 `99aca1e8471258afd6d5576305f28089ecc4d1e1176d8d0b6da82f6a45a2e9c8`, retains twenty head rows, conditioning, coverage, history, selected starts, diagnostics, costs and numerical results. [independent content review](real-accepted-content-review.json), sha256 `41c482a51d3a3c4dc47aee4e23de99eeef1840d1db2d2bb43e18177509741310`, passes. these repository copies are byte-identical to `real-content.json` and `real-content-peer-review.json` under `/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02`. the external root owns each annual directory, `SEASON-independent-acceptance.json`, computational report, operator result and preservation receipt; no bulky coverage files are duplicated here.
+
+| season | manifest sha256 | canonical acceptance sha256 | command wall seconds | maximum resident bytes |
+|---|---|---|---:|---:|
+| `20212022` | `592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953` | `19e280c5f9d922e89a18fb086be6c10b37eb7503a70449f2abe12d2705d7fd21` | 8852.81 | 17268473856 |
+| `20222023` | `a99521505f86bf97bf6fa35ae9538e3df5ebe0ab92266a5cd6fd8d95fcced20e` | `faa72b1bc4e2d0a775a731bdb373cdc356f6b3ac3db2ccd9feed7a87fc0c48b8` | 9688.22 | 19478134784 |
+| `20232024` | `59fb55be53110e6c01303a0a1ac135f1af2ac67db3fd6e5a65401d58e6cc4792` | `d85969154e84266de384c3a2315930817feb41290db9a318247a6ea77a38df7d` | 17856.85 | 17866489856 |
+| `20242025` | `acc9b6969f479cd0a61b6cfd389572905c2b36dffcea12b148fde1c9c0b2ae77` | `643c3f4fe2710ff31c7efc8d4fda71b78e2da9cb105b74f8f48e4a98f64dd316` | 10614.18 | 21551153152 |
+| `20252026` | `c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be` | `cd2ed24897b589ebd6658ebdcdb0d115c4e6765eeb9370057acdb2c9bcaaccf0` | 10106.28 | 19346931712 |
+
+all five whole commands exit `0`, with zero swaps and measured resident memory below the approved 64 gib bound. total command wall is `57118.34s` (15.87 hours); preparation, fitting and final continuations are included. whole-command costs come from `time -l`; producer design/fit timing has its separately declared scope. these are shared-desktop measurements, not isolated or cold-cache benchmarks. the final command's actual exit and timestamps were recovered from its original durable execution-completion event, not inferred from a missing process; separate post-reboot source and 157-path preservation checks pass.
+
+| final probe | maximum probability change |
+|---|---:|
+| `u` | `1.1167545621582065e-7` |
+| `q` | `1.8601347639979338e-7` |
+| `r` | `9.726986439639873e-7` |
+| `g` | `9.67525633444044e-7` |
+
+all four changes meet the unchanged `1e-5` bound. the selector covers 48 requirements: 44 through actual contexts and four through one attributed fixture witness; zero are uncovered. it includes 256 actual selected contexts and the declared synthetic native-cell/type checks. these are bounded numerical comparisons, not an all-player error bound or a gradient/global-optimum certificate. tagged tightened coefficients remain separate from baseline states.
+
+the twenty rows retain each head's conditional training population; outcome-dependent origin imputation prevents treating in-sample diagnostics as honest unconditional forecast scores. latent-setter candidate priors and auxiliary-mixture likelihood are assumptions, not observed passes or causal identification. point-prior history omits propagated uncertainty and can adapt slowly. numerical/software acceptance establishes neither calibration, robust ability recovery nor scientific admission. v1-06 scoring, v1-07 continuation, publication and activation remain separate.
+
+the historical failed `59509c18` comparisons and preview above keep their exact verdicts. the approved fresh chain resolves the active numerical issue without rewriting those results. [dated campaign deletion evidence](test-deletion.json) records 192 owned files from temporary directories outside the worktree and seven owned repository files actually removed, with separate before/after receipts and independent review. all 57 protected fixture manifests, six source pins, canonical predictors, original inputs, expensive fits and historical receipts are preserved. already absent paths are not counted as files deleted by this campaign.

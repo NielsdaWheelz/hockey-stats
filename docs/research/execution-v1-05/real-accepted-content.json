@@ -1,0 +1,5120 @@
+{
+  "status": "pass",
+  "kind": "real-execution-content",
+  "purpose": "real",
+  "scope": "complete accepted fresh-chain computational content; no scientific admission",
+  "recorded_utc": "2026-10-27T05:22:43.966428+00:00",
+  "producer_commit": "7f6edf158f2d2e8387a12538b53edbe3f000f0c7",
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "annual": [
+    {
+      "season": "20212022",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+        "sha256": "592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953"
+      },
+      "operator_result": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022-result.json",
+        "sha256": "86e794d082dac515b9d0d28b81756e61d862f43ba002c0f0b03b2b59bf29fb83"
+      },
+      "independent_acceptance": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022-independent-acceptance.json",
+        "sha256": "19e280c5f9d922e89a18fb086be6c10b37eb7503a70449f2abe12d2705d7fd21"
+      },
+      "computational_report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022-computational-acceptance.json",
+        "sha256": "566fda8e99312663337133fa1087c7dc17532ac922cf1ed899687413f601c982"
+      },
+      "protection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022-preservation.json",
+        "sha256": "534ed222aafdb798ab0245177077b4c300b10594985e32c8433dad63e4585011"
+      },
+      "actual_resource_acceptance": "pass: measured whole-command peak resident bytes within64GiB; wall/footprint/swaps match time-l; no aggregate-host or isolated-benchmark claim",
+      "whole_command": {
+        "wall_seconds": 8852.81,
+        "user_seconds": 6862.88,
+        "system_seconds": 194.77,
+        "maximum_resident_set_size_bytes": 17268473856,
+        "peak_memory_footprint_bytes": 19703888128,
+        "swaps": 0
+      },
+      "manifest_resources": {
+        "wall_seconds": 8800.858197083988,
+        "peak_memory_bytes": 17268473856,
+        "design_wall_seconds": 6914.879017333995,
+        "input_read_wall_seconds": 1.409908000001451,
+        "fit_wall_seconds": 1884.5692717499915,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 202150331,
+        "origin_rows": {
+          "u": 23180585,
+          "q": 112345,
+          "r": 82328,
+          "g": 62505
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 568265
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 3511,
+          "q": 3656,
+          "r": 3656,
+          "g": 4667
+        },
+        "solve_counts": {
+          "u": 1,
+          "q": 1,
+          "r": 1,
+          "g": 9
+        }
+      },
+      "declared_member_output_bytes": 202150331,
+      "native_baseline_solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 9
+      },
+      "native_resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "selected_games": 1312,
+      "recognized_attempts": 149412,
+      "coverage": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/coverage.json",
+        "sha256": "7aba2213ab3ad5b2000f927418e3d2e88c585e53c2ff96785facd4c5f300395b"
+      }
+    },
+    {
+      "season": "20222023",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/manifest.json",
+        "sha256": "a99521505f86bf97bf6fa35ae9538e3df5ebe0ab92266a5cd6fd8d95fcced20e"
+      },
+      "operator_result": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023-result.json",
+        "sha256": "53a08c2016ef65db408845d52ec247a6d7ccd22f2d7708396cc20dabd0969874"
+      },
+      "independent_acceptance": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023-independent-acceptance.json",
+        "sha256": "faa72b1bc4e2d0a775a731bdb373cdc356f6b3ac3db2ccd9feed7a87fc0c48b8"
+      },
+      "computational_report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023-computational-acceptance.json",
+        "sha256": "981d6b64434a5c9d56175d57ad0b8713eb434930eae72884b19e500e4cee7c61"
+      },
+      "protection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023-preservation.json",
+        "sha256": "00068dbb5ea0887befac5dd9a8dfa995ca2ee632563173926993215379753c1f"
+      },
+      "actual_resource_acceptance": "pass: measured whole-command peak resident bytes within64GiB; wall/footprint/swaps match time-l; no aggregate-host or isolated-benchmark claim",
+      "whole_command": {
+        "wall_seconds": 9688.22,
+        "user_seconds": 9007.98,
+        "system_seconds": 123.31,
+        "maximum_resident_set_size_bytes": 19478134784,
+        "peak_memory_footprint_bytes": 21713715088,
+        "swaps": 0
+      },
+      "manifest_resources": {
+        "wall_seconds": 9593.774224208988,
+        "peak_memory_bytes": 19478134784,
+        "design_wall_seconds": 5828.460798,
+        "input_read_wall_seconds": 1.4078224580007372,
+        "fit_wall_seconds": 3763.905603750987,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 208696462,
+        "origin_rows": {
+          "u": 25277995,
+          "q": 113179,
+          "r": 81400,
+          "g": 62077
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 563846
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 3434,
+          "q": 3567,
+          "r": 3567,
+          "g": 4525
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 16
+        }
+      },
+      "declared_member_output_bytes": 208696462,
+      "native_baseline_solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 16
+      },
+      "native_resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "selected_games": 1312,
+      "recognized_attempts": 153348,
+      "coverage": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/coverage.json",
+        "sha256": "7fc608574b62e3881194dcebc335b9eec6d3caf7a9cef90638de46c126b5799d"
+      }
+    },
+    {
+      "season": "20232024",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/manifest.json",
+        "sha256": "59fb55be53110e6c01303a0a1ac135f1af2ac67db3fd6e5a65401d58e6cc4792"
+      },
+      "operator_result": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024-result.json",
+        "sha256": "be4493f3b800f52419a5a385372d1ae1cc2c712caeaff5b2c862cc9fed2d0ba6"
+      },
+      "independent_acceptance": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024-independent-acceptance.json",
+        "sha256": "d85969154e84266de384c3a2315930817feb41290db9a318247a6ea77a38df7d"
+      },
+      "computational_report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024-computational-acceptance.json",
+        "sha256": "1a376ea41753aefd10da9fd114c71615ddd23b2b2790902a2ab5d49b1443325b"
+      },
+      "protection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024-preservation.json",
+        "sha256": "bf7c92118245b02a38771e593bfe8a41dc0cbb8936d48e91ab0c33bf85ef526b"
+      },
+      "actual_resource_acceptance": "pass: measured whole-command peak resident bytes within64GiB; wall/footprint/swaps match time-l; no aggregate-host or isolated-benchmark claim",
+      "whole_command": {
+        "wall_seconds": 17856.85,
+        "user_seconds": 15321.19,
+        "system_seconds": 419.52,
+        "maximum_resident_set_size_bytes": 17866489856,
+        "peak_memory_footprint_bytes": 21968125984,
+        "swaps": 0
+      },
+      "manifest_resources": {
+        "wall_seconds": 17741.438143000007,
+        "peak_memory_bytes": 17866489856,
+        "design_wall_seconds": 7286.494777500004,
+        "input_read_wall_seconds": 1.230024249991402,
+        "fit_wall_seconds": 10453.713341250012,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 217861319,
+        "origin_rows": {
+          "u": 29251986,
+          "q": 113778,
+          "r": 78809,
+          "g": 63841
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 575717
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 3410,
+          "q": 3534,
+          "r": 3534,
+          "g": 4465
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 17
+        }
+      },
+      "declared_member_output_bytes": 217861319,
+      "native_baseline_solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 17
+      },
+      "native_resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "selected_games": 1312,
+      "recognized_attempts": 160123,
+      "coverage": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/coverage.json",
+        "sha256": "a9b71fce3d2a9573e402273bb4ec5bdaf215219cf1f3a6a77af11b30c2c8265a"
+      }
+    },
+    {
+      "season": "20242025",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/manifest.json",
+        "sha256": "acc9b6969f479cd0a61b6cfd389572905c2b36dffcea12b148fde1c9c0b2ae77"
+      },
+      "operator_result": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025-result.json",
+        "sha256": "6e0041082c4fc7f1111f27a851237de9a697e9a0902ca74ddb607d95cd5ccab3"
+      },
+      "independent_acceptance": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025-independent-acceptance.json",
+        "sha256": "643c3f4fe2710ff31c7efc8d4fda71b78e2da9cb105b74f8f48e4a98f64dd316"
+      },
+      "computational_report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025-computational-acceptance.json",
+        "sha256": "8fbd1bc370a37beb7f184b27670dbd20f996c851f8be958850c98e5cc7bb6fb0"
+      },
+      "protection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025-preservation.json",
+        "sha256": "9ebbfa83289f8f0cc52fdbe1caef982359a723f809122cc79fad7975a8093ac3"
+      },
+      "actual_resource_acceptance": "pass: measured whole-command peak resident bytes within64GiB; wall/footprint/swaps match time-l; no aggregate-host or isolated-benchmark claim",
+      "whole_command": {
+        "wall_seconds": 10614.18,
+        "user_seconds": 10047.34,
+        "system_seconds": 55.27,
+        "maximum_resident_set_size_bytes": 21551153152,
+        "peak_memory_footprint_bytes": 21096414904,
+        "swaps": 0
+      },
+      "manifest_resources": {
+        "wall_seconds": 10550.633756000985,
+        "peak_memory_bytes": 21551153152,
+        "design_wall_seconds": 5953.794580458009,
+        "input_read_wall_seconds": 1.6264491670008283,
+        "fit_wall_seconds": 4595.212726375976,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 213567124,
+        "origin_rows": {
+          "u": 28706170,
+          "q": 111130,
+          "r": 73539,
+          "g": 59504
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 540543
+        },
+        "resolution_solve_counts": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 0
+        },
+        "dimensions": {
+          "u": 3405,
+          "q": 3534,
+          "r": 3534,
+          "g": 4461
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 16
+        }
+      },
+      "declared_member_output_bytes": 213567124,
+      "native_baseline_solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 16
+      },
+      "native_resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "selected_games": 1312,
+      "recognized_attempts": 156622,
+      "coverage": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/coverage.json",
+        "sha256": "10cdf5daade73e719544516d3398ff44f6706115936110f9224889c543a5f11b"
+      }
+    },
+    {
+      "season": "20252026",
+      "manifest": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/manifest.json",
+        "sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be"
+      },
+      "operator_result": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026-result.json",
+        "sha256": "3edac00ba735f503cef9efc1b546c6bd5c684aa622b2274b9c49d691b27de19b"
+      },
+      "independent_acceptance": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026-independent-acceptance.json",
+        "sha256": "cd2ed24897b589ebd6658ebdcdb0d115c4e6765eeb9370057acdb2c9bcaaccf0"
+      },
+      "computational_report": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026-computational-acceptance.json",
+        "sha256": "45425f3a5177549e26b33120b6bde2929dd9628086fc3bd095d91d49ab0ebd2b"
+      },
+      "protection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026-preservation.json",
+        "sha256": "da85dfff832aeb70699529cff70881b3e6654672a22bce626d926ced0dc60c66"
+      },
+      "actual_resource_acceptance": "pass: actual exit zero and positive whole-command wall time; measured peak resident bytes within64GiB; wall/footprint/swaps match time-l; all four saved heads complete; no aggregate-host or isolated-benchmark claim",
+      "whole_command": {
+        "wall_seconds": 10106.28,
+        "user_seconds": 9554.56,
+        "system_seconds": 52.14,
+        "maximum_resident_set_size_bytes": 19346931712,
+        "peak_memory_footprint_bytes": 20204289120,
+        "swaps": 0
+      },
+      "manifest_resources": {
+        "wall_seconds": 10039.290891083001,
+        "peak_memory_bytes": 19276840960,
+        "design_wall_seconds": 5623.409652041999,
+        "input_read_wall_seconds": 0.7215360830014106,
+        "fit_wall_seconds": 4415.159702958001,
+        "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+        "output_bytes": 219170836,
+        "origin_rows": {
+          "u": 26668401,
+          "q": 110897,
+          "r": 72381,
+          "g": 58628
+        },
+        "candidate_branches": {
+          "u": 0,
+          "q": 0,
+          "r": 0,
+          "g": 530040
+        },
+        "resolution_solve_counts": {
+          "u": 1,
+          "q": 1,
+          "r": 1,
+          "g": 2
+        },
+        "dimensions": {
+          "u": 3420,
+          "q": 3544,
+          "r": 3544,
+          "g": 4491
+        },
+        "solve_counts": {
+          "u": 2,
+          "q": 2,
+          "r": 2,
+          "g": 17
+        }
+      },
+      "declared_member_output_bytes": 219170836,
+      "native_baseline_solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 17
+      },
+      "native_resolution_solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 2
+      },
+      "selected_games": 1312,
+      "recognized_attempts": 153754,
+      "coverage": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/coverage.json",
+        "sha256": "75816f47f807838259dcc3c6d840c4850e133f5b1e29a3988cb0f1f60d27900d"
+      }
+    }
+  ],
+  "heads": [
+    {
+      "season": "20212022",
+      "head": "u",
+      "conditioning": "ordinary physical attempt: unblocked versus block",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+        "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25"
+      },
+      "physical_attempt_counts": {
+        "recognized": 149412,
+        "included": 147510,
+        "excluded": 1902,
+        "class_zero": 35165,
+        "class_one": 112345
+      },
+      "type_counts": {
+        "wrist": 86195,
+        "slap": 21014,
+        "backhand": 9139,
+        "tip": 11152,
+        "snap": 18968,
+        "other": 1042
+      },
+      "strength_counts": {
+        "5,5,1": 117676,
+        "5,4,1": 19186,
+        "4,5,1": 3165,
+        "6,5,0": 2832,
+        "5,4,0": 40,
+        "4,3,1": 324,
+        "5,3,1": 561,
+        "5,5,0": 35,
+        "4,4,1": 1717,
+        "6,4,0": 349,
+        "3,3,1": 1552,
+        "3,5,1": 18,
+        "6,5,1": 4,
+        "3,4,1": 30,
+        "5,6,1": 3,
+        "6,4,1": 1,
+        "4,3,0": 9,
+        "5,3,0": 4,
+        "6,3,0": 4
+      },
+      "exclusion_reason_counts": {
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1123,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 128
+      },
+      "absent_ledger_rows_by_block": {},
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+        "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition"
+      ],
+      "active_columns": {
+        "count": 143,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+          "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+          "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+        "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 147510.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 145638.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1872,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 147510.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 147510.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 147510.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 147510.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+        "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 147510,
+        "positive": 112345,
+        "class_fraction": 0.7616093824147515,
+        "mean_predicted_probability": 0.7616093865222808,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4254343671418659,
+        "mean_outcome_only_negative_log_likelihood": 0.4254343671418659,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+          "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+        "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 1472.1664323749937,
+      "dimension": 3511,
+      "expanded_origin_rows": 23180585,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 2515,
+        "evaluations": 2760,
+        "gradient_max": 0.005665913329746438,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20212022",
+      "head": "q",
+      "conditioning": "unblocked attempt: on-net versus miss",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+        "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821"
+      },
+      "physical_attempt_counts": {
+        "recognized": 149412,
+        "included": 112345,
+        "excluded": 37067,
+        "class_zero": 30017,
+        "class_one": 82328
+      },
+      "type_counts": {
+        "wrist": 62608,
+        "slap": 15306,
+        "backhand": 8256,
+        "tip": 10726,
+        "snap": 14535,
+        "other": 914
+      },
+      "strength_counts": {
+        "5,5,1": 89007,
+        "5,4,1": 14793,
+        "6,5,0": 2000,
+        "4,5,1": 2800,
+        "5,4,0": 31,
+        "5,3,1": 445,
+        "5,5,0": 23,
+        "4,4,1": 1341,
+        "6,4,0": 262,
+        "3,3,1": 1334,
+        "4,3,1": 247,
+        "3,5,1": 16,
+        "6,5,1": 4,
+        "3,4,1": 26,
+        "5,6,1": 3,
+        "6,4,1": 1,
+        "4,3,0": 7,
+        "6,3,0": 3,
+        "5,3,0": 2
+      },
+      "exclusion_reason_counts": {
+        "requires_unblocked": 35165,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1123,
+        "goalie": 119,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 135
+      },
+      "absent_ledger_rows_by_block": {},
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+        "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 155,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+          "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+          "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+        "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 112345.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 110937.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1408,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 112345.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 112345.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 112345.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 112345.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+        "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 112345,
+        "positive": 82328,
+        "class_fraction": 0.7328140994258756,
+        "mean_predicted_probability": 0.7328141043744434,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5446226171268153,
+        "mean_outcome_only_negative_log_likelihood": 0.5446226171268153,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+          "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+        "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 63.19950370799779,
+      "dimension": 3656,
+      "expanded_origin_rows": 112345,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 4809,
+        "evaluations": 5277,
+        "gradient_max": 0.0027028351749640903,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20212022",
+      "head": "r",
+      "conditioning": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+        "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12"
+      },
+      "physical_attempt_counts": {
+        "recognized": 149412,
+        "included": 82328,
+        "excluded": 67084,
+        "class_zero": 19823,
+        "class_one": 62505
+      },
+      "type_counts": {
+        "wrist": 47332,
+        "slap": 10681,
+        "backhand": 6455,
+        "tip": 6058,
+        "snap": 11089,
+        "other": 713
+      },
+      "strength_counts": {
+        "5,5,1": 64961,
+        "5,4,1": 10781,
+        "6,5,0": 1437,
+        "4,5,1": 2316,
+        "5,4,0": 19,
+        "5,3,1": 330,
+        "5,5,0": 17,
+        "4,4,1": 1029,
+        "3,3,1": 1032,
+        "4,3,1": 166,
+        "6,4,0": 193,
+        "3,5,1": 15,
+        "6,5,1": 3,
+        "3,4,1": 24,
+        "6,3,0": 1,
+        "5,6,1": 2,
+        "4,3,0": 2
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 65182,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1123,
+        "goalie": 119,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 145
+      },
+      "absent_ledger_rows_by_block": {},
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+        "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 153,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+          "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+          "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+        "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 82328.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 81297.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1031,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 82328.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 82328.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 82328.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 82328.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+        "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 82328,
+        "positive": 62505,
+        "class_fraction": 0.7592192206782625,
+        "mean_predicted_probability": 0.7592192202698956,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5249553553337581,
+        "mean_outcome_only_negative_log_likelihood": 0.5249553553337581,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+          "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+        "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 31.17059799999697,
+      "dimension": 3656,
+      "expanded_origin_rows": 82328,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3280,
+        "evaluations": 3588,
+        "gradient_max": 0.006929997397052641,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20212022",
+      "head": "g",
+      "conditioning": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+        "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6"
+      },
+      "physical_attempt_counts": {
+        "recognized": 149412,
+        "included": 62505,
+        "excluded": 86907,
+        "class_zero": 54858,
+        "class_one": 7647
+      },
+      "type_counts": {
+        "wrist": 35848,
+        "backhand": 4984,
+        "tip": 4742,
+        "snap": 8391,
+        "slap": 7934,
+        "other": 606
+      },
+      "strength_counts": {
+        "5,5,1": 48549,
+        "5,4,1": 8471,
+        "6,5,0": 1172,
+        "4,5,1": 2083,
+        "5,4,0": 19,
+        "5,5,0": 14,
+        "4,4,1": 761,
+        "3,3,1": 843,
+        "4,3,1": 133,
+        "6,4,0": 156,
+        "3,5,1": 14,
+        "5,3,1": 263,
+        "6,5,1": 2,
+        "3,4,1": 21,
+        "6,3,0": 1,
+        "5,6,1": 1,
+        "4,3,0": 2
+      },
+      "exclusion_reason_counts": {
+        "recorded_stopped_save": 19823,
+        "requires_on_net": 65182,
+        "physical_attempt_not_supported_ordinary": 1274,
+        "outcome_unavailable": 1240,
+        "goalie_population_unavailable_or_outside": 1810,
+        "shooter_unavailable": 615,
+        "membership_unavailable_or_outside_population": 1869,
+        "shot_type_unavailable": 901,
+        "location_or_frame_unavailable": 784
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1123,
+        "goalie": 119,
+        "setter": 1004,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 159
+      },
+      "absent_ledger_rows_by_block": {},
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+        "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 153,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+          "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+          "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+        "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 62505.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 61738.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 767,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 62505.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 62505.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 62505.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 62505.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+        "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 62505,
+        "positive": 7647,
+        "class_fraction": 0.12234221262299017,
+        "mean_predicted_probability": 0.12075278953726358,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5531776323374779,
+        "mean_outcome_only_negative_log_likelihood": 0.3174073271359964,
+        "weighted_likelihood_meaning": "origin-weighted auxiliary setter mixture",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+          "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+        "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 287.9346257500001,
+      "dimension": 4667,
+      "expanded_origin_rows": 62505,
+      "candidate_branches": 568265,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "iterations": 9322,
+        "evaluations": 10270,
+        "gradient_max": 0.0007210101176500544,
+        "em_iterations": 9,
+        "relative_objective_change": 9.75990709051995e-15,
+        "responsibility_change": 5.762163751699134e-08
+      }
+    },
+    {
+      "season": "20222023",
+      "head": "u",
+      "conditioning": "ordinary physical attempt: unblocked versus block",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+        "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153348,
+        "included": 151540,
+        "excluded": 1808,
+        "class_zero": 38361,
+        "class_one": 113179
+      },
+      "type_counts": {
+        "wrist": 84937,
+        "slap": 19527,
+        "backhand": 9461,
+        "tip": 12630,
+        "snap": 23017,
+        "other": 1968
+      },
+      "strength_counts": {
+        "5,5,1": 119652,
+        "5,4,1": 21045,
+        "4,5,1": 3243,
+        "4,4,1": 1551,
+        "6,5,0": 2939,
+        "5,3,1": 640,
+        "5,5,0": 29,
+        "6,4,0": 376,
+        "3,3,1": 1501,
+        "5,4,0": 44,
+        "4,3,1": 452,
+        "4,3,0": 20,
+        "3,4,1": 17,
+        "6,3,0": 6,
+        "3,5,1": 15,
+        "4,5,0": 1,
+        "6,5,1": 1,
+        "5,6,1": 3,
+        "5,3,0": 5
+      },
+      "exclusion_reason_counts": {
+        "physical_attempt_not_supported_ordinary": 1150,
+        "outcome_unavailable": 1100,
+        "goalie_population_unavailable_or_outside": 1740,
+        "shooter_unavailable": 587,
+        "membership_unavailable_or_outside_population": 1690,
+        "shot_type_unavailable": 816,
+        "location_or_frame_unavailable": 645
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1058,
+        "attacking_coach": 33,
+        "defending_coach": 33
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 119
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 13,
+        "defending_coach": 13,
+        "shooter": 182
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+        "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition"
+      ],
+      "active_columns": {
+        "count": 142,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+          "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+          "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+        "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 151540.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 149660.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1880,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 151540.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 151540.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 151540.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 151540.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+        "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 151540,
+        "positive": 113179,
+        "class_fraction": 0.7468589151379174,
+        "mean_predicted_probability": 0.7468589064280482,
+        "mean_imputation_weighted_negative_log_likelihood": 0.44078771276375284,
+        "mean_outcome_only_negative_log_likelihood": 0.44078771276375284,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+          "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/u.json",
+        "sha256": "392449e6236112752df54fab348d57501416eff91d58aeb80b6ce9f641c3708b",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 2977.594462790992,
+      "dimension": 3434,
+      "expanded_origin_rows": 25277995,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 2437,
+        "evaluations": 2680,
+        "gradient_max": 0.0030969742835935954,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20222023",
+      "head": "q",
+      "conditioning": "unblocked attempt: on-net versus miss",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+        "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153348,
+        "included": 113179,
+        "excluded": 40169,
+        "class_zero": 31779,
+        "class_one": 81400
+      },
+      "type_counts": {
+        "wrist": 59825,
+        "slap": 13829,
+        "tip": 11916,
+        "snap": 17484,
+        "backhand": 8372,
+        "other": 1753
+      },
+      "strength_counts": {
+        "5,5,1": 88671,
+        "5,4,1": 15937,
+        "4,5,1": 2830,
+        "4,4,1": 1228,
+        "6,5,0": 1995,
+        "5,3,1": 517,
+        "5,5,0": 23,
+        "6,4,0": 259,
+        "3,3,1": 1269,
+        "5,4,0": 33,
+        "4,3,1": 359,
+        "4,3,0": 19,
+        "6,3,0": 6,
+        "3,4,1": 13,
+        "3,5,1": 11,
+        "4,5,0": 1,
+        "6,5,1": 1,
+        "5,6,1": 2,
+        "5,3,0": 5
+      },
+      "exclusion_reason_counts": {
+        "requires_unblocked": 38361,
+        "physical_attempt_not_supported_ordinary": 1150,
+        "outcome_unavailable": 1100,
+        "goalie_population_unavailable_or_outside": 1740,
+        "shooter_unavailable": 587,
+        "membership_unavailable_or_outside_population": 1690,
+        "shot_type_unavailable": 816,
+        "location_or_frame_unavailable": 645
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1058,
+        "goalie": 107,
+        "attacking_coach": 33,
+        "defending_coach": 33
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 126,
+        "goalie": 1
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 13,
+        "defending_coach": 13,
+        "goalie": 29,
+        "shooter": 180
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+        "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 154,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+          "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+          "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+        "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 113179.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 111792.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1387,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 113179.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 113179.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 113179.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 113179.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+        "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 113179,
+        "positive": 81400,
+        "class_fraction": 0.7192146953056663,
+        "mean_predicted_probability": 0.7192146923264131,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5617204070595608,
+        "mean_outcome_only_negative_log_likelihood": 0.5617204070595608,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+          "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/q.json",
+        "sha256": "66127f9d1e5cae0945e04569b5c0713647289482334df16921a9c115896e2bc8",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 104.41783795900119,
+      "dimension": 3567,
+      "expanded_origin_rows": 113179,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3753,
+        "evaluations": 4083,
+        "gradient_max": 0.011161177110880788,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20222023",
+      "head": "r",
+      "conditioning": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+        "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153348,
+        "included": 81400,
+        "excluded": 71948,
+        "class_zero": 19323,
+        "class_one": 62077
+      },
+      "type_counts": {
+        "wrist": 44362,
+        "slap": 9440,
+        "tip": 6644,
+        "snap": 13234,
+        "backhand": 6378,
+        "other": 1342
+      },
+      "strength_counts": {
+        "5,5,1": 63470,
+        "5,4,1": 11406,
+        "4,5,1": 2334,
+        "4,4,1": 928,
+        "6,5,0": 1391,
+        "5,3,1": 370,
+        "5,5,0": 16,
+        "6,4,0": 183,
+        "3,3,1": 985,
+        "5,4,0": 21,
+        "4,3,1": 254,
+        "4,3,0": 14,
+        "3,4,1": 10,
+        "3,5,1": 10,
+        "4,5,0": 1,
+        "5,6,1": 2,
+        "5,3,0": 4,
+        "6,3,0": 1
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 70140,
+        "physical_attempt_not_supported_ordinary": 1150,
+        "outcome_unavailable": 1100,
+        "goalie_population_unavailable_or_outside": 1740,
+        "shooter_unavailable": 587,
+        "membership_unavailable_or_outside_population": 1690,
+        "shot_type_unavailable": 816,
+        "location_or_frame_unavailable": 645
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1058,
+        "goalie": 107,
+        "attacking_coach": 33,
+        "defending_coach": 33
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 134,
+        "goalie": 1
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 13,
+        "defending_coach": 13,
+        "goalie": 29,
+        "shooter": 173
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+        "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 153,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+          "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+          "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+        "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 81400.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 80354.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1046,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 81400.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 81400.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 81400.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 81400.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+        "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 81400,
+        "positive": 62077,
+        "class_fraction": 0.7626167076167076,
+        "mean_predicted_probability": 0.7626167057775838,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5237916642963718,
+        "mean_outcome_only_negative_log_likelihood": 0.5237916642963718,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+          "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/r.json",
+        "sha256": "9cfeccaca09978e343fabc79cd24e1d39e4463927c48b8995e0266e2b50030e6",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 74.11977808299707,
+      "dimension": 3567,
+      "expanded_origin_rows": 81400,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3239,
+        "evaluations": 3531,
+        "gradient_max": 0.0009937590998408685,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20222023",
+      "head": "g",
+      "conditioning": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+        "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153348,
+        "included": 62077,
+        "excluded": 91271,
+        "class_zero": 54299,
+        "class_one": 7778
+      },
+      "type_counts": {
+        "slap": 7014,
+        "wrist": 33717,
+        "tip": 5326,
+        "snap": 10039,
+        "backhand": 4958,
+        "other": 1023
+      },
+      "strength_counts": {
+        "5,5,1": 47657,
+        "5,4,1": 8954,
+        "4,5,1": 2090,
+        "4,4,1": 714,
+        "6,5,0": 1124,
+        "5,3,1": 297,
+        "5,5,0": 13,
+        "6,4,0": 141,
+        "3,3,1": 826,
+        "5,4,0": 19,
+        "4,3,1": 203,
+        "4,3,0": 14,
+        "3,4,1": 9,
+        "3,5,1": 10,
+        "5,6,1": 2,
+        "5,3,0": 3,
+        "6,3,0": 1
+      },
+      "exclusion_reason_counts": {
+        "recorded_stopped_save": 19323,
+        "requires_on_net": 70140,
+        "physical_attempt_not_supported_ordinary": 1150,
+        "outcome_unavailable": 1100,
+        "goalie_population_unavailable_or_outside": 1740,
+        "shooter_unavailable": 587,
+        "membership_unavailable_or_outside_population": 1690,
+        "shot_type_unavailable": 816,
+        "location_or_frame_unavailable": 645
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1058,
+        "goalie": 107,
+        "setter": 951,
+        "attacking_coach": 33,
+        "defending_coach": 33
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 143,
+        "goalie": 1
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 13,
+        "defending_coach": 13,
+        "goalie": 29,
+        "setter": 190,
+        "shooter": 164
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+        "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 152,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+          "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+          "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+        "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 62077.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 61292.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 785,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 62077.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 62077.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 62077.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 62077.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+        "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 62077,
+        "positive": 7778,
+        "class_fraction": 0.1252960033506774,
+        "mean_predicted_probability": 0.12433876284888068,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5702791089502278,
+        "mean_outcome_only_negative_log_likelihood": 0.3284520081309519,
+        "weighted_likelihood_meaning": "origin-weighted auxiliary setter mixture",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+          "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023/heads/g.json",
+        "sha256": "e9ffa0a22a41e115c7e8443ef0d5d0fdfc0381e975deec59d3297a6bf6097565",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 571.2138338330114,
+      "dimension": 4525,
+      "expanded_origin_rows": 62077,
+      "candidate_branches": 563846,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "iterations": 6743,
+        "evaluations": 7335,
+        "gradient_max": 0.001956185052844979,
+        "em_iterations": 8,
+        "relative_objective_change": 1.2190498994980014e-15,
+        "responsibility_change": 6.977733024715604e-08
+      }
+    },
+    {
+      "season": "20232024",
+      "head": "u",
+      "conditioning": "ordinary physical attempt: unblocked versus block",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+        "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685"
+      },
+      "physical_attempt_counts": {
+        "recognized": 160123,
+        "included": 158196,
+        "excluded": 1927,
+        "class_zero": 44418,
+        "class_one": 113778
+      },
+      "type_counts": {
+        "wrist": 92199,
+        "tip": 13534,
+        "snap": 21656,
+        "slap": 19435,
+        "other": 2084,
+        "backhand": 9288
+      },
+      "strength_counts": {
+        "5,5,1": 125238,
+        "4,5,1": 3115,
+        "5,4,1": 21861,
+        "6,5,0": 3364,
+        "3,3,1": 1321,
+        "4,3,1": 417,
+        "4,4,1": 1694,
+        "5,4,0": 58,
+        "6,4,0": 460,
+        "5,3,1": 580,
+        "3,5,1": 14,
+        "5,5,0": 20,
+        "5,6,1": 10,
+        "3,4,1": 20,
+        "4,3,0": 5,
+        "6,5,1": 1,
+        "6,3,0": 6,
+        "4,6,1": 1,
+        "5,3,0": 9,
+        "4,5,0": 2
+      },
+      "exclusion_reason_counts": {
+        "physical_attempt_not_supported_ordinary": 1111,
+        "membership_unavailable_or_outside_population": 1730,
+        "goalie_population_unavailable_or_outside": 1771,
+        "outcome_unavailable": 1065,
+        "shooter_unavailable": 558,
+        "shot_type_unavailable": 833,
+        "location_or_frame_unavailable": 706
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1022,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 110
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 16,
+        "defending_coach": 16,
+        "shooter": 318
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+        "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition"
+      ],
+      "active_columns": {
+        "count": 144,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+          "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+          "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+        "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 158196.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 156208.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1988,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 158196.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 158196.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 158196.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 158196.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+        "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 158196,
+        "positive": 113778,
+        "class_fraction": 0.7192217249487977,
+        "mean_predicted_probability": 0.7192217238792364,
+        "mean_imputation_weighted_negative_log_likelihood": 0.46695568086469563,
+        "mean_outcome_only_negative_log_likelihood": 0.46695568086469563,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+          "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/u.json",
+        "sha256": "91218b8636b75e0cc818987d5844c077ae24aa78d6608f862fcc73db7aa40685",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 9111.051466000004,
+      "dimension": 3410,
+      "expanded_origin_rows": 29251986,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 2882,
+        "evaluations": 3181,
+        "gradient_max": 0.0023764003023147525,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20232024",
+      "head": "q",
+      "conditioning": "unblocked attempt: on-net versus miss",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+        "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd"
+      },
+      "physical_attempt_counts": {
+        "recognized": 160123,
+        "included": 113778,
+        "excluded": 46345,
+        "class_zero": 34969,
+        "class_one": 78809
+      },
+      "type_counts": {
+        "wrist": 62035,
+        "tip": 12399,
+        "snap": 15926,
+        "slap": 13516,
+        "other": 1843,
+        "backhand": 8059
+      },
+      "strength_counts": {
+        "5,5,1": 89180,
+        "4,5,1": 2759,
+        "5,4,1": 15995,
+        "6,5,0": 2220,
+        "3,3,1": 1108,
+        "4,3,1": 328,
+        "4,4,1": 1302,
+        "5,4,0": 37,
+        "6,4,0": 317,
+        "5,3,1": 462,
+        "3,5,1": 14,
+        "5,5,0": 13,
+        "5,6,1": 8,
+        "3,4,1": 19,
+        "4,3,0": 4,
+        "6,3,0": 5,
+        "4,6,1": 1,
+        "5,3,0": 4,
+        "4,5,0": 2
+      },
+      "exclusion_reason_counts": {
+        "requires_unblocked": 44418,
+        "physical_attempt_not_supported_ordinary": 1111,
+        "membership_unavailable_or_outside_population": 1730,
+        "goalie_population_unavailable_or_outside": 1771,
+        "outcome_unavailable": 1065,
+        "shooter_unavailable": 558,
+        "shot_type_unavailable": 833,
+        "location_or_frame_unavailable": 706
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1022,
+        "goalie": 98,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 120
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 16,
+        "defending_coach": 16,
+        "goalie": 47,
+        "shooter": 314
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+        "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 155,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+          "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+          "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+        "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 113778.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 112348.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1430,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 113778.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 113778.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 113778.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 113778.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+        "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 113778,
+        "positive": 78809,
+        "class_fraction": 0.6926558737189966,
+        "mean_predicted_probability": 0.6926558746676282,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5898995549354243,
+        "mean_outcome_only_negative_log_likelihood": 0.5898995549354243,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+          "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/q.json",
+        "sha256": "db3ddbac1759ad1e75d2074135c47e4a379af80278a9cbca80690712a5d51ddd",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 219.9258194169961,
+      "dimension": 3534,
+      "expanded_origin_rows": 113778,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 4285,
+        "evaluations": 4680,
+        "gradient_max": 0.010614898277237998,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20232024",
+      "head": "r",
+      "conditioning": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+        "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3"
+      },
+      "physical_attempt_counts": {
+        "recognized": 160123,
+        "included": 78809,
+        "excluded": 81314,
+        "class_zero": 14968,
+        "class_one": 63841
+      },
+      "type_counts": {
+        "wrist": 44478,
+        "tip": 6949,
+        "snap": 11515,
+        "slap": 8682,
+        "other": 1303,
+        "backhand": 5882
+      },
+      "strength_counts": {
+        "5,5,1": 61336,
+        "5,4,1": 11178,
+        "6,5,0": 1483,
+        "4,5,1": 2196,
+        "3,3,1": 823,
+        "4,3,1": 227,
+        "4,4,1": 938,
+        "5,4,0": 26,
+        "6,4,0": 232,
+        "5,3,1": 314,
+        "3,5,1": 12,
+        "5,6,1": 6,
+        "3,4,1": 18,
+        "4,3,0": 4,
+        "5,5,0": 9,
+        "6,3,0": 2,
+        "4,6,1": 1,
+        "5,3,0": 3,
+        "4,5,0": 1
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 79387,
+        "physical_attempt_not_supported_ordinary": 1111,
+        "membership_unavailable_or_outside_population": 1730,
+        "goalie_population_unavailable_or_outside": 1771,
+        "outcome_unavailable": 1065,
+        "shooter_unavailable": 558,
+        "shot_type_unavailable": 833,
+        "location_or_frame_unavailable": 706
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1022,
+        "goalie": 98,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 127
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 16,
+        "defending_coach": 16,
+        "goalie": 47,
+        "shooter": 306
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+        "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 155,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+          "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+          "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+        "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 78809.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 77793.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1016,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 78809.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 78809.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 78809.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 78809.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+        "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 78809,
+        "positive": 63841,
+        "class_fraction": 0.8100724536537706,
+        "mean_predicted_probability": 0.8100724563123428,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4602171526584962,
+        "mean_outcome_only_negative_log_likelihood": 0.4602171526584962,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+          "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/r.json",
+        "sha256": "f6f837648dcbb927741662a5fc149063a74f95d6d8247aa155d92abeb8d422c3",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 144.61929200000304,
+      "dimension": 3534,
+      "expanded_origin_rows": 78809,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3507,
+        "evaluations": 3851,
+        "gradient_max": 0.00485576686435173,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20232024",
+      "head": "g",
+      "conditioning": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+        "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b"
+      },
+      "physical_attempt_counts": {
+        "recognized": 160123,
+        "included": 63841,
+        "excluded": 96282,
+        "class_zero": 56234,
+        "class_one": 7607
+      },
+      "type_counts": {
+        "wrist": 35836,
+        "tip": 6031,
+        "snap": 9319,
+        "slap": 6669,
+        "backhand": 4890,
+        "other": 1096
+      },
+      "strength_counts": {
+        "5,5,1": 49240,
+        "5,4,1": 9133,
+        "6,5,0": 1214,
+        "4,5,1": 2051,
+        "3,3,1": 716,
+        "4,4,1": 775,
+        "6,4,0": 194,
+        "4,3,1": 186,
+        "5,3,1": 263,
+        "3,5,1": 12,
+        "5,4,0": 19,
+        "3,4,1": 18,
+        "4,3,0": 4,
+        "5,5,0": 7,
+        "5,6,1": 4,
+        "6,3,0": 1,
+        "4,6,1": 1,
+        "5,3,0": 3
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 79387,
+        "recorded_stopped_save": 14968,
+        "physical_attempt_not_supported_ordinary": 1111,
+        "membership_unavailable_or_outside_population": 1730,
+        "goalie_population_unavailable_or_outside": 1771,
+        "outcome_unavailable": 1065,
+        "shooter_unavailable": 558,
+        "shot_type_unavailable": 833,
+        "location_or_frame_unavailable": 706
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1022,
+        "goalie": 98,
+        "setter": 924,
+        "attacking_coach": 39,
+        "defending_coach": 39
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 129
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 16,
+        "defending_coach": 16,
+        "goalie": 47,
+        "setter": 331,
+        "shooter": 295
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+        "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 154,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+          "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+          "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+        "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 63841.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 63037.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 804,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 63841.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 63841.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 63841.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 63841.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+        "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 63841,
+        "positive": 7607,
+        "class_fraction": 0.11915540170110117,
+        "mean_predicted_probability": 0.11810131021243038,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5324820186593237,
+        "mean_outcome_only_negative_log_likelihood": 0.3032982984125351,
+        "weighted_likelihood_meaning": "origin-weighted auxiliary setter mixture",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+          "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/heads/g.json",
+        "sha256": "271ed4ac565405aa3bf8deea37435e3ab07f2f52eb6568238bfba7b8da02643b",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 929.1103221250087,
+      "dimension": 4465,
+      "expanded_origin_rows": 63841,
+      "candidate_branches": 575717,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "iterations": 7981,
+        "evaluations": 8732,
+        "gradient_max": 0.002245991665296262,
+        "em_iterations": 9,
+        "relative_objective_change": 6.342203881810551e-16,
+        "responsibility_change": 2.0413870160940206e-07
+      }
+    },
+    {
+      "season": "20242025",
+      "head": "u",
+      "conditioning": "ordinary physical attempt: unblocked versus block",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+        "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9"
+      },
+      "physical_attempt_counts": {
+        "recognized": 156622,
+        "included": 154720,
+        "excluded": 1902,
+        "class_zero": 43590,
+        "class_one": 111130
+      },
+      "type_counts": {
+        "wrist": 79793,
+        "slap": 18966,
+        "snap": 32282,
+        "tip": 12784,
+        "other": 1935,
+        "backhand": 8960
+      },
+      "strength_counts": {
+        "5,5,1": 125351,
+        "4,5,1": 2723,
+        "5,4,1": 18567,
+        "6,5,0": 3775,
+        "5,3,1": 575,
+        "4,3,1": 307,
+        "3,3,1": 1366,
+        "6,4,0": 432,
+        "4,4,1": 1509,
+        "3,4,1": 9,
+        "5,5,0": 36,
+        "3,5,1": 8,
+        "4,3,0": 4,
+        "5,4,0": 41,
+        "5,3,0": 5,
+        "5,6,1": 7,
+        "6,5,1": 2,
+        "6,6,0": 1,
+        "6,3,0": 2
+      },
+      "exclusion_reason_counts": {
+        "membership_unavailable_or_outside_population": 1400,
+        "goalie_population_unavailable_or_outside": 1850,
+        "shot_type_unavailable": 695,
+        "physical_attempt_not_supported_ordinary": 1082,
+        "outcome_unavailable": 1052,
+        "shooter_unavailable": 636,
+        "location_or_frame_unavailable": 509
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1023,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 101
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 25,
+        "defending_coach": 25,
+        "shooter": 428
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+        "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition"
+      ],
+      "active_columns": {
+        "count": 143,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+          "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+          "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+        "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 154720.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 152730.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1990,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 154720.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 154720.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 154720.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 154720.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+        "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 154720,
+        "positive": 111130,
+        "class_fraction": 0.7182652533609101,
+        "mean_predicted_probability": 0.7182652547928791,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4676259661398989,
+        "mean_outcome_only_negative_log_likelihood": 0.4676259661398989,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+          "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/u.json",
+        "sha256": "e2063d5cabee837c2a34cce29db443f02f8d4cd5e89f565624764805edaed1d9",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 4064.5600922500016,
+      "dimension": 3405,
+      "expanded_origin_rows": 28706170,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3056,
+        "evaluations": 3358,
+        "gradient_max": 0.009791326260571167,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20242025",
+      "head": "q",
+      "conditioning": "unblocked attempt: on-net versus miss",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+        "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0"
+      },
+      "physical_attempt_counts": {
+        "recognized": 156622,
+        "included": 111130,
+        "excluded": 45492,
+        "class_zero": 37591,
+        "class_one": 73539
+      },
+      "type_counts": {
+        "wrist": 53820,
+        "slap": 13057,
+        "tip": 11739,
+        "snap": 22972,
+        "other": 1742,
+        "backhand": 7800
+      },
+      "strength_counts": {
+        "5,5,1": 89046,
+        "4,5,1": 2399,
+        "5,4,1": 13872,
+        "6,5,0": 2448,
+        "5,3,1": 452,
+        "4,3,1": 236,
+        "3,3,1": 1126,
+        "6,4,0": 321,
+        "4,4,1": 1155,
+        "3,4,1": 8,
+        "5,5,0": 18,
+        "3,5,1": 7,
+        "4,3,0": 4,
+        "5,4,0": 27,
+        "5,6,1": 5,
+        "6,5,1": 2,
+        "6,6,0": 1,
+        "5,3,0": 3
+      },
+      "exclusion_reason_counts": {
+        "requires_unblocked": 43590,
+        "membership_unavailable_or_outside_population": 1400,
+        "goalie_population_unavailable_or_outside": 1850,
+        "shot_type_unavailable": 695,
+        "physical_attempt_not_supported_ordinary": 1082,
+        "outcome_unavailable": 1052,
+        "shooter_unavailable": 636,
+        "location_or_frame_unavailable": 509
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1023,
+        "goalie": 103,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 120
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 25,
+        "defending_coach": 25,
+        "goalie": 60,
+        "shooter": 421
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+        "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 154,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+          "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+          "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+        "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 111130.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 109719.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1411,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 111130.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 111130.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 111130.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 111130.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+        "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 111130,
+        "positive": 73539,
+        "class_fraction": 0.6617385044542428,
+        "mean_predicted_probability": 0.6617385051268301,
+        "mean_imputation_weighted_negative_log_likelihood": 0.6084790050942679,
+        "mean_outcome_only_negative_log_likelihood": 0.6084790050942679,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+          "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/q.json",
+        "sha256": "28ad475902a856cc3e2372b659a5eac169b8823fc05ad83533e68f4807b810b0",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 78.59470541600604,
+      "dimension": 3534,
+      "expanded_origin_rows": 111130,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3692,
+        "evaluations": 4054,
+        "gradient_max": 0.0013515024708620803,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20242025",
+      "head": "r",
+      "conditioning": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+        "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3"
+      },
+      "physical_attempt_counts": {
+        "recognized": 156622,
+        "included": 73539,
+        "excluded": 83083,
+        "class_zero": 14035,
+        "class_one": 59504
+      },
+      "type_counts": {
+        "wrist": 36959,
+        "slap": 7932,
+        "tip": 6424,
+        "snap": 15698,
+        "backhand": 5372,
+        "other": 1154
+      },
+      "strength_counts": {
+        "5,5,1": 58325,
+        "4,5,1": 1906,
+        "5,4,1": 9393,
+        "6,5,0": 1549,
+        "5,3,1": 310,
+        "4,3,1": 158,
+        "3,3,1": 829,
+        "4,4,1": 802,
+        "6,4,0": 222,
+        "3,4,1": 3,
+        "5,5,0": 12,
+        "3,5,1": 5,
+        "4,3,0": 3,
+        "5,4,0": 17,
+        "6,5,1": 1,
+        "5,6,1": 2,
+        "6,6,0": 1,
+        "5,3,0": 1
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 81181,
+        "membership_unavailable_or_outside_population": 1400,
+        "goalie_population_unavailable_or_outside": 1850,
+        "shot_type_unavailable": 695,
+        "physical_attempt_not_supported_ordinary": 1082,
+        "outcome_unavailable": 1052,
+        "shooter_unavailable": 636,
+        "location_or_frame_unavailable": 509
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1023,
+        "goalie": 103,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 127
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 25,
+        "defending_coach": 25,
+        "goalie": 60,
+        "shooter": 414
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+        "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 154,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+          "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+          "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+        "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 73539.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 72615.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 924,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 73539.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 73539.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 73539.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 73539.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+        "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 73539,
+        "positive": 59504,
+        "class_fraction": 0.8091488869851371,
+        "mean_predicted_probability": 0.8091488885112414,
+        "mean_imputation_weighted_negative_log_likelihood": 0.457489524025405,
+        "mean_outcome_only_negative_log_likelihood": 0.457489524025405,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+          "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/r.json",
+        "sha256": "7cb0b9961d1ce93a636d66f737a9ab174ec6c3e87983b43da0b0aaed756895a3",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 48.47036266699433,
+      "dimension": 3534,
+      "expanded_origin_rows": 73539,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3177,
+        "evaluations": 3460,
+        "gradient_max": 0.0012075508294189623,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20242025",
+      "head": "g",
+      "conditioning": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+        "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7"
+      },
+      "physical_attempt_counts": {
+        "recognized": 156622,
+        "included": 59504,
+        "excluded": 97118,
+        "class_zero": 52155,
+        "class_one": 7349
+      },
+      "type_counts": {
+        "wrist": 29659,
+        "slap": 6122,
+        "tip": 5663,
+        "snap": 12644,
+        "backhand": 4477,
+        "other": 939
+      },
+      "strength_counts": {
+        "5,5,1": 46804,
+        "4,5,1": 1788,
+        "5,4,1": 7620,
+        "6,5,0": 1289,
+        "4,3,1": 131,
+        "3,3,1": 735,
+        "5,3,1": 274,
+        "4,4,1": 635,
+        "6,4,0": 189,
+        "3,4,1": 3,
+        "5,5,0": 10,
+        "3,5,1": 5,
+        "4,3,0": 3,
+        "5,4,0": 13,
+        "6,5,1": 1,
+        "5,6,1": 2,
+        "6,6,0": 1,
+        "5,3,0": 1
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 81181,
+        "recorded_stopped_save": 14035,
+        "membership_unavailable_or_outside_population": 1400,
+        "goalie_population_unavailable_or_outside": 1850,
+        "shot_type_unavailable": 695,
+        "physical_attempt_not_supported_ordinary": 1082,
+        "outcome_unavailable": 1052,
+        "shooter_unavailable": 636,
+        "location_or_frame_unavailable": 509
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1023,
+        "goalie": 103,
+        "setter": 920,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 133,
+        "setter": 1
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 25,
+        "defending_coach": 25,
+        "goalie": 60,
+        "setter": 445,
+        "shooter": 403
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+        "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 154,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+          "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+          "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+        "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 59504.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 58730.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 774,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 59504.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 59504.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 59504.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 59504.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+        "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 59504,
+        "positive": 7349,
+        "class_fraction": 0.12350430223178274,
+        "mean_predicted_probability": 0.12200616843558446,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5512434779954931,
+        "mean_outcome_only_negative_log_likelihood": 0.3120878568379795,
+        "weighted_likelihood_meaning": "origin-weighted auxiliary setter mixture",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+          "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/heads/g.json",
+        "sha256": "95e49708104a3ab1e8e038ff086a0cb58735498d65f4965568de453700a939e7",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 383.2648150830064,
+      "dimension": 4461,
+      "expanded_origin_rows": 59504,
+      "candidate_branches": 540543,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "iterations": 7195,
+        "evaluations": 7831,
+        "gradient_max": 0.0005824122721240551,
+        "em_iterations": 8,
+        "relative_objective_change": 4.3846237197990203e-16,
+        "responsibility_change": 3.454991198692525e-08
+      }
+    },
+    {
+      "season": "20252026",
+      "head": "u",
+      "conditioning": "ordinary physical attempt: unblocked versus block",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+        "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153754,
+        "included": 151381,
+        "excluded": 2373,
+        "class_zero": 40484,
+        "class_one": 110897
+      },
+      "type_counts": {
+        "wrist": 69398,
+        "slap": 18665,
+        "snap": 38584,
+        "other": 1924,
+        "tip": 13696,
+        "backhand": 9114
+      },
+      "strength_counts": {
+        "5,5,1": 120912,
+        "5,4,1": 19552,
+        "4,5,1": 2740,
+        "6,5,0": 3424,
+        "5,3,1": 637,
+        "6,4,0": 426,
+        "4,3,1": 419,
+        "4,4,1": 1561,
+        "3,3,1": 1599,
+        "5,4,0": 37,
+        "6,5,1": 1,
+        "4,3,0": 11,
+        "3,4,1": 21,
+        "3,5,1": 10,
+        "5,5,0": 26,
+        "6,4,1": 2,
+        "5,6,1": 1,
+        "6,3,0": 2
+      },
+      "exclusion_reason_counts": {
+        "physical_attempt_not_supported_ordinary": 1362,
+        "outcome_unavailable": 1329,
+        "goalie_population_unavailable_or_outside": 2314,
+        "shooter_unavailable": 677,
+        "membership_unavailable_or_outside_population": 2002,
+        "shot_type_unavailable": 998,
+        "location_or_frame_unavailable": 799
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1038,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 97
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 29,
+        "defending_coach": 29,
+        "shooter": 525
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+        "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition"
+      ],
+      "active_columns": {
+        "count": 143,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+          "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+          "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+        "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 151381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 149489.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1892,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 151381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 151381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 151381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 151381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+        "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 151381,
+        "positive": 110897,
+        "class_fraction": 0.7325688164300672,
+        "mean_predicted_probability": 0.7325688186013085,
+        "mean_imputation_weighted_negative_log_likelihood": 0.45245618145212746,
+        "mean_outcome_only_negative_log_likelihood": 0.45245618145212746,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+          "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/u.json",
+        "sha256": "e5ff6c80c5367e7387115aba3170f13ad5cc7aa1657e3cf36ba3fc29a5a6da77",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 3771.363428124998,
+      "dimension": 3420,
+      "expanded_origin_rows": 26668401,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3153,
+        "evaluations": 3424,
+        "gradient_max": 0.0013561300171575572,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20252026",
+      "head": "q",
+      "conditioning": "unblocked attempt: on-net versus miss",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+        "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153754,
+        "included": 110897,
+        "excluded": 42857,
+        "class_zero": 38516,
+        "class_one": 72381
+      },
+      "type_counts": {
+        "wrist": 47855,
+        "slap": 13201,
+        "snap": 27601,
+        "tip": 12492,
+        "backhand": 8008,
+        "other": 1740
+      },
+      "strength_counts": {
+        "5,5,1": 87315,
+        "5,4,1": 14994,
+        "4,5,1": 2442,
+        "6,5,0": 2335,
+        "5,3,1": 535,
+        "6,4,0": 290,
+        "4,3,1": 330,
+        "3,3,1": 1348,
+        "4,4,1": 1221,
+        "6,5,1": 1,
+        "4,3,0": 10,
+        "5,4,0": 25,
+        "3,5,1": 10,
+        "3,4,1": 19,
+        "5,5,0": 18,
+        "6,4,1": 2,
+        "5,6,1": 1,
+        "6,3,0": 1
+      },
+      "exclusion_reason_counts": {
+        "requires_unblocked": 40484,
+        "physical_attempt_not_supported_ordinary": 1362,
+        "outcome_unavailable": 1329,
+        "goalie_population_unavailable_or_outside": 2314,
+        "shooter_unavailable": 677,
+        "membership_unavailable_or_outside_population": 2002,
+        "shot_type_unavailable": 998,
+        "location_or_frame_unavailable": 799
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1038,
+        "goalie": 98,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 107
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 29,
+        "defending_coach": 29,
+        "goalie": 75,
+        "shooter": 515
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+        "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 154,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+          "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+          "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+        "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 110897.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 109561.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 1336,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 110897.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 110897.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 110897.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 110897.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+        "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 110897,
+        "positive": 72381,
+        "class_fraction": 0.6526867273235525,
+        "mean_predicted_probability": 0.6526867297446413,
+        "mean_imputation_weighted_negative_log_likelihood": 0.6119567343576602,
+        "mean_outcome_only_negative_log_likelihood": 0.6119567343576602,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+          "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/q.json",
+        "sha256": "6af74b0b24e21d427665d8cea43ca2dbd69cab43337ceef44abcacb948443b1c",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 95.83136362500954,
+      "dimension": 3544,
+      "expanded_origin_rows": 110897,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 4565,
+        "evaluations": 5001,
+        "gradient_max": 0.014165208257925445,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20252026",
+      "head": "r",
+      "conditioning": "on-net, known immediate stop: goal or continuing save versus recorded stopped save",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+        "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153754,
+        "included": 72381,
+        "excluded": 81373,
+        "class_zero": 13753,
+        "class_one": 58628
+      },
+      "type_counts": {
+        "wrist": 32732,
+        "slap": 7689,
+        "snap": 18698,
+        "backhand": 5462,
+        "tip": 6752,
+        "other": 1048
+      },
+      "strength_counts": {
+        "5,5,1": 56312,
+        "5,4,1": 10006,
+        "4,5,1": 1935,
+        "5,3,1": 361,
+        "6,4,0": 182,
+        "6,5,0": 1456,
+        "4,3,1": 226,
+        "3,3,1": 986,
+        "4,4,1": 859,
+        "6,5,1": 1,
+        "3,5,1": 10,
+        "3,4,1": 12,
+        "5,4,0": 15,
+        "5,5,0": 10,
+        "4,3,0": 7,
+        "6,4,1": 2,
+        "5,6,1": 1
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 79000,
+        "physical_attempt_not_supported_ordinary": 1362,
+        "outcome_unavailable": 1329,
+        "goalie_population_unavailable_or_outside": 2314,
+        "shooter_unavailable": 677,
+        "membership_unavailable_or_outside_population": 2002,
+        "shot_type_unavailable": 998,
+        "location_or_frame_unavailable": 799
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1038,
+        "goalie": 98,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 123
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 29,
+        "defending_coach": 29,
+        "goalie": 75,
+        "shooter": 505
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+        "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 153,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+          "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+          "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+        "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 72381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 71481.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 900,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 72381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 72381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 72381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 72381.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+        "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 72381,
+        "positive": 58628,
+        "class_fraction": 0.8099915723739656,
+        "mean_predicted_probability": 0.8099915714731398,
+        "mean_imputation_weighted_negative_log_likelihood": 0.4569673604260829,
+        "mean_outcome_only_negative_log_likelihood": 0.4569673604260829,
+        "weighted_likelihood_meaning": "origin-weighted conditional binary head",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+          "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "prior_mean",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/r.json",
+        "sha256": "addef3dcb04ca87d83293aa3a30a1a2f5b3f66318090a8bd2cb2bb1391ba8d76",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 56.169316332991,
+      "dimension": 3544,
+      "expanded_origin_rows": 72381,
+      "candidate_branches": 0,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 3887,
+        "evaluations": 4269,
+        "gradient_max": 0.0008218846738581621,
+        "em_iterations": 0,
+        "relative_objective_change": null,
+        "responsibility_change": null
+      }
+    },
+    {
+      "season": "20252026",
+      "head": "g",
+      "conditioning": "on-net, known not stopped: goal versus continuing save; auxiliary setter mixture",
+      "status": "complete",
+      "metadata": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+        "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81"
+      },
+      "physical_attempt_counts": {
+        "recognized": 153754,
+        "included": 58628,
+        "excluded": 95126,
+        "class_zero": 51080,
+        "class_one": 7548
+      },
+      "type_counts": {
+        "snap": 14977,
+        "slap": 5945,
+        "wrist": 26279,
+        "backhand": 4618,
+        "tip": 5930,
+        "other": 879
+      },
+      "strength_counts": {
+        "5,5,1": 45163,
+        "5,4,1": 8187,
+        "4,5,1": 1792,
+        "5,3,1": 300,
+        "6,4,0": 137,
+        "6,5,0": 1210,
+        "4,3,1": 190,
+        "3,3,1": 891,
+        "4,4,1": 707,
+        "3,5,1": 10,
+        "3,4,1": 9,
+        "5,4,0": 14,
+        "5,5,0": 9,
+        "4,3,0": 7,
+        "6,4,1": 2
+      },
+      "exclusion_reason_counts": {
+        "requires_on_net": 79000,
+        "recorded_stopped_save": 13753,
+        "physical_attempt_not_supported_ordinary": 1362,
+        "outcome_unavailable": 1329,
+        "goalie_population_unavailable_or_outside": 2314,
+        "shooter_unavailable": 677,
+        "membership_unavailable_or_outside_population": 2002,
+        "shot_type_unavailable": 998,
+        "location_or_frame_unavailable": 799
+      },
+      "reason_count_semantics": "overlapping located reasons; counts are not an exclusive partition",
+      "actors_by_block": {
+        "shooter": 1038,
+        "goalie": 98,
+        "setter": 940,
+        "attacking_coach": 36,
+        "defending_coach": 36
+      },
+      "prior_only_actors_by_block": {
+        "shooter": 137
+      },
+      "absent_ledger_rows_by_block": {
+        "attacking_coach": 29,
+        "defending_coach": 29,
+        "goalie": 75,
+        "setter": 541,
+        "shooter": 493
+      },
+      "annual_prior_reference": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+        "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+        "pointer": "/priors"
+      },
+      "families_selected": [
+        "game_additive",
+        "recent_additive",
+        "recent_interactions",
+        "recent_geometry",
+        "off_wing",
+        "sequence",
+        "shift_age",
+        "shift_start",
+        "workload",
+        "calendar_rest",
+        "strength_transition",
+        "goalie_workload",
+        "goalie_calendar_rest"
+      ],
+      "active_columns": {
+        "count": 151,
+        "reference": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+          "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+          "pointer": "/design/active"
+        },
+        "ordered_columns": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+          "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+          "pointer": "/design/columns"
+        }
+      },
+      "feature_support": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+        "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+        "pointer": "/design/feature_support"
+      },
+      "opposing_team_calendar_rest_support": {
+        "opposing_team:prior_exists": {
+          "available_weight": 58628.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:calendar_gap_days": {
+          "available_weight": 57921.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 707,
+          "active": true
+        },
+        "opposing_team:prior_one_date": {
+          "available_weight": 58628.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:prior_two_date": {
+          "available_weight": 58628.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_7": {
+          "available_weight": 58628.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        },
+        "opposing_team:games_days_14": {
+          "available_weight": 58628.0,
+          "unavailable_attempts": 0,
+          "structural_absence_attempts": 0,
+          "active": true
+        }
+      },
+      "availability_conditions": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+        "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+        "pointer": "/design/availability_conditions"
+      },
+      "missingness_semantics": "use each saved condition/column support; never sum unavailable counts across columns sharing a condition",
+      "in_sample": {
+        "attempts": 58628,
+        "positive": 7548,
+        "class_fraction": 0.12874394487275703,
+        "mean_predicted_probability": 0.12744665464819432,
+        "mean_imputation_weighted_negative_log_likelihood": 0.5744703652137918,
+        "mean_outcome_only_negative_log_likelihood": 0.32588169233921993,
+        "weighted_likelihood_meaning": "origin-weighted auxiliary setter mixture",
+        "reliability": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+          "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+          "pointer": "/diagnostics/in_sample/reliability"
+        }
+      },
+      "selected_start": "zero",
+      "requested_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "starts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/heads/g.json",
+        "sha256": "1e0d7a5b7b92ef9a1a430fd65f8f0d53c0cea91ce3d32a4b9ec23c03b8207b81",
+        "pointer": "/starts"
+      },
+      "head_wall_seconds": 418.96156820798933,
+      "dimension": 4491,
+      "expanded_origin_rows": 58628,
+      "candidate_branches": 530040,
+      "selected_native_diagnostics": {
+        "converged": true,
+        "termination": "setter em objective and responsibility tolerances satisfied",
+        "iterations": 8373,
+        "evaluations": 9207,
+        "gradient_max": 0.001032429021135233,
+        "em_iterations": 9,
+        "relative_objective_change": 6.404645061831684e-16,
+        "responsibility_change": 6.899257931625158e-08
+      }
+    }
+  ],
+  "final_resolution": [
+    {
+      "season": "20252026",
+      "head": "u",
+      "status": "passed",
+      "usage": "numerical_probe",
+      "probe": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/u.json",
+        "sha256": "da99582b812e3da8b2e3ae3f83904da3554ced4a60a3febb47f024377b4ba797"
+      },
+      "selector_coverage_ref": "final_selector_coverage",
+      "maximum_probability_change": 1.1167545621582065e-07,
+      "probability_margin": 1e-05,
+      "head_maximum_changes": {
+        "u": 1.1167545621582065e-07,
+        "q": 0.0,
+        "r": 0.0,
+        "g": 0.0
+      },
+      "terminal_maximum_changes": {
+        "block": 1.1167545621582065e-07,
+        "miss": 6.383617445759882e-08,
+        "stopped": 2.5461527025649744e-08,
+        "continuing": 8.814971808046579e-08,
+        "goal": 3.854860897156698e-08
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/u.json",
+        "sha256": "da99582b812e3da8b2e3ae3f83904da3554ced4a60a3febb47f024377b4ba797",
+        "pointer": "/comparison"
+      },
+      "scope": "numerical movement on covered actual/attributed-fixture selector, separate from coverage and scientific quality"
+    },
+    {
+      "season": "20252026",
+      "head": "q",
+      "status": "passed",
+      "usage": "numerical_probe",
+      "probe": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/q.json",
+        "sha256": "cb760490dbfc036e84ea7e8fba78c62da1212c0dc9db3f3f459865abd02d000a"
+      },
+      "selector_coverage_ref": "final_selector_coverage",
+      "maximum_probability_change": 1.8601347639979338e-07,
+      "probability_margin": 1e-05,
+      "head_maximum_changes": {
+        "u": 0.0,
+        "q": 1.8601347639979338e-07,
+        "r": 0.0,
+        "g": 0.0
+      },
+      "terminal_maximum_changes": {
+        "block": 0.0,
+        "miss": 1.6271980288196097e-07,
+        "stopped": 2.6100943822937595e-08,
+        "continuing": 1.4321714947307385e-07,
+        "goal": 3.7372221317610865e-08
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/q.json",
+        "sha256": "cb760490dbfc036e84ea7e8fba78c62da1212c0dc9db3f3f459865abd02d000a",
+        "pointer": "/comparison"
+      },
+      "scope": "numerical movement on covered actual/attributed-fixture selector, separate from coverage and scientific quality"
+    },
+    {
+      "season": "20252026",
+      "head": "r",
+      "status": "passed",
+      "usage": "numerical_probe",
+      "probe": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/r.json",
+        "sha256": "54a7c20f0e02f334be1d36a083e4c1dfb133588fbbfa2bc049e46c5e1453948f"
+      },
+      "selector_coverage_ref": "final_selector_coverage",
+      "maximum_probability_change": 9.726986439639873e-07,
+      "probability_margin": 1e-05,
+      "head_maximum_changes": {
+        "u": 0.0,
+        "q": 0.0,
+        "r": 9.726986439639873e-07,
+        "g": 0.0
+      },
+      "terminal_maximum_changes": {
+        "block": 0.0,
+        "miss": 0.0,
+        "stopped": 3.215239166576289e-07,
+        "continuing": 3.201036637423549e-07,
+        "goal": 2.0604714179306427e-07
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/r.json",
+        "sha256": "54a7c20f0e02f334be1d36a083e4c1dfb133588fbbfa2bc049e46c5e1453948f",
+        "pointer": "/comparison"
+      },
+      "scope": "numerical movement on covered actual/attributed-fixture selector, separate from coverage and scientific quality"
+    },
+    {
+      "season": "20252026",
+      "head": "g",
+      "status": "passed",
+      "usage": "numerical_probe",
+      "probe": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/g.json",
+        "sha256": "20ede9bfc665fd5f1f2c4087b67c4c55a85f51f54384cd692a894a3b1b2b93fe"
+      },
+      "selector_coverage_ref": "final_selector_coverage",
+      "maximum_probability_change": 9.67525633444044e-07,
+      "probability_margin": 1e-05,
+      "head_maximum_changes": {
+        "u": 0.0,
+        "q": 0.0,
+        "r": 0.0,
+        "g": 9.67525633444044e-07
+      },
+      "terminal_maximum_changes": {
+        "block": 0.0,
+        "miss": 0.0,
+        "stopped": 0.0,
+        "continuing": 5.910956872301476e-07,
+        "goal": 5.910956872301476e-07
+      },
+      "comparison": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/g.json",
+        "sha256": "20ede9bfc665fd5f1f2c4087b67c4c55a85f51f54384cd692a894a3b1b2b93fe",
+        "pointer": "/comparison"
+      },
+      "scope": "numerical movement on covered actual/attributed-fixture selector, separate from coverage and scientific quality"
+    }
+  ],
+  "final_selector_coverage": {
+    "descriptor": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/baseline.json",
+      "sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb"
+    },
+    "requirements": 48,
+    "by_disposition": {
+      "actual": 44,
+      "fixture": 4
+    },
+    "uncovered": 0,
+    "actual_selected_contexts": 256,
+    "attributed_fixture_witnesses": 1,
+    "population_ref": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/baseline.json",
+      "sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb",
+      "pointer": "/selector/population"
+    },
+    "eligible_probability_contexts": 151381,
+    "withheld_probability_contexts": 0,
+    "withheld_contexts_ref": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/baseline.json",
+      "sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb",
+      "pointer": "/selector/population/withheld_contexts"
+    },
+    "requirements_ref": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/baseline.json",
+      "sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb",
+      "pointer": "/selector/requirements"
+    },
+    "actual_contexts_ref": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/baseline.json",
+      "sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb",
+      "pointer": "/selector/keys"
+    },
+    "attributed_fixtures_ref": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/baseline.json",
+      "sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb",
+      "pointer": "/selector/fixture_witnesses"
+    },
+    "synthetic_geometry": {
+      "context_key": "2025020001:2",
+      "types": [
+        "wrist",
+        "snap",
+        "slap",
+        "backhand",
+        "tip",
+        "other"
+      ],
+      "cells": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525,
+        526,
+        527,
+        528,
+        529,
+        530,
+        531,
+        532,
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543,
+        544,
+        545,
+        546,
+        547,
+        548,
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        563,
+        564,
+        565,
+        566,
+        567,
+        568,
+        569,
+        570,
+        571,
+        572,
+        573,
+        574,
+        575,
+        576,
+        577,
+        578,
+        579,
+        580,
+        581,
+        582,
+        583,
+        584,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        633,
+        634,
+        635,
+        636,
+        637,
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655
+      ],
+      "execution": [
+        "actual",
+        "neutral"
+      ]
+    }
+  },
+  "shared_meaning_limits": [
+    "recorded attempts/outcomes remain observations; fixed inferred block origins are not observed release locations or forecasts conditional on the recorded block",
+    "each head retains its conditional population; u needs opposing-goalie cardinality while q/r/g and all-head scoring require checked individual goalie identity",
+    "source-first entry is chain-relative, not a rookie claim; point-prior annual borrowing propagates no prior-fit uncertainty",
+    "prior_only means a current source/head-axis actor with zero applicable head likelihood; it differs from an absent ledger entry",
+    "an absent ledger entry is historical last-supported state outside the current head axis, not a current estimate or a claim that the actor did not play",
+    "setter candidate mixtures are inferred from declared source context, not observations of passes",
+    "selected feature families, active encoded columns and available/unavailable/structurally absent support describe distinct construction facts; none establishes predictive validation",
+    "overlapping exclusion reasons and shared missingness columns are not additive disjoint populations",
+    "in-sample means, reliability and weighted origin-imputed losses do not establish held-out or unconditional all-attempt forecast calibration",
+    "g auxiliary setter-mixture likelihood includes supported credit evidence; its outcome-only diagnostic remains separately named",
+    "native ftol completion and a bounded probability-stability comparison do not certify raw gtol, a global optimum or general accuracy",
+    "selector population eligibility and withheld individual-goalie contexts are distinct from uncovered selector requirements; zero uncovered does not mean every source context supports all-head scoring",
+    "probe variants remain separately tagged; no tightened coefficient promotion or probe predecessor is implied",
+    "reported coaching identities are source reports, not attendance or coaching-quality evidence",
+    "experimental estimates are not observed facts, causal isolation, calibrated ability claims or scientific admission"
+  ]
+}

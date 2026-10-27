@@ -103,5 +103,19 @@
   ],
   "tests": "30 targeted state/cli-boundary/probe checks passed; 7 detached actual/neutral examples matched exactly",
   "retained": "all fixture states, original inputs, source evidence, receipts, logs and other owners files",
-  "real_acceptance": "blocked; no real fit or scientific admission"
+  "real_acceptance": "blocked; no real fit or scientific admission",
+  "campaign_2026_10_26": {
+    "status": "owned campaign cleanup complete after independent real and content acceptance",
+    "actual_files_deleted": 199,
+    "outside_repository_files_deleted": 192,
+    "repository_files_deleted": 7,
+    "receipt_root": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02",
+    "temporary_scratch_deletion": {"path": "partial-test-deletion.json", "sha256": "f2dcddf2779b1538062d48ace67fa9276f1d1c884241d3951df3935bb844c797"},
+    "local_deletion": {"path": "local-test-deletion.json", "sha256": "b6a260d86dc1de221938c75ed4a25cad4eafed5f3405441ab7a068714a64de00"},
+    "temporary_scratch_deletion_peer": {"path": "partial-test-deletion-peer-review.json", "sha256": "207b221efabccccd9793e1c0b06177d618e5cbc7596367a7edeb35fcbb445bd4"},
+    "final_deletion_peer": {"path": "final-test-deletion-peer-review.json", "sha256": "f5ab56942d44f951bbb73c9ec206be3c6e731a30757c689109bf5b626fd06a17"},
+    "preserved": "all 57 protected fixture manifests, six source pins, canonical predictors, original inputs, expensive fits and historical receipts",
+    "counting_scope": "actual files removed, not tests; paths already absent are not counted as campaign deletions",
+    "scientific_scope": "real numerical and content acceptance do not establish scientific admission or activation; earlier keys retain their historical scope"
+  }
 }

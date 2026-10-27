@@ -1,0 +1,52 @@
+{
+  "status": "pass",
+  "reviewer": "/root/interruption_audit",
+  "at_utc": "2026-10-27T05:24:31.886147+00:00",
+  "content": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/real-content.json",
+    "sha256": "99aca1e8471258afd6d5576305f28089ecc4d1e1176d8d0b6da82f6a45a2e9c8",
+    "bytes": 170231
+  },
+  "scope": "independent saved-content-to-source-metadata and accepted-receipt cross-check; no raw replay, refit or full probability-grid replay",
+  "verified": {
+    "annual_rows": 5,
+    "head_rows": 20,
+    "resolution_rows": 4,
+    "selected_games_per_year": 1312,
+    "physical_counts_and_conditional_partitions": true,
+    "exclusion_overlap_explicit": true,
+    "current_prior_only_distinct_from_absent_ledger": true,
+    "selected_families_active_columns_support_distinct": true,
+    "opposing_team_calendar_support_records": 120,
+    "in_sample_and_reliability_source_bindings": true,
+    "g_auxiliary_and_outcome_only_diagnostics_separate": true,
+    "selector_requirements": 48,
+    "actual_requirements": 44,
+    "fixture_requirements": 4,
+    "uncovered": 0,
+    "actual_selected_contexts": 256,
+    "eligible": 151381,
+    "withheld": 0,
+    "total_whole_command_wall_seconds": 57118.34,
+    "maximum_rss_bytes": 21551153152,
+    "declared_member_bytes": 1061446072
+  },
+  "claim_limits_reviewed": [
+    "recorded attempts/outcomes remain observations; fixed inferred block origins are not observed release locations or forecasts conditional on the recorded block",
+    "each head retains its conditional population; u needs opposing-goalie cardinality while q/r/g and all-head scoring require checked individual goalie identity",
+    "source-first entry is chain-relative, not a rookie claim; point-prior annual borrowing propagates no prior-fit uncertainty",
+    "prior_only means a current source/head-axis actor with zero applicable head likelihood; it differs from an absent ledger entry",
+    "an absent ledger entry is historical last-supported state outside the current head axis, not a current estimate or a claim that the actor did not play",
+    "setter candidate mixtures are inferred from declared source context, not observations of passes",
+    "selected feature families, active encoded columns and available/unavailable/structurally absent support describe distinct construction facts; none establishes predictive validation",
+    "overlapping exclusion reasons and shared missingness columns are not additive disjoint populations",
+    "in-sample means, reliability and weighted origin-imputed losses do not establish held-out or unconditional all-attempt forecast calibration",
+    "g auxiliary setter-mixture likelihood includes supported credit evidence; its outcome-only diagnostic remains separately named",
+    "native ftol completion and a bounded probability-stability comparison do not certify raw gtol, a global optimum or general accuracy",
+    "selector population eligibility and withheld individual-goalie contexts are distinct from uncovered selector requirements; zero uncovered does not mean every source context supports all-head scoring",
+    "probe variants remain separately tagged; no tightened coefficient promotion or probe predecessor is implied",
+    "reported coaching identities are source reports, not attendance or coaching-quality evidence",
+    "experimental estimates are not observed facts, causal isolation, calibrated ability claims or scientific admission"
+  ],
+  "verdict": "no blocking content finding; ready for root-reviewed factual receipt and conditional cleanup"
+}

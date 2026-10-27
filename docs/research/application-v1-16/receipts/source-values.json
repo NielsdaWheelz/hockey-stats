@@ -1,0 +1,142 @@
+{
+  "candidate_sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+  "cases": [
+    {
+      "season": "20232024",
+      "player_id": "8481559",
+      "label": "hughes",
+      "csv_rows": 444,
+      "native_leaves_checked": 431,
+      "reported_seconds": 2736,
+      "appearances": 2,
+      "reported_minutes_per_appearance": 22.8,
+      "on_off_attempts": {
+        "on": {
+          "for_count": 42,
+          "against_count": 30,
+          "seconds": 2041
+        },
+        "off": {
+          "for_count": 72,
+          "against_count": 45,
+          "seconds": 3506
+        }
+      },
+      "source_files": [
+        {
+          "filename": "source-hughes.png",
+          "bytes": 474101,
+          "sha256": "5fca636f30c5dd54c3bc720bfee5f5489ed5519bb22bcf71755ddb3ad3cd0e01"
+        },
+        {
+          "filename": "source-hughes.csv",
+          "bytes": 892609,
+          "sha256": "45b48a88bd370b3732a5efb79d87d3723fbdabcb3392932ffc639d35a1382078"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "player_id": "8480879",
+      "label": "traded",
+      "csv_rows": 368,
+      "native_leaves_checked": 355,
+      "reported_seconds": 1566,
+      "appearances": 2,
+      "reported_minutes_per_appearance": 13.05,
+      "on_off_attempts": {
+        "on": {
+          "for_count": 12,
+          "against_count": 3,
+          "seconds": 588
+        },
+        "off": {
+          "for_count": 26,
+          "against_count": 37,
+          "seconds": 1850
+        }
+      },
+      "source_files": [
+        {
+          "filename": "source-traded.png",
+          "bytes": 487376,
+          "sha256": "d1bcf2754607ae91ba522fc6a1a0c363debb47d670571e8ffa9e03c2ea168174"
+        },
+        {
+          "filename": "source-traded.csv",
+          "bytes": 781689,
+          "sha256": "b0a08a0908add5b9d272412fa122b4893625d69ba743af500892a5ab7952ca1a"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "player_id": "8470613",
+      "label": "missing-shifts",
+      "csv_rows": 342,
+      "native_leaves_checked": 329,
+      "reported_seconds": 1179,
+      "appearances": 1,
+      "reported_minutes_per_appearance": 19.65,
+      "on_off_attempts": {
+        "on": {
+          "for_count": null,
+          "against_count": null,
+          "seconds": 0
+        },
+        "off": {
+          "for_count": null,
+          "against_count": null,
+          "seconds": 0
+        }
+      },
+      "source_files": [
+        {
+          "filename": "source-missing-shifts.png",
+          "bytes": 520489,
+          "sha256": "c228d5d330d090e19107ab401b8f66840acd6c269390ca2d3af11e73e4c03e82"
+        },
+        {
+          "filename": "source-missing-shifts.csv",
+          "bytes": 716654,
+          "sha256": "b2ae92da0a4d14947b4ef3f3c7ccd5cb9d9b112f2fcb0015f4b62d8334925188"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "player_id": "8482093",
+      "label": "jarvis",
+      "csv_rows": 422,
+      "native_leaves_checked": 409,
+      "reported_seconds": 2335,
+      "appearances": 2,
+      "reported_minutes_per_appearance": 19.458333333333332,
+      "on_off_attempts": {
+        "on": {
+          "for_count": 12,
+          "against_count": 7,
+          "seconds": 682
+        },
+        "off": {
+          "for_count": 40,
+          "against_count": 25,
+          "seconds": 2031
+        }
+      },
+      "source_files": [
+        {
+          "filename": "source-jarvis.png",
+          "bytes": 473969,
+          "sha256": "4dd3cb5c9e43d9c07a6dc4d2d5efd86c160c4c15f43bf216200752460cd32708"
+        },
+        {
+          "filename": "source-jarvis.csv",
+          "bytes": 859509,
+          "sha256": "fe8f3449324800d0dd5eda4351b8250d37fd02ce83a61410aec3783e99683542"
+        }
+      ]
+    }
+  ],
+  "method": "each exported native scalar leaf compared independently with stored producer payload; derived quartiles/subtotal checked separately; no producer recomputation"
+}

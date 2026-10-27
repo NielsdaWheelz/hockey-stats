@@ -103,7 +103,7 @@ fix the csv columns in this order, using existing metadata/serialization helpers
 
 ## verification and handoff
 
-use temporary integration/live red→green→refactor→green checks, independent factual/systems/content review, then delete temporary tests/controllers and test-only dependencies. keep checked fixtures/expectations and receipts. no new harness. [the old fixture limitation](../issues/descriptive-fixture-consistency.md) requires a small coherent derived card fixture or verified v1-03 fixture; preserve frozen v1-13 examples/history.
+use temporary integration/live red→green→refactor→green checks, independent factual/systems/content review, then delete temporary tests/controllers and test-only dependencies. keep checked fixtures/expectations and receipts. no new harness. the old fixture limitation requires a small [coherent derived card fixture](../../fixtures/publication-v1-16/README.md) or verified v1-03 fixture; preserve frozen v1-13 examples/history.
 
 | acceptance boundary | required evidence |
 |---|---|

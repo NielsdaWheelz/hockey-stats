@@ -529,15 +529,6 @@ footer {
 .result-count {
   margin: 1rem 0;
 }
-.observed-card {
-  max-width: 60rem;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1rem;
-}
-.observed-card h3 {
-  margin-top: 1rem;
-}
 .peer-context {
   margin: 2rem 0;
   border-top: 1px solid var(--rule);
@@ -734,10 +725,6 @@ footer {
   .minute-control {
     flex-basis: 100%;
   }
-}
-.observed-card h4 {
-  margin: 1.4rem 0 0.6rem;
-  font-size: 1rem;
 }
 .population-coverage {
   display: grid;
@@ -1242,3 +1229,18 @@ footer {
   .comparative-pair .comparative-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .comparative-totals, .comparative-histories { grid-template-columns: 1fr; }
 }
+
+.descriptive-pair { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+.descriptive-sheet { min-width: 0; padding: 1rem 0; }
+.descriptive-sheet > h3 { margin-top: 0; }
+.descriptive-sheet-art { max-width: 100%; overflow: auto; border: 1px solid var(--rule); background: var(--paper); }
+.descriptive-sheet-art > svg { display: block; width: 100%; min-width: 75rem; height: auto; }
+.descriptive-sheet .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1rem; margin: 1rem 0; }
+.descriptive-sheet .card-actions p { flex-basis: 100%; margin: 0; color: var(--muted); }
+.descriptive-history-links { border-block: 1px solid var(--rule); margin: 1rem 0; padding: .5rem 0; }
+.descriptive-history-links p { overflow-wrap: anywhere; }
+.descriptive-sheet table { width: 100%; min-width: 54rem; border-collapse: collapse; }
+.descriptive-sheet th, .descriptive-sheet td { padding: .7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+.descriptive-sheet td { font-variant-numeric: tabular-nums; }
+.descriptive-detail { margin: 1.5rem 0; }
+.descriptive-sheet pre { max-width: 100%; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }

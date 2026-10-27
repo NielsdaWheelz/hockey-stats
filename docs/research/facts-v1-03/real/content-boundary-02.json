@@ -1,0 +1,1105 @@
+{
+  "candidate_database_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+  "candidate_verification_sha256": "99c10e2978ae25f2660c38c7541d8d60ccbdb975604c2450e8f31b908f8e507a",
+  "consumer_review": {
+    "context": "provided context comes from evidence rows; unavailable family returns empty groups with explicit coverage",
+    "fake_model_counts": "none found in inspected factual paths; modeled families stay not_computed",
+    "observed": "separate selected observed record; repeated 5v5 personal fields cross checked at publication validation",
+    "pending_families": "family not_computed disposition returns explicit explanation and null data",
+    "provided_descriptive_and_microstats": "readSummary selects one typed row from the provided family and fails on missing or ambiguous rows"
+  },
+  "interpretation": {
+    "factual_receipt_roles": "original event roles and dispositions; published focal counts cover dressed skaters",
+    "microstat_support": "source family player seconds and event counts; family exposure may overlap",
+    "null_values": "unknown or unacquired source remains null; zero is counted only when supported",
+    "strength_and_scoring_seconds": "player seconds; groups overlap because ev includes five_on_five; do not add groups"
+  },
+  "kind": "facts_v1_03_real_content_boundary_receipt",
+  "scope": "closed factual receipts and final sqlite candidate; no source reread or scientific admission",
+  "seasons": {
+    "20232024": {
+      "factual_descriptive": {
+        "recorded_penalty_focal_counts": {
+          "drawn": 8927,
+          "served": 617,
+          "taken": 9614
+        },
+        "reported_missing_games": 0,
+        "reported_seconds": 46732636,
+        "reported_shifts": 975497,
+        "scoring": {
+          "ev": {
+            "gap_skaters": 891,
+            "goals": 5322,
+            "included_player_seconds": 37354044,
+            "known_excluded_player_seconds": 449262,
+            "primary_assists": 5014,
+            "supported_skaters": 924
+          },
+          "five_on_five": {
+            "gap_skaters": 891,
+            "goals": 5085,
+            "included_player_seconds": 36657670,
+            "known_excluded_player_seconds": 438590,
+            "primary_assists": 4793,
+            "supported_skaters": 924
+          },
+          "other": {
+            "gap_skaters": 891,
+            "goals": 546,
+            "included_player_seconds": 913068,
+            "known_excluded_player_seconds": 20280,
+            "primary_assists": 463,
+            "supported_skaters": 924
+          },
+          "pk": {
+            "gap_skaters": 892,
+            "goals": 195,
+            "included_player_seconds": 2944193,
+            "known_excluded_player_seconds": 43843,
+            "primary_assists": 150,
+            "supported_skaters": 923,
+            "unknown_skaters": 1
+          },
+          "pp": {
+            "gap_skaters": 891,
+            "goals": 1543,
+            "included_player_seconds": 3695851,
+            "known_excluded_player_seconds": 54895,
+            "primary_assists": 1515,
+            "supported_skaters": 921,
+            "unknown_skaters": 3
+          },
+          "unclassified": {
+            "gap_skaters": 891,
+            "goals": 0,
+            "known_excluded_player_seconds": 0,
+            "primary_assists": 0,
+            "supported_skaters": 924
+          }
+        },
+        "skaters": 924,
+        "strength": {
+          "ev": {
+            "gap_skaters": 891,
+            "included_player_seconds": 37803306,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 924
+          },
+          "five_on_five": {
+            "gap_skaters": 891,
+            "included_player_seconds": 37096260,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 924
+          },
+          "other": {
+            "gap_skaters": 891,
+            "included_player_seconds": 933348,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 924
+          },
+          "pk": {
+            "gap_skaters": 891,
+            "included_player_seconds": 2988036,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 924
+          },
+          "pp": {
+            "gap_skaters": 891,
+            "included_player_seconds": 3750746,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 924
+          }
+        }
+      },
+      "factual_microstats": {
+        "all_metric_values": {
+          "null": 23101,
+          "numeric": 4619
+        },
+        "null_reasons": {
+          "missing_source": 22176,
+          "no_exposure": 1,
+          "not_computed": 924
+        },
+        "selected_metrics": {
+          "blocked_attempt_share": {
+            "denominator_sum": 577740,
+            "gap_skaters": 891,
+            "known_excluded_player_seconds": 1154490,
+            "numerator_sum": 31407,
+            "numeric_skaters": 923,
+            "unknown_skaters": 1
+          },
+          "goals_per60": {
+            "denominator_sum": 36657670,
+            "gap_skaters": 891,
+            "known_excluded_player_seconds": 438590,
+            "numerator_sum": 5085,
+            "numeric_skaters": 924
+          },
+          "hits_per60": {
+            "denominator_sum": 37034180,
+            "gap_skaters": 891,
+            "known_excluded_player_seconds": 62080,
+            "numerator_sum": 53701,
+            "numeric_skaters": 924
+          },
+          "primary_assists_per60": {
+            "denominator_sum": 36657670,
+            "gap_skaters": 891,
+            "known_excluded_player_seconds": 438590,
+            "numerator_sum": 4793,
+            "numeric_skaters": 924
+          },
+          "unblocked_attempts_per60": {
+            "denominator_sum": 36658710,
+            "gap_skaters": 891,
+            "known_excluded_player_seconds": 437550,
+            "numerator_sum": 85936,
+            "numeric_skaters": 924
+          }
+        }
+      },
+      "factual_receipt": {
+        "counts": {
+          "credit_issues": 0,
+          "games": 1312,
+          "original_penalty_events": 10008,
+          "status_reconstructed": 1312,
+          "zero_toi_penalty_credits": 0
+        },
+        "evidence_disposition_reasons": {
+          "penalty_shot": 46,
+          "unsupported_timed_kind": 607
+        },
+        "microstat_event_dispositions": {
+          "b": {
+            "included": 31407,
+            "masked": 731
+          },
+          "h": {
+            "included": 53702,
+            "masked": 132
+          },
+          "u": {
+            "included": 85937
+          }
+        },
+        "microstat_issue_codes": {
+          "b": {
+            "identity_conflict": 2554
+          },
+          "h": {
+            "event_evidence_unresolved": 2351,
+            "identity_conflict": 1
+          },
+          "u": {
+            "identity_conflict": 1
+          }
+        },
+        "microstat_support": {
+          "b": {
+            "count": 31407,
+            "excluded_player_seconds": 1154490,
+            "included_player_seconds": 35941770,
+            "opportunities": 577740
+          },
+          "h": {
+            "count": 53701,
+            "excluded_player_seconds": 62080,
+            "included_player_seconds": 37034180,
+            "opportunities": 0
+          },
+          "u": {
+            "count": 85936,
+            "excluded_player_seconds": 437550,
+            "included_player_seconds": 36658710,
+            "opportunities": 0
+          }
+        },
+        "penalty_role_dispositions": {
+          "drawn/attributed": 9047,
+          "drawn/not_recorded": 961,
+          "served/attributed": 617,
+          "served/not_recorded": 9391,
+          "taken/attributed": 9710,
+          "taken/not_recorded": 293,
+          "taken/unresolved": 5
+        },
+        "penalty_types": {
+          "BEN": 293,
+          "GAM": 53,
+          "MAJ": 650,
+          "MAT": 16,
+          "MIN": 8717,
+          "MIS": 230,
+          "PS": 49
+        },
+        "unmatched_scoring_roles": {
+          "assists/credit_without_matched_elapsed_support": 200,
+          "goals/credit_without_matched_elapsed_support": 230
+        }
+      },
+      "observed_five_on_five": {
+        "aggregate_identities": {
+          "included_attempts": 120624,
+          "known_excluded_seconds": 43859,
+          "known_unresolved_seconds": 128655,
+          "personal_additional_excluded_seconds": 0,
+          "personal_goalie_credits": {
+            "goals": 0,
+            "primary_assists": 4,
+            "shots_on_goal": 1
+          },
+          "personal_included_credits": {
+            "goals": 5085,
+            "primary_assists": 4797,
+            "shots_on_goal": 59120
+          },
+          "personal_known_excluded_seconds": 43859,
+          "personal_physical_included_seconds": 3665767,
+          "personal_player_included_seconds": 36657670,
+          "physical_included_seconds": 3665767,
+          "player_attempts_against": 603120,
+          "player_attempts_for": 603120,
+          "player_included_seconds": 36657670,
+          "spatial_additional_excluded_seconds": 1144,
+          "spatial_known_excluded_seconds": 45003,
+          "spatial_physical_included_seconds": 3664623,
+          "spatial_player_included_seconds": 36646230,
+          "spatial_player_unblocked_against": 429340,
+          "spatial_player_unblocked_for": 429340,
+          "spatial_unblocked_attempts": 85868
+        },
+        "coverage": {
+          "games_with_included_time": 1298,
+          "games_with_unassigned_player_associations": 0,
+          "inventory_games": 1312,
+          "partial_games": 687,
+          "reason_game_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "games": 14
+            },
+            {
+              "code": "elapsed_membership_unresolved",
+              "games": 623
+            },
+            {
+              "code": "event_evidence_unresolved",
+              "games": 542
+            },
+            {
+              "code": "event_exposure_conflict",
+              "games": 2
+            },
+            {
+              "code": "unpaired_report_attempt",
+              "games": 98
+            }
+          ],
+          "unassigned_games": [],
+          "unavailable_games": 14
+        }
+      },
+      "published_candidate": {
+        "checks": {
+          "conservation": "passed",
+          "deployment_pairs": 238489,
+          "opponent_pair_seconds": 91644175,
+          "personal_physical_seconds": 3665767,
+          "personal_player_seconds": 36657670,
+          "physical_attempts": 120624,
+          "physical_seconds": 3665767,
+          "player_attempts_against": 603120,
+          "player_attempts_for": 603120,
+          "player_seconds": 36657670,
+          "read_back": "passed",
+          "teammate_pair_seconds": 73315340
+        },
+        "coverage": {
+          "games_with_included_time": 1298,
+          "games_with_unassigned_player_associations": 0,
+          "inventory_games": 1312,
+          "partial_games": 687,
+          "unavailable_games": 14
+        },
+        "spatial_coverage": {
+          "coverage_status": "partial",
+          "games_with_included_time": 1298,
+          "included_seconds": 3664623,
+          "inventory_games": 1312,
+          "known_excluded_seconds": 45003,
+          "partial_games": 689,
+          "reason_codes": [
+            "count_accounting_conflict",
+            "elapsed_membership_unresolved",
+            "event_evidence_unresolved",
+            "event_exposure_conflict",
+            "spatial_frame_unresolved",
+            "spatial_location_outside_rink",
+            "unpaired_report_attempt"
+          ],
+          "reason_game_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "games": 14
+            },
+            {
+              "code": "elapsed_membership_unresolved",
+              "games": 623
+            },
+            {
+              "code": "event_evidence_unresolved",
+              "games": 542
+            },
+            {
+              "code": "event_exposure_conflict",
+              "games": 2
+            },
+            {
+              "code": "spatial_frame_unresolved",
+              "games": 1
+            },
+            {
+              "code": "spatial_location_outside_rink",
+              "games": 1
+            },
+            {
+              "code": "unpaired_report_attempt",
+              "games": 98
+            }
+          ],
+          "unavailable_games": 14,
+          "unblocked_attempts": 85868,
+          "unblocked_per60": 42.17688968278593
+        }
+      }
+    },
+    "20242025": {
+      "factual_descriptive": {
+        "recorded_penalty_focal_counts": {
+          "drawn": 8085,
+          "served": 539,
+          "taken": 8685
+        },
+        "reported_missing_games": 0,
+        "reported_seconds": 46814293,
+        "reported_shifts": 978284,
+        "scoring": {
+          "ev": {
+            "gap_skaters": 868,
+            "goals": 5015,
+            "included_player_seconds": 36561590,
+            "known_excluded_player_seconds": 716410,
+            "primary_assists": 4720,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "five_on_five": {
+            "gap_skaters": 868,
+            "goals": 4784,
+            "included_player_seconds": 35908530,
+            "known_excluded_player_seconds": 705830,
+            "primary_assists": 4507,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "other": {
+            "gap_skaters": 870,
+            "goals": 641,
+            "included_player_seconds": 1049837,
+            "known_excluded_player_seconds": 26160,
+            "primary_assists": 542,
+            "supported_skaters": 908,
+            "unknown_skaters": 12
+          },
+          "pk": {
+            "gap_skaters": 868,
+            "goals": 160,
+            "included_player_seconds": 2566298,
+            "known_excluded_player_seconds": 56931,
+            "primary_assists": 121,
+            "supported_skaters": 907,
+            "unknown_skaters": 13
+          },
+          "pp": {
+            "gap_skaters": 868,
+            "goals": 1377,
+            "included_player_seconds": 3222627,
+            "known_excluded_player_seconds": 71578,
+            "primary_assists": 1365,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "unclassified": {
+            "gap_skaters": 868,
+            "goals": 0,
+            "known_excluded_player_seconds": 0,
+            "primary_assists": 0,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          }
+        },
+        "skaters": 920,
+        "strength": {
+          "ev": {
+            "gap_skaters": 868,
+            "included_player_seconds": 37278000,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "five_on_five": {
+            "gap_skaters": 868,
+            "included_player_seconds": 36614360,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "other": {
+            "gap_skaters": 868,
+            "included_player_seconds": 1075997,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "pk": {
+            "gap_skaters": 868,
+            "included_player_seconds": 2623229,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "pp": {
+            "gap_skaters": 868,
+            "included_player_seconds": 3294205,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 910,
+            "unknown_skaters": 10
+          }
+        }
+      },
+      "factual_microstats": {
+        "all_metric_values": {
+          "null": 23051,
+          "numeric": 4549
+        },
+        "null_reasons": {
+          "missing_source": 22110,
+          "no_exposure": 21,
+          "not_computed": 920
+        },
+        "selected_metrics": {
+          "blocked_attempt_share": {
+            "denominator_sum": 551425,
+            "gap_skaters": 868,
+            "known_excluded_player_seconds": 1569880,
+            "numerator_sum": 29862,
+            "numeric_skaters": 909,
+            "unknown_skaters": 11
+          },
+          "goals_per60": {
+            "denominator_sum": 35908530,
+            "gap_skaters": 868,
+            "known_excluded_player_seconds": 705830,
+            "numerator_sum": 4784,
+            "numeric_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "hits_per60": {
+            "denominator_sum": 36562200,
+            "gap_skaters": 868,
+            "known_excluded_player_seconds": 52160,
+            "numerator_sum": 50221,
+            "numeric_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "primary_assists_per60": {
+            "denominator_sum": 35908530,
+            "gap_skaters": 868,
+            "known_excluded_player_seconds": 705830,
+            "numerator_sum": 4507,
+            "numeric_skaters": 910,
+            "unknown_skaters": 10
+          },
+          "unblocked_attempts_per60": {
+            "denominator_sum": 35868880,
+            "gap_skaters": 868,
+            "known_excluded_player_seconds": 745480,
+            "numerator_sum": 82412,
+            "numeric_skaters": 910,
+            "unknown_skaters": 10
+          }
+        }
+      },
+      "factual_receipt": {
+        "counts": {
+          "credit_issues": 0,
+          "games": 1312,
+          "original_penalty_events": 9011,
+          "status_reconstructed": 1312,
+          "zero_toi_penalty_credits": 0
+        },
+        "evidence_disposition_reasons": {
+          "penalty_shot": 30,
+          "unsupported_timed_kind": 508
+        },
+        "microstat_event_dispositions": {
+          "b": {
+            "included": 29862,
+            "masked": 899
+          },
+          "h": {
+            "included": 50221,
+            "masked": 67
+          },
+          "u": {
+            "included": 82419
+          }
+        },
+        "microstat_issue_codes": {
+          "b": {
+            "identity_conflict": 2954
+          },
+          "h": {
+            "event_evidence_unresolved": 3197,
+            "identity_conflict": 15
+          }
+        },
+        "microstat_support": {
+          "b": {
+            "count": 29862,
+            "excluded_player_seconds": 1569880,
+            "included_player_seconds": 35044480,
+            "opportunities": 551425
+          },
+          "h": {
+            "count": 50221,
+            "excluded_player_seconds": 52160,
+            "included_player_seconds": 36562200,
+            "opportunities": 0
+          },
+          "u": {
+            "count": 82412,
+            "excluded_player_seconds": 745480,
+            "included_player_seconds": 35868880,
+            "opportunities": 0
+          }
+        },
+        "penalty_role_dispositions": {
+          "drawn/attributed": 8207,
+          "drawn/not_recorded": 804,
+          "served/attributed": 539,
+          "served/not_recorded": 8472,
+          "taken/attributed": 8743,
+          "taken/not_recorded": 267,
+          "taken/unresolved": 1
+        },
+        "penalty_types": {
+          "BEN": 267,
+          "GAM": 30,
+          "MAJ": 608,
+          "MAT": 11,
+          "MIN": 7928,
+          "MIS": 135,
+          "PS": 32
+        },
+        "unmatched_scoring_roles": {
+          "assists/credit_without_matched_elapsed_support": 238,
+          "goals/credit_without_matched_elapsed_support": 260
+        }
+      },
+      "observed_five_on_five": {
+        "aggregate_identities": {
+          "included_attempts": 116285,
+          "known_excluded_seconds": 70583,
+          "known_unresolved_seconds": 260095,
+          "personal_additional_excluded_seconds": 0,
+          "personal_goalie_credits": {
+            "goals": 0,
+            "primary_assists": 0,
+            "shots_on_goal": 7
+          },
+          "personal_included_credits": {
+            "goals": 4784,
+            "primary_assists": 4507,
+            "shots_on_goal": 54134
+          },
+          "personal_known_excluded_seconds": 70583,
+          "personal_physical_included_seconds": 3590853,
+          "personal_player_included_seconds": 35908530,
+          "physical_included_seconds": 3590853,
+          "player_attempts_against": 581425,
+          "player_attempts_for": 581425,
+          "player_included_seconds": 35908530,
+          "spatial_additional_excluded_seconds": 47,
+          "spatial_known_excluded_seconds": 70630,
+          "spatial_physical_included_seconds": 3590806,
+          "spatial_player_included_seconds": 35908060,
+          "spatial_player_unblocked_against": 412620,
+          "spatial_player_unblocked_for": 412620,
+          "spatial_unblocked_attempts": 82524
+        },
+        "coverage": {
+          "games_with_included_time": 1230,
+          "games_with_unassigned_player_associations": 0,
+          "inventory_games": 1312,
+          "partial_games": 403,
+          "reason_game_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "games": 24
+            },
+            {
+              "code": "elapsed_membership_unresolved",
+              "games": 377
+            },
+            {
+              "code": "event_evidence_unresolved",
+              "games": 359
+            },
+            {
+              "code": "event_exposure_conflict",
+              "games": 1
+            },
+            {
+              "code": "shift_source_empty",
+              "games": 57
+            },
+            {
+              "code": "unpaired_report_attempt",
+              "games": 74
+            }
+          ],
+          "unassigned_games": [],
+          "unavailable_games": 82
+        }
+      },
+      "published_candidate": {
+        "checks": {
+          "conservation": "passed",
+          "deployment_pairs": 231692,
+          "opponent_pair_seconds": 89771325,
+          "personal_physical_seconds": 3590853,
+          "personal_player_seconds": 35908530,
+          "physical_attempts": 116285,
+          "physical_seconds": 3590853,
+          "player_attempts_against": 581425,
+          "player_attempts_for": 581425,
+          "player_seconds": 35908530,
+          "read_back": "passed",
+          "teammate_pair_seconds": 71817060
+        },
+        "coverage": {
+          "games_with_included_time": 1230,
+          "games_with_unassigned_player_associations": 0,
+          "inventory_games": 1312,
+          "partial_games": 403,
+          "unavailable_games": 82
+        },
+        "spatial_coverage": {
+          "coverage_status": "partial",
+          "games_with_included_time": 1230,
+          "included_seconds": 3590806,
+          "inventory_games": 1312,
+          "known_excluded_seconds": 70630,
+          "partial_games": 404,
+          "reason_codes": [
+            "count_accounting_conflict",
+            "elapsed_membership_unresolved",
+            "event_evidence_unresolved",
+            "event_exposure_conflict",
+            "shift_source_empty",
+            "spatial_location_outside_rink",
+            "unpaired_report_attempt"
+          ],
+          "reason_game_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "games": 24
+            },
+            {
+              "code": "elapsed_membership_unresolved",
+              "games": 377
+            },
+            {
+              "code": "event_evidence_unresolved",
+              "games": 359
+            },
+            {
+              "code": "event_exposure_conflict",
+              "games": 1
+            },
+            {
+              "code": "shift_source_empty",
+              "games": 57
+            },
+            {
+              "code": "spatial_location_outside_rink",
+              "games": 1
+            },
+            {
+              "code": "unpaired_report_attempt",
+              "games": 74
+            }
+          ],
+          "unavailable_games": 82,
+          "unblocked_attempts": 82524,
+          "unblocked_per60": 41.36764837755089
+        }
+      }
+    },
+    "20252026": {
+      "factual_descriptive": {
+        "recorded_penalty_focal_counts": {
+          "drawn": 8673,
+          "served": 570,
+          "taken": 9321
+        },
+        "reported_missing_games": 0,
+        "reported_seconds": 46860776,
+        "reported_shifts": 971371,
+        "scoring": {
+          "ev": {
+            "gap_skaters": 864,
+            "goals": 5379,
+            "included_player_seconds": 37786110,
+            "known_excluded_player_seconds": 923526,
+            "primary_assists": 5078,
+            "supported_skaters": 940
+          },
+          "five_on_five": {
+            "gap_skaters": 864,
+            "goals": 5147,
+            "included_player_seconds": 37009340,
+            "known_excluded_player_seconds": 900850,
+            "primary_assists": 4860,
+            "supported_skaters": 940
+          },
+          "other": {
+            "gap_skaters": 865,
+            "goals": 667,
+            "included_player_seconds": 1039079,
+            "known_excluded_player_seconds": 30134,
+            "primary_assists": 575,
+            "supported_skaters": 940
+          },
+          "pk": {
+            "gap_skaters": 864,
+            "goals": 167,
+            "included_player_seconds": 2827166,
+            "known_excluded_player_seconds": 70251,
+            "primary_assists": 122,
+            "supported_skaters": 940
+          },
+          "pp": {
+            "gap_skaters": 864,
+            "goals": 1488,
+            "included_player_seconds": 3550702,
+            "known_excluded_player_seconds": 88556,
+            "primary_assists": 1471,
+            "supported_skaters": 937,
+            "unknown_skaters": 3
+          },
+          "unclassified": {
+            "gap_skaters": 864,
+            "goals": 0,
+            "known_excluded_player_seconds": 0,
+            "primary_assists": 0,
+            "supported_skaters": 940
+          }
+        },
+        "skaters": 940,
+        "strength": {
+          "ev": {
+            "gap_skaters": 864,
+            "included_player_seconds": 38709636,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 940
+          },
+          "five_on_five": {
+            "gap_skaters": 864,
+            "included_player_seconds": 37910190,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 940
+          },
+          "other": {
+            "gap_skaters": 864,
+            "included_player_seconds": 1069213,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 940
+          },
+          "pk": {
+            "gap_skaters": 864,
+            "included_player_seconds": 2897417,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 940
+          },
+          "pp": {
+            "gap_skaters": 864,
+            "included_player_seconds": 3639258,
+            "known_excluded_player_seconds": 0,
+            "supported_skaters": 940
+          }
+        }
+      },
+      "factual_microstats": {
+        "all_metric_values": {
+          "null": 23500,
+          "numeric": 4700
+        },
+        "null_reasons": {
+          "missing_source": 22560,
+          "not_computed": 940
+        },
+        "selected_metrics": {
+          "blocked_attempt_share": {
+            "denominator_sum": 554960,
+            "gap_skaters": 864,
+            "known_excluded_player_seconds": 1705960,
+            "numerator_sum": 28803,
+            "numeric_skaters": 940
+          },
+          "goals_per60": {
+            "denominator_sum": 37009340,
+            "gap_skaters": 864,
+            "known_excluded_player_seconds": 900850,
+            "numerator_sum": 5147,
+            "numeric_skaters": 940
+          },
+          "hits_per60": {
+            "denominator_sum": 37901770,
+            "gap_skaters": 864,
+            "known_excluded_player_seconds": 8420,
+            "numerator_sum": 50207,
+            "numeric_skaters": 940
+          },
+          "primary_assists_per60": {
+            "denominator_sum": 37009340,
+            "gap_skaters": 864,
+            "known_excluded_player_seconds": 900850,
+            "numerator_sum": 4860,
+            "numeric_skaters": 940
+          },
+          "unblocked_attempts_per60": {
+            "denominator_sum": 37010180,
+            "gap_skaters": 864,
+            "known_excluded_player_seconds": 900010,
+            "numerator_sum": 84178,
+            "numeric_skaters": 940
+          }
+        }
+      },
+      "factual_receipt": {
+        "counts": {
+          "credit_issues": 0,
+          "games": 1312,
+          "original_penalty_events": 9692,
+          "status_reconstructed": 1312,
+          "zero_toi_penalty_credits": 0
+        },
+        "evidence_disposition_reasons": {
+          "penalty_shot": 33,
+          "unsupported_timed_kind": 797
+        },
+        "microstat_event_dispositions": {
+          "b": {
+            "included": 28803,
+            "masked": 751
+          },
+          "h": {
+            "included": 50207,
+            "masked": 8
+          },
+          "u": {
+            "included": 84184
+          }
+        },
+        "microstat_issue_codes": {
+          "b": {
+            "identity_conflict": 2886
+          },
+          "h": {
+            "event_evidence_unresolved": 656,
+            "identity_conflict": 8
+          }
+        },
+        "microstat_support": {
+          "b": {
+            "count": 28803,
+            "excluded_player_seconds": 1705960,
+            "included_player_seconds": 36204230,
+            "opportunities": 554960
+          },
+          "h": {
+            "count": 50207,
+            "excluded_player_seconds": 8420,
+            "included_player_seconds": 37901770,
+            "opportunities": 0
+          },
+          "u": {
+            "count": 84178,
+            "excluded_player_seconds": 900010,
+            "included_player_seconds": 37010180,
+            "opportunities": 0
+          }
+        },
+        "penalty_role_dispositions": {
+          "drawn/attributed": 8788,
+          "drawn/not_recorded": 904,
+          "served/attributed": 570,
+          "served/not_recorded": 9122,
+          "taken/attributed": 9425,
+          "taken/not_recorded": 266,
+          "taken/unresolved": 1
+        },
+        "penalty_types": {
+          "BEN": 266,
+          "GAM": 33,
+          "MAJ": 632,
+          "MAT": 4,
+          "MIN": 8490,
+          "MIS": 232,
+          "PS": 35
+        },
+        "unmatched_scoring_roles": {
+          "assists/credit_without_matched_elapsed_support": 145,
+          "goals/credit_without_matched_elapsed_support": 165
+        }
+      },
+      "observed_five_on_five": {
+        "aggregate_identities": {
+          "included_attempts": 116620,
+          "known_excluded_seconds": 90085,
+          "known_unresolved_seconds": 57215,
+          "personal_additional_excluded_seconds": 0,
+          "personal_goalie_credits": {
+            "goals": 0,
+            "primary_assists": 0,
+            "shots_on_goal": 6
+          },
+          "personal_included_credits": {
+            "goals": 5147,
+            "primary_assists": 4860,
+            "shots_on_goal": 54277
+          },
+          "personal_known_excluded_seconds": 90085,
+          "personal_physical_included_seconds": 3700934,
+          "personal_player_included_seconds": 37009340,
+          "physical_included_seconds": 3700934,
+          "player_attempts_against": 583100,
+          "player_attempts_for": 583100,
+          "player_included_seconds": 37009340,
+          "spatial_additional_excluded_seconds": 24,
+          "spatial_known_excluded_seconds": 90109,
+          "spatial_physical_included_seconds": 3700910,
+          "spatial_player_included_seconds": 37009100,
+          "spatial_player_unblocked_against": 420900,
+          "spatial_player_unblocked_for": 420900,
+          "spatial_unblocked_attempts": 84180
+        },
+        "coverage": {
+          "games_with_included_time": 1280,
+          "games_with_unassigned_player_associations": 0,
+          "inventory_games": 1312,
+          "partial_games": 381,
+          "reason_game_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "games": 30
+            },
+            {
+              "code": "elapsed_membership_unresolved",
+              "games": 297
+            },
+            {
+              "code": "event_evidence_unresolved",
+              "games": 310
+            },
+            {
+              "code": "roster_identity_unresolved",
+              "games": 1
+            },
+            {
+              "code": "unpaired_report_attempt",
+              "games": 74
+            }
+          ],
+          "unassigned_games": [],
+          "unavailable_games": 32
+        }
+      },
+      "published_candidate": {
+        "checks": {
+          "conservation": "passed",
+          "deployment_pairs": 240584,
+          "opponent_pair_seconds": 92523350,
+          "personal_physical_seconds": 3700934,
+          "personal_player_seconds": 37009340,
+          "physical_attempts": 116620,
+          "physical_seconds": 3700934,
+          "player_attempts_against": 583100,
+          "player_attempts_for": 583100,
+          "player_seconds": 37009340,
+          "read_back": "passed",
+          "teammate_pair_seconds": 74018680
+        },
+        "coverage": {
+          "games_with_included_time": 1280,
+          "games_with_unassigned_player_associations": 0,
+          "inventory_games": 1312,
+          "partial_games": 381,
+          "unavailable_games": 32
+        },
+        "spatial_coverage": {
+          "coverage_status": "partial",
+          "games_with_included_time": 1280,
+          "included_seconds": 3700910,
+          "inventory_games": 1312,
+          "known_excluded_seconds": 90109,
+          "partial_games": 382,
+          "reason_codes": [
+            "count_accounting_conflict",
+            "elapsed_membership_unresolved",
+            "event_evidence_unresolved",
+            "roster_identity_unresolved",
+            "spatial_location_outside_rink",
+            "unpaired_report_attempt"
+          ],
+          "reason_game_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "games": 30
+            },
+            {
+              "code": "elapsed_membership_unresolved",
+              "games": 297
+            },
+            {
+              "code": "event_evidence_unresolved",
+              "games": 310
+            },
+            {
+              "code": "roster_identity_unresolved",
+              "games": 1
+            },
+            {
+              "code": "spatial_location_outside_rink",
+              "games": 1
+            },
+            {
+              "code": "unpaired_report_attempt",
+              "games": 74
+            }
+          ],
+          "unavailable_games": 32,
+          "unblocked_attempts": 84180,
+          "unblocked_per60": 40.942362824278355
+        }
+      }
+    }
+  },
+  "unknown_exposure_receipt": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/acceptance/unknown-exposure-candidate.json"
+}

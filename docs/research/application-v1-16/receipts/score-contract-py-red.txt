@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/hockey-stats-v1-16/score-contract-check.py", line 7, in <module>
+    _descriptive(d,catalogs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-16/analysis/src/hockey_stats/analysis_publication.py", line 959, in _descriptive
+    require(total is not None and total > 0 and close(item['share']['value'], item[field]/total), 'deployment share differs')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-16/analysis/src/hockey_stats/artifacts.py", line 71, in require
+    raise InputContractError(message)
+hockey_stats.captures.InputContractError: deployment share differs

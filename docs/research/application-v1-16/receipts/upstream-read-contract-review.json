@@ -1,0 +1,32 @@
+{
+  "status": "upstream read contract independently clear",
+  "upstream_implementation": "c8f19c9",
+  "candidate": {
+    "purpose": "fixture",
+    "publication_id": "49d46e4d-8363-480e-9dac-594b442c748d",
+    "sha256": "0d495a7848254743e621cac27bacd2d0eeea3603027c905ac58d63bb07a3154b",
+    "bytes": 105893888
+  },
+  "checks": [
+    "fresh ordinary publication check passes under explicit node24.21.0",
+    "candidate contains96dressed-goalie records; widening dressed_game subject to existing skater/goalie Person is justified",
+    "interval_player and context_coverage retain skater-only requirements",
+    "shared helper preserves every old id/abbreviation while allowing reorder/addition; id/name/position remain strict in observed selector check",
+    "all actual Person-to-Person joins remain exact",
+    "8473503 has DET dated dressed evidence in20232024; adding DET to BUF-only20242025 is rejected at added-affiliation proof despite matching another season",
+    "source copy bytes/hash checked independently; no producer command or acquisition run"
+  ],
+  "counterexample_cleanup": "owned105MBwrong-year clone deleted after expected rejection; retained only check output",
+  "limits": [
+    "captured-source candidate is fixture-purpose with explicit missing captures; this does not complete real3season acceptance",
+    "root-owned ordinaryAPI/browser4card/download acceptance and refreshed handoff narrative subsequently pass; see source-browser/source-values/source-usage/source-intervals receipts"
+  ],
+  "source_sha256": {
+    "app/src/server/analysis-publication.ts": "45dbb05c7c3f6d5efde7c38f392bbffc8ec24250a2cb414061b2d5e6af156fa7",
+    "app/src/server/observed-publication.ts": "e641e93b122acbc33c17f50499677a7e0c5f939d71e4b34b6108b5d752f16a16",
+    "app/src/shared/player-analysis.ts": "d0dd2cad929b7c5b95cba0fea2b6b01fa1d3f2125b78d604409df03dd93cca2d",
+    "app/src/web/analysis-values.ts": "f3735403a022896cb2064d9a663f4366887e9cd5f6ac3562ee7021f94fd714ed",
+    "app/src/web/client.ts": "d80cb013924097fcd30c25902b18f8f367be062259c32bc021ac21cdd07e3141",
+    "app/src/web/routes/player.tsx": "e4546ac7a79641f1d8347c1e8b5afe6f25d402f2561af4fe79884f9510deac58"
+  }
+}

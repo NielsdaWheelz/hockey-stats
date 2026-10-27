@@ -418,7 +418,7 @@ def summarize_season(people: list["PersonIdentity"], game_reductions: Iterable[G
                 ("xga_saved_per100_plays", "tracked_plays") if key == "puck_management_xga_saved_per100_plays" else ("per60", "included_seconds"))
             payload[key] = _fact(None, None, None, source, _support(gap=True, reasons=[dict(code="source_unavailable", count=1)]),
                 unit=unit, denominator_kind=denominator, reason="missing_source",
-                explanation=description + (" lack admitted player-season context and a checked census under v1-04" if skating else " are not acquired; public definitions supply no observation stream"),
+                explanation=(description + ": skating acquisition deferred; no admitted measurements, player-season context or checked census under v1-04" if skating else description + " are not acquired; public definitions supply no observation stream"),
                 construction="source_modeled" if key == "puck_management_xga_saved_per100_plays" else "recorded")
             if key == "primary_pass_xg_per60":
                 payload[key]["construction"] = "model_valued"

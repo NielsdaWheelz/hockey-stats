@@ -1,0 +1,123 @@
+{
+  "status": "bounded_fixture_pass",
+  "prepared_fixture_manifest_sha256": "15ca887751921aec5e07c13e5ce39ea6ae444cb63c119ee45dda22fef1cc2830",
+  "display_inventory_games": 3936,
+  "captured_fixture_games": 24,
+  "old_six_read_wall_seconds": 415.05,
+  "old_six_read_max_rss_bytes": 1141309440,
+  "green_two_read_wall_seconds": 139.73030566598754,
+  "green_two_read_peak_rss_bytes": 1208041472,
+  "public_prepared_game_reads": {
+    "20232024": 2624,
+    "20242025": 2624,
+    "20252026": 2624
+  },
+  "exact_all_output_files": 35,
+  "exact_manifest_sha256": "9f6c790a21b5a19f161028d587e372f2a56510b5578bf7df27c0ce8c25ca48ad",
+  "all_file_sha256_equal": true,
+  "focused_writer_cases": [
+    {
+      "case": "old_rejects_batch",
+      "result": "InputContractError: expected exact fields season,family,availability,explanation,tables",
+      "final_manifest": false
+    },
+    {
+      "case": "new_accepts_batch",
+      "result": "pass",
+      "final_manifest": true
+    },
+    {
+      "case": "missing_first",
+      "result": "InputContractError: evidence batch differs from selected game",
+      "final_manifest": false
+    },
+    {
+      "case": "missing_middle",
+      "result": "InputContractError: evidence batch differs from selected game",
+      "final_manifest": false
+    },
+    {
+      "case": "missing_last",
+      "result": "ValueError: zip() argument 2 is shorter than argument 1",
+      "final_manifest": false
+    },
+    {
+      "case": "empty",
+      "result": "ValueError: zip() argument 2 is shorter than argument 1",
+      "final_manifest": false
+    },
+    {
+      "case": "extra",
+      "result": "ValueError: zip() argument 2 is longer than argument 1",
+      "final_manifest": false
+    },
+    {
+      "case": "duplicate_game",
+      "result": "InputContractError: evidence batch differs from selected game",
+      "final_manifest": false
+    },
+    {
+      "case": "reverse_game_order",
+      "result": "InputContractError: evidence batch differs from selected game",
+      "final_manifest": false
+    },
+    {
+      "case": "unsorted_table",
+      "result": "InputContractError: attempt_fact: producer rows must be sorted and unique",
+      "final_manifest": false
+    },
+    {
+      "case": "foreign_game_row",
+      "result": "InputContractError: interval_player: evidence row game differs",
+      "final_manifest": false
+    },
+    {
+      "case": "missing_batch_table",
+      "result": "InputContractError: expected exact fields game_id,attempt_fact,interval_fact,interval_player,interval_location,dressed_game",
+      "final_manifest": false
+    },
+    {
+      "case": "late_invalid_catalog",
+      "result": "InputContractError: expected exact fields source_id,label,purpose,origin,acquisition,construction,population,definition,receipts,limitations",
+      "final_manifest": false
+    }
+  ],
+  "current_consumer_shapes": [
+    {
+      "case": "normal_provided",
+      "result": "pass",
+      "final_manifest": true
+    },
+    {
+      "case": "stream_provided",
+      "result": "pass",
+      "final_manifest": true
+    },
+    {
+      "case": "hybrid",
+      "result": "InputContractError: expected exact fields context_coverage",
+      "final_manifest": false
+    },
+    {
+      "case": "stray_game_ids",
+      "result": "InputContractError: expected exact fields season,family,availability,explanation,tables",
+      "final_manifest": false
+    },
+    {
+      "case": "stream_not_provided",
+      "result": "InputContractError: expected nonempty text",
+      "final_manifest": false
+    }
+  ],
+  "normal_provided_copy": {
+    "status": "pass",
+    "member_files": 31,
+    "member_bytes_exact": true,
+    "manifest_semantics_exact": true,
+    "manifest_byte_difference": "catalog insertion order only",
+    "source_receipts_copied": false,
+    "normal_provided_evidence": true
+  },
+  "real_facts_run": "not_run",
+  "real_publication_run": "not_run"
+}

@@ -1,0 +1,449 @@
+{
+  "status": "accepted_real_three_season_application_integration",
+  "publication": {
+    "id": "eb4e31ab-a35c-4df6-be34-9bccceb4fe3d",
+    "purpose": "real",
+    "seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "candidate_path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/candidate/player-analysis.sqlite",
+    "candidate_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+    "candidate_bytes": 4635877376,
+    "isolated_reader_copy": "var/real-reader/real.sqlite",
+    "isolated_reader_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+    "reader_node_source_deny": "external factual/prepared/raw and worktree fixtures/analysis denied; direct external results read rejected",
+    "reader_startup_seconds_approx": 1147,
+    "reader_port": 41924,
+    "primary_listener_touched": false,
+    "revised_reader_startup_seconds_approx": 1139
+  },
+  "real_population": {
+    "skater_seasons": 2784,
+    "by_season": {
+      "20232024": 924,
+      "20242025": 920,
+      "20252026": 940
+    },
+    "skaters_without_player_season_summary": 0
+  },
+  "typed_api": {
+    "status": "green",
+    "groups": 48,
+    "boundaries": {
+      "full_league": {
+        "groups": 6,
+        "response_bytes": 187730257,
+        "request_wall_ms_sum": 5125,
+        "rows_by_family": {
+          "descriptive": 2784,
+          "microstats": 2784
+        }
+      },
+      "player_annual": {
+        "groups": 6,
+        "response_bytes": 2347476,
+        "request_wall_ms_sum": 158
+      },
+      "personal_shots": {
+        "groups": 6,
+        "response_bytes": 2289059,
+        "request_wall_ms_sum": 455
+      },
+      "context": {
+        "groups": 30,
+        "response_bytes": 1381446,
+        "request_wall_ms_sum": 12745
+      }
+    },
+    "independent_context": "iterate dressed interval facts, same-team interval membership and location cells for three recorded populations; on/off and one teammate together/apart for complete/trade; on/off sparse cells for crotty/farinacci",
+    "personal_shots": "stored original source keys, outcome counts, location and support compared for all selected cases",
+    "annual": "selected history person and descriptive/microstats bodies equal stored rows; other families remain not_computed",
+    "backend_unchanged_after_copy_fix": true
+  },
+  "browser": {
+    "status": "green",
+    "cases": {
+      "20232024-john-carlson-8474590": {
+        "role": "complete",
+        "season": "20232024",
+        "player_id": "8474590",
+        "render_ms": 6048,
+        "png_export_ms": 75,
+        "annual_rows": 3,
+        "guide_n": [
+          246,
+          247,
+          83
+        ],
+        "csv_rows": 648,
+        "native_leaves_checked": 635,
+        "api_calls": 6,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20232024-john-carlson-8474590.png",
+            "kind": "card_export",
+            "bytes": 481971,
+            "sha256": "e0825dc23b973e2ffe58e6015b75b1e93d003b7fec80d751fc3e0002137d5513"
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20232024-john-carlson-8474590.csv",
+            "kind": "card_export",
+            "bytes": 1336871,
+            "sha256": "8cf5f671bf7b33db3ebbc6435eebaab308acf91396e738806aedbdc35af66563"
+          }
+        ]
+      },
+      "20242025-cale-makar-8480069": {
+        "role": "complete",
+        "season": "20242025",
+        "player_id": "8480069",
+        "render_ms": 6215,
+        "png_export_ms": 83,
+        "annual_rows": 3,
+        "guide_n": [
+          238,
+          238,
+          80
+        ],
+        "csv_rows": 630,
+        "native_leaves_checked": 617,
+        "api_calls": 6,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-cale-makar-8480069.png",
+            "kind": "card_export",
+            "bytes": 480676,
+            "sha256": "565c87acfba74af4b20e7f68ed82ee4dacbcc75907eb031c6f17937b9e905184"
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-cale-makar-8480069.csv",
+            "kind": "card_export",
+            "bytes": 1305312,
+            "sha256": "6c6a249a68d0bfc488b25a35ada495fc461107f71b0704da679a1b9bb3dbbf12"
+          }
+        ]
+      },
+      "20252026-moritz-seider-8481542": {
+        "role": "complete",
+        "season": "20252026",
+        "player_id": "8481542",
+        "render_ms": 6243,
+        "png_export_ms": 99,
+        "annual_rows": 3,
+        "guide_n": [
+          236,
+          236,
+          85
+        ],
+        "csv_rows": 590,
+        "native_leaves_checked": 577,
+        "api_calls": 6,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20252026-moritz-seider-8481542.png",
+            "kind": "card_export",
+            "bytes": 480296,
+            "sha256": "1d3392a99d3c778d46bf552ab215690e5e0c16cad338bde51a0a39076a3b5fef"
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20252026-moritz-seider-8481542.csv",
+            "kind": "card_export",
+            "bytes": 1219305,
+            "sha256": "a2f019307317182ea8f4897cbba482c50745d9b29dc680972bd3929a4c484abe"
+          }
+        ]
+      },
+      "20242025-mikko-rantanen-8478420": {
+        "role": "traded",
+        "season": "20242025",
+        "player_id": "8478420",
+        "render_ms": 6178,
+        "png_export_ms": 81,
+        "annual_rows": 3,
+        "guide_n": [
+          414,
+          415,
+          257
+        ],
+        "csv_rows": 616,
+        "native_leaves_checked": 603,
+        "api_calls": 6,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-mikko-rantanen-8478420.png",
+            "kind": "card_export",
+            "bytes": 481027,
+            "sha256": "94c1263600e082b23296f231aa832444636fd59e94f54cbcfcba0296e378b7a5"
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-mikko-rantanen-8478420.csv",
+            "kind": "card_export",
+            "bytes": 1337544,
+            "sha256": "10fcc05cebf176b495c4407d243063b5bf69c27eb56d3695f59c3574f8d2a919"
+          }
+        ]
+      },
+      "20242025-cameron-crotty-8480075": {
+        "role": "unknown-exposure",
+        "season": "20242025",
+        "player_id": "8480075",
+        "render_ms": 6253,
+        "png_export_ms": 79,
+        "annual_rows": 3,
+        "guide_n": [
+          238,
+          238,
+          80
+        ],
+        "csv_rows": 362,
+        "native_leaves_checked": 349,
+        "api_calls": 6,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-cameron-crotty-8480075.png",
+            "kind": "card_export",
+            "bytes": 513120,
+            "sha256": "ade074c9b362485eb898ad5ab43d90755f268745a3554ac06dbf2228404c6200"
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-cameron-crotty-8480075.csv",
+            "kind": "card_export",
+            "bytes": 764340,
+            "sha256": "3ef5f86cb27a10ffd790fd1cacc1483b6fb9e3b5f5b6d8b55c2381edf64f3329"
+          }
+        ]
+      },
+      "20242025-john-farinacci-8481558": {
+        "role": "unknown-exposure",
+        "season": "20242025",
+        "player_id": "8481558",
+        "render_ms": 6750,
+        "png_export_ms": 88,
+        "annual_rows": 3,
+        "guide_n": [
+          414,
+          415,
+          257
+        ],
+        "csv_rows": 356,
+        "native_leaves_checked": 343,
+        "api_calls": 6,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-john-farinacci-8481558.png",
+            "kind": "card_export",
+            "bytes": 513104,
+            "sha256": "bd00219e6b4288d1786815cc743c0b9287cd43e048408cb1c3c3c899071e30ba"
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-john-farinacci-8481558.csv",
+            "kind": "card_export",
+            "bytes": 752001,
+            "sha256": "1d16301cb1cd15dc9a1545004d7b98c1a4788d3936bb8afb39d9057dc24d02c2"
+          }
+        ]
+      }
+    },
+    "discovery": {
+      "season": "20232024",
+      "table": "descriptive",
+      "csv_bytes": 95728097,
+      "selected": "8480075",
+      "href": "/players/8480075?season=20242025&view=observed"
+    },
+    "comparison": {
+      "season": "20242025",
+      "players": [
+        "8480069",
+        "8478420"
+      ],
+      "cards": 2
+    },
+    "all_api_status_200": true,
+    "page_errors": 0
+  },
+  "card_csv": {
+    "status": "green",
+    "files": 6,
+    "rows": 3202,
+    "native_leaves_checked": 3124,
+    "columns": 35,
+    "panels": "d01-d12",
+    "checked": "native scalar values, inherited support, d02 known-minute subtotal, d05 empirical quartiles/n/cutoffs and unknown-exposure witness nulls"
+  },
+  "annual_history": {
+    "status": "green",
+    "cases": [
+      {
+        "season": "20232024",
+        "player_id": "8474590",
+        "rows": 3
+      },
+      {
+        "season": "20242025",
+        "player_id": "8480075",
+        "rows": 3
+      }
+    ],
+    "checked": "three per-year rows: appearances, reported minutes, four strength minutes, ev/pp rates and scoring minutes against stored descriptive values within display rounding; season links and raw-only/no-percentile state"
+  },
+  "native_zoom": {
+    "status": "green",
+    "browser": "headed chrome for testing, owned temporary profile and extension",
+    "method": "headed Chrome for Testing; chrome.tabs.setZoom(2); CDP Page.captureScreenshot fromSurface=true captureBeyondViewport=false",
+    "cases": [
+      {
+        "season": "20232024",
+        "player_id": "8474590",
+        "before": {
+          "innerWidth": 375,
+          "dpr": 1
+        },
+        "after": {
+          "innerWidth": 187,
+          "dpr": 2,
+          "documentWidth": 187,
+          "artClientWidth": 154,
+          "artScrollWidth": 1200,
+          "svgWidth": 1200
+        },
+        "horizontal_scroll_css_px": 1046,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20232024-john-carlson-8474590-native-200-left.png",
+            "kind": "native_zoom_viewport",
+            "bytes": 105952,
+            "sha256": "3a5d4f505ac9782c38b16858a46942a9820821eed34a363caf9f2167ad14061a",
+            "bitmap_width_px": 750,
+            "bitmap_height_px": 2000
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20232024-john-carlson-8474590-native-200-right.png",
+            "kind": "native_zoom_viewport",
+            "bytes": 21736,
+            "sha256": "f73ab6fbb7c63690c521498cd35195cfeea89c5888b8e9e6695d1f6c8b679e3b",
+            "bitmap_width_px": 750,
+            "bitmap_height_px": 2000
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "player_id": "8480075",
+        "before": {
+          "innerWidth": 375,
+          "dpr": 1
+        },
+        "after": {
+          "innerWidth": 187,
+          "dpr": 2,
+          "documentWidth": 187,
+          "artClientWidth": 154,
+          "artScrollWidth": 1200,
+          "svgWidth": 1200
+        },
+        "horizontal_scroll_css_px": 1046,
+        "files": [
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20242025-cameron-crotty-8480075-native-200-left.png",
+            "kind": "native_zoom_viewport",
+            "bytes": 102963,
+            "sha256": "4fdc87107d753b798f90e0b3650e90e8ff496548400bda9dff7950e49e7c49d1",
+            "bitmap_width_px": 750,
+            "bitmap_height_px": 2000
+          },
+          {
+            "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20242025-cameron-crotty-8480075-native-200-right.png",
+            "kind": "native_zoom_viewport",
+            "bytes": 27354,
+            "sha256": "a0fbf939abb9617e1c7a3106248bb19727d7e9c9d572113e25e04eb7c82a3b8c",
+            "bitmap_width_px": 750,
+            "bitmap_height_px": 2000
+          }
+        ]
+      }
+    ],
+    "default_capture_limitation": "Playwright page.screenshot at native 200% blanked a generic tall SVG too; direct CDP viewport-surface capture paints actual cards; bitmap 750x2000 is oversampled capture output, not the configured viewport",
+    "geometry": {
+      "configured_viewport_before_zoom_css_px": [
+        375,
+        1000
+      ],
+      "after_zoom_inner_viewport_css_px": [
+        187,
+        500
+      ],
+      "after_zoom_device_pixel_ratio": 2,
+      "capture_bitmap_px": [
+        750,
+        2000
+      ],
+      "capture_method": "headed Chrome for Testing; chrome.tabs.setZoom(2); CDP Page.captureScreenshot fromSurface=true captureBeyondViewport=false",
+      "interpretation": "the bitmap is an oversampled capture; neither dimension is the configured browser viewport width"
+    }
+  },
+  "known_source_limits": [
+    {
+      "season": "20242025",
+      "player_id": "8480075",
+      "name": "Cameron Crotty",
+      "reported_seconds": 308,
+      "reported_shifts": 6,
+      "descriptive_ev_seconds": null,
+      "old_player_season_included_seconds": 0
+    },
+    {
+      "season": "20242025",
+      "player_id": "8481558",
+      "name": "John Farinacci",
+      "reported_seconds": 658,
+      "reported_shifts": 16,
+      "descriptive_ev_seconds": null,
+      "old_player_season_included_seconds": 0
+    }
+  ],
+  "exports_manifest": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/manifest.json",
+  "limits": [
+    "real no-old-summary skater case absent; fixture/synthetic software proof retained",
+    "no activation or serving publication change"
+  ],
+  "revision": 3,
+  "application_git_commit": "4847306",
+  "exports_manifest_sha256": "1a41d11739b578ca49ef9b08e17a1d71b55b72d50569487e6f7bd91d7ca00b1c",
+  "copy_correction": {
+    "application_commit": "4847306",
+    "red_green_receipt": "docs/research/application-v1-16/receipts/real-copy-red-green.json",
+    "meaning": "both missing counterpart bands say both unavailable; singular appearance count; height unit only with numeric height",
+    "source_and_api_payloads_unchanged": true,
+    "all_six_reexported": true,
+    "all_six_csv_values_rechecked": true,
+    "headed_native_zoom_rechecked": true
+  },
+  "root_visual_review": {
+    "status": "clear",
+    "artifacts": [
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-mikko-rantanen-8478420.png",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20232024-john-carlson-8474590.png",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/20242025-cameron-crotty-8480075.png",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20232024-john-carlson-8474590-native-200-left.png",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20232024-john-carlson-8474590-native-200-right.png",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20242025-cameron-crotty-8480075-native-200-left.png",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/cards/viewport/20242025-cameron-crotty-8480075-native-200-right.png"
+    ],
+    "observations": "revised complete, traded and sparse pngs and all four headed native captures clear; sparse copy truthful and singular; missing height clean; chart labels and footer do not clip; native cards paint and horizontal pan works"
+  },
+  "source_acceptance": {
+    "status": "passed",
+    "source_arithmetic_receipt": "docs/research/facts-v1-03/real/source-arithmetic-real02.json",
+    "source_arithmetic_receipt_sha256": "1d467920081fc259057e74664e2a77136c4cc930e641720e2a2af41a8ec47ebc",
+    "selected_games_per_season": 1312,
+    "selected_games_union": 3936,
+    "same_candidate_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+    "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "old_observed_replay_receipt": "docs/research/facts-v1-03/real/old-observed-real02.json",
+    "old_observed_replay_receipt_sha256": "ecf9bfd65ebd3af2532d2c7daff5bf8bbc3b2b1a356053c35aec52bafa78882b"
+  },
+  "owned_temporary_cleanup_receipt": "docs/research/application-v1-16/receipts/real-cleanup.json"
+}

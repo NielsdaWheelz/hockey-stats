@@ -61,6 +61,7 @@ export type ProfileView = Release & {
   readonly overviewCohorts: readonly SkaterOverview[];
   readonly view: AnalysisView;
   readonly selectedMetric: AnalysisMetric;
+  readonly descriptiveCohort: Extract<LeagueResponse, { family: "descriptive" }> | null;
   readonly scalarHistory: readonly ScalarHistoryRow[];
   readonly player_id: string;
   readonly kind: PlayerResponse["kind"];
@@ -78,7 +79,7 @@ export type ProfileView = Release & {
   }[];
 };
 export type ScalarHistoryRow = PlayerResponse["history"][number] & {
-  readonly cohort: LeagueResponse;
+  readonly cohort: LeagueResponse | null;
 };
 export type ComparisonView = LeagueView & {
   readonly selectedMetric: AnalysisMetric;
@@ -212,6 +213,12 @@ const overviewRequest = (season: string): ScalarRequest => ({
   family: "overview",
   strength: null,
 });
+const descriptiveRequest = (season: string): ScalarRequest => ({
+  season, kind: "skater", family: "descriptive", strength: null,
+});
+const rawObserved = (metric: AnalysisMetric, view: AnalysisView) =>
+  view === "observed" && metric.standingPolicy === "raw_only";
+
 // only these five selectors can use observed values already carried by overview.
 const metricRequest = (season: string, metric: AnalysisMetric): ScalarRequest =>
   metric.kind === "skater" && metric.family === "observed" && metric.strength === "5v5"
@@ -239,6 +246,23 @@ function composeLeague(
     );
     if (!member || !equal(member.person, row.person))
       throw new Error(`player ${row.person.player_id}: family identity differs from its overview row`);
+    if (selectedCohort.family === "descriptive") {
+      const descriptive = selectedCohort.players.find(candidate => candidate.person.player_id === row.person.player_id)!;
+      const usage = descriptive.result.availability === "provided"
+        ? { availability: "provided", data: descriptive.result.data.reported_usage, explanation: null }
+        : descriptive.result;
+      const overviewUsage = member.result.availability === "provided" ? member.result.data.reported_usage : member.result;
+      if (!equal(overviewUsage, usage))
+        throw new Error(`player ${row.person.player_id}: reported usage differs between overview and descriptive`);
+    }
+  }
+  if (selectedCohort.family === "descriptive") {
+    for (const member of overview.players) {
+      if (member.result.availability === "provided" &&
+          member.result.data.reported_usage.availability === "provided" &&
+          !selectedCohort.players.some(row => row.person.player_id === member.person.player_id))
+        throw new Error(`player ${member.person.player_id}: available reported usage has no descriptive cohort row`);
+    }
   }
   return {
     publication: overview.publication,
@@ -316,13 +340,37 @@ function checkOverview(row: AnnualRow, cohort: SkaterOverview, playerId: string)
     throw new Error(`player ${playerId}: annual overview values, status or support differ from player detail`);
 }
 
+function checkDescriptive(detail: PlayerResponse, cohort: LeagueResponse) {
+  if (cohort.family !== "descriptive" || cohort.kind !== "skater" || cohort.strength !== null)
+    throw new Error("expected selected descriptive cohort");
+  sameRelease(detail, cohort);
+  const row = detail.history.find(row => row.season.season === detail.season.season)!;
+  const member = cohort.players.find(row => row.person.player_id === detail.player_id);
+  if (member && !equal(detail.person, member.person) || !equal(row.person, detail.person))
+    throw new Error(`player ${detail.player_id}: descriptive identity differs from player detail`);
+  const families = detail.families;
+  const annual = row.families;
+  if ("availability" in families) {
+    if (member) throw new Error("absent selected season has a descriptive cohort row");
+    return cohort;
+  }
+  if (families.kind !== "skater" || "availability" in annual || annual.kind !== "skater")
+    throw new Error("descriptive cohort requires skater annual families");
+  if (!equal(families.descriptive, annual.descriptive) || !equal(families.context, annual.context) ||
+      member && !equal(families.descriptive, member.result) ||
+      !member && families.descriptive.availability === "provided")
+    throw new Error(`player ${detail.player_id}: descriptive values, status or support differ from player detail`);
+  return cohort;
+}
+
 function scalarRows(
   detail: PlayerResponse,
   metric: AnalysisMetric,
   cohorts: ReadonlyMap<string, LeagueResponse>,
 ): ScalarHistoryRow[] {
   return detail.history.map((row): ScalarHistoryRow => {
-    const cohort = cohorts.get(requestKey(metricRequest(row.season.season, metric)))!;
+    const cohort = metric.standingPolicy === "raw_only" ? null : cohorts.get(requestKey(metricRequest(row.season.season, metric)))!;
+    if (cohort === null) return { ...row, cohort: null };
     sameRelease({ ...detail, season: row.season }, cohort);
     const member = cohort.players.find(({ person }) => person.player_id === detail.player_id);
     const selected = selectHistoryValue(row, cohort, metric, detail.player_id);
@@ -350,15 +398,21 @@ function composeProfile(
   cohorts: ReadonlyMap<string, LeagueResponse>,
   view: AnalysisView,
 ): ProfileView {
-  const overviewCohorts = detail.kind === "goalie" ? [] : detail.available_seasons.map(
-    season => requireOverview(cohorts.get(requestKey(overviewRequest(season)))!),
-  );
+  const overviewCohorts = detail.kind === "goalie" ? [] : detail.available_seasons.flatMap(season => {
+    const cohort = cohorts.get(requestKey(overviewRequest(season)));
+    return cohort ? [requireOverview(cohort)] : [];
+  });
+  if (detail.kind === "skater" && !rawObserved(selectedMetric, view) && overviewCohorts.length !== detail.available_seasons.length)
+    throw new Error("profile is missing an annual overview cohort");
+  const descriptive = cohorts.get(requestKey(descriptiveRequest(detail.season.season)));
+  const descriptiveCohort = descriptive ? checkDescriptive(detail, descriptive) : null;
   for (const cohort of overviewCohorts) {
     const row = detail.history.find(row => row.season.season === cohort.season.season)!;
     sameRelease({ ...detail, season: row.season }, cohort);
     checkOverview(row, cohort, detail.player_id);
   }
   const selectedOverview = overviewCohorts.find(row => row.season.season === detail.season.season);
+  if (selectedOverview && descriptiveCohort) composeLeague(selectedOverview, descriptiveCohort);
   const players = selectedOverview ? composeLeague(selectedOverview).players : [];
   const observed = observedOf(detail.families);
   const player = players.find(row => row.player_id === detail.player_id);
@@ -380,6 +434,7 @@ function composeProfile(
     overviewCohorts,
     view,
     selectedMetric,
+    descriptiveCohort,
     scalarHistory: scalarRows(detail, selectedMetric, cohorts),
     player_id: detail.player_id,
     kind: detail.kind,
@@ -436,7 +491,8 @@ export const loadLeague = (signal: AbortSignal, query: URLSearchParams) =>
       query: { season: seasonQuery(query), kind: "skater", family: "overview" },
     });
     const { table, strength } = readTableSelection(query).selection;
-    const extra = (table === "execution" || table === "shootiness") && strength !== "5v5"
+    const extra = table === "descriptive" ? descriptiveRequest(overview.season.season)
+      : (table === "execution" || table === "shootiness") && strength !== "5v5"
       ? {
           season: overview.season.season,
           kind: "skater",
@@ -479,10 +535,13 @@ export const loadProfile = (
     const view = detail.kind === "goalie" ? "observed" : readView(query).view;
     const metric = readMetric(query, detail.kind, view).metric;
     const requests = [...new Map(
-      detail.available_seasons.flatMap(season => [
-        ...(detail.kind === "skater" ? [overviewRequest(season)] : []),
-        metricRequest(season, metric),
-      ]).map(request => [requestKey(request), request]),
+      [
+        ...detail.available_seasons.flatMap(season => [
+          ...(detail.kind === "skater" && (!rawObserved(metric, view) || season === detail.season.season) ? [overviewRequest(season)] : []),
+          ...(metric.standingPolicy === "raw_only" ? [] : [metricRequest(season, metric)]),
+        ]),
+        ...(detail.kind === "skater" && (view === "observed" || metric.standingPolicy === "raw_only") ? [descriptiveRequest(detail.season.season)] : []),
+      ].map(request => [requestKey(request), request]),
     ).values()];
     const responses = yield* Effect.all(
       requests.map(request => api.analysis.league({ query: scalarQuery(request) })),
@@ -567,12 +626,15 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
       { concurrency: "unbounded" },
     ) : [];
     const requests = [...new Map(
-      (pair
-        ? overview.available_seasons.flatMap(season => [
-            overviewRequest(season), metricRequest(season, metric),
-          ])
-        : [metricRequest(overview.season.season, metric)]
-      ).map(request => [requestKey(request), request]),
+      [
+        ...(pair
+          ? overview.available_seasons.flatMap(season => [
+              ...(!rawObserved(metric, view) || season === overview.season.season ? [overviewRequest(season)] : []),
+              ...(metric.standingPolicy === "raw_only" ? [] : [metricRequest(season, metric)]),
+            ])
+          : [metricRequest(overview.season.season, metric)]),
+        ...(view === "observed" || metric.standingPolicy === "raw_only" ? [descriptiveRequest(overview.season.season)] : []),
+      ].map(request => [requestKey(request), request]),
     ).values()].filter(
       request => requestKey(request) !== requestKey(overviewRequest(overview.season.season)),
     );
@@ -621,9 +683,10 @@ export const loadComparison = (signal: AbortSignal, query: URLSearchParams) =>
         scalarCohort,
         pair,
         profiles,
-        overviewCohorts: pair ? overview.available_seasons.map(
-          season => requireOverview(cohorts.get(requestKey(overviewRequest(season)))!),
-        ) : [selectedOverview],
+        overviewCohorts: pair ? overview.available_seasons.flatMap(season => {
+          const cohort = cohorts.get(requestKey(overviewRequest(season)));
+          return cohort ? [requireOverview(cohort)] : [];
+        }) : [selectedOverview],
         maps: null,
       };
     });

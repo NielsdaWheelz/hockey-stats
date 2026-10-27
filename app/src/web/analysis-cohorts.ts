@@ -1,7 +1,15 @@
 import type { AnalysisDatum } from "./analysis-values";
 import type { PeerSettings } from "./explorer";
 
-export type AnalysisStanding =
+export const rawOnlyStanding = {
+  kind: "raw_only",
+  reason: "no percentile defined",
+  n: null,
+  peerGroup: null,
+  cutoffMinutes: null,
+} as const;
+
+export type AnalysisStanding = typeof rawOnlyStanding
   | {
       readonly kind: "ranked";
       readonly percentile: number;
@@ -93,7 +101,7 @@ export function buildAnalysisCohort(
           {
             datum,
             slot,
-            standing: {
+            standing: datum.metric.standingPolicy === "raw_only" ? rawOnlyStanding : {
               kind: "unavailable",
               reason: "absent season",
               n: null,
@@ -216,6 +224,7 @@ function standing(
   cutoff: number,
   position: string | null,
 ): AnalysisStanding {
+  if (datum.metric.standingPolicy === "raw_only") return rawOnlyStanding;
   const common = {
     n: group.members.length,
     peerGroup: group.peerGroup,
@@ -274,5 +283,56 @@ function standing(
     )!,
     ...common,
     cutoffMinutes: cutoff,
+  };
+}
+
+export type DescriptiveGuide = {
+  readonly sourceIds: readonly string[];
+  readonly methodIds: readonly string[];
+  readonly q25: number | null;
+  readonly q50: number | null;
+  readonly q75: number | null;
+  readonly n: number;
+  readonly peerGroup: string;
+  readonly cutoffMinutes: number;
+  readonly qualification: string;
+  readonly member: boolean;
+  readonly incompatiblePeerCount: number;
+  readonly reason: string | null;
+};
+
+export function buildDescriptiveGuide(
+  datums: readonly AnalysisDatum[],
+  selected: AnalysisDatum,
+  settings: PeerSettings,
+): DescriptiveGuide {
+  if (selected.metric.standingPolicy !== "raw_only")
+    throw new Error("descriptive guides require a raw-only selector");
+  // guide compatibility additionally binds the usage qualification population;
+  // raw history remains independent of viewing cutoffs and that population.
+  const guideDatum = (datum: AnalysisDatum): AnalysisDatum => ({
+    ...datum,
+    semanticKey: datum.guideSemanticKey,
+  });
+  const group = buildAnalysisCohort(datums.map(guideDatum), [guideDatum(selected)], settings).groups[0];
+  const values = group.members.map(member => member.value!).sort((a, b) => a - b);
+  const n = values.length;
+  const quartile = (p: number) => n === 0 ? null : values[Math.ceil(p * n) - 1];
+  const member = group.members.some(member => member.playerId === selected.playerId);
+  const cutoffMinutes = selected.metric.cutoff === "specialty" ? settings.specialtyMin : settings.peerMin;
+  const unknownPosition = settings.peers === "position" && positionGroup(selected.person?.reported_position ?? null) === null;
+  return {
+    sourceIds: [...new Set(group.members.flatMap(member => member.sources.map(source => source.source_id)))].sort(),
+    methodIds: [...new Set(group.members.flatMap(member => member.methods.map(method => method.method_id)))].sort(),
+    q25: quartile(.25), q50: quartile(.5), q75: quartile(.75), n,
+    peerGroup: group.peerGroup,
+    cutoffMinutes,
+    qualification: selected.metric.qualificationLabel,
+    member,
+    incompatiblePeerCount: group.incompatiblePeerCount,
+    reason: selected.status === "absent" ? "absent season"
+      : selected.value === null ? selected.reason ?? "quantity unavailable"
+      : unknownPosition ? "unknown position" : qualificationReason(selected, cutoffMinutes)
+        ?? (n === 0 ? "empty guide population" : member ? null : "outside guide population"),
   };
 }

@@ -1,0 +1,31 @@
+{
+  "status": "green",
+  "requests": [
+    "/api/players/9000001?season=20232024",
+    "/api/league?season=20232024&kind=skater&family=overview",
+    "/api/league?season=20232024&kind=skater&family=descriptive"
+  ],
+  "guide_n": [
+    0,
+    1,
+    1
+  ],
+  "annual": [
+    {
+      "season": "20232024",
+      "identity": "9000001",
+      "availability": "provided"
+    },
+    {
+      "season": "20242025",
+      "identity": "9000001",
+      "availability": "not_computed"
+    },
+    {
+      "season": "20252026",
+      "identity": "9000001",
+      "availability": "not_computed"
+    }
+  ],
+  "csv_fields": 412
+}

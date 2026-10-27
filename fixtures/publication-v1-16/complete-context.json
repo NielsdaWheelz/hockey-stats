@@ -1,0 +1,274 @@
+{
+  "player_id": "9000001",
+  "result": {
+    "availability": "provided",
+    "data": {
+      "opponents": {
+        "all_slot_seconds": 300.0,
+        "coverage": {
+          "included_seconds": 60,
+          "known_excluded_seconds": 0,
+          "events": 0,
+          "eligible_weight": 0,
+          "unquantified_gap": false,
+          "reason_counts": [],
+          "prior_only": false,
+          "prior_seasons": [],
+          "current_season_information": true,
+          "inferred_inputs": []
+        },
+        "defense": {
+          "all_slot_seconds": 120.0,
+          "bands": [
+            {
+              "band": 1,
+              "slot_seconds": 120.0,
+              "counterparts": 2
+            },
+            {
+              "band": 2,
+              "slot_seconds": 0,
+              "counterparts": 0
+            },
+            {
+              "band": 3,
+              "slot_seconds": 0,
+              "counterparts": 0
+            }
+          ],
+          "coverage": {
+            "included_seconds": 60,
+            "known_excluded_seconds": 0,
+            "events": 0,
+            "eligible_weight": 0,
+            "unquantified_gap": false,
+            "reason_counts": [],
+            "prior_only": false,
+            "prior_seasons": [],
+            "current_season_information": true,
+            "inferred_inputs": []
+          },
+          "known_slot_seconds": 120.0,
+          "mean_band_index": {
+            "value": 1,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "unique_counterparts": 2,
+          "usage_minutes_per_appearance": {
+            "value": 5.0,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          }
+        },
+        "forward": {
+          "all_slot_seconds": 180.0,
+          "bands": [
+            {
+              "band": 1,
+              "slot_seconds": 180.0,
+              "counterparts": 3
+            },
+            {
+              "band": 2,
+              "slot_seconds": 0,
+              "counterparts": 0
+            },
+            {
+              "band": 3,
+              "slot_seconds": 0,
+              "counterparts": 0
+            },
+            {
+              "band": 4,
+              "slot_seconds": 0,
+              "counterparts": 0
+            }
+          ],
+          "coverage": {
+            "included_seconds": 60,
+            "known_excluded_seconds": 0,
+            "events": 0,
+            "eligible_weight": 0,
+            "unquantified_gap": false,
+            "reason_counts": [],
+            "prior_only": false,
+            "prior_seasons": [],
+            "current_season_information": true,
+            "inferred_inputs": []
+          },
+          "known_slot_seconds": 180.0,
+          "mean_band_index": {
+            "value": 1,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "unique_counterparts": 3,
+          "usage_minutes_per_appearance": {
+            "value": 5.0,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          }
+        },
+        "known_slot_seconds": 300.0,
+        "unique_counterparts": 5,
+        "usage_minutes_per_appearance": {
+          "value": 5.0,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        }
+      },
+      "provenance": {
+        "id": "fixture_source",
+        "kind": "source"
+      },
+      "teammates": {
+        "all_slot_seconds": 240.0,
+        "coverage": {
+          "included_seconds": 60,
+          "known_excluded_seconds": 0,
+          "events": 0,
+          "eligible_weight": 0,
+          "unquantified_gap": false,
+          "reason_counts": [],
+          "prior_only": false,
+          "prior_seasons": [],
+          "current_season_information": true,
+          "inferred_inputs": []
+        },
+        "defense": {
+          "all_slot_seconds": 120.0,
+          "bands": [
+            {
+              "band": 1,
+              "slot_seconds": 120.0,
+              "counterparts": 2
+            },
+            {
+              "band": 2,
+              "slot_seconds": 0,
+              "counterparts": 0
+            },
+            {
+              "band": 3,
+              "slot_seconds": 0,
+              "counterparts": 0
+            }
+          ],
+          "coverage": {
+            "included_seconds": 60,
+            "known_excluded_seconds": 0,
+            "events": 0,
+            "eligible_weight": 0,
+            "unquantified_gap": false,
+            "reason_counts": [],
+            "prior_only": false,
+            "prior_seasons": [],
+            "current_season_information": true,
+            "inferred_inputs": []
+          },
+          "known_slot_seconds": 120.0,
+          "mean_band_index": {
+            "value": 1,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "unique_counterparts": 2,
+          "usage_minutes_per_appearance": {
+            "value": 7.5,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          }
+        },
+        "forward": {
+          "all_slot_seconds": 120.0,
+          "bands": [
+            {
+              "band": 1,
+              "slot_seconds": 120.0,
+              "counterparts": 4
+            },
+            {
+              "band": 2,
+              "slot_seconds": 0,
+              "counterparts": 0
+            },
+            {
+              "band": 3,
+              "slot_seconds": 0,
+              "counterparts": 0
+            },
+            {
+              "band": 4,
+              "slot_seconds": 0,
+              "counterparts": 0
+            }
+          ],
+          "coverage": {
+            "included_seconds": 60,
+            "known_excluded_seconds": 0,
+            "events": 0,
+            "eligible_weight": 0,
+            "unquantified_gap": false,
+            "reason_counts": [],
+            "prior_only": false,
+            "prior_seasons": [],
+            "current_season_information": true,
+            "inferred_inputs": []
+          },
+          "known_slot_seconds": 120.0,
+          "mean_band_index": {
+            "value": 1,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          },
+          "unique_counterparts": 4,
+          "usage_minutes_per_appearance": {
+            "value": 5.416666666666667,
+            "unavailable_reason": null,
+            "reason_detail": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            }
+          }
+        },
+        "known_slot_seconds": 240.0,
+        "unique_counterparts": 6,
+        "usage_minutes_per_appearance": {
+          "value": 6.458333333333333,
+          "unavailable_reason": null,
+          "reason_detail": null,
+          "uncertainty": {
+            "kind": "not_estimated"
+          }
+        }
+      }
+    },
+    "explanation": null
+  },
+  "season": "20232024"
+}

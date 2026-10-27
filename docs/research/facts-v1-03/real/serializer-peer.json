@@ -1,0 +1,17 @@
+{
+  "verdict": "clear for real facts execution",
+  "scope": "current two-pass code and bounded fixture readiness; real acceptance remains pending",
+  "reviewer": "independent real-source agent",
+  "checks": [
+    "all 35 mechanical baseline/green files independently hashed and identical",
+    "current production reader accepts 3 seasons and 30 family dispositions",
+    "normal serialized-table evidence and fixed per-game streaming inputs both pass",
+    "selected game ids, zip strictness, row keys, final catalogs and manifest-last completion checked",
+    "missing/extra/reordered/empty/malformed batches fail before final manifest"
+  ],
+  "sources": {
+    "analysis/src/hockey_stats/analysis_publication.py": "6159925f9a448a9da9917f657fe7593c712ff8d4b54e36e19cf4e4e82da4a0aa",
+    "analysis/src/hockey_stats/descriptive.py": "49db1f4dd10f3e3cf5fd4c57658ea5a774309aadb2fdbd3d5b1a603d0a45025c",
+    "analysis/src/hockey_stats/microstats.py": "fbb89684d558245c44d56bdf101be077b627e7547921af0fa15fe91452e6cc94"
+  }
+}

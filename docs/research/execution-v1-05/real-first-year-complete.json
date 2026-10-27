@@ -1,0 +1,179 @@
+{
+  "status": "complete command and four complete saved heads; independent annual acceptance pending",
+  "observed_utc": "2026-10-25T03:26:37.312799+00:00",
+  "exit_code": 0,
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022/manifest.json",
+    "sha256": "e34cfc60015bda24d90dcc946f150295aa6aede1079ab23aa9092f3103678310"
+  },
+  "purpose": "real",
+  "season": "20212022",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "implementation": {
+    "git_commit": "269d8d04f57edf4b38fe1f0a9766eb399f5546b8",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "source_preservation": {
+    "git_head": "269d8d04f57edf4b38fe1f0a9766eb399f5546b8",
+    "git_clean": true,
+    "code_sha256": {
+      "analysis/src/hockey_stats/execution_design.py": "2a3685562c0045d27c59e2a7557104bde31c1f094a1fd2962bc40789f0933025",
+      "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+      "analysis/src/hockey_stats/execution_state.py": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d",
+      "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+      "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+      "analysis/src/hockey_stats/execution_fit.py": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+    },
+    "inputs": {
+      "prepared": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+        "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+      },
+      "coaches": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+        "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+      }
+    }
+  },
+  "whole_command": {
+    "wall_seconds": 24803.22,
+    "user_seconds": 22319.16,
+    "system_seconds": 371.86,
+    "maximum_resident_set_size_bytes": 18085445632,
+    "peak_memory_footprint_bytes": 20131003176,
+    "swaps": 0
+  },
+  "manifest_resources": {
+    "wall_seconds": 24702.75259904214,
+    "peak_memory_bytes": 18085445632,
+    "design_wall_seconds": 6591.49097116699,
+    "input_read_wall_seconds": 2.355126000009477,
+    "fit_wall_seconds": 18108.906501875143,
+    "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "output_bytes": 202150357,
+    "origin_rows": {
+      "u": 23180585,
+      "q": 112345,
+      "r": 82328,
+      "g": 62505
+    },
+    "candidate_branches": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 568265
+    },
+    "resolution_solve_counts": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 0
+    },
+    "dimensions": {
+      "u": 3511,
+      "q": 3656,
+      "r": 3656,
+      "g": 4667
+    },
+    "solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 9
+    }
+  },
+  "heads": {
+    "u": {
+      "status": "complete",
+      "metadata_sha256": "461f2acbd26a0aae2bea6eafe73f18c3a52132e38f4abacb7b50f7007468e082",
+      "selected_start": "zero",
+      "wall_seconds": 13884.620873957989,
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-u-completion.json"
+    },
+    "q": {
+      "status": "complete",
+      "metadata_sha256": "7e89d0b99daa0c979e4472c31f91792b2a9e6337df0d0b58dd5d1f6e54dfb93c",
+      "selected_start": "zero",
+      "wall_seconds": 708.5942882499658,
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-q-completion.json"
+    },
+    "r": {
+      "status": "complete",
+      "metadata_sha256": "b8fd198385458a3f2f2dad3e1745b42d3226d9aba65e6c32ac3bcd7b1fff9a98",
+      "selected_start": "zero",
+      "wall_seconds": 341.81664779107086,
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-r-completion.json"
+    },
+    "g": {
+      "status": "complete",
+      "metadata_sha256": "c12db384c140047caf0c6cfd6e6df3197043da5acffd3b2d50a5efff01b6cdd1",
+      "selected_start": "zero",
+      "wall_seconds": 3041.3525349169504,
+      "completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-g-completion.json"
+    }
+  },
+  "bound_members": [
+    {
+      "path": "coverage.json",
+      "sha256": "7aba2213ab3ad5b2000f927418e3d2e88c585e53c2ff96785facd4c5f300395b"
+    },
+    {
+      "path": "heads/u.npz",
+      "sha256": "30e5b327145fb430ab0de646149adea0dc1f61445c611ad54b606a56809b3d94"
+    },
+    {
+      "path": "heads/u.json",
+      "sha256": "461f2acbd26a0aae2bea6eafe73f18c3a52132e38f4abacb7b50f7007468e082"
+    },
+    {
+      "path": "heads/q.npz",
+      "sha256": "53e5d4f60d56db4b16f11690be4cbc6a85ec299965fb006889014e7f88218cd0"
+    },
+    {
+      "path": "heads/q.json",
+      "sha256": "7e89d0b99daa0c979e4472c31f91792b2a9e6337df0d0b58dd5d1f6e54dfb93c"
+    },
+    {
+      "path": "heads/r.npz",
+      "sha256": "267feaf5f39093e1e12a286237ee65a957b22af36b193baf450f880a8f07b4b9"
+    },
+    {
+      "path": "heads/r.json",
+      "sha256": "b8fd198385458a3f2f2dad3e1745b42d3226d9aba65e6c32ac3bcd7b1fff9a98"
+    },
+    {
+      "path": "heads/g.npz",
+      "sha256": "7a814f49443e160261a46a5c3acbce315000c2974373a79ad0d26799752f8140"
+    },
+    {
+      "path": "heads/g.json",
+      "sha256": "c12db384c140047caf0c6cfd6e6df3197043da5acffd3b2d50a5efff01b6cdd1"
+    }
+  ],
+  "previous": null,
+  "coaching_selected_game_count": 1312,
+  "resource_scope": [
+    "ordinary shared desktop; not a cold or isolated benchmark",
+    "ordinary os cache may be warmed by earlier preparation attempts",
+    "outside-owner historical factual pid89225 absent at launch; no outside-owner process control",
+    "manual process/file observations retained in monitor.jsonl",
+    "one root-authorized global resource observation retained separately; cause of utilization change unassessed"
+  ],
+  "next_year_status": "hold before2022 for approved retained-geometry implementation and qualification plus root source-freeze go",
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022.log",
+    "sha256": "937ce567422c73c8171998d2f3f073bace3f400e47b9fe818634416078976d95",
+    "mtime_ns": 1792898636549429902
+  },
+  "protected_preservation": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-preservation.json",
+    "sha256": "de2e71faed9509c3274c21119b09e878dc7f748ac53cbe620e961f90a08421c3",
+    "status": "passed",
+    "files_checked": 40,
+    "differences": 0
+  }
+}

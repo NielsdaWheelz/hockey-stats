@@ -1,0 +1,94 @@
+{
+  "kind": "factual-execution-concurrency-observation",
+  "observed_at": "2026-10-24T14:04:33.527415+00:00",
+  "scope": "read-only preflight; no factual start, control, source modification, publication or acceptance",
+  "our_implementation": "2281d55bc2aa8d8efa3edc8d5f01800769acba7d",
+  "existing_factual_job": {
+    "pid": 89225,
+    "parent_time_pid": 89217,
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-03-real",
+    "started_local": "2026-10-24 02:09:16",
+    "elapsed_sample": "04:52:06",
+    "rss_kib_sample": 5317728,
+    "cpu_percent_sample": 99.1,
+    "command": "env PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python -m hockey_stats.analysis_cli facts --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --observed docs/research/facts-v1-03/selection-real.json --out /Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results",
+    "source_freeze": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/source-freeze.json",
+    "source_freeze_commit": "9772b9950cc1938d6fefeeffb9576eeb95af9593",
+    "progress": "20232024 members present; 20242025 evidence members actively written at observation",
+    "completion_manifest_present": false,
+    "ownership": "independent v1-03-real task; not started, modified or adopted by this preflight"
+  },
+  "our_execution_job": {
+    "pid": 73717,
+    "season": "20212022",
+    "rss_kib_sample": 3700080,
+    "cpu_percent_sample": 65.3,
+    "elapsed_sample": "00:08:05"
+  },
+  "inputs": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "observed_selection": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/facts-v1-03/selection-real.json",
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "primary_and_factual_worktree_copy": "same sha256"
+    },
+    "displayed_corpora": [
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json",
+        "sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+        "actual_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+        "prepared_selection_binding_matches": true,
+        "selected_inventory_games": 1312
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/corpus.json",
+        "sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+        "actual_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+        "prepared_selection_binding_matches": true,
+        "selected_inventory_games": 1312
+      },
+      {
+        "season": "20252026",
+        "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+        "sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+        "actual_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+        "prepared_selection_binding_matches": true,
+        "selected_inventory_games": 1312
+      }
+    ]
+  },
+  "resources": {
+    "physical_memory_bytes": 68719476736,
+    "memory_pressure_reported_free_percentage": 82,
+    "swap_used_mib_sample": 550.62,
+    "external_physical_disk": "disk4; Expansion APFS physical store disk4s2",
+    "external_disk_mib_per_second_intervals": [
+      46.24,
+      20.23,
+      29.32,
+      26.17
+    ],
+    "interpretation": "short aggregate disk intervals, not a per-process attribution, saturation test or sustained capacity estimate",
+    "external_available_space": "6.7TiB reported by df"
+  },
+  "implementation_mechanism": {
+    "owner": "descriptive.build_factual_results; analysis_publication.write_results serializes fixed rows",
+    "memory": "one season at a time; observed aggregate and compact game/micro reductions retained for that season; prepared game evidence streamed rather than retaining all three seasons of prepared events",
+    "cost": "prepared evidence rereads and native observed aggregation consume drive/CPU; do not launch a duplicate job",
+    "independent_factual_code": "existing job has its own source-freeze and differs from our merged factual implementation; acceptance belongs to its owner"
+  },
+  "decision": "root keeps existing factual job untouched and continues only our single heavy execution fit; no duplicate factual run",
+  "not_run": [
+    "new factual reduction",
+    "factual result readback/acceptance",
+    "publish",
+    "application/browser",
+    "activation"
+  ],
+  "mutations": "only this cheap receipt in the v1-05 worktree; no git index changes"
+}

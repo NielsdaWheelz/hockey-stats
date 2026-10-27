@@ -1,0 +1,71 @@
+{
+  "scope": "bounded contract verification only; numerical solves intercepted",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "previous_recipe_sha256": "9abbc436802c33754299b201fc1cca9fdd92c889dd635f1aa629c7543da20dc3",
+  "literal_definition_delta": {
+    "solver.maxiter": {
+      "before": 2000,
+      "after": 10000
+    }
+  },
+  "other_definition_entries": "exact equality",
+  "checks": {
+    "single_literal_delta_and_old_recipe_rejection": "pass",
+    "u_baseline_solver_options": "pass",
+    "u_continuation_solver_options": "pass",
+    "u_continuation_receipt": "pass",
+    "q_baseline_solver_options": "pass",
+    "q_continuation_solver_options": "pass",
+    "q_continuation_receipt": "pass",
+    "r_baseline_solver_options": "pass",
+    "r_continuation_solver_options": "pass",
+    "r_continuation_receipt": "pass",
+    "g_baseline_solver_options": "pass",
+    "g_continuation_solver_options": "pass",
+    "g_continuation_receipt": "pass",
+    "strict_probe_cap_10000": "pass",
+    "strict_probe_cap_2000": "pass",
+    "native_wrapper_preserves_default_maxfun_and_other_options": "pass"
+  },
+  "temporary_files": [
+    {
+      "path": "/tmp/v105-iteration-cap-20261024/check.py",
+      "sha256": "8a30dfc9539b7de3b3d806a22e552e4444bf7d62710f0064f985ba1c97b48327"
+    },
+    {
+      "path": "/tmp/v105-iteration-cap-20261024/green.json",
+      "sha256": "c5de972ce392d2c4bbeeef7b5bb585ea7d61f4e2b367a9f95198589dfdc7f027"
+    },
+    {
+      "path": "/tmp/v105-iteration-cap-20261024/green.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/v105-iteration-cap-20261024/old-state.pickle",
+      "sha256": "2475ce985730b08793283472c65721a615d07818d8d147f808686ea34685b864"
+    },
+    {
+      "path": "/tmp/v105-iteration-cap-20261024/red.json",
+      "sha256": "9aa3e08dcf618db321166eaefa9314b858347877bed5429f96898b1e3813b0d6"
+    },
+    {
+      "path": "/tmp/v105-iteration-cap-20261024/red.stderr",
+      "sha256": "fad4665725c96b2fa9583b622bf4d237e89ade4fc9c8f97696e765566cc086cd"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "2a3685562c0045d27c59e2a7557104bde31c1f094a1fd2962bc40789f0933025"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d"
+    }
+  ],
+  "qualification": "fresh full five-year fixture chain pending; real acceptance open"
+}

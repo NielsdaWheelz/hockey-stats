@@ -1,0 +1,169 @@
+{
+  "scope": "one ordinary fresh five-year fixture chain; no real fitting, original checkout changes or source cutover",
+  "source_commit": "f4f1329ef7b7f225bd07f3059e462c0fee337643",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "source_files": [
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "43d086cdbb335406ea780e9ceaddc7193c50796285342295fa55e48e9e96179f"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "c198df23994556658636a841cbf3d679e70607408138f718a7d424732b67814c"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "24794709b34ac7cd501f7a73662db1b5dd0befff7346dc95309ca14efbf6011d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    }
+  ],
+  "twenty_heads_complete": true,
+  "all20_coefficients_priors_centers_ledgers_coverage_layout_and_counts": "exact equality against existing chain-cap-01",
+  "maximum_coefficient_change": 0.0,
+  "final_public_probes": {
+    "u": {
+      "status": "passed",
+      "maximum_probability_change": 4.898506995587582e-07,
+      "optimizer_maxiter": 10000
+    },
+    "q": {
+      "status": "passed",
+      "maximum_probability_change": 4.381059092173345e-07,
+      "optimizer_maxiter": 10000
+    },
+    "r": {
+      "status": "passed",
+      "maximum_probability_change": 3.04643199333654e-07,
+      "optimizer_maxiter": 10000
+    },
+    "g": {
+      "status": "passed",
+      "maximum_probability_change": 5.32924022467185e-07,
+      "optimizer_maxiter": 10000
+    }
+  },
+  "uncovered_requirements": 0,
+  "selector_exactly_equal": true,
+  "resources": {
+    "sum_active_command_wall_seconds": 299.09000000000003,
+    "maximum_resident_bytes": 1066090496,
+    "overall_first_start_utc": "2026-10-25T03:39:20.454398+00:00",
+    "overall_last_end_utc": "2026-10-25T03:46:38.020471+00:00",
+    "limitation": "observed timestamps include manual gaps; time_l measures commands; no speedup or real-capacity claim"
+  },
+  "timestamp_scope": "start_utc recorded just before manual tool launch; end_utc observed after exit; time_l measures command, not manual gaps",
+  "calls": [
+    {
+      "season": "20212022",
+      "status": "complete",
+      "start_utc": "2026-10-25T03:39:20.454398+00:00",
+      "end_utc": "2026-10-25T03:40:24.282216+00:00",
+      "exit_code": 0,
+      "pid": 79892,
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/20212022/manifest.json",
+        "sha256": "26179a5271409baf70857a9df74de3687d45fe2a05169b90c7755efe7db57696"
+      },
+      "time_l": {
+        "wall_seconds": 23.05,
+        "maximum_resident_bytes": 918126592
+      }
+    },
+    {
+      "season": "20222023",
+      "status": "complete",
+      "start_utc": "2026-10-25T03:40:24.739037+00:00",
+      "end_utc": "2026-10-25T03:40:56.996245+00:00",
+      "exit_code": 0,
+      "pid": 80172,
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/20222023/manifest.json",
+        "sha256": "ce5f83a0d928b95375a276d80b4d6c751397a02afa2ff3edfefbb88d2ad9d62d"
+      },
+      "time_l": {
+        "wall_seconds": 21.89,
+        "maximum_resident_bytes": 998080512
+      }
+    },
+    {
+      "season": "20232024",
+      "status": "complete",
+      "start_utc": "2026-10-25T03:40:57.420946+00:00",
+      "end_utc": "2026-10-25T03:42:00.237180+00:00",
+      "exit_code": 0,
+      "pid": 80442,
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/20232024/manifest.json",
+        "sha256": "8a0dee9336efca2037c40e97971992663d0d6b5d42bc40b9e1b63cf0a9ddd529"
+      },
+      "time_l": {
+        "wall_seconds": 25.51,
+        "maximum_resident_bytes": 792526848
+      }
+    },
+    {
+      "season": "20242025",
+      "status": "complete",
+      "start_utc": "2026-10-25T03:42:00.654898+00:00",
+      "end_utc": "2026-10-25T03:43:19.670848+00:00",
+      "exit_code": 0,
+      "pid": 80834,
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/20242025/manifest.json",
+        "sha256": "e2065a14cea7dcbf2f5b68092fc9c09874cf8191e56fa0f6ed14801827021b53"
+      },
+      "time_l": {
+        "wall_seconds": 67.01,
+        "maximum_resident_bytes": 1012662272
+      }
+    },
+    {
+      "season": "20252026",
+      "status": "complete",
+      "start_utc": "2026-10-25T03:43:20.811484+00:00",
+      "end_utc": "2026-10-25T03:46:38.020471+00:00",
+      "exit_code": 0,
+      "pid": 81362,
+      "manifest": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/20252026/manifest.json",
+        "sha256": "870410c93d085792cc09ffdeb4b379d33c4d6e936ab43616a05fec5e7dfb2603"
+      },
+      "time_l": {
+        "wall_seconds": 161.63,
+        "maximum_resident_bytes": 1066090496
+      },
+      "resolution": {
+        "u": "passed",
+        "q": "passed",
+        "r": "passed",
+        "g": "passed"
+      }
+    }
+  ],
+  "details": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/qualification.json",
+      "sha256": "8556039801dfd21e9edf5f5eaf5ab7d34c7d7af4e24d30e6e376c56705a53081"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/comparison.json",
+      "sha256": "fd7093bee0bf94a66b7508b6cac62e5b1fb5bf0f708b20936cfea02507aaddc4"
+    }
+  ],
+  "temporary_checks": "/tmp/v105-prepared-batches-20261024",
+  "pending": [
+    "independent source and saved-state qualification review",
+    "root source cutover",
+    "actual next assigned annual cost and peak within64gb"
+  ],
+  "preserved": "original269, accepted real20212022 source/arrays/manifest, stable predictors/current-content/checker pins and all previous evidence"
+}

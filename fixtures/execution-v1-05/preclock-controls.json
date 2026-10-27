@@ -1,0 +1,75 @@
+{
+  "kind": "synthetic",
+  "scope": "internal prior-clock boundary expectations; not captured observations or fitted evidence",
+  "teams": {"home": 1, "away": 2},
+  "ordinary_intervals": [
+    {"period": 1, "start": 0, "end": 10, "away_skaters": 4, "home_skaters": 5},
+    {"period": 1, "start": 10, "end": 30, "away_skaters": 5, "home_skaters": 5}
+  ],
+  "focal": {"source_index": 2, "period": 1, "clock": 20, "shooting_team": 1},
+  "cases": [
+    {
+      "name": "same_clock_unknown_is_excluded",
+      "records": [
+        {"source_index": 0, "order": 0, "clock": 0, "kind": "period-start", "valid": true},
+        {"source_index": 1, "order": 1, "clock": 20, "kind": "unknown", "valid": false},
+        {"source_index": 2, "order": 2, "clock": 20, "kind": "goal", "valid": true}
+      ],
+      "expected": {"phase": "absent", "transition": {"exists": true, "side": "opponent", "age": 10}}
+    },
+    {
+      "name": "same_clock_faceoff_keeps_current_unit_only",
+      "records": [
+        {"source_index": 0, "order": 0, "clock": 0, "kind": "period-start", "valid": true},
+        {"source_index": 1, "order": 1, "clock": 20, "kind": "faceoff", "valid": true},
+        {"source_index": 2, "order": 2, "clock": 20, "kind": "goal", "valid": true}
+      ],
+      "current_unit": {"shooter": 1, "skaters": [1, 2, 3], "goalie": 9},
+      "reported_positions": {"1": "F", "2": "F", "3": "F", "9": "G"},
+      "earlier_source_1_unit": [1, 2, 4],
+      "expected": {"phase": "absent", "complete_proxy": true, "excluded_candidate": 4,
+                   "prior": {"none": 0.2, "2": 0.32, "3": 0.32, "9": 0.16}}
+    },
+    {
+      "name": "return_at_focal_clock_is_excluded",
+      "intervals": [
+        {"period": 1, "start": 0, "end": 20, "away_skaters": 4, "home_skaters": 5},
+        {"period": 1, "start": 20, "end": 30, "away_skaters": 5, "home_skaters": 5}
+      ],
+      "records": [
+        {"source_index": 0, "order": 0, "clock": 0, "kind": "period-start", "valid": true},
+        {"source_index": 2, "order": 1, "clock": 20, "kind": "goal", "valid": true}
+      ],
+      "expected": {"transition": {"exists": false, "side": null, "age": null}}
+    },
+    {
+      "name": "unknown_prior_clock_and_period_are_a_barrier",
+      "records": [
+        {"source_index": 0, "order": 0, "clock": 0, "kind": "period-start", "valid": true},
+        {"source_index": 1, "order": 1, "period": null, "clock": null, "kind": "unknown", "valid": false},
+        {"source_index": 2, "order": 2, "clock": 20, "kind": "goal", "valid": true}
+      ],
+      "expected": {"phase": "unavailable", "transition": {"exists": null, "side": null, "age": null}}
+    },
+    {
+      "name": "earlier_reset_restores_known_zero",
+      "records": [
+        {"source_index": 0, "order": 0, "clock": 0, "kind": "period-start", "valid": true},
+        {"source_index": 1, "order": 1, "period": null, "clock": null, "kind": "unknown", "valid": false},
+        {"source_index": 3, "order": 2, "clock": 15, "kind": "stoppage", "valid": true},
+        {"source_index": 2, "order": 3, "clock": 20, "kind": "goal", "valid": true}
+      ],
+      "expected": {"phase": "absent", "transition": {"exists": false, "side": null, "age": null}}
+    },
+    {
+      "name": "native_association_is_not_a_transition_prerequisite",
+      "records": [
+        {"source_index": 0, "order": 0, "clock": 0, "kind": "period-start", "valid": true},
+        {"source_index": 1, "order": 1, "clock": 5, "kind": "hit", "valid": true, "native_association": null},
+        {"source_index": 3, "order": 2, "clock": 15, "kind": "stoppage", "valid": true},
+        {"source_index": 2, "order": 3, "clock": 20, "kind": "goal", "valid": true}
+      ],
+      "expected": {"transition": {"exists": false, "side": null, "age": null}}
+    }
+  ]
+}

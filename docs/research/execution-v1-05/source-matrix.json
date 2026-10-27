@@ -1,0 +1,46 @@
+{
+  "scope": "fixture-derived original2025021094 compact physical-CSR and bounded origin-expansion check; no fit estimate",
+  "recipe_sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304",
+  "checks": [
+    {
+      "head": "u",
+      "physical_attempts": 119,
+      "expanded_rows": 22389,
+      "nonzeros": 511584,
+      "generation_wall_seconds": 0.004225582990329713,
+      "bounded_max_rows": 3958,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    },
+    {
+      "head": "q",
+      "physical_attempts": 85,
+      "expanded_rows": 85,
+      "nonzeros": 2151,
+      "generation_wall_seconds": 0.00020212505478411913,
+      "bounded_max_rows": 85,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    },
+    {
+      "head": "r",
+      "physical_attempts": 61,
+      "expanded_rows": 61,
+      "nonzeros": 1509,
+      "generation_wall_seconds": 0.00015054200775921345,
+      "bounded_max_rows": 61,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    },
+    {
+      "head": "g",
+      "physical_attempts": 53,
+      "expanded_rows": 53,
+      "nonzeros": 1305,
+      "generation_wall_seconds": 0.0002114999806508422,
+      "bounded_max_rows": 53,
+      "direct_public_matrix_equality": "exact",
+      "origin_mass_per_physical_attempt": 1.0
+    }
+  ]
+}

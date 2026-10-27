@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "scope": "saved-only staged check; canonical cutover not implied",
+  "source_controls": "three original source/state locators permission_denied",
+  "network_control": "permission_denied",
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "actual_state": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-ftol15-01/20212022/manifest.json",
+  "declared_future_state": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-ftol15-01/20212022/manifest.json",
+  "state_sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6",
+  "examples": 7,
+  "exact_signatures": 14,
+  "signature_order": "sha256 of concatenated C-order little-endian float64 prior,u,q,r,g,block,miss,stopped,continuing,goal",
+  "raw_rebuild": false
+}

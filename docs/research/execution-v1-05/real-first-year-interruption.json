@@ -1,0 +1,57 @@
+{
+  "purpose": "real",
+  "completion": "not completed; no fitted head",
+  "submission": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-01/20212022-submission.json",
+  "producer_commit": "2281d55bc2aa8d8efa3edc8d5f01800769acba7d",
+  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "command": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/hockey-stats-analysis",
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-01/20212022"
+  ],
+  "stop": {
+    "status": "stopped for confirmed computational correctness defect before fitting",
+    "stop_observed_utc": "2026-10-24T14:24:08.684891+00:00",
+    "stop_actor": "root",
+    "signal": "SIGINT",
+    "exit_code": 130,
+    "reason": "source-confirmed strength_transition and strength_transition_age unavailable indicators duplicate one all-or-nothing condition, changing the effective fixed ridge precision from declared4 to2",
+    "phase": "annual design validation/preparation",
+    "output_leaf_exists": false,
+    "fitted_arrays": false,
+    "saved_heads": [],
+    "wall_seconds": 1737.23,
+    "user_seconds": 1473.13,
+    "system_seconds": 9.46,
+    "time_maximum_resident_bytes": 8707506176,
+    "time_peak_memory_footprint_bytes": 8695241400,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-01/20212022.log",
+      "sha256": "3ade1c149068ac5e6d34a680a9a4a7f2aef55f2f5b8316cbf2346cbe9ccd5750"
+    },
+    "monitor": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-01/20212022-monitor.jsonl",
+      "sha256": "45d6fe9bdbe041e31e143fcbd4777b9079af1ae545ee84cf91b31132c9efa354"
+    },
+    "known_concurrent_work": {
+      "reported_by": "root/source preflight",
+      "reported_utc": "2026-10-24T14:03:06.630528+00:00",
+      "pid": 89225,
+      "parent_time_pid": 89217,
+      "owner_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-03-real",
+      "output": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results",
+      "meaning": "preexisting factual reduction, outside this task ownership; not started, stopped or inspected by this operator. measured execution wall/read costs are under concurrent drive load, not isolated capacity."
+    },
+    "preservation": "all submitted logs, observations and receipts retained; factual PID89225 was not controlled or modified by this operator",
+    "next": "new committed shared-availability design and new recipe; full fresh five-year fixture qualification before a new external real run02. no current0cb state promotion or hotpatch"
+  }
+}

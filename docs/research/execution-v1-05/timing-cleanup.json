@@ -1,0 +1,24 @@
+{
+  "scope": "source timing controllers deleted after bounded green and independent mathematical/source-history review; no retained harness",
+  "deleted": [
+    {
+      "path": "/tmp/v105-timing-check.py",
+      "sha256": "414f5da3144dcdf07828980634483d650b609bae008caec013c3f5e0bc2f704d"
+    },
+    {
+      "path": "/tmp/v105-timing-real.py",
+      "sha256": "c320e2aca0a365731ca3196d1fbfd72284d774d9648a638db5d310e5d5d237dc"
+    },
+    {
+      "path": "/tmp/v105-timing-fixture-check.py",
+      "sha256": "cc0490d304800df02310c3e310e66e3e9842a671a0dd299c2965b07e85a42632"
+    }
+  ],
+  "preserved": [
+    "original prepared fixture and every input locator",
+    "all protected primary drafts",
+    "old numerical families and adverse states",
+    "retained original and synthetic expectations"
+  ],
+  "full_fixture_controller": "owned separately; not deleted here"
+}

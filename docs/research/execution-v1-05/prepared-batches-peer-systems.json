@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "scope": "bounded prepared-geometry saved-artifact qualification and unchanged accepted first-real predecessor readability; no new fit or real2022 completion",
+  "recipe_sha256": "59509c18a70a299897a880a0153fa21df72a2b7bd3166195c907b4c65aa2cc52",
+  "module_paths": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution_state.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution_design.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution_fit.py",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/analysis/src/hockey_stats/execution.py"
+  ],
+  "source_commit": "f4f1329ef7b7f225bd07f3059e462c0fee337643",
+  "fixture_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/docs/research/execution-v1-05/prepared-batches-fixture.json",
+    "sha256": "35e5f0699e927c313abcd7ccb03b9409aed128c4bbf155acd1476065922fe395"
+  },
+  "owned_source_campaign_files": {
+    "manifest": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-prepared-batch-checks/chain-01/owned-files.json",
+      "sha256": "2300294cd7adf4249260f90ba5bc87643b68f264909f46a239dd687b2d0ac1f5"
+    },
+    "files": 96,
+    "bytes": 30144471
+  },
+  "annual_heads": [
+    {
+      "season": "20212022",
+      "head": "u",
+      "attempts": 771,
+      "positive": 618,
+      "dimension": 2571
+    },
+    {
+      "season": "20212022",
+      "head": "q",
+      "attempts": 618,
+      "positive": 439,
+      "dimension": 2610
+    },
+    {
+      "season": "20212022",
+      "head": "r",
+      "attempts": 439,
+      "positive": 335,
+      "dimension": 2610
+    },
+    {
+      "season": "20212022",
+      "head": "g",
+      "attempts": 335,
+      "positive": 39,
+      "dimension": 2841
+    },
+    {
+      "season": "20222023",
+      "head": "u",
+      "attempts": 585,
+      "positive": 434,
+      "dimension": 2520
+    },
+    {
+      "season": "20222023",
+      "head": "q",
+      "attempts": 434,
+      "positive": 321,
+      "dimension": 2557
+    },
+    {
+      "season": "20222023",
+      "head": "r",
+      "attempts": 321,
+      "positive": 235,
+      "dimension": 2557
+    },
+    {
+      "season": "20222023",
+      "head": "g",
+      "attempts": 235,
+      "positive": 23,
+      "dimension": 2743
+    },
+    {
+      "season": "20232024",
+      "head": "u",
+      "attempts": 605,
+      "positive": 448,
+      "dimension": 2546
+    },
+    {
+      "season": "20232024",
+      "head": "q",
+      "attempts": 448,
+      "positive": 312,
+      "dimension": 2585
+    },
+    {
+      "season": "20232024",
+      "head": "r",
+      "attempts": 312,
+      "positive": 250,
+      "dimension": 2585
+    },
+    {
+      "season": "20232024",
+      "head": "g",
+      "attempts": 250,
+      "positive": 28,
+      "dimension": 2793
+    },
+    {
+      "season": "20242025",
+      "head": "u",
+      "attempts": 1062,
+      "positive": 755,
+      "dimension": 2596
+    },
+    {
+      "season": "20242025",
+      "head": "q",
+      "attempts": 755,
+      "positive": 494,
+      "dimension": 2637
+    },
+    {
+      "season": "20242025",
+      "head": "r",
+      "attempts": 494,
+      "positive": 390,
+      "dimension": 2637
+    },
+    {
+      "season": "20242025",
+      "head": "g",
+      "attempts": 390,
+      "positive": 50,
+      "dimension": 2889
+    },
+    {
+      "season": "20252026",
+      "head": "u",
+      "attempts": 1068,
+      "positive": 761,
+      "dimension": 2633
+    },
+    {
+      "season": "20252026",
+      "head": "q",
+      "attempts": 761,
+      "positive": 508,
+      "dimension": 2675
+    },
+    {
+      "season": "20252026",
+      "head": "r",
+      "attempts": 508,
+      "positive": 401,
+      "dimension": 2675
+    },
+    {
+      "season": "20252026",
+      "head": "g",
+      "attempts": 401,
+      "positive": 45,
+      "dimension": 2959
+    }
+  ],
+  "exact_coefficients_priors_centers_ledgers_coverage_layouts_counts": true,
+  "exact_predecessor_bindings": true,
+  "incoming_prior_bindings_checked": 6594,
+  "unchanged_carried_rows_checked": 6201,
+  "public_probes": {
+    "u": {
+      "usage": "numerical_probe",
+      "status": "passed",
+      "maximum_probability_change": 4.898506995587582e-07
+    },
+    "q": {
+      "usage": "numerical_probe",
+      "status": "passed",
+      "maximum_probability_change": 4.381059092173345e-07
+    },
+    "r": {
+      "usage": "numerical_probe",
+      "status": "passed",
+      "maximum_probability_change": 3.04643199333654e-07
+    },
+    "g": {
+      "usage": "numerical_probe",
+      "status": "passed",
+      "maximum_probability_change": 5.32924022467185e-07
+    }
+  },
+  "uncovered_requirements": 0,
+  "unchanged_examples": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/fixtures/execution-v1-05/predictors.json",
+    "sha256": "3f5d749efd13a772d56d744f78cecbd86e4b12ac3f3b9cf14c01203b66eb6efa"
+  },
+  "unchanged_example_state": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-cap-01/20212022/manifest.json",
+    "sha256": "51e3a3612b0cc38671c2f3a3f537cee802927708c0d85013936963aca4e36cc1"
+  },
+  "accepted_real2021": {
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022/manifest.json",
+      "sha256": "e34cfc60015bda24d90dcc946f150295aa6aede1079ab23aa9092f3103678310"
+    },
+    "producer_commit": "269d8d04f57edf4b38fe1f0a9766eb399f5546b8",
+    "annual_usage": "annual",
+    "all_heads_complete": true,
+    "compatible_current_recipe": true,
+    "prior_acceptance": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-independent-acceptance.json",
+      "sha256": "a0ccfe09a0ceb82955b8292a797df34d6aad75507fcafa1118b4a174e608436a"
+    }
+  },
+  "resources": {
+    "sum_active_command_wall_seconds": 299.09000000000003,
+    "maximum_resident_bytes": 1066090496,
+    "overall_first_start_utc": "2026-10-25T03:39:20.454398+00:00",
+    "overall_last_end_utc": "2026-10-25T03:46:38.020471+00:00",
+    "limitation": "observed timestamps include manual gaps; time_l measures commands; no speedup or real-capacity claim"
+  },
+  "limitations": [
+    "fixture command costs only; no speedup or real-capacity claim",
+    "next assigned2022 must record actual combined retained-design/process memory within64GiB",
+    "historical2021 producer remains269; current reader-source qualification is separate",
+    "reader/scorer unchanged; existing OS-denied signature proof retained, not repeated",
+    "no fits, profiles, source/prepared/raw evidence bodies, production/index/context edits, pending-state checks or process control"
+  ],
+  "current_candidate_head": "7271c86c2efed5808040ea3472f8df587779ef22",
+  "remaining_real_metadata": {
+    "path": "/tmp/v105-prepared-real-metadata.json",
+    "sha256": "1443dd205918f29cdc3b5a2ae455cfcdad0ce69cd720ce50aa101e8f7c7604bc"
+  },
+  "current_runtime_checker": {
+    "path": "/tmp/v105-real-year-check.py",
+    "sha256": "dd432f29a46b9b2ae60619c87a81aaefb41e6078cf84c26c5dd5567cd188f80c"
+  },
+  "historical_cap_checker_archive": {
+    "path": "/tmp/v105-real-year-check-5950-initial.py",
+    "sha256": "9e31c4a6727f692d84e6c5be36aba88015312ab910ab38360e053364a5a3780a"
+  },
+  "untouched_real2021_expected": {
+    "path": "/tmp/v105-real2021-expected-03.json",
+    "sha256": "9f7e7d8f9944876a99fede4c58edc303c0a5464d4c50a2243c15ede2e0f2bd96"
+  },
+  "new_remaining_expected_metadata": [
+    {
+      "season": "20222023",
+      "path": "/tmp/v105-real2022-expected-03-prepared.json",
+      "sha256": "8ee5c4b29bb6a02f35ed93812d02c11b5d1233cd086788273e44a9499d04a44c",
+      "preserved_previous": {
+        "path": "/tmp/v105-real2022-expected-03.json",
+        "sha256": "43eabc710f6dfb1f9a1235bb1ac7d20d40436e9be1c40299d8d7e4247c5c1047"
+      },
+      "recognized_attempts": 153348,
+      "selected_games": 1312,
+      "prepared_members": 1313
+    },
+    {
+      "season": "20232024",
+      "path": "/tmp/v105-real2023-expected-03-prepared.json",
+      "sha256": "46f82be8c074f4c8d496c125f16f947a15f32ec2ed849f5e8f17bc33517dbd03",
+      "preserved_previous": {
+        "path": "/tmp/v105-real2023-expected-03.json",
+        "sha256": "992e4613d9fe357544bcd3766deea27d070b77642477ed292405a3e8cdf35470"
+      },
+      "recognized_attempts": 160123,
+      "selected_games": 1312,
+      "prepared_members": 1313
+    },
+    {
+      "season": "20242025",
+      "path": "/tmp/v105-real2024-expected-03-prepared.json",
+      "sha256": "de6ed5b1bbd853876ea664c10c1e8932fe7c6f7a7a6f3614d9ca6582de5e45b5",
+      "preserved_previous": {
+        "path": "/tmp/v105-real2024-expected-03.json",
+        "sha256": "c5aa970d2b17cfea0919b6359a3c5d3af1adc9a262101969c965508c749a6e34"
+      },
+      "recognized_attempts": 156622,
+      "selected_games": 1312,
+      "prepared_members": 1313
+    },
+    {
+      "season": "20252026",
+      "path": "/tmp/v105-real2025-expected-03-prepared.json",
+      "sha256": "f89af34bc9d33242f235852d5f27054183e315a6811c7380f9fc9f516d70ea43",
+      "preserved_previous": {
+        "path": "/tmp/v105-real2025-expected-03.json",
+        "sha256": "80fcf6425efb68fb488426db7334b68749ce00d6a43d2138a25987df06b54873"
+      },
+      "recognized_attempts": 153754,
+      "selected_games": 1312,
+      "prepared_members": 1313
+    }
+  ],
+  "runtime_source_helper": "candidate-only positive and wrong-source-hash negative passed; pending real outputs not checked",
+  "contract_scope": "user-approved O(total expanded rows) compact origin maps/geometry and fixed setter inputs retained, bounded4096 construction/evaluation workspace; fixed features remain one physical-row matrix; actual next annual64GiB/cost measurement remains required"
+}

@@ -1,0 +1,44 @@
+{
+  "status": "targeted_contract_pass; fresh fixture/real qualification pending",
+  "source_commit": "ba8ffb7dfb22efa67dafe99a1bb3c55c4bc3937c",
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "changed_files": [
+    "execution_design.py",
+    "execution_fit.py",
+    "execution_state.py"
+  ],
+  "diff": {
+    "insertions": 25,
+    "deletions": 14
+  },
+  "checks": {
+    "groups": 5,
+    "green_native_calls": 11,
+    "scope": "tiny controlled native forwarding, em completion and recipe/receipt/reader boundaries only; no fixture or real annual qualification",
+    "red": "old baseline/tightened forwarding and old-recipe boundary fail; historical reader reaches deliberately absent members in the negative copy",
+    "green": "baseline1e-15/tightened literal1e-16 forwarded exactly for binary and setter inner native solves; comparison receipt agrees; unchanged em completion boundaries and old-recipe rejection checked",
+    "unchanged": "all definition entries except approved stopping amendment equal old definition; gtol and em limits bit-equal to previous scaled values; chance/native wrapper, objective, features, priors, coordinates, starts and other source files unchanged",
+    "continuation_rounding": "literal1e-16; not1e-15*.1 which evaluates1.0000000000000001e-16",
+    "whitespace_and_syntax": "passed"
+  },
+  "source_pins": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-contract-20261025-01/source-pins.json",
+    "sha256": "e75804ad32fa7f15411b61d30ec7fa425477fdb1195fbb86b46fba1cb9318330"
+  },
+  "red": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-contract-20261025-01/red.json",
+    "sha256": "b8cea0b3e57144f5ccbd50b7196fc4e38e256b0495f1aa45e2782e4b323601b2"
+  },
+  "green": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-contract-20261025-01/green.json",
+    "sha256": "0cb3690de96c2d59b35b72afced375f34ad3a3f012ef9a7cd91040c04cccfcf3"
+  },
+  "ownership": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-contract-20261025-01/ownership.json",
+    "sha256": "4d769c4a91779f30f750513300744950ac974047cf0594546c33f1a557c1d4ca"
+  },
+  "next": "independent source review then fresh ordinary five-year fixture20heads/4probes; real qualification remains separate",
+  "heavy_fits_run": false,
+  "temporary_tests_deleted": false,
+  "scientific_admission": false
+}

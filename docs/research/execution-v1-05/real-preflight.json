@@ -1,0 +1,56 @@
+{
+  "status": "accepted input identities unchanged; corrected9abb full fresh fixture chain20heads/4probes passed; representative real02 firstyear follows independent content receipt and clean source commit",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "coach_artifact_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+  "annual_input_sizes": [
+    {
+      "season": "20212022",
+      "games": 1312,
+      "people_and_game_bytes": 63710567455
+    },
+    {
+      "season": "20222023",
+      "games": 1312,
+      "people_and_game_bytes": 78285951759
+    },
+    {
+      "season": "20232024",
+      "games": 1312,
+      "people_and_game_bytes": 84313091506
+    },
+    {
+      "season": "20242025",
+      "games": 1312,
+      "people_and_game_bytes": 84391671652
+    },
+    {
+      "season": "20252026",
+      "games": 1312,
+      "people_and_game_bytes": 87083336974
+    }
+  ],
+  "strict_metadata_read_seconds": {
+    "prepared": 0.537579125026241,
+    "coaches": 1.1089589999755844
+  },
+  "strict_metadata_result": "five consecutive 1312-game seasons; coaching6560games; every annual source corpus pair matches",
+  "read_scope": "cli and prepare_execution re-read only manifest/selection metadata. each annual design hashes then parses current-season people and games once; original source captures and other seasons game members stay unopened. these two passes imply roughly twice annual member bytes before cache effects. no full corpus revalidation is requested",
+  "memory_scope": "64 gib physical memory. four physical-row sparse matrices and retained predictor contexts persist; u blocked-origin expansion is bounded to 4096 rows per batch, not cached for all blocked origins. g retains two posterior arrays during em update. annual peak and runtime remain unmeasured",
+  "first_year_command": [
+    "analysis/.venv/bin/hockey-stats-analysis",
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022"
+  ],
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-05",
+  "output_policy": "new ordinary external directory; one heavy fit at a time; independent manual annual cli calls with previous completed annual path; no runner/checkpoint/retry machinery",
+  "producer_freeze": "cd45e97 corrected shared-availability source; transition-availability.json production hashes plus earlier unchanged owners"
+}

@@ -52,6 +52,7 @@ the accepted frontend cost is more content design, rendering and producer/schema
 - execution reference: virtual shooter, setter and goalie with zero residual execution effects while retaining circumstances and inferred setup state. this is reference execution, not probability averaged over actual players; older frozen reference contracts stay unchanged.
 - spatial baseline: forty modes, chosen over a twelve-region simplification. preserve finer structure and accept heavier nonlinear fitting without implying reliable fine-cell effects.
 - headline workload: 1,000 5v5 minutes, 100 pp minutes and 100 pk minutes for every skater. expose hypothetical specialty minutes and prior dominance; this is a common-workload index, not accumulated seasonal value.
+- execution history, confirmed during v1-05: apply entry shrinkage for first supported observations and carry shrinkage for returners, preserving the carried prior mean with the declared age adjustment. do not add another level penalty to returners: that would impose automatic 20% mean decay. point-prior uncertainty and slow adaptation remain limitations; [the execution contract](specs/v1-05-execution-base.md#annual-priors-and-references) owns the equations.
 
 [the full program](specs/experimental-player-analysis.md) specifies five annual training/history states, three displayed seasons, point-estimate limitations, concrete numerical families and the shared application. these implementation choices do not admit scientific claims or assign execution.
 

@@ -1,0 +1,134 @@
+{
+  "kind": "synthetic-source-evidence-withholding",
+  "purpose": "fixture",
+  "season": "20252026",
+  "recipe_sha256": "0cbf1872c5a62e09119237f83f57ad8d43e4cb814fc54d70bb8a2487cfbc3b32",
+  "key": "synthetic-resolution:2025020001:2:incomplete-setter",
+  "prepared": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+  },
+  "attribution": {
+    "kind": "synthetic",
+    "source_key": "2025020001:2",
+    "projection": "incomplete_setter",
+    "reason": "synthetic source-evidence withholding: last eligible prior-clock record kind support removed",
+    "changed_fields": [
+      "/events/1/source/kind_valid"
+    ],
+    "source_prepared_member": {
+      "kind": "game",
+      "season": "20252026",
+      "game_id": "2025020001",
+      "path": "games/20252026/2025020001.json",
+      "sha256": "7c405680185b2c76e93697dc071d7768b3d3e9ec9bc71832214b5082ec2afcf1"
+    },
+    "withheld_history": {
+      "source_index": 1,
+      "pointer": "/events/1/source/kind_valid",
+      "before": true,
+      "after": false
+    },
+    "setter_universe_complete": false,
+    "expected_prior": [
+      {
+        "kind": "none",
+        "probability": 0.2
+      },
+      {
+        "kind": "unknown",
+        "probability": 0.8
+      }
+    ]
+  },
+  "expected_prior": [
+    {
+      "kind": "none",
+      "probability": 0.2
+    },
+    {
+      "kind": "unknown",
+      "probability": 0.8
+    }
+  ],
+  "checks": {
+    "source_member_sha256_unchanged": true,
+    "training_design_unchanged": true,
+    "focal_identity_membership_type_location_tip_unchanged": true,
+    "unaffected_circumstance_columns": 170,
+    "changed_circumstance_columns": [
+      "recent_kind:faceoff",
+      "recent_kind:hit",
+      "recent_kind:giveaway",
+      "recent_kind:takeaway",
+      "recent_kind:shot-on-goal",
+      "recent_kind:missed-shot",
+      "recent_kind:blocked-shot",
+      "recent_team:same",
+      "recent_team:opponent",
+      "recent_delay:0",
+      "recent_delay:1",
+      "recent_delay:2",
+      "recent_delay:3",
+      "recent_delay:4",
+      "recent_delay:5",
+      "recent_zone:attacking",
+      "recent_zone:other",
+      "recent_shooter:same",
+      "recent_shooter:different",
+      "recent_exists",
+      "recent_kind:hit:recent_team:same",
+      "recent_kind:giveaway:recent_team:same",
+      "recent_kind:takeaway:recent_team:same",
+      "recent_kind:shot-on-goal:recent_team:same",
+      "recent_kind:missed-shot:recent_team:same",
+      "recent_kind:blocked-shot:recent_team:same",
+      "recent_kind:hit:recent_delay:1",
+      "recent_kind:hit:recent_delay:2",
+      "recent_kind:hit:recent_delay:3",
+      "recent_kind:hit:recent_delay:4",
+      "recent_kind:hit:recent_delay:5",
+      "recent_kind:giveaway:recent_delay:1",
+      "recent_kind:giveaway:recent_delay:2",
+      "recent_kind:giveaway:recent_delay:3",
+      "recent_kind:giveaway:recent_delay:4",
+      "recent_kind:giveaway:recent_delay:5",
+      "recent_kind:takeaway:recent_delay:1",
+      "recent_kind:takeaway:recent_delay:2",
+      "recent_kind:takeaway:recent_delay:3",
+      "recent_kind:takeaway:recent_delay:4",
+      "recent_kind:takeaway:recent_delay:5",
+      "recent_kind:shot-on-goal:recent_delay:1",
+      "recent_kind:shot-on-goal:recent_delay:2",
+      "recent_kind:shot-on-goal:recent_delay:3",
+      "recent_kind:shot-on-goal:recent_delay:4",
+      "recent_kind:shot-on-goal:recent_delay:5",
+      "recent_kind:missed-shot:recent_delay:1",
+      "recent_kind:missed-shot:recent_delay:2",
+      "recent_kind:missed-shot:recent_delay:3",
+      "recent_kind:missed-shot:recent_delay:4",
+      "recent_kind:missed-shot:recent_delay:5",
+      "recent_kind:blocked-shot:recent_delay:1",
+      "recent_kind:blocked-shot:recent_delay:2",
+      "recent_kind:blocked-shot:recent_delay:3",
+      "recent_kind:blocked-shot:recent_delay:4",
+      "recent_kind:blocked-shot:recent_delay:5",
+      "dx_ft/100",
+      "dy_ft/100",
+      "displacement_ft/100",
+      "crossed_centerline",
+      "previous_strength:same_fewer",
+      "previous_strength:same_more",
+      "return_to_5v5_age_seconds/60",
+      "unavailable:preceding_status",
+      "unavailable:strength_transition",
+      "unavailable:strength_transition_age"
+    ],
+    "actual_and_fully_neutral_evaluator": "finite; prior [.2,.8]; terminal sum1",
+    "old_reader_rejects_new_projection": true,
+    "current_reader_accepts_projection": true,
+    "malformed_projection_cases_rejected": 8,
+    "selector_unavailable_requirements": 0
+  },
+  "scope": "source projection only; no fit, comparison acceptance or observed attempt created"
+}

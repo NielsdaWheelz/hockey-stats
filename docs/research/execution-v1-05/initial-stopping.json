@@ -1,0 +1,76 @@
+{
+  "kind": "historical-numerical-resolution",
+  "purpose": "fixture",
+  "recipe_sha256": "eba7057ff0314232b591aecc1af2b211ffaec269fa79638f6d3236f4f5e82304",
+  "historical_receipts": {
+    "content": "f0593a8:docs/research/execution-v1-05/content.json",
+    "chain": "f0593a8:docs/research/execution-v1-05/fixture-chain.json"
+  },
+  "baseline_ftol": 1e-10,
+  "tightened_ftol": 1e-11,
+  "probability_margin": 1e-05,
+  "manifests": [
+    {
+      "season": "20212022",
+      "identity": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20212022/manifest.json",
+        "sha256": "2686d6b57b4565908a5312cee804b0c955fd47fdd06d780c3b098c8e7254c9a4"
+      }
+    },
+    {
+      "season": "20222023",
+      "identity": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20222023/manifest.json",
+        "sha256": "12e4bd94a04c8cb0336145521671bcbe49d6e8d145470185dd27e8c967007672"
+      }
+    },
+    {
+      "season": "20232024",
+      "identity": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20232024/manifest.json",
+        "sha256": "7338225b6a01f5531b06c580a3fe21970ea3aa6861762642ecf8ac133bdef748"
+      }
+    },
+    {
+      "season": "20242025",
+      "identity": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20242025/manifest.json",
+        "sha256": "6bbe84627e29118ef0213b3be7f07c4970ffcad661c22e5762759226be5ab31d"
+      }
+    },
+    {
+      "season": "20252026",
+      "identity": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/chain-05/20252026/manifest.json",
+        "sha256": "99eb032a1be8b7e364f8e2b39fa44cd0777a87c787d786b61ee1f57566652425"
+      }
+    }
+  ],
+  "final_heads": [
+    {
+      "head": "u",
+      "fit_status": "complete",
+      "resolution_status": "failed",
+      "maximum_probability_change": 4.321311468824529e-05
+    },
+    {
+      "head": "q",
+      "fit_status": "complete",
+      "resolution_status": "failed",
+      "maximum_probability_change": 6.910204844756684e-05
+    },
+    {
+      "head": "r",
+      "fit_status": "complete",
+      "resolution_status": "failed",
+      "maximum_probability_change": 3.992772615246665e-05
+    },
+    {
+      "head": "g",
+      "fit_status": "complete",
+      "resolution_status": "failed",
+      "maximum_probability_change": 4.302034101383301e-05
+    }
+  ],
+  "disposition": "historical failed fixture campaign; no model promotion; original state members retained locally"
+}

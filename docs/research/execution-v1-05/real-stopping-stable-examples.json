@@ -1,0 +1,76 @@
+{
+  "status": "canonical_stable_context_cutover_pass",
+  "observed_utc": "2026-10-25T20:10:36.435794+00:00",
+  "source_head": "ba8ffb7dfb22efa67dafe99a1bb3c55c4bc3937c",
+  "source_sha256": {
+    "analysis/src/hockey_stats/execution_design.py": "c7b30b73fe4b06e52e776a962a50098e1381600915a2294499c53099bee48032",
+    "analysis/src/hockey_stats/execution.py": "0d07196eb2f688468079608a4257c8d9491cf122236d2000f58eb18aa51a0624",
+    "analysis/src/hockey_stats/execution_state.py": "bcedcbc7f4f4a8c57d8482fd41afa7f5371a8873a5a0d50b52290a0d38737ae8",
+    "analysis/src/hockey_stats/execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "analysis/src/hockey_stats/feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132",
+    "analysis/src/hockey_stats/execution_fit.py": "341ba29d8405c0a4b0e6bff11c8cd6fc9afb0a2300f1adbd44c859674058a800"
+  },
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "qualification": {
+    "path": "/tmp/v105-acceptance-ftol15-20261025-tl31d3rq/fixture-qualification.json",
+    "sha256": "8c12aa22899d27808b7842ebb2a14bfe1ca4083ec72c13351d5a2606cea7aa52"
+  },
+  "staging_verification": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/verification.json",
+    "sha256": "1700d95bde1ade0c7bf51ec145a1488b512c44cc886e2c319ffc57815f73a928"
+  },
+  "before": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/cutover-before.json",
+    "sha256": "c5ef9fd1b0f24dffa498531e96bf5cd18e6327dbca733e9e23077ea4201d24d7"
+  },
+  "after": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/cutover-after.json",
+    "sha256": "bacf3afaa70e8fc2783a0cfa83144ff97d92e335994ab522be0eebc65f488bb3"
+  },
+  "canonical_predictors": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/fixtures/execution-v1-05/predictors.json",
+    "sha256": "cae3d59b2ff4b2363184c4761ba373b0413bde52319915c2319190ea6480392f"
+  },
+  "installed_stable_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-ftol15-01/20212022/manifest.json",
+    "sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6"
+  },
+  "installed_member_count": 10,
+  "installed_bytes": 3470480,
+  "old_stable_manifest_preserved": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-cap-01/20212022/manifest.json",
+    "sha256": "51e3a3612b0cc38671c2f3a3f537cee802927708c0d85013936963aca4e36cc1"
+  },
+  "historical_archive": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stable-context-history-20261025-01",
+  "old_stable_ten_files_unchanged": true,
+  "only_expected_tracked_change": "/Users/nnandal/Documents/code/hockey-stats-v1-05/fixtures/execution-v1-05/predictors.json",
+  "saved_only_check": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/canonical-detached-result.json",
+    "sha256": "b4fd40ee90ede8cef4dd4ffe85a36b55a6da7df0a01f19a6a0e58f423acf602a"
+  },
+  "saved_only_result": {
+    "status": "pass",
+    "scope": "saved-only staged check; canonical cutover not implied",
+    "source_controls": "three original source/state locators permission_denied",
+    "network_control": "permission_denied",
+    "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+    "actual_state": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-ftol15-01/20212022/manifest.json",
+    "declared_future_state": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-real-checks/chain-ftol15-01/20212022/manifest.json",
+    "state_sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6",
+    "examples": 7,
+    "exact_signatures": 14,
+    "signature_order": "sha256 of concatenated C-order little-endian float64 prior,u,q,r,g,block,miss,stopped,continuing,goal",
+    "raw_rebuild": false
+  },
+  "temporary_checker": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/saved-only-check.py",
+    "sha256": "e964cbd9389e2b970970dd4a49f234fc621ab89402cf489dee70ba216ba5589b"
+  },
+  "denial_profile": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/denied-source.sb",
+    "sha256": "3f1be957ab90aeb3879999830e72715a00ba02516c4efda7ae4ec3a6212359ca"
+  },
+  "committed_by_operator": false,
+  "real_fit_launched": false,
+  "remaining_gate": "root docs/examples commit and final clean source freeze plus explicit real-start go"
+}

@@ -1,0 +1,113 @@
+{
+  "scope": "committed reviewed production implementation and explicit task/shared boundary file hashes; the commit binds remaining transitive repository sources",
+  "production_commit": "c171d2e3693cc32fe00c73c72ddea4f050a648dd",
+  "production_git_dirty_at_freeze": false,
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-1",
+    "sha256": "cfbda18bf84d3ad211d97d621b56f8346c223c14553aa6cb661ee4be3d64be09"
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "8222df648b09e02835a36107dc979839c7233ea132ef4f85412800e4ca99cea5",
+      "bytes": 22197
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "sha256": "9528af8c3a574e591ff7667e7d7a917f9f69fe174fbc2724db09b3be6ff6f699",
+      "bytes": 60050
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "5ef7a9c2bc8e16de0f4a1955edfddd6cebed9b086e2901682b8e0dcf05477f0e",
+      "bytes": 65953
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "sha256": "0b52fa0b1812269e3f5e4e1c35d2cd31a62cc109f5ce13a6eaa1dfdc255bbf8a",
+      "bytes": 16677
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_cli.py",
+      "sha256": "dad48bd086ee11e4169c8615fe875e57d5abb69a653621a8a7bdc2f3fa481652",
+      "bytes": 4172
+    },
+    {
+      "path": "analysis/src/hockey_stats/artifacts.py",
+      "sha256": "984895fe323e915ad299fd688f57fe685ec7e7692549b4c3144bb8080d2f2b86",
+      "bytes": 8433
+    },
+    {
+      "path": "analysis/src/hockey_stats/chance_cli.py",
+      "sha256": "fff01e071a5f47d7c7de88e001658b96c85869c15a1f952b15e8e78ec09f8738",
+      "bytes": 14116
+    },
+    {
+      "path": "analysis/src/hockey_stats/analysis_data.py",
+      "sha256": "4fce9d43d6c5afca6ed9335ce5b308feca8a7cf2f8582f8fe222aa44f3a64f1d",
+      "bytes": 45885
+    },
+    {
+      "path": "analysis/src/hockey_stats/captures.py",
+      "sha256": "8571b6cef87c991a41a0f2c666828bec31a1d37a07b3156569e3bb0ee8a69e4e",
+      "bytes": 12844
+    },
+    {
+      "path": "analysis/src/hockey_stats/chance.py",
+      "sha256": "02a7a840fc1c4aea232d757d6d98a3185931603edb193582d443f06f8b313e20",
+      "bytes": 106695
+    },
+    {
+      "path": "analysis/src/hockey_stats/chance_features.py",
+      "sha256": "daee169db307e9f5877ae7df7df7c8959c1a7599dcd5ad467b13a5a398b909c1",
+      "bytes": 28309
+    },
+    {
+      "path": "analysis/src/hockey_stats/coaches.py",
+      "sha256": "aa5c67bada1fad44e12fa3046363591c22224b2101ae6813c481d21940f3ca45",
+      "bytes": 45459
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_data.py",
+      "sha256": "b0db151dc6aff79c6fb67d42980246674ec1bb213c6245efab87597cdc932ddb",
+      "bytes": 89377
+    },
+    {
+      "path": "analysis/src/hockey_stats/feature_history.py",
+      "sha256": "1ed96e6ff6d51a8e40cd5aebf1617a129cec59497861fc026a3cf2f9862f8263",
+      "bytes": 20024
+    },
+    {
+      "path": "analysis/src/hockey_stats/shot_origins.py",
+      "sha256": "34cc5ea4b5364aac502593a2d65d5b2192498ae63d006c187009d5f7a1d4340e",
+      "bytes": 2586
+    },
+    {
+      "path": "analysis/pyproject.toml",
+      "sha256": "90025e27c52c4adfe1763987b2e976fffb42f36a45fb852b1f295af21fcc08ab",
+      "bytes": 695
+    },
+    {
+      "path": "analysis/uv.lock",
+      "sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd",
+      "bytes": 57101
+    },
+    {
+      "path": "docs/specs/v1-05-execution-base.md",
+      "sha256": "7f6cc153fcaec6ccb554999849341cf563821102d611023861816ec1b3133c06",
+      "bytes": 30642
+    }
+  ],
+  "fixture_producer": {
+    "git_commit": "594e3a4b051a1c3882f1ede6283bb2b76275a9cc",
+    "git_dirty": true,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "fixture_scope": "five-year chain06; twenty completed fixture heads and four passed numerical continuations; no real acceptance",
+  "followups": "the fixture producer truthfully records dirty source at commit 594e3a4. later reader validation and predecessor-output containment preserve the fitted objective, design, raw coefficients and probability arithmetic. this is a final implementation freeze, not a rewritten clean producer claim. no refit was needed.",
+  "real_scope": "blocked upstream; start real fitting only from the committed frozen production implementation after accepted v1-01 input"
+}

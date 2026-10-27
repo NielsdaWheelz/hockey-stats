@@ -1,0 +1,60 @@
+{
+  "scope": "source-boundary temporary verification deletion after final green; no retained test harness",
+  "deleted_files": [
+    {
+      "path": "/tmp/v105-source-check.py",
+      "sha256": "ec6f7c9382334a883fc01f5f0f34775ac391c887e78e4ac456570ea8ef6afd64"
+    },
+    {
+      "path": "/tmp/v105-source-acceptance.py",
+      "sha256": "6b2963ed0f07055f3c3eecef09ca878eaa626c93186548aa0381059abfdfc5de"
+    },
+    {
+      "path": "/tmp/v105-source-fields.py",
+      "sha256": "23e7eced55faa2091e8da4d9d71de25877e234afc4000ffddd3a18b76192fafd"
+    },
+    {
+      "path": "/tmp/v105-setter-source-check.py",
+      "sha256": "40d464bcb53c3a8b9641a4d80c6fbf1ac8619ecd87263704a25f150ed7d12b86"
+    },
+    {
+      "path": "/tmp/v105-missingness-check.py",
+      "sha256": "0582ee76401d8b334ebbc0a6565b4ae226f6bfd0d0d7122255a75b54e3ff6f6b"
+    },
+    {
+      "path": "/tmp/v105-resolution-source-check.py",
+      "sha256": "10354d05fd97c7cd154694488c6b91f6b18105d008801b6e2c75ae6e816b4265"
+    },
+    {
+      "path": "/tmp/v105-goalie-locality-check.py",
+      "sha256": "dfe5a3db5f9f4454cd3bdc47e8eeeeec6f3521d3a62d4ab9ff43d5eabfa94cae"
+    },
+    {
+      "path": "/tmp/v105-goalie-identity-check.py",
+      "sha256": "93abbbf80cbcd154ec5a0d6ed1d7949a0ece37962f39d1e3ee6473c52af27767"
+    },
+    {
+      "path": "/tmp/v105-prerequisite.patch",
+      "sha256": "8e7d9083ced4507bed0523b1a9b0b768c8da7bfe93f46bfdeb64a5efe2b16915"
+    },
+    {
+      "path": "/tmp/v105-boundary.patch",
+      "sha256": "cbf7dc3272cda90048c3e884b9638f78b085ad56b941143b262b2f4a82b29d69"
+    },
+    {
+      "path": "/tmp/v105-old-feature-data.py",
+      "sha256": "5dd9c69b11047025f912895374255d98ade9629507fe8624bde1c67ed70cccee"
+    }
+  ],
+  "deleted_clones": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/later-invariance",
+      "kind": "temporary APFS clone of original checked fixture; synthetic mutations only"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/goalie-locality",
+      "kind": "temporary APFS clone of original checked fixture; synthetic mutations only"
+    }
+  ],
+  "retained": "original capture bundles, original checked preparation, source receipts, synthetic expectations; no expensive fits or other agents files removed"
+}

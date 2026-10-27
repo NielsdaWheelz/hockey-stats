@@ -1,0 +1,234 @@
+{
+  "status": "pass",
+  "source_contexts": {
+    "path": "/tmp/v105-acceptance-ftol15-20261025-tl31d3rq/historical-5950/predictors.json",
+    "sha256": "3f5d749efd13a772d56d744f78cecbd86e4b12ac3f3b9cf14c01203b66eb6efa"
+  },
+  "new_staged_payload": {
+    "path": "/var/folders/cb/dy22pnwn5_9c_rzxkbzymbm00000gn/T/v105-stable-rebind-20261025-rq0l5lsx/predictors-prepared.json",
+    "sha256": "cae3d59b2ff4b2363184c4761ba373b0413bde52319915c2319190ea6480392f"
+  },
+  "staged_payload_installed": false,
+  "numerical_state": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20212022/manifest.json",
+    "sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6"
+  },
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "same_seven_predictor_inputs_and_origins": true,
+  "all14_new_signatures_match_staged_payload": true,
+  "actual_and_neutral_probability_closure": true,
+  "coefficients_unmodified_by_scoring": true,
+  "scope": "public saved-state scorer on the unchanged seven attributed raw fixture contexts; old signatures retained as historical, canonical rebinding remains root-owned",
+  "results": [
+    {
+      "source_key": "2021020001:6",
+      "execution": "actual",
+      "origin_cells": 1,
+      "setter_branches": 8,
+      "sha256": "f754f6fbd3ac229c7500a6842591ac8d08a7487cce074e1d5cb75dc89558bc83",
+      "maximum_branch_mass_error": 1.1102230246251565e-16,
+      "integrated_terminal": {
+        "block": 0.2143526874034705,
+        "miss": 0.17846874056479772,
+        "stopped": 0.16885912218028473,
+        "continuing": 0.410621474183678,
+        "goal": 0.027697975667769086
+      }
+    },
+    {
+      "source_key": "2021020001:6",
+      "execution": "neutral",
+      "origin_cells": 1,
+      "setter_branches": 8,
+      "sha256": "d4cf0aaab33655b2388dd3490465eef678da6e1b06bc0816f8882f99a1019f60",
+      "maximum_branch_mass_error": 1.1102230246251565e-16,
+      "integrated_terminal": {
+        "block": 0.1838276780753365,
+        "miss": 0.15582744993012151,
+        "stopped": 0.16764004206673555,
+        "continuing": 0.46024898949352755,
+        "goal": 0.032455840434278876
+      }
+    },
+    {
+      "source_key": "2021020001:57",
+      "execution": "actual",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "e104dc052c6c38f662017744c80c6f894397aa6b251b4b80cb1481271732ae79",
+      "maximum_branch_mass_error": 1.1102230246251565e-16,
+      "integrated_terminal": {
+        "block": 0.3900223799638384,
+        "miss": 0.2895766364682891,
+        "stopped": 0.04965009116913636,
+        "continuing": 0.2552562401748786,
+        "goal": 0.015494652223857833
+      }
+    },
+    {
+      "source_key": "2021020001:57",
+      "execution": "neutral",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "d8cbb6600f4f7eb3c6a8aad5b7eb28bf18caf7d00d32bb9bea140bd9c48f01dc",
+      "maximum_branch_mass_error": 1.1102230246251565e-16,
+      "integrated_terminal": {
+        "block": 0.35156349695644135,
+        "miss": 0.30077988443974,
+        "stopped": 0.05687068901184046,
+        "continuing": 0.2747491164051522,
+        "goal": 0.016036813186826156
+      }
+    },
+    {
+      "source_key": "2021020001:31",
+      "execution": "actual",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "a9510fe2c10878c57575ba2e4d99f2e5a591a0817f108644eea4a573c1e7331b",
+      "maximum_branch_mass_error": 0.0,
+      "integrated_terminal": {
+        "block": 0.12467426928911175,
+        "miss": 0.21504734227691508,
+        "stopped": 0.13648318199151357,
+        "continuing": 0.4616113521707085,
+        "goal": 0.06218385427175113
+      }
+    },
+    {
+      "source_key": "2021020001:31",
+      "execution": "neutral",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "5c5aa8178551c7f2b73ce3194bb2f09d14c249061bc37e4df68593070f3fe093",
+      "maximum_branch_mass_error": 1.1102230246251565e-16,
+      "integrated_terminal": {
+        "block": 0.15085886267966267,
+        "miss": 0.24286516443187955,
+        "stopped": 0.12171246743317593,
+        "continuing": 0.43697261142507116,
+        "goal": 0.04759089403021069
+      }
+    },
+    {
+      "source_key": "2021020001:37",
+      "execution": "actual",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "f63d64503f3ff9231fe369859156bbc814647c738c903082af2bed3b7a20d7aa",
+      "maximum_branch_mass_error": 0.0,
+      "integrated_terminal": {
+        "block": 0.3112870301550812,
+        "miss": 0.3002539660005603,
+        "stopped": 0.04479772084643169,
+        "continuing": 0.31901641702830275,
+        "goal": 0.02464486596962415
+      }
+    },
+    {
+      "source_key": "2021020001:37",
+      "execution": "neutral",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "570df13137a5e4768743d65eb3e527f2e489988958e5be90a9ff3e6e03c8ca41",
+      "maximum_branch_mass_error": 0.0,
+      "integrated_terminal": {
+        "block": 0.3152373504902766,
+        "miss": 0.30075687057242506,
+        "stopped": 0.04681043295566403,
+        "continuing": 0.31425067457203154,
+        "goal": 0.022944671409602865
+      }
+    },
+    {
+      "source_key": "2021020001:51",
+      "execution": "actual",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "aa693a824f2d08bc22a95607a5f79d503a94d0426099d5ecddec9de014143984",
+      "maximum_branch_mass_error": 0.0,
+      "integrated_terminal": {
+        "block": 0.10445741714280402,
+        "miss": 0.1980152967232322,
+        "stopped": 0.08963493368098718,
+        "continuing": 0.5471416527734335,
+        "goal": 0.0607506996795433
+      }
+    },
+    {
+      "source_key": "2021020001:51",
+      "execution": "neutral",
+      "origin_cells": 1,
+      "setter_branches": 6,
+      "sha256": "aae958df7bf5a540341f44663d6c41d8b8db7275d434365b3d80ea8dd309b84a",
+      "maximum_branch_mass_error": 0.0,
+      "integrated_terminal": {
+        "block": 0.1055242708694524,
+        "miss": 0.20038671638734668,
+        "stopped": 0.08871608115787413,
+        "continuing": 0.5489819587943163,
+        "goal": 0.05639097279101058
+      }
+    },
+    {
+      "source_key": "2021020001:158",
+      "execution": "actual",
+      "origin_cells": 1,
+      "setter_branches": 11,
+      "sha256": "20024383aa115c49047c858fa912e97566ecdb939425affbfcdf1b8b1d812a57",
+      "maximum_branch_mass_error": 0.0,
+      "integrated_terminal": {
+        "block": 0.0657746287373483,
+        "miss": 0.15246440558834393,
+        "stopped": 0.18819083232372863,
+        "continuing": 0.5150423552785324,
+        "goal": 0.07852777807204686
+      }
+    },
+    {
+      "source_key": "2021020001:158",
+      "execution": "neutral",
+      "origin_cells": 1,
+      "setter_branches": 11,
+      "sha256": "c1d063dc34166de5c4a1fad094a86abb277db33362cc0a196f6683b22a182b74",
+      "maximum_branch_mass_error": 2.220446049250313e-16,
+      "integrated_terminal": {
+        "block": 0.07711276628502063,
+        "miss": 0.17843324451239917,
+        "stopped": 0.1732135519297304,
+        "continuing": 0.5083864640009392,
+        "goal": 0.06285397327191052
+      }
+    },
+    {
+      "source_key": "2021020001:10",
+      "execution": "actual",
+      "origin_cells": 656,
+      "setter_branches": 6,
+      "sha256": "a04c8d7c289c53d36b4802404c0d74c68f4cd9353fa1030ef07420b2f9bf504a",
+      "maximum_branch_mass_error": 2.220446049250313e-16,
+      "integrated_terminal": {
+        "block": 0.27770342990286645,
+        "miss": 0.15958164286209447,
+        "stopped": 0.12442344404510922,
+        "continuing": 0.41375939124440997,
+        "goal": 0.024532091945519818
+      }
+    },
+    {
+      "source_key": "2021020001:10",
+      "execution": "neutral",
+      "origin_cells": 656,
+      "setter_branches": 6,
+      "sha256": "67ed1b60b318e285fb368f49c82d708eda3f5a00ce6e07b1d6dbe1e2d5c036a0",
+      "maximum_branch_mass_error": 2.220446049250313e-16,
+      "integrated_terminal": {
+        "block": 0.21603726649199062,
+        "miss": 0.1780787442909747,
+        "stopped": 0.14376398937962687,
+        "continuing": 0.43451480715646496,
+        "goal": 0.02760519268094271
+      }
+    }
+  ]
+}

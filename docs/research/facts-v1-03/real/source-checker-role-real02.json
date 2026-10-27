@@ -1,0 +1,39 @@
+{
+  "status": "targeted_green_full_source_pending",
+  "scope": "checker-only correction for valid goalie actors in five-on-five microstat event dispositions",
+  "candidate_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+  "prepared_manifest_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+  "frozen_checker_before_sha256": "13842c8d9c59f2a5cc3f25da9ce11cab6b365c978fa4a651341d68f1a9184c7f",
+  "frozen_checker_after_sha256": "7b58ac3c1020a9775af56ad125195e02ac92d0715eb3b7c865ca00e0ba8e3390",
+  "cause": "the original checker required every physical event actor to be a skater, while prepared membership and the factual event trace admit a goalie shot; the producer counts skater players only",
+  "correction": "verify each original actor and opposing actor on the dated team in skaters or goalies; require a valid dated shooting team for a blocked-shot opponent; add included event count to the independent skater fold only when the actor belongs to that side's skaters",
+  "producer_or_candidate_changed": false,
+  "wave_one": {
+    "20232024": {"outcome": "owned source checker stopped after exact argv verification", "exit_code": 143, "wall_seconds": 1051.47, "stderr_sha256": "3d21218f536d5ea1f76b6c1e2c93357b21568fae2b22a165ea74220c9584e87a"},
+    "20242025": {"outcome": "checker false assertion at 2024020214/u:117", "exit_code": 1, "wall_seconds": 952.53, "stderr_sha256": "20b832a262f7f7415d512682dcd387d1ad126217669349b20e94cf5b4c905b9d"},
+    "20252026": {"outcome": "checker false assertion at 2025020171/u:195", "exit_code": 1, "wall_seconds": 761.15, "stderr_sha256": "8c25ad844fb4c09b5ac9c1b5983aacc7fcbed5ba0253dd7027c64a4c2fd134f6"}
+  },
+  "actual_original_witnesses": [
+    {
+      "season": "20242025", "game_id": "2024020214", "source_index": 117,
+      "play_locator": "/plays/117", "play_body_sha256": "f0224d640b5b0f8f7a78f04a74c150ebf627e0a04e41f89678cb34eeec20f434",
+      "goalie_id": "8481611", "dated_team_id": "12", "segment_index": 141, "membership": "home_goalies",
+      "original_event": "shot-on-goal", "event_disposition": "included", "published_skater_row_count": 0,
+      "targeted_one_game": "passed", "goalie_in_independent_skater_fold": false,
+      "fabricated_skater_actor_negative": "rejected by original event role check",
+      "fabricated_plus_one_support_count_negative": "rejected by conditional receipt count closure"
+    },
+    {
+      "season": "20252026", "game_id": "2025020171", "source_index": 195,
+      "play_locator": "/plays/195", "play_body_sha256": "7c4a1fe126208734db7e4c826feeb37af4684d8715be11995c4eee3b8abe5d6f",
+      "goalie_id": "8479496", "dated_team_id": "2", "segment_index": 153, "membership": "away_goalies",
+      "original_event": "shot-on-goal", "event_disposition": "included", "published_skater_row_count": 0,
+      "targeted_one_game": "passed", "goalie_in_independent_skater_fold": false,
+      "fabricated_skater_actor_negative": "rejected by original event role check",
+      "fabricated_plus_one_support_count_negative": "rejected by conditional receipt count closure"
+    }
+  ],
+  "source_fixture_policy": "2025020171 /plays/195 was already documented as an original local 05d goalie-credit witness in fixtures/README.md; the failure was in the checker assumption and exposed no broken source game or distinct capture boundary",
+  "full_source_wave_two": "running in three disjoint season processes with external source-<season>-02 receipts",
+  "peer_review": "systems agent cleared the exact role-aware diff and direct support-count negative before wave two"
+}

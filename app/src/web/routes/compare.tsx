@@ -27,15 +27,16 @@ import {
 } from "../explorer";
 import SpatialViews from "../spatial-views";
 import ComparativeCard, { prepareComparativeCard } from "../comparative-card";
-import DescriptiveCard from "../descriptive-card";
+import DescriptiveCard, { descriptiveScales } from "../descriptive-card";
+import { buildDescriptiveCard } from "../descriptive-values";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import {
   selectLeagueValues,
-  selectHistoryValue,
   type AnalysisMetric,
 } from "../analysis-values";
 import { buildAnalysisCohort } from "../analysis-cohorts";
-import { ObservedRateValue, ObservedSupport } from "../descriptive-card";
+import AnalysisHistory, { prepareHistoryPoint, type HistoryScale } from "../analysis-history";
+import { ObservedRateValue, ObservedSupport } from "../observed-rates";
 import {
   buildObservedComparison,
   observedMetrics,
@@ -104,7 +105,7 @@ export default function Compare() {
     mapNormalized,
     "skater",
   );
-  const { scale, search: normalized } = readHistoryScale(metricNormalized);
+  const { scale, search: normalized } = readHistoryScale(metricNormalized, metric);
   useCanonicalSearch(data.season.season, normalized);
   const viewQuery = seasonSearch("", data.season.season);
   if (view === "observed") viewQuery.set("view", "observed");
@@ -158,6 +159,12 @@ export default function Compare() {
       state: location.state,
       flushSync: true,
     });
+  };
+  const changeScale = (nextScale: HistoryScale) => {
+    const next = viewSearch(location, navigation.location);
+    if (nextScale === "raw") next.delete("history");
+    else next.set("history", nextScale);
+    setSearch(next, { preventScrollReset: true, state: location.state, flushSync: true });
   };
   const first = selection(
     search.getAll("a"),
@@ -225,27 +232,34 @@ export default function Compare() {
       settings.specialtyMin,
     ],
   );
+  const descriptiveCards = useMemo(
+    () => view === "observed" && data.profiles
+      ? data.profiles.map(profile => buildDescriptiveCard(profile, profile.player_id, settings))
+      : null,
+    [data.profiles, view, settings.peers, settings.peerMin, settings.specialtyMin],
+  );
+  const descriptiveSharedScales = descriptiveCards ? descriptiveScales(descriptiveCards) : undefined;
+  const scalarHistories = useMemo(
+    () => data.profiles?.map(profile => ({
+      playerId: profile.player_id,
+      person: profile.person,
+      views: profile.scalarHistory.map(row =>
+        prepareHistoryPoint(row, profile.detail, metric, profile.player_id, settings),
+      ),
+    })) ?? [],
+    [data.profiles, metric, settings.peers, settings.peerMin, settings.specialtyMin],
+  );
   const scalarComparison = useMemo(() => {
     if (!pair) return null;
-    const values = selectLeagueValues(data.scalarCohort, metric);
-    const selected = pair.map((player) => {
-      const profile = data.profiles!.find(
-        (profile) => profile.player_id === player.player_id,
-      )!;
-      const annual = profile.scalarHistory.find(
-        (row) => row.season.season === data.season.season,
-      )!;
-      return selectHistoryValue(
-        annual,
-        annual.cohort,
-        metric,
-        player.player_id,
-      );
-    });
+    const values = data.scalarCohort ? selectLeagueValues(data.scalarCohort, metric) : [];
+    const selected = scalarHistories.map(history => history.views.find(
+      ({ point }) => point.season.season === data.season.season,
+    )!.point.datum);
     return buildAnalysisCohort(values, selected, settings);
   }, [
     data.scalarCohort,
     data.profiles,
+    scalarHistories,
     pair,
     metric,
     settings.peers,
@@ -377,44 +391,25 @@ export default function Compare() {
           ))}
         </div>
       )}
-      {view === "observed" && pair && !comparison && (
-        <div className="comparative-pair">
-          {pair.map((person) => {
-            const player = data.players.find(
-              (player) => player.player_id === person.player_id,
-            );
-            return player ? (
+      {descriptiveCards && (
+        <section aria-label="complete recorded card comparison">
+          <PeerControls settings={settings} onChange={changePeers} allCutoffs />
+          <div className="descriptive-pair">
+            {descriptiveCards.map(model => (
               <DescriptiveCard
-                key={person.player_id}
-                comparison={buildObservedComparison(
-                  data.players,
-                  [player],
-                  settings,
-                )}
-                publication={data.publication}
-                season={data.season}
-                controls={
-                  <PeerControls settings={settings} onChange={changePeers} />
-                }
+                key={model.playerId}
+                model={model}
+                scales={descriptiveSharedScales}
+                detailLink={id => {
+                  const next = seasonSearch(search, data.season.season);
+                  next.set("metric", id);
+                  next.delete("history");
+                  return { to: `${location.pathname}?${next}`, state: location.state };
+                }}
               />
-            ) : (
-              <section key={person.player_id}>
-                <h3>{playerName(person)}</h3>
-                <p>
-                  observed 5v5 results unavailable for{" "}
-                  {seasonLabel(data.season.season)}.
-                </p>
-                <p>
-                  {
-                    data.profiles?.find(
-                      (profile) => profile.player_id === person.player_id,
-                    )?.observedExplanation
-                  }
-                </p>
-              </section>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        </section>
       )}
       {view === "observed" && comparison && (
         <section aria-label="included player comparison">
@@ -511,7 +506,7 @@ export default function Compare() {
       )}
       {scalarComparison && (
         <PeerDistributions
-          showPeerControls={view === "observed"}
+          showPeerControls={view === "observed" && metric.standingPolicy !== "raw_only"}
           cohort={scalarComparison}
           metric={metric}
           onMetricChange={changeMetric}
@@ -523,6 +518,19 @@ export default function Compare() {
           exportValues
         />
       )}
+      {scalarHistories.map(history => (
+        <section key={history.playerId} aria-label={`selected quantity history for ${history.person ? playerName(history.person) : `player ${history.playerId}`}`}>
+          <h3>{history.person ? playerName(history.person) : `player ${history.playerId}`} · selected quantity history</h3>
+          <AnalysisHistory
+            view={{ publication: data.publication, metric, selectedSeason: data.season.season,
+              scale, points: history.views.map(({ point }) => point) }}
+            onScaleChange={changeScale}
+            seasonLink={year => ({
+              to: `${location.pathname}?${seasonSearch(search, year)}`, state: location.state,
+            })}
+          />
+        </section>
+      ))}
       {view === "observed" && pair && (
         <SpatialViews
           maps={data.maps}

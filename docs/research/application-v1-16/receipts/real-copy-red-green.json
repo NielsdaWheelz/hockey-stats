@@ -1,0 +1,97 @@
+{
+  "status": "green",
+  "boundary": "real v1-16 descriptive svg copy only",
+  "publication_id": "eb4e31ab-a35c-4df6-be34-9bccceb4fe3d",
+  "candidate_sha256": "0526b60cd7f009627de4621717f89e95b1fa4613553bae20be10b466025e9b21",
+  "changed_source": "app/src/web/descriptive-card.tsx",
+  "red": {
+    "status": "red",
+    "cases": [
+      {
+        "season": "20242025",
+        "id": "8480075",
+        "errors": [
+          "both null counterpart coordinates need explicit unavailable copy for teammate and opponent",
+          "both null counterpart coordinates falsely claim a retained known coordinate",
+          "one appearance must be singular",
+          "one appearance is plural",
+          "missing height carries a cm unit"
+        ],
+        "observed": {
+          "height": "age 25.7 as of 2025-02-01 \u00b7 height unavailable cm",
+          "appearances": "1 appearances",
+          "counterpart": [
+            "point unavailable",
+            "point unavailable",
+            "point unavailable",
+            "point unavailable",
+            "point unavailable; known",
+            "point unavailable; known"
+          ]
+        }
+      },
+      {
+        "season": "20232024",
+        "id": "8474590",
+        "errors": [
+          "missing height carries a cm unit"
+        ],
+        "observed": {
+          "height": "age 34.1 as of 2024-02-01 \u00b7 height unavailable cm",
+          "appearances": "82 appearances",
+          "counterpart": []
+        }
+      }
+    ]
+  },
+  "green": {
+    "status": "green",
+    "cases": [
+      {
+        "season": "20242025",
+        "id": "8480075",
+        "errors": [],
+        "observed": {
+          "height": "age 25.7 as of 2025-02-01 \u00b7 height unavailable",
+          "appearances": "1 appearance",
+          "counterpart": [
+            "point unavailable",
+            "point unavailable",
+            "point unavailable",
+            "point unavailable",
+            "both usage bands unavailable",
+            "both usage bands unavailable"
+          ]
+        }
+      },
+      {
+        "season": "20232024",
+        "id": "8474590",
+        "errors": [],
+        "observed": {
+          "height": "age 34.1 as of 2024-02-01 \u00b7 height unavailable",
+          "appearances": "82 appearances",
+          "counterpart": []
+        }
+      }
+    ]
+  },
+  "typecheck": "pass",
+  "build": "pass",
+  "revised_reader_startup_seconds_approx": 1139,
+  "revised_real_browser": {
+    "cards": 6,
+    "png_dimensions": [
+      1200,
+      2324
+    ],
+    "csv_files": 6,
+    "csv_rows": 3202,
+    "native_leaves_checked": 3124,
+    "native_zoom_375px_200_percent_headed_cases": [
+      "8474590",
+      "8480075"
+    ]
+  },
+  "data_boundary": "same candidate/publication, no api/schema/producer edit; original typed api and source checks remain bound to the unchanged backend"
+}

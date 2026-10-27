@@ -1,8 +1,10 @@
 import { useId, useRef, useState } from "react";
 import { Link } from "react-router";
 import type { Publication, SeasonEvidence } from "../shared/observed";
-import type { AnalysisDatum, AnalysisMetric } from "./analysis-values";
-import { positionGroup, type AnalysisStanding } from "./analysis-cohorts";
+import { selectHistoryValue, selectLeagueValues, type AnalysisCatalogs, type AnalysisDatum, type AnalysisMetric } from "./analysis-values";
+import type { ScalarHistoryRow } from "./client";
+import type { PeerSettings } from "./explorer";
+import { buildAnalysisCohort, positionGroup, rawOnlyStanding, type AnalysisStanding } from "./analysis-cohorts";
 import { formatPercentile } from "./observed-comparison";
 import { downloadBlob, downloadCsv, svgPng, type CsvCell } from "./export";
 import { playerName, seasonLabel, teamName } from "./presentation";
@@ -11,10 +13,32 @@ export type HistoryScale = "raw" | "percentile";
 export type AnalysisRow = {
   readonly datum: AnalysisDatum;
   readonly standing: AnalysisStanding;
-  readonly member: boolean;
-  readonly incompatiblePeerCount: number;
+  readonly member: boolean | null;
+  readonly incompatiblePeerCount: number | null;
 };
 export type HistoryPoint = AnalysisRow & { readonly season: SeasonEvidence };
+export function prepareHistoryPoint(
+  row: ScalarHistoryRow,
+  catalogs: AnalysisCatalogs,
+  metric: AnalysisMetric,
+  playerId: string,
+  settings: PeerSettings,
+) {
+  if (row.cohort === null && metric.standingPolicy !== "raw_only")
+    throw new Error("ranked history requires its annual cohort");
+  const datum = selectHistoryValue(row, row.cohort ?? catalogs, metric, playerId);
+  const cohort = buildAnalysisCohort(row.cohort ? selectLeagueValues(row.cohort, metric) : [], [datum], settings);
+  const group = cohort.groups[0];
+  const point: HistoryPoint = {
+    datum,
+    season: row.season,
+    standing: row.cohort ? group.selected[0].standing : rawOnlyStanding,
+    member: row.cohort ? group.members.some(member => member.playerId === playerId) : null,
+    incompatiblePeerCount: row.cohort ? group.incompatiblePeerCount : null,
+  };
+  return { point, cohort };
+}
+
 type HistoryView = {
   readonly publication: Publication;
   readonly metric: AnalysisMetric;
@@ -630,7 +654,7 @@ function historySvg(view: HistoryView): string {
         `${datumName(datum)} · ${datum.person?.reported_position ?? "position unavailable"} · ${datum.person?.teams.map(teamName).join(" / ") || "teams unavailable"}`,
       );
       text(
-        `${groupName(standing.peerGroup)} · cutoff ${standing.cutoffMinutes ?? "unavailable"} min · n=${standing.n ?? "unavailable"} · incompatible peers ${point.incompatiblePeerCount}`,
+        point.member === null ? "no reference cohort constructed" : `${groupName(standing.peerGroup)} · cutoff ${standing.cutoffMinutes ?? "unavailable"} min · n=${standing.n ?? "unavailable"} · incompatible peers ${point.incompatiblePeerCount}`,
       );
       text(
         `qualification: ${datum.qualificationSeconds ?? "unavailable"} seconds (${datum.qualificationBasis}); quantity support: ${datum.support?.included_seconds ?? datum.observedSupport?.included_seconds ?? "unavailable"} included seconds; known excluded seconds ${datum.support?.known_excluded_seconds ?? datum.observedSupport?.known_excluded_seconds ?? "unavailable"}; gap ${datum.support?.unquantified_gap ?? "unknown"}; prior-only ${datum.support?.prior_only ?? "unknown"}`,
@@ -729,6 +753,7 @@ export default function AnalysisHistory({
   return (
     <section className="analysis-history" aria-labelledby={`${id}-title`}>
       <h3 id={`${id}-title`}>{view.metric.label}: published history</h3>
+      {view.metric.standingPolicy !== "raw_only" && <>
       <label htmlFor={`${id}-scale`}>history scale</label>
       <select
         id={`${id}-scale`}
@@ -740,9 +765,10 @@ export default function AnalysisHistory({
         <option value="raw">raw magnitude</option>
         <option value="percentile">annual percentile</option>
       </select>
+      </>}
       <p>
         one slot per published season. each year uses its own person, support
-        and reference cohort. zero is a value; absence is not zero.{" "}
+        and published meaning. zero is a value; absence is not zero.{" "}
         {view.scale === "percentile"
           ? "percentile scale: 0–100; raw values remain in the table."
           : `display unit: ${view.metric.displayUnit}.`}
@@ -806,11 +832,13 @@ export default function AnalysisHistory({
                 <td>
                   {standingText(point.standing)}
                   <br />
-                  {groupName(point.standing.peerGroup)} · n=
-                  {point.standing.n ?? "unavailable"} · cutoff{" "}
-                  {point.standing.cutoffMinutes ?? "unavailable"} min
-                  <br />
-                  {point.incompatiblePeerCount} incompatible peers excluded
+                  {point.member === null ? "no reference cohort constructed" : <>
+                    {groupName(point.standing.peerGroup)} · n=
+                    {point.standing.n ?? "unavailable"} · cutoff{" "}
+                    {point.standing.cutoffMinutes ?? "unavailable"} min
+                    <br />
+                    {point.incompatiblePeerCount} incompatible peers excluded
+                  </>}
                 </td>
                 <td>
                   {i > 0 && (

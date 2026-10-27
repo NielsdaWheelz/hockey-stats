@@ -1,0 +1,438 @@
+{
+  "publication": {
+    "publication_id": "49d46e4d-8363-480e-9dac-594b442c748d",
+    "kind": "player_analysis",
+    "schema_version": 7,
+    "purpose": "fixture",
+    "generated_at": "2026-10-23T05:20:03.551747Z",
+    "population_version": "matched_attempts_v2",
+    "personal_population_version": "matched_personal_credits_v2",
+    "spatial_population_version": "matched_unblocked_locations_v2",
+    "spatial_display_version": "rect5_gaussian10_v1",
+    "git_commit": "9a65dc7b7b047016aaad4ec604816b75efb2f694",
+    "families": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "execution",
+        "availability": "not_computed",
+        "explanation": "execution estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "spatial",
+        "availability": "not_computed",
+        "explanation": "spatial estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "execution",
+        "availability": "not_computed",
+        "explanation": "execution estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "spatial",
+        "availability": "not_computed",
+        "explanation": "spatial estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "execution",
+        "availability": "not_computed",
+        "explanation": "execution estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "spatial",
+        "availability": "not_computed",
+        "explanation": "spatial estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      }
+    ]
+  },
+  "available_seasons": [
+    "20252026",
+    "20242025",
+    "20232024"
+  ],
+  "seasons": [
+    {
+      "season": "20252026",
+      "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "source_requested_min": "2026-09-29T23:17:23.654000Z",
+      "source_requested_max": "2026-09-30T19:32:51.912000Z",
+      "undated_sources": 0,
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 4,
+        "partial_games": 1,
+        "unavailable_games": 1308,
+        "games_with_unassigned_player_associations": 1303,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 3
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 4
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 4
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1303
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          }
+        ]
+      },
+      "spatial_coverage": {
+        "included_seconds": 11488,
+        "known_excluded_seconds": 8364,
+        "unblocked_attempts": 241,
+        "unblocked_per60": 37.76114206128134,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "required_source_unavailable",
+          "roster_identity_unresolved",
+          "spatial_location_outside_rink"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 4,
+        "partial_games": 2,
+        "unavailable_games": 1308,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 3
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 4
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 4
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1303
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          }
+        ]
+      },
+      "players": 309,
+      "skaters": 277,
+      "goalies": 32,
+      "unassigned_game_rows_omitted": 1303
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "source_requested_min": "2026-09-30T19:05:42.809000Z",
+      "source_requested_max": "2026-09-30T19:27:51.716000Z",
+      "undated_sources": 0,
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 8,
+        "partial_games": 3,
+        "unavailable_games": 1304,
+        "games_with_unassigned_player_associations": 1303,
+        "reason_game_counts": [
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 3
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 4
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1303
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 1
+          }
+        ]
+      },
+      "spatial_coverage": {
+        "included_seconds": 21601,
+        "known_excluded_seconds": 56,
+        "unblocked_attempts": 493,
+        "unblocked_per60": 41.08143141521226,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "required_source_unavailable",
+          "shift_source_empty",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 8,
+        "partial_games": 3,
+        "unavailable_games": 1304,
+        "reason_game_counts": [
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 3
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 4
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1303
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 1
+          }
+        ]
+      },
+      "players": 272,
+      "skaters": 245,
+      "goalies": 27,
+      "unassigned_game_rows_omitted": 1303
+    },
+    {
+      "season": "20232024",
+      "corpus_sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "source_requested_min": "2026-09-30T19:05:41.679000Z",
+      "source_requested_max": "2026-09-30T19:09:56.641000Z",
+      "undated_sources": 0,
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 6,
+        "partial_games": 2,
+        "unavailable_games": 1306,
+        "games_with_unassigned_player_associations": 1306,
+        "reason_game_counts": [
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 2
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1306
+          }
+        ]
+      },
+      "spatial_coverage": {
+        "included_seconds": 15956,
+        "known_excluded_seconds": 1129,
+        "unblocked_attempts": 330,
+        "unblocked_per60": 37.22737528202557,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "elapsed_membership_unresolved",
+          "required_source_unavailable",
+          "spatial_frame_unresolved"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 6,
+        "partial_games": 3,
+        "unavailable_games": 1306,
+        "reason_game_counts": [
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 2
+          },
+          {
+            "code": "required_source_unavailable",
+            "games": 1306
+          },
+          {
+            "code": "spatial_frame_unresolved",
+            "games": 1
+          }
+        ]
+      },
+      "players": 224,
+      "skaters": 201,
+      "goalies": 23,
+      "unassigned_game_rows_omitted": 1306
+    }
+  ],
+  "path": "/tmp/hockey-stats-v1-16/v1-03-verified-reader.sqlite",
+  "receipt_note": "successful ordinary publication check; repeated unassigned-game rows omitted from this compact receipt; original output digest retained",
+  "original_output_sha256": "ac7f4add0d8deb26a834195be108e57b416974d4aad6f693f6b2721ad90b908f"
+}

@@ -1,0 +1,51 @@
+{
+  "purpose": "fixture",
+  "real_analytics": false,
+  "cases": [
+    {
+      "name": "trade",
+      "typed_api_projections": "green",
+      "coherent_selected_person_history_overview_descriptive": "green",
+      "requests": [
+        "/api/players/9000001?season=20232024",
+        "/api/league?season=20232024&kind=skater&family=overview",
+        "/api/league?season=20232024&kind=skater&family=descriptive"
+      ],
+      "reported_minutes_per_appearance": 10,
+      "goal_context_unchanged": true,
+      "rendered_goal_panel_unchanged": true,
+      "fixed_published_references_unchanged": true,
+      "csv_columns": 35
+    },
+    {
+      "name": "missing_reported_shifts",
+      "typed_api_projections": "green",
+      "coherent_selected_person_history_overview_descriptive": "green",
+      "requests": [
+        "/api/players/9000001?season=20232024",
+        "/api/league?season=20232024&kind=skater&family=overview",
+        "/api/league?season=20232024&kind=skater&family=descriptive"
+      ],
+      "reported_minutes_per_appearance": 10,
+      "goal_context_unchanged": true,
+      "rendered_goal_panel_unchanged": true,
+      "fixed_published_references_unchanged": true,
+      "csv_columns": 35
+    },
+    {
+      "name": "incomplete_personal_credit",
+      "typed_api_projections": "green",
+      "coherent_selected_person_history_overview_descriptive": "green",
+      "requests": [
+        "/api/players/9000001?season=20232024",
+        "/api/league?season=20232024&kind=skater&family=overview",
+        "/api/league?season=20232024&kind=skater&family=descriptive"
+      ],
+      "reported_minutes_per_appearance": 10,
+      "goal_context_unchanged": true,
+      "rendered_goal_panel_unchanged": true,
+      "fixed_published_references_unchanged": true,
+      "csv_columns": 35
+    }
+  ]
+}

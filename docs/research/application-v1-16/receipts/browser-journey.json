@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "label": "complete",
+      "geometry": {
+        "width": 1200,
+        "height": 2348
+      },
+      "no_overflow": true
+    },
+    {
+      "raw_only_three_reads": true
+    },
+    {
+      "selected_raw_history": true
+    },
+    {
+      "label": "partial",
+      "geometry": {
+        "width": 1200,
+        "height": 2348
+      },
+      "no_overflow": true
+    },
+    {
+      "partial_known_coordinate": true
+    },
+    {
+      "label": "long",
+      "geometry": {
+        "width": 1200,
+        "height": 2348
+      },
+      "no_overflow": true
+    },
+    {
+      "long_name_reflow": true
+    },
+    {
+      "paired_sheets": true
+    },
+    {
+      "discovery_links": [
+        "/players/9000001?season=20232024&view=observed",
+        "/players/9000001?season=20232024&view=observed&metric=descriptive.usage.minutes_per_appearance",
+        "/players/9000001?season=20232024&view=observed&metric=descriptive.scoring.ev.primary_points_per60",
+        "/players/9000001?season=20232024&view=observed&metric=descriptive.scoring.pp.primary_points_per60"
+      ]
+    },
+    {
+      "narrow": {
+        "inner": 320,
+        "width": 320,
+        "scroll": 1200,
+        "region": 286
+      },
+      "keyboard_scroll": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/players/9000003?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/maps?season=20232024&players=9000001%2C9000003&family=observed&strength=5v5&view=effect",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/players/9000001?season=20232024",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=descriptive",
+      "status": 200
+    },
+    {
+      "url": "/api/league?season=20232024&kind=skater&family=overview",
+      "status": 200
+    }
+  ]
+}

@@ -354,6 +354,7 @@ each row is a saved-artifact diff against the accepted original annual in `chain
 | `20222023` | `52a2b0fa` | `7ca3062b` | 585, 434, 321, 235 | 0 | byte-identical | exact: new `93478145` |
 
 | `20232024` | `e2ad6fda` | `85438d84` | 605, 448, 312, 250 | 7, 6, 4, 3 | moved: max 0.040, 0.011, 0.053, 0.063 | exact: new `7ca3062b` |
+| `20242025` | `1a69f2b4` | `d94dba43` | 1,062, 755, 494, 390 | 0 | moved through history: max 0.0032, 0.0047, 0.0049, 0.0033 | exact: new `85438d84` |
 
 the first two rows have all five special counters at zero, across 1,356 attempts. `20232024` differs from the rule above as follows, and every other field in that rule still holds.
 
@@ -363,6 +364,8 @@ the first two rows have all five special counters at zero, across 1,356 attempts
 - objectives rise by 0.0030, 0.0062, 0.0481 and 0.0184, as expected when information is removed.
 - history: ledger ids, roles, ages and seasons are equal, with median change 0 and maximum 0.0033, 0.0070, 0.0083 and 0.0033. later fixture annuals will no longer be byte-identical.
 - `selected_start` flips in `u`, `r` and `g`, but both starts tie to four decimals in old and new fits, so the flip carries no signal.
+
+`20242025` has all five counters at zero, and its design, `feature_support` and `coverage.json` equal the original, so every change comes through carried history. the largest coefficient moves are actors such as `8481559`, `8480002` and `8479407`, median change is about `1e-7`, and prior means differ by at most 0.0050. some ledger maxima equal `20232024`'s exactly, 0.0070 in `q` and 0.0083 in `r`, because actors absent this year keep their last value, as the history rule says. `selected_start` flips in `r` and `g`, as ties again.
 
 ### masked population in `20232024`
 
@@ -384,9 +387,24 @@ what must change is wording, not code. "masked" now has two classes: not proved 
 two limits on reading this:
 
 - **the timing mask is still unexercised in any fit.** this annual is not regression-only, but all seven rows took the binding branch. real `20212022` remains the first population test of timing.
-- **the real size of this class is unknown, and the fixture cannot estimate it.** fixture games include selected edge cases, so 7 of 605 is not a rate. no saved real count exists. a conflicted player loses `shooter_prefix_toi` for the game, and all seven rows do, so the class is bounded above by saved prefix-unavailable rows in real `u`: 3,502, 1,397, 6,084, 8,760 and 2,634 by year, up to 5.7%. that bound is loose, and it does not exclude the class exceeding the 54 timing rows. this review's recommendation holds at the bound. real `unresolved_binding` is written before the solve, so it should be read and reported then, with no threshold.
+- **the real size of this class is unknown, and the fixture cannot estimate it.** fixture games include selected edge cases, so 7 of 605 is not a rate. no saved real count exists. a conflicted player loses `shooter_prefix_toi` for the game, and all seven rows do, so the class is bounded above by saved prefix-unavailable rows in real `u`: 3,502, 1,397, 6,084, 8,760 and 2,634 by year, up to 5.7%. that bound is loose, and it does not exclude the class exceeding the 54 timing rows. this review's recommendation holds at the bound. real `unresolved_binding` is written when design construction ends, so it should be read and reported when that file appears, with no threshold. the solve may already be running; [no pause is needed](#proposed---review-source-pause).
 
 `withheld_earlier_anchor` is 0 here although a later record did withhold these starts. that confirms a zero there sizes nothing. `unresolved_binding` is the counter that sees this class.
+
+### proposed `--review-source` pause
+
+recommendation: **do not add it. this review withdraws its "before the solve" wording, which prompted the proposal.** the requirement is to read and report the count, not to gate on it.
+
+a pause is a gate with no decision at it. no threshold is authorized, and this review's recommendation holds at the upper bound, so no reading would justify withholding the token. the automatic barrier that matters already exists: the 54 known keys are enforced before head construction.
+
+what the pause would cost:
+
+- it changes observer `286b34dd` at the most expensive command, so real would run a path no fixture year exercised, plus new pins and review.
+- a mistyped token or lost stdin aborts after design construction, which took most of the 4,447 seconds of the refused real pass.
+
+reading the file as it appears loses nothing. the solve runs for hours, and root can stop it at any time, at the cost of a new check path.
+
+if root keeps the flag anyway, one constraint applies. root's timer claim is right for fit: `design_wall_seconds` and `fit_wall_seconds` are measured inside the hook, so they exclude the pause. it is false for score, where `execution_scores.py:366` times the whole `prepare_execution` call, so a pause would inflate `design_wall_seconds` and `wall_seconds`. the flag must be fit-only.
 
 ### first two scores
 

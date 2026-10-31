@@ -342,7 +342,10 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
             arrays = {'coefficients': np.asarray(coefficients, dtype=np.float64)}
             metadata['diagnostics'] = head_diagnostics(design, head, beta)
     except (FloatingPointError, OverflowError, ValueError, InputContractError) as error:
-        metadata['status'], metadata['reasons'] = 'failed', [f'numerical_domain_failure:{type(error).__name__}:{error}']
+        metadata.update(status='failed',reasons=[f'numerical_domain_failure:{type(error).__name__}:{error}'],
+                        ledger=list(incoming),centers=None,reference_predictor=None,age_curves=None,diagnostics=None)
+        for prior in priors:
+            prior.pop('prior_mean',None)
         arrays = {}
     metadata['resources'] = dict(wall_seconds=perf_counter()-began, peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
                                 dimensions=dict(rows=design.X_time.shape[0] if head == 'volume' else design.X_event.shape[0],

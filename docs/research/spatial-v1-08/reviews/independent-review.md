@@ -385,7 +385,7 @@ recomputed from saved `heads/*.npz` and `resolution/*.npz`, with no solve:
 
 coefficient maxima and l2 norms reproduce the saved comparisons to the printed digits. all four probability changes sit near 100 times inside the `1e-5` budget, and root's quoted figures match. baseline `3cad4a5c` and all four probe files match their saved digests. each probe used `ftol 1e-16`, `gtol 1e-7` and the literal em tolerances. the selector equals the original exactly: 256 probes and 40 requirements, 38 actual and 2 fixture, with none unavailable and no withheld contexts. evaluated origins are 117,118 and branches 900,394.
 
-two limits. **probability changes were not recomputed here.** they need the predictors, so this review checks the coefficient arithmetic and the bindings, and reads the probability maxima from the saved comparison. and these are 256 selected probes, not every row. the final score's four propagations are the all-event check, and they are still pending. the continuations also stop on `ftol`: tightened gradients stay between `1.6e-6` and `4.4e-6`, above `gtol`, and `r`'s rises slightly. that is the accepted policy, and it reports sensitivity, not distance to an optimum.
+two limits. **probability changes were not recomputed here.** they need the predictors, so this review checks the coefficient arithmetic and the bindings, and reads the probability maxima from the saved comparison. and these are 256 selected probes, not every row. [the final score](#final-score-and-propagations) covers every panel row, but only as sums. the continuations also stop on `ftol`: tightened gradients stay between `1.6e-6` and `4.4e-6`, above `gtol`, and `r`'s rises slightly. that is the accepted policy, and it reports sensitivity, not distance to an optimum.
 
 the fixture chain never exercised the timing mask. 4,091 attempts produced seven masks, all omitted participation. at the real census rate, about 1.9 timing rows would be expected, so zero is unsurprising and proves nothing.
 
@@ -476,6 +476,34 @@ reading: masking rows also moves every row that shares their contrast. seven row
 against the original `c4a0b4b2`, 61 of 73 members are byte-identical. the 12 that differ are `events`, `maps`, `projections`, `setters`, `shares` and the seven panel arrays that hold events, and every empty panel is identical. identity, labels, status and reasons are equal on all 1,092 events, 1,062 complete and 30 excluded.
 
 this year has no masks, so the change is carried history only, and it is small: neutral mass +0.0010%, actor mass +0.0017%. per-event neutral change has median `3.8e-5`, 99th percentile `2.9e-4` and maximum `8.2e-4`. actor change reaches `2.8e-3` on `2024020001:25`.
+
+### final score and propagations
+
+`20252026` passes, and fixture execution is complete: twenty heads, four continuations, five scores and four propagations. nothing here stops execution composition or the first spatial fit. release remains root's.
+
+identity: manifest `80f61f0d`, exit 0, binds state `52239766` and recipe `47691110`. launch records are clean, the implementation is clean, the strict reader accepts it with resolution `passed` and refuses the original, and all eight parity fields match across 1,068 contexts.
+
+against the original `e039601e`, 57 of 73 members are byte-identical. the 16 that differ are `events`, `maps`, `projections`, `resolution.json`, `setters`, `shares` and the ten panel arrays that hold events. every one of the 22 empty panels is identical. identity, labels, status and reasons are equal on all 1,101 events, 1,068 complete and 33 excluded. change is history only: neutral mass +0.0001%, actor mass +0.0013%, per-event neutral maximum `4.1e-4`, actor maximum `2.1e-3`.
+
+propagation, recomputed from saved rows:
+
+| head | actual | synthetic | stage | per100 | map l1 | largest panel sum change |
+|---|---|---|---|---|---|---|
+| `u` | `3.87e-8` | `2.31e-8` | `6.65e-9` | `2.69e-8` | `2.69e-8` | `5.58e-8` |
+| `q` | `1.14e-8` | `9.38e-9` | `1.19e-8` | `2.54e-8` | `2.54e-8` | `5.38e-7` |
+| `r` | `1.16e-8` | `5.40e-9` | `6.23e-9` | `1.81e-8` | `1.81e-8` | `1.46e-8` |
+| `g` | `6.40e-8` | `7.21e-9` | `5.59e-9` | `9.00e-8` | `9.39e-8` | `1.00e-6` |
+
+- per100 and map l1 maxima recompute exactly from the 38 pair records in every head, and all 38 pairs pass. root's figures match. all are far inside `1e-5`, `.001` and `.001`.
+- all 32 panels are present in every head, 10 with events, totalling 1,068. each saved baseline equals the sum of that panel's saved event masses, and each change equals variant minus baseline, with no mismatches.
+- the 256 keys equal the fit's frozen selector. keys, witnesses, pairs and all 45 requirements, 40 selected and 5 unavailable, equal the original. the 40 selected rows name 38 distinct pairs. expected-sum baselines equal saved events, and there are no danger crossings.
+- baseline, annual and all four probe digests match the fit.
+
+a correction on coverage. this review called these propagations the all-event check, and root's note says all-event too. **that is true only as sums.** every panel row is re-evaluated, but what is saved is panel masses and the 38 focal pairs. per-event maxima cover the 256 keys and the synthetic rows, and the receipt itself says there is no seasonwide actor or all-player error bound. no per-event bound across all rows exists, and acceptance should not claim one.
+
+a recompute of mine first showed 2 to 10 panel mismatches per head. that was my own error, comparing an absolute value with the signed `uqrg_change`. corrected, there are none.
+
+none of this tests a real scale. the fixture's gradients and solver work are small, and [the volume risk](#volume-probe-may-fail-its-fixed-budget-at-real-scale) concerns spatial at real size.
 
 ## cost notes
 

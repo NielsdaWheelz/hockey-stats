@@ -52,6 +52,10 @@ def design():
 
 def main():
     d=design();validate_design(d)
+    for head,width in (('shape',40),('quality',41)):
+        try:_unpack(np.zeros(len(d.columns)*width+1),d,head)
+        except InputContractError:pass
+        else:raise AssertionError(head+' accepted an extra coordinate')
     with tempfile.TemporaryDirectory(prefix='spatial-v1-08-') as path:
         state=fit_spatial(d,None,Path(path)/'annual',final_year=True)
         assert all(state.heads[h]['status']=='complete' for h in HEADS),state.heads

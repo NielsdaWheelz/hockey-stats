@@ -154,8 +154,11 @@ def _conditional_mean(prior, age):
 
 
 def _unpack(flat, design, head):
-    count = len(design.columns)*_width(head)
-    beta = np.asarray(flat[:count]).reshape(len(design.columns), _width(head))
+    count=len(design.columns)*_width(head)
+    flat=np.asarray(flat)
+    require(flat.ndim==1 and len(flat)==count+(8 if head=='volume' else 0)
+            and flat.dtype.kind in 'fi' and np.isfinite(flat).all(),'invalid spatial coefficient cardinality or domain')
+    beta=flat[:count].reshape(len(design.columns),_width(head))
     age = np.asarray(flat[count:]) if head == 'volume' else np.zeros(8)
     require(age.shape == (8,), 'invalid spatial age coordinate')
     return beta, age

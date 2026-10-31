@@ -1,14 +1,14 @@
 {
   "kind": "replacement-next-real-execution-preparation",
-  "status": "HOLD; first annual still running; not launch-ready until its completed accepted predecessor digest is bound and root releases",
+  "status": "HOLD; exact accepted first-state digest bound; first real score acceptance/eight-field parity and root successor release still required",
   "recorded_at_utc": "2026-10-31T17:12:16.919007+00:00",
   "purpose": "real",
   "season": "20222023",
   "family": "execution",
   "command_file": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-execution-command.sh",
-    "sha256": "5245b826aec0342e91638ca1625149b9ec9b8b4ba67a9732719f36fc96a283ee",
-    "bytes": 4266
+    "sha256": "93877a0b23e04a74549276c7a82178594dae26c498ccdb9a1a33464d0db2eba0",
+    "bytes": 4523
   },
   "reviewed_book": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
@@ -33,11 +33,12 @@
   ],
   "previous": {
     "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
-    "sha256": null,
+    "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
     "exists_at_preparation": false,
     "usage": "first completed accepted new real execution annual only",
-    "release_requirement": "obtain actual manifest digest after completion/acceptance; do not infer or substitute an old state",
-    "runtime_hash": "record actual existing predecessor at launch; accepted expected-hash guard awaits that future pin"
+    "release_requirement": "first score accepted with real-scale fit-score parity, then explicit root successor release",
+    "runtime_hash": "record and assert exact accepted7c740083predecessor manifest digest",
+    "exists_at_binding": true
   },
   "source": {
     "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
@@ -65,15 +66,21 @@
     "shell_syntax_exit": 0,
     "observed_argv_equals_reviewed_book": true,
     "previous_path_exact_new_first_annual": true,
-    "predecessor_digest_unset": true,
+    "predecessor_digest_unset": false,
     "no_old_state_or_digest_substitution": true,
     "occupied_guards_include_output_log_exit_source_check_and_launch_pins": true,
     "new_output_and_source_check_absent": true,
-    "no_new_cli_flags": true
+    "no_new_cli_flags": true,
+    "accepted_previous_expected_hash_guard_bound": true
   },
   "head_continuations": 0,
   "launched": false,
   "scope": "local command book, current process/launch metadata and path existence only; no real game/model array or source pass; no new external directory",
   "monitoring": "source report should be read once ready during the original running job; report unresolved_binding without thresholds; no extra invocation",
-  "policy": "one heavy job at a time; no second annual launch while first runs or before root acceptance/release; source and observer frozen through each exit; no runtime forecast"
+  "policy": "one heavy job at a time; no second annual launch while first runs or before root acceptance/release; source and observer frozen through each exit; no runtime forecast",
+  "updated_at_utc": "2026-10-31T19:02:20.865876+00:00",
+  "acceptance_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20212022-completion.json",
+    "sha256": "787404b782ac1fb17c79a05214ddf8c267a8676e7b0de9f35ab7b91b82c9af99"
+  }
 }

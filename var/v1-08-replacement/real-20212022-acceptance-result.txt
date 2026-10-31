@@ -1,0 +1,73 @@
+{"strict_read": "passed", "wall_seconds": 24.083687208010815}
+{
+  "status": "computational_acceptance_passed; no blocker; scoring and successor remain held for root review",
+  "receipt": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20212022-completion.json",
+  "sha256": "cc7f1dc4f5431157d59cf1f08bd199348470d067290efa6a79ad8f931ece32db",
+  "strict_read_seconds": 24.083687208010815,
+  "heads": {
+    "u": {
+      "objective": 63797.688148904934,
+      "raw_gradient_max": 0.007729297540873512,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "native_solve_count": 1,
+      "maximum_center_error": 2.0816681711721685e-17,
+      "coefficient_comparison": {
+        "max_abs": 0.21991217654439155,
+        "l2": 0.30152419942862774,
+        "changed_coordinates": 3305,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": -0.05998153962892395,
+        "new_value": -0.2798937161733155,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      }
+    },
+    "q": {
+      "objective": 61491.71899190184,
+      "raw_gradient_max": 0.010222252281913691,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "native_solve_count": 1,
+      "maximum_center_error": 1.734723475976807e-18,
+      "coefficient_comparison": {
+        "max_abs": 0.1218048871466314,
+        "l2": 0.16651840358132974,
+        "changed_coordinates": 3429,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": -0.07362755120206635,
+        "new_value": 0.04817733594456505,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      }
+    },
+    "r": {
+      "objective": 43428.38528531147,
+      "raw_gradient_max": 0.007798976460571117,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "native_solve_count": 1,
+      "maximum_center_error": 1.0408340855860843e-17,
+      "coefficient_comparison": {
+        "max_abs": 0.08578544574767058,
+        "l2": 0.11685909278051142,
+        "changed_coordinates": 3417,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": 0.05573263220259208,
+        "new_value": 0.14151807795026267,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      }
+    },
+    "g": {
+      "objective": 35037.325412425285,
+      "raw_gradient_max": 0.0005647157274712273,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "native_solve_count": 9,
+      "maximum_center_error": 1.5265566588595902e-16,
+      "coefficient_comparison": {
+        "max_abs": 0.35593324038879026,
+        "l2": 0.4688827434834623,
+        "changed_coordinates": 4408,
+        "largest_coordinate": "circumstance:unavailable:shooter_shift_start",
+        "old_value": 0.21159760983481768,
+        "new_value": -0.14433563055397258,
+        "interpretation": "descriptive coordinate difference under changed start encoding; no equivalence, prediction-stability or scientific-quality margin"
+      }
+    }
+  }
+}

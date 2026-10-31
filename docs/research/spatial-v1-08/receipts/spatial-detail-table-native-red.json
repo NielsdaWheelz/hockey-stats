@@ -1,0 +1,47 @@
+{
+  "kind": "spatial-v1-08-spatial-detail-table-native-red",
+  "status": "failed actual native narrow/zoom readability reported by root",
+  "recorded_at_utc": "2026-10-31T21:16:20.714239+00:00",
+  "observer": "root native chrome via cua; product performed no browser action",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "app_source_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+  "build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "view": {
+    "season": "20242025",
+    "player_id": "8476462",
+    "context": "mixed-position comparison; selected defense xg/60 support expanded",
+    "metric": "spatial.5v5.defense_xg_per60"
+  },
+  "observations": [
+    {
+      "viewport_css_px": 320,
+      "displayed_difference": ".164411",
+      "observed_number_lines": [
+        "0.16",
+        "441",
+        "1"
+      ],
+      "unit": "xg per 60 min",
+      "observed_unit_suffix_lines": [
+        "mi",
+        "n"
+      ],
+      "complete_focal_rate": "1.96263 also split"
+    },
+    {
+      "native_zoom_percent": 200,
+      "approx_viewport_css_px": 600,
+      "displayed_difference": ".164411",
+      "observed_number_lines": [
+        ".1644",
+        "11"
+      ]
+    }
+  ],
+  "cause": "the selected five-column table has width100% with no readable minimum width; its plain value/unit cells inherit overflow-wrap:anywhere from analysis-detail, so columns squeeze and split numeric/unit tokens despite the existing scroll region",
+  "fix_scope": "table-specific minimum width; reuse numeric no-wrap class for values and prevent unit wrapping; keep aligned table and existing focusable horizontal scroll region",
+  "raw_values_or_exports_changed": false,
+  "native_green_pending": true,
+  "evidence_limit": "literal observations supplied in root assignment; native tools transcript remains with root; no separate screenshot path supplied"
+}

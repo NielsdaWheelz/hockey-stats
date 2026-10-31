@@ -159,12 +159,12 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
         <p>{spatialDirection(datum)}.</p>
         <p>the complete focal rate inserts this player into one role jointly in volume, shape and quality. the neutral rate uses the frozen hypothetical league-centered design and virtual neutral execution. this reference is not an average actual lineup or a forecast.</p>
         <div className="table-scroll" role="region" tabIndex={0} aria-label="selected spatial estimates, scroll horizontally for all columns">
-          <table>
+          <table className="spatial-estimates">
             <caption>saved experimental estimates; conditional historical borrowing and inferred blocked origins can affect every term</caption>
             <thead><tr><th scope="col">estimate</th><th scope="col">value</th><th scope="col">unit</th><th scope="col">unavailable reason</th><th scope="col">uncertainty</th></tr></thead>
             <tbody>{Object.entries(datum.spatial_detail).map(([key, value]) => <tr key={key}>
               <th scope="row">{key === "complete" ? "complete focal rate" : key === "neutral" ? "neutral rate" : key.replaceAll("_", " ")}</th>
-              <td>{displayNumber(value.value)}</td>
+              <td className="numeric">{displayNumber(value.value)}</td>
               <td>{key === "relative_percent" ? "%" : datum.metric.id.includes("attempts") ? "attempts per 60 min" : "xg per 60 min"}</td>
               <td>{value.unavailable_reason ?? "none"}{value.reason_detail && `: ${value.reason_detail.explanation}`}</td>
               <td>{value.uncertainty.kind === "not_estimated" ? "not estimated" : `${value.uncertainty.level * 100}% interval: ${displayNumber(value.uncertainty.lower)} to ${displayNumber(value.uncertainty.upper)}; ${value.uncertainty.method}; conditional on ${value.uncertainty.conditional_on.join(", ")}`}</td>

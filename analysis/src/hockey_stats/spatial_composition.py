@@ -145,6 +145,7 @@ def _method(year, state, annuals, results, source_sha, receipt):
                              'historical point borrowing and inferred blocked origins omit history and origin uncertainty; calibrated intervals are not estimated',
                              'defensive positive differences mean more against; higher percentiles mean higher rates, not greater benefit',
                              'aggregate support is the common matched physical-time population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term',
+                             'spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game',
                              'head support is saved in the bound receipt; structured head and actual-context adjustment presentation remain separate work'],
                 evidence=evidence, purpose=results.manifest['purpose'], inputs=inputs, reference_id=REFERENCE, support_policy_id=POLICY,
                 assessment=dict(status='experimental', findings=[dict(quantities=[f'skater_spatial.{field}' for field in publication.ESTIMATE_FIELDS['skater_spatial']],
@@ -158,7 +159,7 @@ def _season_tables(year, state, people, method):
     projections = {r['player_id']: (i, r) for i, r in enumerate(state.projections)}
     adjustments = {(r['player_id'], r['role']): r for r in state.adjustments}
     unknown_support = dict(included_seconds=None, events=None, eligible_weight=None, known_excluded_seconds=None,
-                           unquantified_gap=True, reason_counts=[dict(code='roster_identity_unresolved', count=1)],
+                           unquantified_gap=True, reason_counts=[],
                            inferred_inputs=[], current_season_information=False, prior_only=False, prior_seasons=[])
     display_shapes = cells()
     pending = dict(availability='not_computed', explanation='special-team spatial estimation awaits v1-09', data=None)

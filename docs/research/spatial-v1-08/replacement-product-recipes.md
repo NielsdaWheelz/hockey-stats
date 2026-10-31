@@ -1,0 +1,55 @@
+# corrected execution and spatial product recipes
+
+status: **unexecuted preparation.** the user approved the bounded execution start-timing repair and complete replacement descendants. this page prepares scoring, composition and publication; it releases no command. [repair scope](execution-start-repair-scope.md) owns the correction. [preparation receipt](receipts/replacement-product-preparation.json) records the exact input pins, literal commands, pending identities and syntax checks. numerical owns annual fitting, carried history, solver policy and strict old-recipe rejection. source/design owns the common consumed-feature policy and source-backed verification. product owns scoring and downstream composition after separate root releases.
+
+the fresh campaign is `/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01`. each of `fixture/` and `real/` has five annual `execution/<season>`, `scores/<season>` and `spatial/<season>` outputs, covering `20212022` through `20252026`. `execution-results/` and `results/` are three-season exchanges for `20232024` through `20252026`; `candidate/` is a distinct unpublished database. no external directory or output was created during this preparation. original fits, scores, preparation, factual results, fixture03, active/previous databases and listeners remain intact.
+
+## retained inputs
+
+| purpose | input | absolute locator | sha256 |
+|---|---|---|---|
+| fixture | preparation | `/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json` | `603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df` |
+| fixture | coaches | `/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json` | `d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c` |
+| fixture | factual exchange2 | `/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json` | `08f2d078c51b4eb9753aa194a60166f3059377da76e21d213f94045aaeef3d25` |
+| fixture | original observed selection | `/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json` | `24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37` |
+| real | preparation | `/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json` | `63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c` |
+| real | coaches | `/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json` | `102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0` |
+| real | factual exchange2 | `/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json` | `786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb` |
+| real | original observed selection | `/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json` | `5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9` |
+
+only the two factual manifests and two original observed selections were read and hashed: 29,186 bytes. each factual exchange has the intended three displayed years, exact retained preparation binding and exact original observed corpus digests. preparation/coaches use accepted digests and current file sizes; this preparation did not reread their payloads, games, fitted arrays or scores. the old execution exchanges are historical references, not replacement inputs.
+
+## ordinary commands and selection
+
+literal command books are local temporary files:
+
+- `/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md`
+- `/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md`
+
+each contains five fixed annual `score --family execution` commands, execution composition, spatial composition and publication. their complete argument arrays and file digests are also retained in the preparation receipt. all sixteen blocks pass shell syntax parsing; none was executed. after root release, copy only the selected block into an ordinary persistent terminal. each checks absent output/log/exit paths, uses `/usr/bin/time -l`, records the actual exit and stops. root creates only necessary fresh parent directories beforehand. there is no pipeline, retry, resume, discovery, selective reuse or runner.
+
+the final `20252026` score command automatically propagates the four saved tighter `u,q,r,g` variants through the existing score owner. this is not another solve. require the saved baseline, all four passed propagation records, frozen event/pair populations, all 32 neutral panels, probability/scalar/native-map budgets and exact state/recipe/preparation/coaching identities. earlier years retain `not_applicable` propagation. do not add a separate propagation command or promote probe coefficients as the baseline.
+
+every future execution recipe, annual state, score, selection, exchange and database digest remains `null` in the preparation receipt. these are pending descriptions, not consumable selections. before an exclusive `scores-selection.json` write, root must accept all five annual scores and their exact manifests. use the existing shape `{schema_version:1,purpose,prepared_sha256,scores:[{season,path,sha256}]}` in fixed chronological order, with the retained preparation digest and the five new absolute score-manifest paths. before `states-selection.json`, root must accept all five new spatial states and three final probes; use the existing analogous `states` shape. no selection write occurred here.
+
+execution composition consumes the retained factual exchange, retained preparation and new score selection through `summarize --family execution`. the existing owner replaces only execution-derived values and matching method/support receipts while preserving factual evidence and observed corpus identities. root must reconcile the saved source keys, source-only/numerical-only/intersection populations, paired reductions, maps, support and all inherited factual outputs before accepting the three-year exchange.
+
+each new spatial fit consumes the same retained preparation/coaches and its new `scores/<season>` directory as `--valued`. numerical owns those five explicit fit commands, consecutive predecessor identities, fifteen complete heads and three final continuations. no old annual state or valued target is spliced into this chain.
+
+## pending real pin cutover
+
+real spatial composition currently refuses corrected descendants: `spatial_composition.py` deliberately pins the old accepted execution exchange and all five old score digests. **keep those pins until the replacements are accepted.** root authorized one later hard cut to the exact accepted replacement exchange locator/digest and five score digests. product owns that small edit only after root release. do not add a whitelist, dynamic accepted-source selection, compatibility bypass or old fallback.
+
+after that cutover, spatial composition consumes the new `execution-results/` exchange and five-state selection. it preserves every non-owned family/member from that newly accepted source, including its corrected execution-derived fields. the retained factual and observed inputs stay exact. root acceptance must reconcile all sixteen spatial scalar estimates, maps, support/decompositions, prior-only populations and byte preservation against the new source; fixture03 identities cannot be substituted for that proof.
+
+publication uses the original explicit observed selection and new `results/`, into fresh `candidate/`. the existing producer supplies integrity, foreign-key, conservation and readback checks. there is no activation command. a later isolated server release must bind the actual candidate/database hash, final build, updated detached profile and paired controls; preserve the existing fixture03 server meanwhile. no server/profile/runtime control was launched here.
+
+## verification that remains applicable
+
+the new recipe must first pass fresh captured-data execution fits/scores, four final fit continuations, four score propagations, compatible execution exchange and fresh spatial chain/three probes before expensive real execution is released. fixture03 remains historical software evidence under its original exact inputs. it does not establish corrected recipe acceptance.
+
+source/design owns full consumed-feature checks for the two original failures, valid past starts, earlier-order same-clock faceoffs, ambiguous/unknown evidence and fit/score parity. temporary instrumentation during the already required selected source passes will record all-strength counts and located witnesses. it adds no persisted artifact protocol or separate corpus pass. the old spatial preflight-refusal check and old retained-source direct start derivation test the superseded audit and must not be reported as new acceptance unchanged. numerical owns manifest-only rejection of old state/score recipes at strict consumers.
+
+the retained selector/reason-unit checks still exercise current public contracts. the discovery check contains old fixture paths/digests; retarget its fixed constants only after new artifacts are accepted. `composition-check.py` accepts paths, but it also performs another full composition, so it is not a cheap readback and must not duplicate the actual released command without a concrete reason. the synthetic interface check is only interface evidence. the existing live target accepts base/player arguments and checks both profiles, the exact quartet/support, maps, integrals and common scales; reconcile its eventual publication identity with the new saved rows. no extra test suite was run during recipe preparation.
+
+actual browser navigation, filters, comparison/history, downloaded csv/png and ordinary/narrow/native-200% content still need an accessible desktop. the last root report is that desktop access is unavailable. no renewed gui operation or browser acceptance is claimed. no wall-time forecast is inferred from the historical partial 42.1-hour command. actual new resource costs, failures and retained partials will be recorded at each released command.

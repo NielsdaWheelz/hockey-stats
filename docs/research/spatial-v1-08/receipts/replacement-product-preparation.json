@@ -1,0 +1,814 @@
+{
+  "kind": "execution-spatial-replacement-product-preparation",
+  "status": "unexecuted recipes only; no external directory, output, selection or source mutation",
+  "recorded_at_utc": "2026-10-31T14:24:09.447707+00:00",
+  "campaign": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01",
+  "campaign_exists": false,
+  "input_scope": "two factual manifests and two original observed selections read and hashed; retained preparation/coaches stat-only; no source game, arrays, state, scored-event or fitted artifact opened",
+  "inputs": {
+    "fixture": {
+      "prepared": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+        "bytes": 113142,
+        "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+        "verification": "reused accepted pin; stat only during this preparation"
+      },
+      "coaches": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+        "bytes": 218717,
+        "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+        "verification": "reused accepted pin; stat only during this preparation"
+      },
+      "facts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json",
+        "bytes": 13837,
+        "sha256": "08f2d078c51b4eb9753aa194a60166f3059377da76e21d213f94045aaeef3d25"
+      },
+      "observed": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+        "bytes": 768,
+        "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37"
+      },
+      "factual_observed_bindings_exact": true
+    },
+    "real": {
+      "prepared": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+        "bytes": 18633830,
+        "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+        "verification": "reused accepted pin; stat only during this preparation"
+      },
+      "coaches": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+        "bytes": 39341670,
+        "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+        "verification": "reused accepted pin; stat only during this preparation"
+      },
+      "facts": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+        "bytes": 13870,
+        "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+      },
+      "observed": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+        "bytes": 711,
+        "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9"
+      },
+      "factual_observed_bindings_exact": true
+    }
+  },
+  "future_outputs": {
+    "fixture": {
+      "execution_recipe_sha256": null,
+      "execution": [
+        {
+          "season": "20212022",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20222023",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20242025/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20252026/manifest.json",
+          "sha256": null
+        }
+      ],
+      "scores": [
+        {
+          "season": "20212022",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20222023",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20232024/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026/manifest.json",
+          "sha256": null
+        }
+      ],
+      "spatial": [
+        {
+          "season": "20212022",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20212022/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20222023",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20222023/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20232024/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20252026/manifest.json",
+          "sha256": null
+        }
+      ],
+      "scores_selection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+        "sha256": null
+      },
+      "execution_results": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results/manifest.json",
+        "sha256": null
+      },
+      "spatial_selection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/states-selection.json",
+        "sha256": null
+      },
+      "results": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/manifest.json",
+        "sha256": null
+      },
+      "candidate": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+        "sha256": null
+      }
+    },
+    "real": {
+      "execution_recipe_sha256": null,
+      "execution": [
+        {
+          "season": "20212022",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20222023",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20252026/manifest.json",
+          "sha256": null
+        }
+      ],
+      "scores": [
+        {
+          "season": "20212022",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20222023",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+          "sha256": null
+        }
+      ],
+      "spatial": [
+        {
+          "season": "20212022",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20222023",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20232024",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20232024/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20242025",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20242025/manifest.json",
+          "sha256": null
+        },
+        {
+          "season": "20252026",
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20252026/manifest.json",
+          "sha256": null
+        }
+      ],
+      "scores_selection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+        "sha256": null
+      },
+      "execution_results": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results/manifest.json",
+        "sha256": null
+      },
+      "spatial_selection": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+        "sha256": null
+      },
+      "results": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results/manifest.json",
+        "sha256": null
+      },
+      "candidate": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/candidate/player-analysis.sqlite",
+        "sha256": null
+      }
+    }
+  },
+  "commands": {
+    "fixture": [
+      {
+        "name": "score-20212022",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+          "--coaches",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20212022.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20212022.exit"
+      },
+      {
+        "name": "score-20222023",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+          "--coaches",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20222023.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20222023.exit"
+      },
+      {
+        "name": "score-20232024",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+          "--coaches",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20232024"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20232024",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20232024.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20232024.exit"
+      },
+      {
+        "name": "score-20242025",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+          "--coaches",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20242025",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20242025.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20242025.exit"
+      },
+      {
+        "name": "score-20252026",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+          "--coaches",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20252026",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20252026.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20252026.exit"
+      },
+      {
+        "name": "compose-execution",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "summarize",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+          "--facts",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts",
+          "--scores",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution.exit"
+      },
+      {
+        "name": "compose-spatial",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "summarize",
+          "--family",
+          "spatial",
+          "--results",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results",
+          "--states",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/states-selection.json",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial.exit"
+      },
+      {
+        "name": "publish",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "publish",
+          "--observed",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+          "--results",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish.exit"
+      }
+    ],
+    "real": [
+      {
+        "name": "score-20212022",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+          "--coaches",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022.exit"
+      },
+      {
+        "name": "score-20222023",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+          "--coaches",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20222023.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20222023.exit"
+      },
+      {
+        "name": "score-20232024",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+          "--coaches",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20232024.exit"
+      },
+      {
+        "name": "score-20242025",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+          "--coaches",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025.exit"
+      },
+      {
+        "name": "score-20252026",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "score",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+          "--coaches",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+          "--state",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20252026",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026.exit"
+      },
+      {
+        "name": "compose-execution",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "summarize",
+          "--family",
+          "execution",
+          "--prepared",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+          "--facts",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+          "--scores",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-execution.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-execution.exit"
+      },
+      {
+        "name": "compose-spatial",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "summarize",
+          "--family",
+          "spatial",
+          "--results",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results",
+          "--states",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/states-selection.json",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/compose-spatial.exit"
+      },
+      {
+        "name": "publish",
+        "argv": [
+          "/usr/bin/time",
+          "-l",
+          "env",
+          "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+          "-m",
+          "hockey_stats.analysis_cli",
+          "publish",
+          "--observed",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+          "--results",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/results",
+          "--out",
+          "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/candidate"
+        ],
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/candidate",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publish.log",
+        "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/publish.exit"
+      }
+    ]
+  },
+  "policy": {
+    "old_artifacts": "preserved; fixture03 remains historical software evidence under its exact old recipe",
+    "fresh_fixture_gate": "new execution source proof/old-recipe negatives; fresh five annual execution states/four probes; five scores/four propagations; three-season exchange; fresh spatial chain/three probes; source-to-screen acceptance before expensive real execution release",
+    "selections": "all five ordered accepted manifest digests before an exclusive existing-shape selection write; no discovery, selective reuse, whitelist or fallback",
+    "real_spatial_pin_cutover": "authorized but pending root release after new five scores and execution exchange accepted; keep old constants until then",
+    "runtime": "ordinary separately released commands, timed once with fresh output/log/exit files; no retries or runner",
+    "forecast": "no wall-time forecast inferred from historical partial 42.1-hour command or other old command",
+    "serving": "no server, activation or serving mutation launched or authorized by this preparation"
+  },
+  "syntax_check": {
+    "scope": "16 fenced command blocks parsed by /bin/sh -n; never executed",
+    "results": [
+      {
+        "purpose": "fixture",
+        "command": "score-20212022",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "score-20222023",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "score-20232024",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "score-20242025",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "score-20252026",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "compose-execution",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "compose-spatial",
+        "exit_code": 0
+      },
+      {
+        "purpose": "fixture",
+        "command": "publish",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "score-20212022",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "score-20222023",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "score-20232024",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "score-20242025",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "score-20252026",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "compose-execution",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "compose-spatial",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real",
+        "command": "publish",
+        "exit_code": 0
+      }
+    ]
+  },
+  "reviewed_existing_checks": {
+    "source_policy": "source_design owns fresh consumed feature-context controls, original mechanisms, valid/unknown/earlier faceoff controls and fit/score parity; instrument existing required passes for all-strength counts/witnesses",
+    "old_source_audit": "old source-preflight aggregation refusal and source-retained direct start derivations are historical, not new acceptance unchanged",
+    "score_propagation": "existing final-year score owner automatically runs four saved probes; strict score reader requires passed ordered u,q,r,g propagation",
+    "product": "selector/reason-unit checks remain useful; discovery check hardcodes old fixture identities and needs narrow retargeting after accepted replacements; composition-check.py accepts paths but launches another full composition, so not a cheap readback; synthetic interface check supplies no fitted evidence; live target accepts base/id arguments and must reconcile actual candidate identity against saved rows",
+    "desktop": "last root report is unavailable desktop; no gui operation attempted or browser acceptance claimed"
+  },
+  "files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+      "bytes": 11862,
+      "sha256": "e2802674293590f005edbb3a0e0436b09714af80b1415e65db43f9f365106aab"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+      "bytes": 11607,
+      "sha256": "a8015b1d2ff7393bac92a935e1bbf06078a4400ebb35aa97ae14debbfd404cf6"
+    }
+  ],
+  "production_source": {
+    "git_commit": null,
+    "analysis_tree": null,
+    "status": "pending clean reviewed source freeze before any released command"
+  },
+  "acceptance": {
+    "execution_heads_per_purpose": 20,
+    "execution_final_fit_continuations_per_purpose": 4,
+    "annual_scores_per_purpose": 5,
+    "score_saved_probe_propagations_per_purpose": 4,
+    "spatial_heads_per_purpose": 15,
+    "spatial_final_continuations_per_purpose": 3,
+    "displayed_years": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "future_hashes_filled": false,
+    "selection_written": false,
+    "command_launched": false
+  }
+}

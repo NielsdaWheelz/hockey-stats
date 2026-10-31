@@ -713,7 +713,7 @@ the two flags are the largest moves in every head, up to 0.356 in `g`. [predicto
 this is not yet a probability result. no row-level change has been measured. the coefficients implicate two groups:
 
 - masked rows. a masked on-the-fly row swaps the reference for the flag coefficient: -0.28, +0.05, +0.14 and -0.14 by head. that is about 64 rows.
-- rows unavailable on both flags. `g` pair sum falls 0.056 on about 2,500 rows, the largest move on ordinary rows, and other co-occurring flags offset some of it. idk how much.
+- rows unavailable on both flags. `g` pair sum falls 0.056 on about 2,500 rows, the largest move on ordinary rows, and other co-occurring flags offset some of it. idk how much. [the score](#completed-real-20212022-score) shows nearly all of it.
 
 saved evidence cannot name either group in full, so this review withdraws its plan to split scores by them. the observer keeps the 54 census keys and bounded witnesses, and coverage and state keep no per-event availability. the score comparison reports complete old/new identity and movement, the exact 54, the located witnesses and an unclassified remainder. the largest move over all rows is a ceiling on both groups, not a measure of either. a changed probability classifies nothing.
 
@@ -731,7 +731,40 @@ every top-level field is equal except `command` and `observer_seconds`. that cov
 
 the two digests carry the weight. `source_context_sha256` hashes the whole encoder `output` with key and shooter, in stream order, so equal `a60c81d8` means fit and score saw the same contexts in the same order, not merely the same start fields. `source_response_sha256` does the same for details, immediate outcomes and strength membership. state `7c740083`, recipe `47691110`, census `6fd06ffb`, tree `c2412ac`, observer `286b34dd` and head `0605f0a` match the launch receipts. the command is the plain score tail. the source pass took 74 minutes, the fit's 73.
 
-this proves shared input, not scored probabilities. no row-level change is measured yet.
+this proves shared input, not scored probabilities. [the completed score](#completed-real-20212022-score) measures those.
+
+### completed real `20212022` score
+
+verdict: **clear.** manifest `37263bfc`, root's receipt `51e95dcf`, checker `ba24022a`. this review read saved events, setters, shares, projections, panel arrays and head coefficients, old and new, with its own scripts and no production reader. it ran no source pass, fit or rescore. all 73 members rehash to the manifest. `git_commit` `e30a7e3` is `HEAD` at manifest write, as with the annual. tree `c2412ac` is what ran.
+
+identity holds. all 149,412 recognized rows equal the original in every non-probability field, and the 1,902 incomplete rows equal it whole. `event_offsets`, `origin_cells`, `origin_weights` and `setup_weights` are exact in all 19 populated panels, over 23,180,585 origin rows, so the origin law did not move. 24 members changed: five jsonl and the 19 populated npz. the receipt's event maxima reproduce exactly: p50 7.4e-5, p90 2.2e-4, p99 1.1e-3, max 0.069. its ten projection maxima also reproduce.
+
+the mask reaches the scored probability. this needs no observer: it is saved output against fitted coefficients. a masked on-the-fly row should move by the new start flag, and it does. values are actor logit changes, less the population median.
+
+| head | new flag | 34 non-block rows, mean | flag swing | `2021020266:87` |
+| --- | --- | --- | --- | --- |
+| `u` | -0.280 | -0.277 | -0.220 | -0.198 |
+| `q` | +0.048 | +0.048 | +0.122 | +0.108 |
+| `r` | +0.142 | +0.140 | +0.086 | +0.075 |
+| `g` | -0.144 | -0.140 | -0.356 | -0.297 |
+
+the 16 blocked on-the-fly rows look weaker in the prefix, `u` -0.220, but that is origin averaging. saved panel logits move -0.277 to -0.279 at each of their 656 origins. the four faceoff rows move by the flag less the old offensive contrast: `u` predicted -0.257, panel -0.255.
+
+the tail is a clean set. in every head the same 74 rows hold the 74 largest moves, then the distribution breaks: `u` 0.177 to 0.014, `q` 0.030 to 0.008, `r` 0.075 to 0.007, `g` 0.071 to 0.050. all 54 are inside. 74 is also the saved count of age-known start-unknown rows in `u`: 64 masked plus the 10 already flagged. outside the 74, no cell moves more than 0.0079. this is a reading of movement, not a classification. root's strata and the ceiling of record, 0.0602, stand.
+
+`2021020266:87` is a named `no_same_clock_faceoff` witness, age 3, unavailable before and after. it moves near the flag swing, not the flag. so a row the repair never touched can move about as far as a masked one, because the flag moved under it. the record ceiling, `2021021293:93`, has that signature. afaict it is such a row, but no saved field says so.
+
+**i was wrong about the ordinary rows.** the annual section read a 0.056 `g` pair-sum fall on about 2,500 rows as the largest ordinary move. it did not arrive. 5,914 rows lack the start, yet only 174 of 147,510 fall past -0.02 in `g`, and 98 percent stay within -0.0075 and +0.0035. co-occurring flags offset nearly all of it. the likelihood pins the block's sum and only the ridge splits it, so the pair move was mostly internal to the block.
+
+projections moved little. 5v5 finishing per 100 has spearman 0.999996, change sd 0.0013 against sd 0.738, and identical top and bottom 20. its maximum is 0.0224. the maximum anywhere is 0.0418, at 5v3. both belong to `8477903`, and the next 5v5 mover is `8475343`. neither has a row in the 54. their move runs through game `2021021293`, rows 91 to 93: the goal at 93 loses 0.33 of `g` logit, and their `g` shooter coefficients rise 0.0069 and 0.0056, the two largest shooter moves in `g`. this is the separated flag's sized cost: 32 `g` rows set it, and a few rows outside the repair carry it to players. no defect, no threshold.
+
+share totals: 2,244 recipients, median change 0.00027 goals, largest 0.127 at goalie `8478007`, 1.579 to 1.706. setter posteriors move at most 0.0133. actor goal mass goes from 7,505.697 to 7,505.720, and the 5v5 panel moves -0.036. all closures hold at 3e-16.
+
+one reading note on the receipt. `located_unavailable_outside_known54` is not a masked stratum. only four of its 31 rows carry a raw kind the repair masks. its label is accurate. it should not be quoted as masked.
+
+cost: command 15,653 seconds. producer 15,577 against 18,114, design 4,426 against 5,887, projection 10,119 against 11,178, scoring 974 against 945. peak rss 21.4 gb against 21.7, footprint 27.4. fit plus score is 21,817 seconds. the observer sits inside, so none of this is a clean baseline, and later years may differ.
+
+limits: one year. movement is recipe sensitivity, not error or quality. no propagation applies here, and later years inherit the changed history.
 
 ### replacement disposable rollback
 
@@ -785,4 +818,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-one real annual fit, `20212022`, is reviewed here. no real score, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+one real annual fit and its score, `20212022`, are reviewed here. no later real year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

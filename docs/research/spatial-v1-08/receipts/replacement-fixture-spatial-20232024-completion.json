@@ -1,6 +1,6 @@
 {
   "kind": "replacement-fixture-spatial-completion",
-  "status": "saved_metadata_checks_passed; independent old/new numeric review and root acceptance pending",
+  "status": "root_accepted; independent third numeric review passed",
   "recorded_at_utc": "2026-10-31T16:00:35.107838+00:00",
   "purpose": "fixture",
   "season": "20232024",
@@ -131,10 +131,11 @@
     "first_four_year_probes": 0
   },
   "comparison_scope": {
-    "owner": "independent reviewer",
-    "status": "pending",
-    "expected": "volume/shape inputs unchanged; quality targets differ under corrected accepted execution scores",
-    "inference": "no timing-mask or mechanism attribution inferred from this spatial state"
+    "owner": "independent reviewer; reported by root",
+    "status": "passed",
+    "result": "volume/shape arrays exact; only quality target and xg outputs change; support exact; neutral chance mass reconciles saved corrected scores and accepted composition",
+    "inference": "no timing-mask mechanism attribution from this spatial state",
+    "repeated_here": false
   },
   "resources": {
     "command_wall_seconds": 66.32,

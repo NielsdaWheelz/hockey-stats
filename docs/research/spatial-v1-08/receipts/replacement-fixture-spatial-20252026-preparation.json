@@ -1,0 +1,107 @@
+{
+  "kind": "replacement-final-fixture-spatial-preparation",
+  "status": "unexecuted; fourth annual root accepted; explicit final-command release pending",
+  "recorded_at_utc": "2026-10-31T16:05:06.842183+00:00",
+  "purpose": "fixture",
+  "season": "20252026",
+  "family": "spatial",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-20252026-spatial-command.sh",
+    "sha256": "6223868ad9fe792d952b2ba0f5225767c41267de08fd2989f134534ef7bf837d",
+    "bytes": 3320
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-fit-commands.md",
+    "sha256": "d66e47793b8f46941ffea3ee46d36b4ded71771d7f515c6fb0f695f6435fdb23",
+    "block_sha256": "4b4ff87e690d53e8005b1af2a2ae078c166c40a9c3cd1d00fb55600a098e7723"
+  },
+  "changes_from_book": "only exact analysis-tree assertion and occupied/provenance guards for previous, valued and expected design recipe; timed ordinary spatial argv unchanged",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--season",
+    "20252026",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20252026"
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20252026",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/manifest.json",
+    "sha256": "c9fe5fb27c13dda61c8062104b8c977bd462931170f023d2fa48834a04b56416",
+    "usage": "accepted new spatial annual only"
+  },
+  "valued": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026/manifest.json",
+    "sha256": "80f61f0dc1941042c5bf1e3488fdaaed9cc0fb303670f6780558ff11a603072a",
+    "execution_state_sha256": "5223976602e9a45e66e3e6160ba502cf01b0c39969e2360fa2c0c4384623e047",
+    "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "spatial_design_recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+  "basis_policy": "exact new preceding state basis; no old historical coefficient or mean reuse",
+  "observer": null,
+  "final_head_continuations": 3,
+  "probe_policy": {
+    "trigger": "existing ordinary CLI fixture-final selected year passes final_year=True; fit_spatial writes baseline then invokes run_spatial_probes once",
+    "heads": [
+      "volume",
+      "shape",
+      "quality"
+    ],
+    "head_continuations": 3,
+    "manual_extra_probe_command": false,
+    "baseline_preserved": true,
+    "selector": "existing frozen deterministic elapsed/event contexts and whole-roster standardized projections; retain exact requirement dispositions; no reselection",
+    "baseline": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "maxcor": 10
+    },
+    "continuation": {
+      "maxiter": 10000,
+      "ftol": 1e-16,
+      "gtol": 1e-07,
+      "maxcor": 10
+    },
+    "native": {
+      "maxfun": 15000,
+      "maxls": 20
+    },
+    "margins": {
+      "probability": 1e-05,
+      "scalar_per_hour": 0.0001,
+      "native_map_l1_per_hour": 0.0001,
+      "prospective_1000_minute_goals": 0.001
+    },
+    "failure": "preserve baseline and probe evidence; report incomplete; no retry, tolerance change, selector change or extra continuation"
+  },
+  "checks": {
+    "shell_syntax_exit": 0,
+    "timed_spatial_argv_equals_reviewed_book": true,
+    "previous_and_valued_pins_verified_manifest_only": true,
+    "analysis_worktree_clean": true,
+    "no_observer": true,
+    "exclusive_output_log_exit_and_launch_pins": true,
+    "new_output_absent": true
+  },
+  "scope": "two accepted manifests and git metadata only; no source, arrays, strict read, projection or fit",
+  "launched": false,
+  "policy": "one heavy job at a time; preserve all originals and freeze analysis through exit; no real launch"
+}

@@ -1,0 +1,395 @@
+{
+  "kind": "replacement-real-20212022-source-metadata-review",
+  "status": "passed with stated saved-metadata limits",
+  "original_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+    "bytes": 360914,
+    "sha256": "592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953"
+  },
+  "current_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+    "bytes": 361655,
+    "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61"
+  },
+  "source_check": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "bytes": 162259,
+    "sha256": "2a1e41e1b64dabe30d2e000559e49fe2106f54e494855bbd9629d7e346b025df"
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "implementation_commit": "dcd9930e2490a76e62260e79892feb50c457d490",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "input_proof": "complete prepared and coach descriptors, all selected game/member rows, first-year predecessor and training cutoff equal the pinned original annual",
+  "games": 1312,
+  "prepared_members": 1313,
+  "known54_saved_unavailable_witnesses": 54,
+  "heads": [
+    {
+      "head": "u",
+      "original": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+        "bytes": 1185243,
+        "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25"
+      },
+      "current": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/heads/u.json",
+        "bytes": 1185313,
+        "sha256": "b1c5e13c2d2b8dfc0914287ff8211d4ff23429d35397fe60c233bc00f938c471"
+      },
+      "physical_attempts": 147510,
+      "source_key_sha256": "46229639b58474d9f2061a1538b8d1e719a900b3194061dd3d13c7ebf48cdc8d",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 58,
+        "masked_faceoff": 6,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "changed_support": [
+        {
+          "name": "shooter_start_zone:offensive",
+          "old": {
+            "available_weight": 141660.0,
+            "unavailable_attempts": 5850,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 141596.0,
+            "unavailable_attempts": 5914,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 64
+        },
+        {
+          "name": "shooter_start_zone:neutral",
+          "old": {
+            "available_weight": 141660.0,
+            "unavailable_attempts": 5850,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 141596.0,
+            "unavailable_attempts": 5914,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 64
+        },
+        {
+          "name": "shooter_start_zone:defensive",
+          "old": {
+            "available_weight": 141660.0,
+            "unavailable_attempts": 5850,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 141596.0,
+            "unavailable_attempts": 5914,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 64
+        }
+      ],
+      "shared_flag_support": {
+        "available_weight": 147510.0,
+        "unavailable_attempts": 0,
+        "structural_absence_attempts": 0,
+        "active": true
+      },
+      "axes_means_active_nonstart_support_and_design_exact": true,
+      "origin_and_target_metadata_exact": true,
+      "transform_change": {
+        "old": "on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
+        "new": "pre-event eligible on_the_fly reference; eligible faceoff offensive,neutral,defensive; ineligible/unknown unavailable; last-faceoff existence,zone,age/60 unchanged"
+      }
+    },
+    {
+      "head": "q",
+      "original": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+        "bytes": 1285641,
+        "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821"
+      },
+      "current": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/heads/q.json",
+        "bytes": 1285711,
+        "sha256": "322b18de7c7b05b2186e7f2bcd4f4cec2b9ad8ca215789b8f99e3441c1913ac9"
+      },
+      "physical_attempts": 112345,
+      "source_key_sha256": "e107bd438b2d78b23de9451737d7d33d7b700b338e1e6c0017729077ca77a39e",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 39,
+        "masked_faceoff": 5,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "changed_support": [
+        {
+          "name": "shooter_start_zone:offensive",
+          "old": {
+            "available_weight": 107854.0,
+            "unavailable_attempts": 4491,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 107810.0,
+            "unavailable_attempts": 4535,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 44
+        },
+        {
+          "name": "shooter_start_zone:neutral",
+          "old": {
+            "available_weight": 107854.0,
+            "unavailable_attempts": 4491,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 107810.0,
+            "unavailable_attempts": 4535,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 44
+        },
+        {
+          "name": "shooter_start_zone:defensive",
+          "old": {
+            "available_weight": 107854.0,
+            "unavailable_attempts": 4491,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 107810.0,
+            "unavailable_attempts": 4535,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 44
+        }
+      ],
+      "shared_flag_support": {
+        "available_weight": 112345.0,
+        "unavailable_attempts": 0,
+        "structural_absence_attempts": 0,
+        "active": true
+      },
+      "axes_means_active_nonstart_support_and_design_exact": true,
+      "origin_and_target_metadata_exact": true,
+      "transform_change": {
+        "old": "on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
+        "new": "pre-event eligible on_the_fly reference; eligible faceoff offensive,neutral,defensive; ineligible/unknown unavailable; last-faceoff existence,zone,age/60 unchanged"
+      }
+    },
+    {
+      "head": "r",
+      "original": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+        "bytes": 1283295,
+        "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12"
+      },
+      "current": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/heads/r.json",
+        "bytes": 1283349,
+        "sha256": "44bf616efc30086dbf944cdd7a86508877b2a8f7bf99d242a5b42206e9868f06"
+      },
+      "physical_attempts": 82328,
+      "source_key_sha256": "f6a6f90d1a9c965bb80470fc05fa3cd0f6b96c46485210591a55ef27297b9aa1",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 31,
+        "masked_faceoff": 4,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "changed_support": [
+        {
+          "name": "shooter_start_zone:offensive",
+          "old": {
+            "available_weight": 78958.0,
+            "unavailable_attempts": 3370,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 78923.0,
+            "unavailable_attempts": 3405,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 35
+        },
+        {
+          "name": "shooter_start_zone:neutral",
+          "old": {
+            "available_weight": 78958.0,
+            "unavailable_attempts": 3370,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 78923.0,
+            "unavailable_attempts": 3405,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 35
+        },
+        {
+          "name": "shooter_start_zone:defensive",
+          "old": {
+            "available_weight": 78958.0,
+            "unavailable_attempts": 3370,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 78923.0,
+            "unavailable_attempts": 3405,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 35
+        }
+      ],
+      "shared_flag_support": {
+        "available_weight": 82328.0,
+        "unavailable_attempts": 0,
+        "structural_absence_attempts": 0,
+        "active": true
+      },
+      "axes_means_active_nonstart_support_and_design_exact": true,
+      "origin_and_target_metadata_exact": true,
+      "transform_change": {
+        "old": "on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
+        "new": "pre-event eligible on_the_fly reference; eligible faceoff offensive,neutral,defensive; ineligible/unknown unavailable; last-faceoff existence,zone,age/60 unchanged"
+      }
+    },
+    {
+      "head": "g",
+      "original": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+        "bytes": 2117020,
+        "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6"
+      },
+      "current": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/heads/g.json",
+        "bytes": 2117001,
+        "sha256": "b0a3beeec32c48eeb0099ee3c4f59695535b83a29e84b1eb890f3eba27600bd3"
+      },
+      "physical_attempts": 62505,
+      "source_key_sha256": "ee801058c9ef477c3c69ff6f36fa7d701fea0bcec411f2070d2d5dea2c3acc71",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 25,
+        "masked_faceoff": 2,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "changed_support": [
+        {
+          "name": "shooter_start_zone:offensive",
+          "old": {
+            "available_weight": 60002.0,
+            "unavailable_attempts": 2503,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 59975.0,
+            "unavailable_attempts": 2530,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 27
+        },
+        {
+          "name": "shooter_start_zone:neutral",
+          "old": {
+            "available_weight": 60002.0,
+            "unavailable_attempts": 2503,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 59975.0,
+            "unavailable_attempts": 2530,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 27
+        },
+        {
+          "name": "shooter_start_zone:defensive",
+          "old": {
+            "available_weight": 60002.0,
+            "unavailable_attempts": 2503,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "new": {
+            "available_weight": 59975.0,
+            "unavailable_attempts": 2530,
+            "structural_absence_attempts": 0,
+            "active": true
+          },
+          "newly_unavailable": 27
+        }
+      ],
+      "shared_flag_support": {
+        "available_weight": 62505.0,
+        "unavailable_attempts": 0,
+        "structural_absence_attempts": 0,
+        "active": true
+      },
+      "axes_means_active_nonstart_support_and_design_exact": true,
+      "origin_and_target_metadata_exact": true,
+      "transform_change": {
+        "old": "on_the_fly reference; faceoff offensive,neutral,defensive; unknown unavailable; last-faceoff existence,zone,age/60",
+        "new": "pre-event eligible on_the_fly reference; eligible faceoff offensive,neutral,defensive; ineligible/unknown unavailable; last-faceoff existence,zone,age/60 unchanged"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/coverage.json",
+      "bytes": 196154100,
+      "sha256": "7aba2213ab3ad5b2000f927418e3d2e88c585e53c2ff96785facd4c5f300395b",
+      "non_optional_prefix_bytes": 195981536,
+      "non_optional_prefix_sha256": "18bb68ff033e33199a616f172fc5e8978f2f247b47986bf6385e4deacfe0b985"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/coverage.json",
+      "bytes": 196154100,
+      "sha256": "3cb1e3be52193e0a95123b665e8de6d5a0cc6a6cb08eb6cff5813a4ee89ad820",
+      "non_optional_prefix_bytes": 195981536,
+      "non_optional_prefix_sha256": "18bb68ff033e33199a616f172fc5e8978f2f247b47986bf6385e4deacfe0b985"
+    }
+  ],
+  "population_proof": "all coverage bytes before final optional_features are identical: recognized attempt keys/order, game rows, head admission/labels/exclusions and their evidence are unchanged; optional_features exactly matches each head support metadata",
+  "intended_difference": "only three start support records per head and declared shift_start transform wording differ in the saved design; all non-start support, columns, means, active flags, actor axes, fixed setter mean inputs, targets and origin metadata are exact",
+  "limits": [
+    "no coefficient, prior, ledger, reporting center, array or solve review here; numerical owner separately performs strict read and numerical acceptance",
+    "saved head flag metadata records available support and active status, not binary-one counts; actual flag=unavailable was checked during the real source pass and all54 saved known witnesses retain that value",
+    "old artifacts have no raw per-event context digest; metadata equality does not independently replay every non-start feature value. source code and208attempt independent comparison plus this saved coverage/design comparison bound that claim",
+    "64/44/35/27 newly unavailable starts are not all proved timing failures; unresolved bindings remain reported without threshold and unsaved alternative anchors remain unsized",
+    "no claim about fitted probability changes, later annuals or completed scoring"
+  ],
+  "wall_seconds": 3.2900286249932833,
+  "access": "two manifests, saved source report, eight head JSON files, two coverage JSON streams and local current recipe/git identity; no source game, prepared member, array, score or fit access"
+}

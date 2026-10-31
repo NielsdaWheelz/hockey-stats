@@ -710,16 +710,28 @@ matrix nonzeros close the other receipt limit, on flag flips, as a count. a mask
 
 the two flags are the largest moves in every head, up to 0.356 in `g`. [predictor timing](#predictor-timing) predicted this: the pair was a ridge split on 5 to 10 rows and is now separated by 32 to 74. the flags swing opposite and mostly cancel. the rest of the flag block moves at most 0.047. base, type, non-flag circumstance, goalie and setter blocks move at most 0.0037, coaches at most 0.0002, and the median coefficient about 1e-5. in `u`, six of the eight largest shooter moves are shooters in the 54 witnesses. all heads converged with the same terminations, and `g` took nine em iterations in both fits. `q` `gradient_max` rose from 0.0027 to 0.0102, but no gate reads it and termination is on relative reduction. afaict non-flag moves near 0.001 cannot be separated from stopping noise.
 
-this is not yet a probability result. two groups need the real score, because no row-level change has been measured:
+this is not yet a probability result. no row-level change has been measured. the coefficients implicate two groups:
 
 - masked rows. a masked on-the-fly row swaps the reference for the flag coefficient: -0.28, +0.05, +0.14 and -0.14 by head. that is about 64 rows.
 - rows unavailable on both flags. `g` pair sum falls 0.056 on about 2,500 rows, the largest move on ordinary rows, and other co-occurring flags offset some of it. idk how much.
+
+saved evidence cannot name either group in full, so this review withdraws its plan to split scores by them. the observer keeps the 54 census keys and bounded witnesses, and coverage and state keep no per-event availability. the score comparison reports complete old/new identity and movement, the exact 54, the located witnesses and an unclassified remainder. the largest move over all rows is a ceiling on both groups, not a measure of either. a changed probability classifies nothing.
 
 the flag also carries the accepted limit from [predictor timing](#predictor-timing). the start value is gone, but its absence remains a predictor, and availability can depend on later records. the flag's separate estimate now rests mostly on these rows, including the four later-anchor faceoffs. that limit is now sized at 64 of 147,510 in `u`. no change follows.
 
 provenance: `git_commit` `dcd9930` is `HEAD` when the manifest was written (`artifacts.py:21`), not launch head `c4ed1e3`. `analysis` is tree `c2412ac` at both, and `git_dirty` covers `analysis/` only. the strict reader asks only for an identified clean commit, and fixture annuals already carry different commits, so this is not a defect. receipts should cite launch head and tree, not the manifest commit, for what ran.
 
 cost: wall 6,164 seconds against 8,801, design 4,396 against 6,915, fit 1,767 against 1,885, of which `u` is 1,381. peak 18.8 gb against 17.3. the observer and the overlapping rollback both sit inside these, so no figure is a clean baseline.
+
+### real `20212022` score source parity
+
+verdict: **clear.** score report `18d8d81d` against fit report `2a1e41e1`, while the score still runs. this review read the two reports, the launch pins and the observer. it read no prepared game, no score output, and ran no source pass.
+
+every top-level field is equal except `command` and `observer_seconds`. that covers root's eight, and also `first_witnesses` and `known_witnesses`.
+
+the two digests carry the weight. `source_context_sha256` hashes the whole encoder `output` with key and shooter, in stream order, so equal `a60c81d8` means fit and score saw the same contexts in the same order, not merely the same start fields. `source_response_sha256` does the same for details, immediate outcomes and strength membership. state `7c740083`, recipe `47691110`, census `6fd06ffb`, tree `c2412ac`, observer `286b34dd` and head `0605f0a` match the launch receipts. the command is the plain score tail. the source pass took 74 minutes, the fit's 73.
+
+this proves shared input, not scored probabilities. no row-level change is measured yet.
 
 ### replacement disposable rollback
 

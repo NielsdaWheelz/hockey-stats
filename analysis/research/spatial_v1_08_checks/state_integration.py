@@ -1,5 +1,6 @@
 """temporary strict-state/history/reference integration checks."""
 from dataclasses import replace
+from itertools import permutations
 import hashlib
 import json
 from pathlib import Path
@@ -13,7 +14,7 @@ from scipy.special import expit, logsumexp
 from hockey_stats.artifacts import ordered_array_digest
 from hockey_stats.captures import InputContractError
 from hockey_stats.spatial_design import SpatialDesign, RECIPE, CONTEXT_AXES, _actor_columns, _basis
-from hockey_stats.spatial_rates import fit_spatial, annual_priors, HEADS, centered_reference, _unpack, head_objective, project_spatial, _linear, _complete_prior_only
+from hockey_stats.spatial_rates import fit_spatial, annual_priors, HEADS, centered_reference, _unpack, head_objective, project_spatial, _linear, _complete_prior_only, context_coalitions
 from hockey_stats.spatial_state import read_spatial_state, validate_design
 
 
@@ -75,6 +76,24 @@ def main():
                 applicability=np.asarray(d.X_time[:,c['indices']].sum(axis=1)).ravel()
                 offset+=applicability[:,None]*np.asarray(c['mean'])
             assert np.allclose(_linear(d,beta,'time'),_linear(d,centered,'time')+offset,atol=1e-13,rtol=0)
+        # independent 24 group orders through raw forty-mode predictors verify
+        # the streamed native-logit path, including both reciprocal focal roles.
+        betas={h:_unpack(state.head_arrays[h]['coefficients'],d,h)[0] for h in HEADS}
+        centers={h:centered_reference(d,h,betas[h])[0] for h in HEADS}
+        references={h:centered_reference(d,h,betas[h])[1] for h in HEADS}
+        for r,role in enumerate(('offense','defense')):
+            coalitions=context_coalitions(d,betas,references,centers,r,'0',role)
+            allocations=np.zeros((4,2,656))
+            for order in permutations(range(4)):
+                subset=0
+                for group in order:
+                    updated=subset|1<<group
+                    allocations[group]+=(coalitions[updated]-coalitions[subset])/24
+                    subset=updated
+            saved=state.projection_arrays['adjustments'][d.players.index('0'),r]
+            assert np.allclose(saved[:,0],coalitions[0],atol=1e-12,rtol=1e-12)
+            assert np.allclose(saved[:,1:5],allocations.transpose(1,0,2),atol=1e-12,rtol=1e-12)
+            assert np.allclose(saved[:,6],coalitions[15],atol=1e-12,rtol=1e-12)
         # a two-year gap carries raw supported coordinates, not the annual center.
         later=replace(d,season='20232024',player_facts={p:dict(position_group='F',age_days=28*365.2425) for p in d.players})
         prior=next(r for r in annual_priors(later,'volume',state.heads['volume']['ledger']) if r['block']=='attacking_player' and r['id']=='0')

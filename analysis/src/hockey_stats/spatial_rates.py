@@ -380,25 +380,30 @@ def centered_reference(design, head, beta):
     return centers, reference, vector
 
 
-def evaluate_rates(design, predictors):
-    """evaluate all three heads jointly; never clip positive physical rates."""
-    v = np.asarray(predictors['volume'])
-    s = np.asarray(predictors['shape'])
-    q = np.asarray(predictors['quality'])
-    offsets = design.annual_offsets
-    eta = math.log(offsets['r'])+v[...,0]
-    shape = np.log(offsets['pi'])+s@design.basis.T
-    logp = shape-logsumexp(shape,axis=-1)[...,None]
-    qbar = np.asarray(offsets['qbar'])
-    quality_eta = np.log(qbar)-np.log1p(-qbar)+q[...,:1]+q[...,1:]@design.basis.T
+def _rates_from_logits(log_volume,shape_logits,quality_logits):
+    """one positive-rate owner for raw and shared native-logit projections."""
+    log_volume=np.asarray(log_volume)
+    logp=shape_logits-logsumexp(shape_logits,axis=-1)[...,None]
     with np.errstate(over='raise',invalid='raise',under='ignore'):
-        attempts = np.exp(eta[...,None]+logp)
-        quality = expit(quality_eta)
-        chance = np.exp(eta[...,None]+logp+log_expit(quality_eta))
+        attempts=np.exp(log_volume[...,None]+logp)
+        chance=np.exp(log_volume[...,None]+logp+log_expit(quality_logits))
     require(np.isfinite(attempts).all() and np.isfinite(chance).all()
             and np.all(attempts>0) and np.all(chance>0) and np.all(chance<=attempts),
             'invalid positive complete spatial rates')
     return np.stack((attempts,chance),axis=-2)
+
+
+def evaluate_rates(design,predictors):
+    """evaluate all three heads jointly; never clip positive physical rates."""
+    v=np.asarray(predictors['volume'])
+    s=np.asarray(predictors['shape'])
+    q=np.asarray(predictors['quality'])
+    offsets=design.annual_offsets
+    eta=math.log(offsets['r'])+v[...,0]
+    shape=np.log(offsets['pi'])+s@design.basis.T
+    qbar=np.asarray(offsets['qbar'])
+    quality_eta=np.log(qbar)-np.log1p(-qbar)+q[...,:1]+q[...,1:]@design.basis.T
+    return _rates_from_logits(eta,shape,quality_eta)
 
 
 def spatial_shapley(coalitions):
@@ -534,6 +539,10 @@ def _actual_adjustments(design, betas, references, centers):
     seconds=np.zeros((len(design.players),2))
     representatives,exposure=_volume_groups(design)
     weights=FOUR_GROUP_WEIGHTS
+    qbar=np.asarray(design.annual_offsets['qbar'])
+    native_reference=dict(volume=math.log(design.annual_offsets['r'])+references['volume'][0],
+        shape=np.log(design.annual_offsets['pi'])+references['shape']@design.basis.T,
+        quality=np.log(qbar)-np.log1p(-qbar)+references['quality'][0]+references['quality'][1:]@design.basis.T)
     # 16 elapsed rows contain 160 focal contexts. each subset creates only a
     # batch×40 predictor and batch×656 cell arrays, then accumulates and releases.
     for start in range(0,len(representatives),16):
@@ -563,11 +572,14 @@ def _actual_adjustments(design, betas, references, centers):
                     pi.append(player_index[str(player)]);ri.append(role_index);context_weight.append(hours[j])
         pi=np.asarray(pi);ri=np.asarray(ri);context_weight=np.asarray(context_weight)
         grouped={head:np.asarray(value) for head,value in grouped.items()}
+        native_groups=dict(volume=grouped['volume'][...,0],
+            shape=(grouped['shape'].reshape(-1,40)@design.basis.T).reshape(len(pi),4,656),
+            quality=grouped['quality'][...,:1]+(grouped['quality'][...,1:].reshape(-1,40)@design.basis.T).reshape(len(pi),4,656))
         accumulated=np.zeros((len(pi),2,7,656))
         for subset in range(16):
             selected_groups=[g for g in range(4) if subset&(1<<g)]
-            predictors={head:references[head]+grouped[head][:,selected_groups].sum(axis=1) for head in HEADS}
-            rate=evaluate_rates(design,predictors)
+            native={head:native_reference[head]+native_groups[head][:,selected_groups].sum(axis=1) for head in HEADS}
+            rate=_rates_from_logits(native['volume'],native['shape'],native['quality'])
             if subset==0: accumulated[:,:,0]=rate
             if subset==15: accumulated[:,:,6]=rate
             for group in range(4): accumulated[:,:,group+1]+=weights[group,subset]*rate

@@ -96,6 +96,12 @@ reuse the existing fixed transforms/scales, with these explicit product adaptati
 
 retain `game_detail,recent_detail,action_windows,zone_run,historical` inactive. no duplicate recent encoding, unrestricted cross-products or new alternative campaign.
 
+### approved start-eligibility repair — 2026-10-31
+
+under [v1-08's amended assignment](v1-08-positive-attribution.md#approved-input-timing-repair--2026-10-31), admit a shooter start only when it is established before the focal event: a faceoff anchor must precede that event in saved chronology; an on-the-fly shift must begin strictly before its clock. a same-clock faceoff with a proved earlier anchor remains eligible. unknown or ambiguous eligibility uses the existing unavailable condition. preserve saved shift age, membership, labels, population, the selected families and all source/prepared/factual evidence. retrospective shift facts remain valid evidence; execution's shared fit/score encoder owns their predictor admission. spatial shares the small policy through the existing context owner.
+
+change `DEFINITION` policy and version explicitly so old state and score recipes are refused. focused source-backed checks and manifest-only negative controls precede the replacement chain. twenty replacement heads and four final continuations are the approved complete budget, without a minimum-cost claim or selective-reuse mechanism. [the repair scope](../research/spatial-v1-08/execution-start-repair-scope.md) records dependent scoring/composition and acceptance; no activation or new model search follows.
+
 ### approved prior-clock history — 2026-10-24
 
 for `recent_additive,recent_interactions,recent_geometry`, reset-dependent strength transition and setter history, admit a historical record only when its verified source order precedes the focal record **and** its supported period/game clock is strictly earlier. exclude every same-clock record uniformly before examining its kind, validity, faceoff, review or reset meaning. never reorder event ids or recover a physical release order. preserve exact focal membership and the existing sequence, deployment, shift-start, exposure, event-prefix workload, calendar-rest and label contracts.

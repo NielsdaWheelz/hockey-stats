@@ -81,8 +81,6 @@ def _manifest(value, purpose):
     year = _season(value['season'])
     require(value['season'] in ('20212022','20222023','20232024','20242025','20252026'), 'season outside execution scope')
     recipe = value['recipe']
-    require(type(recipe) is dict and recipe.get('name') == 'experimental-v1'
-            and recipe.get('version') == 'execution-v1-05-1', 'invalid execution recipe')
     from .execution_design import RECIPE
     require(recipe == RECIPE, 'execution recipe definition differs')
     for name in ('prepared', 'coaches'):

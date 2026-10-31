@@ -183,8 +183,10 @@ def _transform_context(time, event, exposure, continuous):
     for col, scale_column in enumerate(continuous):
         present = np.isfinite(time[:, col])
         weight = float(exposure[present].sum())
-        location = float(exposure[present] @ time[present, col] / weight) if weight else 0.
-        variance = float(exposure[present] @ ((time[present, col] - location) ** 2) / weight) if weight else 0.
+        values = time[present, col]
+        anchor = float(values[0]) if weight else 0.
+        location = anchor + float(exposure[present] @ (values - anchor) / weight) if weight else 0.
+        variance = float(exposure[present] @ ((values - location) ** 2) / weight) if weight else 0.
         scale = float(np.sqrt(variance)) if scale_column and variance > 0 else 1.
         result[:, col] = np.where(present, (time[:, col] - location) / scale, 0.)
         event_result[:, col] = np.where(np.isfinite(event[:, col]), (event[:, col] - location) / scale, 0.)

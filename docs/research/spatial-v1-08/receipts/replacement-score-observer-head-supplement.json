@@ -1,0 +1,72 @@
+{
+  "kind": "execution-spatial-replacement-score-observer-head-supplement",
+  "status": "prepared only; final acceptance held pending independent residual-count verdict",
+  "recorded_at_utc": "2026-10-31T14:45:34.989532+00:00",
+  "supersedes": "only observer identity and parity-field list in the intermediate observer supplement; unchanged command prefixes/books remain unexecuted",
+  "prior_supplement": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-score-observer-supplement.json",
+    "bytes": 7171,
+    "sha256": "7dd0e4edb052546583065f8ad1e551570bcb91af66e0b72881b6ed368409f5a8"
+  },
+  "per_head_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/execution-start-observer-head-populations.json",
+    "bytes": 5395,
+    "sha256": "dd63306c9bab7859c069057367b1d2c84cb36dac340d1921961e7d6c4974f4fd"
+  },
+  "per_head_proof_commit": "683fa4b",
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "bytes": 12602,
+    "sha256": "b3811c4b0d9186daa6c59d8cf4d0931aebd4df0b5a8ab77b39c558458f6c71d7"
+  },
+  "prior_observer_sha256": "7140ba0dbd5ea25dfe2cb96fa286050b6668aae3407df832c23fc5f664ef1fd5",
+  "cli_changed": false,
+  "command_books": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+      "bytes": 13768,
+      "sha256": "bfd130a1581f79d49fc9e86be12ab467e1a1feb6d5bdbc6f345d4b68706bfe8d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+      "bytes": 13597,
+      "sha256": "2d7a78c6e7669d0d841998f0e91ec0ca9ddee255245770b347f687514a58cfee"
+    }
+  ],
+  "command_books_rewritten": false,
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "production_analysis_changed": false,
+  "exact_same_season_fit_score_parity_fields": [
+    "source_context_sha256",
+    "source_response_sha256",
+    "source_contexts",
+    "dispositions",
+    "all_strength_dispositions",
+    "eligibility_counts",
+    "head_admission",
+    "head_populations"
+  ],
+  "head_populations_contract": {
+    "head_keys": [
+      "u",
+      "q",
+      "r",
+      "g"
+    ],
+    "per_head_fields": [
+      "physical_attempts",
+      "key_sha256",
+      "dispositions",
+      "all_strength_dispositions",
+      "eligibility_counts"
+    ],
+    "grain": "physical attempt rows selected by each returned head design; compact observed flags, no origin expansion",
+    "comparison": "compare the entire head_populations object exactly between same-season fit and score"
+  },
+  "residual_scope": "current coherent-only evidence definition; independent residual-count acceptance remains pending",
+  "release_ready": false,
+  "score_command_run": false,
+  "selection_written": false,
+  "future_artifact_hashes": null,
+  "scope": "observer and small proof metadata hashes plus unchanged command-book identities; no source games, states, scores, arrays or database reads; no model, app, build, server or gui action"
+}

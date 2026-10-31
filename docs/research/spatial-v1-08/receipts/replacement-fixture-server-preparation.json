@@ -1,0 +1,69 @@
+{
+  "kind": "replacement-fixture-detached-server-preparation",
+  "status": "unexecuted; publisher running, finished-candidate acceptance/positive control and root stop/relaunch release pending",
+  "recorded_at_utc": "2026-10-31T16:37:53.304412+00:00",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-server-01-command.sh",
+    "sha256": "f71df65a071f8a8035004b26d9e9653bd87529886237bfb2b5e5910d0aae5b8c",
+    "bytes": 4766
+  },
+  "script_text": "#!/bin/sh\n# unexecuted; root accepts candidate/controls, stops only old node73888 and releases this command.\ncd /Users/nnandal/Documents/code/hockey-stats-v1-08 || exit 1\nif /bin/kill -0 73888 2>/dev/null; then\n  printf '%s\\n' 'old isolated node 73888 remains; server launch refused' >&2\n  exit 1\nfi\nif /usr/sbin/lsof -nP -iTCP:3398 -sTCP:LISTEN >/dev/null 2>&1; then\n  printf '%s\\n' 'port 3398 remains occupied; server launch refused' >&2\n  exit 1\nfi\ntest -f /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite || exit 1\ntest ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.log && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.exit && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.shell.pid && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.start.txt && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.finish.txt && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-profile-sha256.txt && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-tree.txt && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-status.txt && test ! -e /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-entrypoint-sha256.txt || exit 1\nset -C\nprintf '%s\\n' \"$$\" > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.shell.pid &&\ndate -u +%Y-%m-%dT%H:%M:%SZ > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.start.txt &&\nshasum -a 256 /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-profile-sha256.txt &&\n[ \"$(cat /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-profile-sha256.txt)\" = 'f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199  /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb' ] &&\ngit rev-parse HEAD:app > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-tree.txt &&\n[ \"$(cat /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-tree.txt)\" = 248ed5924d8b1ab944752abc578014fa4aeede0c ] &&\ngit status --porcelain --untracked-files=all -- app > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-status.txt &&\n[ ! -s /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-status.txt ] &&\nshasum -a 256 /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-entrypoint-sha256.txt &&\n[ \"$(cat /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-entrypoint-sha256.txt)\" = '9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05  /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js' ] &&\n/usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite --port 3398 > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.log 2>&1\ndetached_server_status=$?\nprintf '%s\\n' \"$detached_server_status\" > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.exit\ndate -u +%Y-%m-%dT%H:%M:%SZ > /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.finish.txt\nexit \"$detached_server_status\"\n",
+  "syntax_exit": 0,
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb",
+    "sha256": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199"
+  },
+  "existing_controls_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-fixture-detached-existing-controls.json",
+    "sha256": "fa5d92fab9f3dd226225357ee44e035649fe2c4befba918d27349e55f1975631"
+  },
+  "existing_negative_permission_codes": {
+    "EPERM": 22
+  },
+  "candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+    "accepted_sha256": null,
+    "payload_read": false,
+    "positive_control": "pending root accepted publication; do not read while writer active"
+  },
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "port": 3398,
+  "old_owned_node_must_be_stopped_by_root": 73888,
+  "source_app_git_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "app_source": {
+    "sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+    "files": 52,
+    "bytes": 873260
+  },
+  "app_build": {
+    "sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+    "files": 38,
+    "bytes": 1289425
+  },
+  "digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app; build is every actual app/dist file",
+  "server_entrypoint_sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05",
+  "fresh_receipt_paths": {
+    "log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.log",
+    "exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.exit",
+    "shell.pid": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.shell.pid",
+    "start.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.start.txt",
+    "finish.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.finish.txt",
+    "launch-profile-sha256.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-profile-sha256.txt",
+    "launch-app-tree.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-tree.txt",
+    "launch-app-status.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-app-status.txt",
+    "launch-entrypoint-sha256.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-entrypoint-sha256.txt"
+  },
+  "guards": "old pid absent, port3398 unused, finished canonical DB exists, all9 receipt paths absent, exact profile/app tree/clean app/compiled entrypoint",
+  "protocol": [
+    "root accepts finished publisher database and reports its actual identity",
+    "run the separately released finished-candidate positive control; keep absent sidecars explicitly untested",
+    "root stops only owned old node73888; original fixture03 DB/profile and live publications preserved",
+    "root separately releases this single timed command; no automatic restart/retry",
+    "record actual new shell/time/node PIDs, startup/readiness/costs before any API/browser claim"
+  ],
+  "server_launched": false,
+  "old_server_stopped_by_product": false,
+  "publication_launched_by_product": false,
+  "production_observer_profile_app_changed": false,
+  "candidate_or_partial_db_payload_reads": 0
+}

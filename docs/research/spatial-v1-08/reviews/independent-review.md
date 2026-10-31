@@ -344,6 +344,17 @@ limit, and this matters for reading the fixture chain: **this annual does not ex
 
 score guards: all sixteen blocks pass `/bin/sh -n`. all ten score blocks pin subtree `c2412ac`, clean analysis status, observer `286b34dd` and the expected recipe, and all five launch receipts and the check path sit in the occupied-path guard. each `--state` and `--out` is its own purpose and season in the new campaign, and `--known-census` stays on real `20212022` only. all sixteen tails equal the original `replacement-product-preparation.json` argv, including the six compose and publish blocks. their byte identity is not independently proved, because the old books are not retained. a dry run of `score-20212022` through the real observer `main`, with the cli stubbed and output in scratch, handed over the right tail and resolved season from the new state.
 
+### fixture annual diffs
+
+each row is a saved-artifact diff against the accepted original annual in `chain-01`, with no source pass. "byte-identical" covers every head's coefficient array. a row also means: `columns`, `means`, `active`, `size`, every `feature_support` entry, `coverage.json` and every other head field are equal, except the `shift_start` recipe text and `wall_seconds`. the strict reader accepts the new state and refuses the original, and observer unavailable rows equal saved `unavailable_attempts`.
+
+| annual | original | new | attempts `u,q,r,g` | masked | coefficients | previous |
+|---|---|---|---|---|---|---|
+| `20212022` | `aeac9f05` | `93478145` | 771, 618, 439, 335 | 0 | byte-identical | none |
+| `20222023` | `52a2b0fa` | `7ca3062b` | 585, 434, 321, 235 | 0 | byte-identical | exact: new `93478145` |
+
+all five special counters are zero in both years, across 1,356 attempts, so the regression-only limit above still holds.
+
 ## cost notes
 
 - `validate_design` loops over every row in python and each annual fit reaches it about four times: before fitting, at write, at read-back and as the next year's predecessor. composition repeats it for five states. estimated tens of minutes per annual fit; measure on the first real year.

@@ -405,5 +405,136 @@
     "wall_seconds": 0.015823000052478164,
     "peak_rss_bytes": 33652736
   },
-  "remaining": "root continues all3years, pending selectors and narrow discovery; no complete fixture-browser or real-product claim"
+  "remaining": "root continues all3years, pending selectors and narrow discovery; no complete fixture-browser or real-product claim",
+  "additional_final_build_native_checks": {
+    "recorded_at_utc": "2026-10-31T22:03:00.309513+00:00",
+    "observer": "root native chrome via cua; product records supplied observations, no browser action",
+    "evidence": "root tools transcript; nativeRebuildSelectors array contains eight unique settled selections; no separate screenshot/transcript file path supplied",
+    "settled_selector_protocol": {
+      "action": "change detail quantity menu, Tab commit, then wait for committed URL metric and selected value before recording each result",
+      "accepted_states": 8,
+      "unique_metric_ids": 8,
+      "early_rapid_batch": "discarded stale snapshot results; not acceptance evidence and not an application defect claim"
+    },
+    "Hamilton2024": {
+      "player_id": "8476462",
+      "reference_group": "reported defense",
+      "peer_min": 0,
+      "peer_n": 77,
+      "matched_support_seconds": 1058,
+      "selectors": [
+        {
+          "metric_id": "spatial.5v5.offense_attempts_per60",
+          "root_reported_display_value": "8.56103",
+          "display_unit": "attempts per60",
+          "root_reported_percentile": "98.1",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.offense_xg_per60",
+          "root_reported_display_value": ".37678",
+          "display_unit": "xg per60",
+          "root_reported_percentile": "98.1",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.offense_attempts_relative_percent",
+          "root_reported_display_value": "20.0088",
+          "display_unit": "%",
+          "root_reported_percentile": "98.1",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.offense_xg_relative_percent",
+          "root_reported_display_value": "20.953",
+          "display_unit": "%",
+          "root_reported_percentile": "98.1",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.defense_attempts_per60",
+          "root_reported_display_value": "3.55646",
+          "display_unit": "attempts per60",
+          "root_reported_percentile": "79.9",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.defense_xg_per60",
+          "root_reported_display_value": ".164411",
+          "display_unit": "xg per60",
+          "root_reported_percentile": "81.2",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.defense_attempts_relative_percent",
+          "root_reported_display_value": "8.31214",
+          "display_unit": "%",
+          "root_reported_percentile": "79.9",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        },
+        {
+          "metric_id": "spatial.5v5.defense_xg_relative_percent",
+          "root_reported_display_value": "9.14302",
+          "display_unit": "%",
+          "root_reported_percentile": "81.2",
+          "settled_URL_metric_matches": true,
+          "selected_value_matches": true
+        }
+      ]
+    },
+    "season_combobox": {
+      "q": "br",
+      "table": "spatial",
+      "strength": "5v5",
+      "settled_URL_and_UI_match_each": true,
+      "seasons": [
+        {
+          "season": "20232024",
+          "visible_matches": 11,
+          "total_players": 201
+        },
+        {
+          "season": "20242025",
+          "visible_matches": 17,
+          "total_players": 245
+        },
+        {
+          "season": "20252026",
+          "visible_matches": 22,
+          "total_players": 277
+        }
+      ]
+    },
+    "pending_specialties": {
+      "player_id": "8476462",
+      "season": "20242025",
+      "selections": [
+        "spatial.pp.offense_attempts_per60",
+        "spatial.pk.defense_attempts_per60"
+      ],
+      "literal_unavailable_explanation": "special-team spatial estimation awaits v1-09",
+      "observed_substitution": false,
+      "specialty_cutoff_minutes": 50
+    },
+    "narrow_discovery": {
+      "responsive_css_width": 320,
+      "header_and_controls_reflow": true,
+      "body_overflow": false,
+      "existing_table_region_focusable": true,
+      "horizontal_scroll_observed": true,
+      "sticky_player_name_retains_context": true,
+      "right_arrow_presses": 22,
+      "actual_spatial_cells_revealed": true,
+      "unit_access": "horizontal scrolling required by the declared wide two-dimensional table",
+      "closed_devtools_and_restored_wide_100_percent": true
+    },
+    "scope_limit": "these are additional actual native selector/discovery checks on source086/distc4ac. root is still finishing same-position, absent-year and search journeys; whole fixture browser acceptance is not asserted"
+  }
 }

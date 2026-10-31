@@ -29,3 +29,9 @@ the [accepted v1-06 handoff](../execution-v1-06/verification.md) owns the exact 
 ## material costs and limits
 
 full forty-mode heads, all retained events/time and exact sixteen-subset projections are prescribed; no sampling or reduced population substitutes for real acceptance. conservative segment exclusion loses otherwise usable neighboring time in exchange for common count/time support. raw annual history is distinct from reporting centers. aggregate browser support does not prove current information for each head. calibrated uncertainty, causal interpretation and scientific admission remain unavailable; complete cards and structured head/adjustment display remain assigned successor work.
+
+## initial independent review
+
+the first independent read-only report inspected current source/numerical code and two real games. it identified a recorded goalie shooter incorrectly treated as unresolved, understated inference labels and a real-scale memory risk from storing dense centered contexts as csr and full row bytes as grouping keys. these are assigned repairs; no real fit has started. the two games contain 1,076 and 1,197 5v5 chunks. extrapolated memory and runtime remain estimates, not measured annual capacity.
+
+root resolved two specification ambiguities before freezing the recipe: one attacking-frame transition block avoids duplicate coordinates that change its effective prior; an explicit missing-member fraction of one represents all five members missing, without another indicator. sparse actor and dense context arrays preserve the same logical design while avoiding csr index overhead and redundant full copies. exact grouping uses bounded digest keys with actual equality checked before merging. the first complete real annual triple still owns the required measured capacity result.

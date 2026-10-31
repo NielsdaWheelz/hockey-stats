@@ -237,9 +237,9 @@ proved from the source, not from counts. take a shooter with a bound shift.
 - start strictly before the focal clock: `on_the_fly` cannot flip on the future, because the episode holding the start ends at or after the focal clock, which exceeds the start. a `faceoff` anchor sits on the earlier start clock, so it is earlier in order.
 - start on the focal clock: every case is unavailable except a faceoff proved earlier in order. the same-clock reset no longer separates `on_the_fly` from unknown, which was the old mechanism.
 
-so the mask is decided by records before the attempt plus the saved shift start clock. two small dependencies remain, and both can only withhold a start, never admit one. `len(matching) == 1` and `tied_unknown` can see a later same-clock record, so a later faceoff can withhold a start anchored earlier. `order_supported` and an unknown episode end are game-level. no source change follows, and [the final review](#final-source-review) settles that no count is needed.
+corrected after fixture `20232024`: this overclaimed that the mask is decided by records before the attempt. three dependencies on later records remain, and all can only withhold a start, never admit one. `len(matching) == 1` and `tied_unknown` can see a later same-clock record. `order_supported` and an unknown episode end are game-level. the one this review missed is the largest: `individual_participation` omits a whole conflicting component, so a later native row can remove the shift that covers the attempt. [the fixture annual](#masked-population-in-20232024) shows it firing 4 to 120 seconds ahead of the attempts. no source change follows.
 
-mask size: age-known start-unknown rows in `u` were 10, 5, 15, 14 and 5 across the five years. the `20212022` 5v5 census alone adds 54, so at least 84% of that group becomes newly masked rows. `unavailable:shooter_shift_start` therefore becomes a near-dedicated level for same-clock starts, not the general unknown level, which stays on the roughly 2,000 to 10,000 unbound rows. mechanically this is sound, and the neutral reference does not read it. it means the repaired coefficient will be estimated mostly from these rows, so a large change in it is expected and is not evidence of a defect.
+mask size: age-known start-unknown rows in `u` were 10, 5, 15, 14 and 5 across the five years. the `20212022` 5v5 census alone adds 54, so at least 84% of that group becomes newly masked rows. `unavailable:shooter_shift_start` therefore becomes a near-dedicated level for its age-known rows, not the general unknown level, which stays on the roughly 2,000 to 10,000 unbound rows. this review first called that a same-clock level; `20232024` shows it also holds omitted-participation rows with ages of 26 to 142 seconds. mechanically this is sound, and the neutral reference does not read it. it means the repaired coefficient will be estimated mostly from these rows, so a large change in it is expected and is not evidence of a defect.
 
 ### findings
 
@@ -353,7 +353,55 @@ each row is a saved-artifact diff against the accepted original annual in `chain
 | `20212022` | `aeac9f05` | `93478145` | 771, 618, 439, 335 | 0 | byte-identical | none |
 | `20222023` | `52a2b0fa` | `7ca3062b` | 585, 434, 321, 235 | 0 | byte-identical | exact: new `93478145` |
 
-all five special counters are zero in both years, across 1,356 attempts, so the regression-only limit above still holds.
+| `20232024` | `e2ad6fda` | `85438d84` | 605, 448, 312, 250 | 7, 6, 4, 3 | moved: max 0.040, 0.011, 0.053, 0.063 | exact: new `7ca3062b` |
+
+the first two rows have all five special counters at zero, across 1,356 attempts. `20232024` differs from the rule above as follows, and every other field in that rule still holds.
+
+- `feature_support` changes only on the three start columns. `coverage.json` has exactly 24 differences: three columns, two fields, four heads.
+- newly unavailable rows are 7, 6, 4 and 3, which equal the observer's `unavailable:faceoff` per head, against `48→55`, `36→42`, `26→30` and `20→23` in saved metadata.
+- the largest coefficient moves are `unavailable:shooter_shift_start`, its near-collinear `unavailable:shooter_age_seconds/60`, and `shooter_start_zone:defensive`, as [the indicator correction](#corrections-to-this-review) predicts. all seven rows are defensive starts.
+- objectives rise by 0.0030, 0.0062, 0.0481 and 0.0184, as expected when information is removed.
+- history: ledger ids, roles, ages and seasons are equal, with median change 0 and maximum 0.0033, 0.0070, 0.0083 and 0.0033. later fixture annuals will no longer be byte-identical.
+- `selected_start` flips in `u`, `r` and `g`, but both starts tie to four decimals in old and new fits, so the flip carries no signal.
+
+### masked population in `20232024`
+
+verdict: **the seven masks are correct, they are not timing failures, and production should stay as it is.** the third annual passes.
+
+saved facts, from `fit-20232024-source-check.json` and one witness game. every masked row is at strength `6,5,0` in `2023020955`, period 3: source indices 318, 319, 325, 336, 337, 338 and 339, for shooters `8479407`, `8482684` and `8480002`, at clocks 1078 to 1194. all carry raw `faceoff/defensive`, start 1052, anchored on faceoff 317. the start is earlier than every attempt by clock and by order, so none is a timing case. `masked_faceoff` and `unresolved_binding` are both 7 and `masked_on_the_fly` is 0.
+
+cause: six players in that period, five of the extra-attacker unit and one home skater, have a native row reaching 1200 (`[1052,1200]` for all three shooters) and a short `[1198,1200]` row. those overlap strictly, so `individual_participation` conflicts the component and preparation omits it, with `overlapping_individual_participation` in the game issues. no `player_shifts` row covers the attempts, `active` is empty, and deployment keeps the `_deployment` fallback fact. the conflict begins 4 to 120 seconds after the attempts.
+
+why the mask stands:
+
+1. it withholds and cannot admit, and the hashed rule says a missing binding is unavailable.
+2. it agrees with the preparation owner. v1-01 finding r6 chose to omit the whole component, and its review accepted that this also drops spans the conflicting rows agree on. the old encoder was consuming a start that preparation disowns, through the fallback.
+3. it agrees with spatial, whose member start reads the same `player_shifts` and would be unknown here, though these `6,5,0` rows are outside its 5v5 panel.
+4. the alternative, admitting any faceoff whose start clock precedes the attempt, is simple and timing-safe. but it would re-admit starts from components whose conflict may overlap the start itself, and it would split execution from spatial on the same facts.
+
+what must change is wording, not code. "masked" now has two classes: not proved prior, and omitted participation. no record should describe all newly unavailable rows as timing failures. `saved shift age` survives on these rows from the same disowned native row, within the s2 limit.
+
+two limits on reading this:
+
+- **the timing mask is still unexercised in any fit.** this annual is not regression-only, but all seven rows took the binding branch. real `20212022` remains the first population test of timing.
+- **the real size of this class is unknown, and the fixture cannot estimate it.** fixture games include selected edge cases, so 7 of 605 is not a rate. no saved real count exists. a conflicted player loses `shooter_prefix_toi` for the game, and all seven rows do, so the class is bounded above by saved prefix-unavailable rows in real `u`: 3,502, 1,397, 6,084, 8,760 and 2,634 by year, up to 5.7%. that bound is loose, and it does not exclude the class exceeding the 54 timing rows. this review's recommendation holds at the bound. real `unresolved_binding` is written before the solve, so it should be read and reported then, with no threshold.
+
+`withheld_earlier_anchor` is 0 here although a later record did withhold these starts. that confirms a zero there sizes nothing. `unresolved_binding` is the counter that sees this class.
+
+### first two scores
+
+`20212022` and `20222023` pass. all eight fit and score parity fields match, at 771 and 585 contexts. against `current-02` originals, **72 of 73 members are byte-identical in both years**, including `events.jsonl`, `people.jsonl`, every panel and every array. the only difference is `shares.jsonl`.
+
+| year | rows | differing | largest change | per-event closure drift | per-recipient total drift |
+|---|---|---|---|---|---|
+| `20212022` | 9,187 | 5,846 | `2.08e-17` | `3.1e-17` | `1.4e-16` |
+| `20222023` | 7,090 | 4,452 | `2.08e-17` | `1.8e-17` | `1.0e-16` |
+
+only `goals` differs. ulp and relative measures are meaningless here because some shares are near zero, so absolute size is what counts.
+
+root's explanation holds, by elimination. `b723c28` replaced the loop over pairwise differences in `execution_shapley` with `four_group_allocation`, a weight matrix over the 16 values: the same algebra with different rounding. saved inputs are unchanged, because coefficients are byte-identical and all 16 `coalition_goal_mass` values are equal. nothing else in the path changed: the `execution.py` diff is that call plus `iter_neutral_origins`, and the `execution_scores.py` diff touches read paths only. replaying old, new and 24-order allocation on the saved masses gives gaps up to `3.5e-17`, the same scale. **this is not a byte proof.** saved masses are already integrated, and exact reproduction needs a rescore, which this review did not run and does not recommend. no decision depends on it.
+
+consequence: old-against-new score comparisons must treat `shares.jsonl` by absolute size, and composed values may differ near `1e-16` from this alone.
 
 ## cost notes
 

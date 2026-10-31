@@ -601,6 +601,23 @@ all 15 agree with the saved maxima to the printed digits. quality probability re
 
 volume coalition sits at 57% of its `1e-4` budget, unchanged from fixture03. that is a fixture result. [the real-scale risk](#volume-probe-may-fail-its-fixed-budget-at-real-scale) stays open until a real final-year probe.
 
+### combined fixture composition
+
+`fixture/results` passes. manifest `a8d2f4ba`, base `82f0b55f`, selection `bdee26d0` with all five accepted state digests, producer `cf136b7`, clean, three seasons and 30 family rows. publication is clear from this review; release remains root's.
+
+this review reran its own composition replay from raw member files, against the new base and the accepted states.
+
+- preservation: all 45 non-owned members, 789,227,228 bytes, and every non-spatial family descriptor are byte-identical to `execution-results`. `people`, `sources` and `supports` are identical. the nine base methods are identical, and three spatial methods are added.
+- native values: every provided 5v5 cell equals the state's `projections.npz` exactly. scalars equal `projections.jsonl`.
+- display transport: an independent mapping of native centers into their containing display cells, plus the declared pooling, reproduce every display mass, with error 0. display and native scalars agree within `2.8e-14`, and density is exact.
+- adjustments: published values equal the saved decomposition, closing within `4.3e-14`.
+- joins: `published_only` and `fitted_only` are empty in all three seasons, at 201, 245 and 277 skaters. every non-5v5 row stays `not_computed` with its `v1-09` explanation.
+- evidence: each spatial method binds its state manifest, `coefficient-support.jsonl` and composition receipt, and all digests were recomputed from disk. `fit_seasons` are correct.
+
+against fixture03's composition: row counts are equal, and only `xg` content changes. no `attempts` map or adjustment row changes at all. prior-only and zero-time rows are 152, and no-exposure adjustment rows 608, all unchanged in support.
+
+the spatial `recipe_id` stays `experimental-v1:positive-spatial-v1-08-1`. unlike s1, this label is accurate: it names the rate recipe, which is unchanged. design and target changes are carried by `design_sha256`, `evidence` and `inputs`. fixture03 was served only as an isolated candidate, publication `e5118eea` on port 3398, and was never activated as the live publication. the identities above still separate the two.
+
 ### execution-base composition
 
 `fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.

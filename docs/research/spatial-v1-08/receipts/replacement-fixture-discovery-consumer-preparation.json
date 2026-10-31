@@ -1,0 +1,68 @@
+{
+  "kind": "replacement-fixture-discovery-consumer-preparation",
+  "status": "explicit pins retargeted; not executed; root readiness/publication confirmation required",
+  "recorded_at_utc": "2026-10-31T16:56:10.724938+00:00",
+  "prior_checker_sha256": "05ca32ec6587793191d8c8ff7ef17eee673b9118340b075a45fb821456c49004",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/discovery-api-check.ts",
+    "bytes": 10531,
+    "sha256": "30744d5049f714b63c94a64a00797a79319da303320d04cfe49bfd1d3aa821b9"
+  },
+  "changes": [
+    {
+      "old": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results",
+      "new": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results",
+      "occurrences": 1
+    },
+    {
+      "old": "2d2974937637e7c32dbebd6c9c43bfab05a39299f2823e116008e8d319b90b0e",
+      "new": "a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff",
+      "occurrences": 2
+    },
+    {
+      "old": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+      "new": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "occurrences": 2
+    }
+  ],
+  "checks_byte_exact_after_reversing_pin_substitutions": true,
+  "expected_publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "expected_results_manifest_sha256": "a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff",
+  "base_url": "http://127.0.0.1:3398",
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "argv": [
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/node_modules/tsx/dist/cli.mjs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/discovery-api-check.ts"
+  ],
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-discovery-consumer-command.sh",
+    "bytes": 1188,
+    "sha256": "fbd94f17baa437a7f55e45fd2259d9d43a345ca147605a28b2a5b5d28ba720db"
+  },
+  "syntax_exit": 0,
+  "outputs": {
+    "raw_json": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/discovery-consumer-01.json",
+    "time_log": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/discovery-consumer-01.cost.txt",
+    "exit": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/discovery-consumer-01.exit"
+  },
+  "unchanged_checks": [
+    "three displayed seasons through actual league API and public discovery consumers",
+    "eight selected raw metrics against hash-checked spatial rows",
+    "name/position/team/minute filters",
+    "ascending/descending numeric sorts for all eight metrics",
+    "default300 peer cutoff and zero discovery threshold",
+    "zero-time prior-only numeric values remain unranked even cutoff0",
+    "observed-value substitution adversarial guard",
+    "consumer input order"
+  ],
+  "historical_receipts_preserved": [
+    "fixture03-discovery-consumer-review.json",
+    "fixture03-discovery-consumer-green.json",
+    "fixture03-discovery-consumer-cost.txt"
+  ],
+  "api_requested": false,
+  "checker_executed": false,
+  "production_changed": false,
+  "browser_or_download_claim": false
+}

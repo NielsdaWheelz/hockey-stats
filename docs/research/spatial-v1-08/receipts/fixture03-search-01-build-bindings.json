@@ -1,0 +1,83 @@
+{
+  "kind": "spatial-v1-08-fixture03-discovery-search-build-bindings",
+  "status": "typecheck/build passed; no server restart or native green claimed",
+  "recorded_at_utc": "2026-10-31T14:40:50.627517+00:00",
+  "source": {
+    "sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+    "files": 52,
+    "bytes": 873260
+  },
+  "app_git_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "app_worktree_clean": true,
+  "source_matches_released_preparation": true,
+  "fix_commit": "ec3c98f7cdd2e64af251e99d9daff2a7b9a50227",
+  "git_commit_when_recorded": "5153964f940825a8c1b89834308b2a3bf5c443d9",
+  "build": {
+    "sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+    "files": 38,
+    "bytes": 1289425
+  },
+  "digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app; build is every actual app/dist file",
+  "entrypoint": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js",
+    "bytes": 8073,
+    "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+  },
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "node_version": "v24.21.0",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app",
+  "command": [
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-repair-build.sh"
+  ],
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-repair-build.sh",
+    "bytes": 1124,
+    "sha256": "661c1a11e157d47d6e96a72f92d1cc1dd64efb4dba05595539124c1147fead64"
+  },
+  "build_log": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.txt",
+    "bytes": 2808,
+    "sha256": "d4474fc5088f28bcf9f89d87a7be876fff3faf1a5156b196b65369a9dd063f5a"
+  },
+  "build_exit": 0,
+  "build_cost": {
+    "wall_seconds": 0.93,
+    "peak_rss_bytes": 580370432
+  },
+  "typecheck_log": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/discovery-search-typecheck.txt",
+    "bytes": 866,
+    "sha256": "e911d8d390f4fae3f8d8ee9a329b2061875e30db7c82a14d3db0707ea732aba5"
+  },
+  "typecheck_exit": 0,
+  "typecheck_cost": {
+    "wall_seconds": 0.64,
+    "peak_rss_bytes": 395444224
+  },
+  "file_lists": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-01-app-source-files.json",
+      "bytes": 8039,
+      "sha256": "8cf680f0e41e40c1e9231d43e83be910a6548965a507f45ed553acb38c74be28"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-01-app-build-files.json",
+      "bytes": 6349,
+      "sha256": "cc6f5e4e8185c00cd210f6ad5983ddff3eb1ef371be5e1e24c3fb5a3a1232bfd"
+    }
+  ],
+  "stop_protocol": "root reported old node26820/time26819/shell26796 stopped; released script independently refused present old pid/listener before building; guard passed",
+  "old_server_exit_from_root": 130,
+  "runtime_actions": {
+    "builds_run": 1,
+    "retries": 0,
+    "server_restarts": 0,
+    "gui_actions": 0,
+    "api_requests": 0,
+    "candidate_reads": 0,
+    "publication_mutations": 0,
+    "primary_checkout_operations": 0
+  },
+  "next_step": "root acceptance of exact new build identity, then separate detached server release and actual native typing/paste/clear/direct-link/back verification"
+}

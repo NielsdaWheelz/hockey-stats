@@ -1,6 +1,6 @@
 # corrected fixture source-to-screen binding
 
-status: **ready for root binding review and fixture acceptance decision.** root reports the final native journeys complete. this index binds those observations to the corrected fixture chain and current build; it does not accept the real product or scientific claims. no command is released here.
+status: **accepted by root after independent binding review.** the actual final native journeys and separately bound exports complete corrected fixture source-to-screen acceptance. this index does not accept the real product or scientific claims and releases no real command.
 
 | identity | current binding |
 |---|---|
@@ -23,6 +23,6 @@ status: **ready for root binding review and fixture acceptance decision.** root 
 | final search regression | [fresh current-build native receipt](receipts/discovery-search-final-build-native-green.json): literal typing, plaintext paste, clear, profile/back and reload all preserve `toffoli`, its url and one correct player. old build771 green is not substituted for this run. |
 | operation | [disposable rollback](receipts/replacement-fixture-rollback-completion.json) remains applicable only through byte-identical operator `e655d663…` and reader `957d0706…`; [current-byte comparison](receipts/replacement-fixture-final-build-api-carry.json) verifies that condition. the first sqlite temp-path failure and its focused environment correction remain preserved. neither serving directory was rotated. |
 
-requested decision: accept this corrected **fixture** source-to-screen binding after review. old sourcee18/build771 browser and download receipts remain historical; only actual new-build journeys and separately bound fresh downloads support the final browser claim. interface/state tests are not scientific admission. per-head/actual-context/full-sheet rendering remains assigned to v1-18, and pending specialties remain v1-09.
+root accepts this corrected **fixture** source-to-screen binding. [independent binding review](receipts/replacement-fixture-source-to-screen-root-acceptance.json) reconciles the 24 original index links at `e9ba420` and the source/build/module identities; the reviewer did not reenact root’s native actions. old sourcee18/build771 browser and download receipts remain historical; only actual new-build journeys and separately bound fresh downloads support the final browser claim. interface/state tests are not scientific admission. per-head/actual-context/full-sheet rendering remains assigned to v1-18, and pending specialties remain v1-09.
 
 the entire real objective remains open. the first real score is still writing projections/maps with no exit reported; year two remains held. root owns the plan/verification update and real progression. keep all temporary checks, controllers and test dependencies until entire real-goal acceptance; no cleanup, new fit, source pass, server action or activation follows this index.

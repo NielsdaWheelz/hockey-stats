@@ -1,7 +1,7 @@
 """annual execution fitting and one saved-state branch-probability interface."""
 
 from dataclasses import dataclass, replace
-from math import fsum, factorial
+from math import fsum
 from itertools import product
 from pathlib import Path
 from time import perf_counter
@@ -357,15 +357,8 @@ def execution_shapley(coalitions):
     values = np.asarray(coalitions, dtype=np.float64)
     require(values.ndim >= 1 and values.shape[0] == 16 and np.isfinite(values).all()
             and np.all((values >= 0) & (values <= 1)), 'invalid sixteen-coalition probabilities')
-    result = np.zeros((4, *values.shape[1:]), dtype=np.float64)
-    for group in range(4):
-        bit = 1 << group
-        for subset in range(16):
-            if subset & bit:
-                continue
-            size = subset.bit_count()
-            weight = factorial(size) * factorial(3-size) / 24
-            result[group] += weight * (values[subset | bit] - values[subset])
+    from .coalitions import four_group_allocation
+    result = four_group_allocation(values)
     require(np.allclose(result.sum(axis=0), values[15]-values[0], rtol=0, atol=2e-15),
             'execution allocation does not close')
     return result
@@ -1013,6 +1006,38 @@ def neutral_panel_event_masses(panel):
                              for j, name in enumerate(PREFIXES)},
                    setup_goal_mass=setup_goal,
                    neutral_on_net_goal_probability=float(np.exp(masses[3] - masses[1])))
+
+
+def iter_neutral_origins(panel):
+    """stream the checked pre-outcome joint goal probability at each origin."""
+    require(isinstance(panel, ExecutionPanel) and panel.strength == (5, 5, 1),
+            'spatial targets require the checked physical 5v5 panel with both goalies')
+    arrays = panel.arrays
+    expected = panel.support_keys.get('neutral_goal_mass')
+    require(type(expected) is dict and set(expected) == {event['key'] for event in panel.events},
+            'neutral origin panel lacks exact saved event-mass evidence')
+    previous = None
+    for index, event in enumerate(panel.events):
+        key = event['key']
+        order = tuple(map(int, key.split(':')))
+        require(previous is None or previous < order, 'neutral origin keys repeat or are unordered')
+        previous = order
+        start, end = arrays['event_offsets'][index:index + 2]
+        cells, weights = arrays['origin_cells'][start:end], arrays['origin_weights'][start:end]
+        require(len(cells) > 0 and np.isfinite(weights).all() and np.all(weights >= 0)
+                and abs(fsum(weights) - 1.) <= 1e-12, f'{key}: invalid origin mass')
+        setup = arrays['setup_weights'][index]
+        require(np.isfinite(setup).all() and np.all(setup >= 0) and abs(fsum(setup) - 1.) <= 1e-12,
+                f'{key}: invalid pre-outcome setup mass')
+        logs = _joint_log_prefixes(arrays['neutral_upstream_logits'][start:end],
+                                   arrays['neutral_goal_logits'][start:end], setup)
+        probability = np.exp(logs[:, 3])
+        require(np.isfinite(probability).all() and np.all((probability >= 0) & (probability <= 1)),
+                f'{key}: invalid neutral joint probability')
+        from .execution_scores import _near
+        require(_near(float(_weighted_probability(probability, weights, axis=0)), expected[key], len(cells)),
+                f'{key}: neutral origin probabilities differ from saved event mass')
+        yield dict(key=key, cells=cells, origin_weights=weights, neutral_goal_probability=probability)
 
 
 def _integrated_log_columns(log_prefixes, weights):

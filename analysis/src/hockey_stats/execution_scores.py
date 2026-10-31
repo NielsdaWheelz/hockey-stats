@@ -468,6 +468,7 @@ class ExecutionScores:
     coverage: dict
     resolution: dict
     map_offsets: dict
+    checked_panel: object = None
 
     def _member(self, role):
         return self.path.parent / next(row['path'] for row in self.manifest['files'] if row['role'] == role)
@@ -491,17 +492,41 @@ class ExecutionScores:
             return _decode(path, 0, source.readline())
 
 
-def read_execution_scores(path, expected_purpose):
+def read_execution_scores(path, expected_purpose, *, physical_state=None):
     """validate saved internal relationships only; provenance locators are never reopened."""
     try:
         path = Path(path).resolve(strict=True)
         path = path / 'manifest.json' if path.is_dir() else path
         require(path.name == 'manifest.json', 'execution scores locator must be manifest.json')
-        return _validate(path, read_json(path), expected_purpose)
+        require(physical_state is None or tuple(physical_state) == (5, 5, 1, 1), 'unsupported retained physical panel')
+        return _validate(path, read_json(path), expected_purpose, physical_state=physical_state)
     except (KeyError, TypeError, ValueError, IndexError, AttributeError) as error:
         if isinstance(error, InputContractError):
             raise
         raise InputContractError(f'malformed execution scores: {error}') from error
+
+
+def read_panel(scores, physical_state):
+    """open one physical panel from an already checked score artifact."""
+    from .execution import ExecutionPanel
+    require(isinstance(scores, ExecutionScores), 'read_execution_scores must precede read_panel')
+    state = tuple(physical_state[k] for k in STATE_FIELDS) if type(physical_state) is dict else tuple(physical_state)
+    require(len(state) == 4 and state == (5, 5, 1, 1), 'spatial panel requires physical 5v5 with both goalies')
+    if scores.checked_panel is not None:
+        return scores.checked_panel
+    records = [row for row in scores.manifest['panels'] if tuple(row['state'][k] for k in STATE_FIELDS) == state]
+    require(len(records) == 1, 'physical panel not uniquely selected')
+    record = records[0]
+    root = scores.path.parent
+    rows = tuple(_jsonl(root / record['events_path']))
+    with np.load(root / record['arrays_path'], allow_pickle=False) as saved:
+        arrays = {name: saved[name] for name in ARRAYS}
+    keys = {row['key'] for row in rows}
+    masses = {row['key']: row['prefixes']['neutral']['uqrg'] for row in scores.events()
+              if row['key'] in keys}
+    require(set(masses) == keys, 'physical panel event bindings differ')
+    return ExecutionPanel(record['panel_id'], scores.manifest['season'], state[:3], rows, arrays, {},
+                          {'neutral_goal_mass': masses})
 
 
 def _manifest(value, purpose):
@@ -631,7 +656,7 @@ def _event(row, games, people, coaches, season):
                                 656 if row['outcome'] == 'block' else 1), f'{name} differs from its integrated prefixes')
 
 
-def _validate(path, manifest, expected_purpose):
+def _validate(path, manifest, expected_purpose, *, physical_state=None):
     """check one complete artifact from an in-memory manifest before or after it is written."""
     from .execution import ExecutionPanel, neutral_panel_event_masses, neutral_panel_masses
 
@@ -748,7 +773,7 @@ def _validate(path, manifest, expected_purpose):
         require(isclose(fsum(row['goals'] for row in rows), event['actor_goal'] - event['neutral']['uqrg'], rel_tol=0, abs_tol=3e-14),
                 'event shares do not close actor minus neutral')
     del setters, shares
-    panel_of, neutral = {}, {}
+    panel_of, neutral, retained_panel = {}, {}, None
     for record in manifest['panels']:
         state = tuple(record['state'][k] for k in STATE_FIELDS)
         rows = list(_jsonl(root / record['events_path']))
@@ -790,6 +815,9 @@ def _validate(path, manifest, expected_purpose):
             require(all(_near(reduced['prefixes'][k], event['neutral'][k], terms) for k in PREFIXES)
                     and _near(reduced['neutral_on_net_goal_probability'], event['neutral_on_net'], terms),
                     'saved panel logits differ from the event neutral prefixes')
+        if physical_state is not None and state == tuple(physical_state):
+            retained_panel = replace(panel, support_keys={'neutral_goal_mass': {
+                row['key']: complete[row['key']]['neutral']['uqrg'] for row in rows}})
         if _public(state[:3]) is not None:
             cell_rows = int(np.bincount(arrays['origin_cells'], minlength=656).max()) if length else 0
             neutral[_public(state[:3])] = dict(record=record, rows=n, origins=length, cell_rows=cell_rows, masses=neutral_panel_masses(panel))
@@ -800,7 +828,8 @@ def _validate(path, manifest, expected_purpose):
         require(resolution == NOT_FINAL, 'earlier annual scores cannot claim propagation')
     else:
         _resolution(resolution, people, complete)
-    return ExecutionScores(path, manifest, people, coaches, coverage, resolution, offsets)
+    require(physical_state is None or retained_panel is not None, 'requested checked physical panel absent')
+    return ExecutionScores(path, manifest, people, coaches, coverage, resolution, offsets, retained_panel)
 
 
 def _resolution(value, people, complete):

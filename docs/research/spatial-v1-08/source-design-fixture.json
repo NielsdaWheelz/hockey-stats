@@ -1,0 +1,338 @@
+{
+  "kind": "spatial-v1-08-source-design-fixture",
+  "status": "passed",
+  "purpose": "fixture",
+  "season": "20212022",
+  "inputs": {
+    "prepared": {
+      "purpose": "fixture",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+      "members": [
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021020001",
+          "path": "games/20212022/2021020001.json",
+          "sha256": "58996ac5ead52e7ef23236b053cf57033dd3f6a578009f2322d7f0dcb74e7e7a"
+        },
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021020454",
+          "path": "games/20212022/2021020454.json",
+          "sha256": "2a68251ea386d8ea0773ad0a215107fc703e0cb828a7e4719f210c5abfe9b016"
+        },
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021020615",
+          "path": "games/20212022/2021020615.json",
+          "sha256": "448e499d549d103fc2830de47af8bace679a456cf5dbd7fb645b42e465eb72db"
+        },
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021020617",
+          "path": "games/20212022/2021020617.json",
+          "sha256": "33ff83af95f7b569040b2ddd1df3a4bbacaced1f06b76820c26c7e174e1ec3ef"
+        },
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021020942",
+          "path": "games/20212022/2021020942.json",
+          "sha256": "668af622eb522689432823460376dc0969e5bfde854102c0d5520d38dcffe364"
+        },
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021021103",
+          "path": "games/20212022/2021021103.json",
+          "sha256": "d2ddd0694f8a7870277368ef19497a30a0ff6354ff45c9e299cf75ed93645965"
+        },
+        {
+          "kind": "game",
+          "season": "20212022",
+          "game_id": "2021021179",
+          "path": "games/20212022/2021021179.json",
+          "sha256": "ef637d7cda252220acb74de163882cb63b00eb02c04dd93af37f8b02b748f18a"
+        },
+        {
+          "kind": "people",
+          "season": "20212022",
+          "game_id": null,
+          "path": "people/20212022.json",
+          "sha256": "543ca9a5240c64ea2ded1f7a9e0f0f292a55d7cc9dc8e61cbf936eb3ee876979"
+        }
+      ]
+    },
+    "coaches": {
+      "purpose": "fixture",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c",
+      "selected_game_ids": [
+        "2021020001",
+        "2021020454",
+        "2021020615",
+        "2021020617",
+        "2021020942",
+        "2021021103",
+        "2021021179"
+      ]
+    },
+    "valued": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20212022/manifest.json",
+      "sha256": "108210ba6a2947f222f89f47744004c434de1adb204b68561cced03c4ca77355",
+      "season": "20212022",
+      "purpose": "fixture"
+    }
+  },
+  "design_identity": "2572c294063ea000a5ccc5d3e2ee294e0e855e690e51f4d71f16dae0e47be25e",
+  "basis_identity": {
+    "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
+    "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
+    "reference": "uniform-native-656",
+    "modes": 40
+  },
+  "source_code": {
+    "spatial_design": {
+      "path": "analysis/src/hockey_stats/spatial_design.py",
+      "sha256": "e9c1c54b9af280ce70c38c1f17c0005d786d3f353c58d70710dacd6092b46e24"
+    },
+    "execution": {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "0102b696ad33a1b9d47c9db900ea5333f93b791c8e4b6c3c3c3f65b1d8c64caa"
+    },
+    "execution_scores": {
+      "path": "analysis/src/hockey_stats/execution_scores.py",
+      "sha256": "8b64a7b7a0268a51a46a1a62daf3a93896cec17b3159c9c271d52edc4dcc377a"
+    }
+  },
+  "independent_checks": 5600,
+  "checked_elapsed_contexts": 17,
+  "checked_event_origins": 99,
+  "witnesses": {
+    "member_start_age": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 0,
+        "chunk_index": 0,
+        "source_index": null,
+        "attacking_side": "home"
+      },
+      "player_id": "8474151",
+      "player_shift_index": 130,
+      "start": "unknown",
+      "age_seconds": null,
+      "age_bin": "unknown"
+    },
+    "member_rest": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 0,
+        "chunk_index": 0,
+        "source_index": null,
+        "attacking_side": "home"
+      },
+      "player_id": "8474151",
+      "prior_one_date": false,
+      "prior_two_date": false
+    },
+    "partial_workload": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 0,
+        "chunk_index": 0,
+        "source_index": null,
+        "attacking_side": "home"
+      },
+      "role": "attacking",
+      "scope": "current",
+      "counter": "toi_all_seconds",
+      "complete_values": [
+        0
+      ],
+      "partial_known_values": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "encoded_raw": [
+        0.0,
+        0.0,
+        0.2,
+        0.8,
+        0.0
+      ]
+    },
+    "known_zero_workload": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 0,
+        "chunk_index": 0,
+        "source_index": null,
+        "attacking_side": "home"
+      },
+      "role": "attacking",
+      "scope": "current",
+      "counter": "toi_all_seconds",
+      "complete_values": [
+        0
+      ]
+    },
+    "complete_workload": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 0,
+        "chunk_index": 0,
+        "source_index": null,
+        "attacking_side": "home"
+      },
+      "role": "attacking",
+      "scope": "current",
+      "counter": "attempts",
+      "complete_values": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "partial_known_values": [],
+      "encoded_raw": [
+        0.0,
+        null,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    "dated_coach": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 0,
+        "chunk_index": 0,
+        "source_index": null,
+        "attacking_side": "home"
+      },
+      "side": "home",
+      "coach_id": "coach-jon-cooper",
+      "team_score_margin": 0
+    },
+    "boundary_goal_pre_score": {
+      "locator": {
+        "game_id": "2021020001",
+        "segment_index": 83,
+        "chunk_index": 279,
+        "source_index": 119,
+        "attacking_side": "away",
+        "attacking_players": [
+          "8470604",
+          "8471724",
+          "8475208",
+          "8475810",
+          "8478046"
+        ],
+        "defending_players": [
+          "8474151",
+          "8476292",
+          "8476453",
+          "8478010",
+          "8478416"
+        ],
+        "attacking_team_id": 5,
+        "defending_team_id": 14,
+        "inferred_origin": false,
+        "boundary_goal": true,
+        "optional_missing": true
+      },
+      "pre_score": {
+        "away": 0,
+        "home": 0
+      },
+      "elapsed_score": {
+        "away": 0,
+        "home": 0
+      }
+    },
+    "observed_single_origin": {
+      "key": "2021020001:6",
+      "origins": 1,
+      "origin_mass": 1.0,
+      "independent_neutral_mass": 0.032455840434278876,
+      "saved_neutral_mass": 0.03245584043427889
+    },
+    "inferred_blocked_origin": {
+      "key": "2021020001:10",
+      "origins": 656,
+      "origin_mass": 0.9999999999999998,
+      "independent_neutral_mass": 0.027605192680942706,
+      "saved_neutral_mass": 0.027605192680942716
+    }
+  },
+  "annual_coverage": {
+    "physical_included_hours": 5.7908333333333335,
+    "directed_included_hours": 11.581666666666667,
+    "attempts": 632,
+    "origin_mass": 632.0,
+    "neutral_chance_mass": 30.796760550405924
+  },
+  "dimensions": {
+    "time_actors": [
+      12962,
+      981
+    ],
+    "event_actors": [
+      632,
+      981
+    ],
+    "time_context": [
+      12962,
+      350
+    ],
+    "event_context": [
+      632,
+      350
+    ]
+  },
+  "resources": {
+    "design_wall_seconds": 100.19285645801574,
+    "input_read_bytes": 342457465,
+    "time_rows": 12962,
+    "event_rows": 632,
+    "columns": 1331,
+    "actor_columns": 981,
+    "context_columns": 350,
+    "design_bytes": 42690092,
+    "wall_seconds": 111.2374799590034,
+    "peak_rss_bytes": 908066816
+  },
+  "synthetic_checks": {
+    "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
+    "passed": 11,
+    "initial_red": "importerror: spatial_design did not exist",
+    "regression_red": "authoritative non5v5 source mismatch incorrectly raised artifact failure; corrected to segment exclusion",
+    "script": {
+      "path": "var/v1-08-source-checks.py",
+      "sha256": "bd3abbec9fc27af1b487ab197a587eb17398913416bc2f662130baf19271b351"
+    },
+    "goalie_shooter_red": "valid goalie shooter incorrectly excluded 60 seconds in both directed views; observed assertion2 !=4, corrected to permit all actual attacking unit skaters and goalies"
+  },
+  "limits": [
+    "captured fixture first annual, not real five-year acceptance"
+  ],
+  "captured_check_command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-retained.py",
+  "captured_check_script": {
+    "path": "var/v1-08-source-retained.py",
+    "sha256": "865d52bb7f38c5eda2e932c55622536efb340a4b66a561d6ddc4dd56ed27936b"
+  },
+  "design_decisions": {
+    "transition": "one attacking-frame categorical block; the reciprocal defending block would duplicate coordinates and change the penalty",
+    "workload_all_missing": "missing_fraction equals one when all five members lack complete and supported known-bound values; no redundant all-missing indicator",
+    "representation": "sparse intercept/actor matrices and separate dense centered context matrices; no dense-to-csr context duplication",
+    "source_join": "score physical state is checked against authoritative event membership; known source-to-segment disagreement excludes both segment directions; invalid artifact joins fail"
+  },
+  "status_scope": "source/design bounded software verification only; no real fitting, scientific admission or activation"
+}

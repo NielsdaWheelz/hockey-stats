@@ -579,6 +579,28 @@ the pattern from `20232024` holds, at about a hundredth of the size, because thi
 
 targets: through the strict reader, all 665 retained events match `design.npz` byte for byte. neutral mass moves from 29.637485997 to 29.637835476, equal to `coverage.json` and to the composed `interval_fact` total. `xg` adjustments close on all 452 available rows, with largest gap `1.8e-15`.
 
+### final fresh spatial annual and probes
+
+`fixture/spatial/20252026` and all three probes pass. the fresh fixture spatial chain is complete: fifteen heads, three continuations, five annuals. combined selection and composition are clear from this review; release remains root's.
+
+identity: manifest `af7cf925`, exit 0, valued `80f61f0d`, previous exact `c9fe5fb2`, launch records clean. the strict reader accepts it and refuses the fixture03 original. probe digests match root's: baseline `521e21b6`, rows `050b4713`, requirements `15dc751f`.
+
+annual: the same shape as `20242025`. 15 of 16 design arrays are byte-identical, and `neutral_goal_probability` moves at most `2.5e-5`. `r` and `pi` are equal. volume and shape head arrays are byte-identical. quality coefficients move at most `1.9e-4`. `attempts` maps have zero change, and only `xg` fields and `reference_id` change. all 358 retained events match `design.npz` byte for byte through the strict reader. neutral mass moves from 15.208292477 to 15.207888585, equal to `coverage.json` and the composed `interval_fact` total. `xg` adjustments close on all 288 available rows, with largest gap `1.3e-15`.
+
+probes: frozen `rows.json` and `requirements.json` are byte-identical to fixture03, and so are the volume and shape probe coefficients. only the quality probe moves, as it should. all three comparisons report `passed`, with no failures.
+
+replay from raw saved arrays, with this review's own math and no solve:
+
+| head | standardized scalar | standardized map | 1000-minute goals | coalition scalar | coalition map |
+|---|---|---|---|---|---|
+| volume | `5.93e-6` | `5.93e-6` | `3.32e-6` | `5.66e-5` | `5.66e-5` |
+| shape | `1.11e-8` | `2.69e-6` | `1.35e-7` | `1.04e-7` | `2.28e-5` |
+| quality | `3.16e-7` | `3.40e-7` | `1.91e-6` | `2.04e-6` | `2.39e-6` |
+
+all 15 agree with the saved maxima to the printed digits. quality probability replays to `8.628904e-8` at the saved location, subset 14 and cell 590 for `8476882`. a first replay gave `8.49e-8`, because it read only the complete predictor; the saved quantity covers all 16 coalition subsets. the other saved maxima, including allocation and shape probability, were read and not replayed. all are within limits.
+
+volume coalition sits at 57% of its `1e-4` budget, unchanged from fixture03. that is a fixture result. [the real-scale risk](#volume-probe-may-fail-its-fixed-budget-at-real-scale) stays open until a real final-year probe.
+
 ### execution-base composition
 
 `fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.

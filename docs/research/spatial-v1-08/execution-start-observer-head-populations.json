@@ -1,0 +1,143 @@
+{
+  "kind": "temporary-start-observer-per-head-counts",
+  "status": "synthetic hook controls passed; actual selected passes pending",
+  "extends": {
+    "path": "docs/research/spatial-v1-08/execution-start-repair-source.json",
+    "sha256": "9dc431af2479fb16b42e3515120fffa30dbc943b81c3fd4dba56614b56229a15"
+  },
+  "analysis_subtree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "scope": "temporary observer only; no production change, source read, model fit or rescore",
+  "implementation": {
+    "path": "var/v1-08-replacement/consumed_start_check.py",
+    "sha256": "b3811c4b0d9186daa6c59d8cf4d0931aebd4df0b5a8ab77b39c558458f6c71d7"
+  },
+  "controls": {
+    "path": "var/v1-08-replacement/observer_hook_check.py",
+    "sha256": "69f88c50e5e0b7832b16f438788f43ee63f6bafdb4a5f2c3af9d264cb729ae6c"
+  },
+  "evidence": {
+    "path": "var/v1-08-replacement/observer-hook-green.json",
+    "sha256": "3d2e1928ff75f5c7531cbc0f78c9824ec841257c98727432a9aed64b7a6271cc"
+  },
+  "population": "each head uses the returned _head_design physical rows and keys; exact source-row key equality is checked before counting; no origin expansion or changed admission",
+  "output": "head_populations contains physical_attempts, exact ordered key_sha256, dispositions, all_strength_dispositions and all five eligibility_counts for every constructed head",
+  "units": "one count per included physical likelihood attempt; disposition counts partition each head; five eligibility counters overlap; aggregate contexts and ordinary coverage heads remain separate",
+  "storage": "temporary compact key/disposition/strength/five-bit row observations only; no feature copies, artifact fields or persisted protocol",
+  "synthetic_results": {
+    "scope": "synthetic observer hook control only; no source read or fit",
+    "all_required_seen": {
+      "source_contexts": 2,
+      "head_calls": 2,
+      "status": "passed",
+      "known_checked": 2,
+      "head_admission": {
+        "u": {
+          "included": 2
+        },
+        "q": {
+          "included": 1
+        }
+      },
+      "head_populations": {
+        "u": {
+          "physical_attempts": 2,
+          "key_sha256": "ae216c1b87f7d020cba4c47d950ff962d7e874c976797f63ca213a2fa7ac762a",
+          "dispositions": {
+            "unavailable:on_the_fly": 2
+          },
+          "all_strength_dispositions": {
+            "5,5,1|unavailable:on_the_fly": 2
+          },
+          "eligibility_counts": {
+            "masked_on_the_fly": 2,
+            "masked_faceoff": 0,
+            "unresolved_binding": 0,
+            "admitted_same_clock_faceoff": 0,
+            "withheld_earlier_anchor": 0
+          }
+        },
+        "q": {
+          "physical_attempts": 1,
+          "key_sha256": "a9de4f8f495b5e69c3d7464f0acbeaa5c4dc952215cb4bc2099404167104536f",
+          "dispositions": {
+            "unavailable:on_the_fly": 1
+          },
+          "all_strength_dispositions": {
+            "5,5,1|unavailable:on_the_fly": 1
+          },
+          "eligibility_counts": {
+            "masked_on_the_fly": 1,
+            "masked_faceoff": 0,
+            "unresolved_binding": 0,
+            "admitted_same_clock_faceoff": 0,
+            "withheld_earlier_anchor": 0
+          }
+        }
+      },
+      "error": null
+    },
+    "missing_required": {
+      "source_contexts": 1,
+      "head_calls": 0,
+      "status": "source_construction_incomplete",
+      "known_checked": 1,
+      "head_admission": null,
+      "head_populations": {},
+      "error": "known timing witnesses missing before head construction: synthetic-1:7"
+    },
+    "residual_later_faceoff": {
+      "raw_kind": "faceoff",
+      "eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 1,
+        "unresolved_binding": 1,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      },
+      "head_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 1,
+        "unresolved_binding": 1,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      }
+    },
+    "residual_unknown": {
+      "raw_kind": null,
+      "eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      },
+      "head_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 1
+      }
+    },
+    "admitted_same_clock_faceoff": {
+      "raw_kind": "faceoff",
+      "eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 1,
+        "withheld_earlier_anchor": 0
+      },
+      "head_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 0,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 1,
+        "withheld_earlier_anchor": 0
+      }
+    }
+  },
+  "withheld_status": "saved-coherent-only residual definition unchanged while independent review evaluates its detectable scope; the admission oracle is unchanged",
+  "parity": "also compare head_populations between fit and score for the same season",
+  "invocation": "unchanged ordinary command wrapper from the source-boundary receipt"
+}

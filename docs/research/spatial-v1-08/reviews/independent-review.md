@@ -505,6 +505,66 @@ a recompute of mine first showed 2 to 10 panel mismatches per head. that was my 
 
 none of this tests a real scale. the fixture's gradients and solver work are small, and [the volume risk](#volume-probe-may-fail-its-fixed-budget-at-real-scale) concerns spatial at real size.
 
+### first fresh spatial annual
+
+`fixture/spatial/20212022` passes. the next spatial year is clear from this review; release remains root's.
+
+identity: manifest `91ccca92`, exit 0, no previous. launch records show subtree `c2412ac`, clean status, design recipe `04a9c15d`, and valued `78e029e0`, which is the accepted new score. the strict reader accepts the state, and refuses the fixture03 original with `spatial fixed design definition differs`.
+
+against preserved `fixture03/20212022`:
+
+| member | result |
+|---|---|
+| `design.npz`, all 16 arrays | byte-identical |
+| `heads/volume.npz`, `shape.npz`, `quality.npz` | byte-identical |
+| `projections.npz`, `projections.jsonl`, 224 rows | byte-identical |
+| `adjustments.jsonl`, 448 rows | byte-identical |
+| `coefficient-support.jsonl`, 1,344 rows | byte-identical |
+| `reference.json` | byte-identical |
+| `coverage.json` | differs only by the removed `event_shift_start_audit`, overall and in seven games |
+| `design.json` | the same removal, plus `event_shift_start` text, recipe digest, derived `design_sha256`, and `valued` path and digest |
+| `heads/*.json`, `diagnostics.json` | differ only in wall seconds and peak rss |
+| `manifest.json` | differs in `design_identity`, commit, `valued`, member digests that follow from the above, and resources |
+
+this is the sharp check root expected. the rate recipe, basis and fitted values are unchanged, so the audit removal and the shared predicate changed no number. the 5v5 panel is byte-identical to the original, and this year's only score difference is `shares.jsonl`, which spatial's byte-identical design confirms it does not consume here.
+
+limit: like the first execution annuals, this is regression evidence only. `20232024` is the first spatial year whose targets differ.
+
+### second fresh spatial annual
+
+`fixture/spatial/20222023` passes, with the same byte-level result as the first. manifest `8444b539`, exit 0, valued `69bf4a4d`, previous exact `91ccca92`, launch records clean. the strict reader accepts it and refuses the fixture03 original.
+
+against `fixture03/20222023`: `design.npz`, all three head arrays, `projections.npz`, `projections.jsonl` with 179 rows, `adjustments` with 358 rows, `coefficient-support` with 1,074 rows and `reference.json` are byte-identical. head metadata differs only in wall seconds and peak rss, so history, ledgers and priors are equal. `coverage.json` differs only by the removed audit, `design.json` by that removal plus the recipe text and digests and the `valued` binding, and `manifest.json` also by `previous`.
+
+still regression evidence only. `20232024` is the first spatial year with changed targets, and the next comparison should expect differences there.
+
+### execution-base composition
+
+`fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.
+
+preservation against original `current-02/results` and retained `facts`:
+
+- `people`, `sources` and `supports` catalogs equal the original. only `methods` changes.
+- `descriptive` and all `not_computed` family rows equal both the original and the facts. the `spatial` family stays `not_computed`.
+- `evidence.attempt_fact`, `dressed_game`, `interval_player` and `context_coverage` are byte-identical to the original.
+- `interval_fact` and `interval_location` keep every row, with zero non-mass cell differences. only `for_mass` and `against_mass` change, and only in the two neutral populations. recorded attempts and goals do not move.
+- in `microstats`, only `reference_xg_per60` `value` and `numerator` change.
+- every composition receipt equals the original except `scores_sha256`: `intersection`, `numerical_only`, `source_only`, `unvalued_source_attempts`, `valued_exclusions` and `setter_discrepancies` are all unchanged.
+
+bindings, recomputed from saved scores:
+
+| season | `attempt_value` joined, cell mismatches | 5v5 neutral kept, events | `interval_fact` neutral total |
+|---|---|---|---|
+| `20232024` | 605, 0 | 16.959320058 | 16.959320058 |
+| `20242025` | 1,062, 0 | 29.637835476 | 29.637835476 |
+| `20252026` | 1,068, 0 | 15.207888585 | 15.207888585 |
+
+kept means 5v5 complete events outside `valued_exclusions`, which removes 0, 136 and 470 events. the five `attempt_value` fields match saved prefixes and conditionals exactly, and `shares` totals match.
+
+methods: nine rows. the six execution and reference rows carry `experimental-v1:execution-v1-05-2`. each binds its new score manifest, the retained facts and its composition receipt, and all digests were recomputed from disk. `fit_seasons` and cutoffs are unchanged, and `inputs` and `assessment` point at the new states and scores. the three `factual-pending-reference` rows equal the original and the facts. `method_id` stays `execution-v1-06-<year>`, as accepted under s1.
+
+this review's first bindings pass reported mismatches on every `attempt_value` row and interval totals far from neutral mass. both were its own errors: those cells are wrapped objects, and interval rows split by `population` and exclude valued-out attempts. neither reflects the artifact.
+
 ## cost notes
 
 - `validate_design` loops over every row in python and each annual fit reaches it about four times: before fitting, at write, at read-back and as the next year's predecessor. composition repeats it for five states. estimated tens of minutes per annual fit; measure on the first real year.

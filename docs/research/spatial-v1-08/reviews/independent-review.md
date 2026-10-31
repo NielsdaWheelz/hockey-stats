@@ -563,6 +563,22 @@ accounting: neutral mass moves from 16.957893137 to 16.959320058, and that value
 
 the effect size again comes from the seven masked rows through the defensive contrast, in a 453-event sample, so it says nothing about real size. the quality objective rises from 69.4704 to 69.4732, and its final gradient is `1.7e-5`, up from `5.3e-6`. calibration bins barely move.
 
+### fourth fresh spatial annual
+
+`fixture/spatial/20242025` passes, and the final spatial fit is clear from this review. release remains root's.
+
+identity: manifest `c9fe5fb2`, exit 0, valued `1f6ac613`, previous exact `000b36e4`, launch records clean. the strict reader accepts it and refuses the fixture03 original.
+
+the pattern from `20232024` holds, at about a hundredth of the size, because this year has no masks and its targets move only through execution history.
+
+- `design.npz`: 15 of 16 arrays byte-identical. `neutral_goal_probability` moves at most `3.3e-5`. `r` and `pi` are equal, and `qbar` moves at most 0.02%.
+- volume and shape: arrays byte-identical, and metadata differs only in wall seconds and peak rss, so their priors and ledgers carry no change.
+- quality: coefficients move at most `2.2e-4`, median `1.8e-9`, ledger ids equal. for the first time its priors differ, carrying `20232024`'s quality change forward.
+- projections: zero change in every `attempts` map. `xg` rates move at most `3.4e-5` and adjustments `5.6e-5`. only the `xg` fields and `reference_id` change. `coefficient-support.jsonl` is byte-identical.
+- `coverage.json` changes only in `neutral_chance_mass`, apart from the removed audit.
+
+targets: through the strict reader, all 665 retained events match `design.npz` byte for byte. neutral mass moves from 29.637485997 to 29.637835476, equal to `coverage.json` and to the composed `interval_fact` total. `xg` adjustments close on all 452 available rows, with largest gap `1.8e-15`.
+
 ### execution-base composition
 
 `fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.

@@ -1,0 +1,36 @@
+{
+  "kind": "replacement-real-first-execution-release",
+  "status": "released by root; supersedes preparation HOLD fields",
+  "recorded_at_utc": "2026-10-31T17:04:57.041912+00:00",
+  "preparation_commit": "4ddd6df",
+  "review": "independent-review.md#real-20212022-launch-review",
+  "script": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-execution-command.sh",
+  "script_sha256": "acdf0c013c9d7d1631eb9613bdc26e4810d0a8bc63eb15de452efc833ac834ba",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "purpose": "real",
+  "season": "20212022",
+  "previous": null,
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022",
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+  "prerequisites": {
+    "execution_fixture": "20 heads,4 continuations,5 scores,4 propagations independently accepted",
+    "spatial_fixture": "15 heads,3 continuations independently accepted",
+    "combined_composition_and_database": "independently accepted",
+    "detached_server_api_and_public_consumers": "passed",
+    "native_browser": "environment-blocked; remains required, not waived"
+  },
+  "sequencing_decision": "real fitting proceeds alongside browser work because app-only repairs do not feed source/model/state contracts. any producer-contract correctness defect stops affected descendants. no source edits while the command is running.",
+  "inspection": "read the source report as soon as it appears while solving; require automatic54-key barrier and report unresolved_binding globally/per head, without a threshold or manual pause",
+  "cost": "one heavy fit at a time; no runtime forecast; record actual resources",
+  "preservation": "raw/prepared/factual evidence, all original fits and both existing publications remain unchanged; activation separate",
+  "launch_provenance": "actual HEAD, analysis tree and status written by script before invocation",
+  "command_wrapper": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-execution-command.sh"
+  ],
+  "idle_sleep_prevention": "no existing caffeinate process was observed at release; native assertion is bound to this one command and exits with it, with no persistent setting or new runner"
+}

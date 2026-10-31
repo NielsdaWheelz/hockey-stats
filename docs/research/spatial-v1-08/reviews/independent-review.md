@@ -424,7 +424,7 @@ what the pause would cost:
 - it changes observer `286b34dd` at the most expensive command, so real would run a path no fixture year exercised, plus new pins and review.
 - a mistyped token or lost stdin aborts after design construction, which took most of the 4,447 seconds of the refused real pass.
 
-reading the file as it appears loses nothing. the solve runs for hours, and root can stop it at any time, at the cost of a new check path.
+reading the file as it appears loses nothing. this review first said the solve runs for hours, which overstates the first annual: the original `20212022` took 6,915 seconds of design and 1,885 of solve, about 31 minutes. that is still ample time to read a report, and later years are longer. root can stop it at any time, at the cost of a new check path.
 
 if root keeps the flag anyway, one constraint applies. root's timer claim is right for fit: `design_wall_seconds` and `fit_wall_seconds` are measured inside the hook, so they exclude the pause. it is false for score, where `execution_scores.py:366` times the whole `prepare_execution` call, so a pause would inflate `design_wall_seconds` and `wall_seconds`. the flag must be fit-only.
 
@@ -617,6 +617,40 @@ this review reran its own composition replay from raw member files, against the 
 against fixture03's composition: row counts are equal, and only `xg` content changes. no `attempts` map or adjustment row changes at all. prior-only and zero-time rows are 152, and no-exposure adjustment rows 608, all unchanged in support.
 
 the spatial `recipe_id` stays `experimental-v1:positive-spatial-v1-08-1`. unlike s1, this label is accurate: it names the rate recipe, which is unchanged. design and target changes are carried by `design_sha256`, `evidence` and `inputs`. fixture03 was served only as an isolated candidate, publication `e5118eea` on port 3398, and was never activated as the live publication. the identities above still separate the two.
+
+### saved fixture publication
+
+candidate `fixture/candidate/player-analysis.sqlite` passes, read immutably, with no source pass, fit or rescore. publication `e7428c18-c105-4a51-bc57-af8d47899aae`, digest `95ee3f1c`, recomputed from disk, 1,369,219,072 bytes. no sidecar was created and the digest is unchanged after reading. this covers the saved database only: server, api, browser and detached controls are separate evidence.
+
+- structure: `quick_check` ok, no foreign key violations, journal `delete`, schema 8. all 80 schema objects are identical to the fixture03 candidate's, and all 39 tables have equal row counts.
+- binding: `verification.json` binds result `a8d2f4ba` and observed `24cda3b5`. its integrity, foreign key, read-back and per-season conservation checks all report passed, and `scientific_admission` is `not_performed`.
+- envelope replay against the accepted exchange: 112,788 rows, 49,887 spatial and 62,901 other, with no key, envelope or payload mismatches. provided 5v5 spatial rows are 201, 245 and 277.
+- non-envelope tables, which that replay only counts: `attempt_setter`, `attempt_execution_share`, `context_coverage`, `dressed_game` and `interval_player` are content-equal to the exchange. `interval_fact` and `interval_location` have zero cell differences across all 63,066 rows, and these hold the changed neutral masses.
+- `attempt_value` has no table of its own. its five fields sit in `attempt_fact`, and all 2,855 rows match with no mismatches.
+- methods: all 12 ids match the exchange and all 12 payloads are equal. six rows carry `experimental-v1:execution-v1-05-2`, three carry the pending factual reference and three `experimental-v1:positive-spatial-v1-08-1`.
+
+this review's first pass raised three flags, all its own. `analysis_map` counts look wrong because execution and spatial share that table: 2,814 + 8,040 = 10,854, and likewise for the other seasons. the two interval tables looked different only because its canonical json distinguished sqlite `3.0` from json `3`. a query also failed on the unquoted column `group`.
+
+not established: anything about serving. the candidate is not activated, and nothing here tests the api, the browser or the real corpus.
+
+### real `20212022` launch review
+
+verdict: **clear to launch. no blocker.** this review ran no source, fit or game read. it reread metadata, recomputed digests from disk and dry-ran the observer's argument handling with the cli stubbed and output in scratch.
+
+- script: digest `acdf0c01`, `/bin/sh -n` passes. a line diff against the reviewed book block `1961ab26` shows only additions: three digest guards with their receipts, and the three new paths in the occupied guard. nothing else changed.
+- argv: the full argv equals the receipt, and the ordinary tail equals both the receipt and the original `replacement-fit-preparation.json` argv. there is no `--previous`, no `--valued` and no pause or review flag.
+- pins, all recomputed now: prepared `63bd2861`, coaches `102bca4c`, census `6fd06ffb`, observer `286b34dd`, subtree `c2412ac` with a clean analysis status. the script enforces all of them before launch, plus recipe `47691110` recorded for comparison.
+- fresh paths: `real/` does not exist. all 15 output, log, receipt and check paths are in the occupied guard, `set -C` is on, and `mkdir -p` creates the check file's parent, so the exclusive write cannot fail after design.
+- barrier: the dry run resolved `real`, `20212022` and 54 expected keys, and earlier controls refused the same command without the census. the census holds 54 distinct keys, 50 `on_the_fly` and 4 faceoff, in the observer's key format. every `on_the_fly` start is at or after the focal clock and every faceoff anchor at or after focal order, so all 54 must be unavailable under the production rule. a false barrier abort is not possible from these rows.
+- oracle: a false equality abort is not expected. production and oracle apply the same binding, `_zone` returns only the three zones, and all 4,091 fixture contexts passed.
+- failure evidence: a refusal gives exit 1 and writes `source_construction_incomplete`, and the block records log, exit, finish and launch receipts either way. a barrier failure stops before any solve, costing design time only.
+- machine: nothing heavy running, 64 gb of memory against 17.3 gb peak in the original annual, 6.6 tb free, and system sleep prevented by `caffeinate`, which must stay active.
+
+the stale fields in the receipt, `status: HOLD` and `pending root acceptance`, describe its preparation time. they are not defects, but the release record should supersede them.
+
+what to expect, from the original annual: about 6,915 seconds of design, so the source report appears near two hours, then about 31 minutes of solve. the report should show `known_checked` 54, `masked_on_the_fly` at least 50 and `masked_faceoff` at least 4. `unresolved_binding` is the first real measure of omitted participation. no figure here is a forecast.
+
+root's decision to let real fits proceed alongside blocked browser work is sound on the dependency: app-only repairs do not feed fitting. browser acceptance stays pending, not waived.
 
 ### execution-base composition
 

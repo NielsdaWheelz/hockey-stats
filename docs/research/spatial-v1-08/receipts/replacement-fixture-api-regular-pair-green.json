@@ -1,0 +1,177 @@
+{
+  "kind": "replacement-fixture-live-api-check",
+  "status": "passed",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "profile_sha256": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199",
+  "server_pid": 98844,
+  "base": "http://127.0.0.1:3398",
+  "app_source_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+  "build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "result": {
+    "status": "passed",
+    "purpose": "fixture",
+    "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+    "player_id": "8475726",
+    "second_id": "8476462",
+    "checked_player_years": 6,
+    "checked_map_rows": 48,
+    "joint_scales": 12,
+    "adversarial_guard": "mutated second-player integrated value rejected",
+    "scope": "actual API scalars/quartet/support for each present selected player; both returned map rows, cell/native/display/density integrals, common scale over both roles and players; no browser/download/pixel claim",
+    "receipts": [
+      {
+        "season": "20232024",
+        "player_id": "8475726",
+        "offense_xg": -0.07293680982039688,
+        "defense_xg": 0.11543068365914613,
+        "support": {
+          "included_seconds": 1513,
+          "events": 58,
+          "eligible_weight": null,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason_counts": [],
+          "inferred_inputs": [
+            "blocked_origin",
+            "setter"
+          ],
+          "current_season_information": true,
+          "prior_only": false,
+          "prior_seasons": []
+        },
+        "methods": "spatial-v1-08-20232024"
+      },
+      {
+        "season": "20232024",
+        "player_id": "8476462",
+        "offense_xg": 0.17790016511017442,
+        "defense_xg": 0.14938862846803325,
+        "support": {
+          "included_seconds": 972,
+          "events": 40,
+          "eligible_weight": null,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason_counts": [],
+          "inferred_inputs": [
+            "blocked_origin",
+            "setter"
+          ],
+          "current_season_information": true,
+          "prior_only": false,
+          "prior_seasons": []
+        },
+        "methods": "spatial-v1-08-20232024"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8475726",
+        "offense_xg": -0.0846190235045136,
+        "defense_xg": 0.24788112158646577,
+        "support": {
+          "included_seconds": 769,
+          "events": 33,
+          "eligible_weight": null,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": false,
+          "reason_counts": [],
+          "inferred_inputs": [
+            "blocked_origin",
+            "historical_borrowing",
+            "setter"
+          ],
+          "current_season_information": true,
+          "prior_only": false,
+          "prior_seasons": [
+            "20232024"
+          ]
+        },
+        "methods": "spatial-v1-08-20242025"
+      },
+      {
+        "season": "20242025",
+        "player_id": "8476462",
+        "offense_xg": 0.376779804412705,
+        "defense_xg": 0.16441126359108796,
+        "support": {
+          "included_seconds": 1058,
+          "events": 40,
+          "eligible_weight": null,
+          "known_excluded_seconds": 27,
+          "unquantified_gap": false,
+          "reason_counts": [
+            {
+              "code": "unmatched_report_attempt",
+              "count": 1
+            }
+          ],
+          "inferred_inputs": [
+            "blocked_origin",
+            "historical_borrowing",
+            "setter"
+          ],
+          "current_season_information": true,
+          "prior_only": false,
+          "prior_seasons": [
+            "20232024"
+          ]
+        },
+        "methods": "spatial-v1-08-20242025"
+      },
+      {
+        "season": "20252026",
+        "player_id": "8475726",
+        "offense_xg": -0.07721356775159427,
+        "defense_xg": 0.23915540162181792,
+        "support": {
+          "included_seconds": 0,
+          "events": 0,
+          "eligible_weight": null,
+          "known_excluded_seconds": 876,
+          "unquantified_gap": true,
+          "reason_counts": [
+            {
+              "code": "count_accounting_conflict",
+              "count": 1
+            }
+          ],
+          "inferred_inputs": [
+            "historical_borrowing"
+          ],
+          "current_season_information": false,
+          "prior_only": true,
+          "prior_seasons": [
+            "20232024",
+            "20242025"
+          ]
+        },
+        "methods": "spatial-v1-08-20252026"
+      },
+      {
+        "season": "20252026",
+        "player_id": "8476462",
+        "offense_xg": 0.3527469505730864,
+        "defense_xg": 0.1665425174629435,
+        "support": {
+          "included_seconds": 0,
+          "events": 0,
+          "eligible_weight": null,
+          "known_excluded_seconds": 0,
+          "unquantified_gap": true,
+          "reason_counts": [],
+          "inferred_inputs": [
+            "historical_borrowing"
+          ],
+          "current_season_information": false,
+          "prior_only": true,
+          "prior_seasons": [
+            "20232024",
+            "20242025"
+          ]
+        },
+        "methods": "spatial-v1-08-20252026"
+      }
+    ]
+  },
+  "scope": "actual API and public scalar/CSV selectors; no native browser, download or pixel claim"
+}

@@ -1,0 +1,66 @@
+{
+  "kind": "replacement-fixture-detached-server-accepted-db-supplement",
+  "status": "unexecuted; candidate and paired controls accepted; old owned process tree absent and port free; root launch pending",
+  "recorded_at_utc": "2026-10-31T16:51:11.817429+00:00",
+  "prior_script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-server-01-command.sh",
+    "bytes": 4766,
+    "sha256": "f71df65a071f8a8035004b26d9e9653bd87529886237bfb2b5e5910d0aae5b8c"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-server-01-command.sh",
+    "bytes": 6834,
+    "sha256": "0ec0dc65e2d3a37f38ff8b9aaa8bfc1f45af718193be88cc05f0f897c104d30a"
+  },
+  "syntax_exit": 0,
+  "accepted_publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+    "bytes": 1369219072,
+    "mtime_ns": 1793465008507751508,
+    "inode": 477627,
+    "accepted_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+    "digest_source": "completed publisher verification and root accepted report; large DB digest reused, not recomputed"
+  },
+  "publication_verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/verification.json",
+    "bytes": 14869,
+    "sha256": "8613ef637b8af1347fbdb39664689af583a2cff78e3171f498bcff41c8799110"
+  },
+  "new_guarded_provenance_paths": {
+    "accepted-database-sha256.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.accepted-database-sha256.txt",
+    "accepted-publication-id.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.accepted-publication-id.txt",
+    "launch-database-stat.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.launch-database-stat.txt",
+    "publication-verification-sha256.txt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/detached-server-01.publication-verification-sha256.txt"
+  },
+  "large_file_policy": "accepted producer digest plus size/mtime and exact producer verification identity reused; no redundant full DB hash/strict read",
+  "runtime_guard": "finished canonical DB stat matches accepted size/mtime; exact verification metadata is pinned; accepted SHA/id recorded accurately as provenance, not labeled a new hash computation",
+  "profile_sha256": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199",
+  "original_profile_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+  "old_node_must_be_stopped_by_root": 73888,
+  "port": 3398,
+  "server_launched": false,
+  "old_server_stopped": true,
+  "publication_mutated": false,
+  "production_observer_profile_app_changed": false,
+  "old_server_stop_owner": "root",
+  "process_preflight": {
+    "recorded_at_utc": "2026-10-31T16:54:43.855110+00:00",
+    "pids_absent": [
+      73888,
+      73887,
+      73833
+    ],
+    "port_3398_listener": false,
+    "commands": [
+      "ps -p 73888,73887,73833 -o pid=,ppid=,stat=,command=",
+      "/usr/sbin/lsof -nP -iTCP:3398 -sTCP:LISTEN"
+    ],
+    "product_stopped_processes": false
+  },
+  "root_candidate_acceptance": {
+    "status": "passed",
+    "independent_immutable_db_replay": "passed",
+    "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae"
+  }
+}

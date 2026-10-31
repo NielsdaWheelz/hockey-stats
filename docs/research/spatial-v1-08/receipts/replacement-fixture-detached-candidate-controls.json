@@ -1,0 +1,120 @@
+{
+  "kind": "replacement-fixture-candidate-detached-controls",
+  "status": "all 29 planned paired reads passed across both receipts; strict runtime acceptance remains separate",
+  "started_at_utc": "2026-10-31T16:48:11.184561+00:00",
+  "finished_at_utc": "2026-10-31T16:48:11.461694+00:00",
+  "wall_seconds": 0.2770054999855347,
+  "profile_sha256_before": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199",
+  "profile_sha256_after": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199",
+  "original_fixture03_profile_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+  "root_authorization": "producer publication accepted; remaining candidate/copy one-byte controls now authorized",
+  "read_implementation": "openSync/readSync(Buffer.alloc(1),0,1,0)/closeSync; no read-whole-then-slice",
+  "controls": [
+    {
+      "role": "candidate_result_copy",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/results/manifest.json",
+      "outside_exit": 0,
+      "outside_stdout": "one_byte_read_success\n",
+      "sandbox_exit": 1,
+      "sandbox_permission_code": "EPERM",
+      "expected_inside": "permission_denied",
+      "passed": true
+    },
+    {
+      "role": "candidate_season_receipt",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/seasons/20232024/verification.json",
+      "outside_exit": 0,
+      "outside_stdout": "one_byte_read_success\n",
+      "sandbox_exit": 1,
+      "sandbox_permission_code": "EPERM",
+      "expected_inside": "permission_denied",
+      "passed": true
+    },
+    {
+      "role": "candidate_selection_copy",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/selection.json",
+      "outside_exit": 0,
+      "outside_stdout": "one_byte_read_success\n",
+      "sandbox_exit": 1,
+      "sandbox_permission_code": "EPERM",
+      "expected_inside": "permission_denied",
+      "passed": true
+    },
+    {
+      "role": "candidate_verification_copy",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/verification.json",
+      "outside_exit": 0,
+      "outside_stdout": "one_byte_read_success\n",
+      "sandbox_exit": 1,
+      "sandbox_permission_code": "EPERM",
+      "expected_inside": "permission_denied",
+      "passed": true
+    },
+    {
+      "role": "finished_candidate",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+      "outside_exit": 0,
+      "outside_stdout": "one_byte_read_success\n",
+      "sandbox_exit": 0,
+      "sandbox_permission_code": null,
+      "expected_inside": "one_byte_read_success",
+      "passed": true
+    }
+  ],
+  "negative_copied_input_pairs_passed": 4,
+  "finished_db_positive_pair_passed": true,
+  "sidecars": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite-wal",
+      "exists_metadata_only": false,
+      "payload_read": false,
+      "status": "absent_not_exercised"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite-shm",
+      "exists_metadata_only": false,
+      "payload_read": false,
+      "status": "absent_not_exercised"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite-journal",
+      "exists_metadata_only": false,
+      "payload_read": false,
+      "status": "absent_not_exercised"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite.incomplete",
+      "exists_metadata_only": false,
+      "payload_read": false,
+      "status": "absent_not_exercised"
+    }
+  ],
+  "absent_sidecar_denial_not_claimed": true,
+  "pending": [],
+  "raw_results": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/detached-candidate-controls-01.json",
+    "bytes": 7494,
+    "sha256": "20dce33fa90fb843b787e1c394dd20f26f15257b0e2847202db8807919786889"
+  },
+  "db_sql_queries": 0,
+  "db_full_hash_recomputed": false,
+  "source_or_fullstrict_read": false,
+  "publication_mutation": false,
+  "profile_changed": false,
+  "server_launched": false,
+  "runtime_detachment_claim": false,
+  "failure": null,
+  "complete_pair_accounting": {
+    "negative_pairs": 26,
+    "positive_pairs": 3,
+    "total_pairs": 29,
+    "earlier_receipt": "replacement-fixture-detached-existing-controls.json",
+    "absent_sidecars_not_exercised": 4
+  },
+  "subsequent_root_report": {
+    "recorded_at_utc": "2026-10-31T16:54:43.855110+00:00",
+    "independent_immutable_db_replay": "passed",
+    "candidate_accepted": true,
+    "scope": "root report; this control pass performed no SQL replay or DB rehash"
+  }
+}

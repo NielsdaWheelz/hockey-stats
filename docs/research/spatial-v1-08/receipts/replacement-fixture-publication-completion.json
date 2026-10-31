@@ -1,0 +1,165 @@
+{
+  "kind": "replacement-fixture-publication-completion",
+  "status": "producer verification and independent immutable DB replay passed; root accepted candidate",
+  "recorded_at_utc": "2026-10-31T16:51:11.813047+00:00",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "purpose": "fixture",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+    "bytes": 1369219072,
+    "mtime_ns": 1793465008507751508,
+    "inode": 477627,
+    "accepted_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+    "digest_source": "completed publisher verification and root accepted report; large DB digest reused, not recomputed"
+  },
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/verification.json",
+    "bytes": 14869,
+    "sha256": "8613ef637b8af1347fbdb39664689af583a2cff78e3171f498bcff41c8799110"
+  },
+  "producer": {
+    "git_commit": "0d19c01e184b8911eedb1bca795acbed3b6ccd58",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "spatial_consumed_fields": [
+      "interpreted.events.reported_x",
+      "interpreted.events.reported_y",
+      "interpreted.events.home_team_defending_side",
+      "reconstruction.events.attacking_x",
+      "reconstruction.events.attacking_y",
+      "reconstruction.events.coordinate_status"
+    ],
+    "sqlite_version": "3.54.1"
+  },
+  "producer_analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "producer_app_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "results_manifest_sha256": "a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff",
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+    "bytes": 768,
+    "copy": "selection.json",
+    "document": {
+      "schema_version": 1,
+      "purpose": "fixture",
+      "corpora": [
+        {
+          "season": "20232024",
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20232024/corpus.json",
+          "sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b"
+        },
+        {
+          "season": "20242025",
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20242025/corpus.json",
+          "sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad"
+        },
+        {
+          "season": "20252026",
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/native/20252026/corpus.json",
+          "sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158"
+        }
+      ]
+    }
+  },
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "season_readback_conservation": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "checks": {
+        "physical_seconds": 17085,
+        "player_seconds": 170850,
+        "physical_attempts": 539,
+        "player_attempts_for": 2695,
+        "player_attempts_against": 2695,
+        "personal_physical_seconds": 17085,
+        "personal_player_seconds": 170850,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 3557,
+        "teammate_pair_seconds": 341700,
+        "opponent_pair_seconds": 427125
+      }
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "checks": {
+        "physical_seconds": 21601,
+        "player_seconds": 216010,
+        "physical_attempts": 695,
+        "player_attempts_for": 3475,
+        "player_attempts_against": 3475,
+        "personal_physical_seconds": 21601,
+        "personal_player_seconds": 216010,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 4484,
+        "teammate_pair_seconds": 432020,
+        "opponent_pair_seconds": 540025
+      }
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "checks": {
+        "physical_seconds": 11512,
+        "player_seconds": 115120,
+        "physical_attempts": 359,
+        "player_attempts_for": 1795,
+        "player_attempts_against": 1795,
+        "personal_physical_seconds": 11512,
+        "personal_player_seconds": 115120,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 2407,
+        "teammate_pair_seconds": 230240,
+        "opponent_pair_seconds": 287800
+      }
+    }
+  ],
+  "exit": 0,
+  "cost": {
+    "wall_seconds": 638.32,
+    "peak_rss_bytes": 228163584,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish.log",
+      "bytes": 999,
+      "sha256": "62282a22335843790e511655559c73653e1ecdd873050b36a5f6986284d26712"
+    },
+    "producer_cost": {
+      "wall_seconds": 637.9750537080108,
+      "peak_rss_bytes": 228163584,
+      "consumed_bytes": 1399056627,
+      "database_bytes": 1369219072
+    },
+    "producer_cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water"
+  },
+  "scientific_admission": "not_performed",
+  "scope": "producer verification metadata and actual DB stat only; one-byte controls separately recorded; no SQL queries, repeated fullstrict read, new source/model or DB rehash",
+  "publication_launched_by_product": false,
+  "database_mutated": false,
+  "server_launched": false,
+  "original_live_publications_untouched": true,
+  "independent_acceptance": {
+    "reported_by": "root",
+    "recorded_at_utc": "2026-10-31T16:54:43.855110+00:00",
+    "status": "passed",
+    "schema_version": 8,
+    "objects": 80,
+    "tables": 39,
+    "exact_publication_envelopes": 112788,
+    "exact_interval_cells": 63066,
+    "exact_attempt_values": 2855,
+    "exact_methods": 12,
+    "database_sha256_unchanged": true,
+    "sidecars_absent": true,
+    "scope": "separate saved-DB replay reported by root; no duplicate replay performed for this receipt"
+  }
+}

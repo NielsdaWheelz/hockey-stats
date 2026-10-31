@@ -1,0 +1,1564 @@
+{
+  "kind": "saved-composition-diagnostic-selection",
+  "status": "selection diagnostics only",
+  "seasons": [
+    {
+      "season": "20232024",
+      "source": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-composition.json",
+        "sha256": "aec96be96ccb01ffe9122b62486a892c3e5a8bdf936ddb34810a94d094daa3cf"
+      },
+      "valued_exclusion_reason_counts": {
+        "ambiguous_assignment": 38844,
+        "model_value_unavailable": 87,
+        "null": 1
+      },
+      "conflicts": [],
+      "unavailable_with_affected": [
+        {
+          "affected_interval_ids": [
+            "1:0:43"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/0",
+              "source_index": 2
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 2,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:0:43"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/1",
+              "source_index": 3
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 3,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:54:90"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/2",
+              "source_index": 6
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 6,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:114:130"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/3",
+              "source_index": 12
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 12,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:216:241"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/4",
+              "source_index": 17
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 17,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:259:283"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/5",
+              "source_index": 20
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 20,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:302:307"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/6",
+              "source_index": 23
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 23,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:391:426"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/7",
+              "source_index": 28
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 28,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:391:426"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/8",
+              "source_index": 29
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 29,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:426:438"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/9",
+              "source_index": 31
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 31,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:438:482"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/10",
+              "source_index": 34
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 34,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:497:521"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/11",
+              "source_index": 38
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 38,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:497:521"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/12",
+              "source_index": 39
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 39,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:521:584"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/13",
+              "source_index": 41
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 41,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:521:584"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/14",
+              "source_index": 42
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 42,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:521:584"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/15",
+              "source_index": 43
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 43,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:521:584"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/16",
+              "source_index": 44
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 44,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:597:606"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/17",
+              "source_index": 47
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 47,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:610:648"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/18",
+              "source_index": 51
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 51,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:610:648"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/19",
+              "source_index": 54
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 54,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:649:662"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/20",
+              "source_index": 55
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 55,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:668:704"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/21",
+              "source_index": 59
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 59,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:668:704"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/22",
+              "source_index": 61
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 61,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:728:735"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/23",
+              "source_index": 63
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 63,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:820:846"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/24",
+              "source_index": 72
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 72,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:998:1031"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/25",
+              "source_index": 79
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 79,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:998:1031"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/26",
+              "source_index": 80
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 80,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:998:1031"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/27",
+              "source_index": 82
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 82,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1076:1086"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/28",
+              "source_index": 86
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 86,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1086:1112"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/29",
+              "source_index": 89
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 89,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1086:1112"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/30",
+              "source_index": 90
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 90,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1112:1133"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/31",
+              "source_index": 93
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 93,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1164:1200"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/32",
+              "source_index": 102
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 102,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1164:1200"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/33",
+              "source_index": 103
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 103,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "1:1164:1200"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/34",
+              "source_index": 104
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 104,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:34:40"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/35",
+              "source_index": 108
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 108,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:83:97"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/36",
+              "source_index": 109
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 109,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:211:215"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/37",
+              "source_index": 121
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 121,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:255:260"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/38",
+              "source_index": 122
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 122,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:296:307"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/39",
+              "source_index": 128
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 128,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:333:353"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/40",
+              "source_index": 129
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 129,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:333:353"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/41",
+              "source_index": 130
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 130,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:585:592"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/48",
+              "source_index": 149
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 149,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:715:728"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/51",
+              "source_index": 156
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 156,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:776:782"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/52",
+              "source_index": 160
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 160,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:776:782"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/53",
+              "source_index": 161
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 161,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:782:826"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/54",
+              "source_index": 164
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 164,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:918:932"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/55",
+              "source_index": 175
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 175,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:965:982"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/56",
+              "source_index": 176
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 176,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:982:999"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/57",
+              "source_index": 180
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 180,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:999:1012"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/58",
+              "source_index": 183
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 183,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:1013:1029"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/59",
+              "source_index": 184
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 184,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:1029:1033"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/60",
+              "source_index": 185
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 185,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:1033:1058"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/61",
+              "source_index": 187
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 187,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:1067:1079"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/62",
+              "source_index": 189
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 189,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:1079:1097"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/63",
+              "source_index": 191
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 191,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "2:1097:1125"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/64",
+              "source_index": 195
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 195,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:48:92"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/65",
+              "source_index": 206
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 206,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:99:101"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/66",
+              "source_index": 207
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 207,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:153:157"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/67",
+              "source_index": 210
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 210,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:166:183"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/68",
+              "source_index": 211
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 211,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:166:183"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/69",
+              "source_index": 213
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 213,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:183:225"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/70",
+              "source_index": 216
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 216,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:233:266"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/71",
+              "source_index": 219
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 219,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:279:289"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/72",
+              "source_index": 222
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 222,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:279:289"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/73",
+              "source_index": 223
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 223,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:322:330"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/74",
+              "source_index": 224
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 224,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:406:427"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/75",
+              "source_index": 228
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 228,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:427:468"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/76",
+              "source_index": 231
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 231,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:470:477"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/77",
+              "source_index": 232
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 232,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:497:523"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/78",
+              "source_index": 235
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 235,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:497:523"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/79",
+              "source_index": 239
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 239,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:523:534"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/80",
+              "source_index": 240
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 240,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:536:593"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/81",
+              "source_index": 249
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 249,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:536:593"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/82",
+              "source_index": 250
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 250,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:536:593"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/83",
+              "source_index": 251
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 251,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:536:593"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/84",
+              "source_index": 252
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 252,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:616:644"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/85",
+              "source_index": 262
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 262,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:776:780"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/90",
+              "source_index": 275
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 275,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:780:798"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/91",
+              "source_index": 278
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 278,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:780:798"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/92",
+              "source_index": 279
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 279,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:780:798"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/93",
+              "source_index": 280
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 280,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:859:875"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/94",
+              "source_index": 283
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 283,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:918:956"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/95",
+              "source_index": 285
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 285,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:1067:1077"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/96",
+              "source_index": 289
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 289,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:1134:1177"
+          ],
+          "game_id": "2023020078",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020078",
+              "pointer": "/attempts/97",
+              "source_index": 295
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 295,
+          "status": "excluded"
+        },
+        {
+          "affected_interval_ids": [
+            "3:1060:1075"
+          ],
+          "game_id": "2023020849",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2023020849",
+              "pointer": "/attempts/110",
+              "source_index": 299
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 299,
+          "status": "excluded"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "source": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20242025-execution-composition.json",
+        "sha256": "eb1b8c31cfa6c381e5e12aab11bade086d5ac26181ae84f5091c15a373604d91"
+      },
+      "valued_exclusion_reason_counts": {
+        "ambiguous_assignment": 39952,
+        "null": 7,
+        "model_value_unavailable": 1
+      },
+      "conflicts": [],
+      "unavailable_with_affected": [
+        {
+          "affected_interval_ids": [
+            "1:781:828"
+          ],
+          "game_id": "2024020551",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2024020551",
+              "pointer": "/attempts/29",
+              "source_index": 71
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 71,
+          "status": "excluded"
+        }
+      ]
+    },
+    {
+      "season": "20252026",
+      "source": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20252026-execution-composition.json",
+        "sha256": "dfa46d1b73aa5766ead1a5aa6ad25109154dca730bd1234e8cf87d9865565ae7"
+      },
+      "valued_exclusion_reason_counts": {
+        "ambiguous_assignment": 36300,
+        "null": 6,
+        "model_value_unavailable": 1
+      },
+      "conflicts": [],
+      "unavailable_with_affected": [
+        {
+          "affected_interval_ids": [
+            "2:853:877"
+          ],
+          "game_id": "2025020614",
+          "model_reasons": [
+            {
+              "code": "location_or_frame_unavailable",
+              "game_id": "2025020614",
+              "pointer": "/attempts/70",
+              "source_index": 160
+            }
+          ],
+          "reason": "model_value_unavailable",
+          "source_index": 160,
+          "status": "excluded"
+        }
+      ]
+    }
+  ]
+}

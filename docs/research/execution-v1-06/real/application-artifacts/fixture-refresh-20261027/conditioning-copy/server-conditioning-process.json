@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/tmp/v106-application-rehearsal-20261027/detached.sb",
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "app/dist/node/server/main.js",
+    "--publication",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite",
+    "--port",
+    "41986"
+  ],
+  "pid": 77647,
+  "started_at": "2026-10-27T09:21:29.407742+00:00",
+  "started_epoch": 1793092889.4079082,
+  "status": "starting",
+  "scope": "single corrected conditioning paragraph; same final fixture candidate and unchanged denied-source server profile"
+}

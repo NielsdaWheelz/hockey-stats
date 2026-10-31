@@ -7,7 +7,7 @@ import type { PeerSettings } from "./explorer";
 import { buildAnalysisCohort, positionGroup, rawOnlyStanding, type AnalysisStanding } from "./analysis-cohorts";
 import { formatPercentile } from "./observed-comparison";
 import { downloadBlob, downloadCsv, svgPng, type CsvCell } from "./export";
-import { playerName, seasonLabel, teamName } from "./presentation";
+import { fixtureNotice, playerName, seasonLabel, teamName } from "./presentation";
 
 export type HistoryScale = "raw" | "percentile";
 export type AnalysisRow = {
@@ -102,10 +102,24 @@ export const datumName = (datum: AnalysisDatum): string =>
 const groupName = (group: string | null): string =>
   group ?? "reference unavailable";
 
+function executionCoefficientRows(coefficients: NonNullable<AnalysisDatum["coefficient_support"]>) {
+  return [
+    ...(["u", "q", "r", "g"] as const).map(head => ({ label: `shooter ${head}`, coefficient: coefficients.shooter[head] })),
+    { label: "setter g", coefficient: coefficients.setter.g },
+  ];
+}
+
 export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
+  const [hasOpened, setHasOpened] = useState(false);
   return (
-    <details className="analysis-evidence">
+    <details
+      className="analysis-evidence"
+      onToggle={(event) => {
+        if (event.currentTarget.open) setHasOpened(true);
+      }}
+    >
       <summary>support, sources and method</summary>
+      {hasOpened && <>
       <p>
         {datum.reason ?? "published value available"} · qualification:{" "}
         {datum.qualificationSeconds === null
@@ -139,12 +153,12 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
           <p>
             common reference panel: {datum.reference_panel.opportunities}{" "}
             physical opportunities; setup weight{" "}
-            {datum.reference_panel.setup_weight}. these are mathematical
+            {displayNumber(datum.reference_panel.setup_weight)}. these are mathematical
             denominators, separate from viewing qualification.
           </p>
           <p>
             fitted seasonal estimates; stage levels condition successively on
-            attempts, unblocked, on-net and continuing attempts. stage
+            attempts, unblocked, on-net and not-stopped on-net attempts. stage
             differences use percentage points. setting is inferred setup credit,
             not recorded shot assists.
           </p>
@@ -157,10 +171,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
               <table>
                 <caption>distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass count</caption>
                 <thead><tr><th scope="col">coefficient</th><th scope="col">available</th><th scope="col">likelihood union</th><th scope="col">setter candidate</th><th scope="col">setter mean-coupled</th><th scope="col">prior only</th><th scope="col">carried seasons / reason</th></tr></thead>
-                <tbody>{[
-                  ...(["u", "q", "r", "g"] as const).map(head => ({label: `shooter ${head}`, coefficient: datum.coefficient_support!.shooter[head]})),
-                  {label: "setter g", coefficient: datum.coefficient_support.setter.g},
-                ].map(({label, coefficient}) => <tr key={label}>
+                <tbody>{executionCoefficientRows(datum.coefficient_support).map(({label, coefficient}) => <tr key={label}>
                   <th scope="row">{label}</th><td>{String(coefficient.available)}</td><td>{coefficient.likelihood_events ?? "unavailable"}</td>
                   <td>{"candidate_events" in coefficient ? String(coefficient.candidate_events ?? "unavailable") : "not applicable"}</td>
                   <td>{"mean_coupled_events" in coefficient ? String(coefficient.mean_coupled_events ?? "unavailable") : "not applicable"}</td>
@@ -246,6 +257,7 @@ export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
         . percentile describes the published quantity, not confidence in an
         ability difference.
       </p>
+      </>}
     </details>
   );
 }
@@ -647,9 +659,16 @@ function historySvg(view: HistoryView): string {
       `native unit: ${nativeUnitLabel(view.metric)}; display unit: ${view.metric.displayUnit}; display multiplier: ${view.metric.displayScale}`,
     );
     const chartTop = top;
-    const { values, prepared, domain, x, y } = geometry(view);
+    const { values, prepared, domain, y } = geometry(view);
+    probe.setAttribute("font-size", "21");
+    const labelWidth = Math.max(0, ...(domain ?? []).map(value => {
+      probe.textContent = displayNumber(value);
+      return probe.getComputedTextLength();
+    }));
+    const plotLeft = Math.max(110, 64 + labelWidth + 10);
+    const x = (index: number) => plotLeft + index * (1090 - plotLeft) / Math.max(1, view.points.length - 1);
     element("line", {
-      x1: 110,
+      x1: plotLeft,
       x2: 1090,
       y1: chartTop + 290,
       y2: chartTop + 290,
@@ -658,7 +677,7 @@ function historySvg(view: HistoryView): string {
     if (domain)
       for (const value of domain) {
         const node = element("text", {
-          x: 100,
+          x: plotLeft - 10,
           y: chartTop + y(value),
           "text-anchor": "end",
           "font-size": 21,
@@ -725,11 +744,26 @@ function historySvg(view: HistoryView): string {
           `inferred inputs: ${datum.support.inferred_inputs.join(", ") || "none"}; current-season information: ${datum.support.current_season_information}; prior seasons: ${datum.support.prior_seasons.join(", ") || "none"}`,
           20,
         );
-      if (datum.reference_panel)
-        text(
-          `execution details: ${JSON.stringify({ reference_panel: datum.reference_panel, coefficient_support: datum.coefficient_support, paired_evidence: datum.paired_evidence })}`,
-          20,
-        );
+      if (datum.reference_panel) {
+        const panel = datum.reference_panel;
+        text(`common reference panel ${panel.panel_id}: ${panel.opportunities} physical opportunities; setup weight ${panel.setup_weight}`, 20);
+        for (const [label, masses] of [["neutral", panel.neutral], ["focal shooter", panel.focal_shooter]] as const)
+          text(`${label} prefix masses: u ${masses.u ?? "unavailable"}; uq ${masses.uq ?? "unavailable"}; uqr ${masses.uqr ?? "unavailable"}; uqrg ${masses.uqrg ?? "unavailable"}`, 20);
+        text(`setting setup goal masses: neutral ${panel.setting_setup.neutral_goal_mass}; focal ${panel.setting_setup.focal_goal_mass ?? "unavailable"}`, 20);
+        if (datum.coefficient_support)
+          for (const { label, coefficient } of executionCoefficientRows(datum.coefficient_support))
+            text(
+              `${label}: available ${coefficient.available}; likelihood union ${coefficient.likelihood_events ?? "unavailable"}` +
+              ("candidate_events" in coefficient && "mean_coupled_events" in coefficient ? `; candidate events ${coefficient.candidate_events ?? "unavailable"}; mean-coupled events ${coefficient.mean_coupled_events ?? "unavailable"}` : "") +
+              `; prior only ${coefficient.prior_only ?? "unavailable"}; carried seasons ${coefficient.prior_seasons.join(", ") || "none"}; absence reason ${coefficient.reason ?? "none"}`,
+              20,
+            );
+        if (datum.paired_evidence) {
+          const paired = datum.paired_evidence;
+          text(`paired personal attempts: source ${paired.source_attempts}; paired ${paired.paired_attempts}; unvalued source ${paired.unvalued_source_attempts}`, 20);
+          text(`danger unavailable: ${paired.danger_unavailable.events} paired attempts; ${paired.danger_unavailable.observed_goals} recorded goals; reference expected goals ${paired.danger_unavailable.reference_expected_goals}; actor expected goals ${paired.danger_unavailable.actor_expected_goals}`, 20);
+        }
+      }
       if (datum.workload !== null)
         text(`published workload: ${JSON.stringify(datum.workload)}`, 20);
       if (datum.observedSupport)
@@ -789,10 +823,7 @@ function historySvg(view: HistoryView): string {
       20,
     );
     if (view.publication.purpose === "fixture")
-      text(
-        "fixture publication · analytical examples are synthetic development evidence",
-        23,
-      );
+      text(fixtureNotice, 23);
     const height = Math.ceil(top + 30);
     svg.setAttribute("height", String(height));
     svg.setAttribute("viewBox", `0 0 1200 ${height}`);

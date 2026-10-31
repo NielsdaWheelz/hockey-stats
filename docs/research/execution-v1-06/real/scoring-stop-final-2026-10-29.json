@@ -1,0 +1,99 @@
+{
+  "kind": "execution-v1-06-final-year-user-stop",
+  "status": "interrupted at user direction; final year incomplete and unaccepted",
+  "recorded_at_utc": "2026-10-29T15:14:26.358683+00:00",
+  "date_local": "2026-10-29",
+  "instruction": "user needs to disconnect the drive within twenty minutes; the next whole-artifact checkpoint was more than twenty minutes away, so root stopped immediately",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "source_status": "frozen head/source unchanged at launch; no source edits or new source/hash checks performed for this stop",
+  "stopped_command": {
+    "season": "20252026",
+    "terminal": "t-69e967fba63b1706",
+    "shell_pid": 88324,
+    "time_wrapper_pid": 88325,
+    "python_pid": 88326,
+    "action": "root verified exact process identities and sent TERM only to python 88326 at approximately 15:13 UTC",
+    "actual_shell_exit_code": 143,
+    "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.exit",
+    "process_status": "root confirms shell 88324, time wrapper 88325 and python 88326 are all gone",
+    "resources": {
+      "wall_seconds": 7043.89,
+      "user_seconds": 6494.85,
+      "system_seconds": 52.46,
+      "peak_rss_bytes": 23501275136,
+      "peak_memory_footprint_bytes": 28389003904,
+      "source": "root captured the actual /usr/bin/time -l stderr at approximately 15:13 UTC; no log reread performed by scoring owner"
+    }
+  },
+  "evidence_authority": "root-provided actual shell exit, measured time stderr and verified process disappearance; this receipt performs no source, input, fit, test, hash or bulk-data scan",
+  "partial": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20252026",
+    "status": "preserved incomplete, unaccepted and nonresumable",
+    "completion_manifest": "absent at last bounded observation; not reread for this stop",
+    "saved_probe_propagation": "not accepted; no completion or numerical-resolution pass claimed",
+    "future_rule": "a future user-authorized restart must use a fresh output directory and retain this partial"
+  },
+  "accepted_reusable": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022",
+      "manifest_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023",
+      "manifest_sha256": "1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024",
+      "manifest_sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025",
+      "manifest_sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0"
+    }
+  ],
+  "accepted_facts": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+    "status": "root confirms accepted, complete and reusable; not reread for this stop",
+    "future_rebuild_required": false
+  },
+  "other_jobs": "no other data job was active at launch; scoring owner started no other analytical job, validation, source check or selection",
+  "selection_written": false,
+  "preservation": "all four accepted annual scores, accepted facts-04, all fitted states/probes/source evidence, earlier interrupted partials, serving files and other work remain untouched",
+  "drive_clear": {
+    "declared_at_utc": "2026-10-29T15:14:42Z",
+    "authority": "root final checks after all external status writes completed",
+    "lsof": {
+      "command": [
+        "lsof",
+        "-nP",
+        "+f",
+        "--",
+        "/Volumes/Expansion"
+      ],
+      "exit_code": 1,
+      "output": "empty"
+    },
+    "owned_analytical_process_scan": {
+      "exit_code": 1,
+      "output": "empty"
+    },
+    "user_notified": "root told the user the drive can be ejected",
+    "checks_repeated_by_scoring_owner": false
+  },
+  "external_update_scope": "only the owned final-year command status and this stop receipt are written before root drive clearance",
+  "deletion": false,
+  "restart": false,
+  "automatic_retry": false,
+  "new_fit": false,
+  "acquisition": false,
+  "activation": false,
+  "remaining_work": "a fresh final-year score, saved-probe propagation, separate annual acceptance, five-year selection and downstream real integration remain pending user resumption",
+  "external_stop_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026-stop-2026-10-29.json",
+  "external_command_status_updated": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026-command.json",
+  "external_access_after_clear": false,
+  "external_receipts_after_clear": "not reopened, rewritten or hashed; this final drive-clear evidence is recorded locally only"
+}

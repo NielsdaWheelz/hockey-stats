@@ -1,0 +1,256 @@
+{
+  "kind": "bounded-real-source-helper-actual-completion",
+  "status": "passed actual helper; root proof review pending",
+  "tool_session": 59252,
+  "shell_pid": 13336,
+  "time_pid": 13338,
+  "python_pid": 13339,
+  "actual_exit_code": 0,
+  "started_at": "2026-10-30T13:22:43Z",
+  "finished_at": "2026-10-30T13:25:03Z",
+  "process_cost": {
+    "wall_seconds": 140.07,
+    "user_seconds": 137.98,
+    "sys_seconds": 1.17,
+    "peak_rss_bytes": 1330233344
+  },
+  "checker_measured_scope": {
+    "wall_seconds": 139.01641904198914,
+    "peak_rss_bytes": 1286062080,
+    "scope": "before hockey_stats import through assertions, before final receipt serialization"
+  },
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_real_source_sample.py",
+    "sha256": "138a06e163df86c26697eb99234a08d9077c0f7d1235b78a4ec58432eb03280b"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection.json",
+    "sha256": "50c017e9af3d771b8c5877b633933a329cd989a60496a0a6cbb336c24a1752b5"
+  },
+  "inputs": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "facts": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+    },
+    "scores": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1"
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5"
+    }
+  },
+  "actual_artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-02.json",
+      "sha256": "e46b00e5831da22cdc059f9d604d03978dbe958125c07059348d3df1168b199b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-02.log",
+      "sha256": "9ea3b83803f2179379a14d3386eb7302e70a9d197e4020e9af8840c6c02605c6"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-02.started",
+      "sha256": "9cd8fe3e1f334f643b747b1e9d75eaaab7a7a19f3213d604ca36930050d74d83"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-02.finished",
+      "sha256": "d19345e49bffab8bd0d434154be93b4294b54259ecc88f6c9f371aaf528d03ab"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-02.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "coverage": {
+    "distinct_selected_games": 10,
+    "located_categories": 8,
+    "located_witnesses": 16,
+    "scorer_conflict": {
+      "status": "not_found",
+      "witnesses": [],
+      "diagnostic_population": "no recorded scorer/physical-shooter mismatch among 52 recognized source goals with known ordinary physical identity in the ten visited prepared games; 3 unsupported source goals remain separately listed. no physical_shooter_conflict reason in any of the three complete saved composition receipts. this is not an independent raw-source absence claim beyond those ten games, nor isolated-role-conflict proof.",
+      "evidence": [
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/index.json",
+          "sha256": "9813cdce18128171989ff1954d3f70af538404bbe87df6534eb86edddf8a542c"
+        },
+        {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-handcase-receipt.json",
+          "sha256": "b8b570365f38cf62f1425af1617b360685f499c651cf3b3c953bb5f8e360b809"
+        }
+      ]
+    },
+    "inherited_credit_absence": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/facts-v1-03/real/source-arithmetic-real02.json",
+      "sha256": "1d467920081fc259057e74664e2a77136c4cc930e641720e2a2af41a8ec47ebc",
+      "categories": [
+        "credit_issue",
+        "unclassified_credit",
+        "zero_time_off_ice_primary_assist"
+      ],
+      "scope": "accepted prior full-source search; unchanged prepared credits; not a new full-source census"
+    },
+    "years": [
+      {
+        "season": "20232024",
+        "selected_games": [
+          "2023020040",
+          "2023020078",
+          "2023020481"
+        ],
+        "selected_source_view_attempts": 334,
+        "selected_game_population_contributions": {
+          "neutral_all_attempt_value": {
+            "included_seconds": 7651,
+            "excluded_seconds": 1356,
+            "events": 185,
+            "zero_event_directed_intervals": 1672,
+            "for_mass": 6.861741767661551,
+            "included_directed_intervals": 1936
+          },
+          "neutral_locatable_unblocked_value": {
+            "included_seconds": 7878,
+            "excluded_seconds": 1129,
+            "events": 133,
+            "zero_event_directed_intervals": 1754,
+            "for_mass": 5.7046227583611095,
+            "included_directed_intervals": 1962
+          }
+        },
+        "selected_goalie_team_only_contributions": [
+          {
+            "game_id": "2023020481",
+            "source_index": 281,
+            "player_id": "8474596",
+            "opportunity": 0.017373592013207328
+          }
+        ]
+      },
+      {
+        "season": "20242025",
+        "selected_games": [
+          "2024020001",
+          "2024020066",
+          "2024020214",
+          "2024021273"
+        ],
+        "selected_source_view_attempts": 464,
+        "selected_game_population_contributions": {
+          "neutral_all_attempt_value": {
+            "included_seconds": 8218,
+            "excluded_seconds": 38,
+            "events": 268,
+            "zero_event_directed_intervals": 1542,
+            "for_mass": 11.671409737985291,
+            "included_directed_intervals": 1898
+          },
+          "neutral_locatable_unblocked_value": {
+            "included_seconds": 8218,
+            "excluded_seconds": 38,
+            "events": 186,
+            "zero_event_directed_intervals": 1632,
+            "for_mass": 9.727865818043725,
+            "included_directed_intervals": 1898
+          }
+        },
+        "selected_goalie_team_only_contributions": [
+          {
+            "game_id": "2024020214",
+            "source_index": 117,
+            "player_id": "8481611",
+            "opportunity": 0.033017866882599604
+          }
+        ]
+      },
+      {
+        "season": "20252026",
+        "selected_games": [
+          "2025020144",
+          "2025020171",
+          "2025021094"
+        ],
+        "selected_source_view_attempts": 338,
+        "selected_game_population_contributions": {
+          "neutral_all_attempt_value": {
+            "included_seconds": 8194,
+            "excluded_seconds": 26,
+            "events": 257,
+            "zero_event_directed_intervals": 1472,
+            "for_mass": 10.408989760988838,
+            "included_directed_intervals": 1856
+          },
+          "neutral_locatable_unblocked_value": {
+            "included_seconds": 8194,
+            "excluded_seconds": 26,
+            "events": 189,
+            "zero_event_directed_intervals": 1560,
+            "for_mass": 8.959165089329591,
+            "included_directed_intervals": 1856
+          }
+        },
+        "selected_goalie_team_only_contributions": [
+          {
+            "game_id": "2025020171",
+            "source_index": 195,
+            "player_id": "8479496",
+            "opportunity": 0.022904364724194493
+          }
+        ]
+      }
+    ]
+  },
+  "unknown_elapsed_control": {
+    "season": "20242025",
+    "game_id": "2024021273",
+    "player": {
+      "player_id": "8480075",
+      "boxscore": [
+        {
+          "toi": "05:08",
+          "toi_seconds": 308,
+          "shift_count": 6
+        }
+      ],
+      "five_on_five_membership_seconds": 0
+    },
+    "matched_subset_summaries": {
+      "neutral_all_attempt_value": {
+        "included_seconds": 0,
+        "excluded_seconds": 0,
+        "events": 0,
+        "zero_event_directed_intervals": 0,
+        "for_mass": 0.0,
+        "included_directed_intervals": 0
+      },
+      "neutral_locatable_unblocked_value": {
+        "included_seconds": 0,
+        "excluded_seconds": 0,
+        "events": 0,
+        "zero_event_directed_intervals": 0,
+        "for_mass": 0.0,
+        "included_directed_intervals": 0
+      }
+    },
+    "interpretation": "reported positive time remains 308 seconds; no resolved 5v5 membership contributes to this matched subset. elapsed source coverage remains unknown, not a known observed zero."
+  },
+  "limits": [
+    "root strictly validated complete input artifacts before this bounded run",
+    "schema-reader support reconstruction supplies input integrity only, never independent expected values",
+    "saved table streams bind pinned member bytes; no all-row accounting or unsampled source assignment claim",
+    "personal seconds/mass are selected-game contributions, not season totals; global checker owns full season closure",
+    "api owner must bind this receipt and independently aggregate saved intervals for published denominators",
+    "observed-location cells are the native cells of the valued context population, not the separate execution model origin grid",
+    "the coalesced_masks witness is an unresolved_native_span, not a coalesced valued mask",
+    "scorer-conflict absence is scoped to the selected ten games and saved reported exclusion reasons; complete-value isolated-conflict behavior remains hand-built algorithm evidence",
+    "global goalie closure remains candidate count/mass accounting; these three source witnesses independently corroborate representative physical inclusion",
+    "selected-game counts/masses/seconds above are contributions, not global season totals or published-api denominators",
+    "no publication, activation, new fit or new source games occurred"
+  ],
+  "first_attempt": "failed temporary checker zero-key serialization; preserved separately in source-sample-attempt-01-failure.json"
+}

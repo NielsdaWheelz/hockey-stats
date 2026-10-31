@@ -1,0 +1,41 @@
+{
+  "kind": "execution-v1-06-resumption-explicit-scoring-preparation",
+  "recorded_at_utc": "2026-10-28T06:30:22.863246+00:00",
+  "status": "local preparation; root review and read-only external preflight pending; no launch",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/current-02-read-only-preflight.py",
+    "sha256": "f94260411cf2db527e36f635000ee8422568fe4b09d37c85960ac2042432f7f3",
+    "bytes": 14499,
+    "syntax": "ast.parse passed; no execution"
+  },
+  "prior_temporary_scripts": {
+    "status": "absent after machine restart",
+    "reviewed_controller_recreated": false,
+    "old_controller_hash_claimed": false,
+    "prior_root_preflight_attempt": "missing file; no external mutation"
+  },
+  "operating_method": "root launches each of four annual score commands explicitly with /usr/bin/time -l, followed by separate strict reader, source reconciliation and independent arithmetic checks before advancing; no automatic advancement wrapper",
+  "accepted_first_year": {
+    "season": "20212022",
+    "manifest_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e"
+  },
+  "remaining_years": [
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "fresh_output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02",
+  "parent_contract": "root must create BOTH current-02 AND current-02/scores fresh with exist_ok=False after successful preflight and before first score; output_path resolves output.parent strict=True",
+  "selection_rule": "write ordered explicit five-year selection only after all five annual artifacts pass required checks, including all four saved final-year propagation variants; retain accepted first year in current-01",
+  "preservation": "interrupted current-01/20222023 remains incomplete and unaccepted; retain original inputs/fits/probes/partials/serving files and other work",
+  "production_edits": false,
+  "external_writes": false,
+  "score_commands_launched": false,
+  "independent_review": {
+    "reviewer": "restart_review",
+    "verdict": "passed read-only local preparation review; root preflight and launch remain pending",
+    "evidence": "51 source pins match both retained first-year and remaining-four receipts; 12 input pins and 2 checker pins match; exact first annual argv and separate checks contract sound; both fresh parents required"
+  }
+}

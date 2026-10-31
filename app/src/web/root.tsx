@@ -13,7 +13,7 @@ import {
   useSearchParams,
 } from "react-router";
 import stylesheet from "./styles.css?url";
-import { LoadError, seasonLabel } from "./presentation";
+import { fixtureNotice, LoadError, seasonLabel } from "./presentation";
 import { pendingSeasonChange, seasonSearch, viewSearch } from "./explorer";
 
 export const links = () => [{ rel: "stylesheet", href: stylesheet }];
@@ -79,8 +79,7 @@ export function Layout({ children }: { readonly children: ReactNode }) {
         <div className="sheet">
           {data?.publication.purpose === "fixture" && (
             <p className="fixture-banner" role="note">
-              fixture publication · development evidence; source definitions
-              distinguish captured and synthetic data
+              {fixtureNotice}
             </p>
           )}
           <header className="site-heading">

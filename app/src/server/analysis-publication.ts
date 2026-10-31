@@ -893,7 +893,7 @@ export const validateCrossRecords = (
     );
     yield* assertEmpty(
       sql,
-      "SELECT 1 FROM interval_fact a JOIN interval_fact b ON a.season=b.season AND a.game_id=b.game_id AND a.team_id=b.team_id AND a.population=b.population AND a.period_number=b.period_number AND a.rowid<b.rowid WHERE a.start_seconds<b.end_seconds AND b.start_seconds<a.end_seconds LIMIT 1",
+      "SELECT 1 FROM (SELECT start_seconds,MAX(end_seconds) OVER (PARTITION BY season,game_id,team_id,population,period_number ORDER BY start_seconds,end_seconds,rowid ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING) prior_end FROM interval_fact) WHERE prior_end>start_seconds LIMIT 1",
       "overlapping context partition",
     );
     yield* assertEmpty(
@@ -1163,6 +1163,21 @@ export const validateCrossRecords = (
         });
       }),
     );
+    const executionSources = yield* sql.unsafe<{
+      season: string;
+      player_id: string;
+      strength: string;
+      source_attempts: number;
+      events: number;
+      goals: number;
+      reference: number;
+      actor: number;
+    }>(
+      "WITH attempts AS (SELECT season,game_id,source_index,shooter_id player_id,strength,outcome,json_extract(payload_json,'$.neutral_all_attempt_opportunity.value') reference,json_extract(payload_json,'$.actor_all_attempt_opportunity.value') actor FROM attempt_fact WHERE shooter_id IS NOT NULL AND strength IS NOT NULL) SELECT season,player_id,strength,COUNT(*) source_attempts,COALESCE(SUM(reference IS NOT NULL AND actor IS NOT NULL),0) events,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL AND outcome='goal' THEN 1 ELSE 0 END),0) goals,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL THEN reference ELSE 0 END ORDER BY game_id,source_index),0) reference,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL THEN actor ELSE 0 END ORDER BY game_id,source_index),0) actor FROM attempts GROUP BY season,player_id,strength",
+    );
+    const sourceTotals = new Map(
+      executionSources.map((row) => [selectorKey(row, ["season", "player_id", "strength"]), row]),
+    );
     yield* forEachRow(sql, "skater_execution", (row) =>
       Effect.gen(function* () {
         const summary = yield* Effect.try(() =>
@@ -1171,10 +1186,6 @@ export const validateCrossRecords = (
         if (summary.availability !== "provided") return;
         const rows = yield* sql.unsafe<Record<string, unknown>>(
           "SELECT * FROM execution_breakdown WHERE season=? AND player_id=? AND strength=? ORDER BY kind,stratum",
-          [String(row.season), String(row.player_id), String(row.strength)],
-        );
-        const source = yield* sql.unsafe<Record<string, number>>(
-          "WITH attempts AS (SELECT outcome,json_extract(payload_json,'$.neutral_all_attempt_opportunity.value') reference,json_extract(payload_json,'$.actor_all_attempt_opportunity.value') actor FROM attempt_fact WHERE season=? AND shooter_id=? AND strength=?) SELECT COUNT(*) source_attempts,COALESCE(SUM(reference IS NOT NULL AND actor IS NOT NULL),0) events,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL AND outcome='goal' THEN 1 ELSE 0 END),0) goals,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL THEN reference ELSE 0 END),0) reference,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL THEN actor ELSE 0 END),0) actor FROM attempts",
           [String(row.season), String(row.player_id), String(row.strength)],
         );
         yield* Effect.try(() => {
@@ -1198,7 +1209,8 @@ export const validateCrossRecords = (
           }
           const paired = summary.data.paired_evidence;
           const omitted = paired.danger_unavailable;
-          const keyed = source[0];
+          const keyed = sourceTotals.get(selectorKey(row, ["season", "player_id", "strength"])) ??
+            { source_attempts: 0, events: 0, goals: 0, reference: 0, actor: 0 };
           if (paired.source_attempts !== keyed.source_attempts ||
               !totals.shot_type.every((total, index) => close(total, [keyed.events, keyed.goals, keyed.reference, keyed.actor][index])))
             throw new Error("paired execution evidence differs from keyed source/model intersection");

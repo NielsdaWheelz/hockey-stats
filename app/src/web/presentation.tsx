@@ -18,6 +18,8 @@ import type {
   Team,
 } from "../shared/observed";
 
+export const fixtureNotice = "fixture publication · development evidence; source definitions distinguish captured and synthetic data";
+
 export const reasons: Record<
   ReasonCode | PersonalReasonCode | SpatialReasonCode,
   string
@@ -283,7 +285,7 @@ export function Evidence({
       <Definitions />
       {publication.purpose === "fixture" && (
         <p className="fixture-notice">
-          fixture publication · development evidence
+          {fixtureNotice}
         </p>
       )}
     </details>

@@ -1,0 +1,110 @@
+{
+  "kind": "execution-v1-06-real-saved-accounting-command",
+  "status": "launched once; running; verdict pending",
+  "recorded_at_utc": "2026-10-30T12:40:08.368850+00:00",
+  "root_release": "root accepted actual composition exit0 and completion679f70; explicitly released this accounting command only",
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/composition-accounting-preparation-2026-10-30.json",
+    "sha256": "179db64fc0c8bd2ebf366ef237ecbc848e3a7a0c9858636f3b1c84e3348b2ce3",
+    "bytes": 5718
+  },
+  "composition_completion": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/composition-completion-2026-10-30.json",
+    "sha256": "679f70a7b97fee77c2158b470b252a4afa1284cf06a7ef199c2eefd0f7544de8",
+    "bytes": 23110
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-saved-accounting.sh",
+    "sha256": "fda0c62b1b93a15f797a389b4c315304bcaec5978fe806f29464f7dbcbbf218e",
+    "bytes": 1117,
+    "content": "#!/bin/sh\ncd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\n/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -B /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_saved_execution_composition.py --facts /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04 --results /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json --receipt /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.stderr.log\ncommand_exit_status=$?\nprintf '%s\\n' \"$command_exit_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.exit\nexit \"$command_exit_status\"\n"
+  },
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_saved_execution_composition.py",
+    "sha256": "66632591b4352668a53fb942aca8c47a5da8181bde84750f9177e9ce64497347",
+    "bytes": 31363
+  },
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-B",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_saved_execution_composition.py",
+    "--facts",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+    "--results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+    "--scores",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+    "--receipt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json"
+  ],
+  "shell_launch_command": [
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-saved-accounting.sh"
+  ],
+  "runtime": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "python_version": "3.14.8",
+    "pythonpath": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "shell_login": false
+  },
+  "inputs": {
+    "facts": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+      "manifest_sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+      "manifest_sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5"
+    },
+    "scores": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1"
+    }
+  },
+  "terminal": {
+    "machine": "macbook",
+    "handle": "t-e5d6c240259bcbcf",
+    "label": "v106-facts-03",
+    "pane": "%17",
+    "terminal_shell_pid": 66161,
+    "active_command_before_launch": "zsh",
+    "launch": "one skid text to captured ref; confirmed outcome written; no retry"
+  },
+  "process_ids": {
+    "terminal_parent": 66161,
+    "shell": 5381,
+    "time_wrapper": 5382,
+    "checker_python": 5383
+  },
+  "live_process_observation": " 5381 66161 Fri Oct 30 05:39:35 2026           00:33 S+   /bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-saved-accounting.sh\n 5382  5381 Fri Oct 30 05:39:35 2026           00:33 S+   /usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -B /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_saved_execution_composition.py --facts /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04 --results /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json --receipt /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json\n 5383  5382 Fri Oct 30 05:39:35 2026           00:33 R+   /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -B /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_saved_execution_composition.py --facts /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04 --results /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json --receipt /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json\n66161  1194 Wed Oct 28 06:20:32 2026     01-23:19:36 Ss   -zsh\n",
+  "fresh_output_check": "all receipt/stdout/stderr/exit paths absent and not symlinks immediately before the single launch; frozen script/checker digests unchanged",
+  "logs": {
+    "saved-accounting.stdout.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.stdout.log",
+      "bytes": 0,
+      "birth_at_utc": "2026-10-30T12:39:35.204735+00:00"
+    },
+    "saved-accounting.stderr.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.stderr.log",
+      "bytes": 0,
+      "birth_at_utc": "2026-10-30T12:39:35.204810+00:00"
+    }
+  },
+  "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json",
+  "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.exit",
+  "actual_exit_code": null,
+  "external_command_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting-command.json",
+  "monitoring": "bounded process and log/receipt/exit metadata; report failure immediately and measure actual wall/rss from completed command; no automatic next stage",
+  "standalone_strict_reader": false,
+  "source_check_started": false,
+  "publication_started": false,
+  "activation": false,
+  "runner": false,
+  "retry": false,
+  "automatic_advance": false
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "execution-v1-06-user-directed-scoring-stop",
+  "date": "2026-10-27",
+  "status": "stopped_by_user; no_restart",
+  "reason": "user explicitly requested stop now before disconnecting the external drive",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "processes": {
+    "controller_pid": 15315,
+    "current_score_pid": 15325,
+    "root_confirmed_both_exited": true,
+    "root_confirmed_no_scoring_prerequisite_or_cost_controller_remained": true,
+    "termination": "root sent termination signals; this acceptance owner sent no signals",
+    "live_elapsed_at_root_termination_observation": "3h35m55s",
+    "elapsed_scope": "live process elapsed observed by root; not exact command duration or peak memory",
+    "wait4_resource_or_child_exit_receipt_recovered": false
+  },
+  "last_accepted_annual": {
+    "season": "20212022",
+    "manifest_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "manifest_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "strict_reader": "passed",
+    "source_boundary": "passed",
+    "independent_arithmetic": "passed; 825 events, 35 projection pairs, zero failures",
+    "independent_arithmetic_checker_sha256": "3a630b36069c0b673d2d4453dcba856d595d5bba8ba89c1fa3e144f7839b455e",
+    "saved_panel_and_one_focal_cost": "passed; exact zero saved-value changes",
+    "local_receipt": "docs/research/execution-v1-06/real/first-real-scoring-2026-10-27.json"
+  },
+  "interrupted_annual": {
+    "season": "20222023",
+    "output_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20222023",
+    "status": "incomplete; unaccepted; not resumable",
+    "last_available_pretermination_observation": "32 panel jsonl and 32 npz files; no projection file or completion manifest; stderr empty",
+    "posttermination_external_inspection": "not performed",
+    "boundary_checks": "not started",
+    "later_work": "requires a separately authorized fresh annual score command; saved fits remain reusable"
+  },
+  "unstarted_annuals": ["20232024", "20242025", "20252026"],
+  "ordered_five_year_selection": "not written",
+  "preservation": "all completed and partial outputs and saved fits preserved; no deletion or external write by this stop receipt",
+  "interpretation": "user-directed interruption, not a failed scientific result; full real campaign and application acceptance remain incomplete",
+  "supersedes_live_status_in": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/remaining-four-command.json",
+    "docs/research/execution-v1-06/real/remaining-real-scoring-2026-10-27.json"
+  ],
+  "external_batch_record": "may still say running because its controller was terminated; this local stop receipt owns the final interruption status",
+  "verification_scope": "root exit confirmation and previously available receipts/observations only; no post-stop external reads, scans, checks or writes"
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "execution-v1-06-final-preservation-command",
+  "status": "passed",
+  "completed_at_utc": "2026-10-31T03:58:09.623482+00:00",
+  "helper": {
+    "path": "var/v1-06-real/check_final_preservation.py",
+    "sha256": "5544cffc1acac5d693f64eeb6d9d67d3a51f8a51dad5df87bb43ca45ebc6a16b"
+  },
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_final_preservation.py",
+    "--out",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/protected-after.json"
+  ],
+  "stdout_stderr_path": "docs/research/execution-v1-06/real/protected-after.log",
+  "actual_exit_code": 0,
+  "exec_session_id": 54430,
+  "completion_chunk_id": "ae3332",
+  "single_bulk_pass": true,
+  "protected_file_count": 196,
+  "expected_file_bytes_read": 22389181558,
+  "cost": {
+    "source": "macos /usr/bin/time -l",
+    "real_seconds": 86.47,
+    "user_seconds": 12.71,
+    "system_seconds": 5.15,
+    "maximum_resident_set_size_bytes": 27361280,
+    "peak_memory_footprint_bytes": 17465848,
+    "helper_wall_seconds": 86.29992566700093
+  },
+  "release_condition": {
+    "owned_server_pid": 52177,
+    "server_stopped": true,
+    "owned_browsers_closed": true,
+    "stop_receipt": "var/v1-06-real/server-02-stop-completion.json",
+    "stop_receipt_sha256": "3c47823e2a4468cbe0cd6d0100504a0d3b9e4216d1387d0a229ad6b05ccd62d7",
+    "evidence": "application owner confirmation before the single pass"
+  },
+  "artifacts": [
+    {
+      "path": "docs/research/execution-v1-06/real/protected-after.json",
+      "sha256": "0b11066a138eb31d1dc919648fdec53acff8c20dffd2f995198317dbeb3d70ac",
+      "bytes": 1610
+    },
+    {
+      "path": "docs/research/execution-v1-06/real/protected-after.log",
+      "sha256": "a1bb50bac32790f176ef9dbb1b9bac486767466d2569a3ec613f33df1486a06e",
+      "bytes": 1017
+    }
+  ],
+  "scope": "one released final preservation pass after real browser/export acceptance and owned server stop; no repeat bulk scan, database open, mutation, publication or activation"
+}

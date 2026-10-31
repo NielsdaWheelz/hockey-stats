@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "browser_receipt": "/private/tmp/v106-application-rehearsal-20261027/guarded-zero-framed-02/browser.json",
+  "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "player_id": "8470600",
+  "metric": "execution.4v3.finishing_goals_per100_attempts",
+  "evidence_rows": 9,
+  "history_seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "independent_cohorts": [
+    {
+      "season": "20232024",
+      "n": 0,
+      "member": false,
+      "percentile": null,
+      "descending_midrank": null,
+      "standing_reason": "no exposure",
+      "peer_group": "reported defense",
+      "cutoff_minutes": 50,
+      "qualification_seconds": 0,
+      "focal_value": 0.09865856016874243,
+      "incompatible_peer_count": 0
+    },
+    {
+      "season": "20242025",
+      "availability": "absent",
+      "n": null,
+      "percentile": null,
+      "standing_reason": "absent season"
+    },
+    {
+      "season": "20252026",
+      "availability": "absent",
+      "n": null,
+      "percentile": null,
+      "standing_reason": "absent season"
+    }
+  ],
+  "png": {
+    "width": 1200,
+    "height": 3074,
+    "bytes": 905161
+  },
+  "navigation": null,
+  "scope": "actual exported native values/details equal typed own-season responses; rank/percentile independently reconstructed under exact cutoff/position/semantic policy; png signature/dimensions checked, visual inspection separate"
+}

@@ -1,0 +1,113 @@
+{
+  "kind": "temporary-real-detached-server-readiness",
+  "status": "matching owned listener and first real overview passed; root review precedes full API/browser",
+  "checked_at_utc": "2026-10-31T02:01:19.058227+00:00",
+  "server": {
+    "node_pid": 40540,
+    "time_pid": 40539,
+    "shell_pid": 40537,
+    "terminal": "t-69e967fba63b1706",
+    "launch_count": 1,
+    "started_at_utc": "2026-10-31T01:48:29Z",
+    "listener_observed_at_utc": "2026-10-31T02:00:40.881415+00:00",
+    "launch_to_observed_listener_upper_bound_seconds": 731.881415,
+    "origin": "http://127.0.0.1:41986",
+    "process_observation": {
+      "observed_at_utc": "2026-10-31T02:01:19.058227+00:00",
+      "pid": 40540,
+      "ppid": 40539,
+      "state": "S+",
+      "elapsed": "12:50",
+      "elapsed_seconds": 770.0,
+      "cpu_time": "7:32.52",
+      "cpu_seconds": 452.52,
+      "cpu_delta_seconds": 272.03,
+      "elapsed_delta_seconds": 350.0,
+      "rss_kib": 1185408,
+      "rss_bytes": 1213857792,
+      "scope": "post-readiness ordinary process observation; listener and first overview verified"
+    }
+  },
+  "first_request": {
+    "argv": [
+      "/usr/bin/curl",
+      "--fail",
+      "--silent",
+      "--show-error",
+      "--output",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/first-overview.json",
+      "--write-out",
+      "http_status=%{http_code}\\nbytes=%{size_download}\\nseconds=%{time_total}\\n",
+      "http://127.0.0.1:41986/api/league?season=20252026&kind=skater&family=overview"
+    ],
+    "exit_code": 0,
+    "http_status": 200,
+    "wall_seconds": 2.284666,
+    "response": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/first-overview.json",
+      "sha256": "645dfd428d139212ec96ef979039134649ec47f65d4b763a7d5280f2ad26e013",
+      "bytes": 17266287
+    },
+    "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+    "schema_version": 8,
+    "purpose": "real",
+    "season": "20252026",
+    "players": 940
+  },
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/resume-server-preflight-20261031.json",
+      "sha256": "c480d3c285ba00c2bcd52ff1adcf50aa0da49ce9c706403696ed23c6aa529cf9",
+      "bytes": 4335
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-detached-command.json",
+      "sha256": "8ac1b3d4d9a2dbaf9fed3d8811676185b623d6b0b7530b0416447a277c830cea",
+      "bytes": 6867
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-detached-process.json",
+      "sha256": "d0b6b5840967b4f9cc97b97e56ad59ccb0a73daaf5d81e85b601640831d99900",
+      "bytes": 2880
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-started-at.txt",
+      "sha256": "7c74eba8bd4fe6c0e309eedefe2eae48a4cc0ff6f62b9cbf8058f5583aaa6e74",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-listener-observed-at.txt",
+      "sha256": "fd9ade416b229d1208612f010034be43f94297c02231344d7e429d1ed2f22252",
+      "bytes": 33
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-listener-observation.json",
+      "sha256": "cb0ab567272de0d7b1c7b03ebc0678e6476569955ef7df2fd6a322a93722cace",
+      "bytes": 785
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-startup-observations.jsonl",
+      "sha256": "3da670e4de03b486d90c150aa83751c7bced89a2f89daeb2c4436180ce317505",
+      "bytes": 995
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/first-overview-cost.txt",
+      "sha256": "699273e00d23def91b18eff74505d0771431f893d3e2dc22f77e673034ec3f80",
+      "bytes": 48
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/first-overview.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/first-overview.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    }
+  ],
+  "runtime_context": "actual post-reconnect startup; initial U+ low-CPU observations followed by R+ validation; prior414.23s operator was warm-ish; no measured cache/device-cause attribution or direct runtime equivalence claimed",
+  "measurement_limits": "listener time is an upper bound including manual observation interval; live sampled rss is not peak rss; final time-reported peak/total server duration await explicit stop",
+  "preservation": "no producer, operator, data/model/publication rerun, dependencies or source edits; no full candidate hash/SQL precheck; primary serving state not touched",
+  "next": "leave this one detached server running; full API/browser/export checks require root release; no activation"
+}

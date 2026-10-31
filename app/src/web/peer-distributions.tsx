@@ -25,6 +25,7 @@ import {
   type AnalysisRow,
 } from "./analysis-history";
 import { downloadCsv } from "./export";
+import { fixtureNotice } from "./presentation";
 
 export function PeerControls({
   settings,
@@ -354,8 +355,7 @@ export default function PeerDistributions({
       </p>
       {publication.purpose === "fixture" && (
         <p className="fixture-notice">
-          fixture publication: recorded facts retain their attribution;
-          analytical examples are synthetic.
+          {fixtureNotice}
         </p>
       )}
       {showPeerControls && !rawOnly && (

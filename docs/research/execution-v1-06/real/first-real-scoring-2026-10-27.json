@@ -1,0 +1,552 @@
+{
+  "kind": "execution-v1-06-first-real-scoring-acceptance",
+  "checked_at": "2026-10-27T11:43:58.289535+00:00",
+  "status": "pilot_strict_source_arithmetic_and_saved_panel_cost_passed; remaining_four_await_root_release",
+  "purpose": "real",
+  "season": "20212022",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "source_and_input_manifests_unchanged": true,
+  "command": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-command.json",
+    "sha256": "b2f7e7f638822857300a23eaa9435d9d8d3618421b2427c21d3b314b28629276",
+    "bytes": 8961
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e"
+  },
+  "resources": {
+    "command_wall_seconds": 18318.719439625005,
+    "score_child_peak_rss_bytes": 21745418240,
+    "separate_strict_reader_wall_seconds": 118.13719570799731,
+    "output_bytes": 2296398532,
+    "annual": {
+      "complete_events": 147510,
+      "design_wall_seconds": 5887.007223084001,
+      "input_read_wall_seconds": 29.460803665999265,
+      "origin_rows": 23180585,
+      "output_bytes": 2296016098,
+      "panel_array_bytes": 1301653256,
+      "peak_memory_bytes": 21745418240,
+      "projected_skaters": 1002,
+      "projection_wall_seconds": 11177.731330666,
+      "projections": 7014,
+      "recognized_events": 149412,
+      "resolution_wall_seconds": 5.9580052038654685e-06,
+      "scoring_wall_seconds": 945.3741230000014,
+      "setter_branches": 1344276,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 18113.834637582993,
+      "write_wall_seconds": 58.590810916997725
+    }
+  },
+  "source_boundary": {
+    "status": "passed",
+    "purpose": "real",
+    "season": "20212022",
+    "expected_recognized": 149412,
+    "expected_complete": 147510,
+    "state_manifest_sha256": "592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953",
+    "score_manifest_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "recognized": 149412,
+    "complete": 147510,
+    "panels": 32,
+    "final_probe_binding": null,
+    "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+  },
+  "independent_arithmetic": {
+    "failure_count": 0,
+    "failures": [],
+    "limits": {
+      "coalition_abs": 1e-14,
+      "cond_actor_on_net_rel": 1e-11,
+      "cond_actor_unblocked_rel": 1e-11,
+      "cond_neutral_on_net_rel": 1e-11,
+      "cond_ng_on_net_rel": 1e-11,
+      "cond_ng_unblocked_rel": 1e-11,
+      "map_finishing_l1": 1e-09,
+      "map_setting_l1": 1e-09,
+      "posterior_abs": 1e-12,
+      "prefix_actor_rel": 1e-11,
+      "prefix_neutral_goalie_rel": 1e-11,
+      "prefix_neutral_rel": 1e-11,
+      "proj_focal_mass_rel": 1e-11,
+      "proj_level_abs": 1e-12,
+      "proj_scalar_abs": 1e-09,
+      "resolution_expected_sum_abs": 0.0,
+      "resolution_neutral_panel_baseline_rel": 1e-11,
+      "share_closure_abs": 1e-13,
+      "share_coach_abs": 1e-14,
+      "share_goalie_abs": 1e-14,
+      "share_setter_abs": 1e-14,
+      "share_shooter_abs": 1e-14
+    },
+    "notes": {
+      "g_rows_label_ambiguous": 0,
+      "g_rows_marginal": 54872,
+      "g_rows_onehot_label": 7633,
+      "projection_pairs": 35,
+      "sampled:g_row": 387,
+      "sampled:goalie_setter": 745,
+      "sampled:missing_coach": 0,
+      "sampled:outcome:block": 171,
+      "sampled:outcome:goal": 69,
+      "sampled:type:tip": 63,
+      "sampled:unknown_setter": 26,
+      "sampled_events": 825,
+      "setter_count_checked": 35,
+      "worst_onehot_mixture_log_posterior": -4.442257464790226
+    },
+    "resolution_check": null,
+    "resolution_status": "not_applicable",
+    "scores": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "scores_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "season": "20212022",
+    "status": {
+      "complete": 147510,
+      "excluded": 1902
+    },
+    "worst": {
+      "coalition_abs": 1.942890293094024e-16,
+      "cond_actor_on_net_rel": 1.52999158888118e-15,
+      "cond_actor_unblocked_rel": 1.5401921920725659e-15,
+      "cond_neutral_on_net_rel": 2.360866416072836e-15,
+      "cond_ng_on_net_rel": 1.2575330773407041e-15,
+      "cond_ng_unblocked_rel": 1.682115362450755e-15,
+      "map_finishing_l1": 1.4180683401620806e-14,
+      "map_setting_l1": 3.1247296145963527e-14,
+      "posterior_abs": 1.6653345369377348e-16,
+      "prefix_actor_rel": 1.3865658944769256e-15,
+      "prefix_neutral_goalie_rel": 1.5233677818251553e-15,
+      "prefix_neutral_rel": 1.6686648398494618e-15,
+      "proj_focal_mass_rel": 2.1993505082198797e-16,
+      "proj_level_abs": 1.6708856520608606e-14,
+      "proj_scalar_abs": 1.7763568394002505e-15,
+      "share_closure_abs": 1.3877787807814457e-16,
+      "share_coach_abs": 6.505213034913027e-17,
+      "share_goalie_abs": 5.898059818321144e-17,
+      "share_setter_abs": 1.3877787807814457e-17,
+      "share_shooter_abs": 8.326672684688674e-17
+    }
+  },
+  "saved_full_5v5_panel_and_one_focal_cost": {
+    "kind": "execution-v1-06-saved-real-panel-and-one-projection-cost",
+    "status": "passed",
+    "purpose": "real",
+    "season": "20212022",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e"
+    },
+    "panel_id": "execution-v1-06-1:20212022:5,5,1",
+    "physical_attempts": 117676,
+    "origin_rows": 18895871,
+    "panel_array_bytes": 1060993008,
+    "panel_disk_bytes": 1085306751,
+    "focal_player": "8465009",
+    "selected_focals": 1,
+    "selection": "first saved complete 5v5 skater projection with positive current finishing likelihood-event support",
+    "saved_support": {
+      "finishing_goals_per100_attempts": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "setting_goals_per100_assisted_opportunities": {
+        "included_seconds": 70410,
+        "events": 54290,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "avoid_block_probability": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "on_net_probability": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "recorded_stop_probability": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "conversion_probability": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "avoid_block_probability_difference": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "on_net_probability_difference": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "recorded_stop_probability_difference": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      },
+      "conversion_probability_difference": {
+        "included_seconds": 70410,
+        "events": 170,
+        "eligible_weight": null,
+        "known_excluded_seconds": 0,
+        "unquantified_gap": true,
+        "reason_counts": [
+          {
+            "code": "elapsed_unavailable",
+            "count": 10
+          }
+        ],
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "current_season_information": true,
+        "prior_only": false,
+        "prior_seasons": []
+      }
+    },
+    "saved_coefficient_support": {
+      "shooter": {
+        "u": {
+          "available": true,
+          "likelihood_events": 170,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        },
+        "q": {
+          "available": true,
+          "likelihood_events": 112,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        },
+        "r": {
+          "available": true,
+          "likelihood_events": 81,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        },
+        "g": {
+          "available": true,
+          "likelihood_events": 57,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        }
+      },
+      "setter": {
+        "g": {
+          "available": true,
+          "likelihood_events": 54290,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null,
+          "candidate_events": 611,
+          "mean_coupled_events": 54282
+        }
+      }
+    },
+    "seconds": {
+      "state_read": 23.44895083300071,
+      "saved_panel_load": 0.5731152090011165,
+      "full_panel_neutral": 4.053846541995881,
+      "one_full_panel_focal": 4.235910040995805
+    },
+    "peak_process_rss_bytes": 2324021248,
+    "exact_saved_comparison": {
+      "max_scalar_absolute_change": 0.0,
+      "max_prefix_absolute_change": 0.0,
+      "max_setup_absolute_change": 0.0,
+      "max_native_cell_absolute_change": 0.0
+    },
+    "annual_actual_resources": {
+      "complete_events": 147510,
+      "design_wall_seconds": 5887.007223084001,
+      "input_read_wall_seconds": 29.460803665999265,
+      "origin_rows": 23180585,
+      "output_bytes": 2296016098,
+      "panel_array_bytes": 1301653256,
+      "peak_memory_bytes": 21745418240,
+      "projected_skaters": 1002,
+      "projection_wall_seconds": 11177.731330666,
+      "projections": 7014,
+      "recognized_events": 149412,
+      "resolution_wall_seconds": 5.9580052038654685e-06,
+      "scoring_wall_seconds": 945.3741230000014,
+      "setter_branches": 1344276,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 18113.834637582993,
+      "write_wall_seconds": 58.590810916997725
+    },
+    "projection_cost_extrapolation": {
+      "projected_skaters": 1002,
+      "full_5v5_all_skaters_seconds": 4248.435707619792,
+      "scope": "one measured full5v5panel focal cost multiplied by annual skater count; other strengths, reads, scoring, output and resolution are excluded; compare measured annual projection wall separately"
+    },
+    "source_preparation_or_fitting": false,
+    "support_reconstructed": false,
+    "limitations": "measurement reuses exact saved-panel numeric owners; saved public support is copied unchanged, never fabricated; one focal runtime is not a bound on every actor or season"
+  },
+  "prerequisite_children": [
+    {
+      "kind": "source-boundary",
+      "pid": 14700,
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py",
+        "--purpose",
+        "real",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-source-boundary.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 9.957216625000001,
+      "child_peak_rss_bytes": 939229184,
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-source-boundary.json",
+        "sha256": "34b1b35148a7c0f56606438ab54fba5d90e4b0c8fb5c45bcc9bae59594a44402"
+      }
+    },
+    {
+      "kind": "independent-arithmetic",
+      "pid": 14738,
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-I",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-independent-arithmetic.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 35.917865082999924,
+      "child_peak_rss_bytes": 10195681280,
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-independent-arithmetic.json",
+        "sha256": "9599c1608e003b4799af567f282d568849d6ad190eeba19e38a795fc6ae5af8f"
+      }
+    },
+    {
+      "kind": "panel-projection-cost",
+      "pid": 14814,
+      "command": [
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "/tmp/v106-real-panel-projection-cost.py",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-panel-projection-cost.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 35.26586766600667,
+      "child_peak_rss_bytes": 2324037632,
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-panel-projection-cost.json",
+        "sha256": "6388d4f56b6cc8e1b48b4d6a324248f8b09b8f72227e0573e82b65d9a53a8036"
+      }
+    }
+  ],
+  "external_receipts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-command.json",
+      "sha256": "b2f7e7f638822857300a23eaa9435d9d8d3618421b2427c21d3b314b28629276",
+      "bytes": 8961
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-source-boundary.json",
+      "sha256": "34b1b35148a7c0f56606438ab54fba5d90e4b0c8fb5c45bcc9bae59594a44402",
+      "bytes": 528
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-independent-arithmetic.json",
+      "sha256": "9599c1608e003b4799af567f282d568849d6ad190eeba19e38a795fc6ae5af8f",
+      "bytes": 2524
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-panel-projection-cost.json",
+      "sha256": "6388d4f56b6cc8e1b48b4d6a324248f8b09b8f72227e0573e82b65d9a53a8036",
+      "bytes": 8310
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-prerequisite-commands.json",
+      "sha256": "2dc4b6f4abd2e587c6be4b558c2791b9a8e773cf8119dfbae1e7e099fa9f6e54",
+      "bytes": 4867
+    }
+  ],
+  "scope": {
+    "no_new_fit": true,
+    "no_source_preparation_in_prerequisites": true,
+    "saved_support_reconstructed": false,
+    "annual_projection_wall": "writer scope includes the full prepared-game participation reread before projection emission; saved-panel one-focal timing excludes that source pass",
+    "measurement_concurrency": "independent real facts command was running on separate paths; this is measured elapsed cost under the actual accepted schedule, not an isolated runtime bound",
+    "not_yet_claimed": "all-season real campaign, factual reduction, real publication/application acceptance and scientific admission"
+  },
+  "temporary_checks": [
+    {
+      "path": "/tmp/v106-first-real-score.py",
+      "sha256": "d6c05051781bdc73a58fe9f81c3775572c0c10b79697778e756580c1bd7f0dea",
+      "bytes": 3565
+    },
+    {
+      "path": "/tmp/v106-first-real-prerequisites.py",
+      "sha256": "dab0665d88ec76ad50f1ee1bc558c27acc16ec9b7e84b09af4347a40ece89d33",
+      "bytes": 4852
+    },
+    {
+      "path": "/tmp/v106-real-panel-projection-cost.py",
+      "sha256": "4a2671948e7566b6593d6cfba6a5c66996ec9a1f1726e38386e957aa28a2d2cd",
+      "bytes": 6008
+    }
+  ],
+  "independent_arithmetic_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+    "sha256": "3a630b36069c0b673d2d4453dcba856d595d5bba8ba89c1fa3e144f7839b455e",
+    "bytes": 30276,
+    "invocation": "task venv python -I; no project package import",
+    "retention": "temporary checker deleted after final real green; this exact checked source identity remains in the receipt"
+  }
+}

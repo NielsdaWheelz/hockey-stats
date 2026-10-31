@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/tmp/v106-application-rehearsal-20261027/detached.sb",
+    "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "app/dist/node/server/main.js",
+    "--publication",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite",
+    "--port",
+    "41986"
+  ],
+  "pid": 36850,
+  "started_at": "2026-10-27T07:24:07.338870+00:00",
+  "started_epoch": 1793085847.3390641,
+  "status": "ready_observed",
+  "reason": "final task build with real/fixture raw/prepared/fit/score/results access denied for this child",
+  "ready_observed_at": "2026-10-27T07:29:11.934979+00:00",
+  "startup_listener_observed_within_seconds": 304.5961148738861,
+  "first_request_seconds": 0.07684254200285068,
+  "response_bytes": 1543092,
+  "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "startup_measurement": "upper bound from one launch until recorded successful request; listener was observed earlier"
+}

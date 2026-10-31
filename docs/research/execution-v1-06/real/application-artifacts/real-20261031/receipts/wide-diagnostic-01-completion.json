@@ -1,0 +1,415 @@
+{
+  "kind": "temporary-real-wide-discovery-diagnostic-completion",
+  "status": "diagnostic retained; helper locator mismatch confirmed; no acceptance run",
+  "checked_at_utc": "2026-10-31T02:26:56.460051+00:00",
+  "actual_exit_code": 0,
+  "started_at_utc": "2026-10-31T02:24:30Z",
+  "finished_at_utc": "2026-10-31T02:25:00Z",
+  "resources": {
+    "wall_seconds": 29.6,
+    "user_seconds": 14.58,
+    "system_seconds": 1.35,
+    "time_reported_maximum_resident_set_size_bytes": 2599600128,
+    "scope": "macos time command measurement including child work; not Node-only RSS or summed live samples"
+  },
+  "actual_layout": {
+    "innerWidth": 1440,
+    "outerWidth": 1440,
+    "innerHeight": 913,
+    "dpr": 2,
+    "scrollWidth": 1440
+  },
+  "locator_evidence": {
+    "exact_aria_label": "player analysis table, scroll horizontally for all columns",
+    "wrapper_count": 1,
+    "wrappers": [
+      {
+        "tag": "DIV",
+        "role": null,
+        "tabindex": "0",
+        "attributes_only_html": "<div class=\"table-scroll\" tabindex=\"0\" aria-label=\"player analysis table, scroll horizontally for all columns\"></div>",
+        "display": "block",
+        "visibility": "visible",
+        "bounds": {
+          "x": 32,
+          "y": 1082.21875,
+          "width": 1376,
+          "height": 119706.1796875
+        },
+        "discovery_rows": 924
+      }
+    ],
+    "exact_explicit_dom_region_count": 0,
+    "actual_playwright_region_count": null,
+    "late_lookup_observation_error": "Error: exact region lookup: diagnostic observation limit 3000ms",
+    "interpretation": "actual visible DIV has exact aria-label and no region role; source contract confirms getByRole(region) mismatch. DOM captured successfully before one short role-count query exceeded its diagnostic observation limit"
+  },
+  "dom_counts": {
+    "elements": 747687,
+    "details": 29570,
+    "open_details": 0,
+    "closed_details": 29570,
+    "closed_evidence_details": 9240,
+    "coefficient_tables": 9240,
+    "coefficient_tables_inside_closed_details": 9240,
+    "coefficient_body_cells": 388080,
+    "coefficient_body_cells_inside_closed_details": 388080,
+    "tables": 9241,
+    "discovery_rows": 924
+  },
+  "process_samples": [
+    {
+      "label": "before navigation",
+      "observed_at": "2026-10-31T02:24:31.572Z",
+      "renderers": [
+        {
+          "pid": 47998,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 13.3,
+          "rss_kib": 163776,
+          "cpu_time": "0:00.10"
+        },
+        {
+          "pid": 48000,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 7.8,
+          "rss_kib": 101456,
+          "cpu_time": "0:00.05"
+        },
+        {
+          "pid": 48001,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 7.7,
+          "rss_kib": 121936,
+          "cpu_time": "0:00.05"
+        }
+      ]
+    },
+    {
+      "label": "after initial bounded observation",
+      "observed_at": "2026-10-31T02:24:50.670Z",
+      "renderers": [
+        {
+          "pid": 47998,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 0.0,
+          "rss_kib": 186256,
+          "cpu_time": "0:00.16"
+        },
+        {
+          "pid": 48000,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 0.0,
+          "rss_kib": 101744,
+          "cpu_time": "0:00.05"
+        },
+        {
+          "pid": 48001,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 0.0,
+          "rss_kib": 1555728,
+          "cpu_time": "0:04.26"
+        }
+      ]
+    },
+    {
+      "label": "before owned browser close",
+      "observed_at": "2026-10-31T02:24:58.888Z",
+      "renderers": [
+        {
+          "pid": 47998,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 0.0,
+          "rss_kib": 186256,
+          "cpu_time": "0:00.16"
+        },
+        {
+          "pid": 48000,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 0.0,
+          "rss_kib": 101744,
+          "cpu_time": "0:00.05"
+        },
+        {
+          "pid": 48001,
+          "parent_pid": 47981,
+          "cpu_percent_sample": 99.9,
+          "rss_kib": 2507024,
+          "cpu_time": "0:13.45"
+        }
+      ]
+    }
+  ],
+  "network": {
+    "requests": 12,
+    "responses": 12,
+    "completed": 12,
+    "pageerrors": 0,
+    "console_errors": 0,
+    "requestfailed": 0,
+    "response_facts": [
+      {
+        "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+        "status": 200,
+        "resource_type": "document",
+        "timing": {
+          "startTime": 1793413474392.283,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 0.186,
+          "responseStart": 3.497,
+          "responseEnd": 2481.972
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/styles-DBcIPaN6.css",
+        "status": 200,
+        "resource_type": "stylesheet",
+        "timing": {
+          "startTime": 1793413474404.574,
+          "domainLookupStart": 0.027,
+          "domainLookupEnd": 0.034,
+          "connectStart": 0.034,
+          "secureConnectionStart": -1,
+          "connectEnd": 0.306,
+          "requestStart": 0.332,
+          "responseStart": 1.559,
+          "responseEnd": 150.426
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/manifest-913711f0.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474404.2207,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 0.211,
+          "responseStart": 1.691,
+          "responseEnd": 8.112
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/root-OsyQwkgO.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474404.5,
+          "domainLookupStart": 0.31,
+          "domainLookupEnd": 0.311,
+          "connectStart": 0.311,
+          "secureConnectionStart": -1,
+          "connectEnd": 0.388,
+          "requestStart": 0.454,
+          "responseStart": 3.089,
+          "responseEnd": 9.618
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/jsx-runtime-Bcb-PiJy.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474404.3438,
+          "domainLookupStart": 0.413,
+          "domainLookupEnd": 0.415,
+          "connectStart": 0.415,
+          "secureConnectionStart": -1,
+          "connectEnd": 0.544,
+          "requestStart": 0.596,
+          "responseStart": 2.801,
+          "responseEnd": 147.212
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/entry.client-CimxyNE3.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474404.268,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 0.202,
+          "responseStart": 1.767,
+          "responseEnd": 312.365
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/explorer-BwkgQfus.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474404.5288,
+          "domainLookupStart": 0.319,
+          "domainLookupEnd": 0.32,
+          "connectStart": 0.32,
+          "secureConnectionStart": -1,
+          "connectEnd": 0.437,
+          "requestStart": 0.444,
+          "responseStart": 3.41,
+          "responseEnd": 312.39
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/league-client-loader-CQ7CpLfD.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474740.5322,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 0.19,
+          "responseStart": 156.179,
+          "responseEnd": 157.883
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/league-main-DjQNEabJ.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474740.8599,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 5.924,
+          "responseStart": 156.077,
+          "responseEnd": 305.073
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/client-DrnbQfYM.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413474898.457,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 0.222,
+          "responseStart": 1.332,
+          "responseEnd": 147.161
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/peer-distributions-CzTTM6kN.js",
+        "status": 200,
+        "resource_type": "script",
+        "timing": {
+          "startTime": 1793413475047.199,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 0.296,
+          "responseStart": 313.394,
+          "responseEnd": 426.655
+        }
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+        "status": 200,
+        "resource_type": "fetch",
+        "timing": {
+          "startTime": 1793413475052.0388,
+          "domainLookupStart": -1,
+          "domainLookupEnd": -1,
+          "connectStart": -1,
+          "secureConnectionStart": -1,
+          "connectEnd": -1,
+          "requestStart": 165.168,
+          "responseStart": 2649.27,
+          "responseEnd": 2654.174
+        }
+      }
+    ]
+  },
+  "screenshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01/page.png",
+    "exists": false,
+    "observation_error": "Error: screenshot: diagnostic observation limit 5000ms",
+    "interpretation": "one viewport-only screenshot did not finish within diagnostic observation limit; not proof of permanent screenshot inability"
+  },
+  "raw_diagnostic_label_limit": "raw helper catch labeled the later role-count timeout as a DOM snapshot error; DOM was actually retained in dom.json. raw report preserved unchanged",
+  "artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01/diagnostic.json",
+      "sha256": "cf796d1a429a365055440647e755814c37d0e9c7c3b815963f2562f1832ee880",
+      "bytes": 55657
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01/dom.json",
+      "sha256": "bb8c68406bcec98634b93a5a354ff536033e99705b1cb47c1ec32e9ec16d2895",
+      "bytes": 12725
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01/body-excerpt.txt",
+      "sha256": "99521a6d1d8744fc4b0cdcfb94b1742e3482967a32a921fecd26c8594bd9fc10",
+      "bytes": 8033
+    }
+  ],
+  "command_evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01-command.json",
+      "sha256": "a9c6c830f27168ba3302208604f239d2686f8ce0dc72ce6671951a67ccf9c804",
+      "bytes": 2969
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01-process.json",
+      "sha256": "768d4e2ab0aab011ba178c6468f69ab588122297475a1d512f5ce16ae6aece21",
+      "bytes": 2420
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01.started",
+      "sha256": "522f5ed4807759ce98ffda1783b0f3da20520df9e2fbf8e703efb6f8505d91a6",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01.finished",
+      "sha256": "3c9af6350986c422288d0478c653a047f3c51f7e676f74e358637d224d791784",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01.stdout.log",
+      "sha256": "268e35528972b6ae83cfdcf8931ca6c05f0dce21a273d8811edcacbafd70e972",
+      "bytes": 388
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-diagnostic-01.stderr.log",
+      "sha256": "e615187269c3ab5e63e314c33837538fd11d2551303a98e6ddac0c2d8f399e90",
+      "bytes": 777
+    }
+  ],
+  "browser_processes_gone": true,
+  "owned_chrome_profile_probe": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "interpretation": "closed disclosure content is actually mounted in substantial volume; observed CPU/RSS and bounded screenshot/role-query limits are evidence for investigating that rendering work, not a complete causal decomposition or a runtime acceptance threshold",
+  "preservation": "no production edits, browserbc97 mutation, timeout increase, API/suite rerun, candidate/model/source work or unrelated Chrome closure",
+  "next": "stop for root review and separately assigned selector/disclosure changes"
+}

@@ -1,0 +1,68 @@
+{
+  "kind": "user-directed-real-factual-stop",
+  "status": "paused by user; factual verification remains pending",
+  "recorded_at_utc": "2026-10-27 15:22:55 UTC",
+  "analysis_source_freeze": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "reason": "user explicitly requested stop now to disconnect the external drive within ten minutes",
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "facts",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts"
+  ],
+  "process": {
+    "python_pid": 61214,
+    "time_wrapper_pid": 61182,
+    "tool_session_id": 87783,
+    "signal": "SIGTERM",
+    "signal_sent_by": "root agent after explicit user stop instruction",
+    "exit_confirmation": "root confirmed both pids gone; no analysis_cli or v1-06 controller/prerequisite/cost processes remained"
+  },
+  "cost": {
+    "sampled_elapsed_seconds": 24357,
+    "sampled_elapsed": "6h45m57s",
+    "scope": "root observation near termination; not an exact final resource measurement",
+    "final_wall_seconds": null,
+    "final_peak_rss_bytes": null
+  },
+  "output": {
+    "directory": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts",
+    "final_manifest": "absent",
+    "accepted": false,
+    "partials": "preserved in place, unaccepted",
+    "last_metadata_observation": "first season files closed; second season receipt/descriptive files present with partial evidence streaming; third season and final catalogs/manifest absent",
+    "last_sampled_source_game": "2024020345",
+    "last_sample_scope": "open file observed at 6h44m16s; not an asserted final game or checkpoint"
+  },
+  "resume": {
+    "supported": false,
+    "explanation": "the current facts command writes one complete three-season artifact into a fresh directory and finalizes only after strict whole-artifact validation; a completed season is not a resumable checkpoint",
+    "restart": "not authorized; no automatic retry or restart"
+  },
+  "preservation": {
+    "original_facts_directory": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results",
+    "original_manifest_sha256": "3348c40ac8849b44a0c9a1ce00271088d0f6c80a244714ce6b5d83196efda368",
+    "original_schema_version": 1,
+    "original_members": 31,
+    "original_facts": "untouched by this run; only the fresh output directory was writable",
+    "evidence": "all 31 original member digests and seven provenance receipt digests passed before launch; no post-stop source/data scan or validation was performed",
+    "source_and_fit_artifacts": "not modified by the factual run"
+  },
+  "pending": [
+    "strict schema2 reread and exact original factual preservation",
+    "complete accepted factual exchange",
+    "all real composition/publication/source-to-api acceptance"
+  ],
+  "temporary_checks": "retained for eventual final real green; no cleanup performed",
+  "stop_work_scope": "one local durable receipt only after root exit confirmation; no external writes, source reads, scans, validation, new analytical commands, fits or activation"
+}

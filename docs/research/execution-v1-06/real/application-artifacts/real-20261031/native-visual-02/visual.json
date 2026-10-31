@@ -1,0 +1,76 @@
+{
+  "kind": "temporary-native-viewport-visual",
+  "status": "failed viewport capture",
+  "started_at": "2026-10-31T03:40:49.350Z",
+  "node_pid": 60229,
+  "helper_sha256": "fde8fd01f3e73ac48e174642761137d66603aa0c78f5497192aa43954406d136",
+  "api_sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "player_id": "8477504",
+  "comparison_player_id": "8476331",
+  "year": "20232024",
+  "metric": "execution.5v5.finishing_goals_per100_attempts",
+  "profile": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-02/chrome-profile",
+  "default_zoom_level": 0,
+  "host_zoom_level": 3.8017840169239308,
+  "browser_native_sandbox": true,
+  "os_source_denial_claimed": false,
+  "errors": [],
+  "rejected": [],
+  "requestfailed": [],
+  "shots": [],
+  "blank100": {
+    "url": "about:blank",
+    "innerWidth": 1280,
+    "innerHeight": 904,
+    "outerWidth": 1280,
+    "outerHeight": 991,
+    "dpr": 2,
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 1280,
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 991,
+      "availLeft": 0,
+      "availTop": 33
+    },
+    "visualViewport": {
+      "width": 1280,
+      "height": 904,
+      "scale": 1
+    }
+  },
+  "origin200": {
+    "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+    "innerWidth": 640,
+    "innerHeight": 452,
+    "outerWidth": 1280,
+    "outerHeight": 991,
+    "dpr": 4,
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 632,
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33
+    },
+    "visualViewport": {
+      "width": 632.5,
+      "height": 452,
+      "scale": 1
+    }
+  },
+  "error": {
+    "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n632 !== 640\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n632 !== 640\n\n    at file:///Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/capture_native_visual.mjs:57:57"
+  },
+  "owned_browser_closed": true,
+  "finished_at": "2026-10-31T03:41:26.465Z"
+}

@@ -1,0 +1,78 @@
+{
+  "kind": "bounded-real-source-helper-first-attempt-failure-and-repair",
+  "status": "first actual attempt failed; minimal temporary checker repair and existing handcases pass; second actual run not launched",
+  "first_attempt": {
+    "tool_session": 69808,
+    "shell_pid": 11800,
+    "time_pid": 11803,
+    "python_pid": 11804,
+    "actual_exit_code": 1,
+    "started_at": "2026-10-30T13:15:10Z",
+    "finished_at": "2026-10-30T13:16:45Z",
+    "time_wall_seconds": 94.98,
+    "time_user_seconds": 92.49,
+    "time_sys_seconds": 0.9,
+    "peak_rss_bytes": 1058324480,
+    "helper_sha256": "f815eff8731942f12951930ed561e35ee2a525363be51dfae4d2b247dd7d72cf",
+    "artifacts": [
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection.json",
+        "sha256": "50c017e9af3d771b8c5877b633933a329cd989a60496a0a6cbb336c24a1752b5"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/index.json",
+        "sha256": "9813cdce18128171989ff1954d3f70af538404bbe87df6534eb86edddf8a542c"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-01.log",
+        "sha256": "96e256b9e0f8325f18c14ac72e0d53722514aeef622b431bb34bfb5f1aa1e12f"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-01.started",
+        "sha256": "15b7cb40fcb37493b7c2ab3c59de56b9ad4f2eeda1af77bf5b8a1083a8ad826c"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-01.finished",
+        "sha256": "666ceb4bf0be2d494afc0f7000b1a531a9d38c245ffb48f022ecca09cce13f63"
+      },
+      {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-sample-real-01.exit",
+        "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      }
+    ],
+    "receipt_created": false,
+    "failure": "KeyError: included_seconds at check_real_source_sample.py:539 before final receipt serialization"
+  },
+  "cause": "the mandatory unknown-elapsed control has no resolved 5v5 segments; Counter serialization omitted zero-valued fixed summary keys. this is a temporary checker representation error, not an established production/source contradiction.",
+  "repair": {
+    "helper": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_real_source_sample.py",
+      "sha256": "138a06e163df86c26697eb99234a08d9077c0f7d1235b78a4ec58432eb03280b"
+    },
+    "diff": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/source-sample-empty-summary-fix.patch",
+      "sha256": "2593dcea4dc67e12e1e5e059494a04d324c1d8faa082bfb9a22dbc5707bb1821"
+    },
+    "change": "initialize the four fixed summary counters explicitly at zero and remove the unused Counter import; all assertions, eligibility, coverage and reductions unchanged",
+    "meaning": "zero included matched-subset contribution does not convert unknown elapsed source coverage or positive reported time into a known observed zero",
+    "existing_handcases": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/source-sample-empty-summary-handcase.json",
+      "sha256": "430529ec02c2c10db6f231cc1f7ab136fd258ead304961e9a9ec07adf69a3c1a"
+    },
+    "handcase_invocation": "existing exercise_real_source_handcases.py executed unchanged except an in-memory replacement of its output receipt basename, preserving the frozen original handcase receipt",
+    "handcase_exit_code": 0
+  },
+  "unchanged": {
+    "selection_sha256": "50c017e9af3d771b8c5877b633933a329cd989a60496a0a6cbb336c24a1752b5",
+    "selection_evidence_index_sha256": "9813cdce18128171989ff1954d3f70af538404bbe87df6534eb86edddf8a542c",
+    "selected_games": 10,
+    "located_categories": 8,
+    "located_witnesses": 16,
+    "frozen_original_handcase_sha256": "b8b570365f38cf62f1425af1617b360685f499c651cf3b3c953bb5f8e360b809"
+  },
+  "limits": [
+    "no second actual helper run",
+    "no new source games or source preinspection",
+    "no production code, selection, frozen evidence or first-attempt external metadata changed"
+  ]
+}

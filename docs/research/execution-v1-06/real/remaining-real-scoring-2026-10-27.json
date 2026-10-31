@@ -1,0 +1,59 @@
+{
+  "kind": "execution-v1-06-remaining-four-real-scoring",
+  "status": "running",
+  "observed_at": "2026-10-27T11:46:12.124306+00:00",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "producer_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "years": [
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "parent_pid": 15315,
+  "tool_session": 94389,
+  "first_child": {
+    "season": "20222023",
+    "pid": 15325,
+    "command": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+      "-m",
+      "hockey_stats.analysis_cli",
+      "score",
+      "--family",
+      "execution",
+      "--prepared",
+      "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+      "--coaches",
+      "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "--state",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20222023"
+    ]
+  },
+  "command": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "/tmp/v106-remaining-four-real-score-batch.py",
+    "78a0727224a88407c6d94d74f1e65a5e894f3e61"
+  ],
+  "environment": {
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src"
+  },
+  "temporary_batch": {
+    "path": "/tmp/v106-remaining-four-real-score-batch.py",
+    "sha256": "ace91e8eb8279583d68979c6f6d3697aab966d7a44e0ba569debd5cff37b97b2"
+  },
+  "external_command_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/remaining-four-command.json",
+  "ordered_selection": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores-selection.json",
+  "selection_written": false,
+  "scope": "root-authorized once; literal serial ordinary scoring, separate strict reader, exact source and isolated independently authored arithmetic per annual; stop first failure, no retries/discovery/new fits; selection written after all five pass",
+  "pilot_receipt": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/first-real-scoring-2026-10-27.json",
+  "independent_arithmetic_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+    "sha256": "3a630b36069c0b673d2d4453dcba856d595d5bba8ba89c1fa3e144f7839b455e",
+    "bytes": 30276,
+    "invocation": "task venv python -I; no project package import",
+    "retention": "temporary checker deleted after final real green; this exact checked source identity remains in the receipt"
+  }
+}

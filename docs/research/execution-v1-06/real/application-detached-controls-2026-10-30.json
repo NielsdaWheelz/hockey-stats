@@ -1,0 +1,1223 @@
+{
+  "kind": "temporary-real-detached-controls",
+  "status": "passed",
+  "checked_at_utc": "2026-10-30T13:39:18.647302+00:00",
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached-preparation.json",
+    "sha256": "3f49ce17b104c3ac1f30d92b7222080bfebf43d9c160ad8b0085f352fcefb68c"
+  },
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+    "sha256": "0d008c92717efe9a33514362dd87f322d29b8d6a8b9a1837064fd7784671969f",
+    "denied_roots": [
+      "/Volumes/Expansion/hockey-stats/captures",
+      "/Volumes/Expansion/hockey-stats/prepared",
+      "/Volumes/Expansion/hockey-stats/chance",
+      "/Volumes/Expansion/hockey-stats/raw",
+      "/Volumes/Expansion/hockey-stats/corpora",
+      "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+      "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-01/var",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05/var",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-06/fixtures",
+      "/Users/nnandal/Documents/code/hockey-stats/analysis",
+      "/Users/nnandal/Documents/code/hockey-stats/fixtures"
+    ],
+    "mechanism": "same temporary allow-default/file-read denial mechanism as fixture; no browser nesting or production hardening"
+  },
+  "controls": [
+    {
+      "index": 1,
+      "category": "actual capture metadata",
+      "path": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020001/20261011-01/play-by-play/capture.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020001/20261011-01/play-by-play/capture.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.283653+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.409915+00:00",
+        "wall_seconds": 0.12614458400639705,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/01-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/01-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020001/20261011-01/play-by-play/capture.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.410116+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.440324+00:00",
+        "wall_seconds": 0.03020187499350868,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/01-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/01-sandbox.stderr",
+          "bytes": 810,
+          "sha256": "d7149389c6bfae0da17c13cd374969298b8d6cd06971755b0001116787748af1"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 2,
+      "category": "actual corpus",
+      "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.440704+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.462233+00:00",
+        "wall_seconds": 0.02152370900148526,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/02-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/02-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.462448+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.492024+00:00",
+        "wall_seconds": 0.029570666985819116,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/02-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/02-sandbox.stderr",
+          "bytes": 746,
+          "sha256": "06f790adebda922fd4803e37454309fa539416abccfd9450908694479d1640e3"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 3,
+      "category": "actual prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.492423+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.513266+00:00",
+        "wall_seconds": 0.020836999989114702,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/03-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/03-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.513499+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.542005+00:00",
+        "wall_seconds": 0.028499332984210923,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/03-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/03-sandbox.stderr",
+          "bytes": 744,
+          "sha256": "b318a7e4d7b736c72bfb95e06818b02b9182afa61800c23c4790beb877f9e628"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 4,
+      "category": "actual coaches",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.542416+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.604746+00:00",
+        "wall_seconds": 0.062323707999894395,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/04-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/04-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.605000+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.634675+00:00",
+        "wall_seconds": 0.02966825000476092,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/04-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/04-sandbox.stderr",
+          "bytes": 772,
+          "sha256": "2112f08e656c2a8ff9e205c62c62a628c807a2501e420a676dd26e31eac4a0f6"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 5,
+      "category": "actual expensive fit",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.635058+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.662852+00:00",
+        "wall_seconds": 0.027788167004473507,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/05-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/05-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.663048+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.694210+00:00",
+        "wall_seconds": 0.03115658400929533,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/05-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/05-sandbox.stderr",
+          "bytes": 774,
+          "sha256": "e1e4d806b501ac3fdb4397fc4e716f6dd24929007fc7b07734ddcc3b934b3076"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 6,
+      "category": "accepted score current-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.694581+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.716621+00:00",
+        "wall_seconds": 0.022035959002096206,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/06-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/06-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.716848+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.745929+00:00",
+        "wall_seconds": 0.0290741250209976,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/06-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/06-sandbox.stderr",
+          "bytes": 820,
+          "sha256": "e762a17c462076628769e7d33a9b4722653c7fd3afa0a61aa77517a9f864a052"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 7,
+      "category": "accepted score current-02",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.746629+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.768407+00:00",
+        "wall_seconds": 0.02177245798520744,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/07-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/07-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.768622+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.796296+00:00",
+        "wall_seconds": 0.02766825002618134,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/07-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/07-sandbox.stderr",
+          "bytes": 820,
+          "sha256": "10d99b46a8f72e27b69fec6c591c254ff475ab8a1cb3f7204020967616e9d900"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 8,
+      "category": "accepted score current-03 first year",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.796704+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.817361+00:00",
+        "wall_seconds": 0.020649957994464785,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/08-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/08-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.817560+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.844555+00:00",
+        "wall_seconds": 0.026988124998752028,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/08-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/08-sandbox.stderr",
+          "bytes": 820,
+          "sha256": "36766ff04a685f0a6d102e20138200aba8037991c530b0f5357a2404e8c67a07"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 9,
+      "category": "accepted score current-03 second year",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.844987+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.865616+00:00",
+        "wall_seconds": 0.02062175000901334,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/09-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/09-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.865821+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.893007+00:00",
+        "wall_seconds": 0.02717770801973529,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/09-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/09-sandbox.stderr",
+          "bytes": 820,
+          "sha256": "30bb32268371374624148a94a39c346241583726525e96fb1781bee9a098e692"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 10,
+      "category": "final score current-04, acceptance pending",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.893446+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.914125+00:00",
+        "wall_seconds": 0.020671791018685326,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/10-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/10-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.914353+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.942347+00:00",
+        "wall_seconds": 0.02798737501143478,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/10-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/10-sandbox.stderr",
+          "bytes": 820,
+          "sha256": "b658edd605a1ee91568cbac2d00577aeb0b8d4b3eeac3a72a83c7e4018d5e9ed"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 11,
+      "category": "regenerated facts-04",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.942735+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.964197+00:00",
+        "wall_seconds": 0.021456832997500896,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/11-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/11-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.964413+00:00",
+        "finished_at_utc": "2026-10-30T13:39:17.993897+00:00",
+        "wall_seconds": 0.029476583003997803,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/11-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/11-sandbox.stderr",
+          "bytes": 784,
+          "sha256": "d59f7e3f52f051d34881539ce0357b251c5f4a42f0937e7bca17e20674ac7931"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 12,
+      "category": "original factual root",
+      "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:17.994267+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.048575+00:00",
+        "wall_seconds": 0.05430216700187884,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/12-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/12-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/results/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.048808+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.077737+00:00",
+        "wall_seconds": 0.0289215829980094,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/12-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/12-sandbox.stderr",
+          "bytes": 770,
+          "sha256": "74e44fe247d9d13546647fe94d7b43ed8d19ff143da2edf430bab2439658368f"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 13,
+      "category": "composed real results, creation pending",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.078131+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.100597+00:00",
+        "wall_seconds": 0.022459874977357686,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/13-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/13-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.100816+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.130552+00:00",
+        "wall_seconds": 0.029729875008342788,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/13-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/13-sandbox.stderr",
+          "bytes": 782,
+          "sha256": "26cd9acf46e1f7250179d6d20ed95ea7736af68fe9477078d0159cdec3962ca8"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 14,
+      "category": "local accepted preparation fixture",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.130925+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.156660+00:00",
+        "wall_seconds": 0.02572712500113994,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/14-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/14-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.156904+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.184620+00:00",
+        "wall_seconds": 0.02771054199547507,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/14-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/14-sandbox.stderr",
+          "bytes": 770,
+          "sha256": "e31d49d349e74cf1365d6e3d4e739ca4c2a620b59f1c7f630d519f3651208512"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 15,
+      "category": "local fit fixture",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.184985+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.215066+00:00",
+        "wall_seconds": 0.030074458016315475,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/15-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/15-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.215274+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.243199+00:00",
+        "wall_seconds": 0.027917333005461842,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/15-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/15-sandbox.stderr",
+          "bytes": 830,
+          "sha256": "2f6e85559d81a4b6e06f79c2f00a5e760fadee7ef9cdb9520d220ee111960364"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 16,
+      "category": "local coaches fixture",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.243570+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.265623+00:00",
+        "wall_seconds": 0.022046292026061565,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/16-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/16-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.265843+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.294200+00:00",
+        "wall_seconds": 0.028348041989374906,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/16-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/16-sandbox.stderr",
+          "bytes": 772,
+          "sha256": "fcfefdc4eb4290038bc4929c1716a71957167480ddddb833434007fb13091635"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 17,
+      "category": "local analysis",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/pyproject.toml",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/pyproject.toml"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.294608+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.316452+00:00",
+        "wall_seconds": 0.021837167005287483,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/17-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/17-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/pyproject.toml"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.316677+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.344413+00:00",
+        "wall_seconds": 0.02772804201231338,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/17-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/17-sandbox.stderr",
+          "bytes": 744,
+          "sha256": "856eeae0307882e865b99d564e84052b9ae5ac257a137462406c243df8da4be1"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 18,
+      "category": "local captures fixtures",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/fixtures/README.md",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/fixtures/README.md"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.344810+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.365432+00:00",
+        "wall_seconds": 0.020614792010746896,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/18-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/18-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/fixtures/README.md"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.365681+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.394807+00:00",
+        "wall_seconds": 0.029117500002030283,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/18-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/18-sandbox.stderr",
+          "bytes": 734,
+          "sha256": "ff5362002c904286b89ada21b44f0cdae69e44aa6a707c079bb897c17958909f"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 19,
+      "category": "external prior fixture facts",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.395220+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.449481+00:00",
+        "wall_seconds": 0.05425445901346393,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/19-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/19-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.449713+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.478913+00:00",
+        "wall_seconds": 0.029192459012847394,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/19-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/19-sandbox.stderr",
+          "bytes": 784,
+          "sha256": "42ac638d80382564f420fa3f7939b9d3e32222102e6fb280639c2c59411f3d60"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 20,
+      "category": "external prior fixture scores",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20232024/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20232024/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.479599+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.536429+00:00",
+        "wall_seconds": 0.05682191700907424,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/20-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/20-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20232024/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.536655+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.564970+00:00",
+        "wall_seconds": 0.028307957982178777,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/20-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/20-sandbox.stderr",
+          "bytes": 826,
+          "sha256": "afa2bc58f0c367ab0dfcb6e311a0787dc4d5bed21248a98960831064abed3d27"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "index": 21,
+      "category": "external prior fixture results",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/manifest.json",
+      "unconfined": {
+        "argv": [
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.565361+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.618772+00:00",
+        "wall_seconds": 0.05340249999426305,
+        "exit_code": 0,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/21-unconfined.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/21-unconfined.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "passed"
+      },
+      "sandbox": {
+        "argv": [
+          "/usr/bin/sandbox-exec",
+          "-f",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb",
+          "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+          "--input-type=commonjs",
+          "-e",
+          "const fs=require(\"node:fs\");const fd=fs.openSync(process.argv[1],\"r\");fs.readSync(fd,Buffer.alloc(1),0,1,0);fs.closeSync(fd)",
+          "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/manifest.json"
+        ],
+        "started_at_utc": "2026-10-30T13:39:18.618982+00:00",
+        "finished_at_utc": "2026-10-30T13:39:18.646947+00:00",
+        "wall_seconds": 0.0279596250038594,
+        "exit_code": 1,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/21-sandbox.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/controls/21-sandbox.stderr",
+          "bytes": 810,
+          "sha256": "a3b23ce0dc57c32b41df7f36d802fe8eb452eaac23a8b236ca47383c7a425364"
+        },
+        "status": "passed"
+      }
+    }
+  ],
+  "paired_paths_passed": 21,
+  "failure": null,
+  "scheduling": "root released independent compilation and paired controls while publication runs; these commands do not read or accept the candidate",
+  "candidate_access": false,
+  "server_started": false,
+  "api_browser_execution": false
+}

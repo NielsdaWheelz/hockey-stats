@@ -1,0 +1,436 @@
+{
+  "kind": "real-composition-accounting-and-source-sample-preparation",
+  "status": "prepared only; no real saved-output check or extra source pass executed",
+  "analysis_source_freeze": "78a0727",
+  "raw_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_saved_execution_composition.py",
+    "sha256": "66632591b4352668a53fb942aca8c47a5da8181bde84750f9177e9ce64497347",
+    "syntax": "passed after final count/kind/search-cost/scope binding assertions; helper namespace audit passed",
+    "runtime_validation": "final saved-only checker passed accepted fixture outputs; actual real output check remains pending",
+    "exercise_status": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/saved-accounting-checker-status.json",
+    "fixture_exercise": {
+      "checker_sha256": "66632591b4352668a53fb942aca8c47a5da8181bde84750f9177e9ce64497347",
+      "exit_code": 0,
+      "status": "passed final saved-only fixture exercise",
+      "wall_seconds": 104.67,
+      "peak_rss_bytes": 337100800,
+      "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/saved-accounting-checker-exercise-03.json",
+      "receipt_sha256": "80a9c94a31c866c1301b2335689c5daed03c75fabbdaf5aae7d805c2066efed3",
+      "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/saved-accounting-checker-exercise-03.log",
+      "log_sha256": "24e5f3a67983f549c768beb1db3f17eb9074e62c21ef0d8e6dd80260134664c5",
+      "per_year": [
+        {
+          "season": "20232024",
+          "source_attempts": 709,
+          "complete_source_attempts": 605,
+          "dispositions": {
+            "source": 709,
+            "numerical": 715,
+            "intersection": 709,
+            "source_only": 0,
+            "numerical_only": 6,
+            "complete_source": 605,
+            "complete_numerical_only": 0,
+            "unvalued_source": 104
+          },
+          "paired_person_kind_accounting": {
+            "outside_displayed_state": {
+              "source": 56,
+              "complete": 53,
+              "excluded": 3
+            },
+            "skater": {
+              "source": 650,
+              "complete": 552,
+              "excluded": 98
+            },
+            "unknown_shooter": {
+              "source": 3,
+              "complete": 0,
+              "excluded": 3
+            }
+          },
+          "recorded_preservation": {
+            "skater_descriptive": {
+              "rows": 201,
+              "sha256": "02321b2057117d500925a35e405a9ac16352cf69a98b5e2dfeb8430e770771b3"
+            },
+            "skater_context": {
+              "rows": 201,
+              "sha256": "aea08c60bd26149633bf67dbfb8c3c563f8cfd1062ab02e530f10938af7d0ceb"
+            },
+            "attempt_fact": {
+              "rows": 709,
+              "sha256": "7281deb442735b19098b697672807b6dd74e4bde167b6e3811c33a3dab862c1f"
+            },
+            "dressed_game": {
+              "rows": 240,
+              "sha256": "a562580ee5c03ff151a2876c27fb2ab4da63049cda87957bc219f1201297c828"
+            },
+            "interval_player": {
+              "rows": 20260,
+              "sha256": "da38ff91f15e38112b7a2e52b6d74e5ceff64ed0a4c43e5b42e492a783f23896"
+            },
+            "interval_fact": {
+              "rows": 12056,
+              "sha256": "05d4dbded45bd480f7693e31c424f43125b2e2d8d0efaa7b1bb193242376c88c"
+            },
+            "interval_location": {
+              "rows": 654,
+              "sha256": "1e0b256295eec9b9f00d9c05c721c2d993375bd9c0968a5c59028d736771856a"
+            },
+            "context_coverage": {
+              "rows": 603,
+              "sha256": "9604fedfc2bb7aa896359ecce3909a5099e8e236ce87aebc736cd75c2adba5c5"
+            }
+          },
+          "composition_receipt": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/20232024-execution-composition.json",
+            "sha256": "d79637429435b705f55da91430b1efa39f5ff33b11366372a1be87e64e2e3125"
+          },
+          "personal_reference_xg": 16.957893136553096,
+          "team_reference_xg": 16.957893136553096,
+          "personal_team_residual": 0.0,
+          "personal_events": 453,
+          "valued_recorded_attempts": 453,
+          "goalie_events": 0,
+          "goalie_combinations": 1,
+          "matching_goalie_subset": [],
+          "goalie_candidates_requiring_selected_source_inclusion": [],
+          "reference_seconds": 157290,
+          "valued_intervals": {
+            "neutral_all_attempt_value": 3926,
+            "neutral_locatable_unblocked_value": 3952
+          },
+          "known_zero_event_checks": {
+            "neutral_all_attempt_value": 7168,
+            "neutral_locatable_unblocked_value": 7378
+          },
+          "maps": 2814,
+          "setter_rows": 5317,
+          "share_rows": 7132,
+          "source_score_sha256": "dcfc10c72f77af2f7f599f34c35af4a93e56239d366d80ab2671b8e363999da7"
+        },
+        {
+          "season": "20242025",
+          "source_attempts": 1070,
+          "complete_source_attempts": 1062,
+          "dispositions": {
+            "source": 1070,
+            "numerical": 1092,
+            "intersection": 1070,
+            "source_only": 0,
+            "numerical_only": 22,
+            "complete_source": 1062,
+            "complete_numerical_only": 0,
+            "unvalued_source": 8
+          },
+          "paired_person_kind_accounting": {
+            "outside_displayed_state": {
+              "source": 47,
+              "complete": 43,
+              "excluded": 4
+            },
+            "skater": {
+              "source": 1019,
+              "complete": 1019,
+              "excluded": 0
+            },
+            "unknown_shooter": {
+              "source": 4,
+              "complete": 0,
+              "excluded": 4
+            }
+          },
+          "recorded_preservation": {
+            "skater_descriptive": {
+              "rows": 245,
+              "sha256": "e85b7e82b3b6b584ebf76cd62856e44925a7aa58daaf82afc099d611f639e972"
+            },
+            "skater_context": {
+              "rows": 245,
+              "sha256": "c449c2b2d66753f1c44124b134003422c909f3f1ebd4377225e70be9064f57ed"
+            },
+            "attempt_fact": {
+              "rows": 1070,
+              "sha256": "f570d45c33490d1fda14e74bed629cbff7531060eeaaf9f64f9dface072a94be"
+            },
+            "dressed_game": {
+              "rows": 360,
+              "sha256": "0c07ccd6b768e9cfdca88e43f27cb70aaa7620058e7dee697118806046f0caaf"
+            },
+            "interval_player": {
+              "rows": 25580,
+              "sha256": "eb72a50b1263f9696d9954c93b81b883430689759483c54f371a7e64179b0142"
+            },
+            "interval_fact": {
+              "rows": 15348,
+              "sha256": "cea31d35bf859d4c12e34a2bd82b7d1e873d59055cc949e9632896c6358eeaeb"
+            },
+            "interval_location": {
+              "rows": 984,
+              "sha256": "82623114413fc4cabac0cd78817df0f091633966b315c7329842813e70ae326f"
+            },
+            "context_coverage": {
+              "rows": 735,
+              "sha256": "f7c3d2989358a6db611946130231c7d1f003440e5eb92122aec3be65276bce40"
+            }
+          },
+          "composition_receipt": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/20242025-execution-composition.json",
+            "sha256": "57c9ecc114bfd96cef0b3af062fb537278f473f2cb6b5d0ae74a55eda739d505"
+          },
+          "personal_reference_xg": 29.637485996741017,
+          "team_reference_xg": 29.637485996741017,
+          "personal_team_residual": 0.0,
+          "personal_events": 665,
+          "valued_recorded_attempts": 665,
+          "goalie_events": 0,
+          "goalie_combinations": 1,
+          "matching_goalie_subset": [],
+          "goalie_candidates_requiring_selected_source_inclusion": [],
+          "reference_seconds": 208080,
+          "valued_intervals": {
+            "neutral_all_attempt_value": 4924,
+            "neutral_locatable_unblocked_value": 4924
+          },
+          "known_zero_event_checks": {
+            "neutral_all_attempt_value": 8874,
+            "neutral_locatable_unblocked_value": 9088
+          },
+          "maps": 3430,
+          "setter_rows": 9087,
+          "share_rows": 12273,
+          "source_score_sha256": "c4a0b4b2fbbd5fec519a547a2bd58eec8fa145d0d2039bd001b121e80562c6dc"
+        },
+        {
+          "season": "20252026",
+          "source_attempts": 1076,
+          "complete_source_attempts": 1068,
+          "dispositions": {
+            "source": 1076,
+            "numerical": 1101,
+            "intersection": 1076,
+            "source_only": 0,
+            "numerical_only": 25,
+            "complete_source": 1068,
+            "complete_numerical_only": 0,
+            "unvalued_source": 8
+          },
+          "paired_person_kind_accounting": {
+            "outside_displayed_state": {
+              "source": 67,
+              "complete": 64,
+              "excluded": 3
+            },
+            "skater": {
+              "source": 1005,
+              "complete": 1004,
+              "excluded": 1
+            },
+            "unknown_shooter": {
+              "source": 4,
+              "complete": 0,
+              "excluded": 4
+            }
+          },
+          "recorded_preservation": {
+            "skater_descriptive": {
+              "rows": 277,
+              "sha256": "b9690fb6d20b236bf7064440e750bc0b5e3bb05beb94ad1efcd0abe94b1d9419"
+            },
+            "skater_context": {
+              "rows": 277,
+              "sha256": "65c869f4a6f6aae058e9b828fed191fc8e95011f30b193a5151dde1d2116ea81"
+            },
+            "attempt_fact": {
+              "rows": 1076,
+              "sha256": "0fdf36705fa1ce8b7899498a491c48616edcb8475f14c55419e36724032e2082"
+            },
+            "dressed_game": {
+              "rows": 360,
+              "sha256": "460638527452e960d214c037d1afa7748efd40f91cc36b98da00ae01987a91d3"
+            },
+            "interval_player": {
+              "rows": 13760,
+              "sha256": "dbd0117270be78f1e9b97e957861821d928b10504703cc2c2e17539bcd6151f0"
+            },
+            "interval_fact": {
+              "rows": 8254,
+              "sha256": "8ee053f4d6a4b996dc07c0e6a0ad60dfc4d96b41c0e54e5fae8dcb048f0712dc"
+            },
+            "interval_location": {
+              "rows": 476,
+              "sha256": "4cd5538a54095eda4d450165d41b0cdccb6dbeb5ffdad1ce414fb7dbef0f8860"
+            },
+            "context_coverage": {
+              "rows": 831,
+              "sha256": "30a0b714be352581a09aa19770df3fb7d5b3b0269cbfe2a86c2cf98eb4b5ec1b"
+            }
+          },
+          "composition_receipt": {
+            "uri": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results/20252026-execution-composition.json",
+            "sha256": "30359aa1152871fa6dce29d95bf0d038f5be025be969c367c77b0264b5a73000"
+          },
+          "personal_reference_xg": 15.20829247703104,
+          "team_reference_xg": 15.20829247703104,
+          "personal_team_residual": 0.0,
+          "personal_events": 358,
+          "valued_recorded_attempts": 358,
+          "goalie_events": 0,
+          "goalie_combinations": 1,
+          "matching_goalie_subset": [],
+          "goalie_candidates_requiring_selected_source_inclusion": [],
+          "reference_seconds": 114880,
+          "valued_intervals": {
+            "neutral_all_attempt_value": 2750,
+            "neutral_locatable_unblocked_value": 2750
+          },
+          "known_zero_event_checks": {
+            "neutral_all_attempt_value": 4952,
+            "neutral_locatable_unblocked_value": 5102
+          },
+          "maps": 3878,
+          "setter_rows": 9653,
+          "share_rows": 12857,
+          "source_score_sha256": "e039601e84a4539b5f13e94328713b4a5e8a52191788d4d1a25c5f92b052f239"
+        }
+      ],
+      "checker_cost": {
+        "wall_seconds": 103.80986987501092,
+        "peak_rss_bytes": 337084416,
+        "scope": "from before hockey_stats import through all assertions, before final receipt serialization; process high-water rss"
+      },
+      "scope": "saved inputs and outputs only; exact source interval inclusion and published-api bindings are separately sampled",
+      "limits": [
+        "the retained 24-game source proof separately establishes fixture algorithm behavior; this saved-output exercise checks accounting and serialization",
+        "recorded assist source pointers and goal applicability are checked globally; corroborated actual assist identity is checked on selected sources",
+        "goalie residual closure below establishes a candidate subset matching exact count and mass; selected source checks establish physical inclusion"
+      ]
+    }
+  },
+  "saved_accounting": {
+    "scope": "all three displayed years and every saved output row; exact recorded preservation, score/value identity, both stratum tables, paired counts, native map values and conservation, setter/share retention, matched reference-xg seconds/rate and aggregate mass accounting",
+    "inputs": [
+      "fresh schema2 real/facts",
+      "complete real score selection",
+      "fresh real composed results"
+    ],
+    "source_inclusion": "not inferred from clocks; goalie mass residual candidates are enumerated for source resolution"
+  },
+  "source_sample": {
+    "maximum_distinct_games": 12,
+    "selection": "use source/coverage diagnostics and explicit source keys; freeze final keys and purposes before checking the published API; reuse games across categories",
+    "candidate_evidence": [
+      {
+        "category": "unknown_assignment",
+        "season": "20242025",
+        "game_id": "2024020001",
+        "source_indices": [
+          332,
+          333
+        ],
+        "evidence": "fixtures/README.md:58; genuinely ambiguous blocked attempts; confirm exact current numerical and source inclusion separately"
+      },
+      {
+        "category": "coalesced_masks",
+        "season": "20252026",
+        "game_id": "2025021094",
+        "evidence": "fixtures/README.md:215; 118 overlapping-shift seconds remain unresolved; use current prepared association/mask indices"
+      },
+      {
+        "category": "unknown_elapsed_control",
+        "season": "20242025",
+        "game_id": "2024021273",
+        "player_id": "8480075",
+        "evidence": "accepted v1-03 source proof and v1-06 merge boundary; 308 reported seconds do not establish elapsed exposure"
+      },
+      {
+        "category": "goalie_shooter",
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 117,
+        "goalie_id": "8481611",
+        "segment_index": 141,
+        "play_body_sha256": "f0224d640b5b0f8f7a78f04a74c150ebf627e0a04e41f89678cb34eeec20f434",
+        "evidence": "accepted factual original-source witness; confirm current execution opportunity, team inclusion and personal-skater exclusion"
+      },
+      {
+        "category": "goalie_shooter",
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 195,
+        "goalie_id": "8479496",
+        "segment_index": 153,
+        "play_body_sha256": "7c4a1fe126208734db7e4c826feeb37af4684d8715be11995c4eee3b8abe5d6f",
+        "evidence": "accepted factual original-source witness; confirm current execution opportunity, team inclusion and personal-skater exclusion"
+      },
+      {
+        "category": "recorded_off_ice_assist_candidate",
+        "season": "20232024",
+        "game_id": "2023020040",
+        "source_index": 287,
+        "primary_assister_id": "8478413",
+        "scorer_id": "8481528",
+        "strength_group": "ev",
+        "play_body_sha256": "6024527c05f3ffb0dc74a554e3ebe4cb144636569ef2d3c4327f47201b335a15",
+        "evidence": "accepted factual source proof; this is a candidate recorded-assist witness, not a claim that the new setter universe or seven displayed strengths include it"
+      },
+      {
+        "category": "recorded_off_ice_assist_candidate",
+        "season": "20242025",
+        "game_id": "2024020066",
+        "source_index": 67,
+        "primary_assister_id": "8480840",
+        "scorer_id": "8476278",
+        "strength_group": "pk",
+        "play_body_sha256": "7137e3dcabfcda1f6874dde371895f0107f890a3fe32936f37b348f22f42f624",
+        "evidence": "accepted factual source proof; this is a candidate recorded-assist witness, not a claim that the new setter universe or seven displayed strengths include it"
+      },
+      {
+        "category": "recorded_off_ice_assist_candidate",
+        "season": "20252026",
+        "game_id": "2025020144",
+        "source_index": 301,
+        "primary_assister_id": "8477960",
+        "scorer_id": "8476469",
+        "strength_group": "other",
+        "play_body_sha256": "f42d64b1d13257cc9ee1c8c574e02351d079d7d3350a5f5858c7934b9df84d8d",
+        "evidence": "accepted factual source proof; this is a candidate recorded-assist witness, not a claim that the new setter universe or seven displayed strengths include it"
+      }
+    ],
+    "remaining_selectors": [
+      {
+        "category": "known_zero_event_time",
+        "rule": "first saved positive-duration valued interval with zero for/against mass and known skater membership; then verify original association and exact published included seconds"
+      },
+      {
+        "category": "unvalued_block_versus_unblocked",
+        "rule": "first composed exclusion with an unvalued block and supported unblocked comparison; verify each population mask and paired exposure from prepared associations"
+      },
+      {
+        "category": "scorer_conflict",
+        "rule": "first actual source/numerical scorer conflict if diagnostics locate one; otherwise record not found and retain existing fixture boundary evidence"
+      },
+      {
+        "category": "event_only_or_off_ice_setter",
+        "rule": "first actual saved setter evidence outside elapsed on-ice support; confirm source identity, candidate universe, separate role count and elapsed denominator"
+      }
+    ],
+    "known_absence": [
+      "credit_issue",
+      "unclassified_credit",
+      "zero_time_off_ice_primary_assist"
+    ],
+    "absence_policy": "do not fabricate a real witness or transfer factual counts to execution semantics; source categories absent from actual diagnostics remain located unavailable with retained algorithm evidence",
+    "required_bindings": [
+      "prepared manifest/member hashes",
+      "source game/index and association indices",
+      "raw score and composed manifests",
+      "exact included/excluded event keys, counts, interval ids and seconds",
+      "published API publication id, selected player/strength/population and exact raw values"
+    ],
+    "execution": "only selected supplied prepared games after root scheduling; no second full 3936-game source campaign",
+    "api_scope": "bind the selected actual source witnesses to published source-key values and their matched denominators"
+  }
+}

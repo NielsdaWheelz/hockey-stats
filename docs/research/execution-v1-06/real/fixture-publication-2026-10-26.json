@@ -1,0 +1,54 @@
+{
+  "kind": "fresh-current-fixture-execution-publication",
+  "status": "passed",
+  "purpose": "fixture",
+  "production_commit": "78a0727",
+  "completed_at": "2026-10-27T07:00:55.810538+00:00",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "environment": {
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src"
+  },
+  "command": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "publish",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "--results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 438.15,
+  "peak_rss_bytes": 228442112,
+  "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/player-analysis.sqlite",
+    "sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+    "bytes": 837996544
+  },
+  "producer_cost": {
+    "wall_seconds": 437.75499950000085,
+    "peak_rss_bytes": 228442112,
+    "consumed_bytes": 869869615,
+    "database_bytes": 837996544
+  },
+  "cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "results_manifest_sha256": "499acc1f9363d136d7e148d12af045fcf17b7f27b018b2e11612447ccb992d8d",
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/verification.json",
+    "sha256": "b14d053bd80cb99eb5519c4036b82d444a2dedc2a13883e5855368af05ff32e3"
+  },
+  "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/publish.log",
+  "incomplete_journal_wal_shm": "absent after finalization",
+  "activation": "not_performed",
+  "scientific_admission": "not_performed"
+}

@@ -1,0 +1,188 @@
+{
+  "kind": "reader-query-repair-focused-verification",
+  "date": "2026-10-30",
+  "status": "focused_checks_passed_full_real_reader_check_pending",
+  "worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "branch": "implement/v1-06-execution-scoring",
+  "source": {
+    "path": "app/src/server/analysis-publication.ts",
+    "original_git_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "original_sha256": "053a6a6e8a61f2bf19cf69f11f800414d7dbdf8726761e2760fc73827d67c195",
+    "repaired_sha256": "cfa39d5f77c2bb2f5734af9135d6bc0abc95393cb85906287310827b1b276d41",
+    "added_lines": 18,
+    "deleted_lines": 6,
+    "scope": "the existing cross-record validator only; physical schema, catalogs, every typed row, required selectors and all other closure checks remain owned by their existing implementations"
+  },
+  "reason": {
+    "original_real_operator_elapsed_seconds_lower_bound": 2094.22,
+    "original_real_operator_outcome": "isolated read-only operator check was deliberately interrupted; it did not complete and does not establish candidate invalidity",
+    "original_sample": "root reported a one-second native sample with 637/637 main-thread samples in node::sqlite::StatementSync::All/sqlite3_step; the exact active sql query was not captured",
+    "algorithmic_findings": [
+      "interval overlap self-join could compare quadratic row pairs inside a partition",
+      "one source-attempt aggregate per provided skater/strength summary repeatedly scanned the same season"
+    ],
+    "interpretation": "the elapsed time is an observed interrupted-run lower bound, not a runtime budget, failure threshold or measured repaired speedup"
+  },
+  "repair": {
+    "overlap": "prior maximum end_seconds over season,game_id,team_id,population,period_number ordered by start_seconds,end_seconds,rowid, with rows between unbounded preceding and 1 preceding; reject prior_end greater than start_seconds",
+    "overlap_contract": "positive half-open intervals; adjacency remains valid, nesting and duplicate bounds overlap, partition boundaries remain independent",
+    "paired_source": "one grouped source aggregate by season,physical shooter_id,strength; nullable shooter/strength do not become personal keys; exact tuple lookup uses the existing selectorKey and explicit zero totals for an absent group",
+    "mass_order": "the reference and actor sums explicitly order their contributing rows by game_id,source_index, preserving the original source primary-key traversal order within each season",
+    "tradeoff": "temporary scalar-only aggregate rows and a local keyed map replace repeated season scans; no source event or map payload arrays are materialized by this repair, and there is no persistent cache",
+    "unchanged": [
+      "typed payload and coefficient-support validation",
+      "availability and missing/null/zero meanings",
+      "nine required type/danger strata and their existing validation",
+      "paired source counts, both expected masses and danger-omission closure",
+      "existing numerical closure tolerances",
+      "publication schema and public interfaces"
+    ]
+  },
+  "focused_verification": {
+    "runtime": {
+      "node": "24.21.0",
+      "sqlite": "3.53.4"
+    },
+    "adapter_scope": "temporary check invokes the real exported validateCrossRecords and existing IntervalFact decoder; a narrow effect/sql adapter executes the affected queries against real in-memory node sqlite tables. unrelated query results and tables are empty, fixed grid identity is supplied. this is affected-boundary integration evidence, not complete publication/startup validation",
+    "starting_shapes": [
+      "fixtures/publication-v1-13/results/20232024-execution-skater_execution.jsonl",
+      "fixtures/publication-v1-13/results/20232024-execution-execution_breakdown.jsonl",
+      "fixtures/publication-v1-13/results/20232024-evidence-interval_fact.jsonl"
+    ],
+    "oracle": "independent pairwise positive half-open overlap predicate; independently constructed source attempts and expected personal tuple totals, checked against the real validator using valid fixture-derived typed payload shapes",
+    "cases": {
+      "overlap_cases": 13,
+      "overlap_examples": [
+        "empty",
+        "single interval",
+        "adjacent",
+        "partial overlap",
+        "nested intervals that defeat a simple lag comparison",
+        "duplicate bounds",
+        "reverse insertion order",
+        "same start with nested bounds",
+        "separation along each of season,game_id,team_id,population,period_number"
+      ],
+      "invalid_interval_typed_rejections": [
+        "zero length",
+        "reversed bounds",
+        "negative start",
+        "beyond period horizon",
+        "invalid period number"
+      ],
+      "summary_tuple_count": 10,
+      "strengths": [
+        "5v5",
+        "5v4",
+        "5v3",
+        "4v3",
+        "4v5",
+        "3v5",
+        "3v4"
+      ],
+      "paired_examples": [
+        "two seasons",
+        "distinct physical shooters",
+        "absent source group with explicit zero totals",
+        "paired zero and one probability values",
+        "reference-only value",
+        "actor-only value",
+        "missing reference value property",
+        "null shooter",
+        "null strength",
+        "separate reference and actor expected masses",
+        "all six shot-type and three danger rows"
+      ],
+      "rejected_mutations": [
+        "source count",
+        "coefficient support",
+        "reference expected mass",
+        "actor expected mass",
+        "pending stratum beneath a provided summary"
+      ],
+      "additional_green_only_checks": [
+        "valid nonzero danger-omission counts and both expected masses",
+        "rejected wrong omitted danger mass"
+      ]
+    },
+    "runs": [
+      {
+        "stage": "red",
+        "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/node_modules/tsx/dist/cli.mjs var/v1-06-reader-checks/check.ts > var/v1-06-reader-checks/red.log 2>&1",
+        "status": "semantic baseline passed; structural diagnostic failed as expected with 10 source queries for 10 provided summaries",
+        "node_exit_code": null,
+        "exit_evidence": "uncaught assertion is preserved in red.log; the enclosing inspection command ended with cat and returned 0, so the node exit code was not separately captured"
+      },
+      {
+        "stage": "green",
+        "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/node_modules/tsx/dist/cli.mjs var/v1-06-reader-checks/check.ts > var/v1-06-reader-checks/green.log 2>&1",
+        "status": "semantic checks and structural diagnostic passed; one source query for 10 provided summaries",
+        "exit_evidence": "complete success records were printed with no uncaught failure; enclosing inspection command returned 0"
+      },
+      {
+        "stage": "extended_green",
+        "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/node_modules/tsx/dist/cli.mjs var/v1-06-reader-checks/check.ts > var/v1-06-reader-checks/green-refactor.log 2>&1",
+        "status": "previous checks plus nonzero danger-omission checks passed; production source unchanged since initial green",
+        "exit_evidence": "complete success records were printed with no uncaught failure; enclosing inspection command returned 0"
+      },
+      {
+        "stage": "focused_typecheck",
+        "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/node_modules/typescript/lib/tsc.js -p app/tsconfig.json --noEmit > var/v1-06-reader-checks/typecheck.log 2>&1",
+        "status": "passed",
+        "exit_code": 0
+      },
+      {
+        "stage": "whitespace",
+        "command": "git diff --check -- app/src/server/analysis-publication.ts",
+        "status": "passed",
+        "exit_evidence": "no diagnostics; enclosing inspection command returned 0"
+      },
+      {
+        "stage": "final_focused_green",
+        "command": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node app/node_modules/tsx/dist/cli.mjs var/v1-06-reader-checks/check.ts > docs/research/execution-v1-06/real/reader-query-repair/final-green.log 2>&1",
+        "status": "semantic checks and structural diagnostic passed",
+        "exit_code": 0,
+        "exec_chunk_id": "176e61",
+        "exec_wall_time_seconds": 0.063902458,
+        "exit_evidence": "root executed the node command directly without a trailing log-inspection wrapper and reported actual exit 0; this closes the focused exit-evidence gap only, not the pending complete real reader check"
+      }
+    ],
+    "structural_diagnostic": {
+      "provided_summary_keys": 10,
+      "original_source_queries": 10,
+      "repaired_source_queries": 1,
+      "meaning": "observed query-count change in the focused adapter, not a new public contract or runtime budget"
+    },
+    "review": "root and an independent reviewer accepted the production diff before the full real check was started",
+    "temporary_checks": "retained under var/v1-06-reader-checks until final real green; this durable receipt copies facts/logs only, with no test code or temporary package"
+  },
+  "preservation": {
+    "candidate_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite",
+    "candidate_sha256_previously_accepted": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+    "repair_owner_actions": "no candidate access or mutation, numerical output mutation, source acquisition, scientific/data/publication rerun, builddist mutation, dependency change or serving change; the previously accepted candidate identity is reported rather than rehashed here",
+    "numerical_producer_commit_unchanged": "78a0727224a88407c6d94d74f1e65a5e894f3e61"
+  },
+  "pending": "application owner separately owns typecheck/build and the actual complete detached reader/operator rerun against the unchanged real candidate. only that run establishes full startup/check completion and real repaired cost",
+  "artifacts": [
+    {
+      "path": "docs/research/execution-v1-06/real/reader-query-repair/red.log",
+      "sha256": "bf7e1488718c23ca68cfca6bb67ec01dbcd0c3ef26303b447957de30928af549",
+      "bytes": 729
+    },
+    {
+      "path": "docs/research/execution-v1-06/real/reader-query-repair/green-refactor.log",
+      "sha256": "03bf58fd25323d5764f89425a50d12a749d01413cfd6d6dc7427931e39dc397e",
+      "bytes": 344
+    },
+    {
+      "path": "docs/research/execution-v1-06/real/reader-query-repair/typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/research/execution-v1-06/real/reader-query-repair/final-green.log",
+      "sha256": "03bf58fd25323d5764f89425a50d12a749d01413cfd6d6dc7427931e39dc397e",
+      "bytes": 344
+    }
+  ]
+}

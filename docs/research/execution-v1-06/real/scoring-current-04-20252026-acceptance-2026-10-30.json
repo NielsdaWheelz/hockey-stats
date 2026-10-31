@@ -1,0 +1,632 @@
+{
+  "kind": "execution-v1-06-real-annual-score-acceptance",
+  "status": "passed",
+  "root_review": "pending",
+  "annual_accepted": false,
+  "checked_at_utc": "2026-10-30T07:43:49.001092+00:00",
+  "date_local": "2026-10-30",
+  "purpose": "real",
+  "season": "20252026",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "source_and_input_pins_unchanged": true,
+  "after_checks_identity_verification": {
+    "checked_at_utc": "2026-10-30T07:43:49.001092+00:00",
+    "head": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "source_files": 51,
+    "input_and_probe_pins": 12,
+    "checker_pins": 2,
+    "accepted_prior_manifest_pins": 4,
+    "accepted_facts_manifest_pins": 1,
+    "preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-04-preflight-2026-10-29.json",
+      "sha256": "0f3c8b34afa804a0f865c66fd6f8ef5057a73a78b345a61d64a5589cdc5a6b80",
+      "bytes": 15970
+    },
+    "accepted_prior_manifests": [
+      {
+        "season": "20212022",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+        "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+        "bytes": 382434
+      },
+      {
+        "season": "20222023",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json",
+        "sha256": "1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede",
+        "bytes": 382616
+      },
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+        "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0",
+        "bytes": 382623
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+        "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+        "bytes": 382625
+      }
+    ],
+    "accepted_facts_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb",
+      "bytes": 13870
+    },
+    "method": "fresh bounded sha256 comparisons for51 local analysis files,12 pinned input/probe manifests,2 checker files,four accepted prior annual manifests and facts-04 manifest; exact frozen head. no bulk prepared members,fitted arrays,accepted annual members or old factual members reopened"
+  },
+  "acceptance_command_preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-04-acceptance-preparation-2026-10-30.json",
+    "sha256": "37e25e91feac6ff7a9d96d184a266d0a9769c093fb8e5dee3895df2201b361c6",
+    "bytes": 11023
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+    "sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+    "bytes": 382610
+  },
+  "command": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-command.json",
+    "sha256": "d02453995189c126757866ba946a3876f0e8aa9c883ac071555a16cfee177821",
+    "bytes": 15089
+  },
+  "local_command_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-04-20252026-2026-10-29.json",
+    "sha256": "d02453995189c126757866ba946a3876f0e8aa9c883ac071555a16cfee177821",
+    "bytes": 15089
+  },
+  "score_completion": {
+    "exit_status_file": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "actual_shell_exit_code": 0,
+    "process_status": "scoring owner confirmed shell64841,time64842,python64843 all gone after exit0 and completed manifest",
+    "authority": "actual persistent-shell exit-status file and completed manifest; no scoring exec-tool session"
+  },
+  "score_measured_resources": {
+    "wall_seconds": 20008.89,
+    "user_seconds": 18743.68,
+    "system_seconds": 296.86,
+    "peak_rss_bytes": 24695128064,
+    "peak_memory_footprint_bytes": 30115125376
+  },
+  "score_stdout": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026.stdout.log",
+    "sha256": "cb17e329239ed66554ff4e1b0c2ba948e8b2e3e89cf39f6298ad82189e1fc1d3",
+    "bytes": 144
+  },
+  "score_stderr_and_time": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026.stderr.log",
+    "sha256": "f6098cb95e5a640d88df2756f21950c0906ee143a96a463a6e591dc414fd9405",
+    "bytes": 777
+  },
+  "artifact_shape": {
+    "recognized_events": 153754,
+    "complete_events": 151381,
+    "excluded_events": 2373,
+    "panels": 32,
+    "origin_rows": 26668401,
+    "setter_branches": 1371413,
+    "projected_skaters": 940,
+    "projections": 6580,
+    "bound_member_count": 73,
+    "declared_bound_member_bytes": 2473269316,
+    "annual_resources": {
+      "complete_events": 151381,
+      "design_wall_seconds": 5786.677063749987,
+      "input_read_wall_seconds": 29.195444999990286,
+      "origin_rows": 26668401,
+      "output_bytes": 2473269316,
+      "panel_array_bytes": 1497063856,
+      "peak_memory_bytes": 24422219776,
+      "projected_skaters": 940,
+      "projection_wall_seconds": 10781.071724042005,
+      "projections": 6580,
+      "recognized_events": 153754,
+      "resolution_wall_seconds": 2207.0914495000034,
+      "scoring_wall_seconds": 1087.357184583001,
+      "setter_branches": 1371413,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 19927.957480082987,
+      "write_wall_seconds": 21.851500875025522
+    },
+    "numerical_resolution": {
+      "status": "passed",
+      "path": "resolution.json"
+    }
+  },
+  "checks": [
+    {
+      "kind": "strict-reader",
+      "tool_session": 22461,
+      "final_tool_chunk": "26e28d",
+      "exit_code": 0,
+      "exit_authority": "scoring owner native tool session completion recovered after handoff",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-c",
+        "from pathlib import Path\nimport hashlib, json\nfrom hockey_stats.execution_scores import read_execution_scores\nroot = Path(\"/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04\")\nscore = read_execution_scores(root / \"scores/20252026\", \"real\")\nm = score.manifest\nassert m[\"season\"] == \"20252026\"\nassert m[\"resources\"][\"recognized_events\"] == 153754\nassert m[\"resources\"][\"complete_events\"] == 151381\nassert len(m[\"panels\"]) == 32\nassert m[\"numerical_resolution\"][\"status\"] == \"passed\"\nresolution = json.loads((score.path.parent / \"resolution.json\").read_bytes())\nassert resolution[\"status\"] == \"passed\"\nassert resolution[\"tolerances\"] == dict(probability=1e-5, per100=1e-3, map_l1=1e-3)\nassert len(resolution[\"event_probes\"][\"actual_keys\"]) == 256\nassert len(resolution[\"selector\"][\"pairs\"]) <= 45\nassert [row[\"head\"] for row in resolution[\"probes\"]] == list(\"uqrg\")\nassert all(len(row[\"neutral_panels\"]) == 32 and row[\"status\"] == \"passed\" for row in resolution[\"probes\"])\nr = dict(kind=\"execution-v1-06-separate-strict-read\", status=\"passed\", purpose=\"real\", season=m[\"season\"], manifest=str(score.path), manifest_sha256=hashlib.sha256(score.path.read_bytes()).hexdigest(), recognized=153754, complete=151381, panels=32, numerical_resolution=\"passed\", actual_probe_keys=256, frozen_pairs=len(resolution[\"selector\"][\"pairs\"]), saved_probe_heads=list(\"uqrg\"), synthetic_witnesses=resolution[\"event_probes\"][\"fixture_witnesses\"], tolerances=resolution[\"tolerances\"], probe_maximum_changes={row[\"head\"]:row[\"maximum_changes\"] for row in resolution[\"probes\"]})\nwith (root / \"20252026-strict-reader.json\").open(\"x\") as target:\n    target.write(json.dumps(r, indent=2) + \"\\n\")\nprint(json.dumps(r))"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "fresh_paths_before_start": "all receipt/stdout/stderr paths absent immediately before this command; strict checked by scoring owner, source/math checked by root",
+      "measurement": {
+        "wall_seconds": 53.4,
+        "user_seconds": 47.11,
+        "system_seconds": 0.74,
+        "peak_rss_bytes": 3451863040,
+        "peak_memory_footprint_bytes": 3431336816,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.stdout.log",
+          "sha256": "fa00e9e7e79072b0081c005ecc005e1c802a739d07fbaa7f72634e4bd64593c1",
+          "bytes": 1607
+        },
+        "stderr_and_time": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.stderr.log",
+          "sha256": "c558cb2e216eca96863636bc9738f590cfa1e1890206037ec52846ae69f66f57",
+          "bytes": 777
+        },
+        "raw_time_output": "       53.40 real        47.11 user         0.74 sys\n          3451863040  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n              306445  page reclaims\n                  87  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                1049  voluntary context switches\n                5575  involuntary context switches\n       1082774376619  instructions retired\n        215451503111  cycles elapsed\n          3431336816  peak memory footprint\n",
+        "log_created_at_utc": "2026-10-30T07:36:58.083806+00:00"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.json",
+        "sha256": "5b166bd76e32ffe4ce99d3813af200a21a9b27ad1a40b73fc3460a65389c4a32",
+        "bytes": 1873
+      },
+      "result": {
+        "kind": "execution-v1-06-separate-strict-read",
+        "status": "passed",
+        "purpose": "real",
+        "season": "20252026",
+        "manifest": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+        "manifest_sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+        "recognized": 153754,
+        "complete": 151381,
+        "panels": 32,
+        "numerical_resolution": "passed",
+        "actual_probe_keys": 256,
+        "frozen_pairs": 43,
+        "saved_probe_heads": [
+          "u",
+          "q",
+          "r",
+          "g"
+        ],
+        "synthetic_witnesses": [
+          "synthetic-resolution:2025020038:6:shooter:8471734"
+        ],
+        "tolerances": {
+          "probability": 1e-05,
+          "per100": 0.001,
+          "map_l1": 0.001
+        },
+        "probe_maximum_changes": {
+          "u": {
+            "actual_probability": 9.083209995264241e-08,
+            "synthetic_probability": 2.8805992480229747e-08,
+            "posterior_diagnostic": 0.0,
+            "stage": 1.5490429050579735e-08,
+            "per100": 4.18262651180612e-08,
+            "map_l1": 1.9475221201899905e-07
+          },
+          "q": {
+            "actual_probability": 1.627198028542054e-07,
+            "synthetic_probability": 7.164874726850456e-08,
+            "posterior_diagnostic": 0.0,
+            "stage": 6.6275962495865315e-09,
+            "per100": 9.247928645095271e-08,
+            "map_l1": 2.367562916477235e-07
+          },
+          "r": {
+            "actual_probability": 2.55138207005956e-07,
+            "synthetic_probability": 2.674716584327719e-07,
+            "posterior_diagnostic": 0.0,
+            "stage": 9.342111947918674e-08,
+            "per100": 7.721282173633881e-07,
+            "map_l1": 8.220447953290951e-07
+          },
+          "g": {
+            "actual_probability": 1.9411366614097147e-07,
+            "synthetic_probability": 2.43381577585966e-07,
+            "posterior_diagnostic": 6.104734312506466e-08,
+            "stage": 3.8965713322625106e-08,
+            "per100": 6.523892163556866e-05,
+            "map_l1": 6.52389216347833e-05
+          }
+        }
+      }
+    },
+    {
+      "kind": "source-boundary",
+      "tool_session": 11314,
+      "final_tool_chunk": "b0b9a0",
+      "exit_code": 0,
+      "exit_authority": "root direct exact reviewed command; actual tool completion supplied to scoring owner",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py",
+        "--purpose",
+        "real",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "fresh_paths_before_start": "all receipt/stdout/stderr paths absent immediately before this command; strict checked by scoring owner, source/math checked by root",
+      "measurement": {
+        "wall_seconds": 4.14,
+        "user_seconds": 2.9,
+        "system_seconds": 0.1,
+        "peak_rss_bytes": 993394688,
+        "peak_memory_footprint_bytes": 983958680,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.stdout.log",
+          "sha256": "d3221820fe2cbcb504beb9be6c07fe0124777e66986ef93d2534190f4239647a",
+          "bytes": 571
+        },
+        "stderr_and_time": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.stderr.log",
+          "sha256": "bba04c1137356f514cde7cb7acdcc8a74aea7966cfb6868079b0c3198bf16dd5",
+          "bytes": 777
+        },
+        "raw_time_output": "        4.14 real         2.90 user         0.10 sys\n           993394688  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n               61680  page reclaims\n                  46  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  21  voluntary context switches\n                 509  involuntary context switches\n         56374644933  instructions retired\n         13580343938  cycles elapsed\n           983958680  peak memory footprint\n",
+        "log_created_at_utc": "2026-10-30T07:39:48.716496+00:00"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.json",
+        "sha256": "7bbf3ac0ff150579b652a78a5c61fe4509fa1015c360d0f52ee73a54df951e92",
+        "bytes": 613
+      },
+      "result": {
+        "status": "passed",
+        "purpose": "real",
+        "season": "20252026",
+        "expected_recognized": 153754,
+        "expected_complete": 151381,
+        "state_manifest_sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be",
+        "score_manifest_sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+        "recognized": 153754,
+        "complete": 151381,
+        "panels": 32,
+        "final_probe_binding": {
+          "actual_keys": 256,
+          "fixture_witnesses": 1,
+          "saved_probe_identities": 4
+        },
+        "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+      }
+    },
+    {
+      "kind": "independent-arithmetic",
+      "tool_session": 41179,
+      "final_tool_chunk": "b34b0d",
+      "exit_code": 0,
+      "exit_authority": "root direct exact reviewed command; actual tool completion supplied to scoring owner",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-I",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "fresh_paths_before_start": "all receipt/stdout/stderr paths absent immediately before this command; strict checked by scoring owner, source/math checked by root",
+      "measurement": {
+        "wall_seconds": 66.19,
+        "user_seconds": 65.02,
+        "system_seconds": 0.82,
+        "peak_rss_bytes": 10963664896,
+        "peak_memory_footprint_bytes": 10956546232,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.stdout.log",
+          "sha256": "ea1da00e13335646c8ada7927c06d4092c03148da90a00ad48278c1d0ab21c57",
+          "bytes": 4631
+        },
+        "stderr_and_time": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.stderr.log",
+          "sha256": "e9dd72409cbbaf2b89f41c66f1639ea4e394835a7940663023fdc2cb3b86b6e3",
+          "bytes": 777
+        },
+        "raw_time_output": "       66.19 real        65.02 user         0.82 sys\n         10963664896  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n              711927  page reclaims\n                  45  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   7  voluntary context switches\n                6288  involuntary context switches\n       1743190283691  instructions retired\n        293552555496  cycles elapsed\n         10956546232  peak memory footprint\n",
+        "log_created_at_utc": "2026-10-30T07:40:00.499939+00:00"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.json",
+        "sha256": "8f322430e1e1d4147025f8757462f2900a1b24b49096516fa85de6ba2acc2f23",
+        "bytes": 4630
+      },
+      "result": {
+        "failure_count": 0,
+        "failures": [],
+        "limits": {
+          "coalition_abs": 1e-14,
+          "cond_actor_on_net_rel": 1e-11,
+          "cond_actor_unblocked_rel": 1e-11,
+          "cond_neutral_on_net_rel": 1e-11,
+          "cond_ng_on_net_rel": 1e-11,
+          "cond_ng_unblocked_rel": 1e-11,
+          "map_finishing_l1": 1e-09,
+          "map_setting_l1": 1e-09,
+          "posterior_abs": 1e-12,
+          "prefix_actor_rel": 1e-11,
+          "prefix_neutral_goalie_rel": 1e-11,
+          "prefix_neutral_rel": 1e-11,
+          "proj_focal_mass_rel": 1e-11,
+          "proj_level_abs": 1e-12,
+          "proj_scalar_abs": 1e-09,
+          "resolution_expected_sum_abs": 0.0,
+          "resolution_neutral_panel_baseline_rel": 1e-11,
+          "share_closure_abs": 1e-13,
+          "share_coach_abs": 1e-14,
+          "share_goalie_abs": 1e-14,
+          "share_setter_abs": 1e-14,
+          "share_shooter_abs": 1e-14
+        },
+        "notes": {
+          "g_rows_label_ambiguous": 0,
+          "g_rows_marginal": 51099,
+          "g_rows_onehot_label": 7529,
+          "projection_pairs": 50,
+          "sampled:g_row": 396,
+          "sampled:goalie_setter": 833,
+          "sampled:missing_coach": 0,
+          "sampled:outcome:block": 220,
+          "sampled:outcome:goal": 63,
+          "sampled:type:tip": 85,
+          "sampled:unknown_setter": 26,
+          "sampled_events": 900,
+          "setter_count_checked": 50,
+          "worst_onehot_mixture_log_posterior": -4.472320945358229
+        },
+        "resolution_check": {
+          "actual_probe_keys": 256,
+          "fixture_requirement_kinds": [
+            "sparse"
+          ],
+          "fixture_witnesses": [
+            "synthetic-resolution:2025020038:6:shooter:8471734"
+          ],
+          "heads": [
+            {
+              "actual_probability": 9.083209995264241e-08,
+              "danger_crossings": 0,
+              "head": "u",
+              "map_l1": 1.9475221201899905e-07,
+              "neutral_panel_uqrg_change_max": 1.9072970644629095e-05,
+              "per100": 4.18262651180612e-08,
+              "posterior_diagnostic": 0.0,
+              "stage": 1.5490429050579735e-08,
+              "status": "passed",
+              "synthetic_probability": 2.8805992480229747e-08
+            },
+            {
+              "actual_probability": 1.627198028542054e-07,
+              "danger_crossings": 0,
+              "head": "q",
+              "map_l1": 2.367562916477235e-07,
+              "neutral_panel_uqrg_change_max": 1.657457232795423e-05,
+              "per100": 9.247928645095271e-08,
+              "posterior_diagnostic": 0.0,
+              "stage": 6.6275962495865315e-09,
+              "status": "passed",
+              "synthetic_probability": 7.164874726850456e-08
+            },
+            {
+              "actual_probability": 2.55138207005956e-07,
+              "danger_crossings": 0,
+              "head": "r",
+              "map_l1": 8.220447953290951e-07,
+              "neutral_panel_uqrg_change_max": 3.3135045669041574e-05,
+              "per100": 7.721282173633881e-07,
+              "posterior_diagnostic": 0.0,
+              "stage": 9.342111947918674e-08,
+              "status": "passed",
+              "synthetic_probability": 2.674716584327719e-07
+            },
+            {
+              "actual_probability": 1.9411366614097147e-07,
+              "danger_crossings": 0,
+              "head": "g",
+              "map_l1": 6.52389216347833e-05,
+              "neutral_panel_uqrg_change_max": 0.0002452010830893414,
+              "per100": 6.523892163556866e-05,
+              "posterior_diagnostic": 6.104734312506466e-08,
+              "stage": 3.8965713322625106e-08,
+              "status": "passed",
+              "synthetic_probability": 2.43381577585966e-07
+            }
+          ],
+          "limit": "variant neutral logits need predictor matrices (source pass owned by numerical_review); this checks frozen identities, selector, baseline panels and verdict consistency",
+          "pairs": 43,
+          "status": "passed",
+          "unavailable_requirements": [
+            "D:setter:first_prior_only",
+            "F:setter:first_prior_only"
+          ]
+        },
+        "resolution_status": "passed",
+        "scores": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+        "scores_sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+        "season": "20252026",
+        "status": {
+          "complete": 151381,
+          "excluded": 2373
+        },
+        "worst": {
+          "coalition_abs": 1.6653345369377348e-16,
+          "cond_actor_on_net_rel": 1.90917402435472e-15,
+          "cond_actor_unblocked_rel": 1.7851949575730028e-15,
+          "cond_neutral_on_net_rel": 2.804996882879727e-15,
+          "cond_ng_on_net_rel": 1.275216821342531e-15,
+          "cond_ng_unblocked_rel": 2.6569419994163886e-15,
+          "map_finishing_l1": 9.221964487079841e-15,
+          "map_setting_l1": 3.056074036683013e-14,
+          "posterior_abs": 1.1102230246251565e-16,
+          "prefix_actor_rel": 1.4439999335114057e-15,
+          "prefix_neutral_goalie_rel": 1.2603480886650807e-15,
+          "prefix_neutral_rel": 1.5839727287277593e-15,
+          "proj_focal_mass_rel": 3.807970696842415e-16,
+          "proj_level_abs": 1.3877787807814457e-14,
+          "proj_scalar_abs": 1.7763568394002505e-15,
+          "resolution_neutral_panel_baseline_rel": 2.1053313804206936e-16,
+          "share_closure_abs": 1.0148132334464322e-16,
+          "share_coach_abs": 5.757113535898029e-17,
+          "share_goalie_abs": 6.331740687315346e-17,
+          "share_setter_abs": 2.0816681711721685e-17,
+          "share_shooter_abs": 5.724587470723463e-17
+        }
+      }
+    }
+  ],
+  "limits": {
+    "coalition_abs": 1e-14,
+    "cond_actor_on_net_rel": 1e-11,
+    "cond_actor_unblocked_rel": 1e-11,
+    "cond_neutral_on_net_rel": 1e-11,
+    "cond_ng_on_net_rel": 1e-11,
+    "cond_ng_unblocked_rel": 1e-11,
+    "map_finishing_l1": 1e-09,
+    "map_setting_l1": 1e-09,
+    "posterior_abs": 1e-12,
+    "prefix_actor_rel": 1e-11,
+    "prefix_neutral_goalie_rel": 1e-11,
+    "prefix_neutral_rel": 1e-11,
+    "proj_focal_mass_rel": 1e-11,
+    "proj_level_abs": 1e-12,
+    "proj_scalar_abs": 1e-09,
+    "resolution_expected_sum_abs": 0.0,
+    "resolution_neutral_panel_baseline_rel": 1e-11,
+    "share_closure_abs": 1e-13,
+    "share_coach_abs": 1e-14,
+    "share_goalie_abs": 1e-14,
+    "share_setter_abs": 1e-14,
+    "share_shooter_abs": 1e-14
+  },
+  "thresholds_unchanged": true,
+  "independent_arithmetic_scope": {
+    "sampled_events": 900,
+    "projection_pairs": 50,
+    "failures": 0,
+    "raw_checker_limit": "variant neutral logits need predictor matrices (source pass owned by numerical_review); this checks frozen identities, selector, baseline panels and verdict consistency",
+    "accepted_boundary": "existing independent score_check verifies frozen probe identities, specified pair selector, baseline panel masses, event arithmetic and propagation verdict consistency; it does not independently rebuild real design or variant neutral predictor matrices. no independent real-design or variant-logit rebuild is assigned. docs/research/execution-v1-06/reviews/real-independent-review.md owns the accepted boundary: design-owner byte identity, fixture-matrix parity and real source reconciliation support that scope; the inherited checker comment does not assign another owner or campaign.",
+    "dated_review": "docs/research/execution-v1-06/reviews/real-independent-review.md",
+    "new_real_design_or_variant_logit_rebuild_assigned": false,
+    "qualification": "frozen probe identities,source/disposition/panel relationships,specified selector,baseline-panel totals,independent sampled arithmetic and propagation verdict consistency checked; bounded propagation is not an all-player error bound or seasonwide actor comparison"
+  },
+  "numerical_resolution": {
+    "status": "passed",
+    "saved_probe_heads": [
+      "u",
+      "q",
+      "r",
+      "g"
+    ],
+    "panels_per_head": 32,
+    "frozen_pairs": 43,
+    "actual_keys": 256,
+    "synthetic_witnesses": [
+      "synthetic-resolution:2025020038:6:shooter:8471734"
+    ],
+    "synthetic_requirement_kinds": [
+      "sparse"
+    ],
+    "unavailable_pair_requirements": [
+      "D:setter:first_prior_only",
+      "F:setter:first_prior_only"
+    ],
+    "maximum_probability_change": 2.674716584327719e-07,
+    "maximum_stage_change": 9.342111947918674e-08,
+    "maximum_per100_absolute_change": 6.523892163556866e-05,
+    "maximum_native_map_l1_change": 6.52389216347833e-05,
+    "danger_threshold_crossings": 0,
+    "heads": [
+      {
+        "actual_probability": 9.083209995264241e-08,
+        "danger_crossings": 0,
+        "head": "u",
+        "map_l1": 1.9475221201899905e-07,
+        "neutral_panel_uqrg_change_max": 1.9072970644629095e-05,
+        "per100": 4.18262651180612e-08,
+        "posterior_diagnostic": 0.0,
+        "stage": 1.5490429050579735e-08,
+        "status": "passed",
+        "synthetic_probability": 2.8805992480229747e-08
+      },
+      {
+        "actual_probability": 1.627198028542054e-07,
+        "danger_crossings": 0,
+        "head": "q",
+        "map_l1": 2.367562916477235e-07,
+        "neutral_panel_uqrg_change_max": 1.657457232795423e-05,
+        "per100": 9.247928645095271e-08,
+        "posterior_diagnostic": 0.0,
+        "stage": 6.6275962495865315e-09,
+        "status": "passed",
+        "synthetic_probability": 7.164874726850456e-08
+      },
+      {
+        "actual_probability": 2.55138207005956e-07,
+        "danger_crossings": 0,
+        "head": "r",
+        "map_l1": 8.220447953290951e-07,
+        "neutral_panel_uqrg_change_max": 3.3135045669041574e-05,
+        "per100": 7.721282173633881e-07,
+        "posterior_diagnostic": 0.0,
+        "stage": 9.342111947918674e-08,
+        "status": "passed",
+        "synthetic_probability": 2.674716584327719e-07
+      },
+      {
+        "actual_probability": 1.9411366614097147e-07,
+        "danger_crossings": 0,
+        "head": "g",
+        "map_l1": 6.52389216347833e-05,
+        "neutral_panel_uqrg_change_max": 0.0002452010830893414,
+        "per100": 6.523892163556866e-05,
+        "posterior_diagnostic": 6.104734312506466e-08,
+        "stage": 3.8965713322625106e-08,
+        "status": "passed",
+        "synthetic_probability": 2.43381577585966e-07
+      }
+    ],
+    "limits": {
+      "probability": 1e-05,
+      "per100": 0.001,
+      "map_l1": 0.001
+    },
+    "new_solve": false,
+    "probe_promotion": false,
+    "scientific_admission": false
+  },
+  "remaining_annuals": [],
+  "selection_written": false,
+  "selection_rule": "root review of final annual acceptance precedes explicit ordered five-year selection at real/current-04/scores-selection.json; no selection or composition is launched by this receipt",
+  "composition_launched": false,
+  "preservation": "all four earlier accepted annuals,facts-04,all old partials,source evidence,fits/probes,serving files and other work remain at original paths; no deletion or overwritten scientific artifact",
+  "measurement_concurrency": "all three acceptance commands ran separately/sequentially after scoring exit0; no other analytical command launched by scoring owner",
+  "no_new_fit": true,
+  "no_activation": true,
+  "external_acceptance": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-acceptance.json"
+}

@@ -1,0 +1,104 @@
+{
+  "kind": "temporary-real-disclosure-red-completion",
+  "status": "expected RED observed against unchanged old server; not green acceptance",
+  "actual_exit_code": 1,
+  "checked_at_utc": "2026-10-31T02:34:38.428294+00:00",
+  "started_at_utc": "2026-10-31T02:33:14Z",
+  "finished_at_utc": "2026-10-31T02:33:27Z",
+  "server_node_pid": 40540,
+  "helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_discovery_disclosures.mjs",
+    "sha256": "0c48950e1f6ec4126c3e92e9827f463d848a8a6e42dce670e449d008e7f8fa86",
+    "bytes": 8985
+  },
+  "target_source_at_launch_sha256": "3dc403f91e2789e76f0ac006bc80b97cce34fe4bd4a0f2b41d0ce02240771135",
+  "failure": {
+    "callsite": "check_discovery_disclosures.mjs:69",
+    "message": "AssertionError [ERR_ASSERTION]: never-opened analysis-evidence bodies must be unmounted\n\n64700 !== 0\n",
+    "actual": 64700,
+    "expected": 0
+  },
+  "initial_counts": {
+    "discovery_rows": 924,
+    "evidence_shells": 9240,
+    "open_evidence_shells": 0,
+    "never_opened_body_children": 64700,
+    "coefficient_tables": 9240,
+    "coefficient_body_rows": 46200,
+    "coefficient_body_cells": 323400
+  },
+  "proper_cell_count": "direct HTMLTableElement.tBodies/rows/cells counts323400 tbody cells, excluding coefficient headers and outer discovery tbody ancestor matches",
+  "diagnostic_correction": "earlier diagnostic388080 labeled tbody cells included header cells through unscoped ancestor selector; original raw diagnostic preserved. this direct measurement supplies corrected body-only count",
+  "resources": {
+    "wall_seconds": 13.42,
+    "user_seconds": 5.78,
+    "system_seconds": 1.11,
+    "time_reported_maximum_resident_set_size_bytes": 1646067712
+  },
+  "green_scope_not_executed": [
+    "native primary disclosure five coefficient rows",
+    "accepted API three-detail payload equality",
+    "native nested open state/data retention after outer close/reopen",
+    "other unopened bodies remain absent",
+    "focused viewport screenshot"
+  ],
+  "browser_closed": true,
+  "owned_processes_gone": true,
+  "owned_chrome_probe": {
+    "exit_code": 1,
+    "stdout": ""
+  },
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01-command.json",
+      "sha256": "04c330b17a2f63e9fb4a63a0fbcccf3ce21a8a17f68f2e0d2374571843fcf07a",
+      "bytes": 3136
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01-process.json",
+      "sha256": "06149897e4affc5b4c4f62795f0f6a576206cc892ff2932deb0c0e86d57cafef",
+      "bytes": 2278
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01.started",
+      "sha256": "3fa31e140e760ad8c7ad3cbcaae78aad39e885c9b42935bd895c045e5f3717c1",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01.finished",
+      "sha256": "3cb17ea41911712fe22ee3e7b59f64c00dcac37cacbb567bcd13be6a3b47ef0a",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01.stdout.log",
+      "sha256": "703064b326703e2710d4c16dddf031d3c3b80c9e15c2423cb7a38d9e2f3ad475",
+      "bytes": 823
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01.stderr.log",
+      "sha256": "e176b40dd616bcd0b75657621a290f0d38e866555c73fbbf470429f1cd9e9b74",
+      "bytes": 777
+    }
+  ],
+  "check_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01/check.json",
+    "sha256": "68f37e7687dffc551398c60412bfadb7d6eeedbb9c84c5eaa268573750db49ba",
+    "bytes": 1701
+  },
+  "temporary_browser_locator": {
+    "new_sha256": "46077e37301927bee5b934a800a225b1fe57f188626986c1517c50c3d4daeefa",
+    "prior_failed_sha256": "bc97ef2cd7dfabedc0447e94ba55de02f60d61906109b93631d29e392d954ce8",
+    "diff": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/browser-discovery-locator.diff",
+      "sha256": "01aa09b2d77d5ae1aa96ff149de7c2a63e28349c15039d2a6d7170da13052329",
+      "bytes": 825
+    }
+  },
+  "preservation": "no production/build/server/model/data/API changes, no full suite or acceptance rerun, original failures retained",
+  "next": "STOP for separately assigned production writer; green requires reviewed change/build/server release"
+}

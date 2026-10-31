@@ -1,0 +1,1783 @@
+{
+  "kind": "execution-v1-06-real-first-year-pre-manifest-panel-capacity",
+  "checked_at": "2026-10-27T08:29:47.460615+00:00",
+  "purpose": "real",
+  "season": "20212022",
+  "pid": 14533,
+  "elapsed": "01:56:09",
+  "rss_kib": 18923840,
+  "rss_bytes": 19378012160,
+  "cpu_percent": 98.8,
+  "status": "pre-manifest observation only; annual artifact is not accepted",
+  "phase": "all32panel file pairs are complete/readable; projection stream not yet created, participation reread is next/active in the fixed writer sequence",
+  "completion_manifest_exists": false,
+  "panel_pairs": 32,
+  "physical_attempts": 147510,
+  "origin_rows": 23180585,
+  "panel_array_bytes": 1301653256,
+  "panel_disk_bytes": 1332181837,
+  "panels": [
+    {
+      "panel": "3v3g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "3v3g1",
+      "physical_attempts": 1552,
+      "origin_rows": 144342,
+      "array_bytes": 8120408,
+      "npz_bytes": 8122010,
+      "event_jsonl_bytes": 322208,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1553
+          ],
+          "dtype": "int64",
+          "array_bytes": 12424
+        },
+        "origin_cells": {
+          "shape": [
+            144342
+          ],
+          "dtype": "int64",
+          "array_bytes": 1154736
+        },
+        "origin_weights": {
+          "shape": [
+            144342
+          ],
+          "dtype": "float64",
+          "array_bytes": 1154736
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            144342,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 3464208
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            144342,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 2309472
+        },
+        "setup_weights": {
+          "shape": [
+            1552,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 24832
+        }
+      }
+    },
+    {
+      "panel": "3v4g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "3v4g1",
+      "physical_attempts": 30,
+      "origin_rows": 2650,
+      "array_bytes": 149128,
+      "npz_bytes": 150730,
+      "event_jsonl_bytes": 6218,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            31
+          ],
+          "dtype": "int64",
+          "array_bytes": 248
+        },
+        "origin_cells": {
+          "shape": [
+            2650
+          ],
+          "dtype": "int64",
+          "array_bytes": 21200
+        },
+        "origin_weights": {
+          "shape": [
+            2650
+          ],
+          "dtype": "float64",
+          "array_bytes": 21200
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            2650,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 63600
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            2650,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 42400
+        },
+        "setup_weights": {
+          "shape": [
+            30,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 480
+        }
+      }
+    },
+    {
+      "panel": "3v5g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "3v5g1",
+      "physical_attempts": 18,
+      "origin_rows": 1328,
+      "array_bytes": 74808,
+      "npz_bytes": 76410,
+      "event_jsonl_bytes": 3724,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            19
+          ],
+          "dtype": "int64",
+          "array_bytes": 152
+        },
+        "origin_cells": {
+          "shape": [
+            1328
+          ],
+          "dtype": "int64",
+          "array_bytes": 10624
+        },
+        "origin_weights": {
+          "shape": [
+            1328
+          ],
+          "dtype": "float64",
+          "array_bytes": 10624
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            1328,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 31872
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            1328,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 21248
+        },
+        "setup_weights": {
+          "shape": [
+            18,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 288
+        }
+      }
+    },
+    {
+      "panel": "3v6g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "3v6g1",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "4v3g0",
+      "physical_attempts": 9,
+      "origin_rows": 1319,
+      "array_bytes": 74088,
+      "npz_bytes": 75690,
+      "event_jsonl_bytes": 1876,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            10
+          ],
+          "dtype": "int64",
+          "array_bytes": 80
+        },
+        "origin_cells": {
+          "shape": [
+            1319
+          ],
+          "dtype": "int64",
+          "array_bytes": 10552
+        },
+        "origin_weights": {
+          "shape": [
+            1319
+          ],
+          "dtype": "float64",
+          "array_bytes": 10552
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            1319,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 31656
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            1319,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 21104
+        },
+        "setup_weights": {
+          "shape": [
+            9,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 144
+        }
+      }
+    },
+    {
+      "panel": "4v3g1",
+      "physical_attempts": 324,
+      "origin_rows": 50759,
+      "array_bytes": 2850288,
+      "npz_bytes": 2851890,
+      "event_jsonl_bytes": 66969,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            325
+          ],
+          "dtype": "int64",
+          "array_bytes": 2600
+        },
+        "origin_cells": {
+          "shape": [
+            50759
+          ],
+          "dtype": "int64",
+          "array_bytes": 406072
+        },
+        "origin_weights": {
+          "shape": [
+            50759
+          ],
+          "dtype": "float64",
+          "array_bytes": 406072
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            50759,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 1218216
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            50759,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 812144
+        },
+        "setup_weights": {
+          "shape": [
+            324,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 5184
+        }
+      }
+    },
+    {
+      "panel": "4v4g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "4v4g1",
+      "physical_attempts": 1717,
+      "origin_rows": 247997,
+      "array_bytes": 13929048,
+      "npz_bytes": 13930650,
+      "event_jsonl_bytes": 355437,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1718
+          ],
+          "dtype": "int64",
+          "array_bytes": 13744
+        },
+        "origin_cells": {
+          "shape": [
+            247997
+          ],
+          "dtype": "int64",
+          "array_bytes": 1983976
+        },
+        "origin_weights": {
+          "shape": [
+            247997
+          ],
+          "dtype": "float64",
+          "array_bytes": 1983976
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            247997,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 5951928
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            247997,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 3967952
+        },
+        "setup_weights": {
+          "shape": [
+            1717,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 27472
+        }
+      }
+    },
+    {
+      "panel": "4v5g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "4v5g1",
+      "physical_attempts": 3165,
+      "origin_rows": 242240,
+      "array_bytes": 13641408,
+      "npz_bytes": 13643010,
+      "event_jsonl_bytes": 655395,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            3166
+          ],
+          "dtype": "int64",
+          "array_bytes": 25328
+        },
+        "origin_cells": {
+          "shape": [
+            242240
+          ],
+          "dtype": "int64",
+          "array_bytes": 1937920
+        },
+        "origin_weights": {
+          "shape": [
+            242240
+          ],
+          "dtype": "float64",
+          "array_bytes": 1937920
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            242240,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 5813760
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            242240,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 3875840
+        },
+        "setup_weights": {
+          "shape": [
+            3165,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 50640
+        }
+      }
+    },
+    {
+      "panel": "4v6g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "4v6g1",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "5v3g0",
+      "physical_attempts": 4,
+      "origin_rows": 1314,
+      "array_bytes": 73688,
+      "npz_bytes": 75290,
+      "event_jsonl_bytes": 827,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            5
+          ],
+          "dtype": "int64",
+          "array_bytes": 40
+        },
+        "origin_cells": {
+          "shape": [
+            1314
+          ],
+          "dtype": "int64",
+          "array_bytes": 10512
+        },
+        "origin_weights": {
+          "shape": [
+            1314
+          ],
+          "dtype": "float64",
+          "array_bytes": 10512
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            1314,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 31536
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            1314,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 21024
+        },
+        "setup_weights": {
+          "shape": [
+            4,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 64
+        }
+      }
+    },
+    {
+      "panel": "5v3g1",
+      "physical_attempts": 561,
+      "origin_rows": 76541,
+      "array_bytes": 4299768,
+      "npz_bytes": 4301370,
+      "event_jsonl_bytes": 115747,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            562
+          ],
+          "dtype": "int64",
+          "array_bytes": 4496
+        },
+        "origin_cells": {
+          "shape": [
+            76541
+          ],
+          "dtype": "int64",
+          "array_bytes": 612328
+        },
+        "origin_weights": {
+          "shape": [
+            76541
+          ],
+          "dtype": "float64",
+          "array_bytes": 612328
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            76541,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 1836984
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            76541,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 1224656
+        },
+        "setup_weights": {
+          "shape": [
+            561,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 8976
+        }
+      }
+    },
+    {
+      "panel": "5v4g0",
+      "physical_attempts": 40,
+      "origin_rows": 5935,
+      "array_bytes": 333328,
+      "npz_bytes": 334930,
+      "event_jsonl_bytes": 8270,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            41
+          ],
+          "dtype": "int64",
+          "array_bytes": 328
+        },
+        "origin_cells": {
+          "shape": [
+            5935
+          ],
+          "dtype": "int64",
+          "array_bytes": 47480
+        },
+        "origin_weights": {
+          "shape": [
+            5935
+          ],
+          "dtype": "float64",
+          "array_bytes": 47480
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            5935,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 142440
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            5935,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 94960
+        },
+        "setup_weights": {
+          "shape": [
+            40,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 640
+        }
+      }
+    },
+    {
+      "panel": "5v4g1",
+      "physical_attempts": 19186,
+      "origin_rows": 2896601,
+      "array_bytes": 162670128,
+      "npz_bytes": 162671730,
+      "event_jsonl_bytes": 3960280,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            19187
+          ],
+          "dtype": "int64",
+          "array_bytes": 153496
+        },
+        "origin_cells": {
+          "shape": [
+            2896601
+          ],
+          "dtype": "int64",
+          "array_bytes": 23172808
+        },
+        "origin_weights": {
+          "shape": [
+            2896601
+          ],
+          "dtype": "float64",
+          "array_bytes": 23172808
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            2896601,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 69518424
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            2896601,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 46345616
+        },
+        "setup_weights": {
+          "shape": [
+            19186,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 306976
+        }
+      }
+    },
+    {
+      "panel": "5v5g0",
+      "physical_attempts": 35,
+      "origin_rows": 7895,
+      "array_bytes": 442968,
+      "npz_bytes": 444570,
+      "event_jsonl_bytes": 7252,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            36
+          ],
+          "dtype": "int64",
+          "array_bytes": 288
+        },
+        "origin_cells": {
+          "shape": [
+            7895
+          ],
+          "dtype": "int64",
+          "array_bytes": 63160
+        },
+        "origin_weights": {
+          "shape": [
+            7895
+          ],
+          "dtype": "float64",
+          "array_bytes": 63160
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            7895,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 189480
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            7895,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 126320
+        },
+        "setup_weights": {
+          "shape": [
+            35,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 560
+        }
+      }
+    },
+    {
+      "panel": "5v5g1",
+      "physical_attempts": 117676,
+      "origin_rows": 18895871,
+      "array_bytes": 1060993008,
+      "npz_bytes": 1060994610,
+      "event_jsonl_bytes": 24312141,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            117677
+          ],
+          "dtype": "int64",
+          "array_bytes": 941416
+        },
+        "origin_cells": {
+          "shape": [
+            18895871
+          ],
+          "dtype": "int64",
+          "array_bytes": 151166968
+        },
+        "origin_weights": {
+          "shape": [
+            18895871
+          ],
+          "dtype": "float64",
+          "array_bytes": 151166968
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            18895871,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 453500904
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            18895871,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 302333936
+        },
+        "setup_weights": {
+          "shape": [
+            117676,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 1882816
+        }
+      }
+    },
+    {
+      "panel": "5v6g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "5v6g1",
+      "physical_attempts": 3,
+      "origin_rows": 3,
+      "array_bytes": 248,
+      "npz_bytes": 1850,
+      "event_jsonl_bytes": 621,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "array_bytes": 32
+        },
+        "origin_cells": {
+          "shape": [
+            3
+          ],
+          "dtype": "int64",
+          "array_bytes": 24
+        },
+        "origin_weights": {
+          "shape": [
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 24
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            3,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 72
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 48
+        },
+        "setup_weights": {
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 48
+        }
+      }
+    },
+    {
+      "panel": "6v3g0",
+      "physical_attempts": 4,
+      "origin_rows": 659,
+      "array_bytes": 37008,
+      "npz_bytes": 38610,
+      "event_jsonl_bytes": 825,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            5
+          ],
+          "dtype": "int64",
+          "array_bytes": 40
+        },
+        "origin_cells": {
+          "shape": [
+            659
+          ],
+          "dtype": "int64",
+          "array_bytes": 5272
+        },
+        "origin_weights": {
+          "shape": [
+            659
+          ],
+          "dtype": "float64",
+          "array_bytes": 5272
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            659,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 15816
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            659,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 10544
+        },
+        "setup_weights": {
+          "shape": [
+            4,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 64
+        }
+      }
+    },
+    {
+      "panel": "6v3g1",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "6v4g0",
+      "physical_attempts": 349,
+      "origin_rows": 57334,
+      "array_bytes": 3219088,
+      "npz_bytes": 3220690,
+      "event_jsonl_bytes": 72252,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            350
+          ],
+          "dtype": "int64",
+          "array_bytes": 2800
+        },
+        "origin_cells": {
+          "shape": [
+            57334
+          ],
+          "dtype": "int64",
+          "array_bytes": 458672
+        },
+        "origin_weights": {
+          "shape": [
+            57334
+          ],
+          "dtype": "float64",
+          "array_bytes": 458672
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            57334,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 1376016
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            57334,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 917344
+        },
+        "setup_weights": {
+          "shape": [
+            349,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 5584
+        }
+      }
+    },
+    {
+      "panel": "6v4g1",
+      "physical_attempts": 1,
+      "origin_rows": 1,
+      "array_bytes": 88,
+      "npz_bytes": 1690,
+      "event_jsonl_bytes": 207,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            2
+          ],
+          "dtype": "int64",
+          "array_bytes": 16
+        },
+        "origin_cells": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_weights": {
+          "shape": [
+            1
+          ],
+          "dtype": "float64",
+          "array_bytes": 8
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 24
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            1,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 16
+        },
+        "setup_weights": {
+          "shape": [
+            1,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 16
+        }
+      }
+    },
+    {
+      "panel": "6v5g0",
+      "physical_attempts": 2832,
+      "origin_rows": 547792,
+      "array_bytes": 30744328,
+      "npz_bytes": 30745930,
+      "event_jsonl_bytes": 586238,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            2833
+          ],
+          "dtype": "int64",
+          "array_bytes": 22664
+        },
+        "origin_cells": {
+          "shape": [
+            547792
+          ],
+          "dtype": "int64",
+          "array_bytes": 4382336
+        },
+        "origin_weights": {
+          "shape": [
+            547792
+          ],
+          "dtype": "float64",
+          "array_bytes": 4382336
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            547792,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 13147008
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            547792,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 8764672
+        },
+        "setup_weights": {
+          "shape": [
+            2832,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 45312
+        }
+      }
+    },
+    {
+      "panel": "6v5g1",
+      "physical_attempts": 4,
+      "origin_rows": 4,
+      "array_bytes": 328,
+      "npz_bytes": 1930,
+      "event_jsonl_bytes": 830,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            5
+          ],
+          "dtype": "int64",
+          "array_bytes": 40
+        },
+        "origin_cells": {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "array_bytes": 32
+        },
+        "origin_weights": {
+          "shape": [
+            4
+          ],
+          "dtype": "float64",
+          "array_bytes": 32
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 96
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            4,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 64
+        },
+        "setup_weights": {
+          "shape": [
+            4,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 64
+        }
+      }
+    },
+    {
+      "panel": "6v6g0",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    },
+    {
+      "panel": "6v6g1",
+      "physical_attempts": 0,
+      "origin_rows": 0,
+      "array_bytes": 8,
+      "npz_bytes": 1610,
+      "event_jsonl_bytes": 0,
+      "arrays": {
+        "event_offsets": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "array_bytes": 8
+        },
+        "origin_cells": {
+          "shape": [
+            0
+          ],
+          "dtype": "int64",
+          "array_bytes": 0
+        },
+        "origin_weights": {
+          "shape": [
+            0
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_upstream_logits": {
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "neutral_goal_logits": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        },
+        "setup_weights": {
+          "shape": [
+            0,
+            2
+          ],
+          "dtype": "float64",
+          "array_bytes": 0
+        }
+      }
+    }
+  ],
+  "extra_projection_memory": "shared owner retains24bytes/origin neutral arrays for its current panel plus bounded chunk and per-event temporaries; no all-player x panel tensor; later validation adds one saved panel load",
+  "acceptance": "requires completion manifest, strict read and independent source/arithmetic checks; no incomplete artifact admitted"
+}

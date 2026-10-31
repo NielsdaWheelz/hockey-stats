@@ -1,0 +1,11 @@
+--- application_api.py reviewed5740d5f
++++ application_api.py approved source02 pin
+@@ -132,7 +132,7 @@
+ def check_source_identity(proof, frozen, manifest, selection, accounting, bindings, candidate_prepared):
+     """bind explicit supplied receipts; never reopen their raw/prepared/fit locators."""
+     assert proof['kind']=='bounded-real-execution-source-evidence' and proof['status']=='passed' and proof['purpose']=='real'
+-    assert proof['checker']['sha256']=='f815eff8731942f12951930ed561e35ee2a525363be51dfae4d2b247dd7d72cf'
++    assert proof['checker']['sha256']=='138a06e163df86c26697eb99234a08d9077c0f7d1235b78a4ec58432eb03280b'
+     assert proof['analysis_source_freeze']=='78a0727'
+     assert accounting['kind']=='all-row-saved-execution-composition-accounting' and accounting['status']=='passed' and accounting['purpose']=='real'
+     assert accounting['checker_sha256']=='66632591b4352668a53fb942aca8c47a5da8181bde84750f9177e9ce64497347'

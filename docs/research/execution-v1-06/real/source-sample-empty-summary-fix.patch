@@ -1,0 +1,20 @@
+--- check_real_source_sample.py:f815eff8731942f12951930ed561e35ee2a525363be51dfae4d2b247dd7d72cf
++++ check_real_source_sample.py:empty-summary-fix
+@@ -6,7 +6,7 @@
+ no predictors, models, source acquisition, production reductions or api folds run.
+ """
+ import argparse
+-from collections import Counter, defaultdict
++from collections import defaultdict
+ from datetime import datetime, timezone
+ import hashlib
+ import json
+@@ -303,7 +303,7 @@
+     for pop in POPULATIONS:
+         expected_keys = {key for key in base[pop] if key[0] not in masks[pop]}
+         assert actual[pop].keys() == expected_keys, (gid, pop, 'included/excluded intervals differ')
+-        totals = Counter()
++        totals = dict(included_seconds=0, excluded_seconds=0, events=0, zero_event_directed_intervals=0)
+         for i, segment in five.items():
+             duration = segment['end_seconds'] - segment['start_seconds']
+             excluded = i in masks[pop]

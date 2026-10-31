@@ -1,0 +1,88 @@
+{
+  "kind": "real-factual-unexplained-interruption",
+  "status": "interrupted; cause unresolved; output unaccepted",
+  "recorded_at": "2026-10-28T13:16:53.618713+00:00",
+  "observed_at": "2026-10-28T13:16:20.659276+00:00",
+  "analysis_source_freeze": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "facts",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02"
+  ],
+  "command_receipt_before": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02-command.json",
+    "sha256": "5a307c5c03b61453fea698a1065b59c4d6afd4e34eba1af5965eb47f724dd118",
+    "status": "running; stale after process disappearance"
+  },
+  "process": {
+    "python_pid": 5066,
+    "time_wrapper_pid": 5063,
+    "tool_session_id": 5360,
+    "both_pids_absent": true,
+    "original_session_probe": "write_stdin failed: Unknown process id 5360",
+    "exit_code": null,
+    "signal": null,
+    "session_expiry_or_cleanup_evidence": null
+  },
+  "last_live_observation": {
+    "owner": "root",
+    "elapsed": "about 5h51",
+    "scope": "root reports live before disappearance; exact timestamp not supplied in recovery request"
+  },
+  "cost": {
+    "final_wall_seconds": null,
+    "final_peak_rss_bytes": null,
+    "resource_log_bytes": 0,
+    "explanation": "no exit result or time resource summary is available; elapsed at absence is not final command duration"
+  },
+  "output": {
+    "directory": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02",
+    "manifest_present": false,
+    "factual_receipt_seasons": [
+      "20232024",
+      "20242025"
+    ],
+    "third_factual_receipt_present": false,
+    "accepted": false,
+    "partials": "preserved in place; unaccepted; no supported resume"
+  },
+  "cause": {
+    "status": "unresolved",
+    "supported": "both owned factual pids disappeared; original tool session is unknown; empty log supplies no termination evidence",
+    "not_established": [
+      "tool-session expiry or cleanup",
+      "drive failure",
+      "out-of-memory termination"
+    ]
+  },
+  "authorization": {
+    "root_report": "root sent no signals; user did not request stop",
+    "audit_actions": "original session probe and minimal metadata/receipt reads only; no signals, analytical commands, restart, deletion or production edits",
+    "restart": "not authorized"
+  },
+  "preservation": {
+    "original_schema1_facts": "not modified by this audit",
+    "previous_partial_facts": "preserved",
+    "facts_02_partials": "preserved",
+    "completed_scores_and_fits": "not modified",
+    "current_score_20232024_pid47863": "observed running at audit time; not modified"
+  },
+  "pending": [
+    "root decision on factual recovery",
+    "complete factual exchange and strict real preservation",
+    "all real composition and downstream candidate/application acceptance"
+  ],
+  "fits": false,
+  "activation": false
+}

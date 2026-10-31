@@ -1,0 +1,4066 @@
+{
+  "kind": "approved-extra-saved-selection-preinspection",
+  "status": "draft diagnostics only",
+  "games": [
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "block_population_difference_candidates": [
+        {
+          "source_index": 72,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476826,
+              "physical_shooter_id": 8476826,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/72"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/72"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 72,
+            "native": {
+              "source_index": 72,
+              "report_source_index": 75,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477444,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                94
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                28
+              ]
+            },
+            "touching_segment_indices": [
+              94
+            ],
+            "matching_segment_indices": [
+              94
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 94,
+            "native_interval_indices": [
+              94
+            ],
+            "period_number": 1,
+            "start_seconds": 820,
+            "end_seconds": 846,
+            "membership": {
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477444,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 72,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 846,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "1:820:846",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 1,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 820,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 846,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "1:820:846",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 1,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 820,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 72,
+            "event_id": 404,
+            "sort_order": 194,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "14:03",
+            "time_remaining": "05:57",
+            "elapsed_seconds": 843,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -63,
+            "reported_y": -30,
+            "roles": {
+              "shooter": 8476826,
+              "blocker": 8476979
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 121,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8481789,
+              "physical_shooter_id": 8481789,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/121"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/121"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 121,
+            "native": {
+              "source_index": 121,
+              "report_source_index": 124,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8479323,
+                8479324,
+                8481554
+              ],
+              "home_skaters": [
+                8476467,
+                8477505,
+                8478407,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "after",
+              "interval_indices": [
+                158
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                43
+              ]
+            },
+            "touching_segment_indices": [
+              157,
+              158
+            ],
+            "matching_segment_indices": [
+              158
+            ],
+            "temporal_case": "boundary",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 158,
+            "native_interval_indices": [
+              158
+            ],
+            "period_number": 2,
+            "start_seconds": 211,
+            "end_seconds": 215,
+            "membership": {
+              "away_skaters": [
+                8475184,
+                8476459,
+                8479323,
+                8479324,
+                8481554
+              ],
+              "home_skaters": [
+                8476467,
+                8477505,
+                8478407,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 121,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 215,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:211:215",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 211,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 215,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:211:215",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 211,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 121,
+            "event_id": 541,
+            "sort_order": 317,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "03:31",
+            "time_remaining": "16:29",
+            "elapsed_seconds": 211,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -57,
+            "reported_y": -33,
+            "roles": {
+              "shooter": 8481789,
+              "blocker": 8479323
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 128,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8474586,
+              "physical_shooter_id": 8474586,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/128"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/128"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 128,
+            "native": {
+              "source_index": 128,
+              "report_source_index": 131,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476979,
+                8478550,
+                8480078,
+                8482073,
+                8482109
+              ],
+              "home_skaters": [
+                8474586,
+                8475208,
+                8475768,
+                8478407,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                170
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                45
+              ]
+            },
+            "touching_segment_indices": [
+              170
+            ],
+            "matching_segment_indices": [
+              170
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 170,
+            "native_interval_indices": [
+              170
+            ],
+            "period_number": 2,
+            "start_seconds": 296,
+            "end_seconds": 307,
+            "membership": {
+              "away_skaters": [
+                8476979,
+                8478550,
+                8480078,
+                8482073,
+                8482109
+              ],
+              "home_skaters": [
+                8474586,
+                8475208,
+                8475768,
+                8478407,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 128,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 307,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:296:307",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 296,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 307,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:296:307",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 296,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 128,
+            "event_id": 556,
+            "sort_order": 336,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "04:58",
+            "time_remaining": "15:02",
+            "elapsed_seconds": 298,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -68,
+            "reported_y": 30,
+            "roles": {
+              "shooter": 8474586,
+              "blocker": 8480078
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 149,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8477930,
+              "physical_shooter_id": 8477930,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/149"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/149"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 149,
+            "native": {
+              "source_index": 149,
+              "report_source_index": 152,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476885,
+                8478550,
+                8480078,
+                8480817,
+                8482109
+              ],
+              "home_skaters": [
+                8475208,
+                8476457,
+                8476826,
+                8477505,
+                8477930
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                204
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                54
+              ]
+            },
+            "touching_segment_indices": [
+              204
+            ],
+            "matching_segment_indices": [
+              204
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 204,
+            "native_interval_indices": [
+              204
+            ],
+            "period_number": 2,
+            "start_seconds": 585,
+            "end_seconds": 592,
+            "membership": {
+              "away_skaters": [
+                8476885,
+                8478550,
+                8480078,
+                8480817,
+                8482109
+              ],
+              "home_skaters": [
+                8475208,
+                8476457,
+                8476826,
+                8477505,
+                8477930
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 149,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 592,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:585:592",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 585,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 592,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:585:592",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 585,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 149,
+            "event_id": 615,
+            "sort_order": 401,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "09:47",
+            "time_remaining": "10:13",
+            "elapsed_seconds": 587,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -69,
+            "reported_y": -23,
+            "roles": {
+              "shooter": 8477930,
+              "blocker": 8476885
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 175,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8481789,
+              "physical_shooter_id": 8481789,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/175"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/175"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 175,
+            "native": {
+              "source_index": 175,
+              "report_source_index": 178,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476979,
+                8481554,
+                8482073
+              ],
+              "home_skaters": [
+                8474602,
+                8476467,
+                8477505,
+                8477955,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                246
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                64
+              ]
+            },
+            "touching_segment_indices": [
+              246
+            ],
+            "matching_segment_indices": [
+              246
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 246,
+            "native_interval_indices": [
+              246
+            ],
+            "period_number": 2,
+            "start_seconds": 918,
+            "end_seconds": 932,
+            "membership": {
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476979,
+                8481554,
+                8482073
+              ],
+              "home_skaters": [
+                8474602,
+                8476467,
+                8477505,
+                8477955,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 175,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 932,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:918:932",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 918,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 932,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:918:932",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 918,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 175,
+            "event_id": 676,
+            "sort_order": 474,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "15:28",
+            "time_remaining": "04:32",
+            "elapsed_seconds": 928,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 50,
+            "reported_y": 19,
+            "roles": {
+              "shooter": 8481789,
+              "blocker": 8476459
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 176,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8478840,
+              "physical_shooter_id": 8478840,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/176"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/176"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 176,
+            "native": {
+              "source_index": 176,
+              "report_source_index": 179,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8475208,
+                8475768,
+                8477505,
+                8478840,
+                8479977
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                253
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                65
+              ]
+            },
+            "touching_segment_indices": [
+              253
+            ],
+            "matching_segment_indices": [
+              253
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 253,
+            "native_interval_indices": [
+              253
+            ],
+            "period_number": 2,
+            "start_seconds": 965,
+            "end_seconds": 982,
+            "membership": {
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8475208,
+                8475768,
+                8477505,
+                8478840,
+                8479977
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 176,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 982,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:965:982",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 965,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 982,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:965:982",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 965,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 176,
+            "event_id": 684,
+            "sort_order": 482,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "16:11",
+            "time_remaining": "03:49",
+            "elapsed_seconds": 971,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 74,
+            "reported_y": -10,
+            "roles": {
+              "shooter": 8478840,
+              "blocker": 8474009
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 183,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480009,
+              "physical_shooter_id": 8480009,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/183"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/183"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 183,
+            "native": {
+              "source_index": 183,
+              "report_source_index": 186,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477416,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                255
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                67
+              ]
+            },
+            "touching_segment_indices": [
+              255
+            ],
+            "matching_segment_indices": [
+              255
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 255,
+            "native_interval_indices": [
+              255
+            ],
+            "period_number": 2,
+            "start_seconds": 999,
+            "end_seconds": 1012,
+            "membership": {
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477416,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 183,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1012,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:999:1012",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 999,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1012,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:999:1012",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 999,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 183,
+            "event_id": 689,
+            "sort_order": 491,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "16:45",
+            "time_remaining": "03:15",
+            "elapsed_seconds": 1005,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 51,
+            "reported_y": -6,
+            "roles": {
+              "shooter": 8480009,
+              "blocker": 8476885
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 184,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480009,
+              "physical_shooter_id": 8480009,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/184"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/184"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 184,
+            "native": {
+              "source_index": 184,
+              "report_source_index": 187,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476624,
+                8479324,
+                8480817
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477416,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                257
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                68
+              ]
+            },
+            "touching_segment_indices": [
+              257
+            ],
+            "matching_segment_indices": [
+              257
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 257,
+            "native_interval_indices": [
+              257
+            ],
+            "period_number": 2,
+            "start_seconds": 1013,
+            "end_seconds": 1029,
+            "membership": {
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476624,
+                8479324,
+                8480817
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477416,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 184,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1029,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:1013:1029",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 1013,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1029,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:1013:1029",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 1013,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 184,
+            "event_id": 692,
+            "sort_order": 494,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "17:05",
+            "time_remaining": "02:55",
+            "elapsed_seconds": 1025,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 80,
+            "reported_y": -10,
+            "roles": {
+              "shooter": 8480009,
+              "blocker": 8479324
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 195,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476885,
+              "physical_shooter_id": 8476885,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/195"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/195"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 195,
+            "native": {
+              "source_index": 195,
+              "report_source_index": 198,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476885,
+                8480817,
+                8481554
+              ],
+              "home_skaters": [
+                8476467,
+                8477505,
+                8477955,
+                8478840,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                268
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                73
+              ]
+            },
+            "touching_segment_indices": [
+              268
+            ],
+            "matching_segment_indices": [
+              268
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 268,
+            "native_interval_indices": [
+              268
+            ],
+            "period_number": 2,
+            "start_seconds": 1097,
+            "end_seconds": 1125,
+            "membership": {
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476885,
+                8480817,
+                8481554
+              ],
+              "home_skaters": [
+                8476467,
+                8477505,
+                8477955,
+                8478840,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 195,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1125,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:1097:1125",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 1097,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1125,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "2:1097:1125",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 2,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 1097,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 195,
+            "event_id": 712,
+            "sort_order": 518,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "18:34",
+            "time_remaining": "01:26",
+            "elapsed_seconds": 1114,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": -76,
+            "reported_y": 7,
+            "roles": {
+              "shooter": 8476885,
+              "blocker": 8476467
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 210,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8481789,
+              "physical_shooter_id": 8481789,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/210"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/210"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 210,
+            "native": {
+              "source_index": 210,
+              "report_source_index": 213,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476918,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476467,
+                8476826,
+                8478840,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                297
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                81
+              ]
+            },
+            "touching_segment_indices": [
+              297
+            ],
+            "matching_segment_indices": [
+              297
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 297,
+            "native_interval_indices": [
+              297
+            ],
+            "period_number": 3,
+            "start_seconds": 153,
+            "end_seconds": 157,
+            "membership": {
+              "away_skaters": [
+                8474009,
+                8476918,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476467,
+                8476826,
+                8478840,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 210,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 157,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:153:157",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 153,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 157,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:153:157",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 153,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 210,
+            "event_id": 750,
+            "sort_order": 569,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "02:35",
+            "time_remaining": "17:25",
+            "elapsed_seconds": 155,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -56,
+            "reported_y": 17,
+            "roles": {
+              "shooter": 8481789,
+              "blocker": 8482073
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 262,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8474602,
+              "physical_shooter_id": 8474602,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/262"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/262"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 262,
+            "native": {
+              "source_index": 262,
+              "report_source_index": 265,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Bat",
+                "value": "bat",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476885,
+                8480078,
+                8480817,
+                8482157
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8475208,
+                8481789,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                351
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                108
+              ]
+            },
+            "touching_segment_indices": [
+              351
+            ],
+            "matching_segment_indices": [
+              351
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 351,
+            "native_interval_indices": [
+              351
+            ],
+            "period_number": 3,
+            "start_seconds": 616,
+            "end_seconds": 644,
+            "membership": {
+              "away_skaters": [
+                8471218,
+                8476885,
+                8480078,
+                8480817,
+                8482157
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8475208,
+                8481789,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 262,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 644,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:616:644",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 616,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 644,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:616:644",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 616,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 262,
+            "event_id": 950,
+            "sort_order": 692,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "10:38",
+            "time_remaining": "09:22",
+            "elapsed_seconds": 638,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 67,
+            "reported_y": 8,
+            "roles": {
+              "shooter": 8474602,
+              "blocker": 8480078
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 283,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476459,
+              "physical_shooter_id": 8476459,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/283"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/283"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 283,
+            "native": {
+              "source_index": 283,
+              "report_source_index": 286,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476885,
+                8480817,
+                8481554
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8475768,
+                8479977,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                374
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                117
+              ]
+            },
+            "touching_segment_indices": [
+              374
+            ],
+            "matching_segment_indices": [
+              374
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 374,
+            "native_interval_indices": [
+              374
+            ],
+            "period_number": 3,
+            "start_seconds": 859,
+            "end_seconds": 875,
+            "membership": {
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476885,
+                8480817,
+                8481554
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8475768,
+                8479977,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 283,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 875,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:859:875",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 859,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 875,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:859:875",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 859,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 283,
+            "event_id": 1044,
+            "sort_order": 743,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "14:26",
+            "time_remaining": "05:34",
+            "elapsed_seconds": 866,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": -65,
+            "reported_y": -10,
+            "roles": {
+              "shooter": 8476459,
+              "blocker": 8480009
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        },
+        {
+          "source_index": 295,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476467,
+              "physical_shooter_id": 8476467,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/295"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/295"
+              }
+            ]
+          },
+          "association": {
+            "source_index": 295,
+            "native": {
+              "source_index": 295,
+              "report_source_index": 298,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476918,
+                8479323,
+                8479324
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8476467,
+                8481789,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                405
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                120
+              ]
+            },
+            "touching_segment_indices": [
+              405
+            ],
+            "matching_segment_indices": [
+              405
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "segment": {
+            "segment_index": 405,
+            "native_interval_indices": [
+              405
+            ],
+            "period_number": 3,
+            "start_seconds": 1134,
+            "end_seconds": 1177,
+            "membership": {
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476918,
+                8479323,
+                8479324
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8476467,
+                8481789,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ]
+            },
+            "issue_indices": []
+          },
+          "saved_value": {
+            "actor_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "actor_unblocked_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "game_id": "2023020078",
+            "method_id": "execution-v1-06-20232024",
+            "neutral_all_attempt_opportunity": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "location_or_frame_unavailable"
+              },
+              "unavailable_reason": "missing_source",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "neutral_goalie_on_net_goal_probability": {
+              "reason_detail": {
+                "evidence": [
+                  {
+                    "id": "execution-v1-06-20232024",
+                    "kind": "method"
+                  },
+                  {
+                    "id": "factual-20232024",
+                    "kind": "source"
+                  }
+                ],
+                "explanation": "conditional probability is outside its observed stage"
+              },
+              "unavailable_reason": "not_applicable",
+              "uncertainty": {
+                "kind": "not_estimated"
+              },
+              "value": null
+            },
+            "season": "20232024",
+            "source_index": 295,
+            "support_id": "20232024-source_supported_attempts"
+          },
+          "unblocked_rows": [
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1177,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:1134:1177",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 1134,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "3"
+            },
+            {
+              "against_mass": 0.0,
+              "end_seconds": 1177,
+              "for_mass": 0.0,
+              "game_id": "2023020078",
+              "interval_id": "3:1134:1177",
+              "on_net_against": null,
+              "on_net_for": null,
+              "period_horizon_seconds": 1200,
+              "period_number": 3,
+              "population": "neutral_locatable_unblocked_value",
+              "season": "20232024",
+              "start_seconds": 1134,
+              "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+              "team_id": "55"
+            }
+          ],
+          "source_event": {
+            "source_index": 295,
+            "event_id": 1138,
+            "sort_order": 792,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "19:09",
+            "time_remaining": "00:51",
+            "elapsed_seconds": 1149,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 56,
+            "reported_y": 12,
+            "roles": {
+              "shooter": 8476467,
+              "blocker": 8476918
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          }
+        }
+      ],
+      "valued_interval_counts": {
+        "neutral_all_attempt_value": 614,
+        "neutral_locatable_unblocked_value": 640
+      }
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020481",
+      "block_population_difference_candidates": [],
+      "valued_interval_counts": {
+        "neutral_all_attempt_value": 666,
+        "neutral_locatable_unblocked_value": 666
+      },
+      "goalie_candidate": {
+        "source_index": 281,
+        "saved_value": {
+          "actor_all_attempt_opportunity": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.01462118911573627
+          },
+          "actor_on_net_goal_probability": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.016304017955728185
+          },
+          "actor_unblocked_goal_probability": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.015140133168822258
+          },
+          "game_id": "2023020481",
+          "method_id": "execution-v1-06-20232024",
+          "neutral_all_attempt_opportunity": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.017373592013207328
+          },
+          "neutral_goalie_on_net_goal_probability": {
+            "reason_detail": null,
+            "unavailable_reason": null,
+            "uncertainty": {
+              "kind": "not_estimated"
+            },
+            "value": 0.020333506163880057
+          },
+          "season": "20232024",
+          "source_index": 281,
+          "support_id": "20232024-source_supported_attempts"
+        },
+        "details": {
+          "values": {
+            "outcome": "save",
+            "physical_status": "ordinary",
+            "credited_shooter_id": 8474596,
+            "physical_shooter_id": 8474596,
+            "shooting_team_id": 8,
+            "opposing_goalie_id": 8476945,
+            "location_kind": "reported_attempt"
+          },
+          "problems": {},
+          "evidence": [
+            {
+              "input_ref": {
+                "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020481.json",
+                "sha256": "f9c0e8588f19609b448430720b18fa5ee7ddca618c14f09dfa70aee5fc6180d0"
+              },
+              "source": "play-by-play",
+              "path": "/plays/281"
+            },
+            {
+              "input_ref": {
+                "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020481.json",
+                "sha256": "f9c0e8588f19609b448430720b18fa5ee7ddca618c14f09dfa70aee5fc6180d0"
+              },
+              "source": "reconstruction",
+              "path": "/events/281"
+            }
+          ]
+        },
+        "association": {
+          "source_index": 281,
+          "native": {
+            "source_index": 281,
+            "report_source_index": 285,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "wrist",
+              "report_value": "Wrist",
+              "value": "wrist",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8475233,
+              8476875,
+              8480018,
+              8481540,
+              8483515
+            ],
+            "home_skaters": [
+              8475799,
+              8476331,
+              8476392,
+              8477504,
+              8478891
+            ],
+            "away_goalies": [
+              8474596
+            ],
+            "home_goalies": [
+              8476945
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              335
+            ],
+            "attacking_x": -85,
+            "attacking_y": 0,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            335
+          ],
+          "matching_segment_indices": [
+            335
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "source_event": {
+          "source_index": 281,
+          "event_id": 197,
+          "sort_order": 705,
+          "type_code": 506,
+          "type_key": "shot-on-goal",
+          "kind_valid": true,
+          "period_number": 3,
+          "period_type": "REG",
+          "time_in_period": "15:59",
+          "time_remaining": "04:01",
+          "elapsed_seconds": 959,
+          "timed_period": true,
+          "situation_code": "1551",
+          "home_team_defending_side": "right",
+          "zone_code": "D",
+          "owner_team_id": 8,
+          "reported_x": -85,
+          "reported_y": 0,
+          "roles": {
+            "shooter": 8474596,
+            "goalie": 8476945
+          },
+          "shooting_team_id": 8,
+          "shot_type": "wrist",
+          "reason": null,
+          "secondary_reason": null,
+          "penalty_type": null,
+          "penalty_description": null,
+          "penalty_duration_minutes": null,
+          "away_score": null,
+          "home_score": null
+        },
+        "matching_interval_rows": [
+          {
+            "against_mass": 0.017373592013207328,
+            "end_seconds": 975,
+            "for_mass": 0.0036745256347601313,
+            "game_id": "2023020481",
+            "interval_id": "3:938:975",
+            "on_net_against": null,
+            "on_net_for": null,
+            "period_horizon_seconds": 1200,
+            "period_number": 3,
+            "population": "neutral_all_attempt_value",
+            "season": "20232024",
+            "start_seconds": 938,
+            "support_id": "execution-v1-06-20232024-neutral_all_attempt_value",
+            "team_id": "52"
+          },
+          {
+            "against_mass": 0.017373592013207328,
+            "end_seconds": 975,
+            "for_mass": 0.0036745256347601313,
+            "game_id": "2023020481",
+            "interval_id": "3:938:975",
+            "on_net_against": null,
+            "on_net_for": null,
+            "period_horizon_seconds": 1200,
+            "period_number": 3,
+            "population": "neutral_locatable_unblocked_value",
+            "season": "20232024",
+            "start_seconds": 938,
+            "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+            "team_id": "52"
+          },
+          {
+            "against_mass": 0.0036745256347601313,
+            "end_seconds": 975,
+            "for_mass": 0.017373592013207328,
+            "game_id": "2023020481",
+            "interval_id": "3:938:975",
+            "on_net_against": null,
+            "on_net_for": null,
+            "period_horizon_seconds": 1200,
+            "period_number": 3,
+            "population": "neutral_all_attempt_value",
+            "season": "20232024",
+            "start_seconds": 938,
+            "support_id": "execution-v1-06-20232024-neutral_all_attempt_value",
+            "team_id": "8"
+          },
+          {
+            "against_mass": 0.0036745256347601313,
+            "end_seconds": 975,
+            "for_mass": 0.017373592013207328,
+            "game_id": "2023020481",
+            "interval_id": "3:938:975",
+            "on_net_against": null,
+            "on_net_for": null,
+            "period_horizon_seconds": 1200,
+            "period_number": 3,
+            "population": "neutral_locatable_unblocked_value",
+            "season": "20232024",
+            "start_seconds": 938,
+            "support_id": "execution-v1-06-20232024-neutral_locatable_unblocked_value",
+            "team_id": "8"
+          }
+        ]
+      }
+    }
+  ]
+}

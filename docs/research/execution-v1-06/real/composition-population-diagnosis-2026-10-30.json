@@ -1,0 +1,253 @@
+{
+  "kind": "execution-v1-06-saved-scalar-population-diagnosis",
+  "status": "resolved displayed-count difference and confirmed explicit unavailable fields; no silent row omission",
+  "checked_at_utc": "2026-10-30T13:08:09.195227+00:00",
+  "inputs": {
+    "facts_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+    },
+    "result_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5"
+    },
+    "annual_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+      "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0"
+    },
+    "accounting_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json",
+      "sha256": "e2c0953c043547a974bbe201e81617a58127175a268c2b0d0d7b84a01e9ede5f"
+    }
+  },
+  "person": {
+    "season": "20232024",
+    "player_id": "8477073",
+    "display_name": "Kurtis MacDermid",
+    "factual_kind": "skater",
+    "factual_reported_position": "L",
+    "factual_witness": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/people.jsonl",
+      "line": 278,
+      "raw_line_sha256": "e95d97e0c90d472dec923e57c2db21475e7ab937383c1099608fc30282cc2f09"
+    },
+    "annual_person": {
+      "season": "20232024",
+      "player_id": "8477073",
+      "kind": null,
+      "position_group": null,
+      "name": "Kurtis MacDermid"
+    },
+    "annual_witness": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/people.jsonl",
+      "line": 278,
+      "raw_line_sha256": "eb257661a89b675f0cd74bc57d978634b5daddb5748b88eee5c9f9164d115cc7"
+    }
+  },
+  "counts": {
+    "factual_skaters": 924,
+    "annual_projected_skaters": 923,
+    "annual_projection_rows": 6461,
+    "extra_factual_skaters": [
+      "8477073"
+    ],
+    "published_strength_rows": 7,
+    "published_standardized_fields_per_strength": 10
+  },
+  "contract_owners": {
+    "annual_selection": "execution_scores._projections selects saved people.kind == skater; annual people row for this person has null kind",
+    "composition": "execution_composition._empty_projection preserves each factual skater/strength with explicit unavailable fields, neutral panel metadata and retained participation; it does not infer that fitted coefficients are absent",
+    "paired_person_kind_accounting": "checker uses factual people catalogue for source shooter kind, so this person belongs to skater; absent_person means no factual person row and is unrelated to missing annual projection"
+  },
+  "explanation": [
+    "the factual skater has no saved annual projection because its prepared person kind is not resolved as skater; this does not establish coefficient absence"
+  ],
+  "coefficient_support_reason": "focal_projection_unavailable_for_prepared_kind",
+  "strengths": [
+    {
+      "strength": "3v4",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1702,
+        "raw_line_sha256": "233fb52dfb4ecb0f21b6ece7f8e298f32915d763f90a0734bfeb0123a8465417"
+      },
+      "panel_opportunities": 20,
+      "included_seconds": 0,
+      "paired_counts": {
+        "source_attempts": 0,
+        "paired_attempts": 0,
+        "unvalued_source_attempts": 0
+      }
+    },
+    {
+      "strength": "3v5",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1703,
+        "raw_line_sha256": "8830b79c641e528ea5396b629b6195d223028ae26d6858934ab68bc5be5735d8"
+      },
+      "panel_opportunities": 14,
+      "included_seconds": 0,
+      "paired_counts": {
+        "source_attempts": 0,
+        "paired_attempts": 0,
+        "unvalued_source_attempts": 0
+      }
+    },
+    {
+      "strength": "4v3",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1704,
+        "raw_line_sha256": "906874db865a38c0455672c8113ca133f0c8c6072a4a518d75415d26db02fec1"
+      },
+      "panel_opportunities": 417,
+      "included_seconds": 0,
+      "paired_counts": {
+        "source_attempts": 0,
+        "paired_attempts": 0,
+        "unvalued_source_attempts": 0
+      }
+    },
+    {
+      "strength": "4v5",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1705,
+        "raw_line_sha256": "fbad38d673b6b7b66dcb3f0fcf28393855beb234ca5ac2babfb44f1f22a31b10"
+      },
+      "panel_opportunities": 3115,
+      "included_seconds": 0,
+      "paired_counts": {
+        "source_attempts": 0,
+        "paired_attempts": 0,
+        "unvalued_source_attempts": 0
+      }
+    },
+    {
+      "strength": "5v3",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1706,
+        "raw_line_sha256": "117b90d53b6e16efbb6a1014d345f5031c8298b117aca4aebbb423ef39b8a5df"
+      },
+      "panel_opportunities": 580,
+      "included_seconds": 0,
+      "paired_counts": {
+        "source_attempts": 0,
+        "paired_attempts": 0,
+        "unvalued_source_attempts": 0
+      }
+    },
+    {
+      "strength": "5v4",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1707,
+        "raw_line_sha256": "9f99c1bad7138962e8b753c1b12fde4a2823af7188c351b1a07b4840d47ed0cd"
+      },
+      "panel_opportunities": 21861,
+      "included_seconds": 18,
+      "paired_counts": {
+        "source_attempts": 0,
+        "paired_attempts": 0,
+        "unvalued_source_attempts": 0
+      }
+    },
+    {
+      "strength": "5v5",
+      "witness": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20232024-execution-skater_execution.jsonl",
+        "line": 1708,
+        "raw_line_sha256": "fbeef115a674dc2dac8c29b843f58705659b239f3326c86373340a3ce3d0a777"
+      },
+      "panel_opportunities": 125238,
+      "included_seconds": 12505,
+      "paired_counts": {
+        "source_attempts": 27,
+        "paired_attempts": 27,
+        "unvalued_source_attempts": 0
+      }
+    }
+  ],
+  "interpretation": "legitimate explicit unavailability under the frozen saved-kind contract; observed participation and paired attempts survive. this scalar check neither diagnoses upstream kind resolution nor establishes coefficient absence or lack of real hockey activity",
+  "numerical_only": {
+    "per_year": [
+      {
+        "season": "20232024",
+        "source": 159470,
+        "numerical": 160123,
+        "intersection": 159470,
+        "source_only": 0,
+        "numerical_only": 653,
+        "complete_source": 158196,
+        "complete_numerical_only": 0,
+        "unvalued_source": 1274
+      },
+      {
+        "season": "20242025",
+        "source": 156084,
+        "numerical": 156622,
+        "intersection": 156084,
+        "source_only": 0,
+        "numerical_only": 538,
+        "complete_source": 154720,
+        "complete_numerical_only": 0,
+        "unvalued_source": 1364
+      },
+      {
+        "season": "20252026",
+        "source": 152924,
+        "numerical": 153754,
+        "intersection": 152924,
+        "source_only": 0,
+        "numerical_only": 830,
+        "complete_source": 151381,
+        "complete_numerical_only": 0,
+        "unvalued_source": 1543
+      }
+    ],
+    "total": 2021,
+    "complete_numerical_only": 0,
+    "source_only": 0,
+    "explanation": "public factual events use their fixed timed-view population; annual numerical dispositions cover a broader recognized-attempt population. all 2021 numerical-only keys are excluded dispositions; no complete numerical event is lost at this source-view intersection. per-key causes are outside this compact saved-receipt diagnosis"
+  },
+  "scope": "saved people/projection/execution scalar rows, small manifests, passed accounting receipt and local owner code only; no production reader, prepared source game, fit, map/array member, source campaign or refit",
+  "publication_started": false,
+  "source_game_cap_unchanged": true,
+  "standardized_fields": [
+    "avoid_block_probability",
+    "avoid_block_probability_difference",
+    "conversion_probability",
+    "conversion_probability_difference",
+    "finishing_goals_per100_attempts",
+    "on_net_probability",
+    "on_net_probability_difference",
+    "recorded_stop_probability",
+    "recorded_stop_probability_difference",
+    "setting_goals_per100_assisted_opportunities"
+  ],
+  "common_support": {
+    "current_season_information": false,
+    "eligible_weight": null,
+    "events": null,
+    "inferred_inputs": [],
+    "known_excluded_seconds": 0,
+    "prior_only": false,
+    "prior_seasons": [],
+    "reason_counts": [
+      {
+        "code": "elapsed_unavailable",
+        "count": 27
+      }
+    ],
+    "unquantified_gap": true
+  },
+  "common_estimate_unavailable_reason": "missing_source",
+  "common_danger_unavailable": {
+    "events": 0,
+    "observed_goals": 0,
+    "reference_expected_goals": 0.0,
+    "actor_expected_goals": 0.0
+  }
+}

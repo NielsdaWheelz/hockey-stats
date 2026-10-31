@@ -1,0 +1,473 @@
+{
+  "publication": {
+    "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+    "kind": "player_analysis",
+    "schema_version": 8,
+    "purpose": "real",
+    "generated_at": "2026-10-30T13:52:51.443967Z",
+    "population_version": "matched_attempts_v2",
+    "personal_population_version": "matched_personal_credits_v2",
+    "spatial_population_version": "matched_unblocked_locations_v2",
+    "spatial_display_version": "rect5_gaussian10_v1",
+    "git_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "families": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20232024",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "spatial",
+        "availability": "not_computed",
+        "explanation": "spatial estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20232024",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20242025",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "spatial",
+        "availability": "not_computed",
+        "explanation": "spatial estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20242025",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "execution",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "goalie",
+        "availability": "not_computed",
+        "explanation": "goalie estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "ledger",
+        "availability": "not_computed",
+        "explanation": "ledger estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "microstats",
+        "availability": "provided",
+        "explanation": null
+      },
+      {
+        "season": "20252026",
+        "family": "penalties",
+        "availability": "not_computed",
+        "explanation": "penalties estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "shootiness",
+        "availability": "not_computed",
+        "explanation": "shootiness estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "spatial",
+        "availability": "not_computed",
+        "explanation": "spatial estimation is outside factual reductions; its assigned numerical producer remains pending"
+      },
+      {
+        "season": "20252026",
+        "family": "territory",
+        "availability": "not_computed",
+        "explanation": "territory estimation is outside factual reductions; its assigned numerical producer remains pending"
+      }
+    ]
+  },
+  "available_seasons": [
+    "20252026",
+    "20242025",
+    "20232024"
+  ],
+  "seasons": [
+    {
+      "season": "20252026",
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "source_requested_min": "2026-09-30T19:05:43.913000Z",
+      "source_requested_max": "2026-09-30T19:38:12.780000Z",
+      "undated_sources": 0,
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1280,
+        "partial_games": 381,
+        "unavailable_games": 32,
+        "games_with_unassigned_player_associations": 0,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 30
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 297
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 310
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ],
+        "unassigned_games": []
+      },
+      "spatial_coverage": {
+        "included_seconds": 3700910,
+        "known_excluded_seconds": 90109,
+        "unblocked_attempts": 84180,
+        "unblocked_per60": 40.942362824278355,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "roster_identity_unresolved",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1280,
+        "partial_games": 382,
+        "unavailable_games": 32,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 30
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 297
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 310
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ]
+      },
+      "players": 1063,
+      "skaters": 940,
+      "goalies": 123
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "source_requested_min": "2026-09-30T19:05:42.809000Z",
+      "source_requested_max": "2026-09-30T19:28:26.172000Z",
+      "undated_sources": 0,
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1230,
+        "partial_games": 403,
+        "unavailable_games": 82,
+        "games_with_unassigned_player_associations": 0,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 24
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 377
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 359
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 57
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ],
+        "unassigned_games": []
+      },
+      "spatial_coverage": {
+        "included_seconds": 3590806,
+        "known_excluded_seconds": 70630,
+        "unblocked_attempts": 82524,
+        "unblocked_per60": 41.36764837755089,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "shift_source_empty",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1230,
+        "partial_games": 404,
+        "unavailable_games": 82,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 24
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 377
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 359
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 57
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ]
+      },
+      "players": 1041,
+      "skaters": 920,
+      "goalies": 121
+    },
+    {
+      "season": "20232024",
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "source_requested_min": "2026-09-30T19:05:41.679000Z",
+      "source_requested_max": "2026-09-30T19:18:08.018000Z",
+      "undated_sources": 0,
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1298,
+        "partial_games": 687,
+        "unavailable_games": 14,
+        "games_with_unassigned_player_associations": 0,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 14
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 623
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 542
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 2
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 98
+          }
+        ],
+        "unassigned_games": []
+      },
+      "spatial_coverage": {
+        "included_seconds": 3664623,
+        "known_excluded_seconds": 45003,
+        "unblocked_attempts": 85868,
+        "unblocked_per60": 42.17688968278593,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "spatial_frame_unresolved",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1298,
+        "partial_games": 689,
+        "unavailable_games": 14,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 14
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 623
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 542
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 2
+          },
+          {
+            "code": "spatial_frame_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 98
+          }
+        ]
+      },
+      "players": 1041,
+      "skaters": 924,
+      "goalies": 117
+    }
+  ],
+  "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite"
+}

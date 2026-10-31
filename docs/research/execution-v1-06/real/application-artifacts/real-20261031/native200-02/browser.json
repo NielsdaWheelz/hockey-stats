@@ -1,0 +1,1694 @@
+{
+  "kind": "temporary-real-application-browser",
+  "status": "passed",
+  "checked_at": "2026-10-31T03:28:04.533Z",
+  "purpose": "real",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "database_sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+  "api_sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+  "checker_sha256": "a26f39260239b3c3121f2ffaf2b2f68626a947dee95d4de890d01dc6f32e69d4",
+  "player_id": "8477504",
+  "comparison_player_id": "8476331",
+  "metric": "execution.5v5.finishing_goals_per100_attempts",
+  "native": {
+    "zoom": 2,
+    "preferences_zoom_level": 3.8017840169239308,
+    "innerWidth": 640,
+    "outerWidth": 1280,
+    "innerHeight": 456,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "scrollWidth": 640,
+    "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33,
+      "colorDepth": 30,
+      "pixelDepth": 30
+    },
+    "visualViewport": {
+      "width": 640,
+      "height": 456.5,
+      "scale": 1,
+      "offsetLeft": 0,
+      "offsetTop": 0
+    },
+    "baseline_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/browser.json",
+    "baseline_dpr": 2
+  },
+  "nativeZoomFacts": {
+    "node_pid": 58141,
+    "chrome_profile": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/chrome-profile",
+    "requested_window_width": 1280,
+    "requested_zoom": 2,
+    "default_zoom_level": 0,
+    "host_zoom_level": 3.8017840169239308,
+    "initial_blank": {
+      "innerWidth": 1280,
+      "outerWidth": 1280,
+      "innerHeight": 913,
+      "outerHeight": 1000,
+      "dpr": 2,
+      "scrollWidth": 1280,
+      "url": "about:blank",
+      "screen": {
+        "width": 1728,
+        "height": 1117,
+        "availWidth": 1728,
+        "availHeight": 1084,
+        "availLeft": 0,
+        "availTop": 33,
+        "colorDepth": 30,
+        "pixelDepth": 30
+      },
+      "visualViewport": {
+        "width": 1280,
+        "height": 913,
+        "scale": 1,
+        "offsetLeft": 0,
+        "offsetTop": 0
+      }
+    },
+    "initial_own_origin": {
+      "innerWidth": 640,
+      "outerWidth": 1280,
+      "innerHeight": 456,
+      "outerHeight": 1000,
+      "dpr": 4,
+      "scrollWidth": 640,
+      "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+      "screen": {
+        "width": 1728,
+        "height": 1117,
+        "availWidth": 1728,
+        "availHeight": 1084,
+        "availLeft": 0,
+        "availTop": 33,
+        "colorDepth": 30,
+        "pixelDepth": 30
+      },
+      "visualViewport": {
+        "width": 640,
+        "height": 456.5,
+        "scale": 1,
+        "offsetLeft": 0,
+        "offsetTop": 0
+      }
+    },
+    "own_origin_profile": {
+      "innerWidth": 640,
+      "outerWidth": 1280,
+      "innerHeight": 456,
+      "outerHeight": 1000,
+      "dpr": 4,
+      "scrollWidth": 640,
+      "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+      "screen": {
+        "width": 1728,
+        "height": 1117,
+        "availWidth": 1728,
+        "availHeight": 1084,
+        "availLeft": 0,
+        "availTop": 33,
+        "colorDepth": 30,
+        "pixelDepth": 30
+      },
+      "visualViewport": {
+        "width": 640,
+        "height": 456.5,
+        "scale": 1,
+        "offsetLeft": 0,
+        "offsetTop": 0
+      }
+    }
+  },
+  "discovery": {
+    "layout": {
+      "innerWidth": 640,
+      "outerWidth": 1280,
+      "innerHeight": 456,
+      "outerHeight": 1000,
+      "dpr": 4,
+      "scrollWidth": 640,
+      "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+      "screen": {
+        "width": 1728,
+        "height": 1117,
+        "availWidth": 1728,
+        "availHeight": 1084,
+        "availLeft": 0,
+        "availTop": 33,
+        "colorDepth": 30,
+        "pixelDepth": 30
+      },
+      "visualViewport": {
+        "width": 640,
+        "height": 456.5,
+        "scale": 1,
+        "offsetLeft": 0,
+        "offsetTop": 0
+      }
+    },
+    "rows": 924
+  },
+  "comparisonLayout": {
+    "innerWidth": 640,
+    "outerWidth": 1280,
+    "innerHeight": 456,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "scrollWidth": 640,
+    "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts",
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33,
+      "colorDepth": 30,
+      "pixelDepth": 30
+    },
+    "visualViewport": {
+      "width": 640,
+      "height": 456.5,
+      "scale": 1,
+      "offsetLeft": 0,
+      "offsetTop": 0
+    }
+  },
+  "zeroSpecialty": {
+    "disposition": "covered by fixed wide exercise",
+    "witness": {
+      "reason": "zero_specialty",
+      "season": "20232024",
+      "player_id": "8470600",
+      "strength": "4v3"
+    }
+  },
+  "cohort": {
+    "n": 246,
+    "member": true,
+    "percentile": 78.2520325203252,
+    "descending_midrank": 54,
+    "cutoff_minutes": 300,
+    "qualification_seconds": 95337,
+    "peer_group": "reported defense",
+    "focal_value": 0.26398994347003324,
+    "incompatible_peer_count": 0,
+    "members": [
+      {
+        "player_id": "8470600",
+        "value": -0.6479842048428373
+      },
+      {
+        "player_id": "8470613",
+        "value": 0.39658066638586614
+      },
+      {
+        "player_id": "8470966",
+        "value": -0.05864816954918865
+      },
+      {
+        "player_id": "8471274",
+        "value": -0.8603871215128052
+      },
+      {
+        "player_id": "8471677",
+        "value": -0.7240947516860768
+      },
+      {
+        "player_id": "8471686",
+        "value": -0.815967905552242
+      },
+      {
+        "player_id": "8471709",
+        "value": 0.18984301277682553
+      },
+      {
+        "player_id": "8471724",
+        "value": 0.19848536565823666
+      },
+      {
+        "player_id": "8473446",
+        "value": 0.27504893682602977
+      },
+      {
+        "player_id": "8473507",
+        "value": -0.01707557969004248
+      },
+      {
+        "player_id": "8474013",
+        "value": -0.588454888940349
+      },
+      {
+        "player_id": "8474031",
+        "value": 0.27166804487287693
+      },
+      {
+        "player_id": "8474090",
+        "value": -0.21968987599313278
+      },
+      {
+        "player_id": "8474145",
+        "value": -0.7998257843167493
+      },
+      {
+        "player_id": "8474151",
+        "value": -1.0180315450435005
+      },
+      {
+        "player_id": "8474166",
+        "value": -0.1610121635943913
+      },
+      {
+        "player_id": "8474563",
+        "value": 0.8575758325970211
+      },
+      {
+        "player_id": "8474565",
+        "value": -0.5134261596099617
+      },
+      {
+        "player_id": "8474567",
+        "value": -0.15573973178573572
+      },
+      {
+        "player_id": "8474568",
+        "value": 0.07414499136625131
+      },
+      {
+        "player_id": "8474574",
+        "value": -1.379026474054653
+      },
+      {
+        "player_id": "8474578",
+        "value": 0.9391714363293548
+      },
+      {
+        "player_id": "8474590",
+        "value": 0.1402880947452965
+      },
+      {
+        "player_id": "8474600",
+        "value": 0.6847424207349959
+      },
+      {
+        "player_id": "8474602",
+        "value": -0.08960163560852757
+      },
+      {
+        "player_id": "8474612",
+        "value": 0.0845089531322992
+      },
+      {
+        "player_id": "8474618",
+        "value": -1.0648185172951081
+      },
+      {
+        "player_id": "8474673",
+        "value": -0.17226710792259012
+      },
+      {
+        "player_id": "8475167",
+        "value": 0.337558158419012
+      },
+      {
+        "player_id": "8475171",
+        "value": -0.26193354066939123
+      },
+      {
+        "player_id": "8475177",
+        "value": -0.9015339927941238
+      },
+      {
+        "player_id": "8475179",
+        "value": -0.26496560900885857
+      },
+      {
+        "player_id": "8475181",
+        "value": -0.7491780384953889
+      },
+      {
+        "player_id": "8475188",
+        "value": -1.1989718005772065
+      },
+      {
+        "player_id": "8475197",
+        "value": -0.06648116785154971
+      },
+      {
+        "player_id": "8475200",
+        "value": 0.3691300692957589
+      },
+      {
+        "player_id": "8475208",
+        "value": -0.87533602003638
+      },
+      {
+        "player_id": "8475218",
+        "value": -0.2424140785658843
+      },
+      {
+        "player_id": "8475233",
+        "value": -0.05179360685445344
+      },
+      {
+        "player_id": "8475279",
+        "value": 0.26957068034245896
+      },
+      {
+        "player_id": "8475324",
+        "value": -0.39212820015851213
+      },
+      {
+        "player_id": "8475455",
+        "value": -0.27881134281218684
+      },
+      {
+        "player_id": "8475462",
+        "value": -0.3579259114179585
+      },
+      {
+        "player_id": "8475690",
+        "value": 0.7050579452668619
+      },
+      {
+        "player_id": "8475718",
+        "value": -0.7876573420565594
+      },
+      {
+        "player_id": "8475750",
+        "value": 0.2221789261646067
+      },
+      {
+        "player_id": "8475753",
+        "value": -0.20198253184076786
+      },
+      {
+        "player_id": "8475762",
+        "value": -0.09364270318601467
+      },
+      {
+        "player_id": "8475764",
+        "value": -0.1114801796785432
+      },
+      {
+        "player_id": "8475790",
+        "value": 0.22617894466744898
+      },
+      {
+        "player_id": "8475797",
+        "value": -0.004563385911631858
+      },
+      {
+        "player_id": "8475825",
+        "value": -0.2220295116204383
+      },
+      {
+        "player_id": "8476312",
+        "value": 0.5947573215588913
+      },
+      {
+        "player_id": "8476331",
+        "value": -0.5383564751480495
+      },
+      {
+        "player_id": "8476372",
+        "value": -0.20045210170558214
+      },
+      {
+        "player_id": "8476422",
+        "value": -0.19860596486206086
+      },
+      {
+        "player_id": "8476429",
+        "value": -0.858880467647682
+      },
+      {
+        "player_id": "8476441",
+        "value": 0.5463204446961436
+      },
+      {
+        "player_id": "8476457",
+        "value": 0.04505275739255707
+      },
+      {
+        "player_id": "8476462",
+        "value": 0.6461995006796001
+      },
+      {
+        "player_id": "8476463",
+        "value": -0.5334269608963834
+      },
+      {
+        "player_id": "8476467",
+        "value": -1.2341199469570265
+      },
+      {
+        "player_id": "8476473",
+        "value": 0.9284778962164574
+      },
+      {
+        "player_id": "8476525",
+        "value": 0.4505236835538393
+      },
+      {
+        "player_id": "8476792",
+        "value": -0.6110375357722205
+      },
+      {
+        "player_id": "8476853",
+        "value": -0.6914418978029899
+      },
+      {
+        "player_id": "8476854",
+        "value": -0.6919332895323883
+      },
+      {
+        "player_id": "8476856",
+        "value": -0.9614572640923464
+      },
+      {
+        "player_id": "8476869",
+        "value": 1.0213060592135366
+      },
+      {
+        "player_id": "8476874",
+        "value": -0.38185565322050197
+      },
+      {
+        "player_id": "8476875",
+        "value": 0.3682959609352639
+      },
+      {
+        "player_id": "8476879",
+        "value": -0.22990869015978616
+      },
+      {
+        "player_id": "8476885",
+        "value": -0.8718026679957219
+      },
+      {
+        "player_id": "8476891",
+        "value": -0.3239284662212703
+      },
+      {
+        "player_id": "8476892",
+        "value": -0.6764625162613949
+      },
+      {
+        "player_id": "8476902",
+        "value": -0.36293470089540025
+      },
+      {
+        "player_id": "8476906",
+        "value": 0.539250465115061
+      },
+      {
+        "player_id": "8476917",
+        "value": -1.38321251707968
+      },
+      {
+        "player_id": "8476923",
+        "value": 0.6657108073661007
+      },
+      {
+        "player_id": "8476931",
+        "value": -0.1475066696206267
+      },
+      {
+        "player_id": "8476958",
+        "value": -0.8487639616557275
+      },
+      {
+        "player_id": "8476967",
+        "value": -0.15964310338999654
+      },
+      {
+        "player_id": "8476979",
+        "value": -0.39220610843756976
+      },
+      {
+        "player_id": "8477018",
+        "value": -0.24115243847982532
+      },
+      {
+        "player_id": "8477034",
+        "value": 0.005863279135657536
+      },
+      {
+        "player_id": "8477220",
+        "value": -0.2789412752708594
+      },
+      {
+        "player_id": "8477244",
+        "value": -0.4050438595989491
+      },
+      {
+        "player_id": "8477335",
+        "value": -0.5712872009085225
+      },
+      {
+        "player_id": "8477346",
+        "value": 0.678008765871543
+      },
+      {
+        "player_id": "8477365",
+        "value": -0.21153858862733715
+      },
+      {
+        "player_id": "8477369",
+        "value": 0.9391235860977087
+      },
+      {
+        "player_id": "8477384",
+        "value": 0.03843877781516503
+      },
+      {
+        "player_id": "8477435",
+        "value": 0.04433301831536435
+      },
+      {
+        "player_id": "8477447",
+        "value": 0.046729767814701596
+      },
+      {
+        "player_id": "8477488",
+        "value": -0.5902797603100217
+      },
+      {
+        "player_id": "8477495",
+        "value": -0.8422171230991229
+      },
+      {
+        "player_id": "8477498",
+        "value": -0.4643891089936537
+      },
+      {
+        "player_id": "8477499",
+        "value": -0.9558425456103944
+      },
+      {
+        "player_id": "8477504",
+        "value": 0.26398994347003324
+      },
+      {
+        "player_id": "8477506",
+        "value": 0.24223813012310913
+      },
+      {
+        "player_id": "8477507",
+        "value": 0.6425764330562402
+      },
+      {
+        "player_id": "8477541",
+        "value": -0.3553929518793318
+      },
+      {
+        "player_id": "8477810",
+        "value": -0.21013545968762248
+      },
+      {
+        "player_id": "8477845",
+        "value": -0.729321553612856
+      },
+      {
+        "player_id": "8477932",
+        "value": -0.2834139045406914
+      },
+      {
+        "player_id": "8477938",
+        "value": -0.9213839137035053
+      },
+      {
+        "player_id": "8477948",
+        "value": -0.27737634428500607
+      },
+      {
+        "player_id": "8477950",
+        "value": 1.3930314580271435
+      },
+      {
+        "player_id": "8477969",
+        "value": -1.2982114250240229
+      },
+      {
+        "player_id": "8477971",
+        "value": -1.0338281476699154
+      },
+      {
+        "player_id": "8477986",
+        "value": -0.19563419689991643
+      },
+      {
+        "player_id": "8478013",
+        "value": 0.5760915213431219
+      },
+      {
+        "player_id": "8478021",
+        "value": -0.9529819751615864
+      },
+      {
+        "player_id": "8478038",
+        "value": 0.3052639025263987
+      },
+      {
+        "player_id": "8478055",
+        "value": 0.8958906408700331
+      },
+      {
+        "player_id": "8478136",
+        "value": -0.38737817843284583
+      },
+      {
+        "player_id": "8478178",
+        "value": -0.08687368654669692
+      },
+      {
+        "player_id": "8478396",
+        "value": -0.007865908236678931
+      },
+      {
+        "player_id": "8478397",
+        "value": -0.33569644670520293
+      },
+      {
+        "player_id": "8478399",
+        "value": -0.7721599541186024
+      },
+      {
+        "player_id": "8478407",
+        "value": 0.7549260983540552
+      },
+      {
+        "player_id": "8478408",
+        "value": -0.4206266161165847
+      },
+      {
+        "player_id": "8478416",
+        "value": -0.9218935264887633
+      },
+      {
+        "player_id": "8478430",
+        "value": -0.04067944425209693
+      },
+      {
+        "player_id": "8478443",
+        "value": 0.30345135692759856
+      },
+      {
+        "player_id": "8478450",
+        "value": -0.34908015009195487
+      },
+      {
+        "player_id": "8478451",
+        "value": -0.0021474038684165912
+      },
+      {
+        "player_id": "8478454",
+        "value": -0.6506206525882197
+      },
+      {
+        "player_id": "8478460",
+        "value": -0.6301165351987758
+      },
+      {
+        "player_id": "8478468",
+        "value": -0.5928076948448956
+      },
+      {
+        "player_id": "8478469",
+        "value": -0.04056879608728141
+      },
+      {
+        "player_id": "8478500",
+        "value": -0.013235281815752018
+      },
+      {
+        "player_id": "8478502",
+        "value": 0.009471300346844982
+      },
+      {
+        "player_id": "8478507",
+        "value": -1.2763461335429467
+      },
+      {
+        "player_id": "8478840",
+        "value": -0.07180630623066943
+      },
+      {
+        "player_id": "8478851",
+        "value": -1.139088574966083
+      },
+      {
+        "player_id": "8478854",
+        "value": 0.03310590233693104
+      },
+      {
+        "player_id": "8478859",
+        "value": -1.016699560980752
+      },
+      {
+        "player_id": "8478882",
+        "value": -0.0008309058232521246
+      },
+      {
+        "player_id": "8478911",
+        "value": -0.9176357275554266
+      },
+      {
+        "player_id": "8478970",
+        "value": 0.126739855589822
+      },
+      {
+        "player_id": "8479323",
+        "value": 0.4307885090137955
+      },
+      {
+        "player_id": "8479324",
+        "value": -0.9479095359847574
+      },
+      {
+        "player_id": "8479325",
+        "value": 0.21592509670728505
+      },
+      {
+        "player_id": "8479345",
+        "value": 0.17290007025683768
+      },
+      {
+        "player_id": "8479369",
+        "value": -0.7018783079757357
+      },
+      {
+        "player_id": "8479371",
+        "value": -0.8239045954352732
+      },
+      {
+        "player_id": "8479372",
+        "value": 0.30202269294583445
+      },
+      {
+        "player_id": "8479378",
+        "value": -1.007328104253003
+      },
+      {
+        "player_id": "8479398",
+        "value": -0.21373658638919038
+      },
+      {
+        "player_id": "8479402",
+        "value": -0.36516771471258613
+      },
+      {
+        "player_id": "8479410",
+        "value": -0.3634325222419977
+      },
+      {
+        "player_id": "8479425",
+        "value": -0.33579275541581066
+      },
+      {
+        "player_id": "8479439",
+        "value": -0.3910711655513273
+      },
+      {
+        "player_id": "8479442",
+        "value": -0.7260543169058836
+      },
+      {
+        "player_id": "8479458",
+        "value": -0.668474222376162
+      },
+      {
+        "player_id": "8479576",
+        "value": -0.726240878681117
+      },
+      {
+        "player_id": "8479976",
+        "value": -0.7638826319195803
+      },
+      {
+        "player_id": "8479980",
+        "value": -0.8383277041464096
+      },
+      {
+        "player_id": "8479982",
+        "value": -0.46336325204591744
+      },
+      {
+        "player_id": "8479983",
+        "value": -0.7943095586641827
+      },
+      {
+        "player_id": "8479998",
+        "value": -0.8819964918666421
+      },
+      {
+        "player_id": "8480001",
+        "value": -0.8591136873428268
+      },
+      {
+        "player_id": "8480035",
+        "value": -0.3128037543614239
+      },
+      {
+        "player_id": "8480036",
+        "value": -1.1544496735803937
+      },
+      {
+        "player_id": "8480043",
+        "value": 0.45812431813860044
+      },
+      {
+        "player_id": "8480049",
+        "value": -0.4705000517140942
+      },
+      {
+        "player_id": "8480058",
+        "value": -0.23239126189768125
+      },
+      {
+        "player_id": "8480069",
+        "value": 0.9387345209982106
+      },
+      {
+        "player_id": "8480073",
+        "value": -1.449688982546893
+      },
+      {
+        "player_id": "8480084",
+        "value": -0.2599415267325419
+      },
+      {
+        "player_id": "8480145",
+        "value": -0.5963749954899463
+      },
+      {
+        "player_id": "8480172",
+        "value": -0.2424214271507968
+      },
+      {
+        "player_id": "8480184",
+        "value": -0.21459512997745325
+      },
+      {
+        "player_id": "8480192",
+        "value": -0.21275114921832775
+      },
+      {
+        "player_id": "8480196",
+        "value": -0.16733516368844287
+      },
+      {
+        "player_id": "8480222",
+        "value": -0.17945410314298876
+      },
+      {
+        "player_id": "8480246",
+        "value": -0.23983076755813806
+      },
+      {
+        "player_id": "8480336",
+        "value": 0.06821023746365253
+      },
+      {
+        "player_id": "8480434",
+        "value": -0.34073989505135627
+      },
+      {
+        "player_id": "8480727",
+        "value": 0.5224481533518346
+      },
+      {
+        "player_id": "8480796",
+        "value": 0.4631608548854794
+      },
+      {
+        "player_id": "8480800",
+        "value": 0.17160910361813522
+      },
+      {
+        "player_id": "8480803",
+        "value": -0.08786732056838374
+      },
+      {
+        "player_id": "8480807",
+        "value": -1.0213004470323526
+      },
+      {
+        "player_id": "8480817",
+        "value": 0.5548641451012458
+      },
+      {
+        "player_id": "8480823",
+        "value": -1.0057944211956784
+      },
+      {
+        "player_id": "8480834",
+        "value": 0.10369559158774984
+      },
+      {
+        "player_id": "8480839",
+        "value": 1.6733570225345151
+      },
+      {
+        "player_id": "8480860",
+        "value": -0.0760561511289057
+      },
+      {
+        "player_id": "8480865",
+        "value": 1.1040610238782491
+      },
+      {
+        "player_id": "8480871",
+        "value": 0.7912081325844732
+      },
+      {
+        "player_id": "8480873",
+        "value": 0.8480412247486719
+      },
+      {
+        "player_id": "8480878",
+        "value": -0.11211625992785446
+      },
+      {
+        "player_id": "8480879",
+        "value": -0.0020646028728956716
+      },
+      {
+        "player_id": "8480884",
+        "value": -0.47979279649511714
+      },
+      {
+        "player_id": "8480887",
+        "value": 0.604136498292616
+      },
+      {
+        "player_id": "8480891",
+        "value": -0.5585508270703559
+      },
+      {
+        "player_id": "8480950",
+        "value": -0.263395635962203
+      },
+      {
+        "player_id": "8480990",
+        "value": 0.00003692364933136041
+      },
+      {
+        "player_id": "8481006",
+        "value": -0.06625183904065894
+      },
+      {
+        "player_id": "8481014",
+        "value": -0.13293268607095243
+      },
+      {
+        "player_id": "8481059",
+        "value": -0.6375139269116321
+      },
+      {
+        "player_id": "8481122",
+        "value": -1.040920621996783
+      },
+      {
+        "player_id": "8481167",
+        "value": -0.35727334940015637
+      },
+      {
+        "player_id": "8481178",
+        "value": -0.34094395856193715
+      },
+      {
+        "player_id": "8481206",
+        "value": 1.3025885168434452
+      },
+      {
+        "player_id": "8481524",
+        "value": 0.8716575380019865
+      },
+      {
+        "player_id": "8481527",
+        "value": -0.4988654446220269
+      },
+      {
+        "player_id": "8481537",
+        "value": -0.26595892497646756
+      },
+      {
+        "player_id": "8481541",
+        "value": 0.974090847664434
+      },
+      {
+        "player_id": "8481542",
+        "value": 0.34638327105657857
+      },
+      {
+        "player_id": "8481546",
+        "value": 0.2978901003976197
+      },
+      {
+        "player_id": "8481564",
+        "value": -0.9377150220397666
+      },
+      {
+        "player_id": "8481567",
+        "value": -0.6825585674411752
+      },
+      {
+        "player_id": "8481568",
+        "value": -0.13437575466591287
+      },
+      {
+        "player_id": "8481581",
+        "value": 0.1770618965035237
+      },
+      {
+        "player_id": "8481593",
+        "value": -0.48128390973571006
+      },
+      {
+        "player_id": "8481605",
+        "value": -0.3358752083320935
+      },
+      {
+        "player_id": "8481606",
+        "value": -0.8314597127405442
+      },
+      {
+        "player_id": "8481708",
+        "value": -0.15882110153693776
+      },
+      {
+        "player_id": "8481806",
+        "value": -0.22812195373854013
+      },
+      {
+        "player_id": "8482073",
+        "value": 0.2757992849373807
+      },
+      {
+        "player_id": "8482087",
+        "value": 0.6953284744287268
+      },
+      {
+        "player_id": "8482105",
+        "value": -0.48629669189124813
+      },
+      {
+        "player_id": "8482111",
+        "value": 0.7872320815656495
+      },
+      {
+        "player_id": "8482122",
+        "value": -0.16041990962223074
+      },
+      {
+        "player_id": "8482142",
+        "value": -1.0347942752461454
+      },
+      {
+        "player_id": "8482176",
+        "value": -0.7008325940663588
+      },
+      {
+        "player_id": "8482192",
+        "value": -0.38587029436065345
+      },
+      {
+        "player_id": "8482245",
+        "value": 0.6305264152817568
+      },
+      {
+        "player_id": "8482511",
+        "value": 0.7895990762224331
+      },
+      {
+        "player_id": "8482516",
+        "value": -0.33014123344431073
+      },
+      {
+        "player_id": "8482624",
+        "value": -0.20690857717252298
+      },
+      {
+        "player_id": "8482655",
+        "value": 0.5982112215830984
+      },
+      {
+        "player_id": "8482671",
+        "value": -0.3601515421269022
+      },
+      {
+        "player_id": "8482684",
+        "value": -0.23879524954987794
+      },
+      {
+        "player_id": "8482803",
+        "value": 0.0664041431979934
+      },
+      {
+        "player_id": "8482858",
+        "value": -0.544959687789195
+      },
+      {
+        "player_id": "8482929",
+        "value": -0.6776208083068527
+      },
+      {
+        "player_id": "8482964",
+        "value": 0.9349563288750122
+      },
+      {
+        "player_id": "8483460",
+        "value": -0.14341004564498108
+      },
+      {
+        "player_id": "8483466",
+        "value": 0.5331076138253705
+      },
+      {
+        "player_id": "8483490",
+        "value": -0.08321748636655323
+      },
+      {
+        "player_id": "8483495",
+        "value": -0.5754234277711577
+      },
+      {
+        "player_id": "8484304",
+        "value": 0.0037421500511548517
+      }
+    ]
+  },
+  "details": {
+    "reference_panel": {
+      "panel_id": "execution-v1-06-1:20232024:5,5,1",
+      "opportunities": 125238,
+      "setup_weight": 100190.40000000001,
+      "neutral": {
+        "u": 89650.62468314166,
+        "uq": 61753.11507925035,
+        "uqr": 49707.45359736244,
+        "uqrg": 5206.7114861530135
+      },
+      "focal_shooter": {
+        "u": 87234.70235856646,
+        "uq": 59868.06783639574,
+        "uqr": 46217.38667062439,
+        "uqrg": 5537.327211556013
+      },
+      "setting_setup": {
+        "neutral_goal_mass": 4912.521589513679,
+        "focal_goal_mass": 7748.121363746955
+      }
+    },
+    "coefficient_support": {
+      "shooter": {
+        "u": {
+          "available": true,
+          "likelihood_events": 442,
+          "prior_only": false,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason": null
+        },
+        "q": {
+          "available": true,
+          "likelihood_events": 287,
+          "prior_only": false,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason": null
+        },
+        "r": {
+          "available": true,
+          "likelihood_events": 195,
+          "prior_only": false,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason": null
+        },
+        "g": {
+          "available": true,
+          "likelihood_events": 142,
+          "prior_only": false,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason": null
+        }
+      },
+      "setter": {
+        "g": {
+          "available": true,
+          "likelihood_events": 55633,
+          "prior_only": false,
+          "prior_seasons": [
+            "20222023"
+          ],
+          "reason": null,
+          "candidate_events": 1040,
+          "mean_coupled_events": 55599
+        }
+      }
+    },
+    "paired_evidence": {
+      "source_attempts": 325,
+      "paired_attempts": 325,
+      "unvalued_source_attempts": 0,
+      "danger_unavailable": {
+        "events": 0,
+        "observed_goals": 0,
+        "reference_expected_goals": 0,
+        "actor_expected_goals": 0
+      }
+    }
+  },
+  "strata": [
+    [
+      "wrist",
+      "snap",
+      "slap",
+      "backhand",
+      "tip",
+      "other"
+    ],
+    [
+      "<.05",
+      "[.05,.15)",
+      ">=.15"
+    ]
+  ],
+  "historyValues": [
+    {
+      "season": "20232024",
+      "value": 0.26398994347003324
+    },
+    {
+      "season": "20242025",
+      "value": 0.3757959078147517
+    },
+    {
+      "season": "20252026",
+      "value": 0.7852557967211338
+    }
+  ],
+  "svgBounds": {
+    "width": 1200,
+    "height": 4343,
+    "outside": [],
+    "sections": {
+      "2023–24": [
+        "2023–24 · selected: 0.26399 goals per 100 attempts; 78.3 percentile",
+        "Josh Morrissey · D · WPG",
+        "reported defense · cutoff 300 min · n=246 · incompatible peers 0",
+        "qualification: 95337 seconds (5v5 current-season exact-strength focal on-ice participation with both",
+        "goalies; cohort qualification, not panel or likelihood exposure); quantity support: 95337 included seconds;",
+        "known excluded seconds 0; gap true; prior-only false",
+        "inferred inputs: blocked_origin, historical_borrowing, setter; current-season information: true; prior seasons: 20222023",
+        "common reference panel execution-v1-06-1:20232024:5,5,1: 125238 physical opportunities; setup weight",
+        "100190.40000000001",
+        "neutral prefix masses: u 89650.62468314166; uq 61753.11507925035; uqr 49707.45359736244; uqrg",
+        "5206.7114861530135",
+        "focal shooter prefix masses: u 87234.70235856646; uq 59868.06783639574; uqr 46217.38667062439; uqrg",
+        "5537.327211556013",
+        "setting setup goal masses: neutral 4912.521589513679; focal 7748.121363746955",
+        "shooter u: available true; likelihood union 442; prior only false; carried seasons 20222023; absence reason none",
+        "shooter q: available true; likelihood union 287; prior only false; carried seasons 20222023; absence reason none",
+        "shooter r: available true; likelihood union 195; prior only false; carried seasons 20222023; absence reason none",
+        "shooter g: available true; likelihood union 142; prior only false; carried seasons 20222023; absence reason none",
+        "setter g: available true; likelihood union 55633; candidate events 1040; mean-coupled events 55599; prior only false;",
+        "carried seasons 20222023; absence reason none",
+        "paired personal attempts: source 325; paired 325; unvalued source 0",
+        "danger unavailable: 0 paired attempts; 0 recorded goals; reference expected goals 0; actor expected goals 0",
+        "support reasons: [{\"code\":\"elapsed_unavailable\",\"count\":34}]; recorded reason codes: none",
+        "construction: modeled; population: checked regular-season physical opportunities; exact-strength common panels and",
+        "separately paired source evidence; numerical reference: virtual shooter, setter, goalie and coaching with zero residual",
+        "execution; retain circumstances and inferred setup",
+        "methods: execution-v1-06-20232024; sources: unlinked; reference reference-execution-zero; support policy",
+        "execution-v1-06-matched-reference-v1",
+        "method limitations: [\"experimental seasonal fits; no scientific admission or calibrated uncertainty\",\"same-season fitted",
+        "expectations are not held-out forecasts or causal effects\",\"blocked origins and setup are inferred; recorded facts remain",
+        "separate\",\"qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators",
+        "differ\"]; findings: [\"annual fitted opportunity panels and paired source attempts: experimental point estimates; calibration,",
+        "recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit\"];",
+        "uncertainty: {\"kind\":\"not_estimated\"}",
+        "corpus sha-256: 92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+      ],
+      "2024–25": [
+        "2024–25: 0.375796 goals per 100 attempts; 85.1 percentile",
+        "Josh Morrissey · D · WPG",
+        "reported defense · cutoff 300 min · n=238 · incompatible peers 0",
+        "qualification: 90975 seconds (5v5 current-season exact-strength focal on-ice participation with both",
+        "goalies; cohort qualification, not panel or likelihood exposure); quantity support: 90975 included seconds;",
+        "known excluded seconds 0; gap true; prior-only false",
+        "inferred inputs: blocked_origin, historical_borrowing, setter; current-season information: true; prior seasons: 20232024",
+        "common reference panel execution-v1-06-1:20242025:5,5,1: 125351 physical opportunities; setup weight 100280.8",
+        "neutral prefix masses: u 89588.09991561242; uq 58786.169621783614; uqr 47304.113280253405; uqrg",
+        "5097.205782290092",
+        "focal shooter prefix masses: u 84726.34098770299; uq 54637.305076986544; uqr 41197.381514375855; uqrg",
+        "5568.269710694962",
+        "setting setup goal masses: neutral 4804.610389747261; focal 6866.258351267956",
+        "shooter u: available true; likelihood union 428; prior only false; carried seasons 20232024; absence reason none",
+        "shooter q: available true; likelihood union 268; prior only false; carried seasons 20232024; absence reason none",
+        "shooter r: available true; likelihood union 168; prior only false; carried seasons 20232024; absence reason none",
+        "shooter g: available true; likelihood union 116; prior only false; carried seasons 20232024; absence reason none",
+        "setter g: available true; likelihood union 51442; candidate events 993; mean-coupled events 51419; prior only false; carried",
+        "seasons 20232024; absence reason none",
+        "paired personal attempts: source 343; paired 343; unvalued source 0",
+        "danger unavailable: 0 paired attempts; 0 recorded goals; reference expected goals 0; actor expected goals 0",
+        "support reasons: [{\"code\":\"elapsed_unavailable\",\"count\":18}]; recorded reason codes: none",
+        "construction: modeled; population: checked regular-season physical opportunities; exact-strength common panels and",
+        "separately paired source evidence; numerical reference: virtual shooter, setter, goalie and coaching with zero residual",
+        "execution; retain circumstances and inferred setup",
+        "methods: execution-v1-06-20242025; sources: unlinked; reference reference-execution-zero; support policy",
+        "execution-v1-06-matched-reference-v1",
+        "method limitations: [\"experimental seasonal fits; no scientific admission or calibrated uncertainty\",\"same-season fitted",
+        "expectations are not held-out forecasts or causal effects\",\"blocked origins and setup are inferred; recorded facts remain",
+        "separate\",\"qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators",
+        "differ\"]; findings: [\"annual fitted opportunity panels and paired source attempts: experimental point estimates; calibration,",
+        "recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit\"];",
+        "uncertainty: {\"kind\":\"not_estimated\"}",
+        "corpus sha-256: 46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+      ],
+      "2025–26": [
+        "2025–26: 0.785256 goals per 100 attempts; 93.4 percentile",
+        "Josh Morrissey · D · WPG",
+        "reported defense · cutoff 300 min · n=236 · incompatible peers 0",
+        "qualification: 88742 seconds (5v5 current-season exact-strength focal on-ice participation with both",
+        "goalies; cohort qualification, not panel or likelihood exposure); quantity support: 88742 included seconds;",
+        "known excluded seconds 0; gap true; prior-only false",
+        "inferred inputs: blocked_origin, historical_borrowing, setter; current-season information: true; prior seasons: 20242025",
+        "common reference panel execution-v1-06-1:20252026:5,5,1: 120912 physical opportunities; setup weight 96729.6",
+        "neutral prefix masses: u 87844.59950172156; uq 56745.90437118678; uqr 45655.15323585539; uqrg",
+        "5258.497126668831",
+        "focal shooter prefix masses: u 83513.35833809851; uq 55822.12202148913; uqr 40156.5244145627; uqrg",
+        "6207.965615600288",
+        "setting setup goal masses: neutral 4966.279922186866; focal 7521.971409385203",
+        "shooter u: available true; likelihood union 332; prior only false; carried seasons 20242025; absence reason none",
+        "shooter q: available true; likelihood union 218; prior only false; carried seasons 20242025; absence reason none",
+        "shooter r: available true; likelihood union 144; prior only false; carried seasons 20242025; absence reason none",
+        "shooter g: available true; likelihood union 94; prior only false; carried seasons 20242025; absence reason none",
+        "setter g: available true; likelihood union 50509; candidate events 874; mean-coupled events 50474; prior only false;",
+        "carried seasons 20242025; absence reason none",
+        "paired personal attempts: source 246; paired 246; unvalued source 0",
+        "danger unavailable: 0 paired attempts; 0 recorded goals; reference expected goals 0; actor expected goals 0",
+        "support reasons: [{\"code\":\"elapsed_unavailable\",\"count\":16}]; recorded reason codes: none",
+        "construction: modeled; population: checked regular-season physical opportunities; exact-strength common panels and",
+        "separately paired source evidence; numerical reference: virtual shooter, setter, goalie and coaching with zero residual",
+        "execution; retain circumstances and inferred setup",
+        "methods: execution-v1-06-20252026; sources: unlinked; reference reference-execution-zero; support policy",
+        "execution-v1-06-matched-reference-v1",
+        "method limitations: [\"experimental seasonal fits; no scientific admission or calibrated uncertainty\",\"same-season fitted",
+        "expectations are not held-out forecasts or causal effects\",\"blocked origins and setup are inferred; recorded facts remain",
+        "separate\",\"qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators",
+        "differ\"]; findings: [\"annual fitted opportunity panels and paired source attempts: experimental point estimates; calibration,",
+        "recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit\"];",
+        "uncertainty: {\"kind\":\"not_estimated\"}",
+        "corpus sha-256: 8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+        "publication 9a5b4061-f909-4c1b-b624-5729e5acb6bf · real · generated 2026-10-30T13:52:51.443967Z",
+        "percentiles describe relative standing of the published quantity, not confidence or ability separation. missing years and",
+        "changed definitions break lines. csv text cells use an apostrophe to escape spreadsheet formula prefixes."
+      ]
+    }
+  },
+  "downloads": {
+    "discoveryCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/downloads/execution-5v5-20232024-9a5b4061-f909-4c1b-b624-5729e5acb6bf.csv",
+      "filename": "execution-5v5-20232024-9a5b4061-f909-4c1b-b624-5729e5acb6bf.csv",
+      "bytes": 45784394,
+      "sha256": "2941c66e3e4c7d0553cd320bc7b8fb22ba7089e08b960a169918796b008b3595"
+    },
+    "evidenceCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/downloads/hockey-stats-8477504-20232024-5v5-execution-evidence.csv",
+      "filename": "hockey-stats-8477504-20232024-5v5-execution-evidence.csv",
+      "bytes": 283050,
+      "sha256": "9e655d172ab05ab92ff1562c4e4f288caf582c5b51774dbe5615d304896fef7f"
+    },
+    "historyCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "filename": "hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "bytes": 15469,
+      "sha256": "8363aac3880e14fa0e83d9485ef0dfdc4db0f2b182d0bf5ca8c76d74c3488012"
+    },
+    "historyPng": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "filename": "hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "bytes": 1513301,
+      "sha256": "7762f6b4233d5eeff73c1b04b113284a04b86021fc00959dc2164f0fe7641a93"
+    },
+    "nextEvidenceCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/downloads/hockey-stats-8477504-20242025-5v5-execution-evidence.csv",
+      "filename": "hockey-stats-8477504-20242025-5v5-execution-evidence.csv",
+      "bytes": 284771,
+      "sha256": "726bab0490fc53969afd4739f58cac4e5efccbabf2d28a3d640d20d693da432f"
+    }
+  },
+  "exportsToCheck": [
+    {
+      "label": "evidenceCsv",
+      "season": "20232024",
+      "player_id": "8477504",
+      "strength": "5v5"
+    },
+    {
+      "label": "historyCsv",
+      "player_id": "8477504",
+      "metric": "execution.5v5.finishing_goals_per100_attempts"
+    },
+    {
+      "label": "nextEvidenceCsv",
+      "season": "20242025",
+      "player_id": "8477504",
+      "strength": "5v5"
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+      "resource_type": "document",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/manifest-43be76d2.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/entry.client-CimxyNE3.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/jsx-runtime-Bcb-PiJy.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/root-OsyQwkgO.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/explorer-BwkgQfus.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/styles-DBcIPaN6.css",
+      "resource_type": "stylesheet",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/league-client-loader-CQ7CpLfD.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/league-main-DnVjqvyt.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/client-DrnbQfYM.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/peer-distributions-qO0Os7mj.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/player-client-loader-BgtgO6VN.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/player-main-DBfKCNrk.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/descriptive-card-CZP7SGDv.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/players/8477504?season=20232024",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20252026&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20242025&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/players/8477504/evidence?season=20232024&family=execution&strength=5v5",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/players/8477504?season=20242025",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20252026&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20242025&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/players/8477504/evidence?season=20242025&family=execution&strength=5v5",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts",
+      "resource_type": "document",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/manifest-43be76d2.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/entry.client-CimxyNE3.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/jsx-runtime-Bcb-PiJy.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/root-OsyQwkgO.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/explorer-BwkgQfus.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/styles-DBcIPaN6.css",
+      "resource_type": "stylesheet",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/compare-client-loader-qd0jkNh_.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/compare-main-VNo5gR4M.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/client-DrnbQfYM.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/peer-distributions-qO0Os7mj.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/assets/descriptive-card-CZP7SGDv.js",
+      "resource_type": "script",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/players/8477504?season=20232024",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/players/8476331?season=20232024",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20252026&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    },
+    {
+      "url": "http://127.0.0.1:41986/api/league?season=20242025&kind=skater&family=overview",
+      "resource_type": "fetch",
+      "allowed": true
+    }
+  ],
+  "rejected": [],
+  "errors": [],
+  "networkFailures": [],
+  "browser_native_sandbox": true,
+  "browser_os_filesystem_denial_claimed": false,
+  "scope": "page resources exact origin plus data/blob; server filesystem-denial controls are owned separately"
+}

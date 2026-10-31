@@ -1,0 +1,410 @@
+{
+  "kind": "execution-v1-06-real-publication-completion",
+  "status": "publication accepted by root; application acceptance remains separate",
+  "checked_at_utc": "2026-10-30T14:54:26.849834+00:00",
+  "command_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/publication-command-2026-10-30.json",
+    "sha256": "6b7ef3073830cc7c615d46c60e7a102c76ed3a32f30e1df8162d28baff6c6242",
+    "bytes": 8591
+  },
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/verification.json",
+    "sha256": "9e1a2f20a60c9fae1a5f635c9cea481bf5964ebcf46796237c037baab1e01d6b",
+    "bytes": 15861
+  },
+  "actual_shell_exit_code": 0,
+  "exit_file": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.log",
+    "sha256": "ae3911e8083a5ef904a3a8dff9ca270043a0b96391c698aac6e38d1eb1bd54f8",
+    "bytes": 979
+  },
+  "command_processes_gone": true,
+  "process_observation": "",
+  "completion_at_utc": "2026-10-30T14:50:05.669466+00:00",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "purpose": "real",
+  "expected_publication_schema": 8,
+  "schema_claim_source": "frozen schema8 writer; no independent database read performed in this completion binding",
+  "seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite",
+    "sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+    "bytes": 11310997504,
+    "digest_source": "completed publisher verification; not independently rehashed here"
+  },
+  "sidecars": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite-wal",
+      "present": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite-shm",
+      "present": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite-journal",
+      "present": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite.incomplete-wal",
+      "present": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite.incomplete-shm",
+      "present": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite.incomplete-journal",
+      "present": false
+    }
+  ],
+  "incomplete_database_present": false,
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+    "bytes": 711
+  },
+  "results": {
+    "manifest_sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "publisher_checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "publisher_seasons": [
+    {
+      "season": "20232024",
+      "receipt": {
+        "path": "seasons/20232024/verification.json",
+        "sha256": "0acf4e7bfda0df3b98fa8a2bb1a201b14ffe2e8a7f5a6a00c9fd49e9570aba19"
+      },
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1298,
+        "partial_games": 687,
+        "unavailable_games": 14,
+        "games_with_unassigned_player_associations": 0
+      },
+      "spatial_coverage": {
+        "included_seconds": 3664623,
+        "known_excluded_seconds": 45003,
+        "unblocked_attempts": 85868,
+        "unblocked_per60": 42.17688968278593,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "spatial_frame_unresolved",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1298,
+        "partial_games": 689,
+        "unavailable_games": 14,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 14
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 623
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 542
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 2
+          },
+          {
+            "code": "spatial_frame_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 98
+          }
+        ]
+      },
+      "checks": {
+        "physical_seconds": 3665767,
+        "player_seconds": 36657670,
+        "physical_attempts": 120624,
+        "player_attempts_for": 603120,
+        "player_attempts_against": 603120,
+        "personal_physical_seconds": 3665767,
+        "personal_player_seconds": 36657670,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 238489,
+        "teammate_pair_seconds": 73315340,
+        "opponent_pair_seconds": 91644175
+      }
+    },
+    {
+      "season": "20242025",
+      "receipt": {
+        "path": "seasons/20242025/verification.json",
+        "sha256": "bcc46c7a8a365dd98fd2282fa2b97a89f5a8e4d481938221be98bd47af9f1ebe"
+      },
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1230,
+        "partial_games": 403,
+        "unavailable_games": 82,
+        "games_with_unassigned_player_associations": 0
+      },
+      "spatial_coverage": {
+        "included_seconds": 3590806,
+        "known_excluded_seconds": 70630,
+        "unblocked_attempts": 82524,
+        "unblocked_per60": 41.36764837755089,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "event_exposure_conflict",
+          "shift_source_empty",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1230,
+        "partial_games": 404,
+        "unavailable_games": 82,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 24
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 377
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 359
+          },
+          {
+            "code": "event_exposure_conflict",
+            "games": 1
+          },
+          {
+            "code": "shift_source_empty",
+            "games": 57
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ]
+      },
+      "checks": {
+        "physical_seconds": 3590853,
+        "player_seconds": 35908530,
+        "physical_attempts": 116285,
+        "player_attempts_for": 581425,
+        "player_attempts_against": 581425,
+        "personal_physical_seconds": 3590853,
+        "personal_player_seconds": 35908530,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 231692,
+        "teammate_pair_seconds": 71817060,
+        "opponent_pair_seconds": 89771325
+      }
+    },
+    {
+      "season": "20252026",
+      "receipt": {
+        "path": "seasons/20252026/verification.json",
+        "sha256": "7dac1f49cc073ea889ddd964c83c755cccf9f3b7703d079a36dda5749202bcce"
+      },
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+      "coverage": {
+        "inventory_games": 1312,
+        "games_with_included_time": 1280,
+        "partial_games": 381,
+        "unavailable_games": 32,
+        "games_with_unassigned_player_associations": 0
+      },
+      "spatial_coverage": {
+        "included_seconds": 3700910,
+        "known_excluded_seconds": 90109,
+        "unblocked_attempts": 84180,
+        "unblocked_per60": 40.942362824278355,
+        "coverage_status": "partial",
+        "reason_codes": [
+          "count_accounting_conflict",
+          "elapsed_membership_unresolved",
+          "event_evidence_unresolved",
+          "roster_identity_unresolved",
+          "spatial_location_outside_rink",
+          "unpaired_report_attempt"
+        ],
+        "inventory_games": 1312,
+        "games_with_included_time": 1280,
+        "partial_games": 382,
+        "unavailable_games": 32,
+        "reason_game_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "games": 30
+          },
+          {
+            "code": "elapsed_membership_unresolved",
+            "games": 297
+          },
+          {
+            "code": "event_evidence_unresolved",
+            "games": 310
+          },
+          {
+            "code": "roster_identity_unresolved",
+            "games": 1
+          },
+          {
+            "code": "spatial_location_outside_rink",
+            "games": 1
+          },
+          {
+            "code": "unpaired_report_attempt",
+            "games": 74
+          }
+        ]
+      },
+      "checks": {
+        "physical_seconds": 3700934,
+        "player_seconds": 37009340,
+        "physical_attempts": 116620,
+        "player_attempts_for": 583100,
+        "player_attempts_against": 583100,
+        "personal_physical_seconds": 3700934,
+        "personal_player_seconds": 37009340,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 240584,
+        "teammate_pair_seconds": 74018680,
+        "opponent_pair_seconds": 92523350
+      }
+    }
+  ],
+  "measured_process_resources": {
+    "wall_seconds": 4859.97,
+    "user_seconds": 3872.76,
+    "system_seconds": 589.28,
+    "peak_rss_bytes": 3331571712,
+    "peak_memory_footprint_bytes": 3309128608
+  },
+  "publisher_reported_cost": {
+    "wall_seconds": 4859.666777834005,
+    "peak_rss_bytes": 3331571712,
+    "consumed_bytes": 21381016503,
+    "database_bytes": 11310997504
+  },
+  "publisher_cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "candidate_extent": {
+    "files": 56,
+    "bytes": 25699353148,
+    "scope": "metadata sizes for completed owned candidate tree; no file-content scans"
+  },
+  "execution_exchange_maps": [
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/results/20232024-execution-analysis_map.jsonl",
+      "bytes": 1152000448,
+      "rows": 12936
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/results/20242025-execution-analysis_map.jsonl",
+      "bytes": 1170655667,
+      "rows": 12880
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/results/20252026-execution-analysis_map.jsonl",
+      "bytes": 1173033483,
+      "rows": 13160
+    }
+  ],
+  "execution_exchange_map_bytes": 3495689598,
+  "inspection_scope": "small completed verification/log/exit and copied result manifest; metadata sizes of completed owned candidate files/season receipts/database sidecars; durable exact copy of compact top verification only; no database queries/hash,seasonal content scans,source/prepared/fit reads or application build",
+  "next_boundary": "root has accepted publication and assigned application handoff to applicationagent; this receipt does not certify application acceptance or activation",
+  "server_started": false,
+  "application_build_started": false,
+  "activation": false,
+  "scientific_admission": "not_performed",
+  "external_completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate-completion.json",
+  "root_review": "accepted after independent and root review of completed publication",
+  "updated_at_utc": "2026-10-30T14:56:17.228397+00:00",
+  "durable_top_verification": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/publication-verification-2026-10-30.json",
+    "sha256": "9e1a2f20a60c9fae1a5f635c9cea481bf5964ebcf46796237c037baab1e01d6b",
+    "bytes": 15861,
+    "copy": "exact original bytes"
+  },
+  "season_receipts": [
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/seasons/20232024/verification.json",
+      "sha256": "0acf4e7bfda0df3b98fa8a2bb1a201b14ffe2e8a7f5a6a00c9fd49e9570aba19",
+      "bytes": 694931667,
+      "digest_source": "publisher binding independently read/hash-checked once by resume_review; this owner uses existing binding and metadata without another bulk read"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/seasons/20242025/verification.json",
+      "sha256": "bcc46c7a8a365dd98fd2282fa2b97a89f5a8e4d481938221be98bd47af9f1ebe",
+      "bytes": 678086909,
+      "digest_source": "publisher binding independently read/hash-checked once by resume_review; this owner uses existing binding and metadata without another bulk read"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/seasons/20252026/verification.json",
+      "sha256": "7dac1f49cc073ea889ddd964c83c755cccf9f3b7703d079a36dda5749202bcce",
+      "bytes": 685554324,
+      "digest_source": "publisher binding independently read/hash-checked once by resume_review; this owner uses existing binding and metadata without another bulk read"
+    }
+  ],
+  "independent_review": {
+    "reviewer": "/root/resume_review",
+    "facts_reported": "top verification; all three season receipt hashes,corpus/publication/checks; actual log/exit; final database size and absent incomplete/sidecars agree",
+    "bulk_scope": "reviewer read/hash-checked each of the three existing seasonal receipts once; no database read/hash; root explicitly accepted these review facts",
+    "this_owner_scope": "small completed verification/log/exit and metadata only; no seasonal content read/hash or repeat bulk scan"
+  },
+  "retention": {
+    "top_verification": "exact compact local copy retained",
+    "season_verification": "three existing bulk seasonal files stay external at their original candidate paths; sizes are about0.68\u20130.69gb each; no repo copy or new bulk duplicate",
+    "database": "external final candidate retained; producer digest reused, application checker owns later independent before/after digest checks"
+  },
+  "application_execution_by_this_owner": false
+}

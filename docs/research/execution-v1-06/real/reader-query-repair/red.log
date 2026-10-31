@@ -1,0 +1,20 @@
+{"semantic_checks":"pass","overlap_cases":13,"invalid_bounds":5,"summary_keys":10,"strengths":7,"mutations":["source_count","coefficient_support","reference_mass","actor_mass","pending_stratum"],"zero_and_missing":true}
+{"structural_diagnostic":{"provided_summaries":10,"source_queries":10}}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: structural diagnostic: aggregate source once across all summaries
+
+10 !== 1
+
+    at <anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-reader-checks/check.ts:156:8) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 10,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

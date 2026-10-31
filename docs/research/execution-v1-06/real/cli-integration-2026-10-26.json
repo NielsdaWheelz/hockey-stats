@@ -1,7 +1,7 @@
 {
   "kind": "execution-v1-06-cli-current-integration",
   "checked_at": "2026-10-27T06:20:20.334409+00:00",
-  "status": "bounded_checks_passed; fresh_five_year_fixture_scoring_pending_root_freeze",
+  "status": "bounded_checks_and_fresh_five_year_fixture_scoring_passed; real_scoring_pending_root_launch",
   "source": [
     {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/analysis_cli.py",
@@ -134,10 +134,20 @@
     },
     "batch": {
       "path": "/tmp/v106-current-fixture-score-batch.py",
-      "sha256": "cf0ea353b33543fe4840c3091b5e8a13b72f3b21470594ecc02a11173311e315"
+      "sha256": "9f5c9216af6e9dd22766b3dba4a672684f14176320999e8658a288f8e904447b"
     },
-    "batch_status": "compiled only; never executed",
-    "deletion": "delete temporary checks/controllers and pycache after final real acceptance; no retained harness"
+    "batch_status": "executed once after explicit path repair into fresh current-02; completed all five scores and strict detached reads",
+    "deletion": "delete temporary checks/controllers and pycache after final real acceptance; no retained harness",
+    "first_real_score": {
+      "path": "/tmp/v106-first-real-score.py",
+      "sha256": "d6c05051781bdc73a58fe9f81c3775572c0c10b79697778e756580c1bd7f0dea"
+    },
+    "saved_panel_cost": {
+      "path": "/tmp/v106-real-panel-projection-cost.py",
+      "sha256": "4a2671948e7566b6593d6cfba6a5c66996ec9a1f1726e38386e957aa28a2d2cd"
+    },
+    "first_real_score_status": "compiled only; not executed",
+    "saved_panel_cost_status": "fixture-only rehearsal passed with exact scalar/prefix/setup/map equality; no real measurement yet"
   },
   "planned_fixture_batch": {
     "command": [
@@ -161,5 +171,38 @@
   "fits": false,
   "activation": false,
   "production_source_writes": false,
-  "limitations": "dispatch check stubs numerical work; command parsing and existing-output protection do not establish fresh scoring, propagation or real application acceptance"
+  "limitations": "fresh scoring and fixed propagation pass for captured-data fixtures; real costs, real five-year delivery and source-to-screen acceptance remain outstanding",
+  "fixture_attempt": {
+    "frozen_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "status": "stopped_before_design_or_scoring",
+    "campaign": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-01/campaign.json",
+    "first_year": "20212022",
+    "exit_code": 1,
+    "command_wall_seconds": 0.44268608399579534,
+    "child_peak_rss_bytes": 99254272,
+    "error": "score failed: expected resolved absolute path",
+    "cause": "coaches artifact selection/identities original_path is under v1-05/docs; that directory was a symlink to primary docs, so the strict frozen source-path contract rejects it",
+    "original_paths": [
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/execution-v1-05/coach-fixture-selection.json",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/execution-v1-05/coach-fixture-identities.json"
+    ],
+    "responsible_boundary": "historical path preservation; no numerical source repair or artifact rebinding indicated",
+    "annual_output_created": false,
+    "source_or_input_writes": false,
+    "real_coaches_read": "independent complete strict read passed for 6560 games; fixture-only path issue",
+    "recorded_at": "2026-10-27T06:22:34.394840+00:00",
+    "resolution": "fixture-path-restoration.json; exact retained original source files restored at frozen absolute paths; complete strict fixture coaches read then passed for all 36 games"
+  },
+  "completed_fixture_batch": {
+    "receipt": "docs/research/execution-v1-06/real/current-fixture-scoring-2026-10-26.json",
+    "external_campaign": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/campaign.json",
+      "sha256": "4ab53546375f7738877824c7d393c2bc4d5f6ff2c7e88fa658ae729446c6ecca"
+    },
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores-selection.json",
+      "sha256": "58f7820080e6dc283af7ba6b9731122c24803523407e6a23857029b327a8f44d"
+    },
+    "status": "passed"
+  }
 }

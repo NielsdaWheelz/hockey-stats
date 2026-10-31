@@ -297,7 +297,7 @@ not established: anything beyond two games. all-strength populations, the other 
 
 reviewed `bd326af`, with the analysis subtree still `c2412ac`. digests match root's: receipt `c38950f7`, fixture book `d66e4779`, real book `4b421777`, first command `717f7b28`, observer `286b34dd`. the campaign directory does not exist.
 
-verdict: **no blocker to the first fixture fit.** b1 is closed. release remains root's. one finding below must close before the first score, and none blocks the fit.
+verdict at that point: **no blocker to the first fixture fit.** b1 is closed. one finding below had to close before the first score, and it has.
 
 checked directly, not from `observed-fit-book-checks.json`:
 
@@ -314,9 +314,35 @@ checked directly, not from `observed-fit-book-checks.json`:
 
 | id | severity | finding | required |
 |---|---|---|---|
-| c1 | before the first score, not before any fit | the ten score blocks carry no observer pin and no subtree pin, unlike the fit blocks. the observer is untracked under `var/`, and its report does not record its own digest. three versions of it are on record today, so a stale copy at score would go unseen, and the fit and score reports would then compare different oracles. `implementation` does bind production in the score manifest, so this concerns the observer only. | add the two guards from the fit blocks to the score blocks, recording the launch observer digest beside each score. |
+| c1 | before the first score, not before any fit | the ten score blocks carry no observer pin and no subtree pin, unlike the fit blocks. the observer is untracked under `var/`, and its report does not record its own digest. three versions of it are on record today, so a stale copy at score would go unseen, and the fit and score reports would then compare different oracles. `implementation` does bind production in the score manifest, so this concerns the observer only. | closed in `08f2120`, [verified below](#first-fixture-annual-and-score-guards). |
 
 not established: the real runtime path has not executed at all. these checks prove the commands are well formed, not that they succeed. the real wrapped path first runs in the fixture fit, and that first `fit-20212022-source-check.json` is the first population evidence.
+
+### first fixture annual and score guards
+
+reviewed `fixture/execution/20212022` and `fit-20212022-source-check.json`, launched at `d181fcd`, with score books fixture `e17826b4` and real `747ce2fa` at `08f2120`. saved artifacts only, with no source pass.
+
+verdict: **the first annual passes this review, and c1 is closed.** nothing here stops the next fixture annual or the first score. release remains root's.
+
+identity: exit 0, 22.31 seconds, 921,845,760 bytes peak rss. launch records show subtree `c2412ac`, an empty analysis status and observer `286b34dd`. the manifest states recipe `47691110` and commit `d181fcd`, clean. the strict reader accepts the state: four heads complete, resolution `not_applicable`. the same reader refuses the original fixture state, `execution recipe definition differs`.
+
+source check: status `passed`, written after design construction and before the solve. 771 contexts: 275 eligible faceoff, 420 eligible `on_the_fly`, 23 `None` and 53 `unknown`. all five eligibility counters are zero in every head. head populations 771, 618, 439 and 335 match `head_admission`. the observer's unavailable rows, 76, 58, 44 and 33, equal saved `unavailable_attempts` in all four heads.
+
+diff against the accepted original, `v1-05-stopping15-checks/chain-01/20212022`, digest `aeac9f05`:
+
+| compared | result |
+|---|---|
+| `columns`, `means`, `active`, `size` | equal in all four heads |
+| `feature_support` | no entry differs |
+| `coverage.json` | no differences |
+| coefficient arrays | **byte-identical** in all four heads |
+| every other head field | equal, except `fixed_transforms/shift_start` text and `diagnostics/wall_seconds` |
+
+the result is what the source implies. this annual has no masked row, so the objective is unchanged, and an identical objective with deterministic numerics gives identical bytes. it is a strong regression proof: the repair moved nothing on rows it should not touch, and the new recipe text is the only other change.
+
+limit, and this matters for reading the fixture chain: **this annual does not exercise the mask.** zero masked and zero same-clock admitted rows means the changed path never ran at population scale. at the real census rate, 771 attempts expect about 0.35 masked rows, so zero is unsurprising and proves nothing about masking. if the other four fixture annuals are also zero, all twenty fixture heads are regression evidence only. real `20212022`, with its 54-key barrier, then becomes the first population test of the mask. its source check is written before the solve, so its counts are readable before the expensive part runs.
+
+score guards: all sixteen blocks pass `/bin/sh -n`. all ten score blocks pin subtree `c2412ac`, clean analysis status, observer `286b34dd` and the expected recipe, and all five launch receipts and the check path sit in the occupied-path guard. each `--state` and `--out` is its own purpose and season in the new campaign, and `--known-census` stays on real `20212022` only. all sixteen tails equal the original `replacement-product-preparation.json` argv, including the six compose and publish blocks. their byte identity is not independently proved, because the old books are not retained. a dry run of `score-20212022` through the real observer `main`, with the cli stubbed and output in scratch, handed over the right tail and resolved season from the new state.
 
 ## cost notes
 

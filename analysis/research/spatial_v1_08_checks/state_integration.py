@@ -8,11 +8,12 @@ import tempfile
 
 import numpy as np
 from scipy.sparse import csr_matrix
+from scipy.special import expit, logsumexp
 
 from hockey_stats.artifacts import ordered_array_digest
 from hockey_stats.captures import InputContractError
 from hockey_stats.spatial_design import SpatialDesign, RECIPE, CONTEXT_AXES, _actor_columns, _basis
-from hockey_stats.spatial_rates import fit_spatial, annual_priors, HEADS, centered_reference, _unpack, head_objective, project_spatial, _linear
+from hockey_stats.spatial_rates import fit_spatial, annual_priors, HEADS, centered_reference, _unpack, head_objective, project_spatial, _linear, _complete_prior_only
 from hockey_stats.spatial_state import read_spatial_state, validate_design
 
 
@@ -74,10 +75,43 @@ def main():
         later=replace(d,season='20232024',player_facts={p:dict(position_group='F',age_days=28*365.2425) for p in d.players})
         prior=next(r for r in annual_priors(later,'volume',state.heads['volume']['ledger']) if r['block']=='attacking_player' and r['id']=='0')
         assert prior['precision']==[50.] and prior['prior_anchor_season']=='20212022' and np.allclose(prior['age_delta'],[.2,0.],atol=1e-14,rtol=0)
+        empty_last=dict(block='attacking_player',id='10',subblock='base',coefficient=[.1],season='20212022',position_group='F',age=26.,support_seasons=['20212022'])
+        priors=annual_priors(later,'volume',[empty_last])
+        absent_prior=next(r for r in priors if r['block']=='attacking_player' and r['id']=='10')
+        assert absent_prior['prior_only'] and absent_prior['prior_anchor_season']=='20212022'
+        flat=np.zeros(len(d.columns)+8);flat[-8]=2.
+        completed=_complete_prior_only(flat,later,'volume',priors)
+        assert abs(completed[absent_prior['index']]-.5)<1e-14
+        changed=flat.copy();changed[absent_prior['index']]=999.
+        assert head_objective(flat,later,'volume',priors)[0]==head_objective(changed,later,'volume',priors)[0]
+        assert head_objective(completed,later,'volume',priors)[1][-8]==128.
+        changed_role=replace(later,player_facts={**later.player_facts,'10':dict(position_group='D',age_days=28*365.2425)})
+        assert next(r for r in annual_priors(changed_role,'volume',[empty_last]) if r['block']=='attacking_player' and r['id']=='10')['transition_reason']=='missing_or_changed_role'
+        # independent joint three-head focal substitution, not a single-head map.
+        linear={}
+        for head in HEADS:
+            beta,_=_unpack(state.head_arrays[head]['coefficients'],d,head)
+            center,reference,_=centered_reference(d,head,beta)
+            block=next(c for c in center if c['block']=='attacking_player')
+            index=next(i for i,c in enumerate(d.columns) if c.get('block')=='attacking_player' and c['id']=='0')
+            linear[head]=reference+beta[index]-np.asarray(block['mean'])
+        logshape=np.log(d.annual_offsets['pi'])+d.basis@linear['shape']
+        attempt=np.exp(np.log(d.annual_offsets['r'])+linear['volume'][0]+logshape-logsumexp(logshape))
+        qbar=np.asarray(d.annual_offsets['qbar'])
+        quality=expit(np.log(qbar/(1-qbar))+linear['quality'][0]+d.basis@linear['quality'][1:])
+        assert np.allclose(attempt,rates[d.players.index('0'),0,0,1],atol=1e-14,rtol=1e-13)
+        assert np.allclose(attempt*quality,rates[d.players.index('0'),0,1,1],atol=1e-14,rtol=1e-13)
         # prior-only players have no entry in supported history.
         assert not any(r['id']=='10' and r['block'].endswith('_player') for r in state.heads['volume']['ledger'])
         # detached strict read succeeds although source/predecessor locators do not exist.
         read_spatial_state(state.path,'fixture')
+        manifest_file=state.path/'manifest.json';original_manifest=manifest_file.read_bytes()
+        unbound=json.loads(original_manifest);unbound['files']=[m for m in unbound['files'] if m['path']!='heads/volume.npz']
+        manifest_file.write_text(json.dumps(unbound))
+        try:read_spatial_state(state.path,'fixture')
+        except InputContractError:pass
+        else:raise AssertionError('strict reader used unbound head coefficients')
+        manifest_file.write_bytes(original_manifest)
         original=state.path/'projections.jsonl';data=[json.loads(line) for line in original.read_text().splitlines()]
         data[0]['values']['offense']['xg']['difference']+=1.
         original.write_text(''.join(json.dumps(r)+'\n' for r in data))

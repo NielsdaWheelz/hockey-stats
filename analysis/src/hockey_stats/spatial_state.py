@@ -22,7 +22,7 @@ DESIGN_ARRAYS=CORE_ARRAYS+(
                'X_time_data','X_time_indices','X_time_indptr','X_time_shape',
                'X_event_data','X_event_indices','X_event_indptr','X_event_shape')
 MANIFEST_KEYS='schema_version kind purpose season recipe_id recipe design_identity implementation prepared coaches valued previous basis_identity training_cutoff heads files resources'.split()
-HEAD_KEYS='head status reasons priors ledger centers reference_predictor objective solver diagnostics resources'.split()
+HEAD_KEYS='head status reasons priors ledger centers reference_predictor age_curves objective solver diagnostics resources'.split()
 
 
 @dataclass(frozen=True)
@@ -104,12 +104,6 @@ def _design_document(design, arrays):
         body[key]=list(body[key])
     return dict(schema_version=1,kind='spatial_design',definition=body,
                 arrays=_array_contract(arrays),array_digest=ordered_array_digest(arrays))
-
-
-def design_identity(design):
-    arrays=_arrays(design)
-    body=_design_document(design,arrays)
-    return hashlib.sha256(json.dumps(body,allow_nan=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 
 
 def _array_contract(arrays):
@@ -215,6 +209,8 @@ def validate_design(design):
     require(design.context_time.shape==(n,d-actor_count) and design.context_event.shape==(ne,d-actor_count)
             and design.context_time.dtype==design.context_event.dtype==np.dtype('float64')
             and np.isfinite(design.context_time).all() and np.isfinite(design.context_event).all(),'invalid spatial dense context matrices')
+    centered=np.asarray(design.context_time.T@design.exposure_hours).ravel()
+    require(np.all(np.abs(centered)<=1e-9*(1+float(design.exposure_hours.sum()))),'elapsed context is not training-exposure centered')
     require(len(design.time_keys)==n and len(design.event_keys)==ne,'spatial source locator cardinality differs')
     require(design.exposure_hours.dtype==np.dtype('float64') and design.exposure_hours.ndim==1
             and np.isfinite(design.exposure_hours).all() and np.all(design.exposure_hours>0),'invalid positive spatial exposure')
@@ -229,7 +225,8 @@ def validate_design(design):
     if ne:
         require(np.allclose(np.add.reduceat(design.origin_weights,design.event_offsets[:-1]),1.,rtol=0,atol=1e-12),'spatial origin mass differs from one')
     for matrix in (design.X_time,design.X_event):
-        require(matrix.dtype==np.dtype('float64') and matrix.has_canonical_format and np.isfinite(matrix.data).all(),'invalid finite spatial sparse matrix')
+        require(matrix.dtype==np.dtype('float64') and matrix.has_canonical_format and np.isfinite(matrix.data).all()
+                and np.all(matrix.data==1.),'invalid physical sparse actor incidence')
         require(np.all(np.asarray(matrix[:,0].toarray()).ravel()==1),'spatial intercept incidence differs')
     actors={key:i for i,c in enumerate(columns) if c['kind']=='actor' for key in [(c['block'],c['id'],c['subblock'])]}
     for matrix,keys,label in ((design.X_time,design.time_keys,'elapsed'),(design.X_event,design.event_keys,'event')):
@@ -245,8 +242,22 @@ def validate_design(design):
                 expected_indices={actors[(side+'_player',p,'base')] for p in members}
                 row=matrix[i]
                 actual={int(j) for j,v in zip(row.indices,row.data) if columns[j].get('block')==side+'_player' and v!=0}
-                require(actual==expected_indices and all(matrix[i,j]==1 for j in actual),'spatial membership/actor design differs')
+                require(actual==expected_indices,'spatial membership/actor design differs')
             require(set(key['attacking_players']).isdisjoint(key['defending_players']),'player on both directed sides')
+    physical_events=[(key['game_id'],key['source_index']) for key in design.event_keys]
+    require(len(physical_events)==len(set(physical_events)),'physical attempt enters both spatial directions')
+    reciprocal={}
+    for i,key in enumerate(design.time_keys):
+        identity=(key['game_id'],key['segment_index'],key['chunk_index'])
+        other=reciprocal.pop(identity,None)
+        if other is None:
+            reciprocal[identity]=(i,key)
+        else:
+            j,prior=other
+            require(prior['attacking_side']!=key['attacking_side']
+                    and prior['attacking_players']==key['defending_players'] and prior['defending_players']==key['attacking_players']
+                    and design.exposure_hours[i]==design.exposure_hours[j],'directed spatial elapsed reciprocity differs')
+    require(not reciprocal,'spatial physical chunks do not have two directions')
     basis=design.basis
     require(type(basis) is np.ndarray and basis.dtype==np.dtype('float64') and basis.shape==(656,40) and np.isfinite(basis).all(),'invalid native forty-mode basis')
     require(np.max(np.abs(basis.mean(axis=0)))<1e-10 and np.allclose(basis.T@basis/656,np.eye(40),atol=1e-10,rtol=0),'uniform basis is not centered orthonormal')
@@ -280,6 +291,20 @@ def validate_head(metadata, arrays, design):
     require(type(metadata['reasons']) is list and all(type(r) is str and r for r in metadata['reasons']),'invalid head reasons')
     require((metadata['status']=='complete')==(not bool(metadata['reasons'])),'spatial head reason/status differs')
     prior_rows=metadata['priors'];require(type(prior_rows) is list,'missing spatial priors')
+    for row in metadata['ledger']+[p['last_supported'] for p in prior_rows if p.get('last_supported') is not None]:
+        _closed(row,('block','id','subblock','coefficient','season','position_group','age','support_seasons'),'last-supported spatial record')
+        key=(row['block'],row['id'],row['subblock'])
+        require(row['block'] in ('attacking_player','defending_player','attacking_coach','defending_coach')
+                and type(row['id']) is str and row['id'] and row['subblock'] in ('base','score:-2','score:-1','score:0','score:1','score:2','shell'),'invalid historical actor identity')
+        require(_season(row['season'])<=_season(design.season),'future spatial carry record')
+        require(row['position_group'] in ('F','D',None) and (row['age'] is None or type(row['age']) in (int,float) and row['age']>=0),'invalid carried age/position')
+        coefficient=np.asarray(row['coefficient'])
+        require(coefficient.shape==({'volume':1,'shape':40,'quality':41}[head],) and np.isfinite(coefficient).all(),'invalid carried spatial coordinates')
+        years=row['support_seasons']
+        require(type(years) is list and years and years==sorted(set(years)) and years[-1]==row['season']
+                and all(_season(year)<=_season(row['season']) for year in years),'invalid supported spatial seasons')
+    ledger_keys=[(r['block'],r['id'],r['subblock']) for r in metadata['ledger']]
+    require(len(ledger_keys)==len(set(ledger_keys)) and ledger_keys==sorted(ledger_keys),'spatial carry ledger order/uniqueness differs')
     # the incoming ledger is explicit in each prior; untouched absent actors are
     # retained in the output ledger without making them current observations.
     incoming={}
@@ -299,8 +324,14 @@ def validate_head(metadata, arrays, design):
     require(set(arrays)=={'coefficients'} and arrays['coefficients'].dtype==np.dtype('float64')
             and arrays['coefficients'].ndim==1 and np.isfinite(arrays['coefficients']).all(),'invalid fitted spatial vector')
     beta,age=_unpack(arrays['coefficients'],design,head)
+    expected_curves=None if head!='volume' else dict(reference_age=27.,scale_years=10.,ridge_precision=64.,
+        curves=[dict(role=role,position_group=position,coefficients=age[start:start+2].tolist())
+                for role,position,start in (('offense','F',0),('offense','D',2),('defense','F',4),('defense','D',6))])
+    require(metadata['age_curves']==expected_curves,'spatial fitted age curves differ')
     ledger={(row['block'],row['id'],row['subblock']):row for row in metadata['ledger']}
     require(len(ledger)==len(metadata['ledger']),'duplicate spatial carry ledger')
+    require({key for key,row in ledger.items() if row['season']==design.season}
+            =={(p['block'],p['id'],p['subblock']) for p in prior_rows if p['current_season_information']},'spatial ledger current supported axes differ')
     for prior in prior_rows:
         mean=_conditional_mean(prior,age)
         require(prior['prior_mean']==mean.tolist(),'spatial conditional prior mean differs')
@@ -332,7 +363,7 @@ def _write_rows(path,values):
             destination.write(json.dumps(value,allow_nan=False,separators=(',',':'))+'\n')
 
 
-def write_spatial_state(state, projections, *, probes=None):
+def write_spatial_state(state, projections):
     began=perf_counter();root=state.path
     design=state.design;validate_design(design)
     arrays=_arrays(design);document=_design_document(design,arrays)
@@ -357,17 +388,6 @@ def write_spatial_state(state, projections, *, probes=None):
         head_rows.append(dict(head=head,status=metadata['status'],arrays=_array_contract(values)))
         members.append(('head_metadata',f'heads/{head}.json'))
         if values: members.append(('head_arrays',f'heads/{head}.npz'))
-    if probes is not None:
-        folder=root/'probes';folder.mkdir()
-        write_json(folder/'baseline.json',probes['baseline']);write_json(folder/'rows.json',probes['rows'])
-        members.extend((('probe_baseline','probes/baseline.json'),('probe_rows','probes/rows.json')))
-        for head in HEADS:
-            probe=probes['heads'][head]
-            write_json(folder/f'{head}.json',probe['metadata'])
-            if probe['arrays']: write_arrays(folder,f'{head}.npz',probe['arrays'])
-            write_json(folder/f'{head}-comparison.json',probe['comparison'])
-            members.extend((('probe_metadata',f'probes/{head}.json'),('probe_comparison',f'probes/{head}-comparison.json')))
-            if probe['arrays']:members.append(('probe_arrays',f'probes/{head}.npz'))
     manifest=dict(state.manifest)
     manifest['heads']=head_rows
     manifest['files']=[dict(role=role,path=path,sha256=identity(root/path)['sha256']) for role,path in members]
@@ -413,7 +433,7 @@ def _validate_projections(state):
 
 
 def read_spatial_state(path,expected_purpose):
-    began=perf_counter();root=Path(path).resolve(strict=True)
+    root=Path(path).resolve(strict=True)
     if root.is_file():require(root.name=='manifest.json','expected spatial manifest');root=root.parent
     manifest=read_json(root/'manifest.json');_closed(manifest,MANIFEST_KEYS,'spatial manifest');_finite(manifest,'spatial manifest')
     require(manifest['schema_version']==1 and manifest['kind']=='spatial_state' and manifest['purpose']==expected_purpose
@@ -434,8 +454,38 @@ def read_spatial_state(path,expected_purpose):
         require(type(member['role']) is str and member['role'],'invalid spatial member role')
         path=_member(root,member['path']);require(identity(path)['sha256']==member['sha256'],'spatial member digest differs');paths.append(member['path'])
     require(len(paths)==len(set(paths)),'duplicate spatial members')
+    roles={'design.json':'design','design.npz':'design_arrays','coverage.json':'coverage','reference.json':'reference',
+           'diagnostics.json':'projection_diagnostics','projections.jsonl':'projections','adjustments.jsonl':'adjustments',
+           'coefficient-support.jsonl':'coefficient_support','projections.npz':'projection_arrays',
+           'annual-baseline-manifest.json':'annual_baseline_manifest','probes/baseline.json':'probe_baseline',
+           'probes/rows.json':'probe_rows','probes/requirements.json':'probe_requirements'}
+    for head in HEADS:
+        roles.update({f'heads/{head}.json':'head_metadata',f'heads/{head}.npz':'head_arrays',
+                      f'probes/{head}.json':'probe_metadata',f'probes/{head}.npz':'probe_arrays',
+                      f'probes/{head}-comparison.json':'probe_comparison',f'probes/{head}-projections.npz':'probe_projections',
+                      f'probes/{head}-projections.jsonl':'probe_projection_rows'})
+    require(all(roles.get(member['path'])==member['role'] for member in files),'unknown or misidentified spatial member role')
     required={'design.json','design.npz','coverage.json','reference.json','diagnostics.json','projections.jsonl','adjustments.jsonl','coefficient-support.jsonl','projections.npz'}
     require(required<=set(paths),'incomplete spatial member set')
+    expected_paths=set(required)
+    require([row.get('head') for row in manifest['heads']]==list(HEADS),'spatial head axis/order differs')
+    for descriptor in manifest['heads']:
+        head=descriptor['head'];expected_paths.add(f'heads/{head}.json')
+        if descriptor['arrays']:expected_paths.add(f'heads/{head}.npz')
+    if 'probes/baseline.json' in paths:
+        expected_paths|={'annual-baseline-manifest.json','probes/baseline.json','probes/rows.json','probes/requirements.json'}
+        for head in HEADS:
+            expected_paths|={f'probes/{head}.json',f'probes/{head}-comparison.json'}
+        require(expected_paths<=set(paths),'unbound required spatial probe/head member')
+        for head in HEADS:
+            if read_json(root/f'probes/{head}.json')['status']=='complete':
+                expected_paths|={f'probes/{head}.npz',f'probes/{head}-projections.npz',f'probes/{head}-projections.jsonl'}
+    require(set(paths)==expected_paths,'spatial member inventory differs from complete head/probe statuses')
+    unbound={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file() and p.name!='manifest.json'}-set(paths)
+    # an interrupted numerical continuation must leave its already accepted
+    # annual state readable. its unbound progress is never consumed as evidence.
+    require(not unbound or ('probes/baseline.json' not in paths and all(p.startswith('probes/') or p=='annual-baseline-manifest.json' for p in unbound)),
+            'unlisted spatial member outside unfinished probe progress')
     document=read_json(root/'design.json')
     design_arrays=_read_arrays(root/'design.npz',document['arrays'])
     design=_restore_design(document,design_arrays,manifest['resources']['design'])
@@ -462,12 +512,19 @@ def read_spatial_state(path,expected_purpose):
 
 
 def _validate_probes(state):
-    from .spatial_rates import HEADS, compare_probe, probe_descriptor
+    from .spatial_rates import HEADS, compare_probe, probe_descriptor, select_probe_rows
     root=state.path/'probes'
     baseline=read_json(root/'baseline.json')
     require(baseline==probe_descriptor(state),'probe baseline differs from immutable annual coefficients')
+    annual=read_json(state.path/'annual-baseline-manifest.json')
+    require(all(annual[key]==state.manifest[key] for key in MANIFEST_KEYS if key not in ('files','resources'))
+            and all(member in state.manifest['files'] for member in annual['files']),'frozen accepted annual baseline differs')
     selected=read_json(root/'rows.json')
-    require(type(selected) is list and len(selected)<=256,'invalid frozen numerical probe rows')
+    require(type(selected) is list and len(selected)<=256 and selected==select_probe_rows(state),'invalid frozen numerical probe row keys/selection')
+    requirements=[dict(requirement=name,disposition='actual' if any(name in row['requirements'] for row in selected) else 'no_matching_context',
+                      key=next((row['key'] for row in selected if name in row['requirements']),None))
+                  for name in ('boundary_goals','missing_optional_inputs','entries','returns','trades','sparse_support')]
+    require(read_json(root/'requirements.json')==requirements,'frozen probe requirement dispositions differ')
     for head in HEADS:
         metadata=read_json(root/f'{head}.json');comparison=read_json(root/f'{head}-comparison.json')
         require(metadata['head']==head,'probe head identity differs')
@@ -495,14 +552,15 @@ def bind_spatial_probes(state,probes):
         destination.write((root/'manifest.json').read_bytes())
     manifest=dict(state.manifest)
     files=list(manifest['files'])+[dict(role='annual_baseline_manifest',path=baseline_path.name,sha256=identity(baseline_path)['sha256'])]
-    for path in ('probes/baseline.json','probes/rows.json'):
-        files.append(dict(role='probe_baseline' if path.endswith('baseline.json') else 'probe_rows',path=path,sha256=identity(root/path)['sha256']))
+    for path in ('probes/baseline.json','probes/rows.json','probes/requirements.json'):
+        files.append(dict(role='probe_baseline' if path.endswith('baseline.json') else 'probe_requirements' if path.endswith('requirements.json') else 'probe_rows',path=path,sha256=identity(root/path)['sha256']))
     for head in HEADS:
         for suffix,role in (('.json','probe_metadata'),('.npz','probe_arrays'),('-comparison.json','probe_comparison'),('-projections.npz','probe_projections'),('-projections.jsonl','probe_projection_rows')):
             path=f'probes/{head}{suffix}'
             if (root/path).exists():files.append(dict(role=role,path=path,sha256=identity(root/path)['sha256']))
     manifest['files']=files
-    manifest['resources']=dict(manifest['resources'],probe_wall_seconds=sum(probes['heads'][h]['metadata']['resources']['wall_seconds'] for h in HEADS))
+    manifest['resources']=dict(manifest['resources'],probe_wall_seconds=sum(probes['heads'][h]['metadata']['resources']['wall_seconds'] for h in HEADS),
+                               output_bytes=sum((root/member['path']).stat().st_size for member in files))
     temporary=root/'manifest-final.json'
     write_json(temporary,manifest)
     temporary.replace(root/'manifest.json')

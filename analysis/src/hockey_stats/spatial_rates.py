@@ -15,7 +15,6 @@ from time import perf_counter
 
 import numpy as np
 from scipy.special import expit, log_expit, logsumexp
-from scipy.sparse import csr_matrix, vstack
 
 from .artifacts import implementation, ordered_array_digest, require
 from .chance import solve_logistic
@@ -54,21 +53,28 @@ def _actor_key(column):
 
 
 
+def _linear_parts(actor,context,beta):
+    split=actor.shape[1]
+    return np.asarray(actor@beta[:split])+np.asarray(context@beta[split:])
+
+
+def _adjoint_parts(actor,context,residual):
+    return np.vstack((np.asarray(actor.T@residual),np.asarray(context.T@residual)))
+
+
 def _linear(design,beta,kind,rows=None):
     actor=getattr(design,'X_'+kind)
     context=getattr(design,'context_'+kind)
-    split=actor.shape[1]
-    if rows is not None:
-        actor,context=actor[rows],context[rows]
-    return np.asarray(actor@beta[:split])+np.asarray(context@beta[split:])
+    if rows is not None:actor,context=actor[rows],context[rows]
+    return _linear_parts(actor,context,beta)
 
 
 def _adjoint(design,residual,kind,rows=None):
     actor=getattr(design,'X_'+kind)
     context=getattr(design,'context_'+kind)
-    if rows is not None:
-        actor,context=actor[rows],context[rows]
-    return np.vstack((np.asarray(actor.T@residual),np.asarray(context.T@residual)))
+    if rows is not None:actor,context=actor[rows],context[rows]
+    return _adjoint_parts(actor,context,residual)
+
 
 def actor_support(design):
     """sparse reductions once per head, never one dense elapsed vector per actor."""
@@ -213,15 +219,15 @@ def head_objective(flat, design, head, priors, work=None, *, components=False):
     likelihood = 0.
     offsets = design.annual_offsets
     if head == 'volume':
-        rows,exposure=(None,design.exposure_hours) if work is None else work['volume']
-        eta=math.log(offsets['r'])+_linear(design,beta,'time',rows).ravel()
+        actor,context,exposure=(design.X_time,design.context_time,design.exposure_hours) if work is None else work['volume']
+        eta=math.log(offsets['r'])+_linear_parts(actor,context,beta).ravel()
         with np.errstate(over='raise', invalid='raise', under='raise'):
             rates = np.exp(eta)
         require(np.all(rates > 0) and np.isfinite(rates).all(), 'invalid spatial volume rate')
-        event_eta = math.log(offsets['r'])+_linear(design,beta,'event').ravel()
-        likelihood = float(np.dot(exposure, rates)-event_eta.sum())
-        gradient+=_adjoint(design,(exposure*rates)[:,None],'time',rows)
-        gradient-=_adjoint(design,np.ones((design.X_event.shape[0],1)),'event')
+        event_sum=_adjoint(design,np.ones((design.X_event.shape[0],1)),'event') if work is None else work['volume_event_sum']
+        likelihood=float(np.dot(exposure,rates)-design.X_event.shape[0]*math.log(offsets['r'])-np.sum(event_sum*beta))
+        gradient+=_adjoint_parts(actor,context,(exposure*rates)[:,None])
+        gradient-=event_sum
     else:
         n = design.X_event.shape[0]
         for start in range(0, n, 4096):
@@ -280,7 +286,7 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
     reason = ('no_positive_exposure' if head == 'volume' and not np.any(design.exposure_hours > 0)
               else 'no_event_origin_weight' if head != 'volume' and not len(design.origin_weights) else None)
     metadata = dict(head=head, status='unavailable' if reason else 'incomplete', reasons=[] if reason is None else [reason],
-                    priors=priors, ledger=list(incoming), centers=None, reference_predictor=None,
+                    priors=priors, ledger=list(incoming), centers=None, reference_predictor=None, age_curves=None,
                     objective=None, solver=None, diagnostics=None, resources=None)
     if reason:
         metadata['resources'] = dict(wall_seconds=perf_counter()-began, peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
@@ -288,7 +294,10 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
     work = None
     if head == 'volume':
         representatives,exposure = _volume_groups(design)
-        work={'volume':(representatives,exposure)}
+        unchanged=len(representatives)==design.X_time.shape[0]
+        work={'volume':(design.X_time if unchanged else design.X_time[representatives],
+                        design.context_time if unchanged else design.context_time[representatives],exposure),
+              'volume_event_sum':_adjoint(design,np.ones((design.X_event.shape[0],1)),'event')}
     options = CONTINUATION if tightened else SOLVER
     trace = []
     def objective(flat):
@@ -312,6 +321,10 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
         else:
             metadata['status'] = 'complete'
             beta, age = _unpack(coefficients, design, head)
+            if head=='volume':
+                metadata['age_curves']=dict(reference_age=27.,scale_years=10.,ridge_precision=64.,
+                    curves=[dict(role=role,position_group=position,coefficients=age[start:start+2].tolist())
+                            for role,position,start in (('offense','F',0),('offense','D',2),('defense','F',4),('defense','D',6))])
             ledger = {_actor_key(row): dict(row) for row in incoming}
             for prior in priors:
                 prior['prior_mean'] = _conditional_mean(prior, age).tolist()
@@ -331,7 +344,7 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
     metadata['resources'] = dict(wall_seconds=perf_counter()-began, peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
                                 dimensions=dict(rows=design.X_time.shape[0] if head == 'volume' else design.X_event.shape[0],
                                                 features=len(design.columns), coordinates=size,
-                                                grouped_time_rows=None if work is None else len(work['volume'][0])))
+                                                grouped_time_rows=None if work is None else work['volume'][0].shape[0]))
     return metadata, arrays
 
 
@@ -432,10 +445,6 @@ def head_diagnostics(design, head, beta):
                  cross_entropy=loss/float(design.origin_weights.sum()),
                  native_location_residual=(actual_location-expected_location).tolist()) if head=='shape'
             else dict(population='retained origin-weighted fixed neutral opportunity probabilities',calibration=bins))
-
-
-def _role_column(block):
-    return 'offense' if block == 'attacking_player' else 'defense'
 
 
 def _projection_support(state, design, player):
@@ -679,7 +688,7 @@ def fit_spatial(design, previous_state, output, *, final_year=False):
     baseline=write_spatial_state(state,projections)
     if ((design.purpose=='real' and design.season=='20252026') or final_year) and all(heads[h]['status']=='complete' for h in HEADS):
         from .spatial_state import bind_spatial_probes
-        return bind_spatial_probes(baseline,run_numerical_probes(baseline,projections))
+        return bind_spatial_probes(baseline,run_numerical_probes(baseline))
     return baseline
 
 
@@ -780,9 +789,12 @@ def _standardized_probabilities(state):
         if head=='shape':
             eta=np.log(design.annual_offsets['pi'])+predictors@design.basis.T
             values[head]=np.exp(eta-logsumexp(eta,axis=1)[:,None]).reshape(len(design.players),2,656)
+            neutral_eta=np.log(design.annual_offsets['pi'])+reference@design.basis.T
+            values['neutral_'+head]=np.exp(neutral_eta-logsumexp(neutral_eta))
         else:
             qbar=np.asarray(design.annual_offsets['qbar'])
             values[head]=expit(np.log(qbar)-np.log1p(-qbar)+predictors[:,:1]+predictors[:,1:]@design.basis.T).reshape(len(design.players),2,656)
+            values['neutral_'+head]=expit(np.log(qbar)-np.log1p(-qbar)+reference[0]+reference[1:]@design.basis.T)
     return values
 
 def compare_probe(state,head,metadata,arrays,selected):
@@ -808,6 +820,7 @@ def compare_probe(state,head,metadata,arrays,selected):
     for name in ('shape','quality'):
         record('standardized_'+name+'_probability',changed_probability[name]-base_probability[name],1e-5,
                lambda i:dict(player_id=state.design.players[i[0]],role=ROLES[i[1]],cell=int(i[2])))
+        record('neutral_'+name+'_probability',changed_probability['neutral_'+name]-base_probability['neutral_'+name],1e-5,lambda i:dict(kind='neutral',cell=int(i[0])))
     delta=changed.arrays['rates']-baseline.arrays['rates']
     record('standardized_scalar_per_hour',delta.sum(axis=-1),1e-4,
            lambda i:dict(player_id=state.design.players[i[0]],role=ROLES[i[1]],quantity=QUANTITIES[i[2]],kind=('neutral','complete','difference')[i[3]]))
@@ -829,7 +842,7 @@ def compare_probe(state,head,metadata,arrays,selected):
                 maxima=maxima,failures=failures)
 
 
-def run_numerical_probes(state,projections=None):
+def run_numerical_probes(state):
     """one continuation per head; source keys and baseline freeze before solving."""
     from .artifacts import write_json,write_arrays
     folder=state.path/'probes';folder.mkdir()
@@ -837,6 +850,9 @@ def run_numerical_probes(state,projections=None):
     selected=select_probe_rows(state)
     write_json(folder/'baseline.json',baseline)
     write_json(folder/'rows.json',selected)
+    write_json(folder/'requirements.json',[dict(requirement=name,disposition='actual' if any(name in row['requirements'] for row in selected) else 'no_matching_context',
+                 key=next((row['key'] for row in selected if name in row['requirements']),None))
+                 for name in ('boundary_goals','missing_optional_inputs','entries','returns','trades','sparse_support')])
     result=dict(baseline=baseline,rows=selected,heads={})
     for head in HEADS:
         incoming=[r['last_supported'] for r in state.heads[head]['priors'] if r['last_supported'] is not None]

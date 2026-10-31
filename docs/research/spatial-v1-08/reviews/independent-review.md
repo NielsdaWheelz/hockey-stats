@@ -538,6 +538,31 @@ against `fixture03/20222023`: `design.npz`, all three head arrays, `projections.
 
 still regression evidence only. `20232024` is the first spatial year with changed targets, and the next comparison should expect differences there.
 
+### third fresh spatial annual
+
+`fixture/spatial/20232024` passes, and root's expectation holds exactly: volume and shape are invariant, and only quality moves. the next year is clear from this review; release remains root's.
+
+identity: manifest `000b36e4`, exit 0, valued `fb1d1ad1`, previous exact `8444b539`, launch records clean, rate recipe and basis unchanged. the strict reader accepts it and refuses the fixture03 original.
+
+| member | result against `fixture03/20232024` |
+|---|---|
+| `design.npz` | 15 of 16 arrays byte-identical. only `neutral_goal_probability` changes, maximum `0.0058` |
+| annual offsets | `r` and `pi` equal. only `qbar` changes, at most 3.0% |
+| `heads/volume`, `heads/shape` | arrays byte-identical. metadata differs only in wall seconds and peak rss |
+| `heads/quality` | coefficients move at most `0.0040`, ledger ids equal |
+| `projections.npz` | every `attempts` map byte-identical in value. `xg` rates move at most `5.7e-4`, adjustments `2.1e-3` |
+| `projections.jsonl` | only the four `xg` fields for each role and `reference_id` change |
+| `adjustments.jsonl` | `attempts` and all other fields identical. only `xg` changes |
+| `coefficient-support.jsonl` | byte-identical |
+| `coverage.json` | apart from the removed audit, only `neutral_chance_mass` changes |
+| `reference.json` | only quality centers, `qbar`, quality predictor and the digest |
+
+targets, recomputed from the accepted score. reading `fb1d1ad1` through the strict reader and `iter_neutral_origins`, all 453 events match `design.npz` byte for byte in probabilities, cells and weights.
+
+accounting: neutral mass moves from 16.957893137 to 16.959320058, and that value equals both `coverage.json` and the composed `interval_fact` total reviewed above. spatial and composition therefore agree on the same targets. `xg` adjustments close on all 402 rows, with largest gap `8.9e-16` and largest residual `7.6e-17`.
+
+the effect size again comes from the seven masked rows through the defensive contrast, in a 453-event sample, so it says nothing about real size. the quality objective rises from 69.4704 to 69.4732, and its final gradient is `1.7e-5`, up from `5.3e-6`. calibration bins barely move.
+
 ### execution-base composition
 
 `fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.

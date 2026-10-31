@@ -1,0 +1,98 @@
+{
+  "kind": "spatial-v1-08-discovery-search-native-green",
+  "status": "passed actual native search regression; broader browser acceptance remains open",
+  "recorded_at_utc": "2026-10-31T20:58:28.171827+00:00",
+  "observer": "root controlling native chrome through cua; product records the reported observations and performed no gui action",
+  "evidence": "root native tools transcript with accessibility states; literal intended/observed values supplied in root assignment; no separate screenshot or transcript artifact path supplied",
+  "base_url": "http://127.0.0.1:3398",
+  "server_pid": 98844,
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "app_source_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+  "build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "app_git_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "fix_commit": "ec3c98f7cdd2e64af251e99d9daff2a7b9a50227",
+  "initial_view": {
+    "season": "20242025",
+    "table": "spatial",
+    "strength": "5v5",
+    "visible_players": 245,
+    "total_players": 245
+  },
+  "checks": [
+    {
+      "action": "native cua.typeText('toffoli') once in search players",
+      "intended_text": "toffoli",
+      "observed_input": "toffoli",
+      "observed_url_q": "toffoli",
+      "visible_players": 1,
+      "total_players": 245,
+      "matching_player": {
+        "player_id": "8475726",
+        "display_name": "Tyler Toffoli"
+      },
+      "passed": true
+    },
+    {
+      "action": "click clear filters",
+      "observed_input": "",
+      "observed_url_q": null,
+      "visible_players": 245,
+      "total_players": 245,
+      "passed": true
+    },
+    {
+      "action": "native paste(format:'text','toffoli')",
+      "intended_text": "toffoli",
+      "observed_input": "toffoli",
+      "observed_url_q": "toffoli",
+      "visible_players": 1,
+      "total_players": 245,
+      "matching_player_id": "8475726",
+      "passed": true
+    },
+    {
+      "action": "click tyler profile, then native browserBack",
+      "observed_url_q": "toffoli",
+      "preserved_filter": true,
+      "passed": true
+    },
+    {
+      "action": "nativeReload and wait for settled view",
+      "observed_input": "toffoli",
+      "observed_url_q": "toffoli",
+      "visible_players": 1,
+      "total_players": 245,
+      "passed": true
+    }
+  ],
+  "console": {
+    "surface": "native devtools console",
+    "observed_messages": 0,
+    "scope": "this reported regression journey"
+  },
+  "environment": {
+    "desktop_user_confirmed_available": true,
+    "earlier_cgWindowNotFound_and_host_unavailable": "historical blockers; this observed native journey is now accessible",
+    "transient_blank_window": "resolved after fresh accessibility state and native activation; no application defect inferred"
+  },
+  "historical_red": {
+    "receipt": "discovery-search-native-red.json",
+    "sha256": "281d9495aa7574258460cf40eac727d04474d10888994689deddbec8c5e0dee0",
+    "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+    "intended_text": "toffoli",
+    "observed_url_q": "tfoi",
+    "observed_input": "ofl",
+    "preserved_unchanged": true
+  },
+  "cause_and_fix": "the controlled input formerly read committed q during pending navigation; ec3c98f reads the existing pending-or-current viewSearch value and lets clear use the existing commit comparison",
+  "resolved_issue": "docs/issues/discovery-search-navigation-race.md",
+  "not_claimed": [
+    "complete discovery/detail/comparison/history browser acceptance",
+    "downloaded csv or png content and pixel acceptance",
+    "normal/narrow/native200 layout acceptance",
+    "real-data product completion",
+    "activation or scientific admission"
+  ],
+  "changes_by_product": "documentation only; no production/source/app/build/model/observer/server action"
+}

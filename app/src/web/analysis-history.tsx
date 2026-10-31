@@ -114,7 +114,7 @@ export const spatialDirection = (datum: AnalysisDatum): string | null => datum.m
     ? "positive means more against; higher percentile means higher rate"
     : "positive means more for; higher percentile means higher rate"
   : null;
-export const spatialSupportMeaning = "aggregate support describes the common matched 5v5 population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term. spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game";
+export const spatialSupportMeaning = "aggregate support describes the common matched 5v5 population and any contributing focal information; it does not establish current evidence for each volume, shape or quality term. spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game. a prior-only magnitude comes from the prior; raw zero can become nonzero after annual centering, and borrowed values can remain large without current matched exposure";
 
 export function DatumEvidence({ datum }: { readonly datum: AnalysisDatum }) {
   const [hasOpened, setHasOpened] = useState(false);

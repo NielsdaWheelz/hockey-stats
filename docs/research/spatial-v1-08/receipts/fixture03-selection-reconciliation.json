@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-31T09:09:43.190757+00:00",
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/states-selection.json",
+    "sha256": "134c452211cdc966d3b54c702b8f3d0b2372a2da9e553a3f0773f8037b7e32a5",
+    "bytes": 1342
+  },
+  "states": [
+    {
+      "season": "20212022",
+      "selected_sha256": "a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd",
+      "accepted_sha256": "a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd",
+      "actual_sha256": "a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd"
+    },
+    {
+      "season": "20222023",
+      "selected_sha256": "04bae620926b2ce11733b63e64d942b87caec7c4f778411195a581f679b771da",
+      "accepted_sha256": "04bae620926b2ce11733b63e64d942b87caec7c4f778411195a581f679b771da",
+      "actual_sha256": "04bae620926b2ce11733b63e64d942b87caec7c4f778411195a581f679b771da"
+    },
+    {
+      "season": "20232024",
+      "selected_sha256": "d6b4661c7f6a94d7b86f1666197d770e20c45114e1aa5d17eebe63b87b6046af",
+      "accepted_sha256": "d6b4661c7f6a94d7b86f1666197d770e20c45114e1aa5d17eebe63b87b6046af",
+      "actual_sha256": "d6b4661c7f6a94d7b86f1666197d770e20c45114e1aa5d17eebe63b87b6046af"
+    },
+    {
+      "season": "20242025",
+      "selected_sha256": "e6980f33e35ff4cf68679a2b504f5251bf06a176ac0309c4fb8ee9713cf47244",
+      "accepted_sha256": "e6980f33e35ff4cf68679a2b504f5251bf06a176ac0309c4fb8ee9713cf47244",
+      "actual_sha256": "e6980f33e35ff4cf68679a2b504f5251bf06a176ac0309c4fb8ee9713cf47244"
+    },
+    {
+      "season": "20252026",
+      "selected_sha256": "93bf863b93421b82d15868b5fc94bfde355fddd164dfc5ddb81d97c3a3014f46",
+      "accepted_sha256": "93bf863b93421b82d15868b5fc94bfde355fddd164dfc5ddb81d97c3a3014f46",
+      "actual_sha256": "93bf863b93421b82d15868b5fc94bfde355fddd164dfc5ddb81d97c3a3014f46"
+    }
+  ],
+  "helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/prepare-selection.py",
+    "sha256": "23d700b634eb116e617e2bb5095e02a9cce5ce0536b7218b6f2c1e710f7e83df",
+    "bytes": 1351
+  },
+  "selection_rewritten": false,
+  "summary_restarted": false
+}

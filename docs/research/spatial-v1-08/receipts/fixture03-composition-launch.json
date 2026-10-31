@@ -1,0 +1,26 @@
+{
+  "kind": "spatial-v1-08-fixture03-composition-launch",
+  "status": "literal command delivered once; completion pending",
+  "launched_at_utc": "2026-10-31T09:05:55.568063+00:00",
+  "source_commit": "838b058cbd46743fe94aef040085cac0b6446b8c",
+  "analysis_tree": "a0a926723d7c84681c6cc72fc3ca975b8b9a5f16",
+  "terminal_handle": "t-2d0c5b412d583c0f",
+  "terminal_ref": "eyJtYWNoaW5lIjoibWgtZDk2YTM2NWI5ODMxMGVlMjIyOWQ5NWJiOTM2Nzg3NDMiLCJ0bXV4SWQiOiIkNTIiLCJpZGVudGl0eVRva2VuIjoidjEtNTMyMGFjNjBhZDllZDIzOTQ5ODEwYTQyNWY5M2VhY2IuMTE5NC4xNzkzMTY4NzQ3LjUyIiwicGFuZUlkIjoiJTYwIn0",
+  "command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/summarize.sh",
+  "script_sha256": "961ac18d122b3fa5a87765232c8cba22a4d3f0a14b77a12bd424d92f887ca215",
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/states-selection.json",
+    "sha256": "134c452211cdc966d3b54c702b8f3d0b2372a2da9e553a3f0773f8037b7e32a5"
+  },
+  "delivery_exit_code": 0,
+  "delivery_stdout": "{\"ok\":true,\"result\":{\"method\":\"terminal\",\"outcome\":\"written\"}}\n",
+  "delivery_stderr": "",
+  "scope": "one fixture summarize; publication/real fits/activation/serving mutation not performed",
+  "observed_processes": {
+    "script_pid": 21505,
+    "time_pid": 21508,
+    "python_pid": 21509,
+    "start_local": "2026-10-31 02:05:55",
+    "completion": "all gone after exit zero"
+  }
+}

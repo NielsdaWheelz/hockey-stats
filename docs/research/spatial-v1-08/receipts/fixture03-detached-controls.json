@@ -1,0 +1,227 @@
+{
+  "kind": "spatial-v1-08-fixture03-detached-controls",
+  "status": "passed actual existing one-byte controls; candidate database positive control pending publication",
+  "checked_at_utc": "2026-10-31T09:10:54.850115+00:00",
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+    "sha256": "6d0aec0a501649d65cc61cbdffc6b34e294d2f60af8db3606fade75f897a6b9c",
+    "bytes": 8318
+  },
+  "controls": [
+    {
+      "role": "raw",
+      "path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2025021108/landing/body.bin",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "factual",
+      "path": "/Volumes/Expansion/hockey-stats/factual/facts-v1-03-20261024-02/facts.stdout",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "references",
+      "path": "/Volumes/Expansion/hockey-stats/references/20252026/season-games/body.bin",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "chance",
+      "path": "/Volumes/Expansion/hockey-stats/chance/03b-20260930/assessments/confirmation-stronger_origin_prior.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "archive",
+      "path": "/Volumes/Expansion/hockey-stats/archive/local-research-20261020/duplicate-verified.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "corpora",
+      "path": "/Volumes/Expansion/hockey-stats/corpora/03b-20260930-capacity-20232024/corpus.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02-native-support-check.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "captures",
+      "path": "/Volumes/Expansion/hockey-stats/captures/2025021108/play-report/body.bin",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-delivery-20261027-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-delivery-20261027-01/precleanup-untracked-inventory.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-stable-context-history-20261025-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stable-context-history-20261025-01/preserved-paths.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-06-20261026-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/factual-availability-main-parity.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-06-20261022-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/facts-02/20252026-evidence-interval_player.jsonl",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-20261025-02",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20222023-fit-phase.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-20261024-02",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-02/20212022-g-completion.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-20261024-03",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-03/20212022-g-completion.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-stopping-preview-20261025-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-preview-20261025-01/u-diagnostic-coefficients.npz",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "coaches-v1-02-20261022-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/real-closeout.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-20261025-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-01/20242025.log",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-20261024-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261024-01/20212022-stop.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "execution-v1-05-stopping-contract-20261025-01",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-stopping-contract-20261025-01/ownership.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "local_preparation",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "local_coaches",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "spatial_state",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20252026/manifest.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "analytical_source",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_composition.py",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "local_fixture",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/fixtures/README.md",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    },
+    {
+      "role": "local_results_copy",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/synthetic-state-interface/exchange/manifest.json",
+      "outside_exit": 0,
+      "outside_stdout": "read one byte\n",
+      "sandbox_exit": 1,
+      "sandbox_denial": "EPERM"
+    }
+  ],
+  "built_asset_control": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/client/index.html",
+    "exit": 0,
+    "stdout": "read one byte\n"
+  },
+  "candidate_database_control": "pending candidate existence; must pass before server launch",
+  "server_started": false
+}

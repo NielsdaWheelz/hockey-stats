@@ -63,8 +63,8 @@ app/node_modules/.bin/tsx var/v1-08-product/live-check.ts \
 
 this checks actual three-year player scalars, exact selected quartet/csv receipts and one/two-player complete/effect map api closure. toffoli/hamilton are an existing three-year forward/defense fixture pair. root separately inspects discovery sorting/filtering, same-position and mixed-position comparisons, low-minute/entrant/traded/prior-only/gap cases, actual browser downloads, ordinary/narrow/native-200% layouts and a detached browser. no api or synthetic-interface check substitutes for that evidence. stop only the recorded owned server process after the selected checks; preserve candidate, logs and temporary checks until full acceptance.
 
-next-checkpoint content patch, approved but not applied here:
+checkpoint content correction, applied in `3f9f90c`:
 
 > spatial support reason counts are games with a located excluded segment, counted once per reason code; codes can overlap within a game.
 
-add this sentence to the method limitations and existing `spatialSupportMeaning`, which already travels through selected detail, csv and scalar png. a missing roster projection gets an empty reason-count list; its unavailable explanation and unquantified gap retain the missing-evidence meaning. no schema or wire field changes. verification is the focused unknown-projection/schema and selector/csv checks plus pinned typecheck; no full synthetic exchange rebuild follows unless a concrete boundary fails.
+the method limitations and existing `spatialSupportMeaning` now carry this sentence through selected detail, csv and scalar png. a missing roster projection has an empty reason-count list; its unavailable explanation and unquantified gap retain the missing-evidence meaning. no schema or wire field changed. focused red→green checks pass all thirteen affected 5v5 rows against the strict schema, method wording and selector/csv preservation; pinned typecheck passes. no full synthetic exchange rebuild was run.

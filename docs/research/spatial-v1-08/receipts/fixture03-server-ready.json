@@ -1,0 +1,20 @@
+{
+  "kind": "spatial-v1-08-fixture03-server-ready",
+  "status": "passed startup and one identity readiness request only; root api/browser acceptance separate",
+  "ready_observed_at_utc": "2026-10-31T09:30:24.674Z",
+  "url": "http://127.0.0.1:3398",
+  "node_pid": 26820,
+  "start_local": "2026-10-31 02:29:16",
+  "listening_log": "[02:29:50.664] INFO (#1): Listening on http://127.0.0.1:3398",
+  "profile_sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6",
+  "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "purpose": "fixture",
+  "readiness_request": {
+    "path": "/api/players/8475726?season=20252026",
+    "http_status": 200,
+    "bytes": 1212765,
+    "wall_milliseconds": 51.883792
+  },
+  "server_running": true,
+  "activation": "not_performed"
+}

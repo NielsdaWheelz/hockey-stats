@@ -1,0 +1,16 @@
+# spatial product boundary
+
+status: implementation and detached selector/command checks; actual fitted-state integration and live acceptance remain pending with the delivery root. this note does not establish real numerical completion, activation or scientific support.
+
+`spatial_composition.py` owns the finite spatial exchange. it reads explicit annual selections, rejects incomplete heads and missing/failed real final probes, checks the accepted v1-06 factual/execution identities, and reconciles published skaters with saved roster projections. it preserves every non-owned family descriptor and streams its files byte for byte. people, sources and supports remain unchanged; existing method records remain exact. new methods bind the annual state, precise coefficient-support file and population reconciliation receipt. the completed exchange receives the existing strict read. this trades a complete validation pass for a simple writer, while avoiding another parse-and-reserialize pass over inherited evidence and maps.
+
+the eight existing 5v5 selectors retain their request, cohort, comparison and history owners. selected detail carries the four saved estimate records directly: difference, complete focal rate, neutral rate and relative percent. missing seasons carry null detail. selected detail and csv preserve unavailable reasons, uncertainty and copyable method receipt identities. csv records spatial strength separately from the overview endpoint's null request strength. positive defense still means more against; percentile direction remains increasing. zero or unknown qualifying time withholds standing without discarding an available magnitude. common-workload tiles and complete analytical-sheet assembly remain their assigned successors.
+
+verification so far:
+
+- the selector target check failed on the original spatial label, then passed after implementation and the small accessor refactor. it exercises all eight selectors, direct saved references, exact csv objects/evidence, absent history, and zero/unknown qualification.
+- command target checks failed on the missing spatial command shape, then passed family-specific required/forbidden flags. repeated/unknown options retain the existing strict parser contract.
+- pinned node `24.21.0` typecheck and build pass. react review preserves lazy disclosure, ordinary tables with headings/captions and keyboard scrolling; receipt text reuses wrapping selectable `pre` styling.
+- the full composition target check was written before the owner existed. its explicit synthetic state-interface exercise is separate from strict fitted-state integration. an invalid synthetic historical-prior year was correctly rejected and repaired; its rejection receipt is retained.
+
+checks/controllers under `var/v1-08-product/` are temporary and remain until root acceptance. the production readers, checked fixtures and compact receipts remain. the root owns actual detached api/browser checks, exports, layout review and real integration. no active or predecessor publication is overwritten.

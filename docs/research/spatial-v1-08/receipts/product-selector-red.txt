@@ -1,0 +1,24 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: spatial label must state experimental 5v5 difference
+    at assert (/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/selector-check.ts:19:8)
+    at Object.<anonymous> (/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/selector-check.ts:30:85)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object.transformer (/Users/nnandal/Documents/code/hockey-stats/app/node_modules/tsx/dist/register-B1c7OH6V.cjs:22:2188)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:372:15)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:244:9)
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

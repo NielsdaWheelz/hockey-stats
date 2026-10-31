@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/composition-check.py", line 5, in <module>
+    from hockey_stats.spatial_composition import compose_results
+ModuleNotFoundError: No module named 'hockey_stats.spatial_composition'

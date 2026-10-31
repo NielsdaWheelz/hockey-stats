@@ -21,9 +21,10 @@ def main(argv=None) -> int:
     facts.add_argument("--observed", required=True, action=Once, metavar="FILE")
     facts.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     fit = commands.add_parser("fit", allow_abbrev=False)
-    fit.add_argument("--family", required=True, choices=("execution",), action=Once)
+    fit.add_argument("--family", required=True, choices=("execution", "spatial"), action=Once)
     fit.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
     fit.add_argument("--coaches", required=True, action=Once, metavar="FILE")
+    fit.add_argument("--valued", action=Once, metavar="DIRECTORY")
     fit.add_argument("--season", required=True, action=Once)
     fit.add_argument("--previous", action=Once, metavar="DIRECTORY")
     fit.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
@@ -34,16 +35,32 @@ def main(argv=None) -> int:
     score.add_argument("--state", required=True, action=Once, metavar="DIRECTORY")
     score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     summarize = commands.add_parser("summarize", allow_abbrev=False)
-    summarize.add_argument("--family", required=True, choices=("execution",), action=Once)
-    summarize.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
-    summarize.add_argument("--facts", required=True, action=Once, metavar="DIRECTORY")
-    summarize.add_argument("--scores", required=True, action=Once, metavar="FILE")
+    summarize.add_argument("--family", required=True, choices=("execution", "spatial"), action=Once)
+    summarize.add_argument("--prepared", action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--facts", action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--scores", action=Once, metavar="FILE")
+    summarize.add_argument("--results", action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--states", action=Once, metavar="FILE")
     summarize.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     publish = commands.add_parser("publish", allow_abbrev=False)
     publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
     publish.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
     publish.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     args = parser.parse_args(argv)
+    if args.command == "fit":
+        if args.family == "spatial" and args.valued is None:
+            fit.error("spatial fit requires --valued")
+        if args.family == "execution" and args.valued is not None:
+            fit.error("execution fit does not accept --valued")
+    elif args.command == "summarize":
+        required = ("results", "states") if args.family == "spatial" else ("prepared", "facts", "scores")
+        forbidden = ("prepared", "facts", "scores") if args.family == "spatial" else ("results", "states")
+        for flag in forbidden:
+            if getattr(args, flag) is not None:
+                summarize.error(f"{args.family} summarize does not accept --{flag}")
+        for flag in required:
+            if getattr(args, flag) is None:
+                summarize.error(f"{args.family} summarize requires --{flag}")
 
     try:
         if args.command == "prepare":
@@ -56,6 +73,43 @@ def main(argv=None) -> int:
 
             manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
             print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        elif args.command == "fit" and args.family == "spatial":
+            from .analysis_data import read_prepared
+            from .artifacts import require
+            from .captures import strict_json
+            from .spatial_design import prepare_spatial
+            from .spatial_rates import fit_spatial
+            from .spatial_state import read_spatial_state
+
+            started = perf_counter()
+            manifest = strict_json((Path(args.prepared) / "manifest.json").read_bytes())
+            require(type(manifest) is dict and manifest.get("purpose") in ("real", "fixture"), "invalid prepared manifest purpose")
+            prepared = read_prepared(args.prepared, manifest["purpose"])
+            seasons = [row["season"] for row in prepared["seasons"]]
+            require(args.season in seasons, "spatial season is not selected in preparation")
+            require((args.previous is None) == (args.season == seasons[0]),
+                    "spatial first selected year requires no predecessor; later years require --previous")
+            previous = read_spatial_state(args.previous, manifest["purpose"]) if args.previous is not None else None
+            if previous is not None:
+                import hashlib
+
+                require(int(previous.manifest["season"][:4]) + 1 == int(args.season[:4]), "spatial predecessor is not consecutive")
+                require(all(previous.heads[head]["status"] == "complete" for head in ("volume", "shape", "quality")), "spatial predecessor is incomplete")
+                for name, path in (("prepared", Path(args.prepared) / "manifest.json"), ("coaches", Path(args.coaches))):
+                    with path.open("rb") as source:
+                        require(previous.manifest[name]["sha256"] == hashlib.file_digest(source, "sha256").hexdigest(), f"spatial predecessor {name} binding differs")
+            read_seconds = perf_counter() - started
+            design = prepare_spatial(prepared, Path(args.coaches), Path(args.valued), args.season)
+            design.resources["input_read_wall_seconds"] = read_seconds
+            state = fit_spatial(design, previous, Path(args.out))
+            print(str(state.path))
+            unavailable = [head for head in ("volume", "shape", "quality") if state.heads[head]["status"] != "complete"]
+            unresolved = state.probes is not None and state.probes["status"] != "passed"
+            if unavailable or unresolved:
+                print("spatial family incomplete: " + "; ".join(
+                    (["unavailable heads " + ",".join(unavailable)] if unavailable else [])
+                    + (["unresolved numerical probes"] if unresolved else [])), file=sys.stderr)
+                return 1
         elif args.command == "fit":
             from .analysis_data import read_prepared
             from .artifacts import require
@@ -86,6 +140,11 @@ def main(argv=None) -> int:
 
             scores = write_execution_scores(Path(args.prepared), Path(args.coaches), Path(args.state), Path(args.out))
             print(f"execution scores {scores.manifest['season']}: {scores.manifest['purpose']}; {scores.path}")
+        elif args.command == "summarize" and args.family == "spatial":
+            from .spatial_composition import compose_results
+
+            manifest = compose_results(Path(args.results), Path(args.states), Path(args.out))
+            print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
         elif args.command == "summarize":
             from .execution_scores import compose_results
 

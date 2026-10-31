@@ -1,0 +1,79 @@
+{
+  "kind": "replacement-next-real-execution-preparation",
+  "status": "HOLD; first annual still running; not launch-ready until its completed accepted predecessor digest is bound and root releases",
+  "recorded_at_utc": "2026-10-31T17:12:16.919007+00:00",
+  "purpose": "real",
+  "season": "20222023",
+  "family": "execution",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-execution-command.sh",
+    "sha256": "5245b826aec0342e91638ca1625149b9ec9b8b4ba67a9732719f36fc96a283ee",
+    "bytes": 4266
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
+    "sha256": "4b421777212ccf753c368012bcc8741cc6a6858526400626a00c6eb3e0c745d1",
+    "block_sha256": "0c2507673e96ba9e429c4e8f31921e622f19daf807a83e3e1ba3764e5b01ed23"
+  },
+  "changes": "ordinary reviewed observed argv unchanged; add input metadata pin receipts, missing-predecessor presence guard before mkdir, and future actual predecessor digest recording",
+  "ordinary_cli_tail": [
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--season",
+    "20222023",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023"
+  ],
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+    "sha256": null,
+    "exists_at_preparation": false,
+    "usage": "first completed accepted new real execution annual only",
+    "release_requirement": "obtain actual manifest digest after completion/acceptance; do not infer or substitute an old state",
+    "runtime_hash": "record actual existing predecessor at launch; accepted expected-hash guard awaits that future pin"
+  },
+  "source": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "python": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "pythonpath": "analysis/src"
+  },
+  "inputs": [
+    {
+      "kind": "prepared",
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    {
+      "kind": "coaches",
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+    }
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023",
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-source-check.json",
+  "known_census": null,
+  "checks": {
+    "shell_syntax_exit": 0,
+    "observed_argv_equals_reviewed_book": true,
+    "previous_path_exact_new_first_annual": true,
+    "predecessor_digest_unset": true,
+    "no_old_state_or_digest_substitution": true,
+    "occupied_guards_include_output_log_exit_source_check_and_launch_pins": true,
+    "new_output_and_source_check_absent": true,
+    "no_new_cli_flags": true
+  },
+  "head_continuations": 0,
+  "launched": false,
+  "scope": "local command book, current process/launch metadata and path existence only; no real game/model array or source pass; no new external directory",
+  "monitoring": "source report should be read once ready during the original running job; report unresolved_binding without thresholds; no extra invocation",
+  "policy": "one heavy job at a time; no second annual launch while first runs or before root acceptance/release; source and observer frozen through each exit; no runtime forecast"
+}

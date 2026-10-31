@@ -1,0 +1,45 @@
+{
+  "kind": "replacement-first-real-execution-launch-verification",
+  "status": "running; reviewed launch matches; no discrepancy found",
+  "observed_at_utc": "2026-10-31T17:11:07.067402+00:00",
+  "release_head": "c4ed1e3334ea3c2b78b09b2780278f9384713a86",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-execution-command.sh",
+    "sha256": "acdf0c013c9d7d1631eb9613bdc26e4810d0a8bc63eb15de452efc833ac834ba"
+  },
+  "processes": {
+    "time_pid": 723,
+    "python_pid": 724,
+    "python_parent_pid": 723,
+    "time_parent_pid": 661,
+    "recorded_shell_dollar_dollar": 644
+  },
+  "checks": {
+    "time_argv_exact_reviewed": true,
+    "child_argv_after_interpreter_exact": true,
+    "pinned_interpreter_in_parent_argv": true,
+    "pythonpath_exact_in_parent_argv": true,
+    "cwd_exact_worktree": true,
+    "launch_head_expected": true,
+    "source_tree_clean_and_exact_at_launch_and_now": true,
+    "observer_exact": true,
+    "input_launch_digests_match_preflight": true,
+    "no_previous": true
+  },
+  "start": "2026-10-31T17:06:10Z",
+  "source_check": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "exists": false,
+    "status": "not yet present at this observation"
+  },
+  "log_bytes": 0,
+  "exit_receipt_present": false,
+  "finish_receipt_present": false,
+  "notes": [
+    "macos child process displays its framework executable; timed parent invokes exact pinned venv interpreter and child argument tail matches",
+    "recorded shell pid is the reviewed $$ value; actual process parent chain is recorded separately",
+    "no source report means no new all54/head-population/solve-status assertion yet"
+  ],
+  "scope": "process, cwd and launch metadata only; no log payload, game, model array, source pass or new invocation"
+}

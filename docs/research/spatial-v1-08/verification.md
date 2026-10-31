@@ -195,3 +195,7 @@ launch head `c4ed1e3` and completion head `dcd9930` both bind unchanged clean an
 ## first real score released — 2026-10-31
 
 [the release](receipts/replacement-real-score-20212022-release.json) binds script `eaa0ee53`, accepted state `7c740083`, analysis `c2412ac` and observer `286b34dd`. root and source-owner review clear its exact ordinary argv, sixteen fresh guarded paths, input pins and automatic 54-key barrier. ordinary setup creates only the required `real/scores` parent; native idle-sleep prevention is bound to this command. first-score outcome and exact eight-field fit/score source parity remain pending. year two stays held; no activation or new source work follows.
+
+## first real score source parity — 2026-10-31
+
+[the interim receipt](receipts/replacement-real-score-20212022-source-parity-interim.json) independently checks saved score report `18d8d81d` against fit report `2a1e41e1`: all eight source/context/response/population fields match exactly, and the same 54 census keys are unavailable with the existing flag. launch head `0605f0a`, state `7c740083`, clean source `c2412ac` and observer `286b34dd` bind the running command. source construction is accepted; prediction, serialization, saved-score readback and actual propagation remain pending. year two stays held.

@@ -50,7 +50,7 @@ one ordered definition/hash covers all three heads. player axes include every id
 | players | one indicator per actual skater and role; five incidences per side |
 | coaches | known coach base in each role; same coach × that role's team score states `-2,-1,0,1,2`; one same-coach shell gate for third-period tied/one-/two-goal lead. no score-specific effect for a blowout; unknown score has no invented gate |
 | game | attacking home/away × period `1,2,3,OT`; attacking clipped score `-3..3` × six regulation ten-minute bands, with separate `OT` and unknown-score categories |
-| starts/age | each unit's five-member fractions in `offensive,neutral,defensive,on_the_fly,unknown` × age `[0,10),[10,20),[20,40),[40,60),[60,90),[90,+inf),unknown`; start type comes from the member's saved coherent shift, not a team mean |
+| starts/age | each unit's five-member fractions in `offensive,neutral,defensive,on_the_fly,unknown` × age `[0,10),[10,20),[20,40),[40,60),[60,90),[90,+inf),unknown`; start type comes from the member's saved coherent shift, not a team mean. an event's faceoff anchor must strictly precede it in saved chronology; equal, future or unresolved order gives unknown start, preserving physical shift age. elapsed starts remain unchanged |
 | rest | unit fractions in played-on-previous-night/second-previous-night combinations `00,01,10,11,unknown`; use player participation, not team scheduling alone |
 | current workload | unit aggregates of chunk-left `toi_all_seconds,toi_5v5_seconds,attempts,goals,shifts_begun,shifts_completed` |
 | dated workload | unit aggregates from each of `days_7,days_14`: `ice_appearances,toi_all_seconds,toi_5v5_seconds,shifts,attempts,goals,sog`; same-date games remain excluded |

@@ -1,0 +1,50 @@
+{
+  "kind": "spatial-v1-08-fixture02-first-launch",
+  "source_commit": "480a0f3d8a9717d36d498a59b293831ea40ec143",
+  "analysis_tree": "8fafe586611dd322f37746b477f3191b7c4bfbb2",
+  "analysis_dirty": false,
+  "argv": [
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20212022",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture02/20212022"
+  ],
+  "inputs": {
+    "prepared": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    "coaches": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    },
+    "valued": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20212022/manifest.json",
+      "sha256": "108210ba6a2947f222f89f47744004c434de1adb204b68561cced03c4ca77355"
+    }
+  },
+  "terminal_handle": "t-a03b46695bc50f2d",
+  "prepared_at": "2026-10-31T08:14:07.163040+00:00",
+  "process": {
+    "python_pid": 11678,
+    "uv_pid": 11677,
+    "time_pid": 11676,
+    "shell_pid": 4736,
+    "start_utc": "2026-10-31T08:14:07Z",
+    "initial_ps": "11678 11677 Sat Oct 31 01:14:07 2026     490272 00:20 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/hockey-stats-analysis fit --family spatial --prepared /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6 --coaches /Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json --valued /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20212022 --season 20212022 --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture02/20212022"
+  }
+}

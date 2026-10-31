@@ -1,0 +1,691 @@
+{
+  "kind": "spatial-v1-08-fixture02-first-result",
+  "status": "development_checkpoint",
+  "usable_as_predecessor": false,
+  "reason": "root requires stricter event on-the-fly entry chronology before a complete accepted fixture chain",
+  "exit_code": 0,
+  "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture02/20212022",
+  "manifest_sha256": "3fd4279deb3b926545c9d760e2cc1fa58c5e90c5133ea15170a39a38755b91a5",
+  "started": "2026-10-31T08:14:07Z",
+  "finished": "2026-10-31T08:18:44Z",
+  "source_recipe": {
+    "name": "experimental-v1",
+    "version": "spatial-v1-08-3",
+    "definition": {
+      "version": "spatial-v1-08-3",
+      "support_policy": "ordinary-attempt-segment-valued-union-1",
+      "roles": [
+        "attacking",
+        "defending"
+      ],
+      "coach_subblocks": [
+        "base",
+        "score:-2",
+        "score:-1",
+        "score:0",
+        "score:1",
+        "score:2",
+        "shell"
+      ],
+      "home_period": [
+        "home:1",
+        "home:2",
+        "home:3",
+        "home:OT",
+        "away:1",
+        "away:2",
+        "away:3",
+        "away:OT"
+      ],
+      "score": [
+        "-3",
+        "-2",
+        "-1",
+        "0",
+        "1",
+        "2",
+        "3",
+        "unknown"
+      ],
+      "bands": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        "OT"
+      ],
+      "starts": [
+        "offensive",
+        "neutral",
+        "defensive",
+        "on_the_fly",
+        "unknown"
+      ],
+      "ages": [
+        "0:10",
+        "10:20",
+        "20:40",
+        "40:60",
+        "60:90",
+        "90+",
+        "unknown"
+      ],
+      "rest": [
+        "00",
+        "01",
+        "10",
+        "11",
+        "unknown"
+      ],
+      "transition": [
+        "none",
+        "previously_advantaged",
+        "previously_shorthanded",
+        "unknown"
+      ],
+      "transition_frame": "one attacking-frame block; opposite defending indicators are exact duplicates",
+      "current_workload": [
+        "toi_all_seconds",
+        "toi_5v5_seconds",
+        "attempts",
+        "goals",
+        "shifts_begun",
+        "shifts_completed"
+      ],
+      "dated_workload": [
+        "ice_appearances",
+        "toi_all_seconds",
+        "toi_5v5_seconds",
+        "shifts",
+        "attempts",
+        "goals",
+        "sog"
+      ],
+      "workload_parts": [
+        "complete_mean",
+        "partial_known_mean",
+        "complete_fraction",
+        "partial_fraction",
+        "missing_fraction"
+      ],
+      "centering": "matched directed elapsed exposure; available-only means; absent transformed zero",
+      "scaling": "continuous exposure standard deviation; categorical scale one; zero variance scale one",
+      "event": "saved elapsed covariates with authoritative pre-event score and saved pre-event strength transition; no following-chunk reset state",
+      "event_faceoff_start": "known only when saved anchor chronology order is strictly before focal order; future/equal/unresolved becomes unknown start, preserving physical shift age; elapsed starts unchanged",
+      "units": "seconds before standardization",
+      "reference": "virtual centered linear design; five neutral slots per player role",
+      "modes": 40,
+      "penalties": {
+        "player_entry": 16.0,
+        "player_carry": 100.0,
+        "coach_entry": 100.0,
+        "coach_carry": 400.0,
+        "context": 1.0,
+        "context_shape": 160.0,
+        "intercept": 0.25,
+        "intercept_shape": 40.0,
+        "age": 64.0
+      }
+    },
+    "sha256": "c1ab22231f5724357ce0ea633181d84dc15e8851be224f65e0e65bb73a853cf9"
+  },
+  "implementation": {
+    "git_commit": "480a0f3d8a9717d36d498a59b293831ea40ec143",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+  },
+  "strict_read_wall_seconds": 2.507298584008822,
+  "strict_read_peak_rss_bytes": 281968640,
+  "output_bytes": 108861081,
+  "resources": {
+    "design": {
+      "design_wall_seconds": 73.92995920797694,
+      "input_read_bytes": 342457465,
+      "time_rows": 12962,
+      "event_rows": 632,
+      "columns": 1331,
+      "actor_columns": 981,
+      "context_columns": 350,
+      "design_bytes": 42690092,
+      "input_read_wall_seconds": 0.022838166973087937
+    },
+    "fit_wall_seconds": 21.850519291998353,
+    "peak_rss_bytes": 651788288,
+    "projection": {
+      "wall_seconds": 173.50665475000278,
+      "players": 224,
+      "actual_context": true,
+      "population": "all retained season-roster skaters, including available prior-only standardized projections",
+      "reference_id": "d0a9e36ca302767dc85745e9d7513d20d52714a4b9eeab91852fd7e1b310d398",
+      "assessment": "in-sample construction diagnostics; no held-out performance claim",
+      "peak_rss_bytes": 651788288,
+      "largest_complete_rates": [
+        {
+          "player_id": "8479395",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 48.94961475921558,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478500",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 48.99339895693276,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478904",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.05703165335933,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8479525",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.09404267512822,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475855",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.20584044883313,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480807",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.2233732258718,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8470619",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.29788235140093,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475233",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.70416766867613,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478451",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 49.79930735847375,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478439",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 50.642586058394386,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480817",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 50.78240706342262,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8481540",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 50.8552752248788,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474013",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 51.09058533859639,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480037",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 51.233472896524255,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8477346",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 51.882099272223655,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8482093",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 51.968446314180206,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476453",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 52.83473706161984,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475718",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 53.23216090423897,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475167",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 57.7991813734512,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474715",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "complete_focal",
+          "value": 58.6944406153281,
+          "units": "per_hour"
+        }
+      ],
+      "largest_absolute_contrasts": [
+        {
+          "player_id": "8474673",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.645416227477582,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478424",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.726855413884788,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8477930",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -7.777020309754906,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475233",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 7.790044388520118,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478451",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 7.885184078317742,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8473507",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -8.122419539005403,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8477369",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -8.148951041407491,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8478439",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.728462778238374,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480817",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.86828378326661,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8481540",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 8.9411519447228,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8477205",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -8.988904031157457,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474013",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 9.176462058440388,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8480037",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 9.319349616368257,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8477346",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 9.967975992067657,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8482093",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 10.05432303402419,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8476453",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 10.92061378146383,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475718",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 11.318037624082965,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474715",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": -11.434845015761514,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8475167",
+          "role": "offense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 15.885058093295203,
+          "units": "per_hour"
+        },
+        {
+          "player_id": "8474715",
+          "role": "defense",
+          "quantity": "attempts",
+          "reference_kind": "focal_minus_neutral",
+          "value": 16.7803173351721,
+          "units": "per_hour"
+        }
+      ]
+    },
+    "output_bytes": 108843451,
+    "write_wall_seconds": 3.4162072500039358
+  },
+  "heads": {
+    "volume": {
+      "status": "complete",
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 364,
+        "evaluations": 404,
+        "objective": -2080.0913387125493,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 3.1188841207452356e-05,
+        "trace_summary": {
+          "evaluations": 404,
+          "initial": [
+            -1895.6503127381284,
+            50.29407761545743
+          ],
+          "final": [
+            -2080.0913387125493,
+            3.1188841207452356e-05
+          ],
+          "minimum_objective": -2080.0913387125493
+        }
+      },
+      "resources": {
+        "wall_seconds": 3.801324375002878,
+        "peak_rss_bytes": 651788288,
+        "dimensions": {
+          "rows": 12962,
+          "features": 1331,
+          "coordinates": 1339,
+          "grouped_time_rows": 12962
+        }
+      }
+    },
+    "shape": {
+      "status": "complete",
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 164,
+        "evaluations": 172,
+        "objective": 3078.2944512643485,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 1.9508721850081123e-05,
+        "trace_summary": {
+          "evaluations": 172,
+          "initial": [
+            3294.294303970441,
+            50.92347787299702
+          ],
+          "final": [
+            3078.2944512643485,
+            1.9508721850081123e-05
+          ],
+          "minimum_objective": 3078.2944512643485
+        }
+      },
+      "resources": {
+        "wall_seconds": 4.9359151250100695,
+        "peak_rss_bytes": 651788288,
+        "dimensions": {
+          "rows": 632,
+          "features": 1331,
+          "coordinates": 53240,
+          "grouped_time_rows": null
+        }
+      }
+    },
+    "quality": {
+      "status": "complete",
+      "solver": {
+        "converged": true,
+        "status": 0,
+        "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 450,
+        "evaluations": 478,
+        "objective": 119.60279076785721,
+        "options": {
+          "maxiter": 10000,
+          "ftol": 1e-15,
+          "gtol": 1e-06,
+          "maxcor": 10
+        },
+        "maxfun": 15000,
+        "maxls": 20,
+        "raw_gradient_inf_norm": 5.875883281214467e-06,
+        "trace_summary": {
+          "evaluations": 478,
+          "initial": [
+            120.73457178917947,
+            2.0314962256404376
+          ],
+          "final": [
+            119.60279076785721,
+            5.875883281214467e-06
+          ],
+          "minimum_objective": 119.60279076785721
+        }
+      },
+      "resources": {
+        "wall_seconds": 10.533116875012638,
+        "peak_rss_bytes": 651788288,
+        "dimensions": {
+          "rows": 632,
+          "features": 1331,
+          "coordinates": 54571,
+          "grouped_time_rows": null
+        }
+      }
+    }
+  },
+  "inline_faceoff_audit": {
+    "games": [
+      {
+        "game_id": "2021020001",
+        "retained_targets": 99,
+        "shooter_known_faceoff_starts": 30,
+        "shooter_proved_earlier_starts": 30,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2021020454",
+        "retained_targets": 102,
+        "shooter_known_faceoff_starts": 30,
+        "shooter_proved_earlier_starts": 30,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2021020615",
+        "retained_targets": 78,
+        "shooter_known_faceoff_starts": 33,
+        "shooter_proved_earlier_starts": 33,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2021020617",
+        "retained_targets": 103,
+        "shooter_known_faceoff_starts": 41,
+        "shooter_proved_earlier_starts": 41,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2021020942",
+        "retained_targets": 73,
+        "shooter_known_faceoff_starts": 17,
+        "shooter_proved_earlier_starts": 17,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2021021103",
+        "retained_targets": 88,
+        "shooter_known_faceoff_starts": 29,
+        "shooter_proved_earlier_starts": 29,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      },
+      {
+        "game_id": "2021021179",
+        "retained_targets": 89,
+        "shooter_known_faceoff_starts": 27,
+        "shooter_proved_earlier_starts": 27,
+        "spatial_unknown_start_count": 0,
+        "unresolved_shooter_binding_count": 0
+      }
+    ],
+    "totals": {
+      "retained_targets": 632,
+      "shooter_known_faceoff_starts": 207,
+      "shooter_proved_earlier_starts": 207,
+      "spatial_unknown_start_count": 0,
+      "unresolved_shooter_binding_count": 0
+    }
+  },
+  "on_the_fly_target_timing": "not certified by this development contract"
+}

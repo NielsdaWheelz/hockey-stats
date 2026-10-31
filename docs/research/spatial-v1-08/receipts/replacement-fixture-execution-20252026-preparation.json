@@ -1,0 +1,87 @@
+{
+  "kind": "replacement-final-fixture-execution-preparation",
+  "status": "unexecuted; fourth annual acceptance and explicit root final-command release pending",
+  "recorded_at_utc": "2026-10-31T15:22:57.165376+00:00",
+  "purpose": "fixture",
+  "season": "20252026",
+  "family": "execution",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-20252026-fit-observed-command.sh",
+    "sha256": "4b3a2a50199598f7483765de793130c7bd12348b3070ca26f10d833236aea640",
+    "bytes": 3471
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-fit-commands.md",
+    "sha256": "d66e47793b8f46941ffea3ee46d36b4ded71771d7f515c6fb0f695f6435fdb23",
+    "block_sha256": "e6e2c10431710ffd19ec4beb8536c01e7a9ccd90ef12a782b991d5e068b258d1"
+  },
+  "change_from_book": "only add occupied guard and recorded exact sha256 guard for new previous manifest; timed observed argv unchanged",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20242025/manifest.json",
+    "sha256": "d94dba43f942de71db4aa1380a7590678fe417809a0ac539ada35e0b8917715c",
+    "usage": "annual; exact new-campaign20242025 only"
+  },
+  "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20252026-source-check.json",
+  "future_score_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20252026-source-check.json",
+  "ordinary_cli_tail": [
+    "fit",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--season",
+    "20252026",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20242025",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20252026"
+  ],
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "checks": {
+    "shell_syntax_exit": 0,
+    "observed_argv_equals_reviewed_book": true,
+    "previous_manifest_hash_matches_completed_new_annual": true,
+    "known_census_omitted": true,
+    "source_check_and_all_launch_receipts_occupied_guarded": true,
+    "next_output_and_source_check_absent": true
+  },
+  "launched": false,
+  "final_head_continuations": 4,
+  "final_probe_policy": {
+    "trigger": "existing fit_execution_year complete20252026 branch invokes _resolve_final_year once",
+    "heads": [
+      "u",
+      "q",
+      "r",
+      "g"
+    ],
+    "head_continuations": 4,
+    "native_inner_solve_counts": "separate actual counts, including setter em inner solves",
+    "manual_extra_probe_command": false,
+    "baseline_preserved": true,
+    "selector": "existing frozen deterministic actual contexts plus declared witnesses/native geometry; no reselection",
+    "maximum_probability_change": 1e-05,
+    "solver": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "em_maxiter": 100,
+      "em_objective": 1e-08,
+      "em_responsibility": 1e-06,
+      "continuation": {
+        "ftol": 1e-16,
+        "gtol": 1e-07,
+        "em_objective": 1e-09,
+        "em_responsibility": 1e-07
+      }
+    },
+    "optimizer": "existing L-BFGS-B; history10, maxfun15000, maxls20",
+    "setter_em": "unchanged deterministic recomputed responsibilities; objective increase limit1e-10*(1+abs(previous observed penalized objective)); failed inner solve fails start",
+    "on_failure": "retain complete baseline and separate probes/diagnostics; report incomplete, no rerun, tolerance change or extra continuation"
+  },
+  "policy": "one ordinary observed final fit only; all originals preserved; analysis and observer frozen through exit; no launch until root release"
+}

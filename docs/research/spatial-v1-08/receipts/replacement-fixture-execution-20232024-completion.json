@@ -1,6 +1,6 @@
 {
   "kind": "replacement-fixture-execution-completion",
-  "status": "metadata_checks_passed; independent design/support diff and root acceptance pending",
+  "status": "root_accepted; independent design/support and source-binding review passed",
   "recorded_at_utc": "2026-10-31T15:05:58.779650+00:00",
   "purpose": "fixture",
   "season": "20232024",
@@ -275,7 +275,7 @@
     "source_response_sha256": "4ba089f02da06bb9557d4b67648693326609bf6e659105cba7bec6cf6cf17d48",
     "observer_seconds": 0.10302106069866568,
     "observer_seconds_scope": "observe body only; not total wrapper overhead",
-    "scope_limit": "saved head metadata proves newly unavailable start fields for7/6/4/3physical attempts in u/q/r/g respectively, not7times3attempts. the source counters alone were insufficient: seven masked_faceoff and seven unresolved_binding overlap and include already-zone-unavailable records. independent source-binding review remains pending. real20212022 exact54-key barrier remains required; residual scope unsized"
+    "scope_limit": "saved head metadata proves newly unavailable start fields for7/6/4/3physical attempts in u/q/r/g. independent review attributes the7source contexts to omitted participation: native future overlaps disown the coherent component, and the fallback start is not admitted by v1-01r6. these are not7timing failures and do not change the rule. real20212022 exact54-key timing barrier remains required; residual scope unsized"
   },
   "resources": {
     "command_wall_seconds": 24.12,
@@ -422,6 +422,13 @@
         "new_available_weight": 227.0
       }
     ],
-    "interpretation": "new availability masks demonstrated in saved support metadata; no fitted probability effect or source-key attribution inferred here; independent source binding review pending"
+    "interpretation": "new availability masks demonstrated in saved support metadata; independent source binding passed and identifies omitted participation, not timing failures. no fitted probability effect inferred from these counts"
+  },
+  "independent_review": {
+    "owner": "independent reviewer; reported by root",
+    "status": "passed",
+    "classification": "omitted participation; native future overlaps disown coherent component; fallback start not admitted by accepted v1-01r6",
+    "rule": "unchanged",
+    "source_or_array_pass_repeated_here": false
   }
 }

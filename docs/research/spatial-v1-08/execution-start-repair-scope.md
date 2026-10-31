@@ -1,0 +1,35 @@
+# execution start-timing repair scope
+
+status: read-only scope assessment following the refused first real v1-08 pass. upstream implementation, replacement fitting/scoring and activation are unassigned. [the issue](../../issues/execution-shift-start-chronology.md), [two checked originals](real-shift-start-representatives.json) and [fixture admission](../../../fixtures/source-admission-v1-08.json) own the located evidence.
+
+the existing `20212022` pass found 54 non-prior shooter starts among retained spatial targets: 50 on-the-fly and four faceoff, in 54 games involving 50 shooters. this is not the complete execution training population: execution also includes other strengths and event-only support. only two representatives were independently checked against original captures here. no fitted probability change has been measured.
+
+## keep preparation and factual evidence
+
+the minimal correction is at execution's predictor boundary. the saved preparation already contains verified event chronology, coherent shift start/end and anchor links, retrospective start facts, and the physical age/membership needed to distinguish eligibility from observation. `EventContext` has separately named pre-event prefix/episode/transition fields; the entire `RetainedAttemptFacts` collection is not a predictor matrix and also contains outcome facts. a coherent start can remain a valid retrospective fact while being unavailable to a focal predictor.
+
+retain the accepted preparation, coaches and factual artifacts byte for byte. clarify the retained deployment/start facts' eligibility limits rather than relabeling them as corrected pre-event observations. no new raw capture, native interpretation, 397.8 gb preparation copy or factual rebuild is necessary for this correction. fitting and scoring still have to read their existing selected preparation; this does not promise free numerical work.
+
+## one consumption owner
+
+`execution_design.py` already constructs the predictors reused by annual fitting and scoring. apply start eligibility there before the selected `shift_start` transform, preserving physical age, focal membership, labels and population. ineligible or unresolved starts use the existing unavailable condition, not a fabricated on-the-fly reference. retain these rules: a faceoff anchor must precede the focal record in saved chronology; an on-the-fly shift must start strictly before the focal clock. a same-clock faceoff with proved earlier order remains admissible under the selected rule.
+
+share only the small eligibility policy with spatial, in its responsible source-context owner, using the saved facts. no second feature warehouse, public model-view framework or persisted per-event view is needed. the execution recipe must identify its changed input construction, and source-backed acceptance must inspect the actual consumed feature values. both fit and score must use that construction. strict new artifact readers/consumers must bind the new recipe and exact prepared inputs.
+
+the current spatial upstream audit assumes execution consumes raw prepared deployment. once corrected execution construction and its source-backed proof are accepted, remove that implementation-coupled audit. spatial still owns its own event eligibility and the checked execution target/key/probability bindings. this is a hard cut with evidence, not a recipe whitelist or an exemption for known invalid values. the 54 original failures remain historical evidence of the old construction.
+
+## numerical dependencies
+
+`shift_start` is selected in `u,q,r,g`, with the shooter zone contrasts and unavailable indicator active in all four inspected annual head layouts. changing availability changes the head's design and training moments; masking only a few scored probabilities cannot repair fitted coefficients.
+
+the four stage likelihoods are conditionally fitted separately. there is no automatic fitted `u→q→r→g` training cascade. each head nevertheless uses this circumstance family, and its last-supported raw actor history carries into later years. `g` additionally estimates latent setter responsibilities from its own circumstance-dependent branch logits. those responsibilities must be recomputed by the existing em fit if its objective changes; they must not become a predictor or be copied from the old fit. the source-backed setter prior, physical labels and fixed origin law need no change for this start-only correction.
+
+the simplest complete replacement budget is the existing five-year four-head base chain: twenty annual head-states and the four prescribed final-head continuations, using the same bounded solver/probe policy under the revised recipe. the 54-target spatial census does not prove which complete execution-head training populations have unchanged objectives; no per-head numerical reuse is selected by this assessment. proper chronology and the carried priors require beginning with the first selected year, rather than splicing a corrected final year onto old means.
+
+then regenerate the five execution score/panel/projection families and their existing numerical propagation evidence. the three displayed seasons' execution-derived reductions, maps, method receipts, composed exchange and isolated candidate database need coherent replacement. preserve and reuse the factual inputs. no live publication rotation follows. v1-07 has no assigned implemented continuation chain here; any later descendant must use compatible corrected execution inputs.
+
+no real spatial fit exists to discard: preflight refused before the first solve. the captured v1-08 chain remains software evidence for its pinned fixture inputs, not clearance of the refused real targets. new final source-to-screen acceptance must bind corrected upstream targets. all expensive old fits, frozen source identities, historical verdicts and original candidate artifacts remain preserved.
+
+## bounded acceptance
+
+verify the two original mechanisms, valid past starts, earlier-order same-clock faceoffs, unknown/ambiguous evidence and fit/score feature parity with focused temporary checks. during the already required selected execution source passes, retain enough counts and located witnesses to establish that the actual consumed start features obey the contract across the selected population. no separate full-corpus inspection campaign, threshold search or new scoring framework is implied. rerun the existing numerical and source-to-screen checks for changed descendants; scientific admission and activation remain separate decisions.

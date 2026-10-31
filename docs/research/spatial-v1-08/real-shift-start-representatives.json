@@ -1,0 +1,243 @@
+{
+  "kind": "spatial-v1-08-real-shift-start-representative-proof",
+  "status": "confirmed",
+  "purpose": "real source inspection",
+  "census": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+    "sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96",
+    "records": 54,
+    "games": 54,
+    "players": 50,
+    "by_kind": {
+      "on_the_fly": 50,
+      "faceoff": 4
+    }
+  },
+  "independently_checked_cases": 2,
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "accepted_scores": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "implementation": {
+      "git_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+      "git_dirty": false,
+      "python_version": "3.14.8",
+      "numpy_version": "2.5.3",
+      "scipy_version": "1.18.1",
+      "lockfile_sha256": "bae38095f3dea6bdb860501eca311b1c33390c7a1e8b7aae76966572f118acdd"
+    }
+  },
+  "accepted_execution_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+    "sha256": "592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953"
+  },
+  "accepted_encoder": {
+    "path": "analysis/src/hockey_stats/execution_design.py",
+    "sha256": "2f8a40a5d9d05ba02ac990f1e0faa1a8240a79324370e457f8b5741895e36f22",
+    "byte_equal_to_current": true,
+    "selected_family": "shift_start",
+    "executed_block": "start = _value(shooter_deployment, \"start_type\")\nzone = _value(shooter_deployment, \"start_zone\") if start == \"faceoff\" else \"on_the_fly\" if start == \"on_the_fly\" else None\ncategorical(\"shooter_start_zone\", zone, (\"offensive\", \"neutral\", \"defensive\"), condition=\"shooter_shift_start\")\n",
+    "scope": "the exact accepted three-line shift-start block on retained facts; no probability evaluation or scoring",
+    "raw_column_order": [
+      "shooter_start_zone:offensive",
+      "shooter_start_zone:neutral",
+      "shooter_start_zone:defensive"
+    ],
+    "active_head_column_order": [
+      "shooter_start_zone:offensive",
+      "shooter_start_zone:neutral",
+      "shooter_start_zone:defensive",
+      "unavailable:shooter_shift_start"
+    ]
+  },
+  "active_head_columns": [
+    {
+      "head": "u",
+      "metadata_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+      "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25",
+      "column_indices": [
+        79,
+        80,
+        81,
+        155
+      ],
+      "all_active": true
+    },
+    {
+      "head": "q",
+      "metadata_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+      "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821",
+      "column_indices": [
+        79,
+        80,
+        81,
+        165
+      ],
+      "all_active": true
+    },
+    {
+      "head": "r",
+      "metadata_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+      "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12",
+      "column_indices": [
+        79,
+        80,
+        81,
+        165
+      ],
+      "all_active": true
+    },
+    {
+      "head": "g",
+      "metadata_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+      "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6",
+      "column_indices": [
+        79,
+        80,
+        81,
+        165
+      ],
+      "all_active": true
+    }
+  ],
+  "cases": [
+    {
+      "key": "2021020002:196",
+      "identity": {
+        "game_id": "2021020002",
+        "season": "20212022",
+        "game_type": 2,
+        "game_date": "2021-10-12",
+        "away_team_id": 55,
+        "home_team_id": 54,
+        "away_team_abbrev": "SEA",
+        "home_team_abbrev": "VGK"
+      },
+      "prepared": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/games/20212022/2021020002.json",
+        "sha256": "2cf9e9e17454ddea85144dec3085fe0ab03e340e2c606e5432c6de93ef6ea563"
+      },
+      "census_pointer": "/0",
+      "original_capture_bundle": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020002/20261011-01",
+      "pointers": {
+        "prepared_event": "/events/196",
+        "prepared_deployment": "/attempts/79/feature_facts/deployment/values/players/8476467",
+        "prepared_shift": "/player_shifts/359",
+        "raw_play_by_play": "/plays/196",
+        "raw_shifts": "/data/363",
+        "raw_play_report": "PL-200"
+      },
+      "focal": {
+        "source_index": 196,
+        "event_id": 565,
+        "order_index": 196,
+        "period_number": 2,
+        "clock": "17:46",
+        "elapsed_seconds": 1066,
+        "shooter_id": "8476467",
+        "kind": "shot-on-goal",
+        "situation_code": "1551"
+      },
+      "start": {
+        "kind": "on_the_fly",
+        "zone": null,
+        "start_seconds": 1066,
+        "end_seconds": 1112,
+        "age_seconds": 0,
+        "consumed_type_and_zone_supported": true
+      },
+      "faceoff_anchor": null,
+      "episode": {
+        "episode_index": 33,
+        "start_seconds": 764,
+        "end_seconds": 1067,
+        "start_source_index": 183,
+        "end_source_index": 197
+      },
+      "report_excerpt": "200 2 EV 17:46 2:14 SHOT SEA ONGOAL - #24 OLEKSIAK, Wrist, Off. Zone, 66 ft.",
+      "admitted_start_zone_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "admitted_condition": "available",
+      "expected_pre_event_start": "unknown / unavailable; retain physical age, membership and exposure",
+      "verdict": "non-prior selected shooter start is admitted by the accepted execution encoder; corrected pre-event start must be unavailable, preserving age/membership/exposure"
+    },
+    {
+      "key": "2021020637:210",
+      "identity": {
+        "game_id": "2021020637",
+        "season": "20212022",
+        "game_type": 2,
+        "game_date": "2022-01-11",
+        "away_team_id": 14,
+        "home_team_id": 7,
+        "away_team_abbrev": "TBL",
+        "home_team_abbrev": "BUF"
+      },
+      "prepared": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/games/20212022/2021020637.json",
+        "sha256": "c8c4f7c12be91a730f108f9774c8fdf7621ad7d2eb17f2f0e770b9a1d391c035"
+      },
+      "census_pointer": "/25",
+      "original_capture_bundle": "/Volumes/Expansion/hockey-stats/raw/03m-20261010/bundles/2021020637/20261011-01",
+      "pointers": {
+        "prepared_event": "/events/210",
+        "prepared_deployment": "/attempts/84/feature_facts/deployment/values/players/8476453",
+        "prepared_shift": "/player_shifts/210",
+        "raw_play_by_play": "/plays/210",
+        "raw_shifts": "/data/215",
+        "raw_play_report": "PL-214"
+      },
+      "focal": {
+        "source_index": 210,
+        "event_id": 663,
+        "order_index": 210,
+        "period_number": 3,
+        "clock": "17:29",
+        "elapsed_seconds": 1049,
+        "shooter_id": "8476453",
+        "kind": "shot-on-goal",
+        "situation_code": "1551"
+      },
+      "start": {
+        "kind": "faceoff",
+        "zone": "offensive",
+        "start_seconds": 1049,
+        "end_seconds": 1111,
+        "age_seconds": 0,
+        "consumed_type_and_zone_supported": true
+      },
+      "faceoff_anchor": {
+        "source_index": 212,
+        "order_index": 212,
+        "period_number": 3,
+        "clock": "17:29",
+        "elapsed_seconds": 1049,
+        "kind": "faceoff"
+      },
+      "episode": {
+        "episode_index": 46,
+        "start_seconds": 1049,
+        "end_seconds": 1164,
+        "start_source_index": 212,
+        "end_source_index": 217
+      },
+      "report_excerpt": "214 3 EV 17:29 2:31 SHOT TBL ONGOAL - #86 KUCHEROV, Wrist, Off. Zone, 34 ft.",
+      "admitted_start_zone_values": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "admitted_condition": "available",
+      "expected_pre_event_start": "unknown / unavailable; retain physical age, membership and exposure",
+      "verdict": "non-prior selected shooter start is admitted by the accepted execution encoder; corrected pre-event start must be unavailable, preserving age/membership/exposure"
+    }
+  ],
+  "fixture_admission": "../../../fixtures/source-admission-v1-08.json",
+  "scope": "the existing20212022 pass supplies the54-record census; only these two representative prepared games and original bundles were independently checked. exact accepted three-line encoder block was evaluated, without probability scoring, preparation, fitting or activation"
+}

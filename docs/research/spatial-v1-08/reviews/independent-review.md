@@ -652,6 +652,41 @@ what to expect, from the original annual: about 6,915 seconds of design, so the 
 
 root's decision to let real fits proceed alongside blocked browser work is sound on the dependency: app-only repairs do not feed fitting. browser acceptance stays pending, not waived.
 
+### real `20212022` source report
+
+verdict: **clear. no defect.** report `2a1e41e1`, recipe `47691110`, saved `18:19:28z`, 4,398 seconds after launch against 6,915 of design in the original. this review read the report, the census, original head metadata and the production code cited below. it read no prepared game or capture, ran no new source pass and touched no running state. the fit is still running, so nothing here covers the solve.
+
+the observer's requirements held on all 147,510 contexts: consumed availability equals the independent oracle and admitted contrasts equal source. all 54 known keys are masked, and the barrier closed before head construction.
+
+| head | attempts | original unavailable | report unavailable | rise | masked on-the-fly | masked faceoff |
+|---|---|---|---|---|---|---|
+| `u` | 147,510 | 5,850 | 5,914 | 64 | 58 | 6 |
+| `q` | 112,345 | 4,491 | 4,535 | 44 | 39 | 5 |
+| `r` | 82,328 | 3,370 | 3,405 | 35 | 31 | 4 |
+| `g` | 62,505 | 2,503 | 2,530 | 27 | 25 | 2 |
+
+the original column and the report come from separate passes. the rise equals the masks in every head, so raw `None`, `unknown` and `no_same_clock_faceoff` add nothing new, and no masked faceoff lacked a zone. attempts equal the original support totals, and included plus excluded is 149,412 in all four heads.
+
+the 64 in `u` split three ways:
+
+- 54 at `5,5,1`, 50 on-the-fly and 4 faceoff. their keys equal the census exactly, in 54 games and 50 shooters. those are all the `5,5,1` masks, so a separate pass confirms the census was complete for that strength.
+- 8 on-the-fly elsewhere: 2 at `3,3,1`, 3 at `4,5,1`, 3 at `5,4,1`.
+- 2 faceoffs at `6,5,0`. these are the two `unresolved_binding` rows, because all four known faceoffs bind one coherent shift and an anchor order.
+
+so 62 are same-clock, not 64. the 54 witnesses all have age zero. the eight others follow by construction: raw `on_the_fly` comes only from the supported-span overlay (`analysis_context.py:1153`), which requires start at or before focal, and the rule masks only start at or after focal. the four faceoffs all have anchor order at focal plus two and offensive zone, and none reaches `g`. the report cannot say what the intervening record is.
+
+the two unresolved rows are not timing failures on this evidence. witness `2021020674:269` has a faceoff start at 1043, focal clock 1061, age 18 and no exact coherent binding. the other has no witness. both reach `g`. the observer cannot separate omitted participation from any other overlay failure, so the accurate name is unresolved. `withheld_earlier_anchor` zero says neither has a coherent earlier alternative at its bounds.
+
+this sizes the scope's unknown for one year. `_deployment` can only write `faceoff`, `no_same_clock_faceoff` or nothing (`feature_data.py:999-1006`), and the last two were already unavailable. with the rise closure, two of 147,510 is the exact count of rows this year that the rule newly withholds for a non-timing reason, against the loose bound of 3,502. rows of the wider class that were already unavailable stay unsized, and the four later years stay unmeasured.
+
+the fallback question closes. `_deployment` never writes `on_the_fly`, so the on-the-fly rule needs no binding: no fallback row can be admitted through it. spatial reads starts only through `player_shift_index` (`spatial_design.py:152-154`), so it consumes no fallback at all.
+
+both real rows sit at `6,5,0`, which holds 2,832 of 147,510 attempts, as did all seven selected fixture rows. this is not chance, afaict. the mechanism is unknown: this is an observation from report counts, and no prepared game or capture was read to explain it. later years are unmeasured. no `5,5,1` row changed through this class this year, though three `5,5,1` rows carry `no_same_clock_faceoff`, so overlay failure is not confined to `6,5,0`.
+
+`admitted_same_clock_faceoff` is zero here and in every fixture report, and afaict all 141,596 admitted starts are strictly earlier on the clock. that is a measurement, not a dead counter: the synthetic control fires it, and the same clock fields produced the 58 equalities. no admitted row this year rests on subsecond order. the order comparison's only work was rejecting the four.
+
+pins for the completed state: saved `unavailable_attempts` must be 5,914, 4,535, 3,405 and 2,530, with `available_weight` 141,596, 107,810, 78,923 and 59,975. the real score must reproduce `source_context_sha256` `a60c81d8` and `source_response_sha256` `537cbba2`.
+
 ### execution-base composition
 
 `fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.

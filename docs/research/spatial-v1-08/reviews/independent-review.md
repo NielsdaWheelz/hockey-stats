@@ -1,6 +1,6 @@
 # independent mathematical, source and systems review
 
-date: 2026-10-31 utc. status: report through source `9fbcbd2`, with no open source or mathematical defect from this review. saved fixture composition and publication are clean. server, api, browser, detached runtime and every real result remain unreviewed. review remains open through final acceptance. strict-state, composition and application reading is partial; real fits, real publication and live checks have not been reviewed because they have not happened. this is not software acceptance, activation or scientific admission.
+date: 2026-10-31 utc. status: report through source `9fbcbd2`. the real first annual stopped correctly on a confirmed upstream predictor defect; repair assignment is pending with the user. saved fixture composition and publication are clean. server, browser, detached runtime and every real fitted result remain unreviewed. review remains open through final acceptance. strict-state, composition and application reading is partial; real fits, real publication and live checks have not been reviewed because they have not happened. this is not software acceptance, activation or scientific admission.
 
 read `AGENTS.md`, the brief, council, the complete [v1-08 specification](../../../specs/v1-08-positive-attribution.md) and the [attribution appendix](../../../specs/experimental-attribution.md). reviewed `spatial_design.py`, `spatial_rates.py`, `spatial_state.py`, `spatial_composition.py`, `coalitions.py`, `iter_neutral_origins`, `read_panel` and the owners they consume: `analysis_support.py`, chunk construction in `analysis_context.py`, `execution_scores.py`, `execution_design.py`, `build_shape_basis`, publication validators and the spatial wire schema. real input reads were limited to two prepared games, the five score manifests and saved execution head metadata. no prepared-season pass, fit or serving file was touched.
 
@@ -156,6 +156,70 @@ launch check: recipe `0a6a4c92` has the absolute `cd`, an occupied-path guard be
 fixture api: the six saved rows in the one- and two-player receipts match the candidate database exactly on offense xg, defense xg and support. that cross-checks saved values only, not the api checks themselves. the expanded target closes a real gap: the old check validated only the first selected player, and the new receipt records a mutated second-player integrated value being refused. the history-gap pair is confirmed against the database: skaters `8475726` and `8477504` have four present player-years, and the second has no person row in `20232024` or `20252026`, so those absences are genuine. `8475726` in `20252026` is a real zero-time prior-only case. no browser evidence exists.
 
 rollback, receipts only: the operator sequence ran on disposable files under `fixture03/rollback-check`, with the strict reader validating each incoming database, no live serving mutation, and `previous.sqlite` carrying the candidate digest `6c77ed60`. this review did not rerun it.
+
+## real `20212022` refusal and upstream scope
+
+read-only. no fit, rescore, source change or 54-game pass; two census games, saved logits, coefficients and metadata only.
+
+census: verified. the saved file equals an independent parse of the log, whose digest is `1711e43a`. it holds 54 records in 54 games for 50 players, 50 `on_the_fly` and 4 `faceoff`. every `on_the_fly` case has shift start exactly on the focal clock. every faceoff anchor is two orders later. all 54 are in the 117,676-event 5v5 panel, a rate of `4.6e-4`. this covers retained 5v5 targets in one season only. the first annual stopped correctly: `--out` is absent, with 0 heads, 4,447 seconds and 11.18 gb peak.
+
+representatives: in `2021020637`, the shot is order 210, stoppage 211 and faceoff 212, all at clock 1049. the shooter's `faceoff/offensive` start is anchored on 212, a faceoff that exists because the goalie froze this shot, so the predictor encodes the attempt's own outcome. in `2021020002`, the shot is at 1066 and the stoppage at 1067, and the shooter's `on_the_fly` start at 1066 holds only because no reset fell on that clock. a whistle one second earlier would have made it `unknown`.
+
+size, under current coefficients only: moving the 54 to `unknown` raises their summed neutral mass from 2.407 to 2.817. that is +0.410 of 5,271.81 at 5v5, `7.8e-5`, with a median per-event change of 19% and a maximum of 24%. this is not a repaired value, because a refit moves the coefficients. nor does it discount the cases: the faceoff records are direct outcome information, and the affected rows also trained all four heads. the positive `unavailable:shooter_shift_start` coefficient in `g`, between +0.11 and +0.31 across years, rests on thousands of unknown-start rows, 2,503 in `20212022`; same-clock goal capture at this rate is a few goals a year (estimate), so it cannot be the main source of that coefficient.
+
+### responsible layer
+
+the repair belongs at the execution encoder, with no repreparation. the shift's `start` and the event's `deployment.players[*].start_type/start_zone` are correct retrospective facts about the shift covering the attempt. v1-01 places pre-event context under `EventContext`, and nothing there promises that `deployment` is pre-event. `AGENTS.md` makes each selected family own its timing, and the brief separates later component facts from eligible predictors. the defect is `execution_design.py:264-266` admitting a retrospective fact as a pre-event predictor. the only other consumers are the spatial audit and frozen `chance_features.py:429`, whose research verdicts stay as they are.
+
+`_feature_context` already holds what the gate needs. `on_the_fly` needs only `start_seconds < elapsed`, which the fact carries. `faceoff` needs the anchor, available through `game['player_shifts']` by exact player, period, start and end, compared on `game['events'][*].chronology`. an ambiguous binding becomes unknown, never known. the spatial rule `_start_before_event` is the right policy and should have one owner. the gate reaches every strength automatically, which matters because 5v5 is the only audited population.
+
+### exact replacement
+
+| item | requirement |
+|---|---|
+| prepared, coach, factual and capture bytes | unchanged |
+| encoder | one gate plus an explicit `DEFINITION` change, which is what produces the new recipe identity; `unavailable:shooter_shift_start` already exists, so no column changes |
+| fits | all 20 heads and the 4 final probes |
+| scores | all 5 annual artifacts and final-year propagation |
+| exchange | execution composition for the three display years; factual inputs reused |
+| fixture | fixture states and scores, then a fresh spatial fixture chain; fixture03 becomes development evidence |
+| v1-08 | new pins in `spatial_composition.py`, `inputs.json` and the specification |
+| audit | `_audit_shift_starts` reads the unchanged prepared fact, so it would still refuse after a correct repair. hard-cut it after the acceptance proof below; a recipe hash alone would not be that proof |
+
+minimal boundary, read-only; no code is authorized. root's direction stands:
+
+1. one policy in the existing context owner, `analysis_context.py`. it is a statement about shift facts against event chronology, and spatial should not depend on execution internals. `_feature_context` applies it once, for fit and score; spatial event members use it directly. an ambiguous binding is unknown, which the existing missing indicator already records. no new module, field or saved record; `iter_neutral_origins` and panels stay as they are.
+2. delete the raw-fact audit once corrected inputs are accepted. the consumer then depends on execution's pre-outcome contract, with no per-event refusal list or coverage protocol.
+3. acceptance proof, temporary and deleted afterwards: encoder red/green for one bad record of each kind and one valid same-clock faceoff with a proved earlier anchor; a bounded check that all 54 census keys, the two original representatives among them, read unknown from the real encoder over their 54 games; and, per head, unchanged attempt population with `feature_support.unavailable_attempts` no lower than accepted.
+
+that proof plus strict bindings is sufficient on one condition. the execution recipe hash is computed from the `DEFINITION` dict at `execution_design.py:130-131`, not from code, so a gate added without changing `DEFINITION` leaves the hash identical. old states and scores would then pass `execution_state.py:87` and `execution_scores.py:540`, and with the audit gone spatial would consume uncorrected targets silently. the repair must therefore add the policy to `DEFINITION` with a version change, and acceptance needs one negative control: the accepted real state and score manifests are refused by the new readers. that is a manifest read only. spatial then inherits the rejection through `read_execution_scores` in `prepare_spatial`, and the deletion order stops mattering.
+
+the count check is one-sided: the census covers only 5v5 `20212022`. exactness across strengths rests on the single admission point, which is sound because `execution_design.py:264` is the only execution consumer of these fields. the acceptance claim should read "no non-prior shooter start is admitted", not "execution has no future information": only this family was audited. the neighboring `last_faceoff_*` and pre-clock history were read and are ordered correctly.
+
+an earlier draft here proposed a saved refusal list and a permanent equality check. that is unnecessary and withdrawn.
+
+why all 20: all four heads have `shooter_start_zone:*` and `unavailable:shooter_shift_start` active in all five years, so every head trains on the changed rows. `r` and `g` carry the direct outcome path, while `u` and `q` change through the same rows and column means. `g` also depends through setter em, because its responsibilities use the same circumstance logits. the carry ledger then passes each year's actor coefficients into the next year's priors, so a partial chain is not coherent.
+
+measured command time from the accepted artifacts, not a forecast: fits summed 15.8 hours, peak 21.6 gb; scoring summed 26.3 hours, peak 26.1 gb. one heavy job at a time. no real spatial state exists, so nothing real is lost.
+
+correction: an earlier version of this review said execution values sat in the schema8 candidate only, not the active schema7 publication. that was stale. `execution-v1-06/activation.md` at primary `c288b4c` records schema8 publication `9a5b4061` as active, with schema7 as its rollback, through a separately authorized activation. the affected construction is therefore in actively served execution values, not just a candidate. this review makes no rotation or rollback recommendation, and none is assigned; the repair replaces artifacts only, with any later activation a separate decision.
+
+rejected as not fully correct: rescoring with existing coefficients leaves heads trained on these rows. excluding the 54 segments inside v1-08 is cheap and keeps the pins, but it leaves execution's own family and every coefficient unchanged, and other years uncensused. that fallback would need an explicit user decision that those limits are accepted.
+
+unknown: the other four seasons, and every non-5v5 population. the real `20212022` unresolved-binding count was not reported, because the refusal came before coverage was saved.
+
+### judgment on the repair scope
+
+this review concurs with `execution-start-repair-scope.md` on layer and scope: admission at the execution encoder, one eligibility policy in the context owner, preparation and factual bytes retained, the full five-year chain of 20 heads and four continuations, regenerated scores and descendants, and deletion of the raw-fact audit after proof. its statements on `u,q,r,g`, setter em and carried priors agree with this review's independent reading. there is no dissent on the responsible layer.
+
+two items should be explicit before assignment:
+
+1. the scope says the recipe must identify the changed construction, but it does not state the trap. the hash comes from `DEFINITION`, so `DEFINITION` must change, and acceptance should include the negative control that accepted real state and score manifests are refused. without that, deleting the audit can consume old targets silently.
+2. the scope asks the source passes to retain counts and located witnesses, while no new persisted ledger is selected. both can hold only if that evidence lives in temporary acceptance output, not in artifact schema or strict readers. it should say so. it is also a better all-strength check than this review's one-sided count, so it replaces that check.
+
+root has accepted both clarifications for the scope.
+
+three limits carry forward. the scope's "no fitted probability change has been measured" stands; this review's `7.8e-5` is under current coefficients and is not a repaired value. the claim is limited to shooter start admission. the volume probe risk is unaffected: the repair reruns execution, not spatial stopping, so a real final-year probe remains the open test.
 
 ## cost notes
 

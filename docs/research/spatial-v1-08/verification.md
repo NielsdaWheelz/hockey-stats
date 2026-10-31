@@ -1,6 +1,6 @@
 # positive 5v5 attribution verification
 
-status: assigned, implementation and acceptance pending. this record does not claim completed software, real integration, activation or scientific support.
+status: implemented and exercised through the captured source-to-api boundary; real execution is blocked by confirmed upstream input timing. browser/export/layout acceptance remains pending desktop access. this record does not claim full software acceptance, real integration, activation or scientific support.
 
 the user assigned the full [v1-08 specification](../../specs/v1-08-positive-attribution.md) on 2026-10-31, including fifteen chronological annual heads, three final-head continuations, three-season publication and actual application acceptance. branch `implement/v1-08-positive-attribution` and worktree `/Users/nnandal/Documents/code/hockey-stats-v1-08` isolate this work. base `0e0f5694721bb2f25b64c6dff905209a5feea93f`; `33a044f` preserves the supplied draft specification and governing documentation without changing the primary checkout.
 
@@ -12,15 +12,15 @@ native non-astra agents own `spatial_design.py` and execution origin access; `sp
 
 | boundary | status |
 |---|---|
-| source masks, joins and fixed design | captured-source checks pass; real chain pending |
+| source masks, joins and fixed design | captured-source checks pass; first real pass correctly refuses 54 non-prior upstream targets |
 | independent objectives, gradients, priors and history | tiny independent checks pass; five-year real history pending |
-| strict states and detached readers | five captured annuals pass; full candidate detached acceptance pending |
+| strict states and detached readers | five captured annuals and detached candidate api pass; browser pending |
 | neutral/focal maps and exact coalition accounting | five captured annuals and three probe continuations pass; real integration pending |
-| fifteen real heads and exactly three continuations | pending |
-| three-season exchange/sqlite/api preservation and integration | pending |
-| actual discovery, detail, comparison, history, maps and exports | pending |
+| fifteen real heads and exactly three continuations | blocked before first solve; upstream replacement needs assignment |
+| three-season exchange/sqlite/api preservation and integration | captured chain passes; real blocked |
+| actual discovery, detail, comparison, history, maps and exports | captured api/consumer checks pass; browser/downloads pending |
 | narrow/normal/native-200% and detached operation | pending |
-| independent reviews, preservation and temporary-test deletion | pending |
+| independent reviews, preservation and temporary-test deletion | current reviews and scoped preservation recorded; tests retained until full acceptance |
 
 ## input boundary
 
@@ -109,3 +109,19 @@ review of that target check found its pair path asserted only the first player's
 [disposable compatible rollback](receipts/fixture03-rollback-completion.json) passes through the existing built operator: load accepted execution fixture, rotate to spatial fixture, then restore. each incoming file passes the current schema8 strict reader. final disposable `active.sqlite` exactly matches baseline hash `d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774`; disposable `previous.sqlite` exactly matches spatial candidate hash `6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114`, with no incoming file left. the real serving directory, both source databases and the isolated candidate server remain unchanged. no browser or live-activation claim follows.
 
 the [actual discovery consumer check](receipts/fixture03-discovery-consumer-review.json) passes all 723 captured player-years through the existing public table composition/filter/sort/selectors. 5,784 selected spatial values match the hash-checked saved rows; 48 numeric sort orders and name/position/team/minute filters pass. all 152 zero-time prior-only players retain their magnitudes and remain unranked at cutoff zero. the check distinguishes the default 300-minute peer cutoff from the table's default zero-minute visibility filter, and observed viewing minutes from spatial qualifying minutes. substituting the actual observed on-ice rate is rejected by the saved-spatial oracle. final execution takes 2.47 seconds with 334,135,296 peak resident bytes. browser interaction, pixels and downloaded files remain unverified.
+
+## real input refusal and required decision
+
+[the first real command ends](receipts/real-20212022-completion.json) at `2026-10-31T10:44:28Z`, exit one, after 4,447.22 seconds with 11,184,652,288 maximum resident bytes. the complete selected source pass collects 54 non-prior targets in 54 games involving 50 shooters: fifty on-the-fly starts at the focal clock and four faceoff anchors later than the focal event. this is a known-violation census for retained 2021–22 5v5 targets; it does not clear other strengths, later years or unresolved bindings. the annual output is absent. no head, projection or probe ran, so neither complete real capacity nor the final volume-probe risk is resolved.
+
+[two independently checked representatives](real-shift-start-representatives.json) establish the mechanisms in original source records. `2021020002:196` admits an on-the-fly shooter start at the shot clock, `1066` seconds. `2021020637:210` admits an offensive faceoff start anchored at order `212`, after the shot and its stoppage, at the same `1049`-second clock. [fixture admission](../../../fixtures/source-admission-v1-08.json) preserves both complete original six-source bundles: 24 files, 2,945,307 body bytes and 8,068 receipt bytes, with eight exact existing season-reference files reused. only these two census games received the independent original-source inspection; no extra 54-game pass was run.
+
+[the repair assessment](execution-start-repair-scope.md) places pre-event admission in execution's existing fit/score encoder. the already saved chronology and coherent shifts are sufficient; preparation, coaches, factual artifacts and raw captures stay byte-identical. share the small eligibility policy with spatial, preserve physical age and population, and identify the corrected execution recipe explicitly. once corrected producer construction and source-backed proof are accepted, remove spatial's obsolete assumption that raw retrospective deployment equals execution's consumed predictor. no probability patch, source exclusion or new persisted feature framework is selected.
+
+all four execution heads select the affected family. the proposed replacement therefore includes twenty annual execution heads and four final continuations, five annual score/projection families with their prescribed propagation evidence, and a compatible three-year base exchange. then the assigned fifteen spatial heads, three continuations and real source-to-screen acceptance can proceed against checked new pins. every original expensive fit, score and candidate remains preserved. no upstream implementation or replacement job has been started: [the assigned specification](../../specs/v1-08-positive-attribution.md) explicitly says “do not repeat execution scoring or preparation” and requires the existing accepted targets. changing that boundary needs the user's assignment.
+
+## preservation and remaining application work
+
+[the scoped preservation check](receipts/scoped-preservation-final.json) confirms all eleven primary drafts and seven upstream pin files remain exact in bytes, size and modification time. the 38 primary build-path differences are recorded individually. [the provenance check](receipts/primary-build-preservation-provenance.json) supports their attribution to the separate v1-06 activation: primary rebuild times precede this task's first saved build, primary commit `c288b4c` records the activation, and task/main directories and builds are distinct. no restoration was attempted; exact per-byte authorship beyond that evidence is not claimed. the task build, sandbox profile and candidate remain their accepted identities.
+
+the isolated fixture server remains ready on `127.0.0.1:3398`, pid `26820`. actual browser discovery/detail/comparison/history journeys, scalar downloads and normal/narrow/native-200% inspection remain pending because computer use has no accessible browser window. the desktop-access question remains unanswered. no heavy analytical command remains running. temporary checks/controllers remain for resumption and must be deleted only after full acceptance. no activation, scientific admission or completed-v1-08 claim follows.

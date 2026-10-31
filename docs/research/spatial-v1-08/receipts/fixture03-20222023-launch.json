@@ -1,0 +1,58 @@
+{
+  "kind": "spatial-v1-08-fixture03-annual-launch",
+  "season": "20222023",
+  "released_source_commit": "a4b07e0402657e8f0e137d2aed376a543868e248",
+  "launch_commit": "a4b07e0402657e8f0e137d2aed376a543868e248",
+  "analysis_tree": "f74e9b83caa6bceb6551f9d92010f5b6e7f64993",
+  "analysis_dirty": false,
+  "argv": [
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20222023",
+    "--season",
+    "20222023",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20222023"
+  ],
+  "inputs": {
+    "prepared": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    "coaches": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    },
+    "valued": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20222023/manifest.json",
+      "sha256": "845e39004076543fab485dc84853380c52acad8c7e8c4e1b1eb8b5c58b0ccd8e"
+    },
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20212022/manifest.json",
+      "sha256": "a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd"
+    }
+  },
+  "terminal_handle": "t-a03b46695bc50f2d",
+  "prepared_at": "2026-10-31T08:38:25.253285+00:00",
+  "process": {
+    "python_pid": 16592,
+    "uv_pid": 16591,
+    "time_pid": 16590,
+    "shell_pid": 4736,
+    "start_utc": "2026-10-31T08:38:25Z",
+    "initial_ps": "16592 16591 Sat Oct 31 01:38:25 2026     577744 00:22 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/hockey-stats-analysis fit --family spatial --prepared /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6 --coaches /Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json --valued /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20222023 --season 20222023 --previous /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20212022 --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20222023"
+  }
+}

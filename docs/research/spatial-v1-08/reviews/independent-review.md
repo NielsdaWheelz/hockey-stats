@@ -687,6 +687,57 @@ both real rows sit at `6,5,0`, which holds 2,832 of 147,510 attempts, as did all
 
 pins for the completed state: saved `unavailable_attempts` must be 5,914, 4,535, 3,405 and 2,530, with `available_weight` 141,596, 107,810, 78,923 and 59,975. the real score must reproduce `source_context_sha256` `a60c81d8` and `source_response_sha256` `537cbba2`.
 
+focused receipt `d6eacdb5` agrees with this section. its digests for the report, the original manifest and all four original head files recompute, and its limits are stated correctly. it counts only the 54 as proved classes; the eight further same-clock rows above follow from code, not from a witness. one field needs care. `conditioning_and_type_strength_partitions_match` sits beside `counts_match_original`, but the inputs the receipt names hold no type or strength partition: no original head file contains those keys, and they live in `coverage.json`, which it did not read. afaict the field can only be internal. internally it holds: class, type and strength each sum to included, and `u` class 1 equals `q`, `q` class 1 equals `r`, `r` class 1 equals `g`. equality with the original is not established until the coverage diff on the completed state, which [closes it](#completed-real-20212022-annual).
+
+### completed real `20212022` annual
+
+verdict: **clear. no defect.** manifest `7c740083` against original `592dce62`. this review read saved manifests, head metadata, coefficient arrays, `coverage.json` and receipts. it read no prepared game or capture, ran no source pass, rescore or solve, and left the strict read to the numerical owner.
+
+every pin from the source report holds: saved `unavailable_attempts` 5,914, 4,535, 3,405 and 2,530, and `available_weight` 141,596, 107,810, 78,923 and 59,975. exit is 0 and all four heads are complete. all nine manifest file digests recompute. prepared, coaches, cutoff, `previous` and head paths equal the original.
+
+design: `size`, `columns`, `means` and `active` are equal in all heads. inside `design`, only the three start-zone `feature_support` rows and the `shift_start` text in `fixed_transforms` change. `target`, `actors`, `priors`, `origin`, `arrays` and `selected_start` are equal. `ledger` lengths are equal and only `coefficient` differs.
+
+coverage: exactly 24 leaves differ, the two start-zone support fields for three columns in four heads. all 149,412 per-attempt records and the per-head partitions equal the original. that closes the `conditioning_and_type_strength_partitions_match` point, and it closes the receipt's limit on old/new event identity for the fields coverage holds: key, game, outcome and goalie identity.
+
+matrix nonzeros close the other receipt limit, on flag flips, as a count. a masked on-the-fly row adds one nonzero, since it had no contrast and gains the flag. a masked faceoff swaps one for one. so `q`, `r` and `g` rise by exactly 39, 31 and 25. `u` rises by 12,503, which is 39 + 19 × 656: the 19 masked on-the-fly rows outside `q` are blocked, and a blocked row carries all 656 origin cells.
+
+| head | objective | start flag | age flag | pair sum | age-known start-unknown rows | largest shooter move | largest start contrast move |
+|---|---|---|---|---|---|---|---|
+| `u` | 63,798.406 to 63,797.688 | -0.060 to -0.280 | +0.023 to +0.228 | -0.037 to -0.052 | 10 to 74 | 0.0095 | 0.0005 |
+| `q` | 61,491.748 to 61,491.719 | -0.074 to +0.048 | +0.196 to +0.083 | +0.123 to +0.132 | 8 to 52 | 0.0047 | 0.0002 |
+| `r` | 43,428.521 to 43,428.385 | +0.056 to +0.142 | -0.178 to -0.256 | -0.122 to -0.115 | 5 to 40 | 0.0047 | 0.0008 |
+| `g` | 35,037.244 to 35,037.325 | +0.212 to -0.144 | +0.147 to +0.447 | +0.359 to +0.302 | 5 to 32 | 0.0069 | 0.0007 |
+
+the two flags are the largest moves in every head, up to 0.356 in `g`. [predictor timing](#predictor-timing) predicted this: the pair was a ridge split on 5 to 10 rows and is now separated by 32 to 74. the flags swing opposite and mostly cancel. the rest of the flag block moves at most 0.047. base, type, non-flag circumstance, goalie and setter blocks move at most 0.0037, coaches at most 0.0002, and the median coefficient about 1e-5. in `u`, six of the eight largest shooter moves are shooters in the 54 witnesses. all heads converged with the same terminations, and `g` took nine em iterations in both fits. `q` `gradient_max` rose from 0.0027 to 0.0102, but no gate reads it and termination is on relative reduction. afaict non-flag moves near 0.001 cannot be separated from stopping noise.
+
+this is not yet a probability result. two groups need the real score, because no row-level change has been measured:
+
+- masked rows. a masked on-the-fly row swaps the reference for the flag coefficient: -0.28, +0.05, +0.14 and -0.14 by head. that is about 64 rows.
+- rows unavailable on both flags. `g` pair sum falls 0.056 on about 2,500 rows, the largest move on ordinary rows, and other co-occurring flags offset some of it. idk how much.
+
+the flag also carries the accepted limit from [predictor timing](#predictor-timing). the start value is gone, but its absence remains a predictor, and availability can depend on later records. the flag's separate estimate now rests mostly on these rows, including the four later-anchor faceoffs. that limit is now sized at 64 of 147,510 in `u`. no change follows.
+
+provenance: `git_commit` `dcd9930` is `HEAD` when the manifest was written (`artifacts.py:21`), not launch head `c4ed1e3`. `analysis` is tree `c2412ac` at both, and `git_dirty` covers `analysis/` only. the strict reader asks only for an identified clean commit, and fixture annuals already carry different commits, so this is not a defect. receipts should cite launch head and tree, not the manifest commit, for what ran.
+
+cost: wall 6,164 seconds against 8,801, design 4,396 against 6,915, fit 1,767 against 1,885, of which `u` is 1,381. peak 18.8 gb against 17.3. the observer and the overlapping rollback both sit inside these, so no figure is a clean baseline.
+
+### replacement disposable rollback
+
+verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.
+
+- saved outputs: every saved json, cost, exit, timestamp and tmpdir file matches the receipt in digest, and final sizes and mtimes match. `incoming.sqlite` is absent and `sqlite-temp` is empty. timings sum to 116.93 seconds against 117 from the timestamps, and peak is step two's 818,511,872 bytes.
+- identity: step two's predecessor `d7151077` appears in the baseline `verification.json` only, and step three's `95ee3f1c` in the candidate's only. operator `e655` and reader `957d` recompute, app tree is `248ed592`, and the app has no status.
+- sequence: step one against step three differs only in `action` and `predecessor`. step one against step two differs in `predecessor`, `publication_id`, `git_commit`, `generated_at` and the three spatial family rows moving to `provided`. `seasons` and `available_seasons` are equal across all three, as expected: they hold coverage facts, which the replacement does not change.
+- correction: script `243135f3` to `7784afbc` is a path substitution plus `mkdir sqlite-temp`, the `SQLITE_TMPDIR` export and its receipt. operator tails and completion assertions are otherwise unchanged. the two profiles are 178 bytes each and differ only in the path, so confinement is unchanged.
+- failed `01`: 6410 is `10 | 25 << 8`, the output is empty and the exit is 1. the failure is inside `check(incoming)` at `publication-cli.ts:98`, before either rename at `:116-119`, so rotation cannot have begun. the fixture03 receipt records no write profile, which fits the same reader passing there.
+
+limits, none a defect:
+
+- the final `active` digest is inherited, not recomputed. completion copies it from step two's `predecessor`, and step three's own hash is computed at `publication-cli.ts:87-95` but not saved. the chain is continuous and id, size and metadata agree, and the receipt says no repeat hash ran. read `final_disposable_files.active.sha256` that way.
+- empty `sqlite-temp` proves only no leftover. sqlite unlinks temp files at open, so there is no spill size, here or for the real publication. an unsandboxed operator would spill to ordinary temp, on the internal disk unless told otherwise. that matters only if activation is ever decided.
+- the operator's `next` step, restarting the server and reloading, was not exercised. neither was http or the browser. the receipt says so.
+- the real fit's solve overlapped both operator attempts on the same volume, so its wall time is not a clean baseline. the report's 4,398 seconds of design finished at `18:19:28z`, before either attempt.
+
 ### execution-base composition
 
 `fixture/execution-results` passes. manifest `82f0b55f`, producer `ffe9597`, clean, three seasons, 30 family rows. the retained facts' `prepared` and observed bindings are unchanged.
@@ -722,4 +773,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-no real fit, probe, publication, api, browser or export result is reviewed here. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+one real annual fit, `20212022`, is reviewed here. no real score, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

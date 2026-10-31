@@ -88,7 +88,7 @@
       "purpose": "fixture"
     }
   },
-  "design_identity": "2572c294063ea000a5ccc5d3e2ee294e0e855e690e51f4d71f16dae0e47be25e",
+  "design_identity": "d772198e49404339b32296c58f5747568dffcf1db97d92a3bbca519bf773346e",
   "basis_identity": {
     "sha256": "f70933a396c86b819ea65b420ff736c03d968047dd8b6e7294e048e9b7c02cc6",
     "array_sha256": "4fa1d565e939dae706a7f3fa0d060b06b647602ba32d2850174b80c6267fa42b",
@@ -98,7 +98,7 @@
   "source_code": {
     "spatial_design": {
       "path": "analysis/src/hockey_stats/spatial_design.py",
-      "sha256": "e9c1c54b9af280ce70c38c1f17c0005d786d3f353c58d70710dacd6092b46e24"
+      "sha256": "4d7b6fb04beabd342601b4a397adb313e72e400b01a4e98bcc47bb8ffc586241"
     },
     "execution": {
       "path": "analysis/src/hockey_stats/execution.py",
@@ -298,7 +298,7 @@
     ]
   },
   "resources": {
-    "design_wall_seconds": 100.19285645801574,
+    "design_wall_seconds": 100.69966666700202,
     "input_read_bytes": 342457465,
     "time_rows": 12962,
     "event_rows": 632,
@@ -306,33 +306,39 @@
     "actor_columns": 981,
     "context_columns": 350,
     "design_bytes": 42690092,
-    "wall_seconds": 111.2374799590034,
-    "peak_rss_bytes": 908066816
+    "wall_seconds": 100.86131441598991,
+    "peak_rss_bytes": 870907904
   },
   "synthetic_checks": {
     "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
-    "passed": 11,
+    "passed": 12,
     "initial_red": "importerror: spatial_design did not exist",
     "regression_red": "authoritative non5v5 source mismatch incorrectly raised artifact failure; corrected to segment exclusion",
     "script": {
       "path": "var/v1-08-source-checks.py",
-      "sha256": "bd3abbec9fc27af1b487ab197a587eb17398913416bc2f662130baf19271b351"
+      "sha256": "e28a5ea3debf937dadbf93577778925da3892f86e7690f220ab1d0abfb9a426f"
     },
-    "goalie_shooter_red": "valid goalie shooter incorrectly excluded 60 seconds in both directed views; observed assertion2 !=4, corrected to permit all actual attacking unit skaters and goalies"
+    "goalie_shooter_red": "valid goalie shooter incorrectly excluded 60 seconds in both directed views; observed assertion2 !=4, corrected to permit all actual attacking unit skaters and goalies",
+    "constant_context_regression": "source-transform-regression.json"
   },
   "limits": [
     "captured fixture first annual, not real five-year acceptance"
   ],
-  "captured_check_command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-retained.py",
-  "captured_check_script": {
-    "path": "var/v1-08-source-retained.py",
-    "sha256": "865d52bb7f38c5eda2e932c55622536efb340a4b66a561d6ddc4dd56ed27936b"
-  },
   "design_decisions": {
     "transition": "one attacking-frame categorical block; the reciprocal defending block would duplicate coordinates and change the penalty",
     "workload_all_missing": "missing_fraction equals one when all five members lack complete and supported known-bound values; no redundant all-missing indicator",
     "representation": "sparse intercept/actor matrices and separate dense centered context matrices; no dense-to-csr context duplication",
     "source_join": "score physical state is checked against authoritative event membership; known source-to-segment disagreement excludes both segment directions; invalid artifact joins fail"
   },
-  "status_scope": "source/design bounded software verification only; no real fitting, scientific admission or activation"
+  "status_scope": "source/design bounded software verification only; no real fitting, scientific admission or activation",
+  "captured_check_command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-retained.py",
+  "source_commit": "d14266a",
+  "captured_check_script": {
+    "path": "var/v1-08-source-retained.py",
+    "sha256": "865d52bb7f38c5eda2e932c55622536efb340a4b66a561d6ddc4dd56ed27936b"
+  },
+  "resource_scope": {
+    "input_read_bytes": "sum of prepared game member sizes; score/prepared manifest strict reads not separately byte-metered",
+    "cost": "bounded captured-fixture preparation, not a real annual fitting estimate"
+  }
 }

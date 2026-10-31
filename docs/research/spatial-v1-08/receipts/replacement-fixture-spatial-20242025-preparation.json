@@ -1,0 +1,72 @@
+{
+  "kind": "replacement-next-fixture-spatial-preparation",
+  "status": "unexecuted; third spatial independent numeric review/root acceptance and explicit next release pending",
+  "recorded_at_utc": "2026-10-31T15:59:17.903078+00:00",
+  "purpose": "fixture",
+  "season": "20242025",
+  "family": "spatial",
+  "command_file": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-20242025-spatial-command.sh",
+    "sha256": "1bb92ce26823c90842c83d64fea96dbf8b9e7f44c5238818da267830c8b394e1",
+    "bytes": 3320
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-fit-commands.md",
+    "sha256": "d66e47793b8f46941ffea3ee46d36b4ded71771d7f515c6fb0f695f6435fdb23",
+    "block_sha256": "c3cd541c1f18dc39b44444c6039c4964e612eb2c6cf932f08e73bbe73ed60ea8"
+  },
+  "changes_from_book": "only exact analysis-tree assertion and occupied/provenance guards for previous, valued and expected design recipe; timed ordinary spatial argv unchanged",
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--season",
+    "20242025",
+    "--previous",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20232024",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025"
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025",
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20232024/manifest.json",
+    "sha256": "000b36e473a22b458acfefe4331ca88fe6780bba370fe0834841b4143e31ef4e",
+    "usage": "new spatial annual only; acceptance pending"
+  },
+  "valued": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/manifest.json",
+    "sha256": "1f6ac613aa064692ce842c9a0c6bf144e7081c1cd762aff5143b741e7ab8e149",
+    "execution_state_sha256": "d94dba43f942de71db4aa1380a7590678fe417809a0ac539ada35e0b8917715c",
+    "execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "spatial_design_recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+  "basis_policy": "exact new preceding state basis; no old historical coefficient or mean reuse",
+  "observer": null,
+  "final_head_continuations": 0,
+  "checks": {
+    "shell_syntax_exit": 0,
+    "timed_spatial_argv_equals_reviewed_book": true,
+    "previous_and_valued_pins_verified_manifest_only": true,
+    "analysis_worktree_clean": true,
+    "no_observer": true,
+    "exclusive_output_log_exit_and_launch_pins": true,
+    "new_output_absent": true
+  },
+  "scope": "two saved manifests and git metadata only; no source, arrays, strict read, projection or fit",
+  "launched": false,
+  "policy": "one heavy job at a time; preserve all originals and freeze analysis through exit; no real launch"
+}

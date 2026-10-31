@@ -223,7 +223,7 @@ three limits carry forward. the scope's "no fitted probability change has been m
 
 ## approved start-eligibility repair
 
-status: final source review complete, [below](#final-source-review), with one command-book blocker open. the first pass covered the approved scope, both replacement recipe pages, the recipe-gate receipts at `af80dd7` and the working source diff. data read: two already-checked prepared games and saved head metadata and coefficients. no source pass, fit or score.
+status: final source and command reviews complete, [below](#final-source-review), with no blocker to the first fixture fit. the first pass covered the approved scope, both replacement recipe pages, the recipe-gate receipts at `af80dd7` and the working source diff. data read: two already-checked prepared games and saved head metadata and coefficients. no source pass, fit or score.
 
 ### corrections to this review
 
@@ -253,12 +253,12 @@ mask size: age-known start-unknown rows in `u` were 10, 5, 15, 14 and 5 across t
 
 reviewed `dfc97ed`, with production unchanged through `683fa4b` at analysis subtree `c2412ac`. observer `b3811c4b`, hook check `69f88c50`. both recipes reproduce from the commit: execution `47691110`, spatial `04a9c15d`.
 
-verdict: **production source is clear.** one release blocker remains, in the command books. no fit or score has run, so nothing is lost.
+verdict: **production source is clear**, and the one command-book blocker it found is closed. no fit or score ran before that closure.
 
 | id | severity | finding | required |
 |---|---|---|---|
-| b1 | blocker before any execution fit | neither `real-fit-commands.md` nor `fixture-fit-commands.md` invokes `consumed_start_check.py`. all ten execution fit blocks still run plain `uv run ... hockey-stats-analysis fit`; `e6d64d7` wrapped only the ten score blocks. so the 54-key barrier does not exist at fit, the fit half of the comparison that `replacement-product-recipes.md` requires is never produced, and fit-side head populations do not exist. an unwrapped fit cannot recover them without the separate pass the scope forbids. | wrap the ten execution fit blocks as the score blocks are wrapped: pinned python, `PYTHONPATH`, ordinary arguments after `--`, `--known-census` for real `20212022`, and the check path in the occupied-path guard. the ten spatial blocks stay as they are. update `replacement-fit-recipes.md`, which still says ordinary cli fit. |
-| o1 | recommended, not required | the oracle gates admission only. eligible rows wrongly masked pass silently. in a mutation on real rows, 69 masked eligible `on_the_fly` rows raised no error and appear only as `masked_on_the_fly`, inseparable from true masks. 43 masked eligible faceoffs raised no error but do show in `withheld_earlier_anchor`. production is correct here by reading and by the two-game run. | make availability an equality against the oracle for both kinds, in the same edit as b1. if left out, this clearance stands, but population acceptance covers admission only. |
+| b1 | blocker before any execution fit | neither `real-fit-commands.md` nor `fixture-fit-commands.md` invokes `consumed_start_check.py`. all ten execution fit blocks still run plain `uv run ... hockey-stats-analysis fit`; `e6d64d7` wrapped only the ten score blocks. so the 54-key barrier does not exist at fit, the fit half of the comparison that `replacement-product-recipes.md` requires is never produced, and fit-side head populations do not exist. an unwrapped fit cannot recover them without the separate pass the scope forbids. | closed in `bd326af`, [verified below](#final-command-review). |
+| o1 | recommended, not required | the oracle gates admission only. eligible rows wrongly masked pass silently. in a mutation on real rows, 69 masked eligible `on_the_fly` rows raised no error and appear only as `masked_on_the_fly`, inseparable from true masks. 43 masked eligible faceoffs raised no error but do show in `withheld_earlier_anchor`. production is correct here by reading and by the two-game run. | closed in `9bf7ad6`, observer `286b34dd`: availability now equals the oracle for both kinds. this review reran its own mutation on real rows, and all 69 `on_the_fly` and all 43 faceoff over-masks are now refused, while the corrected encoder passes the 208 attempts and the old encoder is refused on exactly the two originals. the hook check equals its saved green output. |
 
 two originals, run independently. the actual `_feature_context` from `78a0727` and from `dfc97ed` ran on every attempt of both games, 208 in all. this review's oracle finds the shift by clock containment and the anchor by scanning same-clock faceoffs. it reads neither deployment start facts nor `event_source_index`, so it shares no binding code with production.
 
@@ -292,6 +292,31 @@ broadening the withheld counter: **no. this review withdraws its request.** the 
 after each accepted annual, this review will diff the saved `design` blocks against the originals, with no new pass: `columns`, `means` and `active` must match, and every `feature_support` entry except the three start columns must be equal. that is the all-strength proof that nothing else moved.
 
 not established: anything beyond two games. all-strength populations, the other four seasons, fit and score parity, and every numerical effect wait for the runs. this review did not rerun `var/v1-08-execution-start-checks.py`; its own run replaces that for the two originals only. the volume probe risk is unaffected.
+
+### final command review
+
+reviewed `bd326af`, with the analysis subtree still `c2412ac`. digests match root's: receipt `c38950f7`, fixture book `d66e4779`, real book `4b421777`, first command `717f7b28`, observer `286b34dd`. the campaign directory does not exist.
+
+verdict: **no blocker to the first fixture fit.** b1 is closed. release remains root's. one finding below must close before the first score, and none blocks the fit.
+
+checked directly, not from `observed-fit-book-checks.json`:
+
+- both books parse to ten blocks, and all twenty pass `/bin/sh -n`.
+- all ten execution blocks run the observer with the pinned python. each has its own `fit-<season>-source-check.json`, listed in the occupied-path guard, and pins subtree `c2412ac` and observer `286b34dd` before launch.
+- `--known-census` appears on real `20212022` only, and that census file digest is `6fd06ffb` as pinned. without it the observer refuses.
+- all twenty ordinary tails equal the `argv` in the original `replacement-fit-preparation.json`.
+- the ten spatial blocks are byte-identical to the retained historical books, whose digests match that receipt. they consume the new campaign's `scores/<season>`.
+- each `--previous` is exactly the prior year's `--out` in its own family and purpose, and first years have none.
+- a dry run through the real observer `main`, with the cli stubbed and output in scratch, parsed all ten execution commands, handed the exact tail to the cli, and resolved the right purpose, season and census size. nothing reached the campaign path.
+- the check file's parent exists once the block's `mkdir -p` has run, so the exclusive write cannot fail after preparation.
+- failure paths are sound. `analysis_cli` turns an observer refusal into exit 1, and the observer's `finally` writes `source_construction_incomplete`. `_head_design` is called only in `prepare_execution`, so no late head hook can fail after a solve. the resolution witness calls only `_feature_context`, which is a pass-through by then.
+- under the block's runtime, `hockey_stats` resolves to this worktree with a relative `PYTHONPATH`, and both recipes reproduce. `implementation_identity` reports `bd326af` with `git_dirty` false, despite this uncommitted review.
+
+| id | severity | finding | required |
+|---|---|---|---|
+| c1 | before the first score, not before any fit | the ten score blocks carry no observer pin and no subtree pin, unlike the fit blocks. the observer is untracked under `var/`, and its report does not record its own digest. three versions of it are on record today, so a stale copy at score would go unseen, and the fit and score reports would then compare different oracles. `implementation` does bind production in the score manifest, so this concerns the observer only. | add the two guards from the fit blocks to the score blocks, recording the launch observer digest beside each score. |
+
+not established: the real runtime path has not executed at all. these checks prove the commands are well formed, not that they succeed. the real wrapped path first runs in the fixture fit, and that first `fit-20212022-source-check.json` is the first population evidence.
 
 ## cost notes
 

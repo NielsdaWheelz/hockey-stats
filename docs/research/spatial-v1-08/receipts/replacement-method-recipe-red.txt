@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/method-recipe-check.py", line 24, in <module>
+    assert method['recipe_id'] == expected, (method['recipe_id'], expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('experimental-v1:execution-v1-06-1', 'experimental-v1:execution-v1-05-2')

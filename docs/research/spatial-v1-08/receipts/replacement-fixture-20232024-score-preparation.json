@@ -1,0 +1,102 @@
+{
+  "kind": "replacement-fixture-20232024-score-preparation",
+  "status": "unexecuted; third-state independent acceptance pending, then separate root score release",
+  "recorded_at_utc": "2026-10-31T15:09:12.538406+00:00",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-20232024-score-observed-command.sh",
+    "bytes": 4747,
+    "sha256": "978d4a576bf991be4b4ec1be3e723320f8f5922d11d378084e0d6168c7c9b03d"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+    "bytes": 24693,
+    "sha256": "e17826b40ef478df78af41d668c9ce79bb4730531a464aaac941d62e1f75c742"
+  },
+  "pinned_pending_state_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/manifest.json",
+    "bytes": 23791,
+    "sha256": "85438d8488de33d2c31a7a2a200ca0efdf6c9011d0edc9ffb34018445fd8894b"
+  },
+  "state_previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023/manifest.json",
+    "sha256": "7ca3062b6676d94640d6edfae2e154948c08f168a7bd9771271af2e706f6980c",
+    "season": "20222023",
+    "purpose": "fixture",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual"
+  },
+  "state_heads": {
+    "u": "complete",
+    "q": "complete",
+    "r": "complete",
+    "g": "complete"
+  },
+  "state_independent_acceptance_complete": false,
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "source_guards": {
+    "clean_analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "reviewed_book_guards_preserved": true,
+    "new_state_pin_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20232024-launch-state-manifest-sha256.txt",
+    "new_state_pin_occupied_guard": true
+  },
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20232024-source-check.json",
+    "--",
+    "score",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--state",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20232024"
+  ],
+  "checks": {
+    "sh_n_exit": 0,
+    "whole_observed_argv_equals_book": true,
+    "ordinary_cli_tail_equals_initial": true,
+    "new_campaign_previous_preserved": true
+  },
+  "parity": {
+    "fit_check": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20232024-source-check.json",
+      "bytes": 37193,
+      "sha256": "86c30a1625cad424cede138755e59bd378ea22e6d6399405841f0890fef1adb3"
+    },
+    "future_score_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20232024-source-check.json",
+    "fields": [
+      "source_context_sha256",
+      "source_response_sha256",
+      "source_contexts",
+      "dispositions",
+      "all_strength_dispositions",
+      "eligibility_counts",
+      "head_admission",
+      "head_populations"
+    ],
+    "expected_canonical_sha256": "686c9a0d3c526fd7bf20ac93ac291a617e62f5a556fbedc5eb3b288055bb4cbc",
+    "fit_source_contexts": 605,
+    "physical_attempts_by_head": {
+      "u": 605,
+      "q": 448,
+      "r": 312,
+      "g": 250
+    },
+    "comparison_run": false
+  },
+  "score_accepted_sha256": null,
+  "launched": false,
+  "production_observer_edited": false,
+  "scope": "saved metadata plus one local script only; no source pass/code/model/build/server action"
+}

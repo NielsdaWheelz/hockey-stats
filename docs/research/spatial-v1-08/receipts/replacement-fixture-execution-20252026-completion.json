@@ -1,6 +1,6 @@
 {
   "kind": "replacement-final-fixture-execution-completion",
-  "status": "metadata_and_four_probe_descriptor_checks_passed; independent design/continuation replay and root acceptance pending",
+  "status": "root_accepted; all five fixture execution annuals and exactly four final continuations accepted",
   "recorded_at_utc": "2026-10-31T15:28:24.170854+00:00",
   "purpose": "fixture",
   "season": "20252026",
@@ -358,7 +358,7 @@
       "actual_and_neutral_geometry": true,
       "policy": "strength,type,outcome,missing,tip,off-ice,incomplete,sparse; first (game_id,integer_source_index); numeric source-key fill; maximum256 actual"
     },
-    "claim": "saved margins pass unchanged; independent saved-array replay owns probability recomputation",
+    "claim": "saved unchanged margins and independent saved-array replay passed; root accepted all four continuations",
     "probe_coefficients_not_promoted_to_annual": true
   },
   "source": {
@@ -457,5 +457,11 @@
     "log_sha256": "2071e21703eb6ad65db902c2a50b8b2e32ccee48100af39579a21e1cc4db3e11"
   },
   "input_preservation": "saved prepared/coach bindings match accepted prior annual; previous manifest and metadata unchanged; source evidence and originals untouched",
-  "next": "no more fixture execution fits/probes; await independent acceptance then prescribed final scoring/propagation by product"
+  "next": "no more fixture execution fits/probes; final scoring and four all-event propagations remain product-owned and pending acceptance",
+  "independent_review": {
+    "owner": "independent reviewer; result reported by root",
+    "status": "passed",
+    "scope": "saved coefficient replay, exact identities and literal numerical controls",
+    "repeated_here": false
+  }
 }

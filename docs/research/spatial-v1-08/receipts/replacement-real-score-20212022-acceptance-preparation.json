@@ -1,0 +1,72 @@
+{
+  "kind": "replacement-first-real-score-acceptance-preparation",
+  "status": "prepared; HOLD until root reports original score completion and pins its actual manifest; main not run",
+  "recorded_at_utc": "2026-10-31T21:22:00.878722+00:00",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20212022.py",
+    "bytes": 25652,
+    "sha256": "ba24022a719de3851828113c9d61812b4b37a701ecb9d247f4ed54bf7a82970a"
+  },
+  "source": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "production_edited": false
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20212022.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_score_manifest_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20212022-saved-acceptance.json"
+  ],
+  "expected_new_manifest_sha256": null,
+  "original": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "binding": "inputs.json accepted20212022score; original is read as preserved saved evidence, not admitted through current recipe reader"
+  },
+  "reused": {
+    "strict_reader": "hockey_stats.execution_scores.read_execution_scores",
+    "rounding_bound": "hockey_stats.execution_scores._near",
+    "streaming_identity_conventions": "existing replacement saved-composition/state checkers",
+    "historical_score_checker": "deleted after original acceptance under temporary-test policy; not reconstructed as an independent prediction engine"
+  },
+  "checks": [
+    "completion exit0 and explicit actual manifest digest before exactly one new strict read",
+    "source/recipe/state/prepared/coaching/launch/implementation pins, command and producer resource scopes",
+    "all original/current event identities, head labels/statuses/reasons; complete nullable field applicability",
+    "all setter candidate identities/pre-outcome weights; posterior applicability and share recipients",
+    "all24-order coalition allocation averaged independently; all event share closure under existing3e-14arithmetic bound",
+    "all available original/current native map sums equal stored scalar; original/current projection support and nullability exact",
+    "all seven published panel event-prefix sums match every saved projection reference using existing rounding bound; strict reader validates all32saved panels",
+    "complete-row absolute/relative probability maxima and event-maximum quantiles with exact source-key/field/value locators",
+    "separate actor/neutral/neutral-goalie/coalition movement, exactknown54, named unavailable witnesses and every other complete row",
+    "all saved scalar/native-map movement descriptive without acceptance threshold"
+  ],
+  "source_parity": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-score-20212022-source-parity-interim.json",
+    "bytes": 4107,
+    "sha256": "d21b648c9b6e99b6582130f67c4bbce7af52798cf506b7e1f1c213e278bb18bb"
+  },
+  "stratum_limit": "saved evidence lacks every64newlymasked key and unavailable-both key membership; no classification from probability movement. preserve aggregate64/44/35/27 and original5850/4491/3370/2503 as counts only",
+  "population_scope": "source147510 versus physical5v5panel117676; known54 physical5v5 witnesses; no claim all64global masks are5v5or timing failures",
+  "relative_definition": "abs(new-old)/abs(old); zero-baseline-to-nonzero cells explicitly lack a finite relative ceiling",
+  "preparation_checks": {
+    "python_syntax": "passed",
+    "pure_helper_boundaries": "48probabilityfields/blockedconditionalnulls/terminalpartition and zero/relative movement passed on tiny in-memory records",
+    "main_invocations": 0,
+    "saved_score_array_reads": 0,
+    "source_game_reads": 0,
+    "source_passes": 0,
+    "solves": 0,
+    "rescores": 0
+  },
+  "resource_policy": "existing strict reader visits32panels; subsequent old/new jsonl comparisons stream rows and retain movement scalars rather than all old/new panels. record actual check time/RSS; no capacity forecast",
+  "output_policy": "exclusive external result; no artifact mutation, retry, polling monitor or batch runner",
+  "year2_released": false,
+  "next": "root reviews prepared checker; on original completion root supplies actual digest and authorizes one invocation"
+}

@@ -1,0 +1,139 @@
+{
+  "kind": "execution-spatial-replacement-score-pin-guard-supplement",
+  "status": "prepared only; independent root review required before first score",
+  "recorded_at_utc": "2026-10-31T14:56:00.390366+00:00",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "analysis_must_be_clean": true,
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "bytes": 13248,
+    "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  },
+  "expected_execution_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "guard_source": "same git HEAD:analysis, clean analysis status and exact shasum output checks as accepted bd326af fit blocks",
+  "command_books": [
+    {
+      "before": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+        "bytes": 13768,
+        "sha256": "bfd130a1581f79d49fc9e86be12ab467e1a1feb6d5bdbc6f345d4b68706bfe8d"
+      },
+      "after": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+        "bytes": 24693,
+        "sha256": "e17826b40ef478df78af41d668c9ce79bb4730531a464aaac941d62e1f75c742"
+      },
+      "syntax_blocks": 8,
+      "compose_publish_blocks_byte_unchanged": 3
+    },
+    {
+      "before": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+        "bytes": 13597,
+        "sha256": "2d7a78c6e7669d0d841998f0e91ec0ca9ddee255245770b347f687514a58cfee"
+      },
+      "after": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+        "bytes": 24327,
+        "sha256": "747ce2fa11d3228f2c0856b9a853b16eade01170bf788876efc7ad6339243681"
+      },
+      "syntax_blocks": 8,
+      "compose_publish_blocks_byte_unchanged": 3
+    }
+  ],
+  "pin_receipt_pattern": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/{fixture|real}/score-{season}-{suffix}",
+  "pin_receipt_suffixes": [
+    "launch-head.txt",
+    "launch-analysis-tree.txt",
+    "launch-analysis-status.txt",
+    "launch-observer-sha256.txt",
+    "expected-recipe-sha256.txt"
+  ],
+  "new_pin_receipt_occupied_guards": 50,
+  "pin_provenance": "record launch HEAD, exact analysis tree, empty analysis status, exact observer digest/path and expected recipe before timed score; set -C preserves exclusivity",
+  "checks": {
+    "all16_blocks_sh_n_exit": 0,
+    "all10_score_tails_equal_original_cli": true,
+    "all10_known_census_scope_preserved": true,
+    "all6_compose_publish_blocks_unchanged": true,
+    "score_blocks": [
+      {
+        "purpose": "fixture",
+        "season": "20212022",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "fixture",
+        "season": "20222023",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "fixture",
+        "season": "20232024",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "fixture",
+        "season": "20242025",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "fixture",
+        "season": "20252026",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "real",
+        "season": "20212022",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "real",
+        "season": "20222023",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "real",
+        "season": "20232024",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "real",
+        "season": "20242025",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      },
+      {
+        "purpose": "real",
+        "season": "20252026",
+        "ordinary_cli_tail_unchanged": true,
+        "source_and_observer_guards": true,
+        "all5_pin_receipt_occupied_guards": true
+      }
+    ]
+  },
+  "freeze": "production analysis subtree and observer unchanged throughout preparation and active first fixture fit",
+  "future_accepted_artifact_hashes": null,
+  "selection_written": false,
+  "score_command_launched": false,
+  "build_or_server_action": false,
+  "production_or_observer_changed": false,
+  "scope": "docs/var score command books and supplemental receipt only; no model/source-game/array/state/score/database read or launch"
+}

@@ -355,6 +355,7 @@ each row is a saved-artifact diff against the accepted original annual in `chain
 
 | `20232024` | `e2ad6fda` | `85438d84` | 605, 448, 312, 250 | 7, 6, 4, 3 | moved: max 0.040, 0.011, 0.053, 0.063 | exact: new `7ca3062b` |
 | `20242025` | `1a69f2b4` | `d94dba43` | 1,062, 755, 494, 390 | 0 | moved through history: max 0.0032, 0.0047, 0.0049, 0.0033 | exact: new `85438d84` |
+| `20252026` | `87124257` | `52239766` | 1,068, 761, 508, 401 | 0 | moved through history: max 0.0030, 0.0069, 0.0083, 0.0033 | exact: new `d94dba43` |
 
 the first two rows have all five special counters at zero, across 1,356 attempts. `20232024` differs from the rule above as follows, and every other field in that rule still holds.
 
@@ -366,6 +367,27 @@ the first two rows have all five special counters at zero, across 1,356 attempts
 - `selected_start` flips in `u`, `r` and `g`, but both starts tie to four decimals in old and new fits, so the flip carries no signal.
 
 `20242025` has all five counters at zero, and its design, `feature_support` and `coverage.json` equal the original, so every change comes through carried history. the largest coefficient moves are actors such as `8481559`, `8480002` and `8479407`, median change is about `1e-7`, and prior means differ by at most 0.0050. some ledger maxima equal `20232024`'s exactly, 0.0070 in `q` and 0.0083 in `r`, because actors absent this year keep their last value, as the history rule says. `selected_start` flips in `r` and `g`, as ties again.
+
+`20252026` likewise has all five counters at zero and an equal design, `feature_support` and `coverage.json`. its largest moves are again actors, such as `8481559` and `8482684`, with median change near `1e-7`, and ledger ids are equal. `selected_start` flips again in three heads, which this review did not re-examine beyond the first start's objective.
+
+### fixture continuations
+
+the four continuations pass. fixture execution therefore has all twenty heads and all four continuations complete, with this review's findings on each year above.
+
+recomputed from saved `heads/*.npz` and `resolution/*.npz`, with no solve:
+
+| head | coefficient max | coefficient l2 | saved maximum probability change | original fixture |
+|---|---|---|---|---|
+| `u` | `5.63e-8` | `2.39e-7` | `4.10e-8` | `3.37e-8` |
+| `q` | `7.29e-9` | `1.78e-8` | `1.59e-8` | `1.67e-7` |
+| `r` | `4.05e-8` | `1.47e-7` | `2.46e-8` | `2.19e-7` |
+| `g` | `4.42e-8` | `1.60e-7` | `7.76e-8` | `6.04e-8` |
+
+coefficient maxima and l2 norms reproduce the saved comparisons to the printed digits. all four probability changes sit near 100 times inside the `1e-5` budget, and root's quoted figures match. baseline `3cad4a5c` and all four probe files match their saved digests. each probe used `ftol 1e-16`, `gtol 1e-7` and the literal em tolerances. the selector equals the original exactly: 256 probes and 40 requirements, 38 actual and 2 fixture, with none unavailable and no withheld contexts. evaluated origins are 117,118 and branches 900,394.
+
+two limits. **probability changes were not recomputed here.** they need the predictors, so this review checks the coefficient arithmetic and the bindings, and reads the probability maxima from the saved comparison. and these are 256 selected probes, not every row. the final score's four propagations are the all-event check, and they are still pending. the continuations also stop on `ftol`: tightened gradients stay between `1.6e-6` and `4.4e-6`, above `gtol`, and `r`'s rises slightly. that is the accepted policy, and it reports sensitivity, not distance to an optimum.
+
+the fixture chain never exercised the timing mask. 4,091 attempts produced seven masks, all omitted participation. at the real census rate, about 1.9 timing rows would be expected, so zero is unsurprising and proves nothing.
 
 ### masked population in `20232024`
 
@@ -446,6 +468,14 @@ all rows, excluding the seven: median 0.32%, 99th percentile 4.2%, maximum 4.9%,
 this review first guessed that the 4.9% row reflected the shared unavailable level. that was wrong: row 93 is a known defensive faceoff start at 5v5. its movement comes from `shooter_start_zone:defensive`, whose coefficient moved -0.023 in `u`, -0.040 in `r` and +0.057 in `g`, because all seven masked rows were defensive starts. the other two zone contrasts barely moved. unavailable rows move because the `S+A` sum moved +0.026, +0.006, +0.033 and -0.049.
 
 reading: masking rows also moves every row that shares their contrast. seven rows did that here, in a 605-row sample with few defensive rows, so these percentages say nothing about real size. no fitted real change has been measured.
+
+### fourth score
+
+`20242025` passes. manifest `1f6ac613`, exit 0, binds state `d94dba43` and recipe `47691110`, launch records are clean, the strict reader accepts it and refuses the original, and all eight parity fields match across 1,062 contexts.
+
+against the original `c4a0b4b2`, 61 of 73 members are byte-identical. the 12 that differ are `events`, `maps`, `projections`, `setters`, `shares` and the seven panel arrays that hold events, and every empty panel is identical. identity, labels, status and reasons are equal on all 1,092 events, 1,062 complete and 30 excluded.
+
+this year has no masks, so the change is carried history only, and it is small: neutral mass +0.0010%, actor mass +0.0017%. per-event neutral change has median `3.8e-5`, 99th percentile `2.9e-4` and maximum `8.2e-4`. actor change reaches `2.8e-3` on `2024020001:25`.
 
 ## cost notes
 

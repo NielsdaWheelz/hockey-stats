@@ -1,0 +1,73 @@
+{
+  "kind": "spatial-v1-08-source-preflight-aggregation",
+  "status": "passed_bounded_checks",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_design.py",
+    "sha256": "07c7a774627c0cd9b64e214febb761ad5a4e3a0304ee6a1659259b0ea75d6aad"
+  },
+  "design_recipe": {
+    "version": "spatial-v1-08-4",
+    "sha256": "043b6e4df7e783eca691b6574f0c3a916485d8613de318e94ba97b0b5ed5049e"
+  },
+  "red": {
+    "observed_exit": 1,
+    "visited_games": [
+      "2021020001"
+    ],
+    "reported_keys": [
+      "2021020001:4"
+    ],
+    "missing_key": "2021020002:4",
+    "failure": "the first known non-prior target raised inside the game audit, so the selected annual pass stopped before its second game"
+  },
+  "green": {
+    "selected_games": [
+      "2021020001",
+      "2021020002"
+    ],
+    "reported_keys": [
+      "2021020001:4",
+      "2021020002:4"
+    ],
+    "start_kinds": [
+      "faceoff",
+      "on_the_fly"
+    ],
+    "reads_per_game": 1,
+    "fit_handoff_calls_for_invalid_targets": 0,
+    "fit_handoff_calls_for_valid_control": 1,
+    "before_after_numerical_arrays": "exactly equal to preserved0e3e245 valid control",
+    "recipe_offsets_transforms_keys": "exactly equal",
+    "strict_source_key_rejection": "preserved",
+    "unresolved_shooter_binding_disposition": "preserved"
+  },
+  "commands": [
+    {
+      "argv": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-preflight-aggregation.py",
+      "observed_exit": 0
+    },
+    {
+      "argv": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
+      "observed_exit": 0,
+      "passed_checks": 15
+    }
+  ],
+  "temporary_checks": {
+    "v1-08-source-preflight-aggregation.py": {
+      "path": "var/v1-08-source-preflight-aggregation.py",
+      "sha256": "35774f296869eb7aaa509454a2b622224a36c7cd5cda8319ad55edb784919d6f"
+    },
+    "v1-08-source-checks.py": {
+      "path": "var/v1-08-source-checks.py",
+      "sha256": "d4ff7ab3109558e5b56e50b0ea91215ea3512b9dd93a23ffd2d4838072ae1d48"
+    }
+  },
+  "adversarial_review": [
+    "known invalid target records are collected without exclusion, target rewriting or advancing proved-earlier counts",
+    "the annual error is after every selected game and before global transforms or fitting",
+    "each error record adds the exact prepared-game source path/digest and explicit start kind",
+    "existing source/key integrity require calls remain immediate; unresolved exact bindings still append and return",
+    "no likelihood, prior, encoding, value or recipe definition changed"
+  ],
+  "scope": "two labeled synthetic games with mocked source io and fit-handoff spy; no bulk input read, fitting, rescoring, publication or activation"
+}

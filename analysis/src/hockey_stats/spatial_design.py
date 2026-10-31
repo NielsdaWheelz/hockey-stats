@@ -260,11 +260,11 @@ def _audit_shift_starts(game, event, attempt, chunk, orders, positions, shift_bi
         return
     shift = candidates[0]
     if not _start_before_event(shift, kind, focal_order, source['elapsed_seconds'], orders):
-        record = dict(located(shift), player_id=shooter, deployment_values=fact['values'],
+        record = dict(located(shift), player_id=shooter, start_kind=kind, deployment_values=fact['values'],
                       affected_fields=['feature_facts.deployment.players.start_type'] +
                           (['feature_facts.deployment.players.start_zone'] if kind == 'faceoff' else []))
-        require(False, f"{game['game_id']}:{index}: fixed neutral target admits non-prior shooter {kind} start: "
-                + json.dumps(record, allow_nan=False, sort_keys=True))
+        audit['non_prior_shooter_starts'].append(record)
+        return
     audit[f'shooter_proved_earlier_{kind}_starts'] += 1
 
 
@@ -283,7 +283,7 @@ def _collect_game(game, coach_game, scored, targets):
         shift_bindings.setdefault(binding, []).append(shift)
     start_audit = dict(retained_targets=0, shooter_known_faceoff_starts=0, shooter_proved_earlier_faceoff_starts=0,
                       shooter_known_on_the_fly_starts=0, shooter_proved_earlier_on_the_fly_starts=0,
-                      spatial_unknown_starts=[], unresolved_shooter_bindings=[])
+                      spatial_unknown_starts=[], unresolved_shooter_bindings=[], non_prior_shooter_starts=[])
     attempts = {row['source_index']: row for row in game['attempts'] or []}
     saved_segments = {row['segment_index']: row for row in support['segments'] or []}
     require(set(saved_segments) == set(segments), f'{game_id}: saved support segment keys differ')
@@ -432,6 +432,7 @@ def _collect_game(game, coach_game, scored, targets):
                                for row in event_rows if row[0]['attacking_side'] == side)) for side in ('home', 'away')}
     start_audit['spatial_unknown_start_count'] = len(start_audit['spatial_unknown_starts'])
     start_audit['unresolved_shooter_binding_count'] = len(start_audit['unresolved_shooter_bindings'])
+    start_audit['non_prior_shooter_start_count'] = len(start_audit['non_prior_shooter_starts'])
     return time_rows, event_rows, dict(game_id=game_id, physical_included_hours=physical,
         directed_included_hours=2 * physical, attempts=len(event_rows),
         directions=directions, known_lost_physical_hours=fsum(segment['end_seconds'] - segment['start_seconds']
@@ -558,6 +559,10 @@ def prepare_spatial(prepared, coaches, valued, season):
             # missing whole-game evidence cannot establish who was on ice.
             qualification[p]['unquantified_gap'] |= p in coverage['possible_gap_player_ids']
         del game
+    non_prior = [dict(record, source=row['source']) for row in game_coverage
+                 for record in row['event_shift_start_audit']['non_prior_shooter_starts']]
+    require(not non_prior, 'fixed neutral targets admit non-prior shooter starts: '
+            + json.dumps(non_prior, allow_nan=False, sort_keys=True))
     exposure = np.asarray(exposure, dtype=np.float64)
     require(len(exposure) > 0 and np.all(exposure > 0), 'spatial season has no positive supported elapsed exposure')
     continuous = [axis['continuous'] for axis in CONTEXT_AXES]
@@ -594,6 +599,7 @@ def prepare_spatial(prepared, coaches, valued, season):
                         **{name: sum(row['event_shift_start_audit'][name] for row in game_coverage) for name in
                            ('retained_targets', 'shooter_known_faceoff_starts', 'shooter_proved_earlier_faceoff_starts',
                             'shooter_known_on_the_fly_starts', 'shooter_proved_earlier_on_the_fly_starts',
+                            'non_prior_shooter_start_count',
                             'spatial_unknown_start_count', 'unresolved_shooter_binding_count')}),
                     physical_included_hours=hours / 2, directed_included_hours=hours, attempts=attempts,
                     origin_mass=float(origin_weights.sum()), neutral_chance_mass=float(neutral.sum()),

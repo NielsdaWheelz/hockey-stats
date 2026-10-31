@@ -1,6 +1,7 @@
 """compose saved positive 5v5 projections without rebuilding other families."""
 
 from copy import deepcopy
+from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 from time import perf_counter
@@ -23,6 +24,15 @@ ACCEPTED_VALUED = dict(zip(YEARS, (
     'c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0',
     '580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c',
 )))
+
+
+@dataclass(frozen=True)
+class _AnnualProjection:
+    path: Path
+    manifest: dict
+    projections: list
+    projection_arrays: dict
+    adjustments: list
 
 
 
@@ -80,7 +90,13 @@ def _states(selection_path, results):
             else:
                 require(state.probes is None, 'earlier real spatial year has an unexpected numerical probe')
         years.append(item['season'])
-        annuals[item['season']] = state
+        display = item['season'] in results.manifest['seasons']
+        annuals[item['season']] = _AnnualProjection(state.path, manifest,
+            state.projections if display else [], state.projection_arrays if display else {},
+            state.adjustments if display else [])
+        # the detached reader checked the design and heads; publication only
+        # retains their saved projections. release each design before the next.
+        del state
     require(years == sorted(set(years)) and years == list(YEARS[YEARS.index(years[0]):YEARS.index(years[-1]) + 1]), 'spatial states must be unique ordered consecutive years')
     require(selection['purpose'] != 'real' or years == list(YEARS), 'real spatial composition requires all five years')
     require(set(results.manifest['seasons']) <= set(years), 'spatial selection omits a displayed year')

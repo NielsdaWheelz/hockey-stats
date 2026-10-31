@@ -101,7 +101,8 @@ def main(argv=None) -> int:
             read_seconds = perf_counter() - started
             design = prepare_spatial(prepared, Path(args.coaches), Path(args.valued), args.season)
             design.resources["input_read_wall_seconds"] = read_seconds
-            state = fit_spatial(design, previous, Path(args.out))
+            state = fit_spatial(design, previous, Path(args.out),
+                                final_year=manifest["purpose"] == "fixture" and args.season == seasons[-1])
             print(str(state.path))
             unavailable = [head for head in ("volume", "shape", "quality") if state.heads[head]["status"] != "complete"]
             unresolved = state.probes is not None and state.probes["status"] != "passed"

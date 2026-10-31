@@ -204,7 +204,7 @@ def _physical_5v5(membership):
                for side in ('home', 'away'))
 
 
-def _audit_faceoff_starts(game, event, attempt, chunk, orders, positions, shift_bindings, audit):
+def _audit_faceoff_starts(game, event, attempt, chunk, orders, positions, shift_bindings, spatial_members, audit):
     """audit consumed targets against saved facts, without rebuilding chronology."""
     source = event['source']
     index = source['source_index']
@@ -230,7 +230,7 @@ def _audit_faceoff_starts(game, event, attempt, chunk, orders, positions, shift_
         anchor_order = orders.get(_value(shift['start'], 'event_source_index'))
         if focal_order is None or anchor_order is None or anchor_order >= focal_order:
             # goalie membership does not create a spatial skater coordinate.
-            if str(member['player_id']) in audit['current_spatial_members']:
+            if str(member['player_id']) in spatial_members:
                 audit['spatial_unknown_starts'].append(dict(located(shift), player_id=str(member['player_id']),
                     chunk_pointer=f"/chunks/{chunk['chunk_index']}", disposition='unknown_start_preserved_age'))
 
@@ -272,7 +272,7 @@ def _collect_game(game, coach_game, scored, targets):
         binding = (str(shift['player_id']), shift['period_number'], shift['start_seconds'], shift['end_seconds'])
         shift_bindings.setdefault(binding, []).append(shift)
     faceoff_audit = dict(retained_targets=0, shooter_known_faceoff_starts=0, shooter_proved_earlier_starts=0,
-                        spatial_unknown_starts=[], unresolved_shooter_bindings=[], current_spatial_members=[])
+                        spatial_unknown_starts=[], unresolved_shooter_bindings=[])
     attempts = {row['source_index']: row for row in game['attempts'] or []}
     saved_segments = {row['segment_index']: row for row in support['segments'] or []}
     require(set(saved_segments) == set(segments), f'{game_id}: saved support segment keys differ')
@@ -361,8 +361,9 @@ def _collect_game(game, coach_game, scored, targets):
         if assigned['segment_index'] in excluded:
             continue
         segment, chunk = segments[assigned['segment_index']], children[assigned['chunk_index']]
-        faceoff_audit['current_spatial_members'] = list(map(str, segment['membership']['home_skaters'] + segment['membership']['away_skaters']))
-        _audit_faceoff_starts(game, event, attempt, chunk, event_orders, event_positions, shift_bindings, faceoff_audit)
+        spatial_members = set(map(str, segment['membership']['home_skaters'] + segment['membership']['away_skaters']))
+        _audit_faceoff_starts(game, event, attempt, chunk, event_orders, event_positions,
+                             shift_bindings, spatial_members, faceoff_audit)
         raw, margin = _context(game, segment, chunk, side, coach_game, event['pre_score']['values'],
                                event['context']['strength_transition'], focal_order=event_orders[assigned['source_index']],
                                order_by_source=event_orders)
@@ -417,7 +418,6 @@ def _collect_game(game, coach_game, scored, targets):
         origin_mass=fsum(float(row[1]['origin_weights'].sum()) for row in event_rows if row[0]['attacking_side'] == side),
         neutral_chance_mass=fsum(float(row[1]['origin_weights'] @ row[1]['neutral_goal_probability'])
                                for row in event_rows if row[0]['attacking_side'] == side)) for side in ('home', 'away')}
-    del faceoff_audit['current_spatial_members']
     faceoff_audit['spatial_unknown_start_count'] = len(faceoff_audit['spatial_unknown_starts'])
     faceoff_audit['unresolved_shooter_binding_count'] = len(faceoff_audit['unresolved_shooter_bindings'])
     return time_rows, event_rows, dict(game_id=game_id, physical_included_hours=physical,

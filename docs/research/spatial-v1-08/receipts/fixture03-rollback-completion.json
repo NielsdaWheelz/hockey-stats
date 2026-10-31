@@ -1,0 +1,25 @@
+{
+  "kind": "spatial-v1-08-disposable-compatible-rollback",
+  "status": "passed",
+  "directory": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/rollback-check",
+  "sequence": [
+    "activate accepted execution fixture",
+    "activate spatial fixture",
+    "restore accepted execution fixture"
+  ],
+  "restored_publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "identities": {
+    "active.sqlite": {
+      "sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+      "bytes": 837996544
+    },
+    "previous.sqlite": {
+      "sha256": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+      "bytes": 1369198592
+    }
+  },
+  "reader": "current pinned schema8 built operator; every operation validates incoming through the strict publication reader",
+  "live_serving_mutation": false,
+  "isolated_server_publication_unchanged": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "scope": "disposable files only; no active application/database rotation or browser claim"
+}

@@ -1,0 +1,162 @@
+{
+  "kind": "replacement-fixture-final-build-api-and-operator-evidence-carry",
+  "status": "responsible modules byte-identical; API/map and scoped operator evidence carry justified without repeated heavy checks",
+  "recorded_at_utc": "2026-10-31T22:07:08.719142+00:00",
+  "from_build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "to_build_sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1",
+  "current_source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "bound_file_manifests": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-01-app-build-files.json",
+      "bytes": 6349,
+      "sha256": "cc6f5e4e8185c00cd210f6ad5983ddff3eb1ef371be5e1e24c3fb5a3a1232bfd"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/reflow-01-app-build-files.json",
+      "bytes": 6349,
+      "sha256": "3f94586eb400ecc4cf18e4df1c005c97282d5bdff16087e1e497f3418b5538e4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-01-app-source-files.json",
+      "bytes": 8039,
+      "sha256": "8cf680f0e41e40c1e9231d43e83be910a6548965a507f45ed553acb38c74be28"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/reflow-01-app-source-files.json",
+      "bytes": 8039,
+      "sha256": "08097b2a9aae2eb8b142d0c26966545f31e1f51439c2b66cfd20b99b6d4028bb"
+    }
+  ],
+  "responsible_compiled_modules": [
+    {
+      "path": "app/dist/node/operator/publication-cli.js",
+      "sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2",
+      "bytes": 5132,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/analysis-publication.js",
+      "sha256": "fd29eb2178ece0b14109821f884647a7b272eff158b0c445d1d08d3e84d9a0d1",
+      "bytes": 58397,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/deployment-publication.js",
+      "sha256": "d3f58438196d105b25c56fc124338f807426c09ad1c4f01e40fea590b29416b0",
+      "bytes": 3584,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/main.js",
+      "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05",
+      "bytes": 8073,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/observed-publication.js",
+      "sha256": "d9bba2571dac5840edc52602db83dbb6e1c0fccc2c9700a1b6f747fcee65b424",
+      "bytes": 19960,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/physical-schema.js",
+      "sha256": "f7aa360aeaab03cc2dafdbef6d79f48d057aa476bcb040401e6cab3153ffa4be",
+      "bytes": 31543,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/publication.js",
+      "sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6",
+      "bytes": 15445,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/selected-publication.js",
+      "sha256": "c2a7b7f9951823062c16b0d893ad0803aecae3b0bc63d1490977e29acc8b6de3",
+      "bytes": 17838,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/spatial-publication.js",
+      "sha256": "b68753a324582a6d3a7f6368ea47ebf3fb67f67a6187b01e842c8d183eb72e08",
+      "bytes": 19687,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/server/sql-rows.js",
+      "sha256": "f81eb158c93737b2e1ace2aa476cfddcc3e3c1d3906c9da6cd2fcedba898aa0e",
+      "bytes": 1531,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/shared/observed.js",
+      "sha256": "240326632f648f4763858b59c4890076acc558fdec5ac2e4f6ddb95982a2bd71",
+      "bytes": 14656,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis-selections.js",
+      "sha256": "6b047294b1ae38aeab56f4f1b23cb5d6bc56f8664b35382b1346906992e73a71",
+      "bytes": 9121,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/shared/player-analysis.js",
+      "sha256": "02f35c055e7b51c08e7661b37a7163ab9b4b295af0b04a887c97a9a84ffb2e0d",
+      "bytes": 99386,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    },
+    {
+      "path": "app/dist/node/shared/publication.js",
+      "sha256": "8741b38b41627e62b66fad77db6ff9e74edd3416b1e69ff7009c62d198abbfcd",
+      "bytes": 3015,
+      "byte_identical_to_prior_API_checked_build": true,
+      "actual_current_bytes_rechecked": true
+    }
+  ],
+  "compiled_module_count": 14,
+  "no_added_or_removed_responsible_modules": true,
+  "source_changes_only": [
+    "app/src/web/analysis-history.tsx",
+    "app/src/web/styles.css"
+  ],
+  "lockfile_byte_identical": true,
+  "analysis_tree_unchanged": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "unchanged_candidate": {
+    "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+    "accepted_database_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+    "identity_policy": "same canonical immutable candidate; accepted digest/stat/verification pinned at server02 launch; no new database hash"
+  },
+  "unchanged_detached_profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-detached.sb",
+    "bytes": 2735,
+    "sha256": "f86d93780a7603109230f68db1ded030de98bd163d508bb77541160f569d0199"
+  },
+  "API_evidence_reused": [
+    "replacement-fixture-api-regular-pair-green.json",
+    "replacement-fixture-api-absent-year-green.json",
+    "replacement-fixture-server-readiness.json"
+  ],
+  "API_reuse_scope": "candidate-backed scalar/quartet/support values, both returned players, native/display/density/map integrals, joint scales and second-row corruption refusal; discovery consumer same unchanged source contracts. no old native rendering claim is inherited",
+  "new_runtime_evidence": "replacement-fixture-server-02-readiness.json",
+  "new_runtime_evidence_scope": "actual launch source086/distc4ac guard, one quick API200/e742 identity and six root-observed HTTP/local asset byte comparisons",
+  "operator_evidence_reused": "replacement-fixture-rollback-completion.json",
+  "operator_reuse_condition": "byte-identical compiled operator e655d663 and strict publication reader957d0706; both independently rechecked among the fourteen modules above",
+  "heavy_API_or_operator_retake": "not run; no concrete changed boundary requires it",
+  "native_evidence_policy": "all current fixture browser claims use actual source086/distc4ac native receipts; old771 native/exports remain historical except exact old-verified bytes compared to fresh actual downloads",
+  "scope": "saved manifest comparison and bounded current compiled-file hashes only; no source-game/state/model pass, DB scan, API request, operator or browser action",
+  "temporary_checks_policy": "retain every temporary checker/controller and test dependency until the entire real objective passes; no cleanup performed"
+}

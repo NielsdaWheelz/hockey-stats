@@ -1,0 +1,71 @@
+{
+  "kind": "spatial-v1-08-final-build-discovery-search-native-green",
+  "status": "passed actual final-build typing/paste/clear/profile-back/reload regression; fixture binding decision recorded separately",
+  "recorded_at_utc": "2026-10-31T22:07:08.688821+00:00",
+  "observer": "root native chrome via cua; product records root observations and performed no browser action",
+  "evidence": "root accessibility states/native tools transcript; no separately stored screenshot path supplied",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "build_sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1",
+  "app_tree": "e01418f448cbfaae517685d7927a90cd37343660",
+  "server_pid": 37029,
+  "base": "http://127.0.0.1:3398",
+  "initial_view": {
+    "season": "20242025",
+    "table": "spatial",
+    "q": "br"
+  },
+  "checks": [
+    {
+      "action": "CmdA then native typeText('toffoli') in search players",
+      "observed_input": "toffoli",
+      "observed_URL_q": "toffoli",
+      "visible_rows": 1,
+      "total_rows": 245,
+      "player_id": "8475726",
+      "display_name": "Tyler Toffoli",
+      "passed": true
+    },
+    {
+      "action": "click clear filters",
+      "observed_input": "",
+      "observed_URL_q": null,
+      "visible_rows": 245,
+      "total_rows": 245,
+      "passed": true
+    },
+    {
+      "action": "native plaintext paste(format:'text','toffoli')",
+      "observed_input": "toffoli",
+      "observed_URL_q": "toffoli",
+      "visible_rows": 1,
+      "total_rows": 245,
+      "passed": true
+    },
+    {
+      "action": "click actual Tyler profile link then native browser back",
+      "profile_player_id": "8475726",
+      "returned_input": "toffoli",
+      "returned_URL_q": "toffoli",
+      "visible_rows": 1,
+      "total_rows": 245,
+      "passed": true
+    },
+    {
+      "action": "native reload and wait for settled view",
+      "observed_input": "toffoli",
+      "observed_URL_q": "toffoli",
+      "visible_rows": 1,
+      "total_rows": 245,
+      "passed": true
+    }
+  ],
+  "historical_evidence": {
+    "old_native_red": "discovery-search-native-red.json",
+    "old_build771_native_green": "discovery-search-native-green.json",
+    "policy": "both preserved unchanged; current build was actually retested rather than inheriting old native acceptance"
+  },
+  "scope": "final source086/buildc4ac actual native search regression only; no real-data product, activation or scientific admission claim",
+  "production_server_browser_actions_by_product": false
+}

@@ -1,0 +1,231 @@
+{
+  "kind": "execution-start-repair-source-boundary",
+  "status": "focused checks passed; required selected passes pending",
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "production": [
+    {
+      "path": "analysis/src/hockey_stats/analysis_context.py",
+      "sha256": "44e1030cb2cb0ddbf2528db490fe0987786ab8c89a137fc7d83e31188877c3cb"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "5fe679f6230f6ed8118499f0cc940e56993bd844fcb0ecb174ccc01502a3fc87"
+    },
+    {
+      "path": "analysis/src/hockey_stats/spatial_design.py",
+      "sha256": "5c6925ec0b93ac52ef3442c5237f534a4bef4658ace08021e9ba759123352633"
+    }
+  ],
+  "original_evidence": {
+    "path": "docs/research/spatial-v1-08/real-shift-start-representatives.json",
+    "sha256": "ae06b3ccff2ddbcd93fe3d3af0b457b280ca240bafec3d1a806bfd59bc1a771c"
+  },
+  "red": {
+    "baseline_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "mechanism": "the executed accepted encoder admits both starts; the independent observer rejects those actual old feature records",
+    "before_implementation_observed": true,
+    "cases": [
+      {
+        "key": "2021020002:196",
+        "old_contrasts": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "old_status": [
+          "available",
+          "available",
+          "available"
+        ],
+        "old_unavailable": 0.0
+      },
+      {
+        "key": "2021020637:210",
+        "old_contrasts": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "old_status": [
+          "available",
+          "available",
+          "available"
+        ],
+        "old_unavailable": 0.0
+      }
+    ]
+  },
+  "green": {
+    "actual_full_feature_constructor": true,
+    "source_cases": 2,
+    "cases": [
+      {
+        "key": "2021020002:196",
+        "corrected_contrasts": [
+          null,
+          null,
+          null
+        ],
+        "corrected_status": [
+          "unavailable",
+          "unavailable",
+          "unavailable"
+        ],
+        "corrected_unavailable": 1.0,
+        "saved_age_seconds": 0,
+        "other_features_unchanged": true,
+        "source_game_unchanged": true,
+        "labels_membership_deployment_unchanged": true
+      },
+      {
+        "key": "2021020637:210",
+        "corrected_contrasts": [
+          null,
+          null,
+          null
+        ],
+        "corrected_status": [
+          "unavailable",
+          "unavailable",
+          "unavailable"
+        ],
+        "corrected_unavailable": 1.0,
+        "saved_age_seconds": 0,
+        "other_features_unchanged": true,
+        "source_game_unchanged": true,
+        "labels_membership_deployment_unchanged": true
+      }
+    ],
+    "source_contract": "no unproved start type or zone admitted; saved shift age remains unchanged",
+    "temporal_limit": "saved order does not establish subsecond physical order; not-proved-prior does not prove physically later",
+    "direct_policy_controls": 9,
+    "actual_encoder_variant_controls": [
+      "strictly earlier on-the-fly remains available",
+      "missing on-the-fly clock unavailable",
+      "earlier-order same-clock faceoff remains available",
+      "mismatched coherent zone unavailable",
+      "ambiguous coherent binding unavailable",
+      "unresolved saved anchor order unavailable"
+    ],
+    "spatial_source_checks": 15,
+    "fit_score_scope": "both delegates invoke the same source constructor; focused parity check only, full required-pass parity pending"
+  },
+  "observer": {
+    "implementation": {
+      "path": "var/v1-08-replacement/consumed_start_check.py",
+      "sha256": "7140ba0dbd5ea25dfe2cb96fa286050b6668aae3407df832c23fc5f664ef1fd5"
+    },
+    "controller": {
+      "path": "var/v1-08-replacement/observer_hook_check.py",
+      "sha256": "88b97e78a4c7df6b4adb2d3f99210ec2ea6ac0387045b06bcc65e0249e1a223e"
+    },
+    "actual_two_source_observation": {
+      "kind": "temporary-execution-consumed-start-check",
+      "status": "passed",
+      "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+      "source_contexts": 2,
+      "known_expected": 2,
+      "known_checked": 2,
+      "dispositions": {
+        "unavailable:faceoff": 1,
+        "unavailable:on_the_fly": 1
+      },
+      "all_strength_dispositions": {
+        "5,5,1|unavailable:faceoff": 1,
+        "5,5,1|unavailable:on_the_fly": 1
+      },
+      "eligibility_counts": {
+        "masked_on_the_fly": 1,
+        "masked_faceoff": 1,
+        "unresolved_binding": 0,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "count_contract": "dispositions partition source contexts; eligibility counts overlap; withheld_earlier_anchor is residual withholding, not an admission requirement",
+      "residual_scope": "withheld non-on-the-fly record with a saved coherent faceoff start on the exact player/period/start/end binding and earlier saved anchor; cannot detect alternatives absent from coherent saved evidence",
+      "source_context_sha256": "854ef3a105982868b5688599d5b5929800fd4ff97c376d1bd18576517fba8804",
+      "source_response_sha256": "d9b00a27be5597cee4f64b9870a4d3f396d18ac860545e42462d423b030e75ef",
+      "before_head_construction": true,
+      "head_admission": null
+    },
+    "synthetic_hook_controls": {
+      "scope": "synthetic observer hook control only; no source read or fit",
+      "all_required_seen": {
+        "source_contexts": 2,
+        "head_calls": 1,
+        "status": "passed",
+        "known_checked": 2,
+        "head_admission": {
+          "u": {
+            "included": 2
+          }
+        },
+        "error": null
+      },
+      "missing_required": {
+        "source_contexts": 1,
+        "head_calls": 0,
+        "status": "source_construction_incomplete",
+        "known_checked": 1,
+        "head_admission": null,
+        "error": "known timing witnesses missing before head construction: synthetic-1:7"
+      },
+      "residual_later_faceoff": {
+        "raw_kind": "faceoff",
+        "eligibility_counts": {
+          "masked_on_the_fly": 0,
+          "masked_faceoff": 1,
+          "unresolved_binding": 1,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 1
+        }
+      },
+      "residual_unknown": {
+        "raw_kind": null,
+        "eligibility_counts": {
+          "masked_on_the_fly": 0,
+          "masked_faceoff": 0,
+          "unresolved_binding": 0,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 1
+        }
+      }
+    },
+    "acceptance_oracle": "independent raw clock and coherent binding/order comparisons; does not call the shared predicate",
+    "real2021_barrier": "all54 existing census keys must be seen and unavailable before the first head construction; missing or admitted keys fail before solving",
+    "counter_units": "dispositions and all_strength_dispositions partition observed source contexts; head_admission counts recognized attempts by head; detailed eligibility counters overlap",
+    "residual_scope": "withheld non-on-the-fly context with an exact player/period/start/end coherent faceoff candidate and saved earlier anchor; includes unknown raw kinds; no inferred replacement start or alternatives absent from saved coherent evidence",
+    "invocation": "PYTHONPATH=analysis/src <pinned-python> var/v1-08-replacement/consumed_start_check.py --out-check <fresh-external-json> [--known-census <existing54-key-real2021-census>] -- fit|score --family execution <ordinary flags>",
+    "parity": "compare source_context_sha256, source_response_sha256, source_contexts, dispositions, eligibility_counts and head_admission for the same selected season in fit and score",
+    "persistence": "temporary observer output only; no production schema, refusal ledger, retries, runner or extra corpus pass"
+  },
+  "temporary_checks": [
+    {
+      "path": "var/v1-08-execution-start-checks.py",
+      "sha256": "ec16dff548d2fcf7c9e2a800864860bc902686b860160eb4c1731b8be7c2d55a"
+    },
+    {
+      "path": "var/v1-08-source-checks.py",
+      "sha256": "3ae7835aeb2c9d2a5bcee9f0a0285820250be69550af6923e638c14c7dbf18ac"
+    },
+    {
+      "path": "var/v1-08-replacement/source-start-green.json",
+      "sha256": "e00e2a43e0afed629789c08b3632ad40254c265ba2d3617126a0dc2cfa00f515"
+    },
+    {
+      "path": "var/v1-08-replacement/observer-hook-green.json",
+      "sha256": "98b507555f65156b83e47e8f81d6d6513df71400440d006b2ded6e0810e982ca"
+    }
+  ],
+  "exclusions": "no fit, probability rescore, new preparation, capture mutation, factual rebuild or publication; original data and expensive artifacts retained",
+  "pending": "root release, fresh captured-fixture source-to-score proof, selected all-strength actual54 witness proof during required fit/score passes and numerical downstream replacement",
+  "spatial_recipe": {
+    "name": "experimental-v1",
+    "version": "spatial-v1-08-4",
+    "sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b"
+  }
+}

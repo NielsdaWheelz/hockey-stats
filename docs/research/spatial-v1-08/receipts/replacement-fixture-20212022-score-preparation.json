@@ -1,0 +1,133 @@
+{
+  "kind": "replacement-fixture-20212022-score-preparation",
+  "status": "unexecuted; root independent command review and explicit score release pending",
+  "recorded_at_utc": "2026-10-31T15:00:44.714798+00:00",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-20212022-score-observed-command.sh",
+    "bytes": 4737,
+    "sha256": "a61935ec7de5aef7b6a73aa0cb98db569d0ca64b8d075db8e83324f69a4d84dc"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+    "bytes": 24693,
+    "sha256": "e17826b40ef478df78af41d668c9ce79bb4730531a464aaac941d62e1f75c742"
+  },
+  "derived_block": "first score-20212022 block from independently accepted C1 book; only new accepted-state manifest pin added",
+  "production": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+      "bytes": 13248,
+      "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+    },
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "accepted_state_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022/manifest.json",
+    "bytes": 23670,
+    "sha256": "93478145e952d2378fce912b0c5daffff553ce84d2a74cce3f327e59a3320baf"
+  },
+  "state_statuses": {
+    "u": "complete",
+    "q": "complete",
+    "r": "complete",
+    "g": "complete"
+  },
+  "accepted_input_bindings": {
+    "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+    "coaches_sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+  },
+  "new_state_pin_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20212022-launch-state-manifest-sha256.txt",
+  "new_state_pin_occupied_guard": true,
+  "existing_source_observer_guards_preserved": true,
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20212022-source-check.json",
+    "--",
+    "score",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--state",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022"
+  ],
+  "ordinary_cli_tail": [
+    "score",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--coaches",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+    "--state",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022"
+  ],
+  "checks": {
+    "shell_syntax_exit": 0,
+    "whole_observed_score_argv_matches_book": true,
+    "ordinary_cli_tail_matches_initial": true,
+    "explicit_state_matches_accepted_annual": true,
+    "no_predecessor_flag_added": true,
+    "occupied_output_log_exit_sourcecheck_and_all6_pin_receipts_guarded": true
+  },
+  "parity": {
+    "fit_check": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20212022-source-check.json",
+      "bytes": 36329,
+      "sha256": "b29b4bd08ecce3ee613d447a9e00d1d7e9265bb10ee45ba1719948f02e2737fa"
+    },
+    "score_check_path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/score-20212022-source-check.json",
+    "fields": [
+      "source_context_sha256",
+      "source_response_sha256",
+      "source_contexts",
+      "dispositions",
+      "all_strength_dispositions",
+      "eligibility_counts",
+      "head_admission",
+      "head_populations"
+    ],
+    "expected_canonical_json_sha256": "6d0d8a881747db933767210b1e8e6ba291745d47020908724c9317216a5bbfcc",
+    "requirement": "after score source construction, same-season fit and score must have exactly equal eight field values, including whole head_populations",
+    "comparison_run": false,
+    "expected_field_sha256": {
+      "source_context_sha256": "89c49829267edb30dc346d703e34a2abaa68536710983d25b857380f3584a714",
+      "source_response_sha256": "120096bda949cc8c2351f55ee2b9777cd74980e63d36307da3e169548708c2f6",
+      "source_contexts": "0fbc9039145b6449a7765dcc00d3bd8377d93ac8cccda9f0292b5976e6d67c75",
+      "dispositions": "2fb182b9314e79c91bac5b6db2752cb79d17da1d7716cd71a645786d76dd902b",
+      "all_strength_dispositions": "e000608834a6ef8c82fba7d5b95e78aa6cc1939badd26152a24b8ff25193374f",
+      "eligibility_counts": "b6ef0197ee43ae9b41a02c6548088c7a283bff34acc0d6c1b63e766d3cec7008",
+      "head_admission": "fe68a9202516f353a7fb9090a963139c66e67b7259ef31381d0670286c629cf1",
+      "head_populations": "5f9d524a4e1426fc6f6db2ebf347549852e403b60caaf534c06b8d357f9b6b33"
+    },
+    "fit_source_contexts": 771,
+    "fit_physical_attempts_by_head": {
+      "u": 771,
+      "q": 618,
+      "r": 439,
+      "g": 335
+    },
+    "digest_definition": "sha256 of compact sorted-key finite json; expected_canonical_json_sha256 hashes the dict of the eight named field values; expected_field_sha256 hashes each named value"
+  },
+  "root_parent_action": "root may create only the scores parent before launch; output annual remains absent; one heavy command at a time; no automatic next score",
+  "metadata_read_bytes": 59999,
+  "metadata_scope": "accepted state manifest and fit observer report only; no head/member arrays, source game or new model pass",
+  "score_accepted_sha256": null,
+  "score_command_launched": false,
+  "selection_written": false,
+  "production_observer_app_build_server_changed": false
+}

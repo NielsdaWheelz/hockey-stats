@@ -1,6 +1,6 @@
 # first replacement spatial fixture acceptance
 
-status: read-only checklist prepared while the first fit runs. inspect the new annual only after root reports whole-command exit. this page records no result and authorizes no fit, source pass or next-year command. the cli already owns the strict read; do not repeat it.
+status: completed and root accepted. [the compact completion](receipts/replacement-fixture-spatial-20212022-completion.json) records the applied checklist. the independent reviewer completed all numeric member/coefficient/projection comparisons; local readback checked saved metadata, center/reference arithmetic and resources without repeating arrays. the checklist was prepared during the fit; the new annual was inspected only after reported whole-command exit. the cli owns the strict read, which was not repeated. this page authorizes no fit or source pass.
 
 the comparison is the new campaign's `fixture/spatial/20212022` against preserved `/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/20212022`, manifest `a0fc5f45458bc48d5e03ab582d7cc4669d69a38d702997514a7dddd1093944dd`. the [old first result](receipts/fixture03-first-result.json) retains its measured evidence. the old state is comparison evidence, never a replacement predecessor or coefficient input.
 

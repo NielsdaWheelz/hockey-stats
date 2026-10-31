@@ -1,0 +1,309 @@
+{
+  "kind": "replacement-fixture-disposable-compatible-rollback-completion",
+  "status": "passed operator/strict-reader compatibility; no HTTP or browser journey",
+  "recorded_at_utc": "2026-10-31T18:39:05.630935+00:00",
+  "executed_by": "root",
+  "session": 5194,
+  "directory": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02",
+  "started_at_utc": "2026-10-31T18:32:59Z",
+  "finished_at_utc": "2026-10-31T18:34:56Z",
+  "timestamp_wall_seconds": 117,
+  "timed_operations_wall_seconds_sum": 116.93,
+  "peak_step_rss_bytes": 818511872,
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-rollback-02-command.sh",
+    "bytes": 8795,
+    "sha256": "7784afbcd4991427d295ca4a8943db445836370b282065a25edaad5eb42c1d1a"
+  },
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-rollback-02-write-scope.sb",
+    "bytes": 178,
+    "sha256": "a209506db352be5c16aadb8d71f4b45aab9d728a39fefe1f756b21cd4f42fa0a"
+  },
+  "node": {
+    "path": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "version": "v24.21.0",
+    "version_checked": true,
+    "runtime_version_guard": true
+  },
+  "app_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "source_build": {
+    "source": {
+      "sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+      "files": 52,
+      "bytes": 873260
+    },
+    "dist": {
+      "sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+      "files": 38,
+      "bytes": 1289425
+    },
+    "actual_current_recomputed": true,
+    "definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative repo,sha256,bytes} records; source uses git ls-files app, dist uses all actual app/dist files",
+    "app_build_frozen": true
+  },
+  "guarded_operator_reader_inputs": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/operator/publication-cli.js",
+      "bytes": 5132,
+      "sha256": "e655d6633d081f8b83133b779c2850434b3c1e9a65dcaaae29662d7f3f18d7b2"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/publication.js",
+      "bytes": 15445,
+      "sha256": "957d0706671eb0e3b42797084b94887230b61c7932313e46ae908d66819752e6"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/candidate/verification.json",
+      "bytes": 15162,
+      "sha256": "b14d053bd80cb99eb5519c4036b82d444a2dedc2a13883e5855368af05ff32e3"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/verification.json",
+      "bytes": 14869,
+      "sha256": "8613ef637b8af1347fbdb39664689af583a2cff78e3171f498bcff41c8799110"
+    }
+  ],
+  "actual_launch_binding": "reviewed script enforces node version, clean app tree/status, compiled operator/reader hashes, profile, accepted verification metadata and both source DB size/mtime pins before copying. source/dist actual hashes were recomputed in preparation and stayed frozen through execution",
+  "steps": [
+    {
+      "name": "01-baseline",
+      "exit": 0,
+      "action": "activate",
+      "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+      "schema_version": 8,
+      "predecessor": null,
+      "season_counts": [
+        {
+          "season": "20232024",
+          "players": 224,
+          "skaters": 201,
+          "goalies": 23
+        },
+        {
+          "season": "20242025",
+          "players": 272,
+          "skaters": 245,
+          "goalies": 27
+        },
+        {
+          "season": "20252026",
+          "players": 309,
+          "skaters": 277,
+          "goalies": 32
+        }
+      ],
+      "cost": {
+        "wall_seconds": 33.18,
+        "user_seconds": 25.09,
+        "system_seconds": 1.29,
+        "peak_rss_bytes": 628260864
+      },
+      "saved_output": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/01-baseline.json",
+        "bytes": 997291,
+        "sha256": "dbb065d418351c6c5c08e24b5581ae94f3d9a59015a1c7ee03dc37350742c058"
+      },
+      "saved_cost": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/01-baseline.cost.txt",
+        "bytes": 777,
+        "sha256": "f78620493cf0163d0293d914bc3b44e322e05f560862d190cacee859bf4ef653"
+      },
+      "saved_exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/01-baseline.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    },
+    {
+      "name": "02-candidate",
+      "exit": 0,
+      "action": "activate",
+      "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "schema_version": 8,
+      "predecessor": {
+        "sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+        "bytes": 837996544
+      },
+      "season_counts": [
+        {
+          "season": "20232024",
+          "players": 224,
+          "skaters": 201,
+          "goalies": 23
+        },
+        {
+          "season": "20242025",
+          "players": 272,
+          "skaters": 245,
+          "goalies": 27
+        },
+        {
+          "season": "20252026",
+          "players": 309,
+          "skaters": 277,
+          "goalies": 32
+        }
+      ],
+      "cost": {
+        "wall_seconds": 49.25,
+        "user_seconds": 39.0,
+        "system_seconds": 2.01,
+        "peak_rss_bytes": 818511872
+      },
+      "saved_output": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/02-candidate.json",
+        "bytes": 997100,
+        "sha256": "4a6948592b6d7e36d85ecb935f0b83bac35d04f0b99fd66190953be2acd4759d"
+      },
+      "saved_cost": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/02-candidate.cost.txt",
+        "bytes": 777,
+        "sha256": "90a16e680ed3a0c7a572f258f812c4d7241ab3e459313af813871f8517e49577"
+      },
+      "saved_exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/02-candidate.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    },
+    {
+      "name": "03-restored",
+      "exit": 0,
+      "action": "restore",
+      "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+      "schema_version": 8,
+      "predecessor": {
+        "sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+        "bytes": 1369219072
+      },
+      "season_counts": [
+        {
+          "season": "20232024",
+          "players": 224,
+          "skaters": 201,
+          "goalies": 23
+        },
+        {
+          "season": "20242025",
+          "players": 272,
+          "skaters": 245,
+          "goalies": 27
+        },
+        {
+          "season": "20252026",
+          "players": 309,
+          "skaters": 277,
+          "goalies": 32
+        }
+      ],
+      "cost": {
+        "wall_seconds": 34.5,
+        "user_seconds": 25.95,
+        "system_seconds": 1.49,
+        "peak_rss_bytes": 638353408
+      },
+      "saved_output": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/03-restored.json",
+        "bytes": 997397,
+        "sha256": "f3adb755960a633973f751d12e0e560c17bb7c1db24ad2dd064a40ef2a660656"
+      },
+      "saved_cost": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/03-restored.cost.txt",
+        "bytes": 777,
+        "sha256": "bc1b211eb4eca74f40cacd428dfa8d0c1cb13cc866bb4bbe308ba8749b5c6b76"
+      },
+      "saved_exit": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/03-restored.exit",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    }
+  ],
+  "completion_output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/completion.json",
+    "bytes": 626,
+    "sha256": "dbf0dd6e427cb4e0bba44b50cfff45d67415f3872084df83860bb6b3daf908d2"
+  },
+  "completion_exit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/completion.exit",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "timestamp_files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/started-at.txt",
+      "bytes": 21,
+      "sha256": "24e9d4014d6331b153804ed1b2f43d48215bd1d891e4e042e7d90fe019cb26b9"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/finished-at.txt",
+      "bytes": 21,
+      "sha256": "96bc4cc32f2d8adbf4f032e9c3f45659dcb72aba265cbf1c245064f4e82410d3"
+    }
+  ],
+  "sqlite_tmpdir_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/rollback-check-02/sqlite-tmpdir.txt",
+    "bytes": 117,
+    "sha256": "32360e7d188856bdb2e8f7ecd0d5eb425f818c7e281fb8105cfb66517fba149e"
+  },
+  "final_disposable_files": {
+    "active.sqlite": {
+      "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+      "sha256": "d71510774e04644f04a257c6b7f4949d7d2fb5a62dbce6426ab00db12e15e774",
+      "bytes": 837996544,
+      "mtime_ns": 1793471667038025931
+    },
+    "previous.sqlite": {
+      "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+      "sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+      "bytes": 1369219072,
+      "mtime_ns": 1793471621314437201
+    },
+    "incoming.sqlite": "absent",
+    "sqlite-temp": "empty after commands"
+  },
+  "identity_proof": [
+    "the existing operator hashes each source and exclusive incoming copy, requires exact equality, and validates that incoming through the strict schema8 publication owner before rotation",
+    "candidate activation records the baseline active hash d715 as its predecessor; restore records the replacement active hash95ee as its predecessor",
+    "restore copies that already verified baseline predecessor, validates it, renames replacement active to previous and incoming baseline to active",
+    "saved completion assertions and final file stat/absence verify the expected final names/sizes without another payload hash or scan"
+  ],
+  "restored_metadata_exact": true,
+  "spatial_family_sequence": [
+    "not_computed",
+    "provided",
+    "not_computed"
+  ],
+  "failure_and_fix": {
+    "failed01_correction_receipt": "replacement-fixture-rollback-temp-correction.json",
+    "failed01_exit": 1,
+    "failed01_error": {
+      "code": 6410,
+      "name": "SQLITE_IOERR_GETTEMPPATH"
+    },
+    "failed01_rotation_started": false,
+    "failed01_incoming_and_evidence_unchanged": true,
+    "focused_scratch_red_green": "same node/profile/SQL fails without SQLITE_TMPDIR and passes16MiB FILE-temp workload with a permitted SQLITE_TMPDIR",
+    "fix": "02 creates and exports its ordinary SQLITE_TMPDIR inside the literal writable disposable subtree; production and operator argv unchanged",
+    "full_corrected_sequence_passed": true
+  },
+  "overlap": {
+    "real_fit": "root-owned real fit724",
+    "interval_start_utc": "2026-10-31T18:32:59Z",
+    "interval_finish_utc": "2026-10-31T18:34:56Z",
+    "evidence": "root reported real fit724 remained running through this interval; actual operator timestamp/cost receipts retained",
+    "cost_interpretation": "measured under concurrent fitting, not isolated cost or a forecast"
+  },
+  "preservation": {
+    "main_server": "9645 on3000 untouched",
+    "fixture_server": "98844 on3398 still serves canonical e742 candidate, untouched",
+    "canonical_baseline_and_replacement_candidates": "read only by existing operator; never rotated or overwritten",
+    "original_fixture03_rollback": "historical evidence retained",
+    "failed01_incoming_logs_profile": "retained pending full cleanup",
+    "source_analysis_observer_app_build": "unchanged"
+  },
+  "claim_limit": "disposable existing-operator copy/hash/strict-reader/rename restoration only. no request to a running HTTP API, browser action, download, layout, real serving activation or scientific admission claim",
+  "validation_for_this_receipt": "saved JSON/cost/exit/timestamp files and final filesystem metadata only; no publication SQL/payload read, repeated full hash, source pass or operator execution",
+  "resolved_issue": "docs/issues/disposable-rollback-temp-directory.md"
+}

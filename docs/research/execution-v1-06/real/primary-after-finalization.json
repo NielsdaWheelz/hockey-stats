@@ -1,0 +1,177 @@
+{
+  "kind": "primary-working-tree-after-finalization",
+  "status": "passed",
+  "checked_at_utc": "2026-10-31T04:07:39.678515+00:00",
+  "baseline": {
+    "path": "docs/research/execution-v1-06/real/primary-before-finalization.json",
+    "sha256": "75941a2cd24a826b2bf99e41769c57f9b15249ef7c4be5ae0979751cee895005",
+    "checked_at_utc": "2026-10-31T03:15:53.962801+00:00"
+  },
+  "primary_root": "/Users/nnandal/Documents/code/hockey-stats",
+  "head": "f61a9130f0bec401940396a17e362edd25655cbf",
+  "head_matches_before": true,
+  "branch": "main",
+  "branch_matches_before": true,
+  "git_optional_locks": "0",
+  "git_status": {
+    "bytes": 532,
+    "sha256": "5cfa1e043500310467b15f54b81858d25a5b0234d0c2b5ac725ad5a028279481",
+    "records": [
+      " M docs/architecture.md",
+      " M docs/brief.md",
+      " M docs/issues/microstat-inputs.md",
+      " M docs/model-features.md",
+      " M docs/plan.md",
+      " M docs/product-inventory.md",
+      " M docs/research/council.md",
+      " M docs/research/player-card-references.md",
+      " M docs/roadmap.md",
+      " M docs/specs/experimental-application.md",
+      " M docs/specs/experimental-card-facts.md",
+      " M docs/specs/experimental-chance.md",
+      " M docs/specs/experimental-player-analysis.md",
+      " M docs/specs/v1-13-typed-publication.md",
+      " M docs/specs/v1-14-history-cohorts-exports.md",
+      "?? docs/specs/v1-06-execution-scoring.md"
+    ],
+    "matches_before": true
+  },
+  "diffs": [
+    {
+      "comparison": "working_tree_vs_index",
+      "bytes": 141380,
+      "sha256": "31ce46b9982836c5aa24ae50ed1be452e7ad6a1ce9c25e2d01b1df132502a51c",
+      "matches_before": true
+    },
+    {
+      "comparison": "index_vs_head",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_before": true
+    },
+    {
+      "comparison": "working_tree_vs_head",
+      "bytes": 141380,
+      "sha256": "31ce46b9982836c5aa24ae50ed1be452e7ad6a1ce9c25e2d01b1df132502a51c",
+      "matches_before": true
+    }
+  ],
+  "document_count": 16,
+  "document_bytes": 849353,
+  "documents": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/architecture.md",
+      "relative_path": "docs/architecture.md",
+      "bytes": 105161,
+      "sha256": "5e61757e73069cb1bc39fbf5a28a6228fd130dd8d2e7d083c3ad6d5b4a6e3776",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/brief.md",
+      "relative_path": "docs/brief.md",
+      "bytes": 59077,
+      "sha256": "a0dec65addf934ade7f02725a970d5ef9a8990c7d4ee44733e3a3ab156509ff5",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/issues/microstat-inputs.md",
+      "relative_path": "docs/issues/microstat-inputs.md",
+      "bytes": 7557,
+      "sha256": "90b673e2d07ab297c0040da1d126d6660e4293b3aea85010e77846b9268d16a9",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/model-features.md",
+      "relative_path": "docs/model-features.md",
+      "bytes": 25571,
+      "sha256": "d37acde8e44b89191e129eed37f35ab92dd83bd79f2776f97ce0cf9fce75c2a6",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/plan.md",
+      "relative_path": "docs/plan.md",
+      "bytes": 143866,
+      "sha256": "d823b90b1bf8fb93fcca0cb09a909f29705d5fc8e30318757de4cc598a1dfa01",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/product-inventory.md",
+      "relative_path": "docs/product-inventory.md",
+      "bytes": 59643,
+      "sha256": "75696bc5301da78fdb0b5c2da1ccd9dd7614605b26c22ee47cfb9ef0bc799515",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/council.md",
+      "relative_path": "docs/research/council.md",
+      "bytes": 167170,
+      "sha256": "b29cc78b0382c3eed47e8ba29ec21ef673e8a99689af36e8c06d5b6b750fa6e3",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/research/player-card-references.md",
+      "relative_path": "docs/research/player-card-references.md",
+      "bytes": 16522,
+      "sha256": "b36d710fd90de44a0574917dbb7c79f02a775f7d6f357c996cc01aac82550150",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/roadmap.md",
+      "relative_path": "docs/roadmap.md",
+      "bytes": 15122,
+      "sha256": "50f45e7889015f53bf405380bc81c2a17d3b846e85a10a65170acf4776854e89",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-application.md",
+      "relative_path": "docs/specs/experimental-application.md",
+      "bytes": 54382,
+      "sha256": "f9bef41223b9c2cf7d3bed37b415ec67418facae55cfe6189f8f283ed34fc5dc",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-card-facts.md",
+      "relative_path": "docs/specs/experimental-card-facts.md",
+      "bytes": 26632,
+      "sha256": "00c18e83348426d98fe4738376f521f3384bfe508cceff2cc2e2da3ccab24b2d",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-chance.md",
+      "relative_path": "docs/specs/experimental-chance.md",
+      "bytes": 31670,
+      "sha256": "193cc11f83d0ae43199c4eec4f420074ae01a13e65c2cf6a1ded2b45482570b0",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/experimental-player-analysis.md",
+      "relative_path": "docs/specs/experimental-player-analysis.md",
+      "bytes": 32160,
+      "sha256": "f291630c30700f3c25a36ba83adc4bd94ddc3b5adee1e2853a1c2bcbcb0a0a89",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-13-typed-publication.md",
+      "relative_path": "docs/specs/v1-13-typed-publication.md",
+      "bytes": 43272,
+      "sha256": "49873c86df4c2d405f09b302969c66551ac3a72373e392f33051684aa4485329",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-14-history-cohorts-exports.md",
+      "relative_path": "docs/specs/v1-14-history-cohorts-exports.md",
+      "bytes": 26887,
+      "sha256": "9eb035ecc6564e30f19d53ad6ad053edb0958c3353c3fec0a79706c1ceb87e10",
+      "matches_before": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats/docs/specs/v1-06-execution-scoring.md",
+      "relative_path": "docs/specs/v1-06-execution-scoring.md",
+      "bytes": 34661,
+      "sha256": "e5d10221b21f63978d563f1e282c4a1728fda50124fa4678ca413e2894d5a021",
+      "matches_before": true
+    }
+  ],
+  "scope": "one small read-only comparison against the immediately-before-finalization primary baseline; this does not establish the primary state at original task start or perform a primary merge",
+  "actions": "no primary writes, optional git locks, index updates, stash, checkout, new helper, bulk artifact reads or further checks"
+}

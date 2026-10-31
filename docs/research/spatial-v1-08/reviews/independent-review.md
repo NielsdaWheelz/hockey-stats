@@ -421,6 +421,32 @@ root's explanation holds, by elimination. `b723c28` replaced the loop over pairw
 
 consequence: old-against-new score comparisons must treat `shares.jsonl` by absolute size, and composed values may differ near `1e-16` from this alone.
 
+### third score
+
+`20232024` passes. it is the first score whose inputs differ from the original, so unlike the first two it is not a regression check.
+
+identity: manifest `fb1d1ad1`, exit 0. it binds state `85438d84` and recipe `47691110`, launch records show subtree `c2412ac`, clean status and observer `286b34dd`, and the implementation is `41c018b2`, clean. the strict reader accepts it and refuses the original. all eight parity fields match across 605 contexts.
+
+against the original `current-02/scores/20232024`:
+
+- 59 of 73 members are byte-identical, including `coverage.json`, `people.jsonl`, `coach_ids.jsonl` and every panel `jsonl`. event identity, labels, status and reasons are equal on all 715 events, 605 complete and 110 excluded. the population has not moved.
+- 14 members differ, all expected: `events`, `maps`, `projections`, `setters`, `shares` and the nine panel arrays that hold events. every empty panel is byte-identical.
+- summed neutral mass moves 26.3104 to 26.3149, +0.017%, and actor mass 26.4037 to 26.4116, +0.030%.
+
+| rows | count | neutral change |
+|---|---|---|
+| the seven masked rows | 7 | +3.1% to +7.6% |
+| known defensive faceoff, `2023020955` | 13 | median +3.9%, range +2.2% to +4.9% |
+| known neutral or offensive faceoff, `2023020955` | 36 | medians near 0, within 0.54% |
+| `on_the_fly`, `2023020955` | 38 | median +0.01%, within 0.76% |
+| unavailable start, `2023020955` | 39 | about -2.3% to -3.5% |
+
+all rows, excluding the seven: median 0.32%, 99th percentile 4.2%, maximum 4.9%, on `2023020955:93`.
+
+this review first guessed that the 4.9% row reflected the shared unavailable level. that was wrong: row 93 is a known defensive faceoff start at 5v5. its movement comes from `shooter_start_zone:defensive`, whose coefficient moved -0.023 in `u`, -0.040 in `r` and +0.057 in `g`, because all seven masked rows were defensive starts. the other two zone contrasts barely moved. unavailable rows move because the `S+A` sum moved +0.026, +0.006, +0.033 and -0.049.
+
+reading: masking rows also moves every row that shares their contrast. seven rows did that here, in a 605-row sample with few defensive rows, so these percentages say nothing about real size. no fitted real change has been measured.
+
 ## cost notes
 
 - `validate_design` loops over every row in python and each annual fit reaches it about four times: before fitting, at write, at read-back and as the next year's predecessor. composition repeats it for five states. estimated tens of minutes per annual fit; measure on the first real year.

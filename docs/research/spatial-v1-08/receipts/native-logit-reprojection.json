@@ -1,0 +1,42 @@
+{
+  "kind": "spatial-v1-08-native-logit-reprojection",
+  "source_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture/20212022/manifest.json",
+    "sha256": "5e01cfd7ca49f8fb2ed2759fca73e71da450561885e672a0d76a7601c16fb9c7"
+  },
+  "implementation_commit": "089d8b2e2adc7d5a448988e38d3247c1be94a3f7",
+  "strict_read_wall_seconds": 3.5910366250027437,
+  "old_projection_wall_seconds": 206.86558804201195,
+  "projection_wall_seconds": 199.20172912499402,
+  "peak_rss_bytes": 387530752,
+  "comparisons": {
+    "rates": {
+      "maximum_absolute_difference": 0.0,
+      "maximum_difference_locator": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximum_native_map_l1_difference": 0.0,
+      "source_array_sha256": "32a88475709d90f791302db7267cd9ee0b690cb4214b94b552142cc77bf95263",
+      "changed_array_sha256": "32a88475709d90f791302db7267cd9ee0b690cb4214b94b552142cc77bf95263"
+    },
+    "adjustments": {
+      "maximum_absolute_difference": 1.7763568394002505e-15,
+      "maximum_difference_locator": [
+        201,
+        1,
+        0,
+        6,
+        545
+      ],
+      "maximum_native_map_l1_difference": 3.635389515463383e-14,
+      "source_array_sha256": "7005ae6c21fd6ee566b28e8a86faa88fc34f48c58cc3ba221495087bbe913a1a",
+      "changed_array_sha256": "a38fe08a531e561db9461d4159c59bc44a69231c0c6c352f89abb22bc11627a0"
+    }
+  },
+  "source_preserved": true,
+  "status": "passed"
+}

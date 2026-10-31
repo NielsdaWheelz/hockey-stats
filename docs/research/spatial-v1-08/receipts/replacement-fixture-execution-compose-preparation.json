@@ -1,0 +1,124 @@
+{
+  "kind": "replacement-fixture-execution-compose-preparation",
+  "status": "pinned five-score selection written; composition unexecuted and awaiting separate root release",
+  "recorded_at_utc": "2026-10-31T15:42:15.799176+00:00",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-compose-execution-command.sh",
+    "bytes": 6536,
+    "sha256": "b80a09fe16c5bf5b1c4d1dbdf9fb4217783ee7050ef4f1c552d04dd496730cba"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+    "bytes": 24693,
+    "sha256": "e17826b40ef478df78af41d668c9ce79bb4730531a464aaac941d62e1f75c742"
+  },
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "summarize",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--facts",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts",
+    "--scores",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results"
+  ],
+  "checks": {
+    "sh_n_exit": 0,
+    "whole_compose_argv_equals_initial": true,
+    "all9_fresh_pin_receipt_guards": true,
+    "factual_original_observed_bindings_exact": true,
+    "three_displayed_seasons_exact": true
+  },
+  "retained_inputs": {
+    "selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+      "bytes": 1447,
+      "sha256": "9c35a98ee4b5032084c4a7017d84960b4f57d3b9f256d272f92df27b59ce139d"
+    },
+    "facts": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json",
+      "bytes": 13837,
+      "sha256": "08f2d078c51b4eb9753aa194a60166f3059377da76e21d213f94045aaeef3d25"
+    },
+    "prepared": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "bytes": 113142,
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df"
+    },
+    "observed": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+      "bytes": 768,
+      "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37"
+    },
+    "coaches": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "bytes": 218717,
+      "sha256": "d876634925f7abaabc5e1300efd3a7837511a74628dd98943ffc682b69d7602c"
+    }
+  },
+  "observed_input_meaning": "original observed selection remains an unchanged factual binding; no new composition flag or observed reduction",
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+    "sha256": "9c35a98ee4b5032084c4a7017d84960b4f57d3b9f256d272f92df27b59ce139d",
+    "written": true,
+    "five_pins": [
+      {
+        "season": "20212022",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20212022/manifest.json",
+        "sha256": "78e029e06cfb50ebdc247117faeb3849459e291be2267c250a9c15858dac7d60"
+      },
+      {
+        "season": "20222023",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20222023/manifest.json",
+        "sha256": "69bf4a4dede3a7ca3f0c0cca9897caaadd2330d40a2a2acbd5c902cf6484bdad"
+      },
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20232024/manifest.json",
+        "sha256": "fb1d1ad1f3c5437eb050da0ebdc22cd6fca972af8756aa53c452c60d340df604"
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20242025/manifest.json",
+        "sha256": "1f6ac613aa064692ce842c9a0c6bf144e7081c1cd762aff5143b741e7ab8e149"
+      },
+      {
+        "season": "20252026",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores/20252026/manifest.json",
+        "sha256": "80f61f0dc1941042c5bf1e3488fdaaed9cc0fb303670f6780558ff11a603072a"
+      }
+    ]
+  },
+  "production": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "method_recipe_id": "experimental-v1:execution-v1-05-2",
+    "method_fix_commit": "24dec47",
+    "production_or_observer_changed": false
+  },
+  "fresh_pin_receipts": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-launch-observer-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-expected-recipe-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-scores-selection-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-facts-manifest-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-prepared-manifest-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution-observed-selection-sha256.txt"
+  ],
+  "future_execution_exchange_sha256": null,
+  "composition_launched": false,
+  "scope": "small input manifests/coach artifact/current selection hashes plus standalone script; no source games/member arrays, duplicate strict read, composition/model/build/server launch"
+}

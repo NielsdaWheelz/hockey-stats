@@ -421,6 +421,10 @@ def _validate_projections(state):
                 require(row['reason'] is None and row['exposure_seconds']>0 and abs(row['exposure_seconds']-support['included_seconds'])<1e-8*(1+row['exposure_seconds']),'available adjustment exposure differs from role support')
                 values=adjustment_maps[i,r,qi]
                 require(np.all(values[[0,6]]>0),'invalid complete adjustment rates')
+                neutral=arrays['rates'][i,r,qi,0]
+                require(np.all(np.abs(values[0]-neutral)<=1e-10*(1+np.abs(neutral))),'actual-context empty coalition differs from frozen neutral reference')
+                if qi==1:
+                    require(np.all(values[[0,6]]<=adjustment_maps[i,r,0,[0,6]]),'actual-context chance exceeds complete attempt rate')
                 require(all(abs(row[q][name]-float(values[k].sum()))<=1e-11*(1+abs(row[q][name])) for k,name in enumerate(ADJUSTMENTS)),
                         'adjustment map/scalar identity differs')
                 residual=values[6]-values[:5].sum(axis=0)

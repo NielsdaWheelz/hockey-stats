@@ -112,6 +112,17 @@ def main():
         except InputContractError:pass
         else:raise AssertionError('strict reader used unbound head coefficients')
         manifest_file.write_bytes(original_manifest)
+        # closure alone cannot establish the empty coalition reference.
+        from hockey_stats.spatial_state import _validate_projections
+        corrupt_arrays={key:value.copy() for key,value in state.projection_arrays.items()}
+        corrupt_adjustments=json.loads(json.dumps(state.adjustments))
+        corrupt_arrays['adjustments'][0,0,0,0,0]+=1
+        corrupt_arrays['adjustments'][0,0,0,1,0]-=1
+        corrupt_adjustments[0]['attempts']['baseline']+=1
+        corrupt_adjustments[0]['attempts']['self']-=1
+        try:_validate_projections(replace(state,projection_arrays=corrupt_arrays,adjustments=corrupt_adjustments))
+        except InputContractError:pass
+        else:raise AssertionError('strict reader accepted wrong empty coalition reference')
         original=state.path/'projections.jsonl';data=[json.loads(line) for line in original.read_text().splitlines()]
         data[0]['values']['offense']['xg']['difference']+=1.
         original.write_text(''.join(json.dumps(r)+'\n' for r in data))

@@ -416,7 +416,7 @@ def head_diagnostics(design, head, beta):
         return dict(population='retained directed 5v5 time and uniquely assigned physical attempts',
                     attempts=design.X_event.shape[0],hours=float(design.exposure_hours.sum()),
                     predicted_attempts=float(expected.sum()),residual=float(design.X_event.shape[0]-expected.sum()),
-                    largest_complete_rates=np.sort(np.exp(eta))[-10:].tolist())
+                    largest_complete_rates=[dict(key=design.time_keys[int(i)],attempts_per_hour=float(np.exp(eta[i]))) for i in np.argsort(eta)[-10:]])
     loss = 0.
     expected_location = np.zeros(656)
     actual_location = np.bincount(design.origin_cells,weights=design.origin_weights,minlength=656)
@@ -442,9 +442,12 @@ def head_diagnostics(design, head, beta):
                 bins[i]['target_mass']+=float(np.dot(weight[mask],target[mask]))
                 bins[i]['predicted_mass']+=float(np.dot(weight[mask],probability[mask]))
     return (dict(population='retained physical attempts with fractional native origins',
+                 events=design.X_event.shape[0],eligible_origin_weight=float(design.origin_weights.sum()),
                  cross_entropy=loss/float(design.origin_weights.sum()),
                  native_location_residual=(actual_location-expected_location).tolist()) if head=='shape'
-            else dict(population='retained origin-weighted fixed neutral opportunity probabilities',calibration=bins))
+            else dict(population='retained origin-weighted fixed neutral opportunity probabilities',
+                      events=design.X_event.shape[0],eligible_origin_weight=float(design.origin_weights.sum()),
+                      target_neutral_chance_mass=float(np.dot(design.origin_weights,design.neutral_goal_probability)),calibration=bins))
 
 
 def _projection_support(state, design, player):
@@ -641,10 +644,22 @@ def project_spatial(state, design=None, *, actual_context=True):
                          reason='not_evaluated' if complete else 'incomplete_annual_family',exposure_seconds=None,
                          map_index=[i,j],**{q:{k:None for k in ADJUSTMENTS} for q in QUANTITIES})
                      for i,p in enumerate(design.players) for j,r in enumerate(ROLES)]
+    largest_rates,largest_contrasts=[],[]
+    if complete:
+        scalars=maps.sum(axis=-1)
+        for kind,output in ((1,largest_rates),(2,largest_contrasts)):
+            selected=scalars[:,:,:,kind]
+            ordering=selected if kind==1 else np.abs(selected)
+            for flat in np.argsort(ordering.ravel())[-20:]:
+                i,r,q=np.unravel_index(flat,selected.shape)
+                output.append(dict(player_id=design.players[i],role=ROLES[r],quantity=QUANTITIES[q],
+                    reference_kind='complete_focal' if kind==1 else 'focal_minus_neutral',
+                    value=float(selected[i,r,q]),units='per_hour'))
     diagnostics=dict(wall_seconds=perf_counter()-began,players=len(design.players),actual_context=actual_context,
+                     population='all retained season-roster skaters, including available prior-only standardized projections',
+                     reference_id=reference_id,assessment='in-sample construction diagnostics; no held-out performance claim',
                      peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
-                     largest_complete_rates=[] if not complete else np.sort(maps[:,:,:,1].sum(axis=-1).ravel())[-20:].tolist(),
-                     largest_absolute_contrasts=[] if not complete else np.sort(np.abs(maps[:,:,:,2].sum(axis=-1)).ravel())[-20:].tolist())
+                     largest_complete_rates=largest_rates,largest_absolute_contrasts=largest_contrasts)
     return SpatialProjections(rows,{'rates':maps,'adjustments':adjustment_maps},adjustments,support,reference,diagnostics)
 
 

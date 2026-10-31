@@ -267,7 +267,7 @@ export const Support = Schema.Struct({
 }).check(
   Schema.makeFilter(
     (value) =>
-      !value.prior_only || (!value.current_season_information && value.prior_seasons.length > 0),
+      !value.prior_only || !value.current_season_information,
   ),
 );
 export type Support = typeof Support.Type;
@@ -373,6 +373,12 @@ export const QuantityPath = Schema.Literals([
   "execution_breakdown.probability",
   "execution_breakdown.effect",
   "execution_breakdown.expected_successes",
+  "execution_breakdown.reference.expected_goals",
+  "execution_breakdown.reference.mean_opportunity",
+  "execution_breakdown.reference.observed_minus_expected_goals",
+  "execution_breakdown.actor.expected_goals",
+  "execution_breakdown.actor.mean_opportunity",
+  "execution_breakdown.actor.observed_minus_expected_goals",
   "adjustment_decomposition.baseline",
   "adjustment_decomposition.self",
   "adjustment_decomposition.teammates",
@@ -467,8 +473,18 @@ export const Method = Schema.Struct({
 }).check(
   Schema.makeFilter(
     (value) =>
-      (value.design_sha256 !== null && value.training_cutoff !== null) ||
-      (value.evidence.length > 0 && value.assessment.findings.length > 0),
+      ((value.design_sha256 !== null && value.training_cutoff !== null) ||
+        (value.evidence.length > 0 && value.assessment.findings.length > 0)) &&
+      (value.family !== "execution" ||
+        !value.assessment.findings.some((finding) =>
+          finding.quantities.some((quantity) =>
+            [
+              "execution_breakdown.probability",
+              "execution_breakdown.effect",
+              "execution_breakdown.expected_successes",
+            ].includes(quantity),
+          ),
+        )),
   ),
 );
 export type Method = typeof Method.Type;
@@ -1081,11 +1097,288 @@ const executionSupport = Schema.Struct({
   recorded_stop_probability_difference: Support,
   conversion_probability_difference: Support,
 });
+const executionMasses = { u: Rate, uq: Rate, uqr: Rate, uqrg: Rate };
+const focalMasses = {
+  u: Schema.NullOr(Rate),
+  uq: Schema.NullOr(Rate),
+  uqr: Schema.NullOr(Rate),
+  uqrg: Schema.NullOr(Rate),
+};
+export const ExecutionReferencePanel = Schema.Struct({
+  panel_id: Text,
+  opportunities: Count,
+  setup_weight: Rate,
+  neutral: Schema.Struct(executionMasses),
+  focal_shooter: Schema.Struct(focalMasses),
+  setting_setup: Schema.Struct({
+    neutral_goal_mass: Rate,
+    focal_goal_mass: Schema.NullOr(Rate),
+  }),
+}).check(
+  Schema.makeFilter((value) => {
+    for (const masses of [value.neutral, value.focal_shooter]) {
+      let previous: number | null = value.opportunities;
+      for (const field of ["u", "uq", "uqr", "uqrg"] as const) {
+        const mass = masses[field];
+        if (mass !== null && (previous === null || mass > previous))
+          return false;
+        previous = mass;
+      }
+    }
+    return (
+      close(value.setup_weight, 0.8 * value.opportunities) &&
+      value.setting_setup.neutral_goal_mass <= value.setup_weight &&
+      value.setting_setup.neutral_goal_mass <= value.neutral.uqrg &&
+      (value.setting_setup.focal_goal_mass === null ||
+        value.setting_setup.focal_goal_mass <= value.setup_weight)
+    );
+  }),
+);
+const coefficientFields = {
+  available: Schema.Boolean,
+  likelihood_events: Schema.NullOr(Count),
+  prior_only: Schema.NullOr(Schema.Boolean),
+  prior_seasons: Schema.Array(Season).check(Schema.makeFilter(sortedStrings)),
+  reason: Schema.NullOr(Text),
+};
+const validCoefficient = (value: {
+  available: boolean;
+  likelihood_events: number | null;
+  prior_only: boolean | null;
+  prior_seasons: readonly string[];
+  reason: string | null;
+}) =>
+  value.available
+    ? value.prior_only !== null &&
+      (value.likelihood_events !== null || value.reason !== null)
+    : value.likelihood_events === null &&
+      value.prior_only === null &&
+      value.prior_seasons.length === 0 &&
+      value.reason !== null;
+const executionCoefficient = Schema.Struct(coefficientFields).check(
+  Schema.makeFilter(validCoefficient),
+);
+export const ExecutionCoefficientSupport = Schema.Struct({
+  shooter: Schema.Struct({
+    u: executionCoefficient,
+    q: executionCoefficient,
+    r: executionCoefficient,
+    g: executionCoefficient,
+  }),
+  setter: Schema.Struct({
+    g: Schema.Struct({
+      ...coefficientFields,
+      candidate_events: Schema.NullOr(Count),
+      mean_coupled_events: Schema.NullOr(Count),
+    }).check(
+      Schema.makeFilter(
+        (value) =>
+          validCoefficient(value) &&
+          (value.available ||
+            (value.candidate_events === null &&
+              value.mean_coupled_events === null)) &&
+          (value.likelihood_events === null ||
+            ((value.candidate_events === null ||
+              value.candidate_events <= value.likelihood_events) &&
+              (value.mean_coupled_events === null ||
+                value.mean_coupled_events <= value.likelihood_events))),
+      ),
+    ),
+  }),
+});
+export const ExecutionPairedEvidence = Schema.Struct({
+  source_attempts: Count,
+  paired_attempts: Count,
+  unvalued_source_attempts: Count,
+  danger_unavailable: Schema.Struct({
+    events: Count,
+    observed_goals: Count,
+    reference_expected_goals: Rate,
+    actor_expected_goals: Rate,
+  }),
+}).check(
+  Schema.makeFilter(
+    (value) =>
+      value.source_attempts ===
+        value.paired_attempts + value.unvalued_source_attempts &&
+      value.danger_unavailable.events <= value.paired_attempts &&
+      value.danger_unavailable.observed_goals <=
+        value.danger_unavailable.events &&
+      value.danger_unavailable.reference_expected_goals <=
+        value.danger_unavailable.events &&
+      value.danger_unavailable.actor_expected_goals <=
+        value.danger_unavailable.events,
+  ),
+);
 export const SkaterExecution = Schema.Struct({
   ...executionFields,
+  reference_panel: ExecutionReferencePanel,
+  coefficient_support: ExecutionCoefficientSupport,
+  paired_evidence: ExecutionPairedEvidence,
   support: executionSupport,
   method_id: Text,
-});
+}).check(
+  Schema.makeFilter((value) => {
+    const panel = value.reference_panel;
+    const neutral = panel.neutral;
+    const focal = panel.focal_shooter;
+    const coefficients = value.coefficient_support.shooter;
+    let available = true;
+    for (const head of ["u", "q", "r", "g"] as const) {
+      available = available && coefficients[head].available;
+      const prefix = { u: "u", q: "uq", r: "uqr", g: "uqrg" } as const;
+      if ((focal[prefix[head]] !== null) !== available) return false;
+    }
+    if (
+      (panel.setting_setup.focal_goal_mass !== null) !==
+      value.coefficient_support.setter.g.available
+    )
+      return false;
+    const ratio = (numerator: number | null, denominator: number | null) =>
+      numerator === null || denominator === null || denominator === 0
+        ? null
+        : numerator / denominator;
+    const stages = [
+      [
+        "avoid_block_probability",
+        ratio(focal.u, panel.opportunities),
+        ratio(neutral.u, panel.opportunities),
+      ],
+      [
+        "on_net_probability",
+        ratio(focal.uq, focal.u),
+        ratio(neutral.uq, neutral.u),
+      ],
+      [
+        "recorded_stop_probability",
+        ratio(focal.uqr, focal.uq),
+        ratio(neutral.uqr, neutral.uq),
+      ],
+      [
+        "conversion_probability",
+        ratio(focal.uqrg, focal.uqr),
+        ratio(neutral.uqrg, neutral.uqr),
+      ],
+    ] as const;
+    for (const [field, focalRatio, neutralRatio] of stages) {
+      const level =
+        focalRatio === null
+          ? null
+          : field === "recorded_stop_probability"
+            ? 1 - focalRatio
+            : focalRatio;
+      const baseline =
+        neutralRatio === null
+          ? null
+          : field === "recorded_stop_probability"
+            ? 1 - neutralRatio
+            : neutralRatio;
+      const published = value[field].value;
+      const difference = value[`${field}_difference`].value;
+      if (difference !== null && (difference < -1 || difference > 1)) return false;
+      const denominator =
+        field === "on_net_probability"
+          ? "u"
+          : field === "recorded_stop_probability"
+            ? "uq"
+            : field === "conversion_probability"
+              ? "uqr"
+              : null;
+      const numerator =
+        field === "avoid_block_probability"
+          ? "u"
+          : field === "on_net_probability"
+            ? "uq"
+            : field === "recorded_stop_probability"
+              ? "uqr"
+              : "uqrg";
+      const focalAvailable = focal[numerator] !== null;
+      const focalUnderflow =
+        panel.opportunities > 0 &&
+        focalAvailable &&
+        denominator !== null &&
+        focal[denominator] === 0;
+      const neutralUnderflow =
+        panel.opportunities > 0 &&
+        denominator !== null &&
+        neutral[denominator] === 0;
+      if (focalUnderflow && published === null) return false;
+      if (
+        (focalUnderflow || neutralUnderflow) &&
+        focalAvailable &&
+        difference === null
+      )
+        return false;
+      if (
+        !focalUnderflow &&
+        (level === null
+          ? published !== null
+          : published === null || !close(published, level))
+      )
+        return false;
+      if (
+        !focalUnderflow &&
+        !neutralUnderflow &&
+        (level === null || baseline === null
+          ? difference !== null
+          : difference === null || !close(difference, level - baseline))
+      )
+        return false;
+    }
+    for (const [field, numerator, denominator] of [
+      [
+        "finishing_goals_per100_attempts",
+        focal.uqrg === null ? null : 100 * (focal.uqrg - neutral.uqrg),
+        panel.opportunities,
+      ],
+      [
+        "setting_goals_per100_assisted_opportunities",
+        panel.setting_setup.focal_goal_mass === null
+          ? null
+          : 100 *
+            (panel.setting_setup.focal_goal_mass -
+              panel.setting_setup.neutral_goal_mass),
+        panel.setup_weight,
+      ],
+    ] as const) {
+      const expected = ratio(numerator, denominator);
+      const actual = value[field].value;
+      if (
+        expected === null
+          ? actual !== null
+          : actual === null || !close(actual, expected)
+      )
+        return false;
+    }
+    const qualification = value.support.finishing_goals_per100_attempts;
+    for (const field of Object.keys(executionSupport.fields) as (keyof typeof executionFields)[]) {
+      const support = value.support[field];
+      if (support.eligible_weight !== null ||
+          support.included_seconds !== qualification.included_seconds ||
+          support.known_excluded_seconds !== qualification.known_excluded_seconds ||
+          support.unquantified_gap !== qualification.unquantified_gap ||
+          JSON.stringify(support.reason_counts) !== JSON.stringify(qualification.reason_counts)) return false;
+      const heads = field.startsWith("avoid_block") ? ["u"] as const
+        : field.startsWith("on_net") ? ["u", "q"] as const
+        : field.startsWith("recorded_stop") ? ["u", "q", "r"] as const
+        : ["u", "q", "r", "g"] as const;
+      const terms = field.startsWith("setting") ? [value.coefficient_support.setter.g]
+        : heads.map(head => value.coefficient_support.shooter[head]);
+      const complete = terms.every(term => term.available);
+      if (support.prior_only !== (complete && terms.every(term => term.prior_only)) ||
+          JSON.stringify(support.prior_seasons) !== JSON.stringify([...new Set(terms.flatMap(term => term.prior_seasons))].sort())) return false;
+      if (!complete || terms.some(term => term.likelihood_events === null)) {
+        if (support.events !== null || (!complete && support.current_season_information)) return false;
+      } else {
+        const counts = terms.map(term => term.likelihood_events!);
+        if (support.events === null || support.events < Math.max(...counts) ||
+            support.events > counts.reduce((total, count) => total + count, 0) ||
+            support.current_season_information !== (support.events > 0)) return false;
+      }
+    }
+    return true;
+  }),
+);
 export const SkaterShootiness = Schema.Struct({
   probability: ProbabilityEstimate,
   neutral_probability: ProbabilityEstimate,
@@ -1499,7 +1792,7 @@ export const AnalysisMap = Schema.Struct({
         ),
   ),
 );
-export const ExecutionBreakdown = Schema.Struct({
+export const GoalieExecutionBreakdown = Schema.Struct({
   events: Count,
   eligible_weight: Rate,
   observed_successes: Rate,
@@ -1515,6 +1808,49 @@ export const ExecutionBreakdown = Schema.Struct({
       value.expected_successes <= value.eligible_weight,
   ),
 );
+const skaterExpectation = Schema.Struct({
+  expected_goals: Rate,
+  mean_opportunity: ProbabilityEstimate,
+  observed_minus_expected_goals: Estimate,
+});
+export const SkaterExecutionBreakdown = Schema.Struct({
+  events: Count,
+  observed_goals: Count,
+  reference: skaterExpectation,
+  actor: skaterExpectation,
+  support: Support,
+  method_id: Text,
+}).check(
+  Schema.makeFilter(
+    (value) =>
+      value.observed_goals <= value.events &&
+      value.support.included_seconds === null &&
+      [value.reference, value.actor].every(
+        (expectation) =>
+          expectation.expected_goals <= value.events &&
+          (value.events === 0
+            ? expectation.mean_opportunity.value === null &&
+              (expectation.mean_opportunity.unavailable_reason === "no_exposure" ||
+                (expectation.mean_opportunity.unavailable_reason === "missing_source" &&
+                  value.support.unquantified_gap &&
+                  value.support.reason_counts.some((reason) => reason.code === "source_unavailable")))
+            : expectation.mean_opportunity.value !== null &&
+              close(
+                expectation.mean_opportunity.value,
+                expectation.expected_goals / value.events,
+              )) &&
+          expectation.observed_minus_expected_goals.value !== null &&
+          close(
+            expectation.observed_minus_expected_goals.value,
+            value.observed_goals - expectation.expected_goals,
+          ),
+      ),
+  ),
+);
+export const ExecutionBreakdown = Schema.Union([
+  SkaterExecutionBreakdown,
+  GoalieExecutionBreakdown,
+]);
 export const AdjustmentTarget = Schema.Literals([
   "for_attempts_per60",
   "against_attempts_per60",
@@ -1718,6 +2054,8 @@ export const GoalieObservedResult = result(GoalieObserved);
 export const GoalieObservedSummaryResult = result(GoalieObservedSummary);
 export const ValueLedgerResult = result(ValueLedger);
 export const AnalysisMapResult = result(AnalysisMap);
+export const SkaterExecutionBreakdownResult = result(SkaterExecutionBreakdown);
+export const GoalieExecutionBreakdownResult = result(GoalieExecutionBreakdown);
 export const ExecutionBreakdownResult = result(ExecutionBreakdown);
 export const AdjustmentDecompositionResult = result(AdjustmentDecomposition);
 export const GoalieEvidenceMapResult = result(GoalieEvidenceMap);
@@ -1797,7 +2135,8 @@ export const AttemptExecutionShare = Schema.Struct({
   goals: Schema.Finite,
 }).check(
   Schema.makeFilter(
-    (value) => (value.group === "coach") === (value.recipient_id === "coaching_context"),
+    (value) => (value.group === "coach") === (value.recipient_id === "coaching_context") &&
+      (value.group === "setter" || !["none", "unknown"].includes(value.recipient_id)),
   ),
 );
 export const DressedGame = Schema.Struct({
@@ -2317,11 +2656,11 @@ export const EvidenceSelection = Schema.Struct({
     }
   }),
 );
-const breakdownRow = Schema.Struct({
+const breakdownRow = <S extends Schema.Top>(schema: S) => Schema.Struct({
   strength: Schema.Union([ExecutionStrength, GoalieStrength]),
   kind: Schema.Literals(["shot_type", "danger"]),
   stratum: Schema.Union([ShotType, Schema.Literals(["<.05", "[.05,.15)", ">=.15"])]),
-  result: ExecutionBreakdownResult,
+  result: schema,
 });
 export const EvidenceResponse = Schema.Union([
   Schema.Struct({
@@ -2345,7 +2684,7 @@ export const EvidenceResponse = Schema.Union([
     result: ApiResult(
       Schema.Struct({
         summary: SkaterExecutionResult,
-        breakdowns: Schema.Array(breakdownRow),
+        breakdowns: Schema.Array(breakdownRow(SkaterExecutionBreakdownResult)),
         attempts: Schema.Array(ValuedAttemptFact),
         setters: Schema.Array(AttemptSetter),
         shares: Schema.Array(AttemptExecutionShare),
@@ -2357,7 +2696,7 @@ export const EvidenceResponse = Schema.Union([
     family: Schema.Literal("goalie"),
     selection: EvidenceSelection,
     result: ApiResult(
-      Schema.Struct({ summary: GoalieResultEnvelope, breakdowns: Schema.Array(breakdownRow) }),
+      Schema.Struct({ summary: GoalieResultEnvelope, breakdowns: Schema.Array(breakdownRow(GoalieExecutionBreakdownResult)) }),
     ),
   }),
   Schema.Struct({

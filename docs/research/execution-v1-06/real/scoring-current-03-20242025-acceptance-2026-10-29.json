@@ -1,0 +1,399 @@
+{
+  "kind": "execution-v1-06-real-annual-score-acceptance",
+  "status": "passed",
+  "root_review": "pending",
+  "checked_at_utc": "2026-10-29T13:14:49.610146+00:00",
+  "date_local": "2026-10-29",
+  "purpose": "real",
+  "season": "20242025",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "source_and_input_pins_unchanged": true,
+  "after_checks_identity_verification": {
+    "checked_at_utc": "2026-10-29T13:14:49.610146+00:00",
+    "head": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "source_files": 51,
+    "input_and_probe_pins": 12,
+    "checker_pins": 2,
+    "accepted_prior_manifest_pins": 3,
+    "three_literal_annual_scripts_unchanged": true,
+    "preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-03-preflight-2026-10-28.json",
+      "sha256": "607cd99fcacecf7f75609ff76f114abf08889d3c415d2bac5caa09e0ed37109f",
+      "bytes": 12705
+    },
+    "method": "bounded fresh hashes of the 51 source files, 12 pinned manifests/probes, 2 checkers, 3 accepted older manifests and 3 shell scripts after acceptance; no original bulk prepared members or fitted-array scan"
+  },
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+    "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+    "bytes": 382625
+  },
+  "command": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-command.json",
+    "sha256": "0ea525372037cc5957ef04a78d22b145475bc7d143d2a7e3f61495d293eb8a22",
+    "bytes": 27300
+  },
+  "score_completion": {
+    "exit_status_file": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "actual_shell_exit_code": 0,
+    "process_status": "python 25047 was absent after shell exit file appeared",
+    "authority": "actual persistent-shell exit-status file and completed manifest; no scoring exec-tool session"
+  },
+  "score_measured_resources": {
+    "wall_seconds": 18269.44,
+    "user_seconds": 16678.01,
+    "system_seconds": 446.11,
+    "peak_rss_bytes": 24083267584,
+    "peak_memory_footprint_bytes": 30283225288,
+    "stdout": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.stdout.log",
+      "sha256": "c8ad731e259575134e87505ec62945c9c5cda646cfe48ef476e97599675993b2",
+      "bytes": 144
+    },
+    "stderr_and_time": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.stderr.log",
+      "sha256": "6807e6a1d2dba6818f3b624fb710fedd2843bd48ddcb97016e0dff517ee0b622",
+      "bytes": 777
+    },
+    "raw_time_output": "    18269.44 real     16678.01 user       446.11 sys\n         24083267584  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n           144891995  page reclaims\n                 144  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n               11833  voluntary context switches\n             1944626  involuntary context switches\n     407519973421127  instructions retired\n      74222690192815  cycles elapsed\n         30283225288  peak memory footprint\n",
+    "log_created_at_utc": "2026-10-29T08:03:52.434205+00:00"
+  },
+  "artifact_shape": {
+    "recognized_events": 156622,
+    "complete_events": 154720,
+    "excluded_events": 1902,
+    "panels": 32,
+    "origin_rows": 28706170,
+    "setter_branches": 1404927,
+    "projected_skaters": 920,
+    "projections": 6440,
+    "bound_member_count": 73,
+    "bound_member_bytes": 2622593859,
+    "actual_output_bytes": 2622976484,
+    "annual_resources": {
+      "complete_events": 154720,
+      "design_wall_seconds": 5711.7055195830035,
+      "input_read_wall_seconds": 27.689624124992406,
+      "origin_rows": 28706170,
+      "output_bytes": 2622593859,
+      "panel_array_bytes": 1611259056,
+      "peak_memory_bytes": 24083267584,
+      "projected_skaters": 920,
+      "projection_wall_seconds": 11341.85857299999,
+      "projections": 6440,
+      "recognized_events": 156622,
+      "resolution_wall_seconds": 6.2920007621869445e-06,
+      "scoring_wall_seconds": 1091.4494890420028,
+      "setter_branches": 1404927,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 18195.233855875005,
+      "write_wall_seconds": 21.57549958299205
+    },
+    "numerical_resolution": {
+      "status": "not_applicable",
+      "path": "resolution.json"
+    }
+  },
+  "checks": [
+    {
+      "kind": "strict-reader",
+      "tool_session": 79702,
+      "exit_code": 0,
+      "exit_authority": "actual separate execution tool completion returned exit code 0",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-c",
+        "from pathlib import Path\nimport hashlib, json\nfrom hockey_stats.execution_scores import read_execution_scores\nroot = Path(\"/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03\")\nscore = read_execution_scores(root / \"scores/20242025\", \"real\")\nm = score.manifest\nassert m[\"season\"] == \"20242025\"\nassert m[\"resources\"][\"recognized_events\"] == 156622\nassert m[\"resources\"][\"complete_events\"] == 154720\nassert len(m[\"panels\"]) == 32\nassert m[\"numerical_resolution\"][\"status\"] == \"not_applicable\"\nassert json.loads((score.path.parent / \"resolution.json\").read_bytes())[\"status\"] == \"not_applicable\"\nr = dict(kind=\"execution-v1-06-separate-strict-read\", status=\"passed\", purpose=\"real\", season=m[\"season\"], manifest=str(score.path), manifest_sha256=hashlib.sha256(score.path.read_bytes()).hexdigest(), recognized=156622, complete=154720, panels=32, numerical_resolution=\"not_applicable\")\nwith (root / \"20242025-strict-reader.json\").open(\"x\") as target:\n    target.write(json.dumps(r, indent=2) + \"\\n\")\nprint(json.dumps(r))"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "measurement": {
+        "wall_seconds": 72.0,
+        "user_seconds": 48.26,
+        "system_seconds": 0.92,
+        "peak_rss_bytes": 3531980800,
+        "peak_memory_footprint_bytes": 3511503800,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-strict-reader.stdout.log",
+          "sha256": "61b34c120aee252d0638d51b4fc9ecccd85809f7cef21bb76abe8265768e64fd",
+          "bytes": 421
+        },
+        "stderr_and_time": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-strict-reader.stderr.log",
+          "sha256": "7939db868e1fdfd73a8d0494c095dc15120ce0bd96298a9b4ca5691f60d7487a",
+          "bytes": 777
+        },
+        "raw_time_output": "       72.00 real        48.26 user         0.92 sys\n          3531980800  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n              317488  page reclaims\n                  80  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                 987  voluntary context switches\n                6876  involuntary context switches\n       1123573384837  instructions retired\n        223047843721  cycles elapsed\n          3511503800  peak memory footprint\n",
+        "log_created_at_utc": "2026-10-29T13:10:31.900213+00:00"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-strict-reader.json",
+        "sha256": "431788e9d85ee7c7d5e8f7acdde120b0fed7463bd3a92564ad5379c87c3be425",
+        "bytes": 443
+      },
+      "result": {
+        "kind": "execution-v1-06-separate-strict-read",
+        "status": "passed",
+        "purpose": "real",
+        "season": "20242025",
+        "manifest": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+        "manifest_sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+        "recognized": 156622,
+        "complete": 154720,
+        "panels": 32,
+        "numerical_resolution": "not_applicable"
+      },
+      "process_ids": {
+        "time_wrapper": 87380,
+        "python": 87415
+      }
+    },
+    {
+      "kind": "source-boundary",
+      "tool_session": 28834,
+      "exit_code": 0,
+      "exit_authority": "actual separate execution tool completion returned exit code 0",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py",
+        "--purpose",
+        "real",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-source-boundary.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "measurement": {
+        "wall_seconds": 4.26,
+        "user_seconds": 2.86,
+        "system_seconds": 0.11,
+        "peak_rss_bytes": 984104960,
+        "peak_memory_footprint_bytes": 974668952,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-source-boundary.stdout.log",
+          "sha256": "2623c79a225d38efded5c7adb2be5f80bed34398174e576bca20f29d4d510951",
+          "bytes": 502
+        },
+        "stderr_and_time": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-source-boundary.stderr.log",
+          "sha256": "10819992f1624e8b3f61919eb52e3e97e9cd20acafc9d236d38434860a2e02f8",
+          "bytes": 777
+        },
+        "raw_time_output": "        4.26 real         2.86 user         0.11 sys\n           984104960  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n               61112  page reclaims\n                  46  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   8  voluntary context switches\n                 487  involuntary context switches\n         56731146157  instructions retired\n         13448183304  cycles elapsed\n           974668952  peak memory footprint\n",
+        "log_created_at_utc": "2026-10-29T13:12:18.786783+00:00"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-source-boundary.json",
+        "sha256": "7e67a965b9db4a3ebe362bea216e17108359a50106f6b371518046bfd0feb9c3",
+        "bytes": 528
+      },
+      "result": {
+        "status": "passed",
+        "purpose": "real",
+        "season": "20242025",
+        "expected_recognized": 156622,
+        "expected_complete": 154720,
+        "state_manifest_sha256": "acc9b6969f479cd0a61b6cfd389572905c2b36dffcea12b148fde1c9c0b2ae77",
+        "score_manifest_sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+        "recognized": 156622,
+        "complete": 154720,
+        "panels": 32,
+        "final_probe_binding": null,
+        "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+      },
+      "checker": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py",
+        "sha256": "2046fed860c5828f828d83352eb76258b9f4dda67503d55b1cb5aabbc515894f",
+        "bytes": 8105
+      }
+    },
+    {
+      "kind": "independent-arithmetic",
+      "tool_session": 69192,
+      "exit_code": 0,
+      "exit_authority": "actual separate execution tool completion returned exit code 0",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-I",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-independent-arithmetic.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "measurement": {
+        "wall_seconds": 39.49,
+        "user_seconds": 38.35,
+        "system_seconds": 0.96,
+        "peak_rss_bytes": 12006375424,
+        "peak_memory_footprint_bytes": 11999732592,
+        "stdout": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-independent-arithmetic.stdout.log",
+          "sha256": "19c5296299ec45c86118f0adea86b82518071c832145cf608d4d0f36deb7d8e6",
+          "bytes": 2520
+        },
+        "stderr_and_time": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-independent-arithmetic.stderr.log",
+          "sha256": "9f9757038c835a8bded9180522142a415cde4ad77aa09ca616d1badeb55f9008",
+          "bytes": 777
+        },
+        "raw_time_output": "       39.49 real        38.35 user         0.96 sys\n         12006375424  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n              735946  page reclaims\n                  45  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   8  voluntary context switches\n                3543  involuntary context switches\n        940864829668  instructions retired\n        177742281770  cycles elapsed\n         11999732592  peak memory footprint\n",
+        "log_created_at_utc": "2026-10-29T13:12:49.461435+00:00"
+      },
+      "receipt": {
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-independent-arithmetic.json",
+        "sha256": "a74fcacad75f833c42ee20a716f03d1e423afd0ca58eb8b7c587f6fa854bb676",
+        "bytes": 2519
+      },
+      "result": {
+        "failure_count": 0,
+        "failures": [],
+        "limits": {
+          "coalition_abs": 1e-14,
+          "cond_actor_on_net_rel": 1e-11,
+          "cond_actor_unblocked_rel": 1e-11,
+          "cond_neutral_on_net_rel": 1e-11,
+          "cond_ng_on_net_rel": 1e-11,
+          "cond_ng_unblocked_rel": 1e-11,
+          "map_finishing_l1": 1e-09,
+          "map_setting_l1": 1e-09,
+          "posterior_abs": 1e-12,
+          "prefix_actor_rel": 1e-11,
+          "prefix_neutral_goalie_rel": 1e-11,
+          "prefix_neutral_rel": 1e-11,
+          "proj_focal_mass_rel": 1e-11,
+          "proj_level_abs": 1e-12,
+          "proj_scalar_abs": 1e-09,
+          "resolution_expected_sum_abs": 0.0,
+          "resolution_neutral_panel_baseline_rel": 1e-11,
+          "share_closure_abs": 1e-13,
+          "share_coach_abs": 1e-14,
+          "share_goalie_abs": 1e-14,
+          "share_setter_abs": 1e-14,
+          "share_shooter_abs": 1e-14
+        },
+        "notes": {
+          "g_rows_label_ambiguous": 0,
+          "g_rows_marginal": 52180,
+          "g_rows_onehot_label": 7324,
+          "projection_pairs": 35,
+          "sampled:g_row": 294,
+          "sampled:goalie_setter": 653,
+          "sampled:missing_coach": 0,
+          "sampled:outcome:block": 198,
+          "sampled:outcome:goal": 61,
+          "sampled:type:tip": 60,
+          "sampled:unknown_setter": 26,
+          "sampled_events": 756,
+          "setter_count_checked": 35,
+          "worst_onehot_mixture_log_posterior": -4.405640969366806
+        },
+        "resolution_check": null,
+        "resolution_status": "not_applicable",
+        "scores": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+        "scores_sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+        "season": "20242025",
+        "status": {
+          "complete": 154720,
+          "excluded": 1902
+        },
+        "worst": {
+          "coalition_abs": 1.6653345369377348e-16,
+          "cond_actor_on_net_rel": 1.9003897105160864e-15,
+          "cond_actor_unblocked_rel": 1.917763641124103e-15,
+          "cond_neutral_on_net_rel": 2.4461219362928425e-15,
+          "cond_ng_on_net_rel": 1.9532497953603094e-15,
+          "cond_ng_unblocked_rel": 2.651809875790786e-15,
+          "map_finishing_l1": 7.881744065187882e-15,
+          "map_setting_l1": 3.488959202926564e-14,
+          "posterior_abs": 2.220446049250313e-16,
+          "prefix_actor_rel": 1.538532245875033e-15,
+          "prefix_neutral_goalie_rel": 1.6455990273893433e-15,
+          "prefix_neutral_rel": 1.8454413228478415e-15,
+          "proj_focal_mass_rel": 2.186946072932659e-16,
+          "proj_level_abs": 1.314226505400029e-14,
+          "proj_scalar_abs": 1.7763568394002505e-15,
+          "share_closure_abs": 2.42861286636753e-16,
+          "share_coach_abs": 1.0495077029659683e-16,
+          "share_goalie_abs": 5.551115123125783e-17,
+          "share_setter_abs": 1.734723475976807e-17,
+          "share_shooter_abs": 6.071532165918825e-17
+        }
+      },
+      "checker": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+        "sha256": "3a630b36069c0b673d2d4453dcba856d595d5bba8ba89c1fa3e144f7839b455e",
+        "bytes": 30276
+      },
+      "process_ids": {
+        "time_wrapper": 87764,
+        "python": 87765
+      },
+      "isolation": "task python -I; independent plain arithmetic; no project package import"
+    }
+  ],
+  "limits": {
+    "coalition_abs": 1e-14,
+    "cond_actor_on_net_rel": 1e-11,
+    "cond_actor_unblocked_rel": 1e-11,
+    "cond_neutral_on_net_rel": 1e-11,
+    "cond_ng_on_net_rel": 1e-11,
+    "cond_ng_unblocked_rel": 1e-11,
+    "map_finishing_l1": 1e-09,
+    "map_setting_l1": 1e-09,
+    "posterior_abs": 1e-12,
+    "prefix_actor_rel": 1e-11,
+    "prefix_neutral_goalie_rel": 1e-11,
+    "prefix_neutral_rel": 1e-11,
+    "proj_focal_mass_rel": 1e-11,
+    "proj_level_abs": 1e-12,
+    "proj_scalar_abs": 1e-09,
+    "resolution_expected_sum_abs": 0.0,
+    "resolution_neutral_panel_baseline_rel": 1e-11,
+    "share_closure_abs": 1e-13,
+    "share_coach_abs": 1e-14,
+    "share_goalie_abs": 1e-14,
+    "share_setter_abs": 1e-14,
+    "share_shooter_abs": 1e-14
+  },
+  "thresholds_unchanged": true,
+  "independent_arithmetic_scope": "756 selected event witnesses / 35 projection pairs / zero failures; saved internal relationships and all source keys separately checked; no claim of independent every-event numerical recomputation",
+  "numerical_resolution": "not_applicable",
+  "remaining_annuals": [
+    "20252026"
+  ],
+  "next_annual_launched": false,
+  "selection_written": false,
+  "selection_rule": "ordered explicit five-year selection only after all annual checks pass, including all four saved final-year propagation variants; retain all accepted older scores at their original paths",
+  "preservation": "all three accepted annual scores, interrupted unaccepted current-01/20222023 and current-02/20232024, source evidence/fits/probes/serving files and other work remain untouched",
+  "measurement_concurrency": "score and acceptance shared the machine with the independent facts-04 campaign; actual elapsed costs are not isolated runtime bounds",
+  "no_new_fit": true,
+  "no_activation": true,
+  "external_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025-acceptance.json",
+    "sha256": "749b8d27389ec88deb9581771bdb46816ec5e220d8f52cd58e674642b9587082",
+    "bytes": 21356
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "kind": "execution-v1-06-real-publication-preparation",
+  "status": "prepared only; source acceptance and root release pending",
+  "checked_at_utc": "2026-10-30T13:13:10.738138+00:00",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "inputs": {
+    "observed_selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "bytes": 711,
+      "document": {
+        "schema_version": 1,
+        "purpose": "real",
+        "corpora": [
+          {
+            "season": "20232024",
+            "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/corpus.json",
+            "sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+          },
+          {
+            "season": "20242025",
+            "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20242025/corpus.json",
+            "sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+          },
+          {
+            "season": "20252026",
+            "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20252026/corpus.json",
+            "sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+          }
+        ]
+      }
+    },
+    "results_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5",
+      "bytes": 17491
+    },
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "binding_checks": {
+    "purpose": "real",
+    "result_schema_version": 2,
+    "seasons": [
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "observed_corpus_bindings": [
+      {
+        "season": "20232024",
+        "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+      },
+      {
+        "season": "20242025",
+        "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+      },
+      {
+        "season": "20252026",
+        "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+      }
+    ],
+    "exact_selection_result_match": true,
+    "scope": "small supplied selection and result manifest only; corpus locators are copied evidence, not reopened inputs"
+  },
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-candidate.sh",
+    "sha256": "bb83140ccf7c9d87fdb183104802c34924a61235a67c2300e9342772639b31e2",
+    "bytes": 823,
+    "content": "#!/bin/sh\ncd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\n/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.log 2>&1\ncommand_exit_status=$?\nprintf '%s\\n' \"$command_exit_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.exit\nexit \"$command_exit_status\"\n",
+    "syntax_check": "/bin/sh -n passed"
+  },
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "publish",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "--results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate"
+  ],
+  "launch_command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-candidate.sh",
+  "runtime": {
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "python_version": "3.14.8",
+    "pythonpath": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "shell_login": false
+  },
+  "paths": {
+    "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate",
+    "combined_log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.log",
+    "actual_exit_status": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.exit",
+    "expected_database": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite",
+    "incomplete_database": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite.incomplete",
+    "publication_verification": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/verification.json"
+  },
+  "fresh_paths": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate",
+      "absent": true,
+      "symlink": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.log",
+      "absent": true,
+      "symlink": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.exit",
+      "absent": true,
+      "symlink": false
+    }
+  ],
+  "publication_contract": {
+    "owner": "analysis/src/hockey_stats/publication.py:build_publication",
+    "schema_version": 8,
+    "output_creation": "writer exclusively creates the fresh candidate directory; no precreation",
+    "completion": "writer performs strict result reads,season readback,integrity,foreign-key and conservation checks; verification.json is written before final database rename",
+    "database_handoff": "candidate/player-analysis.sqlite is the final database; require actual command exit zero and bound publication verification before application acceptance",
+    "cost": "writer copies the bound result members into candidate/results and creates a separate sqlite database; measure actual candidate/map/database bytes and build/read costs after completion"
+  },
+  "launch_requirements": [
+    "bounded ten-game source proof passes with frozen selection and bound results",
+    "root independently reviews and accepts source/accounting/population evidence",
+    "root separately releases this unchanged literal command",
+    "candidate,candidate.log,candidate.exit are rechecked absent immediately before the single persistent-terminal launch"
+  ],
+  "launch_owner": "root in the existing persistent local terminal",
+  "source_acceptance": "pending; real_source_acceptance owns the bounded source proof",
+  "publication_launched": false,
+  "output_precreated": false,
+  "application_build_started": false,
+  "activation": false,
+  "runner": false,
+  "retry": false,
+  "new_script": false,
+  "external_writes": false,
+  "verification_scope": "local script/head/code-contract reads,small external observed selection and results manifest reads,metadata for three fresh paths only; no corpus/prepared/fitted/large output member rereads or extra strict pass"
+}

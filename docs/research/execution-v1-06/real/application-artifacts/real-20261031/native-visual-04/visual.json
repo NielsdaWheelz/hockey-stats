@@ -1,0 +1,182 @@
+{
+  "kind": "temporary-native-viewport-visual",
+  "status": "first native viewport diagnostic retained; visual review pending",
+  "started_at": "2026-10-31T03:48:23.955Z",
+  "node_pid": 61912,
+  "helper_sha256": "8d1293f413046d0dd7adc591d6dc89b9e0b9f59be05eb805a0f9a886554014ad",
+  "api_sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "player_id": "8477504",
+  "comparison_player_id": "8476331",
+  "year": "20232024",
+  "metric": "execution.5v5.finishing_goals_per100_attempts",
+  "profile": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-04/chrome-profile",
+  "default_zoom_level": 0,
+  "host_zoom_level": 3.8017840169239308,
+  "browser_native_sandbox": true,
+  "os_source_denial_claimed": false,
+  "first_only": true,
+  "capture": {
+    "method": "Page.captureScreenshot",
+    "args": {
+      "format": "png",
+      "fromSurface": true,
+      "captureBeyondViewport": false
+    }
+  },
+  "errors": [],
+  "rejected": [],
+  "requestfailed": [],
+  "shots": [
+    {
+      "name": "selected-support-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-04/selected-support-top.png",
+      "sha256": "39a7687ed2eb6351067a76a5adeb590fa81a7dd0b1194d0583f70d92f010ecde",
+      "bytes": 319635,
+      "png_width": 2560,
+      "png_height": 1826,
+      "vertical": "top",
+      "target": {
+        "tag": "ARTICLE",
+        "class_name": "analysis-selected-value",
+        "aria_label": null,
+        "rect": {
+          "top": 12.01171875,
+          "bottom": 3309.171875,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 3297.16015625
+        },
+        "text_excerpt": "Josh Morrissey0.26399 goals per 100 attempts78.3 percentile · reported defense · n=246 · cutoff 300 minmodeled · checked regular-season physical opportunities; exact-strength commo",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 599,
+          "clientWidth": 599
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 4516,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    }
+  ],
+  "blank100": {
+    "url": "about:blank",
+    "innerWidth": 1280,
+    "innerHeight": 913,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 2,
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 1280,
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33
+    },
+    "visualViewport": {
+      "width": 1280,
+      "height": 913,
+      "scale": 1
+    }
+  },
+  "origin200": {
+    "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+    "innerWidth": 640,
+    "innerHeight": 456,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 632,
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33
+    },
+    "visualViewport": {
+      "width": 632.5,
+      "height": 456.5,
+      "scale": 1
+    }
+  },
+  "first_capture_layout_metrics": {
+    "layoutViewport": {
+      "pageX": 0,
+      "pageY": 18064,
+      "clientWidth": 2530,
+      "clientHeight": 1826
+    },
+    "visualViewport": {
+      "offsetX": 0,
+      "offsetY": 0,
+      "pageX": 0,
+      "pageY": 4516,
+      "clientWidth": 2530,
+      "clientHeight": 1826,
+      "scale": 1,
+      "zoom": 2
+    },
+    "contentSize": {
+      "x": 0,
+      "y": 0,
+      "width": 2530,
+      "height": 43212
+    },
+    "cssLayoutViewport": {
+      "pageX": 0,
+      "pageY": 4516,
+      "clientWidth": 632,
+      "clientHeight": 456
+    },
+    "cssVisualViewport": {
+      "offsetX": 0,
+      "offsetY": 0,
+      "pageX": 0,
+      "pageY": 4516,
+      "clientWidth": 632.5,
+      "clientHeight": 456.5,
+      "scale": 1,
+      "zoom": 2
+    },
+    "cssContentSize": {
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 10803
+    }
+  },
+  "owned_browser_closed": true,
+  "finished_at": "2026-10-31T03:49:14.733Z"
+}

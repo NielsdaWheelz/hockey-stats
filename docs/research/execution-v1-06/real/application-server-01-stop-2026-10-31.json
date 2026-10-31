@@ -1,0 +1,82 @@
+{
+  "kind": "temporary-real-isolated-server-stop-completion",
+  "status": "controlled root-directed stop completed; old isolated listener closed",
+  "checked_at_utc": "2026-10-31T02:38:02.650958+00:00",
+  "actual_exit_code": 130,
+  "signal": "SIGTERM sent only to verified owned node40540",
+  "started_at_utc": "2026-10-31T01:48:29Z",
+  "finished_at_utc": "2026-10-31T02:36:18Z",
+  "pids": {
+    "shell": 40537,
+    "time": 40539,
+    "node": 40540,
+    "all_gone": true
+  },
+  "port41986_closed": true,
+  "terminal": {
+    "handle": "t-69e967fba63b1706",
+    "shell_pid": 86051,
+    "idle_zsh_no_children": true
+  },
+  "total_server_command_resources": {
+    "wall_seconds": 2855.58,
+    "user_seconds": 504.73,
+    "system_seconds": 52.09,
+    "peak_rss_bytes": 1248346112,
+    "scope": "complete time-reported lifetime, including validation, requests and idle serving; not startup time"
+  },
+  "launch_marker_to_finished_marker_seconds": 2869.0,
+  "prior_startup_measurement": {
+    "launch_to_observed_listener_upper_bound_seconds": 731.881415,
+    "scope": "prior observed upper bound retained separately; not exact time to listen or total server duration"
+  },
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-stop-command.json",
+      "sha256": "4b7273ba23f1248666bc32f1c286d05bdc5eeeb76a1ff9bf237ea0d04ef134db",
+      "bytes": 3426
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-detached-command.json",
+      "sha256": "8ac1b3d4d9a2dbaf9fed3d8811676185b623d6b0b7530b0416447a277c830cea",
+      "bytes": 6867
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-detached-process.json",
+      "sha256": "d0b6b5840967b4f9cc97b97e56ad59ccb0a73daaf5d81e85b601640831d99900",
+      "bytes": 2880
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-started-at.txt",
+      "sha256": "7c74eba8bd4fe6c0e309eedefe2eae48a4cc0ff6f62b9cbf8058f5583aaa6e74",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-finished-at.txt",
+      "sha256": "8af07e57b97083160d5696969d3bc1cd284f56a50a4b71a28579ea10ee99bd39",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server.exit",
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d",
+      "bytes": 4
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server.stdout.log",
+      "sha256": "0a3e93f1b723451adc22fb582a2664c0584848b66e10eaf1025707e803a5c46c",
+      "bytes": 21948
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server.stderr.log",
+      "sha256": "71bebcb06134a8c0ba4ef884819e6a14dde7b467bb5d264ba3e2fcf70634e829",
+      "bytes": 777
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-readiness.json",
+      "sha256": "4f5ef28826e359387efaa2331e6be8bc88ea5f5cbe7ec0ac8eb92046bf5ee67d",
+      "bytes": 5371
+    }
+  ],
+  "preservation": "old logs/first overview/startup/API receipts and candidate retained; main serving process untouched; no rebuild, restart, API/check rerun or bulk candidate/map hash",
+  "next": "wait for root-approved UI patch/build and future server02 release"
+}

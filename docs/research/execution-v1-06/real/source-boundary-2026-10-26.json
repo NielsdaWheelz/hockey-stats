@@ -1,0 +1,131 @@
+{
+  "kind": "independent-real-source-boundary-and-capacity-review",
+  "checked_at": "2026-10-27T06:21:12.581257+00:00",
+  "status": "input_identity_green; annual_output_source_reconciliation_pending",
+  "scope": "source integrity, evidence boundaries and architecture; no fitting, scoring or original writes",
+  "source_sha256": {
+    "execution_design.py": "2f8a40a5d9d05ba02ac990f1e0faa1a8240a79324370e457f8b5741895e36f22",
+    "execution_scores.py": "ee2be6e84ddccb90bec07cdc540a08a4c9e55e9acdb90064b0bfc09ab877964a",
+    "execution_composition.py": "7b68f1229b8236220a542556ea921d93270e7593a1921377a3a429ad92459479",
+    "execution.py": "6d688021d75d386f545a0ff44f86efc9040ea84ca6cc27622e9bd3518f6a1cbd",
+    "execution_fit.py": "341ba29d8405c0a4b0e6bff11c8cd6fc9afb0a2300f1adbd44c859674058a800",
+    "execution_history.py": "2e732c451bb6c8ef157fc4b9be1c7c3719424da78fe87ee96daa532b01ed5f4a",
+    "execution_state.py": "bcedcbc7f4f4a8c57d8482fd41afa7f5371a8873a5a0d50b52290a0d38737ae8",
+    "feature_data.py": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132"
+  },
+  "accepted_upstream_byte_equal": {
+    "execution_fit.py": true,
+    "execution_history.py": true,
+    "execution_state.py": true,
+    "feature_data.py": true
+  },
+  "real_inputs": {
+    "prepared_manifest": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "coaches": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "states": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02"
+  },
+  "checks": [
+    "all five annual manifests match current exact recipe",
+    "all five prepared and coach identities agree with supplied accepted artifacts",
+    "all five annual prepared member lists agree exactly with selected accepted preparation members",
+    "all five predecessor manifest paths and digests form the accepted ordered annual chain"
+  ],
+  "annual_coverage": [
+    {
+      "season": "20212022",
+      "recognized": 149412,
+      "full_probability_context": 147510,
+      "fit_u_origin_rows": 23180585
+    },
+    {
+      "season": "20222023",
+      "recognized": 153348,
+      "full_probability_context": 151540,
+      "fit_u_origin_rows": 25277995
+    },
+    {
+      "season": "20232024",
+      "recognized": 160123,
+      "full_probability_context": 158196,
+      "fit_u_origin_rows": 29251986
+    },
+    {
+      "season": "20242025",
+      "recognized": 156622,
+      "full_probability_context": 154720,
+      "fit_u_origin_rows": 28706170
+    },
+    {
+      "season": "20252026",
+      "recognized": 153754,
+      "full_probability_context": 151381,
+      "fit_u_origin_rows": 26668401
+    }
+  ],
+  "final_probe_selector": {
+    "actual_keys": 256,
+    "requirements": 48,
+    "baseline_sha256": "c5055b044f006728c41cd91598dcae6497a319b853b7a49725cdf331024c49bb",
+    "incomplete_setter": "actual:2025020010:66",
+    "sparse_shooter": "synthetic-resolution:2025020038:6:shooter:8471734",
+    "promotion_or_new_solve": false
+  },
+  "capacity": {
+    "accepted_fit_peak_bytes_range": [
+      17268473856,
+      21551153152
+    ],
+    "exact_panel_bytes_per_origin": 56,
+    "per_event_array_bytes": 24,
+    "assessment": "plausible within 64 gib, not established until measured annual pilot; wall cost across every focal skater remains unmeasured",
+    "avoidable_work": "prepare_execution eagerly constructs fixed fit matrices and all expanded immutable fit batches, unused by score_execution",
+    "lowest_complexity_change_if_pilot_requires_it": "add explicit scoring preparation mode to the existing design owner that preserves source pass, complete layouts, labels/keys, actors and coverage, but skips unused fixed-matrix/batch materialization; do not duplicate preparation or change recipe/model",
+    "composition": "one season eagerly retains about 2.52\u20132.58m interval_fact plus 4.21\u20134.31m interval_player python rows; current full-attempt lifetime fix helps a separate retention cause; no measured 64-gib failure established",
+    "composition_repair_if_needed": "reuse existing factual sorted per-game contract and write_results game_rows at composition owner; preserve exact rows/order and one authoritative valued_evidence implementation"
+  },
+  "pending_source_checks": [
+    "compare every recognized score key and per-head included/target/reasons with frozen accepted state coverage; complete keys must equal full_probability_context exactly",
+    "pin final annual propagation to all 256 exact ordered frozen selector keys and four saved probe descriptor identities; synthetic witnesses remain separate",
+    "compare every factual attempt_fact and all unaffected family/catalog rows byte-for-byte or exact normalized records; reconcile intersection/source-only/numerical-only sets without assumed containment",
+    "source-sample event-only, known-goalie setter, off-ice setter, incomplete universe, blocked origin, own/awarded goal and unresolved membership; no source claims from synthetic witnesses",
+    "verify both valued interval populations are subsets of their factual starting intervals with exact bounds/membership, paired removals, valid zero-event time and ordinary-mask intersection",
+    "verify detached annual read after denying original/prepared/fit locators; composition explicitly supplied preparation remains permitted"
+  ],
+  "scientific_boundary": "correct experimental outputs remain conditional; no calibrated uncertainty, causal isolation, scientific admission or activation follows",
+  "source_freeze": "78a0727",
+  "contract_controls": {
+    "status": "passed",
+    "checks": [
+      "old recipe rejected by state and score manifest boundaries",
+      "real/fixture mismatch rejected at both boundaries",
+      "missing explicit state and score paths fail without discovery"
+    ]
+  },
+  "application_selection_review": {
+    "scope": "source inspection; real application acceptance remains pending",
+    "cli": "score requires explicit prepared/coaches/state/out and summarize requires explicit prepared/facts/scores/out; no latest/default state selection",
+    "composition": "explicit absolute path and digest per selected annual score; real selection requires all five ordered consecutive years; preparation/member/history/recipe/scoring/coaches bindings checked",
+    "application": "server accepts schema8 only; supplied execution family and exact selected strength flow through existing selected field owner; unavailable family/strength stays unavailable without replacement values",
+    "runtime_application_checks": "owned by root fresh fixture/real campaign, not repeated here"
+  },
+  "temporary_checker": {
+    "path": "var/v1-06-real/check_source_boundary.py",
+    "sha256": "2046fed860c5828f828d83352eb76258b9f4dda67503d55b1cb5aabbc515894f",
+    "contracts": "passed without external data reads",
+    "reconcile": "prepared; not run before real annual outputs exist",
+    "delete_after": "final acceptance green",
+    "modes": "explicit --purpose real|fixture; real fixed accepted counts, fixture digest-bound supplied state coverage"
+  },
+  "source_freeze_equal": {
+    "execution_design.py": true,
+    "execution_scores.py": true,
+    "execution_composition.py": true,
+    "execution.py": true,
+    "execution_fit.py": true,
+    "execution_history.py": true,
+    "execution_state.py": true,
+    "feature_data.py": true
+  }
+}

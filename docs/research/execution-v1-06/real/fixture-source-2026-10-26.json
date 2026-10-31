@@ -1,0 +1,113 @@
+{
+  "kind": "independent-current-recipe-fixture-source-reconciliation",
+  "status": "passed",
+  "checked_at": "2026-10-27T06:30:59.703534+00:00",
+  "source_freeze": "78a0727",
+  "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+  "purpose": "fixture",
+  "states": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01",
+  "scores": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores",
+  "checker": {
+    "path": "var/v1-06-real/check_source_boundary.py",
+    "sha256": "2046fed860c5828f828d83352eb76258b9f4dda67503d55b1cb5aabbc515894f",
+    "mode": "fixture",
+    "expected_counts": "digest-bound frozen coverage supplied by each explicitly selected annual state"
+  },
+  "checks": [
+    "state/score preparation, coaches, recipe and annual manifest binding",
+    "every recognized source key exactly once in source order",
+    "every per-head included flag, target, reason and physical outcome equals frozen state coverage",
+    "complete key set equals frozen full_probability_context; excluded reason sets and pointers agree",
+    "every complete event appears exactly once in its exact physical panel/type; no excluded/orphan panel keys",
+    "final propagation uses the exact ordered 256 frozen actual keys, two separately labeled synthetic witnesses and four exact saved probe descriptor digests",
+    "missing artifact paths, wrong real/fixture purpose and obsolete recipe are rejected by production reader/manifest boundaries"
+  ],
+  "annual": [
+    {
+      "status": "passed",
+      "purpose": "fixture",
+      "season": "20212022",
+      "expected_recognized": 824,
+      "expected_complete": 771,
+      "state_manifest_sha256": "aeac9f05c2684509476731b1b58537d8fef9a4917fc8c29969f98d41741781d6",
+      "score_manifest_sha256": "108210ba6a2947f222f89f47744004c434de1adb204b68561cced03c4ca77355",
+      "recognized": 824,
+      "complete": 771,
+      "panels": 32,
+      "final_probe_binding": null,
+      "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+    },
+    {
+      "status": "passed",
+      "purpose": "fixture",
+      "season": "20222023",
+      "expected_recognized": 596,
+      "expected_complete": 585,
+      "state_manifest_sha256": "52a2b0fa755608779f332e8898f981ff30786aeb73beb7e63d2d6f1716b4f96b",
+      "score_manifest_sha256": "845e39004076543fab485dc84853380c52acad8c7e8c4e1b1eb8b5c58b0ccd8e",
+      "recognized": 596,
+      "complete": 585,
+      "panels": 32,
+      "final_probe_binding": null,
+      "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+    },
+    {
+      "status": "passed",
+      "purpose": "fixture",
+      "season": "20232024",
+      "expected_recognized": 715,
+      "expected_complete": 605,
+      "state_manifest_sha256": "e2ad6fdadc40698338bda795b1a091d19712b37e5e7de334528579e442bd2ca5",
+      "score_manifest_sha256": "dcfc10c72f77af2f7f599f34c35af4a93e56239d366d80ab2671b8e363999da7",
+      "recognized": 715,
+      "complete": 605,
+      "panels": 32,
+      "final_probe_binding": null,
+      "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+    },
+    {
+      "status": "passed",
+      "purpose": "fixture",
+      "season": "20242025",
+      "expected_recognized": 1092,
+      "expected_complete": 1062,
+      "state_manifest_sha256": "1a69f2b46f40191f9cee4e8d2bbb397779e75f1d560b3762a284787801b22841",
+      "score_manifest_sha256": "c4a0b4b2fbbd5fec519a547a2bd58eec8fa145d0d2039bd001b121e80562c6dc",
+      "recognized": 1092,
+      "complete": 1062,
+      "panels": 32,
+      "final_probe_binding": null,
+      "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+    },
+    {
+      "status": "passed",
+      "purpose": "fixture",
+      "season": "20252026",
+      "expected_recognized": 1101,
+      "expected_complete": 1068,
+      "state_manifest_sha256": "87124257df7c6cddc25b820de91c98b7d9aac5f5f40b80b83b555b76645ccc50",
+      "score_manifest_sha256": "e039601e84a4539b5f13e94328713b4a5e8a52191788d4d1a25c5f92b052f239",
+      "recognized": 1101,
+      "complete": 1068,
+      "panels": 32,
+      "final_probe_binding": {
+        "actual_keys": 256,
+        "fixture_witnesses": 2,
+        "saved_probe_identities": 4
+      },
+      "scope": "exact source/disposition/panel/probe identity; independent numerical arithmetic remains separate"
+    }
+  ],
+  "scope": "source/provenance agreement; independent model arithmetic and application acceptance remain separate",
+  "scientific_boundary": "fixture purpose never establishes real coverage or scientific admission",
+  "production_edits": false,
+  "real_source_pass": false,
+  "contracts": {
+    "status": "passed",
+    "checks": [
+      "old recipe rejected by state and score manifest boundaries",
+      "real/fixture mismatch rejected at both boundaries",
+      "missing explicit state and score paths fail without discovery"
+    ]
+  }
+}

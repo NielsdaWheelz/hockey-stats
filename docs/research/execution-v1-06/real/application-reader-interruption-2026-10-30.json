@@ -1,0 +1,79 @@
+{
+  "kind": "temporary-real-detached-operator-stopped-completion",
+  "status": "interrupted for concrete algorithmic repair; no runtime acceptance threshold was specified",
+  "checked_at_utc": "2026-10-30T15:31:12.573042+00:00",
+  "started_at_utc": "2026-10-30T14:55:49Z",
+  "finished_at_utc": "2026-10-30T15:30:43Z",
+  "actual_exit_code": 143,
+  "termination": "verified owned node30826 SIGTERM; foreground shell/time recorded actual termination",
+  "pids": {
+    "shell": 30823,
+    "time": 30825,
+    "node": 30826
+  },
+  "processes_gone": true,
+  "process_gone_observation": "  PID  PPID STAT ELAPSED    RSS COMMAND\n",
+  "observed_attempt_resources": {
+    "wall_seconds": 2094.22,
+    "user_seconds": 2087.65,
+    "system_seconds": 9.88,
+    "peak_rss_bytes": 662175744,
+    "interpretation": "resources measured through root-directed interruption; elapsed is a lower bound on the unfinished check runtime, not a full runtime or a performance rejection"
+  },
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/operator-check-command.json",
+      "sha256": "6e6ae8c6c70f3010f531af02d08bae2c92805337296d52973dc2e5ef85e76ffd",
+      "bytes": 5422
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/operator-check-process.json",
+      "sha256": "cf151fa7fa4a7a3f1ba952f0a53a19b8f29c82742a543f2e08f3d9dce6e35bf6",
+      "bytes": 2831
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/operator-check-stop-command.json",
+      "sha256": "a9087ac639a98750d0f1c46a9df973df31335f7d6243a475e7d593da4a3c2bab",
+      "bytes": 3519
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/candidate-check.json",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/candidate-check.stderr.log",
+      "sha256": "a58f77592e5fd8b3c679901800765f958d8b3190a418c3073647a88a2384c6ae",
+      "bytes": 813
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/candidate-check.started",
+      "sha256": "923bbc51341606be32774c79bcda4f6ba95df3695d57532a25ae94d456ad1715",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/candidate-check.finished",
+      "sha256": "6ad6b436bc135338fb6ac798f55bb16c47f30c87e15c88dbdf32eff9a343bad9",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/candidate-check.exit",
+      "sha256": "9d9b18720961e9b4689fd763b85e7b6f36160ccd3a8a1c9ddc5103bb0f66c396",
+      "bytes": 4
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/candidate-check.shell.pid",
+      "sha256": "4299a54ce6639460e4f61fcaed0aaca42db7eac293d08b572ed99b25d5c269c2",
+      "bytes": 6
+    }
+  ],
+  "diagnosis_authority": "root and independent review identified interval self-join and per-player repeated scans as concrete repair targets; sample establishes sqlite execution only, not exact-query attribution",
+  "candidate_verdict": "none; this stopped capacity attempt does not invalidate candidate",
+  "preservation": "all outputs/profile/logs/receipts retained; no candidate hash/stat/SQL/delete/mutation, no server/API/browser, no relaunch or model/data/publication rerun",
+  "next": "await separately reviewed reader query repair, build and root release",
+  "narrative_correction": {
+    "prior_unarchived_receipt_sha256": "5eed8e4b8d188b450a04706be2e83127d709cee4c992f5aadd07a9aa2ecaddd8",
+    "reason": "clarify interruption for concrete algorithmic repair; no runtime acceptance threshold existed",
+    "actual_exit_and_times": "unchanged"
+  }
+}

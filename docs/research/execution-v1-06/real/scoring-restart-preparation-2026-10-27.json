@@ -1,0 +1,104 @@
+{
+  "kind": "execution-v1-06-score-restart-preparation",
+  "date_local": "2026-10-27",
+  "prepared_at_utc": "2026-10-28T06:20:47+00:00",
+  "blocked_preflight_observed_at_utc": "2026-10-28T06:18:02.528125+00:00",
+  "status": "prepared; external access blocked; full preflight pending; no launch",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "branch": "implement/v1-06-execution-scoring",
+  "production_source": {
+    "last_successful_local_check": "git diff --exit-code HEAD -- analysis/src/hockey_stats passed; head equaled the frozen commit",
+    "external_pilot_source_comparison": "pending successful ordinary drive read",
+    "production_edits": false
+  },
+  "runtime": {
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "version": "3.14.8",
+    "pythonpath": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "shell_login": false
+  },
+  "temporary_preparation": [
+    {
+      "path": "/tmp/v106-remaining-four-real-score-batch-current-02.py",
+      "sha256": "17026e2eeeccfc1b39158536fbaa93044a40ec753b5ae46b9944e61288185319",
+      "bytes": 11246
+    },
+    {
+      "path": "/tmp/v106-current-02-scoring-preflight.py",
+      "sha256": "8145d25fe0b2403e64f6c29eb16425a23f574d6e22c0382fc2f53b22ffe24203"
+    },
+    {
+      "path": "/tmp/v106-remaining-four-real-score-batch-current-02.diff",
+      "sha256": "6b41ba514cb126e004b40dfeddb8bcb24cc844431cc7f6ca138ff4bdf3e8fa0f",
+      "bytes": 4737
+    }
+  ],
+  "independent_checkers": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py",
+      "sha256": "2046fed860c5828f828d83352eb76258b9f4dda67503d55b1cb5aabbc515894f"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+      "sha256": "3a630b36069c0b673d2d4453dcba856d595d5bba8ba89c1fa3e144f7839b455e"
+    }
+  ],
+  "accepted_first_year": {
+    "season": "20212022",
+    "manifest_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "manifest_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "local_evidence": "docs/research/execution-v1-06/real/first-real-scoring-2026-10-27.json",
+    "external_command": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-command.json",
+    "external_reviews": [
+      "20212022-source-boundary.json",
+      "20212022-independent-arithmetic.json",
+      "20212022-panel-projection-cost.json"
+    ],
+    "review_parent": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01",
+    "direct_digest_pin_in_controller": true,
+    "verification_scope": "accepted historical receipts; no successful external reread in this restart attempt"
+  },
+  "preservation": {
+    "stop_receipt": "docs/research/execution-v1-06/real/scoring-stop-2026-10-27.json",
+    "interrupted_annual": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20222023",
+    "interrupted_status": "incomplete; unaccepted; cannot resume or overwrite",
+    "retained_fits": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/<season>",
+    "retained_probes": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/resolution/{baseline,g,q,r,u}.json",
+    "policy": "preserve accepted score, fits, probes, inputs, interrupted partials and other work; no external writes performed"
+  },
+  "new_outputs": {
+    "root": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02",
+    "annual_years": ["20222023", "20232024", "20242025", "20252026"],
+    "annual_pattern": "scores/<season>",
+    "command_receipt": "remaining-four-command.json",
+    "selection": "scores-selection.json",
+    "whole_root_absence": "pending ordinary access; must pass before mkdir(exist_ok=False)",
+    "selection_rule": "explicit ordered five years, retaining current-01/20212022; write only after each new year passes scoring, separate strict read, source reconciliation and independent saved arithmetic; final year requires passed saved-probe propagation"
+  },
+  "frozen_inputs": {
+    "prepared_manifest": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "prepared_sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "coaches": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "coaches_sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5",
+    "all_five_state_and_saved_probe_pins": "literal INPUTS in the hashed controller; ordinary reread pending"
+  },
+  "blocked_preflight": {
+    "local_receipt": "/tmp/v106-current-02-scoring-preflight-blocked.json",
+    "operation": "read_bytes",
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/20212022-command.json",
+    "exception": "PermissionError",
+    "errno": 1,
+    "message": "Operation not permitted",
+    "later_local_runtime_observation": "python: realpath: analysis/.venv/bin/: operation not permitted; durable receipt generation did not execute"
+  },
+  "release": {
+    "root_release_received": false,
+    "user_access_reply_received": false,
+    "score_commands_launched": false,
+    "external_output_created": false,
+    "further_external_probes": "held until user access reply",
+    "launch_requires": "successful full preflight, independent review and explicit root release"
+  },
+  "limitations": "preparation claims no restored access, completed preflight, new annual acceptance, selection, fit, acquisition, activation or scientific admission. historical stop and acceptance records remain unchanged."
+}

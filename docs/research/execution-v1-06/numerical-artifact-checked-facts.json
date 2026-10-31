@@ -1,0 +1,33 @@
+{
+  "purpose": "fixture",
+  "tests": "targeted shared-panel reduction arithmetic and read-only artifact/cli boundaries",
+  "inputs": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "d86e0a93df070a1465295e8b4f7390a940df8818b9a5cfe0b40287cf3ae20baf"
+    },
+    {
+      "path": "var/v1-06-checks/numerical_check.py",
+      "sha256": "cc8997fdd96e1d8751065144d1e8e31f5a583d0531386615e0d0b14fb7bb9253"
+    },
+    {
+      "path": "var/v1-06-checks/numerical_artifact_check.py",
+      "sha256": "60f75acd89170f75bcb27802afefed925b88702189ecc563dd2e24e9c55e97ad"
+    },
+    {
+      "path": "var/v1-06-checks/numerical_ratio_boundary.py",
+      "sha256": "d36c2ea34937c2c0dc4bf8eabf9bc6dcb90a56f972efee09bc9fc14340e6a805"
+    },
+    {
+      "path": "var/v1-06-checks/numerical_score_cli_check.py",
+      "sha256": "641f3255dba3cad6ecd7ca0a7ad48a24cb3df05a5f894f041a4e49f27d746b82"
+    }
+  ],
+  "status": {
+    "shared_panel_arithmetic": "passed; 5 checks",
+    "score_cli": "passed; 6 checks",
+    "detached_stage_closure": "failed; incorrect saved stage accepted",
+    "representable_conditional_ratio": "failed; .9 accepted where quotient is .01"
+  },
+  "preservation": "no source/fit/annual artifact member edited or copied; no solve; temporary decoded-row injection only"
+}

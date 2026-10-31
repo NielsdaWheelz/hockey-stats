@@ -1,0 +1,34 @@
+{
+  "publication_id": "bc7cf0ae-74d9-46a7-a1fb-a037a18ab08c",
+  "schema_version": 8,
+  "checks": [
+    "source-keyed paired goals/reference/actor scalars",
+    "panel mass and finishing units; finishing3 remains distinct from ledger-finishing5",
+    "same-team captured goalie identity retained with zero setter share",
+    "unvalued block precise reason",
+    "goalie shape stays separate",
+    "execution map typed request"
+  ],
+  "negative": [
+    {
+      "path": "/api/players/9000001/evidence?season=20232024&family=execution&strength=pp",
+      "status": 400,
+      "tag": "InvalidSelection"
+    },
+    {
+      "path": "/api/players/8477424/evidence?season=20232024&family=execution&strength=5v5",
+      "status": 400,
+      "tag": "InvalidSelection"
+    },
+    {
+      "path": "/api/players/9000001/evidence?season=20232024&season=20242025&family=execution&strength=5v5",
+      "status": 400,
+      "tag": "InvalidSeasonSelection"
+    },
+    {
+      "path": "/api/players/9000001/evidence?season=20232024&family=execution&strength=5v5&metric=anything",
+      "status": 400,
+      "tag": "InvalidSelection"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+command: V106_RUN=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01 V106_COMPOSED=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/results V106_CANDIDATE=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate PYTHONPATH=$PWD/analysis/src ../hockey-stats/analysis/.venv/bin/python -u var/v1-06-checks/artifact/test_artifact.py summarize_composition publish_composed_candidate detached_reader
+date: 2026-10-23T08:57:51Z
+checks sha256: aad5da55c4da7f05ec2396cc6a163bb3fd631e9eb1458dfca35f139b8b790bcf
+producer commit: 41a003ba3e0254474a4294cd878bbb8ee6857fb0
+results manifest sha256: 78d490f8c2a093d37ba687fef571615a9d418e9c45cf0b0f9dbefd99deed4ad8
+candidate sha256: d553ffb22362d392f374d052d92f8c31dce00c6f9bd85d7605a1cba6fec1c1b4
+PASS detached_reader
+PASS summarize_composition
+PASS publish_composed_candidate
+3/3 passed

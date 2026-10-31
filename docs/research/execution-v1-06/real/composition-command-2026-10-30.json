@@ -1,0 +1,88 @@
+{
+  "kind": "execution-v1-06-real-composition-command",
+  "status": "launched once; running; acceptance pending",
+  "recorded_at_utc": "2026-10-30T07:49:07.563722+00:00",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/composition-preflight-2026-10-30.json",
+    "sha256": "a1c1a52edf7381083300c7d99e359dc5dfca4f6331e446197f7341faa41be3dc",
+    "bytes": 7533
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+    "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1",
+    "bytes": 1414
+  },
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "summarize",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--facts",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+    "--scores",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results"
+  ],
+  "shell_launch_command": [
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh"
+  ],
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh",
+    "sha256": "95221017a7a12ac999035d06ab75dd5a091f9b7fa946ba0f4eeeadd33c8a4bea",
+    "bytes": 914,
+    "content": "#!/bin/sh\ncd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\n/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli summarize --family execution --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --facts /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04 --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.log 2>&1\ncommand_exit_status=$?\nprintf '%s\\n' \"$command_exit_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.exit\nexit \"$command_exit_status\"\n"
+  },
+  "runtime": {
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "python_version": "3.14.8",
+    "pythonpath": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+    "shell_login": false
+  },
+  "terminal": {
+    "machine": "macbook",
+    "handle": "t-e5d6c240259bcbcf",
+    "label": "v106-facts-03",
+    "terminal_shell_pid": 66161,
+    "workflow": "existing ordinary persistent local terminal",
+    "launch": "root submitted the reviewed literal script once via skid text; writer did not launch it"
+  },
+  "process_ids": {
+    "terminal_parent": 66161,
+    "shell": 43413,
+    "time_wrapper": 43414,
+    "composition_python": 43415
+  },
+  "live_process_observation": "43413 66161 Fri Oct 30 00:47:49 2026           01:18 S+   /bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh\n43414 43413 Fri Oct 30 00:47:49 2026           01:18 S+   /usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli summarize --family execution --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --facts /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04 --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results\n43415 43414 Fri Oct 30 00:47:49 2026           01:18 R+   /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli summarize --family execution --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --facts /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04 --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results\n66161  1194 Wed Oct 28 06:20:32 2026     01-18:28:35 Ss   -zsh\n",
+  "root_launch_observation_utc": "2026-10-30T07:47:49+00:00",
+  "log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.log",
+    "bytes": 0,
+    "birth_at_utc": "2026-10-30T07:47:49.944791+00:00",
+    "scope": "combined stdout,stderr and time metrics; byte count is a bounded live observation, not completion"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+  "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.exit",
+  "exit_status_file_present": false,
+  "actual_exit_code": null,
+  "external_command_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results-command.json",
+  "monitoring": "bounded process/log/output metadata; no full scans or hashes of outputs while writing; approximately fifteen-minute heartbeat and stage/error/completion reports",
+  "release_boundary": "root release required before real acceptance checks or publication; no automatic advance",
+  "runner": false,
+  "retry": false,
+  "checkpoint": false,
+  "publication_launched": false,
+  "activation": false,
+  "preservation": "existing accepted scores/facts,source evidence,expensive fits,partials and serving artifacts remain untouched"
+}

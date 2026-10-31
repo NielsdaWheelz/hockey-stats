@@ -1,0 +1,45 @@
+test_all_coalitions_against_permutations (__main__.Arithmetic.test_all_coalitions_against_permutations) ... ERROR
+test_invalid_probabilities_fail (__main__.Arithmetic.test_invalid_probabilities_fail) ... ERROR
+test_mixture_prefix_ratios (__main__.Arithmetic.test_mixture_prefix_ratios) ... ERROR
+setUpClass (__main__.Fixture) ... ERROR
+
+======================================================================
+ERROR: test_all_coalitions_against_permutations (__main__.Arithmetic.test_all_coalitions_against_permutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/numerical_check.py", line 39, in test_all_coalitions_against_permutations
+    actual = e.execution_shapley(coalitions)
+             ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'hockey_stats.execution' has no attribute 'execution_shapley'
+
+======================================================================
+ERROR: test_invalid_probabilities_fail (__main__.Arithmetic.test_invalid_probabilities_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/numerical_check.py", line 47, in test_invalid_probabilities_fail
+    e.integrated_prefixes(prediction, np.ones(1))
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'hockey_stats.execution' has no attribute 'integrated_prefixes'
+
+======================================================================
+ERROR: test_mixture_prefix_ratios (__main__.Arithmetic.test_mixture_prefix_ratios)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/numerical_check.py", line 23, in test_mixture_prefix_ratios
+    prefixes = e.integrated_prefixes(prediction, np.array([.5, .5]))
+               ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'hockey_stats.execution' has no attribute 'integrated_prefixes'
+
+======================================================================
+ERROR: setUpClass (__main__.Fixture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/numerical_check.py", line 56, in setUpClass
+    cls.scored = e.score_execution(cls.state, cls.design, None)
+                 ^^^^^^^^^^^^^^^^^
+AttributeError: module 'hockey_stats.execution' has no attribute 'score_execution'. Did you mean: 'prepare_execution'?
+
+----------------------------------------------------------------------
+Ran 3 tests in 38.219s
+
+FAILED (errors=4)

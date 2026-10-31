@@ -1,0 +1,613 @@
+{
+  "kind": "bounded-real-source-selection-evidence",
+  "status": "frozen selection diagnostics; source acceptance helper pending",
+  "inputs": {
+    "prepared": {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+    },
+    "facts": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+    },
+    "scores": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1"
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5"
+    }
+  },
+  "maximum_distinct_games": 12,
+  "visited_games": [
+    {
+      "season": "20232024",
+      "game_id": "2023020040"
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020001"
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020066"
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024020214"
+    },
+    {
+      "season": "20242025",
+      "game_id": "2024021273"
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020144"
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025020171"
+    },
+    {
+      "season": "20252026",
+      "game_id": "2025021094"
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020078"
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020481"
+    }
+  ],
+  "visited_count": 10,
+  "remaining_slots": 2,
+  "selection_diagnostics": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-preinspection-08.json",
+      "sha256": "7aeb894d976ad1259986740863bb1869ab7967071ea90e5c10d6211e493086bb"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-saved-preinspection-08.json",
+      "sha256": "c167eb7d3be27da44180342ddfc952822b7110167b2771908d32d48c893f0523"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-unknown-assignment-candidates.json",
+      "sha256": "b0ce7dee8652c54815dc4fee88e017774ae8ad89d3b9c8f7f0a0bb2466474af9"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-composition-diagnostics.json",
+      "sha256": "4c1ea10906da63e852e8b35a279edcb90fb1b80f361651eaaac1ca791e4b1154"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-preinspection-extra-02.json",
+      "sha256": "5f7d0811a710dadd9ea0ace95494271550ca442fd56f1609bd33d409fbe24883"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-saved-preinspection-extra-02.json",
+      "sha256": "7a50c3ea47ccb4da20fc2234a201efe1b273307f3bd3ffb798392d5ae32789ce"
+    }
+  ],
+  "scorer_conflict": {
+    "direct_scope": "all recognized source goals in exactly the ten visited prepared games, separated by corroborated ordinary physical identity; no unsampled source census",
+    "ordinary_known_physical_goals": [
+      {
+        "season": "20232024",
+        "game_id": "2023020040",
+        "source_index": 42,
+        "recorded_scorer_id": 8476878,
+        "physical_shooter_id": 8476878,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020040",
+        "source_index": 60,
+        "recorded_scorer_id": 8475784,
+        "physical_shooter_id": 8475784,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020040",
+        "source_index": 167,
+        "recorded_scorer_id": 8479542,
+        "physical_shooter_id": 8479542,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020040",
+        "source_index": 279,
+        "recorded_scorer_id": 8479542,
+        "physical_shooter_id": 8479542,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020040",
+        "source_index": 287,
+        "recorded_scorer_id": 8481528,
+        "physical_shooter_id": 8481528,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020001",
+        "source_index": 56,
+        "recorded_scorer_id": 8476474,
+        "physical_shooter_id": 8476474,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020001",
+        "source_index": 92,
+        "recorded_scorer_id": 8480192,
+        "physical_shooter_id": 8480192,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020001",
+        "source_index": 144,
+        "recorded_scorer_id": 8480002,
+        "physical_shooter_id": 8480002,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020001",
+        "source_index": 296,
+        "recorded_scorer_id": 8482671,
+        "physical_shooter_id": 8482671,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020066",
+        "source_index": 67,
+        "recorded_scorer_id": 8476278,
+        "physical_shooter_id": 8476278,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020066",
+        "source_index": 114,
+        "recorded_scorer_id": 8476880,
+        "physical_shooter_id": 8476880,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020066",
+        "source_index": 150,
+        "recorded_scorer_id": 8478440,
+        "physical_shooter_id": 8478440,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020066",
+        "source_index": 183,
+        "recorded_scorer_id": 8480027,
+        "physical_shooter_id": 8480027,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020066",
+        "source_index": 204,
+        "recorded_scorer_id": 8479390,
+        "physical_shooter_id": 8479390,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 4,
+        "recorded_scorer_id": 8476921,
+        "physical_shooter_id": 8476921,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 43,
+        "recorded_scorer_id": 8478458,
+        "physical_shooter_id": 8478458,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 150,
+        "recorded_scorer_id": 8478458,
+        "physical_shooter_id": 8478458,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 179,
+        "recorded_scorer_id": 8476958,
+        "physical_shooter_id": 8476958,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 217,
+        "recorded_scorer_id": 8480762,
+        "physical_shooter_id": 8480762,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024020214",
+        "source_index": 230,
+        "recorded_scorer_id": 8481481,
+        "physical_shooter_id": 8481481,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024021273",
+        "source_index": 15,
+        "recorded_scorer_id": 8477969,
+        "physical_shooter_id": 8477969,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024021273",
+        "source_index": 168,
+        "recorded_scorer_id": 8478498,
+        "physical_shooter_id": 8478498,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024021273",
+        "source_index": 195,
+        "recorded_scorer_id": 8482122,
+        "physical_shooter_id": 8482122,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024021273",
+        "source_index": 272,
+        "recorded_scorer_id": 8475220,
+        "physical_shooter_id": 8475220,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20242025",
+        "game_id": "2024021273",
+        "source_index": 305,
+        "recorded_scorer_id": 8475692,
+        "physical_shooter_id": 8475692,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020144",
+        "source_index": 32,
+        "recorded_scorer_id": 8484144,
+        "physical_shooter_id": 8484144,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020144",
+        "source_index": 118,
+        "recorded_scorer_id": 8482155,
+        "physical_shooter_id": 8482155,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020144",
+        "source_index": 128,
+        "recorded_scorer_id": 8477942,
+        "physical_shooter_id": 8477942,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 19,
+        "recorded_scorer_id": 8484203,
+        "physical_shooter_id": 8484203,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 35,
+        "recorded_scorer_id": 8476422,
+        "physical_shooter_id": 8476422,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 58,
+        "recorded_scorer_id": 8476921,
+        "physical_shooter_id": 8476921,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 88,
+        "recorded_scorer_id": 8485366,
+        "physical_shooter_id": 8485366,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 267,
+        "recorded_scorer_id": 8482809,
+        "physical_shooter_id": 8482809,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 323,
+        "recorded_scorer_id": 8481601,
+        "physical_shooter_id": 8481601,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 325,
+        "recorded_scorer_id": 8480830,
+        "physical_shooter_id": 8480830,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020171",
+        "source_index": 377,
+        "recorded_scorer_id": 8482702,
+        "physical_shooter_id": 8482702,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 47,
+        "recorded_scorer_id": 8478057,
+        "physical_shooter_id": 8478057,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 129,
+        "recorded_scorer_id": 8473533,
+        "physical_shooter_id": 8473533,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 173,
+        "recorded_scorer_id": 8475166,
+        "physical_shooter_id": 8475166,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 192,
+        "recorded_scorer_id": 8480817,
+        "physical_shooter_id": 8480817,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 276,
+        "recorded_scorer_id": 8477939,
+        "physical_shooter_id": 8477939,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 304,
+        "recorded_scorer_id": 8482100,
+        "physical_shooter_id": 8482100,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020078",
+        "source_index": 39,
+        "recorded_scorer_id": 8474602,
+        "physical_shooter_id": 8474602,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020078",
+        "source_index": 63,
+        "recorded_scorer_id": 8478550,
+        "physical_shooter_id": 8478550,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020078",
+        "source_index": 161,
+        "recorded_scorer_id": 8481554,
+        "physical_shooter_id": 8481554,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020078",
+        "source_index": 189,
+        "recorded_scorer_id": 8482109,
+        "physical_shooter_id": 8482109,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020078",
+        "source_index": 224,
+        "recorded_scorer_id": 8478550,
+        "physical_shooter_id": 8478550,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020481",
+        "source_index": 122,
+        "recorded_scorer_id": 8476981,
+        "physical_shooter_id": 8476981,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020481",
+        "source_index": 188,
+        "recorded_scorer_id": 8477989,
+        "physical_shooter_id": 8477989,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020481",
+        "source_index": 212,
+        "recorded_scorer_id": 8480014,
+        "physical_shooter_id": 8480014,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020481",
+        "source_index": 268,
+        "recorded_scorer_id": 8482149,
+        "physical_shooter_id": 8482149,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      },
+      {
+        "season": "20232024",
+        "game_id": "2023020481",
+        "source_index": 318,
+        "recorded_scorer_id": 8482111,
+        "physical_shooter_id": 8482111,
+        "physical_status": "ordinary",
+        "prepared_outcome": "goal"
+      }
+    ],
+    "ordinary_role_mismatches": [],
+    "unsupported_goal_records": [
+      {
+        "season": "20242025",
+        "game_id": "2024020001",
+        "source_index": 334,
+        "recorded_scorer_id": 8481032,
+        "physical_shooter_id": null,
+        "physical_status": "unresolved",
+        "prepared_outcome": null
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025020144",
+        "source_index": 301,
+        "recorded_scorer_id": 8476469,
+        "physical_shooter_id": null,
+        "physical_status": "unresolved",
+        "prepared_outcome": null
+      },
+      {
+        "season": "20252026",
+        "game_id": "2025021094",
+        "source_index": 164,
+        "recorded_scorer_id": 8480762,
+        "physical_shooter_id": 8480762,
+        "physical_status": "outside_population",
+        "prepared_outcome": "goal"
+      }
+    ],
+    "saved_scope": "all three saved composition diagnostic receipts report zero physical_shooter_conflict exclusions; unavailable model values can confound role-conflict consequences",
+    "isolated_conflict_found": false,
+    "algorithm_evidence": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/source-selection-evidence/real-source-handcase-receipt.json",
+      "sha256": "b8b570365f38cf62f1425af1617b360685f499c651cf3b3c953bb5f8e360b809"
+    }
+  },
+  "limits": [
+    "preinspection is witness selection, not final helper acceptance",
+    "source-only counts are zero in every season; numerical-only rows are 653/538/830 and none is a complete numerical value; no second full-source campaign",
+    "global goalie residuals establish candidate count/mass closure; only selected goalie examples establish independent physical source inclusion",
+    "2025021094 has 118 unresolved native seconds and no coalesced prepared segments; unresolved_native_span does not prove a coalesced valued mask",
+    "2024020001 source332/333 touch outside-5v5 empty-net membership; source276 in 2025021094 supplies the nonvacuous 5v5 unknown-assignment witness",
+    "2023020078 block72 leaves a positive-duration unblocked zero-event interval; the game has no claimed supported locatable release measurement",
+    "selected-game contribution counts/seconds are not season rates"
+  ],
+  "located_categories": 8,
+  "located_witnesses": 16
+}

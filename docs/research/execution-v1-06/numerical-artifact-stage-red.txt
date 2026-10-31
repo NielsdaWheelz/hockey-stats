@@ -1,0 +1,14 @@
+{
+  "check": "detached stage closure",
+  "input": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-01/scores/20232024",
+  "stage_change": [
+    {
+      "player_id": "8470600",
+      "strength": "5v5",
+      "before": 0.7230647523787573,
+      "after": 0.36153237618937867
+    }
+  ],
+  "rejected": false,
+  "explanation": null
+}

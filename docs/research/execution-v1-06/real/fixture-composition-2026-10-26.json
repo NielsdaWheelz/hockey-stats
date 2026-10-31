@@ -1,0 +1,49 @@
+{
+  "kind": "fresh-current-fixture-execution-composition",
+  "purpose": "fixture",
+  "status": "passed",
+  "production_commit": "78a0727",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "environment": {
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src"
+  },
+  "command": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "summarize",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--facts",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts",
+    "--scores",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 282.02,
+  "peak_rss_bytes": 1349648384,
+  "output_bytes": 790123164,
+  "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/summarize.log",
+  "strict_validation": "full writer validation before manifest rename",
+  "input_sha256": {
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json": "08f2d078c51b4eb9753aa194a60166f3059377da76e21d213f94045aaeef3d25",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores-selection.json": "58f7820080e6dc283af7ba6b9731122c24803523407e6a23857029b327a8f44d"
+  },
+  "manifest_sha256": "499acc1f9363d136d7e148d12af045fcf17b7f27b018b2e11612447ccb992d8d",
+  "source_originals_changed": false,
+  "independent_source_arithmetic": {
+    "status": "passed",
+    "seasons": 3,
+    "games": 24,
+    "source_attempts": 2855,
+    "wall_seconds": 172.43,
+    "peak_rss_bytes": 1404600320,
+    "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/composition-source-arithmetic.json",
+    "sha256": "384111ab04a36ecc59ec11a56ee30905578825757670b7f54507873036f7d1b1",
+    "checker_sha256": "8353b0ac2ccdc0f94fd2af7421bffc22e2358b2f34507ed15dbfccaa7eae4ae7"
+  }
+}

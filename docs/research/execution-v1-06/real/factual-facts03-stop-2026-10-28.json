@@ -1,0 +1,55 @@
+{
+  "kind": "user-directed-real-factual-stop",
+  "status": "stopped by user; factual output remains incomplete and unaccepted",
+  "recorded_at_utc": "2026-10-28T15:11:46.340168+00:00",
+  "evidence_owner": "root; no external paths read or written by the factual owner for this receipt",
+  "reason": "user requested the next checkpoint or immediate stop if more than twenty minutes away; the complete artifact was still hours away",
+  "process": {
+    "shell_pid": 66615,
+    "time_wrapper_pid": 66616,
+    "python_pid": 66617,
+    "action": "root sent SIGTERM to python pid 66617 only",
+    "exit_status": 143,
+    "shell_and_time": "then exited normally after recording status",
+    "exit_confirmation": "root confirmed all three pids gone; no owned analysis jobs remained; lsof reported no open files on the external drive"
+  },
+  "resources": {
+    "wall_seconds": 6397.22,
+    "user_seconds": 5698.84,
+    "system_seconds": 31.9,
+    "peak_rss_bytes": 4769497088,
+    "peak_footprint_bytes": 5056876792,
+    "scope": "root-collected facts-03.exit and /usr/bin/time -l measurements; not independently reread"
+  },
+  "output": {
+    "directory": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-03",
+    "last_known_manifest": "absent",
+    "accepted": false,
+    "partials": "preserved in place; unaccepted",
+    "resume_supported": false
+  },
+  "supersedes": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-03-command.json",
+    "superseded_status": "running; unaccepted",
+    "external_record": "left untouched; this local stop receipt owns current status"
+  },
+  "preservation": {
+    "older_facts_partial": "preserved",
+    "older_facts_02_partial": "preserved",
+    "original_schema1_facts": "untouched",
+    "expensive_fits": "untouched"
+  },
+  "distinct_prior_interruption": {
+    "receipt": "factual-interruption-2026-10-28.json",
+    "scope": "the prior unexplained facts-02 loss remains unresolved and distinct from this explicit user-directed stop"
+  },
+  "restart": "not authorized; none launched",
+  "stop_work_scope": "one local durable receipt from root-collected evidence only; no external reads, writes, scans, source checks, cleanup or analytical commands",
+  "pending": [
+    "complete factual artifact",
+    "strict schema2 readback and exact real baseline preservation",
+    "real composition and downstream candidate/application acceptance"
+  ],
+  "fits": false,
+  "activation": false
+}

@@ -1,0 +1,71 @@
+{
+  "kind": "execution-v1-06-real-scoring-user-stop",
+  "recorded_at_utc": "2026-10-28T15:11:51.547431+00:00",
+  "date_local": "2026-10-28",
+  "status": "stopped at user direction; no analysis jobs remain",
+  "instruction": "stop at next checkpoint, or immediately if the checkpoint is more than twenty minutes away",
+  "root_decision": "current 20232024 score had run about 3h51 and was still in early projections; root stopped immediately",
+  "evidence_authority": "root-provided actual process, tool completion and already collected time-log evidence; no external path was read, written or scanned for this receipt",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "source_status": "root reports numerical head and source unchanged",
+  "stopped_command": {
+    "season": "20232024",
+    "tool_session": 59303,
+    "time_wrapper_pid": 47862,
+    "python_pid": 47863,
+    "action": "root sent TERM to python47863 only; time47862 exited",
+    "actual_tool_exit_code": 143,
+    "wall_seconds": 13911.16,
+    "user_seconds": 12749.63,
+    "system_seconds": 82.86,
+    "peak_rss_bytes": 29214408704,
+    "peak_memory_footprint_bytes": 30676736512,
+    "resource_source": "already collected /usr/bin/time -l stderr; no reread performed"
+  },
+  "interrupted_artifact": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20232024",
+    "status": "incomplete, unaccepted and nonresumable",
+    "completion_manifest_last_observed": false,
+    "completion_manifest_rechecked": false,
+    "future_rule": "if the user later resumes, restart this annual command into a fresh external output; preserve this partial"
+  },
+  "accepted_preserved": [
+    {
+      "season": "20212022",
+      "manifest_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "manifest_sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e"
+    },
+    {
+      "season": "20222023",
+      "manifest_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json",
+      "manifest_sha256": "1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede"
+    }
+  ],
+  "unstarted_annuals": [
+    "20242025",
+    "20252026"
+  ],
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores-selection.json",
+    "written": false,
+    "evidence": "root reports absent; not rechecked"
+  },
+  "supersedes_stale_external_status": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/20232024-command.json",
+    "stale_status": "running",
+    "external_record_modified": false
+  },
+  "shutdown_evidence": {
+    "owned_analysis_jobs": "root confirms all absent",
+    "open_external_drive_files": "root confirms lsof drive empty",
+    "checks_repeated": false
+  },
+  "preservation": "accepted annuals, interrupted originals and current partial, source evidence, expensive fits, saved probes, serving files and other work remain preserved",
+  "external_access_after_stop": false,
+  "deletion": false,
+  "restart": false,
+  "new_validation": false,
+  "new_fit": false,
+  "activation": false,
+  "remaining_work": "three annual scores including a fresh restart of 20232024, final-year propagation, ordered five-year selection and downstream real acceptance remain pending; no automatic continuation"
+}

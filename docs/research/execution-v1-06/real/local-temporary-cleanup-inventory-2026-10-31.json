@@ -1,0 +1,551 @@
+{
+  "kind": "local-temporary-check-cleanup-inventory",
+  "status": "inventory only; no deletion authorized or performed",
+  "checked_at_utc": "2026-10-31T04:01:11.566978+00:00",
+  "roots": [
+    {
+      "path": "var/v1-06-real",
+      "purpose": "temporary campaign/source/composition/application checks, command recipes, old helper variants, sandbox profile and local receipt copies",
+      "files": 109,
+      "bytes": 1821561,
+      "entries": [
+        {
+          "path": "var/v1-06-real/__pycache__/check_source_boundary.cpython-314.pyc",
+          "bytes": 14718
+        },
+        {
+          "path": "var/v1-06-real/accepted-facts-baseline.json",
+          "bytes": 10252
+        },
+        {
+          "path": "var/v1-06-real/application-execution-preparation-source02.before-browser-locator.json",
+          "bytes": 19823
+        },
+        {
+          "path": "var/v1-06-real/application-execution-preparation-source02.before-render-wait.json",
+          "bytes": 22110
+        },
+        {
+          "path": "var/v1-06-real/application-execution-preparation-source02.before-season-reopen.json",
+          "bytes": 23128
+        },
+        {
+          "path": "var/v1-06-real/application-execution-preparation-source02.json",
+          "bytes": 24228
+        },
+        {
+          "path": "var/v1-06-real/application-execution-recipe-source02.md",
+          "bytes": 10635
+        },
+        {
+          "path": "var/v1-06-real/application-preparation.before-browser-locator.json",
+          "bytes": 12294
+        },
+        {
+          "path": "var/v1-06-real/application-preparation.before-render-wait.json",
+          "bytes": 15190
+        },
+        {
+          "path": "var/v1-06-real/application-preparation.before-season-reopen.json",
+          "bytes": 16671
+        },
+        {
+          "path": "var/v1-06-real/application-preparation.json",
+          "bytes": 18472
+        },
+        {
+          "path": "var/v1-06-real/application-retention-inventory.json",
+          "bytes": 27605
+        },
+        {
+          "path": "var/v1-06-real/application-source-binding-handcase-receipt-source02.json",
+          "bytes": 2181
+        },
+        {
+          "path": "var/v1-06-real/application-source-binding-handcase-receipt.json",
+          "bytes": 1630
+        },
+        {
+          "path": "var/v1-06-real/application-source-binding.diff",
+          "bytes": 16037
+        },
+        {
+          "path": "var/v1-06-real/application-source-checker-pin-source02.diff",
+          "bytes": 955
+        },
+        {
+          "path": "var/v1-06-real/application_api.before-source-binding.py",
+          "bytes": 25920
+        },
+        {
+          "path": "var/v1-06-real/application_api.py",
+          "bytes": 35823
+        },
+        {
+          "path": "var/v1-06-real/application_browser.before-host-zoom.mjs",
+          "bytes": 19938
+        },
+        {
+          "path": "var/v1-06-real/application_browser.before-season-reopen.mjs",
+          "bytes": 19358
+        },
+        {
+          "path": "var/v1-06-real/application_browser.mjs",
+          "bytes": 21122
+        },
+        {
+          "path": "var/v1-06-real/application_exports.py",
+          "bytes": 8844
+        },
+        {
+          "path": "var/v1-06-real/browser-03-preparation.before-render-wait.json",
+          "bytes": 27429
+        },
+        {
+          "path": "var/v1-06-real/browser-03-preparation.before-season-reopen.json",
+          "bytes": 28427
+        },
+        {
+          "path": "var/v1-06-real/browser-03-preparation.json",
+          "bytes": 29507
+        },
+        {
+          "path": "var/v1-06-real/browser-03-recipe.before-season-reopen.md",
+          "bytes": 9236
+        },
+        {
+          "path": "var/v1-06-real/browser-03-recipe.md",
+          "bytes": 9236
+        },
+        {
+          "path": "var/v1-06-real/browser-discovery-locator.diff",
+          "bytes": 825
+        },
+        {
+          "path": "var/v1-06-real/browser-host-zoom.diff",
+          "bytes": 4703
+        },
+        {
+          "path": "var/v1-06-real/browser-season-reopen.diff",
+          "bytes": 1397
+        },
+        {
+          "path": "var/v1-06-real/capture_native_visual.before-direct-cdp.mjs",
+          "bytes": 10557
+        },
+        {
+          "path": "var/v1-06-real/capture_native_visual.before-member-lookup.mjs",
+          "bytes": 10455
+        },
+        {
+          "path": "var/v1-06-real/capture_native_visual.before-scrollbar-invariant.mjs",
+          "bytes": 10452
+        },
+        {
+          "path": "var/v1-06-real/capture_native_visual.mjs",
+          "bytes": 11122
+        },
+        {
+          "path": "var/v1-06-real/check_composition_differential.py",
+          "bytes": 3934
+        },
+        {
+          "path": "var/v1-06-real/check_composition_memory.py",
+          "bytes": 4066
+        },
+        {
+          "path": "var/v1-06-real/check_composition_retention.py",
+          "bytes": 2359
+        },
+        {
+          "path": "var/v1-06-real/check_discovery_disclosures.mjs",
+          "bytes": 9017
+        },
+        {
+          "path": "var/v1-06-real/check_factual_preservation.py",
+          "bytes": 9221
+        },
+        {
+          "path": "var/v1-06-real/check_final_preservation.py",
+          "bytes": 4063
+        },
+        {
+          "path": "var/v1-06-real/check_fixture_availability.py",
+          "bytes": 5430
+        },
+        {
+          "path": "var/v1-06-real/check_fixture_composition.py",
+          "bytes": 12255
+        },
+        {
+          "path": "var/v1-06-real/check_macdermid_unavailable.before-skip-facts.mjs",
+          "bytes": 10645
+        },
+        {
+          "path": "var/v1-06-real/check_macdermid_unavailable.mjs",
+          "bytes": 11365
+        },
+        {
+          "path": "var/v1-06-real/check_merge.py",
+          "bytes": 6842
+        },
+        {
+          "path": "var/v1-06-real/check_real_source_sample.py",
+          "bytes": 38903
+        },
+        {
+          "path": "var/v1-06-real/check_saved_execution_composition.py",
+          "bytes": 31363
+        },
+        {
+          "path": "var/v1-06-real/check_source_boundary.py",
+          "bytes": 8105
+        },
+        {
+          "path": "var/v1-06-real/composition-baseline.py",
+          "bytes": 31534
+        },
+        {
+          "path": "var/v1-06-real/composition-full-differential.json",
+          "bytes": 10892
+        },
+        {
+          "path": "var/v1-06-real/composition-full-differential.log",
+          "bytes": 3842
+        },
+        {
+          "path": "var/v1-06-real/composition-memory/20232024-execution-composition.json",
+          "bytes": 87693
+        },
+        {
+          "path": "var/v1-06-real/composition-memory/20242025-execution-composition.json",
+          "bytes": 84990
+        },
+        {
+          "path": "var/v1-06-real/composition-memory/20252026-execution-composition.json",
+          "bytes": 131216
+        },
+        {
+          "path": "var/v1-06-real/composition-memory-green.log",
+          "bytes": 675
+        },
+        {
+          "path": "var/v1-06-real/composition-memory-red.log",
+          "bytes": 1532
+        },
+        {
+          "path": "var/v1-06-real/composition-new.json",
+          "bytes": 2484
+        },
+        {
+          "path": "var/v1-06-real/composition-retention-green.log",
+          "bytes": 127
+        },
+        {
+          "path": "var/v1-06-real/composition-retention-red.log",
+          "bytes": 675
+        },
+        {
+          "path": "var/v1-06-real/current-02-read-only-preflight-2026-10-27.json",
+          "bytes": 12183
+        },
+        {
+          "path": "var/v1-06-real/current-02-read-only-preflight.py",
+          "bytes": 14499
+        },
+        {
+          "path": "var/v1-06-real/diagnose_wide_discovery.mjs",
+          "bytes": 10482
+        },
+        {
+          "path": "var/v1-06-real/disclosure-render-wait.diff",
+          "bytes": 790
+        },
+        {
+          "path": "var/v1-06-real/exercise_application_source_binding.py",
+          "bytes": 9111
+        },
+        {
+          "path": "var/v1-06-real/exercise_real_source_handcases.py",
+          "bytes": 12719
+        },
+        {
+          "path": "var/v1-06-real/facts-03.sh",
+          "bytes": 794
+        },
+        {
+          "path": "var/v1-06-real/facts-04-preservation.sh",
+          "bytes": 898
+        },
+        {
+          "path": "var/v1-06-real/facts-04.sh",
+          "bytes": 794
+        },
+        {
+          "path": "var/v1-06-real/factual-preservation-narrow-green.json",
+          "bytes": 6918
+        },
+        {
+          "path": "var/v1-06-real/factual-preservation-narrow-green.log",
+          "bytes": 83
+        },
+        {
+          "path": "var/v1-06-real/fixture-source-final.json",
+          "bytes": 608
+        },
+        {
+          "path": "var/v1-06-real/fixture-source-first-four.json",
+          "bytes": 2199
+        },
+        {
+          "path": "var/v1-06-real/macdermid-skip-facts.diff",
+          "bytes": 1368
+        },
+        {
+          "path": "var/v1-06-real/macdermid-unavailable-expected.json",
+          "bytes": 20271
+        },
+        {
+          "path": "var/v1-06-real/merge-green.log",
+          "bytes": 346
+        },
+        {
+          "path": "var/v1-06-real/merge-red.log",
+          "bytes": 2409
+        },
+        {
+          "path": "var/v1-06-real/merge-resume-green.log",
+          "bytes": 347
+        },
+        {
+          "path": "var/v1-06-real/owned-chrome-profile-deletion-inventory.json",
+          "bytes": 5847
+        },
+        {
+          "path": "var/v1-06-real/participation-green.log",
+          "bytes": 346
+        },
+        {
+          "path": "var/v1-06-real/participation-red.log",
+          "bytes": 1445
+        },
+        {
+          "path": "var/v1-06-real/prepare_saved_check.py",
+          "bytes": 9484
+        },
+        {
+          "path": "var/v1-06-real/real-candidate.sh",
+          "bytes": 823
+        },
+        {
+          "path": "var/v1-06-real/real-detached-preparation.json",
+          "bytes": 15177
+        },
+        {
+          "path": "var/v1-06-real/real-detached-recipe.md",
+          "bytes": 9109
+        },
+        {
+          "path": "var/v1-06-real/real-detached.sb",
+          "bytes": 2129
+        },
+        {
+          "path": "var/v1-06-real/real-results.sh",
+          "bytes": 914
+        },
+        {
+          "path": "var/v1-06-real/real-saved-accounting.sh",
+          "bytes": 1117
+        },
+        {
+          "path": "var/v1-06-real/real-source-composition-diagnostics.json",
+          "bytes": 44096
+        },
+        {
+          "path": "var/v1-06-real/real-source-empty-summary-fix.patch",
+          "bytes": 942
+        },
+        {
+          "path": "var/v1-06-real/real-source-handcase-receipt-empty-summary-fix.json",
+          "bytes": 3610
+        },
+        {
+          "path": "var/v1-06-real/real-source-handcase-receipt.json",
+          "bytes": 3610
+        },
+        {
+          "path": "var/v1-06-real/real-source-helper-recipe.md",
+          "bytes": 6537
+        },
+        {
+          "path": "var/v1-06-real/real-source-preinspection-08.json",
+          "bytes": 119154
+        },
+        {
+          "path": "var/v1-06-real/real-source-preinspection-extra-02.json",
+          "bytes": 143954
+        },
+        {
+          "path": "var/v1-06-real/real-source-saved-preinspection-08.json",
+          "bytes": 104507
+        },
+        {
+          "path": "var/v1-06-real/real-source-saved-preinspection-extra-02.json",
+          "bytes": 132507
+        },
+        {
+          "path": "var/v1-06-real/real-source-selection-draft-evidence.json",
+          "bytes": 19250
+        },
+        {
+          "path": "var/v1-06-real/real-source-selection-draft.json",
+          "bytes": 13669
+        },
+        {
+          "path": "var/v1-06-real/real-source-selection-template.json",
+          "bytes": 6940
+        },
+        {
+          "path": "var/v1-06-real/real-source-unknown-assignment-candidates.json",
+          "bytes": 18698
+        },
+        {
+          "path": "var/v1-06-real/score-current-03-20232024.sh",
+          "bytes": 1033
+        },
+        {
+          "path": "var/v1-06-real/score-current-03-20242025.sh",
+          "bytes": 1033
+        },
+        {
+          "path": "var/v1-06-real/score-current-03-20252026.sh",
+          "bytes": 1033
+        },
+        {
+          "path": "var/v1-06-real/score-current-04-20252026.sh",
+          "bytes": 1033
+        },
+        {
+          "path": "var/v1-06-real/scorer-conflict-repair.diff",
+          "bytes": 6822
+        },
+        {
+          "path": "var/v1-06-real/scores-selection-current-04.draft.json",
+          "bytes": 1414
+        },
+        {
+          "path": "var/v1-06-real/server-02-preparation.json",
+          "bytes": 8872
+        },
+        {
+          "path": "var/v1-06-real/server-02-stop-completion.json",
+          "bytes": 5894
+        },
+        {
+          "path": "var/v1-06-real/source-contracts.json",
+          "bytes": 235
+        }
+      ]
+    },
+    {
+      "path": "var/v1-06-real-checks",
+      "purpose": "temporary independent score recomputation and evaluator-parity checks, frozen evaluator source copy used only by that check, compiled bytecode",
+      "files": 4,
+      "bytes": 110415,
+      "entries": [
+        {
+          "path": "var/v1-06-real-checks/independent/__pycache__/score_check.cpython-314.pyc",
+          "bytes": 54368
+        },
+        {
+          "path": "var/v1-06-real-checks/independent/evaluator_parity.py",
+          "bytes": 3543
+        },
+        {
+          "path": "var/v1-06-real-checks/independent/score_check.py",
+          "bytes": 30276
+        },
+        {
+          "path": "var/v1-06-real-checks/independent/v105_execution.py",
+          "bytes": 22228
+        }
+      ]
+    },
+    {
+      "path": "var/v1-06-reader-checks",
+      "purpose": "temporary sql reader regression check, module-only package marker and red/green/typecheck logs",
+      "files": 6,
+      "bytes": 13323,
+      "entries": [
+        {
+          "path": "var/v1-06-reader-checks/check.ts",
+          "bytes": 11941
+        },
+        {
+          "path": "var/v1-06-reader-checks/green-refactor.log",
+          "bytes": 344
+        },
+        {
+          "path": "var/v1-06-reader-checks/green.log",
+          "bytes": 291
+        },
+        {
+          "path": "var/v1-06-reader-checks/package.json",
+          "bytes": 18
+        },
+        {
+          "path": "var/v1-06-reader-checks/red.log",
+          "bytes": 729
+        },
+        {
+          "path": "var/v1-06-reader-checks/typecheck.log",
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "staged_temporary_file": {
+    "path": "docs/research/execution-v1-06/real/application-artifacts/fixture-refresh-20261027/detached.sb",
+    "bytes": 1502,
+    "purpose": "temporary fixture-source-denial sandbox profile",
+    "index_mode": "100644",
+    "index_object": "3674f48896d8a0e6c7cbddd3662efee25e80ae7a"
+  },
+  "total_files": 120,
+  "total_bytes": 1946801,
+  "preserve": {
+    "path": "var/v1-06-root-r6-observed.json",
+    "exists": true,
+    "bytes": 768,
+    "scope": "outside all three cleanup roots; preserve this observed selection"
+  },
+  "artifact_classification": "no authoritative production code, fitted/model arrays, databases, captured source bundles, useful fixture collections or expensive outputs found inside the named roots; the largest local file is 143954 bytes and all paths are ordinary files with no symlinks",
+  "retained_consumers": {
+    "production_source_and_dependency_declarations": "no references to these temporary roots or staged sandbox profile in app/src, analysis/src, app/package.json or analysis/pyproject.toml",
+    "temporary_package": "var/v1-06-reader-checks/package.json contains only type:module, with no dependencies; no node_modules or environment exists inside the cleanup roots",
+    "copied_evaluator": "var/v1-06-real-checks/independent/v105_execution.py is a duplicate frozen evaluator loaded only by temporary evaluator_parity.py, not a production or retained scientific owner"
+  },
+  "retained_facts": {
+    "checked_byte_identical_pairs": 18,
+    "examples": [
+      "source-selection-evidence original and saved preinspections, diagnostic and handcase receipts",
+      "three composition-memory checked receipts",
+      "composition-full-differential-2026-10-26.json",
+      "application-source-binding handcase receipts",
+      "source-sample-empty-summary-handcase.json",
+      "application-server-02-stop-2026-10-31.json",
+      "reader-query-repair red/green-refactor/typecheck logs"
+    ],
+    "reader_final_green": "reader-query-repair/final-green.log and the query-repair receipt remain outside cleanup roots",
+    "final_preservation": "protected-after.json, protected-after.log and protected-after-command.json remain outside cleanup roots",
+    "missing_useful_facts_identified": []
+  },
+  "application_retention": {
+    "inventory_entries": 73,
+    "destination_root": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/application-artifacts/real-20261031",
+    "destination_files_present_at_inventory": 73,
+    "owner": "application owner; root reviews the separately pinned final copy manifest",
+    "external_api_snapshots_and_downloads": "untouched; no external deletion in this inventory"
+  },
+  "limits": "metadata inventory plus selected small source/receipt reads and 18 byte comparisons; no additional protected/candidate/bulk hash, no deletion or git mutation. historical receipt references to deleted temporary helpers remain explanatory evidence, not retained consumers"
+}

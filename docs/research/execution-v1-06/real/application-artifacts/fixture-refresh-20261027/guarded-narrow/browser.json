@@ -1,0 +1,327 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:41986/players/8480860?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+  "discovery": {
+    "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+    "rows": 12261,
+    "executionPressed": true
+  },
+  "metrics": {
+    "url": "http://127.0.0.1:41986/players/8480860?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+    "dpr": 1,
+    "innerWidth": 390,
+    "outerWidth": 500,
+    "scrollWidth": 375,
+    "heading": "Kevin Bahl"
+  },
+  "selected_support_panel_copy": "common reference panel: 453 physical opportunities; setup weight 362.4. these are mathematical denominators, separate from viewing qualification.",
+  "selected_execution_details": {
+    "reference_panel": {
+      "panel_id": "execution-v1-06-1:20232024:5,5,1",
+      "opportunities": 453,
+      "setup_weight": 362.40000000000003,
+      "neutral": {
+        "u": 331.8433737822304,
+        "uq": 230.97535792099015,
+        "uqr": 183.23746964262193,
+        "uqrg": 16.957893136553096
+      },
+      "focal_shooter": {
+        "u": 342.5375182120923,
+        "uq": 239.1774262051143,
+        "uqr": 185.53031906142624,
+        "uqrg": 17.12998960779646
+      },
+      "setting_setup": {
+        "neutral_goal_mass": 14.335399211947157,
+        "focal_goal_mass": 13.93347395951189
+      }
+    },
+    "coefficient_support": {
+      "shooter": {
+        "u": {
+          "available": true,
+          "likelihood_events": 1,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        },
+        "q": {
+          "available": true,
+          "likelihood_events": 1,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        },
+        "r": {
+          "available": true,
+          "likelihood_events": 1,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null
+        },
+        "g": {
+          "available": true,
+          "likelihood_events": 0,
+          "prior_only": true,
+          "prior_seasons": [],
+          "reason": null
+        }
+      },
+      "setter": {
+        "g": {
+          "available": true,
+          "likelihood_events": 218,
+          "prior_only": false,
+          "prior_seasons": [],
+          "reason": null,
+          "candidate_events": 17,
+          "mean_coupled_events": 218
+        }
+      }
+    },
+    "paired_evidence": {
+      "source_attempts": 1,
+      "paired_attempts": 1,
+      "unvalued_source_attempts": 0,
+      "danger_unavailable": {
+        "events": 0,
+        "observed_goals": 0,
+        "reference_expected_goals": 0,
+        "actor_expected_goals": 0
+      }
+    }
+  },
+  "cohort": {
+    "standing": "below cutoff · reported defense · n=0 · cutoff 300 min",
+    "members": [],
+    "focalValue": 0.03799039100294964
+  },
+  "expected_cohort": {
+    "n": 0,
+    "member": false,
+    "percentile": null,
+    "descending_midrank": null,
+    "standing_reason": "below cutoff",
+    "peer_group": "reported defense",
+    "cutoff_minutes": 300,
+    "qualification_seconds": 1611,
+    "focal_value": 0.03799039100294964,
+    "incompatible_peer_count": 0,
+    "members": []
+  },
+  "strata": [
+    [
+      "wrist",
+      "snap",
+      "slap",
+      "backhand",
+      "tip",
+      "other"
+    ],
+    [
+      "<.05",
+      "[.05,.15)",
+      ">=.15"
+    ]
+  ],
+  "native_zoom": 1,
+  "baseline_device_pixel_ratio": 2,
+  "downloads": {
+    "evidenceCsv": {
+      "filename": "hockey-stats-8480860-20232024-5v5-execution-evidence.csv",
+      "bytes": 288230,
+      "sha256": "2032b4d3e5db53797f6e7b6745ebbce5978d85f654b1cf01083f11797a65db22"
+    },
+    "historyCsv": {
+      "filename": "hockey-stats-8480860-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "bytes": 15267,
+      "sha256": "f6115fc94a0a4ffc51282dcf1b9f9cfff402c4dfd32767655db9789659dd3f64"
+    },
+    "historyPng": {
+      "filename": "hockey-stats-8480860-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "bytes": 1483937,
+      "sha256": "a727d6fe32408d561441f7491c0f391ddd76e71dbe67718b90b59c4e4103e58d"
+    }
+  },
+  "navigation": {
+    "url": "http://127.0.0.1:41986/players/8480860?season=20242025&metric=execution.5v5.finishing_goals_per100_attempts",
+    "evidenceCsv": {
+      "filename": "hockey-stats-8480860-20242025-5v5-execution-evidence.csv",
+      "bytes": 289656,
+      "sha256": "9f7c1ee91043ac59d1f4733d028a392ca69821d08cb8afc2e978f3fd62d30096"
+    }
+  },
+  "navigation_csv_validation": "pending exact CSV/API export checker; URL and row presence alone are not acceptance",
+  "request_boundary": {
+    "allowed_origin": "http://127.0.0.1:41986",
+    "allowed_resource_schemes": [
+      "data:",
+      "blob:"
+    ],
+    "requests": [
+      {
+        "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+        "url_length": 121,
+        "resource_type": "Document",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/manifest-49646c95.js",
+        "url_length": 50,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/entry.client-CimxyNE3.js",
+        "url_length": 54,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/jsx-runtime-Bcb-PiJy.js",
+        "url_length": 53,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/root-OsyQwkgO.js",
+        "url_length": 46,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/explorer-BwkgQfus.js",
+        "url_length": 50,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/styles-DBcIPaN6.css",
+        "url_length": 49,
+        "resource_type": "Stylesheet",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/favicon.ico",
+        "url_length": 34,
+        "resource_type": "Other",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/league-client-loader-CQ7CpLfD.js",
+        "url_length": 62,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/league-main-Cw0du5wN.js",
+        "url_length": 53,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/client-DrnbQfYM.js",
+        "url_length": 48,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/peer-distributions-Ch6O6VnG.js",
+        "url_length": 60,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/player-client-loader-BgtgO6VN.js",
+        "url_length": 62,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/player-main-G6IWQG6_.js",
+        "url_length": 53,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/players/8480860?season=20232024",
+        "url_length": 58,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/assets/descriptive-card-CDa4ANQ9.js",
+        "url_length": 58,
+        "resource_type": "Script",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20252026&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20242025&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/players/8480860/evidence?season=20232024&family=execution&strength=5v5",
+        "url_length": 97,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/players/8480860?season=20242025",
+        "url_length": 58,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20252026&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20242025&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/league?season=20232024&kind=skater&family=overview",
+        "url_length": 77,
+        "resource_type": "XHR",
+        "allowed": true
+      },
+      {
+        "url": "http://127.0.0.1:41986/api/players/8480860/evidence?season=20242025&family=execution&strength=5v5",
+        "url_length": 97,
+        "resource_type": "XHR",
+        "allowed": true
+      }
+    ],
+    "rejected": [],
+    "browser_os_filesystem_denial_claimed": false,
+    "scope": "ordinary isolated Chrome retains its own sandbox; all page resource consumption is guarded to the exact review origin/data/blob and the app server separately denies source/fit filesystem roots"
+  },
+  "page_errors": [],
+  "network_failed": [],
+  "chrome_pid": 40044
+}

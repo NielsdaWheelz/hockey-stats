@@ -66,7 +66,7 @@ export const FamilyAvailability = Schema.Struct({
 export const Publication = Schema.Struct({
   publication_id: Schema.String.check(Schema.isUUID()),
   kind: Schema.Literal("player_analysis"),
-  schema_version: Schema.Literal(7),
+  schema_version: Schema.Literal(8),
   purpose: Purpose,
   generated_at: Timestamp,
   population_version: Schema.Literal("matched_attempts_v2"),

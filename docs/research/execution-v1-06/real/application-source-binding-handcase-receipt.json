@@ -1,0 +1,55 @@
+{
+  "kind": "temporary-application-source-binding-handcases",
+  "status": "passed hand-built data only",
+  "checker_sha256": "5740d5f547495a2b29100808cc533920d00ae55927dbb41875631de7002d1913",
+  "identity_rejections": [
+    "receipt kind",
+    "receipt status",
+    "receipt purpose",
+    "source checker",
+    "source freeze",
+    "results digest",
+    "results locator",
+    "scores digest",
+    "facts digest",
+    "prepared digest",
+    "candidate preparation",
+    "annual score identity",
+    "accounting checker",
+    "frozen witness identity",
+    "frozen game identity"
+  ],
+  "value_rejections": [
+    "api model value",
+    "api original source locator",
+    "api setter value",
+    "missing checked included interval",
+    "excluded witness interval incorrectly present"
+  ],
+  "positive_mapping": {
+    "source_key": {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source_index": 17
+    },
+    "original_source": {
+      "kind": "source",
+      "id": "hand-original-play-118"
+    },
+    "saved_neutral_value": 0.125,
+    "api_route": {
+      "player_id": "8470002",
+      "strength": "5v5",
+      "role": "setter candidate"
+    },
+    "api_source_and_value_exact": true,
+    "setter_exact": true,
+    "included_interval_exact": true,
+    "season_context_fold_checked": true
+  },
+  "unattributable_personal_route": "explicitly inapplicable; no invented association",
+  "limits": [
+    "hand-built in-memory records; no real source/candidate/api/browser/build execution",
+    "mock api callbacks exercise comparison logic only; root must run the actual accepted artifacts and isolated server"
+  ]
+}

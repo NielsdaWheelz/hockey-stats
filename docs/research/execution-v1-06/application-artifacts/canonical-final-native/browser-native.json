@@ -1,0 +1,93 @@
+{
+  "base": "http://127.0.0.1:41928",
+  "player": "8481559",
+  "mode": "native",
+  "initial": {
+    "dpr": 2,
+    "innerWidth": 640,
+    "outerWidth": 756,
+    "scrollWidth": 640,
+    "rankWithheld": true,
+    "rows": [
+      [
+        "wrist",
+        "snap",
+        "slap",
+        "backhand",
+        "tip",
+        "other"
+      ],
+      [
+        "<.05",
+        "[.05,.15)",
+        ">=.15"
+      ]
+    ],
+    "tableRegions": [
+      {
+        "client": 608,
+        "scroll": 1195
+      },
+      {
+        "client": 608,
+        "scroll": 1189
+      }
+    ],
+    "selectedTitle": "finishing goals per 100 attempts: published history"
+  },
+  "zeroSpecialty": {
+    "url": "http://127.0.0.1:41928/players/8470600?season=20232024&metric=execution.5v4.finishing_goals_per100_attempts",
+    "visible": true,
+    "scrollWidth": 640,
+    "innerWidth": 640
+  },
+  "downloads": {
+    "evidenceCsv": {
+      "name": "hockey-stats-8481559-20232024-5v5-execution-evidence.csv",
+      "bytes": 288912
+    },
+    "historyCsv": {
+      "name": "hockey-stats-8481559-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "bytes": 15332
+    },
+    "historyPng": {
+      "name": "hockey-stats-8481559-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "bytes": 1474536
+    }
+  },
+  "pairedBySeason": {
+    "20232024": 13,
+    "20242025": 2,
+    "20252026": 3
+  },
+  "later": {
+    "url": "http://127.0.0.1:41928/players/8481559?season=20242025&metric=execution.5v5.finishing_goals_per100_attempts",
+    "innerWidth": 640,
+    "scrollWidth": 640
+  },
+  "screenshots": [
+    "execution-cohort-native.png",
+    "execution-danger-native.png",
+    "execution-danger-right-native.png",
+    "execution-history-native.png",
+    "execution-section-native.png",
+    "execution-shot-type-native.png",
+    "execution-shot-type-right-native.png",
+    "execution-support-native.png",
+    "execution-zero-specialty-native.png"
+  ],
+  "pageErrors": [],
+  "native_zoom": {
+    "method": "persisted chrome host zoom, no css transform or device-scale substitution",
+    "preference_source": "/tmp/v106-native-zoom-profile/Default/Preferences",
+    "preference_key": "partition.per_host_zoom_levels.x.127.0.0.1.zoom_level",
+    "zoom_level": 3.8017840169239308,
+    "profile": "/tmp/v106-native-zoom-final",
+    "measured": {
+      "dpr": 2,
+      "innerWidth": 640,
+      "outerWidth": 756,
+      "scrollWidth": 640
+    }
+  }
+}

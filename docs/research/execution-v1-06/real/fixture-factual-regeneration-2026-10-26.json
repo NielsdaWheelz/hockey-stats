@@ -1,0 +1,57 @@
+{
+  "kind": "factual-exchange2-regeneration",
+  "purpose": "fixture",
+  "status": "passed",
+  "production_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "environment": {
+    "PYTHONPATH": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src"
+  },
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "facts",
+    "--prepared",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts"
+  ],
+  "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts.log",
+  "log_created_at": "2026-10-27T06:25:59.743377+00:00",
+  "output_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts",
+  "retry": false,
+  "original_facts_changed": false,
+  "exit_code": 0,
+  "wall_seconds": 146.81,
+  "peak_rss_bytes": 1345929216,
+  "output_bytes": 65591576,
+  "schema_version": 2,
+  "manifest_sha256": "08f2d078c51b4eb9753aa194a60166f3059377da76e21d213f94045aaeef3d25",
+  "strict_writer_read": "passed before final manifest rename",
+  "completed_at": "2026-10-27T06:28:51.804733+00:00",
+  "strict_read_and_preservation": {
+    "status": "passed",
+    "wall_seconds": 2.42,
+    "peak_rss_bytes": 87638016,
+    "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/factual-preservation.json",
+    "sha256": "20a8fb82979e10226bb5643d1213585a93f43e436b5f2c2bd7c33f2818a0f00a"
+  },
+  "accepted_main_fixture_availability": {
+    "status": "passed",
+    "wall_seconds": 74.09,
+    "peak_rss_bytes": 1251721216,
+    "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/factual-availability-main-parity.json",
+    "sha256": "baba576c7ca6f87501fdd90e836b9c511e190e945a304976c48fa60b22e99067"
+  },
+  "temporary_checker_sha256": {
+    "check_factual_preservation.py": "a6b17fa86b6956ead61e60114ab96e51cd466e37f3684c54f287147907a38880",
+    "check_fixture_availability.py": "7441cc2fe7581905c0fb5673abdbb4b62fd3ade3a2a2abdc89ea91fbb7112c49"
+  }
+}

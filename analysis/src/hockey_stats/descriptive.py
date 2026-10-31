@@ -4,6 +4,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 import hashlib
+import math
 from typing import Iterable, Literal, NotRequired, TypedDict
 
 from .analysis_records import PreparedGame, PreparedPeople, PreparedEvent, Association
@@ -104,6 +105,14 @@ def project_support(prepared_game: PreparedGame, observed_game_receipt: Observed
     """join the two segment axes by native identity and verify their full content."""
     require(prepared_game['game_id'] == observed_game_receipt['game_id'], 'observed/prepared game differs')
     segments = observed_game_receipt['segments'] if observed_game_receipt['status'] == 'reconstructed' else []
+    projection = _project_segments(prepared_game, segments)
+    for row in observed_game_receipt.get('event_dispositions', []):
+        require(row['source_index'] in projection['events'], 'observed source event missing from preparation')
+    return projection
+
+
+def _project_segments(prepared_game, segments):
+    """keep native membership identity authoritative for both evidence consumers."""
     prepared = prepared_game['segments'] or []
     by_native = {tuple(row['native_interval_indices']): row for row in prepared}
     require(len(by_native) == len(prepared), 'duplicate prepared native segment identity')
@@ -116,12 +125,8 @@ def project_support(prepared_game: PreparedGame, observed_game_receipt: Observed
         mapping[index] = match['segment_index']
     events = {row['source']['source_index']: row for row in prepared_game['events'] or []}
     require(len(events) == len(prepared_game['events'] or []), 'duplicate prepared source index')
-    for row in observed_game_receipt.get('event_dispositions', []):
-        require(row['source_index'] in events, 'observed source event missing from preparation')
-    from .reconstruct import roster_identities
     dressed = _dressed(prepared_game)
-    identities = roster_identities([row for person in (prepared_game['people'] or {}).values() for row in person['roster']])
-    identities = {pid:row for pid,row in identities.items() if dressed.get(str(pid)) == str(row['team_id'])}
+    identities = _actor_identities(prepared_game,dressed)
     return dict(segments=segments, prepared_segment_indices=mapping, events=events,dressed_teams=dressed,actor_identities=identities,
                 associations={row['source_index']: row for row in prepared_game['associations'] or []})
 
@@ -162,6 +167,89 @@ def _dressed(prepared_game):
                 and value['team_id'] == next(iter(teams)) and 'team_id' not in person['people']['problems']):
             result[str(pid)] = str(next(iter(teams)))
     return result
+
+
+def _actor_identities(prepared_game, dressed):
+    from .reconstruct import roster_identities
+    identities = roster_identities([row for person in (prepared_game['people'] or {}).values() for row in person['roster']])
+    return {pid:row for pid,row in identities.items() if dressed.get(str(pid)) == str(row['team_id'])}
+
+
+def _valid_membership(segment, teams, dressed, identities, people):
+    for side,team in zip(('away','home'),teams):
+        for kind in ('skaters','goalies'):
+            ids = segment['membership'][side+'_'+kind]
+            if ids is None or len(ids) != len(set(ids)) or len(ids) > (1 if kind == 'goalies' else 6):
+                return False
+            for raw_pid in ids:
+                actor = identities.get(raw_pid)
+                if str(raw_pid) not in people or dressed.get(str(raw_pid)) != team or actor is None:
+                    return False
+                position = actor['reported_position']
+                if kind == 'goalies' and position != 'G' or kind == 'skaters' and position not in ('C','L','R','D','F'):
+                    return False
+    return True
+
+
+def execution_participation(prepared_game: PreparedGame) -> dict:
+    """exact-strength elapsed qualification, independent of modeled attempts."""
+    from .analysis_publication import EXECUTION_STRENGTHS
+
+    identity = prepared_game['game']['identity'] or prepared_game['game']['inventory']
+    teams = (str(identity['away_team_id']),str(identity['home_team_id']))
+    dressed = _dressed(prepared_game)
+    identities = _actor_identities(prepared_game,dressed)
+    segments = prepared_game['segments'] or []
+    valid_segments = {s['segment_index'] for s in segments if _valid_membership(
+        s,teams,dressed,identities,prepared_game['people'] or {})}
+    available = bool(valid_segments) and bool(prepared_game['game']['periods'])
+    gap = not available or any(p['status'] != 'supported' for p in prepared_game['game']['periods'] or []) or any(
+        row['classification'] == 'unresolved' for row in prepared_game['game']['native_intervals'] or [])
+    result = {(str(pid),strength):support(0 if available else None,gap=gap,
+              reasons=['elapsed_unavailable'] if gap else ())
+              for pid,actor in identities.items() if actor['reported_position'] in ('C','L','R','D','F')
+              for strength in EXECUTION_STRENGTHS}
+    for segment in segments:
+        valid = segment['segment_index'] in valid_segments
+        seconds = segment['end_seconds']-segment['start_seconds']
+        for side in ('away','home'):
+            state = state_tuple(segment['membership'],side)
+            if state is None or not all(state[2:]):
+                continue
+            strength = f'{state[0]}v{state[1]}'
+            if strength not in EXECUTION_STRENGTHS:
+                continue
+            for pid in segment['membership'][side+'_skaters']:
+                metric = result.get((str(pid),strength))
+                if metric is None:
+                    continue
+                if valid:
+                    metric['included_seconds'] += seconds
+                else:
+                    metric['known_excluded_seconds'] += seconds
+                    reasons = Counter({r['code']:r['count'] for r in metric['reason_counts']})
+                    reasons['membership_unavailable'] += 1
+                    metric['reason_counts'] = [dict(code=k,count=v) for k,v in sorted(reasons.items())]
+    for metric in result.values():
+        metric['current_season_information'] = bool(metric['included_seconds'])
+    return result
+
+
+def summarize_execution_participation(game_supports: Iterable[dict]) -> dict:
+    """sum source qualification; numerical consumers own coefficient information."""
+    totals = {}
+    for game in game_supports:
+        for key,metric in game.items():
+            total = totals.setdefault(key,dict(support(None),reason_counts=Counter()))
+            if metric['included_seconds'] is not None:
+                total['included_seconds'] = (total['included_seconds'] or 0)+metric['included_seconds']
+            total['known_excluded_seconds'] += metric['known_excluded_seconds'] or 0
+            total['unquantified_gap'] |= metric['unquantified_gap'] or metric['included_seconds'] is None
+            total['reason_counts'].update({r['code']:r['count'] for r in metric['reason_counts']})
+    for metric in totals.values():
+        metric['reason_counts'] = [dict(code=k,count=v) for k,v in sorted(metric['reason_counts'].items())]
+        metric['current_season_information'] = bool(metric['included_seconds'])
+    return totals
 
 
 def recorded_evidence(prepared_game: PreparedGame, observed_game_receipt: ObservedGameReceipt,
@@ -273,6 +361,203 @@ def recorded_evidence(prepared_game: PreparedGame, observed_game_receipt: Observ
     return rows
 
 
+def valued_evidence(prepared_game: PreparedGame, factual_evidence_rows: dict,
+                    keyed_scores: Iterable[dict], support_ids: dict[str, str]) -> dict:
+    """value saved factual support without reconstructing an observed receipt.
+
+    native intervals supply identity and known exclusions; saved directed rows
+    decide the starting population. an unusable attempt removes its whole
+    interval from both sides, including its exposure and every other value.
+    """
+    from .reconstruct import five_on_five_segments
+    from .observed_spatial import cell_id
+
+    year, gid = prepared_game['season'], prepared_game['game_id']
+    populations = {'neutral_all_attempt_value': 'recorded_all_attempts',
+                   'neutral_locatable_unblocked_value': 'recorded_locatable_unblocked'}
+    projection = _project_segments(prepared_game, five_on_five_segments(prepared_game['game']['native_intervals']))
+    segments = projection['segments']
+    identities = projection['actor_identities']
+    identity = prepared_game['game']['identity'] or prepared_game['game']['inventory']
+    teams = (str(identity['away_team_id']), str(identity['home_team_id']))
+    intervals = {f"{s['period_number']}:{s['start_seconds']}:{s['end_seconds']}": i for i,s in enumerate(segments)}
+    require(len(intervals) == len(segments), 'duplicate native factual interval')
+    members = defaultdict(set)
+    for row in factual_evidence_rows.get('interval_player', []):
+        require((row['season'],row['game_id']) == (year,gid), 'mixed factual interval membership game')
+        members[row['interval_id'],row['team_id']].add(row['player_id'])
+    bases = {pop: {} for pop in populations}
+    for row in factual_evidence_rows.get('interval_fact', []):
+        require((row['season'],row['game_id']) == (year,gid), 'mixed factual interval game')
+        index = intervals.get(row['interval_id'])
+        require(index is not None, 'factual interval has no native identity')
+        segment = segments[index]
+        require(all(row[k] == segment[k] for k in ('period_number','start_seconds','end_seconds')),
+                'factual/native interval bounds differ')
+        require(row['team_id'] in teams, 'factual interval has foreign team')
+        side = 'away' if row['team_id'] == teams[0] else 'home'
+        require(members[row['interval_id'],row['team_id']] == {str(p) for p in segment[side+'_skaters']},
+                'factual/native interval membership differs')
+        for pop, base in populations.items():
+            if row['population'] == base:
+                key = (index,row['team_id'])
+                require(key not in bases[pop], 'duplicate factual interval population')
+                bases[pop][key] = row
+    masks = {pop: defaultdict(set) for pop in populations}
+    for pop, rows in bases.items():
+        for index in range(len(segments)):
+            available = [team for team in teams if (index,team) in rows]
+            require(len(available) in (0,2), 'unpaired factual interval population')
+            if not available:
+                masks[pop][index].add('event_evidence_unresolved')
+    ordinary = prepared_game['ordinary_attempt_support']
+    prepared_segments = {s['segment_index']: s for s in prepared_game['segments'] or []}
+    ordinary_segments = {r['segment_index']: r for r in ordinary['segments'] or []}
+    for index, segment in enumerate(segments):
+        prepared_index = projection['prepared_segment_indices'][index]
+        checked = ordinary_segments.get(prepared_index)
+        if checked is None or checked['disposition'] != 'included':
+            codes = {ordinary['reasons'][i]['code'] for i in checked['reason_indices']} if checked else {'source_unavailable'}
+            for pop in populations:
+                masks[pop][index].update(codes or {'event_evidence_unresolved'})
+    source = {}
+    for row in factual_evidence_rows.get('attempt_fact', []):
+        require((row['season'],row['game_id']) == (year,gid), 'mixed factual attempt game')
+        require(row['source_index'] not in source, 'duplicate factual source index')
+        source[row['source_index']] = row
+    scores = {}
+    for row in keyed_scores.values() if isinstance(keyed_scores, dict) else keyed_scores:
+        require((row['season'],row['game_id']) == (year,gid), 'mixed scored attempt game')
+        require(row['source_index'] not in scores, 'duplicate numerical source index')
+        scores[row['source_index']] = row
+    attempts = {r['source_index']: r for r in prepared_game['attempts'] or []}
+    assignments = {r['source_index']: r for r in ordinary['events'] or []}
+    candidates, dispositions = [], []
+    for source_index, row in sorted(source.items()):
+        record = projection['events'].get(source_index)
+        require(record is not None, 'factual source event missing from preparation')
+        event = record['source']
+        require((row['period_number'],row['time_seconds']) == (event['period_number'],event['elapsed_seconds'])
+                and row['outcome'] == {'goal':'goal','shot-on-goal':'save','missed-shot':'miss','blocked-shot':'block'}.get(event['type_key']),
+                'factual source event differs from preparation')
+        association = projection['associations'].get(source_index)
+        native = association['native'] if association else None
+        native_ids = set(native['interval_indices']) if native is not None else set()
+        targets = [i for i,s in enumerate(segments) if native_ids.intersection(s['interval_indices'])]
+        assignment = assignments.get(source_index)
+        matched = (assignment is not None and assignment['disposition'] == 'included'
+                   and assignment['segment_index'] in prepared_segments and len(targets) == 1
+                   and projection['prepared_segment_indices'][targets[0]] == assignment['segment_index'])
+        if not matched:
+            # a positively assigned other-strength event does not erase adjacent
+            # five-on-five time. unknown assignment follows the located owner.
+            targets = [] if native is not None and native['classification'] == 'other' else _locate(
+                event, [dict(s,segment_index=i) for i,s in enumerate(segments)])
+        score = scores.get(source_index)
+        detail = attempts.get(source_index, {}).get('details', {}).get('values', {})
+        reason = None
+        if not matched:
+            reason = 'ambiguous_assignment'
+        elif detail.get('physical_status') != 'ordinary':
+            reason = 'physical_attempt_unavailable'
+        elif score is None or score['status'] != 'complete':
+            reason = 'model_value_unavailable'
+        else:
+            team = event['shooting_team_id']
+            role = 'scorer' if event['type_key'] == 'goal' else 'shooter'
+            segment = segments[targets[0]]
+            member_map = {int(t): segment[side+'_skaters'] + segment[side+'_goalies']
+                          for side,t in zip(('away','home'),teams)}
+            issue = actor_issue(event, identities, {role:team}, member_map)
+            shooter = detail.get('physical_shooter_id')
+            if (issue is not None or team not in member_map or detail.get('shooting_team_id') != team
+                    or event.get('owner_team_id') is not None and event['owner_team_id'] != team
+                    or shooter != event['roles'].get(role) or row['shooter_id'] != str(shooter)
+                    or row['team_id'] != str(team) or str(score['shooter_id']) != str(shooter)):
+                reason = issue or 'physical_shooter_conflict'
+        applicable = list(populations) if row['outcome'] != 'block' else ['neutral_all_attempt_value']
+        if reason is None:
+            value = score['prefixes']['neutral']['uqrg']
+            require(type(value) in (int,float) and math.isfinite(value) and 0 <= value <= 1,
+                    'invalid neutral all-attempt opportunity')
+            candidates.append(dict(source_index=source_index,interval_index=targets[0],player_id=str(shooter),
+                                   team_id=str(team),opportunity=value,source=row))
+        else:
+            for pop in applicable:
+                for index in targets:
+                    masks[pop][index].add('value_unavailable' if reason == 'model_value_unavailable' else
+                                          'ambiguous_assignment' if reason == 'ambiguous_assignment' else 'identity_conflict')
+        dispositions.append(dict(source_index=source_index,status='eligible' if reason is None else 'excluded',
+                                 reason=reason,model_reasons=score.get('reasons',[]) if score else [],
+                                 affected_interval_ids=[next(k for k,v in intervals.items() if v==i) for i in targets]))
+        if reason is None and identities[shooter]['reported_position'] == 'G':
+            dispositions[-1].update(personal_status='not_applicable',personal_reason='personal_shooter_not_skater')
+    masses, cells = defaultdict(list), defaultdict(list)
+    personal = []
+    for candidate in candidates:
+        index, team, value = candidate['interval_index'],candidate['team_id'],candidate['opportunity']
+        row = candidate['source']
+        if index not in masks['neutral_all_attempt_value']:
+            if identities[int(candidate['player_id'])]['reported_position'] != 'G':
+                personal.append(dict({k:v for k,v in candidate.items() if k != 'source'},
+                                     inferred_inputs=['blocked_origin','setter'] if row['outcome'] == 'block' else ['setter']))
+            masses['neutral_all_attempt_value',index,team].append(value)
+        if row['outcome'] != 'block' and index not in masks['neutral_locatable_unblocked_value']:
+            require(row['location_kind'] == 'reported_event' and row['x_ft'] is not None and row['y_ft'] is not None,
+                    'locatable factual population lacks recorded unblocked location')
+            masses['neutral_locatable_unblocked_value',index,team].append(value)
+            cells[index,team,cell_id(row['x_ft'],row['y_ft'])].append(value)
+    facts, locations = [], []
+    recorded_cells = {(r['interval_id'],r['team_id'],r['cell_id']):r for r in factual_evidence_rows.get('interval_location', [])
+                      if r['population'] == 'recorded_locatable_unblocked'}
+    for pop, rows in bases.items():
+        for (index,team), row in sorted(rows.items()):
+            if index in masks[pop]:
+                continue
+            opponent = teams[1] if team == teams[0] else teams[0]
+            require(len(masses[pop,index,team]) == row['for_mass'] and len(masses[pop,index,opponent]) == row['against_mass'],
+                    f"{gid}:{row['interval_id']}:{team}:{pop}: valued/recorded attempt count differs")
+            facts.append(dict(row,population=pop,support_id=support_ids[pop],
+                              for_mass=math.fsum(masses[pop,index,team]),against_mass=math.fsum(masses[pop,index,opponent]),
+                              on_net_for=None,on_net_against=None))
+            if pop == 'neutral_locatable_unblocked_value':
+                cell_ids = {c for i,t,c in cells if i == index} | {c for interval,t,c in recorded_cells if interval == row['interval_id']}
+                for cell in sorted(cell_ids):
+                    old = recorded_cells.get((row['interval_id'],team,cell),{})
+                    require(len(cells[index,team,cell]) == old.get('for_mass',0) and len(cells[index,opponent,cell]) == old.get('against_mass',0),
+                            f"{gid}:{row['interval_id']}:{team}:{cell}: valued/recorded cell count differs")
+                    locations.append(dict(season=year,game_id=gid,interval_id=row['interval_id'],team_id=team,population=pop,
+                        cell_id=cell,for_mass=math.fsum(cells[index,team,cell]),against_mass=math.fsum(cells[index,opponent,cell])))
+    baseline = {(r['player_id'],r['population']):r for r in factual_evidence_rows.get('context_coverage', [])}
+    coverage = []
+    gap = (prepared_game['game']['native_intervals'] is None or prepared_game['game']['periods'] is None
+           or any(r['status'] != 'supported' for r in prepared_game['game']['periods'] or [])
+           or any(r['classification'] == 'unresolved' for r in prepared_game['game']['native_intervals'] or []))
+    dressed = factual_evidence_rows.get('dressed_game', [])
+    for person in dressed:
+        pid = person['player_id']
+        actor = identities.get(int(pid))
+        if actor is None or actor['reported_position'] not in ('C','L','R','D','F'):
+            continue
+        for pop, base in populations.items():
+            excluded, reasons = 0, Counter()
+            for index,codes in masks[pop].items():
+                segment = segments[index]
+                if int(pid) in segment['away_skaters'] + segment['home_skaters']:
+                    excluded += segment['end_seconds'] - segment['start_seconds']
+                    reasons.update(codes)
+            old = baseline.get((pid,base), {})
+            coverage.append(dict(season=year,player_id=pid,population=pop,availability='provided',explanation=None,
+                known_excluded_seconds=excluded,unquantified_gap=gap or old.get('unquantified_gap',False),
+                reason_counts=[dict(code=k,count=v) for k,v in sorted(reasons.items())],
+                source_ids=old.get('source_ids',[]),method_ids=[]))
+    return dict(season=year,game_id=gid,interval_fact=facts,interval_location=locations,
+                interval_player=factual_evidence_rows.get('interval_player',[]),dressed_game=dressed,
+                context_coverage=coverage,personal=personal,dispositions=dispositions,
+                reconciliation=dict(intersection=sorted(source.keys() & scores.keys()),
+                    source_only=sorted(source.keys() - scores.keys()),numerical_only=sorted(scores.keys() - source.keys())))
+
+
 def _reported(person):
     rows = person['boxscore']
     # repeated identical dated rows still describe one player-game-team.
@@ -303,24 +588,8 @@ def reduce_game(prepared_game: PreparedGame, observed_game: list[PlayerGame],
             usage=Counter(),scoring={},unclassified=Counter(),starts=Counter(),score=Counter(),
             penalties={},context={},issues=[],scoring_excluded=Counter(),scoring_reasons=defaultdict(list))
     segments = prepared_game['segments'] or []
-    def valid_membership(segment):
-        for side,team in zip(('away','home'),teams):
-            for kind in ('skaters','goalies'):
-                ids = segment['membership'][side+'_'+kind]
-                if ids is None or len(ids) != len(set(ids)) or len(ids) > (1 if kind == 'goalies' else 6):
-                    return False
-                for raw_pid in ids:
-                    person = (prepared_game['people'] or {}).get(str(raw_pid))
-                    if person is None or dressed.get(str(raw_pid)) != team:
-                        return False
-                    actor = recorded['projection']['actor_identities'].get(raw_pid)
-                    if actor is None:
-                        return False
-                    position = actor['reported_position']
-                    if (kind == 'goalies' and position != 'G' or kind == 'skaters' and position not in ('C','L','R','D','F')):
-                        return False
-        return True
-    valid_segments = {s['segment_index'] for s in segments if valid_membership(s)}
+    valid_segments = {s['segment_index'] for s in segments if _valid_membership(
+        s,teams,dressed,recorded['projection']['actor_identities'],prepared_game['people'] or {})}
     elapsed_available = bool(valid_segments) and bool(prepared_game['game']['periods'])
     # strength usage is elapsed membership, independent of ordinary attempts.
     for segment in segments:
@@ -870,10 +1139,17 @@ def _catalogs(manifest, prepared_sha, observed_selection):
                 acquisition='not_acquired' if kind == 'tracking' else 'access_unverified',construction='recorded',population='recorded tracking windows' if kind == 'tracking' else 'all-situations source-season skating aggregates',
                 definition=limitation,receipts=[],limitations=[limitation]))
         inputs = [dict(role='prepared',sha256=prepared_sha,seasons=[r['season'] for r in manifest['seasons']])]
-        methods.append(dict(method_id=pending,family='microstats',recipe_id='pending-reference-opportunity-v1',design_sha256=None,
+        reference_method = dict(method_id=pending+'-opportunity',family='microstats',recipe_id='pending-reference-opportunity-v1',design_sha256=None,
             input_sha256=hashlib.sha256(json_bytes(inputs)).hexdigest(),fit_seasons=[],training_cutoff=None,target='reference expected goals over source-supported opportunities',population='regular-season five-on-five observed opportunities',reference='zero residual execution; not computed',limitations=['v1-06 owns reference opportunity valuation; no fitted state or probabilities exist here'],
             evidence=[dict(uri=str(manifest.directory/'manifest.json'),sha256=prepared_sha)],purpose=purpose,inputs=inputs,
-            reference_id='reference-execution-zero',support_policy_id='factual-pending-reference-v1',assessment=dict(status='experimental',findings=[dict(quantities=['skater_microstats.reference_xg_per60','skater_microstats.primary_pass_xg_per60'],population='regular-season five-on-five opportunities',summary='reference valuation not computed; primary pass observations not acquired',evidence=[dict(uri=str(manifest.directory/'manifest.json'),sha256=prepared_sha)])])))
+            reference_id='reference-execution-zero',support_policy_id='factual-pending-reference-v1',assessment=dict(status='experimental',findings=[dict(quantities=['skater_microstats.reference_xg_per60'],population='regular-season five-on-five opportunities',summary='reference valuation not computed',evidence=[dict(uri=str(manifest.directory/'manifest.json'),sha256=prepared_sha)])]))
+        methods.append(reference_method)
+        methods.append(dict(reference_method,method_id=pending,recipe_id='pending-primary-pass-reference-v1',
+            target='reference expected goals from observed primary passes',population='unavailable observed primary-pass links and matching tracked windows',
+            limitations=['primary-pass observations and matching tracked windows are not acquired'],
+            assessment=dict(status='experimental',findings=[dict(quantities=['skater_microstats.primary_pass_xg_per60'],
+                population='unavailable observed primary-pass links and matching tracked windows',summary='primary pass observations not acquired',
+                evidence=[dict(uri=str(manifest.directory/'manifest.json'),sha256=prepared_sha)])])))
         for population,identity in support_ids.items():
             supports.append(dict(support_id=identity,season=year,population_id=population,policy_id=f'factual-{population}-v1',
                 definition='source-supported timed attempt evidence' if population == 'source_supported_attempts' else 'existing observed interval support; recorded goals add only paired goal/on-net accounting exclusions',source_ids=[source_ids['facts']],method_ids=[]))
@@ -905,8 +1181,10 @@ def build_factual_results(prepared: Path, observed: Path, output: Path) -> dict:
             observed_result = aggregate(path,selection['purpose'],year,binding['sha256'])
             season = next(r for r in manifest['seasons'] if r['season'] == year)
             games = sorted(season['selected_game_ids'])
-            require(set(games) == {g.game_id for g in observed_result.games}, 'observed/prepared game selection differs')
             receipts = {r['game_id']:r for r in observed_result.receipt['games']}
+            require(set(games) <= {g.game_id for g in observed_result.games}, 'prepared games absent from observed inventory')
+            require(all(row['status'] == 'missing_capture' and not row['source_inputs']
+                        for gid,row in receipts.items() if gid not in games), 'observed source evidence omitted from preparation')
             old_games = defaultdict(list)
             for row in observed_result.player_games:
                 old_games[row.game_id].append(row)
@@ -953,7 +1231,7 @@ def build_factual_results(prepared: Path, observed: Path, output: Path) -> dict:
             catalogs['people'].extend(people)
             summary = summarize_season(people,game_reductions,observed_result,source_ids)
             del game_reductions
-            micro = microstats.summarize_season(people,micro_reductions,observed_result,source_ids,pending)
+            micro = microstats.summarize_season(people,micro_reductions,observed_result,source_ids,pending,pending+'-opportunity')
             del micro_reductions
             records = [dict(season=year,family='descriptive',availability='provided',explanation=None,
                 tables={k:summary[k] for k in FAMILY_TABLES['descriptive']})]

@@ -82,6 +82,7 @@ export const parseObject = (value: unknown): Record<string, unknown> => {
 export const resultFromRow = <T extends SummaryTable>(
   table: T,
   row: Record<string, unknown>,
+  personKind?: A.Person["kind"],
 ): (typeof summarySchemas)[T]["Type"] => {
   let data: Record<string, unknown> | null = null;
   if (row.payload_json !== null) {
@@ -89,7 +90,12 @@ export const resultFromRow = <T extends SummaryTable>(
     if ("method_id" in data) throw new Error("method identity must have one stored owner");
     if (row.method_id !== null) data = { ...data, method_id: row.method_id };
   }
-  return decode(summarySchemas[table], {
+  if (table === "execution_breakdown" && personKind === undefined)
+    throw new Error("execution breakdown requires a checked person kind");
+  const schema = table === "execution_breakdown"
+    ? personKind === "goalie" ? A.GoalieExecutionBreakdownResult : A.SkaterExecutionBreakdownResult
+    : summarySchemas[table];
+  return decode(schema, {
     availability: row.availability,
     explanation: row.explanation,
     data,
@@ -132,8 +138,8 @@ export const validatePhysical = (sql: SqliteClient) =>
     yield* Effect.try(() => {
       if (JSON.stringify(integrity) !== '[{"integrity_check":"ok"}]' || foreign.length !== 0)
         throw new Error("publication integrity or foreign-key check failed");
-      if (JSON.stringify(version) !== '[{"user_version":7}]')
-        throw new Error("incompatible publication version; schema 7 is required");
+      if (JSON.stringify(version) !== '[{"user_version":8}]')
+        throw new Error("incompatible publication version; schema 8 is required");
       if (JSON.stringify(journal) !== '[{"journal_mode":"delete"}]')
         throw new Error("publication requires delete journal mode");
       const actual = tables.filter((table) => !table.name.startsWith("sqlite_"));
@@ -398,9 +404,11 @@ export const readCatalogs = (
           typeof value.attempts === "number" && typeof value.expected_goals === "number";
         if (paired && method.family !== "goalie")
           throw new Error("paired goalie evidence method family differs");
+        const emptySkaterEvidence = method.family === "execution" && value.events === 0 &&
+          "reference" in value && "actor" in value;
         if (
           (method.design_sha256 === null || method.training_cutoff === null) &&
-          (hasEstimate(value) || numericalMap || (paired && Number(value.attempts) > 0))
+          ((hasEstimate(value) && !emptySkaterEvidence) || numericalMap || (paired && Number(value.attempts) > 0))
         )
           throw new Error("available fitted output lacks design/cutoff identity");
       }
@@ -525,7 +533,7 @@ export const validateAnalysis = (
             else throw new Error("unknown breakdown kind");
           }
           if (table === "adjustment_decomposition") decode(A.AdjustmentTarget, row.target);
-          const result = resultFromRow(table, row);
+          const result = resultFromRow(table, row, person.kind);
           if (table === "skater_spatial" && result.availability === "provided") {
             const value = result.data as typeof A.SkaterSpatial.Type;
             const expected =
@@ -602,12 +610,15 @@ export const validateAnalysis = (
             row.candidate_id !== "none" &&
             row.candidate_id !== "unknown"
           )
-            present(row.season, row.candidate_id, "skater");
-          if (
-            table === "attempt_execution_share" &&
-            !["none", "unknown", "coaching_context"].includes(String(row.recipient_id))
-          )
-            present(row.season, row.recipient_id, row.group === "goalie" ? "goalie" : "skater");
+            present(row.season, row.candidate_id);
+          if (table === "attempt_execution_share") {
+            const person = ["none", "unknown", "coaching_context"].includes(String(row.recipient_id))
+              ? null : present(row.season, row.recipient_id, row.group === "goalie" ? "goalie" : undefined);
+            if (row.group === "setter" &&
+                (["none", "unknown"].includes(String(row.recipient_id)) || person?.kind === "goalie") &&
+                (value as typeof A.AttemptExecutionShare.Type).goals !== 0)
+              throw new Error("neutral setter recipient has a nonzero execution share");
+          }
         }),
       );
     }
@@ -882,7 +893,7 @@ export const validateCrossRecords = (
     );
     yield* assertEmpty(
       sql,
-      "SELECT 1 FROM interval_fact a JOIN interval_fact b ON a.season=b.season AND a.game_id=b.game_id AND a.team_id=b.team_id AND a.population=b.population AND a.period_number=b.period_number AND a.rowid<b.rowid WHERE a.start_seconds<b.end_seconds AND b.start_seconds<a.end_seconds LIMIT 1",
+      "SELECT 1 FROM (SELECT start_seconds,MAX(end_seconds) OVER (PARTITION BY season,game_id,team_id,population,period_number ORDER BY start_seconds,end_seconds,rowid ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING) prior_end FROM interval_fact) WHERE prior_end>start_seconds LIMIT 1",
       "overlapping context partition",
     );
     yield* assertEmpty(
@@ -1152,10 +1163,98 @@ export const validateCrossRecords = (
         });
       }),
     );
+    const executionSources = yield* sql.unsafe<{
+      season: string;
+      player_id: string;
+      strength: string;
+      source_attempts: number;
+      events: number;
+      goals: number;
+      reference: number;
+      actor: number;
+    }>(
+      "WITH attempts AS (SELECT season,game_id,source_index,shooter_id player_id,strength,outcome,json_extract(payload_json,'$.neutral_all_attempt_opportunity.value') reference,json_extract(payload_json,'$.actor_all_attempt_opportunity.value') actor FROM attempt_fact WHERE shooter_id IS NOT NULL AND strength IS NOT NULL) SELECT season,player_id,strength,COUNT(*) source_attempts,COALESCE(SUM(reference IS NOT NULL AND actor IS NOT NULL),0) events,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL AND outcome='goal' THEN 1 ELSE 0 END),0) goals,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL THEN reference ELSE 0 END ORDER BY game_id,source_index),0) reference,COALESCE(SUM(CASE WHEN reference IS NOT NULL AND actor IS NOT NULL THEN actor ELSE 0 END ORDER BY game_id,source_index),0) actor FROM attempts GROUP BY season,player_id,strength",
+    );
+    const sourceTotals = new Map(
+      executionSources.map((row) => [selectorKey(row, ["season", "player_id", "strength"]), row]),
+    );
+    yield* forEachRow(sql, "skater_execution", (row) =>
+      Effect.gen(function* () {
+        const summary = yield* Effect.try(() =>
+          resultFromRow("skater_execution", row),
+        );
+        if (summary.availability !== "provided") return;
+        const rows = yield* sql.unsafe<Record<string, unknown>>(
+          "SELECT * FROM execution_breakdown WHERE season=? AND player_id=? AND strength=? ORDER BY kind,stratum",
+          [String(row.season), String(row.player_id), String(row.strength)],
+        );
+        yield* Effect.try(() => {
+          const totals = { shot_type: [0, 0, 0, 0], danger: [0, 0, 0, 0] };
+          for (const breakdown of rows) {
+            const result = resultFromRow(
+              "execution_breakdown",
+              breakdown,
+              "skater",
+            );
+            if (result.availability !== "provided")
+              throw new Error(
+                "provided execution summary lacks paired stratum evidence",
+              );
+            const data = result.data as typeof A.SkaterExecutionBreakdown.Type;
+            const total = totals[breakdown.kind as keyof typeof totals];
+            total[0] += data.events;
+            total[1] += data.observed_goals;
+            total[2] += data.reference.expected_goals;
+            total[3] += data.actor.expected_goals;
+          }
+          const paired = summary.data.paired_evidence;
+          const omitted = paired.danger_unavailable;
+          const keyed = sourceTotals.get(selectorKey(row, ["season", "player_id", "strength"])) ??
+            { source_attempts: 0, events: 0, goals: 0, reference: 0, actor: 0 };
+          if (paired.source_attempts !== keyed.source_attempts ||
+              !totals.shot_type.every((total, index) => close(total, [keyed.events, keyed.goals, keyed.reference, keyed.actor][index])))
+            throw new Error("paired execution evidence differs from keyed source/model intersection");
+
+          if (
+            totals.shot_type[0] !== paired.paired_attempts ||
+            !totals.shot_type.every((value, index) =>
+              close(
+                value,
+                totals.danger[index] +
+                  [
+                    omitted.events,
+                    omitted.observed_goals,
+                    omitted.reference_expected_goals,
+                    omitted.actor_expected_goals,
+                  ][index],
+              ),
+            )
+          )
+            throw new Error(
+              "paired execution type/danger counts or expectations do not close",
+            );
+        });
+      }),
+    );
     yield* assertEmpty(
       sql,
-      "SELECT 1 FROM attempt_setter GROUP BY season,game_id,source_index HAVING ABS(SUM(json_extract(payload_json,'$.pre_outcome_weight'))-1)>2e-9 LIMIT 1",
-      "setter weights do not sum to one",
+      "SELECT 1 FROM attempt_setter GROUP BY season,game_id,source_index HAVING ABS(SUM(json_extract(payload_json,'$.pre_outcome_weight'))-1)>2e-9 OR SUM(candidate_id='none')<>1 OR ABS(SUM(CASE WHEN candidate_id='none' THEN json_extract(payload_json,'$.pre_outcome_weight') ELSE 0 END)-.2)>2e-9 OR (SUM(candidate_id='unknown')>0 AND COUNT(*)<>2) LIMIT 1",
+      "setter weights differ from the fixed none/setup candidate prior",
+    );
+    yield* assertEmpty(
+      sql,
+      "SELECT 1 FROM attempt_setter t JOIN attempt_fact a USING(season,game_id,source_index) WHERE a.outcome<>'goal' AND json_array_length(json_extract(t.payload_json,'$.recorded_assist_evidence'))>0 LIMIT 1",
+      "non-goal setter carries recorded assist evidence",
+    );
+    yield* assertEmpty(
+      sql,
+      "SELECT 1 FROM attempt_execution_share s JOIN attempt_fact a USING(season,game_id,source_index) WHERE (s.\"group\"='shooter' AND s.recipient_id IS NOT a.shooter_id) OR (s.\"group\"='goalie' AND ((a.goalie_id IS NOT NULL AND s.recipient_id IS NOT a.goalie_id) OR NOT EXISTS(SELECT 1 FROM dressed_game d WHERE d.season=s.season AND d.game_id=s.game_id AND d.player_id=s.recipient_id AND d.team_id<>json_extract(a.payload_json,'$.team_id')))) OR (s.\"group\"='setter' AND NOT EXISTS(SELECT 1 FROM attempt_setter t WHERE t.season=s.season AND t.game_id=s.game_id AND t.source_index=s.source_index AND t.candidate_id=s.recipient_id)) LIMIT 1",
+      "execution share recipient differs from its source actor or pre-outcome setter candidate",
+    );
+    yield* assertEmpty(
+      sql,
+      "SELECT 1 FROM attempt_setter t JOIN attempt_fact a USING(season,game_id,source_index) WHERE t.candidate_id NOT IN ('none','unknown') AND NOT EXISTS(SELECT 1 FROM dressed_game d WHERE d.season=t.season AND d.game_id=t.game_id AND d.player_id=t.candidate_id AND d.team_id=json_extract(a.payload_json,'$.team_id')) LIMIT 1",
+      "setter candidate is not dressed for the attacking team",
     );
     yield* assertEmpty(
       sql,

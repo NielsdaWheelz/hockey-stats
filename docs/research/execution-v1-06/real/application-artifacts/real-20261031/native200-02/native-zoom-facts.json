@@ -1,0 +1,86 @@
+{
+  "node_pid": 58141,
+  "chrome_profile": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/chrome-profile",
+  "requested_window_width": 1280,
+  "requested_zoom": 2,
+  "default_zoom_level": 0,
+  "host_zoom_level": 3.8017840169239308,
+  "initial_blank": {
+    "innerWidth": 1280,
+    "outerWidth": 1280,
+    "innerHeight": 913,
+    "outerHeight": 1000,
+    "dpr": 2,
+    "scrollWidth": 1280,
+    "url": "about:blank",
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33,
+      "colorDepth": 30,
+      "pixelDepth": 30
+    },
+    "visualViewport": {
+      "width": 1280,
+      "height": 913,
+      "scale": 1,
+      "offsetLeft": 0,
+      "offsetTop": 0
+    }
+  },
+  "initial_own_origin": {
+    "innerWidth": 640,
+    "outerWidth": 1280,
+    "innerHeight": 456,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "scrollWidth": 640,
+    "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts",
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33,
+      "colorDepth": 30,
+      "pixelDepth": 30
+    },
+    "visualViewport": {
+      "width": 640,
+      "height": 456.5,
+      "scale": 1,
+      "offsetLeft": 0,
+      "offsetTop": 0
+    }
+  },
+  "own_origin_profile": {
+    "innerWidth": 640,
+    "outerWidth": 1280,
+    "innerHeight": 456,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "scrollWidth": 640,
+    "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33,
+      "colorDepth": 30,
+      "pixelDepth": 30
+    },
+    "visualViewport": {
+      "width": 640,
+      "height": 456.5,
+      "scale": 1,
+      "offsetLeft": 0,
+      "offsetTop": 0
+    }
+  }
+}

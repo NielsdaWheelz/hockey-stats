@@ -1,0 +1,31 @@
+{
+  "kind": "execution-v1-06-final-byte-preservation",
+  "checked_at_utc": "2026-10-31T03:56:23.256189+00:00",
+  "baseline": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/protected-before.json",
+    "sha256": "a54d66b9c64407945f91a0a1a41c457cce71d9db6c09e1c8326430da5c03e1c7",
+    "files": 196,
+    "bytes": 11078184054
+  },
+  "scope": "current serving files, frozen preparation identities, accepted fixture/real state members, coaches and original real factual candidate; immutable source payloads are bound by existing accepted manifests",
+  "content_changes": [],
+  "mtime_changes": [],
+  "primary_dirty_drafts": "not compared here; the protected file baseline contains no primary working-tree status or draft byte identities",
+  "primary_dist": {
+    "files": 38,
+    "added": [],
+    "missing": []
+  },
+  "candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite",
+    "bytes": 11310997504,
+    "sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+    "expected_sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+    "wal_present": false,
+    "shm_present": false
+  },
+  "status": "passed",
+  "expected_file_bytes_read": 22389181558,
+  "wall_seconds": 86.29992566700093,
+  "interpretation": "all listed files are rehashed, with no mtime shortcut; directory membership is checked only for primary app/dist; this does not reopen sqlite, source captures, preparation members or fit internals beyond the exact baseline file list"
+}

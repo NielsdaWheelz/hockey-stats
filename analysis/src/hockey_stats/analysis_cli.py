@@ -11,12 +11,8 @@ from .cli import Once
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(prog="hockey-stats-analysis", description="prepare evidence, fit annual execution, or publish checked analysis", allow_abbrev=False)
+    parser = argparse.ArgumentParser(prog="hockey-stats-analysis", description="prepare evidence, reduce facts, fit and score annual execution, compose results, or publish checked analysis", allow_abbrev=False)
     commands = parser.add_subparsers(dest="command", required=True)
-    publish = commands.add_parser("publish", allow_abbrev=False)
-    publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
-    publish.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
-    publish.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     prepare = commands.add_parser("prepare", allow_abbrev=False)
     prepare.add_argument("--selection", required=True, action=Once, metavar="FILE")
     prepare.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
@@ -31,20 +27,36 @@ def main(argv=None) -> int:
     fit.add_argument("--season", required=True, action=Once)
     fit.add_argument("--previous", action=Once, metavar="DIRECTORY")
     fit.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    score = commands.add_parser("score", allow_abbrev=False)
+    score.add_argument("--family", required=True, choices=("execution",), action=Once)
+    score.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
+    score.add_argument("--coaches", required=True, action=Once, metavar="FILE")
+    score.add_argument("--state", required=True, action=Once, metavar="DIRECTORY")
+    score.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    summarize = commands.add_parser("summarize", allow_abbrev=False)
+    summarize.add_argument("--family", required=True, choices=("execution",), action=Once)
+    summarize.add_argument("--prepared", required=True, action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--facts", required=True, action=Once, metavar="DIRECTORY")
+    summarize.add_argument("--scores", required=True, action=Once, metavar="FILE")
+    summarize.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
+    publish = commands.add_parser("publish", allow_abbrev=False)
+    publish.add_argument("--observed", required=True, action=Once, metavar="FILE")
+    publish.add_argument("--results", required=True, action=Once, metavar="DIRECTORY")
+    publish.add_argument("--out", required=True, action=Once, metavar="DIRECTORY")
     args = parser.parse_args(argv)
 
     try:
         if args.command == "prepare":
             from .analysis_data import prepare_analysis
+
             manifest = prepare_analysis(args.selection, args.out)
             print(str(manifest.directory / "manifest.json"))
-            return 0
-        if args.command == "facts":
+        elif args.command == "facts":
             from .descriptive import build_factual_results
+
             manifest = build_factual_results(Path(args.prepared), Path(args.observed), Path(args.out))
             print(f"factual results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
-            return 0
-        if args.command == "fit":
+        elif args.command == "fit":
             from .analysis_data import read_prepared
             from .artifacts import require
             from .captures import strict_json
@@ -69,14 +81,25 @@ def main(argv=None) -> int:
                     (["unavailable heads " + ",".join(unavailable)] if unavailable else [])
                     + (["unresolved numerical probes " + ",".join(unresolved)] if unresolved else [])), file=sys.stderr)
                 return 1
-            return 0
-        from .publication import build_publication
-        verification = build_publication(Path(args.observed), Path(args.results), Path(args.out))
+        elif args.command == "score":
+            from .execution_scores import write_execution_scores
+
+            scores = write_execution_scores(Path(args.prepared), Path(args.coaches), Path(args.state), Path(args.out))
+            print(f"execution scores {scores.manifest['season']}: {scores.manifest['purpose']}; {scores.path}")
+        elif args.command == "summarize":
+            from .execution_scores import compose_results
+
+            manifest = compose_results(Path(args.prepared), Path(args.facts), Path(args.scores), Path(args.out))
+            print(f"composed results: {manifest['purpose']}; {Path(args.out) / 'manifest.json'}")
+        else:
+            from .publication import build_publication
+
+            verification = build_publication(Path(args.observed), Path(args.results), Path(args.out))
+            print(f"publication {verification['publication_id']}: {verification['purpose']}")
+            print(f"output: {verification['database']['path']}; scientific admission not performed")
     except (InputContractError, OSError, ValueError, sqlite3.Error) as error:
         print(f"{args.command} failed: {error}", file=sys.stderr)
         return 1
-    print(f"publication {verification['publication_id']}: {verification['purpose']}")
-    print(f"output: {verification['database']['path']}; scientific admission not performed")
     return 0
 
 

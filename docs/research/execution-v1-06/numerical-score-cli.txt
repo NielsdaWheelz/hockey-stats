@@ -1,0 +1,34 @@
+[
+  {
+    "check": "score help",
+    "passed": true,
+    "returncode": 0,
+    "output": "usage: hockey-stats-analysis score [-h] --family {execution}\n                                   --prepared DIRECTORY --coaches FILE\n                                   --state DIRECTORY --out DIRECTORY\n\noptions:\n  -h, --help            show this help message and exit\n  --family {execution}\n  --prepared DIRECTORY\n  --coaches FILE\n  --state DIRECTORY\n  --out DIRECTORY\n"
+  },
+  {
+    "check": "occupied annual output",
+    "passed": true,
+    "returncode": 1,
+    "output": "score failed: /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-01/scores/20232024: output already exists; choose a new output path\n"
+  },
+  {
+    "check": "repeated family",
+    "passed": true,
+    "returncode": 2,
+    "output": "usage: hockey-stats-analysis score [-h] --family {execution}\n                                   --prepared DIRECTORY --coaches FILE\n                                   --state DIRECTORY --out DIRECTORY\nhockey-stats-analysis score: error: --family must occur exactly once\n"
+  },
+  {
+    "check": "unknown flag",
+    "passed": true,
+    "returncode": 2,
+    "output": "usage: hockey-stats-analysis [-h]\n                             {prepare,facts,fit,score,summarize,publish} ...\nhockey-stats-analysis: error: unrecognized arguments: --latest\n"
+  },
+  {
+    "check": "protected input/output manifest bytes",
+    "passed": true
+  },
+  {
+    "check": "completed artifact still passes detached reader",
+    "passed": true
+  }
+]

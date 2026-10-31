@@ -1,0 +1,278 @@
+{
+  "kind": "temporary-real-wide03-completion",
+  "status": "wide03 browser and actual export checker passed; root visual review pending",
+  "checked_at_utc": "2026-10-31T03:12:00.656301+00:00",
+  "browser": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/browser.json",
+    "sha256": "4571b6b209b63d19e38caccd44085fba4b280b0ce98bd7b7c74dcf959c049679"
+  },
+  "exports": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/exports.json",
+    "sha256": "d8189ec3841bdf65d851b2c24d8263fe502f4f0c73be2fa4a3ff995e159a4777"
+  },
+  "costs": {
+    "browser-wide-03": {
+      "actual_exit_code": 0,
+      "started_at": "2026-10-31T03:09:06Z",
+      "finished_at": "2026-10-31T03:10:07Z",
+      "wall_seconds": 61.39,
+      "user_seconds": 16.89,
+      "system_seconds": 2.22,
+      "time_reported_peak_rss_bytes": 1543012352
+    },
+    "exports-wide-03": {
+      "actual_exit_code": 0,
+      "started_at": "2026-10-31T03:11:01Z",
+      "finished_at": "2026-10-31T03:11:03Z",
+      "wall_seconds": 2.13,
+      "user_seconds": 1.94,
+      "system_seconds": 0.16,
+      "time_reported_peak_rss_bytes": 1476182016
+    }
+  },
+  "native": {
+    "zoom": 1,
+    "preferences_zoom_level": 0,
+    "innerWidth": 1440,
+    "outerWidth": 1440,
+    "dpr": 2,
+    "scrollWidth": 1440,
+    "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts"
+  },
+  "discovery": {
+    "layout": {
+      "innerWidth": 1440,
+      "outerWidth": 1440,
+      "dpr": 2,
+      "scrollWidth": 1440,
+      "url": "http://127.0.0.1:41986/?season=20232024&table=execution&strength=5v5&metric=execution.5v5.finishing_goals_per100_attempts"
+    },
+    "rows": 924
+  },
+  "comparison_layout": {
+    "innerWidth": 1440,
+    "outerWidth": 1440,
+    "dpr": 2,
+    "scrollWidth": 1440,
+    "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts"
+  },
+  "cohort": {
+    "n": 246,
+    "member": true,
+    "percentile": 78.2520325203252,
+    "qualification_seconds": 95337
+  },
+  "zero_specialty": {
+    "disposition": "passed",
+    "witness": {
+      "reason": "zero_specialty",
+      "season": "20232024",
+      "player_id": "8470600",
+      "strength": "4v3"
+    },
+    "value": -1.2164660674975312,
+    "cohort": {
+      "n": 0,
+      "member": false,
+      "percentile": null,
+      "descending_midrank": null,
+      "cutoff_minutes": 50,
+      "qualification_seconds": 0,
+      "peer_group": "reported defense",
+      "focal_value": -1.2164660674975312,
+      "incompatible_peer_count": 0,
+      "members": []
+    },
+    "details": "exact own-year API",
+    "layout": {
+      "innerWidth": 1440,
+      "outerWidth": 1440,
+      "dpr": 2,
+      "scrollWidth": 1440,
+      "url": "http://127.0.0.1:41986/players/8470600?season=20232024&metric=execution.4v3.finishing_goals_per100_attempts"
+    }
+  },
+  "own_year_history_values": [
+    {
+      "season": "20232024",
+      "value": 0.26398994347003324
+    },
+    {
+      "season": "20242025",
+      "value": 0.3757959078147517
+    },
+    {
+      "season": "20252026",
+      "value": 0.7852557967211338
+    }
+  ],
+  "svg_bounds": {
+    "width": 1200,
+    "height": 4343,
+    "outside": [],
+    "sections": {
+      "2023\u201324": [
+        "2023\u201324 \u00b7 selected: 0.26399 goals per 100 attempts; 78.3 percentile",
+        "Josh Morrissey \u00b7 D \u00b7 WPG",
+        "reported defense \u00b7 cutoff 300 min \u00b7 n=246 \u00b7 incompatible peers 0",
+        "qualification: 95337 seconds (5v5 current-season exact-strength focal on-ice participation with both",
+        "goalies; cohort qualification, not panel or likelihood exposure); quantity support: 95337 included seconds;",
+        "known excluded seconds 0; gap true; prior-only false",
+        "inferred inputs: blocked_origin, historical_borrowing, setter; current-season information: true; prior seasons: 20222023",
+        "common reference panel execution-v1-06-1:20232024:5,5,1: 125238 physical opportunities; setup weight",
+        "100190.40000000001",
+        "neutral prefix masses: u 89650.62468314166; uq 61753.11507925035; uqr 49707.45359736244; uqrg",
+        "5206.7114861530135",
+        "focal shooter prefix masses: u 87234.70235856646; uq 59868.06783639574; uqr 46217.38667062439; uqrg",
+        "5537.327211556013",
+        "setting setup goal masses: neutral 4912.521589513679; focal 7748.121363746955",
+        "shooter u: available true; likelihood union 442; prior only false; carried seasons 20222023; absence reason none",
+        "shooter q: available true; likelihood union 287; prior only false; carried seasons 20222023; absence reason none",
+        "shooter r: available true; likelihood union 195; prior only false; carried seasons 20222023; absence reason none",
+        "shooter g: available true; likelihood union 142; prior only false; carried seasons 20222023; absence reason none",
+        "setter g: available true; likelihood union 55633; candidate events 1040; mean-coupled events 55599; prior only false;",
+        "carried seasons 20222023; absence reason none",
+        "paired personal attempts: source 325; paired 325; unvalued source 0",
+        "danger unavailable: 0 paired attempts; 0 recorded goals; reference expected goals 0; actor expected goals 0",
+        "support reasons: [{\"code\":\"elapsed_unavailable\",\"count\":34}]; recorded reason codes: none",
+        "construction: modeled; population: checked regular-season physical opportunities; exact-strength common panels and",
+        "separately paired source evidence; numerical reference: virtual shooter, setter, goalie and coaching with zero residual",
+        "execution; retain circumstances and inferred setup",
+        "methods: execution-v1-06-20232024; sources: unlinked; reference reference-execution-zero; support policy",
+        "execution-v1-06-matched-reference-v1",
+        "method limitations: [\"experimental seasonal fits; no scientific admission or calibrated uncertainty\",\"same-season fitted",
+        "expectations are not held-out forecasts or causal effects\",\"blocked origins and setup are inferred; recorded facts remain",
+        "separate\",\"qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators",
+        "differ\"]; findings: [\"annual fitted opportunity panels and paired source attempts: experimental point estimates; calibration,",
+        "recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit\"];",
+        "uncertainty: {\"kind\":\"not_estimated\"}",
+        "corpus sha-256: 92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+      ],
+      "2024\u201325": [
+        "2024\u201325: 0.375796 goals per 100 attempts; 85.1 percentile",
+        "Josh Morrissey \u00b7 D \u00b7 WPG",
+        "reported defense \u00b7 cutoff 300 min \u00b7 n=238 \u00b7 incompatible peers 0",
+        "qualification: 90975 seconds (5v5 current-season exact-strength focal on-ice participation with both",
+        "goalies; cohort qualification, not panel or likelihood exposure); quantity support: 90975 included seconds;",
+        "known excluded seconds 0; gap true; prior-only false",
+        "inferred inputs: blocked_origin, historical_borrowing, setter; current-season information: true; prior seasons: 20232024",
+        "common reference panel execution-v1-06-1:20242025:5,5,1: 125351 physical opportunities; setup weight 100280.8",
+        "neutral prefix masses: u 89588.09991561242; uq 58786.169621783614; uqr 47304.113280253405; uqrg",
+        "5097.205782290092",
+        "focal shooter prefix masses: u 84726.34098770299; uq 54637.305076986544; uqr 41197.381514375855; uqrg",
+        "5568.269710694962",
+        "setting setup goal masses: neutral 4804.610389747261; focal 6866.258351267956",
+        "shooter u: available true; likelihood union 428; prior only false; carried seasons 20232024; absence reason none",
+        "shooter q: available true; likelihood union 268; prior only false; carried seasons 20232024; absence reason none",
+        "shooter r: available true; likelihood union 168; prior only false; carried seasons 20232024; absence reason none",
+        "shooter g: available true; likelihood union 116; prior only false; carried seasons 20232024; absence reason none",
+        "setter g: available true; likelihood union 51442; candidate events 993; mean-coupled events 51419; prior only false; carried",
+        "seasons 20232024; absence reason none",
+        "paired personal attempts: source 343; paired 343; unvalued source 0",
+        "danger unavailable: 0 paired attempts; 0 recorded goals; reference expected goals 0; actor expected goals 0",
+        "support reasons: [{\"code\":\"elapsed_unavailable\",\"count\":18}]; recorded reason codes: none",
+        "construction: modeled; population: checked regular-season physical opportunities; exact-strength common panels and",
+        "separately paired source evidence; numerical reference: virtual shooter, setter, goalie and coaching with zero residual",
+        "execution; retain circumstances and inferred setup",
+        "methods: execution-v1-06-20242025; sources: unlinked; reference reference-execution-zero; support policy",
+        "execution-v1-06-matched-reference-v1",
+        "method limitations: [\"experimental seasonal fits; no scientific admission or calibrated uncertainty\",\"same-season fitted",
+        "expectations are not held-out forecasts or causal effects\",\"blocked origins and setup are inferred; recorded facts remain",
+        "separate\",\"qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators",
+        "differ\"]; findings: [\"annual fitted opportunity panels and paired source attempts: experimental point estimates; calibration,",
+        "recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit\"];",
+        "uncertainty: {\"kind\":\"not_estimated\"}",
+        "corpus sha-256: 46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+      ],
+      "2025\u201326": [
+        "2025\u201326: 0.785256 goals per 100 attempts; 93.4 percentile",
+        "Josh Morrissey \u00b7 D \u00b7 WPG",
+        "reported defense \u00b7 cutoff 300 min \u00b7 n=236 \u00b7 incompatible peers 0",
+        "qualification: 88742 seconds (5v5 current-season exact-strength focal on-ice participation with both",
+        "goalies; cohort qualification, not panel or likelihood exposure); quantity support: 88742 included seconds;",
+        "known excluded seconds 0; gap true; prior-only false",
+        "inferred inputs: blocked_origin, historical_borrowing, setter; current-season information: true; prior seasons: 20242025",
+        "common reference panel execution-v1-06-1:20252026:5,5,1: 120912 physical opportunities; setup weight 96729.6",
+        "neutral prefix masses: u 87844.59950172156; uq 56745.90437118678; uqr 45655.15323585539; uqrg",
+        "5258.497126668831",
+        "focal shooter prefix masses: u 83513.35833809851; uq 55822.12202148913; uqr 40156.5244145627; uqrg",
+        "6207.965615600288",
+        "setting setup goal masses: neutral 4966.279922186866; focal 7521.971409385203",
+        "shooter u: available true; likelihood union 332; prior only false; carried seasons 20242025; absence reason none",
+        "shooter q: available true; likelihood union 218; prior only false; carried seasons 20242025; absence reason none",
+        "shooter r: available true; likelihood union 144; prior only false; carried seasons 20242025; absence reason none",
+        "shooter g: available true; likelihood union 94; prior only false; carried seasons 20242025; absence reason none",
+        "setter g: available true; likelihood union 50509; candidate events 874; mean-coupled events 50474; prior only false;",
+        "carried seasons 20242025; absence reason none",
+        "paired personal attempts: source 246; paired 246; unvalued source 0",
+        "danger unavailable: 0 paired attempts; 0 recorded goals; reference expected goals 0; actor expected goals 0",
+        "support reasons: [{\"code\":\"elapsed_unavailable\",\"count\":16}]; recorded reason codes: none",
+        "construction: modeled; population: checked regular-season physical opportunities; exact-strength common panels and",
+        "separately paired source evidence; numerical reference: virtual shooter, setter, goalie and coaching with zero residual",
+        "execution; retain circumstances and inferred setup",
+        "methods: execution-v1-06-20252026; sources: unlinked; reference reference-execution-zero; support policy",
+        "execution-v1-06-matched-reference-v1",
+        "method limitations: [\"experimental seasonal fits; no scientific admission or calibrated uncertainty\",\"same-season fitted",
+        "expectations are not held-out forecasts or causal effects\",\"blocked origins and setup are inferred; recorded facts remain",
+        "separate\",\"qualification uses exact-strength current-season elapsed membership; panel and likelihood denominators",
+        "differ\"]; findings: [\"annual fitted opportunity panels and paired source attempts: experimental point estimates; calibration,",
+        "recovery and assumption sensitivity are not certified; per-head priors and unavailable coefficients remain explicit\"];",
+        "uncertainty: {\"kind\":\"not_estimated\"}",
+        "corpus sha-256: 8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43",
+        "publication 9a5b4061-f909-4c1b-b624-5729e5acb6bf \u00b7 real \u00b7 generated 2026-10-30T13:52:51.443967Z",
+        "percentiles describe relative standing of the published quantity, not confidence or ability separation. missing years and",
+        "changed definitions break lines. csv text cells use an apostrophe to escape spreadsheet formula prefixes."
+      ]
+    }
+  },
+  "images": {
+    "execution-cohort.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-cohort.png",
+    "execution-support.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-support.png",
+    "execution-shot-type-left.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-shot-type-left.png",
+    "execution-shot-type-right.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-shot-type-right.png",
+    "execution-danger-left.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-danger-left.png",
+    "execution-danger-right.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-danger-right.png",
+    "execution-compare.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-compare.png",
+    "execution-zero-specialty.png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/execution-zero-specialty.png",
+    "history_png": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png"
+  },
+  "downloads": {
+    "discoveryCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/downloads/execution-5v5-20232024-9a5b4061-f909-4c1b-b624-5729e5acb6bf.csv",
+      "filename": "execution-5v5-20232024-9a5b4061-f909-4c1b-b624-5729e5acb6bf.csv",
+      "bytes": 45784394,
+      "sha256": "2941c66e3e4c7d0553cd320bc7b8fb22ba7089e08b960a169918796b008b3595"
+    },
+    "evidenceCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/downloads/hockey-stats-8477504-20232024-5v5-execution-evidence.csv",
+      "filename": "hockey-stats-8477504-20232024-5v5-execution-evidence.csv",
+      "bytes": 283050,
+      "sha256": "9e655d172ab05ab92ff1562c4e4f288caf582c5b51774dbe5615d304896fef7f"
+    },
+    "historyCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "filename": "hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "bytes": 15469,
+      "sha256": "8363aac3880e14fa0e83d9485ef0dfdc4db0f2b182d0bf5ca8c76d74c3488012"
+    },
+    "historyPng": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "filename": "hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "bytes": 1513301,
+      "sha256": "7762f6b4233d5eeff73c1b04b113284a04b86021fc00959dc2164f0fe7641a93"
+    },
+    "nextEvidenceCsv": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/downloads/hockey-stats-8477504-20242025-5v5-execution-evidence.csv",
+      "filename": "hockey-stats-8477504-20242025-5v5-execution-evidence.csv",
+      "bytes": 284771,
+      "sha256": "726bab0490fc53969afd4739f58cac4e5efccbabf2d28a3d640d20d693da432f"
+    }
+  },
+  "next_season_freshness": "successful55487639 helper natively reopened new remounted disclosures, deep-equalled complete next-year panel/coefficient/paired triple before next evidence CSV; existing panel-id and CSV assertions retained",
+  "browser_errors": [],
+  "blocked_page_requests": [],
+  "request_failures": [],
+  "server_node_pid": 52177,
+  "api_reused_without_repeat": true,
+  "next": "sequential narrow01 then native20001+exports released, baseline successfulwide03; root visual review in parallel"
+}

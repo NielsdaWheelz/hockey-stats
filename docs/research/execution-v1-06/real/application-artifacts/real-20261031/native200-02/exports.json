@@ -1,0 +1,44 @@
+{
+  "kind": "temporary-real-application-exports",
+  "status": "passed",
+  "purpose": "real",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "database_sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+  "api_sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+  "browser_sha256": "6c0ceb35bb1197acc4016e7527996d58488229bb3908249f5fe9154b9c739f12",
+  "checker_sha256": "f1087e47d4dd8a022cadae18d8d38bf73f16cdf3c409f291a490a3ea6ec4b42f",
+  "checks": [
+    {
+      "label": "evidenceCsv",
+      "season": "20232024",
+      "rows": 9,
+      "both_expectations": "exact",
+      "source": "own-year checked API"
+    },
+    {
+      "label": "historyCsv",
+      "rows": 3,
+      "native_values_and_details": "exact own-year values"
+    },
+    {
+      "label": "nextEvidenceCsv",
+      "season": "20242025",
+      "rows": 9,
+      "both_expectations": "exact",
+      "source": "own-year checked API"
+    },
+    {
+      "label": "discoveryCsv",
+      "execution_rows": 9240,
+      "players": 924,
+      "raw_values": "exact"
+    }
+  ],
+  "actual_png": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-02/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+    "width": 1200,
+    "height": 4343,
+    "sha256": "7762f6b4233d5eeff73c1b04b113284a04b86021fc00959dc2164f0fe7641a93"
+  },
+  "limitation": "numeric SVG feed and actual PNG structure are checked; root must inspect actual PNG/screenshots for content and legibility"
+}

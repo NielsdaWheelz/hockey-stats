@@ -25,6 +25,7 @@ import {
   type AnalysisRow,
 } from "./analysis-history";
 import { downloadCsv } from "./export";
+import { fixtureNotice } from "./presentation";
 
 export function PeerControls({
   settings,
@@ -354,8 +355,7 @@ export default function PeerDistributions({
       </p>
       {publication.purpose === "fixture" && (
         <p className="fixture-notice">
-          fixture publication: recorded facts retain their attribution;
-          analytical examples are synthetic.
+          {fixtureNotice}
         </p>
       )}
       {showPeerControls && !rawOnly && (
@@ -590,7 +590,8 @@ export default function PeerDistributions({
                       </span>
                     </th>
                     <td>
-                      {row.datum.value ?? "unavailable"} {metric.unit}
+                      {row.datum.value ?? "unavailable"}{" "}
+                      {metric.unit.startsWith("goals_per100_") ? metric.displayUnit : metric.unit}
                       {metric.displayScale !== 1 && (
                         <span className="history-context">
                           {valueText(row.datum)} {metric.displayUnit}

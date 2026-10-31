@@ -1,0 +1,91 @@
+{
+  "kind": "temporary-real-disclosure-green-completion",
+  "status": "focused disclosure integration passed actual0; full wide/export still pending",
+  "checked_at_utc": "2026-10-31T02:59:28.160849+00:00",
+  "actual_exit_code": 0,
+  "started_at_utc": "2026-10-31T02:57:51Z",
+  "finished_at_utc": "2026-10-31T02:58:25Z",
+  "initial_counts": {
+    "discovery_rows": 924,
+    "evidence_shells": 9240,
+    "open_evidence_shells": 0,
+    "never_opened_body_children": 0,
+    "coefficient_tables": 0,
+    "coefficient_body_rows": 0,
+    "coefficient_body_cells": 0
+  },
+  "coefficient_rows": 5,
+  "exact_accepted_api_details": true,
+  "nested_open_state_and_data_retained_after_outer_close_reopen": true,
+  "other_unopened_disclosures": {
+    "evidence_shells": 9239,
+    "body_children": 0,
+    "coefficient_tables": 0
+  },
+  "api_sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+  "player_id": "8477504",
+  "season": "20232024",
+  "resources": {
+    "wall_seconds": 33.2,
+    "user_seconds": 26.03,
+    "system_seconds": 1.24,
+    "time_reported_maximum_resident_set_size_bytes": 1100759040,
+    "scope": "complete focused browser command measurement; not an exact before/after speedup"
+  },
+  "check_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01/check.json",
+    "sha256": "a420d1914097933d354ff7230be0b1d7366b79dedc3b8b93a2c496d9328c84f1",
+    "bytes": 1573
+  },
+  "viewport_screenshot": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01/focused-green.png",
+    "sha256": "5891215b699db5ff850dcf98b7800a5375d27dfbc52e3c52a711ed773d8bd8e9",
+    "bytes": 407237
+  },
+  "helper_sha256": "81740f60c156bc3f9da99e1d2001fa1f08a4e1023c867d21d2fbb30a733baf9b",
+  "red_evidence": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-red-01-completion.json",
+    "sha256": "2f3348fc4318422e44cc7dd7a5ee17304063f94ae27f255103f9770cff981d68"
+  },
+  "server_node_pid": 52177,
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01-command.json",
+      "sha256": "36450b1d9b4edbfffe3d785538fb887daa17efef59b6533cfd0724edc1fb2012",
+      "bytes": 2995
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01-process.json",
+      "sha256": "a3f1cea54fac0fc0e183169f4cf04f0c999df0225f180154301f196067f35851",
+      "bytes": 2352
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01.started",
+      "sha256": "c0c5fd2b8dc25186b7ab628eb7289d92ced3385a1455cd28bc558caa3308f739",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01.finished",
+      "sha256": "1f0fefb004370b4d0b759184f533fd60d1b796e0dcae7b226a1183a386f95503",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01.stdout.log",
+      "sha256": "81b07ec8e48a71b95d049a010729a0a9cd364736e4802751f25a2adb0ad386e7",
+      "bytes": 407
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/disclosure-green-01.stderr.log",
+      "sha256": "8908376c65b4c004565e6235098e8bf034e1f35d1cb3b2c7bafadbcf1bd90618",
+      "bytes": 777
+    }
+  ],
+  "browser_closed": true,
+  "owned_processes_gone": true,
+  "next": "root released wide02+exports conditional on this actual success; narrow/native wait for wide review"
+}

@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "browser_receipt": "/private/tmp/v106-application-rehearsal-20261027/guarded-native200/browser.json",
+  "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
+  "player_id": "8480860",
+  "metric": "execution.5v5.finishing_goals_per100_attempts",
+  "evidence_rows": 9,
+  "history_seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "independent_cohorts": [
+    {
+      "season": "20232024",
+      "n": 0,
+      "member": false,
+      "percentile": null,
+      "descending_midrank": null,
+      "standing_reason": "below cutoff",
+      "peer_group": "reported defense",
+      "cutoff_minutes": 300,
+      "qualification_seconds": 1611,
+      "focal_value": 0.03799039100294964,
+      "incompatible_peer_count": 0
+    },
+    {
+      "season": "20242025",
+      "n": 0,
+      "member": false,
+      "percentile": null,
+      "descending_midrank": null,
+      "standing_reason": "below cutoff",
+      "peer_group": "reported defense",
+      "cutoff_minutes": 300,
+      "qualification_seconds": 2841,
+      "focal_value": 0.29387333026041323,
+      "incompatible_peer_count": 0
+    },
+    {
+      "season": "20252026",
+      "n": 0,
+      "member": false,
+      "percentile": null,
+      "descending_midrank": null,
+      "standing_reason": "below cutoff",
+      "peer_group": "reported defense",
+      "cutoff_minutes": 300,
+      "qualification_seconds": 1198,
+      "focal_value": 0.2722556867695205,
+      "incompatible_peer_count": 0
+    }
+  ],
+  "png": {
+    "width": 1200,
+    "height": 4442,
+    "bytes": 1483855
+  },
+  "navigation": {
+    "season": "20242025",
+    "rows": 9,
+    "status": "exact_own_season_api_equality"
+  },
+  "scope": "actual exported native values/details equal typed own-season responses; rank/percentile independently reconstructed under exact cutoff/position/semantic policy; png signature/dimensions checked, visual inspection separate"
+}

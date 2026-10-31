@@ -1,0 +1,147 @@
+{
+  "kind": "real-factual-exchange2-regeneration",
+  "status": "passed; strict schema2 readback and exact real baseline preservation accepted",
+  "started_at": "2026-10-29T01:42:20.918269+00:00",
+  "start_time_scope": "filesystem birth time of redirected facts-04.log; exact process creation time not independently measured",
+  "recorded_at": "2026-10-29T01:43:12.617321+00:00",
+  "production_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "analysis_source_unchanged": true,
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "python_version": "3.14.8",
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "facts",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04"
+  ],
+  "shell_launch_command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/facts-04.sh",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/facts-04.sh",
+    "sha256": "93490374763b5c32744c07d1f384a6562ddec0f24e48daf4974774463a0d92ea"
+  },
+  "terminal": {
+    "machine": "macbook",
+    "handle": "t-e5d6c240259bcbcf",
+    "session_name": "v106-facts-03",
+    "workflow": "existing skid/tmux persistent local terminal",
+    "normal_access_check": "root read the prepared-manifest head through the actual terminal before launch",
+    "launch": "root reviewed, released and launched once; session label retains the earlier facts-03 name"
+  },
+  "process": {
+    "shell_pid": 85918,
+    "time_wrapper_pid": 85919,
+    "python_pid": 85951,
+    "observation": [
+      {
+        "pid": 85918,
+        "ppid": 66161,
+        "rss_bytes": 1179648,
+        "elapsed": "00:53",
+        "state": "S+",
+        "command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/facts-04.sh"
+      },
+      {
+        "pid": 85919,
+        "ppid": 85918,
+        "rss_bytes": 491520,
+        "elapsed": "00:53",
+        "state": "S+",
+        "command": "/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli facts --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04"
+      },
+      {
+        "pid": 85951,
+        "ppid": 85919,
+        "rss_bytes": 681574400,
+        "elapsed": "00:52",
+        "state": "R+",
+        "command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli facts --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04"
+      }
+    ]
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/factual-facts04-preparation-2026-10-29.json",
+    "sha256": "f1c766b30bbca3f25e65ee03b8bad6d4911b748a148a76db49cf9f0ef4a09dad"
+  },
+  "root_release": {
+    "received_before_launch": true,
+    "scope": "one ordinary persistent-terminal factual command; no automatic retry; strict read/preservation requires complete artifact plus shell exit zero and root release"
+  },
+  "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04.log",
+  "log_birth_utc": "2026-10-29T01:42:20.918269+00:00",
+  "log_bytes_at_receipt": 0,
+  "output_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+  "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04.exit",
+  "exit_status_file_present": false,
+  "exit_code": 0,
+  "resource_scope": "ordinary /usr/bin/time -l wraps the unchanged facts CLI and captures final measurements in the redirected log; shell writes actual exit status to facts-04.exit",
+  "retry": false,
+  "automatic_retry": false,
+  "runner": false,
+  "checkpoint": false,
+  "prior_partials": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts",
+      "preserved": true,
+      "accepted": false,
+      "resume_supported": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02",
+      "preserved": true,
+      "accepted": false,
+      "resume_supported": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-03",
+      "preserved": true,
+      "accepted": false,
+      "resume_supported": false
+    }
+  ],
+  "prior_interruption": "facts-02 loss remains unexplained; facts and facts-03 were explicitly stopped by the user; all earlier partials remain preserved",
+  "original_facts": "preserved schema1; never writable output",
+  "post_completion": "root monitors; wait for complete artifact and shell exit zero, then root releases strict schema2 read and exact real baseline preservation",
+  "composition": "held until all five checked annual scores and root release",
+  "fits": false,
+  "activation": false,
+  "accepted": true,
+  "completed_at_utc": "2026-10-29T11:34:55.461715+00:00",
+  "resources": {
+    "wall_seconds": 35554.49,
+    "user_seconds": 31065.06,
+    "system_seconds": 608.29,
+    "peak_rss_bytes": 6131695616,
+    "peak_footprint_bytes": 6283793832
+  },
+  "output_bytes": 4640258524,
+  "manifest_sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb",
+  "acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04-acceptance.json",
+    "sha256": "3da8581e99942b9fc54b967bb605e378f552cc228249da77a16e4d9685295bdf"
+  },
+  "strict_read_and_preservation": {
+    "status": "passed",
+    "receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04-preservation.json",
+      "sha256": "9573cc176375fddae00791ee22db2f65ddf8ed1c09ef1ae5822c263adc6f0ff0"
+    },
+    "exit_code": 0,
+    "resources": {
+      "wall_seconds": 154.11,
+      "user_seconds": 150.24,
+      "system_seconds": 0.96,
+      "peak_rss_bytes": 150355968,
+      "peak_footprint_bytes": 128205400
+    }
+  }
+}

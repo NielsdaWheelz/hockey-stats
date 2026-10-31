@@ -1,0 +1,123 @@
+{
+  "owner": "artifact (execution_scores, analysis_cli score/summarize wiring, pyproject entrypoint)",
+  "status": "deleted after final software and canonical fixture green; exact root cleanup in cleanup.json",
+  "temporary_files": [
+    {
+      "path": "var/v1-06-checks/artifact/campaign.py",
+      "sha256": "4b4ea38423c577ed534beb307177079d7a710b00aeebd2edc207ec16ce6c852b",
+      "bytes": 4393,
+      "role": "temporary canonical accepted-01 campaign controller"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/dev-03.log",
+      "sha256": "14ac12e6cbcb7f0354a902ff916739ebd205f0941843b5d3ea5b44f7bee62cbf",
+      "bytes": 1629,
+      "role": "dev-03 suite log (28/32; bound repair evidence)"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/dev-04.log",
+      "sha256": "a30ec931798be17656befd60b93f2f6e6e2b12591b869e9cbfc9d28909687e4f",
+      "bytes": 973,
+      "role": "dev-04 suite log (32/32)"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/explore.py",
+      "sha256": "25d4c10b1984f5a94d18eef1eb8d14bc81149fd0f5738d0bbaed391ac9cd3681",
+      "bytes": 1375,
+      "role": "temporary exploration of score_execution output"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/observed-fixture.json",
+      "sha256": "e5d64e182f8d0027b12b7c1f98f1756e5328bc792e4a96c16da4f2b6447cac07",
+      "bytes": 767,
+      "role": "temporary observed selection identical to root var/v1-06-root-r6-observed.json"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/test_artifact.py",
+      "sha256": "aad5da55c4da7f05ec2396cc6a163bb3fd631e9eb1458dfca35f139b8b790bcf",
+      "bytes": 35913,
+      "role": "temporary red/green controller for score/reader/cli/composition acceptance"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/write_selection.py",
+      "sha256": "ecca17d645b292338b778375241287e56816ec34e8752ce8defaad4b3e76d434",
+      "bytes": 897,
+      "role": "temporary dev-02 selection writer"
+    },
+    {
+      "path": "var/v1-06-checks/artifact/scratch",
+      "files": 1788,
+      "bytes": 909509144,
+      "role": "mutation copies, deny-sources sandbox profile and mutated selections written by test_artifact.py"
+    }
+  ],
+  "temporary_external_outputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/red-02",
+      "bytes": 0,
+      "role": "red receipt run: partial dev scoring artifacts from the recorded red/green iteration",
+      "disposition": "cheap fixture output; delete at root cleanup"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-01",
+      "bytes": 99447314,
+      "role": "development scores; old resource shape, unreadable by the frozen reader",
+      "disposition": "cheap fixture output; delete at root cleanup"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-02",
+      "bytes": 388522595,
+      "role": "development scores consumed by composition-check-01; predate setter discrepancies/exact endpoints",
+      "disposition": "cheap fixture output; delete at root cleanup"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-03",
+      "bytes": 300376550,
+      "role": "development scores; two partial years (20212022, 20252026) without manifests from the tightened-bound rejection",
+      "disposition": "cheap fixture output; delete at root cleanup"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/dev-04",
+      "bytes": 333018861,
+      "role": "development scores; full 32-check green suite outputs and mutation targets",
+      "disposition": "cheap fixture output; delete at root cleanup"
+    }
+  ],
+  "retained_outputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores",
+      "bytes": 233611714,
+      "role": "canonical five-year fixture scores bound by accepted-01/scores-selection.json",
+      "disposition": "retain"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores-selection.json",
+      "sha256": "5a98803c79f5297d7f7dd52ba43408207e7a010e841be7065ab82fe208b9c4fc",
+      "role": "canonical selection consumed by composition",
+      "disposition": "retain"
+    }
+  ],
+  "retained_receipts": [
+    {
+      "path": "docs/research/execution-v1-06/artifact-red.txt",
+      "sha256": "d845fe8f288a9ba074619f25bfff63e0a99baf44c85d87aab0edc31b1581d2d8",
+      "bytes": 6600
+    },
+    {
+      "path": "docs/research/execution-v1-06/artifact-green.txt",
+      "sha256": "2a0bd5bbad721bc00d94baac24a7642deaea9c0273e449d4614c126eb4936bd2",
+      "bytes": 1965
+    },
+    {
+      "path": "docs/research/execution-v1-06/artifact-composition-green.txt",
+      "sha256": "c1a1c3fee672ab06fd33e246a6d9592a079fc746d7f3836f3a4d9dfe3d1ed007",
+      "bytes": 931
+    },
+    {
+      "path": "docs/research/execution-v1-06/accepted-01-scores.json",
+      "sha256": "c61b37d0cc5361e9ffd694da76865e0daf69917619780cac7527981b3601dcee",
+      "bytes": 13081
+    }
+  ],
+  "not_owned": "var/v1-06-checks/*.py and logs outside artifact/ belong to other owners; composition-check-01, facts-01/02 and accepted-01/{results,candidate} belong to root/composer"
+}

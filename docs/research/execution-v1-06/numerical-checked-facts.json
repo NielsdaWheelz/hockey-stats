@@ -1,0 +1,61 @@
+{
+  "purpose": "fixture",
+  "status": "passed",
+  "checks": 13,
+  "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/.venv/bin/python var/v1-06-checks/numerical_check.py",
+  "inputs": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "sha256": "d8fc84307681a5c2efebee89711b022900692e43743397644ffbe115a006b3c5"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_design.py",
+      "sha256": "36fa49be13ccf405867ae3bdb4117f7ec73da032b628ae4a2030b12160878e21"
+    },
+    {
+      "path": "var/v1-06-checks/numerical_check.py",
+      "sha256": "79321203200182db0c2f0a216f05f0306a6185f98b043cdff5c47289ea57f575"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/analysis/src/hockey_stats/execution.py",
+      "sha256": "8222df648b09e02835a36107dc979839c7233ea132ef4f85412800e4ca99cea5"
+    }
+  ],
+  "checked_facts": {
+    "joint_goal_mass": 0.41,
+    "second_stage_probability": 0.82,
+    "goal_given_unblocked": 0.82,
+    "goal_given_on_net": 1.0,
+    "setting_goals_per100_setup_opportunities": 10.0,
+    "tip_shooter_contrast": 0.0,
+    "underflow_conditional": 0.125,
+    "independent_shapley_permutations": 24,
+    "coalitions": 16,
+    "legacy_contexts": [
+      "ordinary",
+      "tip",
+      "unknown_setter",
+      "known_goalie_setter"
+    ],
+    "legacy_origin_cells": [
+      0,
+      99,
+      500
+    ],
+    "legacy_head_and_terminal_absolute_tolerance": 2e-14,
+    "exact_saved_prefix_coalition_identities": [
+      0,
+      11,
+      15
+    ],
+    "max_frozen_pairs": 45
+  },
+  "limitations": [
+    "fixture only",
+    "no real annual handoff",
+    "no new solve",
+    "four tighter-variant propagation owned by annual integration",
+    "no all-player error bound"
+  ],
+  "temporary_tests": "retained until final integration acceptance; then delete controller, preserve receipts"
+}

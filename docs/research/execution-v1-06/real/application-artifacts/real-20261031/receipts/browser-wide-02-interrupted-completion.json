@@ -1,0 +1,125 @@
+{
+  "kind": "temporary-real-wide02-interrupted-completion",
+  "status": "interrupted by root for deterministic helper season-remount repair; not successful browser acceptance",
+  "actual_exit_code": 1,
+  "checked_at_utc": "2026-10-31T03:07:16.998284+00:00",
+  "started_at_utc": "2026-10-31T03:00:23Z",
+  "finished_at_utc": "2026-10-31T03:04:33Z",
+  "operator_cause": "root-directed SIGTERM only verified owned Chrome54056; helper54055 allowed to reject wait and run finally",
+  "resulting_error": {
+    "callsite": "application_browser.mjs:182:14",
+    "operation": "page.waitForFunction waiting for next-season pre",
+    "excerpt": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\npage.waitForFunction: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --window-size=1440,1000 --window-position=0,0 --user-data-dir=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application"
+  },
+  "diagnosis": "root changingPage branch replaces Outlet during season navigation; new DatumEvidence correctly remounts closed, so helper must natively reopen support+panel before checking next-year data",
+  "resources": {
+    "wall_seconds": 250.04,
+    "user_seconds": 3.05,
+    "system_seconds": 0.93,
+    "time_reported_maximum_resident_set_size_bytes": 1190985728,
+    "scope": "until controlled interruption, not a complete successful wide runtime or acceptance threshold"
+  },
+  "browser_helper_sha256": "46077e37301927bee5b934a800a225b1fe57f188626986c1517c50c3d4daeefa",
+  "observed_partial_stage": "discovery CSV, own-year profile/cohort/support/strata and history exports reached; next-season detail/comparison/zero-specialty/final browser receipt not completed",
+  "partial_artifacts": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/execution-danger-right.png",
+      "bytes": 67181
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/history-bounds.json",
+      "bytes": 10472
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/execution-shot-type-right.png",
+      "bytes": 103687
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/execution-cohort.png",
+      "bytes": 1091551
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/execution-shot-type-left.png",
+      "bytes": 103687
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/execution-danger-left.png",
+      "bytes": 67181
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/history.svg",
+      "bytes": 16579
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/execution-support.png",
+      "bytes": 885639
+    }
+  ],
+  "partial_downloads": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/downloads/execution-5v5-20232024-9a5b4061-f909-4c1b-b624-5729e5acb6bf.csv",
+      "bytes": 45784394
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "bytes": 1513301
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/downloads/hockey-stats-8477504-20232024-5v5-execution-evidence.csv",
+      "bytes": 283050
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-02/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "bytes": 15469
+    }
+  ],
+  "exports_checker_run": false,
+  "browser_receipt_written": false,
+  "owned_processes_gone": true,
+  "server_node_pid": 52177,
+  "server_untouched": true,
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02-command.json",
+      "sha256": "6d418a39d737345b2e4d7fd34f33a1c17363501b21769ea140af44d08442d16c",
+      "bytes": 3287
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02-process.json",
+      "sha256": "2e35a8c31c5be881e61a2347bf2c4da651fd914b425b4fe4bdf9ac4df1b148ac",
+      "bytes": 2721
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02-interruption-command.json",
+      "sha256": "b3c233f61b1817e177313e228f13dc9c9f0b7aacd0b1fe16948294ff040c277d",
+      "bytes": 9787
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02.started",
+      "sha256": "c82436041571f48cbca3d31d47cf451c86a10236114e0a81a186882c5b0b3bc2",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02.finished",
+      "sha256": "a9bb54d594e6ff79860643823cb8950abe81ae213efa9df20215b0fe153a4485",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-02.stderr.log",
+      "sha256": "d1937bc3387b0ecfc543d309639ed61b2580152708fcd59c27d65313aa97b3da",
+      "bytes": 4355
+    }
+  ],
+  "preservation": "all wide02 partial artifacts/profile retained; no production change or server/API repeat; no claim of full SVG/CSV acceptance",
+  "next": "root+independent approved55487639 native reopen fix; freshwide03 separately released"
+}

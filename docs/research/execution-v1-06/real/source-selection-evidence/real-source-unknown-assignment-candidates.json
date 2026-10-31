@@ -1,0 +1,748 @@
+[
+  {
+    "season": "20232024",
+    "game_id": "2023020040",
+    "touching_five_ambiguous": []
+  },
+  {
+    "season": "20242025",
+    "game_id": "2024020001",
+    "touching_five_ambiguous": [
+      {
+        "source_index": 275,
+        "association": {
+          "source_index": 275,
+          "native": {
+            "source_index": 275,
+            "report_source_index": 278,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "wrist",
+              "report_value": "Wrist",
+              "value": "wrist",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8475455,
+              8476462,
+              8478414,
+              8479407,
+              8481559
+            ],
+            "home_skaters": [
+              8477365,
+              8478043,
+              8478413,
+              8480802,
+              8480807
+            ],
+            "away_goalies": [
+              8474593
+            ],
+            "home_goalies": [
+              8480045
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              327
+            ],
+            "attacking_x": 47,
+            "attacking_y": 5,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            327
+          ],
+          "matching_segment_indices": [
+            327
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "assignment": {
+          "source_index": 275,
+          "disposition": "excluded",
+          "segment_index": 327,
+          "chunk_index": 1062,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 327,
+            "native_interval_indices": [
+              327
+            ],
+            "period_number": 3,
+            "start_seconds": 481,
+            "end_seconds": 508,
+            "membership": {
+              "away_skaters": [
+                8475455,
+                8476462,
+                8478414,
+                8479407,
+                8481559
+              ],
+              "home_skaters": [
+                8477365,
+                8478043,
+                8478413,
+                8480802,
+                8480807
+              ],
+              "away_goalies": [
+                8474593
+              ],
+              "home_goalies": [
+                8480045
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "source_index": 277,
+        "association": {
+          "source_index": 277,
+          "native": {
+            "source_index": 277,
+            "report_source_index": 280,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "snap",
+              "report_value": "Snap",
+              "value": "snap",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8475455,
+              8476462,
+              8478414,
+              8479407,
+              8481559
+            ],
+            "home_skaters": [
+              8477365,
+              8478043,
+              8478413,
+              8480802,
+              8480807
+            ],
+            "away_goalies": [
+              8474593
+            ],
+            "home_goalies": [
+              8480045
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              327
+            ],
+            "attacking_x": 55,
+            "attacking_y": -39,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            327
+          ],
+          "matching_segment_indices": [
+            327
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "assignment": {
+          "source_index": 277,
+          "disposition": "excluded",
+          "segment_index": 327,
+          "chunk_index": 1066,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 327,
+            "native_interval_indices": [
+              327
+            ],
+            "period_number": 3,
+            "start_seconds": 481,
+            "end_seconds": 508,
+            "membership": {
+              "away_skaters": [
+                8475455,
+                8476462,
+                8478414,
+                8479407,
+                8481559
+              ],
+              "home_skaters": [
+                8477365,
+                8478043,
+                8478413,
+                8480802,
+                8480807
+              ],
+              "away_goalies": [
+                8474593
+              ],
+              "home_goalies": [
+                8480045
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "source_index": 280,
+        "association": {
+          "source_index": 280,
+          "native": {
+            "source_index": 280,
+            "report_source_index": 284,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "wrist",
+              "report_value": "Wrist",
+              "value": "wrist",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8475193,
+              8478399,
+              8480002,
+              8480192,
+              8482110
+            ],
+            "home_skaters": [
+              8481524,
+              8481528,
+              8482097,
+              8482671,
+              8484145
+            ],
+            "away_goalies": [
+              8474593
+            ],
+            "home_goalies": [
+              8480045
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              328
+            ],
+            "attacking_x": 63,
+            "attacking_y": 29,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            328
+          ],
+          "matching_segment_indices": [
+            328
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "assignment": {
+          "source_index": 280,
+          "disposition": "excluded",
+          "segment_index": 328,
+          "chunk_index": 1069,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 328,
+            "native_interval_indices": [
+              328
+            ],
+            "period_number": 3,
+            "start_seconds": 508,
+            "end_seconds": 519,
+            "membership": {
+              "away_skaters": [
+                8475193,
+                8478399,
+                8480002,
+                8480192,
+                8482110
+              ],
+              "home_skaters": [
+                8481524,
+                8481528,
+                8482097,
+                8482671,
+                8484145
+              ],
+              "away_goalies": [
+                8474593
+              ],
+              "home_goalies": [
+                8480045
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "season": "20242025",
+    "game_id": "2024020066",
+    "touching_five_ambiguous": []
+  },
+  {
+    "season": "20242025",
+    "game_id": "2024020214",
+    "touching_five_ambiguous": []
+  },
+  {
+    "season": "20242025",
+    "game_id": "2024021273",
+    "touching_five_ambiguous": []
+  },
+  {
+    "season": "20252026",
+    "game_id": "2025020144",
+    "touching_five_ambiguous": []
+  },
+  {
+    "season": "20252026",
+    "game_id": "2025020171",
+    "touching_five_ambiguous": []
+  },
+  {
+    "season": "20252026",
+    "game_id": "2025021094",
+    "touching_five_ambiguous": [
+      {
+        "source_index": 273,
+        "association": {
+          "source_index": 273,
+          "native": {
+            "source_index": 273,
+            "report_source_index": 276,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "slap",
+              "report_value": "Slap",
+              "value": "slap",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8476958,
+              8478427,
+              8480336,
+              8480830,
+              8482093
+            ],
+            "home_skaters": [
+              8476931,
+              8477503,
+              8477939,
+              8478443,
+              8481711
+            ],
+            "away_goalies": [
+              8483548
+            ],
+            "home_goalies": [
+              8479361
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              343
+            ],
+            "attacking_x": 44,
+            "attacking_y": 17,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            336
+          ],
+          "matching_segment_indices": [
+            336
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "assignment": {
+          "source_index": 273,
+          "disposition": "excluded",
+          "segment_index": 336,
+          "chunk_index": 1180,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 336,
+            "native_interval_indices": [
+              343
+            ],
+            "period_number": 3,
+            "start_seconds": 804,
+            "end_seconds": 830,
+            "membership": {
+              "away_skaters": [
+                8476958,
+                8478427,
+                8480336,
+                8480830,
+                8482093
+              ],
+              "home_skaters": [
+                8476931,
+                8477503,
+                8477939,
+                8478443,
+                8481711
+              ],
+              "away_goalies": [
+                8483548
+              ],
+              "home_goalies": [
+                8479361
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "source_index": 274,
+        "association": {
+          "source_index": 274,
+          "native": {
+            "source_index": 274,
+            "report_source_index": 277,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "wrist",
+              "report_value": "Wrist",
+              "value": "wrist",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8476958,
+              8478427,
+              8480336,
+              8480830,
+              8482093
+            ],
+            "home_skaters": [
+              8476931,
+              8477503,
+              8477939,
+              8478443,
+              8481711
+            ],
+            "away_goalies": [
+              8483548
+            ],
+            "home_goalies": [
+              8479361
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              343
+            ],
+            "attacking_x": 81,
+            "attacking_y": 26,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            336
+          ],
+          "matching_segment_indices": [
+            336
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "assignment": {
+          "source_index": 274,
+          "disposition": "excluded",
+          "segment_index": 336,
+          "chunk_index": 1182,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 336,
+            "native_interval_indices": [
+              343
+            ],
+            "period_number": 3,
+            "start_seconds": 804,
+            "end_seconds": 830,
+            "membership": {
+              "away_skaters": [
+                8476958,
+                8478427,
+                8480336,
+                8480830,
+                8482093
+              ],
+              "home_skaters": [
+                8476931,
+                8477503,
+                8477939,
+                8478443,
+                8481711
+              ],
+              "away_goalies": [
+                8483548
+              ],
+              "home_goalies": [
+                8479361
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "source_index": 275,
+        "association": {
+          "source_index": 275,
+          "native": {
+            "source_index": 275,
+            "report_source_index": 278,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "wrist",
+              "report_value": "Wrist",
+              "value": "wrist",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": null,
+            "away_skaters": [
+              8476958,
+              8478427,
+              8480336,
+              8480830,
+              8482093
+            ],
+            "home_skaters": [
+              8476931,
+              8477503,
+              8477939,
+              8478443,
+              8481711
+            ],
+            "away_goalies": [
+              8483548
+            ],
+            "home_goalies": [
+              8479361
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "both",
+            "interval_indices": [
+              343
+            ],
+            "attacking_x": 74,
+            "attacking_y": -23,
+            "coordinate_status": "normalized",
+            "issue_indices": []
+          },
+          "touching_segment_indices": [
+            336
+          ],
+          "matching_segment_indices": [
+            336
+          ],
+          "temporal_case": "interior",
+          "issue_indices": []
+        },
+        "assignment": {
+          "source_index": 275,
+          "disposition": "excluded",
+          "segment_index": 336,
+          "chunk_index": 1183,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 336,
+            "native_interval_indices": [
+              343
+            ],
+            "period_number": 3,
+            "start_seconds": 804,
+            "end_seconds": 830,
+            "membership": {
+              "away_skaters": [
+                8476958,
+                8478427,
+                8480336,
+                8480830,
+                8482093
+              ],
+              "home_skaters": [
+                8476931,
+                8477503,
+                8477939,
+                8478443,
+                8481711
+              ],
+              "away_goalies": [
+                8483548
+              ],
+              "home_goalies": [
+                8479361
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "source_index": 276,
+        "association": {
+          "source_index": 276,
+          "native": {
+            "source_index": 276,
+            "report_source_index": 279,
+            "match_status": "matched",
+            "shot_type_evidence": {
+              "api_value": "wrist",
+              "report_value": "Wrist",
+              "value": "wrist",
+              "status": "agreement"
+            },
+            "goal_modifier_evidence": {
+              "source_path": "/summary/scoring/2/goals/0",
+              "reported_value": "none",
+              "status": "reported"
+            },
+            "away_skaters": [
+              8476958,
+              8478427,
+              8480336,
+              8480830,
+              8482093
+            ],
+            "home_skaters": [
+              8476931,
+              8477503,
+              8477939,
+              8478443,
+              8481711
+            ],
+            "away_goalies": [
+              8483548
+            ],
+            "home_goalies": [
+              8479361
+            ],
+            "classification": "five_on_five",
+            "shift_relation": "unavailable",
+            "interval_indices": [],
+            "attacking_x": 85,
+            "attacking_y": 5,
+            "coordinate_status": "normalized",
+            "issue_indices": [
+              15
+            ]
+          },
+          "touching_segment_indices": [
+            336
+          ],
+          "matching_segment_indices": [],
+          "temporal_case": "boundary",
+          "issue_indices": [
+            2
+          ]
+        },
+        "assignment": {
+          "source_index": 276,
+          "disposition": "excluded",
+          "segment_index": null,
+          "chunk_index": null,
+          "reason_indices": [
+            2
+          ]
+        },
+        "affected_segments": [
+          {
+            "segment_index": 336,
+            "native_interval_indices": [
+              343
+            ],
+            "period_number": 3,
+            "start_seconds": 804,
+            "end_seconds": 830,
+            "membership": {
+              "away_skaters": [
+                8476958,
+                8478427,
+                8480336,
+                8480830,
+                8482093
+              ],
+              "home_skaters": [
+                8476931,
+                8477503,
+                8477939,
+                8478443,
+                8481711
+              ],
+              "away_goalies": [
+                8483548
+              ],
+              "home_goalies": [
+                8479361
+              ]
+            },
+            "issue_indices": [
+              2
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

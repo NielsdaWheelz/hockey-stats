@@ -1,0 +1,15 @@
+test_saved_panel_neutral_reduction (__main__.Arithmetic.test_saved_panel_neutral_reduction) ... ERROR
+
+======================================================================
+ERROR: test_saved_panel_neutral_reduction (__main__.Arithmetic.test_saved_panel_neutral_reduction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/numerical_check.py", line 32, in test_saved_panel_neutral_reduction
+    summary = e.neutral_panel_masses(panel)
+              ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'hockey_stats.execution' has no attribute 'neutral_panel_masses'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

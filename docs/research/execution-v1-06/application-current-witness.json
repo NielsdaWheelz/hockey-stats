@@ -1,0 +1,87 @@
+{
+  "publication_id": "8047a25c-783b-4b88-88ee-572bb7917093",
+  "database_sha256": "a0842c789f1edc908ffc2d99527d49ccdd29e5ada5b9954e5c177d28b9d4d645",
+  "api": "http://127.0.0.1:41926/api/players/9000001/evidence?season=20232024&family=execution&strength=5v5",
+  "paired": {
+    "source_attempts": 5,
+    "paired_attempts": 2,
+    "unvalued_source_attempts": 3,
+    "danger_unavailable": {
+      "events": 0,
+      "observed_goals": 0,
+      "reference_expected_goals": 0,
+      "actor_expected_goals": 0
+    }
+  },
+  "block22": {
+    "raw_source_goalie_id": null,
+    "outcome": "block",
+    "checked_share_goalie_id": "9000004",
+    "setter_weights": {
+      "none": 0.2,
+      "unknown": 0.8
+    },
+    "posterior_weights": null
+  },
+  "known_goalie_setter": {
+    "id": "8477424",
+    "team": "nsh",
+    "pre_outcome_weight": 0.4,
+    "setter_share": 0
+  },
+  "ordered_strata": [
+    [
+      "shot_type",
+      "wrist"
+    ],
+    [
+      "shot_type",
+      "snap"
+    ],
+    [
+      "shot_type",
+      "slap"
+    ],
+    [
+      "shot_type",
+      "backhand"
+    ],
+    [
+      "shot_type",
+      "tip"
+    ],
+    [
+      "shot_type",
+      "other"
+    ],
+    [
+      "danger",
+      "<.05"
+    ],
+    [
+      "danger",
+      "[.05,.15)"
+    ],
+    [
+      "danger",
+      ">=.15"
+    ]
+  ],
+  "negative_copies": [
+    {
+      "case": "block goalie assigned to attacking goalie",
+      "rejected": true,
+      "reason": "execution share recipient differs from its source actor or pre-outcome setter candidate"
+    },
+    {
+      "case": "defending goalie named setter, matching share updated",
+      "rejected": true,
+      "reason": "setter candidate is not dressed for the attacking team"
+    },
+    {
+      "case": "non-goal setter carries recorded assist source reference",
+      "rejected": true,
+      "reason": "non-goal setter carries recorded assist evidence"
+    }
+  ]
+}

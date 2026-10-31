@@ -1,0 +1,20 @@
+{
+  "protected_files": 64,
+  "protected_unchanged": true,
+  "candidate_sha256": "d553ffb22362d392f374d052d92f8c31dce00c6f9bd85d7605a1cba6fec1c1b4",
+  "no_wal_shm_journal": true,
+  "remaining_real_preparation_files": 4053,
+  "real_preparation_complete": false,
+  "study_relative_links": 50,
+  "missing_links": [],
+  "numerical_code_unchanged": true,
+  "temporary_test_folders_absent": true,
+  "owned_tmp_absent": true,
+  "review_servers": "own servers stopped; primary listener untouched",
+  "final_application_copy_commit": "bea490b",
+  "retained_worktree_var": [
+    "v1-06-root-r6-observed.json"
+  ],
+  "whitespace_check": "git -c core.whitespace=cr-at-eol,-blank-at-eof diff --cached --check",
+  "receipt_format": "browser csv downloads retain their original CRLF; command logs retain original terminal blank lines"
+}

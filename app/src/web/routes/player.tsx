@@ -24,6 +24,7 @@ import {
   type PeerSettings,
 } from "../explorer";
 import SpatialViews from "../spatial-views";
+import ExecutionEvidence from "../execution-evidence";
 import PeerDistributions, { PeerControls } from "../peer-distributions";
 import { type AnalysisMetric } from "../analysis-values";
 import AnalysisHistory, {
@@ -367,6 +368,12 @@ export default function Player() {
         season={season}
         profileLink={profileLink}
       />
+      {data.executionEvidence && (
+        <ExecutionEvidence
+          evidence={data.executionEvidence}
+          playerId={data.player_id}
+        />
+      )}
       <AnalysisHistory
         view={{
           publication,

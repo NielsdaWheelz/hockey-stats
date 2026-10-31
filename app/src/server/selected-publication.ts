@@ -307,7 +307,7 @@ export const readEvidence = (sql: SqliteClient, selection: A.EvidenceSelection, 
       { strength: strength! },
     );
     const rawBreakdowns = yield* sql.unsafe<Record<string, unknown>>(
-      "SELECT * FROM execution_breakdown WHERE season=? AND player_id=? AND strength=? ORDER BY kind,stratum",
+      "SELECT * FROM execution_breakdown WHERE season=? AND player_id=? AND strength=? ORDER BY CASE kind WHEN 'shot_type' THEN 0 ELSE 1 END,CASE stratum WHEN 'wrist' THEN 0 WHEN 'snap' THEN 1 WHEN 'slap' THEN 2 WHEN 'backhand' THEN 3 WHEN 'tip' THEN 4 WHEN 'other' THEN 5 WHEN '<.05' THEN 0 WHEN '[.05,.15)' THEN 1 WHEN '>=.15' THEN 2 END",
       [season, player_id, strength!],
     );
     const breakdowns = yield* Effect.try(() =>
@@ -315,7 +315,7 @@ export const readEvidence = (sql: SqliteClient, selection: A.EvidenceSelection, 
         strength: row.strength,
         kind: row.kind,
         stratum: row.stratum,
-        result: resultFromRow("execution_breakdown", row),
+        result: resultFromRow("execution_breakdown", row, queries.person(season, player_id)!.kind),
       })),
     );
     if (family === "goalie")

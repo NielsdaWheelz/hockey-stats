@@ -1,0 +1,118 @@
+{
+  "kind": "real-composition-and-isolated-publication-recipe-preparation",
+  "status": "prepared only; both launches held for root review and separate release",
+  "checked_at": "2026-10-29T12:46:43.435935+00:00",
+  "production_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "analysis_source_unchanged": true,
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "python_version": "3.14.8",
+  "runtime": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+  "recipes": [
+    {
+      "kind": "composition",
+      "script": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh",
+      "script_sha256": "5152ff52682ec0783139c6ce5c6d112bc9a3fdce493da4b108ac0e19709b86b1",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "summarize",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+        "--facts",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores-selection.json",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results"
+      ],
+      "launch_command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh",
+      "syntax_check": "/bin/sh -n passed",
+      "paths": {
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.log",
+        "exit_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.exit"
+      },
+      "fresh_paths_absent": true,
+      "launch_status": "not launched"
+    },
+    {
+      "kind": "publication",
+      "script": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-candidate.sh",
+      "script_sha256": "bb83140ccf7c9d87fdb183104802c34924a61235a67c2300e9342772639b31e2",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "publish",
+        "--observed",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+        "--results",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate"
+      ],
+      "launch_command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-candidate.sh",
+      "syntax_check": "/bin/sh -n passed",
+      "paths": {
+        "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate",
+        "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.log",
+        "exit_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate.exit"
+      },
+      "fresh_paths_absent": true,
+      "launch_status": "not launched"
+    }
+  ],
+  "local_contract_review": {
+    "cli": "analysis_cli.py accepts exact summarize and publish argv and dispatches to compose_results/build_publication",
+    "composition": "strict real score selection requires all five unique ordered consecutive seasons with matching preparation, recipe, coaches and annual history; output_path rejects occupied or overlapping destinations",
+    "publication": "existing build_publication writes fresh schema8 candidate and performs integrity, foreign-key, readback and conservation checks; candidate creation performs no activation",
+    "source_files": [
+      "analysis/src/hockey_stats/analysis_cli.py",
+      "analysis/src/hockey_stats/execution_composition.py",
+      "analysis/src/hockey_stats/chance_cli.py",
+      "analysis/src/hockey_stats/publication.py",
+      "analysis/src/hockey_stats/analysis_publication.py"
+    ]
+  },
+  "accepted_facts": {
+    "acceptance_receipt": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/factual-facts04-acceptance-2026-10-29.json",
+    "acceptance_sha256": "3da8581e99942b9fc54b967bb605e378f552cc228249da77a16e4d9685295bdf",
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb"
+    },
+    "status": "passed strict schema2 readback and exact real baseline preservation",
+    "identity_scope": "copied from accepted local receipt; no new external factual hash or reader pass"
+  },
+  "score_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores-selection.json",
+    "status": "not generated or read by this preparation; root creates frozen selection only after all five annual scores are accepted"
+  },
+  "fresh_path_assumptions": "fresh destination/log/exit absence checked by metadata at preparation time; root rechecks before each released command",
+  "launch_requirements": [
+    "root accepts all five annual scores and freezes current-03/scores-selection.json before composition release",
+    "root separately reviews and releases the composition command in a checked persistent local terminal",
+    "composition completion and required real acceptance precede a separate publication release",
+    "candidate is an isolated artifact; activation remains unassigned"
+  ],
+  "retry": false,
+  "automatic_advance": false,
+  "runner": false,
+  "loops": false,
+  "checkpoint": false,
+  "source_scans": false,
+  "strict_reader_invocation": false,
+  "new_scores_selection": false,
+  "activation": false
+}

@@ -1,0 +1,17 @@
+test_all_coalitions_against_permutations (__main__.Arithmetic.test_all_coalitions_against_permutations) ... ok
+test_invalid_probabilities_fail (__main__.Arithmetic.test_invalid_probabilities_fail) ... ok
+test_mixture_prefix_ratios (__main__.Arithmetic.test_mixture_prefix_ratios) ... ok
+test_underflow_keeps_representable_conditional (__main__.Arithmetic.test_underflow_keeps_representable_conditional) ... ok
+test_complete_inventory_panels_and_shares (__main__.Fixture.test_complete_inventory_panels_and_shares) ... ok
+test_event_assist_changes_only_retrospective_posterior (__main__.Fixture.test_event_assist_changes_only_retrospective_posterior) ... ok
+test_excluded_rows_retain_known_facts (__main__.Fixture.test_excluded_rows_retain_known_facts) ... ok
+test_partial_coefficients_empty_panels_and_carried_priors (__main__.Fixture.test_partial_coefficients_empty_panels_and_carried_priors) ... ok
+test_preserves_original_evaluator_for_all_coalitions (__main__.Fixture.test_preserves_original_evaluator_for_all_coalitions) ... ok
+test_reference_is_origin_ordered_and_outcome_independent (__main__.Fixture.test_reference_is_origin_ordered_and_outcome_independent) ... ok
+test_setup_denominator_and_tip_mask (__main__.Fixture.test_setup_denominator_and_tip_mask) ... ok
+test_skills_maps_and_partial_support (__main__.Fixture.test_skills_maps_and_partial_support) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 72.733s
+
+OK

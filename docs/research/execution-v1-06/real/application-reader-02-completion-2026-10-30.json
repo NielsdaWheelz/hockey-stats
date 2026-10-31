@@ -1,0 +1,34 @@
+{
+  "kind": "temporary-real-operator-disconnect-completion",
+  "status": "operator02 completed exit0 before disconnect request; all owned application processes gone",
+  "checked_at_utc": "2026-10-30T15:47:31.651425+00:00",
+  "actual_exit_code": 0,
+  "started_at_utc": "2026-10-30T15:38:56Z",
+  "finished_at_utc": "2026-10-30T15:45:51Z",
+  "processes": {
+    "shell_pid": 39060,
+    "time_pid": 39062,
+    "node_pid": 39063,
+    "all_gone": true,
+    "observation": "  PID  PPID STAT ELAPSED    RSS COMMAND\n"
+  },
+  "termination_signal_sent": false,
+  "resources": {
+    "wall_seconds": 414.23,
+    "user_seconds": 403.08,
+    "system_seconds": 26.24,
+    "peak_rss_bytes": 1033568256
+  },
+  "publication_identity_from_already_read_operator_output": {
+    "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+    "schema_version": 8,
+    "purpose": "real",
+    "available_seasons": [
+      "20252026",
+      "20242025",
+      "20232024"
+    ]
+  },
+  "preservation": "candidate and all outputs retained; no bulk data read/hash, server/API/browser, relaunch or further work",
+  "next": "stop for user disconnect; root owns checkpoint and resume"
+}

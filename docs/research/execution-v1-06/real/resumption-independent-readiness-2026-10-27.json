@@ -1,0 +1,109 @@
+{
+  "kind": "execution-v1-06-resumption-independent-readiness",
+  "status": "local preparation sound; external preflight and root release pending; real application acceptance pending",
+  "recorded_at": "2026-10-28T06:19:06.644334+00:00",
+  "reviewer_scope": "read-only local preparation review; one local receipt written; no external input read, score, facts, composition, candidate, server, browser or api started",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "analysis_source_equals_head": true,
+  "python": {
+    "executable": "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "version": "3.14.8"
+  },
+  "preparation_review": {
+    "scoring_controller": {
+      "path": "/tmp/v106-remaining-four-real-score-batch-current-02.py",
+      "sha256": "13261714eef8f0d9e1d9b8b17e4f42d158a422d36d20f4c7021c4792980bfac3",
+      "bytes": 11104
+    },
+    "scoring_diff": {
+      "path": "/tmp/v106-remaining-four-real-score-batch-current-02.diff",
+      "sha256": "43543430b87627be8aa5839b369caae1b72e71272d9bda351c234cb9e1d74bdc",
+      "bytes": 4494
+    },
+    "scoring_verdict": "minimal literal path adaptation preserves current-01 accepted first year and receipts; four fixed fresh current-02 years; fixed recipe, state/probe and checker pins; ordered five-year selection after all checks; no latest discovery, incremental resume, retry or overwrite of annual outputs",
+    "launch_precondition": "successful external pinned identity checks including accepted first-year manifest 6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e; wholly absent current-02; root-owned mkdir(exist_ok=False) after release, before controller writes receipt/logs",
+    "factual_draft": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/factual-restart-preparation-2026-10-27.json",
+      "sha256": "28fabcf3a570bf663a50277aded87af3075c8cb8a4f07aea484622c0c6146e29",
+      "bytes": 3622
+    },
+    "factual_verdict": "original facts argv preserved except fresh facts-02 output/log/receipt; original prepared, selection, corpora and factual pins match historical preflight; interrupted facts retained unaccepted; strict schema2 and exact factual preservation remain pending",
+    "factual_precondition": "successful external identity and facts-02 absence checks; root release; no continuation of partial facts",
+    "external_access": "owners and root report operation not permitted; no further probes before user restores access"
+  },
+  "application_readiness": {
+    "plan": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/application-acceptance-plan-2026-10-26.json",
+      "sha256": "6ec61c331a4a3c6b66acedeec0fe7ec8050ae35c82307c984ba34a10d68bc1e5",
+      "bytes": 6964
+    },
+    "fixture_acceptance": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/application-fixture-refresh-2026-10-27.json",
+      "sha256": "af18be289d368165bb36994784f8d2fbb04b5a1237b89b4315b9af190b08e1a1",
+      "bytes": 58218
+    },
+    "scripts": [
+      {
+        "path": "/tmp/v106-application-api.py",
+        "sha256": "c480f1132d263f878ec66f5ec4eb4b35e16355947b94b49ffb8a7175266bc8cb",
+        "bytes": 12263
+      },
+      {
+        "path": "/tmp/v106-application-browser.mjs",
+        "sha256": "78a019b169a1e7349ac6c1fdf3e5fbe23b793923b247330ad56d9bed96480ca1",
+        "bytes": 18548
+      },
+      {
+        "path": "/tmp/v106-real-panel-projection-cost.py",
+        "sha256": "4a2671948e7566b6593d6cfba6a5c66996ec9a1f1726e38386e957aa28a2d2cd",
+        "bytes": 6008
+      },
+      {
+        "path": "/tmp/v106-application-exports.py",
+        "sha256": "65f0b2dd47773df790dcbbaa8d030d8a1c1963b231536bddbbbbd70eecf6eef7",
+        "bytes": 5942
+      },
+      {
+        "path": "/tmp/v106_cohort_oracle.py",
+        "sha256": "101ad25d81b0a492db208d93a8b3bcee505c1f7e4974b6b40ddc93ff57696778",
+        "bytes": 2822
+      },
+      {
+        "path": "/tmp/v106-checked-grids.json",
+        "sha256": "2796bf0df38243e4b0aea248bdeea846709f224b1124117e82618573026ef255",
+        "bytes": 178234
+      }
+    ],
+    "web_source": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/app/src/web/analysis-history.tsx",
+        "sha256": "3dc403f91e2789e76f0ac006bc80b97cce34fe4bd4a0f2b41d0ce02240771135",
+        "bytes": 39863
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/app/src/web/peer-distributions.tsx",
+        "sha256": "0af7df1d2dfe046c706ef74d72b618cec3a93a36e1873a59970a0b19555438fe",
+        "bytes": 23176
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/app/src/web/presentation.tsx",
+        "sha256": "02551b9f6973ad5b0a4ce7da5d89bdf152f793db751a447b179aaf7e5d6e1734",
+        "bytes": 14422
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/app/src/web/root.tsx",
+        "sha256": "f59a76b2a2ee439e2777a14cc966bfabd0872241160b6144cc599d71bbe9ea8f",
+        "bytes": 6008
+      }
+    ],
+    "verdict": "existing rehearsal and reviewed four-file diff remain bound; no new framework or duplicate fixture campaign needed",
+    "candidate_precondition": "root provides completed, checked real schema8 candidate after all five accepted scores and complete factual exchange; no actual application action before then",
+    "required_real_positive_cohort": "select receipt witness with n>0, member=true, percentile non-null and qualification_seconds>=18000 for 5v5; browser must compare exact independently eligible ids/raw values and visible count/cutoff/percentile. fixture n=0 is only withheld-rank coverage",
+    "real_checks": "reuse api/browser/exports/oracle; exact saved scalar and native map values, own-year history, two expectation strata and source keys, reference xg and valued context; actual csv/png and wide/narrow/native200% views; retain explicit zero-specialty and unavailable cases",
+    "detached_method": "actual app server denies raw/prepared/fit/score/result roots, with seven failing control reads. ordinary isolated Chrome retains its own sandbox; CDP guards page requests to the exact review origin plus data/blob. browser OS filesystem-denial is not claimed. nested inherited macOS/Chromium sandbox failures are retained, and no profile or native Chromium sandbox was weakened.",
+    "startup": "launch exactly one owned isolated server; startup strict validation has no fixture-sized timeout. monitor its actual process/log/listener state until ready or an actual failure. prior real schema7 cold startup was about 19 minutes; schema8 map costs remain unmeasured. record startup separately from bounded subsequent API/browser requests; do not relaunch because readiness is slow.",
+    "runtime": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+    "preservation": "candidate immutable read/hash/no wal/shm; protect current schema7 and previous schema6 serving files/listener; stop only owned review server/browser; no activation",
+    "remaining_capacity": "measure real candidate/map bytes, build/strict startup and selected/overview API response costs; fixture costs establish no full-season bound"
+  }
+}

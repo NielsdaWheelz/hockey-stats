@@ -1,0 +1,166 @@
+{
+  "status": "passed",
+  "purpose": "fixture",
+  "production_commit": "41a003ba3e0254474a4294cd878bbb8ee6857fb0",
+  "real_acceptance": "not_run; required real preparation and annual fitted states unavailable",
+  "schema_version": 2,
+  "publication_schema_version": 8,
+  "results_manifest_sha256": "78d490f8c2a093d37ba687fef571615a9d418e9c45cf0b0f9dbefd99deed4ad8",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate/player-analysis.sqlite",
+    "sha256": "d553ffb22362d392f374d052d92f8c31dce00c6f9bd85d7605a1cba6fec1c1b4"
+  },
+  "composition": {
+    "wall_seconds": 372.0013853329583,
+    "peak_rss_bytes": 1762869248,
+    "command": [
+      "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+      "-m",
+      "hockey_stats.analysis_cli",
+      "summarize",
+      "--family",
+      "execution",
+      "--prepared",
+      "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6",
+      "--facts",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/facts-02",
+      "--scores",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores-selection.json",
+      "--out",
+      "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/results"
+    ],
+    "stdout": "composed results: fixture; /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/results/manifest.json",
+    "output_bytes": 790061109,
+    "map_bytes": 613018018,
+    "scope": "summarize CLI including its strict saved exchange validation; peak is child process high-water"
+  },
+  "publication_cost": {
+    "wall_seconds": 562.6396896669758,
+    "peak_rss_bytes": 222937088,
+    "consumed_bytes": 869807222,
+    "database_bytes": 837971968
+  },
+  "publication_cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "publication_checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "e2e_groups": 6,
+  "e2e_wall_seconds": 1249.682,
+  "seasons": {
+    "20232024": {
+      "execution_rows": 1407,
+      "maps": 2814,
+      "strata": 12663,
+      "source_value_rows": 709,
+      "reference_xg_available": 201,
+      "reference_xg_unavailable": {}
+    },
+    "20242025": {
+      "execution_rows": 1715,
+      "maps": 3430,
+      "strata": 15435,
+      "source_value_rows": 1070,
+      "reference_xg_available": 226,
+      "reference_xg_unavailable": {
+        "missing_source": 19
+      }
+    },
+    "20252026": {
+      "execution_rows": 1939,
+      "maps": 3878,
+      "strata": 17451,
+      "source_value_rows": 1076,
+      "reference_xg_available": 144,
+      "reference_xg_unavailable": {
+        "missing_source": 133
+      }
+    }
+  },
+  "independent_preservation_receipt": "composition-factual-preservation.json",
+  "scientific_admission": "not_performed",
+  "temporary_controllers": "deleted after final software and canonical fixture green; see cleanup.json",
+  "inputs": {
+    "prepared": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+      "bytes": 113142
+    },
+    "facts": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/facts-02/manifest.json",
+      "sha256": "b62f895c1dbae818aaee8d38f24aeeca15b3d173be35563ecae25262831d9e6c",
+      "bytes": 13836
+    },
+    "scores_selection": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores-selection.json",
+      "sha256": "5a98803c79f5297d7f7dd52ba43408207e7a010e841be7065ab82fe208b9c4fc",
+      "bytes": 1437
+    },
+    "annual_scores": [
+      {
+        "season": "20212022",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores/20212022/manifest.json",
+        "sha256": "d1cd158257d35a73631d5d42bc576300f8191c0e72bee1216880e6f04781df02"
+      },
+      {
+        "season": "20222023",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores/20222023/manifest.json",
+        "sha256": "e5183417d97bd396430e8deac31944bc042ab65b48509376fa4b333e3a9364bd"
+      },
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores/20232024/manifest.json",
+        "sha256": "f559ba5e6509229a05167b44ad03646a2805c6c0a960906b80b93661a96502bd"
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores/20242025/manifest.json",
+        "sha256": "5af6e314cbf859a4e003a135f26f81809705b3a35c78438202865d9b9a9ec2f8"
+      },
+      {
+        "season": "20252026",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/scores/20252026/manifest.json",
+        "sha256": "be5c9eb7b91822ed0dba0451b53104f669e9b5578da056d4c1cc6611e9960889"
+      }
+    ],
+    "observed_selection": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-root-r6-observed.json",
+      "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+      "bytes": 768
+    }
+  },
+  "publication_command": [
+    "/Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "publish",
+    "--observed",
+    "var/v1-06-root-r6-observed.json",
+    "--results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/results",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate"
+  ],
+  "results_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/results/manifest.json",
+    "sha256": "78d490f8c2a093d37ba687fef571615a9d418e9c45cf0b0f9dbefd99deed4ad8",
+    "bytes": 17435
+  },
+  "candidate_verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate/verification.json",
+    "sha256": "6f8e46d6125995718f082d4fbfeba75426d036a01506c5e327cb663ff46af81f",
+    "bytes": 15146
+  },
+  "factual_byte_proof": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/composition-factual-preservation.json",
+    "sha256": "0aef5e86a9bfd9404b2276f1d38194b7711c11d14ae5ecf8a5e74c433f0099fa",
+    "bytes": 4131
+  },
+  "cost_scope": {
+    "command_wall_seconds": 934.6410749999341,
+    "controller_wall_seconds": 1249.682,
+    "controller_scope": "both CLI commands plus independent saved-exchange reads, six boundary groups and rejection cases; excludes separate factual byte proof and application checks"
+  }
+}

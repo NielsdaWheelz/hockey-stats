@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-10-27T07:23:30.264427+00:00",
+  "denied_roots": [
+    "/Volumes/Expansion/hockey-stats/captures",
+    "/Volumes/Expansion/hockey-stats/prepared",
+    "/Volumes/Expansion/hockey-stats/chance",
+    "/Volumes/Expansion/hockey-stats/raw",
+    "/Volumes/Expansion/hockey-stats/corpora",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/fixtures",
+    "/Users/nnandal/Documents/code/hockey-stats/analysis",
+    "/Users/nnandal/Documents/code/hockey-stats/fixtures"
+  ],
+  "probes": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "exit_code": 1,
+      "stderr": "cat: /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json: Operation not permitted",
+      "stdout_empty": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+      "exit_code": 1,
+      "stderr": "cat: /Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json: Operation not permitted",
+      "stdout_empty": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+      "exit_code": 1,
+      "stderr": "cat: /Users/nnandal/Documents/code/hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json: Operation not permitted",
+      "stdout_empty": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/manifest.json",
+      "exit_code": 1,
+      "stderr": "cat: /Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/manifest.json: Operation not permitted",
+      "stdout_empty": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json",
+      "exit_code": 1,
+      "stderr": "cat: /Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json: Operation not permitted",
+      "stdout_empty": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json",
+      "exit_code": 1,
+      "stderr": "cat: /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json: Operation not permitted",
+      "stdout_empty": true
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20232024/manifest.json",
+      "exit_code": 1,
+      "stderr": "cat: /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/current-02/scores/20232024/manifest.json: Operation not permitted",
+      "stdout_empty": true
+    }
+  ],
+  "status": "passed"
+}

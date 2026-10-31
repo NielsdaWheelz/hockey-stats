@@ -1,0 +1,149 @@
+{
+  "kind": "execution-v1-06-real-composition-preflight",
+  "status": "selection frozen; composition held for root launch",
+  "checked_at_utc": "2026-10-30T07:47:01.671027+00:00",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "root_authorization": {
+    "final_annual": "root explicitly accepted bound receipt 58d416bcb511b84e3581ae87ac0442072a2e28fbdec029fdd09974e152136326 and all five annuals plus facts-04; released only selection freeze and this preflight",
+    "scope": "no composition, publication, activation or output-directory creation"
+  },
+  "final_annual_acceptance": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-04-20252026-acceptance-2026-10-30.json",
+    "sha256": "58d416bcb511b84e3581ae87ac0442072a2e28fbdec029fdd09974e152136326",
+    "bytes": 31669,
+    "recorded_status": "passed",
+    "historical_receipt_fields": {
+      "root_review": "pending",
+      "annual_accepted": false
+    },
+    "acceptance_authority": "subsequent explicit root acceptance; historical receipt left unchanged"
+  },
+  "selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+    "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1",
+    "bytes": 1414,
+    "local_draft": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/scores-selection-current-04.draft.json",
+    "write": "exclusive new-file write; exact bytes read back and compared"
+  },
+  "selected_annual_manifests": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+      "bytes": 382434
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json",
+      "sha256": "1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede",
+      "bytes": 382616
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+      "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0",
+      "bytes": 382623
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+      "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+      "bytes": 382625
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+      "sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+      "bytes": 382610
+    }
+  ],
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+    "bytes": 18633830
+  },
+  "facts": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+    "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb",
+    "bytes": 13870
+  },
+  "reused_postflight": {
+    "acceptance_path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-04-20252026-acceptance-2026-10-30.json",
+    "acceptance_sha256": "58d416bcb511b84e3581ae87ac0442072a2e28fbdec029fdd09974e152136326",
+    "checked_at_utc": "2026-10-30T07:43:49.001092+00:00",
+    "head": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+    "source_files": 51,
+    "input_and_probe_pins": 12,
+    "checker_pins": 2,
+    "accepted_prior_manifest_pins": 4,
+    "accepted_facts_manifest_pins": 1,
+    "preflight": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-04-preflight-2026-10-29.json",
+      "sha256": "0f3c8b34afa804a0f865c66fd6f8ef5057a73a78b345a61d64a5589cdc5a6b80",
+      "bytes": 15970
+    },
+    "accepted_prior_manifests": [
+      {
+        "season": "20212022",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+        "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+        "bytes": 382434
+      },
+      {
+        "season": "20222023",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json",
+        "sha256": "1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede",
+        "bytes": 382616
+      },
+      {
+        "season": "20232024",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+        "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0",
+        "bytes": 382623
+      },
+      {
+        "season": "20242025",
+        "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+        "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0",
+        "bytes": 382625
+      }
+    ],
+    "accepted_facts_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-04/manifest.json",
+      "sha256": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb",
+      "bytes": 13870
+    },
+    "method": "fresh bounded sha256 comparisons for51 local analysis files,12 pinned input/probe manifests,2 checker files,four accepted prior annual manifests and facts-04 manifest; exact frozen head. no bulk prepared members,fitted arrays,accepted annual members or old factual members reopened",
+    "reuse": "prior checked identities reused; no repeated source/member/input scan"
+  },
+  "composition_recipe": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh",
+    "sha256": "95221017a7a12ac999035d06ab75dd5a091f9b7fa946ba0f4eeeadd33c8a4bea",
+    "bytes": 914,
+    "launch_command": "/bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-results.sh",
+    "syntax": "previous preparation syntax checks passed; script identity unchanged"
+  },
+  "fresh_paths": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results",
+      "absent": true,
+      "symlink": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.log",
+      "absent": true,
+      "symlink": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results.exit",
+      "absent": true,
+      "symlink": false
+    }
+  ],
+  "launch_owner": "root in existing persistent terminal after review",
+  "composition_launched": false,
+  "publication_launched": false,
+  "activation": false,
+  "verification_scope": "local draft/receipt/recipe reads and head; external metadata for required fresh paths; only external data read/write is exact selection file; accepted input identities reused from just-completed postflight; no bulk scan",
+  "preservation": "earlier receipts, accepted outputs, interrupted partials, fitted states, source evidence and serving artifacts unchanged"
+}

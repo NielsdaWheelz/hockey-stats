@@ -1,0 +1,42 @@
+{
+  "kind": "local-temporary-check-cleanup",
+  "status": "completed",
+  "completed_at_utc": "2026-10-31T04:02:08.303762+00:00",
+  "authorization": "root released these exact local paths after final real acceptance, preservation and independent retained-artifact review",
+  "deleted": [
+    {
+      "path": "var/v1-06-real",
+      "files": 109,
+      "bytes": 1821561
+    },
+    {
+      "path": "var/v1-06-real-checks",
+      "files": 4,
+      "bytes": 110415
+    },
+    {
+      "path": "var/v1-06-reader-checks",
+      "files": 6,
+      "bytes": 13323
+    },
+    {
+      "path": "docs/research/execution-v1-06/real/application-artifacts/fixture-refresh-20261027/detached.sb",
+      "files": 1,
+      "bytes": 1502
+    }
+  ],
+  "total_files": 120,
+  "total_bytes": 1946801,
+  "exact_paths_gone": true,
+  "staged_sandbox_removed_from_index": true,
+  "test_only_package": "var/v1-06-reader-checks/package.json removed with its owned root; it contained only type:module and installed no dependencies. no shared package or environment was removed",
+  "observed_selection": {
+    "path": "var/v1-06-root-r6-observed.json",
+    "exists": true,
+    "bytes": 768,
+    "byte_unchanged_during_cleanup": true
+  },
+  "retained_facts": "the approved inventory records 18 byte-identical retained receipt/log pairs; final reader, browser/export, preservation and retained-artifact facts remain outside the deleted roots",
+  "scope": "only the three listed owned roots and the listed never-committed staged sandbox profile were deleted; no other path or index entry was removed; no further application/scientific checks or bulk hashes ran",
+  "inventory": "docs/research/execution-v1-06/real/local-temporary-cleanup-inventory-2026-10-31.json"
+}

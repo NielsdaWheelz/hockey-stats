@@ -38,7 +38,7 @@ node --version
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /absolute/schema-7-candidate/player-analysis.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-8-candidate/player-analysis.sqlite --port 3067
 ```
 
 to review another revision, build a separate checkout with the pinned node path above and serve it on a separate port:
@@ -48,12 +48,12 @@ cd /absolute/review-checkout/app
 npm ci --include=dev
 npm run typecheck
 npm run build
-npm run serve -- --publication /absolute/schema-7-candidate/player-analysis.sqlite --port 3067
+npm run serve -- --publication /absolute/schema-8-candidate/player-analysis.sqlite --port 3067
 ```
 
-open `http://127.0.0.1:3067/`. this revision reads schema 7 only. the active schema-7 publication is tracked in [the current activation record](docs/research/application-v1-16/activation.md). use a separately built checkout and unused port to inspect another candidate. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
+open `http://127.0.0.1:3067/`. this revision reads schema 8 only. the active schema-7 publication and previous schema-6 rollback are tracked in [the current activation record](docs/research/application-v1-16/activation.md), with their compatible builds. use a separately built checkout and unused port to inspect a schema-8 candidate; this source cutover does not replace serving files or activate the candidate. only its sqlite file is needed for browsing. rebuild compatible applications from git; no archived build is needed.
 
-the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python, the external drive and external network are unnecessary for browsing. stop it with ctrl-c before replacing the publication. no lan host option is provided.
+the server validates one existing read-only database before listening and needs the built `dist/client/` assets. source roots, python and external network are unnecessary for browsing. the selected sqlite file must remain accessible; an external drive is needed only when that file is stored there. stop it with ctrl-c before replacing the publication. no lan host option is provided.
 
 discovery filters intersect and start with every published player, including low-minute names. choose a reported forward/defense group or a listed season team; type a nonnegative whole-minute minimum, then press enter or apply. the team filter matches season membership and keeps whole-season values, including other teams. `clear filters` preserves sorting. invalid minute drafts leave displayed results unchanged.
 
@@ -84,7 +84,7 @@ the peer minute cutoff is a viewing rule, not evidence of reliability. each elig
 development’s api uses port 3000, so stop its existing server before that development workflow; separate built-candidate review leaves it running. development uses two terminals, each in `app/` with the pinned node executable first:
 
 ```sh
-npm run dev:api -- --publication /absolute/schema-7-candidate/player-analysis.sqlite
+npm run dev:api -- --publication /absolute/schema-8-candidate/player-analysis.sqlite
 ```
 
 ```sh
@@ -138,18 +138,18 @@ the typed api has five endpoints:
 for an explicitly assigned activation, check the candidate, stop serving, then copy/rotate explicitly:
 
 ```sh
-npm run publication -- check --candidate /absolute/schema-7-candidate/player-analysis.sqlite
-npm run publication -- activate --candidate /absolute/schema-7-candidate/player-analysis.sqlite --directory /absolute/publication
+npm run publication -- check --candidate /absolute/schema-8-candidate/player-analysis.sqlite
+npm run publication -- activate --candidate /absolute/schema-8-candidate/player-analysis.sqlite --directory /absolute/publication
 npm run serve -- --publication /absolute/publication/active.sqlite
 ```
 
-activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. for schema-7 restore, stop serving, run the following, restart and reload:
+activation validates an exclusive incoming copy and reports its digest. it preserves an existing active file as opaque predecessor bytes and reports that byte identity; an incompatible predecessor is checked using its matching git build. exactly one `previous.sqlite` remains. to restore a schema-8 previous publication, stop serving, run the following, restart and reload:
 
 ```sh
 npm run publication -- restore --directory /absolute/publication
 ```
 
-a cross-schema previous file requires the manual procedure below. the current source reads schema **7** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. current pages still present the supported observed journeys; direct goalie profiles show identity/history and the explicit unfinished-presentation message.
+a cross-schema previous file requires the manual procedure below. the current source reads schema **8** only; it retains the authoritative observed reducers and their population/display versions. building/checking a candidate does not activate it, admit a model or complete real player cards. current pages present the supported observed journeys and [checked experimental execution views](docs/research/execution-v1-06/verification.md); direct goalie profiles show identity/history and the explicit unfinished-presentation message.
 
 ### manual cross-version cutover and rollback
 

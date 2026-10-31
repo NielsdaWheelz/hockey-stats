@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "scope": "read-only final saved members; exact evidence owner, nonempty counts and bound actual bytes",
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "tables": {
+    "20232024": {
+      "attempt_fact": {
+        "rows": 709,
+        "sha256": "7281deb442735b19098b697672807b6dd74e4bde167b6e3811c33a3dab862c1f",
+        "comparison": "exact bytes"
+      },
+      "dressed_game": {
+        "rows": 240,
+        "sha256": "a562580ee5c03ff151a2876c27fb2ab4da63049cda87957bc219f1201297c828",
+        "comparison": "exact bytes"
+      },
+      "interval_player": {
+        "rows": 20260,
+        "sha256": "da38ff91f15e38112b7a2e52b6d74e5ceff64ed0a4c43e5b42e492a783f23896",
+        "comparison": "exact bytes"
+      },
+      "interval_fact": {
+        "rows": 12056,
+        "sha256": "05d4dbded45bd480f7693e31c424f43125b2e2d8d0efaa7b1bb193242376c88c",
+        "comparison": "exact recorded-population bytes in order"
+      },
+      "interval_location": {
+        "rows": 654,
+        "sha256": "1e0b256295eec9b9f00d9c05c721c2d993375bd9c0968a5c59028d736771856a",
+        "comparison": "exact recorded-population bytes in order"
+      },
+      "context_coverage": {
+        "rows": 603,
+        "sha256": "9604fedfc2bb7aa896359ecce3909a5099e8e236ce87aebc736cd75c2adba5c5",
+        "comparison": "exact recorded-population bytes in order"
+      }
+    },
+    "20242025": {
+      "attempt_fact": {
+        "rows": 1070,
+        "sha256": "f570d45c33490d1fda14e74bed629cbff7531060eeaaf9f64f9dface072a94be",
+        "comparison": "exact bytes"
+      },
+      "dressed_game": {
+        "rows": 360,
+        "sha256": "0c07ccd6b768e9cfdca88e43f27cb70aaa7620058e7dee697118806046f0caaf",
+        "comparison": "exact bytes"
+      },
+      "interval_player": {
+        "rows": 25580,
+        "sha256": "eb72a50b1263f9696d9954c93b81b883430689759483c54f371a7e64179b0142",
+        "comparison": "exact bytes"
+      },
+      "interval_fact": {
+        "rows": 15348,
+        "sha256": "cea31d35bf859d4c12e34a2bd82b7d1e873d59055cc949e9632896c6358eeaeb",
+        "comparison": "exact recorded-population bytes in order"
+      },
+      "interval_location": {
+        "rows": 984,
+        "sha256": "82623114413fc4cabac0cd78817df0f091633966b315c7329842813e70ae326f",
+        "comparison": "exact recorded-population bytes in order"
+      },
+      "context_coverage": {
+        "rows": 735,
+        "sha256": "f7c3d2989358a6db611946130231c7d1f003440e5eb92122aec3be65276bce40",
+        "comparison": "exact recorded-population bytes in order"
+      }
+    },
+    "20252026": {
+      "attempt_fact": {
+        "rows": 1076,
+        "sha256": "0fdf36705fa1ce8b7899498a491c48616edcb8475f14c55419e36724032e2082",
+        "comparison": "exact bytes"
+      },
+      "dressed_game": {
+        "rows": 360,
+        "sha256": "460638527452e960d214c037d1afa7748efd40f91cc36b98da00ae01987a91d3",
+        "comparison": "exact bytes"
+      },
+      "interval_player": {
+        "rows": 13760,
+        "sha256": "dbd0117270be78f1e9b97e957861821d928b10504703cc2c2e17539bcd6151f0",
+        "comparison": "exact bytes"
+      },
+      "interval_fact": {
+        "rows": 8254,
+        "sha256": "8ee053f4d6a4b996dc07c0e6a0ad60dfc4d96b41c0e54e5fae8dcb048f0712dc",
+        "comparison": "exact recorded-population bytes in order"
+      },
+      "interval_location": {
+        "rows": 476,
+        "sha256": "4cd5538a54095eda4d450165d41b0cdccb6dbeb5ffdad1ce414fb7dbef0f8860",
+        "comparison": "exact recorded-population bytes in order"
+      },
+      "context_coverage": {
+        "rows": 831,
+        "sha256": "30a0b714be352581a09aa19770df3fb7d5b3b0269cbfe2a86c2cf98eb4b5ec1b",
+        "comparison": "exact recorded-population bytes in order"
+      }
+    }
+  },
+  "catalogs": {
+    "people": {
+      "rows": 805,
+      "sha256": "23e3b17b79fa7b9a458d022ccae980316dd8864b6a34558e263dbd7a32f42264",
+      "comparison": "exact bytes"
+    },
+    "sources": {
+      "rows": 21,
+      "sha256": "529162ffcfa0b5e17a4147c1f0fe16a761f58e486b26da3169bf9cc2db9d4b24",
+      "comparison": "exact bytes"
+    }
+  }
+}

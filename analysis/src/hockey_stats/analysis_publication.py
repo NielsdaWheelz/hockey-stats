@@ -144,6 +144,12 @@ QUANTITY_PATHS = frozenset((
     'execution_breakdown.probability',
     'execution_breakdown.effect',
     'execution_breakdown.expected_successes',
+    'execution_breakdown.reference.expected_goals',
+    'execution_breakdown.reference.mean_opportunity',
+    'execution_breakdown.reference.observed_minus_expected_goals',
+    'execution_breakdown.actor.expected_goals',
+    'execution_breakdown.actor.mean_opportunity',
+    'execution_breakdown.actor.observed_minus_expected_goals',
     'adjustment_decomposition.baseline',
     'adjustment_decomposition.self',
     'adjustment_decomposition.teammates',
@@ -300,7 +306,7 @@ def support(value):
     strings(value["prior_seasons"], ordered=True)
     for item in value["prior_seasons"]:
         season(item)
-    require(not value["prior_only"] or not value["current_season_information"] and bool(value["prior_seasons"]), "prior-only support lacks historical information or claims current information")
+    require(not value["prior_only"] or not value["current_season_information"], "prior-only support claims current information")
 
 
 def fact_value(value, catalogs, *, unit=None, denominator_kind=None):
@@ -378,6 +384,9 @@ def validate_catalog(table, row, purpose, catalogs, prepared):
             fields(item, ("quantities", "population", "summary", "evidence"))
             strings(item["quantities"])
             require(item["quantities"] and set(item["quantities"]) <= QUANTITY_PATHS, "assessment has unknown quantities")
+            if row['family'] == 'execution':
+                require(not set(item['quantities']) & {'execution_breakdown.probability','execution_breakdown.effect','execution_breakdown.expected_successes'},
+                        'execution assessment names retired skater breakdown quantities')
             text(item["population"])
             text(item["summary"])
             _receipts(item["evidence"], nullable_digest=True)
@@ -1092,10 +1101,22 @@ def _available_method(method_id, catalogs):
     require(method['design_sha256'] is not None and method['training_cutoff'] is not None, 'unavailable fit supports available fitted output')
 
 
-def _map(value, row, catalogs):
+def native_display_mass(native):
+    """the fixed native656 to blurred display668 mass transport."""
     from .observed_spatial import cells, cell_id, pooling
     from .shot_origins import grid
     import numpy as np
+
+    indices = {item['cell_id']:index for index,item in enumerate(cells())}
+    unpooled = np.zeros(668)
+    require(len(native) == 656, 'wrong native transport length')
+    for mass,(x,y) in zip(native,grid()[0]):
+        unpooled[indices[cell_id(float(x),float(y))]] += mass
+    return pooling() @ unpooled
+
+
+def _map(value, row, catalogs):
+    from .observed_spatial import cells
 
     fields(value, ('grid_id','unit','reference','cells','display_cells','integrated_value','unavailable_reason','reason_detail','support','method_id'))
     require(value['grid_id'] == 'native656', 'invalid model grid')
@@ -1119,11 +1140,7 @@ def _map(value, row, catalogs):
     number(value['integrated_value'])
     require(close(sum(native), value['integrated_value']), 'native map mass differs')
     geometry = cells()
-    indices = {item['cell_id']: index for index, item in enumerate(geometry)}
-    unpooled = np.zeros(668)
-    for mass, (x, y) in zip(native, grid()[0]):
-        unpooled[indices[cell_id(float(x), float(y))]] += mass
-    expected = pooling() @ unpooled
+    expected = native_display_mass(native)
     require(type(value['display_cells']) is list and len(value['display_cells']) == 668, 'wrong display map length')
     for item, shape, mass in zip(value['display_cells'], geometry, expected):
         fields(item, ('cell_id','mass','density_per100sqft'))
@@ -1141,9 +1158,128 @@ def _evidence_mass(value, *, cell=False):
     number(value['expected_goals'], minimum=0, maximum=value['attempts'])
 
 
-def validate_payload(table, value, row, catalogs):
+def _execution_details(value):
+    panel = value['reference_panel']
+    fields(panel, ('panel_id','opportunities','setup_weight','neutral','focal_shooter','setting_setup'))
+    text(panel['panel_id'])
+    number(panel['opportunities'],minimum=0,integer=True)
+    number(panel['setup_weight'],minimum=0)
+    require(close(panel['setup_weight'],.8*panel['opportunities']), 'execution setup weight differs')
+    for key in ('neutral','focal_shooter'):
+        fields(panel[key], ('u','uq','uqr','uqrg'))
+        previous = panel['opportunities']
+        for prefix in ('u','uq','uqr','uqrg'):
+            mass = panel[key][prefix]
+            number(mass,minimum=0,nullable=key == 'focal_shooter')
+            require(mass is None or previous is not None and mass <= previous, 'execution prefix mass not nested')
+            previous = mass
+    fields(panel['setting_setup'], ('neutral_goal_mass','focal_goal_mass'))
+    for key, mass in panel['setting_setup'].items():
+        number(mass,minimum=0,maximum=panel['setup_weight'],nullable=key == 'focal_goal_mass')
+    require(panel['setting_setup']['neutral_goal_mass'] <= panel['neutral']['uqrg'], 'setup neutral goal mass exceeds total')
+    coefficients = value['coefficient_support']
+    fields(coefficients, ('shooter','setter'))
+    fields(coefficients['shooter'], ('u','q','r','g'))
+    fields(coefficients['setter'], ('g',))
+    for role, heads in coefficients.items():
+        for coefficient in heads.values():
+            fields(coefficient, ('available','likelihood_events','prior_only','prior_seasons','reason',
+                                *(('candidate_events','mean_coupled_events') if role == 'setter' else ())))
+            require(type(coefficient['available']) is bool, 'invalid coefficient availability')
+            number(coefficient['likelihood_events'],minimum=0,integer=True,nullable=True)
+            require(coefficient['prior_only'] is None or type(coefficient['prior_only']) is bool, 'invalid coefficient prior flag')
+            strings(coefficient['prior_seasons'],ordered=True)
+            for year in coefficient['prior_seasons']:
+                season(year)
+            if coefficient['reason'] is not None:
+                text(coefficient['reason'])
+            if coefficient['available']:
+                require(coefficient['prior_only'] is not None and (coefficient['likelihood_events'] is not None or coefficient['reason'] is not None), 'available coefficient lacks information')
+            else:
+                require(coefficient['likelihood_events'] is None and coefficient['prior_only'] is None
+                        and not coefficient['prior_seasons'] and coefficient['reason'] is not None, 'absent coefficient invents support')
+            if role == 'setter':
+                for key in ('candidate_events','mean_coupled_events'):
+                    number(coefficient[key],minimum=0,integer=True,nullable=True)
+                    require(coefficient['available'] or coefficient[key] is None, 'absent setter invents event count')
+                    require(coefficient[key] is None or coefficient['likelihood_events'] is None
+                            or coefficient[key] <= coefficient['likelihood_events'], 'setter subset exceeds likelihood union')
+    available = True
+    for head,prefix in zip(('u','q','r','g'),('u','uq','uqr','uqrg')):
+        available &= coefficients['shooter'][head]['available']
+        require((panel['focal_shooter'][prefix] is not None) == available, 'focal prefix coefficient prerequisites differ')
+    require((panel['setting_setup']['focal_goal_mass'] is not None) == coefficients['setter']['g']['available'], 'setting coefficient prerequisite differs')
+    def ratio(numerator, denominator):
+        return numerator/denominator if numerator is not None and denominator else None
+    neutral, focal = panel['neutral'],panel['focal_shooter']
+    levels = [('avoid_block_probability',ratio(focal['u'],panel['opportunities']),ratio(neutral['u'],panel['opportunities'])),
+              ('on_net_probability',ratio(focal['uq'],focal['u']),ratio(neutral['uq'],neutral['u'])),
+              ('recorded_stop_probability',ratio(focal['uqr'],focal['uq']),ratio(neutral['uqr'],neutral['uq'])),
+              ('conversion_probability',ratio(focal['uqrg'],focal['uqr']),ratio(neutral['uqrg'],neutral['uqr']))]
+    expected, unresolved = {},set()
+    for field,level,baseline in levels:
+        if field == 'recorded_stop_probability':
+            level = 1-level if level is not None else None
+            baseline = 1-baseline if baseline is not None else None
+        expected[field] = level
+        expected[field+'_difference'] = level-baseline if level is not None and baseline is not None else None
+        # integrated masses can underflow although a log-domain conditional
+        # ratio remains representable. its numerical owner checks that ratio.
+        needed = {'avoid_block_probability':'u','on_net_probability':'uq',
+                  'recorded_stop_probability':'uqr','conversion_probability':'uqrg'}[field]
+        if panel['opportunities'] and focal[needed] is not None:
+            if level is None:
+                unresolved.add(field)
+            if level is None or baseline is None:
+                unresolved.add(field+'_difference')
+    expected['finishing_goals_per100_attempts'] = ratio(100*(focal['uqrg']-neutral['uqrg']) if focal['uqrg'] is not None else None,panel['opportunities'])
+    setting = panel['setting_setup']
+    expected['setting_goals_per100_assisted_opportunities'] = ratio(100*(setting['focal_goal_mass']-setting['neutral_goal_mass']) if setting['focal_goal_mass'] is not None else None,panel['setup_weight'])
+    for field, magnitude in expected.items():
+        actual = value[field]['value']
+        if field in unresolved:
+            require(actual is not None, 'supported execution conditional ratio unavailable')
+            number(actual,minimum=-1 if field.endswith('_difference') else 0,maximum=1)
+        else:
+            require(actual is None if magnitude is None else actual is not None and close(actual,magnitude), 'execution panel/scalar closure differs')
+        require(value['support'][field]['eligible_weight'] is None, 'execution mixed-head support invents eligible weight')
+        if field == 'setting_goals_per100_assisted_opportunities':
+            records = [coefficients['setter']['g']]
+        else:
+            count = 4 if field == 'finishing_goals_per100_attempts' else (
+                'avoid_block_probability','on_net_probability','recorded_stop_probability','conversion_probability').index(field.removesuffix('_difference'))+1
+            records = [coefficients['shooter'][head] for head in ('u','q','r','g')[:count]]
+        metric = value['support'][field]
+        complete = all(record['available'] for record in records)
+        require(metric['prior_only'] == (complete and all(record['prior_only'] for record in records)), 'execution prior-only support differs from coefficients')
+        require(metric['prior_seasons'] == sorted({year for record in records for year in record['prior_seasons']}), 'execution prior seasons differ from coefficients')
+        counts = [record['likelihood_events'] for record in records]
+        if not complete or any(count is None for count in counts):
+            require(metric['events'] is None, 'execution event union invents an unavailable count')
+            if not complete:
+                require(not metric['current_season_information'], 'absent execution coefficient claims current information')
+        else:
+            require(metric['events'] is not None and max(counts) <= metric['events'] <= sum(counts), 'execution event union outside contributing head bounds')
+            require(metric['current_season_information'] == bool(metric['events']), 'execution current information differs from event union')
+    qualification = ('included_seconds','known_excluded_seconds','unquantified_gap','reason_counts')
+    first_support = value['support']['finishing_goals_per100_attempts']
+    require(all(all(metric[key] == first_support[key] for key in qualification) for metric in value['support'].values()),
+            'execution exact-strength participation differs across fields')
+    paired = value['paired_evidence']
+    fields(paired, ('source_attempts','paired_attempts','unvalued_source_attempts','danger_unavailable'))
+    for key in ('source_attempts','paired_attempts','unvalued_source_attempts'):
+        number(paired[key],minimum=0,integer=True)
+    require(paired['source_attempts'] == paired['paired_attempts']+paired['unvalued_source_attempts'], 'paired source count differs')
+    omitted = paired['danger_unavailable']
+    fields(omitted, ('events','observed_goals','reference_expected_goals','actor_expected_goals'))
+    number(omitted['events'],minimum=0,maximum=paired['paired_attempts'],integer=True)
+    for key in ('observed_goals','reference_expected_goals','actor_expected_goals'):
+        number(omitted[key],minimum=0,maximum=omitted['events'],integer=key == 'observed_goals')
+
+
+def validate_payload(table, value, row, catalogs, *, person_kind=None):
     if table in ESTIMATE_FIELDS and table != 'attempt_value':
-        extra = ('state_weights',) if table == 'skater_spatial' else ('recorded_drawn','recorded_taken','recorded_served') if table == 'skater_penalties' else ()
+        extra = ('state_weights',) if table == 'skater_spatial' else ('reference_panel','coefficient_support','paired_evidence') if table == 'skater_execution' else ('recorded_drawn','recorded_taken','recorded_served') if table == 'skater_penalties' else ()
         fields(value, (*ESTIMATE_FIELDS[table], *extra, 'support','method_id'))
         for field in ESTIMATE_FIELDS[table]:
             probability = field in ('probability','neutral_probability') or field.endswith('_probability') or field == 'followup_danger'
@@ -1155,7 +1291,9 @@ def validate_payload(table, value, row, catalogs):
         else:
             support(value['support'])
         _method(value['method_id'], catalogs)
-        if table == 'skater_spatial':
+        if table == 'skater_execution':
+            _execution_details(value)
+        elif table == 'skater_spatial':
             require(type(value['state_weights']) is list and value['state_weights'], 'missing state weights')
             states = []
             for item in value['state_weights']:
@@ -1256,6 +1394,32 @@ def validate_payload(table, value, row, catalogs):
     elif table == 'analysis_map':
         _map(value, row, catalogs)
     elif table == 'execution_breakdown':
+        _method(value['method_id'],catalogs)
+        require(person_kind in ('skater','goalie'), 'execution breakdown lacks checked person kind')
+        if person_kind == 'skater':
+            fields(value, ('events','observed_goals','reference','actor','support','method_id'))
+            number(value['events'],minimum=0,integer=True)
+            if value['events']:
+                _available_method(value['method_id'],catalogs)
+            number(value['observed_goals'],minimum=0,maximum=value['events'],integer=True)
+            for key in ('reference','actor'):
+                comparison = value[key]
+                fields(comparison, ('expected_goals','mean_opportunity','observed_minus_expected_goals'))
+                number(comparison['expected_goals'],minimum=0,maximum=value['events'])
+                estimate(comparison['mean_opportunity'],catalogs,probability=True)
+                estimate(comparison['observed_minus_expected_goals'],catalogs)
+                mean = comparison['mean_opportunity']['value']
+                if value['events'] == 0:
+                    require(mean is None and comparison['mean_opportunity']['unavailable_reason'] in ('no_exposure','missing_source'), 'empty paired opportunity mean lacks unavailable reason')
+                    if comparison['mean_opportunity']['unavailable_reason'] == 'missing_source':
+                        require(value['support']['unquantified_gap'] and any(r['code'] == 'source_unavailable' for r in value['support']['reason_counts']), 'missing paired source collection lacks located gap support')
+                else:
+                    require(mean is not None and close(mean,comparison['expected_goals']/value['events']), 'paired opportunity mean differs')
+                residual = comparison['observed_minus_expected_goals']['value']
+                require(residual is not None and close(residual,value['observed_goals']-comparison['expected_goals']), 'paired opportunity residual differs')
+            support(value['support'])
+            require(value['support']['included_seconds'] is None, 'paired attempt evidence invents elapsed support')
+            return
         _available_method(value['method_id'],catalogs)
         fields(value, ('events','eligible_weight','observed_successes','expected_successes','probability','effect','support','method_id'))
         number(value['events'], minimum=0, integer=True)
@@ -1395,7 +1559,7 @@ def validate_fact(table, row, catalogs, people):
     elif table == 'attempt_setter':
         fields(row,(*keys,'pre_outcome_weight','posterior_weight','recorded_assist_evidence'))
         text(row['candidate_id'])
-        require(row['candidate_id'] in ('none','unknown') or (year,row['candidate_id']) in people and people[(year,row['candidate_id'])]['kind'] == 'skater', 'unknown setter')
+        require(row['candidate_id'] in ('none','unknown') or (year,row['candidate_id']) in people, 'unknown setter')
         number(row['pre_outcome_weight'],minimum=0,maximum=1)
         number(row['posterior_weight'],minimum=0,maximum=1,nullable=True)
         require(type(row['recorded_assist_evidence']) is list, 'invalid assist evidence')
@@ -1406,8 +1570,12 @@ def validate_fact(table, row, catalogs, people):
         text(row['recipient_id'])
         require(row['group'] in ('shooter','setter','goalie','coach') and ((row['group'] == 'coach') == (row['recipient_id'] == 'coaching_context')), 'invalid share group')
         if row['group'] != 'coach':
-            require(row['recipient_id'] in ('none','unknown') or (year,row['recipient_id']) in people and people[(year,row['recipient_id'])]['kind'] == ('goalie' if row['group'] == 'goalie' else 'skater'), 'invalid share recipient')
+            require(row['group'] == 'setter' and row['recipient_id'] in ('none','unknown') or
+                    (year,row['recipient_id']) in people and (row['group'] != 'goalie' or people[(year,row['recipient_id'])]['kind'] == 'goalie'),
+                    'invalid share recipient')
         number(row['goals'])
+        if row['group'] == 'setter' and (row['recipient_id'] in ('none','unknown') or people[(year,row['recipient_id'])]['kind'] == 'goalie'):
+            require(row['goals'] == 0, 'neutral setter recipient has nonzero share')
     elif table == 'dressed_game':
         fields(row,(*keys,'team_id','source'))
         reference(row['source'],catalogs)
@@ -1493,13 +1661,13 @@ def validate_row(table, row, family, catalogs, people):
         require(result['data'] is None, 'pending result has data')
         return
     require(type(result['data']) is dict, 'provided row lacks payload')
-    validate_payload(table,result['data'],row,catalogs)
+    validate_payload(table,result['data'],row,catalogs,person_kind=kind)
     _method_supports(result['data'],row['season'],catalogs)
     method_id = result['data'].get('method_id')
     if method_id is not None:
         method = catalogs['method'][method_id]
         require(method['family'] == family, 'method family differs')
-        if _has_available_estimate(result['data']):
+        if _has_available_estimate(result['data']) and not (table == 'execution_breakdown' and kind == 'skater' and result['data']['events'] == 0):
             require(method['design_sha256'] is not None and method['training_cutoff'] is not None, 'unavailable fit supports available estimate')
 
 
@@ -1566,7 +1734,7 @@ def _read_results(directory, manifest_name):
     directory = directory.resolve(strict=True)
     manifest = strict_json((directory/manifest_name).read_bytes())
     fields(manifest,('schema_version','kind','purpose','seasons','observed_bindings','prepared_sha256','producer','catalogs','families'))
-    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 1 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 2 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
     strings(manifest['seasons'],ordered=True)
     require(manifest['seasons'] and set(manifest['seasons']) <= set(SEASONS) and (manifest['purpose'] != 'real' or manifest['seasons'] == list(SEASONS)), 'invalid display seasons')
     require(type(manifest['observed_bindings']) is list and len(manifest['observed_bindings']) == len(manifest['seasons']), 'missing observed bindings')
@@ -1626,7 +1794,7 @@ def write_results(selection, catalogs, family_rows, output: Path) -> dict:
     fields(catalogs,('people','sources','methods','supports'))
     require(not output.exists() and not output.is_symlink(), 'result output exists')
     output.mkdir()
-    manifest = dict(schema_version=1,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
+    manifest = dict(schema_version=2,kind='player_analysis_results',**selection,producer=implementation_identity(),catalogs={},families=[])
     def write_row(destination, sha, table, row, previous):
         key = tuple(row[field] for field in KEYS[table])
         require(previous is None or previous < key, f'{table}: producer rows must be sorted and unique')
@@ -1867,16 +2035,69 @@ def check_results(connection, results):
                     actual = [row[0] for row in connection.execute('SELECT population FROM context_coverage WHERE season=? AND player_id=? ORDER BY population',(year,player_id))]
                     require(actual == sorted(CONTEXT_POPULATIONS), 'missing context coverage')
     _check_intervals(connection)
+    require(connection.execute("SELECT 1 FROM attempt_setter s JOIN attempt_fact a USING(season,game_id,source_index) WHERE a.outcome!='goal' AND json_array_length(json_extract(s.payload_json,'$.recorded_assist_evidence'))!=0 LIMIT 1").fetchone() is None,
+            'non-goal setter claims recorded assist evidence')
     for row in connection.execute('SELECT season,game_id,source_index,sum(json_extract(payload_json,\'$.pre_outcome_weight\')) total,sum(json_extract(payload_json,\'$.posterior_weight\')) posterior,count(json_extract(payload_json,\'$.posterior_weight\')) posterior_count,count(*) n FROM attempt_setter GROUP BY season,game_id,source_index'):
         require(close(row['total'],1), 'setter weights do not sum to one')
         require(row['posterior_count'] == 0 or row['posterior_count'] == row['n'] and close(row['posterior'],1), 'posterior setter weights do not sum to one')
+        candidates = {r['candidate_id']:strict_json(r['payload_json'].encode()) for r in connection.execute(
+            'SELECT candidate_id,payload_json FROM attempt_setter WHERE season=? AND game_id=? AND source_index=?',
+            (row['season'],row['game_id'],row['source_index']))}
+        require('none' in candidates and close(candidates['none']['pre_outcome_weight'],.2), 'setter none/setup prior differs')
+        require('unknown' not in candidates or set(candidates) == {'none','unknown'}, 'unknown setter mixed with known candidates')
+    for row in connection.execute("SELECT season,game_id,source_index,payload_json FROM attempt_fact WHERE json_extract(payload_json,'$.actor_all_attempt_opportunity.value') IS NOT NULL"):
+        args = (row['season'],row['game_id'],row['source_index'])
+        require(connection.execute('SELECT 1 FROM attempt_setter WHERE season=? AND game_id=? AND source_index=?',args).fetchone() is not None,
+                'completed source event lacks setter branches')
+        require(connection.execute('SELECT count(DISTINCT "group") FROM attempt_execution_share WHERE season=? AND game_id=? AND source_index=?',args).fetchone()[0] == 4,
+                'completed source event lacks execution groups')
     for row in connection.execute('SELECT a.season,a.game_id,a.source_index,a.payload_json,count(DISTINCT s."group") groups,sum(json_extract(s.payload_json,\'$.goals\')) goals FROM attempt_fact a JOIN attempt_execution_share s USING(season,game_id,source_index) GROUP BY a.season,a.game_id,a.source_index'):
         values = strict_json(row['payload_json'].encode())
         actor = values['actor_all_attempt_opportunity']['value']
         neutral = values['neutral_all_attempt_opportunity']['value']
         require(row['groups'] == 4 and actor is not None and neutral is not None and close(row['goals'],actor-neutral), 'execution shares do not close actor-minus-neutral')
+    for row in connection.execute('SELECT s."group",s.recipient_id,a.shooter_id,a.goalie_id,json_extract(a.payload_json,\'$.team_id\') shooting_team,d.team_id recipient_team FROM attempt_execution_share s JOIN attempt_fact a USING(season,game_id,source_index) LEFT JOIN dressed_game d ON d.season=s.season AND d.game_id=s.game_id AND d.player_id=s.recipient_id WHERE s."group" IN (\'shooter\',\'goalie\')'):
+        if row['group'] == 'goalie':
+            require(row['recipient_team'] is not None and row['shooting_team'] is not None and row['recipient_team'] != row['shooting_team'], 'unreported source goalie lacks defending dressed identity')
+            require(row['goalie_id'] is None or row['recipient_id'] == row['goalie_id'], 'execution goalie share conflicts with reported source goalie')
+        else:
+            require(row['recipient_id'] == row['shooter_id' if row['group'] == 'shooter' else 'goalie_id'], 'execution share differs from source actor')
+    for row in connection.execute('SELECT s.candidate_id,json_extract(a.payload_json,\'$.team_id\') shooting_team,d.team_id candidate_team FROM attempt_setter s JOIN attempt_fact a USING(season,game_id,source_index) LEFT JOIN dressed_game d ON d.season=s.season AND d.game_id=s.game_id AND d.player_id=s.candidate_id WHERE s.candidate_id NOT IN (\'none\',\'unknown\')'):
+        require(row['candidate_team'] is not None and row['candidate_team'] == row['shooting_team'], 'named setter lacks attacking dressed identity')
     _check_maps(connection)
+    _check_execution_evidence(connection)
     _check_repeated_facts(connection)
+
+
+def _check_execution_evidence(connection):
+    for row in connection.execute("SELECT season,player_id,strength,payload_json FROM skater_execution WHERE availability='provided'"):
+        payload = strict_json(row['payload_json'].encode())
+        paired = payload['paired_evidence']
+        attempts = connection.execute('SELECT outcome,payload_json FROM attempt_fact WHERE season=? AND shooter_id=? AND strength=?',
+                                      (row['season'],row['player_id'],row['strength'])).fetchall()
+        require(len(attempts) == paired['source_attempts'], 'paired source count differs from keyed source rows')
+        keyed_totals = [0,0,0.,0.]
+        for attempt in attempts:
+            values = strict_json(attempt['payload_json'].encode())
+            reference = values['neutral_all_attempt_opportunity']['value']
+            actor = values['actor_all_attempt_opportunity']['value']
+            if reference is not None and actor is not None:
+                for index,amount in enumerate((1,int(attempt['outcome'] == 'goal'),reference,actor)):
+                    keyed_totals[index] += amount
+        totals = {kind:[0,0,0.,0.] for kind in ('shot_type','danger')}
+        breakdowns = connection.execute('SELECT kind,availability,payload_json FROM execution_breakdown WHERE season=? AND player_id=? AND strength=?',
+                                       (row['season'],row['player_id'],row['strength'])).fetchall()
+        require(len(breakdowns) == 9, 'paired execution evidence lacks fixed strata')
+        for breakdown in breakdowns:
+            require(breakdown['availability'] == 'provided', 'provided execution lacks paired stratum evidence')
+            data = strict_json(breakdown['payload_json'].encode())
+            for index,amount in enumerate((data['events'],data['observed_goals'],data['reference']['expected_goals'],data['actor']['expected_goals'])):
+                totals[breakdown['kind']][index] += amount
+        omitted = paired['danger_unavailable']
+        require(totals['shot_type'][0] == paired['paired_attempts'], 'paired execution count differs from type totals')
+        require(all(close(a,b) for a,b in zip(totals['shot_type'],keyed_totals)), 'paired execution evidence differs from keyed source/model intersection')
+        require(all(close(total,totals['danger'][i]+omitted[key]) for i,(total,key) in enumerate(zip(totals['shot_type'],
+                    ('events','observed_goals','reference_expected_goals','actor_expected_goals')))), 'paired execution type/danger totals differ')
 
 
 def _check_intervals(connection):

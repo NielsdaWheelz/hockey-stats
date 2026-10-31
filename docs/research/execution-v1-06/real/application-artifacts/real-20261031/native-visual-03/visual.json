@@ -1,0 +1,2443 @@
+{
+  "kind": "temporary-native-viewport-visual",
+  "status": "passed viewport capture and target checks; visual review pending",
+  "started_at": "2026-10-31T03:43:18.131Z",
+  "node_pid": 60844,
+  "helper_sha256": "4b86a94192974f11d935bf704b080a8a23938c9994936af98263bb26f8302e60",
+  "api_sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "player_id": "8477504",
+  "comparison_player_id": "8476331",
+  "year": "20232024",
+  "metric": "execution.5v5.finishing_goals_per100_attempts",
+  "profile": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/chrome-profile",
+  "default_zoom_level": 0,
+  "host_zoom_level": 3.8017840169239308,
+  "browser_native_sandbox": true,
+  "os_source_denial_claimed": false,
+  "errors": [],
+  "rejected": [],
+  "requestfailed": [],
+  "shots": [
+    {
+      "name": "selected-support-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/selected-support-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "ARTICLE",
+        "class_name": "analysis-selected-value",
+        "aria_label": null,
+        "rect": {
+          "top": 12.01171875,
+          "bottom": 3309.171875,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 3297.16015625
+        },
+        "text_excerpt": "Josh Morrissey0.26399 goals per 100 attempts78.3 percentile · reported defense · n=246 · cutoff 300 minmodeled · checked regular-season physical opportunities; exact-strength commo",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 599,
+          "clientWidth": 599
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 4516,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "coefficients-left-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/coefficients-left-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "execution coefficient support table, scroll horizontally for all columns",
+        "rect": {
+          "top": 11.92578125,
+          "bottom": 317.40625,
+          "left": 33,
+          "right": 599.5,
+          "width": 566.5,
+          "height": 305.48046875
+        },
+        "text_excerpt": "distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass countcoefficientavailablelikelihood unionsetter candidatesetter mean-coupl",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 775,
+          "clientWidth": 567
+        },
+        "visible_rows": [
+          {
+            "label": "shooter u",
+            "rect": {
+              "top": 52.72265625,
+              "bottom": 95.51953125,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter q",
+            "rect": {
+              "top": 95.51953125,
+              "bottom": 138.31640625,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter r",
+            "rect": {
+              "top": 138.31640625,
+              "bottom": 181.11328125,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter g",
+            "rect": {
+              "top": 181.11328125,
+              "bottom": 223.91015625,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "setter g",
+            "rect": {
+              "top": 223.91015625,
+              "bottom": 265.70703125,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "coefficient",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 33,
+              "right": 117.3125,
+              "width": 84.3125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "available",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 117.3125,
+              "right": 190.09375,
+              "width": 72.78125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "likelihood union",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 190.09375,
+              "right": 303.5,
+              "width": 113.40625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter candidate",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 303.5,
+              "right": 421.33203125,
+              "width": 117.83203125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter mean-coupled",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 421.33203125,
+              "right": 566.03515625,
+              "width": 144.703125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "prior only",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 566.03515625,
+              "right": 643.2421875,
+              "width": 77.20703125,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 5320,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "coefficients-left-bottom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/coefficients-left-bottom.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "bottom",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "execution coefficient support table, scroll horizontally for all columns",
+        "rect": {
+          "top": 138.42578125,
+          "bottom": 443.90625,
+          "left": 33,
+          "right": 599.5,
+          "width": 566.5,
+          "height": 305.48046875
+        },
+        "text_excerpt": "distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass countcoefficientavailablelikelihood unionsetter candidatesetter mean-coupl",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 775,
+          "clientWidth": 567
+        },
+        "visible_rows": [
+          {
+            "label": "shooter u",
+            "rect": {
+              "top": 179.22265625,
+              "bottom": 222.01953125,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter q",
+            "rect": {
+              "top": 222.01953125,
+              "bottom": 264.81640625,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter r",
+            "rect": {
+              "top": 264.81640625,
+              "bottom": 307.61328125,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter g",
+            "rect": {
+              "top": 307.61328125,
+              "bottom": 350.41015625,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "setter g",
+            "rect": {
+              "top": 350.41015625,
+              "bottom": 392.20703125,
+              "left": 33,
+              "right": 808.2265625,
+              "width": 775.2265625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "coefficient",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 33,
+              "right": 117.3125,
+              "width": 84.3125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "available",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 117.3125,
+              "right": 190.09375,
+              "width": 72.78125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "likelihood union",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 190.09375,
+              "right": 303.5,
+              "width": 113.40625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter candidate",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 303.5,
+              "right": 421.33203125,
+              "width": 117.83203125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter mean-coupled",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 421.33203125,
+              "right": 566.03515625,
+              "width": 144.703125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "prior only",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 566.03515625,
+              "right": 643.2421875,
+              "width": 77.20703125,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 5193.5,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "coefficients-right-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/coefficients-right-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "execution coefficient support table, scroll horizontally for all columns",
+        "rect": {
+          "top": 11.92578125,
+          "bottom": 317.40625,
+          "left": 33,
+          "right": 599.5,
+          "width": 566.5,
+          "height": 305.48046875
+        },
+        "text_excerpt": "distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass countcoefficientavailablelikelihood unionsetter candidatesetter mean-coupl",
+        "horizontal": {
+          "scrollLeft": 208.75,
+          "scrollWidth": 775,
+          "clientWidth": 567
+        },
+        "visible_rows": [
+          {
+            "label": "shooter u",
+            "rect": {
+              "top": 52.72265625,
+              "bottom": 95.51953125,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter q",
+            "rect": {
+              "top": 95.51953125,
+              "bottom": 138.31640625,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter r",
+            "rect": {
+              "top": 138.31640625,
+              "bottom": 181.11328125,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter g",
+            "rect": {
+              "top": 181.11328125,
+              "bottom": 223.91015625,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "setter g",
+            "rect": {
+              "top": 223.91015625,
+              "bottom": 265.70703125,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "likelihood union",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": -18.65625,
+              "right": 94.75,
+              "width": 113.40625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter candidate",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 94.75,
+              "right": 212.58203125,
+              "width": 117.83203125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter mean-coupled",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 212.58203125,
+              "right": 357.28515625,
+              "width": 144.703125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "prior only",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 357.28515625,
+              "right": 434.4921875,
+              "width": 77.20703125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "carried seasons / reason",
+            "rect": {
+              "top": 12.92578125,
+              "bottom": 52.72265625,
+              "left": 434.4921875,
+              "right": 599.4765625,
+              "width": 164.984375,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 5320,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "coefficients-right-bottom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/coefficients-right-bottom.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "bottom",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "execution coefficient support table, scroll horizontally for all columns",
+        "rect": {
+          "top": 138.42578125,
+          "bottom": 443.90625,
+          "left": 33,
+          "right": 599.5,
+          "width": 566.5,
+          "height": 305.48046875
+        },
+        "text_excerpt": "distinct current likelihood events; setter union includes mean-coupled events and is not an observed pass countcoefficientavailablelikelihood unionsetter candidatesetter mean-coupl",
+        "horizontal": {
+          "scrollLeft": 208.75,
+          "scrollWidth": 775,
+          "clientWidth": 567
+        },
+        "visible_rows": [
+          {
+            "label": "shooter u",
+            "rect": {
+              "top": 179.22265625,
+              "bottom": 222.01953125,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter q",
+            "rect": {
+              "top": 222.01953125,
+              "bottom": 264.81640625,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter r",
+            "rect": {
+              "top": 264.81640625,
+              "bottom": 307.61328125,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "shooter g",
+            "rect": {
+              "top": 307.61328125,
+              "bottom": 350.41015625,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "setter g",
+            "rect": {
+              "top": 350.41015625,
+              "bottom": 392.20703125,
+              "left": -175.75,
+              "right": 599.4765625,
+              "width": 775.2265625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "likelihood union",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": -18.65625,
+              "right": 94.75,
+              "width": 113.40625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter candidate",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 94.75,
+              "right": 212.58203125,
+              "width": 117.83203125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "setter mean-coupled",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 212.58203125,
+              "right": 357.28515625,
+              "width": 144.703125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "prior only",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 357.28515625,
+              "right": 434.4921875,
+              "width": 77.20703125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "carried seasons / reason",
+            "rect": {
+              "top": 139.42578125,
+              "bottom": 179.22265625,
+              "left": 434.4921875,
+              "right": 599.4765625,
+              "width": 164.984375,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 5193.5,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "cohort-heading",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/cohort-heading.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "H4",
+        "class_name": "",
+        "aria_label": null,
+        "rect": {
+          "top": 11.921875,
+          "bottom": 35.921875,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 24
+        },
+        "text_excerpt": "finishing goals per 100 attempts · empirical distribution",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 601,
+          "clientWidth": 601
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 7830.25,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "cohort-rug",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/cohort-rug.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "svg",
+        "class_name": {},
+        "aria_label": "reported defense: 246 empirical peer marks; exact values follow",
+        "rect": {
+          "top": 12.12109375,
+          "bottom": 48.12109375,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 36
+        },
+        "text_excerpt": "",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 601,
+          "clientWidth": 601
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8041.25,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "shot-type-left-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/shot-type-left-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "shot type execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 12.0703125,
+          "bottom": 360.34765625,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 348.27734375
+        },
+        "text_excerpt": "shot type · each table partitions the paired personal attempts independently; do not add their totalsshot typeattemptsrecorded goalsreference expected goalsreference mean opportuni",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 1195,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "wrist",
+            "rect": {
+              "top": 52.8671875,
+              "bottom": 95.6640625,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "snap",
+            "rect": {
+              "top": 95.6640625,
+              "bottom": 138.4609375,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "slap",
+            "rect": {
+              "top": 138.4609375,
+              "bottom": 181.2578125,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "backhand",
+            "rect": {
+              "top": 181.2578125,
+              "bottom": 224.0546875,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "tip",
+            "rect": {
+              "top": 224.0546875,
+              "bottom": 266.8515625,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "other",
+            "rect": {
+              "top": 266.8515625,
+              "bottom": 308.6484375,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "shot type",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 16,
+              "right": 101.59765625,
+              "width": 85.59765625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "attempts",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 101.59765625,
+              "right": 175.75390625,
+              "width": 74.15625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded goals",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 175.75390625,
+              "right": 285.05078125,
+              "width": 109.296875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference expected goals",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 285.05078125,
+              "right": 455.640625,
+              "width": 170.58984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 455.640625,
+              "right": 641.40234375,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8604.5,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "shot-type-left-bottom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/shot-type-left-bottom.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "bottom",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "shot type execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 95.8203125,
+          "bottom": 444.09765625,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 348.27734375
+        },
+        "text_excerpt": "shot type · each table partitions the paired personal attempts independently; do not add their totalsshot typeattemptsrecorded goalsreference expected goalsreference mean opportuni",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 1195,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "wrist",
+            "rect": {
+              "top": 136.6171875,
+              "bottom": 179.4140625,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "snap",
+            "rect": {
+              "top": 179.4140625,
+              "bottom": 222.2109375,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "slap",
+            "rect": {
+              "top": 222.2109375,
+              "bottom": 265.0078125,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "backhand",
+            "rect": {
+              "top": 265.0078125,
+              "bottom": 307.8046875,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "tip",
+            "rect": {
+              "top": 307.8046875,
+              "bottom": 350.6015625,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "other",
+            "rect": {
+              "top": 350.6015625,
+              "bottom": 392.3984375,
+              "left": 16,
+              "right": 1210.87890625,
+              "width": 1194.87890625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "shot type",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 16,
+              "right": 101.59765625,
+              "width": 85.59765625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "attempts",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 101.59765625,
+              "right": 175.75390625,
+              "width": 74.15625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded goals",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 175.75390625,
+              "right": 285.05078125,
+              "width": 109.296875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference expected goals",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 285.05078125,
+              "right": 455.640625,
+              "width": 170.58984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 455.640625,
+              "right": 641.40234375,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8520.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "shot-type-right-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/shot-type-right-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "shot type execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 12.0703125,
+          "bottom": 360.34765625,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 348.27734375
+        },
+        "text_excerpt": "shot type · each table partitions the paired personal attempts independently; do not add their totalsshot typeattemptsrecorded goalsreference expected goalsreference mean opportuni",
+        "horizontal": {
+          "scrollLeft": 594.5,
+          "scrollWidth": 1195,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "wrist",
+            "rect": {
+              "top": 52.8671875,
+              "bottom": 95.6640625,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "snap",
+            "rect": {
+              "top": 95.6640625,
+              "bottom": 138.4609375,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "slap",
+            "rect": {
+              "top": 138.4609375,
+              "bottom": 181.2578125,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "backhand",
+            "rect": {
+              "top": 181.2578125,
+              "bottom": 224.0546875,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "tip",
+            "rect": {
+              "top": 224.0546875,
+              "bottom": 266.8515625,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "other",
+            "rect": {
+              "top": 266.8515625,
+              "bottom": 308.6484375,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": -138.859375,
+              "right": 46.90234375,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − reference",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 46.90234375,
+              "right": 192.26171875,
+              "width": 145.359375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor expected goals",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 192.26171875,
+              "right": 336.98828125,
+              "width": 144.7265625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor mean opportunity",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 336.98828125,
+              "right": 496.88671875,
+              "width": 159.8984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − actor",
+            "rect": {
+              "top": 13.0703125,
+              "bottom": 52.8671875,
+              "left": 496.88671875,
+              "right": 616.37890625,
+              "width": 119.4921875,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8604.5,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "shot-type-right-bottom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/shot-type-right-bottom.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "bottom",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "shot type execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 95.8203125,
+          "bottom": 444.09765625,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 348.27734375
+        },
+        "text_excerpt": "shot type · each table partitions the paired personal attempts independently; do not add their totalsshot typeattemptsrecorded goalsreference expected goalsreference mean opportuni",
+        "horizontal": {
+          "scrollLeft": 594.5,
+          "scrollWidth": 1195,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "wrist",
+            "rect": {
+              "top": 136.6171875,
+              "bottom": 179.4140625,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "snap",
+            "rect": {
+              "top": 179.4140625,
+              "bottom": 222.2109375,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "slap",
+            "rect": {
+              "top": 222.2109375,
+              "bottom": 265.0078125,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "backhand",
+            "rect": {
+              "top": 265.0078125,
+              "bottom": 307.8046875,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "tip",
+            "rect": {
+              "top": 307.8046875,
+              "bottom": 350.6015625,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "other",
+            "rect": {
+              "top": 350.6015625,
+              "bottom": 392.3984375,
+              "left": -578.5,
+              "right": 616.37890625,
+              "width": 1194.87890625,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": -138.859375,
+              "right": 46.90234375,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − reference",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 46.90234375,
+              "right": 192.26171875,
+              "width": 145.359375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor expected goals",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 192.26171875,
+              "right": 336.98828125,
+              "width": 144.7265625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor mean opportunity",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 336.98828125,
+              "right": 496.88671875,
+              "width": 159.8984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − actor",
+            "rect": {
+              "top": 96.8203125,
+              "bottom": 136.6171875,
+              "left": 496.88671875,
+              "right": 616.37890625,
+              "width": 119.4921875,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8520.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "danger-left-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/danger-left-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "danger execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 12.09765625,
+          "bottom": 231.984375,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 219.88671875
+        },
+        "text_excerpt": "reference-execution danger · each table partitions the paired personal attempts independently; do not add their totalsdangerattemptsrecorded goalsreference expected goalsreference ",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 1189,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "<.05",
+            "rect": {
+              "top": 52.89453125,
+              "bottom": 95.69140625,
+              "left": 16,
+              "right": 1205.08203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "[.05,.15)",
+            "rect": {
+              "top": 95.69140625,
+              "bottom": 138.48828125,
+              "left": 16,
+              "right": 1205.08203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": ">=.15",
+            "rect": {
+              "top": 138.48828125,
+              "bottom": 180.28515625,
+              "left": 16,
+              "right": 1205.08203125,
+              "width": 1189.08203125,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "danger",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 16,
+              "right": 95.80078125,
+              "width": 79.80078125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "attempts",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 95.80078125,
+              "right": 169.95703125,
+              "width": 74.15625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded goals",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 169.95703125,
+              "right": 279.25390625,
+              "width": 109.296875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference expected goals",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 279.25390625,
+              "right": 449.84375,
+              "width": 170.58984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 449.84375,
+              "right": 635.60546875,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − reference",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 635.60546875,
+              "right": 780.96484375,
+              "width": 145.359375,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8952.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "danger-left-bottom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/danger-left-bottom.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "bottom",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "danger execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 224.09765625,
+          "bottom": 443.984375,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 219.88671875
+        },
+        "text_excerpt": "reference-execution danger · each table partitions the paired personal attempts independently; do not add their totalsdangerattemptsrecorded goalsreference expected goalsreference ",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 1189,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "<.05",
+            "rect": {
+              "top": 264.89453125,
+              "bottom": 307.69140625,
+              "left": 16,
+              "right": 1205.08203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "[.05,.15)",
+            "rect": {
+              "top": 307.69140625,
+              "bottom": 350.48828125,
+              "left": 16,
+              "right": 1205.08203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": ">=.15",
+            "rect": {
+              "top": 350.48828125,
+              "bottom": 392.28515625,
+              "left": 16,
+              "right": 1205.08203125,
+              "width": 1189.08203125,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "danger",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 16,
+              "right": 95.80078125,
+              "width": 79.80078125,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "attempts",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 95.80078125,
+              "right": 169.95703125,
+              "width": 74.15625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded goals",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 169.95703125,
+              "right": 279.25390625,
+              "width": 109.296875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference expected goals",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 279.25390625,
+              "right": 449.84375,
+              "width": 170.58984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 449.84375,
+              "right": 635.60546875,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − reference",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 635.60546875,
+              "right": 780.96484375,
+              "width": 145.359375,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8740.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "danger-right-top",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/danger-right-top.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "danger execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 12.09765625,
+          "bottom": 231.984375,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 219.88671875
+        },
+        "text_excerpt": "reference-execution danger · each table partitions the paired personal attempts independently; do not add their totalsdangerattemptsrecorded goalsreference expected goalsreference ",
+        "horizontal": {
+          "scrollLeft": 588.5,
+          "scrollWidth": 1189,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "<.05",
+            "rect": {
+              "top": 52.89453125,
+              "bottom": 95.69140625,
+              "left": -572.5,
+              "right": 616.58203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "[.05,.15)",
+            "rect": {
+              "top": 95.69140625,
+              "bottom": 138.48828125,
+              "left": -572.5,
+              "right": 616.58203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": ">=.15",
+            "rect": {
+              "top": 138.48828125,
+              "bottom": 180.28515625,
+              "left": -572.5,
+              "right": 616.58203125,
+              "width": 1189.08203125,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": -138.65625,
+              "right": 47.10546875,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − reference",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 47.10546875,
+              "right": 192.46484375,
+              "width": 145.359375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor expected goals",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 192.46484375,
+              "right": 337.19140625,
+              "width": 144.7265625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor mean opportunity",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 337.19140625,
+              "right": 497.08984375,
+              "width": 159.8984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − actor",
+            "rect": {
+              "top": 13.09765625,
+              "bottom": 52.89453125,
+              "left": 497.08984375,
+              "right": 616.58203125,
+              "width": 119.4921875,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8952.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "danger-right-bottom",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/danger-right-bottom.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "bottom",
+      "target": {
+        "tag": "DIV",
+        "class_name": "table-scroll",
+        "aria_label": "danger execution evidence table, scroll horizontally for all columns",
+        "rect": {
+          "top": 224.09765625,
+          "bottom": 443.984375,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 219.88671875
+        },
+        "text_excerpt": "reference-execution danger · each table partitions the paired personal attempts independently; do not add their totalsdangerattemptsrecorded goalsreference expected goalsreference ",
+        "horizontal": {
+          "scrollLeft": 588.5,
+          "scrollWidth": 1189,
+          "clientWidth": 601
+        },
+        "visible_rows": [
+          {
+            "label": "<.05",
+            "rect": {
+              "top": 264.89453125,
+              "bottom": 307.69140625,
+              "left": -572.5,
+              "right": 616.58203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": "[.05,.15)",
+            "rect": {
+              "top": 307.69140625,
+              "bottom": 350.48828125,
+              "left": -572.5,
+              "right": 616.58203125,
+              "width": 1189.08203125,
+              "height": 42.796875
+            }
+          },
+          {
+            "label": ">=.15",
+            "rect": {
+              "top": 350.48828125,
+              "bottom": 392.28515625,
+              "left": -572.5,
+              "right": 616.58203125,
+              "width": 1189.08203125,
+              "height": 41.796875
+            }
+          }
+        ],
+        "visible_headers": [
+          {
+            "text": "reference mean opportunity",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": -138.65625,
+              "right": 47.10546875,
+              "width": 185.76171875,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − reference",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 47.10546875,
+              "right": 192.46484375,
+              "width": 145.359375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor expected goals",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 192.46484375,
+              "right": 337.19140625,
+              "width": 144.7265625,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "actor mean opportunity",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 337.19140625,
+              "right": 497.08984375,
+              "width": 159.8984375,
+              "height": 39.796875
+            }
+          },
+          {
+            "text": "recorded − actor",
+            "rect": {
+              "top": 225.09765625,
+              "bottom": 264.89453125,
+              "left": 497.08984375,
+              "right": 616.58203125,
+              "width": 119.4921875,
+              "height": 39.796875
+            }
+          }
+        ]
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8740.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "compare-first-player",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/compare-first-player.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "ARTICLE",
+        "class_name": "analysis-selected-value",
+        "aria_label": null,
+        "rect": {
+          "top": 11.92578125,
+          "bottom": 402.40234375,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 390.4765625
+        },
+        "text_excerpt": "first: Josh Morrissey0.26399 goals per 100 attempts78.3 percentile · reported defense · n=246 · cutoff 300 minmodeled · checked regular-season physical opportunities; exact-strengt",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 599,
+          "clientWidth": 599
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8405.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "compare-second-player",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/compare-second-player.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "ARTICLE",
+        "class_name": "analysis-selected-value",
+        "aria_label": null,
+        "rect": {
+          "top": 11.90234375,
+          "bottom": 402.37890625,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 390.4765625
+        },
+        "text_excerpt": "second: Dylan DeMelo-0.538356 goals per 100 attempts28.7 percentile · reported defense · n=246 · cutoff 300 minmodeled · checked regular-season physical opportunities; exact-streng",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 599,
+          "clientWidth": 599
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 8812.25,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "compare-plot-heading",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/compare-plot-heading.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "H4",
+        "class_name": "",
+        "aria_label": null,
+        "rect": {
+          "top": 11.87890625,
+          "bottom": 35.87890625,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 24
+        },
+        "text_excerpt": "finishing goals per 100 attempts · empirical distribution",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 601,
+          "clientWidth": 601
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 9219.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "name": "compare-rug",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-03/compare-rug.png",
+      "sha256": "d0ed56dc9435e4eef124e18ef7515ad959c187ebfa78ce0df0a39f7b40e70fb6",
+      "bytes": 5362,
+      "png_width": 1280,
+      "png_height": 912,
+      "vertical": "top",
+      "target": {
+        "tag": "svg",
+        "class_name": {},
+        "aria_label": "reported defense: 246 empirical peer marks; exact values follow",
+        "rect": {
+          "top": 12.078125,
+          "bottom": 48.078125,
+          "left": 16,
+          "right": 616.5,
+          "width": 600.5,
+          "height": 36
+        },
+        "text_excerpt": "",
+        "horizontal": {
+          "scrollLeft": 0,
+          "scrollWidth": 601,
+          "clientWidth": 601
+        },
+        "visible_rows": [],
+        "visible_headers": []
+      },
+      "viewport": {
+        "url": "http://127.0.0.1:41986/compare?season=20232024&a=8477504&b=8476331&metric=execution.5v5.finishing_goals_per100_attempts",
+        "innerWidth": 640,
+        "innerHeight": 456,
+        "outerWidth": 1280,
+        "outerHeight": 1000,
+        "dpr": 4,
+        "scrollX": 0,
+        "scrollY": 9430.75,
+        "scrollWidth": 632,
+        "screen": {
+          "width": 1728,
+          "height": 1117,
+          "availWidth": 1728,
+          "availHeight": 1084,
+          "availLeft": 0,
+          "availTop": 33
+        },
+        "visualViewport": {
+          "width": 632.5,
+          "height": 456.5,
+          "scale": 1
+        }
+      }
+    }
+  ],
+  "blank100": {
+    "url": "about:blank",
+    "innerWidth": 1280,
+    "innerHeight": 913,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 2,
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 1280,
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33
+    },
+    "visualViewport": {
+      "width": 1280,
+      "height": 913,
+      "scale": 1
+    }
+  },
+  "origin200": {
+    "url": "http://127.0.0.1:41986/players/8477504?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+    "innerWidth": 640,
+    "innerHeight": 456,
+    "outerWidth": 1280,
+    "outerHeight": 1000,
+    "dpr": 4,
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 632,
+    "screen": {
+      "width": 1728,
+      "height": 1117,
+      "availWidth": 1728,
+      "availHeight": 1084,
+      "availLeft": 0,
+      "availTop": 33
+    },
+    "visualViewport": {
+      "width": 632.5,
+      "height": 456.5,
+      "scale": 1
+    }
+  },
+  "owned_browser_closed": true,
+  "finished_at": "2026-10-31T03:44:39.704Z"
+}

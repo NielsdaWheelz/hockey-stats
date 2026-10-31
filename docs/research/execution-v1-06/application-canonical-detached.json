@@ -1,0 +1,46 @@
+{
+  "command": "sandbox-exec -f /tmp/v106-source-detached.sb node app/dist/node/operator/publication-cli.js check --candidate /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate/player-analysis.sqlite",
+  "denied_roots": [
+    "/Volumes/Expansion/hockey-stats/captures",
+    "/Volumes/Expansion/hockey-stats/prepared",
+    "/Volumes/Expansion/hockey-stats/chance",
+    "/Volumes/Expansion/hockey-stats/raw",
+    "/Volumes/Expansion/hockey-stats/corpora",
+    "accepted-01/scores",
+    "accepted-01/results",
+    "project analysis",
+    "project fixtures",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-01/var",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-05/var"
+  ],
+  "denial_probe": "cat accepted-01/results/manifest.json: operation not permitted",
+  "publication_id": "8aeb5023-0630-42a0-9f5d-91d3f2d07dfb",
+  "schema_version": 8,
+  "seasons": [
+    {
+      "season": "20252026",
+      "players": 309
+    },
+    {
+      "season": "20242025",
+      "players": 272
+    },
+    {
+      "season": "20232024",
+      "players": 224
+    }
+  ],
+  "database_sha256": "d553ffb22362d392f374d052d92f8c31dce00c6f9bd85d7605a1cba6fec1c1b4",
+  "matches_precheck_sha256": true,
+  "no_wal_shm": true,
+  "strict_reader_passed": true,
+  "denial_probes": [
+    "accepted-01/results/manifest.json",
+    "hockey-stats-v1-01/var/v1-01-root/root-r6/manifest.json",
+    "hockey-stats-v1-05/var/v1-05-checks/chain-06/20232024/manifest.json",
+    "hockey-stats-v1-05/var/v1-05-checks/coaches/coaches.json"
+  ],
+  "all_denial_probes_operation_not_permitted": true,
+  "sandboxed_server_browser_receipt": "application-canonical-detached-browser.json",
+  "strict_reader_passed_under_tightened_profile": true
+}

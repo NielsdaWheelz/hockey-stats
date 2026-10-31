@@ -1,0 +1,143 @@
+{
+  "status": "deleted after final software and canonical fixture green; exact root cleanup in cleanup.json",
+  "owner": "valued/composition agent",
+  "controllers": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/valued.py",
+      "sha256": "35d80930a217dce720af0d59290e6b7a5827738668f3093927d843ee86a8676a",
+      "bytes": 12714
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/schema.py",
+      "sha256": "7da596c9eee9c4d1dc1a592e4d1e9550c68a48931c82c342f78aac213ed33fd4",
+      "bytes": 9888
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/factual_differential.py",
+      "sha256": "da09adb4980dd9a0722c1635c7c8b2e281e870c391f863ee2411f7690aea4098",
+      "bytes": 2609
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/inventory.py",
+      "sha256": "548c6713777c4fbd44df5a8721709c86e98d7edfc87b046ed6be2333851f5ab3",
+      "bytes": 987
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/producer_support.py",
+      "sha256": "6328fcd226f5bf722b58c17c652f55332b8b3da13ce2ada4039c90e5686e493e",
+      "bytes": 1408
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/composition.py",
+      "sha256": "fbf2104fdc40e51c53b6e1daabefcdc118208339c1cd95bf24e20790cc4d09fa",
+      "bytes": 10491
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/composition_selection.py",
+      "sha256": "383b4d9b87c7a1e29df01be5f1cb199807ad8e4c4c3f91fb4de60662698511dd",
+      "bytes": 1164
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/participation.py",
+      "sha256": "4bfe5a9a7de7e9ffd22e86014033c1f1391e3191d41bcf9fce131bbae6fb9916",
+      "bytes": 1518
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/participation_baseline.py",
+      "sha256": "e6c92703ec71bc1db8de2b1dd1b30c253dd239dcb55ba4b7cc090433fb01028a",
+      "bytes": 1010
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/setter_evidence.py",
+      "sha256": "74a13116da6035776a4091689eb5f77522b21bcaba1522ee20e488eed960ce9d",
+      "bytes": 1934
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/assessment_paths.py",
+      "sha256": "100defaec6c579036e93557de8c887dff0e27d7192dbe0ae764885fb55a684ae",
+      "bytes": 1260
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/factual_preservation.py",
+      "sha256": "0c18e7d817fe8a1252ad1b16e993eb069bdcd101a5ada8a791742b88d4676069",
+      "bytes": 2582
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/empty-scores-composition.json",
+      "sha256": "d66d4b1759d5a0780a76022af690d60af6985bc2f03a97ff4cd4453c47d88081",
+      "bytes": 144
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/wrong-purpose-composition.json",
+      "sha256": "7cbd97adabd28d9f55fb9d047697764988e2a68eb1ac80ec3c6a23b3ade0be52",
+      "bytes": 141
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/wrong-preparation-composition.json",
+      "sha256": "ece94b62a2936e498a675c0c5847b70c96d690a1dcc5fd18394b5c7004211852",
+      "bytes": 144
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/unknown-key-composition.json",
+      "sha256": "82c5d0c4bc9189869011a13e218821478608e794f34bd2f38a926040762727b5",
+      "bytes": 169
+    }
+  ],
+  "owned_cheap_directories": [
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/omitted-source-negative",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/composition-check-01"
+  ],
+  "temporary_negative_selections_inside_preserved_campaign": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/wrong-purpose.json",
+      "sha256": "b7426cc05951fee946f8ac3b878cb89ee8a3dca431cbe9e17e418be2a9d89c13",
+      "bytes": 1279
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/wrong-preparation.json",
+      "sha256": "7b41fbdb28e8b10ec46336ee818b38ce69e3b64a5e5b7b2dc9264f0b5bfc80ab",
+      "bytes": 1282
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/duplicate-year.json",
+      "sha256": "65e8c7a0a7dcdcede6590912ce67f15526a1bc791448fe1cd1cb89fcf54483f0",
+      "bytes": 1510
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/manifest-drift.json",
+      "sha256": "621676daf3466957abcd7f535321eb0133ee23c08f6faad0f79cbd4902bf9ee9",
+      "bytes": 1282
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/reversed-years.json",
+      "sha256": "14adae77481182b9d07e591e13ebff4dec8e2975ab7ef14ecc91a08fa4223a9e",
+      "bytes": 1282
+    }
+  ],
+  "owned_coordination_files": [
+    {
+      "path": "/tmp/v106-valued-review-request.txt",
+      "sha256": "57524be50b283d0dde660357fda6e5699a13f93b91b8143f8fa735a0c21ff44a",
+      "bytes": 1019
+    },
+    {
+      "path": "/tmp/v106-valued-artifact-message.txt",
+      "sha256": "991934dbb1d113ee8d72e9a41802dc1bb3957bdbe38de720bb3b9e20e3710bd4",
+      "bytes": 851
+    },
+    {
+      "path": "/tmp/v106-valued-review-fixed.txt",
+      "sha256": "f5c7f20a1165d43e63d0694e5cfd550546acb927b9345f361e10db31552395b6",
+      "bytes": 1518
+    }
+  ],
+  "retained_receipts": "docs/research/execution-v1-06/valued*, schema*, composition*",
+  "protected": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/facts-02",
+    "original captures and raw corpora",
+    "root-r6 preparation and references",
+    "chain-06 annual states and coaches"
+  ],
+  "cleanup_owner": "root coordinates collective var/v1-06-checks cleanup only after global green; other owners share it"
+}

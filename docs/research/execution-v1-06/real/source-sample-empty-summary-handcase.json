@@ -1,0 +1,146 @@
+{
+  "kind": "hand-built-real-source-helper-exercise",
+  "status": "passed",
+  "scope": "synthetic hand arithmetic only; no actual input/source/fixture artifacts opened",
+  "helper_sha256": "138a06e163df86c26697eb99234a08d9077c0f7d1235b78a4ec58432eb03280b",
+  "summaries": {
+    "neutral_all_attempt_value": {
+      "included_seconds": 20,
+      "excluded_seconds": 30,
+      "events": 2,
+      "zero_event_directed_intervals": 2,
+      "for_mass": 0.5,
+      "included_directed_intervals": 4
+    },
+    "neutral_locatable_unblocked_value": {
+      "included_seconds": 30,
+      "excluded_seconds": 20,
+      "events": 3,
+      "zero_event_directed_intervals": 2,
+      "for_mass": 0.7,
+      "included_directed_intervals": 6
+    }
+  },
+  "mutation_rejections": [
+    "wrong_mass",
+    "missing_zero_time",
+    "wrong_native_membership",
+    "wrong_assist"
+  ],
+  "scorer_conflict_category_rejections": [
+    "outside_five_on_five_conflict",
+    "ambiguous_assignment_conflict",
+    "included_conflict_interval",
+    "additional_physical_conflict"
+  ],
+  "scorer_conflict_category_evidence": [
+    {
+      "season": "20232024",
+      "game_id": "hand-built-case",
+      "source_index": 4,
+      "numerical_status": "complete",
+      "saved_neutral_value": 0.1,
+      "affected_interval_ids": [
+        "1:10:20"
+      ],
+      "interpretation": "isolated_role_conflict"
+    },
+    {
+      "season": "20232024",
+      "game_id": "hand-built-case",
+      "source_index": 4,
+      "numerical_status": "excluded",
+      "saved_neutral_value": null,
+      "affected_interval_ids": [
+        "1:10:20"
+      ],
+      "interpretation": "confounded_by_unavailable_model_value"
+    }
+  ],
+  "located_category_assertions": [
+    "coalesced_masks",
+    "event_only_or_off_ice_setter",
+    "goalie_shooter",
+    "known_zero_event_time",
+    "recorded_off_ice_assist_candidate",
+    "scorer_conflict",
+    "unknown_assignment",
+    "unvalued_block_versus_unblocked"
+  ],
+  "complete_value_matched_conflict": {
+    "source_index": 4,
+    "saved_neutral_value": 0.1,
+    "included_populations": []
+  },
+  "goalie_team_contributions": [
+    {
+      "source_index": 2,
+      "player_id": "90",
+      "opportunity": 0.4
+    }
+  ],
+  "personal_reference_xg": [
+    {
+      "player_id": "6",
+      "source_indices": [
+        4
+      ],
+      "events": 1,
+      "reference_xg": 0.1,
+      "included_seconds": 10,
+      "contribution_per60": 36.0
+    }
+  ],
+  "native_location_cells": [
+    {
+      "population": "neutral_locatable_unblocked_value",
+      "interval_id": "1:0:10",
+      "team_id": "1",
+      "cell_id": 382,
+      "for_source_indices": [
+        0
+      ],
+      "against_source_indices": [],
+      "for_mass": 0.2,
+      "against_mass": 0.0
+    },
+    {
+      "population": "neutral_locatable_unblocked_value",
+      "interval_id": "1:0:10",
+      "team_id": "2",
+      "cell_id": 382,
+      "for_source_indices": [],
+      "against_source_indices": [
+        0
+      ],
+      "for_mass": 0.0,
+      "against_mass": 0.2
+    },
+    {
+      "population": "neutral_locatable_unblocked_value",
+      "interval_id": "1:10:20",
+      "team_id": "1",
+      "cell_id": 382,
+      "for_source_indices": [
+        2,
+        4
+      ],
+      "against_source_indices": [],
+      "for_mass": 0.5,
+      "against_mass": 0.0
+    },
+    {
+      "population": "neutral_locatable_unblocked_value",
+      "interval_id": "1:10:20",
+      "team_id": "2",
+      "cell_id": 382,
+      "for_source_indices": [],
+      "against_source_indices": [
+        2,
+        4
+      ],
+      "for_mass": 0.0,
+      "against_mass": 0.5
+    }
+  ]
+}

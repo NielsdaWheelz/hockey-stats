@@ -1,0 +1,364 @@
+{
+  "kind": "temporary-real-application-api-completion",
+  "status": "passed actual API helper; root review precedes browser",
+  "checked_at_utc": "2026-10-31T02:09:58.224033+00:00",
+  "actual_exit_code": 0,
+  "started_at_utc": "2026-10-31T02:04:14Z",
+  "finished_at_utc": "2026-10-31T02:08:39Z",
+  "measured_resources": {
+    "wall_seconds": 264.32,
+    "user_seconds": 127.65,
+    "system_seconds": 4.66,
+    "peak_rss_bytes": 2523889664
+  },
+  "api_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api/api.json",
+    "sha256": "483de8df53465739bdf9177b54d7c5413f71a6edb531c76bb290200018fd17e7",
+    "bytes": 328896
+  },
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "database_sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+  "database_preservation": "existing helper before/after digest equal and no WAL/SHM assertions passed; no extra database hash performed",
+  "primary_player_id": "8477504",
+  "comparison_player_id": "8476331",
+  "two_qualified_player_selection": "successful reviewed helper required at least two actual skaters qualified in all three seasons; selected the two best-supported from that exact common population",
+  "primary_three_season_cohorts": [
+    {
+      "season": "20232024",
+      "player_id": "8477504",
+      "cohort_n": 246,
+      "cohort_member": true,
+      "percentile": 78.2520325203252,
+      "qualification_seconds": 95337,
+      "source_keys": 2666,
+      "personal_source_attempts": 325,
+      "paired_personal_attempts": 325
+    },
+    {
+      "season": "20242025",
+      "player_id": "8477504",
+      "cohort_n": 238,
+      "cohort_member": true,
+      "percentile": 85.08403361344538,
+      "qualification_seconds": 90975,
+      "source_keys": 2632,
+      "personal_source_attempts": 343,
+      "paired_personal_attempts": 343
+    },
+    {
+      "season": "20252026",
+      "player_id": "8477504",
+      "cohort_n": 236,
+      "cohort_member": true,
+      "percentile": 93.4322033898305,
+      "qualification_seconds": 88742,
+      "source_keys": 2277,
+      "personal_source_attempts": 246,
+      "paired_personal_attempts": 246
+    }
+  ],
+  "optional_categories": {
+    "traded": {
+      "disposition": "selected",
+      "witness": {
+        "reason": "traded",
+        "season": "20232024",
+        "player_id": "8470621",
+        "strength": "3v4"
+      }
+    },
+    "zero_specialty": {
+      "disposition": "selected",
+      "witness": {
+        "reason": "zero_specialty",
+        "season": "20232024",
+        "player_id": "8470600",
+        "strength": "4v3"
+      }
+    },
+    "prior_only": {
+      "disposition": "selected",
+      "witness": {
+        "reason": "prior_only",
+        "season": "20232024",
+        "player_id": "8473473",
+        "strength": "3v4"
+      }
+    },
+    "unvalued_source": {
+      "disposition": "selected",
+      "witness": {
+        "reason": "unvalued_source",
+        "season": "20232024",
+        "player_id": "8471218",
+        "strength": "5v5"
+      }
+    },
+    "season_gap": {
+      "disposition": "selected",
+      "witness": {
+        "player_id": "8470594",
+        "present": [
+          "20232024",
+          "20242025"
+        ],
+        "absent": [
+          "20252026"
+        ]
+      }
+    }
+  },
+  "source_summary": {
+    "frozen_witnesses": 16,
+    "direct_execution_bindings": 9,
+    "complete_model_value_bindings": 8,
+    "explicit_inapplicable_execution_bindings": 7,
+    "context_witnesses": 9,
+    "located_categories": [
+      "coalesced_masks",
+      "event_only_or_off_ice_setter",
+      "goalie_shooter",
+      "known_zero_event_time",
+      "recorded_off_ice_assist_candidate",
+      "unknown_assignment",
+      "unknown_elapsed_control",
+      "unvalued_block_versus_unblocked"
+    ],
+    "scope": "exact located keys/values/setters plus saved interval inclusion/exclusion and season context fold; accepted raw-source proof remains ten games/sixteen witnesses, not a whole-corpus source check"
+  },
+  "requests": 104,
+  "total_response_bytes": 236352253,
+  "request_cost_summary": [
+    {
+      "kind": "context/neutral_all_attempt_value/on_off",
+      "requests": 20,
+      "total_bytes": 1345109,
+      "min_seconds": 0.34147495799697936,
+      "median_seconds": 0.3936000000103377,
+      "max_seconds": 6.094556583993835,
+      "max_bytes": 67377
+    },
+    {
+      "kind": "context/neutral_all_attempt_value/with_without",
+      "requests": 3,
+      "total_bytes": 201978,
+      "min_seconds": 0.5378721670131199,
+      "median_seconds": 0.5625239580112975,
+      "max_seconds": 0.5793986249773297,
+      "max_bytes": 67398
+    },
+    {
+      "kind": "context/neutral_locatable_unblocked_value/on_off",
+      "requests": 20,
+      "total_bytes": 2169914,
+      "min_seconds": 0.48542020801687613,
+      "median_seconds": 0.554482999999891,
+      "max_seconds": 0.705309875018429,
+      "max_bytes": 115496
+    },
+    {
+      "kind": "context/neutral_locatable_unblocked_value/with_without",
+      "requests": 3,
+      "total_bytes": 307441,
+      "min_seconds": 0.7609188749920577,
+      "median_seconds": 0.7783915830077603,
+      "max_seconds": 0.8207610000099521,
+      "max_bytes": 103640
+    },
+    {
+      "kind": "evidence/execution",
+      "requests": 16,
+      "total_bytes": 125834151,
+      "min_seconds": 1.0834481249912642,
+      "median_seconds": 4.6201013539975975,
+      "max_seconds": 8.008087792026345,
+      "max_bytes": 14583262
+    },
+    {
+      "kind": "evidence/microstats",
+      "requests": 7,
+      "total_bytes": 630013,
+      "min_seconds": 0.0020682080066762865,
+      "median_seconds": 0.002329415990971029,
+      "max_seconds": 0.0030796249920967966,
+      "max_bytes": 90570
+    },
+    {
+      "kind": "league/execution",
+      "requests": 5,
+      "total_bytes": 44862637,
+      "min_seconds": 0.27543937499285676,
+      "median_seconds": 0.2790941660059616,
+      "max_seconds": 0.2878450839780271,
+      "max_bytes": 9063276
+    },
+    {
+      "kind": "league/overview",
+      "requests": 3,
+      "total_bytes": 51613011,
+      "min_seconds": 2.5738125829957426,
+      "median_seconds": 2.596565792016918,
+      "max_seconds": 2.6836872920102905,
+      "max_bytes": 17266287
+    },
+    {
+      "kind": "maps/finishing",
+      "requests": 7,
+      "total_bytes": 1668371,
+      "min_seconds": 0.006053167016943917,
+      "median_seconds": 0.006878665997646749,
+      "max_seconds": 0.010622500005410984,
+      "max_bytes": 239234
+    },
+    {
+      "kind": "maps/setting",
+      "requests": 7,
+      "total_bytes": 1661625,
+      "min_seconds": 0.005753958015702665,
+      "median_seconds": 0.0064468329946976155,
+      "max_seconds": 0.007909625011961907,
+      "max_bytes": 238955
+    },
+    {
+      "kind": "profile",
+      "requests": 13,
+      "total_bytes": 6058003,
+      "min_seconds": 0.001827583007980138,
+      "median_seconds": 0.073372458020458,
+      "max_seconds": 0.8153851660026703,
+      "max_bytes": 672370
+    }
+  ],
+  "slowest_requests": [
+    {
+      "path": "/api/players/8477504/evidence?season=20232024&family=execution&strength=5v5",
+      "bytes": 14503735,
+      "wall_seconds": 8.008087792026345
+    },
+    {
+      "path": "/api/players/8477504/evidence?season=20242025&family=execution&strength=5v5",
+      "bytes": 14583262,
+      "wall_seconds": 7.777342208981281
+    },
+    {
+      "path": "/api/players/8477504/context?season=20242025&mode=on_off&population=neutral_all_attempt_value",
+      "bytes": 67372,
+      "wall_seconds": 6.094556583993835
+    },
+    {
+      "path": "/api/players/8477504/context?season=20232024&mode=on_off&population=neutral_all_attempt_value",
+      "bytes": 67341,
+      "wall_seconds": 5.827984750008909
+    },
+    {
+      "path": "/api/players/8475200/evidence?season=20242025&family=execution&strength=5v5",
+      "bytes": 13009843,
+      "wall_seconds": 4.7879525419848505
+    }
+  ],
+  "largest_responses": [
+    {
+      "path": "/api/league?season=20252026&kind=skater&family=overview",
+      "bytes": 17266287,
+      "wall_seconds": 2.596565792016918
+    },
+    {
+      "path": "/api/league?season=20242025&kind=skater&family=overview",
+      "bytes": 17253362,
+      "wall_seconds": 2.5738125829957426
+    },
+    {
+      "path": "/api/league?season=20232024&kind=skater&family=overview",
+      "bytes": 17093362,
+      "wall_seconds": 2.6836872920102905
+    },
+    {
+      "path": "/api/players/8477504/evidence?season=20242025&family=execution&strength=5v5",
+      "bytes": 14583262,
+      "wall_seconds": 7.777342208981281
+    },
+    {
+      "path": "/api/players/8477504/evidence?season=20232024&family=execution&strength=5v5",
+      "bytes": 14503735,
+      "wall_seconds": 8.008087792026345
+    }
+  ],
+  "context_years": 3,
+  "map_scope": "exact saved native/display transport and canonical grids; bound accepted accounting owns map conservation/algebra",
+  "first_overview_readiness": {
+    "bytes": 17266287,
+    "wall_seconds": 2.284666,
+    "scope": "earlier single readiness request; separate from actual API request summary"
+  },
+  "api_processes_gone": true,
+  "api_process_observation": "  PID  PPID STAT ELAPSED    RSS COMMAND\n",
+  "server_node_pid": 40540,
+  "server_observation": "  PID  PPID STAT ELAPSED    RSS      TIME COMMAND\n40540 40539 S+     21:29 743088   9:08.03 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986\n",
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api-command.json",
+      "sha256": "9f50b1c220555cae213b86707b600b994e5a336cabfdaa4708181d0c75da7847",
+      "bytes": 5548
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api-process.json",
+      "sha256": "3c1858ef86765d3f48c07616c7cb9c0e6417fa0723e757cdd01441ebb808fd03",
+      "bytes": 4304
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api.started",
+      "sha256": "38b259e32e04e5fb59c7507fc8d416aa95e3f7c8b8b7231bd2c5a26239450722",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api.finished",
+      "sha256": "4a233bcc601010979e6fc7e5839c6946ff1c4b9f89e1922d0dd68c409bc6a486",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api.stdout.log",
+      "sha256": "6f2e0c721983448f027647861376c1a3a6f8bc7f08a438232c1a7e591233bcfc",
+      "bytes": 75
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api.stderr.log",
+      "sha256": "ae88978732ee9ada312d9670e94797ea39629c08f44789d686bed0684bb35a67",
+      "bytes": 777
+    }
+  ],
+  "response_snapshot_identity": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/api/responses.json",
+    "sha256": "516b0f89bd418166a4756f971f18056e292a5e65ddedcd6f7ce9cf52ab6f282a",
+    "scope": "taken from successful helper; snapshot not redundantly rehashed here"
+  },
+  "browser_started": false,
+  "next": "stop; root review/release required for actual browser/export/visual checks",
+  "complete_season_map_volume": {
+    "label": "complete-season exchange analysis_map member bytes",
+    "season": "20252026",
+    "rows": 13160,
+    "bytes": 1173033483,
+    "member": {
+      "path": "20252026-execution-analysis_map.jsonl",
+      "absolute_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/20252026-execution-analysis_map.jsonl",
+      "sha256": "bb4f7094a4afc51ce3d15803763a43be03eed03a985abaf9d933e524bdff9281"
+    },
+    "results_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5",
+      "bytes": 17491
+    },
+    "evidence": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/composition-completion-2026-10-30.json",
+      "sha256": "679f70a7b97fee77c2158b470b252a4afa1284cf06a7ef199c2eefd0f7544de8",
+      "location": "extents.execution_maps selected season20252026; member stat measurement retained by composition owner"
+    },
+    "scope": "reuse checked composition manifest/member identity and prior member metadata; no map-file rescan or redundant hash; not total sqlite bytes or selected native/display response bytes"
+  },
+  "verified_content": "own-year profile/cohort/history/league/overview, six shot-type and three danger strata, both expectations, keyed related-role events/setters/shares, native/display payloads, microstat reference xg, both valued on/off and together/apart season folds; experimental construction retained"
+}

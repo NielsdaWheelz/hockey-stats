@@ -1,0 +1,36 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(primary&&other&&primary.cohort.n>0&&primary.cohort.member)
+
+    at file:///Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/capture_native_visual.mjs:20:1 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.21.0
+        0.26 real         0.20 user         0.04 sys
+           144982016  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                8938  page reclaims
+                 188  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  25  voluntary context switches
+                1380  involuntary context switches
+          2259320612  instructions retired
+           936901063  cycles elapsed
+           105868448  peak memory footprint

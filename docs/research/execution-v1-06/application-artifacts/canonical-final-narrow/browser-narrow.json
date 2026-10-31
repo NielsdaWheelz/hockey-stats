@@ -1,0 +1,47 @@
+{
+  "base": "http://127.0.0.1:41928",
+  "player": "8481559",
+  "mode": "narrow",
+  "initial": {
+    "dpr": 1,
+    "innerWidth": 390,
+    "outerWidth": 756,
+    "scrollWidth": 390,
+    "rankWithheld": true,
+    "rows": [
+      [
+        "wrist",
+        "snap",
+        "slap",
+        "backhand",
+        "tip",
+        "other"
+      ],
+      [
+        "<.05",
+        "[.05,.15)",
+        ">=.15"
+      ]
+    ],
+    "tableRegions": [
+      {
+        "client": 358,
+        "scroll": 1195
+      },
+      {
+        "client": 358,
+        "scroll": 1189
+      }
+    ],
+    "selectedTitle": "finishing goals per 100 attempts: published history"
+  },
+  "screenshots": [
+    "execution-cohort-narrow.png",
+    "execution-danger-narrow.png",
+    "execution-history-narrow.png",
+    "execution-section-narrow.png",
+    "execution-shot-type-narrow.png",
+    "execution-support-narrow.png"
+  ],
+  "pageErrors": []
+}

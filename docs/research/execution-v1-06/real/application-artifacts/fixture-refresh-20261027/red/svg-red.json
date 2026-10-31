@@ -1,0 +1,27 @@
+{
+  "status": "failed",
+  "browser": "/tmp/v106-application-rehearsal-20261027/native200-red-bounds/browser.json",
+  "annual": [],
+  "canvas": {
+    "width": 1200,
+    "height": 3890
+  },
+  "rendered_texts": 110,
+  "outside_texts": [
+    {
+      "text": "0.0379904",
+      "x": -4.47265625,
+      "y": 519.1500244140625,
+      "width": 104.47265625,
+      "height": 24.75
+    }
+  ],
+  "failures": [
+    "execution details are a labeled explanation, not a JSON dump",
+    "fixture purpose does not falsely classify captured-data fits as synthetic",
+    "20232024 named panel identity",
+    "20242025 named panel identity",
+    "20252026 named panel identity",
+    "text outside 1200x3890: {\"text\":\"0.0379904\",\"x\":-4.47265625,\"y\":519.1500244140625,\"width\":104.47265625,\"height\":24.75}"
+  ]
+}

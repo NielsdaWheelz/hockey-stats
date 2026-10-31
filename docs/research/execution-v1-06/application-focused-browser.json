@@ -1,0 +1,54 @@
+{
+  "base": "http://127.0.0.1:41926",
+  "publication_id": "8047a25c-783b-4b88-88ee-572bb7917093",
+  "wide": {
+    "titles": [
+      "shot type · each table partitions the paired personal attempts independently; do not add their totals",
+      "reference-execution danger · each table partitions the paired personal attempts independently; do not add their totals"
+    ],
+    "rows": [
+      [
+        "wrist",
+        "snap",
+        "slap",
+        "backhand",
+        "tip",
+        "other"
+      ],
+      [
+        "<.05",
+        "[.05,.15)",
+        ">=.15"
+      ]
+    ],
+    "unit": [
+      "finishing goals per 100 attempts",
+      "finishing goals per 100 attempts",
+      "finishing goals per 100 attempts"
+    ],
+    "scrollWidth": 1440,
+    "innerWidth": 1440
+  },
+  "narrow": {
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "tables": [
+      {
+        "scroll": 1195,
+        "client": 358
+      },
+      {
+        "scroll": 1189,
+        "client": 358
+      }
+    ]
+  },
+  "screenshots": [
+    "execution-shot-type-wide.png",
+    "execution-danger-wide.png",
+    "execution-support-wide.png",
+    "execution-shot-type-narrow.png",
+    "execution-danger-narrow.png",
+    "execution-support-narrow.png"
+  ]
+}

@@ -1,0 +1,4155 @@
+{
+  "kind": "approved-extra-source-preinspection",
+  "status": "draft diagnostics only",
+  "games": [
+    {
+      "season": "20232024",
+      "game_id": "2023020078",
+      "prepared_member": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/games/20232024/2023020078.json",
+        "sha256": "2f897bd606f75185b99c8025c2a96f72118dc120d1b017357422fd0562836c68"
+      },
+      "attempt_count": 98,
+      "conflicts": [],
+      "issues": [],
+      "source_issues": [],
+      "native_issues": [
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/2/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/3/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/6/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/7",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/8",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/12/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/17/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/20/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/23/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/28/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/29/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/31/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/34/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/38/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/39/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/41/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/42/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/43/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/44/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/47/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/48",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/49",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/51/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/54/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/55/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/59/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/61/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/63/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/72/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/79/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/80/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/82/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/86/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/89/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/90/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/93/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/102/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/103/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/104/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/109[PL-110]/home_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/109[PL-110]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/108/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/109/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/121/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/122/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/128/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/129/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/130/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/135/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/141/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/143/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/144/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/146/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/147/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/149/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "event_exposure_disagreement",
+          "source": "play-by-play",
+          "path": "/plays/151",
+          "message": "reported lineup matches neither adjacent supported interval; exposure link unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/153/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/155/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/156/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/157",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/158",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/160/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/161/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/164/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/175/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/176/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/180/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/183/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/184/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/185/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/187/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/189/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/191/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/195/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/204[PL-205]/away_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/204[PL-205]/home_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/204[PL-205]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/205[PL-206]/away_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/205[PL-206]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/206/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/207/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/210/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/211/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/213/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/216/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/219/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/222/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/223/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/224/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/228/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/231/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/232/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/235/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/239/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/240/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/243",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/244",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/245",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/246",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/247",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/249/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/250/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/251/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/252/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/255",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/256",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/258",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/259",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/262/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/266/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/267/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/268/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/272/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/275/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/278/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/279/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/280/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/283/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/285/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/289/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unresolved_attempt_frame",
+          "source": "play-by-play",
+          "path": "/plays/295/homeTeamDefendingSide",
+          "message": "period reports conflicting defending sides; normalized recorded location unavailable"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/301[PL-302]/away_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/301[PL-302]/home_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/301[PL-302]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        }
+      ],
+      "inputs": [
+        {
+          "source": "play-by-play",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020078/play-by-play/capture.json",
+          "requested_at": "2026-09-30T19:06:53.283Z",
+          "http_status": 200,
+          "body_sha256": "4ecf586aeeb3fc0d6cee21cfd0396369c0a462c0637a3f12b130632b18cc49a1",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "boxscore",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020078/boxscore/capture.json",
+          "requested_at": "2026-09-30T19:06:53.644Z",
+          "http_status": 200,
+          "body_sha256": "cb3e1d702d3abcf7024e1cec7c0a4091c74e6237f8709d65f08f29194801d413",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "shifts",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020078/shifts/capture.json",
+          "requested_at": "2026-09-30T19:06:53.969Z",
+          "http_status": 200,
+          "body_sha256": "eff67125f1ac0b4e7f926feba12e20f054726f7c0064071f5ee217431f30df6a",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "game-summary",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020078/game-summary/capture.json",
+          "requested_at": "2026-09-30T19:06:54.182Z",
+          "http_status": 200,
+          "body_sha256": "6ba4ba7f089e7c9fe6a9b97b5e2735d2a997ed7c54b674fffd1c488024d636b7",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "play-report",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020078/play-report/capture.json",
+          "requested_at": "2026-09-30T19:06:54.486Z",
+          "http_status": 200,
+          "body_sha256": "57f5e8a575f5ae81fd5ac18ad0cc8b66ba93f4ce9a29679a8882cc61a539b3a6",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "landing",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020078/landing/capture.json",
+          "requested_at": "2026-09-30T19:06:54.839Z",
+          "http_status": 200,
+          "body_sha256": "419380294b5a490f475cfc5bafba873c2b0310669412f076e7ce6e863db48dc1",
+          "status": "parsed",
+          "reason": null
+        }
+      ],
+      "candidates": [
+        {
+          "source_index": 38,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8475208,
+              "physical_shooter_id": 8475208,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/38"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/38"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 38,
+            "event_id": 247,
+            "sort_order": 124,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "08:33",
+            "time_remaining": "11:27",
+            "elapsed_seconds": 513,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 63,
+            "reported_y": 5,
+            "roles": {
+              "shooter": 8475208,
+              "blocker": 8476885
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 38,
+            "native": {
+              "source_index": 38,
+              "report_source_index": 41,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476885,
+                8480817,
+                8482157
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8476826,
+                8477444,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                66
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                13
+              ]
+            },
+            "touching_segment_indices": [
+              66
+            ],
+            "matching_segment_indices": [
+              66
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 38,
+            "disposition": "included",
+            "segment_index": 66,
+            "chunk_index": 215,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 41,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480078,
+              "physical_shooter_id": 8480078,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/41"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/41"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 41,
+            "event_id": 303,
+            "sort_order": 129,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "09:03",
+            "time_remaining": "10:57",
+            "elapsed_seconds": 543,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": -81,
+            "reported_y": 1,
+            "roles": {
+              "shooter": 8480078,
+              "blocker": 8478407
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 41,
+            "native": {
+              "source_index": 41,
+              "report_source_index": 44,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8478550,
+                8479323,
+                8479324,
+                8480078,
+                8482109
+              ],
+              "home_skaters": [
+                8474586,
+                8476457,
+                8477955,
+                8478407,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                67
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                15
+              ]
+            },
+            "touching_segment_indices": [
+              67
+            ],
+            "matching_segment_indices": [
+              67
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 41,
+            "disposition": "included",
+            "segment_index": 67,
+            "chunk_index": 221,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 44,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480078,
+              "physical_shooter_id": 8480078,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/44"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/44"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 44,
+            "event_id": 306,
+            "sort_order": 132,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "09:37",
+            "time_remaining": "10:23",
+            "elapsed_seconds": 577,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "O",
+            "owner_team_id": 3,
+            "reported_x": -84,
+            "reported_y": 8,
+            "roles": {
+              "shooter": 8480078,
+              "blocker": 8482109
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "teammate-blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 44,
+            "native": {
+              "source_index": 44,
+              "report_source_index": 47,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8478550,
+                8479323,
+                8479324,
+                8480078,
+                8482109
+              ],
+              "home_skaters": [
+                8474586,
+                8476457,
+                8477955,
+                8478407,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                67
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                18
+              ]
+            },
+            "touching_segment_indices": [
+              67
+            ],
+            "matching_segment_indices": [
+              67
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 44,
+            "disposition": "included",
+            "segment_index": 67,
+            "chunk_index": 222,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 54,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476885,
+              "physical_shooter_id": 8476885,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/54"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/54"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 54,
+            "event_id": 319,
+            "sort_order": 150,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "10:21",
+            "time_remaining": "09:39",
+            "elapsed_seconds": 621,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": 69,
+            "reported_y": 21,
+            "roles": {
+              "shooter": 8476885,
+              "blocker": 8477930
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 54,
+            "native": {
+              "source_index": 54,
+              "report_source_index": 57,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8477930,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                74
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                23
+              ]
+            },
+            "touching_segment_indices": [
+              74
+            ],
+            "matching_segment_indices": [
+              74
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 54,
+            "disposition": "included",
+            "segment_index": 74,
+            "chunk_index": 238,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 72,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476826,
+              "physical_shooter_id": 8476826,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/72"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/72"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 72,
+            "event_id": 404,
+            "sort_order": 194,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "14:03",
+            "time_remaining": "05:57",
+            "elapsed_seconds": 843,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -63,
+            "reported_y": -30,
+            "roles": {
+              "shooter": 8476826,
+              "blocker": 8476979
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 72,
+            "native": {
+              "source_index": 72,
+              "report_source_index": 75,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477444,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                94
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                28
+              ]
+            },
+            "touching_segment_indices": [
+              94
+            ],
+            "matching_segment_indices": [
+              94
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 72,
+            "disposition": "included",
+            "segment_index": 94,
+            "chunk_index": 298,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 79,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480078,
+              "physical_shooter_id": 8480078,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/79"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/79"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 79,
+            "event_id": 255,
+            "sort_order": 223,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "16:43",
+            "time_remaining": "03:17",
+            "elapsed_seconds": 1003,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": 73,
+            "reported_y": 6,
+            "roles": {
+              "shooter": 8480078,
+              "blocker": 8475208
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 79,
+            "native": {
+              "source_index": 79,
+              "report_source_index": 82,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Snap",
+                "value": "snap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476979,
+                8478550,
+                8480078,
+                8482073,
+                8482109
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8476826,
+                8479977,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                115
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                29
+              ]
+            },
+            "touching_segment_indices": [
+              115
+            ],
+            "matching_segment_indices": [
+              115
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 79,
+            "disposition": "included",
+            "segment_index": 115,
+            "chunk_index": 366,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 82,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476979,
+              "physical_shooter_id": 8476979,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/82"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/82"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 82,
+            "event_id": 127,
+            "sort_order": 226,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 1,
+            "period_type": "REG",
+            "time_in_period": "16:58",
+            "time_remaining": "03:02",
+            "elapsed_seconds": 1018,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": 67,
+            "reported_y": 6,
+            "roles": {
+              "shooter": 8476979,
+              "blocker": 8479977
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 82,
+            "native": {
+              "source_index": 82,
+              "report_source_index": 85,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476979,
+                8478550,
+                8480078,
+                8482073,
+                8482109
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8476826,
+                8479977,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                115
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                31
+              ]
+            },
+            "touching_segment_indices": [
+              115
+            ],
+            "matching_segment_indices": [
+              115
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 82,
+            "disposition": "included",
+            "segment_index": 115,
+            "chunk_index": 372,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 121,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8481789,
+              "physical_shooter_id": 8481789,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/121"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/121"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 121,
+            "event_id": 541,
+            "sort_order": 317,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "03:31",
+            "time_remaining": "16:29",
+            "elapsed_seconds": 211,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -57,
+            "reported_y": -33,
+            "roles": {
+              "shooter": 8481789,
+              "blocker": 8479323
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 121,
+            "native": {
+              "source_index": 121,
+              "report_source_index": 124,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8479323,
+                8479324,
+                8481554
+              ],
+              "home_skaters": [
+                8476467,
+                8477505,
+                8478407,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "after",
+              "interval_indices": [
+                158
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                43
+              ]
+            },
+            "touching_segment_indices": [
+              157,
+              158
+            ],
+            "matching_segment_indices": [
+              158
+            ],
+            "temporal_case": "boundary",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 121,
+            "disposition": "included",
+            "segment_index": 158,
+            "chunk_index": 511,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 128,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8474586,
+              "physical_shooter_id": 8474586,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/128"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/128"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 128,
+            "event_id": 556,
+            "sort_order": 336,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "04:58",
+            "time_remaining": "15:02",
+            "elapsed_seconds": 298,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -68,
+            "reported_y": 30,
+            "roles": {
+              "shooter": 8474586,
+              "blocker": 8480078
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 128,
+            "native": {
+              "source_index": 128,
+              "report_source_index": 131,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476979,
+                8478550,
+                8480078,
+                8482073,
+                8482109
+              ],
+              "home_skaters": [
+                8474586,
+                8475208,
+                8475768,
+                8478407,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                170
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                45
+              ]
+            },
+            "touching_segment_indices": [
+              170
+            ],
+            "matching_segment_indices": [
+              170
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 128,
+            "disposition": "included",
+            "segment_index": 170,
+            "chunk_index": 556,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 130,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480817,
+              "physical_shooter_id": 8480817,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/130"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/130"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 130,
+            "event_id": 565,
+            "sort_order": 346,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "05:40",
+            "time_remaining": "14:20",
+            "elapsed_seconds": 340,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": 85,
+            "reported_y": 7,
+            "roles": {
+              "shooter": 8480817,
+              "blocker": 8476457
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 130,
+            "native": {
+              "source_index": 130,
+              "report_source_index": 133,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476885,
+                8480817,
+                8482157
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477444,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                177
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                47
+              ]
+            },
+            "touching_segment_indices": [
+              177
+            ],
+            "matching_segment_indices": [
+              177
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 130,
+            "disposition": "included",
+            "segment_index": 177,
+            "chunk_index": 579,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 143,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8477955,
+              "physical_shooter_id": 8477955,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/143"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/143"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 143,
+            "event_id": 594,
+            "sort_order": 378,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "08:16",
+            "time_remaining": "11:44",
+            "elapsed_seconds": 496,
+            "timed_period": true,
+            "situation_code": "1451",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -68,
+            "reported_y": -13,
+            "roles": {
+              "shooter": 8477955,
+              "blocker": 8476885
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 143,
+            "native": {
+              "source_index": 143,
+              "report_source_index": 146,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476389,
+                8476624,
+                8476885,
+                8480817
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8477955,
+                8480009,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "other",
+              "shift_relation": "both",
+              "interval_indices": [
+                190
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                50
+              ]
+            },
+            "touching_segment_indices": [
+              190
+            ],
+            "matching_segment_indices": [
+              190
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 143,
+            "disposition": "included",
+            "segment_index": 190,
+            "chunk_index": 627,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 147,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8475768,
+              "physical_shooter_id": 8475768,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/147"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/147"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 147,
+            "event_id": 607,
+            "sort_order": 392,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "09:27",
+            "time_remaining": "10:33",
+            "elapsed_seconds": 567,
+            "timed_period": true,
+            "situation_code": "1451",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -59,
+            "reported_y": 3,
+            "roles": {
+              "shooter": 8475768,
+              "blocker": 8474009
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 147,
+            "native": {
+              "source_index": 147,
+              "report_source_index": 150,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476885,
+                8476918,
+                8482073
+              ],
+              "home_skaters": [
+                8475768,
+                8477416,
+                8477505,
+                8478407,
+                8479977
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "other",
+              "shift_relation": "both",
+              "interval_indices": [
+                199
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                53
+              ]
+            },
+            "touching_segment_indices": [
+              199
+            ],
+            "matching_segment_indices": [
+              199
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 147,
+            "disposition": "included",
+            "segment_index": 199,
+            "chunk_index": 657,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 149,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8477930,
+              "physical_shooter_id": 8477930,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/149"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/149"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 149,
+            "event_id": 615,
+            "sort_order": 401,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "09:47",
+            "time_remaining": "10:13",
+            "elapsed_seconds": 587,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -69,
+            "reported_y": -23,
+            "roles": {
+              "shooter": 8477930,
+              "blocker": 8476885
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 149,
+            "native": {
+              "source_index": 149,
+              "report_source_index": 152,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476885,
+                8478550,
+                8480078,
+                8480817,
+                8482109
+              ],
+              "home_skaters": [
+                8475208,
+                8476457,
+                8476826,
+                8477505,
+                8477930
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                204
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                54
+              ]
+            },
+            "touching_segment_indices": [
+              204
+            ],
+            "matching_segment_indices": [
+              204
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 149,
+            "disposition": "included",
+            "segment_index": 204,
+            "chunk_index": 667,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 175,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8481789,
+              "physical_shooter_id": 8481789,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/175"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/175"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 175,
+            "event_id": 676,
+            "sort_order": 474,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "15:28",
+            "time_remaining": "04:32",
+            "elapsed_seconds": 928,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 50,
+            "reported_y": 19,
+            "roles": {
+              "shooter": 8481789,
+              "blocker": 8476459
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 175,
+            "native": {
+              "source_index": 175,
+              "report_source_index": 178,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476979,
+                8481554,
+                8482073
+              ],
+              "home_skaters": [
+                8474602,
+                8476467,
+                8477505,
+                8477955,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                246
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                64
+              ]
+            },
+            "touching_segment_indices": [
+              246
+            ],
+            "matching_segment_indices": [
+              246
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 175,
+            "disposition": "included",
+            "segment_index": 246,
+            "chunk_index": 817,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 176,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8478840,
+              "physical_shooter_id": 8478840,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/176"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/176"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 176,
+            "event_id": 684,
+            "sort_order": 482,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "16:11",
+            "time_remaining": "03:49",
+            "elapsed_seconds": 971,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 74,
+            "reported_y": -10,
+            "roles": {
+              "shooter": 8478840,
+              "blocker": 8474009
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 176,
+            "native": {
+              "source_index": 176,
+              "report_source_index": 179,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8475208,
+                8475768,
+                8477505,
+                8478840,
+                8479977
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                253
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                65
+              ]
+            },
+            "touching_segment_indices": [
+              253
+            ],
+            "matching_segment_indices": [
+              253
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 176,
+            "disposition": "included",
+            "segment_index": 253,
+            "chunk_index": 835,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 183,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480009,
+              "physical_shooter_id": 8480009,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/183"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/183"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 183,
+            "event_id": 689,
+            "sort_order": 491,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "16:45",
+            "time_remaining": "03:15",
+            "elapsed_seconds": 1005,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 51,
+            "reported_y": -6,
+            "roles": {
+              "shooter": 8480009,
+              "blocker": 8476885
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 183,
+            "native": {
+              "source_index": 183,
+              "report_source_index": 186,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476885,
+                8476918,
+                8480817
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477416,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                255
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                67
+              ]
+            },
+            "touching_segment_indices": [
+              255
+            ],
+            "matching_segment_indices": [
+              255
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 183,
+            "disposition": "included",
+            "segment_index": 255,
+            "chunk_index": 850,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 184,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8480009,
+              "physical_shooter_id": 8480009,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/184"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/184"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 184,
+            "event_id": 692,
+            "sort_order": 494,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "17:05",
+            "time_remaining": "02:55",
+            "elapsed_seconds": 1025,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 80,
+            "reported_y": -10,
+            "roles": {
+              "shooter": 8480009,
+              "blocker": 8479324
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 184,
+            "native": {
+              "source_index": 184,
+              "report_source_index": 187,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476389,
+                8476624,
+                8479324,
+                8480817
+              ],
+              "home_skaters": [
+                8476457,
+                8476826,
+                8477416,
+                8478407,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                257
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                68
+              ]
+            },
+            "touching_segment_indices": [
+              257
+            ],
+            "matching_segment_indices": [
+              257
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 184,
+            "disposition": "included",
+            "segment_index": 257,
+            "chunk_index": 857,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 195,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476885,
+              "physical_shooter_id": 8476885,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/195"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/195"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 195,
+            "event_id": 712,
+            "sort_order": 518,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 2,
+            "period_type": "REG",
+            "time_in_period": "18:34",
+            "time_remaining": "01:26",
+            "elapsed_seconds": 1114,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": -76,
+            "reported_y": 7,
+            "roles": {
+              "shooter": 8476885,
+              "blocker": 8476467
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 195,
+            "native": {
+              "source_index": 195,
+              "report_source_index": 198,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476885,
+                8480817,
+                8481554
+              ],
+              "home_skaters": [
+                8476467,
+                8477505,
+                8477955,
+                8478840,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                268
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                73
+              ]
+            },
+            "touching_segment_indices": [
+              268
+            ],
+            "matching_segment_indices": [
+              268
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 195,
+            "disposition": "included",
+            "segment_index": 268,
+            "chunk_index": 887,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 210,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8481789,
+              "physical_shooter_id": 8481789,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/210"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/210"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 210,
+            "event_id": 750,
+            "sort_order": 569,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "02:35",
+            "time_remaining": "17:25",
+            "elapsed_seconds": 155,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -56,
+            "reported_y": 17,
+            "roles": {
+              "shooter": 8481789,
+              "blocker": 8482073
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 210,
+            "native": {
+              "source_index": 210,
+              "report_source_index": 213,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476918,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476467,
+                8476826,
+                8478840,
+                8479977,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                297
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                81
+              ]
+            },
+            "touching_segment_indices": [
+              297
+            ],
+            "matching_segment_indices": [
+              297
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 210,
+            "disposition": "included",
+            "segment_index": 297,
+            "chunk_index": 990,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 213,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8477955,
+              "physical_shooter_id": 8477955,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/213"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/213"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 213,
+            "event_id": 803,
+            "sort_order": 574,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "03:00",
+            "time_remaining": "17:00",
+            "elapsed_seconds": 180,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": -66,
+            "reported_y": 7,
+            "roles": {
+              "shooter": 8477955,
+              "blocker": 8476979
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 213,
+            "native": {
+              "source_index": 213,
+              "report_source_index": 216,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476918,
+                8476979,
+                8482073,
+                8482157
+              ],
+              "home_skaters": [
+                8476467,
+                8477930,
+                8477955,
+                8478840,
+                8481789
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                299
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                83
+              ]
+            },
+            "touching_segment_indices": [
+              299
+            ],
+            "matching_segment_indices": [
+              299
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 213,
+            "disposition": "included",
+            "segment_index": 299,
+            "chunk_index": 1001,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 262,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8474602,
+              "physical_shooter_id": 8474602,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/262"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/262"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 262,
+            "event_id": 950,
+            "sort_order": 692,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "10:38",
+            "time_remaining": "09:22",
+            "elapsed_seconds": 638,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 67,
+            "reported_y": 8,
+            "roles": {
+              "shooter": 8474602,
+              "blocker": 8480078
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 262,
+            "native": {
+              "source_index": 262,
+              "report_source_index": 265,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Bat",
+                "value": "bat",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8471218,
+                8476885,
+                8480078,
+                8480817,
+                8482157
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8475208,
+                8481789,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                351
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                108
+              ]
+            },
+            "touching_segment_indices": [
+              351
+            ],
+            "matching_segment_indices": [
+              351
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 262,
+            "disposition": "included",
+            "segment_index": 351,
+            "chunk_index": 1169,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 267,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8478407,
+              "physical_shooter_id": 8478407,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/267"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/267"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 267,
+            "event_id": 268,
+            "sort_order": 702,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "11:21",
+            "time_remaining": "08:39",
+            "elapsed_seconds": 681,
+            "timed_period": true,
+            "situation_code": "1451",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 56,
+            "reported_y": 24,
+            "roles": {
+              "shooter": 8478407,
+              "blocker": 8476459
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 267,
+            "native": {
+              "source_index": 267,
+              "report_source_index": 270,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8476459,
+                8476624,
+                8479323,
+                8479324
+              ],
+              "home_skaters": [
+                8475768,
+                8477416,
+                8478407,
+                8479977,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "other",
+              "shift_relation": "both",
+              "interval_indices": [
+                354
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                110
+              ]
+            },
+            "touching_segment_indices": [
+              354
+            ],
+            "matching_segment_indices": [
+              354
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 267,
+            "disposition": "included",
+            "segment_index": 354,
+            "chunk_index": 1181,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 283,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476459,
+              "physical_shooter_id": 8476459,
+              "shooting_team_id": 3,
+              "opposing_goalie_id": 8475831,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/283"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/283"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 283,
+            "event_id": 1044,
+            "sort_order": 743,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "14:26",
+            "time_remaining": "05:34",
+            "elapsed_seconds": 866,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 3,
+            "reported_x": -65,
+            "reported_y": -10,
+            "roles": {
+              "shooter": 8476459,
+              "blocker": 8480009
+            },
+            "shooting_team_id": 3,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 283,
+            "native": {
+              "source_index": 283,
+              "report_source_index": 286,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475184,
+                8476459,
+                8476885,
+                8480817,
+                8481554
+              ],
+              "home_skaters": [
+                8474602,
+                8475208,
+                8475768,
+                8479977,
+                8480009
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                374
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                117
+              ]
+            },
+            "touching_segment_indices": [
+              374
+            ],
+            "matching_segment_indices": [
+              374
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 283,
+            "disposition": "included",
+            "segment_index": 374,
+            "chunk_index": 1237,
+            "reason_indices": []
+          }
+        },
+        {
+          "source_index": 295,
+          "details": {
+            "values": {
+              "outcome": "block",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8476467,
+              "physical_shooter_id": 8476467,
+              "shooting_team_id": 55,
+              "opposing_goalie_id": 8471734,
+              "location_kind": "block_contact"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "play-by-play",
+                "path": "/plays/295"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020078.json",
+                  "sha256": "d56bf394d7a0500a457c4f6037aaf000c2472699d046ca925815d01dc83710f9"
+                },
+                "source": "reconstruction",
+                "path": "/events/295"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 295,
+            "event_id": 1138,
+            "sort_order": 792,
+            "type_code": 508,
+            "type_key": "blocked-shot",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "19:09",
+            "time_remaining": "00:51",
+            "elapsed_seconds": 1149,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "left",
+            "zone_code": "D",
+            "owner_team_id": 55,
+            "reported_x": 56,
+            "reported_y": 12,
+            "roles": {
+              "shooter": 8476467,
+              "blocker": 8476918
+            },
+            "shooting_team_id": 55,
+            "shot_type": null,
+            "reason": "blocked",
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 295,
+            "native": {
+              "source_index": 295,
+              "report_source_index": 298,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": null,
+                "report_value": "Slap",
+                "value": "slap",
+                "status": "report_only"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8474009,
+                8476624,
+                8476918,
+                8479323,
+                8479324
+              ],
+              "home_skaters": [
+                8474586,
+                8474602,
+                8476467,
+                8481789,
+                8482665
+              ],
+              "away_goalies": [
+                8471734
+              ],
+              "home_goalies": [
+                8475831
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                405
+              ],
+              "attacking_x": null,
+              "attacking_y": null,
+              "coordinate_status": "unresolved_frame",
+              "issue_indices": [
+                120
+              ]
+            },
+            "touching_segment_indices": [
+              405
+            ],
+            "matching_segment_indices": [
+              405
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 295,
+            "disposition": "included",
+            "segment_index": 405,
+            "chunk_index": 1354,
+            "reason_indices": []
+          }
+        }
+      ]
+    },
+    {
+      "season": "20232024",
+      "game_id": "2023020481",
+      "prepared_member": {
+        "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/games/20232024/2023020481.json",
+        "sha256": "7baaa6a21ac9fdfe5dec530a948c959b52d59d999b4bdf92a24ce97cfffd8875"
+      },
+      "attempt_count": 121,
+      "conflicts": [],
+      "issues": [],
+      "source_issues": [],
+      "native_issues": [
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/94[PL-95]/away_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/94[PL-95]/home_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/94[PL-95]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        },
+        {
+          "code": "situation_report_disagreement",
+          "source": "play-by-play",
+          "path": "/plays/189/situationCode",
+          "message": "situation counts disagree with the reported lineup; event strength unresolved"
+        },
+        {
+          "code": "situation_report_disagreement",
+          "source": "play-by-play",
+          "path": "/plays/190/situationCode",
+          "message": "situation counts disagree with the reported lineup; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/220[PL-221]/home_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/220[PL-221]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/314",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "ambiguous_event_match",
+          "source": "play-by-play",
+          "path": "/plays/315",
+          "message": "period/clock/kind has multiple api or report candidates; event membership unavailable"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/320[PL-321]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        },
+        {
+          "code": "situation_report_disagreement",
+          "source": "play-by-play",
+          "path": "/plays/316/situationCode",
+          "message": "situation counts disagree with the reported lineup; event strength unresolved"
+        },
+        {
+          "code": "situation_report_disagreement",
+          "source": "play-by-play",
+          "path": "/plays/319/situationCode",
+          "message": "situation counts disagree with the reported lineup; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/324[PL-325]/away_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "unavailable_report_members",
+          "source": "play-report",
+          "path": "/rows/324[PL-325]/home_members",
+          "message": "reported member list unavailable; event strength unresolved"
+        },
+        {
+          "code": "implausible_event_lineup",
+          "source": "play-report",
+          "path": "/rows/324[PL-325]",
+          "message": "reported lineup has unavailable or unsupported player counts/identities; event strength unresolved"
+        }
+      ],
+      "inputs": [
+        {
+          "source": "play-by-play",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020481/play-by-play/capture.json",
+          "requested_at": "2026-09-30T19:11:50.608Z",
+          "http_status": 200,
+          "body_sha256": "a4e2ef5be167d3fb002e76997faa94296c9afe8c66951760ac5b84b92249ca8a",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "boxscore",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020481/boxscore/capture.json",
+          "requested_at": "2026-09-30T19:11:50.876Z",
+          "http_status": 200,
+          "body_sha256": "fe495d4cc5c6bb6ad9ac5e0c16e7de7a742a88da5935d4211eae2bac436e2ba7",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "shifts",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020481/shifts/capture.json",
+          "requested_at": "2026-09-30T19:11:51.210Z",
+          "http_status": 200,
+          "body_sha256": "2186ff48dc9f48945b44671e01a7961320c97f7a56fb463dd507f916e25e13aa",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "game-summary",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020481/game-summary/capture.json",
+          "requested_at": "2026-09-30T19:11:51.354Z",
+          "http_status": 200,
+          "body_sha256": "a6f22786bba1414cb21e3a5db3d18fb01af29844211a332c981b72b3758ef13c",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "play-report",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020481/play-report/capture.json",
+          "requested_at": "2026-09-30T19:11:51.613Z",
+          "http_status": 200,
+          "body_sha256": "4111f82afbc597c2d00cdc535465a44b846e2c55b0d1c33d843176d24a8b5223",
+          "status": "parsed",
+          "reason": null
+        },
+        {
+          "source": "landing",
+          "capture_path": "/Volumes/Expansion/hockey-stats/raw/fresh-20260930/captures/2023020481/landing/capture.json",
+          "requested_at": "2026-09-30T19:11:51.940Z",
+          "http_status": 200,
+          "body_sha256": "1a3a12fa2590ee0ed235de84e4088aa5ddbdb0902289b16c34247d654938454a",
+          "status": "parsed",
+          "reason": null
+        }
+      ],
+      "candidates": [
+        {
+          "source_index": 281,
+          "details": {
+            "values": {
+              "outcome": "save",
+              "physical_status": "ordinary",
+              "credited_shooter_id": 8474596,
+              "physical_shooter_id": 8474596,
+              "shooting_team_id": 8,
+              "opposing_goalie_id": 8476945,
+              "location_kind": "reported_attempt"
+            },
+            "problems": {},
+            "evidence": [
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020481.json",
+                  "sha256": "f9c0e8588f19609b448430720b18fa5ee7ddca618c14f09dfa70aee5fc6180d0"
+                },
+                "source": "play-by-play",
+                "path": "/plays/281"
+              },
+              {
+                "input_ref": {
+                  "path": "/Volumes/Expansion/hockey-stats/corpora/03m-20261010/20232024/games/2023020481.json",
+                  "sha256": "f9c0e8588f19609b448430720b18fa5ee7ddca618c14f09dfa70aee5fc6180d0"
+                },
+                "source": "reconstruction",
+                "path": "/events/281"
+              }
+            ]
+          },
+          "event": {
+            "source_index": 281,
+            "event_id": 197,
+            "sort_order": 705,
+            "type_code": 506,
+            "type_key": "shot-on-goal",
+            "kind_valid": true,
+            "period_number": 3,
+            "period_type": "REG",
+            "time_in_period": "15:59",
+            "time_remaining": "04:01",
+            "elapsed_seconds": 959,
+            "timed_period": true,
+            "situation_code": "1551",
+            "home_team_defending_side": "right",
+            "zone_code": "D",
+            "owner_team_id": 8,
+            "reported_x": -85,
+            "reported_y": 0,
+            "roles": {
+              "shooter": 8474596,
+              "goalie": 8476945
+            },
+            "shooting_team_id": 8,
+            "shot_type": "wrist",
+            "reason": null,
+            "secondary_reason": null,
+            "penalty_type": null,
+            "penalty_description": null,
+            "penalty_duration_minutes": null,
+            "away_score": null,
+            "home_score": null
+          },
+          "association": {
+            "source_index": 281,
+            "native": {
+              "source_index": 281,
+              "report_source_index": 285,
+              "match_status": "matched",
+              "shot_type_evidence": {
+                "api_value": "wrist",
+                "report_value": "Wrist",
+                "value": "wrist",
+                "status": "agreement"
+              },
+              "goal_modifier_evidence": null,
+              "away_skaters": [
+                8475233,
+                8476875,
+                8480018,
+                8481540,
+                8483515
+              ],
+              "home_skaters": [
+                8475799,
+                8476331,
+                8476392,
+                8477504,
+                8478891
+              ],
+              "away_goalies": [
+                8474596
+              ],
+              "home_goalies": [
+                8476945
+              ],
+              "classification": "five_on_five",
+              "shift_relation": "both",
+              "interval_indices": [
+                335
+              ],
+              "attacking_x": -85,
+              "attacking_y": 0,
+              "coordinate_status": "normalized",
+              "issue_indices": []
+            },
+            "touching_segment_indices": [
+              335
+            ],
+            "matching_segment_indices": [
+              335
+            ],
+            "temporal_case": "interior",
+            "issue_indices": []
+          },
+          "ordinary_assignment": {
+            "source_index": 281,
+            "disposition": "included",
+            "segment_index": 335,
+            "chunk_index": 1205,
+            "reason_indices": []
+          }
+        }
+      ]
+    }
+  ]
+}

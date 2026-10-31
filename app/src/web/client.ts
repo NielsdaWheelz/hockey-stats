@@ -15,6 +15,7 @@ import {
   ApiError,
   PlayerAnalysisApi,
   type LeagueResponse,
+  type EvidenceResponse,
   type MapsResponse,
   type Person,
   type PlayerFamilies,
@@ -53,7 +54,9 @@ export type ObservedMaps = {
   readonly selection: SpatialSelection;
   readonly scale: Extract<MapsResponse, { family: "observed" }>["scale"];
 };
+export type ExecutionEvidence = Extract<EvidenceResponse, { family: "execution" }>;
 export type ProfileView = Release & {
+  readonly executionEvidence: ExecutionEvidence | null;
   readonly detail: PlayerResponse;
   readonly overviewCohorts: readonly SkaterOverview[];
   readonly view: AnalysisView;
@@ -427,6 +430,7 @@ function composeProfile(
     available_seasons: detail.available_seasons,
     season: detail.season,
     detail,
+    executionEvidence: null,
     overviewCohorts,
     view,
     selectedMetric,
@@ -543,7 +547,7 @@ export const loadProfile = (
       requests.map(request => api.analysis.league({ query: scalarQuery(request) })),
       { concurrency: "unbounded" },
     );
-    const profile = yield* compose(() => {
+    let profile = yield* compose(() => {
       responses.forEach((response, index) => {
         samePublication(detail, response);
         checkRequest(response, requests[index]);
@@ -555,7 +559,31 @@ export const loadProfile = (
       ]));
       return composeProfile({ ...detail, ...resolved }, metric, cohorts, view);
     });
-    if (view !== "observed" || !profile.player) return profile;
+      if (metric.publicationFamily === "execution") {
+        const evidence = yield* api.analysis.evidence({
+          params: { playerId },
+          query: {
+            season: profile.season.season,
+            family: "execution",
+            strength: metric.selectionStrength!,
+          },
+        });
+        profile = yield* compose((): ProfileView => {
+          sameRelease(detail, evidence);
+          if (
+            evidence.family !== "execution" ||
+            evidence.selection.player_id !== playerId ||
+            evidence.selection.season !== profile.season.season ||
+            evidence.selection.strength !== metric.selectionStrength
+          )
+            throw new Error(
+              "execution evidence differs from the selected player, season or strength",
+            );
+          catalogs([detail, ...responses, evidence]);
+          return { ...profile, executionEvidence: evidence };
+        });
+      }
+      if (view !== "observed" || !profile.player) return profile;
     const mapMode = mapView(query);
     const maps = yield* api.analysis.maps({
       query: mapsQuery(profile.season.season, [playerId], mapMode),

@@ -1,0 +1,27 @@
+{
+  "kind": "frozen-fixture-coach-locator-restoration",
+  "checked_at": "2026-10-27T06:23:10.432117+00:00",
+  "status": "pass",
+  "removed_alias": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs",
+    "target": "/Users/nnandal/Documents/code/hockey-stats/docs"
+  },
+  "restored": [
+    {
+      "member": "selection",
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/selection.json",
+      "target": "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/execution-v1-05/coach-fixture-selection.json",
+      "sha256": "9ac6deac4a9ebfe7fc7de837614736638779dc9cb0eebb49f50dd03e23ae47cf",
+      "bytes": 15789
+    },
+    {
+      "member": "identities",
+      "source": "/Users/nnandal/Documents/code/hockey-stats-v1-05/var/v1-05-checks/coaches/identities.json",
+      "target": "/Users/nnandal/Documents/code/hockey-stats-v1-05/docs/research/execution-v1-05/coach-fixture-identities.json",
+      "sha256": "16db385d3f5fc84f105f28a93c74e869824f81b6a84215b3d0eb611dd6ed1625",
+      "bytes": 27778
+    }
+  ],
+  "source_artifacts_modified": false,
+  "reason": "data-only v1-05 directory used a docs symlink that changed two frozen resolved original_path locators; restore exact retained original members at original paths"
+}

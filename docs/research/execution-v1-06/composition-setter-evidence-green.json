@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": [
+    "miss has no recorded assist evidence",
+    "block has no recorded assist evidence",
+    "save has no recorded assist evidence",
+    "credited goal primary assist annotates only its existing candidate",
+    "explicit credited unassisted goal annotates only none",
+    "outside-universe assist remains located discrepancy without expanding prior",
+    "unresolved credit does not assert an unassisted goal"
+  ]
+}

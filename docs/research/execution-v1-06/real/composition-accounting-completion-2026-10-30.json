@@ -1,0 +1,240 @@
+{
+  "kind": "execution-v1-06-real-saved-accounting-completion",
+  "status": "passed checker and actual exit zero; root acceptance review pending",
+  "checked_at_utc": "2026-10-30T12:58:35.648372+00:00",
+  "checker_receipt": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.json",
+    "sha256": "e2c0953c043547a974bbe201e81617a58127175a268c2b0d0d7b84a01e9ede5f",
+    "bytes": 16409
+  },
+  "command_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/composition-accounting-command-2026-10-30.json",
+    "sha256": "4d65e9575e22e5fd3899a422c5ef64d4fc02e33d29728b4964959c35e5bf11d1",
+    "bytes": 7841
+  },
+  "actual_shell_exit_code": 0,
+  "exit_file": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.exit",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "stdout": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.stdout.log",
+    "sha256": "63a1e17d85da6cbecf003c31d1a8ba8c4a24df8128dbf785451b83bb36772ac9",
+    "bytes": 62
+  },
+  "stderr_and_time": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting.stderr.log",
+    "sha256": "c2022d89e8ce6920312178c74f215d238cf23c2d18631becaa9db0fdbfd5541f",
+    "bytes": 777
+  },
+  "command_processes_gone": true,
+  "process_observation": "",
+  "completion_at_utc": "2026-10-30T12:56:35.458409+00:00",
+  "inputs": {
+    "facts": "786b2899b72347e2cbbdb89d24d01e174abf8923fc07e07649fc2bcfdf1967eb",
+    "results": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5",
+    "scores": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1"
+  },
+  "checker_sha256": "66632591b4352668a53fb942aca8c47a5da8181bde84750f9177e9ce64497347",
+  "measured_process_resources": {
+    "wall_seconds": 1020.22,
+    "user_seconds": 1004.69,
+    "system_seconds": 5.01,
+    "peak_rss_bytes": 4507729920,
+    "peak_memory_footprint_bytes": 4486450800
+  },
+  "checker_reported_cost": {
+    "wall_seconds": 1012.8896545839962,
+    "peak_rss_bytes": 4507729920,
+    "scope": "from before hockey_stats import through all assertions, before final receipt serialization; process high-water rss"
+  },
+  "stdout_summary": {
+    "status": "passed",
+    "seasons": 3,
+    "source_attempts": 468478
+  },
+  "years": [
+    {
+      "season": "20232024",
+      "source_attempts": 159470,
+      "complete_source_attempts": 158196,
+      "dispositions": {
+        "source": 159470,
+        "numerical": 160123,
+        "intersection": 159470,
+        "source_only": 0,
+        "numerical_only": 653,
+        "complete_source": 158196,
+        "complete_numerical_only": 0,
+        "unvalued_source": 1274
+      },
+      "paired_person_kind_accounting": {
+        "goalie": {
+          "source": 6,
+          "complete": 6,
+          "excluded": 0
+        },
+        "outside_displayed_state": {
+          "source": 7668,
+          "complete": 6951,
+          "excluded": 717
+        },
+        "skater": {
+          "source": 151338,
+          "complete": 151239,
+          "excluded": 99
+        },
+        "unknown_shooter": {
+          "source": 458,
+          "complete": 0,
+          "excluded": 458
+        }
+      },
+      "personal_reference_xg": 4979.408268474084,
+      "team_reference_xg": 4979.425642066097,
+      "personal_team_residual": 0.017373592012518202,
+      "personal_events": 120532,
+      "valued_recorded_attempts": 120533,
+      "goalie_events": 1,
+      "goalie_combinations": 1,
+      "reference_seconds": 36641860,
+      "valued_intervals": {
+        "neutral_all_attempt_value": 854658,
+        "neutral_locatable_unblocked_value": 854686
+      },
+      "known_zero_event_checks": {
+        "neutral_all_attempt_value": 1531040,
+        "neutral_locatable_unblocked_value": 1571014
+      },
+      "maps": 12936,
+      "setter_rows": 1424715,
+      "share_rows": 1899303
+    },
+    {
+      "season": "20242025",
+      "source_attempts": 156084,
+      "complete_source_attempts": 154720,
+      "dispositions": {
+        "source": 156084,
+        "numerical": 156622,
+        "intersection": 156084,
+        "source_only": 0,
+        "numerical_only": 538,
+        "complete_source": 154720,
+        "complete_numerical_only": 0,
+        "unvalued_source": 1364
+      },
+      "paired_person_kind_accounting": {
+        "goalie": {
+          "source": 11,
+          "complete": 11,
+          "excluded": 0
+        },
+        "outside_displayed_state": {
+          "source": 7999,
+          "complete": 7180,
+          "excluded": 819
+        },
+        "skater": {
+          "source": 147530,
+          "complete": 147529,
+          "excluded": 1
+        },
+        "unknown_shooter": {
+          "source": 544,
+          "complete": 0,
+          "excluded": 544
+        }
+      },
+      "personal_reference_xg": 4669.579778601731,
+      "team_reference_xg": 4669.813436036387,
+      "personal_team_residual": 0.23365743465637934,
+      "personal_events": 116119,
+      "valued_recorded_attempts": 116126,
+      "goalie_events": 7,
+      "goalie_combinations": 8,
+      "reference_seconds": 35866440,
+      "valued_intervals": {
+        "neutral_all_attempt_value": 840692,
+        "neutral_locatable_unblocked_value": 840692
+      },
+      "known_zero_event_checks": {
+        "neutral_all_attempt_value": 1509752,
+        "neutral_locatable_unblocked_value": 1548336
+      },
+      "maps": 12880,
+      "setter_rows": 1404927,
+      "share_rows": 1869087
+    },
+    {
+      "season": "20252026",
+      "source_attempts": 152924,
+      "complete_source_attempts": 151381,
+      "dispositions": {
+        "source": 152924,
+        "numerical": 153754,
+        "intersection": 152924,
+        "source_only": 0,
+        "numerical_only": 830,
+        "complete_source": 151381,
+        "complete_numerical_only": 0,
+        "unvalued_source": 1543
+      },
+      "paired_person_kind_accounting": {
+        "goalie": {
+          "source": 9,
+          "complete": 9,
+          "excluded": 0
+        },
+        "outside_displayed_state": {
+          "source": 8099,
+          "complete": 7090,
+          "excluded": 1009
+        },
+        "skater": {
+          "source": 144284,
+          "complete": 144282,
+          "excluded": 2
+        },
+        "unknown_shooter": {
+          "source": 532,
+          "complete": 0,
+          "excluded": 532
+        }
+      },
+      "personal_reference_xg": 5054.20199547085,
+      "team_reference_xg": 5054.346260843144,
+      "personal_team_residual": 0.14426537229337555,
+      "personal_events": 116608,
+      "valued_recorded_attempts": 116614,
+      "goalie_events": 6,
+      "goalie_combinations": 1,
+      "reference_seconds": 37007040,
+      "valued_intervals": {
+        "neutral_all_attempt_value": 861084,
+        "neutral_locatable_unblocked_value": 861084
+      },
+      "known_zero_event_checks": {
+        "neutral_all_attempt_value": 1549786,
+        "neutral_locatable_unblocked_value": 1587208
+      },
+      "maps": 13160,
+      "setter_rows": 1371413,
+      "share_rows": 1825556
+    }
+  ],
+  "retained_recorded_tables": "all checker assertions passed for exact retained catalogs,whole-row recorded tables,recorded-only interval/location/coverage bytes and unaffected microstat fields",
+  "limits": [
+    "unsampled real per-interval assignment relies on the unchanged frozen reduction owner and production source/count checks; the retained fixture source proof establishes algorithm behavior, not empirical coverage of real games",
+    "recorded assist source pointers and goal applicability are checked globally; corroborated actual assist identity is checked on selected sources",
+    "goalie residual closure below establishes a candidate subset matching exact count and mass; selected source checks establish physical inclusion"
+  ],
+  "next_boundary": "root review precedes bounded source acceptance by real_source_acceptance; eight known plus at most four diagnostic games, no source campaign expansion; publication remains separately released",
+  "standalone_strict_reader_run": false,
+  "source_check_started": false,
+  "publication_started": false,
+  "activation": false,
+  "external_completion_receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/saved-accounting-completion.json",
+  "preservation": "no production edits,fits,raw data changes,partial deletion or serving changes; launch receipt retains its historical start facts"
+}

@@ -1,0 +1,15 @@
+{
+  "base": "http://127.0.0.1:41926",
+  "url": "http://127.0.0.1:41926/players/9000001?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts&peerMin=0",
+  "checks": [
+    "two exact expectation tables",
+    "source/paired/unvalued metadata",
+    "kind-separated evidence csv",
+    "history csv metadata",
+    "saved history png",
+    "390px no page overflow",
+    "zoom screenshot",
+    "strength/season navigation freshness"
+  ],
+  "page_errors": []
+}

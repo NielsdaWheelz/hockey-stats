@@ -1,0 +1,40 @@
+{
+  "command": "app publication check --candidate /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06/candidate-13/player-analysis.sqlite",
+  "database_sha256": "a0842c789f1edc908ffc2d99527d49ccdd29e5ada5b9954e5c177d28b9d4d645",
+  "publication_id": "8047a25c-783b-4b88-88ee-572bb7917093",
+  "schema_version": 8,
+  "purpose": "fixture",
+  "available_seasons": [
+    "20252026",
+    "20242025",
+    "20232024"
+  ],
+  "seasons": [
+    {
+      "season": "20252026",
+      "players": 84,
+      "skaters": 84,
+      "goalies": 0,
+      "corpus_sha256": "5d9e84d335097513b523b37ca972d116685741f323bc15e0ed9d9fd878431e07"
+    },
+    {
+      "season": "20242025",
+      "players": 85,
+      "skaters": 84,
+      "goalies": 1,
+      "corpus_sha256": "12276e3802058e11eb1493bdbc8de4c9f2eeb8a50649c57a2f1c9e252aca0813"
+    },
+    {
+      "season": "20232024",
+      "players": 86,
+      "skaters": 84,
+      "goalies": 2,
+      "corpus_sha256": "5ef7a0cb757f0283386377308687b854d84b2ff144e7085d80ca0242cf0cbbb0"
+    }
+  ],
+  "strict_reader_passed": true,
+  "hard_cut_checks": [
+    "execution method assessment rejects obsolete skater breakdown paths; goalie family retains its fields",
+    "non-goal setter rows carry no recorded assist evidence"
+  ]
+}

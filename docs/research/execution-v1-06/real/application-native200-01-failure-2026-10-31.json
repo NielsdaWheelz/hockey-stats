@@ -1,0 +1,163 @@
+{
+  "kind": "temporary-real-native200-failure",
+  "status": "native zoom proof failed; no native200 acceptance or export/Mac continuation",
+  "checked_at_utc": "2026-10-31T03:19:27.627373+00:00",
+  "actual_exit_code": 1,
+  "started_at": "2026-10-31T03:16:36Z",
+  "finished_at": "2026-10-31T03:17:28Z",
+  "failure": {
+    "callsite": "application_browser.mjs:224:12",
+    "message": "native zoom must double actual normal-zoom device pixel ratio",
+    "observed_dpr": 2,
+    "expected_dpr": 4,
+    "wide_baseline_dpr": 2,
+    "requested_native_width": 1280,
+    "requested_zoom": 2,
+    "interpretation": "actual native200 requirement was not established; helper/environment cause not diagnosed and no product rendering verdict"
+  },
+  "browser_helper_sha256": "55487639b9c2ea12c225302d8c364e2a0480d699957bceabb2ea4ca8e925b3ae",
+  "cost": {
+    "wall_seconds": 51.71,
+    "user_seconds": 15.38,
+    "system_seconds": 2.07,
+    "time_reported_peak_rss_bytes": 1477738496
+  },
+  "baseline": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/browser.json",
+    "sha256": "4571b6b209b63d19e38caccd44085fba4b280b0ce98bd7b7c74dcf959c049679",
+    "bytes": 49244
+  },
+  "postrun_zoom_preferences": {
+    "wide-03": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide-03/chrome-profile/Default/Preferences",
+      "partition": {
+        "default_zoom_level": 0
+      },
+      "window_placement": {
+        "bottom": 1033,
+        "left": 0,
+        "maximized": false,
+        "right": 1440,
+        "top": 33,
+        "work_area_bottom": 1117,
+        "work_area_left": 0,
+        "work_area_right": 1728,
+        "work_area_top": 33
+      }
+    },
+    "native200-01": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/chrome-profile/Default/Preferences",
+      "partition": {
+        "default_zoom_level": 3.8017840169239308
+      },
+      "window_placement": {
+        "bottom": 1033,
+        "left": 0,
+        "maximized": false,
+        "right": 1280,
+        "top": 33,
+        "work_area_bottom": 1117,
+        "work_area_left": 0,
+        "work_area_right": 1728,
+        "work_area_top": 33
+      }
+    }
+  },
+  "partial_stages_reached": "cohort/support/strata/history/nextseason reopen+CSV/compare assertions completed before native DPR assertion; finalbrowserreceipt not written",
+  "partial_files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-compare.png",
+      "bytes": 413487
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-danger-right.png",
+      "bytes": 70025
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/history-bounds.json",
+      "bytes": 10472
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-shot-type-right.png",
+      "bytes": 99317
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-cohort.png",
+      "bytes": 1091148
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-shot-type-left.png",
+      "bytes": 102130
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-danger-left.png",
+      "bytes": 70455
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/history.svg",
+      "bytes": 16579
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/execution-support.png",
+      "bytes": 890047
+    }
+  ],
+  "partial_downloads": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/downloads/execution-5v5-20232024-9a5b4061-f909-4c1b-b624-5729e5acb6bf.csv",
+      "bytes": 45784394
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history-raw.png",
+      "bytes": 1513301
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/downloads/hockey-stats-8477504-20232024-5v5-execution-evidence.csv",
+      "bytes": 283050
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/downloads/hockey-stats-8477504-20242025-5v5-execution-evidence.csv",
+      "bytes": 284771
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native200-01/downloads/hockey-stats-8477504-execution.5v5.finishing_goals_per100_attempts-20232024-20252026-history.csv",
+      "bytes": 15469
+    }
+  ],
+  "browser_owned_profile_processes_gone": true,
+  "owned_probe": {
+    "exit": 1,
+    "stdout": ""
+  },
+  "exports_executed": false,
+  "mac_executed": false,
+  "server_node_pid": 52177,
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-native200-01.started",
+      "sha256": "fe8b625c1a4853e4cfe370be1da4fcde72cda7cb98dc0e6af749fd6b0740922a",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-native200-01.finished",
+      "sha256": "64c44357b43246e9c82e78e227577c8753b7b01fd322410a6c3484ced5da57f3",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-native200-01.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-native200-01.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-native200-01.stderr.log",
+      "sha256": "c0dead066d49db6bbdab76b2725f61d4fdc171f368b355d7d28f4164215f876b",
+      "bytes": 1208
+    }
+  ],
+  "next": "STOP for root diagnosis; no timeout/assertion weakening, production change, native retry or new browser"
+}

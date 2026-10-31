@@ -1,0 +1,696 @@
+{
+  "kind": "temporary-real-unavailable-profile-check",
+  "status": "passed bounded real unavailable-profile check",
+  "started_at": "2026-10-31T03:31:47.214Z",
+  "url": "http://127.0.0.1:41986/players/8477073?season=20232024&metric=execution.5v5.finishing_goals_per100_attempts",
+  "player_id": "8477073",
+  "season": "20232024",
+  "metric": "execution.5v5.finishing_goals_per100_attempts",
+  "expected_sha256": "938853042c9e810fbec603b079d7a20c8587e272d793532fb2f7437fb8d2406c",
+  "publication_id": "9a5b4061-f909-4c1b-b624-5729e5acb6bf",
+  "database_sha256": "dbac3ffb061a31502b3455203db5e0b48488c3ff45dbc32b370c9cbc22576bb5",
+  "browser_native_sandbox": true,
+  "os_source_denial_claimed": false,
+  "pageerrors": [],
+  "requestfailed": [],
+  "rejected": [],
+  "stages": [
+    {
+      "stage": "known factual identity, unavailable estimate and exact opened support retained",
+      "at": "2026-10-31T03:32:11.208Z"
+    },
+    {
+      "stage": "result retained before owned browser close",
+      "at": "2026-10-31T03:32:11.438Z"
+    },
+    {
+      "stage": "owned browser closed",
+      "at": "2026-10-31T03:32:12.685Z"
+    }
+  ],
+  "skip_link_viewport": {
+    "focused_element": {
+      "tag": "SUMMARY",
+      "id": "",
+      "class_name": "",
+      "text": "panel masses, coefficient support and paired evidence"
+    },
+    "skip_link": {
+      "matches_focus": false,
+      "computed_top": "-64px",
+      "bounds": {
+        "top": -64,
+        "bottom": -20.8125,
+        "left": 16,
+        "right": 149.03125
+      }
+    },
+    "innerHeight": 913,
+    "innerWidth": 1440,
+    "scrollY": 3340
+  },
+  "selected": {
+    "displayed_value": "unavailable",
+    "reason": "missing_source",
+    "explanation": "the factual skater has no saved annual projection because its prepared person kind is not resolved as skater; this does not establish coefficient absence",
+    "support": {
+      "included_seconds": 12505,
+      "events": null,
+      "eligible_weight": null,
+      "known_excluded_seconds": 0,
+      "unquantified_gap": true,
+      "reason_counts": [
+        {
+          "code": "elapsed_unavailable",
+          "count": 27
+        }
+      ],
+      "inferred_inputs": [],
+      "current_season_information": false,
+      "prior_only": false,
+      "prior_seasons": []
+    },
+    "coefficient_reasons": [
+      "none; focal_projection_unavailable_for_prepared_kind",
+      "none; focal_projection_unavailable_for_prepared_kind",
+      "none; focal_projection_unavailable_for_prepared_kind",
+      "none; focal_projection_unavailable_for_prepared_kind",
+      "none; focal_projection_unavailable_for_prepared_kind"
+    ]
+  },
+  "paired": [
+    {
+      "kind": "shot_type",
+      "strata": [
+        {
+          "stratum": "wrist",
+          "data": {
+            "events": 12,
+            "observed_goals": 1,
+            "reference": {
+              "expected_goals": 0.20671074209272425,
+              "mean_opportunity": {
+                "value": 0.01722589517439369,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.7932892579072758,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.18704937948806646,
+              "mean_opportunity": {
+                "value": 0.015587448290672205,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.8129506205119336,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 12,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "blocked_origin",
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": "snap",
+          "data": {
+            "events": 0,
+            "observed_goals": 0,
+            "reference": {
+              "expected_goals": 0,
+              "mean_opportunity": {
+                "value": null,
+                "unavailable_reason": "no_exposure",
+                "reason_detail": {
+                  "explanation": "no paired opportunities",
+                  "evidence": [
+                    {
+                      "kind": "method",
+                      "id": "execution-v1-06-20232024"
+                    },
+                    {
+                      "kind": "source",
+                      "id": "factual-20232024"
+                    }
+                  ]
+                },
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0,
+              "mean_opportunity": {
+                "value": null,
+                "unavailable_reason": "no_exposure",
+                "reason_detail": {
+                  "explanation": "no paired opportunities",
+                  "evidence": [
+                    {
+                      "kind": "method",
+                      "id": "execution-v1-06-20232024"
+                    },
+                    {
+                      "kind": "source",
+                      "id": "factual-20232024"
+                    }
+                  ]
+                },
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 0,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": "slap",
+          "data": {
+            "events": 0,
+            "observed_goals": 0,
+            "reference": {
+              "expected_goals": 0,
+              "mean_opportunity": {
+                "value": null,
+                "unavailable_reason": "no_exposure",
+                "reason_detail": {
+                  "explanation": "no paired opportunities",
+                  "evidence": [
+                    {
+                      "kind": "method",
+                      "id": "execution-v1-06-20232024"
+                    },
+                    {
+                      "kind": "source",
+                      "id": "factual-20232024"
+                    }
+                  ]
+                },
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0,
+              "mean_opportunity": {
+                "value": null,
+                "unavailable_reason": "no_exposure",
+                "reason_detail": {
+                  "explanation": "no paired opportunities",
+                  "evidence": [
+                    {
+                      "kind": "method",
+                      "id": "execution-v1-06-20232024"
+                    },
+                    {
+                      "kind": "source",
+                      "id": "factual-20232024"
+                    }
+                  ]
+                },
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 0,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": "backhand",
+          "data": {
+            "events": 7,
+            "observed_goals": 1,
+            "reference": {
+              "expected_goals": 0.4354191139598774,
+              "mean_opportunity": {
+                "value": 0.06220273056569677,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.5645808860401226,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.409851265263904,
+              "mean_opportunity": {
+                "value": 0.05855018075198628,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.5901487347360961,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 7,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "blocked_origin",
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": "tip",
+          "data": {
+            "events": 7,
+            "observed_goals": 0,
+            "reference": {
+              "expected_goals": 0.3568211703973372,
+              "mean_opportunity": {
+                "value": 0.05097445291390531,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": -0.3568211703973372,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.3346967334994961,
+              "mean_opportunity": {
+                "value": 0.04781381907135658,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": -0.3346967334994961,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 7,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "blocked_origin",
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": "other",
+          "data": {
+            "events": 1,
+            "observed_goals": 0,
+            "reference": {
+              "expected_goals": 0.10646715008827733,
+              "mean_opportunity": {
+                "value": 0.10646715008827733,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": -0.10646715008827733,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.09481841334876145,
+              "mean_opportunity": {
+                "value": 0.09481841334876145,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": -0.09481841334876145,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 1,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        }
+      ],
+      "totals": {
+        "events": 27,
+        "goals": 2,
+        "reference_expected_goals": 1.105418176538216,
+        "actor_expected_goals": 1.0264157916002281
+      }
+    },
+    {
+      "kind": "danger",
+      "strata": [
+        {
+          "stratum": "<.05",
+          "data": {
+            "events": 15,
+            "observed_goals": 0,
+            "reference": {
+              "expected_goals": 0.1632856914322278,
+              "mean_opportunity": {
+                "value": 0.01088571276214852,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": -0.1632856914322278,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.13758845392752592,
+              "mean_opportunity": {
+                "value": 0.009172563595168394,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": -0.13758845392752592,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 15,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "blocked_origin",
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": "[.05,.15)",
+          "data": {
+            "events": 7,
+            "observed_goals": 1,
+            "reference": {
+              "expected_goals": 0.35124438540227915,
+              "mean_opportunity": {
+                "value": 0.050177769343182736,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.6487556145977209,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.32850145404666037,
+              "mean_opportunity": {
+                "value": 0.04692877914952291,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.6714985459533396,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 7,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "blocked_origin",
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        },
+        {
+          "stratum": ">=.15",
+          "data": {
+            "events": 5,
+            "observed_goals": 1,
+            "reference": {
+              "expected_goals": 0.5908880997037093,
+              "mean_opportunity": {
+                "value": 0.11817761994074186,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.40911190029629074,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "actor": {
+              "expected_goals": 0.5603258836260416,
+              "mean_opportunity": {
+                "value": 0.11206517672520833,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              },
+              "observed_minus_expected_goals": {
+                "value": 0.43967411637395837,
+                "unavailable_reason": null,
+                "reason_detail": null,
+                "uncertainty": {
+                  "kind": "not_estimated"
+                }
+              }
+            },
+            "support": {
+              "included_seconds": null,
+              "events": 5,
+              "eligible_weight": null,
+              "known_excluded_seconds": 0,
+              "unquantified_gap": false,
+              "reason_counts": [],
+              "inferred_inputs": [
+                "setter"
+              ],
+              "current_season_information": true,
+              "prior_only": false,
+              "prior_seasons": []
+            },
+            "method_id": "execution-v1-06-20232024"
+          }
+        }
+      ],
+      "totals": {
+        "events": 27,
+        "goals": 2,
+        "reference_expected_goals": 1.1054181765382163,
+        "actor_expected_goals": 1.026415791600228
+      }
+    }
+  ],
+  "owned_browser_closed": true,
+  "finished_at": "2026-10-31T03:32:12.685Z"
+}

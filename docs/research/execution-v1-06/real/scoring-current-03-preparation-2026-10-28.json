@@ -1,0 +1,186 @@
+{
+  "kind": "execution-v1-06-current-03-persistent-terminal-preparation",
+  "status": "prepared; root review and release required; no output root created or score launched",
+  "recorded_at_utc": "2026-10-29T01:42:22.009054+00:00",
+  "date_local": "2026-10-28",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/scoring-current-03-preflight-2026-10-28.json",
+    "sha256": "607cd99fcacecf7f75609ff76f114abf08889d3c415d2bac5caa09e0ed37109f",
+    "status": "passed"
+  },
+  "scripts": [
+    {
+      "season": "20232024",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20232024.sh",
+      "sha256": "833f46571ebbb72ddfe9efeaa34ff020b6d86702f81a5e6e515d3e3e328111e2",
+      "bytes": 1033,
+      "lines": 6,
+      "content": "#!/bin/sh\ncd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\n/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli score --family execution --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --coaches /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json --state /Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024 --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024 > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20232024.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20232024.stderr.log\nscore_exit_status=$?\nprintf '%s\\n' \"$score_exit_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20232024.exit\nexit \"$score_exit_status\"\n",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "score",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+        "--coaches",
+        "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024"
+      ],
+      "syntax_check": {
+        "command": [
+          "/bin/sh",
+          "-n",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20232024.sh"
+        ],
+        "exit_code": 0
+      },
+      "shell_launch_command": [
+        "/bin/sh",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20232024.sh"
+      ],
+      "stdout": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20232024.stdout.log",
+      "stderr_and_time": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20232024.stderr.log",
+      "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20232024.exit",
+      "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024",
+      "launched": false
+    },
+    {
+      "season": "20242025",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20242025.sh",
+      "sha256": "4626c5cdcd16ba7e85fbeec283091fb0adefc275cb0adfd80284ed2ef80d9c9a",
+      "bytes": 1033,
+      "lines": 6,
+      "content": "#!/bin/sh\ncd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\n/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli score --family execution --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --coaches /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json --state /Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025 --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025 > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.stderr.log\nscore_exit_status=$?\nprintf '%s\\n' \"$score_exit_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.exit\nexit \"$score_exit_status\"\n",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "score",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+        "--coaches",
+        "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025"
+      ],
+      "syntax_check": {
+        "command": [
+          "/bin/sh",
+          "-n",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20242025.sh"
+        ],
+        "exit_code": 0
+      },
+      "shell_launch_command": [
+        "/bin/sh",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20242025.sh"
+      ],
+      "stdout": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.stdout.log",
+      "stderr_and_time": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.stderr.log",
+      "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20242025.exit",
+      "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025",
+      "launched": false
+    },
+    {
+      "season": "20252026",
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20252026.sh",
+      "sha256": "ef655d0cfc6ef1ee075fe54d5a64bffbf8f639e2abcb5cffb3c5351754d6bdfe",
+      "bytes": 1033,
+      "lines": 6,
+      "content": "#!/bin/sh\ncd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\n/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli score --family execution --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --coaches /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json --state /Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026 --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20252026 > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.stderr.log\nscore_exit_status=$?\nprintf '%s\\n' \"$score_exit_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.exit\nexit \"$score_exit_status\"\n",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-m",
+        "hockey_stats.analysis_cli",
+        "score",
+        "--family",
+        "execution",
+        "--prepared",
+        "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+        "--coaches",
+        "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20252026"
+      ],
+      "syntax_check": {
+        "command": [
+          "/bin/sh",
+          "-n",
+          "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20252026.sh"
+        ],
+        "exit_code": 0
+      },
+      "shell_launch_command": [
+        "/bin/sh",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/score-current-03-20252026.sh"
+      ],
+      "stdout": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.stdout.log",
+      "stderr_and_time": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.stderr.log",
+      "exit_status_file": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/20252026.exit",
+      "output": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20252026",
+      "launched": false
+    }
+  ],
+  "execution": "three independent six-line shell recipes for ordinary persistent local terminal execution; one literal annual CLI each, direct /usr/bin/time logs and shell-recorded actual exit status",
+  "parent_contract": "after root release, create BOTH current-03 and current-03/scores fresh with exist_ok=False before launching first annual; chance_cli.output_path resolves output.parent strict=True",
+  "launch_rule": "root launches 20232024 once; after actual completion separately pass fresh strict read, source reconciliation and isolated independent arithmetic before root releases the next literal annual command",
+  "final_year": "20252026 also requires passed propagation for all four saved final-year v1-05 variants; no new solve",
+  "selection": "write explicit ordered five-year selection only after all five scores pass required acceptance; retain 20212022 from current-01 and 20222023 from current-02",
+  "expected_counts": {
+    "20232024": {
+      "recognized": 160123,
+      "complete": 158196
+    },
+    "20242025": {
+      "recognized": 156622,
+      "complete": 154720
+    },
+    "20252026": {
+      "recognized": 153754,
+      "complete": 151381
+    }
+  },
+  "preservation": "all accepted scores, interrupted current-01/20222023 and current-02/20232024 partials, source evidence, fitted states/probes, serving files and other work remain at original paths",
+  "external_writes": false,
+  "output_root_created": false,
+  "score_commands_launched": false,
+  "automatic_advancement": false,
+  "retry": false,
+  "runner": false,
+  "checkpoint_engine": false,
+  "new_fit": false,
+  "acquisition": false,
+  "source_edits": false,
+  "activation": false,
+  "independent_review": {
+    "reviewer": "restart_review",
+    "status": "passed read-only local review",
+    "scope": "all51 source,12 input/probe and2 checker identities equal prior checked authority; all3 literal6line scripts match preparation hash/content/argv; syntax, direct timing/exit capture, both-parent contract and separate annual acceptance are sound; no script defect",
+    "external_checks": "reviewer did not repeat external reads; scoring owner performed the recorded fresh pinned reads"
+  }
+}

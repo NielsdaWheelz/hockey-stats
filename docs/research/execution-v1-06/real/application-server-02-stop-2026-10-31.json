@@ -1,0 +1,67 @@
+{
+  "kind": "temporary-isolated-server-stop",
+  "status": "owned isolated server stopped after final visual acceptance",
+  "node_pid": 52177,
+  "time_pid": 52176,
+  "shell_pid": 52174,
+  "argv": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986",
+  "parent_argv": "/usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986",
+  "verified_listener_pid": 52177,
+  "pre_stop_process_facts": "  PID  PPID STARTED                       ELAPSED      TIME  %CPU    RSS STAT ARGS\n52174 86051 Fri Oct 30 19:48:11 2026     01:07:37   0:00.00   0.0   1328 S+   /bin/sh -c cd /Users/nnandal/Documents/code/hockey-stats-v1-06 || exit 1\\012/bin/date -u '+%Y-%m-%dT%H:%M:%SZ' > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.started\\012printf '%s\\n' \"$$\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.shell.pid\\012/usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986 > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.stderr.log\\012server_status=$?\\012/bin/date -u '+%Y-%m-%dT%H:%M:%SZ' > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.finished\\012printf '%s\\n' \"$server_status\" > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.exit\\012exit \"$server_status\"\n52176 52174 Fri Oct 30 19:48:11 2026     01:07:37   0:00.00   0.0    496 S+   /usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/real-detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986\n52177 52176 Fri Oct 30 19:48:11 2026     01:07:37  13:30.89   0.0 230000 S+   /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986\n",
+  "signal": "SIGTERM",
+  "signal_requested_at_utc": "2026-10-31T03:55:48.892446+00:00",
+  "scope": "only owned isolated server; no main-serving process signaled; no candidate/source changes",
+  "verified_stopped_at_utc": "2026-10-31T03:55:58.657530+00:00",
+  "actual_wrapper_exit_code": 130,
+  "started_at_utc": "2026-10-31T02:48:11Z",
+  "finished_at_utc": "2026-10-31T03:55:49Z",
+  "server_lifetime_seconds_from_markers": 4058.0,
+  "time_l": {
+    "wall_seconds": 4057.7,
+    "user_seconds": 765.25,
+    "system_seconds": 45.66,
+    "peak_rss_bytes": 1254719488
+  },
+  "owned_chain_pids_gone": [
+    52177,
+    52176,
+    52174
+  ],
+  "listener_41986_closed": true,
+  "logs": {
+    "started": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.started",
+      "sha256": "14a81df4fe9c52dcd3535dededefead5b6e768712baecda2b72743ed689c91c6",
+      "bytes": 21
+    },
+    "finished": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.finished",
+      "sha256": "b96ec86885d7288764b21de9d29c6763e9a5290a1c277044ac664bcdf8fc8993",
+      "bytes": 21
+    },
+    "exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.exit",
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d",
+      "bytes": 4
+    },
+    "stderr.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.stderr.log",
+      "sha256": "f4a5cdf185a3e0e45c0676182ca3bab256ff9cd71eb3391dd2057038176c58b5",
+      "bytes": 777
+    },
+    "stdout.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02.stdout.log",
+      "sha256": "b250f3afbcb7498d82ed28982f9e6f2ff283e077aeab5d761b961562912a5234",
+      "bytes": 53581
+    }
+  },
+  "startup_readiness": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/server-02-readiness.json",
+    "sha256": "550e09f759f6e7306634d1b8a6c025fc24f1137b84f670057e62fa9c1430b335",
+    "note": "startup launch-to-observed-listener upper bound remains separate from total server lifetime"
+  },
+  "retained_final_visual": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/native-visual-05/visual.json",
+    "sha256": "e7ac19b8f9ba965bdfc724789ea0f3b82e7dc6c17ad0f174c3c912f38aa92fe0"
+  }
+}

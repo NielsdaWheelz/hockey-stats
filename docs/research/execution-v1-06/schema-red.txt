@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/schema.py", line 44, in <module>
+    if __name__=='__main__':run()
+                            ~~~^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-checks/schema.py", line 17, in run
+    v=payload();a.validate_payload('skater_execution',v,ROW,CAT)
+                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/analysis_publication.py", line 1146, in validate_payload
+    fields(value, (*ESTIMATE_FIELDS[table], *extra, 'support','method_id'))
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/analysis_publication.py", line 201, in fields
+    require(type(value) is dict and set(value) == set(names), f"expected exact fields {','.join(names)}")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/artifacts.py", line 72, in require
+    raise InputContractError(message)
+hockey_stats.captures.InputContractError: expected exact fields finishing_goals_per100_attempts,setting_goals_per100_assisted_opportunities,avoid_block_probability,on_net_probability,recorded_stop_probability,conversion_probability,avoid_block_probability_difference,on_net_probability_difference,recorded_stop_probability_difference,conversion_probability_difference,support,method_id

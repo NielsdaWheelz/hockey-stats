@@ -1,0 +1,9 @@
+{
+  "check": "representable saved conditional ratio",
+  "denominator": 1e-252,
+  "numerator": 1e-254,
+  "expected_ratio": 0.01,
+  "saved_ratio": 0.9,
+  "rejected": false,
+  "explanation": null
+}

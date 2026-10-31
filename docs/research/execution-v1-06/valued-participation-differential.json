@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "baseline_source_sha256": "e6c92703ec71bc1db8de2b1dd1b30c253dd239dcb55ba4b7cc090433fb01028a",
+  "exact_fields": [
+    "included_seconds",
+    "known_excluded_seconds",
+    "unquantified_gap",
+    "reason_counts"
+  ],
+  "seasons": {
+    "20212022": {
+      "games": 7,
+      "player_strengths": 1568
+    },
+    "20222023": {
+      "games": 5,
+      "player_strengths": 1253
+    },
+    "20232024": {
+      "games": 6,
+      "player_strengths": 1407
+    },
+    "20242025": {
+      "games": 9,
+      "player_strengths": 1715
+    },
+    "20252026": {
+      "games": 9,
+      "player_strengths": 1939
+    }
+  },
+  "synthetic": [
+    "known zero",
+    "unknown gap",
+    "repeated reason occurrences"
+  ]
+}

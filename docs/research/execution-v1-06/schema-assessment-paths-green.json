@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "path": "execution_breakdown.probability",
+      "skater": "rejected",
+      "goalie": "accepted"
+    },
+    {
+      "path": "execution_breakdown.effect",
+      "skater": "rejected",
+      "goalie": "accepted"
+    },
+    {
+      "path": "execution_breakdown.expected_successes",
+      "skater": "rejected",
+      "goalie": "accepted"
+    }
+  ],
+  "migrated_fixture": "accepted"
+}

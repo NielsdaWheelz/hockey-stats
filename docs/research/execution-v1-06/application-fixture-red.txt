@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/analysis_publication.py", line 1670, in read_results
+    return _read_results(directory, 'manifest.json')
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/analysis_publication.py", line 1677, in _read_results
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 1 and manifest['kind'] == 'player_analysis_results' and manifest['purpose'] in ('real','fixture'), 'invalid result manifest')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src/hockey_stats/artifacts.py", line 72, in require
+    raise InputContractError(message)
+hockey_stats.captures.InputContractError: invalid result manifest

@@ -1,0 +1,113 @@
+{
+  "kind": "temporary-real-wide-browser-failure",
+  "status": "failed discovery table visibility; product-versus-helper cause not diagnosed",
+  "checked_at_utc": "2026-10-31T02:20:28.600095+00:00",
+  "actual_exit_code": 1,
+  "started_at_utc": "2026-10-31T02:13:50Z",
+  "finished_at_utc": "2026-10-31T02:19:02Z",
+  "helper_sha256": "bc97ef2cd7dfabedc0447e94ba55de02f60d61906109b93631d29e392d954ce8",
+  "boundary": {
+    "callsite": "application_browser.mjs:86:25",
+    "operation": "discoveryRegion.waitFor()",
+    "selector": "getByRole('region', { name: 'player analysis table, scroll horizontally for all columns', exact: true })",
+    "error": "TimeoutError",
+    "timeout_ms": 300000,
+    "earlier_checks_reached": [
+      "page.goto completed",
+      "player discovery heading visible",
+      "execution button aria-pressed true"
+    ],
+    "checks_not_reached": [
+      "discovery CSV download",
+      "selected profile/positive cohort",
+      "strata screenshots",
+      "history PNG/CSV",
+      "comparison",
+      "next-season freshness",
+      "zero-specialty case"
+    ]
+  },
+  "requested_viewport": {
+    "width": 1440,
+    "zoom": 1,
+    "actual_native_layout_measurements": null
+  },
+  "actual_resources": {
+    "wall_seconds": 311.92,
+    "user_seconds": 320.71,
+    "system_seconds": 5.16,
+    "maximum_resident_set_size_bytes": 6329991168,
+    "scope": "macos time measurement for browser command including child work; not Node-only RSS"
+  },
+  "browser_outputs": {
+    "root": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide",
+    "direct_entries": [
+      "chrome-profile"
+    ],
+    "downloads": false,
+    "screenshots": false,
+    "browser_receipt": false
+  },
+  "processes": {
+    "shell_pid": 45674,
+    "time_pid": 45676,
+    "node_pid": 45677,
+    "all_gone": true,
+    "observation": "  PID  PPID STAT ELAPSED    RSS COMMAND\n",
+    "owned_chrome_profile_probe": {
+      "argv": [
+        "/usr/bin/pgrep",
+        "-fl",
+        "--",
+        "--user-data-dir=/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/wide/chrome-profile"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "diagnostic_limits": "frozen helper finally closes context before timeout propagates; current-page/pageerror/request-failure state existed only in helper memory and was not serialized on failure; no unsafe attachment to its debug pipe or runtime mutation attempted",
+  "exports": "not launched because actual browser exit was1",
+  "narrow_native200": "not launched",
+  "server_node_pid": 40540,
+  "server_observation": "  PID  PPID STAT ELAPSED    RSS      TIME COMMAND\n40540 40539 S+     31:59 220640   9:11.03 /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-06/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/candidate/player-analysis.sqlite --port 41986\n",
+  "evidence": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-command.json",
+      "sha256": "9067f808affe05f59d87cae1deec301643ccbee3719d8649b0d2684da8f6ec9b",
+      "bytes": 3276
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide-process.json",
+      "sha256": "7bff2b32fb6a9fab43dff80c6a2fd52d1d25fc3c933fcf597fb7775b6de7a446",
+      "bytes": 2991
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide.started",
+      "sha256": "69a4027fabfb08c8ed865d05494d6a7f2543b7a47fb7d8685f5dfc0064b835fb",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide.finished",
+      "sha256": "15f3107a447759318f0e5f7efe6d7bc02735b7f7e8c0bb608e36a02b7f87e795",
+      "bytes": 21
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/application-acceptance-01/browser-wide.stderr.log",
+      "sha256": "a1c3fbdb739ea48283cac78b37af2a255222a1218e0affc81ce2fc199592baed",
+      "bytes": 1349
+    }
+  ],
+  "preservation": "failed run/profile/logs retained; no code change, API repeat, renderer substitute, timeout extension or browser rerun",
+  "next": "stop for root diagnosis/release; actual UI and export acceptance remain incomplete"
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "composition-prepared-attempt-lifetime-check",
+  "checked_at": "2026-10-27T06:25:59.739858+00:00",
+  "status": "green; isolated and retained-capture lifetime checks plus all24displayedgame byte differential pass",
+  "cause": "whole prepared attempts were kept for an entire season although only source binding and physical_status were used",
+  "change": "run existing completed-source binding while its game is loaded; retain keyed physical_status only",
+  "red": {
+    "exit_code": 1,
+    "retained_full_attempts_after_two_games": 10
+  },
+  "green": {
+    "exit_code": 0,
+    "scope": "isolated _season lifetime check with unrelated reducers stubbed",
+    "retained_full_attempts_after_two_games": 0
+  },
+  "numerical_or_source_policy_change": false,
+  "source_artifacts_changed": false,
+  "fixture_differential": {
+    "status": "passed",
+    "scope": "identical historical accepted score payloads passed directly to the _season transformation; current strict score-reader compatibility is unchanged",
+    "seasons": 3,
+    "games": 24,
+    "wall_seconds": 383.5441570410039,
+    "source_attempts": 2855,
+    "maps": 10122,
+    "tables_method_evidence_and_receipts": "all emitted table bytes and composed method evidence/receipt bytes identical",
+    "receipt": "docs/research/execution-v1-06/real/composition-full-differential-2026-10-26.json",
+    "receipt_sha256": "9baf71ee148f7fef7ea5f9815f8771cbe1c39c34bdeeede63390907c06a720a6"
+  },
+  "sha256": {
+    "analysis/src/hockey_stats/execution_composition.py": "7b68f1229b8236220a542556ea921d93270e7593a1921377a3a429ad92459479",
+    "var/v1-06-real/check_composition_retention.py": "53163e2131ee3519086090d0fd15f55af585c7029894966731b6fb3146448959",
+    "var/v1-06-real/composition-retention-red.log": "f138fe610e7b04c82ac0e2844974dced86b5c0cb778b20f292d3ef0719e329fb",
+    "var/v1-06-real/composition-retention-green.log": "c4e0fdf94123be11d66d1b101eb1cab2beb0b2fa3e91aeab90a9497c28050aad",
+    "var/v1-06-real/check_composition_memory.py": "bbe6a51710efe4e0ec977c4744b11ba226558b66e3d6489b618591916c5108b4",
+    "var/v1-06-real/composition-memory-red.log": "b33fd258bd3365d49bf62b80ca3d6177260a207d07ef03988a63f0c450ae19bb",
+    "var/v1-06-real/check_composition_differential.py": "cb04d294f958895458d30ed1d29a476ba09a8791179574e60eab8743692a80ec",
+    "var/v1-06-real/composition-baseline.py": "3c145e050582785d2502dcd81f9b4e5360528b30e16f204969611d165963bd2c",
+    "var/v1-06-real/composition-full-differential.log": "76a0edefd6da520e38d6f0d6d43e31e8720300b1fccc50e665dc4da5025a4c0e",
+    "var/v1-06-real/composition-memory-green.log": "85ed7fe8ef1beee3635a4b627aac4891cfafb9da8b1ae2ad9306901ab3ca4753",
+    "var/v1-06-real/merge-resume-green.log": "4469c65b875a5cd7af6ca612c88d901539e2dfd0ca34da9c21f512660c338967"
+  },
+  "retained_capture_lifetime": {
+    "status": "passed",
+    "scope": "actual20232024 fixture games through _season; full prepared-attempt objects survive only their own game"
+  }
+}

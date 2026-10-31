@@ -1,0 +1,33 @@
+{
+  "command": "app publication check --candidate /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01/fixture/accepted-01/candidate/player-analysis.sqlite",
+  "publication_id": "8aeb5023-0630-42a0-9f5d-91d3f2d07dfb",
+  "purpose": "fixture",
+  "schema_version": 8,
+  "sqlite_user_version": 8,
+  "database_sha256": "d553ffb22362d392f374d052d92f8c31dce00c6f9bd85d7605a1cba6fec1c1b4",
+  "database_bytes": 837971968,
+  "seasons": [
+    {
+      "season": "20252026",
+      "players": 309,
+      "skaters": 277,
+      "goalies": 32,
+      "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158"
+    },
+    {
+      "season": "20242025",
+      "players": 272,
+      "skaters": 245,
+      "goalies": 27,
+      "corpus_sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad"
+    },
+    {
+      "season": "20232024",
+      "players": 224,
+      "skaters": 201,
+      "goalies": 23,
+      "corpus_sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b"
+    }
+  ],
+  "strict_reader_passed": true
+}

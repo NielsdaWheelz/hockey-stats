@@ -1,0 +1,65 @@
+{
+  "kind": "temporary-application-source-binding-handcases",
+  "status": "passed hand-built data only",
+  "checker_sha256": "9b279cb857d3e1e3d479a5828efa496f5121721255ea0cbc29ffcd34c71a6356",
+  "identity_rejections": [
+    "receipt kind",
+    "receipt status",
+    "receipt purpose",
+    "source checker",
+    "source freeze",
+    "results digest",
+    "results locator",
+    "scores digest",
+    "facts digest",
+    "prepared digest",
+    "candidate preparation",
+    "annual score identity",
+    "accounting checker",
+    "frozen witness identity",
+    "frozen game identity",
+    "previous source checker rejected; no fallback"
+  ],
+  "value_rejections": [
+    "api model value",
+    "api original source locator",
+    "api setter value",
+    "missing checked included interval",
+    "excluded witness interval incorrectly present"
+  ],
+  "positive_mapping": {
+    "source_key": {
+      "season": "20232024",
+      "game_id": "2023020001",
+      "source_index": 17
+    },
+    "original_source": {
+      "kind": "source",
+      "id": "hand-original-play-118"
+    },
+    "saved_neutral_value": 0.125,
+    "api_route": {
+      "player_id": "8470002",
+      "strength": "5v5",
+      "role": "setter candidate"
+    },
+    "api_source_and_value_exact": true,
+    "setter_exact": true,
+    "included_interval_exact": true,
+    "season_context_fold_checked": true
+  },
+  "unattributable_personal_route": "explicitly inapplicable; no invented association",
+  "limits": [
+    "hand-built in-memory records; no real source/candidate/api/browser/build execution",
+    "mock api callbacks exercise comparison logic only; root must run the actual accepted artifacts and isolated server"
+  ],
+  "exercise": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/exercise_application_source_binding.py",
+    "sha256": "92507fb9102d53ee3d189819f2ffeae6ce26a2bc12c9702179763c1b01be4a66",
+    "in_memory_changes": [
+      "replace one positive source-checker fixture pin with approved138a06e",
+      "redirect one output receipt name to fresh source02 file"
+    ],
+    "prior_checker_rejection": "explicit extra hand-built rejection after unchanged existing checks"
+  }
+}

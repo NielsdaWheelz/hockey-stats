@@ -1,0 +1,75 @@
+{
+  "kind": "real-factual-exchange2-regeneration",
+  "status": "running",
+  "started_at": "2026-10-28T06:31:35+00:00",
+  "recorded_at": "2026-10-28T06:31:50.872967+00:00",
+  "production_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+  "login_shell": false,
+  "python_version": "3.14.8",
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "facts",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02"
+  ],
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/docs/research/execution-v1-06/real/factual-restart-preflight-2026-10-28.json",
+    "sha256": "95aed74dd47e046ae87edff275a3d0aa296affe29198c914ebef562fcb9bc993"
+  },
+  "external_preflight": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02-preflight.json",
+  "log": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02.log",
+  "output_path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02",
+  "retry": false,
+  "resume": false,
+  "pid": 5066,
+  "time_wrapper_pid": 5063,
+  "tool_session_id": 5360,
+  "launch_process_observation": [
+    {
+      "pid": 5063,
+      "ppid": 2019,
+      "rss_bytes": 1572864,
+      "elapsed": "00:15",
+      "command": "/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -m hockey_stats.analysis_cli facts --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02"
+    },
+    {
+      "pid": 5066,
+      "ppid": 5063,
+      "rss_bytes": 400474112,
+      "elapsed": "00:15",
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli facts --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts-02"
+    }
+  ],
+  "root_release": {
+    "received_before_launch": true,
+    "recorded_at_utc": "2026-10-28T06:31:35+00:00",
+    "scope": "release facts-02 now; exact independently reviewed ordinary command once, no retry; strict real preservation then hold composition"
+  },
+  "resource_scope": "ordinary /usr/bin/time -l wraps the existing facts CLI with task python and explicit PYTHONPATH; includes preparation/observed reads, source-owned reductions and strict final exchange validation",
+  "overlap_tradeoff": "root authorizes prior measured 21.75gb score plus 6.62gb facts on 64gib machine; shared hdd/cpu use may increase wall times",
+  "partial_previous_output": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/facts",
+    "preserved": true,
+    "accepted": false
+  },
+  "original_facts": "preserved schema1; never writable output",
+  "post_completion": "strict schema2 read and exact original factual preservation; only declared method split and receipt locators may differ",
+  "composition": "hold until all five annual scores and root release",
+  "preservation_checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_factual_preservation.py",
+    "sha256": "66299706fe0dc6a8715d3cf8952065e0055f2d193d2b13e600837f3769e9aa81"
+  },
+  "fits": false,
+  "activation": false
+}

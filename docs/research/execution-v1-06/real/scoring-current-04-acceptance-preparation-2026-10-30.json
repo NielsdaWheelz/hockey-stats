@@ -1,0 +1,92 @@
+{
+  "kind": "execution-v1-06-current-04-final-year-acceptance-command-preparation",
+  "status": "prepared only; no acceptance command executed",
+  "recorded_at_utc": "2026-10-30T07:10:19.329936+00:00",
+  "analysis_source_commit": "78a0727224a88407c6d94d74f1e65a5e894f3e61",
+  "release_condition": "actual score shell exit0 plus completion manifest, then explicit root release; immediately before EACH command starts, its receipt, stdout and stderr paths must all be absent (nine distinct paths across the three commands); no overwrite; each separate command actual exit0 is required",
+  "commands": [
+    {
+      "kind": "strict-reader",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-c",
+        "from pathlib import Path\nimport hashlib, json\nfrom hockey_stats.execution_scores import read_execution_scores\nroot = Path(\"/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04\")\nscore = read_execution_scores(root / \"scores/20252026\", \"real\")\nm = score.manifest\nassert m[\"season\"] == \"20252026\"\nassert m[\"resources\"][\"recognized_events\"] == 153754\nassert m[\"resources\"][\"complete_events\"] == 151381\nassert len(m[\"panels\"]) == 32\nassert m[\"numerical_resolution\"][\"status\"] == \"passed\"\nresolution = json.loads((score.path.parent / \"resolution.json\").read_bytes())\nassert resolution[\"status\"] == \"passed\"\nassert resolution[\"tolerances\"] == dict(probability=1e-5, per100=1e-3, map_l1=1e-3)\nassert len(resolution[\"event_probes\"][\"actual_keys\"]) == 256\nassert len(resolution[\"selector\"][\"pairs\"]) <= 45\nassert [row[\"head\"] for row in resolution[\"probes\"]] == list(\"uqrg\")\nassert all(len(row[\"neutral_panels\"]) == 32 and row[\"status\"] == \"passed\" for row in resolution[\"probes\"])\nr = dict(kind=\"execution-v1-06-separate-strict-read\", status=\"passed\", purpose=\"real\", season=m[\"season\"], manifest=str(score.path), manifest_sha256=hashlib.sha256(score.path.read_bytes()).hexdigest(), recognized=153754, complete=151381, panels=32, numerical_resolution=\"passed\", actual_probe_keys=256, frozen_pairs=len(resolution[\"selector\"][\"pairs\"]), saved_probe_heads=list(\"uqrg\"), synthetic_witnesses=resolution[\"event_probes\"][\"fixture_witnesses\"], tolerances=resolution[\"tolerances\"], probe_maximum_changes={row[\"head\"]:row[\"maximum_changes\"] for row in resolution[\"probes\"]})\nwith (root / \"20252026-strict-reader.json\").open(\"x\") as target:\n    target.write(json.dumps(r, indent=2) + \"\\n\")\nprint(json.dumps(r))"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "paths": {
+        "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.json",
+        "stdout": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.stdout.log",
+        "stderr_and_time": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.stderr.log"
+      },
+      "shell_command": "/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -c 'from pathlib import Path\nimport hashlib, json\nfrom hockey_stats.execution_scores import read_execution_scores\nroot = Path(\"/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04\")\nscore = read_execution_scores(root / \"scores/20252026\", \"real\")\nm = score.manifest\nassert m[\"season\"] == \"20252026\"\nassert m[\"resources\"][\"recognized_events\"] == 153754\nassert m[\"resources\"][\"complete_events\"] == 151381\nassert len(m[\"panels\"]) == 32\nassert m[\"numerical_resolution\"][\"status\"] == \"passed\"\nresolution = json.loads((score.path.parent / \"resolution.json\").read_bytes())\nassert resolution[\"status\"] == \"passed\"\nassert resolution[\"tolerances\"] == dict(probability=1e-5, per100=1e-3, map_l1=1e-3)\nassert len(resolution[\"event_probes\"][\"actual_keys\"]) == 256\nassert len(resolution[\"selector\"][\"pairs\"]) <= 45\nassert [row[\"head\"] for row in resolution[\"probes\"]] == list(\"uqrg\")\nassert all(len(row[\"neutral_panels\"]) == 32 and row[\"status\"] == \"passed\" for row in resolution[\"probes\"])\nr = dict(kind=\"execution-v1-06-separate-strict-read\", status=\"passed\", purpose=\"real\", season=m[\"season\"], manifest=str(score.path), manifest_sha256=hashlib.sha256(score.path.read_bytes()).hexdigest(), recognized=153754, complete=151381, panels=32, numerical_resolution=\"passed\", actual_probe_keys=256, frozen_pairs=len(resolution[\"selector\"][\"pairs\"]), saved_probe_heads=list(\"uqrg\"), synthetic_witnesses=resolution[\"event_probes\"][\"fixture_witnesses\"], tolerances=resolution[\"tolerances\"], probe_maximum_changes={row[\"head\"]:row[\"maximum_changes\"] for row in resolution[\"probes\"]})\nwith (root / \"20252026-strict-reader.json\").open(\"x\") as target:\n    target.write(json.dumps(r, indent=2) + \"\\n\")\nprint(json.dumps(r))' > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-strict-reader.stderr.log",
+      "executed": false
+    },
+    {
+      "kind": "source-boundary",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "env",
+        "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py",
+        "--purpose",
+        "real",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "paths": {
+        "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.json",
+        "stdout": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.stdout.log",
+        "stderr_and_time": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.stderr.log"
+      },
+      "shell_command": "/usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real/check_source_boundary.py --purpose real --state /Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026 --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026 --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.json > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-source-boundary.stderr.log",
+      "executed": false
+    },
+    {
+      "kind": "independent-arithmetic",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python",
+        "-I",
+        "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py",
+        "--scores",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026",
+        "--state",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026",
+        "--out",
+        "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.json"
+      ],
+      "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+      "shell_login": false,
+      "paths": {
+        "receipt": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.json",
+        "stdout": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.stdout.log",
+        "stderr_and_time": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.stderr.log"
+      },
+      "shell_command": "/usr/bin/time -l /Users/nnandal/Documents/code/hockey-stats-v1-06/analysis/.venv/bin/python -I /Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-real-checks/independent/score_check.py --scores /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026 --state /Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026 --out /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.json > /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.stdout.log 2> /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/20252026-independent-arithmetic.stderr.log",
+      "executed": false
+    }
+  ],
+  "final_probe_obligations": [
+    "four saved u/q/r/g v1-05 variants only; bound identities equal frozen state",
+    "all32 exact neutral panels per variant; frozen specified pair union <=45 with unavailable categories explicit",
+    "256 exact frozen actual keys and unchanged declared synthetic witnesses",
+    "passed strict1e-5 probability/stage and1e-3 per100/native-map l1 margins; exact probe populations, expected sums and baseline danger bins; no new solve, threshold change or probe promotion"
+  ],
+  "checker_limit": "existing independent score_check verifies frozen probe identities, specified pair selector, baseline panel masses, event arithmetic and propagation verdict consistency; it does not independently rebuild real design or variant neutral predictor matrices. no independent real-design or variant-logit rebuild is assigned. docs/research/execution-v1-06/reviews/real-independent-review.md owns the accepted boundary: design-owner byte identity, fixture-matrix parity and real source reconciliation support that scope; the inherited checker comment does not assign another owner or campaign.",
+  "selection_written": false,
+  "external_writes": false
+}

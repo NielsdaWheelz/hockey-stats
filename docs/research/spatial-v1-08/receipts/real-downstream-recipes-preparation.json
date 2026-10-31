@@ -129,8 +129,8 @@
     },
     {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/detached.sb",
-      "sha256": "84edafd5b22cdf5b34053de69574318c015c2b738846551f3de1885a544c5355",
-      "bytes": 8864
+      "sha256": "89eb36ddc93d2f5e4e6ccbdd78a36a970734c5b389adba054246a93d7c70d5bd",
+      "bytes": 8782
     },
     {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/server.sh",
@@ -202,5 +202,6 @@
     "sha256": "cbe5e8933a1513fbcdb6849eeb84ea665bcb5ead8195993e37a66308a01d7341",
     "scope": "root-authorized existing temporary checker only; actual two-player target rerun; second-row mutation rejected; no production changes",
     "receipt": "fixture03-api-two-player-expanded-green.json"
-  }
+  },
+  "profile_review": "static finite-rule inspection confirms intended real DB/assets are outside denials, all five real states and fixture candidate/candidate sidecars denied; no sandbox invocation or controls run"
 }

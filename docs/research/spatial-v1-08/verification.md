@@ -12,10 +12,10 @@ native non-astra agents own `spatial_design.py` and execution origin access; `sp
 
 | boundary | status |
 |---|---|
-| source masks, joins and fixed design | pending |
-| independent objectives, gradients, priors and history | pending |
-| strict states and detached readers | pending |
-| neutral/focal maps and exact coalition accounting | pending |
+| source masks, joins and fixed design | captured-source checks pass; real chain pending |
+| independent objectives, gradients, priors and history | tiny independent checks pass; five-year real history pending |
+| strict states and detached readers | first captured annual passes; full candidate detached acceptance pending |
+| neutral/focal maps and exact coalition accounting | first captured annual passes; real integration pending |
 | fifteen real heads and exactly three continuations | pending |
 | three-season exchange/sqlite/api preservation and integration | pending |
 | actual discovery, detail, comparison, history, maps and exports | pending |
@@ -41,3 +41,13 @@ independent numerical execution then exposed roundoff in constant-column moments
 the selected-value, cli, byte-preserving composition and bounded annual-retention checks pass; [product scope](product-boundary.md) distinguishes the synthetic state-interface exercise from actual fitted-state integration. the live target check made a successful request against the accepted fixture publication and failed on its pending spatial family, as intended. its isolated server is stopped. pinned application typecheck/build pass. actual spatial api/browser green remains pending.
 
 the [first captured annual launch](receipts/first-fixture-launch.json) binds clean analysis source `ab684f49d7c796df73a124ecf7814bf1f52d3351`, explicit accepted fixture inputs and one ordinary persistent timed command into `/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture/20212022`. source remains frozen during execution. whole-triple, projection and strict-read acceptance precede any later annual; no real fit has started.
+
+## first captured annual accepted
+
+[the completed command](receipts/first-fixture-result.json) exited zero in 341.40 seconds, with 759,726,080 peak resident bytes and 108,855,173 output bytes. its three head solves took 4.62, 6.22 and 14.02 seconds; full all-player projection took 206.87 seconds. all three stopped on function tolerance, with raw gradient infinity norms `3.12e-5`, `1.95e-5` and `5.88e-6`; successful solver termination does not establish the gradient criterion. the fitted implementation records `fe63bd2`; its analysis tree exactly equals launch source `ab684f4`, with intervening documentation-only commits.
+
+root independently checked all 224 roster rows, their physical-attempt support unions, native sums, positivity and chance-at-most-attempt rates, relative percentages and adjustment closure. the 632 attempts cover 5.7908333333333335 physical hours and 11.581666666666667 directed hours. maximum scalar/native contrast closure is `1.25e-14`; maximum adjustment-cell closure is `1.40e-14`. this captured year contains no prior-only or zero-time roster witness; those cases remain labeled synthetic checks.
+
+after completion, reader-only repair `1ec8725` rejects extra shape/quality coefficients that the decoder previously ignored. the focused check demonstrates red and green; strict reread of the preserved annual passes in 3.99 seconds, with unchanged manifest digest `5e01cfd7ca49f8fb2ed2759fca73e71da450561885e672a0d76a7601c16fb9c7`. no fit is repeated. independent [content review](reviews/content-review.md) passes the selected values, exports, cohorts, command boundaries and accepted publication bindings; actual fitted browser/pixel acceptance remains open.
+
+projection dominates this measured fixture. a bounded refactor shares native logits across coalitions, retaining every row/player/subset and the completed fitted coefficients. it uses additional small group-logit arrays to avoid repeated basis multiplications. replay and independent allocation checks must pass before later annual execution. these fixture costs do not predict real-season capacity; the first complete real annual triple remains required.

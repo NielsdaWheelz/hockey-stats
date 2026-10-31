@@ -1,0 +1,36 @@
+{
+  "kind": "spatial-v1-08-discovery-search-native-red",
+  "status": "failed actual native gui observation reported by root; repair not browser-verified",
+  "recorded_at_utc": "2026-10-31T14:32:48.821816+00:00",
+  "observer": "root; product performed no gui action",
+  "candidate_publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "server_pid": 26820,
+  "base_url": "http://127.0.0.1:3398",
+  "build_sha256": "2b84760dacbd8d6263d19963ea21259f403ff26cb17f69ce0702b172b78f7063",
+  "action": {
+    "control": "search players",
+    "method": "root clicked search then cua.typeText('toffoli') once",
+    "intended_text": "toffoli"
+  },
+  "observed": {
+    "url_query_q": "tfoi",
+    "input_value": "ofl",
+    "symptom": "alternating characters after query navigation"
+  },
+  "evidence_scope": "literal values supplied in root assignment; product did not independently reperform the interaction or receive a screenshot path",
+  "installed_router": {
+    "version": "8.4.0",
+    "set_search_params": "navigate options forwarded unchanged by lib/dom/lib.js",
+    "flush_sync": "already selected by league commit; lib/components.js synchronously applies the initial pending router state, framework completion remains asynchronous",
+    "existing_pattern": "root season selection reads pending-or-current query through viewSearch"
+  },
+  "diagnosis": "controlled text input used committed q during a synchronous pending-navigation render, restoring the older text before query completion",
+  "fix_scope": "league.tsx input reads pending-or-current q; clear uses existing commit no-op comparison",
+  "verification_pending": [
+    "pinned typecheck",
+    "root stops isolated owned server before build",
+    "root releases build/restart and native typing/paste/clear/direct-link/back checks"
+  ],
+  "build_run": false,
+  "gui_actions_by_product": false
+}

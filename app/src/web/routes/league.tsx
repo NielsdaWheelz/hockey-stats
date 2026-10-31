@@ -79,7 +79,7 @@ export default function League() {
     ["name", ...preset.columns.map(column => column.id)],
     preset.defaultSort,
   );
-  const { q, sort, dir, position, team, min } = discovery;
+  const { sort, dir, position, team, min } = discovery;
   const [minute, setMinute] = useState({
     committed: min,
     draft: String(min),
@@ -130,7 +130,6 @@ export default function League() {
   };
   const clear = () => {
     setMinute({ committed: 0, draft: "0", error: "" });
-    if (q === "" && position === "all" && team === null && min === 0) return;
     const next = viewSearch(location, navigation.location);
     for (const key of ["q", "position", "team", "min"]) next.delete(key);
     commit(next);
@@ -255,7 +254,7 @@ export default function League() {
           <input
             id="player-search"
             type="search"
-            value={q}
+            value={viewSearch(location, navigation.location).get("q") ?? ""}
             onChange={(event) => {
               const next = viewSearch(location, navigation.location);
               if (event.currentTarget.value)

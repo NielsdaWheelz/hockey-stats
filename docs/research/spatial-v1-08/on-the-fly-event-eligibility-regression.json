@@ -1,0 +1,59 @@
+{
+  "kind": "spatial-v1-08-on-the-fly-event-eligibility-regression",
+  "status": "passed_bounded_checks",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_design.py",
+    "sha256": "02d728afe8c0a0ccbc50077b5882d5b2b6966db059cbea5642962db7c6ae0571"
+  },
+  "design_recipe": {
+    "version": "spatial-v1-08-4",
+    "sha256": "043b6e4df7e783eca691b6574f0c3a916485d8613de318e94ba97b0b5ed5049e"
+  },
+  "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
+  "temporary_checks": {
+    "path": "var/v1-08-source-checks.py",
+    "sha256": "dabf34dfc6a2911052e1b307ab76120f8d283ed823acf18a46e2197ff08f7fe1"
+  },
+  "passed_checks": 15,
+  "red": {
+    "focal_elapsed_seconds": 0,
+    "shift_start_seconds": 0,
+    "actual_event_on_the_fly_fraction": 0.2,
+    "expected_event_on_the_fly_fraction": 0.0,
+    "failure": "same-clock completed-episode start classification entered the focal event design"
+  },
+  "green": {
+    "elapsed_on_the_fly_fraction": 0.2,
+    "event_on_the_fly_fraction": 0.0,
+    "event_unknown_start_fraction": 0.2,
+    "physical_shift_age_seconds": 0,
+    "earlier_shift_start_retained": true,
+    "equal_or_unresolved_start_unknown": true,
+    "same_clock_faceoff_with_proved_earlier_saved_order_retained": true,
+    "known_non_prior_upstream_shooter_on_the_fly_input_rejected": true
+  },
+  "contract": "one start eligibility implementation serves event encoding and fixed-target auditing: faceoff uses strict saved chronology, on-the-fly uses strict prior shift clock; unknown stays unknown. elapsed rows retain coherent starts",
+  "audit": {
+    "coverage_key": "event_shift_start_audit",
+    "separate_shooter_kinds": [
+      "faceoff",
+      "on_the_fly"
+    ],
+    "source_fields": [
+      "focal_order",
+      "anchor_order",
+      "focal_elapsed_seconds",
+      "shift_start_seconds",
+      "event_pointer",
+      "anchor_pointer",
+      "shift_pointer",
+      "start_values",
+      "deployment_values"
+    ],
+    "behavior": "known non-prior consumed shooter start fails before fitting; ambiguous exact bindings remain unresolved; no target rewriting or rescoring"
+  },
+  "workload_approximation": "event workload remains the saved chunk-left snapshot, which can omit preceding events within that chunk. this is the declared piecewise-constant context approximation, not an exact event-prefix counter; no new recipe selector or correctness gate follows",
+  "prior_fixture_disposition": "fixture and fixture-02 outputs remain preserved development evidence; version4 starts require a fresh compatible chain, without migration or predecessor substitution",
+  "issue": "../../issues/execution-shift-start-chronology.md",
+  "scope": "focused synthetic regression only; no extra prepared-game pass, refit, rescore, activation or scientific admission. the next existing source pass provides actual target-audit counts"
+}

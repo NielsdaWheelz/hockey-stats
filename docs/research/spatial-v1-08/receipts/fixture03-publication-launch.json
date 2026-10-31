@@ -19,5 +19,11 @@
   "delivery_exit_code": 0,
   "delivery_stdout": "{\"ok\":true,\"result\":{\"method\":\"terminal\",\"outcome\":\"written\"}}\n",
   "delivery_stderr": "",
-  "scope": "fixture publication only; no overwrite, activation or serving mutation"
+  "scope": "fixture publication only; no overwrite, activation or serving mutation",
+  "observed_processes": [
+    "23146 21380 Sat Oct 31 02:14:09 2026       2512 /bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/publish.sh",
+    "23147 23146 Sat Oct 31 02:14:09 2026       1536 /usr/bin/time -l env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate",
+    "23148 23147 Sat Oct 31 02:14:09 2026      90272 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m hockey_stats.analysis_cli publish --observed /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json --results /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/results --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate"
+  ],
+  "process_observed_at_utc": "2026-10-31T09:15:59.529841+00:00"
 }

@@ -1,0 +1,133 @@
+{
+  "kind": "spatial-v1-08-fixture03-publication-completion",
+  "status": "passed producer verification; independent root review and application acceptance separate",
+  "completed_at_utc": "2026-10-31T09:28:07.973707+00:00",
+  "shell_exit_code": 0,
+  "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "purpose": "fixture",
+  "database": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+    "sha256": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+    "bytes": 1369198592,
+    "hash_source": "publisher full database hash; no redundant full database read here"
+  },
+  "verification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/verification.json",
+    "sha256": "0f3319f7cca9d1d99c94966e55d98134f764ca02f381a403e45091bb602bebdc",
+    "bytes": 14855
+  },
+  "selection_sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+  "results_manifest_sha256": "2d2974937637e7c32dbebd6c9c43bfab05a39299f2823e116008e8d319b90b0e",
+  "checks": {
+    "integrity": "passed",
+    "foreign_keys": "passed",
+    "read_back": "passed",
+    "per_season_conservation": "passed"
+  },
+  "seasons": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "f1955f2322182c6e91811162a2220cdecb6a1c3cc40ffbbe318f532d2758a76b",
+      "receipt": {
+        "path": "seasons/20232024/verification.json",
+        "sha256": "5d7c1b57c07f7053917c952ad355dd30011d5c307b82c82abc3fe3bf0fb0d5ae"
+      },
+      "checks": {
+        "physical_seconds": 17085,
+        "player_seconds": 170850,
+        "physical_attempts": 539,
+        "player_attempts_for": 2695,
+        "player_attempts_against": 2695,
+        "personal_physical_seconds": 17085,
+        "personal_player_seconds": 170850,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 3557,
+        "teammate_pair_seconds": 341700,
+        "opponent_pair_seconds": 427125
+      }
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "9d597dabc618cdcc36a58ef6e1ba7fccaddaaff211c44e58133651b50232dfad",
+      "receipt": {
+        "path": "seasons/20242025/verification.json",
+        "sha256": "89445685a2c13d599463a01fd87a0fd3688a6f868e443407688d3f10ccb6b7ec"
+      },
+      "checks": {
+        "physical_seconds": 21601,
+        "player_seconds": 216010,
+        "physical_attempts": 695,
+        "player_attempts_for": 3475,
+        "player_attempts_against": 3475,
+        "personal_physical_seconds": 21601,
+        "personal_player_seconds": 216010,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 4484,
+        "teammate_pair_seconds": 432020,
+        "opponent_pair_seconds": 540025
+      }
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "1812d83023d5f2ec01ba8968550a1536ab0d493ff630a67b8fb66201f8318158",
+      "receipt": {
+        "path": "seasons/20252026/verification.json",
+        "sha256": "a70f44c1132410d37d3ebc1ade7d21ce5a4e2204e2f770b819dc97b0fdeb6e12"
+      },
+      "checks": {
+        "physical_seconds": 11512,
+        "player_seconds": 115120,
+        "physical_attempts": 359,
+        "player_attempts_for": 1795,
+        "player_attempts_against": 1795,
+        "personal_physical_seconds": 11512,
+        "personal_player_seconds": 115120,
+        "read_back": "passed",
+        "conservation": "passed",
+        "deployment_pairs": 2407,
+        "teammate_pair_seconds": 230240,
+        "opponent_pair_seconds": 287800
+      }
+    }
+  ],
+  "shell_resources": {
+    "wall_seconds": 638.38,
+    "peak_rss_bytes": 230195200
+  },
+  "producer_resources": {
+    "wall_seconds": 638.0903056660318,
+    "peak_rss_bytes": 230195200,
+    "consumed_bytes": 1399064949,
+    "database_bytes": 1369198592
+  },
+  "cost_scope": "through independent read-back; top receipt writing and final rename excluded; peak rss is process high-water",
+  "producer": {
+    "git_commit": "8664fc8c2dba1cd41111a7a3bb99876c78c64905",
+    "git_dirty": false,
+    "python_version": "3.14.8",
+    "spatial_consumed_fields": [
+      "interpreted.events.reported_x",
+      "interpreted.events.reported_y",
+      "interpreted.events.home_team_defending_side",
+      "reconstruction.events.attacking_x",
+      "reconstruction.events.attacking_y",
+      "reconstruction.events.coordinate_status"
+    ],
+    "sqlite_version": "3.54.1"
+  },
+  "provenance": {
+    "launch_source_commit": "7b0f2725aebeca991d22f715ac12c04d9b3555e5",
+    "launch_analysis_tree": "a0a926723d7c84681c6cc72fc3ca975b8b9a5f16",
+    "producer_analysis_tree": "a0a926723d7c84681c6cc72fc3ca975b8b9a5f16",
+    "same_analysis_tree_at_launch_and_producer": true,
+    "later_audit_control_commit": "9fbcbd2",
+    "later_change_scope": "root reports audit-control-only change during publication; fitted values, design/state schema and ui unchanged; original producer and launch receipts preserved"
+  },
+  "owned_processes_gone": true,
+  "partial_database_and_journal_wal_shm": "absent",
+  "activation": "not_performed",
+  "server": "not_started",
+  "scientific_admission": "not_performed"
+}

@@ -1,0 +1,87 @@
+{
+  "kind": "replacement-fixture-publication-preparation",
+  "status": "combined composition independently accepted; standalone prepared but unexecuted; root alone launches after command/hash/syntax review",
+  "recorded_at_utc": "2026-10-31T16:30:25.192594+00:00",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-publish-command.sh",
+    "bytes": 5362,
+    "sha256": "27ef27587366c2a81ee8adca805f777e5eb0640c842b478e6fb42d3b33c39f6b"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/fixture-commands.md",
+    "bytes": 24693,
+    "sha256": "e17826b40ef478df78af41d668c9ce79bb4730531a464aaac941d62e1f75c742"
+  },
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "-m",
+    "hockey_stats.analysis_cli",
+    "publish",
+    "--observed",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "--results",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate"
+  ],
+  "checks": {
+    "sh_n_exit": 0,
+    "whole_publication_argv_equals_initial": true,
+    "all8_fresh_pin_receipts_guarded": true,
+    "analysis_and_app_clean": true,
+    "candidate_absent": true
+  },
+  "results": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/manifest.json",
+    "bytes": 19087,
+    "sha256": "a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff"
+  },
+  "original_observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "bytes": 768,
+    "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "app_git_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "app_source": {
+    "sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+    "files": 52,
+    "bytes": 873260
+  },
+  "app_build": {
+    "sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+    "files": 38,
+    "bytes": 1289425
+  },
+  "digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app; build is every actual app/dist file",
+  "server_entrypoint": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js",
+    "bytes": 8073,
+    "sha256": "9efd1fd25621be10a3032ca65718fb45f7cdcb6a7c7b91bd8c571eb4bf052e05"
+  },
+  "existing_build_reused": true,
+  "app_rebuilt": false,
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "fresh_pin_receipts": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-launch-app-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-launch-app-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-launch-observer-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-results-manifest-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish-observed-selection-sha256.txt"
+  ],
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/candidate/player-analysis.sqlite",
+  "candidate_sha256": null,
+  "output_log": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish.log",
+  "output_exit": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/publish.exit",
+  "publication_launched": false,
+  "serving_preservation": "original/live databases, original fixture03 candidate and existing server unchanged; no activation/relaunch follows",
+  "next_boundary": "existing publisher integrity/FK/readback/conservation, then root acceptance; paired profile controls and separate isolated server release later",
+  "scope": "current source/app/build/result metadata and one local shell script only; no new source pass, model, build, publication or server action"
+}

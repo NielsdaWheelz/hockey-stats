@@ -1,0 +1,182 @@
+{
+  "kind": "replacement-fixture-combined-spatial-compose-completion",
+  "status": "root independently accepted combined composition; scoped preservation and saved-source checks passed",
+  "recorded_at_utc": "2026-10-31T16:27:28.047825+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/manifest.json",
+    "bytes": 19087,
+    "sha256": "a8d2f4baecb9c0c711f08b2a4674b6cdd2d13fd09202e991b888d73561e5d2ff"
+  },
+  "execution_base": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results/manifest.json",
+    "bytes": 17435,
+    "sha256": "82f0b55fac5fa66d3edbac201365710103bc78df36d59b64c856a93b26d2c6df"
+  },
+  "states_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/states-selection.json",
+    "bytes": 1452,
+    "sha256": "bdee26d0119f71cbc55a0df7eb900588e8bc5fa96da0dd00c1ddf6a7f5af9b05"
+  },
+  "purpose": "fixture",
+  "displayed_seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "observed_bindings_exact": true,
+  "producer": {
+    "git_commit": "cf136b7a370cd27ea32896e5522e3ed9ce0d18a7",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "exit": 0,
+  "cost": {
+    "wall_seconds": 274.31,
+    "peak_rss_bytes": 737951744,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-spatial.log",
+      "bytes": 913,
+      "sha256": "50629a59fe5208867cee5fcb8a3d91004084e405ad6780112cbbcb9571a3ff80"
+    }
+  },
+  "size": {
+    "artifact_bytes": 1319020054
+  },
+  "preservation": {
+    "nonowned_family_rows_exact": 27,
+    "table_members_byte_exact": 45,
+    "inherited_table_bytes": 789227228,
+    "people_sources_actual_hash_exact": true,
+    "catalogs": {
+      "methods": {
+        "retained": 9,
+        "added": 3
+      },
+      "supports": {
+        "retained": 18,
+        "added": 0
+      }
+    }
+  },
+  "saved_scalar_and_context_checks": [
+    {
+      "season": "20232024",
+      "published_5v5_players": 201,
+      "scalar_values_exact": 3216,
+      "pending_strength_rows": 1608,
+      "prior_only_zero_time_players": 0,
+      "decomposition_values_exact": 5628,
+      "unavailable_actual_context_rows": 0,
+      "method_id": "spatial-v1-08-20232024",
+      "method_recipe_id": "experimental-v1:positive-spatial-v1-08-1"
+    },
+    {
+      "season": "20242025",
+      "published_5v5_players": 245,
+      "scalar_values_exact": 3920,
+      "pending_strength_rows": 1960,
+      "prior_only_zero_time_players": 19,
+      "decomposition_values_exact": 6860,
+      "unavailable_actual_context_rows": 76,
+      "method_id": "spatial-v1-08-20242025",
+      "method_recipe_id": "experimental-v1:positive-spatial-v1-08-1"
+    },
+    {
+      "season": "20252026",
+      "published_5v5_players": 277,
+      "scalar_values_exact": 4432,
+      "pending_strength_rows": 2216,
+      "prior_only_zero_time_players": 133,
+      "decomposition_values_exact": 7756,
+      "unavailable_actual_context_rows": 532,
+      "method_id": "spatial-v1-08-20252026",
+      "method_recipe_id": "experimental-v1:positive-spatial-v1-08-1"
+    }
+  ],
+  "native_source_samples": [
+    {
+      "season": "20232024",
+      "player_id": "8470600",
+      "map_kind": "offense_attempts",
+      "view": "effect",
+      "source_projection_array": {
+        "role": "projection_arrays",
+        "path": "projections.npz",
+        "sha256": "bfb8573716dbbf25ca110fce8da86da3be008fc6d8c41de521d34502a3f3cd9d"
+      },
+      "source_rates_shape": [
+        201,
+        2,
+        2,
+        3,
+        656
+      ],
+      "native_cells_exact": 656,
+      "integrated_value": 1.3403075146945587,
+      "native_sum": 1.3403075146945587,
+      "display_mass_sum": 1.3403075146945584,
+      "scope": "one saved native map per display year; projection rates only, no design/head arrays"
+    },
+    {
+      "season": "20242025",
+      "player_id": "8470613",
+      "map_kind": "offense_attempts",
+      "view": "effect",
+      "source_projection_array": {
+        "role": "projection_arrays",
+        "path": "projections.npz",
+        "sha256": "97b660e029f4574a905f6e8a970e50c8d02b5da652932068380f7f99802d76bb"
+      },
+      "source_rates_shape": [
+        245,
+        2,
+        2,
+        3,
+        656
+      ],
+      "native_cells_exact": 656,
+      "integrated_value": -0.11298471876650155,
+      "native_sum": -0.11298471876650154,
+      "display_mass_sum": -0.11298471876650151,
+      "scope": "one saved native map per display year; projection rates only, no design/head arrays"
+    },
+    {
+      "season": "20252026",
+      "player_id": "8470613",
+      "map_kind": "offense_attempts",
+      "view": "effect",
+      "source_projection_array": {
+        "role": "projection_arrays",
+        "path": "projections.npz",
+        "sha256": "27f2343404c38c0731fbc99c5f77c3f843ff7f502cada9decc7bc2bd572718d2"
+      },
+      "source_rates_shape": [
+        277,
+        2,
+        2,
+        3,
+        656
+      ],
+      "native_cells_exact": 656,
+      "integrated_value": -0.4811795801717567,
+      "native_sum": -0.4811795801717567,
+      "display_mass_sum": -0.4811795801717566,
+      "scope": "one saved native map per display year; projection rates only, no design/head arrays"
+    }
+  ],
+  "scope": "nonowned member hashes, all selected scalar/support and context rows, and one native map per displayed year against rates-only projection members; no source pass, full strict result read or design/head/fullstate array load; independent full transport/evidence review remains separate",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-spatial-compose.py",
+    "bytes": 10835,
+    "sha256": "56a547629c5ca8a682aef776a90f0bb0aedc6acb702235c796d053f07a519c35"
+  },
+  "verification_cost": {
+    "wall_seconds": 14.770143790985458,
+    "peak_rss_bytes": 87851008
+  },
+  "publication_launched": false,
+  "production_observer_app_edited": false,
+  "root_independent_acceptance": "reported passed: all native/scalars/evidence, independent display transport, adjustment closure and roster joins; no producer/source edit",
+  "root_independent_acceptance_reported_at_utc": "2026-10-31T16:30:25.192303+00:00"
+}

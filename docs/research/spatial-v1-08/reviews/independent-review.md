@@ -163,9 +163,9 @@ read-only. no fit, rescore, source change or 54-game pass; two census games, sav
 
 census: verified. the saved file equals an independent parse of the log, whose digest is `1711e43a`. it holds 54 records in 54 games for 50 players, 50 `on_the_fly` and 4 `faceoff`. every `on_the_fly` case has shift start exactly on the focal clock. every faceoff anchor is two orders later. all 54 are in the 117,676-event 5v5 panel, a rate of `4.6e-4`. this covers retained 5v5 targets in one season only. the first annual stopped correctly: `--out` is absent, with 0 heads, 4,447 seconds and 11.18 gb peak.
 
-representatives: in `2021020637`, the shot is order 210, stoppage 211 and faceoff 212, all at clock 1049. the shooter's `faceoff/offensive` start is anchored on 212, a faceoff that exists because the goalie froze this shot, so the predictor encodes the attempt's own outcome. in `2021020002`, the shot is at 1066 and the stoppage at 1067, and the shooter's `on_the_fly` start at 1066 holds only because no reset fell on that clock. a whistle one second earlier would have made it `unknown`.
+representatives: in `2021020637`, the shot is order 210, stoppage 211 and faceoff 212, all at clock 1049. the shooter's `faceoff/offensive` start is anchored on 212, after the attempt in recorded order. [corrected below](#corrections-to-this-review): the records do not prove that this faceoff followed the shot. in `2021020002`, the shot is at 1066 and the stoppage at 1067, and the shooter's `on_the_fly` start at 1066 holds only because no reset fell on that clock. a whistle one second earlier would have made it `unknown`.
 
-size, under current coefficients only: moving the 54 to `unknown` raises their summed neutral mass from 2.407 to 2.817. that is +0.410 of 5,271.81 at 5v5, `7.8e-5`, with a median per-event change of 19% and a maximum of 24%. this is not a repaired value, because a refit moves the coefficients. nor does it discount the cases: the faceoff records are direct outcome information, and the affected rows also trained all four heads. the positive `unavailable:shooter_shift_start` coefficient in `g`, between +0.11 and +0.31 across years, rests on thousands of unknown-start rows, 2,503 in `20212022`; same-clock goal capture at this rate is a few goals a year (estimate), so it cannot be the main source of that coefficient.
+size, under current coefficients only: moving the 54 to `unknown` raises their summed neutral mass from 2.407 to 2.817. that is +0.410 of 5,271.81 at 5v5, `7.8e-5`, with a median per-event change of 19% and a maximum of 24%. this is not a repaired value, because a refit moves the coefficients. nor does it discount the cases: the affected rows trained all four heads. [the correction below](#corrections-to-this-review) withdraws this figure as a guide to size, and narrows what the `g` coefficient rests on.
 
 ### responsible layer
 
@@ -220,6 +220,78 @@ two items should be explicit before assignment:
 root has accepted both clarifications, and both are now read-clear in the working `execution-start-repair-scope.md`: an explicit `DEFINITION` policy and version change with manifest-only old-state and old-score refusals, and all-strength counts and witnesses in temporary acceptance output with no artifact field, refusal ledger or reader protocol.
 
 three limits carry forward. the scope's "no fitted probability change has been measured" stands; this review's `7.8e-5` is under current coefficients and is not a repaired value. the claim is limited to shooter start admission. the volume probe risk is unaffected: the repair reruns execution, not spatial stopping, so a real final-year probe remains the open test.
+
+## approved start-eligibility repair
+
+status: final source review complete, [below](#final-source-review), with one command-book blocker open. the first pass covered the approved scope, both replacement recipe pages, the recipe-gate receipts at `af80dd7` and the working source diff. data read: two already-checked prepared games and saved head metadata and coefficients. no source pass, fit or score.
+
+### corrections to this review
+
+1. `2021020637:210` does not prove that the anchor followed the shot, and "encodes the attempt's own outcome" overclaimed. all ten skaters on the focal row have shifts starting at 1049, and ten other skaters have shifts ending at 1049. the shooter's previous shift ended at 891, 158 seconds earlier. recorded order (shot 210, stoppage 211, faceoff 212) and the shift chart therefore cannot both be right. either the shot followed the faceoff, so `faceoff/offensive` was true pre-event information and `recorded_goalie_stop=true` is wrong, or the shift boundary is wrong, so membership and ages are. idk which. masking is still correct: recorded chronology does not prove the start prior, and that is the selected rule. "non-prior" must keep meaning "not proved prior".
+2. the `+0.410`, 19% median figure is withdrawn as a guide to size. `unavailable:shooter_shift_start` and `unavailable:shooter_age_seconds/60` differ on 2 to 15 rows per head-year out of 1,725 to 10,285, afaict all with age known and start unknown. their shared level is identified only as a sum, and each coefficient alone is a ridge split plus those few rows: `20212022` `q` is -0.074 and +0.196, `g` +0.212 and +0.147, summing to +0.359. the masked rows keep age, so they take the start coefficient alone, which had almost no support of its own. only the sum rests on thousands of rows.
+
+### predictor timing
+
+proved from the source, not from counts. take a shooter with a bound shift.
+
+- start strictly before the focal clock: `on_the_fly` cannot flip on the future, because the episode holding the start ends at or after the focal clock, which exceeds the start. a `faceoff` anchor sits on the earlier start clock, so it is earlier in order.
+- start on the focal clock: every case is unavailable except a faceoff proved earlier in order. the same-clock reset no longer separates `on_the_fly` from unknown, which was the old mechanism.
+
+so the mask is decided by records before the attempt plus the saved shift start clock. two small dependencies remain, and both can only withhold a start, never admit one. `len(matching) == 1` and `tied_unknown` can see a later same-clock record, so a later faceoff can withhold a start anchored earlier. `order_supported` and an unknown episode end are game-level. no source change follows, and [the final review](#final-source-review) settles that no count is needed.
+
+mask size: age-known start-unknown rows in `u` were 10, 5, 15, 14 and 5 across the five years. the `20212022` 5v5 census alone adds 54, so at least 84% of that group becomes newly masked rows. `unavailable:shooter_shift_start` therefore becomes a near-dedicated level for same-clock starts, not the general unknown level, which stays on the roughly 2,000 to 10,000 unbound rows. mechanically this is sound, and the neutral reference does not read it. it means the repaired coefficient will be estimated mostly from these rows, so a large change in it is expected and is not evidence of a defect.
+
+### findings
+
+| id | severity | finding | disposition |
+|---|---|---|---|
+| s1 | low, cheap now | `execution_composition.py:87` hard-codes `recipe_id` as `experimental-v1:execution-v1-06-1`, and `method_id` keeps `execution-v1-06-<year>`. the replacement publishes the same two strings for a different construction, against the issue's "explicit new identities". `design_sha256` and `evidence` do differ, so this is a false label, not a binding hole. | fixed in `24dec47`: `recipe_id` is now the checked annual recipe name and version, `experimental-v1:execution-v1-05-2`, with a red and green receipt. local `method_id` stays, which is fine now that `recipe_id` differs. |
+| s2 | limit | "physical age" overclaims on faceoff rows. on `2021020637:210`, `shooter_age`, all three `opposing_age_*` and the membership come from the same same-clock shifts that the mask distrusts. all 54 census rows have age 0. preserving them is the decided scope, and this review does not reopen that. | acceptance must claim "no unproved start type or zone is consumed", not "no post-event deployment fact". closed: `5153964` says saved shift age and not proved prior, and `dfc97ed` carries that into both hashed definitions. |
+| s3 | low | `DEFINITION["history_cutoff"]["unchanged"]` still lists `shift start` and `deployment`, beside a new `shift_start_eligibility` block. it is true of that cutoff only, and the new recipe hash will carry it. | fixed in `dfc97ed`: the entry reads `deployment outside start-type/zone eligibility` and `saved shift age`. |
+
+### final source review
+
+reviewed `dfc97ed`, with production unchanged through `683fa4b` at analysis subtree `c2412ac`. observer `b3811c4b`, hook check `69f88c50`. both recipes reproduce from the commit: execution `47691110`, spatial `04a9c15d`.
+
+verdict: **production source is clear.** one release blocker remains, in the command books. no fit or score has run, so nothing is lost.
+
+| id | severity | finding | required |
+|---|---|---|---|
+| b1 | blocker before any execution fit | neither `real-fit-commands.md` nor `fixture-fit-commands.md` invokes `consumed_start_check.py`. all ten execution fit blocks still run plain `uv run ... hockey-stats-analysis fit`; `e6d64d7` wrapped only the ten score blocks. so the 54-key barrier does not exist at fit, the fit half of the comparison that `replacement-product-recipes.md` requires is never produced, and fit-side head populations do not exist. an unwrapped fit cannot recover them without the separate pass the scope forbids. | wrap the ten execution fit blocks as the score blocks are wrapped: pinned python, `PYTHONPATH`, ordinary arguments after `--`, `--known-census` for real `20212022`, and the check path in the occupied-path guard. the ten spatial blocks stay as they are. update `replacement-fit-recipes.md`, which still says ordinary cli fit. |
+| o1 | recommended, not required | the oracle gates admission only. eligible rows wrongly masked pass silently. in a mutation on real rows, 69 masked eligible `on_the_fly` rows raised no error and appear only as `masked_on_the_fly`, inseparable from true masks. 43 masked eligible faceoffs raised no error but do show in `withheld_earlier_anchor`. production is correct here by reading and by the two-game run. | make availability an equality against the oracle for both kinds, in the same edit as b1. if left out, this clearance stands, but population acceptance covers admission only. |
+
+two originals, run independently. the actual `_feature_context` from `78a0727` and from `dfc97ed` ran on every attempt of both games, 208 in all. this review's oracle finds the shift by clock containment and the anchor by scanning same-clock faceoffs. it reads neither deployment start facts nor `event_source_index`, so it shares no binding code with production.
+
+| oracle class | attempts | old | new |
+|---|---|---|---|
+| start before the clock | 194 | available | available |
+| start before the clock | 12 | unavailable | unavailable |
+| same clock, later faceoff (`2021020637:210`) | 1 | `[1,0,0]`, flag 0 | unavailable, flag 1 |
+| same clock, no faceoff (`2021020002:196`) | 1 | `[0,0,0]`, flag 0 | unavailable, flag 1 |
+
+exactly those two rows change. zero non-start features differ on any attempt, including age. old-encoder rows fed through the observer are refused on exactly those two keys, with the right messages, and new rows pass. a rerun of the hook check equals its saved green output.
+
+production and its boundaries:
+
+- the gate sits inside `_feature_context`, so `build_resolution_witness`, which swaps the shooter at `execution_design.py:1006`, passes through it.
+- the anchor comes from `player_shifts` by exact player, period, start and end. deployment's `shift_source_index` could not have served: it is the native index, 215 against coalesced 210 here. mismatched kind or zone, a missing anchor, or no focal clock or order fails closed.
+- the spatial call is equivalent to the removed `_start_before_event`, and no `analysis/src` reference to the audit survives. only superseded `var/` scripts mention it.
+- removing the audit leaves no old path. `prepare_spatial` reads through `read_execution_scores`, `read_panel` demands a checked artifact, and composition uses the same reader. the recipe gate refuses old manifests there.
+- `prepare_execution` runs once per command, from both fit and score, and the wrapper resolves it at call time with no process pool. so the observer's hooks reach both, and its exclusive write cannot fire twice.
+- `_head_design` returns `head`, `rows` and `keys`, every context produces a predictor, and the observer's key equality would refuse any drift.
+- `git_dirty` reads `analysis/` only, so uncommitted docs do not touch provenance. worktree and primary venvs agree: python 3.14.8, numpy 2.5.3, scipy 1.18.1.
+
+observer limits, accepted:
+
+- no shared predicate, as stated. it does share `history.cutoff` and a textual copy of the binding filter with production. this review's oracle tests the binding on two games only.
+- contexts after the first head construction are not observed. the resolution witness is one of them, and it uses the same function.
+- `masked_faceoff` and `withheld_earlier_anchor` both include zone-unavailable faceoffs, which were already unavailable. neither is a pure timing count. the exact count of newly masked rows per head is the rise in saved `unavailable_attempts` against the original head metadata. `unavailable:on_the_fly` is all newly masked, so the remainder is newly masked faceoffs.
+
+broadening the withheld counter: **no. this review withdraws its request.** the broader population cannot be read from the current counter: when a later same-clock faceoff breaks `len(matching) == 1`, the shift saves no kind and no anchor, so zero does not size it. but that path can only withhold a start, the contract concerns admission, and no count could change a decision, because no threshold or production broadening is authorized. acceptance should state it as a limit: a later same-clock record can withhold an earlier-anchored start, unsized.
+
+after each accepted annual, this review will diff the saved `design` blocks against the originals, with no new pass: `columns`, `means` and `active` must match, and every `feature_support` entry except the three start columns must be equal. that is the all-strength proof that nothing else moved.
+
+not established: anything beyond two games. all-strength populations, the other four seasons, fit and score parity, and every numerical effect wait for the runs. this review did not rerun `var/v1-08-execution-start-checks.py`; its own run replaces that for the two originals only. the volume probe risk is unaffected.
 
 ## cost notes
 

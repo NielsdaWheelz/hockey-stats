@@ -1,0 +1,89 @@
+{
+  "kind": "spatial-v1-08-real-first-annual-launch",
+  "status": "running",
+  "purpose": "real",
+  "season": "20212022",
+  "analysis_dirty": false,
+  "launch_commit": "960e229d7ff753601650c3c0aef3fba044897d0b",
+  "analysis_tree": "4c83f23d49def8c93177f0edd21aef7b96b3af7c",
+  "argv": [
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022"
+  ],
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1",
+      "bytes": 1414,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+      "bytes": 382434,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670,
+      "purpose": "real"
+    }
+  ],
+  "literal_recipe": {
+    "path": "/tmp/hky-v108-real-20212022-command.txt",
+    "sha256": "0a6a4c92455e4746024104c05ef39ae4743a16cf886eba2c7ebf60399c9cd1f6"
+  },
+  "preflight": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-20212022-pin-preflight.json",
+    "sha256": "b73ab9c3380d4bf7242d45f44031264de48a831aac454a8917e802f312636c3a"
+  },
+  "terminal_handle": "t-a03b46695bc50f2d",
+  "process": {
+    "python_pid": 27088,
+    "uv_pid": 27087,
+    "time_pid": 27086,
+    "shell_pid": 4736,
+    "start_utc": "2026-10-31T09:30:20Z",
+    "initial_ps": "27088 27087 Sat Oct 31 02:30:20 2026     2737072 00:33 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/hockey-stats-analysis fit --family spatial --prepared /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02 --coaches /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json --valued /Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022 --season 20212022 --out /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022"
+  },
+  "concurrency": {
+    "allowed_downstream_work": [
+      "isolated fixture server",
+      "fixture API checks",
+      "fixture GUI/export verification"
+    ],
+    "completed_downstream_work": [
+      "fixture publication"
+    ],
+    "maximum_heavy_fits": 1,
+    "accepted_tradeoff": "downstream fixture I/O, CPU and residency may contend with the one real fit; record overlap and measured resource costs",
+    "runtime_forecast": "none before the first complete real triple"
+  },
+  "code_freeze": "no analysis edits until child exit",
+  "remaining_runtime_forecast": null,
+  "later_annuals_started": false,
+  "activation": false
+}

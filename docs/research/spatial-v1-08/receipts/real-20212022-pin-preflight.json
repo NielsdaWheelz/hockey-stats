@@ -1,0 +1,173 @@
+{
+  "kind": "spatial-v1-08-real-first-annual-pin-preflight",
+  "status": "root_released_pending_launch",
+  "checked_at": "2026-10-31T09:11:08.419232+00:00",
+  "authority": "docs/research/execution-v1-06/real/composition-preflight-2026-10-30.json",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1",
+      "bytes": 1414,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+      "bytes": 382434,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830,
+      "purpose": "real"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670,
+      "purpose": "real"
+    }
+  ],
+  "first_score_binding": {
+    "season": "20212022",
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+    "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+    "bytes": 382434
+  },
+  "coach_binding": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+    "purpose": "real",
+    "selected_game_count": 1312,
+    "full_selection_evidence": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e",
+      "pointer": "/coaches/selected_game_ids"
+    }
+  },
+  "prepared_seasons": [
+    "20212022",
+    "20222023",
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "argv": [
+    "uv",
+    "run",
+    "--project",
+    "analysis",
+    "hockey-stats-analysis",
+    "fit",
+    "--family",
+    "spatial",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--valued",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022",
+    "--season",
+    "20212022",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022"
+  ],
+  "proposed_output": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022",
+  "output_absent": true,
+  "preflight_scope": "read and hash only accepted score selection, first score manifest, prepared manifest and coach artifact; no real game, array, event member, fitted state or source capture read",
+  "opened_bytes": 58359348,
+  "prepared_members_opened": 0,
+  "real_job_started": false,
+  "upstream_modified": false,
+  "resource_policy": "one real annual only after root release; first complete real triple measured before any remaining-runtime forecast",
+  "prerequisites": [
+    "accepted five-year fixture numerical/source/history/probe chain: satisfied",
+    "independent final-source and command review: satisfied",
+    "explicit root release for one real20212022 invocation: satisfied"
+  ],
+  "output_parent": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real",
+  "output_parent_exists": false,
+  "launch_parent_creation": "ordinary mkdir -p for the real log/output parent is in the unexecuted recipe; fit owns exclusive annual output creation",
+  "purpose": "real",
+  "counts": {
+    "prepared_seasons": 5,
+    "first_selected_games": 1312,
+    "prepared_members_opened": 0,
+    "source_games_opened": 0,
+    "array_members_opened": 0
+  },
+  "verification_outcomes": {
+    "four_metadata_digests_match_accepted_receipts": true,
+    "purposes_real": true,
+    "first_score_season": "20212022",
+    "score_prepared_binding_matches": true,
+    "prepared_seasons_exact": true,
+    "output_absent": true,
+    "launched": false
+  },
+  "evidence_retention": "full 1312-game coach selection and prepared member bindings remain in the unchanged pinned upstream manifests and accepted receipts; this receipt records counts and exact provenance only",
+  "launch_contract": {
+    "working_directory": "/Users/nnandal/Documents/code/hockey-stats-v1-08",
+    "occupied_paths": [
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022.log",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-exit.txt",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-start.txt",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-finish.txt",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-shell.pid",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-launch-head.txt",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-launch-analysis-tree.txt",
+      "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-launch-analysis-status.txt"
+    ],
+    "guard": "ordinary for loop with test -e over annual output and receipt paths; subshell noclobber; clean analysis status required",
+    "receipt_paths": {
+      "log": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022.log",
+      "exit": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-exit.txt",
+      "start": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-start.txt",
+      "finish": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-finish.txt",
+      "shell_pid": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-shell.pid",
+      "launch_head": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-launch-head.txt",
+      "launch_analysis_tree": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-launch-analysis-tree.txt",
+      "launch_analysis_status": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-launch-analysis-status.txt"
+    },
+    "source_identity": "capture actual launch git head and analysis tree; no analysis edits until child exit",
+    "awaiting_source_commit": null,
+    "final_shell_status": "subshell exits with the preserved fit status after writing finish and exit files"
+  },
+  "concurrency": {
+    "allowed_downstream_work": [
+      "isolated fixture server",
+      "fixture API checks",
+      "fixture GUI/export verification"
+    ],
+    "completed_downstream_work": [
+      "fixture publication"
+    ],
+    "maximum_heavy_fits": 1,
+    "accepted_tradeoff": "downstream fixture I/O, CPU and residency may contend with the one real fit; record overlap and measured resource costs",
+    "runtime_forecast": "none before the first complete real triple"
+  },
+  "unexecuted_literal_recipe": {
+    "path": "/tmp/hky-v108-real-20212022-command.txt",
+    "sha256": "0a6a4c92455e4746024104c05ef39ae4743a16cf886eba2c7ebf60399c9cd1f6"
+  },
+  "prepared_source_commit": "838b058cbd46743fe94aef040085cac0b6446b8c",
+  "prepared_analysis_tree": "a0a926723d7c84681c6cc72fc3ca975b8b9a5f16",
+  "review_pending_source_commit": "9fbcbd2",
+  "review_pending_analysis_tree": "4c83f23d49def8c93177f0edd21aef7b96b3af7c",
+  "independent_required_downstream_work": [
+    "fixture publication completed independently",
+    "isolated fixture server/API/GUI/export acceptance remains required; permitted concurrently"
+  ],
+  "candidate_source": {
+    "commit": "9fbcbd2f36ad74aad2952f1611713b5687fc3a2c",
+    "analysis_tree": "4c83f23d49def8c93177f0edd21aef7b96b3af7c",
+    "review_status": "independent source review and root literal-command review accepted; one real20212022 invocation released"
+  },
+  "root_release": {
+    "scope": "one real20212022 triple only; no later annual, continuation or retry before first complete annual acceptance",
+    "recorded_at": "2026-10-31T09:30:20.604356+00:00",
+    "analysis_tree_frozen": "4c83f23d49def8c93177f0edd21aef7b96b3af7c"
+  }
+}

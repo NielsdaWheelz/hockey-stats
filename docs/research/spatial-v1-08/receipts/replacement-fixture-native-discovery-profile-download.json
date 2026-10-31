@@ -1,0 +1,409 @@
+{
+  "kind": "replacement-fixture-native-discovery-profile-and-visible-csv",
+  "status": "actual final-build visible CSV and bounded candidate reconciliation passed; root native observations recorded; whole fixture browser acceptance still pending",
+  "recorded_at_utc": "2026-10-31T21:54:46.829316+00:00",
+  "root_observer": "root native chrome/cua; product performed no browser action",
+  "publication_id": "e7428c18-c105-4a51-bc57-af8d47899aae",
+  "database_accepted_sha256": "95ee3f1cd5b2102726a630822cac51260055e254af68f2f507b645be8760e108",
+  "source_sha256": "0861036972ccacc7bb8cb6393b0e3cb697293d44c873f36bee0a0e5bd4223511",
+  "build_sha256": "c4ac0c8541ed059c6a4e983498841bbb4265dce8c4072ec2f095adb78a250cb1",
+  "actual_download": {
+    "path": "/Users/nnandal/Downloads/spatial-5v5-20242025-e7428c18-c105-4a51-bc57-af8d47899aae.csv",
+    "bytes": 49860,
+    "sha256": "b14e211dd0fde0202b686bd879c86165856e225030b34b7944026b429a7f1547",
+    "mtime_ns": 1793483566930731482,
+    "provenance": "root actual visible table CSV download after qbr/defense/NJD filtering; file read directly, never recreated"
+  },
+  "CSV": {
+    "visible_players": 1,
+    "player_id": "8475455",
+    "name": "Brenden Dillon",
+    "identity": "D/NJD",
+    "long_form_rows": 9,
+    "metadata_rows": 1,
+    "spatial_metric_rows": 8,
+    "exact_quartet_estimates": 32,
+    "row_order": 1,
+    "column_order": "minutes then eight preset spatial selectors",
+    "observed_minutes_owner_seconds": 1049,
+    "spatial_matched_support_seconds": 1022,
+    "spatial_support": {
+      "current_season_information": true,
+      "eligible_weight": null,
+      "events": 42,
+      "included_seconds": 1022.0,
+      "inferred_inputs": [
+        "blocked_origin",
+        "historical_borrowing",
+        "setter"
+      ],
+      "known_excluded_seconds": 27.0,
+      "prior_only": false,
+      "prior_seasons": [
+        "20212022"
+      ],
+      "reason_counts": [
+        {
+          "code": "unmatched_report_attempt",
+          "count": 1
+        }
+      ],
+      "unquantified_gap": false
+    },
+    "metrics": [
+      {
+        "metric_id": "spatial.5v5.offense_attempts_per60",
+        "value": 2.3486530441323326,
+        "percentile": 73.37662337662337,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.offense_xg_per60",
+        "value": 0.10767025695915741,
+        "percentile": 74.67532467532467,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.offense_attempts_relative_percent",
+        "value": 5.489269913091619,
+        "percentile": 73.37662337662337,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.offense_xg_relative_percent",
+        "value": 5.987613251395256,
+        "percentile": 74.67532467532467,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.defense_attempts_per60",
+        "value": 1.703852119403144,
+        "percentile": 61.688311688311686,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.defense_xg_per60",
+        "value": 0.054738670623396185,
+        "percentile": 60.38961038961039,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.defense_attempts_relative_percent",
+        "value": 3.9822417358594273,
+        "percentile": 61.688311688311686,
+        "exact_quartet_uncertainty_support_evidence": true
+      },
+      {
+        "metric_id": "spatial.5v5.defense_xg_relative_percent",
+        "value": 3.0440531939357607,
+        "percentile": 60.38961038961039,
+        "exact_quartet_uncertainty_support_evidence": true
+      }
+    ],
+    "method_id": "spatial-v1-08-20242025",
+    "method_evidence": [
+      {
+        "sha256": "c9fe5fb27c13dda61c8062104b8c977bd462931170f023d2fa48834a04b56416",
+        "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/manifest.json"
+      },
+      {
+        "sha256": "a400299ac226bcdf6ca691b13022aff1c2d9c2fea357506f6798cb5b94c0e49b",
+        "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/spatial/20242025/coefficient-support.jsonl"
+      },
+      {
+        "sha256": "c3fb808755afcce7768a9ef7788e34ca52822f1ca2a0445043c4b10b3ecade63",
+        "uri": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/results/20242025-spatial-composition.json"
+      }
+    ],
+    "all_exported_support_reasons_uncertainty_and_evidence_exact": true,
+    "independent_defense_peer_n": 77,
+    "cohort_not_restricted_to_seven_visible_defense_matches": true
+  },
+  "native_discovery_observed_by_root": {
+    "q": "br",
+    "unrestricted_matches": 17,
+    "signed_metric": "spatial.5v5.defense_xg_per60",
+    "descending_endpoints": [
+      {
+        "name": "Gabriel Vilardi",
+        "display_value": ".469524"
+      },
+      {
+        "name": "Brock Boeser",
+        "display_value": "-.459815"
+      }
+    ],
+    "all17_descending_monotone": true,
+    "ascending_exact_reverse_all17_monotone": true,
+    "reported_defense_filter_rows": 7,
+    "NJD_filter_rows": 1,
+    "only_player": "Brenden Dillon8475455",
+    "displayed_defense_xg": ".0547387",
+    "display_min1000_rows": 0,
+    "display_min0_restores_rows": 1,
+    "peer_min_remains": 0
+  },
+  "candidate_expected_descending_br_order": [
+    {
+      "player_id": "8480014",
+      "name": "Gabriel Vilardi",
+      "value": 0.4695236368936607
+    },
+    {
+      "player_id": "8484801",
+      "name": "Macklin Celebrini",
+      "value": 0.3207069019742891
+    },
+    {
+      "player_id": "8478498",
+      "name": "Jake DeBrusk",
+      "value": 0.3054173509986348
+    },
+    {
+      "player_id": "8478010",
+      "name": "Brayden Point",
+      "value": 0.27627783553506263
+    },
+    {
+      "player_id": "8481167",
+      "name": "Brayden Pachal",
+      "value": 0.250966023750399
+    },
+    {
+      "player_id": "8480801",
+      "name": "Brady Tkachuk",
+      "value": 0.16123280795303227
+    },
+    {
+      "player_id": "8475810",
+      "name": "Bryan Rust",
+      "value": 0.09150273120022573
+    },
+    {
+      "player_id": "8480196",
+      "name": "Jacob Bryson",
+      "value": 0.09043334023180276
+    },
+    {
+      "player_id": "8479407",
+      "name": "Jesper Bratt",
+      "value": 0.07475965063885708
+    },
+    {
+      "player_id": "8475455",
+      "name": "Brenden Dillon",
+      "value": 0.054738670623396185
+    },
+    {
+      "player_id": "8481553",
+      "name": "Bobby Brink",
+      "value": 0.011400697271260456
+    },
+    {
+      "player_id": "8470613",
+      "name": "Brent Burns",
+      "value": -0.000732312045937692
+    },
+    {
+      "player_id": "8480073",
+      "name": "Erik Brannstrom",
+      "value": -0.003772600955337379
+    },
+    {
+      "player_id": "8479371",
+      "name": "Dante Fabbro",
+      "value": -0.04557683345881195
+    },
+    {
+      "player_id": "8479542",
+      "name": "Brandon Hagel",
+      "value": -0.08568782497387945
+    },
+    {
+      "player_id": "8482730",
+      "name": "Brandt Clarke",
+      "value": -0.22607309018305652
+    },
+    {
+      "player_id": "8478444",
+      "name": "Brock Boeser",
+      "value": -0.4598151300016397
+    }
+  ],
+  "native_profiles_observed_by_root": {
+    "Hamilton2025": "raw.166543, zero matched exposure, no-exposure/unranked Dn48, prior-only true/current false/prior2023+2024/gaptrue",
+    "Point2024": "offense attempt difference1.76998 at154seconds; F149/64.1pct atpeer0. applying peer300 withholds percentile with n0 and preserves raw1.76998",
+    "Celebrini2024": "first-supported fixture case, not2025 entrant: offense xg-.0467165/755seconds,F149/38.6pct,currenttrue/priorfalse,no prior years,blocked_origin+setter",
+    "Celebrini2025_control": "first inspected as a carried zero-time case with currentfalse/prior2024/count_accounting_conflict and1003excludedseconds; not used as an entrant",
+    "BernardDocker2024": "defense attempt difference-6.33795/588seconds,D77/7.1pct,BUF+OTT one player/two appearances,priornone/currenttrue/gaptrue"
+  },
+  "bounded_candidate_profile_reconciliation": [
+    {
+      "season": "20252026",
+      "player_id": "8476462",
+      "name": "Dougie Hamilton",
+      "metric_id": "spatial.5v5.defense_xg_per60",
+      "value": 0.1665425174629435,
+      "support": {
+        "current_season_information": false,
+        "eligible_weight": null,
+        "events": 0,
+        "included_seconds": 0.0,
+        "inferred_inputs": [
+          "historical_borrowing"
+        ],
+        "known_excluded_seconds": 0.0,
+        "prior_only": true,
+        "prior_seasons": [
+          "20232024",
+          "20242025"
+        ],
+        "reason_counts": [],
+        "unquantified_gap": true
+      },
+      "teams": [
+        {
+          "abbreviation": "NJD",
+          "id": "1"
+        }
+      ]
+    },
+    {
+      "season": "20242025",
+      "player_id": "8478010",
+      "name": "Brayden Point",
+      "metric_id": "spatial.5v5.offense_attempts_per60",
+      "value": 1.7699754035424036,
+      "support": {
+        "current_season_information": true,
+        "eligible_weight": null,
+        "events": 4,
+        "included_seconds": 154.0,
+        "inferred_inputs": [
+          "historical_borrowing",
+          "setter"
+        ],
+        "known_excluded_seconds": 0.0,
+        "prior_only": false,
+        "prior_seasons": [
+          "20212022",
+          "20232024"
+        ],
+        "reason_counts": [],
+        "unquantified_gap": true
+      },
+      "teams": [
+        {
+          "abbreviation": "TBL",
+          "id": "14"
+        }
+      ],
+      "candidate_peer_n": 149,
+      "candidate_percentile": 64.09395973154362
+    },
+    {
+      "season": "20242025",
+      "player_id": "8484801",
+      "name": "Macklin Celebrini",
+      "metric_id": "spatial.5v5.offense_xg_per60",
+      "value": -0.04671645023488228,
+      "support": {
+        "current_season_information": true,
+        "eligible_weight": null,
+        "events": 31,
+        "included_seconds": 755.0,
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "known_excluded_seconds": 0.0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": false
+      },
+      "teams": [
+        {
+          "abbreviation": "SJS",
+          "id": "28"
+        }
+      ],
+      "candidate_peer_n": 149,
+      "candidate_percentile": 38.59060402684564
+    },
+    {
+      "season": "20242025",
+      "player_id": "8480879",
+      "name": "Jacob Bernard-Docker",
+      "metric_id": "spatial.5v5.defense_attempts_per60",
+      "value": -6.337947332877844,
+      "support": {
+        "current_season_information": true,
+        "eligible_weight": null,
+        "events": 15,
+        "included_seconds": 588.0,
+        "inferred_inputs": [
+          "blocked_origin",
+          "setter"
+        ],
+        "known_excluded_seconds": 0.0,
+        "prior_only": false,
+        "prior_seasons": [],
+        "reason_counts": [],
+        "unquantified_gap": true
+      },
+      "teams": [
+        {
+          "abbreviation": "BUF",
+          "id": "7"
+        },
+        {
+          "abbreviation": "OTT",
+          "id": "9"
+        }
+      ],
+      "candidate_peer_n": 77,
+      "candidate_percentile": 7.142857142857143
+    },
+    {
+      "season": "20252026",
+      "player_id": "8484801",
+      "name": "Macklin Celebrini",
+      "metric_id": "spatial.5v5.offense_xg_per60",
+      "value": -0.07199123775660594,
+      "support": {
+        "current_season_information": false,
+        "eligible_weight": null,
+        "events": 0,
+        "included_seconds": 0.0,
+        "inferred_inputs": [
+          "historical_borrowing"
+        ],
+        "known_excluded_seconds": 1003.0,
+        "prior_only": true,
+        "prior_seasons": [
+          "20242025"
+        ],
+        "reason_counts": [
+          {
+            "code": "count_accounting_conflict",
+            "count": 1
+          }
+        ],
+        "unquantified_gap": true
+      },
+      "teams": [
+        {
+          "abbreviation": "SJS",
+          "id": "28"
+        }
+      ]
+    }
+  ],
+  "scope": "one actual final-build visible CSV plus selected saved scalar/person/observed rows and qualification cohorts; root native ordering/interactions attributed separately. no recreated export, full strict DB scan, DB rehash, model/source/array pass or production mutation",
+  "cost": {
+    "wall_seconds": 0.015823000052478164,
+    "peak_rss_bytes": 33652736
+  },
+  "remaining": "root continues all3years, pending selectors and narrow discovery; no complete fixture-browser or real-product claim"
+}

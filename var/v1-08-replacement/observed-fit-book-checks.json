@@ -1,0 +1,216 @@
+{
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "books": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/fixture-fit-commands.md",
+      "sha256": "d66e47793b8f46941ffea3ee46d36b4ded71771d7f515c6fb0f695f6435fdb23",
+      "bytes": 25146,
+      "historical_cli_only": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/historical-cli-only-fixture-fit-commands.md",
+        "sha256": "9b23e3fb01203f0297f7466bf9f0edd38538f305ce7795a435f2da8066faa1f4"
+      }
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
+      "sha256": "4b421777212ccf753c368012bcc8741cc6a6858526400626a00c6eb3e0c745d1",
+      "bytes": 24998,
+      "historical_cli_only": {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/historical-cli-only-real-fit-commands.md",
+        "sha256": "85ba92a66c472e5b11e59cf8f53dbb3da7d453eeedb906e5967ac7b4956ca23d"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "purpose": "fixture",
+      "family": "execution",
+      "season": "20212022",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20212022-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "execution",
+      "season": "20222023",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20222023-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "execution",
+      "season": "20232024",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20232024-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "execution",
+      "season": "20242025",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20242025-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "execution",
+      "season": "20252026",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20252026-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "spatial",
+      "season": "20212022",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "spatial",
+      "season": "20222023",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "spatial",
+      "season": "20232024",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "spatial",
+      "season": "20242025",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "fixture",
+      "family": "spatial",
+      "season": "20252026",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "execution",
+      "season": "20212022",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+      "known_census": true,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "execution",
+      "season": "20222023",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "execution",
+      "season": "20232024",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20232024-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "execution",
+      "season": "20242025",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "execution",
+      "season": "20252026",
+      "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-source-check.json",
+      "known_census": false,
+      "ordinary_cli_tail_unchanged": true,
+      "source_check_exclusive_guard": true,
+      "observer_hash_guard": true,
+      "analysis_tree_guard": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "spatial",
+      "season": "20212022",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "spatial",
+      "season": "20222023",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "spatial",
+      "season": "20232024",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "spatial",
+      "season": "20242025",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    },
+    {
+      "purpose": "real",
+      "family": "spatial",
+      "season": "20252026",
+      "byte_unchanged": true,
+      "shell_syntax_exit": 0
+    }
+  ],
+  "executed": false
+}

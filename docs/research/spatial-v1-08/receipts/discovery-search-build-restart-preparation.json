@@ -1,0 +1,79 @@
+{
+  "kind": "spatial-v1-08-discovery-search-build-restart-preparation",
+  "status": "unexecuted; root stop and build/restart releases pending",
+  "recorded_at_utc": "2026-10-31T14:39:26.823014+00:00",
+  "source": {
+    "app_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+    "files": 52,
+    "bytes": 873260,
+    "app_git_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+    "app_worktree_clean": true,
+    "fix_commit": "ec3c98f7cdd2e64af251e99d9daff2a7b9a50227"
+  },
+  "digest_definition": "sha256 of compact sorted-key json of pathlib.Path-ordered {path relative to repository,sha256,bytes} records; source is git ls-files app; build includes every actual app/dist file",
+  "prepared_scripts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-repair-build.sh",
+      "bytes": 1124,
+      "sha256": "661c1a11e157d47d6e96a72f92d1cc1dd64efb4dba05595539124c1147fead64"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-repair-server.sh",
+      "bytes": 1451,
+      "sha256": "4cfe7444e0720b0eb3bff8ac059c5c34b10ac8181418ee7f2e4e3220b69d72c9"
+    }
+  ],
+  "literal_script_contents": {
+    "build": "#!/bin/sh\n# unexecuted; root must first stop owned node 26820 and release this build.\ncd /Users/nnandal/Documents/code/hockey-stats-v1-08/app || exit 1\nif /bin/kill -0 26820 2>/dev/null; then\n  printf '%s\\n' 'owned server 26820 is still present; build refused' >&2\n  exit 1\nfi\nif /usr/sbin/lsof -nP -iTCP:3398 -sTCP:LISTEN >/dev/null 2>&1; then\n  printf '%s\\n' 'port 3398 is occupied; build refused' >&2\n  exit 1\nfi\ntest ! -e /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.txt && test ! -e /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.exit || exit 1\nset -C\n/usr/bin/time -l env PATH=/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin:$PATH npm run build > /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.txt 2>&1\nsearch_build_status=$?\nprintf '%s\\n' \"$search_build_status\" > /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.exit\nexit \"$search_build_status\"\n",
+    "server": "#!/bin/sh\n# unexecuted; root must accept the new build bindings and release restart.\ncd /Users/nnandal/Documents/code/hockey-stats-v1-08 || exit 1\nif /usr/sbin/lsof -nP -iTCP:3398 -sTCP:LISTEN >/dev/null 2>&1; then\n  printf '%s\\n' 'port 3398 is occupied; server launch refused' >&2\n  exit 1\nfi\ntest ! -e /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.log && test ! -e /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.exit && test ! -e /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.shell.pid || exit 1\nset -C\nprintf '%s\\n' \"$$\" > /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.shell.pid\n/usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite --port 3398 > /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.log 2>&1\nsearch_server_status=$?\nprintf '%s\\n' \"$search_server_status\" > /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.exit\nexit \"$search_server_status\"\n"
+  },
+  "fresh_receipt_paths": {
+    "build_log": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.txt",
+    "build_exit": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build.exit",
+    "build_bindings": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-build-bindings.json",
+    "server_log": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.log",
+    "server_exit": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.exit",
+    "server_shell_pid": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/search-01-server.shell.pid",
+    "server_launch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-server-launch.json",
+    "server_ready": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/fixture03-search-01-server-ready.json"
+  },
+  "future_build_sha256": null,
+  "future_server_pid": null,
+  "node": "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+  "node_version": "v24.21.0",
+  "port": 3398,
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+    "bytes": 8832,
+    "sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6"
+  },
+  "profile_changed": false,
+  "candidate": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+    "sha256_from_accepted_publisher": "6c77ed6081bfeb9e06d9d790fce48421c5672d27b5e50b6974f73085ba7ae114",
+    "bytes_from_accepted_publisher": 1369198592,
+    "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+    "new_hash_read": false
+  },
+  "review": {
+    "failure": "literal intended toffoli, root-reported url tfoi and input ofl",
+    "mechanism": "flushSync initial router update exposes pending navigation; reading committed q can restore the older input text before async framework completion",
+    "fix": "pending-or-current viewSearch q supplies value immediately; clear edits the same pending target and existing commit comparison handles no-op",
+    "contract": "query key q, replace-per-keystroke history, deep links and committed filtering stay unchanged; duplicate q still uses first value as before",
+    "similar_inputs": "root season already uses pending target; player picker and numeric fields own immediate local drafts, so no identical text input needs another edit",
+    "actual_gui_result": "pending root typing/paste/clear/direct-link/back checks after restart; no gui action by product"
+  },
+  "syntax_checks": {
+    "build_script_exit": 0,
+    "server_script_exit": 0,
+    "commands_executed": false
+  },
+  "protocol": [
+    "root stops only recorded isolated node26820; preserve main listener/build/publication",
+    "confirm old node gone and port3398 closed, then root releases one build",
+    "bind unchanged source plus actual new build digest/entrypoint and costs using pathlib.Path ordering",
+    "root accepts build identity then releases one detached restart under unchanged exact profile/candidate",
+    "record actual processes/startup/listening; root owns native gui green and saved browser evidence",
+    "no retry, activation, serving database rotation or main checkout mutation"
+  ]
+}

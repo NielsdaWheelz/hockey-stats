@@ -1,0 +1,53 @@
+{
+  "kind": "fixture03-search-01-isolated-server-readiness",
+  "status": "ready; API green; native search verification pending",
+  "recorded_at_utc": "2026-10-31T14:43:03.780897+00:00",
+  "source_commit": "dfc97edd9aa7cab0092443187fbd6392d617ca88",
+  "app_tree": "248ed5924d8b1ab944752abc578014fa4aeede0c",
+  "source_sha256": "e18e778f4fb388e3491a49fdad8b8868876b7165a52cea4ab49faddb6bdbef78",
+  "build_sha256": "771a1b5797a3f8aa036a662af19c5b476cb83262ba8b660a89b9eacaddb4fcd0",
+  "root_independent_source_build_profile_match": true,
+  "shell_pid": 73833,
+  "time_pid": 73887,
+  "node_pid": 73888,
+  "process_starts": "  PID  PPID STARTED                      COMMAND\n73833 91120 Sat Oct 31 07:41:29 2026     /bin/sh /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-repair-server.sh\n73887 73833 Sat Oct 31 07:41:44 2026     /usr/bin/time -l /usr/bin/sandbox-exec -f /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite --port 3398\n73888 73887 Sat Oct 31 07:41:44 2026     /Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node /Users/nnandal/Documents/code/hockey-stats-v1-08/app/dist/node/server/main.js --publication /Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite --port 3398\n",
+  "profile": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/detached.sb",
+    "bytes": 8832,
+    "sha256": "42c21d266fd7ab0d7b83893fa4d84c17b765eddd1005fabcb919c946352f84d6"
+  },
+  "command": [
+    "/bin/sh",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/fixture03/search-repair-server.sh"
+  ],
+  "port": 3398,
+  "ready_log": "[07:42:18.260] INFO (#1): Listening on http://127.0.0.1:3398",
+  "candidate": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/fixture03/candidate/player-analysis.sqlite",
+  "publication_id": "e5118eea-1ccf-45e4-ba59-4ed8b5a906b5",
+  "api_check": {
+    "command": [
+      "/Users/nnandal/.local/share/mise/installs/node/24.21.0/bin/node",
+      "--import",
+      "tsx",
+      "../var/v1-08-product/live-check.ts",
+      "http://127.0.0.1:3398",
+      "8475726",
+      "8476462"
+    ],
+    "cwd": "/Users/nnandal/Documents/code/hockey-stats-v1-08/app",
+    "exit": 0,
+    "tool_wall_seconds": 0.619893792,
+    "player_years": 6,
+    "map_rows": 48,
+    "joint_scales": 12,
+    "second_player_corruption_rejected": true,
+    "scope": "API scalars/quartet/support/native/display/density/shared scales only; no browser/export/pixel claim"
+  },
+  "native_ui": {
+    "status": "blocked after prior typing red",
+    "latest_error": "Computer Use server error -10005: cgWindowNotFound",
+    "source_fix_green_claimed": false
+  },
+  "preservation": "only owned fixture server stopped/restarted; main/live server9645 port3000 unchanged",
+  "provenance_limit": "this receipt collected after launch, not before it; exact process starts are recorded from ps"
+}

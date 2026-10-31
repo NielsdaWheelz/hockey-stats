@@ -1,5 +1,7 @@
 # real downstream preparation
 
+historical, superseded by [the replacement product recipes](replacement-product-recipes.md). the old commands, paths and preparation receipt below are preserved evidence, not current launch instructions; accepted real input pins change only after the replacement artifacts are accepted.
+
 status: unexecuted recipes only. the first real annual is running; every real state digest remains pending acceptance. no state, source-game or array was opened for this preparation, no selection was written, and no downstream command was launched. [bounded metadata receipt](receipts/real-downstream-recipes-preparation.json) binds the actual three small accepted metadata files. the existing [inputs](inputs.json) own prepared, coach and execution target pins; their large files were not reopened.
 
 fixed inputs:

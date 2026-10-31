@@ -1,0 +1,314 @@
+{
+  "kind": "replacement-fixture-execution-composition-completion",
+  "status": "root independently accepted exchange; scoped saved-artifact preservation and binding checks passed",
+  "recorded_at_utc": "2026-10-31T15:56:25.513666+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution-results/manifest.json",
+    "bytes": 17435,
+    "sha256": "82f0b55fac5fa66d3edbac201365710103bc78df36d59b64c856a93b26d2c6df"
+  },
+  "source_factual_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/facts/manifest.json",
+    "bytes": 13837,
+    "sha256": "08f2d078c51b4eb9753aa194a60166f3059377da76e21d213f94045aaeef3d25"
+  },
+  "scores_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/scores-selection.json",
+    "bytes": 1447,
+    "sha256": "9c35a98ee4b5032084c4a7017d84960b4f57d3b9f256d272f92df27b59ce139d"
+  },
+  "observed_selection": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/fixture/observed-selection.json",
+    "bytes": 768,
+    "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37"
+  },
+  "producer": {
+    "git_commit": "ffe95976c5036373be4328730dc30b6e8855ea8a",
+    "git_dirty": false,
+    "python_version": "3.14.8"
+  },
+  "purpose": "fixture",
+  "displayed_seasons": [
+    "20232024",
+    "20242025",
+    "20252026"
+  ],
+  "prepared_sha256": "603ee00dfe069c99eb5fda3bda9f5d60ea9969fa3820a1df3b5bfcf16cefb7df",
+  "observed_bindings_exact": true,
+  "exit": 0,
+  "cost": {
+    "wall_seconds": 225.59,
+    "peak_rss_bytes": 1288994816,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/compose-execution.log",
+      "bytes": 923,
+      "sha256": "ecf443f39287bf89146340d83d0b5a8cc2fc507c3ba6ae459e0ab2b8a1612776"
+    }
+  },
+  "size": {
+    "table_member_bytes": 789227228,
+    "complete_artifact_bytes": 790117289,
+    "people": 805,
+    "sources": 21
+  },
+  "preservation": {
+    "unchanged_tables_actual_sha256_verified": [
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "table": "skater_descriptive",
+        "rows": 201,
+        "bytes": 5559705
+      },
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "table": "skater_context",
+        "rows": 201,
+        "bytes": 911003
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "table": "attempt_fact",
+        "rows": 709,
+        "bytes": 456351
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "table": "interval_player",
+        "rows": 20260,
+        "bytes": 2185895
+      },
+      {
+        "season": "20232024",
+        "family": "evidence",
+        "table": "dressed_game",
+        "rows": 240,
+        "bytes": 31860
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "table": "skater_descriptive",
+        "rows": 245,
+        "bytes": 7082200
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "table": "skater_context",
+        "rows": 245,
+        "bytes": 1210230
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "table": "attempt_fact",
+        "rows": 1070,
+        "bytes": 692287
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "table": "interval_player",
+        "rows": 25580,
+        "bytes": 2756625
+      },
+      {
+        "season": "20242025",
+        "family": "evidence",
+        "table": "dressed_game",
+        "rows": 360,
+        "bytes": 47740
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "table": "skater_descriptive",
+        "rows": 277,
+        "bytes": 8179763
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "table": "skater_context",
+        "rows": 277,
+        "bytes": 1419440
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "table": "attempt_fact",
+        "rows": 1076,
+        "bytes": 694922
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "table": "interval_player",
+        "rows": 13760,
+        "bytes": 1488900
+      },
+      {
+        "season": "20252026",
+        "family": "evidence",
+        "table": "dressed_game",
+        "rows": 360,
+        "bytes": 47820
+      }
+    ],
+    "unchanged_table_count": 15,
+    "unchanged_table_bytes": 32764741,
+    "people_sources_descriptor_and_actual_hash_exact": true,
+    "retained_factual_methods": 3,
+    "removed_only_pending_reference_methods": [
+      "factual-pending-reference-20232024-opportunity",
+      "factual-pending-reference-20242025-opportunity",
+      "factual-pending-reference-20252026-opportunity"
+    ],
+    "original_support_rows_exact": 12,
+    "pending_family_rows_exact": 18,
+    "original_interval_rows_exact": [
+      {
+        "season": "20232024",
+        "table": "interval_fact",
+        "original_rows_exact": 12056,
+        "added_valued_rows": 7878
+      },
+      {
+        "season": "20232024",
+        "table": "interval_location",
+        "original_rows_exact": 654,
+        "added_valued_rows": 654
+      },
+      {
+        "season": "20242025",
+        "table": "interval_fact",
+        "original_rows_exact": 15348,
+        "added_valued_rows": 9848
+      },
+      {
+        "season": "20242025",
+        "table": "interval_location",
+        "original_rows_exact": 984,
+        "added_valued_rows": 938
+      },
+      {
+        "season": "20252026",
+        "table": "interval_fact",
+        "original_rows_exact": 8254,
+        "added_valued_rows": 5500
+      },
+      {
+        "season": "20252026",
+        "table": "interval_location",
+        "original_rows_exact": 476,
+        "added_valued_rows": 476
+      }
+    ]
+  },
+  "methods": [
+    {
+      "method_id": "execution-v1-06-20232024",
+      "recipe_id": "experimental-v1:execution-v1-05-2",
+      "evidence_count": 3
+    },
+    {
+      "method_id": "reference-xg-v1-06-20232024",
+      "recipe_id": "experimental-v1:execution-v1-05-2",
+      "evidence_count": 3
+    },
+    {
+      "method_id": "execution-v1-06-20242025",
+      "recipe_id": "experimental-v1:execution-v1-05-2",
+      "evidence_count": 3
+    },
+    {
+      "method_id": "reference-xg-v1-06-20242025",
+      "recipe_id": "experimental-v1:execution-v1-05-2",
+      "evidence_count": 3
+    },
+    {
+      "method_id": "execution-v1-06-20252026",
+      "recipe_id": "experimental-v1:execution-v1-05-2",
+      "evidence_count": 3
+    },
+    {
+      "method_id": "reference-xg-v1-06-20252026",
+      "recipe_id": "experimental-v1:execution-v1-05-2",
+      "evidence_count": 3
+    }
+  ],
+  "source_score_bridges": [
+    {
+      "season": "20232024",
+      "source_attempts": 709,
+      "score_dispositions": 715,
+      "intersection": 709,
+      "source_only": 0,
+      "numerical_only": 6,
+      "numeric_attempt_values_exact": 2282,
+      "null_attempt_values_preserved": 1263,
+      "setter_rows_raw_weights_posteriors_exact": 5317,
+      "recorded_assist_annotations": 28,
+      "raw_share_rows_exact": 7132,
+      "public_projection_rows_exact": 1407,
+      "legitimate_missing_projection_rows": 0,
+      "nonvalued_coverage_rows_exact": 603,
+      "microstat_rows_nonowned_fields_exact": 201,
+      "reference_xg_rate_arithmetic_available": 201
+    },
+    {
+      "season": "20242025",
+      "source_attempts": 1070,
+      "score_dispositions": 1092,
+      "intersection": 1070,
+      "source_only": 0,
+      "numerical_only": 22,
+      "numeric_attempt_values_exact": 3867,
+      "null_attempt_values_preserved": 1483,
+      "setter_rows_raw_weights_posteriors_exact": 9087,
+      "recorded_assist_annotations": 50,
+      "raw_share_rows_exact": 12273,
+      "public_projection_rows_exact": 1715,
+      "legitimate_missing_projection_rows": 0,
+      "nonvalued_coverage_rows_exact": 735,
+      "microstat_rows_nonowned_fields_exact": 245,
+      "reference_xg_rate_arithmetic_available": 226
+    },
+    {
+      "season": "20252026",
+      "source_attempts": 1076,
+      "score_dispositions": 1101,
+      "intersection": 1076,
+      "source_only": 0,
+      "numerical_only": 25,
+      "numeric_attempt_values_exact": 3913,
+      "null_attempt_values_preserved": 1467,
+      "setter_rows_raw_weights_posteriors_exact": 9653,
+      "recorded_assist_annotations": 45,
+      "raw_share_rows_exact": 12857,
+      "public_projection_rows_exact": 1939,
+      "legitimate_missing_projection_rows": 0,
+      "nonvalued_coverage_rows_exact": 831,
+      "microstat_rows_nonowned_fields_exact": 277,
+      "reference_xg_rate_arithmetic_available": 144
+    }
+  ],
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-execution-compose.py",
+    "bytes": 15439,
+    "sha256": "882c710bebf6348e74f61d50e660ec3ded29c571b957ddda4a2e92a1edce33b9"
+  },
+  "scope": "saved catalogs and relevant small tables/raw saved score events/projections/setters/shares; no source games, fits, arrays, combined spatial composition or duplicate full strict result read; large execution-map family not reread",
+  "large_map_validation": "existing producer strict validation and root independent acceptance retained; no new all-map numerical claim by this checker",
+  "verification_cost": {
+    "wall_seconds": 1.112757250026334,
+    "peak_rss_bytes": 215662592
+  },
+  "combined_spatial_composition_launched": false,
+  "publication_launched": false,
+  "production_observer_edited": false
+}

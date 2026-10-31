@@ -1,0 +1,206 @@
+{
+  "kind": "spatial-v1-08-real-downstream-recipe-preparation",
+  "status": "unexecuted; no selection written; all future state digests pending root acceptance",
+  "prepared_at_utc": "2026-10-31T09:35:38.594013+00:00",
+  "inputs_manifest": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/inputs.json",
+    "sha256": "5a5f87451661fc190ab86ced4957f785a2857e820ecc65ae982cd45deaa3e097"
+  },
+  "actual_small_metadata": [
+    {
+      "role": "results",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json",
+      "sha256": "cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5",
+      "bytes": 17491
+    },
+    {
+      "role": "observed_selection",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/observed-selection.json",
+      "sha256": "5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9",
+      "bytes": 711
+    },
+    {
+      "role": "scores_selection",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores-selection.json",
+      "sha256": "2f8fcb59d80cbd59c18b11d3d0c9dade850559754c1b19af907ea0effa094ec1",
+      "bytes": 1414
+    }
+  ],
+  "reused_prepared_pin": {
+    "role": "prepared",
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "bytes": 18633830,
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "reused_coach_pin": {
+    "role": "coaches",
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "bytes": 39341670,
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "bound_execution_scores": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-01/scores/20212022/manifest.json",
+      "sha256": "6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-02/scores/20222023/manifest.json",
+      "sha256": "1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20232024/manifest.json",
+      "sha256": "d1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-03/scores/20242025/manifest.json",
+      "sha256": "c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+      "sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c"
+    }
+  ],
+  "observed_corpus_bindings": [
+    {
+      "season": "20232024",
+      "corpus_sha256": "92392c80b145d72c3be759a94b8113db04a7e8d26a4404e1e15a40119db6a414"
+    },
+    {
+      "season": "20242025",
+      "corpus_sha256": "46208ef0830949de4faf1e6695f052c9fdbc23bca5b86fa045c3552d3d467639"
+    },
+    {
+      "season": "20252026",
+      "corpus_sha256": "8229fc6686fa03c4f6cc00d68d68aac1d1d2b83d6950d56eeebb7c9fc923fd43"
+    }
+  ],
+  "planned_states": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022/manifest.json",
+      "accepted_sha256": null,
+      "status": "pending"
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20222023/manifest.json",
+      "accepted_sha256": null,
+      "status": "pending"
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20232024/manifest.json",
+      "accepted_sha256": null,
+      "status": "pending"
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20242025/manifest.json",
+      "accepted_sha256": null,
+      "status": "pending"
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20252026/manifest.json",
+      "accepted_sha256": null,
+      "status": "pending"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/prepare-selection.py",
+      "sha256": "7b5066bdb1990073420053c13cb6091bdebb1c5e485c36dc55581d59d6188892",
+      "bytes": 1125
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/summarize.sh",
+      "sha256": "233cb9565424ad7dd15f4bc1be0534a2c98df2c9e859cd1c654cb3f68682b6dc",
+      "bytes": 1155
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/publish.sh",
+      "sha256": "033492971a4b961658ee6371348b76d64f50ef8b62ea636e0d848fe0e26f48e9",
+      "bytes": 1140
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/detached.sb",
+      "sha256": "84edafd5b22cdf5b34053de69574318c015c2b738846551f3de1885a544c5355",
+      "bytes": 8864
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/server.sh",
+      "sha256": "c46886ab0bf2bb51aa226bbbf473e4d9058cadbdd8ff468faeffdb733d0a4480",
+      "bytes": 1150
+    }
+  ],
+  "source_commit_when_prepared": "f08a663399320f0e8e9d24e07f02ea8d2bbbe155",
+  "analysis_tree_when_prepared": "4c83f23d49def8c93177f0edd21aef7b96b3af7c",
+  "syntax_only": "sh -n for three scripts and ast.parse for helper; profile controls/runtime not executed",
+  "future_paths": {
+    "states-selection.json": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/states-selection.json",
+      "absent": true
+    },
+    "results": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/results",
+      "absent": true
+    },
+    "summarize.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/summarize.log",
+      "absent": true
+    },
+    "summarize.exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/summarize.exit",
+      "absent": true
+    },
+    "candidate": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/candidate",
+      "absent": true
+    },
+    "publish.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/publish.log",
+      "absent": true
+    },
+    "publish.exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/publish.exit",
+      "absent": true
+    },
+    "server.log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/server.log",
+      "absent": true
+    },
+    "server.exit": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/server.exit",
+      "absent": true
+    },
+    "server.shell.pid": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/server.shell.pid",
+      "absent": true
+    }
+  },
+  "server_port": 3399,
+  "not_performed": [
+    "fit",
+    "rescore",
+    "source-game or array reads",
+    "state acceptance or state digest inference",
+    "selection write",
+    "composition",
+    "publication",
+    "sandbox controls",
+    "server launch",
+    "activation"
+  ],
+  "scope": "only three small accepted metadata files read; prepared and coach pins reused from inputs.json without reopening their large files",
+  "existing_pair_checker_refinement": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/live-check.ts",
+    "sha256": "cbe5e8933a1513fbcdb6849eeb84ea665bcb5ead8195993e37a66308a01d7341",
+    "scope": "root-authorized existing temporary checker only; actual two-player target rerun; second-row mutation rejected; no production changes",
+    "receipt": "fixture03-api-two-player-expanded-green.json"
+  }
+}

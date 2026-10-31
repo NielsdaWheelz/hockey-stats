@@ -1,0 +1,68 @@
+{
+  "kind": "spatial-v1-08-event-faceoff-eligibility-regression",
+  "status": "passed",
+  "source": {
+    "path": "analysis/src/hockey_stats/spatial_design.py",
+    "sha256": "cca19254543332f2db76891b1c37175875b28a083a48270df94804da86e771c2"
+  },
+  "design_recipe": {
+    "version": "spatial-v1-08-3",
+    "sha256": "c1ab22231f5724357ce0ea633181d84dc15e8851be224f65e0e65bb73a853cf9"
+  },
+  "command": "PYTHONPATH=analysis/src /Users/nnandal/Documents/code/hockey-stats/analysis/.venv/bin/python var/v1-08-source-checks.py",
+  "temporary_checks": {
+    "path": "var/v1-08-source-checks.py",
+    "sha256": "b5f21994eec30101899d1be87a9d06f9491ae7b37fb231c589cf7f43cfac5836"
+  },
+  "passed_checks": 14,
+  "red": {
+    "focal_order": 10,
+    "anchor_order": 11,
+    "focal_source_index": 4,
+    "anchor_source_index": 2,
+    "clock_seconds": 0,
+    "actual_event_offensive_start_fraction": 0.2,
+    "expected_event_offensive_start_fraction": 0.0,
+    "failure": "a future same-clock faceoff supplied event start type/zone; changing future zone changed the focal design"
+  },
+  "green": {
+    "elapsed_offensive_start_fraction": 0.2,
+    "event_offensive_start_fraction": 0.0,
+    "event_unknown_start_fraction": 0.2,
+    "shift_age_seconds": 0,
+    "earlier_anchor_order": 9,
+    "earlier_anchor_event_offensive_start_fraction": 0.2,
+    "unavailable_orders": [
+      "equal anchor and focal",
+      "unresolved anchor",
+      "unresolved focal"
+    ]
+  },
+  "contract": "event faceoff start requires saved anchor chronology order strictly before saved focal chronology order; otherwise encode unknown start and retain physical shift age. elapsed rows retain coherent saved starts. source indices and clock comparisons are not temporal substitutes",
+  "upstream_review": {
+    "status": "mechanism identified; no affected accepted-input case established",
+    "source_owners": {
+      "feature_data": {
+        "path": "analysis/src/hockey_stats/feature_data.py",
+        "sha256": "259ed4be02e791e79f5da9857ea36177137d8891246be41b8ce71c5e71ead132"
+      },
+      "analysis_context": {
+        "path": "analysis/src/hockey_stats/analysis_context.py",
+        "sha256": "774bc5eb3205e9be6e9d597470cf127e1d5bed7c68f42084b574bce99afe8a6f"
+      },
+      "execution_design": {
+        "path": "analysis/src/hockey_stats/execution_design.py",
+        "sha256": "2f8a40a5d9d05ba02ac990f1e0faa1a8240a79324370e457f8b5741895e36f22"
+      }
+    },
+    "issue": "../../issues/execution-shift-start-chronology.md",
+    "actions": "read-only source inspection; no upstream preparation, refit, rescore or selected target changes"
+  },
+  "prior_fixture_screen": {
+    "receipt": "pre-event-transition-source-comparison.json",
+    "events": 632,
+    "games": 7,
+    "limitation": "the earlier future-faceoff screen used source indices and same clocks; its zero count is not proof of saved chronology eligibility"
+  },
+  "scope": "focused spatial predictor correction and bounded regression; real annual fitting, activation and scientific admission remain separate"
+}

@@ -28,7 +28,7 @@ TRANSITIONS = ('none', 'previously_advantaged', 'previously_shorthanded', 'unkno
 CURRENT = ('toi_all_seconds', 'toi_5v5_seconds', 'attempts', 'goals', 'shifts_begun', 'shifts_completed')
 DATED = ('ice_appearances', 'toi_all_seconds', 'toi_5v5_seconds', 'shifts', 'attempts', 'goals', 'sog')
 WORKLOAD_PARTS = ('complete_mean', 'partial_known_mean', 'complete_fraction', 'partial_fraction', 'missing_fraction')
-DEFINITION = dict(version='spatial-v1-08-2', support_policy='ordinary-attempt-segment-valued-union-1',
+DEFINITION = dict(version='spatial-v1-08-3', support_policy='ordinary-attempt-segment-valued-union-1',
     roles=['attacking', 'defending'], coach_subblocks=['base', *[f'score:{i}' for i in range(-2, 3)], 'shell'],
     home_period=['home:1', 'home:2', 'home:3', 'home:OT', 'away:1', 'away:2', 'away:3', 'away:OT'],
     score=[str(i) for i in range(-3, 4)] + ['unknown'], bands=list(range(6)) + ['OT'],
@@ -38,6 +38,7 @@ DEFINITION = dict(version='spatial-v1-08-2', support_policy='ordinary-attempt-se
     centering='matched directed elapsed exposure; available-only means; absent transformed zero',
     scaling='continuous exposure standard deviation; categorical scale one; zero variance scale one',
     event='saved elapsed covariates with authoritative pre-event score and saved pre-event strength transition; no following-chunk reset state',
+    event_faceoff_start='known only when saved anchor chronology order is strictly before focal order; future/equal/unresolved becomes unknown start, preserving physical shift age; elapsed starts unchanged',
     units='seconds before standardization',
     reference='virtual centered linear design; five neutral slots per player role', modes=40,
     penalties=dict(player_entry=16., player_carry=100., coach_entry=100., coach_carry=400.,
@@ -131,7 +132,7 @@ def _age_bin(value):
     return AGES[int(np.searchsorted((10, 20, 40, 60, 90), value, side='right'))]
 
 
-def _context(game, segment, chunk, side, coach_game, score, transition):
+def _context(game, segment, chunk, side, coach_game, score, transition, *, focal_order=None, order_by_source=None):
     other = 'away' if side == 'home' else 'home'
     period = segment['period_number']
     period_label = str(period) if period <= 3 else 'OT'
@@ -150,6 +151,10 @@ def _context(game, segment, chunk, side, coach_game, score, transition):
             index = context['player_shift_index']
             shift = shifts[index] if index is not None else None
             start = _value(shift['start'], 'kind') if shift else None
+            if start == 'faceoff' and order_by_source is not None:
+                anchor_order = order_by_source.get(_value(shift['start'], 'event_source_index'))
+                if focal_order is None or anchor_order is None or anchor_order >= focal_order:
+                    start = 'unknown'
             zone = _value(shift['start'], 'zone') if shift else None
             start = zone if start == 'faceoff' and zone in STARTS[:3] else 'on_the_fly' if start == 'on_the_fly' else 'unknown'
             age = _age_bin(_value(context['shift_age_seconds'], 'value'))
@@ -206,6 +211,7 @@ def _collect_game(game, coach_game, scored, targets):
     segments = {row['segment_index']: row for row in game['segments'] or []}
     children = {row['chunk_index']: row for row in game['chunks'] or []}
     events = {row['source']['source_index']: row for row in game['events'] or []}
+    event_orders = {index: _value(row.get('chronology'), 'order_index') for index, row in events.items()}
     attempts = {row['source_index']: row for row in game['attempts'] or []}
     saved_segments = {row['segment_index']: row for row in support['segments'] or []}
     require(set(saved_segments) == set(segments), f'{game_id}: saved support segment keys differ')
@@ -294,7 +300,9 @@ def _collect_game(game, coach_game, scored, targets):
         if assigned['segment_index'] in excluded:
             continue
         segment, chunk = segments[assigned['segment_index']], children[assigned['chunk_index']]
-        raw, margin = _context(game, segment, chunk, side, coach_game, event['pre_score']['values'], event['context']['strength_transition'])
+        raw, margin = _context(game, segment, chunk, side, coach_game, event['pre_score']['values'],
+                               event['context']['strength_transition'], focal_order=event_orders[assigned['source_index']],
+                               order_by_source=event_orders)
         other = 'away' if side == 'home' else 'home'
         key = dict(game_id=game_id, segment_index=segment['segment_index'], chunk_index=chunk['chunk_index'],
                    source_index=assigned['source_index'], attacking_side=side,

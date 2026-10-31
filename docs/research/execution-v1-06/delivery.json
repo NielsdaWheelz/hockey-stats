@@ -1,0 +1,448 @@
+{
+  "status": "merged, synchronized and scoped cleanup complete",
+  "recorded_at_utc": "2026-10-31T05:00:05.275560+00:00",
+  "pr": {
+    "number": 58,
+    "url": "https://github.com/NielsdaWheelz/hockey-stats/pull/58",
+    "head": "22541ec6702dc945c32917293aeacb6b5bcb27e0",
+    "base": "f61a9130f0bec401940396a17e362edd25655cbf",
+    "merge": "27eb5bb807b4bd87245a5b9c8fbe1229ee2650d6",
+    "merged_at": "2026-10-31T04:53:31Z",
+    "reviewed_and_merged_tree": "66041d32ec3e51d85f3b1500f3a2452e928d6a93",
+    "exact_tree_equality": true,
+    "check": {
+      "name": "GitGuardian Security Checks",
+      "conclusion": "SUCCESS",
+      "completed_at": "2026-10-31T04:51:57Z"
+    }
+  },
+  "primary": {
+    "started_at_utc": "2026-10-31T04:55:11.016935+00:00",
+    "old_head": "f61a9130f0bec401940396a17e362edd25655cbf",
+    "new_head": "27eb5bb807b4bd87245a5b9c8fbe1229ee2650d6",
+    "owned_stash": "91c1a03c45135f51b947c2a2c4b9451624b2f48a",
+    "stash_stdout": "Saved working directory and index state On main: v1-06 delivery: preserve primary drafts\n",
+    "status": "primary fast-forwarded; all sixteen protected document bytes restored exactly",
+    "finished_at_utc": "2026-10-31T04:55:19.534151+00:00",
+    "protected_document_count": 16,
+    "protected_document_bytes": 849353,
+    "working_changes": [
+      "docs/architecture.md",
+      "docs/model-features.md",
+      "docs/plan.md",
+      "docs/research/council.md",
+      "docs/specs/v1-06-execution-scoring.md"
+    ],
+    "working_status": "M docs/architecture.md\n M docs/model-features.md\n M docs/plan.md\n M docs/research/council.md\n M docs/specs/v1-06-execution-scoring.md",
+    "nonprotected_tracked_files_match_head": true,
+    "index_matches_head": true,
+    "untracked_files": [],
+    "spec_disposition": "original untracked spec is now tracked and remains an exact restored local draft",
+    "owned_stash_disposition": "removed after exact restoration and independent review"
+  },
+  "protected_documents": [
+    {
+      "path": "docs/architecture.md",
+      "bytes": 105161,
+      "sha256": "5e61757e73069cb1bc39fbf5a28a6228fd130dd8d2e7d083c3ad6d5b4a6e3776",
+      "mode": 420
+    },
+    {
+      "path": "docs/brief.md",
+      "bytes": 59077,
+      "sha256": "a0dec65addf934ade7f02725a970d5ef9a8990c7d4ee44733e3a3ab156509ff5",
+      "mode": 420
+    },
+    {
+      "path": "docs/issues/microstat-inputs.md",
+      "bytes": 7557,
+      "sha256": "90b673e2d07ab297c0040da1d126d6660e4293b3aea85010e77846b9268d16a9",
+      "mode": 420
+    },
+    {
+      "path": "docs/model-features.md",
+      "bytes": 25571,
+      "sha256": "d37acde8e44b89191e129eed37f35ab92dd83bd79f2776f97ce0cf9fce75c2a6",
+      "mode": 420
+    },
+    {
+      "path": "docs/plan.md",
+      "bytes": 143866,
+      "sha256": "d823b90b1bf8fb93fcca0cb09a909f29705d5fc8e30318757de4cc598a1dfa01",
+      "mode": 420
+    },
+    {
+      "path": "docs/product-inventory.md",
+      "bytes": 59643,
+      "sha256": "75696bc5301da78fdb0b5c2da1ccd9dd7614605b26c22ee47cfb9ef0bc799515",
+      "mode": 420
+    },
+    {
+      "path": "docs/research/council.md",
+      "bytes": 167170,
+      "sha256": "b29cc78b0382c3eed47e8ba29ec21ef673e8a99689af36e8c06d5b6b750fa6e3",
+      "mode": 420
+    },
+    {
+      "path": "docs/research/player-card-references.md",
+      "bytes": 16522,
+      "sha256": "b36d710fd90de44a0574917dbb7c79f02a775f7d6f357c996cc01aac82550150",
+      "mode": 420
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 15122,
+      "sha256": "50f45e7889015f53bf405380bc81c2a17d3b846e85a10a65170acf4776854e89",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/experimental-application.md",
+      "bytes": 54382,
+      "sha256": "f9bef41223b9c2cf7d3bed37b415ec67418facae55cfe6189f8f283ed34fc5dc",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/experimental-card-facts.md",
+      "bytes": 26632,
+      "sha256": "00c18e83348426d98fe4738376f521f3384bfe508cceff2cc2e2da3ccab24b2d",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/experimental-chance.md",
+      "bytes": 31670,
+      "sha256": "193cc11f83d0ae43199c4eec4f420074ae01a13e65c2cf6a1ded2b45482570b0",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/experimental-player-analysis.md",
+      "bytes": 32160,
+      "sha256": "f291630c30700f3c25a36ba83adc4bd94ddc3b5adee1e2853a1c2bcbcb0a0a89",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/v1-13-typed-publication.md",
+      "bytes": 43272,
+      "sha256": "49873c86df4c2d405f09b302969c66551ac3a72373e392f33051684aa4485329",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/v1-14-history-cohorts-exports.md",
+      "bytes": 26887,
+      "sha256": "9eb035ecc6564e30f19d53ad6ad053edb0958c3353c3fec0a79706c1ceb87e10",
+      "mode": 420
+    },
+    {
+      "path": "docs/specs/v1-06-execution-scoring.md",
+      "bytes": 34661,
+      "sha256": "e5d10221b21f63978d563f1e282c4a1728fda50124fa4678ca413e2894d5a021",
+      "mode": 420
+    }
+  ],
+  "independent_preservation_review": {
+    "kind": "independent-primary-sync-preservation-review",
+    "status": "passed",
+    "checked_at_utc": "2026-10-31T04:57:23.192329+00:00",
+    "head": "27eb5bb807b4bd87245a5b9c8fbe1229ee2650d6",
+    "tree": "66041d32ec3e51d85f3b1500f3a2452e928d6a93",
+    "branch": "main",
+    "expected_merge_prefix": "27eb5bb",
+    "expected_reviewed_tree_prefix": "66041d32",
+    "draft_baseline": {
+      "path": "/tmp/hockey-stats-v1-06-delivery.sa2VOo/preservation-before.json",
+      "sha256": "f5ed374494d6f46addd5d1b1c9990ff6597805807c423bc959a6208f0f637521"
+    },
+    "documents": [
+      {
+        "path": "docs/architecture.md",
+        "bytes": 105161,
+        "sha256": "5e61757e73069cb1bc39fbf5a28a6228fd130dd8d2e7d083c3ad6d5b4a6e3776",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/brief.md",
+        "bytes": 59077,
+        "sha256": "a0dec65addf934ade7f02725a970d5ef9a8990c7d4ee44733e3a3ab156509ff5",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/issues/microstat-inputs.md",
+        "bytes": 7557,
+        "sha256": "90b673e2d07ab297c0040da1d126d6660e4293b3aea85010e77846b9268d16a9",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/model-features.md",
+        "bytes": 25571,
+        "sha256": "d37acde8e44b89191e129eed37f35ab92dd83bd79f2776f97ce0cf9fce75c2a6",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/plan.md",
+        "bytes": 143866,
+        "sha256": "d823b90b1bf8fb93fcca0cb09a909f29705d5fc8e30318757de4cc598a1dfa01",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/product-inventory.md",
+        "bytes": 59643,
+        "sha256": "75696bc5301da78fdb0b5c2da1ccd9dd7614605b26c22ee47cfb9ef0bc799515",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/research/council.md",
+        "bytes": 167170,
+        "sha256": "b29cc78b0382c3eed47e8ba29ec21ef673e8a99689af36e8c06d5b6b750fa6e3",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/research/player-card-references.md",
+        "bytes": 16522,
+        "sha256": "b36d710fd90de44a0574917dbb7c79f02a775f7d6f357c996cc01aac82550150",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 15122,
+        "sha256": "50f45e7889015f53bf405380bc81c2a17d3b846e85a10a65170acf4776854e89",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/experimental-application.md",
+        "bytes": 54382,
+        "sha256": "f9bef41223b9c2cf7d3bed37b415ec67418facae55cfe6189f8f283ed34fc5dc",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/experimental-card-facts.md",
+        "bytes": 26632,
+        "sha256": "00c18e83348426d98fe4738376f521f3384bfe508cceff2cc2e2da3ccab24b2d",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/experimental-chance.md",
+        "bytes": 31670,
+        "sha256": "193cc11f83d0ae43199c4eec4f420074ae01a13e65c2cf6a1ded2b45482570b0",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/experimental-player-analysis.md",
+        "bytes": 32160,
+        "sha256": "f291630c30700f3c25a36ba83adc4bd94ddc3b5adee1e2853a1c2bcbcb0a0a89",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/v1-13-typed-publication.md",
+        "bytes": 43272,
+        "sha256": "49873c86df4c2d405f09b302969c66551ac3a72373e392f33051684aa4485329",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/v1-14-history-cohorts-exports.md",
+        "bytes": 26887,
+        "sha256": "9eb035ecc6564e30f19d53ad6ad053edb0958c3353c3fec0a79706c1ceb87e10",
+        "mode": 420,
+        "matches_before": true
+      },
+      {
+        "path": "docs/specs/v1-06-execution-scoring.md",
+        "bytes": 34661,
+        "sha256": "e5d10221b21f63978d563f1e282c4a1728fda50124fa4678ca413e2894d5a021",
+        "mode": 420,
+        "matches_before": true
+      }
+    ],
+    "document_count": 16,
+    "document_bytes": 849353,
+    "working_tree": {
+      "status_records": [
+        " M docs/architecture.md",
+        " M docs/model-features.md",
+        " M docs/plan.md",
+        " M docs/research/council.md",
+        " M docs/specs/v1-06-execution-scoring.md"
+      ],
+      "status_sha256": "9948033a44d898214b9da4c4ba14d8e91dc1dd4d7cee3f9184b3c4f4f22aa59a",
+      "index_matches_head": true,
+      "nonprotected_changes": [],
+      "untracked": []
+    },
+    "serving_build": {
+      "baseline_path": "docs/research/execution-v1-06/real/protected-before.json",
+      "baseline_sha256": "a54d66b9c64407945f91a0a1a41c457cce71d9db6c09e1c8326430da5c03e1c7",
+      "file_count": 38,
+      "hashed_bytes": 1235429,
+      "content_changes": [],
+      "added": [],
+      "missing": []
+    },
+    "serving_databases_metadata_only": [
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/active.sqlite",
+        "bytes": 4635877376,
+        "mtime_ns": 1793080727502487829,
+        "content_hash_performed": false,
+        "matches_baseline_metadata": true
+      },
+      {
+        "path": "/Users/nnandal/Documents/code/hockey-stats-local/publication/previous.sqlite",
+        "bytes": 611373056,
+        "mtime_ns": 1792644814197808738,
+        "content_hash_performed": false,
+        "matches_baseline_metadata": true
+      }
+    ],
+    "port_3000": {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:3000",
+        "-sTCP:LISTEN",
+        "-Fpcn"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "listener_present": false,
+      "evidence": "one read-only listener inventory immediately before this comparison, exec chunk80671b; no previous listener identity comparison is claimed"
+    },
+    "scope": "independent bounded review after primary sync to pr58: all16 pre-sync draft bytes/modes, allowed-only changes and clean index, exact38 original serving build files and membership, database metadata only, current port3000 listener identity only. this is not an original-task-start proof or another database-content hash",
+    "actions": "GIT_OPTIONAL_LOCKS=0; no primary write, index/stash mutation, checkout, database open, bulk read, new helper or new test"
+  },
+  "cleanup": {
+    "completed_at_utc": "2026-10-31T04:58:19.606003+00:00",
+    "worktree_removed": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+    "worktree_registration_absent": true,
+    "data_only_remainder": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-root-r6-observed.json",
+      "bytes": 768,
+      "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+      "only_retained_file": true
+    },
+    "generated_roots_removed": [
+      "analysis/.venv",
+      "app/node_modules",
+      "app/dist",
+      "app/.react-router",
+      "analysis/src/hockey_stats/__pycache__"
+    ],
+    "generated_logical_bytes_from_reviewed_inventory": 346539154,
+    "owned_stash_removed": "91c1a03c45135f51b947c2a2c4b9451624b2f48a",
+    "old_owned_terminal_handles": {
+      "t-69e967fba63b1706": "already absent; handle_not_found",
+      "t-e5d6c240259bcbcf": "already absent; handle_not_found"
+    },
+    "scope": "only merged task checkout and its disposable environments/builds; restored required frozen selection at identical absolute path; no external analytical deletion"
+  },
+  "cleanup_inventory": {
+    "kind": "reviewed-task-worktree-cleanup-inventory",
+    "recorded_at_utc": "2026-10-31T04:56:24.805633+00:00",
+    "scope": "previously inspected metadata and frozen evidence bindings only; no new scan for this inventory copy",
+    "task_worktree": "/Users/nnandal/Documents/code/hockey-stats-v1-06",
+    "removable_generated_roots": [
+      {
+        "path": "analysis/.venv",
+        "files": 4140,
+        "logical_bytes": 156112677,
+        "allocated_kib": 162552,
+        "symlinks": 3
+      },
+      {
+        "path": "app/node_modules",
+        "files": 10907,
+        "logical_bytes": 186609909,
+        "allocated_kib": 212948,
+        "symlinks": 16
+      },
+      {
+        "path": "app/dist",
+        "files": 38,
+        "logical_bytes": 1284415,
+        "allocated_kib": 1324,
+        "symlinks": 0
+      },
+      {
+        "path": "app/.react-router",
+        "files": 6,
+        "logical_bytes": 9753,
+        "allocated_kib": 24,
+        "symlinks": 0
+      },
+      {
+        "path": "analysis/src/hockey_stats/__pycache__",
+        "files": 44,
+        "logical_bytes": 2522400,
+        "allocated_kib": 2560,
+        "symlinks": 0
+      }
+    ],
+    "removable_generated_logical_bytes": 346539154,
+    "removable_generated_files": 15135,
+    "tracked_checkout": "removable after accepted merge; selected top-level directory allocation was 792600 kib, including git-backed docs and fixtures",
+    "symlink_limits": "all generated roots are real directories; node_modules links are internal. the venv python link targets /opt/homebrew/opt/python@3.14/bin/python3.14, which must remain untouched; unlinking the owned venv does not remove that global target",
+    "retain_same_absolute_path": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-06/var/v1-06-root-r6-observed.json",
+      "bytes": 768,
+      "sha256": "24cda3b5a287569c01694718a504a45824ce8cb4d9ec08b81fd9643bd3871a37",
+      "binding": "docs/research/execution-v1-06/composition-canonical-summary.json observed_selection; cleanup.json explicitly retained it",
+      "method": "preserve exact bytes around worktree removal and recreate only this data-only path"
+    },
+    "outside_cleanup_scope": [
+      "all external runs/prepared/corpora/factual inputs, evidence, scores, fitted artifacts, candidates and partial outputs",
+      "v1-01 and v1-05 data-only fixture/preparation/state/coaching paths and all other worktrees",
+      "primary dirty drafts, serving dist, active/previous databases and primary listener",
+      "global python/node/browser dependencies and desktop docker"
+    ],
+    "tmp_and_sessions": "prior bounded top-level /tmp name inventory found no hockey/v106/v1-06/execution entries; old historical task skids were already closed, and no owned long-lived exec process remained. this newly root-owned delivery scratch is retained until the final delivery receipt",
+    "classification": "no scientific fits, arrays, databases, captured payloads or authoritative evidence within the ignored task roots; var contains only the explicitly retained observed selection",
+    "deletion_status": "inventory only; no cleanup performed by this agent"
+  },
+  "branches": {
+    "local": "implement/v1-06-execution-scoring",
+    "local_removed": true,
+    "remote_removed": true
+  },
+  "preserved_external_roots": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261022-01",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01",
+    "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02"
+  ],
+  "preservation_scope": "all external analytical artifacts, original captures, scores, candidate databases, expensive fits and interrupted expensive outputs are untouched; no new bulk data scan. sibling data-only fixture roots, shared tools, primary environments and desktop docker remain. source integration does not rebuild or activate serving assets.",
+  "final_scratch": {
+    "path": "/tmp/hockey-stats-v1-06-delivery.sa2VOo",
+    "status": "removed; path verified absent",
+    "files_removed": 24,
+    "logical_bytes_removed": 1008353,
+    "scope": "only owned pr body, verified preservation copies, delivery working receipts and canonical plan draft; retained facts are embedded in this receipt"
+  },
+  "verification_reuse": "all application/analysis/fixture/dependency files match the accepted PR head; no numerical or application retest is needed for delivery documentation",
+  "activation": false,
+  "scientific_admission": false,
+  "completed_at_utc": "2026-10-31T05:01:38.658744+00:00",
+  "independent_delivery_review": "resume_review verified remote PR/check/merged-tree identity, scoped primary sync, canonical closeout docs, absent branches/worktree/stash and exact retained selection; reader_validation independently verified all sixteen draft bytes and the bounded serving-file preservation",
+  "final_document_check": {
+    "protected_documents": 16,
+    "exact_bytes_and_modes": true,
+    "staged_paths": [
+      "docs/plan.md",
+      "docs/research/execution-v1-06/delivery.json",
+      "docs/research/execution-v1-06/verification.md"
+    ],
+    "canonical_plan_blob": "0b742434ce3f8ab8abdede94332dbf8a653a56c1",
+    "working_plan_preserved": true,
+    "scope": "final staged delivery documentation only; unrelated primary drafts stay in the working tree"
+  }
+}

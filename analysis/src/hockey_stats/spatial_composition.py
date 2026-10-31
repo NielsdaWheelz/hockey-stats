@@ -284,5 +284,7 @@ def compose_results(existing_results, state_selection, output):
     write_json(output / 'composition-resources.json', dict(wall_seconds=perf_counter() - started, strict_read_wall_seconds=strict_read_seconds,
                inherited_files='streamed byte for byte; no non-spatial reserialization or source reconstruction',
                state_selection=dict(path=str(Path(state_selection).resolve()), sha256=identity(state_selection)['sha256']),
-               output_member_bytes=sum((output / member['path']).stat().st_size for record in manifest['families'] for member in record['tables'].values())))
+               output_member_bytes=sum((output / member['path']).stat().st_size
+                                       for member in [*manifest['catalogs'].values(),
+                                                      *(member for record in manifest['families'] for member in record['tables'].values())])))
     return manifest

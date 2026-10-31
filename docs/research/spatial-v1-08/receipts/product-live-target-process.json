@@ -10,5 +10,7 @@
   "publication_id": "73ec5d97-19b7-4907-9187-13a3f120b143",
   "target_failure": "existing spatial family not_computed; actual request succeeded200",
   "scope": "actual api target red only; no browser or pixel claim",
-  "serving_mutation": false
+  "serving_mutation": false,
+  "actual_shell_exit_code": 130,
+  "server_process_gone": true
 }

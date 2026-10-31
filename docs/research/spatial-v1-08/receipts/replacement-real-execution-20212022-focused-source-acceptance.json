@@ -1,0 +1,203 @@
+{
+  "kind": "replacement-first-real-execution-focused-source-acceptance",
+  "status": "focused_saved_report_checks_passed; two unresolved bindings reported for root classification; annual fit still running",
+  "recorded_at_utc": "2026-10-31T18:26:51.899328+00:00",
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20212022-source-check.json",
+    "sha256": "2a1e41e1b64dabe30d2e000559e49fe2106f54e494855bbd9629d7e346b025df",
+    "bytes": 162259,
+    "producer_status": "passed",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "known_census": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/spatial-v1-08-20261031-01/real/20212022-non-prior-starts.json",
+    "sha256": "6fd06ffbd3143379849fd82b4598c85d4f178b14c3c9eed4b28e003f30207a96",
+    "keys": 54,
+    "exact_key_and_shooter_match": true,
+    "raw_start_clock_order_zone_age_match": true,
+    "all_three_start_contrasts_null_unavailable": true,
+    "shared_unavailable_flag_one": true,
+    "classes": {
+      "same_clock_on_the_fly": 50,
+      "later_order_faceoff_anchor": 4
+    },
+    "scope": "54known scored spatial witnesses, not complete all-strength execution population"
+  },
+  "population": {
+    "recognized_attempts": 149412,
+    "source_contexts": 147510,
+    "dispositions": {
+      "eligible:faceoff": 56692,
+      "eligible:on_the_fly": 84904,
+      "unavailable:None": 2814,
+      "unavailable:faceoff": 6,
+      "unavailable:no_same_clock_faceoff": 3,
+      "unavailable:on_the_fly": 58,
+      "unavailable:unknown": 3033
+    },
+    "all_five_eligibility_counts": {
+      "masked_on_the_fly": 58,
+      "masked_faceoff": 6,
+      "unresolved_binding": 2,
+      "admitted_same_clock_faceoff": 0,
+      "withheld_earlier_anchor": 0
+    },
+    "head_populations": {
+      "u": {
+        "physical_attempts": 147510,
+        "positive_labels": 112345,
+        "excluded": 1902,
+        "counts_match_original": true,
+        "head_key_sha256": "46229639b58474d9f2061a1538b8d1e719a900b3194061dd3d13c7ebf48cdc8d",
+        "current_start_contrast_available_attempts": 141596,
+        "current_start_contrast_unavailable_attempts": 5914,
+        "original_start_contrast_unavailable_attempts": 5850,
+        "newly_unavailable_physical_attempts_per_start_field": 64,
+        "eligibility_counts": {
+          "masked_on_the_fly": 58,
+          "masked_faceoff": 6,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        },
+        "all_strength_dispositions_reconcile_admission": true,
+        "original_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/u.json",
+          "sha256": "88db37afb22a7e5812a56756451ba5134667e159aa8dcbd78413e9be14aeae25"
+        }
+      },
+      "q": {
+        "physical_attempts": 112345,
+        "positive_labels": 82328,
+        "excluded": 37067,
+        "counts_match_original": true,
+        "head_key_sha256": "e107bd438b2d78b23de9451737d7d33d7b700b338e1e6c0017729077ca77a39e",
+        "current_start_contrast_available_attempts": 107810,
+        "current_start_contrast_unavailable_attempts": 4535,
+        "original_start_contrast_unavailable_attempts": 4491,
+        "newly_unavailable_physical_attempts_per_start_field": 44,
+        "eligibility_counts": {
+          "masked_on_the_fly": 39,
+          "masked_faceoff": 5,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        },
+        "all_strength_dispositions_reconcile_admission": true,
+        "original_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/q.json",
+          "sha256": "3d95a23c4e5e64b73962ded4bf07b05885f7788e859e6076106c10f491afd821"
+        }
+      },
+      "r": {
+        "physical_attempts": 82328,
+        "positive_labels": 62505,
+        "excluded": 67084,
+        "counts_match_original": true,
+        "head_key_sha256": "f6a6f90d1a9c965bb80470fc05fa3cd0f6b96c46485210591a55ef27297b9aa1",
+        "current_start_contrast_available_attempts": 78923,
+        "current_start_contrast_unavailable_attempts": 3405,
+        "original_start_contrast_unavailable_attempts": 3370,
+        "newly_unavailable_physical_attempts_per_start_field": 35,
+        "eligibility_counts": {
+          "masked_on_the_fly": 31,
+          "masked_faceoff": 4,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        },
+        "all_strength_dispositions_reconcile_admission": true,
+        "original_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/r.json",
+          "sha256": "f883e219a2481d88696eb6cc435f0a6e599ed8eef6edc0be84d1d26644443e12"
+        }
+      },
+      "g": {
+        "physical_attempts": 62505,
+        "positive_labels": 7647,
+        "excluded": 86907,
+        "counts_match_original": true,
+        "head_key_sha256": "ee801058c9ef477c3c69ff6f36fa7d701fea0bcec411f2070d2d5dea2c3acc71",
+        "current_start_contrast_available_attempts": 59975,
+        "current_start_contrast_unavailable_attempts": 2530,
+        "original_start_contrast_unavailable_attempts": 2503,
+        "newly_unavailable_physical_attempts_per_start_field": 27,
+        "eligibility_counts": {
+          "masked_on_the_fly": 25,
+          "masked_faceoff": 2,
+          "unresolved_binding": 2,
+          "admitted_same_clock_faceoff": 0,
+          "withheld_earlier_anchor": 0
+        },
+        "all_strength_dispositions_reconcile_admission": true,
+        "original_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/heads/g.json",
+          "sha256": "a065074db9ffd666ddc7736d6639400ab8aed94cdc9624fd20a3587d780b1fb6"
+        }
+      }
+    },
+    "conditioning_and_type_strength_partitions_match": true,
+    "source_context_sha256": "a60c81d826c17d85659ea469d107b9d8d338d8ab0b123d5a76a29e65e74d8730",
+    "source_response_sha256": "537cbba21169248e91d86059ad804b2a225e400ccd8db0c073346c9e324e7d33"
+  },
+  "unresolved_bindings": {
+    "total": 2,
+    "each_head": 2,
+    "saved_first_witnesses": [
+      {
+        "key": "2021020674:269",
+        "strength": [
+          6,
+          5,
+          0
+        ],
+        "known54": false,
+        "raw_zone": "offensive",
+        "matching_coherent_shifts": 0,
+        "anchor_order": null,
+        "focal_order": 269
+      }
+    ],
+    "saved_witness_coverage": "one unresolved-compatible first witness is saved; second key and complete class cannot be recovered from this bounded report",
+    "interpretation": "unresolved binding is an observed unavailable-context class, not an invalid admission or automatic rejection; no threshold applied; no timing-failure label inferred"
+  },
+  "comparison": {
+    "original_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20212022/manifest.json",
+      "sha256": "592dce62062443311ea504cd10c7304b73be10441b6d558e91ca635663940953",
+      "recipe_sha256": "14267557016abe9c08a6c863fe03151edca0be0fac889321e758f764af36eae5"
+    },
+    "original_usage": "historical metadata comparison only; no old state/coefficient/mean used in current first fit",
+    "meaning": "four physical and positive-label counts unchanged; three start-contrast unavailable counts increase64/44/35/27",
+    "limits": [
+      "metadata counts do not independently prove equality of every old/new event key or response; original metadata has no comparable context/response digest",
+      "new unavailable contrasts do not prove an equal number of shared-indicator value flips or fitted probability changes",
+      "all5eligibility counters overlap; unresolved_binding is contained in unavailable faceoff contexts here",
+      "58masked onfly and6masked faceoff are availability classes, not64proved timing failures; exact50same-clock+4later-anchor classes are established only for known54",
+      "withheld_earlier_anchor zero covers exact saved coherent player/period/start/end faceoff evidence; alternatives absent from that evidence remain unsized"
+    ]
+  },
+  "observed_report_contract": {
+    "before_head_construction": true,
+    "known_expected": 54,
+    "known_checked": 54,
+    "all_strength_and_perhead_counts_present": true,
+    "bounded_available_witness_checks_passed": true,
+    "observer_seconds": 25.58574563753791,
+    "observer_seconds_scope": "observe body only; excludes response prehash and head-population projection, not total wrapper overhead",
+    "residual_scope": "withheld non-on-the-fly record with a saved coherent faceoff start on the exact player/period/start/end binding and earlier saved anchor; cannot detect alternatives absent from coherent saved evidence"
+  },
+  "execution": {
+    "python_pid": 724,
+    "source_report_pass_does_not_establish_solve_completion": true,
+    "annual_manifest_present": false,
+    "exit_present": false,
+    "next_annual_launched": false
+  },
+  "source": {
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  },
+  "scope": "saved report, exact old54-key census, original manifest/four head json metadata and local source identity only; no game, array, score, source pass or solve",
+  "preservation": "original metadata/census and running fit untouched; no new thresholds, flags or invocation"
+}

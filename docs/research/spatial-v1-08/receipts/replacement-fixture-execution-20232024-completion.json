@@ -1,0 +1,427 @@
+{
+  "kind": "replacement-fixture-execution-completion",
+  "status": "metadata_checks_passed; independent design/support diff and root acceptance pending",
+  "recorded_at_utc": "2026-10-31T15:05:58.779650+00:00",
+  "purpose": "fixture",
+  "season": "20232024",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/manifest.json",
+    "sha256": "85438d8488de33d2c31a7a2a200ca0efdf6c9011d0edc9ffb34018445fd8894b"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20222023/manifest.json",
+    "sha256": "7ca3062b6676d94640d6edfae2e154948c08f168a7bd9771271af2e706f6980c",
+    "season": "20222023",
+    "purpose": "fixture",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual"
+  },
+  "scope": "saved JSON metadata, bounded command log/status and file stats only; no arrays/NPZ hashes, repeated strict read or source pass",
+  "heads": {
+    "u": {
+      "status": "complete",
+      "included": 605,
+      "positive": 448,
+      "dimension": 2546,
+      "actors": 236,
+      "entry_rows": 137,
+      "carry_rows": 99,
+      "carry_year_gaps": {
+        "2": 46,
+        "1": 53
+      },
+      "transition_reasons": {
+        "entry": 137,
+        "age_carry": 91,
+        "age_neutral": 8
+      },
+      "prior_only_rows": 64,
+      "current_supported_ledger_updates": 172,
+      "preserved_prior_ledger_rows": 292,
+      "ledger_rows": 464,
+      "maximum_center_error": 6.938893903907228e-18,
+      "head_key_sha256": "80a09e4ac6d63eaee4fdc7d871b6183d4c5b33459a3433ae9de8cfcec856f972",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 7,
+        "unresolved_binding": 7,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "zero",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 289.1526524282782,
+      "raw_gradient_max": 1.691924650071286e-05,
+      "iterations": 338,
+      "evaluations": 366,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8471218",
+        "last_supported_season": "20212022",
+        "last_raw": 0.03788315278356268,
+        "conditional_prior_mean": 0.0381773177933792,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    },
+    "q": {
+      "status": "complete",
+      "included": 448,
+      "positive": 312,
+      "dimension": 2585,
+      "actors": 249,
+      "entry_rows": 152,
+      "carry_rows": 97,
+      "carry_year_gaps": {
+        "2": 45,
+        "1": 52
+      },
+      "transition_reasons": {
+        "entry": 152,
+        "age_carry": 89,
+        "age_neutral": 8
+      },
+      "prior_only_rows": 85,
+      "current_supported_ledger_updates": 164,
+      "preserved_prior_ledger_rows": 308,
+      "ledger_rows": 472,
+      "maximum_center_error": 1.734723475976807e-18,
+      "head_key_sha256": "393cea281ed8bb8356ff83c12a604acf92cf8d7924a55ca6292ac6f90a00474b",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 6,
+        "unresolved_binding": 6,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "prior_mean",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 241.72558492408734,
+      "raw_gradient_max": 1.0247547021502434e-05,
+      "iterations": 339,
+      "evaluations": 366,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8471218",
+        "last_supported_season": "20212022",
+        "last_raw": 0.32012883909381473,
+        "conditional_prior_mean": 0.3185997127019484,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    },
+    "r": {
+      "status": "complete",
+      "included": 312,
+      "positive": 250,
+      "dimension": 2585,
+      "actors": 249,
+      "entry_rows": 157,
+      "carry_rows": 92,
+      "carry_year_gaps": {
+        "2": 45,
+        "1": 47
+      },
+      "transition_reasons": {
+        "entry": 157,
+        "age_carry": 84,
+        "age_neutral": 8
+      },
+      "prior_only_rows": 99,
+      "current_supported_ledger_updates": 150,
+      "preserved_prior_ledger_rows": 286,
+      "ledger_rows": 436,
+      "maximum_center_error": 6.938893903907228e-18,
+      "head_key_sha256": "ebb8c2648eb18749fbec50c9d35baf9a020134636bbf24a6a084b14d1b73e0c6",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 4,
+        "unresolved_binding": 4,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "prior_mean",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 134.0033417977507,
+      "raw_gradient_max": 2.1203626664086095e-06,
+      "iterations": 364,
+      "evaluations": 387,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "em_iterations": 0,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8471218",
+        "last_supported_season": "20212022",
+        "last_raw": 0.06826248321047439,
+        "conditional_prior_mean": 0.0692463664787901,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    },
+    "g": {
+      "status": "complete",
+      "included": 250,
+      "positive": 28,
+      "dimension": 2793,
+      "actors": 450,
+      "entry_rows": 271,
+      "carry_rows": 179,
+      "carry_year_gaps": {
+        "2": 84,
+        "1": 95
+      },
+      "transition_reasons": {
+        "entry": 271,
+        "age_carry": 171,
+        "age_neutral": 8
+      },
+      "prior_only_rows": 144,
+      "current_supported_ledger_updates": 306,
+      "preserved_prior_ledger_rows": 549,
+      "ledger_rows": 855,
+      "maximum_center_error": 2.168404344971009e-18,
+      "head_key_sha256": "98a1a640780b2bcdecfaaa430306882de78e30b594f444e66e92406e6bec51cd",
+      "source_eligibility_counts": {
+        "masked_on_the_fly": 0,
+        "masked_faceoff": 3,
+        "unresolved_binding": 3,
+        "admitted_same_clock_faceoff": 0,
+        "withheld_earlier_anchor": 0
+      },
+      "selected_start": "prior_mean",
+      "completed_starts": [
+        "zero",
+        "prior_mean"
+      ],
+      "objective": 124.99251317058489,
+      "raw_gradient_max": 1.4705169133627516e-06,
+      "iterations": 734,
+      "evaluations": 797,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "em_iterations": 5,
+      "prior_only_carry_witness": {
+        "block": "shooter",
+        "id": "8471218",
+        "last_supported_season": "20212022",
+        "last_raw": 0.04298308974276387,
+        "conditional_prior_mean": 0.044572348726555154,
+        "ledger_preserved": true
+      },
+      "resolution": "not_applicable"
+    }
+  },
+  "checks": {
+    "complete_heads": 4,
+    "prior_anchors_exact_previous_last_supported_ledger": true,
+    "entry_and_carry_alternatives": true,
+    "carry_precision_fixed_recipe": true,
+    "last_supported_ledger_updates_only_for_current_support": true,
+    "age_basis_delta_and_role_indices_match": true,
+    "maximum_age_delta_error": 0.0,
+    "centers_from_current_supported_raw_ledger_or_conditional_prior_mean": true,
+    "maximum_center_error": 6.938893903907228e-18,
+    "source_head_counts_and_keys_match_coverage": true,
+    "recipe_stopping": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "em_maxiter": 100,
+      "em_objective": 1e-08,
+      "em_responsibility": 1e-06,
+      "continuation": {
+        "ftol": 1e-16,
+        "gtol": 1e-07,
+        "em_objective": 1e-09,
+        "em_responsibility": 1e-07
+      }
+    },
+    "minimum_completed_start_selected": true,
+    "array_limitation": "current age coefficients and coefficient/prior-only equality were producer strict-read checks; conditional mean not independently recomputed from arrays here"
+  },
+  "source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/fit-20232024-source-check.json",
+    "sha256": "86c30a1625cad424cede138755e59bd378ea22e6d6399405841f0890fef1adb3",
+    "status": "passed",
+    "source_contexts": 605,
+    "dispositions": {
+      "eligible:faceoff": 241,
+      "eligible:on_the_fly": 309,
+      "unavailable:None": 1,
+      "unavailable:faceoff": 7,
+      "unavailable:no_same_clock_faceoff": 4,
+      "unavailable:unknown": 43
+    },
+    "eligibility_counts": {
+      "masked_on_the_fly": 0,
+      "masked_faceoff": 7,
+      "unresolved_binding": 7,
+      "admitted_same_clock_faceoff": 0,
+      "withheld_earlier_anchor": 0
+    },
+    "source_context_sha256": "a44bc3ac634b7e16a9b13339bd0682acdb33a462d48b47ef55937f4e6dc3cff0",
+    "source_response_sha256": "4ba089f02da06bb9557d4b67648693326609bf6e659105cba7bec6cf6cf17d48",
+    "observer_seconds": 0.10302106069866568,
+    "observer_seconds_scope": "observe body only; not total wrapper overhead",
+    "scope_limit": "saved head metadata proves newly unavailable start fields for7/6/4/3physical attempts in u/q/r/g respectively, not7times3attempts. the source counters alone were insufficient: seven masked_faceoff and seven unresolved_binding overlap and include already-zone-unavailable records. independent source-binding review remains pending. real20212022 exact54-key barrier remains required; residual scope unsized"
+  },
+  "resources": {
+    "command_wall_seconds": 24.12,
+    "user_seconds": 23.83,
+    "system_seconds": 0.2,
+    "maximum_resident_bytes": 798572544,
+    "baseline_head_states": 4,
+    "final_head_continuations": 0,
+    "actual_native_solve_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 10
+    },
+    "saved_member_bytes": 3592963,
+    "annual_including_manifest_bytes": 3616754,
+    "producer": {
+      "wall_seconds": 23.707816541020293,
+      "peak_memory_bytes": 797310976,
+      "design_wall_seconds": 19.61536670901114,
+      "input_read_wall_seconds": 0.003810791007708758,
+      "fit_wall_seconds": 4.088639041001443,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 3592963,
+      "origin_rows": {
+        "u": 103440,
+        "q": 448,
+        "r": 312,
+        "g": 250
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 2190
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 2546,
+        "q": 2585,
+        "r": 2585,
+        "g": 2793
+      },
+      "solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 10
+      }
+    }
+  },
+  "launch": {
+    "start": "2026-10-31T15:03:10Z",
+    "finish": "2026-10-31T15:03:34Z",
+    "exit": 0,
+    "git_head": "fd653cac0f3705542605f11f74e959c4307beb6b",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean_at_launch_and_now": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "log_sha256": "6775b43a276e74d10079ead6da787542c8b0c14863338cbf2a13130e1c20d754"
+  },
+  "input_preservation": "saved prepared/coach bindings match prior new annual; previous manifest and metadata checked unchanged; source evidence and originals untouched",
+  "next": "observed20242025 script prepared; explicit root release required",
+  "targeted_saved_design_comparison": {
+    "scope": "four saved old/new head JSON metadata files only; original arrays or source not reopened; original historical states are comparison evidence, never replacement inputs",
+    "historical_root": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024",
+    "changed_feature_support_fields": [
+      "shooter_start_zone:offensive",
+      "shooter_start_zone:neutral",
+      "shooter_start_zone:defensive"
+    ],
+    "all_other_feature_support_exact": true,
+    "all_other_design_fields_exact": true,
+    "columns_means_active_exact": true,
+    "policy_text_exception": "fixed_transforms.shift_start contains the revised eligibility contract; all other fixed transforms exact",
+    "rows": [
+      {
+        "head": "u",
+        "old_metadata": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/heads/u.json",
+          "sha256": "f3cd51374b8b0a7acd4705b6429ed72b7edeee29d1c5b5651ac20e2dd549a6a6"
+        },
+        "new_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/heads/u.json",
+          "sha256": "8d693d833a52d8dc1ac9e3c1d02542275484951b8e6522fafd8ad592c620c75f"
+        },
+        "old_unavailable_attempts": 48,
+        "new_unavailable_attempts": 55,
+        "newly_unavailable_physical_attempts_per_start_field": 7,
+        "old_available_weight": 557.0,
+        "new_available_weight": 550.0
+      },
+      {
+        "head": "q",
+        "old_metadata": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/heads/q.json",
+          "sha256": "477a452747fac0a3423777e1bf89791f06cc2ca9707ba297a109a77c6e99108d"
+        },
+        "new_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/heads/q.json",
+          "sha256": "15880dfee1b679b77aa7b35aa74656d46f14f77bf4b433ee68ab1836504f74d0"
+        },
+        "old_unavailable_attempts": 36,
+        "new_unavailable_attempts": 42,
+        "newly_unavailable_physical_attempts_per_start_field": 6,
+        "old_available_weight": 412.0,
+        "new_available_weight": 406.0
+      },
+      {
+        "head": "r",
+        "old_metadata": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/heads/r.json",
+          "sha256": "037aca0170107643d26458e17cebaab4bb3830eb2311a29608147d6baf561631"
+        },
+        "new_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/heads/r.json",
+          "sha256": "1d47f0dd0b4b959e5ad128ec376529dcbeff8e6226627022fd5b058bbb67a654"
+        },
+        "old_unavailable_attempts": 26,
+        "new_unavailable_attempts": 30,
+        "newly_unavailable_physical_attempts_per_start_field": 4,
+        "old_available_weight": 286.0,
+        "new_available_weight": 282.0
+      },
+      {
+        "head": "g",
+        "old_metadata": {
+          "path": "/Users/nnandal/Documents/code/hockey-stats-v1-05-factor/var/v1-05-stopping15-checks/chain-01/20232024/heads/g.json",
+          "sha256": "c27f5c30b1af5e162e7ce1231fe674ce705a710e046ee7424be834b9a9992fc1"
+        },
+        "new_metadata": {
+          "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/fixture/execution/20232024/heads/g.json",
+          "sha256": "0ff28f4358d2621684b4e58b700c420275daab6d512c05f746ffcf6dc93c5fd3"
+        },
+        "old_unavailable_attempts": 20,
+        "new_unavailable_attempts": 23,
+        "newly_unavailable_physical_attempts_per_start_field": 3,
+        "old_available_weight": 230.0,
+        "new_available_weight": 227.0
+      }
+    ],
+    "interpretation": "new availability masks demonstrated in saved support metadata; no fitted probability effect or source-key attribution inferred here; independent source binding review pending"
+  }
+}

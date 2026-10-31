@@ -17,7 +17,8 @@ from .chance_cli import identity, read_json
 from .spatial_design import SpatialDesign, RECIPE as DESIGN_RECIPE, CONTEXT_AXES, _actor_columns
 from .spatial_rates import HEADS, ROLES, QUANTITIES, ADJUSTMENTS, RECIPE, annual_priors, centered_reference, _conditional_mean, _unpack
 
-DESIGN_ARRAYS=('basis','exposure_hours','event_offsets','origin_cells','origin_weights','neutral_goal_probability',
+CORE_ARRAYS=('basis','exposure_hours','event_offsets','origin_cells','origin_weights','neutral_goal_probability','context_time','context_event')
+DESIGN_ARRAYS=CORE_ARRAYS+(
                'X_time_data','X_time_indices','X_time_indptr','X_time_shape',
                'X_event_data','X_event_indices','X_event_indptr','X_event_shape')
 MANIFEST_KEYS='schema_version kind purpose season recipe_id recipe design_identity implementation prepared coaches valued previous basis_identity training_cutoff heads files resources'.split()
@@ -86,7 +87,7 @@ def _member(root,value):
 
 
 def _arrays(design):
-    result={name:np.asarray(getattr(design,name)) for name in DESIGN_ARRAYS[:6]}
+    result={name:np.asarray(getattr(design,name)) for name in CORE_ARRAYS}
     for name in ('X_time','X_event'):
         matrix=getattr(design,name).tocsr()
         result.update({name+'_data':np.asarray(matrix.data,dtype=np.float64),
@@ -97,7 +98,7 @@ def _arrays(design):
 
 
 def _design_document(design, arrays):
-    excluded=set(DESIGN_ARRAYS[:6])|{'X_time','X_event','resources'}
+    excluded=set(CORE_ARRAYS)|{'X_time','X_event','resources'}
     body={field.name:getattr(design,field.name) for field in fields(SpatialDesign) if field.name not in excluded}
     for key in ('players','coach_ids','columns','time_keys','event_keys'):
         body[key]=list(body[key])
@@ -134,7 +135,7 @@ def _restore_design(document,arrays,resources):
     require(document['schema_version']==1 and document['kind']=='spatial_design','invalid spatial design schema')
     require(list(arrays)==list(DESIGN_ARRAYS) and document['array_digest']==ordered_array_digest(arrays),'spatial design array identity differs')
     body=dict(document['definition'])
-    expected={field.name for field in fields(SpatialDesign)}-set(DESIGN_ARRAYS[:6])-{'X_time','X_event','resources'}
+    expected={field.name for field in fields(SpatialDesign)}-set(CORE_ARRAYS)-{'X_time','X_event','resources'}
     _closed(body,expected,'spatial design definition')
     for name in ('X_time','X_event'):
         data,indices,indptr,shape=[arrays[name+'_'+suffix] for suffix in ('data','indices','indptr','shape')]
@@ -147,7 +148,7 @@ def _restore_design(document,arrays,resources):
         matrix=csr_matrix((data,indices,indptr),shape=tuple(shape))
         require(matrix.has_canonical_format,'spatial matrix has unsorted or duplicate coordinates')
         body[name]=matrix
-    body.update({name:arrays[name] for name in DESIGN_ARRAYS[:6]})
+    body.update({name:arrays[name] for name in CORE_ARRAYS})
     body['resources']=resources
     for name in ('players','coach_ids','columns','time_keys','event_keys'):
         body[name]=tuple(body[name])
@@ -209,7 +210,11 @@ def validate_design(design):
                for g in ('base','score:-2','score:-1','score:0','score:1','score:2','shell')}
     require(actor_keys==expected,'spatial actor axes omit or invent roster/gate coordinates')
     n=len(design.exposure_hours);ne=len(design.event_offsets)-1;d=len(columns)
-    require(design.X_time.shape==(n,d) and design.X_event.shape==(ne,d),'spatial matrix dimensions differ')
+    actor_count=len(_actor_columns(design.players,design.coach_ids))
+    require(design.X_time.shape==(n,actor_count) and design.X_event.shape==(ne,actor_count),'spatial actor matrix dimensions differ')
+    require(design.context_time.shape==(n,d-actor_count) and design.context_event.shape==(ne,d-actor_count)
+            and design.context_time.dtype==design.context_event.dtype==np.dtype('float64')
+            and np.isfinite(design.context_time).all() and np.isfinite(design.context_event).all(),'invalid spatial dense context matrices')
     require(len(design.time_keys)==n and len(design.event_keys)==ne,'spatial source locator cardinality differs')
     require(design.exposure_hours.dtype==np.dtype('float64') and design.exposure_hours.ndim==1
             and np.isfinite(design.exposure_hours).all() and np.all(design.exposure_hours>0),'invalid positive spatial exposure')

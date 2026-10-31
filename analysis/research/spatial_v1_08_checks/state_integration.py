@@ -12,7 +12,7 @@ from scipy.sparse import csr_matrix
 from hockey_stats.artifacts import ordered_array_digest
 from hockey_stats.captures import InputContractError
 from hockey_stats.spatial_design import SpatialDesign, RECIPE, CONTEXT_AXES, _actor_columns, _basis
-from hockey_stats.spatial_rates import fit_spatial, annual_priors, HEADS, centered_reference, _unpack, head_objective, project_spatial
+from hockey_stats.spatial_rates import fit_spatial, annual_priors, HEADS, centered_reference, _unpack, head_objective, project_spatial, _linear
 from hockey_stats.spatial_state import read_spatial_state, validate_design
 
 
@@ -45,7 +45,7 @@ def design():
                     known_excluded_seconds=0.,unquantified_gap=False,reason_counts={},inferred_inputs=['blocked_origin']) for p in players})
     binding=dict(path='/missing/input/manifest.json',sha256='0'*64,purpose='fixture')
     return SpatialDesign('fixture','20212022',binding,binding,dict(binding,season='20212022'),'2022-01-01',players,
-         {p:dict(position_group='F',age_days=26*365.2425) for p in players},('coach',),columns,csr_matrix(matrix),csr_matrix(matrix),exposure,
+         {p:dict(position_group='F',age_days=26*365.2425) for p in players},('coach',),columns,csr_matrix(matrix[:,:len(_actor_columns(players,('coach',)))]),csr_matrix(matrix[:,:len(_actor_columns(players,('coach',)))]),matrix[:,len(_actor_columns(players,('coach',))):].copy(),matrix[:,len(_actor_columns(players,('coach',))):].copy(),exposure,
          keys,event_keys,np.array([0,2,3],dtype=np.int64),cells,weights,q,transforms,coverage,RECIPE,{},basis,basis_id,dict(r=r,pi=pi.tolist(),qbar=qbar.tolist()))
 
 
@@ -64,12 +64,12 @@ def main():
             beta,age=_unpack(state.head_arrays[head]['coefficients'],d,head)
             centers,reference,vector=centered_reference(d,head,beta)
             # verify transfer for every physical row, including unknown coach/gate.
-            centered=beta.copy();offset=np.zeros_like(np.asarray(d.X_time@beta))
+            centered=beta.copy();offset=np.zeros_like(_linear(d,beta,'time'))
             for c in centers:
                 centered[c['indices']]-=np.asarray(c['mean'])
                 applicability=np.asarray(d.X_time[:,c['indices']].sum(axis=1)).ravel()
                 offset+=applicability[:,None]*np.asarray(c['mean'])
-            assert np.allclose(d.X_time@beta,d.X_time@centered+offset,atol=1e-13,rtol=0)
+            assert np.allclose(_linear(d,beta,'time'),_linear(d,centered,'time')+offset,atol=1e-13,rtol=0)
         # a two-year gap carries raw supported coordinates, not the annual center.
         later=replace(d,season='20232024',player_facts={p:dict(position_group='F',age_days=28*365.2425) for p in d.players})
         prior=next(r for r in annual_priors(later,'volume',state.heads['volume']['ledger']) if r['block']=='attacking_player' and r['id']=='0')

@@ -23,7 +23,7 @@ def tiny_design():
         {'kind':'actor','name':'b','block':'attacking_player','id':'2','subblock':'base'},
         {'kind':'context','name':'ctx'}), players=('1','2','3'),
         player_facts={str(i):{'position_group':'F','age_days':27*365.2425} for i in (1,2,3)},
-        X_time=csr_matrix(x), X_event=csr_matrix(x),exposure_hours=np.array([.25,.75]),
+        X_time=csr_matrix(x[:,:3]), X_event=csr_matrix(x[:,:3]),context_time=x[:,3:],context_event=x[:,3:],exposure_hours=np.array([.25,.75]),
         event_offsets=np.array([0,2,3],dtype=np.int64),origin_cells=cells,origin_weights=o,
         neutral_goal_probability=np.array([0.,.1,1.]), basis=basis,
         annual_offsets={'r':3.,'pi':np.full(656,1/656).tolist(),'qbar':np.full(656,.15).tolist()})
@@ -38,7 +38,7 @@ def main():
         gamma=np.zeros(8)
         flat=np.r_[beta.ravel(),gamma] if head=='volume' else beta.ravel()
         loss,grad=head_objective(flat,d,head,priors)
-        logits=np.asarray(d.X_event@beta)
+        logits=np.asarray(d.X_event@beta[:3])+d.context_event@beta[3:]
         if head=='volume':
             eta=math.log(3)+logits[:,0]
             likelihood=np.dot(d.exposure_hours,np.exp(eta))-eta.sum()

@@ -53,6 +53,23 @@ def _actor_key(column):
     return column['block'], str(column['id']), column['subblock']
 
 
+
+def _linear(design,beta,kind,rows=None):
+    actor=getattr(design,'X_'+kind)
+    context=getattr(design,'context_'+kind)
+    split=actor.shape[1]
+    if rows is not None:
+        actor,context=actor[rows],context[rows]
+    return np.asarray(actor@beta[:split])+np.asarray(context@beta[split:])
+
+
+def _adjoint(design,residual,kind,rows=None):
+    actor=getattr(design,'X_'+kind)
+    context=getattr(design,'context_'+kind)
+    if rows is not None:
+        actor,context=actor[rows],context[rows]
+    return np.vstack((np.asarray(actor.T@residual),np.asarray(context.T@residual)))
+
 def actor_support(design):
     """sparse reductions once per head, never one dense elapsed vector per actor."""
     time = design.X_time.tocsc()
@@ -168,20 +185,25 @@ def _penalty(beta, age, design, head, priors):
 
 
 def _volume_groups(design):
-    """sum exactly equal sparse elapsed rows; no approximate grouping."""
-    x = design.X_time.tocsr()
-    groups, indices, exposure = {}, [], []
+    """digest candidates, then compare exact actor/context rows before grouping."""
+    x=design.X_time.tocsr()
+    context=design.context_time
+    groups,indices,exposure={},[],[]
     for row in range(x.shape[0]):
-        left, right = x.indptr[row:row+2]
-        key = (x.indices[left:right].tobytes(), x.data[left:right].tobytes())
-        target = groups.get(key)
+        left,right=x.indptr[row:row+2]
+        hasher=hashlib.sha256()
+        hasher.update(x.indices[left:right].tobytes());hasher.update(x.data[left:right].tobytes())
+        hasher.update(context[row].tobytes())
+        key=hasher.digest()
+        target=None
+        for candidate in groups.get(key,()):
+            prior=indices[candidate];a,b=x.indptr[prior:prior+2]
+            if np.array_equal(x.indices[left:right],x.indices[a:b]) and np.array_equal(x.data[left:right],x.data[a:b]) and np.array_equal(context[row],context[prior]):
+                target=candidate;break
         if target is None:
-            groups[key] = len(indices)
-            indices.append(row)
-            exposure.append(float(design.exposure_hours[row]))
-        else:
-            exposure[target] += float(design.exposure_hours[row])
-    return np.asarray(indices,dtype=np.int64), np.asarray(exposure)
+            groups.setdefault(key,[]).append(len(indices));indices.append(row);exposure.append(float(design.exposure_hours[row]))
+        else:exposure[target]+=float(design.exposure_hours[row])
+    return np.asarray(indices,dtype=np.int64),np.asarray(exposure)
 
 
 def head_objective(flat, design, head, priors, work=None, *, components=False):
@@ -191,21 +213,21 @@ def head_objective(flat, design, head, priors, work=None, *, components=False):
     likelihood = 0.
     offsets = design.annual_offsets
     if head == 'volume':
-        x, exposure = (design.X_time, design.exposure_hours) if work is None else work['volume']
-        eta = math.log(offsets['r']) + np.asarray(x@beta).ravel()
+        rows,exposure=(None,design.exposure_hours) if work is None else work['volume']
+        eta=math.log(offsets['r'])+_linear(design,beta,'time',rows).ravel()
         with np.errstate(over='raise', invalid='raise', under='raise'):
             rates = np.exp(eta)
         require(np.all(rates > 0) and np.isfinite(rates).all(), 'invalid spatial volume rate')
-        event_eta = math.log(offsets['r'])+np.asarray(design.X_event@beta).ravel()
+        event_eta = math.log(offsets['r'])+_linear(design,beta,'event').ravel()
         likelihood = float(np.dot(exposure, rates)-event_eta.sum())
-        gradient[:, 0] += np.asarray(x.T@(exposure*rates)).ravel()
-        gradient[:, 0] -= np.asarray(design.X_event.sum(axis=0)).ravel()
+        gradient+=_adjoint(design,(exposure*rates)[:,None],'time',rows)
+        gradient-=_adjoint(design,np.ones((design.X_event.shape[0],1)),'event')
     else:
         n = design.X_event.shape[0]
         for start in range(0, n, 4096):
             stop = min(start+4096, n)
-            x = design.X_event[start:stop]
-            predictor = np.asarray(x@beta)
+            row_slice=slice(start,stop)
+            predictor=_linear(design,beta,'event',row_slice)
             left, right = int(design.event_offsets[start]), int(design.event_offsets[stop])
             rows = np.repeat(np.arange(stop-start), np.diff(design.event_offsets[start:stop+1]))
             cells = design.origin_cells[left:right]
@@ -226,7 +248,7 @@ def head_objective(flat, design, head, priors, work=None, *, components=False):
                 residual = np.zeros_like(logits)
                 np.add.at(residual, (rows, cells), weight*(expit(origin_eta)-target))
                 row_gradient = np.column_stack((residual.sum(axis=1), residual@design.basis))
-            gradient += np.asarray(x.T@row_gradient)
+            gradient+=_adjoint(design,row_gradient,'event',row_slice)
     require(math.isfinite(likelihood+penalty) and np.isfinite(gradient).all()
             and np.isfinite(age_gradient).all(), 'nonfinite spatial objective')
     flat_gradient = gradient.ravel()
@@ -266,7 +288,7 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
     work = None
     if head == 'volume':
         representatives,exposure = _volume_groups(design)
-        work = {'volume': (design.X_time[representatives],exposure)}
+        work={'volume':(representatives,exposure)}
     options = CONTINUATION if tightened else SOLVER
     trace = []
     def objective(flat):
@@ -309,7 +331,7 @@ def fit_head(design, head, incoming, *, initial=None, tightened=False):
     metadata['resources'] = dict(wall_seconds=perf_counter()-began, peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
                                 dimensions=dict(rows=design.X_time.shape[0] if head == 'volume' else design.X_event.shape[0],
                                                 features=len(design.columns), coordinates=size,
-                                                grouped_time_rows=None if work is None else work['volume'][0].shape[0]))
+                                                grouped_time_rows=None if work is None else len(work['volume'][0])))
     return metadata, arrays
 
 
@@ -376,7 +398,7 @@ def spatial_shapley(coalitions):
 
 def head_diagnostics(design, head, beta):
     if head == 'volume':
-        eta = math.log(design.annual_offsets['r'])+np.asarray(design.X_time@beta).ravel()
+        eta = math.log(design.annual_offsets['r'])+_linear(design,beta,'time').ravel()
         expected = design.exposure_hours*np.exp(eta)
         return dict(population='retained directed 5v5 time and uniquely assigned physical attempts',
                     attempts=design.X_event.shape[0],hours=float(design.exposure_hours.sum()),
@@ -388,7 +410,7 @@ def head_diagnostics(design, head, beta):
     bins = [dict(lower=i/10,upper=(i+1)/10,origin_weight=0.,target_mass=0.,predicted_mass=0.) for i in range(10)]
     for start in range(0,design.X_event.shape[0],4096):
         stop = min(start+4096,design.X_event.shape[0])
-        linear = np.asarray(design.X_event[start:stop]@beta)
+        linear = _linear(design,beta,'event',slice(start,stop))
         left,right = design.event_offsets[start],design.event_offsets[stop]
         rows = np.repeat(np.arange(stop-start),np.diff(design.event_offsets[start:stop+1]))
         cells,weight = design.origin_cells[left:right],design.origin_weights[left:right]
@@ -420,9 +442,12 @@ def _projection_support(state, design, player):
     source = dict(design.coverage.get('players',{}).get(player,{}))
     reasons=source.get('reason_counts',{})
     source['reason_counts']=[dict(code=key,count=reasons[key]) for key in sorted(reasons)] if isinstance(reasons,dict) else reasons
-    source['inferred_inputs']=sorted(set(source.get('inferred_inputs',[])))
+    inferred=set(source.get('inferred_inputs',[]))
+    if source.get('events',0)>0:inferred.add('setter')
+    source['inferred_inputs']=sorted(inferred)
     priors = [row for head in HEADS for row in state.heads[head]['priors']
               if row['block'].endswith('_player') and row['id']==player and row['subblock']=='base']
+    if any(row['prior_kind']=='carry' for row in priors):source['inferred_inputs']=sorted(set(source['inferred_inputs'])|{'historical_borrowing'})
     source.update(eligible_weight=None,
                   current_season_information=any(row['current_season_information'] for row in priors),
                   prior_only=bool(priors) and all(row['prior_only'] for row in priors),
@@ -472,7 +497,7 @@ def _context_groups(design, betas, references, centers, row, player, role, by_ac
                 group[1]+=beta[by_actor[(own+'_player',str(teammate),'base')]]-actor_centers[(own+'_player','base')]
         for opponent in key[other+'_players']:
             group[2]+=beta[by_actor[(other+'_player',str(opponent),'base')]]-actor_centers[(other+'_player','base')]
-        factual=np.asarray(design.X_time[row]@beta).ravel()
+        factual=_linear(design,beta,'time',slice(row,row+1)).ravel()
         group[3]=factual-references[head]-group[:3].sum(axis=0)
         result[head]=group
     return result
@@ -501,7 +526,7 @@ def _actual_adjustments(design, betas, references, centers):
         hours=exposure[start:start+16]
         pi,ri,context_weight=[],[],[]
         grouped={head:[] for head in HEADS}
-        factual={head:np.asarray(design.X_time[selected]@betas[head]) for head in HEADS}
+        factual={head:_linear(design,betas[head],'time',selected) for head in HEADS}
         for j,row in enumerate(selected):
             key=design.time_keys[row]
             for role_index,role in enumerate(ROLES):
@@ -726,7 +751,7 @@ def _probe_contexts(state,selected):
     for row in selected:
         view=design
         if row['kind']=='event':
-            view=replace(design,X_time=design.X_event,time_keys=design.event_keys)
+            view=replace(design,X_time=design.X_event,context_time=design.context_event,time_keys=design.event_keys)
         groups=_context_groups(view,betas,references,centers,row['index'],row['player_id'],row['role'],by_actor)
         predictors={head:np.asarray([references[head]+groups[head][[g for g in range(4) if subset&(1<<g)]].sum(axis=0)
                                       for subset in range(16)]) for head in HEADS}

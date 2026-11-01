@@ -923,6 +923,14 @@ cost: whole command 10,098 seconds, producer 10,042 against 17,741, design 5,749
 
 what the score should show, as description, with no gate. on-the-fly masks move +.089, +.025, −.068, +.240. faceoff masks move new flag minus old zone: +.146, +.022, −.071, +.266 offensive, +.071, +.068, −.028, +.181 neutral, and +.050, +.048, −.160, +.303 defensive. old rows swing −.018, −.341, −.092, −.066. so `q`'s record movement should fall on rows the repair did not touch, and `u`'s leaders should be masks at under half of year two's size. i forecast no row count.
 
+### real `20232024` score source parity
+
+verdict: **clear.** score report `428f3dd5` against fit report `f1d869c5`, while the score still runs. this review read the two reports, the launch and parity receipts, the launch pin files and the state manifest digest. it read no prepared game, no score output and no partial array, and ran no source pass.
+
+every top-level field is equal except `command` and `observer_seconds`, as in years one and two. that covers root's eight, and also `first_witnesses`, `known_witnesses` and the four head key digests. the context and response digests `3ecbbdab` and `15c393bc` reproduce, so fit and score saw the same 158,196 contexts in the same order. the unresolved class at 5,5,1 therefore carries over unchanged. the command is the plain score tail. the report names the state by path only. its digest comes from the launch pin, which matches the saved manifest at `dd8b638d`. year two's bookkeeping gap didn't recur: `66aa374e` was committed in `8b96825` before launch, and no commit since touches `analysis` or the observer.
+
+this proves shared input again, not scored probabilities.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

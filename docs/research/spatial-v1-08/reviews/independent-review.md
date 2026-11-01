@@ -931,6 +931,47 @@ every top-level field is equal except `command` and `observer_seconds`, as in ye
 
 this proves shared input again, not scored probabilities.
 
+### completed real `20232024` score
+
+verdict: **clear.** score `f13a1136` against original `d1ca74ab`, under year two's scope: identity, complete-row maxima, located witnesses and the remainder. no census exists for this year. this review read saved artifacts and receipt `4c530412`. it read no prepared game and ran no source pass, fit, score or strict read. it did not read checker `569be218` line by line. it reproduced the numbers instead.
+
+identity is exact: 160,123 recognized, 158,196 complete, 1,927 incomplete rows equal whole, no identity field changed. all 73 members rehash. the 25 changed members are events, setters, shares, projections, maps and the 20 populated panels. `event_offsets`, `origin_cells`, `origin_weights` and `setup_weights` are exact in all of them, across 29,251,986 origin rows. the receipt's quantiles reproduce: p50 7.6e-5, p90 1.9e-4, p99 9.3e-4, max .0733 at `2023020955:320`. that maximum equals year two's to four places by chance: .07328 against .07327, on different keys.
+
+exactly 41 rows lead. they are the same 41 in all four heads and by event maximum, then the distribution breaks. absolute change in actor logit:
+
+| head | rank 41 | rank 42 |
+| --- | --- | --- |
+| `u` | 0.0145 | 0.0050 |
+| `q` | 0.0214 | 0.0143 |
+| `r` | 0.0182 | 0.0084 |
+| `g` | 0.0546 | 0.0070 |
+
+event maximum falls from .0129 to .0032. head membership sums to 41, 31, 20 and 14, the annual's new age-known start-unknown counts exactly. by signature, in non-block rows:
+
+| class | rows | in `u`, `q`, `r`, `g` | observed mean | coefficient signature |
+| --- | --- | --- | --- | --- |
+| on-the-fly | 7 | 7, 4, 2, 2 | +.089, +.025, −.068, +.235 | +.089, +.025, −.068, +.240 |
+| offensive | 5 | 5, 3, 2, 0 | +.145, +.022, −.071, +.259 | +.146, +.022, −.071, +.266 |
+| neutral | 6 | 6, 5, 1, 1 | +.071, +.082, −.019, +.184 | +.072, +.083, −.019, +.186 |
+| defensive | 8 | 8, 7, 4, 3 | +.049, +.062, −.150, +.296 | +.050, +.063, −.151, +.309 |
+| old rows | 15 | 15, 12, 11, 8 | −.018, −.323, −.082, −.060 | −.018, −.325, −.083, −.061 |
+
+the masks reproduce the receipt's 7, 4, 2, 2 and 19, 15, 7, 4 by head. the state split reproduces too: the 7 faceoff masks at `6,5,0` are defensive, the other 12 sit at `5,5,1`. `g` reads a little low at the prefix, afaict through the setter mixture, though the panels reach the predicted .3086. event prefixes mix 656 origins on a block, so those rows were read in the panels. per origin, `u` moves +.1460 and +.1459 on the two offensive blocks, +.0890, +.0891 and +.0893 on the three on-the-fly blocks, and +.0717 on the neutral one. the panel maxima .1461, .1517 and .3086 are the offensive `u`, defensive `r` and defensive `g` signatures. the fourth, .3397, is `q` on one old row, below.
+
+the [annual's forecast](#completed-real-20232024-annual) missed one term, and the signatures above add it after the fact. neutral masks, defensive masks and old rows carry the `shooter_prefix_toi` flag's own move, +.015, +.009 and +.006 in `q`, `r` and `g`. on-the-fly and offensive masks do not. nor does old row `2023020995:64`, which moves −.338 against its neighbours' −.32. the source report's 14 `no_same_clock_faceoff` rows would account for the other 14 old rows, but that is a count, not a key match. so `q` splits the 26 masks into 14 and 12, with no row between. 14 is the `unresolved_binding` count. 12 is the source report's ceiling on timing masks. the reading: a shooter with no coherent shift has neither a bound start nor a prefix time. the located witnesses agree. `2023020057:15` and `2023020099:236` have age 0, and `2023020057:15` has one coherent shift. `2023020955:318` has none, at age 26. counts and shapes match, keys are not listed, so this is a reading and no census. it doesn't prove the 12 are all timing or the 14 all unresolved. if it holds, the unresolved class has exactly 7 rows at `5,5,1`, the floor the source review set.
+
+one game holds 11 of the 41. `2023020955`, source indices 318 to 339, supplies every `6,5,0` row among them: all 7 faceoff masks at that state and 4 old rows. the year's record sits there, and `6,5,0` has the largest signed panel change, −.039 in actor goals. under the reading it is half the unresolved class. i read no game, so idk why. afaict that's broken shift data in one stretch of one game, not a model fact.
+
+the rest of the forecast held. all 9 rows above .05 are old rows, moving −.32 to −.34 in `q`, and their start tokens didn't change. `2023020955:320` is `no_same_clock_faceoff`, unavailable under both recipes. the cause is a rotation. the start, age and prefix-time flags move −.3406, +.3241 and +.0152 in `q`, so a row carrying all three nets −.0013. the old rows lack the age flag and take the whole swing. afaict 26 new rows re-identified a near-null direction, and the 15 sat on it. `u`'s leaders are masks, at .146 against year two's .335.
+
+the remainder is ordinary. from rank 42 down, event maximum is .0032 and head ceilings are .0050, .0143, .0084 and .0070. the `q`, `r` and `g` ceilings are the prefix-time shape: 449 rows sit within .004 of it.
+
+players barely notice. 5v5 finishing keeps spearman .999996, change sd .00078 against .621, and the same top and bottom 20. maxima are .0106 at 5v5, .0139 at 5v4 and .0194 in any field, at `8477903` in 4v5. `8477903` and `8475343` still lead on the inherited `g` decay, mean row +.0030 and +.0024. the masks' imprint is visible and small: `8480002` −.0044 and `8482684` −.0038, both from `2023020955`. shares span 2,039 recipients, maximum .0255. actor minus neutral goal mass goes 311.291 to 311.310, equal to the group share totals both ways. setter posterior maximum is .0125 at `2023020955:338`, up from .0066.
+
+cost: whole command 17,505 seconds, producer 17,417 against 21,996, design 5,515 against 8,276, projection 10,776 against 12,387, scoring 1,063 against 1,264. peak 24.9 gb against 22.9, up 9 percent. rss across the three years reads 21.4, 20.1 and 24.9 gb, footprint 27.4, 26.7 and 31.6, on a 64 gb machine. no blocker. `git_commit` `9f921c6` is `HEAD` at manifest write, the launch was `e6c9d4a`, and both hold tree `c2412ac`.
+
+this year's identity, as description and no gate: leading rows equal new masks plus old age-known start-unknown rows, head by head. year two's 24 fit the same sum. movement still says nothing about whether the new values are better.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.
@@ -983,4 +1024,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-the real `20212022` and `20222023` fits and scores and the real `20232024` fit are reviewed here. no later real score or year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+the real `20212022`, `20222023` and `20232024` fits and scores are reviewed here. no later real year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

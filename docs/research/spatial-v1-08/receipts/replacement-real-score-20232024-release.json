@@ -1,0 +1,48 @@
+{
+  "kind": "replacement-real-score-20232024-root-release",
+  "status": "released by root; launch follows receipt",
+  "recorded_at_utc": "2026-11-01T10:29:49.724537+00:00",
+  "accepted_state": {
+    "season": "20232024",
+    "manifest_sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+    "saved_check_sha256": "e4b2c1880375755b27b36186a1eb8bec3d7fd0f7974b929e578850c6a4fb93d1",
+    "completion_receipt_sha256": "716c9e6cf1f969fc8fe28d5d655085052935f1fb8ff440725f2517f09164cfc9",
+    "independent_review": "clear; no finding; exact history/source/centers"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20232024-score-command.sh",
+    "sha256": "66aa374e0b9a81163148c47b2e725ed59655b17a149a4cc1f24a87eead02d988",
+    "committed_before_launch": "8b96825",
+    "reviewers": [
+      "source_design",
+      "root"
+    ],
+    "bytes_equal_committed_blob": true,
+    "only_change_from_held": "exact accepted state digest",
+    "distinct_fresh_guards": 15,
+    "syntax_and_argv": "passed",
+    "census": false,
+    "pause": false,
+    "propagation": false
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "fit_source_sha256": "f1d869c5b156ce4bba3f9f4ba549e1dce4a10d0828ccfb52c9f1579d43888aac",
+  "required_score_parity": {
+    "source_context_sha256": "3ecbbdab473d72bf4b7516caafb2253f8a0c310468b9aecdda6e359e5e1e4688",
+    "source_response_sha256": "15c393bc54edcedacf84dba4ad98309ceccb5cd226276496ef6b36b20fcbb070",
+    "all_eight_fields": "must match fit report exactly"
+  },
+  "held_score_checker": {
+    "sha256": "569be218216e2b3d481a640a4b448b1248763dc6d42af19ce53d75473d6deecc",
+    "author": "numerical",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "invocations": 0,
+    "scope": "all saved accounting/population/maps; descriptive witness/remainder movement; no ranking/census gate"
+  },
+  "scope": "one ordinary score command under native idle-sleep prevention; all analysis source frozen until exit; originals/raw/live preserved; no activation/scientific admission/cleanup"
+}

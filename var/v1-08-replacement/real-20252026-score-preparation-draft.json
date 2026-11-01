@@ -1,0 +1,40 @@
+{
+  "kind": "held-real-20252026-final-score-command-preparation",
+  "status": "held; accepted final-state manifest digest unknown; fourth score still running",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-score-command.sh",
+    "bytes": 7040,
+    "sha256": "9b4251ef4d5bc8c9108c034a3e9583de68a413fd9e0ea81a744aa71e901cc4ad"
+  },
+  "derived_from": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20242025-score-command.sh",
+    "bytes": 7061,
+    "sha256": "add57b9bc4512828a4e0514fb4db92bf6d009b80de0744a6114c518603e26147"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+    "bytes": 24327,
+    "sha256": "747ce2fa11d3228f2c0856b9a853b16eade01170bf788876efc7ad6339243681"
+  },
+  "expected_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20252026/manifest.json",
+    "sha256": null
+  },
+  "required_cutover": "after root accepts the complete final annual and all four prescribed continuations, replace only PENDING_ACCEPTED_REAL_20252026_STATE_SHA256 with its exact accepted manifest digest, refresh identity and commit final bytes before root launch release",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "final_year": "the existing score owner automatically propagates all four saved u/q/r/g variants under the prescribed frozen populations and budgets; no solve, manual probe command, extra propagation flag or changed baseline",
+  "checks": {
+    "shell_syntax": 0,
+    "timed_line_byte_identical_to_reviewed_final_score_book": true,
+    "guarded_paths": 15,
+    "distinct_and_fresh": true,
+    "all_literal_writes_guarded": true,
+    "pending_refusal_before_any_artifact_write": true,
+    "no_census_pause_previous_probe_or_manual_propagation_extras": true,
+    "time_and_exit_preserved": true
+  },
+  "executed": false,
+  "scope": "held ordinary command preparation only; no source game, full strict read, state arrays, numerical command, fit, score, launch, analysis or observer edit"
+}

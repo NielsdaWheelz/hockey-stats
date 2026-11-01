@@ -819,6 +819,49 @@ one bookkeeping gap. the launched script `baee3f36` is not in git. commit `34d37
 
 this proves shared input again, not scored probabilities.
 
+### completed real `20222023` score
+
+verdict: **clear.** score `296ae017` against original `1eb31b8e`, under the revised scope: identity, complete-row maxima, located witnesses and the remainder. no census exists for this year. this review read saved artifacts and receipt `1a9a57e7`. it read no prepared game and ran no source pass, fit, score or strict read. it did not read checker `c2f5ff99` line by line. it reproduced the numbers instead.
+
+identity is exact: 153,348 recognized, 151,540 complete, 1,808 incomplete rows equal whole, no identity field changed. all 73 members rehash. the 24 changed members are events, setters, shares, projections, maps and the 19 populated panels. `event_offsets`, `origin_cells`, `origin_weights` and `setup_weights` are exact in all of them, across 25,277,995 origin rows. the receipt's quantiles reproduce: p50 5.8e-5, p90 1.5e-4, p99 8.8e-4, max 0.0733 at `2022021018:25`.
+
+the reading from [the annual](#completed-real-20222023-annual) held. the same 24 rows lead all four heads, then the distribution breaks. absolute change in actor logit:
+
+| head | rank 24 | rank 25 |
+| --- | --- | --- |
+| `u` | 0.132 | 0.030 |
+| `q` | 0.028 | 0.014 |
+| `r` | 0.038 | 0.006 |
+| `g` | 0.041 | 0.011 |
+
+the 24 fall into three signatures, each computed from saved coefficients:
+
+| signature | rows | predicted `u`, `q`, `r`, `g` |
+| --- | --- | --- |
+| flag swing, new minus old flag | 5 | −.335, −.131, +.046, −.060 |
+| new flag | 12 | −.247, −.062, +.078, +.191 |
+| new flag minus old zone | 6 offensive, 1 neutral | −.189, −.029, +.075, +.203; −.295, −.059, +.069, +.191 |
+
+the 13 non-block rows sit on these. a blocked row's prefix mixes 656 origins, so its 11 were read per origin in the `5v5g1` panel: 1 near −.334, 5 near −.247 and 5 near −.188 in `u`, with under .002 of spread inside a row.
+
+the closure is exact in every head. the 24 rows' inclusion flags give 24, 13, 10 and 9, the age-known start-unknown counts from the annual. the flag-swing group gives 5, 4, 4, 4, the old counts. the other two groups give 12+7, 7+2, 5+1 and 5+0, equal to the receipt by head and by disposition. `2022020672:82` is a miss, so `unresolved_binding` reads 1, 1, 0, 0, as saved.
+
+this is a reading, not a census. `exact_newly_masked_key_stratum_available` stays false: no saved field names these keys, and a signature says which coefficient moved under a row, not why the row was masked. nothing here says any mask is a timing case. five of the 24 are named witnesses.
+
+two rows fall short of their signature: `2022020365:71`, a named `no_same_clock_faceoff` at age 13, at −.297, and `2022020672:82` at −.258 against −.295. both have zero coherent matches. the shortfall matches `unavailable:shooter_prefix_toi_all_seconds/3600`, which moved +.034, +.014, −.006, +.012. rank 25 onward has the same shape, near +.030, +.012, −.005, +.010. so the repair moved a third collinear flag, a tenth as far as the first two. afaict that is the next layer of the tail. no report field marks those rows.
+
+the record cell has the flag-swing signature, so `2022021018:25` is unmasked if the reading is right. the flag moved under it, as year one's record did. the receipt's partition rightly leaves it in the remainder, because it is no located witness. outside the 24 no cell exceeds 0.0074, and 84 rows exceed 0.005. that is a ceiling on saved output, not an error bound.
+
+panel neutral logits move at most .335, .131, .078 and .204. only `5v5g1`, `5v3g1` and `5v4g1` exceed .031 in any column, and those three hold the 24. masking and changed 2021 history stay unseparated, as the receipt says.
+
+propagation stays small. 5v5 finishing has Spearman .999996 and change sd .0010 against .706. top and bottom 20 are identical. the maximum is .0166 at 5v5 and .0345 anywhere, `8477903` at 5v3. the leaders repeat year one's: `8477903` and `8475343`. neither has a row above .002 this year, so their movement is inherited. their `g` shooter coefficients move +.0052 and +.0042, three quarters of year one's +.0069 and +.0056, and 5v5 finishing moves +.0166 against +.0224. `8483460`, with seven attempts and one row in the 24, leads six of the ten scalars, none above .0013. this is thin-support noise, not a defect.
+
+shares: 2,109 recipients, median .0002, maximum .035 at goalie `8478007`. setter posterior moves at most .0066, at `2022020960:148`. goal mass: actor 7,679.201 to 7,679.216, neutral 7,331.665 to 7,331.624, goalie 7,661.525 to 7,661.529.
+
+cost: whole command 18,465 seconds, producer 18,354 against 16,417, design 5,564 against 5,341, projection 11,709 against 10,010, scoring 1,015 against 1,001. peak 20.1 gb against 26.1, footprint 26.7. year one ran faster than its original and this ran 12 percent slower. idk why, and no contract reads it. `git_commit` `499a84e` is `HEAD` at manifest write, the launch was `34d3729`, and both hold analysis tree `c2412ac`. `499a84e` also closes the [launched-script gap](#real-20222023-score-source-parity).
+
+one cheap check for later years, with no source read: take the annual's age-known start-unknown count `k` in `u`, rank the score's rows by `u`, and require the top `k` to lead all four heads, with inclusion counts equal to the other three annual counts. a miss is a concrete finding.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.
@@ -871,4 +914,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-the real `20212022` fit and score and the real `20222023` fit are reviewed here. no later real score or year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+the real `20212022` and `20222023` fits and scores are reviewed here. no later real year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

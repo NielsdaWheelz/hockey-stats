@@ -1,0 +1,51 @@
+{
+  "kind": "replacement-real-score-20242025-source-parity",
+  "status": "passed before numerical scoring; completed saved outputs pending",
+  "recorded_at_utc": "2026-11-01T19:59:53.444675+00:00",
+  "score_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20242025-source-check.json",
+    "sha256": "8075f473baaed3b7204e7e6a530ad399f47e0ae1dbe8897c5363a2033457179a",
+    "bytes": 97113
+  },
+  "fit_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-source-check.json",
+    "sha256": "711c37e1507e5a5a92279f59cc990f6c8b232110ba581e1d2d166eb5d9a74a09"
+  },
+  "fields": {
+    "source_context_sha256": true,
+    "source_response_sha256": true,
+    "source_contexts": true,
+    "dispositions": true,
+    "all_strength_dispositions": true,
+    "eligibility_counts": true,
+    "head_admission": true,
+    "head_populations": true
+  },
+  "source_contexts": 154720,
+  "source_context_sha256": "ab053a16f02a6fb3b533e0f267e0b2bc3519747c1b4112a96c9c845eed0b9fac",
+  "source_response_sha256": "95c17245edf826a6e41fe424c07a0057bc196a95727ccb22008c3eefa04f933b",
+  "eligibility_counts": {
+    "masked_on_the_fly": 6,
+    "masked_faceoff": 4,
+    "unresolved_binding": 3,
+    "admitted_same_clock_faceoff": 11,
+    "withheld_earlier_anchor": 0
+  },
+  "unavailable_by_head": {
+    "u": 10295,
+    "q": 7443,
+    "r": 4899,
+    "g": 3982
+  },
+  "observer_body_seconds": 27.681819219666068,
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "scope": "ordinary source construction only; unresolved binding is a strict subset of faceoff masks; no census/pause/ranking/count gate; saved numerical/accounting/resources remain pending",
+  "all_top_level_differences": [
+    "command",
+    "observer_seconds"
+  ],
+  "limits": [
+    "eleven same-clock admissions rely on earlier saved sortOrder, not independently known physical subsecond order; old/new score differences cannot validate their chronology"
+  ]
+}

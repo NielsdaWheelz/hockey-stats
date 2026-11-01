@@ -1,0 +1,28 @@
+{
+  "kind": "replacement-real-year4-preparation-review",
+  "status": "clear held preparation; no release or invocation",
+  "recorded_at_utc": "2026-11-01T12:04:18.783234+00:00",
+  "fit_command": {
+    "path": "var/v1-08-replacement/real-20242025-execution-command.sh",
+    "sha256": "7c4b42f4955258c31c7ab8c7978762cd20c9326591e6797df61956e62fbfcb86",
+    "author": "source_design",
+    "reviewer": "root",
+    "accepted_previous_sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa",
+    "committed_bytes_equal_worktree": true,
+    "syntax_fixed_book_argv_and_fifteen_guards": "passed",
+    "census_pause_probe": false
+  },
+  "state_checker": {
+    "path": "var/v1-08-replacement/accept_real_execution_20242025.py",
+    "sha256": "c9fa848253125b29ae4736b70dfa7328cb17d2342d03e41d2e065a48f16ca506",
+    "author": "numerical",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "verdict": "raw anchor/age/profile/update and exact numpy center contracts preserved; only actual one/two/three-year carry witnesses reported; original non-start population checked",
+    "actual_state_and_source_pins": "required and unknown",
+    "invocations": 0
+  },
+  "scope": "third score remains sole heavy command; analysis source frozen; fourth fit held until accepted third score and root release; no source/state/array read or numerical action"
+}

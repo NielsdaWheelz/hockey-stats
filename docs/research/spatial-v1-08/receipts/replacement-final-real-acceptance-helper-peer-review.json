@@ -1,0 +1,40 @@
+{
+  "kind": "replacement-final-real-acceptance-helper-peer-review",
+  "recorded_at_utc": "2026-11-01T18:42:04.070941+00:00",
+  "status": "clear; preparation only",
+  "checkers": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
+      "sha256": "462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02",
+      "reviewers": [
+        "product",
+        "root"
+      ],
+      "status": "clear; held, main unrun"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20252026.py",
+      "sha256": "c12e0b8d1b191b16868482a880d4e81f72159153785bc4a7bd4819b8eedc25b0",
+      "reviewers": [
+        "numerical",
+        "root"
+      ],
+      "status": "clear; held, main unrun"
+    }
+  ],
+  "contracts": [
+    "one final state strict read including all probe arrays; JSON-only additional reporting",
+    "one final score strict read; no second state/probe reader or coefficient load",
+    "annual event selector and score focal selector remain distinct",
+    "required passed annual probes keep production coverage/probability contract; duplicate coverage assertion removed",
+    "all32 score panel baseline sums and signed saved delta arithmetic, selected pair maxima and existing budgets",
+    "predictor-dependent saved maxima and variant summaries are explicitly labeled; no seasonwide actor per-event or all-player bound"
+  ],
+  "originals": {
+    "fit_sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be",
+    "score_sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+    "score_campaign": "accepted current-04, never unaccepted current-03 final partial"
+  },
+  "access": "source/contracts and existing focused control receipts; no additional control rerun, real artifact read, strict read, source pass, fit or score",
+  "next": "root binds actual completed artifact hashes and releases each saved check once; all analysis source remains frozen during execution"
+}

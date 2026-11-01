@@ -1,0 +1,448 @@
+{
+  "kind": "replacement-real-execution-20242025-completion",
+  "status": "accepted by root after saved-state and independent annual review",
+  "recorded_at_utc": "2026-11-01T18:23:31.292428+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+    "bytes": 362029,
+    "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+    "bytes": 362029,
+    "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa"
+  },
+  "original_comparison": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20242025/manifest.json",
+    "bytes": 361262,
+    "sha256": "acc9b6969f479cd0a61b6cfd389572905c2b36dffcea12b148fde1c9c0b2ae77"
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "launch": {
+    "head": "e4b150149296764e6fc6ca7ef96341800526227f",
+    "producer_head": "88e76b8a7b34e13775a2e992d9fbea638ae78537",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "start": "2026-11-01T15:32:39Z",
+    "finish": "2026-11-01T18:16:14Z",
+    "exit": 0,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025.log",
+      "bytes": 894,
+      "sha256": "49ce70c02b70a6bc333e213deb9af6ef87891117f82f184d97d94f31ad74bf46"
+    }
+  },
+  "saved_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-saved-acceptance.json",
+    "sha256": "145a0f2b9ed244971113d25aeccc6a4c1494a764ff0e5d20b92d9a3cc2537e4b",
+    "bytes": 38907,
+    "status": "all four heads passed",
+    "checker_sha256": "c9fa848253125b29ae4736b70dfa7328cb17d2342d03e41d2e065a48f16ca506",
+    "invocations": 1,
+    "whole_checker_seconds": 32.28,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-saved-acceptance.log",
+      "sha256": "675bc0bb39d575babced8fed722f4b31164db015340f20607420e80262d19cd7",
+      "bytes": 2728
+    },
+    "peak_rss_bytes": 1474428928,
+    "peak_footprint_bytes": 1453131288
+  },
+  "strict_read": {
+    "invocations_here": 1,
+    "status": "passed",
+    "wall_seconds": 29.555758459027857,
+    "upstream_source_reads": 0
+  },
+  "source": {
+    "report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-source-check.json",
+      "bytes": 97149,
+      "sha256": "711c37e1507e5a5a92279f59cc990f6c8b232110ba581e1d2d166eb5d9a74a09"
+    },
+    "source_contexts": 154720,
+    "known_expected": 0,
+    "known_checked": 0,
+    "dispositions": {
+      "eligible:faceoff": 57990,
+      "eligible:on_the_fly": 86435,
+      "unavailable:None": 8461,
+      "unavailable:faceoff": 4,
+      "unavailable:no_same_clock_faceoff": 11,
+      "unavailable:on_the_fly": 6,
+      "unavailable:unknown": 1813
+    },
+    "eligibility_counts": {
+      "masked_on_the_fly": 6,
+      "masked_faceoff": 4,
+      "unresolved_binding": 3,
+      "admitted_same_clock_faceoff": 11,
+      "withheld_earlier_anchor": 0
+    },
+    "source_context_sha256": "ab053a16f02a6fb3b533e0f267e0b2bc3519747c1b4112a96c9c845eed0b9fac",
+    "source_response_sha256": "95c17245edf826a6e41fe424c07a0057bc196a95727ccb22008c3eefa04f933b",
+    "observer_seconds": 28.203056513040792,
+    "observer_scope": "observe body only, not total wrapper overhead"
+  },
+  "heads": {
+    "u": {
+      "status": "complete",
+      "counts": {
+        "entry": 217,
+        "prior_only": 101,
+        "carry": 878,
+        "supported_current": 994,
+        "incoming_absent_current": 478,
+        "preserved_incoming_ledger": 492,
+        "ledger_rows": 1486
+      },
+      "transition_reasons": {
+        "entry": 217,
+        "age_carry": 817,
+        "missing_or_changed_role": 1,
+        "age_neutral": 60
+      },
+      "observed_carry_year_gaps": {
+        "1": 839,
+        "2": 28,
+        "3": 11
+      },
+      "physical_attempts": 154720,
+      "positive": 111130,
+      "unavailable_start_attempts": 10295,
+      "original_unavailable_start_attempts": 10285,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "selected_start": "prior_mean",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 73502.67217920152,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 73502.67217919322,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        }
+      ],
+      "objective": 73502.67217919322,
+      "raw_gradient_max": 0.004803945723142368,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "native_solves": 2,
+      "centers": {
+        "shooter": -0.07423747452277177,
+        "goalie": 0.0,
+        "setter": 0.0,
+        "attacking_coach": 0.0032431352926441523,
+        "defending_coach": -0.006361497539183211
+      }
+    },
+    "q": {
+      "status": "complete",
+      "counts": {
+        "entry": 239,
+        "prior_only": 120,
+        "carry": 959,
+        "supported_current": 1078,
+        "incoming_absent_current": 531,
+        "preserved_incoming_ledger": 554,
+        "ledger_rows": 1632
+      },
+      "transition_reasons": {
+        "entry": 239,
+        "age_carry": 898,
+        "missing_or_changed_role": 1,
+        "age_neutral": 60
+      },
+      "observed_carry_year_gaps": {
+        "1": 916,
+        "2": 33,
+        "3": 10
+      },
+      "physical_attempts": 111130,
+      "positive": 73539,
+      "unavailable_start_attempts": 7443,
+      "original_unavailable_start_attempts": 7436,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "selected_start": "zero",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 68006.65005459517,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 68006.65005460368,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        }
+      ],
+      "objective": 68006.65005459517,
+      "raw_gradient_max": 0.0023241726331830028,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "native_solves": 2,
+      "centers": {
+        "shooter": 0.03252246625502615,
+        "goalie": 0.0029891588089255468,
+        "setter": 0.0,
+        "attacking_coach": -0.001882849547659568,
+        "defending_coach": -0.004744249698392391
+      }
+    },
+    "r": {
+      "status": "complete",
+      "counts": {
+        "entry": 244,
+        "prior_only": 127,
+        "carry": 954,
+        "supported_current": 1071,
+        "incoming_absent_current": 524,
+        "preserved_incoming_ledger": 550,
+        "ledger_rows": 1621
+      },
+      "transition_reasons": {
+        "entry": 244,
+        "age_carry": 893,
+        "missing_or_changed_role": 1,
+        "age_neutral": 60
+      },
+      "observed_carry_year_gaps": {
+        "1": 911,
+        "2": 30,
+        "3": 13
+      },
+      "physical_attempts": 73539,
+      "positive": 59504,
+      "unavailable_start_attempts": 4899,
+      "original_unavailable_start_attempts": 4894,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "selected_start": "prior_mean",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 33946.815107000104,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 33946.81510697072,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "native_solves": 1
+        }
+      ],
+      "objective": 33946.81510697072,
+      "raw_gradient_max": 0.012788505645137067,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "native_solves": 2,
+      "centers": {
+        "shooter": 0.010933620926437704,
+        "goalie": -0.011856537848893147,
+        "setter": 0.0,
+        "attacking_coach": 0.001242439837428798,
+        "defending_coach": 0.0037162346500125482
+      }
+    },
+    "g": {
+      "status": "complete",
+      "counts": {
+        "entry": 355,
+        "prior_only": 134,
+        "carry": 1763,
+        "supported_current": 1984,
+        "incoming_absent_current": 958,
+        "preserved_incoming_ledger": 987,
+        "ledger_rows": 2971
+      },
+      "transition_reasons": {
+        "entry": 355,
+        "age_carry": 1701,
+        "missing_or_changed_role": 2,
+        "age_neutral": 60
+      },
+      "observed_carry_year_gaps": {
+        "1": 1689,
+        "2": 55,
+        "3": 19
+      },
+      "physical_attempts": 59504,
+      "positive": 7349,
+      "unavailable_start_attempts": 3982,
+      "original_unavailable_start_attempts": 3977,
+      "changed_feature_support": [
+        "shooter_start_zone:offensive",
+        "shooter_start_zone:neutral",
+        "shooter_start_zone:defensive"
+      ],
+      "selected_start": "zero",
+      "starts": [
+        {
+          "name": "zero",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 33187.499842194164,
+          "termination": "setter em objective and responsibility tolerances satisfied",
+          "native_solves": 8
+        },
+        {
+          "name": "prior_mean",
+          "deduplicated_to": null,
+          "converged": true,
+          "objective": 33187.49984219518,
+          "termination": "setter em objective and responsibility tolerances satisfied",
+          "native_solves": 8
+        }
+      ],
+      "objective": 33187.499842194164,
+      "raw_gradient_max": 0.0005505205313189876,
+      "termination": "setter em objective and responsibility tolerances satisfied",
+      "native_solves": 16,
+      "centers": {
+        "shooter": 0.054280814350720685,
+        "goalie": -0.06458166943775391,
+        "setter": 0.098758776381152,
+        "attacking_coach": 0.00637684958844824,
+        "defending_coach": 0.00029588718528483136
+      }
+    }
+  },
+  "coverage": {
+    "original_core_exact": true,
+    "optional_start_support_matches_actual_head_metadata": true,
+    "recognized": 156622,
+    "games": 1312
+  },
+  "resources": {
+    "whole_command_wall_seconds": 9814.87,
+    "user_seconds": 9229.55,
+    "system_seconds": 73.56,
+    "maximum_resident_bytes": 20245168128,
+    "peak_memory_footprint_bytes": 20466925072,
+    "producer": {
+      "wall_seconds": 9755.491973416996,
+      "peak_memory_bytes": 20245168128,
+      "design_wall_seconds": 5618.202696666995,
+      "input_read_wall_seconds": 0.8371518339845352,
+      "fit_wall_seconds": 4136.452124916017,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 213567267,
+      "origin_rows": {
+        "u": 28706170,
+        "q": 111130,
+        "r": 73539,
+        "g": 59504
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 540543
+      },
+      "resolution_solve_counts": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 0
+      },
+      "dimensions": {
+        "u": 3405,
+        "q": 3534,
+        "r": 3534,
+        "g": 4461
+      },
+      "solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 16
+      }
+    },
+    "producer_wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "member_bytes": 213567267,
+    "complete_bytes": 213929296,
+    "checker_wall_seconds": 32.05439679202391,
+    "checker_peak_rss_bytes": 1474428928
+  },
+  "history": {
+    "anchors": "all current priors bind accepted replacement year 3 raw last-supported ledger, including retained 2021/2022 anchors",
+    "all_entry_carry_role_age_conditional_means_and_raw_updates_checked": true,
+    "prior_only_and_absent_actors_do_not_advance_history": true,
+    "observed_gaps": "one, two and three years in every head; literal witnesses remain in saved acceptance",
+    "centers": "all saved centers reproduced exactly with production numpy-scalar multiplication/accumulation; no tolerance relaxation",
+    "actor_rows_across_heads": {
+      "carried": 4554,
+      "fresh_supported_updates": 5127,
+      "preserved_incoming_rows": 2583,
+      "outgoing_ledger_rows": 7710
+    }
+  },
+  "original_comparison_scope": {
+    "nonstart_design_actors_origin_target_and_coverage_core_exact": true,
+    "only_three_start_support_records_and_declared_transform_text_change": true,
+    "unavailable_rises_by_head": {
+      "u": 10,
+      "q": 7,
+      "r": 5,
+      "g": 5
+    },
+    "independent_nonzero_rises_by_head": {
+      "u": 1316,
+      "q": 4,
+      "r": 2,
+      "g": 2
+    },
+    "source_and_label_population_unchanged": true,
+    "original_state_used_as_prior": false
+  },
+  "reviews": {
+    "checker_author": "numerical",
+    "checker_reviewers": [
+      "product",
+      "root"
+    ],
+    "independent_annual": "reviews/independent-review.md#completed-real-20242025-annual",
+    "verdict": "clear; root accepted after user independent review"
+  },
+  "limits": [
+    "native ftol/EM completion records raw gradients; no gtol-only gate or distance-to-optimum claim",
+    "the 11 admitted same-clock faceoffs rely on earlier saved feed sortOrder; the observer checks coherent binding/order and encoding, not independently known physical subsecond order. their keys are not retained among named first witnesses, and an old/new score diff cannot determine their physical order",
+    "eligibility counters overlap; unresolved3 is a subset of faceoff4; not every mask is a timing case",
+    "saved metadata comparison does not independently replay every raw source feature; earlier source-regime changes remain unexplained",
+    "raw flag/age collinearity and numerical completion do not establish calibrated or causal ability effects",
+    "no year 4 continuation or score propagation applies; final execution heads/probes, real spatial work and full delivery remain assigned"
+  ],
+  "access": "completion reads only the existing saved-acceptance json/log/status and repository metadata/review; no new strict read, source/game/array pass, fit, score, production or observer edit",
+  "next": "root owns plan/verification and ordinary score release; final checker scope to be agreed before substantial code; no activation or scientific admission"
+}

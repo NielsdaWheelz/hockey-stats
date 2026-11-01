@@ -860,7 +860,7 @@ shares: 2,109 recipients, median .0002, maximum .035 at goalie `8478007`. setter
 
 cost: whole command 18,465 seconds, producer 18,354 against 16,417, design 5,564 against 5,341, projection 11,709 against 10,010, scoring 1,015 against 1,001. peak 20.1 gb against 26.1, footprint 26.7. year one ran faster than its original and this ran 12 percent slower. idk why, and no contract reads it. `git_commit` `499a84e` is `HEAD` at manifest write, the launch was `34d3729`, and both hold analysis tree `c2412ac`. `499a84e` also closes the [launched-script gap](#real-20222023-score-source-parity).
 
-one cheap check for later years, with no source read: take the annual's age-known start-unknown count `k` in `u`, rank the score's rows by `u`, and require the top `k` to lead all four heads, with inclusion counts equal to the other three annual counts. a miss is a concrete finding.
+one cheap diagnostic for later years, with no source read: take the annual's age-known start-unknown count `k` in `u`, rank the score's rows by `u`, and compare the top `k` across heads and against the other three annual counts. a miss is a question, not a defect, because other feature or history changes can outrank the flags without error. it is no acceptance contract and adds no ranking gate.
 
 ### replacement disposable rollback
 

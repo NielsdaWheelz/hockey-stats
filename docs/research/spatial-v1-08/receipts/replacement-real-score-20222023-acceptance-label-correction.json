@@ -1,0 +1,35 @@
+{
+  "kind": "replacement-year2-score-acceptance-label-correction",
+  "status": "corrected before invocation; held pending completed artifacts and root release",
+  "recorded_at_utc": "2026-11-01T01:24:24.906940+00:00",
+  "supersedes_checker_only": {
+    "preparation": "replacement-real-score-20222023-acceptance-preparation.json",
+    "sha256": "72bd13a40ee83b269a5479ee8ccd5e8110482d530571eb850c5e992ce99089b7"
+  },
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20222023.py",
+    "sha256": "c2f5ff997f6ee215f5edc388759ffad3695647e16985e8f40e8be648123dd55f",
+    "bytes": 27528
+  },
+  "review_finding": "standardized scalar changes count one available player-strength pair per field; shared event summary labels described the wrong population",
+  "correction": {
+    "owner": "standardized_scalar_movement",
+    "renamed_fields": {
+      "events": "available_projection_pairs",
+      "event_maximum_absolute_quantiles": "scalar_absolute_change_quantiles"
+    },
+    "event_summary_labels_unchanged": true,
+    "numerical_values_and_comparisons_unchanged": true
+  },
+  "validation": {
+    "python_ast": "passed",
+    "main_invocations": 0,
+    "artifact_reads": 0,
+    "source_passes": 0,
+    "production_edits": 0,
+    "observer_edits": 0
+  },
+  "command": "unchanged from original preparation; actual score, accepted state and score-source digests still required",
+  "limits": "original preparation and first-year evidence remain historical; no numerical rerun or new claim follows this receipt-label correction",
+  "next": "root/product review the corrected helper hash before any invocation"
+}

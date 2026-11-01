@@ -809,6 +809,16 @@ cost: whole command 9,151 seconds, producer 9,090 against 9,594, design 5,673 ag
 
 no row-level change is measured for this year, and no census names a row. one falsifiable reading for the score: if year one's pattern holds, the same 24 rows lead all four heads, then the distribution breaks.
 
+### real `20222023` score source parity
+
+verdict: **clear.** score report `b80843a7` against fit report `b20a9f2e`, while the score still runs. this review read the two reports and the launch, release and parity receipts. it read no prepared game, no score output and no partial array, and ran no source pass.
+
+every top-level field is equal except `command` and `observer_seconds`, as in year one. that covers root's eight, and also `first_witnesses`, `known_witnesses` and the head key digests. the context and response digests `fa30119d` and `fd0fa7ef` reproduce, so fit and score saw the same 151,540 contexts in the same order. the command is the plain score tail on state `eb52909e`, and the launch pins match.
+
+one bookkeeping gap. the launched script `baee3f36` is not in git. commit `34d3729` holds the pending-digest copy `f71d5b11`, and the launched bytes exist only as an uncommitted worktree change. year one's bound script was committed. nothing about this run depends on it: the receipts pin the hash, and the one changed line is the state digest. the worktree copy still hashes `baee3f36`, so commit it before it is edited or lost.
+
+this proves shared input again, not scored probabilities.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

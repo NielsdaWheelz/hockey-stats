@@ -1,6 +1,6 @@
 cd /Users/nnandal/Documents/code/hockey-stats-v1-08 || exit 1
 # held preparation; replace the pending state digest only after root accepts the annual.
-score_state_sha256=PENDING_ACCEPTED_REAL_20222023_STATE_SHA256
+score_state_sha256=eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c
 if [ "${#score_state_sha256}" -ne 64 ]; then
   printf '%s\n' 'accepted 20222023 state digest pending; command not launched' >&2
   exit 1

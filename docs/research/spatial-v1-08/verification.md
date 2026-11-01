@@ -245,3 +245,5 @@ whole command cost is 9,150.92 seconds, peak rss 17,682,644,992 bytes, separatel
 ## second real score source parity — 2026-11-01
 
 [source report `b80843a7`](receipts/replacement-real-score-20222023-source-parity.json) matches fit `b20a9f2e` in all eight context, response, availability and head-population fields. the two required digests remain `fa30119d` and `fd0fa7ef`; unavailable head counts remain 2,362/1,786/1,278/938. scoring continues from launch `34d3729` under frozen analysis `c2412ac` and observer `286b34dd`. the completed score, saved accounting, resources and independent acceptance remain pending.
+
+the independent parity review catches a command-recording gap: launch `34d3729` contained the held pending-digest script `f71d5b11`, while the executed worktree bytes were `baee3f36`, pinned in the launch/release receipts. the only change is the accepted `eb52909e` state digest. root commits those exact executed bytes after launch with this annotation; the original launch head remains unchanged in the evidence. production analysis, observer, command execution and numerical outputs are unaffected.

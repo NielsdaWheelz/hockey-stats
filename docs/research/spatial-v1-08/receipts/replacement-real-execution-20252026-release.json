@@ -1,0 +1,49 @@
+{
+  "kind": "replacement-real-execution-20252026-root-release",
+  "status": "released by root; launch follows receipt",
+  "recorded_at_utc": "2026-11-01T23:43:19.885907+00:00",
+  "season": "20252026",
+  "purpose": "real",
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "previous": {
+    "season": "20242025",
+    "manifest_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "status": "accepted raw four-head annual; sole history input"
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-execution-command.sh",
+    "sha256": "d5cb26f54b0431ab222624b53b7a7a9607f35b78cecf0bc7c62a3b58622c264b",
+    "bytes_equal_committed_blob": true,
+    "syntax_and_argv": "root and source_design clear",
+    "guarded_paths": 15,
+    "census": false,
+    "pause": false,
+    "probe": true,
+    "committed_before_launch": "6923f79",
+    "final_head_continuations": 4,
+    "extra_probe_commands": 0
+  },
+  "state_checker": {
+    "sha256": "462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "current_state_and_source_digests": "required after final completion; unset now",
+    "invocations": 0
+  },
+  "source_check_policy": "read saved counters while solving continues; no new threshold/census/pause/ranking gate",
+  "execution_policy": "one heavy ordinary fit under native command-bound idle-sleep prevention; all analysis source untouched until exit",
+  "scope": "original fits/scores/raw/live preserved; no score-to-fit inheritance, activation, scientific admission or cleanup",
+  "accepted_fourth_score": {
+    "manifest_sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+    "saved_check_sha256": "e686a7e03554ccf0ca1cdeb94f94ac651d92821a4b94543544d93a4690ab7552",
+    "completion_receipt_sha256": "a4966fb6e34f1fb37d74c3901b41202e45991943c08c7b562eeab63331c1cc6f",
+    "root_verdict": "accepted after strict accounting, source/binding and independent saved-content review",
+    "review_record": "docs/research/spatial-v1-08/reviews/independent-review.md#completed-real-20242025-score",
+    "usage": "completed downstream evidence; not an input to final execution fit"
+  },
+  "final_resolution": "four prescribed head continuations in the ordinary fit owner, unchanged stopping/probability budget; require passed saved baselines/selectors/comparisons, no retry or threshold change"
+}

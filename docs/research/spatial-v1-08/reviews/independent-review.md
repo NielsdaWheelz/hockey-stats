@@ -766,6 +766,20 @@ cost: command 15,653 seconds. producer 15,577 against 18,114, design 4,426 again
 
 limits: one year. movement is recipe sensitivity, not error or quality. no propagation applies here, and later years inherit the changed history.
 
+### real `20222023` source report
+
+verdict: **clear.** report `b20a9f2e`, 92,858 bytes, read with the `20212022` report for comparison and nothing else. it read no game, no original metadata and no partial state, and it touched nothing running.
+
+the counts close. seven dispositions partition 151,540 contexts. strength cells sum to them in every head. the chain holds: 151,540, 113,179, 81,400, 62,077, and each head totals 153,348 recognized attempts. `--previous` is the accepted replacement state. recipe `47691110`, observer `286b34dd`, and `a4f2301` holds tree `c2412ac`.
+
+all 61 first witnesses obey the contract. available on-the-fly rows have zero contrasts and a start strictly before focal. available faceoff rows have the one-hot zone, a coherent match and an earlier anchor. no witness shows an admitted same-clock faceoff. unavailable rows carry the flag and null contrasts. witnesses are firsts per cell, so this is a sample.
+
+masks fall from 64 to 19 of about the same population, and they are 12 on-the-fly plus 7 faceoff. the located shapes repeat year one: `2022020139:176` and `2022020960:148` start at focal, and `2022020032:28` has its anchor at 30 after focal 28. the other 15 are unlocated. this report cannot say whether all 19 are timing. the start-absent classes, `None` and `unknown`, also fall, from 5,847 to 2,342. idk why, and this report cannot say.
+
+the lone `unresolved_binding`, `2022020672:82`, has kind faceoff, neutral zone, start 885, focal 945, age 60, zero coherent matches and no anchor, the shape of `2021020674:269`. it sits at 5,3,1, so the 6,5,0 clustering in [the year one report](#real-20212022-source-report) does not recur. it is unsized against the loose 1,397 bound, and no threshold applies.
+
+pins for the completed state: `unavailable_attempts` 2,362, 1,786, 1,278 and 938, `available_weight` 149,178, 111,393, 80,122 and 61,139, and positives 113,179, 81,400, 62,077 and 7,778. if unavailability rises only by masks, the rises over the original are 19, 9, 6 and 5. this review has not checked that. the score must reproduce `fa30119d` and `fd0fa7ef`. the flag's separate estimate gets thinner this year: only 5 masks reach `g`, against 27. i forecast no size, having been wrong once.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

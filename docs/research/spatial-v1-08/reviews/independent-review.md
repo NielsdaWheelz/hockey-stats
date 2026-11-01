@@ -1002,6 +1002,39 @@ this also tightens the [third-score reading](#completed-real-20232024-score). `u
 
 what the annual should show, as description with no gate: age-known start-unknown should rise by 10, 7, 5 and 5, the on-the-fly and faceoff masks by head. i forecast no flag values.
 
+### completed real `20242025` annual
+
+verdict: **clear.** manifest `1ba2c8af` against original `acc9b696`. this review read saved head metadata, coefficients, coverage and both year-three ledgers, with receipt `145a0f2b`. it ran no source pass, fit, score or strict read. it read checker `c9fa8482` only as a diff against year three's: pins, paths, labels and one widened carry gap. its head counts and coverage result match this review's. all 9 members rehash to the manifest.
+
+every pin holds. `unavailable_attempts` are 10,295, 7,443, 4,899 and 3,982 against 10,285, 7,436, 4,894 and 3,977, so the rises are 10, 7, 5 and 5, the report's masks in each head and the forecast. no net start support moved beyond them, so the eleven admissions left the available count alone, as the rule requires. nonzeros rise 4, 2 and 2 in `q`, `r` and `g`, and 1,316 in `u`, which is two blocked on-the-fly masks at 656 cells plus the other four. actors, origin, target, columns, means, active flags and prior structure are equal. each design differs only in six start-support leaves and the `shift_start` text. coverage differs in 24 leaves, all of them start support.
+
+the carry binds the replacement. `previous` is `dd8b638d`. every `last_supported` in all four heads equals the accepted year-three ledger, and all 4,554 carried rows differ from the original. the outgoing ledger closes at 7,710 rows: 5,127 fresh rows hold the new coefficient and season, and 2,583 preserved rows equal the incoming ledger. production's center expression reproduces all saved centers exactly.
+
+| head | objective | start flag | age flag | pair sum | age-known, start-unknown rows |
+| --- | --- | --- | --- | --- | --- |
+| `u` | 73,502.819 to 73,502.672 | +0.135 to +0.201 | -0.230 to -0.292 | -0.095 to -0.091 | 14 to 24 |
+| `q` | 68,006.745 to 68,006.650 | +0.189 to +0.223 | -0.234 to -0.265 | -0.045 to -0.042 | 13 to 20 |
+| `r` | 33,946.918 to 33,946.815 | +0.133 to +0.190 | -0.032 to -0.081 | +0.101 to +0.109 | 11 to 16 |
+| `g` | 33,187.515 to 33,187.500 | +0.109 to +0.117 | +0.122 to +0.117 | +0.232 to +0.234 | 10 to 15 |
+
+this is the same rotation. with `shooter_prefix_toi`, which moves −.0036, −.0029, −.0063 and −.0019, the three flags net +.0010, +.0003, +.0015 and +.0002. the rest of the flag block moves at most .0033, non-flag coefficients at most .0055, at `q`'s `shooter:8481491`, start contrasts at most .0013, and the median at most 1.4e-5.
+
+the flag history gains a row, new then old, in `u`, `q`, `r`, `g`:
+
+| year | new | old |
+| --- | --- | --- |
+| `20242025` | +.201, +.223, +.190, +.117 | +.135, +.189, +.133, +.109 |
+
+all eight are positive, the first such year. it is no finding. 24 rows in `u` give a standard error near .45 by the same rough rule, so the year's largest swing, .067, sits inside a sixth of one. year three's warning stands.
+
+history keeps decaying. `g` coefficient change by year: `8477903` .0069, .0052, .0039, .0031, and `8475343` .0056, .0042, .0032, .0024. the fall stays near a quarter, and afaict the carry still explains it.
+
+the solves look ordinary. all heads converged on the same terminations, the starts agree within 3e-8 of objective, and `selected_start` flips only in `g`, by 1e-9. `g` took 8 em iterations in both starts, the 16 of root's 2, 2, 2, 16. all resolution counts are zero, as in every year. `r` `gradient_max` rises tenfold to .0128. that is one more ftol stopping point: the other starts in `r` and `q` reached .0117 and .0122 in year two, and `q` reached .0161 in year three. no gate reads it. objectives aren't comparable across fits, because the priors moved.
+
+cost: whole command 9,815 seconds, producer 9,755 against 10,551, design 5,618 against 5,954, fit 4,136 against 4,595, of which `u` 3,544 against 4,065. peak 20.2 gb against 21.6, down 6 percent. the peak changes now read +9, −9, +23 and −6, so year three's rise did not persist, and i still can't say what drove it. `git_commit` `88e76b8` is `HEAD` at manifest write, the launch was `e4b1501`, both hold tree `c2412ac`, and the observer did not change between them.
+
+what the score should show, as description, with no gate. on-the-fly masks move +.201, +.223, +.190, +.117. faceoff masks move new flag minus old zone: +.212, +.178, +.276, +.148 offensive, +.194, +.202, +.202, +.117 neutral, and +.221, +.263, +.212, +.070 defensive. old rows swing +.067, +.035, +.057, +.007, and rows carrying the prefix-toi flag add that flag's move. so this year reverses year three. at those swings old rows should stop near .02, while masks should reach about .07, so anything above .05 should be a mask. the leading group should be 24 rows, 10 masks and 14 old, falling 24, 20, 16, 15 by head, though `g` may not separate at an old swing of .007. identity should be 156,622 recognized, 154,720 complete and 1,902 excluded. the eleven admitted rows stay invisible to this diff.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.
@@ -1054,4 +1087,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-the real `20212022`, `20222023` and `20232024` fits and scores are reviewed here. no later real year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+the real `20212022`, `20222023` and `20232024` fits and scores, and the real `20242025` fit, are reviewed here. no later real score or year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

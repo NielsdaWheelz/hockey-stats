@@ -1035,6 +1035,14 @@ cost: whole command 9,815 seconds, producer 9,755 against 10,551, design 5,618 a
 
 what the score should show, as description, with no gate. on-the-fly masks move +.201, +.223, +.190, +.117. faceoff masks move new flag minus old zone: +.212, +.178, +.276, +.148 offensive, +.194, +.202, +.202, +.117 neutral, and +.221, +.263, +.212, +.070 defensive. old rows swing +.067, +.035, +.057, +.007, and rows carrying the prefix-toi flag add that flag's move. so this year reverses year three. at those swings old rows should stop near .02, while masks should reach about .07, so anything above .05 should be a mask. the leading group should be 24 rows, 10 masks and 14 old, falling 24, 20, 16, 15 by head, though `g` may not separate at an old swing of .007. identity should be 156,622 recognized, 154,720 complete and 1,902 excluded. the eleven admitted rows stay invisible to this diff.
 
+### real `20242025` score source parity
+
+verdict: **clear.** score report `8075f473` against fit report `711c37e1`, while the score still runs. this review read the two reports, the launch and parity receipts, the launch pin files and the command script. it read no prepared game, no score output and no partial array, and ran no source pass.
+
+every top-level field is equal except `command` and `observer_seconds`, as in the first three years. that covers root's eight, and also `first_witnesses`, `known_witnesses` and the four head key digests. the digests `ab053a16` and `95c17245` reproduce, so fit and score saw the same 154,720 contexts in the same order. the eleven admissions carry over unchanged, and their saved-order assumption with them. the command is the plain score tail. the state digest comes from the launch pin, which reads `1ba2c8af`. script `add57b9b` differs from held `a340dc8` only in the pending state literal, committed in `c15db5a` before launch. commits since launch `b025d69` add later-year preparation and records. none touches `analysis` or the observer, and the tree is still `c2412ac`.
+
+this proves shared input again, not scored probabilities.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

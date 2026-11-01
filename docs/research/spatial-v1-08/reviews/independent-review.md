@@ -886,6 +886,43 @@ the start-absent classes, `None` and `unknown`, rise from 2,342 to 9,826, 6.2 pe
 
 pins for the completed state: unavailable 9,866, 7,056, 4,927 and 3,981, available 148,330, 106,722, 73,882 and 59,860, and positives 113,778, 78,809, 63,841 and 7,607. if unavailability rises only by masks, the rises over the original are 26, 19, 9 and 6, and nonzeros rise by 4, 2 and 2 in `q`, `r` and `g`, and by 1,972 in `u`, which is 4 + 3 × 656. the score must reproduce `3ecbbdab` and `15c393bc`.
 
+### completed real `20232024` annual
+
+verdict: **clear.** manifest `dd8b638d` against original `59fb55be`. this review read saved head metadata, coefficients, coverage and both year-two ledgers, with receipt `e4b2c188`. it ran no source pass, fit, score or strict read. it did not read checker `5d713801` line by line. its head counts and coverage result match this review's. all 9 members rehash to the manifest.
+
+every pin holds. `unavailable_attempts` are 9,866, 7,056, 4,927 and 3,981 against 9,840, 7,037, 4,918 and 3,975, so the rises are 26, 19, 9 and 6, the report's masks in each head. the start-absent classes therefore predate the repair. nonzeros rise 4, 2 and 2 in `q`, `r` and `g`, and 1,972 in `u`, exactly as forecast. actors, origin, target, columns, means, active flags and prior structure are equal. each design differs only in six start-support leaves and the `shift_start` text. coverage differs in 24 leaves, all of them start support.
+
+the carry binds the replacement. `previous` is `eb52909e`. every `last_supported` in all four heads equals the accepted year-two ledger, and all 4,549 carried rows differ from the original. the outgoing ledger closes: 5,132 fresh rows hold the new coefficient and season, and 1,913 preserved rows equal the incoming ledger. production's center expression reproduces all saved centers exactly.
+
+the pair behaved differently this year. the large move is in `q`, not `u`:
+
+| head | objective | start flag | age flag | pair sum | age-known, start-unknown rows |
+| --- | --- | --- | --- | --- | --- |
+| `u` | 75,058.020 to 75,058.100 | +0.107 to +0.089 | -0.069 to -0.051 | +0.038 to +0.038 | 15 to 41 |
+| `q` | 67,464.820 to 67,465.594 | +0.366 to +0.025 | -0.203 to +0.121 | +0.163 to +0.147 | 12 to 31 |
+| `r` | 36,562.144 to 36,562.116 | +0.023 to -0.068 | +0.153 to +0.235 | +0.176 to +0.167 | 11 to 20 |
+| `g` | 34,415.858 to 34,416.034 | +0.307 to +0.240 | +0.213 to +0.273 | +0.520 to +0.513 | 8 to 14 |
+
+`u` had 15 such rows before the repair, against 5 in year two, so 26 more barely moved it. the rest of the flag block moves at most .0152, at `q`'s `shooter_prefix_toi`, non-flag coefficients at most .0048, start contrasts at most .0013, and the median at most 2e-5.
+
+three years now show the size of this flag. new and old values in `u`, `q`, `r`, `g`:
+
+| year | new | old |
+| --- | --- | --- |
+| `20212022` | −.280, +.048, +.142, −.144 | −.060, −.074, +.056, +.212 |
+| `20222023` | −.247, −.062, +.078, +.191 | +.088, +.068, +.032, +.251 |
+| `20232024` | +.089, +.025, −.068, +.240 | +.107, +.366, +.023, +.307 |
+
+the repair's flag has changed sign in all four heads, and the old one in two. that is no case against the repair. the flag rests on tens of rows. by the rough rule 1/√(npq), 31 rows in `q` give a standard error near .44, and 12 rows near .63, so +.366 and +.025 are the same number. year two's warning stands harder: this coefficient is not an effect, and a move of .34 here is not news.
+
+history keeps decaying. `g` coefficient change by year: `8477903` .0069, .0052, .0039, and `8475343` .0056, .0042, .0032. both fall by a quarter each year. afaict that is the carry, and no new row is needed to explain it.
+
+the solves look ordinary. all heads converged on the same terminations and the two starts agree. `selected_start` flips in `u` and `g`, by 5e-8 and 2e-10 of objective. `g` took 9 and 8 em iterations in both fits, the 17 of root's 2, 2, 2, 17. `q` `gradient_max` rises to .0161, the largest so far, and no gate reads it. objectives aren't comparable across fits, because the priors moved.
+
+cost: whole command 10,098 seconds, producer 10,042 against 17,741, design 5,749 against 7,287, fit 4,292 against 10,454, of which `u` 3,666 against 9,111. peak 22.0 gb against 17.9, up 23 percent, after +9 and −9 percent in the first two years. idk why. `git_commit` `0c95e40` is `HEAD` at manifest write, the launch was `30087c8`, and both hold tree `c2412ac`.
+
+what the score should show, as description, with no gate. on-the-fly masks move +.089, +.025, −.068, +.240. faceoff masks move new flag minus old zone: +.146, +.022, −.071, +.266 offensive, +.071, +.068, −.028, +.181 neutral, and +.050, +.048, −.160, +.303 defensive. old rows swing −.018, −.341, −.092, −.066. so `q`'s record movement should fall on rows the repair did not touch, and `u`'s leaders should be masks at under half of year two's size. i forecast no row count.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.
@@ -938,4 +975,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-the real `20212022` and `20222023` fits and scores are reviewed here. no later real year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+the real `20212022` and `20222023` fits and scores and the real `20232024` fit are reviewed here. no later real score or year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

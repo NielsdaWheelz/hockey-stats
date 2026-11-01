@@ -1,0 +1,109 @@
+{
+  "kind": "replacement-real-execution-20242025-source-check-read-during-fit",
+  "status": "passed source construction; four fitted heads pending",
+  "recorded_at_utc": "2026-11-01T17:07:49.011991+00:00",
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20242025-source-check.json",
+    "sha256": "711c37e1507e5a5a92279f59cc990f6c8b232110ba581e1d2d166eb5d9a74a09",
+    "bytes": 97149,
+    "written_at_utc": "2026-11-01T17:06:19.543851+00:00"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "source_contexts": 154720,
+  "dispositions": {
+    "eligible:faceoff": 57990,
+    "eligible:on_the_fly": 86435,
+    "unavailable:None": 8461,
+    "unavailable:faceoff": 4,
+    "unavailable:no_same_clock_faceoff": 11,
+    "unavailable:on_the_fly": 6,
+    "unavailable:unknown": 1813
+  },
+  "eligibility_counts": {
+    "masked_on_the_fly": 6,
+    "masked_faceoff": 4,
+    "unresolved_binding": 3,
+    "admitted_same_clock_faceoff": 11,
+    "withheld_earlier_anchor": 0
+  },
+  "head_populations": {
+    "u": {
+      "physical_attempts": 154720,
+      "key_sha256": "6554517008fe40aea51c5a04575b1a0ca7fba1fe4c08dea0bb043a71a4b52dbf",
+      "unavailable_start_attempts": 10295,
+      "positive": 111130,
+      "eligibility_counts": {
+        "masked_on_the_fly": 6,
+        "masked_faceoff": 4,
+        "unresolved_binding": 3,
+        "admitted_same_clock_faceoff": 11,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "q": {
+      "physical_attempts": 111130,
+      "key_sha256": "d756997e90bdfd6ba4f32817d66975721c582d372563bfbc85adf30014a53e25",
+      "unavailable_start_attempts": 7443,
+      "positive": 73539,
+      "eligibility_counts": {
+        "masked_on_the_fly": 4,
+        "masked_faceoff": 3,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 6,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "r": {
+      "physical_attempts": 73539,
+      "key_sha256": "9e9dbb179e0a086b20dadfa402ab5e671139999e6f50d936640f649b86a1876b",
+      "unavailable_start_attempts": 4899,
+      "positive": 59504,
+      "eligibility_counts": {
+        "masked_on_the_fly": 2,
+        "masked_faceoff": 3,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 3,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "g": {
+      "physical_attempts": 59504,
+      "key_sha256": "c1e113bd8a0b2f434d85bc70a1cfe8cb4da62e67c88e0eac0bbc13a49585b24e",
+      "unavailable_start_attempts": 3982,
+      "positive": 7349,
+      "eligibility_counts": {
+        "masked_on_the_fly": 2,
+        "masked_faceoff": 3,
+        "unresolved_binding": 2,
+        "admitted_same_clock_faceoff": 3,
+        "withheld_earlier_anchor": 0
+      }
+    }
+  },
+  "source_context_sha256": "ab053a16f02a6fb3b533e0f267e0b2bc3519747c1b4112a96c9c845eed0b9fac",
+  "source_response_sha256": "95c17245edf826a6e41fe424c07a0057bc196a95727ccb22008c3eefa04f933b",
+  "observer_body_seconds": 28.203056513040792,
+  "known_census": "not applicable; zero expected and checked",
+  "count_contract": "dispositions partition source contexts; eligibility counts overlap; withheld_earlier_anchor is residual withholding, not an admission requirement",
+  "residual_scope": "withheld non-on-the-fly record with a saved coherent faceoff start on the exact player/period/start/end binding and earlier saved anchor; cannot detect alternatives absent from coherent saved evidence",
+  "first_real_same_clock_admission_observation": {
+    "all_contexts": 11,
+    "by_head": {
+      "u": 11,
+      "q": 6,
+      "r": 3,
+      "g": 3
+    },
+    "meaning": "frozen rule requires coherent unique faceoff binding and earlier saved anchor; counters do not provide a complete admitted-key census"
+  },
+  "limits": [
+    "unresolved binding is a subset of faceoff masks; ten masks and three unresolved are not thirteen separate rows",
+    "masks are not all timing cases and sampled first witnesses are not a census",
+    "zero coherent residual does not size withholding outside saved coherent evidence",
+    "no threshold, pause, source pass or partial-state read; ordinary solve continues",
+    "observer body time is not full design/wrapper overhead; no runtime forecast"
+  ],
+  "python_pid": 90062
+}

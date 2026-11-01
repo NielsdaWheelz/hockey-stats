@@ -258,7 +258,6 @@ def main():
         probe_heads[head] = dict(status='passed', metadata=resolution['probe'], arrays=probe['arrays'],
                                  continuation_starts=1, native_solves=native, comparison=comparison)
     assert len(probe_heads) == 4
-    assert all(row['disposition'] != 'unavailable' for row in selector['requirements'])
     probes = dict(head_continuations=4, extra_probe_commands=0, baseline=baseline_ref,
                   baseline_inputs_metadata_and_array_bindings_checked_by_strict_reader=True,
                   baseline_coefficients_preserved=True, probe_coefficients_promoted=False,

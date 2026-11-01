@@ -4,8 +4,8 @@
   "recorded_at_utc": "2026-11-01T18:28:16.784419+00:00",
   "checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
-    "sha256": "0a03856a0f46d0ac292309e1213ec01f5f15d1a832cd035b9e17c88a0899f3f9",
-    "bytes": 25617
+    "sha256": "462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02",
+    "bytes": 25529
   },
   "command_argv": [
     "env",
@@ -55,7 +55,8 @@
       "responsibility": 1e-07
     },
     "failure_policy": "unavailable/failed heads or probes remain failures; no reselection, tolerance change or extra continuation",
-    "baseline_coefficients": "remain the annual estimates; probe coefficients never promoted"
+    "baseline_coefficients": "remain the annual estimates; probe coefficients never promoted",
+    "selector_review": "redundant all-nonunavailable assertion removed; four passed resolutions remain authoritative, including the strict reader coverage rule; disposition counts retained"
   },
   "validation": {
     "python_ast": "passed",

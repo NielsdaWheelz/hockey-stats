@@ -1,0 +1,38 @@
+{
+  "kind": "held-real-20242025-execution-command-preparation",
+  "status": "held; root release waits for currently running third score acceptance",
+  "script": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20242025-execution-command.sh",
+    "bytes": 4605,
+    "sha256": "7c4b42f4955258c31c7ab8c7978762cd20c9326591e6797df61956e62fbfcb86"
+  },
+  "derived_from": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20232024-execution-command.sh",
+    "bytes": 4605,
+    "sha256": "261a9290524136e180eb54738f822bced0574535248fb853d4750dbce6aacc4f"
+  },
+  "reviewed_book": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
+    "bytes": 24998,
+    "sha256": "4b421777212ccf753c368012bcc8741cc6a6858526400626a00c6eb3e0c745d1"
+  },
+  "accepted_previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20232024/manifest.json",
+    "sha256": "dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "checks": {
+    "shell_syntax": 0,
+    "timed_line_byte_identical_to_reviewed_2024_book": true,
+    "guarded_paths": 15,
+    "distinct_and_fresh": true,
+    "all_quoted_writes_guarded": true,
+    "previous_pin_exact": true,
+    "no_census_pause_probe_or_propagation_extras": true,
+    "exit_status_preserved": true
+  },
+  "executed": false,
+  "scope": "ordinary held command only; no source game, full strict read, state arrays, numerical work, fit, score, launch, analysis or plan edit"
+}

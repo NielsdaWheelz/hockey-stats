@@ -972,6 +972,36 @@ cost: whole command 17,505 seconds, producer 17,417 against 21,996, design 5,515
 
 this year's identity, as description and no gate: leading rows equal new masks plus old age-known start-unknown rows, head by head. year two's 24 fit the same sum. movement still says nothing about whether the new values are better.
 
+### real `20242025` source report
+
+verdict: **clear, with one new fact.** report `711c37e1`, before head construction, while the fit still runs. this review read the four years' reports, the source-check receipt and the chronology source. it read no prepared game, no partial state or array, and ran no source pass.
+
+the report closes. 154,720 contexts partition by strength and head, included plus excluded is 156,622 in all heads, and unavailable sums to 10,295, 7,443, 4,899 and 3,982 from the dispositions. the 64 first witnesses break no contract. `withheld_earlier_anchor` stays 0. recipe, tree and observer match their pins.
+
+the new fact is `admitted_same_clock_faceoff`: 11, then 6, 3 and 3 by head. it was zero in all three earlier years and in the fixture.
+
+| | `20212022` | `20222023` | `20232024` | `20242025` |
+| --- | --- | --- | --- | --- |
+| admitted same-clock faceoffs | 0 | 0 | 0 | 11 |
+| faceoff masks not unresolved | 4 | 6 | 5 | 1 |
+| unresolved faceoff masks | 2 | 1 | 14 | 3 |
+| on-the-fly masks | 58 | 12 | 7 | 6 |
+| `no_same_clock_faceoff` | 3 | 1 | 14 | 11 |
+| raw kind `None` | 2,814 | 1,120 | 4,561 | 8,461 |
+| raw kind `unknown` | 3,033 | 1,222 | 5,265 | 1,813 |
+
+this year's rate would predict 33 admissions in the earlier 457,246 contexts. there were none, so this isn't chance. something in the source changed. the `None` to `unknown` ratio says so too: near .9 for three years, 4.7 now. idk what changed. neither column changes a row's flag.
+
+the [year-one note](#real-20212022-source-report) that no admitted row rests on subsecond order no longer holds. `order_index` is position in the feed's `sortOrder`. `game_chronology.py:104` refuses order that contradicts period and clock, and inside one second it checks nothing. so these 11 rest on `sortOrder` alone. the observer proves each obeys the rule: one coherent binding, earlier anchor, one-hot zone. it doesn't prove the faceoff came first. the witnesses name no such row, so no key is known here.
+
+the heads give indirect evidence, and it favors the admissions. the 15 non-unresolved faceoff masks of the first three years include 5 on-net rows, and none reached `g`. all five were recorded stopped saves, against a base rate near .2. that is the shape the repair exists to catch: a shot stops play, then a faceoff on the same second. all three named rows put the anchor two places after the shot. the 3 on-net admissions all reached `g`, so none was a stopped save. n is tiny. it does argue these are a different population, not the old one misordered. this year's one remaining mask did reach `g`, and i can't read why.
+
+blast radius is small either way. these 11 rows keep the zone the original recipe gave them, so the repair doesn't touch them and a saved score diff can't see them. if `sortOrder` were wrong on all 11, the cost is 11 rows of 154,720 at the original's handling. no pause, gate or census follows from this. if `20252026` admits rows too, it's a regime, not a blip.
+
+this also tightens the [third-score reading](#completed-real-20232024-score). `unresolved_binding` by head is 14, 12, 5 and 4, which equals neutral plus defensive in every head. masked faceoffs minus unresolved is 5, 3, 2 and 0, which equals the offensive class. still counts, not keys.
+
+what the annual should show, as description with no gate: age-known start-unknown should rise by 10, 7, 5 and 5, the on-the-fly and faceoff masks by head. i forecast no flag values.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

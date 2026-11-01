@@ -1,0 +1,100 @@
+{
+  "kind": "replacement-year2-state-checker-center-arithmetic-correction",
+  "status": "temporary checker fault identified and fixed; corrected02 main held for peer review/root release",
+  "recorded_at_utc": "2026-11-01T02:16:53.776889+00:00",
+  "annual_manifest_sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+  "source_report_sha256": "b20a9f2e4320b5826f97008c27d22b5d79c5c39bcba67c9c6750ec556ad1f983",
+  "original_attempt": {
+    "checker_sha256": "5c1a05aa6cd208a5438b360012a5ddd624e93659529808010f9828654109ccda",
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-saved-acceptance.log",
+      "bytes": 1352,
+      "sha256": "f5f506ae59c257b4a70a6547a843cbd6fa33a84ffdcb8d4aead03481d32f9f41"
+    },
+    "exit_receipt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-saved-acceptance.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    "exit": 1,
+    "strict_read_status": "passed",
+    "strict_read_seconds": 29.55482708400814,
+    "whole_checker_seconds": 32.31,
+    "peak_rss_bytes": 1440677888,
+    "failure": "temporary exact center assertion at line183 after the completed strict read; no completion json was written"
+  },
+  "bounded_evidence": {
+    "metadata": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/heads/u.json",
+      "bytes": 1442321,
+      "sha256": "ea3f9eff1af9bba6444e052ec606245709564ce5324602c48a5c2b81dd4f8c6e"
+    },
+    "arrays": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/heads/u.npz",
+      "bytes": 27750,
+      "sha256": "90514b18d37be2a4bbdb6fa4a9cf7e83e983b76b91313f3c1f673b5378943725"
+    },
+    "centers": [
+      {
+        "block": "shooter",
+        "actors": 1058,
+        "weight": 138910.0,
+        "saved_and_numpy": -0.05665949994625035,
+        "checker_python_float": -0.056659499946250275,
+        "difference": 7.632783294297951e-17,
+        "numerator_difference": 1.000444171950221e-11
+      },
+      {
+        "block": "attacking_coach",
+        "actors": 33,
+        "weight": 151540.0,
+        "saved_and_numpy": 0.00479613711384186,
+        "checker_python_float": 0.004796137113841863,
+        "difference": 2.6020852139652106e-18
+      },
+      {
+        "block": "defending_coach",
+        "actors": 33,
+        "weight": 151540.0,
+        "saved_and_numpy": 0.0044023884672673265,
+        "checker_python_float": 0.004402388467267326,
+        "difference": -8.673617379884035e-19
+      }
+    ],
+    "empty_goalie_and_setter_centers": "both exactly0 in both paths",
+    "all_saved_u_centers_match_production_numpy_arithmetic_exactly": true
+  },
+  "cause": "temporary float(beta[index]) cast changed the numerator terms from numpy.float64 to Python floats; pinned Python3.14 uses a different float sum path. the cast sum equals math.fsum on this data, while the saved production/strict contract uses numpy scalar accumulation",
+  "pure_type_counterexample": {
+    "terms": [
+      1e+16,
+      1.0,
+      -1e+16
+    ],
+    "python_float_sum": 1.0,
+    "numpy_scalar_sum": 0.0
+  },
+  "correction": {
+    "owner": "temporary checker reporting-center numerator",
+    "removed": "float() cast only",
+    "exact_equality_gate_unchanged": true,
+    "arbitrary_tolerance_added": false,
+    "checker": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20222023.py",
+      "sha256": "88d88420c6575333f105e378f5fda2c2bc12ef4206219ef6112af541637cc7b7",
+      "bytes": 21164
+    },
+    "python_ast": "passed",
+    "one_change_verified_by_reconstructed_original_sha256": true
+  },
+  "production_verdict": "no production or state artifact defect found; the existing strict read already passed its exact centers for all heads; this bounded investigation read only u metadata/coefficients",
+  "proposal": {
+    "invocations": 1,
+    "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20222023-saved-acceptance-02.json",
+    "log_and_exit": "fresh02 paths owned by root; original failed log/exit preserved",
+    "state_and_source_args": "actual eb52909e and b20a9f2e pins above",
+    "additional_validation": "corrected invocation repeats one strict read; record that actual extra cost separately, without erasing the first successful strict read or failed checker cost"
+  },
+  "access": "bounded u head json and27,750byte npz plus first checker log/status; pure scalar-type control and local temporary code only; no full strict/source pass, fit, score, other head/state arrays or production/observer edit",
+  "next": "root/product review88d88420 before root alone launches corrected02"
+}

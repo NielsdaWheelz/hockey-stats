@@ -1,0 +1,32 @@
+{
+  "kind": "replacement-real-year2-preparation-review",
+  "status": "clear for held preparation; no invocation or release",
+  "recorded_at_utc": "2026-11-01T00:06:28.617069+00:00",
+  "checker": {
+    "path": "var/v1-08-replacement/accept_real_execution_20222023.py",
+    "sha256": "5c1a05aa6cd208a5438b360012a5ddd624e93659529808010f9828654109ccda",
+    "author": "numerical",
+    "reviewers": [
+      "product",
+      "root"
+    ],
+    "verdict": "no material defect found; exact new2021 raw history, age transitions, prior-only/absent preservation and original non-start population checks match explicit contracts",
+    "invocations": 0,
+    "required_before_run": [
+      "completed annual exit0",
+      "root-pinned actual new2022 manifest digest",
+      "root-pinned actual source report digest"
+    ]
+  },
+  "score_command": {
+    "path": "var/v1-08-replacement/real-20222023-score-command.sh",
+    "sha256": "f71d5b11851f6748f22df2247d3c33729a5c9a2b60b3154c1f4e14b29a08c614",
+    "author": "source_design",
+    "reviewer": "root",
+    "verdict": "ordinary reviewed score tail and frozen pins; held pending exact accepted state digest",
+    "shell_syntax": "passed",
+    "state_sha256": null,
+    "invocations": 0
+  },
+  "scope": "preparation only; real2022 fit remains sole heavy job; no source/array/state read, source edit, fit, score or activation"
+}

@@ -862,6 +862,30 @@ cost: whole command 18,465 seconds, producer 18,354 against 16,417, design 5,564
 
 one cheap diagnostic for later years, with no source read: take the annual's age-known start-unknown count `k` in `u`, rank the score's rows by `u`, and compare the top `k` across heads and against the other three annual counts. a miss is a question, not a defect, because other feature or history changes can outrank the flags without error. it is no acceptance contract and adds no ranking gate.
 
+### real `20232024` source report
+
+verdict: **clear, with one new fact: the unresolved class reaches 5v5 this year.** report `f1d869c5`, 97,377 bytes, read with the two earlier reports, the launch receipt and the observer. it read no game, no original metadata and no partial state, and it touched nothing running.
+
+the counts close. seven dispositions partition 158,196 contexts. strength cells sum to them in every head. the chain holds: 158,196, 113,778, 78,809, 63,841, then 7,607 goals, and each head totals 160,123 recognized attempts. `--previous` is the accepted `20222023` state, `eb52909e` in the launch receipt. recipe `47691110`, observer `286b34dd`, and `30087c8` holds tree `c2412ac`.
+
+all 64 first witnesses obey the contract, on the same test as year two. witnesses are firsts per cell, so this is a sample.
+
+the mix turned over:
+
+| year | on-the-fly | faceoff | of which unresolved | `no_same_clock_faceoff` |
+| --- | --- | --- | --- | --- |
+| `20212022` | 58 | 6 | 2 | 3 |
+| `20222023` | 12 | 7 | 1 | 1 |
+| `20232024` | 7 | 19 | 14 | 14 |
+
+`unresolved_binding` is a strict subset of `masked_faceoff`, not merely an overlapping count. it fires only on raw faceoffs, and each such row must then be unavailable or the observer's `require` fails (`consumed_start_check.py:69-79`). so at most 12 masks this year can be timing failures, against 62 and 18. this report cannot say that all 12 are. two are located with the timing shape: `2023020057:15`, start at focal with its anchor at 17 after focal 15, and `2023020099:236`, start at focal. the equal 14s are a coincidence of counters, afaict: they are different rows, and years one and two differ.
+
+the new fact is arithmetic. faceoff masks sit only at `6,5,0` (7) and `5,5,1` (12), so at least 7 of the 14 unresolved rows are at `5,5,1`. by head that floor is 7, 6, 1 and 1. year one held this class at `6,5,0` and year two at `5,3,1`, so this is the first year it enters the strength the positive panels use. `6,5,0`'s seven match [the fixture's seven](#masked-population-in-20232024) in count and first witness, `2023020955:318`. i did not read the game, and they are unconfirmed as the same rows. 7 of 125,238 is no threshold, and [the mask's rationale](#masked-population-in-20232024) holds at any size: spatial's member start reads the same `player_shifts`. it does stop "`6,5,0` clustering" from being a safe description, here or in any record. the class stays unsized against the loose 6,084 bound.
+
+the start-absent classes, `None` and `unknown`, rise from 2,342 to 9,826, 6.2 percent of contexts, after 5,847 in year one. the rule cannot create them, because they carry no start to mask. idk why they swing. the annual's rises will confirm that they predate the repair.
+
+pins for the completed state: unavailable 9,866, 7,056, 4,927 and 3,981, available 148,330, 106,722, 73,882 and 59,860, and positives 113,778, 78,809, 63,841 and 7,607. if unavailability rises only by masks, the rises over the original are 26, 19, 9 and 6, and nonzeros rise by 4, 2 and 2 in `q`, `r` and `g`, and by 1,972 in `u`, which is 4 + 3 × 656. the score must reproduce `3ecbbdab` and `15c393bc`.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

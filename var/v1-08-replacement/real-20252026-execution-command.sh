@@ -1,5 +1,5 @@
 # held; root release requires accepted fourth-year state and score.
-fit_previous_sha256=PENDING_ACCEPTED_REAL_20242025_STATE_SHA256
+fit_previous_sha256=1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe
 if [ "${#fit_previous_sha256}" -ne 64 ]; then
   printf '%s\n' 'accepted 20242025 state digest pending; final fit command not launched' >&2
   exit 1

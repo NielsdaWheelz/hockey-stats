@@ -1,0 +1,78 @@
+{
+  "kind": "replacement-real-year3-state-acceptance-preparation",
+  "status": "prepared; held for actual completed year 3 manifest/source pins and root release; main not invoked",
+  "recorded_at_utc": "2026-11-01T02:22:09.953632+00:00",
+  "purpose": "real",
+  "season": "20232024",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20232024.py",
+    "sha256": "5d713801dca73e0fe7771f6d6613fdf6010d0033d934c33274d4f985f04e22f9",
+    "bytes": 21720
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20232024.py",
+    "--expected-manifest-sha256",
+    "<actual_completed_20232024_manifest_sha256>",
+    "--expected-source-sha256",
+    "<root_pinned_20232024_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20232024-saved-acceptance.json"
+  ],
+  "expected_manifest_sha256": null,
+  "expected_source_report_sha256": null,
+  "bindings": {
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+      "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c",
+      "usage": "accepted replacement raw last-supported ledger, including any retained 2021 anchors"
+    },
+    "original": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20232024/manifest.json",
+      "sha256": "59fb55be53110e6c01303a0a1ac135f1af2ac67db3fd6e5a65401d58e6cc4792",
+      "pin_source": "docs/research/execution-v1-05/real-accepted-content.json",
+      "usage": "original saved head/coverage metadata only; never an incoming prior"
+    },
+    "source_report": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20232024-source-check.json",
+    "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "analysis_clean": true,
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "adaptation": {
+    "base": "corrected year 2 checker 88d88420",
+    "fixed_year_only": true,
+    "generic_campaign_framework": false,
+    "numpy_scalar_center_sum_and_exact_equality_retained": true
+  },
+  "checks": [
+    "exit0 and actual completed digest before exactly one new strict read; no extra predecessor/original strict read",
+    "all prior raw anchors equal accepted replacement 2022 ledger; entry/carry precision and role-specific age polynomial unchanged",
+    "incoming last-supported seasons may be 2021 or 2022; admit gaps of one or two years, count actual gaps and retain one literal witness per observed gap without inventing gap-2 applicability",
+    "prior-only current coefficients equal conditional age-adjusted means; incoming ledger rows persist for prior-only or absent actors; supported current rows alone update raw history",
+    "full original 2023 actors/non-start design, target/origin metadata and coverage core exact; only three start-support records and declared start-transform text may differ",
+    "source head counts/key digests, labels, unavailable support weights and all five observational counters; no census or count threshold",
+    "current centers use the exact production numpy-scalar multiplication/accumulation path; no float cast or tolerance relaxation",
+    "minimum completed zero/prior-mean start, native stopping controls, actual solves/gradients/EM and resources; no year 3 continuation"
+  ],
+  "pure_controls": {
+    "syntax": "passed",
+    "cases": "one- and two-year age carry with equal fixed carry precision; entry and missing-age neutral carry passed",
+    "main_invocations": 0,
+    "state_reads": 0,
+    "array_reads": 0,
+    "source_passes": 0,
+    "fits": 0,
+    "scores": 0
+  },
+  "limitations": [
+    "admissible two-year gaps are not claimed observed until saved metadata provide counts/witnesses",
+    "original/current coefficient differences and in-sample solver completion do not establish calibration, causal isolation or robust ability",
+    "saved metadata comparison does not replay every raw feature; missingness counters overlap and do not identify every changed key",
+    "no source pass, code/observer edit, real fit or score follows preparation; twelve ordinary execution heads/four final continuations and all real spatial fits remain pending"
+  ],
+  "access": "local corrected checker, original accepted metadata pin from docs, pure history values and git/observer identity only; no state/source/array artifact read",
+  "next": "root assigns peer code review; eventual invocation requires actual hashes, completed annual and explicit root release"
+}

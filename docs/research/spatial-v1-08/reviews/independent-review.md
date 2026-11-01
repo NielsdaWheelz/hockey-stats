@@ -778,7 +778,36 @@ masks fall from 64 to 19 of about the same population, and they are 12 on-the-fl
 
 the lone `unresolved_binding`, `2022020672:82`, has kind faceoff, neutral zone, start 885, focal 945, age 60, zero coherent matches and no anchor, the shape of `2021020674:269`. it sits at 5,3,1, so the 6,5,0 clustering in [the year one report](#real-20212022-source-report) does not recur. it is unsized against the loose 1,397 bound, and no threshold applies.
 
-pins for the completed state: `unavailable_attempts` 2,362, 1,786, 1,278 and 938, `available_weight` 149,178, 111,393, 80,122 and 61,139, and positives 113,179, 81,400, 62,077 and 7,778. if unavailability rises only by masks, the rises over the original are 19, 9, 6 and 5. this review has not checked that. the score must reproduce `fa30119d` and `fd0fa7ef`. the flag's separate estimate gets thinner this year: only 5 masks reach `g`, against 27. i forecast no size, having been wrong once.
+pins for the completed state: `unavailable_attempts` 2,362, 1,786, 1,278 and 938, `available_weight` 149,178, 111,393, 80,122 and 61,139, and positives 113,179, 81,400, 62,077 and 7,778. if unavailability rises only by masks, the rises over the original are 19, 9, 6 and 5. [the completed annual](#completed-real-20222023-annual) confirms them. the score must reproduce `fa30119d` and `fd0fa7ef`. the flag's separate estimate gets thinner this year: only 5 masks reach `g`, against 27. i forecast no size, having been wrong once.
+
+### completed real `20222023` annual
+
+verdict: **clear.** manifest `eb52909e` against original `a9952150`. this review read saved head metadata, coefficients, coverage and both year-one ledgers. it ran no source pass, fit or score. all 9 members rehash to the manifest.
+
+the pins hold. `unavailable_attempts` are 2,362, 1,786, 1,278 and 938 against 2,343, 1,777, 1,272 and 933, so the rises are 19, 9, 6 and 5, the report's masks in each head. actors, origin, target, columns, means, active flags and prior structure are equal. each design differs only in six start-support leaves and the `shift_start` text. coverage differs in 24 leaves, all of them start support.
+
+nonzeros close exactly. `q`, `r` and `g` rise 7, 5 and 5, the on-the-fly masks in each. `u` rises 3,287, which is 7 + 5×656 for the five blocked rows. faceoff masks add none, because a zone indicator gives way to the flag.
+
+the carry binds the replacement. `previous` is `7c740083`. every `last_supported` in all four heads equals the accepted year-one ledger, and all 4,518 carried rows differ from the original. the outgoing ledger closes: 5,243 fresh rows hold the new coefficient and season, and 1,139 preserved rows equal the incoming ledger. no original mean survives.
+
+| head | objective | start flag | age flag | pair sum | age-known, start-unknown rows |
+| --- | --- | --- | --- | --- | --- |
+| `u` | 67,892.819 to 67,892.663 | +0.088 to -0.247 | +0.075 to +0.372 | +0.164 to +0.125 | 5 to 24 |
+| `q` | 63,949.325 to 63,949.302 | +0.068 to -0.062 | -0.168 to -0.052 | -0.099 to -0.115 | 4 to 13 |
+| `r` | 42,931.984 to 42,931.936 | +0.032 to +0.078 | -0.220 to -0.258 | -0.187 to -0.180 | 4 to 10 |
+| `g` | 35,810.287 to 35,810.287 | +0.251 to +0.191 | +0.349 to +0.394 | +0.599 to +0.585 | 4 to 9 |
+
+the pair is again the largest move in every head, up to 0.335. the rest of the flag block moves at most 0.034, non-flag coefficients at most 0.0075, start contrasts at most 0.0009, and the median at most 3e-5. the new start flag runs -0.280 then -0.247 in `u`, +0.142 then +0.078 in `r`, +0.048 then -0.062 in `q`, and -0.144 then +0.191 in `g`. afaict two heads holding sign on these row counts says little, and the flag should not be read as an effect.
+
+year one's rows reach year two. in `g`, `8477903` rises 0.0052, the largest non-flag move, and `8475343` about 0.004, against 0.0069 and 0.0056 in year one. afaict that is carried history, not new rows. this is the priced path the scope named.
+
+`selected_start` flips in `u`, `q` and `r`, but the two starts differ by 2e-5, 7e-6 and 4e-5 in objective. that is a tie-break with no content. all heads converged with the same terminations, and `g` took eight em iterations in both fits. `r` `gradient_max` rises from 0.0010 to 0.0053, and no gate reads it.
+
+the failed checker is not a production defect. production's `sum` over `np.float64` reproduces all 20 saved centers exactly, independently of root's diagnosis. a python-float cast takes compensated summation, matches `fsum`, and differs by at most 1.25e-16. the strict reader uses production's expression (`execution_state.py:224`), and it passed. dropping the cast keeps exact equality.
+
+cost: whole command 9,151 seconds, producer 9,090 against 9,594, design 5,673 against 5,829, fit 3,416 against 3,764, peak 17.7 gb against 19.5. `git_commit` `eaae48c` is `HEAD` at manifest write, and the launch was `a4f2301` on the same tree.
+
+no row-level change is measured for this year, and no census names a row. one falsifiable reading for the score: if year one's pattern holds, the same 24 rows lead all four heads, then the distribution breaks.
 
 ### replacement disposable rollback
 
@@ -832,4 +861,4 @@ this review's first bindings pass reported mismatches on every `attempt_value` r
 
 ## not established
 
-one real annual fit and its score, `20212022`, are reviewed here. no later real year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.
+the real `20212022` fit and score and the real `20222023` fit are reviewed here. no later real score or year, probe, spatial fit, publication, api, browser or export result is. the synthetic proof uses tiny designs and proves arithmetic, not estimator quality. shape and quality numerical sensitivity at real scale is unmeasured. causal interpretation, calibration and scientific support are outside this review.

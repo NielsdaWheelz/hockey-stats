@@ -1169,6 +1169,35 @@ the first row is a true amendment, not a detail. v1-05 preserves completion rule
 
 run the whole fit, not a replay on saved `u.npz`. a replay still pays the 7,180-second design and yields no state. the whole fit adds about 80 minutes, and comparing its `heads/*.npz` hashes with `984` settles reproducibility with one `shasum`.
 
+### revised continuation repair `20e44c8`
+
+verdict: **source CLEAR at analysis `59813412`. the repair receipt doesn't bind it yet. one branch of my [failure review](#failed-real-20252026-continuation) is WITHDRAWN.** i read the whole diff against `c2412ac` and ran the checker myself in scratch. no prepared game, real state array, fit or score was read or run. the solver tests below are synthetic and use no project code.
+
+my run, not the author's: checker `5b6a006a` passes all six modes, exit 0, with 25 refusals in each, every one for its specific reason. movement reads 0/0 injected, 4/5 finite, null/null nonfinite, 4/5 with a NaN objective, 4/5 with a bad gradient and `1e308`/null on overflow. on `befcdcd` the nonfinite mode goes red the way i found it: serialization error, `heads/u.json` gone, no manifest.
+
+what holds. `np.isfinite(value)` beats my proposed `finite`, which would have thrown away a good trace when only the gradient failed. the success path keeps its floats: `endpoints['continuation']` is the same array as `coefficients`, and the two formulas are unchanged. the only change there is key order, so q/r/g probe json bytes will differ from `984` while their arrays should not. no arithmetic path moved, `execution_design.py` is untouched and recipe `47691110` stands.
+
+two limits, neither blocking. movement describes the RETURNED coefficients. a failed `g` m-step discards its candidate, so a failure on the first m-step reads 0 whatever the inner solve did. and the checker's `g` row is hand-built, never through the real `g` path. it matches the validator on reading, and `g` passed.
+
+binding defect. root quotes receipt `e89ee134`. at HEAD that file hashes `b8fc5244`, was last committed in `befcdcd`, and still cites green-05. the `e89ee134` bytes aren't in the tree. commit them.
+
+**the withdrawal.** i advised evaluating `1e-5` at a finite line-search endpoint and said i'd take it. that advice was incomplete, and on this evidence it is probably empty. i forced a first-search failure in the installed scipy 1.18.1: `ABNORMAL`, `nit` 0, `nfev` 20, and the returned point is the start, bit for bit. then i mimicked the real sequence on 96 synthetic problems, a baseline at `1e-15` and a continuation at `1e-16` under rounding noise. 72 ended abnormal. the 35 with 20 or fewer evaluations ALL returned the start at `nit` 0. the 37 others ALL moved, the cheapest at 28. nothing fell between 16 and 28.
+
+`u`'s window holds about 22 evaluations at .68 seconds: 20 native plus the base and final objectives make 15 seconds, against 14 measured. a failure after any accepted step needs a restart and a second search, which that window can't hold. so if this was line search, afaict `u` never moved. the synthetic noise is mine, and nothing here measures `u`'s. but the prediction is sharp, with no gate attached: `status` 2, `iterations` 0, `evaluations` at most 20, `objective` equal to `base_objective`, `coefficient_max_change` exactly 0.
+
+then the endpoint IS the baseline, and the probability change there is 0 by identity. a "pass" would be a tautology, and it must not be offered to the user as resolution evidence. my table's first row splits:
+
+| rerun shows | reading | next |
+| --- | --- | --- |
+| line search stop, movement exactly 0 | no step taken | continuation answers nothing for `u`. user decides on other evidence |
+| line search stop, movement above 0, small | can't tighten past the floor | user decides whether to evaluate `1e-5` at that endpoint. i'd take it |
+
+the other rows stand. the first is the likely one if the arithmetic reproduces.
+
+so final-02 as prepared probably returns a tidy zero and no evidence. the one free read left is `u`'s two complete baseline starts, two descents on the identical objective. saved `starts` give their objective gap, 2.16e-8. their coefficient gap sits in `fit_head`'s `endpoints` and is dropped. both are complete, so no incomplete-endpoint rule is touched. it's a different test from v1-05's, not a replacement, and idk whether it clears anything. i recommend a two-number side report before launch. it needs no analysis change, but it moves observer pin `286b34dd`. root's call, not a blocker. also compare `resolution/{q,r,g}.npz` with `984`. that extends the reproducibility check to the continuation path for three hashes.
+
+command `fd2ccc6b` differs from `d5cb26f5` only in the held comment, run root, tree pin and output paths, by diff. that isn't a release review.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

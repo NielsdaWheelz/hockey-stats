@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_u_continuation_native.py", line 105, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_u_continuation_native.py", line 56, in main
+    hook=observer.baseline_fit_hook(original,None,identity,native_destination=destination)
+TypeError: baseline_fit_hook() got an unexpected keyword argument 'native_destination'

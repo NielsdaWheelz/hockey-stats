@@ -55,13 +55,35 @@ def baseline_start_gap(result, dimension):
     return gap
 
 
-def baseline_fit_hook(original, destination, identity):
+def baseline_fit_hook(original, destination, identity, *, native_destination=None):
     recipe_sha=design.RECIPE['sha256']
     def fit_head(design, previous_ledger=None, *, tightened=False, initial=None):
         active=destination is not None and design['head']=='u' and initial is None and not tightened
-        if active:
-            require(identity['purpose']=='real' and identity['season']=='20252026','baseline gap requires real20252026')
-        result=original(design,previous_ledger,tightened=tightened,initial=initial)
+        native_active=native_destination is not None and design['head']=='u' and initial is not None and tightened
+        if active or native_active:
+            require(identity['purpose']=='real' and identity['season']=='20252026','u diagnostic requires real20252026')
+        if native_active:
+            from hockey_stats import chance
+            original_minimize=chance.minimize
+            def minimize(*args,**kwargs):
+                requested=dict(method=kwargs['method'],jac=kwargs['jac'],options=dict(kwargs['options']))
+                native=original_minimize(*args,**kwargs)
+                fun=float(native.fun)
+                classification='finite' if np.isfinite(fun) else 'nan' if np.isnan(fun) else 'posinf' if fun>0 else 'neginf'
+                source=Path(identity['source_check_path'])
+                with source.open('rb') as stream:source_sha=hashlib.file_digest(stream,'sha256').hexdigest()
+                report=dict(kind='temporary-u-continuation-native-result',purpose=identity['purpose'],season=identity['season'],
+                    head='u',recipe_sha256=recipe_sha,analysis_tree=identity['analysis_tree'],dimension=design['size'],command=identity['command'],
+                    source_check=dict(path=str(source),sha256=source_sha),requested_solver=requested,
+                    native_result=dict(success=bool(native.success),status=int(native.status),message=str(native.message),
+                        nit=int(native.nit),nfev=int(native.nfev),fun=fun if classification=='finite' else None,fun_classification=classification),
+                    scope='literal native OptimizeResult before production postchecks; finite fun does not establish all internal trials were finite; no endpoint array, failure-mechanism inference or numerical-resolution verdict')
+                with native_destination.open('x') as stream:json.dump(report,stream,allow_nan=False,indent=2);stream.write('\n')
+                return native
+            with patch.object(chance,'minimize',minimize):
+                result=original(design,previous_ledger,tightened=tightened,initial=initial)
+        else:
+            result=original(design,previous_ledger,tightened=tightened,initial=initial)
         if active:
             source=Path(identity['source_check_path'])
             with source.open('rb') as stream:source_sha=hashlib.file_digest(stream,'sha256').hexdigest()
@@ -197,19 +219,22 @@ def main():
     parser.add_argument('--out-check',required=True)
     parser.add_argument('--known-census')
     parser.add_argument('--u-baseline-start-gap')
+    parser.add_argument('--u-continuation-native')
     parser.add_argument('command',nargs=argparse.REMAINDER)
     args=parser.parse_args();command=args.command[1:] if args.command[:1]==['--'] else args.command
     require(command and command[0] in ('fit','score'),'observer supports one ordinary execution fit or score')
     require(command[command.index('--family')+1]=='execution','observer only accepts execution family')
     def option(name):return command[command.index(name)+1]
     gap_destination=Path(args.u_baseline_start_gap) if args.u_baseline_start_gap else None
-    if gap_destination is not None:
-        require(command[0]=='fit' and option('--season')=='20252026','baseline gap requires final-year execution fit')
-        require(not gap_destination.exists(),'baseline gap output already exists')
-        require(gap_destination!=Path(args.out_check),'baseline gap and source check need distinct outputs')
+    native_destination=Path(args.u_continuation_native) if args.u_continuation_native else None
+    diagnostic_destinations=[path for path in (gap_destination,native_destination) if path is not None]
+    if diagnostic_destinations:
+        require(command[0]=='fit' and option('--season')=='20252026','u diagnostics require final-year execution fit')
+        require(len(set(diagnostic_destinations+[Path(args.out_check)]))==len(diagnostic_destinations)+1,'u diagnostic and source outputs must be distinct')
+        for diagnostic_path in diagnostic_destinations:require(not diagnostic_path.exists(),'u diagnostic output already exists')
     prepared=Path(option('--prepared'));prepared=prepared/'manifest.json' if prepared.is_dir() else prepared
     purpose=json.loads(prepared.read_text())['purpose']
-    if gap_destination is not None:require(purpose=='real','baseline gap requires real purpose')
+    if diagnostic_destinations:require(purpose=='real','u diagnostics require real purpose')
     if command[0]=='fit':season=option('--season')
     else:
         state=Path(option('--state'));state=state/'manifest.json' if state.is_dir() else state
@@ -248,7 +273,8 @@ def main():
     from hockey_stats import execution_fit
     observed_fit=baseline_fit_hook(execution_fit.fit_head,gap_destination,
         dict(purpose=purpose,season=season,command=command,source_check_path=str(destination),
-             analysis_tree=subprocess.check_output(['git','rev-parse','HEAD:analysis'],text=True).strip() if gap_destination is not None else None))
+             analysis_tree=subprocess.check_output(['git','rev-parse','HEAD:analysis'],text=True).strip() if diagnostic_destinations else None),
+        native_destination=native_destination)
     sys.argv=['hockey-stats-analysis',*command]
     with patch.object(design,'_feature_context',context),patch.object(design,'_head_design',head),patch.object(design,'prepare_execution',prepare),patch.object(execution_fit,'fit_head',observed_fit):
         try:return analysis_main()

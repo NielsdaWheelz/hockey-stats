@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "observer_sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+  "outcomes": [
+    {
+      "mode": "finite",
+      "fun_classification": "finite",
+      "raw_result_identity": true,
+      "fit_result_identity": true,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    },
+    {
+      "mode": "nan",
+      "fun_classification": "nan",
+      "raw_result_identity": true,
+      "fit_result_identity": true,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    },
+    {
+      "mode": "posinf",
+      "fun_classification": "posinf",
+      "raw_result_identity": true,
+      "fit_result_identity": true,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    },
+    {
+      "mode": "neginf",
+      "fun_classification": "neginf",
+      "raw_result_identity": true,
+      "fit_result_identity": true,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    },
+    {
+      "mode": "success_then_postcheck_failure",
+      "fun_classification": "finite",
+      "raw_result_identity": true,
+      "fit_result_identity": true,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    },
+    {
+      "mode": "outer_raise",
+      "fun_classification": "finite",
+      "raw_result_identity": true,
+      "fit_result_identity": false,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    },
+    {
+      "mode": "native_options_mutation",
+      "fun_classification": "finite",
+      "raw_result_identity": true,
+      "fit_result_identity": true,
+      "native_calls": 1,
+      "capture_before_postcheck": true
+    }
+  ],
+  "bypasses": [
+    "non_u",
+    "baseline",
+    "not_tightened",
+    "unrequested"
+  ],
+  "malformed_native_result_refused": true,
+  "purpose_refused_before_original": true,
+  "early_refusals": [
+    "score",
+    "family",
+    "season",
+    "occupied",
+    "same_source",
+    "same_gap"
+  ],
+  "scope": "raw OptimizeResult objects and stubbed original functions only; no optimizer, objective, source context, real payload or ordinary analysis_main invoked",
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-native-controls-8v01kwl6",
+  "wall_seconds": 0.01134808297501877
+}

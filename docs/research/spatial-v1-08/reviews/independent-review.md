@@ -1270,6 +1270,52 @@ load changes time, not arithmetic, if the thread count is fixed at start. ~100% 
 
 not established: source parity says nothing about design arrays, baseline coefficients or `u`. those wait for the post-exit audit.
 
+### final-02 post-exit artifacts `cb075d5e`
+
+verdict: the artifact record is **CLEAR** and the numerical handoff is correctly **FAILED**. no reporting or binding defect. exit 1, audit exit 0 and handoff failed are the right triple.
+
+read:
+- saved json from both runs: manifest, four heads, baseline and resolutions.
+- both side files, audit `89203a03`, completion `f3625809` at `ca74346`, and both logs.
+- byte hashes of every member in both runs.
+
+no source pass, reader, array load or probability replay. the one computation was a synthetic scipy call with no corpus, to fix what `fun` means. the [native review](final-02-post-exit-native-review.md) stood in while this review was quota-blocked. this is the pending external verdict.
+
+reproduction is total, not seven members.
+- all 16 members hashed in both runs: every npz and the 202,721,749-byte `coverage.json` are byte-identical to `984`.
+- a recursive diff of the nine json members finds only wall seconds, `git_commit`, the hashes those cascade into, and `u`'s new `diagnostics`/`comparison` fields, which `984`'s resolver discarded.
+- the logs agree: instructions retired +0.31%, cycles +6.7%, system time 559 against 347 s, page reclaims 1.87x. same work, contended machine.
+
+so the computation is deterministic to the byte through a two-hour design, four solver families and `g`'s em. a further run of this recipe on these inputs returns these bytes. afaict `984`'s `u` continuation took the same path, since its inputs were bit-identical and the repair didn't touch the solve. its record is gone, though, and the scope rightly refuses to call that recovered.
+
+every forecast on record held: status 2, `nit` 0, `nfev` 19, recomputed objective equal to base, displacement exactly 0, hashes matching. `failed_zero_motion_uninformative` is the scope's row. the one thing the run did repair is now shown: the failed-record contract survives a real failure and the strict reader.
+
+one observation the audit declines, descriptive, no gate. native `fun` equals the recomputed objective bit for bit: `69668.42305740231` both. the native review calls them distinct. they are distinct quantities with equal values, and the equality says something:
+- scipy 1.18.1's `_minimize_lbfgsb` rebinds `f` to each evaluation's return and returns it as `fun`. the compiled routine restores `x` in place on an abnormal stop, but not python's `f`.
+- a synthetic check confirms it. a forced worse final trial returns its own value as `fun`, while `x` comes back bit-equal to the start.
+- so `u`'s last line-search trial evaluated to exactly the start objective. the search ended at a step the objective could not register.
+- this excludes a nonfinite or worse final trial. it does not settle earlier trials, or why sufficient decrease failed. the mechanism stays open.
+
+the baseline gap, descriptive:
+
+| head | start-to-start objective gap | coefficient max | coefficient l2 | basis |
+| --- | --- | --- | --- | --- |
+| `u` | 2.16e-8 | 3.88e-5 | 6.43e-4 | two completed starts |
+| `q` | 1.34e-8 | 5.5e-6 | 3.5e-5 | continuation movement |
+| `r` | 3.2e-9 | 1.59e-5 | 9.2e-5 | continuation movement |
+| `g` | 3.3e-9 | 1.13e-5 | 2.4e-5 | continuation movement |
+
+`u`'s two baseline optima sit farther apart than any continuation moved `q`, `r` or `g`: 2.4x the largest maximum and 7x the largest l2. that says `u`'s basin is loosely determined at baseline tolerance. it says NOTHING about probability: the coefficient-to-probability map differs by head, and the zero-start endpoint was never saved. no saved artifact can turn this gap into a probability.
+
+what the user's decision faces:
+- the failure lives in v1-05's continuation contract, not the code. byte-identical replay proves no rerun of this recipe can change the outcome.
+- anything that would speak to `u`'s probability stability needs new computation, at least a design build (7,181 s on `984`, 7,981 s contended). no design arrays, alternative endpoint or failed trial points survive. comparing the two starts would also re-solve `u`'s baseline (4,099 to 4,289 s).
+- afaict a useful next step is a spec decision on what resolves `u`, made before any computation. computation without that decision can only reproduce these bytes.
+
+bindings: manifest `git_commit` `e57d376` is the producer's head at write time, not launch `91b427d`. `984` shows the same pattern: launch `4de5dbc`, manifest `39da0c4`. analysis `59813412` holds at both, so code identity is intact, and the receipts record both heads. completion `f3625809` matches the audit and every file read here.
+
+not established: the stop's mechanism, `984`'s original return, any `u` probability movement, and whether any continuation design can resolve `u` at 1e-5.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

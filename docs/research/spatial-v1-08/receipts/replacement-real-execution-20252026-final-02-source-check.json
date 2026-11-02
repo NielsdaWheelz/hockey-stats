@@ -1,0 +1,64 @@
+{
+  "kind": "replacement-real-final02-source-report-parity",
+  "status": "passed; fitting continues without pause",
+  "recorded_at_utc": "2026-11-02T07:22:47.436828+00:00",
+  "source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json",
+    "sha256": "59f4b00827ea736f0a374ba6f32a1ce7003f5f9ab7a131b84d5e4971f0624e9d",
+    "bytes": 88686
+  },
+  "previous_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-source-check.json",
+    "sha256": "b69575bb4c5d7452152d18d295486bf7b648495a81a4e4141f7be928cb96dc63",
+    "bytes": 88677
+  },
+  "different_top_fields": [
+    "command",
+    "observer_seconds"
+  ],
+  "all_other_top_fields_equal": true,
+  "exact_command_except_fresh_output": true,
+  "source_contexts": 151381,
+  "source_context_sha256": "f96ee4a0eadeb2f5caa44db999c71b9ad0e6a178b8a3812f9895019dcdb065a3",
+  "source_response_sha256": "63e224a6d8ac06729882bd05b1dcd817df49d39000fb8559817e0e1d01feef04",
+  "eligibility_counts": {
+    "masked_on_the_fly": 3,
+    "masked_faceoff": 4,
+    "unresolved_binding": 3,
+    "admitted_same_clock_faceoff": 13,
+    "withheld_earlier_anchor": 0
+  },
+  "head_included": {
+    "u": 151381,
+    "q": 110897,
+    "r": 72381,
+    "g": 58628
+  },
+  "head_positive": {
+    "u": 110897,
+    "q": 72381,
+    "r": 58628,
+    "g": 7548
+  },
+  "recognized_per_head": 153754,
+  "head_population_keys_and_counts_exact_previous": true,
+  "all_first_and_known_witnesses_exact_previous": true,
+  "known_census": {
+    "expected": 0,
+    "checked": 0,
+    "scope": "no first-year census applies to final year"
+  },
+  "observer_body_seconds": 41.39106592792086,
+  "observer_time_scope": "observe body only; not total source/design or wrapper time",
+  "launch_head": "91b427d759bfa58d8377eb863d5de17260ae8524",
+  "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+  "observer_sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+  "scope": "two small saved source reports and launch metadata only; no source pass, game, array, state read, fit or probability evaluation by this check",
+  "limits": [
+    "source parity does not establish fitted probabilities or numerical resolution",
+    "unresolved_binding overlaps masked_faceoff and is not a timing-only stratum",
+    "thirteen same-clock admissions retain the saved-order assumption",
+    "no additional gate, census, pause, retry or threshold"
+  ],
+  "next": "continue the one authorized fit; inspect side diagnostics and perform the reviewed saved audit after exit"
+}

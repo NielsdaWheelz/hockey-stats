@@ -107,7 +107,9 @@ def report_resolution(head, resolution, probe, baseline, solve_count):
     assert comparison['optimizer_maxiter'] == 10000 and comparison['optimizer_ftol'] == 1e-16 and comparison['optimizer_gtol'] == 1e-7
     assert comparison['em_maxiter'] == 100 and comparison['em_relative_tolerance'] == 1e-9 and comparison['em_responsibility_tolerance'] == 1e-7
     movement = [comparison[key] for key in ('coefficient_max_change', 'coefficient_l2_change')]
-    if resolution['status'] == 'passed':
+    if resolution['status'] == 'passed' and movement == [0., 0.]:
+        evidence = 'passed_zero_motion_uninformative'
+    elif resolution['status'] == 'passed':
         evidence = 'passed_prescribed_continuation'
     elif movement == [0., 0.]:
         evidence = 'failed_zero_motion_uninformative'
@@ -117,7 +119,8 @@ def report_resolution(head, resolution, probe, baseline, solve_count):
         evidence = 'failed_finite_positive_motion'
     return dict(result, status=resolution['status'], continuation_starts=1, native_solves=native,
                 probability_comparison_available=probe is not None, comparison=comparison,
-                resolution_evidence=evidence)
+                resolution_evidence=evidence,
+                uninformative_pass_requires_root_decision=evidence == 'passed_zero_motion_uninformative')
 
 
 def report_baseline_gap(side, metadata, source_reference, command):
@@ -364,6 +367,8 @@ def main():
     continuation_comparison = dict(heads=continuation_files,
         scope='actual continuation file hashes checked against both bound manifests; preserved 984 u has no probe to compare; missing probes are unavailable; byte comparisons do not evaluate probabilities or create a reproducibility gate')
     probes = dict(head_continuations=4, extra_probe_commands=0, baseline=baseline_ref,
+                  uninformative_passed_heads=[head for head, row in probe_heads.items()
+                                             if row['uninformative_pass_requires_root_decision']],
                   baseline_inputs_metadata_and_array_bindings_checked_by_strict_reader=True,
                   within_run_baseline_coefficients_preserved=True, probe_coefficients_promoted=False,
                   coefficient_delta_scope='completed probes: strict reader independently recalculated maximum/l2 deltas from saved arrays; failed native starts: producer-saved nullable endpoint movement only, without a saved failed endpoint array or independent delta replay; this reporting section loaded no arrays',
@@ -426,6 +431,7 @@ def main():
                 'exactly four prescribed continuation outcomes are audited from saved files; failed/unavailable resolution remains a failed numerical handoff; no new continuation, endpoint probability evaluation, source or probability replay',
                 'failed endpoint movement is producer-saved and does not prove the fixed 1e-5 probability bound or authorize incomplete-endpoint promotion; non-reproducible file hashes and a passing u rerun are reported without inventing the original failed termination',
                 'zero motion from a failed continuation is uninformative: zero probability change by endpoint identity is a tautology, not numerical resolution evidence; all failed continuations remain failed',
+                'a literal passed zero-motion continuation is separately labeled uninformative and requires an explicit root decision; its status and the four-passed numerical_handoff rule are unchanged, and descendants remain held',
                 'command exit1 is permitted only to audit a valid failed-resolution artifact, never to accept it; final scoring propagation and all real spatial fits remain held'],
         access='one new strict saved-state read; accepted replacement 2024 and original 2025 manifests/head metadata and original coverage; preserved 984 manifest plus four baseline and three continuation streamed coefficient file hashes only; no extra predecessor/original/failed strict read, old numeric array load, source game, source pass, fit, score or production edit',
         next='root reviews numerical handoff and reproducibility; descendants stay held until independent acceptance and explicit release' if numerical_handoff == 'passed' else 'root reviews retained failure evidence; no scoring, endpoint promotion or further numerical work is authorized')

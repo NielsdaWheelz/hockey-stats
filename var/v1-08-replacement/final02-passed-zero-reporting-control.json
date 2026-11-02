@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "case": "native passed zero movement remains literal passed and handoff passed, while explicitly uninformative and requiring root decision",
+  "resolution_status": "passed",
+  "resolution_evidence": "passed_zero_motion_uninformative",
+  "uninformative_pass_requires_root_decision": true,
+  "numerical_handoff": "passed",
+  "helper_sha256": "03ddfb95b1a752bc978a89874dd9f8570759cd029f37b81f047e85f7d4e81ebb",
+  "scope": "one focused synthetic reporting case; no main, native solver, source context, campaign artifact, array or strict reader invoked"
+}

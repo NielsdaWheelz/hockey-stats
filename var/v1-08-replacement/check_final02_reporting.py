@@ -44,6 +44,14 @@ passed = dict(status='passed', baseline=baseline, probe=dict(path='resolution/u.
 probe = dict(usage='numerical_probe', head='u', baseline=baseline, arrays={}, comparison=passed['comparison'],
              metadata=dict(selected_start='continuation', starts=[dict(start, converged=True)]))
 complete = module.report_resolution('u', passed, probe, baseline, 1)
+passed_zero, zero_probe = deepcopy(passed), deepcopy(probe)
+passed_zero['comparison'].update(coefficient_max_change=0., coefficient_l2_change=0., maximum_probability_change=0.)
+zero_probe['comparison'] = passed_zero['comparison']
+zero_probe['metadata']['starts'][0]['iterations'] = 0
+passed_zero_report = module.report_resolution('u', passed_zero, zero_probe, baseline, 1)
+assert passed_zero_report['status'] == 'passed' and passed_zero_report['resolution_evidence'] == 'passed_zero_motion_uninformative'
+assert passed_zero_report['uninformative_pass_requires_root_decision']
+assert eval(handoff, {}, dict(command_exit=0, probe_heads=dict(u=passed_zero_report, q=complete, r=complete, g=complete))) == 'passed'
 coverage_failed = deepcopy(passed)
 coverage_failed['status'] = 'failed'
 assert module.report_resolution('u', coverage_failed, probe, baseline, 1)['status'] == 'failed'
@@ -88,6 +96,7 @@ assert not any(isinstance(node.func, ast.Attribute) and isinstance(node.func.val
 print(json.dumps(dict(status='passed', scope='pure synthetic continuation reporting and the actual handoff expression; no main, campaign artifact, source, array or strict read',
                       cases=['finite native failure retained', 'nullable movement serializes', 'passed probe reported',
                              'zero-motion native failure is uninformative and remains failed',
+                             'passed zero motion remains literal passed but uninformative and requires a root decision',
                              'zero baseline-start gap is diagnostic only', 'unavailable baseline-start gap is retained',
                              'failed completed-probe result retained', 'four passes plus exit0 pass',
                              'exit1 remains failed', 'one failed resolution remains failed'],

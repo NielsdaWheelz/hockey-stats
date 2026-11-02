@@ -1,10 +1,10 @@
 {
   "kind": "held-final-retry-saved-outcome-check-preparation",
-  "status": "prepared and unrun; final side/hook/shell/outcome review, explicit expanded user authorization, completed job and actual three hashes required",
+  "status": "intermediate hold; passed-zero continuation reporting updated; new observer native-result side interface/hash and final bindings pending; main unrun",
   "checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
-    "sha256": "ad7757c50c2782ee08f13a6245999f1d68e7df2ca972a24170b85ddcd22554a2",
-    "bytes": 34466
+    "sha256": "03ddfb95b1a752bc978a89874dd9f8570759cd029f37b81f047e85f7d4e81ebb",
+    "bytes": 35115
   },
   "derived_from": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
@@ -59,15 +59,20 @@
     },
     "control_source": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_final02_reporting.py",
-      "sha256": "9cc0a933c29e0b121dac1fd2194fd6dd80671e0d1c017fcb9a8637ee683583b6",
-      "bytes": 7136
+      "sha256": "7627f75133563c67950b17b1117e92ca56be213c917862fc1764d00158d0013a",
+      "bytes": 7968
     },
     "strict_read_call_sites": 1,
     "explicit_np_load_call_sites": 0,
     "main_invocations": 0,
     "real_artifact_or_source_reads": 0,
     "analysis_or_observer_edits": 0,
-    "controls_scope": "pure reporting controls ran on the current branch logic before the final observer identity-only cutover; no repeated control run or campaign invocation"
+    "controls_scope": "prior pure branch-control record retained; only the new passed-zero synthetic case was executed on this helper; the expanded whole control script and campaign main were not rerun",
+    "focused_passed_zero_control": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final02-passed-zero-reporting-control.json",
+      "sha256": "761b8e955eca336a7cd099b69e51eba5026136419cdc658d544e2f80e5db46bd",
+      "bytes": 577
+    }
   },
   "limits": [
     "audit success does not admit a failed numerical handoff",
@@ -78,8 +83,10 @@
   "protocol_steering": [
     "all failed continuations remain failed; reported zero motion is explicitly uninformative for resolution, even when endpoint identity implies zero probability difference",
     "finite positive movement is diagnostic only; any unchanged-margin probability evaluation of an incomplete endpoint needs a separate user policy decision",
-    "the proposed two-completed-baseline-start coefficient gap is a side diagnostic, never a replacement for prescribed v1-05 resolution; its reviewed observer interface remains pending"
+    "the proposed two-completed-baseline-start coefficient gap is a side diagnostic, never a replacement for prescribed v1-05 resolution; its reviewed observer interface remains pending",
+    "passed zero max/l2 movement is passed_zero_motion_uninformative and explicitly requires a root decision; literal status and the exit0 plus four-passed numerical_handoff expression remain unchanged; descendants stay held"
   ],
-  "next": "product/root peer review of final side/report/shell integration; no main invocation until the explicitly approved job completes and root pins actual output/source/side digests",
-  "actual_u_baseline_start_gap_sha256": null
+  "next": "bind reviewed native-result side hook before final package peer review; no main invocation until an explicitly approved job completes and root pins its actual hashes",
+  "actual_u_baseline_start_gap_sha256": null,
+  "pending_binding_update": "reviewed observer native-result side hook interface and identity; observer and shell were not edited by this reporting change"
 }

@@ -1,0 +1,189 @@
+{
+  "kind": "replacement-u-baseline-start-gap-observer-preparation",
+  "status": "temporary extension prepared and injected controls pass; root/source/numerical review pending; no ordinary model invocation",
+  "recorded_at_utc": "2026-11-02T03:44:56.207393+00:00",
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "bytes": 17466,
+    "sha256": "526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9"
+  },
+  "original_snapshot": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check-286.py",
+    "bytes": 13248,
+    "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+  },
+  "provenance": "old286 code was ignored temporary var and had no tracked git blob; this exact snapshot is newly reconstructed by reversing only the owned extension and independently matches the historical frozen286 digest. historical receipts remain unchanged; this commit first preserves the code bytes in git",
+  "interface": {
+    "argument": [
+      "--u-baseline-start-gap",
+      "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json"
+    ],
+    "placement": "temporary observer argument before --; no model CLI flag",
+    "early_refusal": "wrong command/family/season, occupied path or same source/gap output; purpose real confirmed before model call",
+    "active_call": "execution_fit.fit_head baseline alias capture; explicit original signature; original called once; only real20252026u with initialNone and tightenedFalse writes sidefile; exact original result identity/content returned; existing patch context restores hook",
+    "side_fields": [
+      "kind",
+      "purpose",
+      "season",
+      "head",
+      "recipe_sha256",
+      "analysis_tree",
+      "dimension",
+      "command",
+      "source_check",
+      "endpoint_order",
+      "scope",
+      "availability",
+      "reason",
+      "starts",
+      "coefficient_max_change",
+      "coefficient_l2_change"
+    ],
+    "kind_value": "temporary-u-baseline-start-gap",
+    "source_check_fields": [
+      "path",
+      "sha256"
+    ],
+    "start_summary_fields": [
+      "name",
+      "converged",
+      "deduplicated_to",
+      "objective"
+    ],
+    "endpoint_order": [
+      "zero",
+      "prior_mean"
+    ],
+    "analysis_identity": "actual git rev-parse HEAD:analysis captured once only when requested, before ordinary model execution",
+    "available_rule": "exactly two literal zero/prior_mean start rows independently complete and explicitly non-deduplicated, correct requested starts and finite dimension-matched endpoint arrays; compare prior_mean-minus-zero",
+    "unavailable_rule": "incomplete/deduplicated/missing/nonfinite endpoints leave both metrics null; metric overflow retains each representable metric independently with availability unavailable/reason nonfinite_gap",
+    "metrics": "max absolute coefficient difference and l2 difference; diagnostic only, no threshold or numerical-resolution verdict; no endpoint array serialized"
+  },
+  "source_integrity": {
+    "old_observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "unchanged_oracle_bytecode": [
+      "encoded",
+      "responses",
+      "main.<locals>.option",
+      "main.<locals>.save",
+      "main.<locals>.context",
+      "main.<locals>.head",
+      "main.<locals>.prepare",
+      "StartCheck.__init__",
+      "StartCheck.observe",
+      "StartCheck.observe.<locals>.<genexpr>",
+      "StartCheck.close",
+      "StartCheck.head",
+      "StartCheck.report"
+    ],
+    "StartCheck_ast_unchanged": true,
+    "source_report_fields_unchanged": true,
+    "bytecode_scope": "function bodies and nested oracle/report code, excluding shifted source line metadata on the class factory; class AST is identical",
+    "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+    "analysis_edits": 0
+  },
+  "verification": {
+    "controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-baseline-start-gap-controls-02.json",
+      "bytes": 2798,
+      "sha256": "0d0b2396d2127d4ab3e521619393b3671697bcdd91db2672754900a33f846b6d"
+    },
+    "script": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_u_baseline_start_gap.py",
+      "bytes": 9124,
+      "sha256": "2d38c581950a957259cf00ddede6b7aaf95e089c95d1661c5e3bb36d2825630c"
+    },
+    "wall_seconds": 0.20404549996601418,
+    "hook_modes": [
+      {
+        "mode": "complete",
+        "availability": "available",
+        "reason": null,
+        "original_calls": 1
+      },
+      {
+        "mode": "zero_gap",
+        "availability": "available",
+        "reason": null,
+        "original_calls": 1
+      },
+      {
+        "mode": "incomplete",
+        "availability": "unavailable",
+        "reason": "incomplete_or_deduplicated_start",
+        "original_calls": 1
+      },
+      {
+        "mode": "deduplicated",
+        "availability": "unavailable",
+        "reason": "incomplete_or_deduplicated_start",
+        "original_calls": 1
+      },
+      {
+        "mode": "missing_deduplication",
+        "availability": "unavailable",
+        "reason": "incomplete_or_deduplicated_start",
+        "original_calls": 1
+      },
+      {
+        "mode": "duplicate_start",
+        "availability": "unavailable",
+        "reason": "incomplete_or_deduplicated_start",
+        "original_calls": 1
+      },
+      {
+        "mode": "missing_endpoint",
+        "availability": "unavailable",
+        "reason": "missing_nonfinite_or_wrong_dimension_endpoint",
+        "original_calls": 1
+      },
+      {
+        "mode": "nonfinite_endpoint",
+        "availability": "unavailable",
+        "reason": "missing_nonfinite_or_wrong_dimension_endpoint",
+        "original_calls": 1
+      },
+      {
+        "mode": "wrong_dimension",
+        "availability": "unavailable",
+        "reason": "missing_nonfinite_or_wrong_dimension_endpoint",
+        "original_calls": 1
+      },
+      {
+        "mode": "overflow",
+        "availability": "unavailable",
+        "reason": "nonfinite_gap",
+        "original_calls": 1
+      }
+    ],
+    "bypasses": [
+      "non_u",
+      "continuation",
+      "tightened",
+      "unrequested"
+    ],
+    "early_refusals": [
+      "score",
+      "family",
+      "season",
+      "occupied",
+      "wrong_purpose_before_original"
+    ],
+    "identity_and_contents_unchanged": true,
+    "alias_capture_and_restore": true,
+    "ordinary_analysis_main_calls": 0,
+    "invalid_wrapper_guard_calls": 4,
+    "real_payload_reads": 0,
+    "source_context_calls": 0,
+    "native_solver_calls": 0,
+    "fits": 0,
+    "continuations": 0,
+    "setup_failures": "first control stopped before hook execution because the old ignored observer had no git blob; exact snapshot fixed that. whole class-factory bytecode includes changed source-location metadata, so preservation correctly compares identical class AST and all individual method/oracle/report bytecode. no source or numerical behavior changed by these control corrections"
+  },
+  "downstream": "held final02 shell/outcome checker remain unmodified by this author; numerical will refresh observer pin, side argument/path to16fresh guards and required actual side-file digest only after reviewed observer hash; no launch authorized",
+  "limits": [
+    "available gap is a comparison of two completed baseline starts on one objective, not an accuracy/uncertainty bound or acceptance condition",
+    "no failed endpoint reuse, promotion or incomplete-endpoint policy change; failed zero-motion continuation remains failed and uninformative",
+    "old ordinary source reports and286 receipts stay historical; all temporary helpers/snapshots/scratch remain until full real acceptance and policy cleanup"
+  ]
+}

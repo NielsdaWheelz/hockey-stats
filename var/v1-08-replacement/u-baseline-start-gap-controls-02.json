@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "observer_sha256": "526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9",
+  "original_observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "oracle_bytecode_unchanged": [
+    "encoded",
+    "responses",
+    "main.<locals>.option",
+    "main.<locals>.save",
+    "main.<locals>.context",
+    "main.<locals>.head",
+    "main.<locals>.prepare",
+    "StartCheck.__init__",
+    "StartCheck.observe",
+    "StartCheck.observe.<locals>.<genexpr>",
+    "StartCheck.close",
+    "StartCheck.head",
+    "StartCheck.report"
+  ],
+  "source_report_fields_unchanged": true,
+  "hook_modes": [
+    {
+      "mode": "complete",
+      "availability": "available",
+      "reason": null,
+      "original_calls": 1
+    },
+    {
+      "mode": "zero_gap",
+      "availability": "available",
+      "reason": null,
+      "original_calls": 1
+    },
+    {
+      "mode": "incomplete",
+      "availability": "unavailable",
+      "reason": "incomplete_or_deduplicated_start",
+      "original_calls": 1
+    },
+    {
+      "mode": "deduplicated",
+      "availability": "unavailable",
+      "reason": "incomplete_or_deduplicated_start",
+      "original_calls": 1
+    },
+    {
+      "mode": "missing_deduplication",
+      "availability": "unavailable",
+      "reason": "incomplete_or_deduplicated_start",
+      "original_calls": 1
+    },
+    {
+      "mode": "duplicate_start",
+      "availability": "unavailable",
+      "reason": "incomplete_or_deduplicated_start",
+      "original_calls": 1
+    },
+    {
+      "mode": "missing_endpoint",
+      "availability": "unavailable",
+      "reason": "missing_nonfinite_or_wrong_dimension_endpoint",
+      "original_calls": 1
+    },
+    {
+      "mode": "nonfinite_endpoint",
+      "availability": "unavailable",
+      "reason": "missing_nonfinite_or_wrong_dimension_endpoint",
+      "original_calls": 1
+    },
+    {
+      "mode": "wrong_dimension",
+      "availability": "unavailable",
+      "reason": "missing_nonfinite_or_wrong_dimension_endpoint",
+      "original_calls": 1
+    },
+    {
+      "mode": "overflow",
+      "availability": "unavailable",
+      "reason": "nonfinite_gap",
+      "original_calls": 1
+    }
+  ],
+  "bypasses": [
+    "non_u",
+    "continuation",
+    "tightened",
+    "unrequested"
+  ],
+  "original_result_identity_and_contents_preserved": true,
+  "alias_capture_and_restore": true,
+  "early_refusals": [
+    "score",
+    "family",
+    "season",
+    "occupied",
+    "wrong_purpose_before_original"
+  ],
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-gap-controls-w1oeoaj6",
+  "scope": "tiny injected results and hook/argument guards only; no analysis_main/model/native solver/source context or real payload invoked",
+  "wall_seconds": 0.20404549996601418
+}

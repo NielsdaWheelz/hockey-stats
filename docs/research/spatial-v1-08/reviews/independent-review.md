@@ -1229,6 +1229,29 @@ small: no row covers a crash or a failed baseline head. one line, "anything else
 
 the rest of the scope is sound: one command, no second retry, no incomplete-endpoint assessment, cost marked historical, and the correct concession that matching files can't recover the original cause. the recipe clause it quotes is in `replacement-fit-recipes.md`.
 
+### final held package `a644028`
+
+verdict: **statically CLEAR for the authorization request.** reviewed at `a644028`, analysis `59813412`, recipe `47691110`: shell `36b9ac29`, observer `ef4995e5`, helper `ab15fe7f`, scope `execution-final-year-diagnostic-rerun.md`. this is release review, not authorization. nothing was launched, and no `final-02` path exists in the campaign. this review read no source game, campaign array or state, and ran no model. all four [earlier findings](#held-final-02-package-and-rerun-scope) are closed.
+
+one independent check, since the receipt's native controls ran with no optimizer. i connected the real `baseline_fit_hook`, real `chance.solve_logistic`, real scipy 1.18.1 and the real `report_native_continuation` on a 50-dimension synthetic, with no corpus and no main.
+
+| trial behavior | native success, status | `nit` | `nfev` | `fun` class | start returned |
+| --- | --- | --- | --- | --- | --- |
+| slightly worse | false, 2 | 0 | 19 | finite | yes |
+| NaN | false, 2 | 0 | 15 | nan | yes |
+| infinite | true, 0 | 1 | 3 | finite | yes |
+| ordinary | true, 0 | 1 | 3 | finite | no |
+
+all four satisfied the helper. the patch was active inside the call, the result object came back unchanged, `chance.minimize` was restored after, and `q`, `g` and a baseline `u` call stayed unpatched and wrote nothing. the first two rows are the separation i asked for: `fun` now tells a NaN return from a finite one. the third shows the limit the scope states: native success, finite `fun`, and an infinite trial behind it. that is the zero-motion pass, now labelled.
+
+reading the rest: `minimize` is called once in `chance`, at `:592`, through the exact keywords the wrapper reads, so a second write or a `KeyError` can't occur. `solve_logistic` passes no `maxfun` or `maxls`, so the helper's options literal holds. the helper builds `u_start` after `probe_heads` and handles both the failed and probe shapes. the shell has 17 distinct guards, the three side flags precede `--`, and the native path matches in guard, flag and helper. tree, observer and predecessor pins appear once each. the preparation receipts carry `36b9ac29`, `ef4995e5` and `ab15fe7f`, the observer receipt hashes `429b17c4`, and no current document keeps an old pin.
+
+the scope now says what the record can show: abnormal stop, not line search, and expected failure, not "may". the "large" branch is gone, and the zero-motion pass and catch-all rows exist. it concedes the native record isn't a trial trace. its one reversal, the continuation hook, is stated openly with its cost.
+
+one naming mismatch, not blocking and no re-pin: the helper's field says `uninformative_pass_requires_root_decision`, while the scope returns that outcome to the USER. the scope governs.
+
+what this doesn't establish. no real run has exercised either side file, and a failure inside the hook would cost the run, though i found no path to one. root's message leaves the source peer's final pass open. and this package repairs nothing: if the arithmetic reproduces, it returns better evidence, v1-08 stays incomplete, and the user owes another decision.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

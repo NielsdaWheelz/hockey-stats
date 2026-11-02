@@ -1,6 +1,6 @@
 # final execution diagnostic rerun
 
-status: prepared, not authorized or launched. the first final annual `9845808a` remains failed and preserved. this proposal expands the numerical budget by one whole final-year command; it does not amend numerical acceptance.
+status: independently static-clear at `a644028`, not authorized or launched. final source/design and product integration peers are also clear. the first final annual `9845808a` remains failed and preserved. this proposal expands the numerical budget by one whole final-year command; it does not amend numerical acceptance.
 
 ## reason and bounded work
 
@@ -35,7 +35,7 @@ matching baseline hashes and a new native failure still cannot recover the origi
 
 ## cost and decision
 
-the previous command took 12,156.98 seconds, with peak rss 15,744,499,712 bytes. these are historical observations, not estimates for this proposal. identical arithmetic is expected to reproduce the failure, though that is unproved. v1-08 probably remains incomplete after this run, and another user decision likely follows. the benefit is truthful native evidence and the completed-baseline comparison; this command is not an arithmetic repair.
+the previous command took 12,156.98 seconds, with peak rss 15,744,499,712 bytes. these are historical observations, not estimates for this proposal. identical arithmetic is expected to reproduce the failure, though that is unproved. v1-08 probably remains incomplete after this run, and another user decision likely follows. the benefit is truthful native evidence and the completed-baseline comparison; this command is not an arithmetic repair. neither side file has run on a real fit; a hook or write failure could abort the command, despite focused synthetic and static checks.
 
 the whole fit pays for repeated design and baseline work. it produces a coherent state and directly checks reproducibility without introducing replay or selective-reuse machinery. failed endpoints retain only finite-or-null movement summaries, so a later authorized probability assessment might require further computation.
 

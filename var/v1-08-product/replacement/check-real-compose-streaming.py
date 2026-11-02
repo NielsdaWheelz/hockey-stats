@@ -37,8 +37,8 @@ def main():
             uncertainty=dict(kind='not_estimated'))
 
     raw_projections, raw_maps, public_projections, public_maps = [], [], [], []
-    people = {(year, player): dict(source=[source]) for player in ('1', '2', '3')}
-    for strength in ('5v5', '5v4'):
+    people = {(year, player): dict(kind='skater', source=[source]) for player in ('1', '2', '3')}
+    for strength in h.EXECUTION_STRENGTHS:
         for player in ('1', '2', '4'):  #4 is numerical-only;3 is factual-only.
             values = {field: float(player)/10 for field in h.FIELDS}
             values[h.FIELDS[1]] = None if player == '1' else values[h.FIELDS[1]]
@@ -62,7 +62,7 @@ def main():
                             cells=None if native is None else [dict(cell_id=i, value=v) for i, v in enumerate(native)],
                             display_cells=None if native is None else [dict(cell_id=i, mass=0., density_per100sqft=0.) for i in range(668)],
                             unavailable_reason=data[field]['unavailable_reason'], reason_detail=data[field]['reason_detail']))))
-    for strength in ('5v5', '5v4'):
+    for strength in h.EXECUTION_STRENGTHS:
         data = {field: datum(None, 'missing_source', 'the factual skater has no saved annual projection because its prepared person kind is not resolved as skater; this does not establish coefficient absence') for field in h.FIELDS}
         data.update(method_id=method, reference_panel=dict(opportunities=2), coefficient_support=dict(shooter=dict(u=dict(available=False, reason='focal_projection_unavailable_for_prepared_kind'))),
             support={field: dict(current_season_information=False, prior_only=False, prior_seasons=[]) for field in h.FIELDS})
@@ -74,12 +74,12 @@ def main():
     public_projections.sort(key=lambda row: (row['player_id'], row['strength']))
     public_maps.sort(key=lambda row: (row['player_id'], row['map_kind'], row['strength']))
     score_root = scratch / 'scores' / year
-    annual = dict(files=[member(score_root, 'projections.jsonl', raw_projections), member(score_root, 'maps.jsonl', raw_maps)], resources=dict(projections=6))
+    annual = dict(files=[member(score_root, 'projections.jsonl', raw_projections), member(score_root, 'maps.jsonl', raw_maps)], resources=dict(projections=21))
     tables = dict(skater_execution=member(h.OUTPUT, 'projections.jsonl', public_projections), analysis_map=member(h.OUTPUT, 'maps.jsonl', public_maps))
     manifest = dict(families=[dict(season=year, family='execution', tables=tables)])
     copied = h.check_projections_maps(year, manifest, annual, people)
-    assert copied['copied_projections_exact'] == 4 and copied['factual_only_unavailable_projections'] == 2
-    assert copied['copied_native_maps_exact'] == 8 and copied['raw_only_map_rows'] == 4 and copied['raw_only_projection_rows'] == 2
+    assert copied['copied_projections_exact'] == 14 and copied['factual_only_unavailable_projections'] == 7
+    assert copied['copied_native_maps_exact'] == 28 and copied['raw_only_map_rows'] == 14 and copied['raw_only_projection_rows'] == 7
     old = [dict(season=year, game_id='g1', interval_id=1, team_id='t', population='recorded', seconds=10)]
     added = dict(old[0], population='neutral_all_attempt_value')
     after = sorted([old[0], added], key=lambda row: tuple(row[key] for key in h.KEYS['interval_fact']))
@@ -109,7 +109,7 @@ def main():
     bridge = h.check_event_bridges(year, manifest, annual, receipt)
     assert bridge['intersection'] == 2 and bridge['source_only'] == bridge['numerical_only'] == 1
     refused = []
-    for name in ('map_wrong_key', 'map_nullability', 'interval_changed', 'source_value_wrong_key'):
+    for name in ('map_wrong_key', 'map_nullability', 'interval_changed', 'source_value_wrong_key', 'public_player_omitted', 'public_strength_omitted'):
         try:
             if name.startswith('map_'):
                 row = deepcopy(public_maps[0]); raw = deepcopy(next(row for row in raw_maps if (row['player_id'], row['strength'], row['map_kind']) == ('1', '5v4', 'finishing')))
@@ -121,10 +121,15 @@ def main():
                 h.check_copied_map(row, raw, data, method)
             elif name == 'interval_changed':
                 h.compare_intervals(old, [dict(old[0], seconds=11)], 'interval_fact')
-            else:
+            elif name == 'source_value_wrong_key':
                 changed = deepcopy(values); changed[0]['source_index'] = 99
                 tables['attempt_value'] = member(h.OUTPUT, 'values.jsonl', changed)
                 h.check_event_bridges(year, manifest, annual, receipt)
+            else:
+                keep = lambda row: row['player_id'] != '2' if name == 'public_player_omitted' else (row['player_id'], row['strength']) != ('1', '5v4')
+                tables['skater_execution'] = member(h.OUTPUT, 'projections.jsonl', list(filter(keep, public_projections)))
+                tables['analysis_map'] = member(h.OUTPUT, 'maps.jsonl', list(filter(keep, public_maps)))
+                h.check_projections_maps(year, manifest, annual, people)
         except AssertionError:
             refused.append(name)
         else:
@@ -134,7 +139,7 @@ def main():
         copied=copied, event_merge=bridge, wrong_records_refused=refused,
         scope='tiny synthetic rows only; map display cells are scaffolding and their geometry math is outside these copy controls',
         main_invocations=0, real_or_fixture_artifact_reads=0, strict_reads=0, source_passes=0, array_reads=0, wall_seconds=perf_counter()-began)
-    destination = HELPER.parent / 'real-compose-streaming-controls-02.json'
+    destination = HELPER.parent / 'real-compose-streaming-controls-03.json'
     with destination.open('x') as stream:
         json.dump(result, stream, indent=2, allow_nan=False)
         stream.write('\n')

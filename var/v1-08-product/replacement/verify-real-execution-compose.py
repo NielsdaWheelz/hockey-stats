@@ -11,7 +11,7 @@ import re
 import resource
 from time import perf_counter
 
-from hockey_stats.analysis_publication import KEYS
+from hockey_stats.analysis_publication import EXECUTION_STRENGTHS, KEYS
 
 WORK = Path('/Users/nnandal/Documents/code/hockey-stats-v1-08')
 CAMPAIGN = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real')
@@ -152,12 +152,14 @@ def check_projections_maps(year, manifest, annual, people):
     root = CAMPAIGN / 'scores' / year
     offsets, sizes = index_score_members(root, annual)
     copied_pairs, copied_maps = set(), set()
+    published_players = set()
     projection_groups = groupby(rows(OUTPUT, table(manifest, year, 'execution', 'skater_execution')), lambda row: row['player_id'])
     map_groups = groupby(rows(OUTPUT, table(manifest, year, 'execution', 'analysis_map')), lambda row: row['player_id'])
     missing = maps = 0
     with (root / 'projections.jsonl').open('rb') as raw_projection, (root / 'maps.jsonl').open('rb') as raw_map:
         for (player, projections), (map_player, maps_for_player) in paired(projection_groups, map_groups):
-            assert player == map_player
+            assert player == map_player and player not in published_players
+            published_players.add(player)
             current = {}
             for row in projections:
                 pair = row['player_id'], row['strength']
@@ -187,6 +189,7 @@ def check_projections_maps(year, manifest, annual, people):
                         assert data['support'][field]['prior_only'] is False and data['support'][field]['prior_seasons'] == []
                     assert all(record['available'] is False and record['reason'] == 'focal_projection_unavailable_for_prepared_kind'
                                for block in data['coefficient_support'].values() for record in block.values())
+            assert set(current) == set(EXECUTION_STRENGTHS)
             seen = set()
             for row in maps_for_player:
                 key = player, row['strength'], row['map_kind']
@@ -198,6 +201,8 @@ def check_projections_maps(year, manifest, annual, people):
                     copied_maps.add(key)
                 maps += 1
             assert len(seen) == 2*len(current)
+    assert published_players == {player for (season, player), person in people.items()
+                                 if season == year and person['kind'] == 'skater'}
     return dict(copied_projections_exact=len(copied_pairs), factual_only_unavailable_projections=missing,
         copied_native_maps_exact=len(copied_maps), public_maps=maps,
         raw_only_projection_rows=len(offsets['projections.jsonl'].keys()-copied_pairs),

@@ -1,10 +1,10 @@
 {
   "kind": "held-final-retry-saved-outcome-check-preparation",
-  "status": "intermediate hold; zero-motion classification updated; reviewed observer identity and completed-u-baseline-start side-report interface pending; main unrun",
+  "status": "prepared and unrun; final side/hook/shell/outcome review, explicit expanded user authorization, completed job and actual three hashes required",
   "checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
-    "sha256": "4001df91a67e7193aa01b12335b4498da7adb603e212c4ba4d880c461c75ea2c",
-    "bytes": 30079
+    "sha256": "ad7757c50c2782ee08f13a6245999f1d68e7df2ca972a24170b85ddcd22554a2",
+    "bytes": 34466
   },
   "derived_from": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
@@ -20,6 +20,8 @@
     "<actual_final02_manifest_sha256>",
     "--expected-source-sha256",
     "<actual_final02_source_report_sha256>",
+    "--expected-u-baseline-start-gap-sha256",
+    "<actual_final02_u_baseline_start_gap_sha256>",
     "--out-check",
     "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-saved-acceptance.json"
   ],
@@ -32,8 +34,9 @@
     "historical_original_fit_sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be",
     "preserved_failed_annual_sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
     "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
-    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
-    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+    "observer_sha256": "526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "baseline_start_gap": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json"
   },
   "scope": [
     "one strict new saved-state read; all four baseline heads must be complete",
@@ -42,26 +45,29 @@
     "actual failed native records and nullable max/l2 movement reported from the strict diagnostic contract; no failed endpoint promotion or probability evaluation",
     "stream actual four current and preserved984 heads/*.npz file hashes and verify each against its bound manifest; no preserved984 strict read or numeric array load; hash differences are descriptive, not a new acceptance gate",
     "available completed-probe deltas independently checked only by the single strict reader; failed endpoint movement and all probability maxima retain their producer-saved scope",
-    "all descendants stay held pending independent/root acceptance and release"
+    "all descendants stay held pending independent/root acceptance and release",
+    "root-pinned small side report binds actual source hash, command/analysis/recipe/purpose/season/u/dimension and saved start metadata; available, unavailable and zero gaps remain diagnostics only",
+    "physical q/r/g continuation hashes checked against both bound manifests; original984 u probe absence explicit and missing new probes unavailable; no numeric NPZ loads or equality gate"
   ],
   "validation": {
     "python_ast": "passed",
     "raw_history_centers_and_original_metadata_loop_unchanged_except_resolution_success_gate": true,
     "controls": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final02-reporting-controls.json",
-      "sha256": "fe1280cfdba2acf13ffdb8085111b4b27d0e0f586b8e228cdbf06c44c91ce5d8",
-      "bytes": 693
+      "sha256": "053532e14a9f73edf7552e9b4dfc499c5cf0be13ed1852172ddcec4026ae57a6",
+      "bytes": 837
     },
     "control_source": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_final02_reporting.py",
-      "sha256": "54bc5100f4d5d70fd7c8a7f264202ffd2418941d655fe7e3a377e3bfdd4967ff",
-      "bytes": 5381
+      "sha256": "9cc0a933c29e0b121dac1fd2194fd6dd80671e0d1c017fcb9a8637ee683583b6",
+      "bytes": 7136
     },
     "strict_read_call_sites": 1,
     "explicit_np_load_call_sites": 0,
     "main_invocations": 0,
     "real_artifact_or_source_reads": 0,
-    "analysis_or_observer_edits": 0
+    "analysis_or_observer_edits": 0,
+    "controls_scope": "pure reporting controls ran on the current branch logic before the final observer identity-only cutover; no repeated control run or campaign invocation"
   },
   "limits": [
     "audit success does not admit a failed numerical handoff",
@@ -74,5 +80,6 @@
     "finite positive movement is diagnostic only; any unchanged-margin probability evaluation of an incomplete endpoint needs a separate user policy decision",
     "the proposed two-completed-baseline-start coefficient gap is a side diagnostic, never a replacement for prescribed v1-05 resolution; its reviewed observer interface remains pending"
   ],
-  "next": "bind reviewed temporary observer and baseline-start side-report interface, then product/root review; no campaign invocation or new numerical work follows preparation"
+  "next": "product/root peer review of final side/report/shell integration; no main invocation until the explicitly approved job completes and root pins actual output/source/side digests",
+  "actual_u_baseline_start_gap_sha256": null
 }

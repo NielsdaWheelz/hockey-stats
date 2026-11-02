@@ -6,6 +6,8 @@
     "nullable movement serializes",
     "passed probe reported",
     "zero-motion native failure is uninformative and remains failed",
+    "zero baseline-start gap is diagnostic only",
+    "unavailable baseline-start gap is retained",
     "failed completed-probe result retained",
     "four passes plus exit0 pass",
     "exit1 remains failed",
@@ -13,7 +15,8 @@
   ],
   "rejected": [
     "native count mismatch",
-    "pending resolution"
+    "pending resolution",
+    "side report source identity mismatch"
   ],
   "historical_helper_unchanged": true,
   "strict_read_call_sites": 1,

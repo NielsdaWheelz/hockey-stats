@@ -20,13 +20,14 @@ CAMPAIGN = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacem
 NEW = CAMPAIGN / 'execution-final-02/20252026'
 FAILED = CAMPAIGN / 'execution/20252026'
 FAILED_SHA = '9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491'
+BASELINE_GAP = CAMPAIGN / 'fit-20252026-final-02-u-baseline-start-gap.json'
 PREVIOUS = CAMPAIGN / 'execution/20242025'
 OLD = Path('/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026')
 ANALYSIS = '59813412b3ef66bb66ae60f5daf930716d00073e'
 PREVIOUS_SHA = '1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe'
 OLD_SHA = 'c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be'
 RECIPE = '47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674'
-OBSERVER = '286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf'
+OBSERVER = '526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9'
 HEADS = ('u', 'q', 'r', 'g')
 START_FIELDS = ('shooter_start_zone:offensive', 'shooter_start_zone:neutral', 'shooter_start_zone:defensive')
 
@@ -119,13 +120,45 @@ def report_resolution(head, resolution, probe, baseline, solve_count):
                 resolution_evidence=evidence)
 
 
+def report_baseline_gap(side, metadata, source_reference, command):
+    """bind a producer-saved side diagnostic, never replace continuation evidence."""
+    assert side['kind'] == 'temporary-u-baseline-start-gap' and side['head'] == 'u'
+    assert side['purpose'] == 'real' and side['season'] == '20252026'
+    assert side['analysis_tree'] == ANALYSIS and side['recipe_sha256'] == RECIPE
+    assert side['source_check'] == source_reference and side['command'] == command
+    assert side['dimension'] == metadata['design']['size'] and side['endpoint_order'] == ['zero', 'prior_mean']
+    expected_starts = [{key: row.get(key) for key in ('name', 'converged', 'deduplicated_to', 'objective')}
+                       for row in metadata['starts']]
+    assert side['starts'] == expected_starts
+    values = [side[key] for key in ('coefficient_max_change', 'coefficient_l2_change')]
+    assert all(value is None or type(value) in (int, float) and math.isfinite(value) and value >= 0. for value in values)
+    assert side['availability'] in ('available', 'unavailable')
+    completed = all(row['converged'] is True and row['deduplicated_to'] is None for row in expected_starts)
+    if side['availability'] == 'available':
+        assert completed and side['reason'] is None and all(value is not None for value in values)
+    else:
+        assert side['reason'] in ('incomplete_or_deduplicated_start', 'missing_nonfinite_or_wrong_dimension_endpoint', 'nonfinite_gap')
+        if side['reason'] == 'incomplete_or_deduplicated_start':
+            assert not completed and values == [None, None]
+        elif side['reason'] == 'missing_nonfinite_or_wrong_dimension_endpoint':
+            assert completed and values == [None, None]
+        else:
+            assert completed and any(value is None for value in values)
+    return dict(availability=side['availability'], reason=side['reason'], starts=side['starts'],
+                coefficient_max_change=values[0], coefficient_l2_change=values[1],
+                identity_and_start_metadata_bindings_checked=True,
+                scope='producer-saved baseline-start diagnostic; an available gap compares two completed endpoints, which are not independently replayed; zero or positive gap never substitutes for v1-05 numerical resolution')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--expected-manifest-sha256', required=True)
     parser.add_argument('--expected-source-sha256', required=True)
+    parser.add_argument('--expected-u-baseline-start-gap-sha256', required=True)
     parser.add_argument('--out-check', type=Path, required=True)
     args = parser.parse_args()
-    assert all(re.fullmatch('[0-9a-f]{64}', value) for value in (args.expected_manifest_sha256, args.expected_source_sha256))
+    assert all(re.fullmatch('[0-9a-f]{64}', value) for value in
+               (args.expected_manifest_sha256, args.expected_source_sha256, args.expected_u_baseline_start_gap_sha256))
     assert not args.out_check.exists()
     command_exit = (NEW.parent / '20252026-exit.txt').read_text().strip()
     assert command_exit in ('0', '1')
@@ -155,6 +188,9 @@ def main():
     assert source['command'] == ['fit', '--family', 'execution', '--prepared', str(Path(manifest['prepared']['path']).parent),
                                   '--coaches', manifest['coaches']['path'], '--season', '20252026', '--previous', str(PREVIOUS), '--out', str(NEW)]
     assert state.coverage['heads'] == source['head_admission']
+    assert digest(BASELINE_GAP) == args.expected_u_baseline_start_gap_sha256
+    baseline_gap = dict(report=identity(BASELINE_GAP), **report_baseline_gap(read(BASELINE_GAP), state.heads['u'],
+        dict(path=str(source_path), sha256=args.expected_source_sha256), source['command']))
     old_coverage = bound_json(OLD, original, 'coverage.json')
     original_optional = old_coverage.pop('optional_features')
     assert old_coverage == {key: value for key, value in state.coverage.items() if key != 'optional_features'}
@@ -305,6 +341,28 @@ def main():
     baseline_comparison = dict(preserved_failed_manifest=identity(FAILED / 'manifest.json'),
         heads=baseline_files, all_four_match=all(row['status'] == 'match' for row in baseline_files.values()),
         scope='streamed actual coefficient file hashes checked against each bound manifest; no preserved-failed strict read or numpy array load; differences are reported, not an additional acceptance gate')
+    continuation_files = {}
+    for head in HEADS:
+        relative = f'resolution/{head}.npz'
+        current_ref = next((row for row in manifest['files'] if row['path'] == relative), None)
+        failed_ref = next((row for row in failed_manifest['files'] if row['path'] == relative), None)
+        current_sha = failed_sha = None
+        if current_ref is not None:
+            current_sha = digest(NEW / relative)
+            assert current_sha == current_ref['sha256']
+        else:
+            assert not (NEW / relative).exists()
+        if failed_ref is not None:
+            failed_sha = digest(FAILED / relative)
+            assert failed_sha == failed_ref['sha256']
+        else:
+            assert head == 'u' and not (FAILED / relative).exists()
+        comparable = current_sha is not None and failed_sha is not None
+        continuation_files[head] = dict(current_sha256=current_sha, preserved_failed_sha256=failed_sha,
+            status=('match' if current_sha == failed_sha else 'different') if comparable else 'unavailable',
+            reason=None if comparable else 'preserved 984 u probe absent' if failed_sha is None else 'new probe absent')
+    continuation_comparison = dict(heads=continuation_files,
+        scope='actual continuation file hashes checked against both bound manifests; preserved 984 u has no probe to compare; missing probes are unavailable; byte comparisons do not evaluate probabilities or create a reproducibility gate')
     probes = dict(head_continuations=4, extra_probe_commands=0, baseline=baseline_ref,
                   baseline_inputs_metadata_and_array_bindings_checked_by_strict_reader=True,
                   within_run_baseline_coefficients_preserved=True, probe_coefficients_promoted=False,
@@ -346,7 +404,9 @@ def main():
         acceptance='not accepted; independent/root review and release required' if numerical_handoff == 'passed' else 'failed numerical handoff; scoring and descendants held',
         recorded_at_utc=datetime.now(timezone.utc).isoformat(), manifest=identity(state.path), previous=identity(PREVIOUS / 'manifest.json'), original=identity(OLD / 'manifest.json'),
         recipe={key:manifest['recipe'][key] for key in ('name','version','sha256')}, strict_read=dict(invocations_here=1,status='passed',wall_seconds=strict_seconds,upstream_source_reads=0),
-        heads=heads, probes=probes, baseline_reproducibility=baseline_comparison, coverage=dict(original_core_exact=True, optional_start_support_matches_actual_head_metadata=True,
+        heads=heads, probes=probes, u_baseline_start_gap=baseline_gap,
+        baseline_reproducibility=baseline_comparison, continuation_reproducibility=continuation_comparison,
+        coverage=dict(original_core_exact=True, optional_start_support_matches_actual_head_metadata=True,
                                   recognized=len(state.coverage['attempts']), games=len(state.coverage['games'])),
         source=dict(report=identity(source_path), source_contexts=source['source_contexts'], known_expected=0, known_checked=0,
                     dispositions=source['dispositions'], eligibility_counts=source['eligibility_counts'], source_context_sha256=source['source_context_sha256'],
@@ -367,7 +427,7 @@ def main():
                 'failed endpoint movement is producer-saved and does not prove the fixed 1e-5 probability bound or authorize incomplete-endpoint promotion; non-reproducible file hashes and a passing u rerun are reported without inventing the original failed termination',
                 'zero motion from a failed continuation is uninformative: zero probability change by endpoint identity is a tautology, not numerical resolution evidence; all failed continuations remain failed',
                 'command exit1 is permitted only to audit a valid failed-resolution artifact, never to accept it; final scoring propagation and all real spatial fits remain held'],
-        access='one new strict saved-state read; accepted replacement 2024 and original 2025 manifests/head metadata and original coverage; preserved 984 manifest plus four streamed coefficient file hashes only; no extra predecessor/original/failed strict read, old numeric array load, source game, source pass, fit, score or production edit',
+        access='one new strict saved-state read; accepted replacement 2024 and original 2025 manifests/head metadata and original coverage; preserved 984 manifest plus four baseline and three continuation streamed coefficient file hashes only; no extra predecessor/original/failed strict read, old numeric array load, source game, source pass, fit, score or production edit',
         next='root reviews numerical handoff and reproducibility; descendants stay held until independent acceptance and explicit release' if numerical_handoff == 'passed' else 'root reviews retained failure evidence; no scoring, endpoint promotion or further numerical work is authorized')
     with args.out_check.open('x') as stream:
         json.dump(result,stream,allow_nan=False,indent=2)

@@ -59,6 +59,26 @@ for name, candidate, count in [('native count mismatch', failure, 2), ('pending 
         rejected.append(name)
     else:
         raise AssertionError(name)
+source_reference = dict(path='/synthetic/source-check.json', sha256='2'*64)
+baseline_starts = [dict(start, name=name, converged=True) for name in ('zero', 'prior_mean')]
+baseline_metadata = dict(design=dict(size=2), starts=baseline_starts)
+side = dict(kind='temporary-u-baseline-start-gap', head='u', purpose='real', season='20252026',
+            analysis_tree=module.ANALYSIS, recipe_sha256=module.RECIPE, source_check=source_reference,
+            command=['synthetic'], dimension=2, endpoint_order=['zero', 'prior_mean'],
+            starts=[{key: row[key] for key in ('name', 'converged', 'deduplicated_to', 'objective')} for row in baseline_starts],
+            availability='available', reason=None, coefficient_max_change=0., coefficient_l2_change=0.)
+assert module.report_baseline_gap(side, baseline_metadata, source_reference, ['synthetic'])['availability'] == 'available'
+side_unavailable, incomplete_metadata = deepcopy(side), deepcopy(baseline_metadata)
+side_unavailable.update(availability='unavailable', reason='incomplete_or_deduplicated_start', coefficient_max_change=None, coefficient_l2_change=None)
+side_unavailable['starts'][1]['converged'] = False
+incomplete_metadata['starts'][1]['converged'] = False
+assert module.report_baseline_gap(side_unavailable, incomplete_metadata, source_reference, ['synthetic'])['availability'] == 'unavailable'
+try:
+    module.report_baseline_gap(side, baseline_metadata, dict(source_reference, sha256='3'*64), ['synthetic'])
+except AssertionError:
+    rejected.append('side report source identity mismatch')
+else:
+    raise AssertionError('side source identity mismatch accepted')
 original = path.with_name('accept_real_execution_20252026.py')
 assert hashlib.sha256(original.read_bytes()).hexdigest() == '462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02'
 calls = [node for node in ast.walk(tree) if isinstance(node, ast.Call)]
@@ -68,6 +88,7 @@ assert not any(isinstance(node.func, ast.Attribute) and isinstance(node.func.val
 print(json.dumps(dict(status='passed', scope='pure synthetic continuation reporting and the actual handoff expression; no main, campaign artifact, source, array or strict read',
                       cases=['finite native failure retained', 'nullable movement serializes', 'passed probe reported',
                              'zero-motion native failure is uninformative and remains failed',
+                             'zero baseline-start gap is diagnostic only', 'unavailable baseline-start gap is retained',
                              'failed completed-probe result retained', 'four passes plus exit0 pass',
                              'exit1 remains failed', 'one failed resolution remains failed'],
                       rejected=rejected, historical_helper_unchanged=True, strict_read_call_sites=1, explicit_np_load_call_sites=0), indent=2))

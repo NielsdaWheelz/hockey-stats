@@ -1,10 +1,10 @@
 {
   "kind": "held-whole-final-execution-retry-command-preparation",
-  "status": "hold; final repair acceptance, independent command review and explicit expanded user authorization required; not launched",
+  "status": "hold; reviewed observer side diagnostic integrated; final command/outcome review and explicit expanded user authorization required; not launched",
   "script": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-final-02-execution-command.sh",
-    "sha256": "fd2ccc6b1d60952afd6212484d3af8a12d563d6a9ce74faa06347d8a7ad4f823",
-    "bytes": 4864
+    "sha256": "7b40b3df272d87cf5af04cf9e3338b72288da8f6e02938671a0b3c25b0e128bb",
+    "bytes": 5151
   },
   "derived_from": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-execution-command.sh",
@@ -16,7 +16,8 @@
   "actual_launch_head": null,
   "observer": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
-    "sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf"
+    "sha256": "526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9",
+    "commit": "10d3620a6748cff2f787d9ab353c75e79ea1738e"
   },
   "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
   "prepared": {
@@ -58,24 +59,31 @@
     "independent_native_calls": "observed after completion; setter em can contain several native calls",
     "reuse": "accepted raw previous-year history only; no reuse of final-year coefficients or targets",
     "scoring": false,
-    "forensic_helper": false
+    "forensic_helper": false,
+    "u_baseline_start_gap": "two completed non-deduplicated baseline endpoints only; producer-saved coefficient max/l2 side diagnostic with nullable overflow, no threshold or v1-05 substitute"
   },
   "checks": {
     "shell_syntax": 0,
-    "timed_argv_equal_previous_except_fresh_output_and_source_check": true,
     "ordinary_argv_equal_previous_except_fresh_output": true,
-    "guarded_paths": 15,
+    "guarded_paths": 16,
     "all_paths_distinct_and_absent": true,
     "analysis_exact_and_clean": true,
-    "pinned_python_and_observer_unchanged": true,
-    "exit_status_preserved": true
+    "exit_status_preserved": true,
+    "observer_side_flag_before_model_cli_separator": true,
+    "ordinary_cli_tail_unchanged": true,
+    "timed_argv_changes": "fresh output/source-check plus the one observer-only baseline-start-gap argument; ordinary model CLI tail unchanged",
+    "timed_argv_equal_previous_except_fresh_paths_and_observer_side_flag": true,
+    "pinned_python_unchanged": true,
+    "observer_pin_updated_to_reviewed_side_hook": true
   },
   "post_run_requirements": [
     "compare all four heads/*.npz member hashes with preserved 984; do not infer identity from successful status",
+    "compare available resolution/q.npz,r.npz,g.npz physical hashes with preserved 984 manifest bindings; missing new probes are unavailable, original u probe absence explicit; differences descriptive",
     "retain actual native termination, finite-or-null endpoint movement and unchanged fixed-budget resolution results",
     "a failed finite endpoint remains unavailable; evaluating its probability movement requires a separate user decision and incomplete-endpoint policy amendment",
     "large movement or nonfinite output stops; record different baseline hashes or a passing u outcome as reproducibility evidence",
-    "no new score or downstream use until complete state acceptance; no tolerance, recipe or objective change"
+    "no new score or downstream use until complete state acceptance; no tolerance, recipe or objective change",
+    "failed zero endpoint motion remains uninformative for resolution; identity-implied zero probability change is tautological and cannot replace a completed continuation"
   ],
   "limits": [
     "12156.98 seconds was the previous whole-command observation, not a forecast",
@@ -86,5 +94,6 @@
   "invocation": [
     "/bin/sh",
     "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-final-02-execution-command.sh"
-  ]
+  ],
+  "fresh_baseline_start_gap": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json"
 }

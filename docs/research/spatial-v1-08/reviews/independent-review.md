@@ -1134,6 +1134,41 @@ idk what changed between the third and fourth years: the clock, the sort, or bot
 
 what the annual should show, as description with no gate: age-known start-unknown 5 to 12, 3 to 8, 2 to 6 and 2 to 6. nonzeros rise 658, 2, 1 and 1, since one on-the-fly mask is blocked. the score should lead with 12 rows, 7 masks plus 5 old, and 12, 8, 6 and 6 by head. i forecast no flag values.
 
+### failed real `20252026` continuation
+
+verdict: **reporting defect confirmed. repair `befcdcd` has one concrete defect and one gap. a rerun with unchanged math should not be expected to pass.** this review read manifest `9845808a`, the saved head and probe metadata, file times, the source and the repair. it ran no source pass, fit, score or strict read. one in-memory check stubbed the solver. i read the repair as a working diff. `befcdcd`, tree `86566c3f`, landed during this review. it carries the same code at every line cited here, with the `g` em check slightly tighter.
+
+root's facts hold. exit 1, `execution family incomplete: unresolved numerical probes u`, q/r/g pass at 1.609e-6, 1.694e-6 and 1.331e-6, and `u` saves `diagnostics: {}`. the defect is at `execution.py:270`: `result` only gains `diagnostics` when a start completes, so the failed branch serializes nothing, while `fit_head` holds the real row in `starts`.
+
+the annual forecasts from the [source review](#real-20252026-source-report) all held on these saved heads: age-known start-unknown 12, 8, 6 and 6, nonzeros up 658, 2, 1 and 1. six design leaves differ. carry and ledger reconcile against `1ba2c8af`. this is not an acceptance.
+
+"unrecoverable" overstates it. two of the four named causes can be excluded from file times. `resolution/baseline.json` is stamped 19:04:00 and `heads/u.json` 19:04:14, and the continuation sits between them. baseline `u` spent 4,142 seconds on 6,078 evaluations, .68 each. so the failed solve took about 20 evaluations. the original's passing `u`, 5 evaluations plus its comparison, took 8 seconds. the limits are `maxiter` 10,000 and native `maxfun` 15,000. reaching either in 14 seconds would need about 500 times the measured rate. both are EXCLUDED. line search and nonfinite arithmetic remain open. native `maxls` is 20, and about 20 evaluations fits an exhausted line search. that's a hint, not a finding.
+
+the floor matters here. [v1-05](../../../specs/v1-05-execution-base.md) already records that the continuation's decrement threshold sits below one float64 spacing: 7.0e-12 against 1.46e-11 for `u`. so the objective test passes only when an accepted step lowers the objective by nothing representable. all seven saved continuations stopped there, `g` through its inner solves. none came near `gtol`: final gradients run .0003 to .0048. the original's `u` gradient ROSE, .0014 to .0048. completion here is a rounding event. the `1e-5` budget was never evaluated for `u`, so this failure says nothing yet about resolution.
+
+the repair. what holds: the four retained keys exist on every `fit_head` exit, `_solve_record` takes nonconverged `u` and `g` rows, the solve count matches `execution.py:257`, and `resolution` stays outside the baseline descriptor. `base_objective` equals `diagnostics.objective` exactly on all seven saved heads, so the new `isclose` can't falsely refuse. `DEFINITION` is untouched, so recipe `47691110` stands.
+
+**defect: a nonfinite endpoint now crashes the writer.** `execution_fit.py:226` sets `objective_trace=[value]` with no guard, though `objective` and `gradient_max` beside it are guarded. `artifacts.py:38` writes with `allow_nan=False`. the old branch was safe by accident, because it dropped the row. the repair serializes it. i ran the committed `_solve_start` on a stubbed nonfinite endpoint: row trace `[nan]`, then `ValueError` from `write_json`. `execution.py:276` unlinks the head file first, so the head metadata is gone and no manifest follows. that trades a clean failed manifest for a crash, in one of the two modes still open. the fix belongs in the row builder: `objective_trace=[value] if finite else []`. `_solve_record` needs only a list on a nonconverged row. `check_failed_continuation.py` and its green receipt inject finite objectives only, so they can't see this. the red/green must add a nonfinite `u` endpoint. `g` guards its own trace.
+
+**gap: parameter movement.** v1-05's resolution row says to record parameter, gradient and objective changes. the failed `comparison` is closed to base fields. the start row gives endpoint objective and gradient. parameter movement sits in `result['endpoints']` and is dropped. two fields fix it, `coefficient_max_change` and `coefficient_l2_change`, null for a nonfinite endpoint. that is reporting, no math and no promotion. without them a 3.4-hour run returns a termination string and leaves the deciding question open: did the endpoint move?
+
+one consequence, no objection: the repaired reader refuses `984`, since `diagnostics: {}` fails the closed check. that suits a failed state. anything needing its baseline must read files.
+
+the harder problem. the repair changes no arithmetic. `time` shows 10,984 user seconds of 12,157 real, so one core, afaict. same inputs and same code path should give the same floats, so the same failure. this is unproved: i know of no saved same-recipe pair. if it holds, the `no retry` clause isn't what binds. `v1-05` is: "complete numerical handoff requires four passed final-head probes." a rerun then ends `failed` with a better record, and v1-08 still can't finish.
+
+so the authorization request should name its branches now, or it buys a second stop:
+
+| rerun shows | reading | next |
+| --- | --- | --- |
+| line search stop, finite endpoint, small movement | can't tighten past the floor | user decides whether to evaluate the unchanged `1e-5` at that endpoint |
+| line search stop, large movement | real under-resolution | stop |
+| nonfinite endpoint | arithmetic defect | stop and repair |
+| baseline hashes differ or `u` passes | arithmetic isn't reproducible | valid under spec, but record it as luck |
+
+the first row is a true amendment, not a detail. v1-05 preserves completion rules and says no incomplete endpoint is promoted or reused, and probes feed v1-06 propagation. i'd take it if the endpoint clears `1e-5`, since that answers the question the continuation exists to ask. i'd refuse a tolerance change. `solver.continuation` lives in `DEFINITION`, so it mints a new recipe and refuses four accepted years and scores, as the 2026-10-25 amendment did. that's a lot of masonry for one rounding event.
+
+run the whole fit, not a replay on saved `u.npz`. a replay still pays the 7,180-second design and yields no state. the whole fit adds about 80 minutes, and comparing its `heads/*.npz` hashes with `984` settles reproducibility with one `shasum`.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

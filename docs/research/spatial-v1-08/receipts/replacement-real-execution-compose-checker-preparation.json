@@ -4,8 +4,8 @@
   "recorded_at_utc": "2026-11-01T23:57:30.567055+00:00",
   "checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-real-execution-compose.py",
-    "bytes": 27199,
-    "sha256": "043024f6238f104aacfaa6b5ceaf688968336c438047300f37ffa043cc7b7fd9"
+    "bytes": 27611,
+    "sha256": "1600ddd40af1b8eee43c1eb7d0f7d43726992bf2c464d4c46dc9a0a6a86a4dc7"
   },
   "base_fixture_checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-execution-compose.py",
@@ -41,7 +41,7 @@
     "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439"
   },
   "checks": [
-    "exact factual/pending family records and actual unchanged member hashes, people/sources descriptors, retained methods/supports, original observed corpus bindings and nonowned microstats",
+    "unowned evidence descriptors (attempt_fact,dressed_game,interval_player) equal factual originals before actual output hash checks; exact other factual/pending family records and unchanged member hashes, people/sources, retained methods/supports, original observed bindings and all non-reference_xg microstats",
     "original interval rows survive exactly as ordered subsets; only valued population additions; nonvalued coverage remains exact",
     "per-game seven-stream source/score/value/setter/share merge; exact intersection/source-only/numerical-only and nullable event values/reasons; priors/posteriors/share recipients exact with explicitly bounded assist annotation checks",
     "exact versioned execution/reference methods, all recipe/prepared/coach/panel/history/source inputs and manifest/composition evidence digests",
@@ -61,14 +61,14 @@
   "verification": {
     "python_ast": "passed",
     "controls": {
-      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-compose-streaming-controls-03.json",
-      "bytes": 2210,
-      "sha256": "44f0b0c95f640adc708b1ed972e3a6b3a8663dfacad6d791660d99fb99daa8f9"
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-compose-streaming-controls-04.json",
+      "bytes": 2255,
+      "sha256": "1de3a5f9d8a276b4a1abfadbc31324c92cb48039dd45791ef2da15333ffc8686"
     },
     "controls_script": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/check-real-compose-streaming.py",
-      "bytes": 12506,
-      "sha256": "ed1b797a38bf74a52173a635c175059b0db370b3e869f6cc9653424631545946"
+      "bytes": 13006,
+      "sha256": "2cd5e0fa336d13abe332f045df5fa8fe273138c8a6a4ad4a85c3095fa576f358"
     },
     "green": {
       "copied_projections": 14,
@@ -85,19 +85,22 @@
         "interval_changed",
         "source_value_wrong_key",
         "public_player_omitted",
-        "public_strength_omitted"
+        "public_strength_omitted",
+        "immutable_evidence_descriptor_changed"
       ]
     },
-    "wall_seconds": 0.08760979195358232,
+    "wall_seconds": 0.09376133402111009,
     "initial_control_failure": "synthetic miss row incorrectly labeled outside-stage conditionals as missing_source; held checker correctly refused; only the tiny control fixture was corrected",
-    "later_focused_check": "controls02 remains historical; final controls03 exercises all seven strengths, factual-only/raw-only rows and six corruptions; no actual main/artifact/strict/source/math run",
+    "later_focused_check": "controls02/03 remain historical; controls04 retains all seven strengths, factual-only/raw-only rows and seven corruption refusals; no actual main/artifact/strict/source/math run",
     "main_invocations": 0,
     "real_or_full_fixture_payload_reads": 0,
     "strict_reads": 0,
     "source_passes": 0,
     "array_reads": 0,
     "analysis_or_observer_edits": 0,
-    "root_review_correction": "root found omitted whole public players or one strength could be counted as raw-only; checker now binds full factual skater roster and all seven public strengths; controls03 refuses both omissions"
+    "root_review_correction": "root found omitted whole public players or one strength could be counted as raw-only; checker now binds full factual skater roster and all seven public strengths; controls03 refuses both omissions",
+    "second_root_review_correction": "unowned evidence table descriptors must equal accepted factual originals before the existing output hash branch; a changed attempt_fact descriptor is refused by controls04",
+    "microstats_scope": "owning FAMILY_TABLES contains only skater_microstats; all fields except reference_xg_per60 already compare exactly to original; no other microstats table exists"
   },
   "scope": "copy identity/support and saved-record accounting; upstream scalar/map integration and derived display-transform mathematics retain accepted producer validation and later real API coverage; no new scientific or all-player bound",
   "next": "root and numerical review exact checker bytes; future actual selection/output pins and explicit root release required for a single real invocation; no selection, composition or model action authorized by this preparation"

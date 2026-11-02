@@ -65,6 +65,16 @@ def table(manifest, year, family, name):
     return next(row for row in manifest['families'] if (row['season'], row['family']) == (year, family))['tables'][name]
 
 
+def check_preserved_family(prior, current):
+    assert (current['season'], current['family']) == (prior['season'], prior['family'])
+    if prior['family'] not in ('execution', 'evidence', 'microstats') or (not prior['tables'] and prior['family'] != 'execution'):
+        assert current == prior
+    if prior['family'] == 'evidence':
+        for name, member in prior['tables'].items():
+            if name not in ('interval_fact', 'interval_location', 'context_coverage'):
+                assert current['tables'].get(name) == member
+
+
 def compare_intervals(before, after, name):
     """original ordered rows remain exact; additions are only valued populations."""
     before = iter(before)
@@ -304,8 +314,7 @@ def main():
     unchanged, pending = [], []
     for prior in original['families']:
         current = next(row for row in manifest['families'] if (row['season'], row['family']) == (prior['season'], prior['family']))
-        if prior['family'] not in ('execution', 'evidence', 'microstats') or (not prior['tables'] and prior['family'] != 'execution'):
-            assert current == prior
+        check_preserved_family(prior, current)
         if not prior['tables'] and prior['family'] != 'execution':
             pending.append([prior['season'], prior['family']])
         for name, member in prior['tables'].items():

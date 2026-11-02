@@ -108,8 +108,10 @@ def main():
         unvalued_source_attempts=[dict(game_id='g1', source_index=3, model_reasons=[], physical_status='ordinary', reason='missing_source')])
     bridge = h.check_event_bridges(year, manifest, annual, receipt)
     assert bridge['intersection'] == 2 and bridge['source_only'] == bridge['numerical_only'] == 1
+    prior_evidence = dict(season=year, family='evidence', tables=dict(attempt_fact=manifest['families'][-1]['tables']['attempt_fact']))
+    h.check_preserved_family(prior_evidence, deepcopy(prior_evidence))
     refused = []
-    for name in ('map_wrong_key', 'map_nullability', 'interval_changed', 'source_value_wrong_key', 'public_player_omitted', 'public_strength_omitted'):
+    for name in ('map_wrong_key', 'map_nullability', 'interval_changed', 'source_value_wrong_key', 'public_player_omitted', 'public_strength_omitted', 'immutable_evidence_descriptor_changed'):
         try:
             if name.startswith('map_'):
                 row = deepcopy(public_maps[0]); raw = deepcopy(next(row for row in raw_maps if (row['player_id'], row['strength'], row['map_kind']) == ('1', '5v4', 'finishing')))
@@ -125,6 +127,10 @@ def main():
                 changed = deepcopy(values); changed[0]['source_index'] = 99
                 tables['attempt_value'] = member(h.OUTPUT, 'values.jsonl', changed)
                 h.check_event_bridges(year, manifest, annual, receipt)
+            elif name == 'immutable_evidence_descriptor_changed':
+                changed = deepcopy(prior_evidence)
+                changed['tables']['attempt_fact']['sha256'] = '0'*64
+                h.check_preserved_family(prior_evidence, changed)
             else:
                 keep = lambda row: row['player_id'] != '2' if name == 'public_player_omitted' else (row['player_id'], row['strength']) != ('1', '5v4')
                 tables['skater_execution'] = member(h.OUTPUT, 'projections.jsonl', list(filter(keep, public_projections)))
@@ -139,7 +145,7 @@ def main():
         copied=copied, event_merge=bridge, wrong_records_refused=refused,
         scope='tiny synthetic rows only; map display cells are scaffolding and their geometry math is outside these copy controls',
         main_invocations=0, real_or_fixture_artifact_reads=0, strict_reads=0, source_passes=0, array_reads=0, wall_seconds=perf_counter()-began)
-    destination = HELPER.parent / 'real-compose-streaming-controls-03.json'
+    destination = HELPER.parent / 'real-compose-streaming-controls-04.json'
     with destination.open('x') as stream:
         json.dump(result, stream, indent=2, allow_nan=False)
         stream.write('\n')

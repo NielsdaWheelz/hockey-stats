@@ -398,7 +398,10 @@ def _head(metadata, head, arrays, season):
                 'failed continuation em solve count differs')
         _nonnegative(diagnostics['wall_seconds'], 'failed continuation wall time')
         comparison = resolution['comparison']
-        _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance'.split(), 'failed resolution comparison')
+        _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance coefficient_max_change coefficient_l2_change'.split(), 'failed resolution comparison')
+        for key in ('coefficient_max_change', 'coefficient_l2_change'):
+            if comparison[key] is not None:
+                _nonnegative(comparison[key], 'failed continuation '+key)
         from .execution_design import DEFINITION
         solver = DEFINITION['solver']
         stopping = solver['continuation']

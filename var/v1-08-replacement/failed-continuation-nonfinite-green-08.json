@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "scope": "synthetic injected failed continuation through actual resolution writer and strict state save/read; no optimizer/source inputs",
+  "passed_heads": [
+    "u",
+    "q",
+    "r",
+    "g"
+  ],
+  "negative_cases": [
+    {
+      "case": "empty diagnostics",
+      "reason": "failed continuation diagnostics: invalid fields"
+    },
+    {
+      "case": "missing starts",
+      "reason": "failed continuation diagnostics: invalid fields"
+    },
+    {
+      "case": "false convergence",
+      "reason": "failed continuation claims completion or deduplication"
+    },
+    {
+      "case": "wrong requested start",
+      "reason": "failed resolution is not one continuation"
+    },
+    {
+      "case": "duplicate continuation",
+      "reason": "failed resolution is not one continuation"
+    },
+    {
+      "case": "deduplicated continuation",
+      "reason": "failed continuation claims completion or deduplication"
+    },
+    {
+      "case": "missing deduplication record",
+      "reason": "failed continuation claims completion or deduplication"
+    },
+    {
+      "case": "selected failed start",
+      "reason": "failed resolution is not one continuation"
+    },
+    {
+      "case": "missing termination",
+      "reason": "incomplete optimizer diagnostics"
+    },
+    {
+      "case": "changed optimizer_maxiter",
+      "reason": "failed resolution changed continuation controls"
+    },
+    {
+      "case": "changed optimizer_ftol",
+      "reason": "failed resolution changed continuation controls"
+    },
+    {
+      "case": "changed optimizer_gtol",
+      "reason": "failed resolution changed continuation controls"
+    },
+    {
+      "case": "changed em_maxiter",
+      "reason": "failed resolution changed continuation controls"
+    },
+    {
+      "case": "changed em_relative_tolerance",
+      "reason": "failed resolution changed continuation controls"
+    },
+    {
+      "case": "changed em_responsibility_tolerance",
+      "reason": "failed resolution changed continuation controls"
+    },
+    {
+      "case": "invented probability comparison",
+      "reason": "failed resolution comparison: invalid fields"
+    },
+    {
+      "case": "negative movement maximum",
+      "reason": "invalid failed continuation coefficient_max_change"
+    },
+    {
+      "case": "invalid movement norm",
+      "reason": "invalid failed continuation coefficient_l2_change"
+    },
+    {
+      "case": "negative wall time",
+      "reason": "invalid failed continuation wall time"
+    },
+    {
+      "case": "baseline objective mismatch",
+      "reason": "failed continuation changes baseline objective"
+    },
+    {
+      "case": "wrong baseline reference",
+      "reason": "failed resolution baseline binding differs"
+    },
+    {
+      "case": "g em count mismatch",
+      "reason": "failed continuation em solve count differs"
+    },
+    {
+      "case": "g empty native solves",
+      "reason": "failed continuation em solve count differs"
+    },
+    {
+      "case": "u resource count mismatch",
+      "reason": "resolution solve count differs"
+    },
+    {
+      "case": "g inner count mismatch",
+      "reason": "resolution solve count differs"
+    }
+  ],
+  "baseline_npz_bytes_unchanged": true,
+  "nonconverged_probe_members": 0,
+  "converged_failed_with_probe_control": "accepted unchanged contract",
+  "native_result_path": "nonfinite",
+  "native_stub_calls": 1,
+  "retained_u_start": {
+    "name": "continuation",
+    "deduplicated_to": null,
+    "converged": false,
+    "status": 2,
+    "termination": "injected native abnormal return",
+    "iterations": 1,
+    "evaluations": 3,
+    "objective": null,
+    "gradient_max": null,
+    "inner_solves": [],
+    "objective_trace": [],
+    "em_iterations": 0,
+    "responsibility_change": null
+  },
+  "retained_u_comparison": {
+    "base_objective": 3.4657359027997265,
+    "base_gradient_max": 0.0,
+    "optimizer_maxiter": 10000,
+    "optimizer_ftol": 1e-16,
+    "optimizer_gtol": 1e-07,
+    "em_maxiter": 100,
+    "em_relative_tolerance": 1e-09,
+    "em_responsibility_tolerance": 1e-07,
+    "coefficient_max_change": null,
+    "coefficient_l2_change": null
+  }
+}

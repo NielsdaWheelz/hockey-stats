@@ -223,7 +223,7 @@ def _solve_start(design, actors, initial, tightened):
         result.update(converged=result["converged"] and finite,
                       objective=value if np.isfinite(value) else None,
                       gradient_max=float(np.max(np.abs(gradient))) if finite else None,
-                      inner_solves=[], objective_trace=[value], em_iterations=0,
+                      inner_solves=[], objective_trace=[value] if finite else [], em_iterations=0,
                       responsibility_change=None)
         return _complete_prior_only(beta, actors), result
     beta = initial.copy()
@@ -340,15 +340,23 @@ def continue_head(design, previous_ledger, baseline_coefficients):
         em_maxiter=solver["em_maxiter"], em_relative_tolerance=stopping["em_objective"],
         em_responsibility_tolerance=stopping["em_responsibility"],
     )
+    endpoint = result["endpoints"].get("continuation")
+    maximum = norm = None
+    if endpoint is not None:
+        with np.errstate(over='ignore', invalid='ignore'):
+            difference = endpoint-baseline
+            maximum = float(np.max(np.abs(difference)))
+            norm = float(np.linalg.norm(difference))
+    result["comparison"].update(
+        coefficient_max_change=maximum if maximum is not None and np.isfinite(maximum) else None,
+        coefficient_l2_change=norm if norm is not None and np.isfinite(norm) else None,
+    )
     if result["status"] == "complete":
         tighter = result["coefficients"]
         value, gradient = objective(tighter, design, actors)
-        difference = tighter-baseline
         result["comparison"].update(
             tightened_objective=value, objective_change=value-base_value,
             tightened_gradient_max=float(np.max(np.abs(gradient))),
             gradient_max_change=float(np.max(np.abs(gradient-base_gradient))),
-            coefficient_max_change=float(np.max(np.abs(difference))),
-            coefficient_l2_change=float(np.linalg.norm(difference)),
         )
     return result

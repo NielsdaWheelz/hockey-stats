@@ -70,7 +70,7 @@ def metadata(head, attempts, positive):
                 resolution=dict(status='pending'), status='complete', reasons=[])
 
 
-def main(output):
+def main(output, native_endpoint=None):
     output.mkdir()
     (output/'heads').mkdir()
     heads = {head: metadata(head, n, p) for head, n, p in zip(saved.HEADS, [5, 4, 3, 2], [4, 3, 2, 1])}
@@ -118,15 +118,37 @@ def main(output):
                          requested_starts=['continuation'], starts=[start], wall_seconds=.125, coefficients=None,
                          comparison=dict(base_objective=objective,base_gradient_max=0.,optimizer_maxiter=solver['maxiter'],
                                          optimizer_ftol=stop['ftol'],optimizer_gtol=stop['gtol'],em_maxiter=solver['em_maxiter'],
-                                         em_relative_tolerance=stop['em_objective'],em_responsibility_tolerance=stop['em_responsibility']))
+                                         em_relative_tolerance=stop['em_objective'],em_responsibility_tolerance=stop['em_responsibility'],
+                                         coefficient_max_change=0.,coefficient_l2_change=0.))
         saved.write_execution_head(output, heads[h], arrays[h], '20252026')
     baseline_bytes = {str(p.relative_to(output)): p.read_bytes() for p in (output/'heads').glob('*.npz')}
-    design=SimpleNamespace(heads={h:dict(head=h) for h in saved.HEADS},season='20252026',coverage=coverage)
+    design=SimpleNamespace(heads={h:dict(head=h,actors=[],size=heads[h]['design']['size'],target=np.array([0.,1.])) for h in saved.HEADS},season='20252026',coverage=coverage)
     def no_solve(*args, **kwargs):
         raise AssertionError('optimizer or objective unexpectedly called')
-    with patch.object(execution_fit,'continue_head',lambda d, *_: deepcopy(injected[d['head']])), \
+    original_continue=execution_fit.continue_head
+    native_calls=[]
+    def continued(d, incoming, baseline):
+        if d['head']!='u' or native_endpoint is None:return deepcopy(injected[d['head']])
+        objective_value=heads['u']['diagnostics']['objective']
+        endpoint=np.zeros_like(baseline)
+        endpoint[:2]=[np.nan,np.inf] if native_endpoint=='nonfinite' else [3.,4.]
+        if native_endpoint=='overflow':endpoint[:2]=[1e308,0.]
+        def native(objective, initial, **options):
+            assert options==dict(maxiter=10000,ftol=1e-16,gtol=1e-7)
+            native_calls.append(options)
+            return endpoint.copy(),dict(converged=False,status=2,termination='injected native abnormal return',iterations=1,evaluations=3,
+                                        objective=None if native_endpoint in ('nonfinite','finite_bad_objective') else objective_value+.01)
+        def objective(beta, *_):
+            if not np.isfinite(beta).all() or native_endpoint=='finite_bad_objective' and np.any(beta):
+                return float('nan'),np.full_like(beta,np.nan)
+            return objective_value+(.01 if np.any(beta) else 0.),np.zeros_like(beta)
+        with patch.object(execution_fit,'solve_logistic',native),patch.object(execution_fit,'objective',objective):
+            result=original_continue(d,incoming,baseline)
+        injected['u']=result
+        return result
+    with patch.object(execution_fit,'continue_head',continued), \
          patch.object(execution,'_resolution_selector',return_value=(selector,(object(),))), \
-         patch.object(execution_fit,'fit_head',no_solve), patch.object(execution_fit,'objective',no_solve):
+         patch.object(execution_fit,'solve_logistic',no_solve), patch.object(execution_fit,'objective',no_solve):
         execution._resolve_final_year(design,None,output,manifest,heads,arrays)
         state=saved.write_execution_state(output,manifest,heads,arrays,coverage,_reserved=True)
     for h in saved.HEADS:
@@ -137,6 +159,16 @@ def main(output):
         assert state.heads[h]['status']=='complete' and state.heads[h]['selected_start']=='zero'
         assert not (output/f'resolution/{h}.npz').exists() and not (output/f'resolution/{h}.json').exists()
     assert all((output/p).read_bytes()==b for p,b in baseline_bytes.items())
+    if native_endpoint is not None:
+        assert len(native_calls)==1 and injected['u']['coefficients'] is None
+        comparison=state.heads['u']['resolution']['comparison']
+        if native_endpoint=='nonfinite':
+            assert injected['u']['starts'][0]['objective_trace']==[] and injected['u']['endpoints']=={}
+            assert comparison['coefficient_max_change'] is comparison['coefficient_l2_change'] is None
+        elif native_endpoint=='overflow':assert comparison['coefficient_max_change']==1e308 and comparison['coefficient_l2_change'] is None
+        else:
+            assert comparison['coefficient_max_change']==4. and comparison['coefficient_l2_change']==5.
+            if native_endpoint=='finite_bad_objective':assert injected['u']['starts'][0]['objective_trace']==[]
     original_manifest_bytes=(output/'manifest.json').read_bytes()
     original_head_bytes={h:(output/f'heads/{h}.json').read_bytes() for h in saved.HEADS}
     original_manifest=json.loads(original_manifest_bytes)
@@ -172,6 +204,8 @@ def main(output):
     for control in ['optimizer_maxiter','optimizer_ftol','optimizer_gtol','em_maxiter','em_relative_tolerance','em_responsibility_tolerance']:
         reject('changed '+control,lambda r,key=control:r['comparison'].update({key:2*r['comparison'][key]}))
     reject('invented probability comparison',lambda r:r['comparison'].update(maximum_probability_change=0.))
+    reject('negative movement maximum',lambda r:r['comparison'].update(coefficient_max_change=-1.))
+    reject('invalid movement norm',lambda r:r['comparison'].update(coefficient_l2_change='unknown'))
     reject('negative wall time',lambda r:r['diagnostics'].update(wall_seconds=-1.))
     reject('baseline objective mismatch',lambda r:r['comparison'].update(base_objective=1.))
     reject('wrong baseline reference',lambda r:r['baseline'].update(sha256='f'*64))
@@ -208,9 +242,12 @@ def main(output):
     assert checked.heads['u']['resolution']['status']=='failed' and 'probe' in checked.heads['u']['resolution']
     return dict(status='passed',scope='synthetic injected failed continuation through actual resolution writer and strict state save/read; no optimizer/source inputs',
                 passed_heads=list(saved.HEADS),negative_cases=rejected,baseline_npz_bytes_unchanged=True,
-                nonconverged_probe_members=0,converged_failed_with_probe_control='accepted unchanged contract')
+                nonconverged_probe_members=0,converged_failed_with_probe_control='accepted unchanged contract',
+                native_result_path=native_endpoint,native_stub_calls=len(native_calls),
+                retained_u_start=injected['u']['starts'][0],retained_u_comparison=injected['u']['comparison'])
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--out',type=Path,required=True);args=parser.parse_args()
-    print(json.dumps(main(args.out),indent=2))
+    parser=argparse.ArgumentParser();parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--native-endpoint',choices=['finite','nonfinite','finite_bad_objective','overflow']);args=parser.parse_args()
+    print(json.dumps(main(args.out,args.native_endpoint),indent=2))

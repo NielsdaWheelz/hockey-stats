@@ -1,0 +1,141 @@
+{
+  "kind": "replacement-execution-failed-continuation-nonfinite-repair",
+  "status": "focused non-numerical red/green passed; final independent review pending; no numerical launch",
+  "supersedes": {
+    "commit": "befcdcd0deba873b202910671178757a9ade7605",
+    "receipt": "docs/research/spatial-v1-08/receipts/replacement-execution-failed-continuation-diagnostics-repair.json",
+    "disposition": "initial finite-injection proof was incomplete and its clear verdict withdrawn"
+  },
+  "red": {
+    "command": "env PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python var/v1-08-replacement/check_failed_continuation.py --out var/v1-08-replacement/failed-continuation-nonfinite-red --native-endpoint nonfinite",
+    "exit_code": 1,
+    "actual_path": "_solve_start -> fit_head -> continue_head -> _resolve_final_year -> finite-json writer",
+    "injected_primitives": "solve_logistic returns nonfinite coefficients and nonconverged native record; objective primitive returns nan only at that endpoint; no real optimizer or model objective",
+    "observed": "ValueError: Out of range float values are not JSON compliant: nan at objective_trace; heads/u.json absent after unlink and manifest absent"
+  },
+  "fix": {
+    "native_row": "objective_trace=[value] if finite else []; existing objective/gradient remain finite scalars or null",
+    "movement": "continue_head reads result.endpoints[continuation] when retained; compute max absolute difference and l2 difference from unchanged baseline once for successful and unsuccessful results; each nonfinite/unavailable metric is null",
+    "strict": "failed no-probe comparison requires coefficient_max_change and coefficient_l2_change, each null or finite nonnegative; literal existing controls and failed/with-probe branching unchanged",
+    "promotion": "none; no failed endpoint coefficients or probe npz written"
+  },
+  "finite_json_audit": "native solver status/counts/message are bool/int/text; chance.solve_logistic already nulls nonfinite native objective; binary re-evaluated objective/gradient are already nullable. the binary trace was the unsanitized field. setter accepted trace starts from the finite completed baseline and appends only finite accepted objectives; inner native objectives are already nullable. no other unguarded returned native metric was found on that valid-baseline path.",
+  "green": [
+    {
+      "mode": "finite",
+      "result": {
+        "path": "var/v1-08-replacement/failed-continuation-finite-green-08.json",
+        "bytes": 4172,
+        "sha256": "d83d71cd8106ca1b4e2fb1cc8edbbd6935bc493a10638344623138e4eb4691b6"
+      },
+      "native_stub_calls": 1,
+      "strict_negative_cases": 25,
+      "coefficient_max_change": 4.0,
+      "coefficient_l2_change": 5.0,
+      "objective_trace": [
+        3.4757359027997263
+      ],
+      "objective": 3.4757359027997263
+    },
+    {
+      "mode": "nonfinite",
+      "result": {
+        "path": "var/v1-08-replacement/failed-continuation-nonfinite-green-08.json",
+        "bytes": 4134,
+        "sha256": "07358caff9f74ec616ea48284857850831e54aed6368e70c7f875130da40f7db"
+      },
+      "native_stub_calls": 1,
+      "strict_negative_cases": 25,
+      "coefficient_max_change": null,
+      "coefficient_l2_change": null,
+      "objective_trace": [],
+      "objective": null
+    },
+    {
+      "mode": "finite_bad_objective",
+      "result": {
+        "path": "var/v1-08-replacement/failed-continuation-finite_bad_objective-green-08.json",
+        "bytes": 4143,
+        "sha256": "ea4e38683f782cf355b41984f302712b2789af7f52f46849f78bcac1eaeae186"
+      },
+      "native_stub_calls": 1,
+      "strict_negative_cases": 25,
+      "coefficient_max_change": 4.0,
+      "coefficient_l2_change": 5.0,
+      "objective_trace": [],
+      "objective": null
+    },
+    {
+      "mode": "overflow",
+      "result": {
+        "path": "var/v1-08-replacement/failed-continuation-overflow-green-08.json",
+        "bytes": 4178,
+        "sha256": "a46d87ac4519474137bad7d24760fccdbecc139487a122537f9ddc43cff55924"
+      },
+      "native_stub_calls": 1,
+      "strict_negative_cases": 25,
+      "coefficient_max_change": 1e+308,
+      "coefficient_l2_change": null,
+      "objective_trace": [
+        3.4757359027997263
+      ],
+      "objective": 3.4757359027997263
+    },
+    {
+      "mode": "injected",
+      "result": {
+        "path": "var/v1-08-replacement/failed-continuation-injected-green-08.json",
+        "bytes": 4170,
+        "sha256": "68ac2464c7ed9271037081155ca99b81f5400a83a9df8af44587036255982c76"
+      },
+      "native_stub_calls": 0,
+      "strict_negative_cases": 25,
+      "coefficient_max_change": 0.0,
+      "coefficient_l2_change": 0.0,
+      "objective_trace": [
+        3.4657359027997265
+      ],
+      "objective": 3.4657359027997265
+    }
+  ],
+  "shared_controls": [
+    "all four nonconverged records round-trip through actual resolver and strict serializer/reader",
+    "baseline npz bytes unchanged",
+    "no nonconverged probe members",
+    "legitimate converged failed-with-probe contract still reads",
+    "setter two-native-inner count retained; zero-inner/count-zero rejected",
+    "25 malformed record/control/count mutations rejected per mode"
+  ],
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "unchanged": "native solver controls, objective, input recipe, baseline coefficients, actual failure artifacts and observer286; no tolerance/threshold/input rewrite or retry",
+  "original_failure": {
+    "manifest_sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
+    "native_row": "lost; no backfill",
+    "timing_limit": "about14s continuation versus about0.68s baseline objective evaluation excludes maxiter10000/maxfun15000 exhaustion",
+    "open": "line-search failure or nonfinite arithmetic remain open; no u probability budget was tested"
+  },
+  "files": [
+    {
+      "path": "analysis/src/hockey_stats/execution.py",
+      "bytes": 63318,
+      "sha256": "6c6cb32070eda38a144d5d9cb769b57b691ee39730a936c1ce025fa52a20d3c1"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_fit.py",
+      "bytes": 18039,
+      "sha256": "f067e4b8e94da80ee4f87cb98d38f2313c013cdebf116a8b65e9bfa23597fca5"
+    },
+    {
+      "path": "analysis/src/hockey_stats/execution_state.py",
+      "bytes": 66429,
+      "sha256": "49a970d32f7c48db28bf0c63a09536e059416dd760fbaaf93175b91b54959258"
+    },
+    {
+      "path": "var/v1-08-replacement/check_failed_continuation.py",
+      "bytes": 20577,
+      "sha256": "f9ca6146a36a5216b1d460ba65ce35f747bf6742da4838e7f8c3be3c2975f844"
+    }
+  ],
+  "scope": "cheap synthetic/injected saved-state checks only; actual solve-result construction exercised but native optimizer and numerical objective stubbed; no real/fixture source pass, fit, continuation, score, array/corpus read or expensive chain",
+  "temporary_retention": "keep checks/results/scratch states until full acceptance; no permanent harness added"
+}

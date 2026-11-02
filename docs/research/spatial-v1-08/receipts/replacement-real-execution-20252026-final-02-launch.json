@@ -1,0 +1,77 @@
+{
+  "kind": "replacement-real-final02-launch",
+  "status": "running; no numerical result or acceptance",
+  "recorded_at_utc": "2026-11-02T05:09:11.513517+00:00",
+  "release": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/replacement-real-execution-20252026-final-02-release.json",
+    "sha256": "91e52dfc089117f3286a7e8e4d478dcb04eda61df76652b8b981fb8089cbfd7e"
+  },
+  "launch_head": "91b427d759bfa58d8377eb863d5de17260ae8524",
+  "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+  "launch_files": {
+    "start.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-start.txt",
+      "sha256": "a8d2d71378ba2e0bbaea25f17e7e0ee40ec652c2c6ccae6612237182de880496",
+      "text": "2026-11-02T05:08:24Z"
+    },
+    "shell.pid": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-shell.pid",
+      "sha256": "cad07f57b02f0da63173d34409210ba9bffb8b2afa66c98e32a4f26b1576e150",
+      "text": "83012"
+    },
+    "launch-head.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-head.txt",
+      "sha256": "4c5ba861e28bd7fff12c10eaf6bee1336818158cf476bb4bd1d89de50fdc6370",
+      "text": "91b427d759bfa58d8377eb863d5de17260ae8524"
+    },
+    "launch-analysis-tree.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-analysis-tree.txt",
+      "sha256": "146c077aef1c0910ba9cee06bc8339e38fd73dd0b0b8fdc3e1385582f1a3f302",
+      "text": "59813412b3ef66bb66ae60f5daf930716d00073e"
+    },
+    "launch-analysis-status.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-analysis-status.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "text": ""
+    },
+    "launch-observer-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-observer-sha256.txt",
+      "sha256": "e6f8c9d8bfccbbb022ef190c057f4ffbd15357ce0eff65e57bda31c3bb43c2da",
+      "text": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4  var/v1-08-replacement/consumed_start_check.py"
+    },
+    "launch-prepared-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-prepared-sha256.txt",
+      "sha256": "5edcc73c997974d8a5b1fe972e8457afc46ec4eeee481cfe72b59340ee7536ca",
+      "text": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c  /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json"
+    },
+    "launch-coaches-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-coaches-sha256.txt",
+      "sha256": "22aef0f8a0a7576d4194e6bed9ed290eb814c954c106ccfcf099d2bf640472f6",
+      "text": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0  /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json"
+    },
+    "launch-previous-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-launch-previous-sha256.txt",
+      "sha256": "37e3afb01a7be63cbe3ba1564c509c0694fc57fcca4b8b5cad0424b9d6dd4db5",
+      "text": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json"
+    },
+    "expected-recipe-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026-expected-recipe-sha256.txt",
+      "sha256": "05622f9a7c0d17bd4e6315f06d033764e7e783693d1f80c0f595fa358b29c702",
+      "text": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+    }
+  },
+  "processes": {
+    "model_pid": 83355,
+    "time_pid": 83354,
+    "script_subshell_pid": 83022,
+    "caffeinate_pid": 83021,
+    "shell_pid": 83012,
+    "unified_session": 46924
+  },
+  "actual_command": "reviewed standalone shell36b9ac29 under caffeinate -i; no model argv or code changes",
+  "scope": "one authorized whole final execution fit and four automatic continuations; source report read while solving without pause; subsequent saved audit if artifacts exist",
+  "original_preserved": true,
+  "analysis_frozen_until_exit": true,
+  "second_retry_authorized": false,
+  "descendants_held": true
+}

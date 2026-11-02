@@ -1,10 +1,10 @@
 {
   "kind": "held-final-retry-saved-outcome-check-preparation",
-  "status": "prepared, unrun; reviewed repair, expanded user authorization, completed job and root-pinned actual hashes required",
+  "status": "intermediate hold; zero-motion classification updated; reviewed observer identity and completed-u-baseline-start side-report interface pending; main unrun",
   "checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
-    "sha256": "4ab9be4be2420331f37b805fb28a8e2217617447a6aa9eeca0346212ee5c556b",
-    "bytes": 29387
+    "sha256": "4001df91a67e7193aa01b12335b4498da7adb603e212c4ba4d880c461c75ea2c",
+    "bytes": 30079
   },
   "derived_from": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
@@ -49,13 +49,13 @@
     "raw_history_centers_and_original_metadata_loop_unchanged_except_resolution_success_gate": true,
     "controls": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final02-reporting-controls.json",
-      "sha256": "cfd853fc4fdfe0e19422601feda1d1ef2a5b73b295a041abdbab0e0d4615b330",
-      "bytes": 623
+      "sha256": "fe1280cfdba2acf13ffdb8085111b4b27d0e0f586b8e228cdbf06c44c91ce5d8",
+      "bytes": 693
     },
     "control_source": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_final02_reporting.py",
-      "sha256": "697a6eea602cdb54bac151161d31877f2ee8f41eb0116b74e3095163f56f26fc",
-      "bytes": 4598
+      "sha256": "54bc5100f4d5d70fd7c8a7f264202ffd2418941d655fe7e3a377e3bfdd4967ff",
+      "bytes": 5381
     },
     "strict_read_call_sites": 1,
     "explicit_np_load_call_sites": 0,
@@ -68,5 +68,11 @@
     "native ftol remains allowed; no gtol-only rejection, solver/recipe/margin change or new reproducibility gate",
     "failure remains preserved evidence and does not authorize another compute job or scoring",
     "the historical462 success-only helper remains byte-identical and unrun on the failed original"
-  ]
+  ],
+  "protocol_steering": [
+    "all failed continuations remain failed; reported zero motion is explicitly uninformative for resolution, even when endpoint identity implies zero probability difference",
+    "finite positive movement is diagnostic only; any unchanged-margin probability evaluation of an incomplete endpoint needs a separate user policy decision",
+    "the proposed two-completed-baseline-start coefficient gap is a side diagnostic, never a replacement for prescribed v1-05 resolution; its reviewed observer interface remains pending"
+  ],
+  "next": "bind reviewed temporary observer and baseline-start side-report interface, then product/root review; no campaign invocation or new numerical work follows preparation"
 }

@@ -105,8 +105,18 @@ def report_resolution(head, resolution, probe, baseline, solve_count):
     assert native == solve_count
     assert comparison['optimizer_maxiter'] == 10000 and comparison['optimizer_ftol'] == 1e-16 and comparison['optimizer_gtol'] == 1e-7
     assert comparison['em_maxiter'] == 100 and comparison['em_relative_tolerance'] == 1e-9 and comparison['em_responsibility_tolerance'] == 1e-7
+    movement = [comparison[key] for key in ('coefficient_max_change', 'coefficient_l2_change')]
+    if resolution['status'] == 'passed':
+        evidence = 'passed_prescribed_continuation'
+    elif movement == [0., 0.]:
+        evidence = 'failed_zero_motion_uninformative'
+    elif any(value is None for value in movement):
+        evidence = 'failed_movement_unavailable'
+    else:
+        evidence = 'failed_finite_positive_motion'
     return dict(result, status=resolution['status'], continuation_starts=1, native_solves=native,
-                probability_comparison_available=probe is not None, comparison=comparison)
+                probability_comparison_available=probe is not None, comparison=comparison,
+                resolution_evidence=evidence)
 
 
 def main():
@@ -355,6 +365,7 @@ def main():
                 'missingness counters overlap and do not identify all newly masked keys; unresolved binding and unsaved alternative anchors have the existing stated limits',
                 'exactly four prescribed continuation outcomes are audited from saved files; failed/unavailable resolution remains a failed numerical handoff; no new continuation, endpoint probability evaluation, source or probability replay',
                 'failed endpoint movement is producer-saved and does not prove the fixed 1e-5 probability bound or authorize incomplete-endpoint promotion; non-reproducible file hashes and a passing u rerun are reported without inventing the original failed termination',
+                'zero motion from a failed continuation is uninformative: zero probability change by endpoint identity is a tautology, not numerical resolution evidence; all failed continuations remain failed',
                 'command exit1 is permitted only to audit a valid failed-resolution artifact, never to accept it; final scoring propagation and all real spatial fits remain held'],
         access='one new strict saved-state read; accepted replacement 2024 and original 2025 manifests/head metadata and original coverage; preserved 984 manifest plus four streamed coefficient file hashes only; no extra predecessor/original/failed strict read, old numeric array load, source game, source pass, fit, score or production edit',
         next='root reviews numerical handoff and reproducibility; descendants stay held until independent acceptance and explicit release' if numerical_handoff == 'passed' else 'root reviews retained failure evidence; no scoring, endpoint promotion or further numerical work is authorized')

@@ -27,10 +27,18 @@ failure = dict(status='failed', baseline=baseline, reasons=['no_completed_start'
 reported = module.report_resolution('u', failure, None, baseline, 1)
 assert reported['status'] == 'failed' and not reported['probability_comparison_available']
 assert reported['diagnostics']['starts'] == [start]
+assert reported['resolution_evidence'] == 'failed_finite_positive_motion'
+zero_motion = deepcopy(failure)
+zero_motion['comparison'].update(coefficient_max_change=0., coefficient_l2_change=0.)
+zero_motion['diagnostics']['starts'][0]['iterations'] = 0
+zero_report = module.report_resolution('u', zero_motion, None, baseline, 1)
+assert zero_report['status'] == 'failed' and zero_report['resolution_evidence'] == 'failed_zero_motion_uninformative'
 nonfinite = deepcopy(failure)
 nonfinite['comparison'].update(coefficient_max_change=None, coefficient_l2_change=None)
 nonfinite['diagnostics']['starts'][0].update(objective=None, gradient_max=None, objective_trace=[])
-json.dumps(module.report_resolution('u', nonfinite, None, baseline, 1), allow_nan=False)
+nonfinite_report = module.report_resolution('u', nonfinite, None, baseline, 1)
+assert nonfinite_report['resolution_evidence'] == 'failed_movement_unavailable'
+json.dumps(nonfinite_report, allow_nan=False)
 passed = dict(status='passed', baseline=baseline, probe=dict(path='resolution/u.json', sha256='1'*64),
               comparison=dict(comparison, maximum_probability_change=1e-6))
 probe = dict(usage='numerical_probe', head='u', baseline=baseline, arrays={}, comparison=passed['comparison'],
@@ -42,6 +50,7 @@ assert module.report_resolution('u', coverage_failed, probe, baseline, 1)['statu
 assert eval(handoff, {}, dict(command_exit=0, probe_heads={head: complete for head in module.HEADS})) == 'passed'
 assert eval(handoff, {}, dict(command_exit=1, probe_heads={head: complete for head in module.HEADS})) == 'failed'
 assert eval(handoff, {}, dict(command_exit=0, probe_heads=dict(u=reported, q=complete, r=complete, g=complete))) == 'failed'
+assert eval(handoff, {}, dict(command_exit=0, probe_heads=dict(u=zero_report, q=complete, r=complete, g=complete))) == 'failed'
 rejected = []
 for name, candidate, count in [('native count mismatch', failure, 2), ('pending resolution', dict(failure, status='pending'), 1)]:
     try:
@@ -58,6 +67,7 @@ assert not any(isinstance(node.func, ast.Attribute) and isinstance(node.func.val
                and node.func.value.id == 'np' and node.func.attr == 'load' for node in calls)
 print(json.dumps(dict(status='passed', scope='pure synthetic continuation reporting and the actual handoff expression; no main, campaign artifact, source, array or strict read',
                       cases=['finite native failure retained', 'nullable movement serializes', 'passed probe reported',
+                             'zero-motion native failure is uninformative and remains failed',
                              'failed completed-probe result retained', 'four passes plus exit0 pass',
                              'exit1 remains failed', 'one failed resolution remains failed'],
                       rejected=rejected, historical_helper_unchanged=True, strict_read_call_sites=1, explicit_np_load_call_sites=0), indent=2))

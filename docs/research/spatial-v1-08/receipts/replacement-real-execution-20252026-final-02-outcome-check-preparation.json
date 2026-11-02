@@ -1,0 +1,72 @@
+{
+  "kind": "held-final-retry-saved-outcome-check-preparation",
+  "status": "prepared, unrun; reviewed repair, expanded user authorization, completed job and root-pinned actual hashes required",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
+    "sha256": "4ab9be4be2420331f37b805fb28a8e2217617447a6aa9eeca0346212ee5c556b",
+    "bytes": 29387
+  },
+  "derived_from": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
+    "sha256": "462902780f77787e1b79923abd70ccc4a471b5da7a1b90d55ff7e770e61abb02",
+    "bytes": 25529
+  },
+  "command_argv": [
+    "env",
+    "PYTHONPATH=/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/.venv/bin/python",
+    "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
+    "--expected-manifest-sha256",
+    "<actual_final02_manifest_sha256>",
+    "--expected-source-sha256",
+    "<actual_final02_source_report_sha256>",
+    "--out-check",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-saved-acceptance.json"
+  ],
+  "actual_manifest_sha256": null,
+  "actual_source_report_sha256": null,
+  "bindings": {
+    "new_annual": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026",
+    "source_check": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json",
+    "accepted_previous_sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe",
+    "historical_original_fit_sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be",
+    "preserved_failed_annual_sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
+    "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+    "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "scope": [
+    "one strict new saved-state read; all four baseline heads must be complete",
+    "unchanged entry/carry/raw ledger/age/gap/absent/prior-only/centering and original metadata/population checks",
+    "command exit0 or exit1 permits an artifact audit; numerical_handoff passes only exit0 and four passed resolutions",
+    "actual failed native records and nullable max/l2 movement reported from the strict diagnostic contract; no failed endpoint promotion or probability evaluation",
+    "stream actual four current and preserved984 heads/*.npz file hashes and verify each against its bound manifest; no preserved984 strict read or numeric array load; hash differences are descriptive, not a new acceptance gate",
+    "available completed-probe deltas independently checked only by the single strict reader; failed endpoint movement and all probability maxima retain their producer-saved scope",
+    "all descendants stay held pending independent/root acceptance and release"
+  ],
+  "validation": {
+    "python_ast": "passed",
+    "raw_history_centers_and_original_metadata_loop_unchanged_except_resolution_success_gate": true,
+    "controls": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final02-reporting-controls.json",
+      "sha256": "cfd853fc4fdfe0e19422601feda1d1ef2a5b73b295a041abdbab0e0d4615b330",
+      "bytes": 623
+    },
+    "control_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_final02_reporting.py",
+      "sha256": "697a6eea602cdb54bac151161d31877f2ee8f41eb0116b74e3095163f56f26fc",
+      "bytes": 4598
+    },
+    "strict_read_call_sites": 1,
+    "explicit_np_load_call_sites": 0,
+    "main_invocations": 0,
+    "real_artifact_or_source_reads": 0,
+    "analysis_or_observer_edits": 0
+  },
+  "limits": [
+    "audit success does not admit a failed numerical handoff",
+    "native ftol remains allowed; no gtol-only rejection, solver/recipe/margin change or new reproducibility gate",
+    "failure remains preserved evidence and does not authorize another compute job or scoring",
+    "the historical462 success-only helper remains byte-identical and unrun on the failed original"
+  ]
+}

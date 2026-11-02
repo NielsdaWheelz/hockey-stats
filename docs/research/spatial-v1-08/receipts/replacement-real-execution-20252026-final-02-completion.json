@@ -1,0 +1,445 @@
+{
+  "kind": "replacement-real-execution-final02-completion",
+  "status": "not accepted; failed numerical handoff; artifact audit passed",
+  "recorded_at_utc": "2026-11-02T08:55:28.816857+00:00",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/manifest.json",
+    "bytes": 362952,
+    "sha256": "cb075d5e59aea61589411e4573db7192c45fddd8265a807c2c39c2084b504e22"
+  },
+  "previous": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+    "bytes": 362029,
+    "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+  },
+  "original": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026/manifest.json",
+    "bytes": 362444,
+    "sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be"
+  },
+  "recipe": {
+    "name": "experimental-v1",
+    "version": "execution-v1-05-2",
+    "sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674"
+  },
+  "audit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-saved-acceptance.json",
+    "sha256": "89203a033c1687d3ca2c1777e645ff1f54fea8ed4b4c2fea9880a71029d6e904",
+    "bytes": 60470
+  },
+  "audit_exit": 0,
+  "audit_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-saved-acceptance.log",
+    "sha256": "f2bc23bbc3d2110604fe4dc57a30bb5592cceaabbab28d3159103226de3e2cb3",
+    "bytes": 2761
+  },
+  "audit_whole_seconds": 43.84,
+  "audit_maximum_resident_bytes": 1457012736,
+  "audit_peak_memory_footprint_bytes": 1432618520,
+  "auditor": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
+    "sha256": "ab15fe7ff38fd746fc647be278148e3e576ebd898ea5a83b7092fc3e7f39c957",
+    "bytes": 38013
+  },
+  "strict_read": {
+    "invocations_here": 1,
+    "status": "passed",
+    "wall_seconds": 39.813567458011676,
+    "upstream_source_reads": 0
+  },
+  "u_resolution": {
+    "reasons": [
+      "no_completed_start"
+    ],
+    "diagnostics": {
+      "requested_starts": [
+        "continuation"
+      ],
+      "starts": [
+        {
+          "name": "continuation",
+          "deduplicated_to": null,
+          "converged": false,
+          "status": 2,
+          "termination": "ABNORMAL: ",
+          "iterations": 0,
+          "evaluations": 19,
+          "objective": 69668.42305740231,
+          "gradient_max": 0.002770559377087478,
+          "inner_solves": [],
+          "objective_trace": [
+            69668.42305740231
+          ],
+          "em_iterations": 0,
+          "responsibility_change": null
+        }
+      ],
+      "selected_start": null,
+      "wall_seconds": 16.14493266597856
+    },
+    "coefficient_movement_scope": "producer-saved finite-or-null failed endpoint summaries; no saved endpoint array or probability comparison",
+    "status": "failed",
+    "continuation_starts": 1,
+    "native_solves": 1,
+    "probability_comparison_available": false,
+    "comparison": {
+      "base_objective": 69668.42305740231,
+      "base_gradient_max": 0.002770559377087478,
+      "optimizer_maxiter": 10000,
+      "optimizer_ftol": 1e-16,
+      "optimizer_gtol": 1e-07,
+      "em_maxiter": 100,
+      "em_relative_tolerance": 1e-09,
+      "em_responsibility_tolerance": 1e-07,
+      "coefficient_max_change": 0.0,
+      "coefficient_l2_change": 0.0
+    },
+    "resolution_evidence": "failed_zero_motion_uninformative",
+    "uninformative_pass_requires_root_decision": false
+  },
+  "u_native": {
+    "report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-continuation-native.json",
+      "bytes": 1646,
+      "sha256": "ed2963e726743fd8e69ef99059e92e5ae3ef3fa2c38af19d970ccbf653821ea7"
+    },
+    "native_result": {
+      "success": false,
+      "status": 2,
+      "message": "ABNORMAL: ",
+      "nit": 0,
+      "nfev": 19,
+      "fun": 69668.42305740231,
+      "fun_classification": "finite"
+    },
+    "requested_solver": {
+      "method": "L-BFGS-B",
+      "jac": true,
+      "options": {
+        "maxiter": 10000,
+        "ftol": 1e-16,
+        "gtol": 1e-07
+      }
+    },
+    "saved_converged": false,
+    "saved_recomputed_objective": 69668.42305740231,
+    "identity_and_saved_native_fields_checked": true,
+    "scope": "producer-captured raw scipy return; finite fun does not prove every internal trial was finite; fun is not compared with the separately recomputed objective, and raw success can become unavailable after finite checks; this snapshot does not recover the discarded original return or qualify a failed continuation"
+  },
+  "u_completed_baseline_start_gap": {
+    "report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json",
+      "bytes": 1683,
+      "sha256": "383cf364cc9682457250769bef2c2c0d9d9ab96038f863143b8a93cf238ad73d"
+    },
+    "availability": "available",
+    "reason": null,
+    "starts": [
+      {
+        "name": "zero",
+        "converged": true,
+        "deduplicated_to": null,
+        "objective": 69668.42305742389
+      },
+      {
+        "name": "prior_mean",
+        "converged": true,
+        "deduplicated_to": null,
+        "objective": 69668.42305740231
+      }
+    ],
+    "coefficient_max_change": 3.8789264317551364e-05,
+    "coefficient_l2_change": 0.0006426354353307015,
+    "identity_and_start_metadata_bindings_checked": true,
+    "scope": "producer-saved baseline-start diagnostic; an available gap compares two completed endpoints, which are not independently replayed; zero or positive gap never substitutes for v1-05 numerical resolution"
+  },
+  "other_resolutions": {
+    "q": {
+      "status": "passed",
+      "maximum_probability_change": 1.608961630594763e-06
+    },
+    "r": {
+      "status": "passed",
+      "maximum_probability_change": 1.693825504300861e-06
+    },
+    "g": {
+      "status": "passed",
+      "maximum_probability_change": 1.3313157959382593e-06
+    }
+  },
+  "baseline_reproducibility": {
+    "preserved_failed_manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20252026/manifest.json",
+      "bytes": 362950,
+      "sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491"
+    },
+    "heads": {
+      "u": {
+        "current_sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b",
+        "preserved_failed_sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b",
+        "status": "match"
+      },
+      "q": {
+        "current_sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35",
+        "preserved_failed_sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35",
+        "status": "match"
+      },
+      "r": {
+        "current_sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111",
+        "preserved_failed_sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111",
+        "status": "match"
+      },
+      "g": {
+        "current_sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d",
+        "preserved_failed_sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d",
+        "status": "match"
+      }
+    },
+    "all_four_match": true,
+    "scope": "streamed actual coefficient file hashes checked against each bound manifest; no preserved-failed strict read or numpy array load; differences are reported, not an additional acceptance gate"
+  },
+  "continuation_reproducibility": {
+    "heads": {
+      "u": {
+        "current_sha256": null,
+        "preserved_failed_sha256": null,
+        "status": "unavailable",
+        "reason": "preserved 984 u probe absent"
+      },
+      "q": {
+        "current_sha256": "09f4b548f0c3709f5773315850d29eddc0b595587d00d4bc94aba91c9ac8452d",
+        "preserved_failed_sha256": "09f4b548f0c3709f5773315850d29eddc0b595587d00d4bc94aba91c9ac8452d",
+        "status": "match",
+        "reason": null
+      },
+      "r": {
+        "current_sha256": "91b738eb326781d6a7a2926b5d370689cd5b12f2654ef481add0a79f5711e333",
+        "preserved_failed_sha256": "91b738eb326781d6a7a2926b5d370689cd5b12f2654ef481add0a79f5711e333",
+        "status": "match",
+        "reason": null
+      },
+      "g": {
+        "current_sha256": "c2418065fda278bd785de3814a17ebea3289821f8fcf77307830521d67ce40ff",
+        "preserved_failed_sha256": "c2418065fda278bd785de3814a17ebea3289821f8fcf77307830521d67ce40ff",
+        "status": "match",
+        "reason": null
+      }
+    },
+    "scope": "actual continuation file hashes checked against both bound manifests; preserved 984 u has no probe to compare; missing probes are unavailable; byte comparisons do not evaluate probabilities or create a reproducibility gate"
+  },
+  "heads": {
+    "u": {
+      "counts": {
+        "carry": 903,
+        "supported_current": 1013,
+        "prior_only": 97,
+        "entry": 207,
+        "incoming_absent_current": 583,
+        "preserved_incoming_ledger": 599,
+        "ledger_rows": 1612
+      },
+      "dimension": 3420,
+      "selected_start": "prior_mean",
+      "objective": 69668.42305740231,
+      "raw_gradient_max": 0.002770559377087478,
+      "native_solves": 2,
+      "unavailable_start_attempts": 4327,
+      "original_unavailable_start_attempts": 4320
+    },
+    "q": {
+      "counts": {
+        "carry": 984,
+        "supported_current": 1101,
+        "prior_only": 107,
+        "entry": 224,
+        "incoming_absent_current": 648,
+        "preserved_incoming_ledger": 665,
+        "ledger_rows": 1766
+      },
+      "dimension": 3544,
+      "selected_start": "zero",
+      "objective": 68275.86715439045,
+      "raw_gradient_max": 0.008168262311581439,
+      "native_solves": 2,
+      "unavailable_start_attempts": 3176,
+      "original_unavailable_start_attempts": 3171
+    },
+    "r": {
+      "counts": {
+        "carry": 983,
+        "supported_current": 1085,
+        "prior_only": 123,
+        "entry": 225,
+        "incoming_absent_current": 638,
+        "preserved_incoming_ledger": 668,
+        "ledger_rows": 1753
+      },
+      "dimension": 3544,
+      "selected_start": "zero",
+      "objective": 33361.71659391862,
+      "raw_gradient_max": 0.004913061291937129,
+      "native_solves": 2,
+      "unavailable_start_attempts": 2111,
+      "original_unavailable_start_attempts": 2107
+    },
+    "g": {
+      "counts": {
+        "carry": 1804,
+        "supported_current": 2011,
+        "prior_only": 137,
+        "entry": 344,
+        "incoming_absent_current": 1167,
+        "preserved_incoming_ledger": 1204,
+        "ledger_rows": 3215
+      },
+      "dimension": 4491,
+      "selected_start": "prior_mean",
+      "objective": 34080.36418748275,
+      "raw_gradient_max": 0.003508930098104857,
+      "native_solves": 17,
+      "unavailable_start_attempts": 1729,
+      "original_unavailable_start_attempts": 1725
+    }
+  },
+  "resources": {
+    "whole_command_wall_seconds": 13269.48,
+    "user_seconds": 11762.81,
+    "system_seconds": 559.44,
+    "maximum_resident_bytes": 13875281920,
+    "peak_memory_footprint_bytes": 19872742232,
+    "producer": {
+      "wall_seconds": 13149.111330999993,
+      "peak_memory_bytes": 13875281920,
+      "design_wall_seconds": 7980.927925584023,
+      "input_read_wall_seconds": 1.5623005829984322,
+      "fit_wall_seconds": 5166.6211048329715,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 217492784,
+      "origin_rows": {
+        "u": 26668401,
+        "q": 110897,
+        "r": 72381,
+        "g": 58628
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 530040
+      },
+      "resolution_solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 2
+      },
+      "dimensions": {
+        "u": 3420,
+        "q": 3544,
+        "r": 3544,
+        "g": 4491
+      },
+      "solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 17
+      }
+    },
+    "producer_wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+    "member_bytes": 217492784,
+    "complete_bytes": 217855736,
+    "checker_wall_seconds": 43.48179645795608,
+    "checker_peak_rss_bytes": 1457012736
+  },
+  "launch": {
+    "head": "91b427d759bfa58d8377eb863d5de17260ae8524",
+    "producer_head": "e57d3760d4ea7a8c023c73cccad1f177f2e794e7",
+    "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
+    "observer_sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+    "start": "2026-11-02T05:08:24Z",
+    "finish": "2026-11-02T08:49:34Z",
+    "exit": 1,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026.log",
+      "bytes": 962,
+      "sha256": "0e9ff15b11159ff406e2f4388990380157a4033543b9f67527b37458dfa17b80"
+    }
+  },
+  "source": {
+    "report": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json",
+      "bytes": 88686,
+      "sha256": "59f4b00827ea736f0a374ba6f32a1ce7003f5f9ab7a131b84d5e4971f0624e9d"
+    },
+    "source_contexts": 151381,
+    "known_expected": 0,
+    "known_checked": 0,
+    "dispositions": {
+      "eligible:faceoff": 59379,
+      "eligible:on_the_fly": 87675,
+      "unavailable:None": 1991,
+      "unavailable:faceoff": 4,
+      "unavailable:no_same_clock_faceoff": 3,
+      "unavailable:on_the_fly": 3,
+      "unavailable:unknown": 2326
+    },
+    "eligibility_counts": {
+      "masked_on_the_fly": 3,
+      "masked_faceoff": 4,
+      "unresolved_binding": 3,
+      "admitted_same_clock_faceoff": 13,
+      "withheld_earlier_anchor": 0
+    },
+    "source_context_sha256": "f96ee4a0eadeb2f5caa44db999c71b9ad0e6a178b8a3812f9895019dcdb065a3",
+    "source_response_sha256": "63e224a6d8ac06729882bd05b1dcd817df49d39000fb8559817e0e1d01feef04",
+    "observer_seconds": 41.39106592792086,
+    "observer_scope": "observe body only, not total wrapper overhead"
+  },
+  "interpretation": [
+    "four annual baselines complete and all four coefficient members reproduce 984 byte for byte",
+    "q/r/g continuation members reproduce 984 byte for byte and their saved comparisons pass unchanged",
+    "u native abnormal stop has zero iterations,19 evaluations,finite returned fun and zero saved coefficient displacement; no completed continuation or u probability comparison",
+    "finite native fun does not establish all internal trials were finite or recover the original984 termination",
+    "two completed baseline-start distances are producer-saved diagnostics, not an independently replayed probability bound or a substitute for required resolution",
+    "reporting repair now survives the real failed continuation and strict reader; this does not repair numerical noncompletion"
+  ],
+  "review": {
+    "root": "artifact evidence clear; numerical handoff failed",
+    "numerical": "saved JSON and native/baseline side bindings clear; no new data or solver pass",
+    "source_design": "saved source/support/history witnesses and repaired failed-record contract clear; bounded witness review only",
+    "independent": "post-exit review pending"
+  },
+  "budget": {
+    "additional_whole_commands_executed": 1,
+    "annual_heads": 4,
+    "automatic_head_continuations": 4,
+    "native_baseline_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 17
+    },
+    "native_continuation_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 2
+    },
+    "saved_audit_invocations": 1,
+    "remaining_new_numerical_authorization": 0
+  },
+  "preservation": {
+    "original984_preserved": true,
+    "first_four_accepted_annuals_and_scores_preserved": true,
+    "live_publication_unchanged": true,
+    "new_failed_output_preserved": true
+  },
+  "limits": [
+    "concurrent android emulator and vm activity prevents clean paired wall-time comparisons; nfev comes from the native return",
+    "no u1e-5 probability budget was evaluated; zero probability movement by endpoint identity would be tautological",
+    "the fixed selected probability probes do not provide all-event/all-player bounds",
+    "no incomplete endpoint assessment, tolerance change, extra retry, scoring or successor is authorized"
+  ],
+  "next": "return reviewed evidence for a user decision; v1-08 remains incomplete and descendants remain held"
+}

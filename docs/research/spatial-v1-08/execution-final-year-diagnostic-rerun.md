@@ -1,6 +1,6 @@
 # final execution diagnostic rerun
 
-status: independently static-clear at `a644028`; the user authorizes one full rerun and audit on 2026-11-02 utc. launched from `91b427d` at `2026-11-02T05:08:24Z`; no numerical result yet. final source/design and product integration peers are also clear. the first final annual `9845808a` remains failed and preserved. this proposal expands the numerical budget by one whole final-year command; it does not amend numerical acceptance.
+status: independently static-clear at `a644028`; the user authorizes one full rerun and audit on 2026-11-02 utc. completed from launch `91b427d`: manifest `cb075d5e`, command exit 1. the one saved-artifact audit `89203a03` passes, but numerical handoff remains failed. [completion evidence](receipts/replacement-real-execution-20252026-final-02-completion.json) records the zero-motion `u` failure; the authorized computation budget is consumed. final source/design and product integration peers are also clear. the first final annual `9845808a` remains failed and preserved. this proposal expands the numerical budget by one whole final-year command; it does not amend numerical acceptance.
 
 ## reason and bounded work
 

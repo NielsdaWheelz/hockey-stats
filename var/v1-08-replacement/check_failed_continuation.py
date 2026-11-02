@@ -141,6 +141,8 @@ def main(output, native_endpoint=None):
         def objective(beta, *_):
             if not np.isfinite(beta).all() or native_endpoint=='finite_bad_objective' and np.any(beta):
                 return float('nan'),np.full_like(beta,np.nan)
+            if native_endpoint=='finite_bad_gradient' and np.any(beta):
+                return objective_value+.01,np.full_like(beta,np.nan)
             return objective_value+(.01 if np.any(beta) else 0.),np.zeros_like(beta)
         with patch.object(execution_fit,'solve_logistic',native),patch.object(execution_fit,'objective',objective):
             result=original_continue(d,incoming,baseline)
@@ -169,6 +171,9 @@ def main(output, native_endpoint=None):
         else:
             assert comparison['coefficient_max_change']==4. and comparison['coefficient_l2_change']==5.
             if native_endpoint=='finite_bad_objective':assert injected['u']['starts'][0]['objective_trace']==[]
+            if native_endpoint=='finite_bad_gradient':
+                row=injected['u']['starts'][0]
+                assert row['objective_trace']==[row['objective']] and row['objective'] is not None and row['gradient_max'] is None
     original_manifest_bytes=(output/'manifest.json').read_bytes()
     original_head_bytes={h:(output/f'heads/{h}.json').read_bytes() for h in saved.HEADS}
     original_manifest=json.loads(original_manifest_bytes)
@@ -249,5 +254,5 @@ def main(output, native_endpoint=None):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--out',type=Path,required=True)
-    parser.add_argument('--native-endpoint',choices=['finite','nonfinite','finite_bad_objective','overflow']);args=parser.parse_args()
+    parser.add_argument('--native-endpoint',choices=['finite','nonfinite','finite_bad_objective','finite_bad_gradient','overflow']);args=parser.parse_args()
     print(json.dumps(main(args.out,args.native_endpoint),indent=2))

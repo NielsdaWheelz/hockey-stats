@@ -223,7 +223,7 @@ def _solve_start(design, actors, initial, tightened):
         result.update(converged=result["converged"] and finite,
                       objective=value if np.isfinite(value) else None,
                       gradient_max=float(np.max(np.abs(gradient))) if finite else None,
-                      inner_solves=[], objective_trace=[value] if finite else [], em_iterations=0,
+                      inner_solves=[], objective_trace=[value] if np.isfinite(value) else [], em_iterations=0,
                       responsibility_change=None)
         return _complete_prior_only(beta, actors), result
     beta = initial.copy()

@@ -1,0 +1,9 @@
+# execution u continuation
+
+problem: the final replacement `20252026` command exits 1 because the `u` continuation returns `no_completed_start`. the four annual baseline heads complete and the other three continuations pass, but the family is not accepted. the fifth score and downstream composition/spatial work remain held.
+
+evidence: [the failure receipt](../research/spatial-v1-08/receipts/replacement-real-execution-20252026-failure.json) binds manifest `9845808a`, source report `b69575bb`, all saved resolutions and actual costs. one native `u` continuation was counted. its record is `{status:failed,reasons:[no_completed_start],diagnostics:{}}`, with no `u` probe file or probability comparison. the saved annual `u` start records describe successful baseline starts, not the failed continuation.
+
+a separate reporting defect discards the native start records returned by `fit_head` when no completed start exists. repairing that branch and reader can preserve future failures; it cannot recover the original native termination, endpoint or reason. iteration limits, evaluation limits, line search and nonfinite arithmetic remain unestablished. no probability-budget failure is established. preserve the original artifact without backfilling guessed diagnostics.
+
+resolution: finish and independently verify the diagnostic-retention repair. obtain explicit authorization for any new numerical work, since [the approved recipe](../research/spatial-v1-08/replacement-fit-recipes.md) states “failure does not authorize a retry, threshold change or successor.” recover real native failure evidence through the approved computation, then establish a complete final annual and all four fixed-budget continuations before scoring. the reporting fix alone does not qualify this chain. no retry machinery, tolerance change or endpoint substitution is assigned.

@@ -322,3 +322,12 @@ thirteen same-clock admissions, 13/7/4/3 by head, follow eleven in the prior yea
 
 
 independent final-source review clears `b69575bb`, its 58 first-stratum witnesses and launch bindings. all five years' head admission equals original saved coverage. report-side unavailable rises 7/5/4/4 already match the original metadata, while the completed design remains to be checked. [the chronology issue](../../issues/execution-shift-start-chronology.md) now records the saved-order flip, increased pair frequency and the limits of the small on-net comparison. the review withdraws its missingness-ratio proxy; source cause and physical subsecond order remain unresolved. none changes the frozen rule or numerical acceptance.
+
+
+## final execution continuation failure — 2026-11-02 utc
+
+[command `9845808a`](receipts/replacement-real-execution-20252026-failure.json) exits 1 after 12,156.98 seconds. all four annual heads complete, with native baseline solve counts 2/2/2/17. final native continuation counts are 1/1/1/2, but `u` returns `no_completed_start`; no `u` variant or probability comparison exists. `q/r/g` saved maxima pass at `1.608961630594763e-6`, `1.693825504300861e-6` and `1.3313157959382593e-6`. these are read from saved comparisons, not independently replayed predictions. the final family is not accepted and its success checker remains unrun.
+
+peak rss is 15,744,499,712 bytes and separate footprint 20,348,436,248 bytes. bound members total 217,491,726 bytes; producer time is 12,048.339335 seconds, including 7,180.629153 design and 4,866.308810 fit/probe seconds before completion metadata. launch `4de5dbc` and producer `39da0c4` retain clean analysis `c2412ac`.
+
+source/design and numerical review identify a reporting defect: `fit_head` retains a nonconverged native record in `starts`, but the final resolver serializes only diagnostics belonging to a selected completed start. it writes `{}` and the reader permits the missing evidence. the native cause is therefore unrecoverable from this artifact. a focused retention/validation repair is being verified without changing objective, inputs, stopping or margins. existing outputs remain immutable, and no numerical retry or successor is authorized by that repair. [the unresolved issue](../../issues/execution-u-continuation.md) owns the next decision.

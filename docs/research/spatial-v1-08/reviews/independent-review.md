@@ -1198,6 +1198,37 @@ so final-02 as prepared probably returns a tidy zero and no evidence. the one fr
 
 command `fd2ccc6b` differs from `d5cb26f5` only in the held comment, run root, tree pin and output paths, by diff. that isn't a release review.
 
+### held final-02 package and rerun scope
+
+verdict: **shell `7b40b3df` and observer `526f6465` are statically CLEAR. outcome helper `ad7757c5` and scope `efc3078` need small edits before the authorization request. one further read is recommended and is root's call.** reviewed at `efc3078`, analysis `59813412`, recipe `47691110`. this review read no source game, campaign array or partial state, and ran no fit or score. it read manifests, ran `shasum` on them, and ran synthetic solver tests with no project code. nothing was launched.
+
+correction first. [i wrote](#revised-continuation-repair-20e44c8) that the `e89ee134` bytes aren't in the tree. that overclaimed. i had checked one path. they are at `replacement-execution-failed-continuation-nonfinite-repair.json`, committed in `20e44c8`, and `2b7d0c8` corrects the link. both blobs match their hashes.
+
+what a tiny control can't show, checked against the real path:
+
+- the hook reaches the real call. `fit_execution_year` imports `fit_head` inside the function, so it sees the patch. `continue_head` looks it up globally, gets the wrapper, and `initial` keeps it inactive.
+- `execution_fit` now imports before the patches open. it binds only `DEFINITION`, and every `prepare_execution` and head-design use stays behind the module, so the source oracle still sees everything.
+- `design['size']` is `len(...)`, a plain int, so `json.dump` can't fail on it. the other report fields are plain or `float` subclasses. i found no way for the side report to crash the fit.
+- the new top-level numpy import moves nothing: no thread environment is set anywhere in the path.
+- the source check is written at `prepare` end, before the hook hashes it. each file gets one `x` open.
+- `npz` bytes carry no clock. two tiny runs four seconds apart gave identical hashes for all four heads, so `match` means bit-identical and `different` means the arithmetic moved.
+- `OLD_SHA`, the `previous` shape, `output_bytes` and the solver literal all hold against `984` and the original.
+- sixteen distinct guards, including both side paths. the shell differs from `d5cb26f5` only in comment, root, tree pin, observer pin and the fresh paths and flag. the exit file is written on failure too.
+
+**finding 1, helper and scope: a zero-motion PASS is unlabelled.** `report_resolution` tests `status == 'passed'` before movement, so it reads `passed_prescribed_continuation` however little moved. native completion at the start point is reachable. in scipy 1.18.1 an infinite objective at the trial point returns status 0, `CONVERGENCE`, start returned bit for bit, and the noisy synthetics did the same about 1 time in 24. production then computes 0 by identity, and the reader's verdict check FORCES `passed`. so root's "never a probability-identity pass" is false in this corner, and the scope's "`u` passes unexpectedly" row hides it. the four-passed rule can stay: this is no new gate. but the helper needs a label such as `passed_zero_motion_uninformative`, with a control, and the scope needs a row saying this outcome returns to the user as no resolution evidence.
+
+**finding 2, scope: "failed line search" isn't what the record will show.** the saved termination is `'ABNORMAL: '` with status 2, naming no cause. i forced a NaN objective at the trial points: `ABNORMAL`, status 2, `nit` 0, start returned, 17 evaluations against the floor case's 20. noisy floor cases ran 12 to 16, so the count separates nothing. `_solve_start` then re-evaluates at the start and overwrites `objective`, so the saved row looks identical. this also corrects my own framing: "line search or nonfinite" was never a clean partition, and my [prediction](#revised-continuation-repair-20e44c8) doesn't separate them. relabel the row "native abnormal stop" and state the limit. that part is required.
+
+the record CAN be made to separate them. native `result.fun` is the last trial value: NaN in that case, base plus the rise in the floor case. `execution_fit.py:224` discards it. that fork decides the next step, policy question or arithmetic defect, and the scope names "truthful native evidence" as the run's benefit. i recommend one more observer field: `u` continuation's native `status`, `message`, `nit`, `nfev` and `fun`. it needs no analysis change, returns the call's result untouched, and needs one more pin pass. root built the observer with no continuation hook, so this reverses that choice. root's call. without it the likely result is a tidy zero that can't say why.
+
+**finding 3, scope: "large movement stops" has no meaning.** it keys a disposition on an undefined word, and the row already retains failure and returns to the user. the ex post reading is a forking path. drop the word, or show movement beside the seven saved continuations, 2.3e-8 to 1.6e-5, as a descriptive scale with no threshold.
+
+**finding 4, scope: "may reproduce" undersells it.** identical arithmetic on one core with deterministic file bytes makes the same failure the expected outcome, though unproved. the user should read that v1-08 will probably stay incomplete after this run, and that a further decision is then the likely next step.
+
+small: no row covers a crash or a failed baseline head. one line, "anything else stops and returns", closes it.
+
+the rest of the scope is sound: one command, no second retry, no incomplete-endpoint assessment, cost marked historical, and the correct concession that matching files can't recover the original cause. the recipe clause it quotes is in `replacement-fit-recipes.md`.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

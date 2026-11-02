@@ -16,20 +16,24 @@ after exit, the [held saved-artifact audit](receipts/replacement-real-execution-
 
 | observed outcome | disposition |
 |---|---|
-| failed line search, exactly zero coefficient movement | no net endpoint movement; recorded zero iterations would establish that no step was accepted. the continuation supplies no `u` resolution evidence. zero probability movement by identity is tautological. retain failure and return the evidence for a user decision. |
-| failed line search, positive finite coefficient movement | retain failure. large movement stops for diagnosis. any probability assessment of an incomplete endpoint needs a separate explicit policy decision; no coefficient-size threshold is selected here. |
+| native abnormal stop, exactly zero coefficient movement | no net endpoint movement; recorded zero iterations would establish that no step was accepted. the continuation supplies no `u` resolution evidence. zero probability movement by identity is tautological. retain failure and return the evidence for a user decision. |
+| native abnormal stop, positive finite coefficient movement | retain failure and return the evidence to the user. any probability assessment of an incomplete endpoint needs a separate explicit policy decision; no coefficient-size threshold is selected here. |
 | nonfinite endpoint or other native failure | retain the actual diagnostics and stop descendants. a responsible repair needs its own review and any required numerical authorization. |
 | different baseline or continuation file hashes | record which files differ. do not claim reproduction of the original failure or infer its cause. this adds no rejection or acceptance gate. |
-| `u` passes unexpectedly | record that the original failure did not reproduce. ordinary acceptance still requires exit 0, four complete annual heads, four passed prescribed probes, all existing source/history/state checks, and independent/root acceptance. |
+| native completion and passed probability comparison, exactly zero coefficient movement | preserve the literal passed status and label it `passed_zero_motion_uninformative`. probability change by identity supplies no resolution evidence. return this outcome to the user before releasing descendants; the four-passed rule is unchanged. |
+| `u` completes and passes with positive movement | record that the original failure did not reproduce. ordinary acceptance still requires exit 0, four complete annual heads, four passed prescribed probes, all existing source/history/state checks, and independent/root acceptance. |
 | any other continuation fails | the family remains incomplete; no final score or descendant is released. |
+| anything else, including a crash or failed baseline head | stop and return the available evidence. no successor or further attempt follows. |
 
 both zero and positive gaps between the two completed baseline starts are diagnostic only. neither replaces v1-05's required continuation. the recipe remains `47691110`, including the unchanged `1e-5` probability margin. no failed endpoint is promoted or reused. a rerun that ends failed does not authorize another attempt.
 
 matching baseline hashes and a new native failure still cannot recover the original run's discarded termination or prove its cause.
 
+`ABNORMAL` status 2 does not identify why the native solve stopped. nonfinite trial objectives and finite numerical-floor behavior can both return the start, with overlapping evaluation counts. the production row recomputes its objective at the returned coefficients, so a finite saved objective cannot distinguish those cases. native-result observation records what scipy returns; it is not a complete trial trace or a proof of cause.
+
 ## cost and decision
 
-the previous command took 12,156.98 seconds, with peak rss 15,744,499,712 bytes. these are historical observations, not estimates for this proposal. repeating identical arithmetic may reproduce the same failure and leave v1-08 incomplete. the benefit is truthful native evidence and the completed-baseline comparison; this command is not an arithmetic repair.
+the previous command took 12,156.98 seconds, with peak rss 15,744,499,712 bytes. these are historical observations, not estimates for this proposal. identical arithmetic is expected to reproduce the failure, though that is unproved. v1-08 probably remains incomplete after this run, and another user decision likely follows. the benefit is truthful native evidence and the completed-baseline comparison; this command is not an arithmetic repair.
 
 the whole fit pays for repeated design and baseline work. it produces a coherent state and directly checks reproducibility without introducing replay or selective-reuse machinery. failed endpoints retain only finite-or-null movement summaries, so a later authorized probability assessment might require further computation.
 

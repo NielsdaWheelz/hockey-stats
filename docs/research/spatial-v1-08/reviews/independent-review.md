@@ -1252,6 +1252,24 @@ one naming mismatch, not blocking and no re-pin: the helper's field says `uninfo
 
 what this doesn't establish. no real run has exercised either side file, and a failure inside the hook would cost the run, though i found no path to one. root's message leaves the source peer's final pass open. and this package repairs nothing: if the arithmetic reproduces, it returns better evidence, v1-08 stays incomplete, and the user owes another decision.
 
+### final-02 source report `59f4b008`
+
+verdict: **CLEAR.** the parity is exact and the launch bindings hold. read: the two saved source reports, receipt `25c777a`, release and launch receipts `91b427d`/`71fd06d`, and the ten launch files beside the run directory. no source, array, state or fit read. i did not list `execution-final-02/20252026`.
+
+- a recursive comparison against `b69575bb`, every key and list element, finds two differing leaves: `command[12]`, the output directory (`execution` to `execution-final-02`), and `observer_seconds` (37.08 to 41.39). key order is identical. the 9-byte growth is exactly `-final-02`, and both seconds strings are 17 characters, so serialization hides nothing else.
+- so context `f96ee4a0`, response `63e224a6`, the 151,381 contexts, head populations and positives, eligibility 3/4/3/13/0, every first and known witness, `head_admission` and recipe `47691110` are those [reviewed at `b69575bb`](#real-20252026-source-report). the receipt's counts restate them correctly, and its overlap limit on `unresolved_binding` is right.
+- the equality crosses a code change. `b69575bb` ran on historical tree `c2412ac` and observer `286b34dd`, while `59f4b008` ran on `59813412` and `ef4995e5`. that tree diff touches only `execution.py`, `execution_fit.py` and `execution_state.py`. no source or eligibility path moved, and the report confirms it.
+- `command` holds the model argv after `--`. the shell runs the same leaves, with the check path and both side-file paths before `--`, so their absence is structural. `--previous` is still accepted `1ba2c8af`.
+- all ten launch-file hashes in the launch receipt match disk. head `91b427d`, tree `59813412` (also at `HEAD`), empty analysis status, observer `ef4995e5`. prepared `63bd2861`, coaches `102bca4c`, previous `1ba2c8af` and recipe `47691110` equal `984`'s launch files. release receipt `91e52dfc` and scope `8e11b385` match `91b427d`. later edits to the scope, issue and plan are status lines only. shell, observer and auditor hashes are unchanged on disk. pids `83012` and `83355` are alive, and the model holds about one core.
+
+descriptive, no gate. the source phase took 7,985 s from start to report, against 7,185 s for `984` (+800 s, +11%), and the observer body took 12% longer. an android emulator using about 4.4 cores started about six minutes after launch, beside a 2-core vm. the machine has 18 cores and 57% of memory free. `984` peaked at 15.7 gb resident, so afaict memory poses no risk. two consequences:
+- this run's wall times are not clean cost comparisons with `984`.
+- `u` evaluations must be counted from the native side file's `nfev`, not file times. my earlier ~20-evaluation inference from `984`'s timestamps must not be repeated on `final-02`.
+
+load changes time, not arithmetic, if the thread count is fixed at start. ~100% cpu suggests one thread. idk accelerate's internals, so the npz comparison decides, not this argument.
+
+not established: source parity says nothing about design arrays, baseline coefficients or `u`. those wait for the post-exit audit.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

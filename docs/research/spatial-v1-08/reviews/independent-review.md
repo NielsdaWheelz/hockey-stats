@@ -1084,6 +1084,56 @@ cost: whole command 18,653 seconds, producer 18,560 against 18,195, design 5,641
 
 the identity has now held in three years, and this time ahead of the data: leading rows equal new masks plus old age-known start-unknown rows, head by head. that shows the arithmetic is understood. movement still says nothing about whether the new values are better.
 
+### real `20252026` source report
+
+verdict: **clear, with one withdrawal of mine and one new cross-table.** report `b69575bb`, read while the fit runs. this review read the five reports, the launch stamps and receipts, and the original's saved `coverage.json` and head metadata. it read no prepared game, no partial state or array, and ran no source pass.
+
+the report closes. 151,381 contexts partition by strength and head. all 58 strata hold exactly one witness, and none breaks a contract. every head recognizes 153,754 records, and the chain runs 151,381, 110,897, 72,381, 58,628 to 7,548 positives. `withheld_earlier_anchor` stays 0. the numbers in `b9584fa` match the report.
+
+`head_admission` equals the original's saved `coverage.heads` exactly, in all five years. so the jump in `u` exclusions, 1,902 to 2,373, is the source's and not the repair's.
+
+the rises can be read now on the report side. the original saved 4,320, 3,171, 2,107 and 1,725 start-unavailable attempts. the report has 4,327, 3,176, 2,111 and 1,729. the differences are 7, 5, 4 and 4, which are on-the-fly masks 3, 2, 1, 1 plus faceoff masks 4, 3, 3, 3. the completed annual must still show them in its own design.
+
+the launch holds. stamps match the receipt: head `4de5dbc`, tree `c2412ac`, empty status, observer `286b34dd`, recipe `47691110`, predecessor `1ba2c8af`. `d5cb26f5` equals the blob at `6923f79`. against the fourth script, it changes the years, the held comment and the digest's form, now a length-checked variable. the seven commits since launch leave `analysis` alone. the continuations need no flag: `execution.py:142` fires on `design.season == '20252026'` once all four heads complete. the original's four passed at 1.1e-7 to 9.7e-7 against the 1e-5 limit.
+
+the report landed 7,185 seconds after start. the three before it took 5,621 to 5,752. idk why, and it changes nothing here.
+
+my [year-four line](#real-20242025-source-report) resolves: a second year of admissions makes it a regime. 13 this year, 13, 7, 4 and 3 by head. no key is named again.
+
+| | `20212022` | `20222023` | `20232024` | `20242025` | `20252026` |
+| --- | --- | --- | --- | --- | --- |
+| admitted same-clock faceoffs | 0 | 0 | 0 | 11 | 13 |
+| coherent faceoff masks | 4 | 6 | 5 | 1 | 1 |
+| unresolved faceoff masks | 2 | 1 | 14 | 3 | 3 |
+| on-the-fly masks | 58 | 12 | 7 | 6 | 3 |
+| `no_same_clock_faceoff` | 3 | 1 | 14 | 11 | 3 |
+| raw kind `None` | 2,814 | 1,120 | 4,561 | 8,461 | 1,991 |
+| raw kind `unknown` | 3,033 | 1,222 | 5,265 | 1,813 | 2,326 |
+
+the withdrawal. in year four i offered the `None` to `unknown` ratio as a second sign of the same source change. it fell from 4.7 back to .86 while admissions rose. that spike belonged to one season. it says nothing about the admissions.
+
+the cross-table. a coherent faceoff mask is, afaict, a same-second row: matched binding, anchor not earlier, and chronology forbids a later clock. all four named ones have start equal to the focal clock and the anchor two places after. admissions are same-second by construction. so the two rows of counts are one question asked of one kind of pair: which came first in saved order?
+
+| same-second coherent pairs | shot first | faceoff first |
+| --- | --- | --- |
+| first three years | 15 | 0 |
+| last two years | 2 | 24 |
+
+fisher exact gives 2e-9. the order flipped. volume rose too, 15 pairs to 26, at 2.6 times the rate per context, tail .002. so a re-sort alone can't explain it. new same-second pairs appeared. if the old pairs kept their old rate, about 8 of the 24 could be old pairs sorted the other way. that's arithmetic on an assumption, not a measure.
+
+the heads split on it. pooled through all rows, unblocked, on-net and past `r`:
+
+| | all | unblocked | on-net | past `r` |
+| --- | --- | --- | --- | --- |
+| coherent masks, five years | 17 | 8 | 6 | 1 |
+| admissions, two years | 24 | 13 | 7 | 6 |
+
+at `r` they differ: 1 of 6 against 6 of 7, fisher .03, post hoc. this year's 3 of 4 on-net admissions is the only fresh read. at the masks' 1 in 6 that is a .016 tail. at the base .81 it's ordinary. at `u` they agree: 9 of 17 blocked, 11 of 24 blocked, base .275. this year's lone coherent mask, `2025020026:35`, is a block two places before its faceoff. so blocks can carry the old pattern, and my `g` test can't read them. it reaches 7 rows of 24. the [year-four sentence](#real-20242025-source-report) that the heads favor the admissions holds for those 7. the other 17 have no test in the counters.
+
+idk what changed between the third and fourth years: the clock, the sort, or both. the counters can't say. nothing here moves a row or a rule, and no gate or census follows. the blast radius stands: 24 of 306,101 contexts at the original's handling. the chronology issue records the recurrence. it should record the flip too, and root owns that file.
+
+what the annual should show, as description with no gate: age-known start-unknown 5 to 12, 3 to 8, 2 to 6 and 2 to 6. nonzeros rise 658, 2, 1 and 1, since one on-the-fly mask is blocked. the score should lead with 12 rows, 7 masks plus 5 old, and 12, 8, 6 and 6 by head. i forecast no flag values.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

@@ -268,7 +268,8 @@ def _resolve_final_year(design, previous, output, manifest, heads, arrays):
             heads[head]['resolution'] = dict(status=status, baseline=descriptor, probe=reference, comparison=comparison)
         else:
             heads[head]['resolution'] = dict(status='failed', baseline=descriptor,
-                                            reasons=result['reasons'], diagnostics=result.get('diagnostics', {}))
+                reasons=result['reasons'], comparison=result['comparison'],
+                diagnostics={key: result[key] for key in ('requested_starts', 'starts', 'selected_start', 'wall_seconds')})
         # this directory has no completion manifest. replace only the small head
         # metadata; the completed baseline coefficient file remains untouched.
         path = output / f'heads/{head}.json'

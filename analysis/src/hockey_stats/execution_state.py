@@ -380,6 +380,37 @@ def _head(metadata, head, arrays, season):
     require(type(resolution) is dict, 'missing resolution record')
     statuses = ('pending', 'passed', 'failed') if season == '20252026' else ('not_applicable',)
     require(resolution.get('status') in statuses, 'resolution status differs from season')
+    if resolution['status'] == 'failed' and 'probe' not in resolution:
+        _closed(resolution, ('status', 'baseline', 'reasons', 'diagnostics', 'comparison'), 'failed resolution')
+        require(resolution['reasons'] == ['no_completed_start'], 'failed resolution has no solve failure')
+        diagnostics = resolution['diagnostics']
+        _closed(diagnostics, ('requested_starts', 'starts', 'selected_start', 'wall_seconds'), 'failed continuation diagnostics')
+        require(diagnostics['requested_starts'] == ['continuation'] and diagnostics['selected_start'] is None
+                and type(diagnostics['starts']) is list and len(diagnostics['starts']) == 1,
+                'failed resolution is not one continuation')
+        start = diagnostics['starts'][0]
+        require(type(start) is dict and {'name', 'deduplicated_to'} <= start.keys() and start['name'] == 'continuation'
+                and start.get('deduplicated_to') is None and start.get('converged') is False,
+                'failed continuation claims completion or deduplication')
+        _solve_record(start, head, tightened=True)
+        require(start['em_iterations'] == len(start['inner_solves'])
+                and (bool(start['inner_solves']) if head == 'g' else not start['inner_solves']),
+                'failed continuation em solve count differs')
+        _nonnegative(diagnostics['wall_seconds'], 'failed continuation wall time')
+        comparison = resolution['comparison']
+        _closed(comparison, 'base_objective base_gradient_max optimizer_maxiter optimizer_ftol optimizer_gtol em_maxiter em_relative_tolerance em_responsibility_tolerance'.split(), 'failed resolution comparison')
+        from .execution_design import DEFINITION
+        solver = DEFINITION['solver']
+        stopping = solver['continuation']
+        require(comparison['optimizer_maxiter'] == solver['maxiter'] and comparison['optimizer_ftol'] == stopping['ftol']
+                and comparison['optimizer_gtol'] == stopping['gtol'] and comparison['em_maxiter'] == solver['em_maxiter']
+                and comparison['em_relative_tolerance'] == stopping['em_objective']
+                and comparison['em_responsibility_tolerance'] == stopping['em_responsibility'],
+                'failed resolution changed continuation controls')
+        _nonnegative(comparison['base_gradient_max'], 'failed continuation base gradient')
+        require(type(comparison['base_objective']) in (int, float)
+                and math.isclose(comparison['base_objective'], metadata['diagnostics']['objective'], rel_tol=1e-12, abs_tol=1e-12),
+                'failed continuation changes baseline objective')
     if metadata['status'] == 'unavailable':
         require(not arrays and metadata['arrays'] is None and metadata['selected_start'] is None
                 and metadata['centers'] is None and bool(metadata['reasons']), 'unavailable head carries fitted state')
@@ -796,7 +827,12 @@ def _read_execution_state(path, expected_purpose):
             require(costs['resolution_solve_counts'][head] == solves, 'resolution solve count differs')
         else:
             require(heads[head]['resolution']['status'] != 'passed', 'passed resolution has no probe')
-            require(costs['resolution_solve_counts'][head] == 0 or heads[head]['resolution']['status'] == 'failed', 'unbound resolution solve count')
+            if heads[head]['resolution']['status'] == 'failed':
+                require(heads[head]['resolution']['baseline'] == dict(path='resolution/baseline.json', sha256=identity(files['resolution/baseline.json'])['sha256']),
+                        'failed resolution baseline binding differs')
+            starts = heads[head]['resolution']['diagnostics']['starts'] if heads[head]['resolution']['status'] == 'failed' else []
+            solves = sum(len(row['inner_solves']) if head == 'g' else 1 for row in starts)
+            require(costs['resolution_solve_counts'][head] == solves, 'resolution solve count differs')
     return state
 
 

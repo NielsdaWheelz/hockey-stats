@@ -1,0 +1,114 @@
+{
+  "kind": "replacement-real-execution-20252026-source-check-read-during-fit",
+  "status": "passed source construction; final four annual heads and four continuations pending",
+  "recorded_at_utc": "2026-11-02T01:45:36.376808+00:00",
+  "report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-source-check.json",
+    "sha256": "b69575bb4c5d7452152d18d295486bf7b648495a81a4e4141f7be928cb96dc63",
+    "bytes": 88677,
+    "written_at_utc": "2026-11-02T01:43:26.052804+00:00"
+  },
+  "analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+  "observer_sha256": "286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf",
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "source_contexts": 151381,
+  "dispositions": {
+    "eligible:faceoff": 59379,
+    "eligible:on_the_fly": 87675,
+    "unavailable:None": 1991,
+    "unavailable:faceoff": 4,
+    "unavailable:no_same_clock_faceoff": 3,
+    "unavailable:on_the_fly": 3,
+    "unavailable:unknown": 2326
+  },
+  "eligibility_counts": {
+    "masked_on_the_fly": 3,
+    "masked_faceoff": 4,
+    "unresolved_binding": 3,
+    "admitted_same_clock_faceoff": 13,
+    "withheld_earlier_anchor": 0
+  },
+  "head_populations": {
+    "u": {
+      "physical_attempts": 151381,
+      "key_sha256": "29739fafaa1aea5f62f8e7b9d819394a1b6eb1d63d6a9861c1f3a97bd9af4856",
+      "unavailable_start_attempts": 4327,
+      "positive": 110897,
+      "eligibility_counts": {
+        "masked_on_the_fly": 3,
+        "masked_faceoff": 4,
+        "unresolved_binding": 3,
+        "admitted_same_clock_faceoff": 13,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "q": {
+      "physical_attempts": 110897,
+      "key_sha256": "3753a85f0f780f0ca2c57a31d2d0d78cd4255ee9765fc80c973685a8f2d8cd80",
+      "unavailable_start_attempts": 3176,
+      "positive": 72381,
+      "eligibility_counts": {
+        "masked_on_the_fly": 2,
+        "masked_faceoff": 3,
+        "unresolved_binding": 3,
+        "admitted_same_clock_faceoff": 7,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "r": {
+      "physical_attempts": 72381,
+      "key_sha256": "da2b0db1a442eee7157c58079d4984b6b6a343107a26cf5738e2d4e4b207f79d",
+      "unavailable_start_attempts": 2111,
+      "positive": 58628,
+      "eligibility_counts": {
+        "masked_on_the_fly": 1,
+        "masked_faceoff": 3,
+        "unresolved_binding": 3,
+        "admitted_same_clock_faceoff": 4,
+        "withheld_earlier_anchor": 0
+      }
+    },
+    "g": {
+      "physical_attempts": 58628,
+      "key_sha256": "e3107420750c7a7c6d4a9de8aa5c747278b39e8a0a6a2cefdc67165b7b47d200",
+      "unavailable_start_attempts": 1729,
+      "positive": 7548,
+      "eligibility_counts": {
+        "masked_on_the_fly": 1,
+        "masked_faceoff": 3,
+        "unresolved_binding": 3,
+        "admitted_same_clock_faceoff": 3,
+        "withheld_earlier_anchor": 0
+      }
+    }
+  },
+  "source_context_sha256": "f96ee4a0eadeb2f5caa44db999c71b9ad0e6a178b8a3812f9895019dcdb065a3",
+  "source_response_sha256": "63e224a6d8ac06729882bd05b1dcd817df49d39000fb8559817e0e1d01feef04",
+  "observer_body_seconds": 37.08424929092871,
+  "known_census": "not applicable; zero expected and checked",
+  "count_contract": "dispositions partition source contexts; eligibility counts overlap; withheld_earlier_anchor is residual withholding, not an admission requirement",
+  "residual_scope": "withheld non-on-the-fly record with a saved coherent faceoff start on the exact player/period/start/end binding and earlier saved anchor; cannot detect alternatives absent from coherent saved evidence",
+  "limits": [
+    "three unresolved bindings are a subset of four faceoff masks; seven total masks are not ten distinct rows",
+    "masks are not all timing cases; fifty-eight first witnesses are sampled evidence, not a census",
+    "zero coherent residual cannot size withholding outside saved coherent evidence",
+    "same-clock admissions rely on earlier saved sortOrder, not physical subsecond proof; no new gate or source pass",
+    "expected unavailable rises7/5/4/4 await completed-state comparison; annual coefficients/probes not yet accepted",
+    "observer body time is not total construction/wrapper overhead; no runtime forecast"
+  ],
+  "python_pid": 66380,
+  "same_clock_admissions": {
+    "all_contexts": 13,
+    "by_head": {
+      "u": 13,
+      "q": 7,
+      "r": 4,
+      "g": 3
+    },
+    "recent_annual_counts": {
+      "20242025": 11,
+      "20252026": 13
+    },
+    "meaning": "unique coherent faceoff binding and earlier saved anchor; physical subsecond order and the cause of the recent source pattern are not independently established; counters are not an admitted-key census"
+  }
+}

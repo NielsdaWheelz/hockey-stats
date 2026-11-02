@@ -21,13 +21,14 @@ NEW = CAMPAIGN / 'execution-final-02/20252026'
 FAILED = CAMPAIGN / 'execution/20252026'
 FAILED_SHA = '9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491'
 BASELINE_GAP = CAMPAIGN / 'fit-20252026-final-02-u-baseline-start-gap.json'
+CONTINUATION_NATIVE = CAMPAIGN / 'fit-20252026-final-02-u-continuation-native.json'
 PREVIOUS = CAMPAIGN / 'execution/20242025'
 OLD = Path('/Volumes/Expansion/hockey-stats/runs/execution-v1-05-20261025-02/20252026')
 ANALYSIS = '59813412b3ef66bb66ae60f5daf930716d00073e'
 PREVIOUS_SHA = '1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe'
 OLD_SHA = 'c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be'
 RECIPE = '47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674'
-OBSERVER = '526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9'
+OBSERVER = 'ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4'
 HEADS = ('u', 'q', 'r', 'g')
 START_FIELDS = ('shooter_start_zone:offensive', 'shooter_start_zone:neutral', 'shooter_start_zone:defensive')
 
@@ -153,15 +154,45 @@ def report_baseline_gap(side, metadata, source_reference, command):
                 scope='producer-saved baseline-start diagnostic; an available gap compares two completed endpoints, which are not independently replayed; zero or positive gap never substitutes for v1-05 numerical resolution')
 
 
+def report_native_continuation(side, metadata, start, source_reference, command):
+    """bind the raw native return without confusing it with recomputed completion."""
+    assert side['kind'] == 'temporary-u-continuation-native-result' and side['head'] == 'u'
+    assert side['purpose'] == 'real' and side['season'] == '20252026'
+    assert side['analysis_tree'] == ANALYSIS and side['recipe_sha256'] == RECIPE
+    assert side['source_check'] == source_reference and side['command'] == command
+    assert side['dimension'] == metadata['design']['size']
+    requested, native = side['requested_solver'], side['native_result']
+    assert requested == dict(method='L-BFGS-B', jac=True, options=dict(maxiter=10000, ftol=1e-16, gtol=1e-7))
+    assert type(native['success']) is bool and type(native['status']) is int and type(native['message']) is str
+    assert all(type(native[key]) is int and native[key] >= 0 for key in ('nit', 'nfev'))
+    classification = native['fun_classification']
+    assert classification in ('finite', 'nan', 'posinf', 'neginf')
+    if classification == 'finite':
+        assert type(native['fun']) in (int, float) and math.isfinite(native['fun'])
+    else:
+        assert native['fun'] is None
+    for native_key, saved_key in (('status', 'status'), ('message', 'termination'), ('nit', 'iterations'), ('nfev', 'evaluations')):
+        assert native[native_key] == start[saved_key]
+    if not native['success']:
+        assert start['converged'] is False
+    if start['converged']:
+        assert native['success'] and classification == 'finite'
+    return dict(native_result=native, requested_solver=requested, saved_converged=start['converged'],
+                saved_recomputed_objective=start['objective'], identity_and_saved_native_fields_checked=True,
+                scope='producer-captured raw scipy return; finite fun does not prove every internal trial was finite; fun is not compared with the separately recomputed objective, and raw success can become unavailable after finite checks; this snapshot does not recover the discarded original return or qualify a failed continuation')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--expected-manifest-sha256', required=True)
     parser.add_argument('--expected-source-sha256', required=True)
     parser.add_argument('--expected-u-baseline-start-gap-sha256', required=True)
+    parser.add_argument('--expected-u-continuation-native-sha256', required=True)
     parser.add_argument('--out-check', type=Path, required=True)
     args = parser.parse_args()
     assert all(re.fullmatch('[0-9a-f]{64}', value) for value in
-               (args.expected_manifest_sha256, args.expected_source_sha256, args.expected_u_baseline_start_gap_sha256))
+               (args.expected_manifest_sha256, args.expected_source_sha256,
+                args.expected_u_baseline_start_gap_sha256, args.expected_u_continuation_native_sha256))
     assert not args.out_check.exists()
     command_exit = (NEW.parent / '20252026-exit.txt').read_text().strip()
     assert command_exit in ('0', '1')
@@ -331,6 +362,12 @@ def main():
         probe_heads[head] = report_resolution(head, resolution, probe, baseline_ref,
                                              manifest['resources']['resolution_solve_counts'][head])
     numerical_handoff = 'passed' if command_exit == 0 and all(row['status'] == 'passed' for row in probe_heads.values()) else 'failed'
+    assert digest(CONTINUATION_NATIVE) == args.expected_u_continuation_native_sha256
+    u_report = probe_heads['u']
+    u_start = u_report['continuation_start'] if u_report['probability_comparison_available'] else u_report['diagnostics']['starts'][0]
+    native_continuation = dict(report=identity(CONTINUATION_NATIVE),
+        **report_native_continuation(read(CONTINUATION_NATIVE), state.heads['u'], u_start,
+            dict(path=str(source_path), sha256=args.expected_source_sha256), source['command']))
     assert digest(FAILED / 'manifest.json') == FAILED_SHA
     failed_manifest = read(FAILED / 'manifest.json')
     baseline_files = {}
@@ -409,7 +446,7 @@ def main():
         acceptance='not accepted; independent/root review and release required' if numerical_handoff == 'passed' else 'failed numerical handoff; scoring and descendants held',
         recorded_at_utc=datetime.now(timezone.utc).isoformat(), manifest=identity(state.path), previous=identity(PREVIOUS / 'manifest.json'), original=identity(OLD / 'manifest.json'),
         recipe={key:manifest['recipe'][key] for key in ('name','version','sha256')}, strict_read=dict(invocations_here=1,status='passed',wall_seconds=strict_seconds,upstream_source_reads=0),
-        heads=heads, probes=probes, u_baseline_start_gap=baseline_gap,
+        heads=heads, probes=probes, u_baseline_start_gap=baseline_gap, u_continuation_native=native_continuation,
         baseline_reproducibility=baseline_comparison, continuation_reproducibility=continuation_comparison,
         coverage=dict(original_core_exact=True, optional_start_support_matches_actual_head_metadata=True,
                                   recognized=len(state.coverage['attempts']), games=len(state.coverage['games'])),

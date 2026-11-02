@@ -1,10 +1,10 @@
 {
   "kind": "held-final-retry-saved-outcome-check-preparation",
-  "status": "intermediate hold; passed-zero continuation reporting updated; new observer native-result side interface/hash and final bindings pending; main unrun",
+  "status": "prepared and unrun; final native-side/shell/outcome peer review, explicit expanded user authorization, completed job and actual four hashes required",
   "checker": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026_final_02.py",
-    "sha256": "03ddfb95b1a752bc978a89874dd9f8570759cd029f37b81f047e85f7d4e81ebb",
-    "bytes": 35115
+    "sha256": "ab15fe7ff38fd746fc647be278148e3e576ebd898ea5a83b7092fc3e7f39c957",
+    "bytes": 38013
   },
   "derived_from": {
     "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_execution_20252026.py",
@@ -22,6 +22,8 @@
     "<actual_final02_source_report_sha256>",
     "--expected-u-baseline-start-gap-sha256",
     "<actual_final02_u_baseline_start_gap_sha256>",
+    "--expected-u-continuation-native-sha256",
+    "<actual_final02_u_continuation_native_sha256>",
     "--out-check",
     "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-saved-acceptance.json"
   ],
@@ -34,9 +36,10 @@
     "historical_original_fit_sha256": "c736f1feb26df018465eb0032d51611ac07846e64de053bdd6a99e18026379be",
     "preserved_failed_annual_sha256": "9845808a40204d244ed07f9c8f0c7569d4c727e091dcb6e4f27bd658d3a3f491",
     "analysis_tree": "59813412b3ef66bb66ae60f5daf930716d00073e",
-    "observer_sha256": "526f6465e5c54bb3928d0fe8686600062106116d725754267f29ecbfaf3b2bd9",
+    "observer_sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
     "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
-    "baseline_start_gap": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json"
+    "baseline_start_gap": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-baseline-start-gap.json",
+    "continuation_native": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-u-continuation-native.json"
   },
   "scope": [
     "one strict new saved-state read; all four baseline heads must be complete",
@@ -47,7 +50,8 @@
     "available completed-probe deltas independently checked only by the single strict reader; failed endpoint movement and all probability maxima retain their producer-saved scope",
     "all descendants stay held pending independent/root acceptance and release",
     "root-pinned small side report binds actual source hash, command/analysis/recipe/purpose/season/u/dimension and saved start metadata; available, unavailable and zero gaps remain diagnostics only",
-    "physical q/r/g continuation hashes checked against both bound manifests; original984 u probe absence explicit and missing new probes unavailable; no numeric NPZ loads or equality gate"
+    "physical q/r/g continuation hashes checked against both bound manifests; original984 u probe absence explicit and missing new probes unavailable; no numeric NPZ loads or equality gate",
+    "root-pinned native-return side JSON binds identity/requested solver and raw status/message/nit/nfev to saved continuation fields; raw success true may become saved convergence false, and native fun is independent of recomputed objective"
   ],
   "validation": {
     "python_ast": "passed",
@@ -67,18 +71,30 @@
     "main_invocations": 0,
     "real_artifact_or_source_reads": 0,
     "analysis_or_observer_edits": 0,
-    "controls_scope": "prior pure branch-control record retained; only the new passed-zero synthetic case was executed on this helper; the expanded whole control script and campaign main were not rerun",
+    "controls_scope": "historical whole pure-control record retained; one focused passed-zero case ran on its recorded helper; focused native-side binding checks ran on the final helper, including raw-success/postcheck separation and independent native fun; no broad rerun or campaign invocation",
     "focused_passed_zero_control": {
       "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final02-passed-zero-reporting-control.json",
       "sha256": "761b8e955eca336a7cd099b69e51eba5026136419cdc658d544e2f80e5db46bd",
       "bytes": 577
-    }
+    },
+    "native_control": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final02-native-reporting-control.json",
+      "sha256": "10e1df2efe55982c5a14a1820d8e77b9f97d8a7fde889f1867fb855d36dbe2f2",
+      "bytes": 517
+    },
+    "native_control_source": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/check_final02_native_reporting.py",
+      "sha256": "7c7f41a0e61ba540677de58ae2fc0c254bedca4247c032e3da3b40f7deda4f3b",
+      "bytes": 2631
+    },
+    "final_python_ast": "passed"
   },
   "limits": [
     "audit success does not admit a failed numerical handoff",
     "native ftol remains allowed; no gtol-only rejection, solver/recipe/margin change or new reproducibility gate",
     "failure remains preserved evidence and does not authorize another compute job or scoring",
-    "the historical462 success-only helper remains byte-identical and unrun on the failed original"
+    "the historical462 success-only helper remains byte-identical and unrun on the failed original",
+    "finite native fun does not prove every internal trial was finite; a native message such as ABNORMAL does not independently establish a failure mechanism"
   ],
   "protocol_steering": [
     "all failed continuations remain failed; reported zero motion is explicitly uninformative for resolution, even when endpoint identity implies zero probability difference",
@@ -86,7 +102,7 @@
     "the proposed two-completed-baseline-start coefficient gap is a side diagnostic, never a replacement for prescribed v1-05 resolution; its reviewed observer interface remains pending",
     "passed zero max/l2 movement is passed_zero_motion_uninformative and explicitly requires a root decision; literal status and the exit0 plus four-passed numerical_handoff expression remain unchanged; descendants stay held"
   ],
-  "next": "bind reviewed native-result side hook before final package peer review; no main invocation until an explicitly approved job completes and root pins its actual hashes",
+  "next": "product/source/root peer review of final native-side/report/shell package; no main invocation until an explicitly approved job completes and root pins actual output/source/baseline-gap/native-result digests",
   "actual_u_baseline_start_gap_sha256": null,
-  "pending_binding_update": "reviewed observer native-result side hook interface and identity; observer and shell were not edited by this reporting change"
+  "actual_u_continuation_native_sha256": null
 }

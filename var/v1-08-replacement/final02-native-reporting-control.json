@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "helper_sha256": "ab15fe7ff38fd746fc647be278148e3e576ebd898ea5a83b7092fc3e7f39c957",
+  "scope": "focused synthetic native-side binding only; no main, native optimizer, source, campaign artifact, array or strict reader invoked",
+  "cases": [
+    "raw success true may have saved convergence false",
+    "native fun differs from recomputed objective",
+    "nan native fun stays null and separately classified"
+  ],
+  "rejected": [
+    "status mismatch",
+    "invalid fun classification"
+  ]
+}

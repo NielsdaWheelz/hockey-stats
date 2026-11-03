@@ -1,0 +1,67 @@
+{
+  "kind": "replacement-real-final-score-source-parity",
+  "status": "root_clear_independent_review_pending",
+  "recorded_utc": "2026-11-03T11:44:52.582116+00:00",
+  "source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-source-check.json",
+    "sha256": "b7deeb18afc0eac4bbdebdf252e02c8aa5eec7182d9ab72ba54ce21aed119e8b",
+    "bytes": 88657
+  },
+  "fit_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json",
+    "sha256": "59f4b00827ea736f0a374ba6f32a1ce7003f5f9ab7a131b84d5e4971f0624e9d",
+    "bytes": 88686
+  },
+  "parity": {
+    "kind": true,
+    "status": true,
+    "recipe_sha256": true,
+    "source_contexts": true,
+    "known_expected": true,
+    "known_checked": true,
+    "dispositions": true,
+    "all_strength_dispositions": true,
+    "eligibility_counts": true,
+    "head_populations": true,
+    "count_contract": true,
+    "residual_scope": true,
+    "source_context_sha256": true,
+    "source_response_sha256": true,
+    "known_witnesses": true,
+    "first_witnesses": true,
+    "before_head_construction": true,
+    "head_admission": true,
+    "purpose": true,
+    "season": true
+  },
+  "ignored": [
+    "command",
+    "observer_seconds"
+  ],
+  "command": [
+    "score",
+    "--family",
+    "execution",
+    "--prepared",
+    "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02",
+    "--coaches",
+    "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "--state",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026",
+    "--out",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026"
+  ],
+  "source_contexts": 151381,
+  "eligibility_counts": {
+    "masked_on_the_fly": 3,
+    "masked_faceoff": 4,
+    "unresolved_binding": 3,
+    "admitted_same_clock_faceoff": 13,
+    "withheld_earlier_anchor": 0
+  },
+  "limits": "shared input construction only; not scored probabilities, physical subsecond chronology or completed propagation acceptance",
+  "source_passes_here": 0,
+  "score_calls_here": 0,
+  "strict_reader_calls_here": 0,
+  "model_array_reads_here": 0
+}

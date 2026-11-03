@@ -1,0 +1,196 @@
+{
+  "kind": "replacement-first-real-spatial-preparation",
+  "status": "preparation_only_root_release_required_after_final_score_acceptance",
+  "recorded_utc": "2026-11-03T10:02:07.791796+00:00",
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+      "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c",
+      "bytes": 18633830
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+      "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0",
+      "bytes": 39341670
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+      "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d",
+      "bytes": 383198
+    }
+  ],
+  "source_bindings": {
+    "purpose": "real",
+    "season": "20212022",
+    "first_selected_prepared_season": true,
+    "prepared_game_ids": 1312,
+    "prepared_members": 1313,
+    "score_prepared_member_list_exact": true,
+    "score_coach_selected_game_ids_exact": true,
+    "score_state_binding": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20212022/manifest.json",
+      "sha256": "7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61",
+      "season": "20212022",
+      "purpose": "real",
+      "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+      "usage": "annual",
+      "previous": null
+    },
+    "training_cutoff": "2022-05-01"
+  },
+  "source": {
+    "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+    "spatial_core_original_analysis_tree": "c2412ac713b8c60e808dd71771f0812224b94439",
+    "spatial_core": {
+      "spatial_design.py": {
+        "sha256": "5c6925ec0b93ac52ef3442c5237f534a4bef4658ace08021e9ba759123352633",
+        "byte_identical_to_accepted_fixture_core": true
+      },
+      "spatial_rates.py": {
+        "sha256": "0aec2996d1725ac9b5eab2c74e75ce18cf0b846274f9da3c3cecffed3cd73cc0",
+        "byte_identical_to_accepted_fixture_core": true
+      },
+      "spatial_state.py": {
+        "sha256": "c252bd97b8dc088bcd9ffc1f8ae266cc5cc2dbae2104f6e8a693eb4e63170bcf",
+        "byte_identical_to_accepted_fixture_core": true
+      }
+    },
+    "spatial_design_recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+    "solver": {
+      "maxiter": 10000,
+      "ftol": 1e-15,
+      "gtol": 1e-06,
+      "history": 10,
+      "native_maxfun": 15000,
+      "native_maxls": 20
+    },
+    "unchanged_spatial_math": true
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20212022-spatial-command.sh",
+    "sha256": "fa97af900ff99ae01b747d3f344112645d71194980066bafd36dfd57251628fa",
+    "bytes": 4064
+  },
+  "saved_metadata_acceptance": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_spatial_20212022.py",
+    "sha256": "0d0cc40c44754347d5e6f93cfa05fa4f3d4e0015cf309edbbd55e799a80d9eab",
+    "bytes": 8374
+  },
+  "controls": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-first-preflight-green.log",
+    "sha256": "960eb3d25f5dfbf555dea04843d9cefe2f7c6b90c5f5035759eb632b54043042",
+    "bytes": 1038
+  },
+  "fresh_paths": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022.log",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-start.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-finish.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-exit.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-shell.pid",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-head.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-analysis-tree.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-analysis-status.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-command-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-inputs-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-acceptance-sha256.txt",
+      "exists": false
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022-launch-spatial-recipe.txt",
+      "exists": false
+    }
+  ],
+  "previous": null,
+  "first_year_final_probes": 0,
+  "preserved_books": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
+      "sha256": "4b421777212ccf753c368012bcc8741cc6a6858526400626a00c6eb3e0c745d1",
+      "bytes": 24998
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/prepare_commands.py",
+      "sha256": "0beb696edf663419457d57e3cfc7a42aca5a872f0840dd7795ab5caf9b8c96ba",
+      "bytes": 9238
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/real/prepare-selection.py",
+      "sha256": "7b5066bdb1990073420053c13cb6091bdebb1c5e485c36dc55581d59d6188892",
+      "bytes": 1125
+    }
+  ],
+  "sequencing": {
+    "heavy_jobs": "serial; final score/propagation must exit and be accepted before root releases first spatial command",
+    "later_spatial_years": "wait for root acceptance and actual complete first-year memory/cost measurement",
+    "final_year_valued_sha256": null,
+    "five_state_selection_written": false,
+    "memory_envelope": "64 gb; measure actual first complete annual; no new memory gate or concurrency assumption"
+  },
+  "memory_shape_from_source": {
+    "context_columns": 350,
+    "dense_context_bytes_per_directed_row": 2800,
+    "event_batch_max": 4096,
+    "batch_by_cell_float64_bytes": 21495808,
+    "batch_by_mode_float64_bytes": 1310720,
+    "actual_real_time_rows": null,
+    "actual_real_design_bytes": null,
+    "actual_real_peak_memory_bytes": null,
+    "scope": "static shape arithmetic only; no real matrix or season runtime/peak forecast"
+  },
+  "acceptance": {
+    "strict_array_reader": "canonical CLI writer owns its one strict saved state read",
+    "adapter": "one post-exit JSON/stat-only read; head statuses/failure reasons, original controls, first-year history, bindings, resource counts; no second numeric read/evaluator",
+    "real_R1_volume_budget": "OPEN until fixed final-real-year continuation; original1e-4/hour budget, no offset/translation/preconditioning/tolerance change selected"
+  },
+  "scope": "small prepared/score manifests and coach-file hash only; local code/docs/receipts; stat-only fresh paths; no game/source reader, state reader, array loads, fitting, scoring, objective/gradient/projection or launch",
+  "shell_controls": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-first-shell-green.log",
+    "sha256": "bd1cc72cbb1f40618eba4195b71c7d722f247f7c63467d67c095896fae288df3",
+    "bytes": 1187
+  },
+  "checks": {
+    "canonical_cli_first_year_dispatch": "passed with scratch-only stubs; no previous/final probes; missing/duplicate/chronology/failure cases refused",
+    "saved_metadata_fixture": "passed14jsonreads/statonly; changed solver/history refused and failedhead counts preserved",
+    "shell_flow": "passed substituted paths/pins/tiny git/stub executable; clean docs-only head advance and exit3; occupied paths/dirty analysis/input or acceptance changes refused before executable",
+    "real_spatial_launches": 0,
+    "real_source_game_reader_calls": 0,
+    "real_state_reader_calls": 0,
+    "real_array_loads": 0,
+    "real_objective_gradient_projection_calls": 0
+  }
+}

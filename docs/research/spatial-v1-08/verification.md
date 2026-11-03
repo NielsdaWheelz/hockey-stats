@@ -553,3 +553,10 @@ the original spatial controls remain `10000/1e-15/1e-6/history10` with native fu
 ## first real spatial annual launched — 2026-11-03 utc
 
 [the launch](receipts/real-first-spatial-launch.json) records actual head `b7a97f3`, clean analysis `fc716257`, command `fa97af90`, recipe `04a9c15d` and nine start/pid/pin files. the released command is invoked once; first-year input/source design begins with accepted score `37263bfc` and no predecessor or probes. it is the sole heavy job. no fitted head, complete annual triple, real memory envelope or numerical resolution claim is established by this launch record.
+
+
+## accepted execution selection released — 2026-11-03 utc
+
+[the small write release](receipts/real-execution-selection-release.json) binds writer `376cbefc`, held-package preparation `93d78e51` and [independent review `cbb1a118`](reviews/real-execution-selection-compose-command-review.md). it writes only the explicit five-score selection after fixed state/score chronology and accepted completion `8f9163b5` checks. the final year names assembled state `59e3432d` and score `40e23b35`; first-four identities remain exact. its actual stored hash is measured after exclusive writing, not guessed beforehand.
+
+composition remains held by its empty selection pin. its fourteen streaming/accounting reducers are unchanged, and tiny selection/parser/stream controls pass without reading actual score payloads. no actual composition, source, model or strict-reader call is released here. first-spatial `20212022` remains the sole heavy job; no activation follows.

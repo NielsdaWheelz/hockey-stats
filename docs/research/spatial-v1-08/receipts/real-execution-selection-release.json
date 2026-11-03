@@ -1,0 +1,34 @@
+{
+  "kind": "real-execution-score-selection-release",
+  "status": "released_not_yet_written",
+  "recorded_utc": "2026-11-03T16:17:32.389985+00:00",
+  "code_commit": "f07ff3b806a9063f6ef65130cd1510e9a6ef96b7",
+  "writer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/prepare-real-score-selection.py",
+    "sha256": "376cbefc521cb8c67318841166c29f8ddb35121bdc4ccb1c725dbcec1bc41ac4",
+    "bytes": 4394
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-execution-selection-compose-command-review.md",
+    "sha256": "cbb1a1180f6d7a1c0f90e23e6716f41aaca82a08168115f6d45b78ef7a21d5de",
+    "bytes": 4302
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-execution-selection-compose-preparation.json",
+    "sha256": "93d78e51902f3f83d175aab0c6a68b78a64a02f5317b069ebb6b5e8eb9c62e9a",
+    "bytes": 8324
+  },
+  "score_acceptance": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-final-score-completion.json",
+    "sha256": "8f9163b53c07c264ef59d651bf4860b04333b70a61ec4a19abc7bd4fecfa1953",
+    "bytes": 12198
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores-selection.json",
+  "scope": "one exclusive small metadata selection write over five accepted score manifests, with fixed chronology/state/prepared/coaches/recipe bindings; emit actual stored payload hash",
+  "full_strict_reads": 0,
+  "source_passes": 0,
+  "model_array_reads": 0,
+  "composition_released": false,
+  "first_spatial_is_only_heavy_job": true,
+  "activation": false
+}

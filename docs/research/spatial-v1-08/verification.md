@@ -477,3 +477,11 @@ final numerical command `8fe1dfae` consumes only frozen input manifest `031975b9
 ## single exact-sum repair launched — 2026-11-03 utc
 
 [launch `8e5c7fb8`](receipts/u-exact-repair-launch.json) records 08:58:35 utc, actual head `b85ba95`, analysis `fc716257` and shell pid 1773. eleven launch files bind the reviewed code, accepted diagnosis, frozen inputs and empty analysis status. the numerical runner is invoked once; input loading completes and the repaired continuation is active under its unchanged native limits. the earlier 208-call diagnosis remains within its separate 256-call cap. no qualification or assembly result is available at this launch record. runtime analysis/helpers remain unchanged until exit.
+
+## single repair exits qualified; independent acceptance pending — 2026-11-03 utc
+
+the only real repair exits 0 at 09:06:26 utc, report `28c6d3b9`, with native `success=true,status=0,nit=588,nfev=645`, 588 callbacks and 650 total objective calls. no native iteration/evaluation limit is exceeded. fresh same-evaluator loss decreases from `69668.42305740263` to `69668.4230573553`; raw and completed maximum coefficient movement are `1.668081418904066e-5`. native completion is relative-objective stopping, not gradient tolerance: final maximum gradient is `0.0006836014709647651`.
+
+probability receipt `25143901` reports maximum `3.98377414095874e-6`, below the fixed `1e-5` budget; `q/r/g` branch changes are exactly zero. the maximum is `u`, fully neutral execution for actual key `2025020003:324`, native cell 5. terminal maxima include goal `1.0160947773729667e-6`; all 123,666 origin evaluations / 1,132,870 branch evaluations use the fixed probe populations. these are selected-probe sensitivity bounds, not all-player/seasonwide bounds or scientific admission.
+
+actual command cost is 470.93 seconds (425.33 user / 5.61 system), maximum resident memory 3,329,949,696 bytes and peak footprint 3,308,522,328 bytes. no source reconstruction or baseline fit occurs. independent saved-result review is underway; root has not accepted a real assembled annual family, and no assembly has run. the single numerical attempt is consumed; only a passed saved acceptance permits the separate assembly phase.

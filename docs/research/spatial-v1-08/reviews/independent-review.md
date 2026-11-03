@@ -1358,6 +1358,32 @@ notes, not blocking:
 - the hash-signed group directions are sound. all-positive group directions could align with centered or prior-dominated directions.
 - **line 5 arithmetic:** 69668.42 x 1e-16 = 6.97e-12, and 2^-36 = 1.46e-11, both right. the scale that matters is the evaluation error, per b.
 
+### amended `u` scope `738553c`
+
+verdict: one blocker remains, and it takes one sentence. a, c and d [from the prior review](#proposed-u-diagnosis-and-repair-scope-0c3a0ee) are closed. b is frozen and sound. read: the revised scope, the issue/plan/verification diffs, and `chance.py:585-600`. the only other read was the installed scipy version string. no numerical work.
+
+- **a closed:** the start and the raw endpoint are freshly evaluated through the same repaired evaluator, the improvement must be strict, and native `fun` is excluded.
+- **c closed:** arithmetic-only execution code keeps `47691110`. edits to shared `chance`/spatial code stop.
+- **d closed:** anchors are checked bit for bit after write and reload, and reproduction needs the exact native tuple.
+- **b frozen:** it is narrower than my sketch and better for it.
+    - `R(x)`, the exact sum of the already-rounded addends, measures only the outer reduction. the scope says so and treats the result as observation, not as a bound.
+    - `T_i` takes the larger gap to either neighbor, which absorbs the noise growth from the smaller step.
+    - the positive witness needs the original form rejected and the reference form accepted under both the separate and fma rounding forms, a passing native curvature test, and a resolved native association, all on one trial.
+    - the citation is right: installed scipy 1.18.1 reports git revision `e4e854eaa8f18d807cd3496028e257e36caa93cc`, the pinned source commit.
+    - `solve_logistic` passes no bounds, so afaict the iteration-0 direction is `-g` and the direction check should pass.
+
+blocker: bind the repair to the evaluator the witness tested. the witness proves acceptance only for `fl64(R(x))`, the correctly rounded sum of the same observed addends, with the unchanged gradient supplying the curvature test. the scope permits "one outer-arithmetic repair" without naming it.
+- kahan, long-double or pairwise accumulation is a different evaluator the witness never saw.
+- changing the gradient's accumulation would void the curvature half of the witness.
+- required sentence: the admissible repair returns the loss as `fl64(R(x))` over the identical addends, checked bit-equal to the reference on controlled inputs, and leaves gradient and penalty code unchanged. any other arithmetic needs a new decision.
+
+notes, not blocking:
+- **path divergence:** the witness is evaluated at the original trial points. under the repaired loss, the search's steps diverge at the first trial whose loss changes. the witness shows that arithmetic matters; it does not predict that the repaired search reaches that trial. the qualification run decides. the limits sentence could say so.
+- **completion could erase movement:** if every raw move sat in prior-only coordinates, completion would restore the saved start, and the probability check would compare the baseline with itself. afaict this is implausible, because at a completed start those coordinates sit at their conditional means with zero penalty gradient. still, "the completed endpoint differs from the saved start" closes it in one line.
+- **inner error can end the scope inconclusive:** if inner dot or log error dominates, a real arithmetic problem ends as inconclusive. that is the stated price of a pre-frozen rule. the user should hear it before approving.
+- **the trace names the stop:** the retained native task states will name what ended the search. 18 trials under `maxls` 20 suggests the trial limit didn't, if the c port counts like the fortran. afaict, not verified.
+- **storage:** my 13 to 18 gb figure was WRONG for retained bytes. the counter repeats fixed rows, so root's 3 to 4 gb source bound stands until capture measures the real size.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

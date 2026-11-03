@@ -1,0 +1,446 @@
+{
+  "kind": "execution-u-assembled-family-acceptance",
+  "status": "accepted_ordinary_annual_family",
+  "recorded_utc": "2026-11-03T09:54:16.404641+00:00",
+  "root_verdict": "accept reconstructed annual family; resume already-assigned final scoring and spatial work",
+  "release_sha256": "c5ebfb25b6cef5ef9d1aaf4d658e6cafbad6ba570a025cbcebb8d6d9c595abc6",
+  "manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+    "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "bytes": 367855
+  },
+  "member_count": 18,
+  "members": [
+    {
+      "path": "coverage.json",
+      "sha256": "3ecc77379215895b452ffed2b55960a76c49bcf8e590763f6dacf09204f3d9e7"
+    },
+    {
+      "path": "heads/u.npz",
+      "sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b"
+    },
+    {
+      "path": "heads/u.json",
+      "sha256": "a5f958e32a36320300ebe0f896c225b07f5bd770625b814557d92bc8ecfefc5a"
+    },
+    {
+      "path": "heads/q.npz",
+      "sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35"
+    },
+    {
+      "path": "heads/q.json",
+      "sha256": "d94499f57ed87bdd621ee69f60b60b742fec0db10b6efae00ec0f46f324a1a01"
+    },
+    {
+      "path": "heads/r.npz",
+      "sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111"
+    },
+    {
+      "path": "heads/r.json",
+      "sha256": "c113e56566767ad328cf0617dab64daa1ba65dacf2c87ad44473ba19894a98b4"
+    },
+    {
+      "path": "heads/g.npz",
+      "sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d"
+    },
+    {
+      "path": "heads/g.json",
+      "sha256": "e8fd2cf875b7864e316fee35f55105b10d6de141549879db228a43caa2f1a314"
+    },
+    {
+      "path": "resolution/baseline.json",
+      "sha256": "c7190c8e565e76d9600cd13469ff71a0cdaca920bf14ac881e72694ef6b3efec"
+    },
+    {
+      "path": "resolution/u.json",
+      "sha256": "030423388c573ba2bdd2ba920e9f3a4c51ccf2b59c9402bbbd1d160a0524d8c0"
+    },
+    {
+      "path": "resolution/u.npz",
+      "sha256": "20b870f68f1570cb4a8dcd7b22ff34f85663386abf6865770294035595b59bf8"
+    },
+    {
+      "path": "resolution/q.json",
+      "sha256": "e9ea0a2d3c396f063d7c93aa5310ea0961ad0b1235c5b2a715eaa423beb1adb4"
+    },
+    {
+      "path": "resolution/q.npz",
+      "sha256": "09f4b548f0c3709f5773315850d29eddc0b595587d00d4bc94aba91c9ac8452d"
+    },
+    {
+      "path": "resolution/r.json",
+      "sha256": "2304f0bc611477bf78c8be0d5492fb1f2eb7fbe96e84b78b5b5c644e05557bfa"
+    },
+    {
+      "path": "resolution/r.npz",
+      "sha256": "91b738eb326781d6a7a2926b5d370689cd5b12f2654ef481add0a79f5711e333"
+    },
+    {
+      "path": "resolution/g.json",
+      "sha256": "16e8d612cdedea43605ed12a8b6f24d948292d6fcdd1bed546fe56e6398bcc9d"
+    },
+    {
+      "path": "resolution/g.npz",
+      "sha256": "c2418065fda278bd785de3814a17ebea3289821f8fcf77307830521d67ce40ff"
+    }
+  ],
+  "source_commit": "416716f4e69d07eea55a68f8c23667a36bc3dcfb",
+  "launch_head": "8402ca7682a6d92f9f9f1eea44797d1d66cf5615",
+  "producer_head": "8402ca7682a6d92f9f9f1eea44797d1d66cf5615",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "started_utc": "2026-11-03T09:31:07Z",
+  "finished_utc": "2026-11-03T09:32:39Z",
+  "exit_code": 0,
+  "launch_files": {
+    "start.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-start.txt",
+      "sha256": "5589fe1d755054dc7c6c3f2ed80a59f594b85826bbdc8f2eb65fa0cedd0bf9ec",
+      "bytes": 21,
+      "text": "2026-11-03T09:31:07Z\n"
+    },
+    "shell.pid": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-shell.pid",
+      "sha256": "683d72e11b33d5a625a6f98f87b0faa2655b50534070ab200ba4daf0a104556a",
+      "bytes": 6,
+      "text": "20147\n"
+    },
+    "launch-head.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-head.txt",
+      "sha256": "a061ce58b3cf3f98d71d4dfacb2b3df31a7aab51fcd3c3b0a9e6ffaf7fef33a7",
+      "bytes": 41,
+      "text": "8402ca7682a6d92f9f9f1eea44797d1d66cf5615\n"
+    },
+    "launch-analysis-tree.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-analysis-tree.txt",
+      "sha256": "2830a005b86d355bd919cc15162e5550c7f024524c7103bd038cb709dced8006",
+      "bytes": 41,
+      "text": "fc716257eb118d1a091472cde4b214e8bca1f753\n"
+    },
+    "launch-helper-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-helper-sha256.txt",
+      "sha256": "976f1d7d736549ef4790c53a5f5c4550304df29d5fd42a38458631c6e238a877",
+      "bytes": 112,
+      "text": "d0b17338fc4b6b657b3152a4b657dd25c7385d84869b8710bb625510458b576b  var/v1-08-replacement/assemble_execution_u.py\n"
+    },
+    "launch-command-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-command-sha256.txt",
+      "sha256": "1ab4703f0dac4c6bf2275229dd4f26a9fc7f27c38fe14d7b3e00e41c90f9a341",
+      "bytes": 164,
+      "text": "9e0aa0d9cf6622f5ab13ee204357778f41623cea15b58a13d9ed91847957bd9c  /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-u-assembly-command.sh\n"
+    },
+    "launch-analysis-status.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-analysis-status.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "launch-inputs-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-inputs-sha256.txt",
+      "sha256": "03ac8cf829e2b2c6bd8cbfabdddc445306ed5cda450906e5cbd36f0bd38c8be8",
+      "bytes": 3332,
+      "text": "28c6d3b9a3f1261191085dd52831e7572103d46f62c2a667fcbbd1ecb53abdf1  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/repair.json\n2514390196a9e827caaecd67ece0b28cdb069fa5efb7bd339a93970ffd4f9aec  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/qualification/qualification.json\n02cd47ca8a11217a7fac05e6af8121b356831e78a06beeb1ceed42eeb9956aab  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/basic-qualification.json\n031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/inputs/manifest.json\n115da4fe4c18912b74b1970f1825a4338f0f54c6ccd9f0cfb3f7e10dfa026af1  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/diagnosis.json\n9f1351a2cf619e32a7ebeb487a4dda4b3892dcb005b7f2ded917a71354509aa7  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/source-check.json\na10365297148c215f764bb2cde5178602a5eda13563fca36f6345bfd4f7fb9f6  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/capture-reloaded.json\ncb075d5e59aea61589411e4573db7192c45fddd8265a807c2c39c2084b504e22  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/manifest.json\n1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json\n63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c  /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json\n102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0  /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json\n4c7dfb499cccca81735594389a510850dba68aad700776059500fb7a05cb6522  /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/execution_u_repair.py\n2f65ae947777eefee441af15e7609d3cae2edb5375bc9f99a85a4cf82e57cf14  /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/execution_state.py\n9ddb1425196328fff332f5ba1da91a231d77fce233fe48565e883b9e594d9c69  /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/repair_execution_u.py\n89af29e14de76a3a8f332b3753c5640d9b6c825f493719163dd687b7b824bc13  /Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/execution_trace.py\n031f30d640c0d526e35d8d862803718c1f565ee99ca2ef5638b9e36df3f25ca1  /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/diagnose_execution_u.py\n2e04c4a6331c2a36f176e0e307b0f520a5255d19cb23513935f13da9b80ecdbd  /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-diagnosis-saved-review.md\n6950fed6a7593168e9554515387debcc9e0d02b091d71995f57a00272da623d9  /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/u-capture-diagnosis-completion.json\n6beb304528f63ecb335ddab57e9baa9eb31be5099471cb5033d5810e0515abb7  /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/execution-u-exact-sum-repair.md\n"
+    },
+    "launch-acceptance-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-launch-acceptance-sha256.txt",
+      "sha256": "3d35624f2de8d283c2977f6f159383dace9f4bee84d5875a4426cd30b3935445",
+      "bytes": 182,
+      "text": "836e772305415496e437c4319a8ae04fae46970d0b431e38a542ad1d5d7ffbdf  /Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-exact-repair-saved-review.md\n"
+    },
+    "finish.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-finish.txt",
+      "sha256": "f830d72b3e8c063712a982dfeeabc77efa9ca661964abbb093d53c6a539ef326",
+      "bytes": 21,
+      "text": "2026-11-03T09:32:39Z\n"
+    },
+    "exit.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "text": "0\n"
+    }
+  },
+  "helper_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/assembly-result.json",
+    "sha256": "ccff6ba1e39f49e3d18743a26d58c5f560aa868bf7aff568d1b57065c39ea734",
+    "bytes": 760
+  },
+  "saved_byte_audit": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/assembly-saved-audit.json",
+    "sha256": "c8cac75647d289eed6dcb65ee1d9fce3322c7881283e8701bd2f7a9c7e18418e",
+    "bytes": 1689
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-assembled-family-saved-review.md",
+    "sha256": "23b8fe830ae17c72bcf9360ce6e98d5601f0c2ca9e0f8dbd1f77c47dee0d697a",
+    "bytes": 5825
+  },
+  "independent_audit": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-assembled-family-independent-green.json",
+    "sha256": "129f31cdbad4583879e5eee99909b1fadf15f24b71425cb7a7f27553422b5924",
+    "bytes": 2982
+  },
+  "command_log": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01.log",
+    "sha256": "db2f1d1fb26931cea2f881095381351df7d27bdcc38913a6da45b8822b834028",
+    "bytes": 1040
+  },
+  "acceptance": {
+    "retained_members": [
+      {
+        "path": "heads/u.npz",
+        "sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b"
+      },
+      {
+        "path": "heads/q.npz",
+        "sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35"
+      },
+      {
+        "path": "heads/r.npz",
+        "sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111"
+      },
+      {
+        "path": "heads/g.npz",
+        "sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d"
+      },
+      {
+        "path": "resolution/q.npz",
+        "sha256": "09f4b548f0c3709f5773315850d29eddc0b595587d00d4bc94aba91c9ac8452d"
+      },
+      {
+        "path": "resolution/r.npz",
+        "sha256": "91b738eb326781d6a7a2926b5d370689cd5b12f2654ef481add0a79f5711e333"
+      },
+      {
+        "path": "resolution/g.npz",
+        "sha256": "c2418065fda278bd785de3814a17ebea3289821f8fcf77307830521d67ce40ff"
+      }
+    ],
+    "baseline_metadata_outside_resolution_exact": true,
+    "qrg_probe_metadata_and_comparisons_exact": true,
+    "selector_and_head_definition_hashes_exact": true,
+    "history_and_population_exact": true,
+    "ordinary_score_consumer_eligible": true,
+    "strict_read_owner": "write_execution_state",
+    "strict_reads_of_assembled_family": 1,
+    "extra_strict_reads": 0,
+    "full_objective_calls": 0,
+    "probability_comparisons": 0,
+    "native_calls": 0,
+    "source_passes": 0,
+    "manifest": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+      "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276"
+    },
+    "saved_byte_audit_wall_seconds": 0.09007929201470688
+  },
+  "all_four_resolutions_passed": true,
+  "retained_baselines": 4,
+  "retained_qrg_probes": 3,
+  "new_qualified_u_probe": 1,
+  "baseline_coefficients_promoted": false,
+  "original_failed_artifacts_preserved": [
+    "9845808a",
+    "cb075d5e"
+  ],
+  "incoming_state_preserved": "1ba2c8af",
+  "provenance": {
+    "kind": "execution-u-outer-sum-repair-1",
+    "donor": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/manifest.json",
+      "sha256": "cb075d5e59aea61589411e4573db7192c45fddd8265a807c2c39c2084b504e22"
+    },
+    "inputs": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/inputs/manifest.json",
+      "sha256": "031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c"
+    },
+    "diagnosis": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/diagnosis.json",
+      "sha256": "115da4fe4c18912b74b1970f1825a4338f0f54c6ccd9f0cfb3f7e10dfa026af1"
+    },
+    "repair": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/repair.json",
+      "sha256": "28c6d3b9a3f1261191085dd52831e7572103d46f62c2a667fcbbd1ecb53abdf1"
+    },
+    "qualification": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/qualification/qualification.json",
+      "sha256": "2514390196a9e827caaecd67ece0b28cdb069fa5efb7bd339a93970ffd4f9aec"
+    },
+    "retained_members": [
+      {
+        "path": "heads/u.npz",
+        "sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b"
+      },
+      {
+        "path": "heads/q.npz",
+        "sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35"
+      },
+      {
+        "path": "heads/r.npz",
+        "sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111"
+      },
+      {
+        "path": "heads/g.npz",
+        "sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d"
+      },
+      {
+        "path": "resolution/q.npz",
+        "sha256": "09f4b548f0c3709f5773315850d29eddc0b595587d00d4bc94aba91c9ac8452d"
+      },
+      {
+        "path": "resolution/r.npz",
+        "sha256": "91b738eb326781d6a7a2926b5d370689cd5b12f2654ef481add0a79f5711e333"
+      },
+      {
+        "path": "resolution/g.npz",
+        "sha256": "c2418065fda278bd785de3814a17ebea3289821f8fcf77307830521d67ce40ff"
+      }
+    ],
+    "baseline_heads": [
+      {
+        "head": "u",
+        "metadata_sha256": "706dac489ea086b5f531a7b551927a63816208fb63262addc2b49036fb30cd55",
+        "arrays_sha256": "06a83004aeabb08dcd285a786c8efebde1cbf5ce4287d8a6641b45e8002ff74b"
+      },
+      {
+        "head": "q",
+        "metadata_sha256": "73ff4297b3252d8e18650b7498a6533203c660e062b130ff86c5f803c3b1e33b",
+        "arrays_sha256": "d3d6c46290b7b3e232f0d2daa953cca055b239f13ac86a067c84c273c7c30f35"
+      },
+      {
+        "head": "r",
+        "metadata_sha256": "6e409afc7d2366e1f25becdb375c10acf71cb9f0ccccd1e899649ed8d1357ec3",
+        "arrays_sha256": "795f72cd0d34696fe9908250cb1f45b7f20390eeb17d7473d823d037479c9111"
+      },
+      {
+        "head": "g",
+        "metadata_sha256": "9dae3a0d47f0709eaa60628e3d43f55c97254c7d9b81e0f850b005c701efa7ce",
+        "arrays_sha256": "f9c1c0be9ec31f82825ee7217f1b773cd8c02b4724f230263437fcb35968774d"
+      }
+    ],
+    "selector_sha256": "6ba7f96a773d0c61808e4480f996e853ec7b985018ded895a9e555904dc652d9",
+    "donor_resources": {
+      "wall_seconds": 13149.111330999993,
+      "peak_memory_bytes": 13875281920,
+      "design_wall_seconds": 7980.927925584023,
+      "input_read_wall_seconds": 1.5623005829984322,
+      "fit_wall_seconds": 5166.6211048329715,
+      "wall_scope": "initial_input_read+prepare_execution+fit_and_members_before_completion_manifest",
+      "output_bytes": 217492784,
+      "origin_rows": {
+        "u": 26668401,
+        "q": 110897,
+        "r": 72381,
+        "g": 58628
+      },
+      "candidate_branches": {
+        "u": 0,
+        "q": 0,
+        "r": 0,
+        "g": 530040
+      },
+      "resolution_solve_counts": {
+        "u": 1,
+        "q": 1,
+        "r": 1,
+        "g": 2
+      },
+      "dimensions": {
+        "u": 3420,
+        "q": 3544,
+        "r": 3544,
+        "g": 4491
+      },
+      "solve_counts": {
+        "u": 2,
+        "q": 2,
+        "r": 2,
+        "g": 17
+      }
+    },
+    "retained_component_counts": {
+      "baselines": 4,
+      "qrg_probes": 3
+    },
+    "performed_solve_counts": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 0
+    },
+    "performed_resolution_solve_counts": {
+      "u": 1,
+      "q": 0,
+      "r": 0,
+      "g": 0
+    },
+    "full_objective_calls": 650
+  },
+  "family_resources": {
+    "wall_seconds": 531.8874084998388,
+    "peak_memory_bytes": 3329949696,
+    "design_wall_seconds": 0.0,
+    "input_read_wall_seconds": 61.91695941699436,
+    "fit_wall_seconds": 404.2191118329647,
+    "wall_scope": "input_read+u_repair+probability_qualification+assembly_before_completion_manifest",
+    "output_bytes": 219176702,
+    "origin_rows": {
+      "u": 26668401,
+      "q": 110897,
+      "r": 72381,
+      "g": 58628
+    },
+    "candidate_branches": {
+      "u": 0,
+      "q": 0,
+      "r": 0,
+      "g": 530040
+    },
+    "resolution_solve_counts": {
+      "u": 1,
+      "q": 1,
+      "r": 1,
+      "g": 2
+    },
+    "dimensions": {
+      "u": 3420,
+      "q": 3544,
+      "r": 3544,
+      "g": 4491
+    },
+    "solve_counts": {
+      "u": 2,
+      "q": 2,
+      "r": 2,
+      "g": 17
+    },
+    "qualification_wall_seconds": 32.537396832951345,
+    "assembly_wall_seconds": 33.21394041692838
+  },
+  "assembly_command_resources": {
+    "wall_seconds": 90.88,
+    "user_seconds": 87.2,
+    "system_seconds": 0.79,
+    "maximum_resident_bytes": 2018492416,
+    "peak_footprint_bytes": 1995606008,
+    "body_wall_seconds": 90.58501504198648,
+    "family_directory_bytes": 219544557,
+    "side_directory_bytes": 219552201
+  },
+  "additional_work": {
+    "full_objective_calls": 0,
+    "native_calls": 0,
+    "probability_comparisons": 0,
+    "source_passes": 0,
+    "donor_state_strict_reads": 1,
+    "assembled_family_strict_reads": 1,
+    "extra_assembled_family_strict_reads": 0
+  },
+  "bounded_u_scope": "achieved; one capture/208 diagnosis calls and one repaired continuation/qualification plus checked assembly",
+  "v1_08": "incomplete; final score/propagations, real spatial chain/probes, composition and source-to-screen acceptance remain assigned",
+  "activation": false,
+  "limits": [
+    "selected-probe numerical sensitivity, not scientific admission or optimum bound",
+    "baseline point estimates unchanged; repaired coefficients remain a numerical probe",
+    "later output families retain their own requirements"
+  ]
+}

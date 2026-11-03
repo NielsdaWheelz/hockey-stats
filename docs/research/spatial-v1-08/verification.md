@@ -541,3 +541,10 @@ independent saved-artifact review is underway before root acceptance. first real
 all four propagated maxima/first-tie locators, 256 keys, one attributed witness, 48 annual requirements, 43 focal pairs/45 focal requirements and all 32 neutral-panel sums bind. unsaved variant predictions retain their producer-evidence scope. root accepts the complete start-eligibility replacement: twenty baseline heads, four final probes, five scores and four propagations. the u-only repair/assembly is complete, with baseline point estimates and all costly originals preserved.
 
 the first real spatial annual may now be released under its already reviewed standalone command. measure and accept its complete triple before successors or projecting runtime. the real final-year spatial volume budget remains unresolved until its actual probe. composition/publication, real source-to-screen acceptance and cleanup remain assigned. no activation or scientific admission follows.
+
+
+## first real spatial annual released — 2026-11-03 utc
+
+[the release](receipts/real-first-spatial-release.json) follows accepted final execution completion `8f9163b5`. it binds command `fa97af90`, metadata adapter `0d0cc40c`, preparation `726f795e` and independent static review `26c9724e`, with clean unchanged analysis `fc716257`. all thirteen job paths and the separate metadata receipt path are absent at release. the canonical cli selects accepted `20212022` score `37263bfc`, prepared `63bd2861` and coaches `102bca4c`; no predecessor or final probes enter this first year.
+
+the original spatial controls remain `10000/1e-15/1e-6/history10` with native function/search limits retained. one complete triple, projections and canonical state validation are released; saved metadata and independent head/history/diagnostic acceptance follow exit. keep analysis and the command/helper fixed through exit, and record launch/producer heads separately. no successor is released before first-year memory/cost is measured and accepted. no real spatial fit has launched at this release record; no activation follows.

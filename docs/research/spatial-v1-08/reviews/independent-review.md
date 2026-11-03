@@ -1397,6 +1397,27 @@ the scope now binds every judgment before data: what counts as reproduction, the
 
 before launch, implementation and command pins still need their own review, as the scope requires.
 
+### native first-direction check
+
+question: does verifying the pinned source's exact floating construction of the first search direction implement the [scope](../execution-u-diagnosis-repair-scope.md)'s "gradient direction, up to sign and scale", or does it change eligibility? read: the question and scope line 39 only. no source pass, arrays or numerics.
+
+judgment: it IMPLEMENTS the approved contract and needs no user decision, under the conditions below. the literal bit-exact reading is wrong, not stricter. if the native direction is `d = fl(fl(x - g) - x)`, it is not bitwise a scalar multiple of `g`. "up to sign and scale" checked bitwise would stop a faithful run that the contract meant to admit. root was right to reject the 64-eps proposal: an underived tolerance is a new threshold, and the exact construction needs none.
+
+why this preserves eligibility. the clause exists so that the frozen finite-difference window along `g/|g|` covers the direction the native search actually used.
+- **rounding:** per coordinate, `z_i = fl(x_i - g_i)` rounds once. `z_i - x_i` is exact by sterbenz when `|g_i| <= |x_i|/2`, and exact anyway when `x_i = 0`. so `|d_i + g_i| <= ulp(|x_i| + |g_i|)/2`.
+- **deviation size:** with coefficients of order one, `|d + g|` is at most about `sqrt(3420) * 1.1e-16`, roughly 6.5e-15, against `|g| >= 2.77e-3`. that is an angle near 2e-12, far below any `B_i` the window can resolve. this is a source-derived description, not a gate.
+- **the witness:** it uses the native step, native `gdold` and the observed trial points. it never assumes `d = -g`.
+
+conditions:
+- **source first:** derive the construction from the pinned source (`e4e854ea`) and confirm it on tiny controls BEFORE capture, never fitted to the real `d`.
+- **exact equality, no tolerance:** compare with numpy's elementwise ieee operations.
+- **assert the regime:** iteration 0, no stored corrections, `theta` 1 and no bounds. `solve_logistic` passes none. the construction holds only there.
+- **step factor exactly 1:** afaict from the fortran reference, `dtm = -f1/f2` with `f2 = -theta*f1` makes the step factor exactly 1. then `x + tsum*d` has no fma ambiguity, since multiplying by 1 is exact. confirm this in the c port. if the factor isn't exactly 1, bracket both rounding forms, as for `gtest`, or stop.
+- **record, don't gate:** report how many coordinates have `d_i != -g_i`, the relative norm `|d+g|/|g|`, and `g.d` against `-g.g`.
+- **failure stops:** a construction mismatch is an unresolved direction, and diagnosis stops.
+
+the scope or verification record should state this meaning of "gradient direction". a clarification of the contract, not an amendment.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

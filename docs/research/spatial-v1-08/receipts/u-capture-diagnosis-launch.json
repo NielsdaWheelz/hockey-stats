@@ -1,0 +1,69 @@
+{
+  "kind": "execution-u-capture-diagnosis-launch",
+  "status": "running",
+  "release_sha256": "7c94d06440b70f81a2223bdec196d0dcc456095a31785bab121795ef6754646f",
+  "command_sha256": "1e88d781780e16bf85d32d7d11060a2afaa6306eccbdd98e5c3ca3b2f1116c0a",
+  "launch_head": "17791dd73223ab0046b40ecf1674ca8f5f6c562e",
+  "analysis_tree": "54e41d821b1cc12fb262be4c42d6898a610c37fe",
+  "started_utc": "2026-11-03T06:00:47Z",
+  "shell_pid": 45454,
+  "launch_files": {
+    "start.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-start.txt",
+      "sha256": "f30ef61f4a42bf31a97fbddb4291980e6948bbd68c47acaed50316aa7974646b",
+      "bytes": 21,
+      "text": "2026-11-03T06:00:47Z\n"
+    },
+    "shell.pid": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-shell.pid",
+      "sha256": "b237dc0e16388215609cc80b47752128d2b9b3d13c8a403ef50fbd6ad8eddfdd",
+      "bytes": 6,
+      "text": "45454\n"
+    },
+    "launch-head.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-head.txt",
+      "sha256": "dbb9e27ddd757d62c50293e0557011f24cbd36c083e9eef517367487124a8da4",
+      "bytes": 41,
+      "text": "17791dd73223ab0046b40ecf1674ca8f5f6c562e\n"
+    },
+    "launch-analysis-tree.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-analysis-tree.txt",
+      "sha256": "7f0d0a054cab79b1490ae2d41b495720d4c29087827a05301edbecc2441f25a6",
+      "bytes": 41,
+      "text": "54e41d821b1cc12fb262be4c42d6898a610c37fe\n"
+    },
+    "launch-capture-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-capture-sha256.txt",
+      "sha256": "9567b2c45780b9e029c8127ed07cf9d457f5b7c58f17d0597fc626dd28b9ab42",
+      "bytes": 111,
+      "text": "e42f7be944a5350a9096b953559835cddbeb6f9a2081113f01eae32131951d5c  var/v1-08-replacement/capture_execution_u.py\n"
+    },
+    "launch-diagnosis-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-diagnosis-sha256.txt",
+      "sha256": "558ea2a88bc08a2c7cf17bef4d872a03530eb75c478aa289e1f2b02aaa0d40d9",
+      "bytes": 112,
+      "text": "2142a218e9759c9103db29e728605efaf7492363efd888cd2c019b956f51ec4d  var/v1-08-replacement/diagnose_execution_u.py\n"
+    },
+    "launch-analysis-status.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-analysis-status.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "launch-inputs-sha256.txt": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-inputs-sha256.txt",
+      "sha256": "97924fef157b2cee91a0186c9935729e54b074e55ff60cc1af2695627a726950",
+      "bytes": 857,
+      "text": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c  /Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json\n102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0  /Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json\n1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json\ncb075d5e59aea61589411e4573db7192c45fddd8265a807c2c39c2084b504e22  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-final-02/20252026/manifest.json\n59f4b00827ea736f0a374ba6f32a1ce7003f5f9ab7a131b84d5e4971f0624e9d  /Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json\n"
+    }
+  },
+  "source_capture": "one approved reconstruction; no successor",
+  "code_freeze": [
+    "analysis",
+    "capture",
+    "diagnosis",
+    "source observer"
+  ],
+  "exit_status": null,
+  "diagnosis_verdict": null
+}

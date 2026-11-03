@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "scope": "shell syntax/static pins plus scratch synthetic saved-byte/json and stubbed main controls; no actual assembly, source, CSR, F/gradient, probability or native call",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-u-assembly-command.sh",
+    "sha256": "9e0aa0d9cf6622f5ab13ee204357778f41623cea15b58a13d9ed91847957bd9c"
+  },
+  "helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/assemble_execution_u.py",
+    "sha256": "d0b17338fc4b6b657b3152a4b657dd25c7385d84869b8710bb625510458b576b"
+  },
+  "ordinary_saved_audit_changed_bytes_and_qrg_comparison_refused": true,
+  "one_assembly_call_and_no_extra_strict_read": true,
+  "main_controls": [
+    {
+      "mode": "passed",
+      "exit_code": 0,
+      "calls": [
+        "assemble_once",
+        "saved_byte_audit"
+      ]
+    },
+    {
+      "mode": "failed_assembly",
+      "exit_code": 1,
+      "calls": [
+        "assemble_once"
+      ]
+    }
+  ],
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-assembly-command-b_u7_nil"
+}

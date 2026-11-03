@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "scope": "saved numerical/native/provenance audit only; no objective, source reconstruction, native call, score or assembly",
+  "launch_head": "b85ba959a29971c996f40ec10f3f8d83875e5412",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "repair_receipt_sha256": "28c6d3b9a3f1261191085dd52831e7572103d46f62c2a667fcbbd1ecb53abdf1",
+  "probability_qualification_sha256": "2514390196a9e827caaecd67ece0b28cdb069fa5efb7bd339a93970ffd4f9aec",
+  "full_objective_calls": 650,
+  "native_full_calls": 645,
+  "native_events": 1234,
+  "accepted_native_iterations": 588,
+  "callbacks": 588,
+  "native_consumed_responses": 645,
+  "identical_input_repeat_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      645,
+      646
+    ],
+    [
+      0,
+      648
+    ],
+    [
+      645,
+      649
+    ]
+  ],
+  "raw_endpoint_sha256": "585c9efcb39bc8842acc88eeaffefa915b89f0bc67e2f3b8040f9f5214d7cead",
+  "completed_coefficients_sha256": "c76c976c28739606abd267a3d1e6e467737f9cff11240a0db02ac90b9691916b",
+  "fresh_saved_start": 69668.42305740263,
+  "fresh_raw_endpoint": 69668.4230573553,
+  "strict_objective_decrease": -4.7322828322649e-08,
+  "raw_max_change": 1.668081418904066e-05,
+  "completed_max_change": 1.668081418904066e-05,
+  "completed_l2_change": 0.0002652505442550811,
+  "raw_gradient_max": 0.0006836014709647651,
+  "raw_gradient_max_change": 0.003283990786065061,
+  "prior_only_completed_coordinates": 16,
+  "source_metadata_unchanged": true,
+  "retained_npz_members_checked": 7,
+  "all_selector_requirements_available": 48,
+  "trace_files_hashed": 8190,
+  "trace_bytes_excluding_final_receipt": 2259013571,
+  "file_identities_path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-exact-repair-saved-independent-file-identities.json",
+  "file_identities_sha256": "83a665420361250dac0b68d66e7ec9d910f7bf113963ba3c386ebb61dcf52ab4",
+  "command_wall_seconds": 470.93,
+  "peak_resident_bytes": 3329949696,
+  "peak_footprint_bytes": 3308522328,
+  "assembly_performed": false
+}

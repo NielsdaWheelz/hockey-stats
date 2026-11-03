@@ -1,0 +1,206 @@
+{
+  "status": "passed",
+  "scope": "separate saved numerical audit: shared pure branch evaluator and independent maximum/tie/locator reduction only; no training objective, gradient, fit, source reconstruction, probe selection, score command or assembly",
+  "qualification_sha256": "2514390196a9e827caaecd67ece0b28cdb069fa5efb7bd339a93970ffd4f9aec",
+  "saved_actual_probes": 256,
+  "saved_fixture_probes": 1,
+  "available_requirements": 48,
+  "compared_context_neutralizations": 526,
+  "results": {
+    "head_maximum_changes": {
+      "u": 3.98377414095874e-06,
+      "q": 0.0,
+      "r": 0.0,
+      "g": 0.0
+    },
+    "terminal_maximum_changes": {
+      "block": 3.983774140903229e-06,
+      "miss": 9.378013913763361e-07,
+      "stopped": 3.0456788636251675e-07,
+      "continuing": 3.2368224485712638e-06,
+      "goal": 1.0160947773729667e-06
+    },
+    "maximum_probability_change": 3.98377414095874e-06,
+    "evaluated_origins": 123666,
+    "evaluated_branches": 1132870
+  },
+  "locators": {
+    "maximum_probability_change": {
+      "key": "2025020003:324",
+      "population": "actual",
+      "execution": "fully_neutral",
+      "shot_type": 0,
+      "neutralize": [
+        "shooter",
+        "setter",
+        "goalie",
+        "coaching"
+      ],
+      "origin_cell": 5,
+      "setter_branch": null,
+      "setter_kind": null,
+      "setter_actor_id": null,
+      "quantity": "u",
+      "left": 0.42076964305255393,
+      "right": 0.420765659278413,
+      "change": 3.98377414095874e-06,
+      "family": "head_maximum_changes"
+    },
+    "head_maximum_changes": {
+      "u": {
+        "key": "2025020003:324",
+        "population": "actual",
+        "execution": "fully_neutral",
+        "shot_type": 0,
+        "neutralize": [
+          "shooter",
+          "setter",
+          "goalie",
+          "coaching"
+        ],
+        "origin_cell": 5,
+        "setter_branch": null,
+        "setter_kind": null,
+        "setter_actor_id": null,
+        "quantity": "u",
+        "left": 0.42076964305255393,
+        "right": 0.420765659278413,
+        "change": 3.98377414095874e-06
+      },
+      "q": {
+        "key": "2025020001:2",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 0,
+        "setter_branch": null,
+        "setter_kind": null,
+        "setter_actor_id": null,
+        "quantity": "q",
+        "left": 0.9238714998461788,
+        "right": 0.9238714998461788,
+        "change": 0.0
+      },
+      "r": {
+        "key": "2025020001:2",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 0,
+        "setter_branch": null,
+        "setter_kind": null,
+        "setter_actor_id": null,
+        "quantity": "r",
+        "left": 0.9476373074532521,
+        "right": 0.9476373074532521,
+        "change": 0.0
+      },
+      "g": {
+        "key": "2025020001:2",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 0,
+        "setter_branch": 0,
+        "setter_kind": "none",
+        "setter_actor_id": null,
+        "quantity": "g",
+        "left": 0.0055882705107820636,
+        "right": 0.0055882705107820636,
+        "change": 0.0
+      }
+    },
+    "terminal_maximum_changes": {
+      "block": {
+        "key": "2025020003:324",
+        "population": "actual",
+        "execution": "fully_neutral",
+        "shot_type": 0,
+        "neutralize": [
+          "shooter",
+          "setter",
+          "goalie",
+          "coaching"
+        ],
+        "origin_cell": 5,
+        "setter_branch": 0,
+        "setter_kind": "none",
+        "setter_actor_id": null,
+        "quantity": "block",
+        "left": 0.5792303569474461,
+        "right": 0.579234340721587,
+        "change": 3.983774140903229e-06
+      },
+      "miss": {
+        "key": "2025020001:356",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 1,
+        "neutralize": [],
+        "origin_cell": 630,
+        "setter_branch": 0,
+        "setter_kind": "none",
+        "setter_actor_id": null,
+        "quantity": "miss",
+        "left": 0.28790594297188943,
+        "right": 0.2879068807732808,
+        "change": 9.378013913763361e-07
+      },
+      "stopped": {
+        "key": "2025020002:280",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 5,
+        "setter_branch": 0,
+        "setter_kind": "none",
+        "setter_actor_id": null,
+        "quantity": "stopped",
+        "left": 0.03473575962177461,
+        "right": 0.034735455053888246,
+        "change": 3.0456788636251675e-07
+      },
+      "continuing": {
+        "key": "2025020001:128",
+        "population": "actual",
+        "execution": "fully_neutral",
+        "shot_type": 0,
+        "neutralize": [
+          "shooter",
+          "setter",
+          "goalie",
+          "coaching"
+        ],
+        "origin_cell": 5,
+        "setter_branch": 0,
+        "setter_kind": "none",
+        "setter_actor_id": null,
+        "quantity": "continuing",
+        "left": 0.3783856862967404,
+        "right": 0.37838244947429184,
+        "change": 3.2368224485712638e-06
+      },
+      "goal": {
+        "key": "2025020002:175",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 2,
+        "neutralize": [],
+        "origin_cell": 624,
+        "setter_branch": 7,
+        "setter_kind": "skater",
+        "setter_actor_id": "8479323",
+        "quantity": "goal",
+        "left": 0.4215053304089453,
+        "right": 0.42150634650372265,
+        "change": 1.0160947773729667e-06
+      }
+    }
+  },
+  "all_locators_exact": true,
+  "assembly_performed": false
+}

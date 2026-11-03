@@ -1,0 +1,84 @@
+{
+  "kind": "execution-u-saved-assembly-release",
+  "status": "released_not_started",
+  "recorded_utc": "2026-11-03T09:28:40.734907+00:00",
+  "approved_scope_commit": "9d5c7be1380cc01045ab1e3aafb89c0949d22090",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "source_commit": "416716f4e69d07eea55a68f8c23667a36bc3dcfb",
+  "sources": {
+    "command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-u-assembly-command.sh",
+      "sha256": "9e0aa0d9cf6622f5ab13ee204357778f41623cea15b58a13d9ed91847957bd9c",
+      "bytes": 8954
+    },
+    "helper": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/assemble_execution_u.py",
+      "sha256": "d0b17338fc4b6b657b3152a4b657dd25c7385d84869b8710bb625510458b576b",
+      "bytes": 9869
+    },
+    "accepted_repair_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-exact-repair-saved-review.md",
+      "sha256": "836e772305415496e437c4319a8ae04fae46970d0b431e38a542ad1d5d7ffbdf",
+      "bytes": 7876
+    },
+    "accepted_completion": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/u-exact-repair-completion.json",
+      "sha256": "b9a558df5b50d8ed43ca4b030dd9eab04f4b250c546b67e782ef9c19414d68df",
+      "bytes": 13570
+    }
+  },
+  "numerical_result": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/repair.json",
+    "sha256": "28c6d3b9a3f1261191085dd52831e7572103d46f62c2a667fcbbd1ecb53abdf1"
+  },
+  "probability_qualification": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01/qualification/qualification.json",
+    "sha256": "2514390196a9e827caaecd67ece0b28cdb069fa5efb7bd339a93970ffd4f9aec"
+  },
+  "independent_command_review": {
+    "reviewer": "u_scope_review",
+    "verdict": "clear",
+    "helper_sha256": "d0b17338fc4b6b657b3152a4b657dd25c7385d84869b8710bb625510458b576b",
+    "command_sha256": "9e0aa0d9cf6622f5ab13ee204357778f41623cea15b58a13d9ed91847957bd9c",
+    "checks": [
+      "all19 helper pins match",
+      "syntax",
+      "scratch one assembler call and byte audit",
+      "failure exit1 before audit",
+      "fresh guards and runtime producer binding"
+    ],
+    "actual_assembly_performed": false
+  },
+  "root_verdict": "accept saved qualified endpoint and release this one assembly only",
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026",
+  "side_directory": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01",
+  "allowed": {
+    "canonical_assemblies": 1,
+    "assembled_state_strict_reads": 1,
+    "post_read_byte_json_audit": true,
+    "extra_assembled_state_strict_reads": 0,
+    "source_passes": 0,
+    "csr_loads": 0,
+    "full_objective_calls": 0,
+    "native_solves": 0,
+    "probability_comparisons": 0
+  },
+  "required": {
+    "retained_npz_byte_identical": 7,
+    "baseline_metadata_outside_resolution_unchanged": true,
+    "qrg_probe_metadata_comparisons_unchanged": true,
+    "selector_baseline_definition_history_population_unchanged": true,
+    "new_truthful_provenance_and_resources": true,
+    "all_four_resolutions_passed": true,
+    "ordinary_score_consumer_eligible": true
+  },
+  "freeze_until_exit": [
+    "whole git head",
+    "analysis",
+    "assembly helper",
+    "repair and trace helpers"
+  ],
+  "activation": false,
+  "scoring_spatial": "resume only after root accepts assembled family",
+  "failure": "stop; only scoped deterministic artifact repair using same qualified endpoint; no new solve or source pass"
+}

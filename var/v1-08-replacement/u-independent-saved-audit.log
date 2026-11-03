@@ -1,0 +1,201 @@
+pins, every captured payload digest, donor/history/source metadata and frozen selector pass
+208 exact component sums, all repeats, 182 finite-difference endpoints and frozen windows pass
+{
+  "status": "passed",
+  "scope": "saved-only independent audit; no evaluator, source reconstruction, solve, score or campaign mutation",
+  "bundle_manifest_sha256": "031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c",
+  "pins": {
+    "var/v1-08-replacement/capture_execution_u.py": "e42f7be944a5350a9096b953559835cddbeb6f9a2081113f01eae32131951d5c",
+    "var/v1-08-replacement/diagnose_execution_u.py": "2142a218e9759c9103db29e728605efaf7492363efd888cd2c019b956f51ec4d",
+    "var/v1-08-replacement/consumed_start_check.py": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+    "var/v1-08-replacement/real-u-capture-command.sh": "1e88d781780e16bf85d32d7d11060a2afaa6306eccbdd98e5c3ca3b2f1116c0a"
+  },
+  "physical_rows": 151381,
+  "dimension": 3420,
+  "batches": 6748,
+  "payload_bytes": 1856985404,
+  "trace_bytes_excluding_final_receipt": 64194026,
+  "total_campaign_file_bytes": 1928324600,
+  "full_calls": 208,
+  "native_full_calls": 19,
+  "native_events": 22,
+  "native_trials": 20,
+  "native_cache_reuses": 2,
+  "repeat_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      0,
+      187
+    ],
+    [
+      0,
+      188
+    ],
+    [
+      200,
+      202
+    ],
+    [
+      200,
+      204
+    ],
+    [
+      200,
+      206
+    ],
+    [
+      0,
+      207
+    ]
+  ],
+  "windows": {
+    "gradient": {
+      "resolved": [
+        4,
+        5
+      ],
+      "unresolved": null
+    },
+    "largest_gradient_coordinate": {
+      "resolved": [
+        4,
+        5
+      ],
+      "unresolved": null
+    },
+    "intercept": {
+      "resolved": [
+        3,
+        4
+      ],
+      "unresolved": null
+    },
+    "base_maps": {
+      "resolved": [
+        2,
+        3
+      ],
+      "unresolved": null
+    },
+    "type_maps": {
+      "resolved": [
+        1,
+        2
+      ],
+      "unresolved": null
+    },
+    "circumstances": {
+      "resolved": [
+        4,
+        5
+      ],
+      "unresolved": null
+    },
+    "supported_shooter_actors": {
+      "resolved": [
+        1,
+        2
+      ],
+      "unresolved": null
+    },
+    "attacking_coaches": {
+      "resolved": [
+        3,
+        4
+      ],
+      "unresolved": null
+    },
+    "defending_coaches": {
+      "resolved": null,
+      "unresolved": null
+    },
+    "ages": {
+      "resolved": [
+        1,
+        2
+      ],
+      "unresolved": null
+    },
+    "supported_actor_age": {
+      "resolved": [
+        2,
+        3
+      ],
+      "unresolved": null
+    },
+    "prior_only": {
+      "resolved": null,
+      "unresolved": null
+    },
+    "all": {
+      "resolved": [
+        3,
+        4
+      ],
+      "unresolved": null
+    }
+  },
+  "first_witness": {
+    "positive_witness": true,
+    "associated": true,
+    "displaced": true,
+    "step": 7.90472505277076e-06,
+    "gdold": -3.579624245843119e-05,
+    "gd": 2.5895403667556025e-05,
+    "gtest": -3.579624245843119e-08,
+    "original_thresholds": [
+      69668.42305740231,
+      69668.42305740231
+    ],
+    "rounded_reference_thresholds": [
+      69668.42305740263,
+      69668.42305740263
+    ],
+    "original_margins": [
+      4.656612873077393e-10,
+      4.656612873077393e-10
+    ],
+    "rounded_margins": [
+      -4.3655745685100555e-11,
+      -4.3655745685100555e-11
+    ],
+    "exact_decrease": "-1475652847297/37778931862957161709568",
+    "exact_limit": "-1577551674393352229295871497837/5575186299632655785383929568162090376495104",
+    "exact_margin": "-216190371651435133235788829157779/5575186299632655785383929568162090376495104",
+    "curvature_margin": 6.321214545032049e-06,
+    "signed_accumulation_discrepancy": "6953260055953/37778931862957161709568",
+    "start_accumulation_discrepancy": "-757161177235/2361183241434822606848",
+    "search_start_evaluation": 188,
+    "request_event": 2,
+    "consumption_event": 3,
+    "response_evaluation": 190
+  },
+  "all_positive_trial_events": [
+    2,
+    3
+  ],
+  "raw_endpoint_unchanged": true,
+  "eligible_endpoint": false,
+  "source_code_frozen": true,
+  "selector_actual": 256,
+  "selector_fixture": 1,
+  "selector_requirements": 48,
+  "wall_seconds": 7163.67,
+  "peak_resident_bytes": 19359678464,
+  "peak_footprint_bytes": 20272201328
+}

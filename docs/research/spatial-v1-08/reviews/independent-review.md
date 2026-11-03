@@ -1316,6 +1316,48 @@ bindings: manifest `git_commit` `e57d376` is the producer's head at write time, 
 
 not established: the stop's mechanism, `984`'s original return, any `u` probability movement, and whether any continuation design can resolve `u` at 1e-5.
 
+### proposed `u` diagnosis and repair scope `0c3a0ee`
+
+verdict: the boundary is right and proportionate. capture once, diagnose before editing, allow one contract-preserving repair, qualify on the unchanged check, then assemble. it is **not yet clear for authorization**: three gaps need amendment (a to c), and d is a required clarification. read: the scope, the issue/plan/verification diffs, `execution_fit.py`, `execution_design.py`, `execution.py:211-265`, and scalar metadata from saved head json. no computation.
+
+a, qualification can be satisfied with no improvement. "accepted native iteration plus raw endpoint displacement" does not exclude an accepted step that lowered the objective by nothing:
+- scipy reports native success after such a step. a flat synthetic objective returned status 0, `nit` 1, a moved `x` and `fun` equal to the start, and the earlier harness showed the same class.
+- `u`'s objective already fails to register small steps: the [native return](#final-02-post-exit-artifacts-cb075d5e) shows that.
+- so a repaired run could "complete" with a microscopic move, then pass `1e-5` trivially. that is the zero-motion tautology in new clothes.
+- minimal closure, with no new number: the repaired run's returned objective must be strictly below its own evaluation of the saved start, in the same arithmetic. `q/r/g` satisfy it (changes -1.86e-8, -1.64e-8, -6.6e-9).
+- residual: with `ftol` below one spacing, native completion stays a rounding event even then.
+
+b, the verdict rule is not frozen. directions and steps are frozen, but the verdict that selects the repair class is a judgment made after the data. freeze it, with a measured noise scale. line 5's yardstick, one float64 spacing (1.46e-11), is likely wrong for this objective:
+- `execution_fit.objective` accumulates `value` sequentially, one `np.dot` per batch.
+- saved metadata gives `u` 6,748 batches, against 28/18/15 for `q/r/g`: 240 to 450 times as many roundings.
+- a random-walk heuristic puts the evaluation error near √6748 half-spacings, about 6e-10, with a worst case near 5e-8. afaict, not measured.
+- this asymmetry fits a `u`-only failure, but it is not a diagnosis: original v1-05 `u` had the same 6,748 batches and completed in three iterations.
+
+a sketch, which root may reword:
+- **derivative defect:** an analytic/difference discrepancy exceeds both the measured roundoff (repeat and tiny-step spread) and the truncation trend across two adjacent scales.
+- **arithmetic:** slopes agree within a window, and the measured noise at the trace's trial steps reaches the armijo margin those trials needed.
+- **search/scaling:** agreement, noise below those margins, and the trace still fails.
+- **inconclusive:** otherwise.
+
+c, recipe identity and module boundary are unstated.
+- `DEFINITION` (`execution_design.py:41-66`) holds solver controls, not arithmetic. an arithmetic-only repair therefore keeps `47691110` and changes only code identity. say so. line 39's "do not silently claim a changed numerical procedure is recipe `47691110`" leaves it open, and score commands pin `47691110`.
+- confine the admissible repair to execution-owned code. `execution_fit` is imported only by `execution.py` and `execution_state.py`. `solve_logistic` and `_map_penalty` live in `chance.py`, shared with the chance model and `spatial_rates`. a repair there crosses into spatial and primary-model code, whose evidence carries only through unchanged modules. that is a stop, not an admissible repair.
+
+d, exactness should be explicit.
+- the capture anchors (`69668.42305740231`, `0.002770559377087478`) should be float64 equality, evaluated from the RELOADED bundle rather than the in-memory build, so diagnosis and repair share arithmetic.
+- define "reproduces" as the full native tuple: status 2, `nit` 0, `nfev` 19, bit-equal `fun`, zero displacement. a different `nfev` means different arithmetic, and the diagnosis would no longer describe `cb075d5e`.
+- whole-run byte determinism makes this achievable.
+
+notes, not blocking:
+- **storage:** `u` has 1,108,096,519 base nonzeros and 26,668,401 expanded rows. typed csr is roughly 13 to 18 gb, depending on index width, and reloading needs about the fit's 13.9 to 15.7 gb. the volume has 6.6 tib free. the scope claims storage as a tradeoff, so state the figure.
+- `_probability_comparison` (`execution.py:211`) evaluates state objects over logical predictors and needs no `q/r/g` numerical matrices, so "build no `q/r/g` heads" is consistent with qualification.
+- **branches:** only an arithmetic verdict leads to an in-scope attempt.
+    - a derivative defect would have shaped every year's `u` baseline, so it stops on the history rule.
+    - search/scaling stops for an amendment, and inconclusive stops.
+    - so most branches return a decision with better evidence. cost: about one design build (7,181 to 7,981 s historical), at most 256 evaluations (3 to 4 minutes at the observed 0.68 to 0.85 s each), and one solve.
+- the hash-signed group directions are sound. all-positive group directions could align with centered or prior-dominated directions.
+- **line 5 arithmetic:** 69668.42 x 1e-16 = 6.97e-12, and 2^-36 = 1.46e-11, both right. the scale that matters is the evaluation error, per b.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

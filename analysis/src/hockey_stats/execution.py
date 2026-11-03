@@ -208,26 +208,51 @@ def _resolution_selector(design):
     return selector, ordered + tuple(fixture_probes)
 
 
-def _probability_comparison(base, variant, probes):
+def _probability_comparison(base, variant, probes, *, locators=None):
     maximum = 0.
     by_head = {head: 0. for head in HEADS}
     by_terminal = {name: 0. for name in ('block', 'miss', 'stopped', 'continuing', 'goal')}
     origins, branch_count = 0, 0
+    if locators is not None:
+        require(not locators, 'probability locator receipt must be empty')
+        locators.update(maximum_probability_change=None, head_maximum_changes={}, terminal_maximum_changes={})
+    def difference(family, name, left, right, predictor, cells, neutralize, branches):
+        nonlocal maximum
+        require(left.shape == right.shape and np.isfinite(left).all() and np.isfinite(right).all(),
+                'nonfinite or mismatched resolution probabilities')
+        changes = np.abs(left-right)
+        delta = float(np.max(changes))
+        values = by_head if family == 'head_maximum_changes' else by_terminal
+        if locators is not None:
+            index = np.unravel_index(np.argmax(changes), changes.shape)
+            branch = int(index[1]) if len(index) == 2 else None
+            location = dict(key=predictor.key,
+                            population='synthetic' if predictor.key.startswith('synthetic:') else 'fixture' if predictor.key.startswith('synthetic-resolution:') else 'actual',
+                            execution='actual' if not neutralize else 'fully_neutral', shot_type=int(predictor.shot_type),
+                            neutralize=list(neutralize), origin_cell=int(cells[index[0]]),
+                            setter_branch=branch,
+                            setter_kind=branches[branch].kind if branch is not None else None,
+                            setter_actor_id=branches[branch].actor_id if branch is not None else None,
+                            quantity=name, left=float(left[index]), right=float(right[index]), change=delta)
+            if name not in locators[family] or delta > values[name]:
+                locators[family][name] = location
+            if locators['maximum_probability_change'] is None or delta > maximum:
+                locators['maximum_probability_change'] = dict(location, family=family)
+        values[name] = max(values[name], delta)
+        maximum = max(maximum, delta)
     def compare(predictor, cells, neutralize):
         nonlocal maximum, origins, branch_count
         left = execution_branch_probabilities(base, predictor, cells, neutralize)
         right = execution_branch_probabilities(variant, predictor, cells, neutralize)
-        require(np.array_equal(left.prior_probabilities, right.prior_probabilities), 'resolution changed setter priors')
+        require(left.origin_cells == right.origin_cells and left.setter_branches == right.setter_branches
+                and np.array_equal(left.prior_probabilities, right.prior_probabilities), 'resolution changed origins or setter priors')
         origins += len(cells)
         branch_count += len(cells) * len(left.setter_branches)
         for head in HEADS:
-            delta = float(np.max(np.abs(getattr(left, head)-getattr(right, head))))
-            by_head[head] = max(by_head[head], delta)
-            maximum = max(maximum, delta)
+            difference('head_maximum_changes', head, getattr(left, head), getattr(right, head), predictor, cells, neutralize, left.setter_branches)
         for name in by_terminal:
-            delta = float(np.max(np.abs(left.terminal_probabilities[name]-right.terminal_probabilities[name])))
-            by_terminal[name] = max(by_terminal[name], delta)
-            maximum = max(maximum, delta)
+            difference('terminal_maximum_changes', name, left.terminal_probabilities[name], right.terminal_probabilities[name],
+                       predictor, cells, neutralize, left.setter_branches)
     for predictor in probes:
         cells = np.arange(656, dtype=np.int64) if predictor.blocked else np.asarray([predictor.proxy_cell], dtype=np.int64)
         for neutralize in ((), ('shooter', 'setter', 'goalie', 'coaching')):

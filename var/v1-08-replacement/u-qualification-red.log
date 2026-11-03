@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-qualification-check.py", line 16, in <module>
+    from hockey_stats.execution_u_repair import qualify_u_bundle
+ModuleNotFoundError: No module named 'hockey_stats.execution_u_repair'

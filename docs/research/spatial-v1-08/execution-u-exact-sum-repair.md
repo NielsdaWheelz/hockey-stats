@@ -1,0 +1,23 @@
+# selected u exact-sum repair
+
+status: implementation review before the single already-approved attempt; no real repaired solve or assembly has launched. [scope `9d5c7be`](execution-u-diagnosis-repair-scope.md) and [the plan](../../plan.md) govern progression. [accepted diagnosis `6950fed6`](receipts/u-capture-diagnosis-completion.json) and [independent saved review `2e04c4a6`](reviews/u-diagnosis-saved-review.md) permit this exact evaluator only.
+
+## fixed method
+
+the numerical inputs are frozen manifest `031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c`. load it without a source/design reconstruction or baseline refit. start from its unchanged donor baseline. preserve the statistical recipe `47691110`, physical coordinates, analytic gradients, penalty code, priors/history and ordinary native limits/stopping controls. `q/r/g` arithmetic remains unchanged.
+
+for `u`, collect exactly the scalar addends already observed by the checked diagnostic evaluator and return `float(sum(Fraction.from_float(term) for term in addends))`, with an exact rational zero as the sum's initial value. the implementation sums only terms appended by the current invocation. the original gradient and penalty operations remain unchanged. the baseline and winning-trial saved vectors return reference bits `0x1.10246c4d7d6cap+16` and `0x1.10246c4d7d6c7p+16`. no kahan, pairwise, long-double, translation, preconditioning or altered solver is selected.
+
+the expected mechanism is the diagnosed sufficient-decrease reversal: the original outer reduction rejects one actual nonzero trial that this exact rounded evaluator admits, with native curvature satisfied. the repaired search can follow a different trajectory after its first changed loss. the witness establishes relevance; it promises neither completion nor numerical resolution. rational scalar accumulation adds work per evaluation; its actual cost will be reported.
+
+## owners and checks
+
+`execution_fit.objective` owns the exact returned `u` loss. `execution_trace` owns the reused observation/native mechanism, with explicit caller-supplied limits; the diagnostic script retains its frozen directions, verdict and `256/64` policy. repair uses the unchanged native limits, without importing those diagnostic caps. this keeps one implementation of request association, raw endpoint capture and failure evidence.
+
+the repair command performs one canonical `continue_head` call. the first repaired evaluation must preserve the diagnosed baseline's gradient and addend bits. every returned loss must equal its exact reference. retain all calls, native states, callbacks and actual limit counts/overruns. qualification requires native completion and an accepted iteration, nonzero raw movement, finite values, fresh same-evaluator strict loss decrease, and completed movement surviving prior-only mean filling.
+
+`execution_u_repair` consumes that checked numerical contract and the exact frozen probe set. the existing probability owner compares all branches/terminals against the unchanged baseline and fixed `q/r/g`, with original actual/fixture/synthetic contexts and origins. every maximum receives a receipt-only locator while the ordinary comparison schema remains unchanged. the `1e-5` budget and all requirement dispositions remain fixed.
+
+assembly is separate and follows only a passed qualification. canonical writers preserve the four baseline and three retained probe npz files byte for byte, retain baseline metadata outside resolution and the `q/r/g` probe definitions/comparisons, and write a truthful new descriptor/reference chain. one explicit final-year `u_repair` provenance variant records donor resources, retained versus newly performed counts, and actual new read/solve/qualification/assembly costs. it introduces no general partial-family selector. the completion manifest is last and the ordinary strict reader must accept the result.
+
+temporary red/green integration controls cover the frozen real addend vectors without new real model calls, unchanged gradients/penalty/addends on tiny and source-backed fixture inputs, native/finite/movement/improvement refusal cases, exact probability populations/locators, and byte-preserving strict fixture assembly. source and command review precede the real attempt. a failure or inconclusive result stops without another solve; deterministic serialization/assembly repairs retain only the scope's limited permission to reuse an already qualifying endpoint. earlier fits, failed artifacts and live publication remain preserved. scoring/spatial work resume only after root accepts the assembled family; activation remains unassigned.

@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "scope": "tiny injected probability arrays; no source, objective or solve",
+  "first_evaluated_zero_and_tie_locations": true,
+  "actual_fixture_synthetic_and_native_origins": true,
+  "setter_axis_and_identity": true,
+  "controls": [
+    {
+      "mode": "zero",
+      "maximum": {
+        "key": "tiny:1",
+        "population": "actual",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 42,
+        "setter_branch": null,
+        "setter_kind": null,
+        "setter_actor_id": null,
+        "quantity": "u",
+        "left": 0.5,
+        "right": 0.5,
+        "change": 0.0,
+        "family": "head_maximum_changes"
+      }
+    },
+    {
+      "mode": "fixture",
+      "maximum": {
+        "key": "synthetic-resolution:tiny:1:shooter:9",
+        "population": "fixture",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 8,
+        "setter_branch": 1,
+        "setter_kind": "skater",
+        "setter_actor_id": "9",
+        "quantity": "g",
+        "left": 0.5,
+        "right": 0.6,
+        "change": 0.09999999999999998,
+        "family": "head_maximum_changes"
+      }
+    },
+    {
+      "mode": "synthetic",
+      "maximum": {
+        "key": "synthetic:wrist",
+        "population": "synthetic",
+        "execution": "actual",
+        "shot_type": 0,
+        "neutralize": [],
+        "origin_cell": 0,
+        "setter_branch": 1,
+        "setter_kind": "skater",
+        "setter_actor_id": "9",
+        "quantity": "g",
+        "left": 0.5,
+        "right": 0.7,
+        "change": 0.19999999999999996,
+        "family": "head_maximum_changes"
+      }
+    }
+  ]
+}

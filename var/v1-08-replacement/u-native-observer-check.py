@@ -21,7 +21,7 @@ solver=DEFINITION['solver'];continuation=solver['continuation']
 options=dict(maxiter=solver['maxiter'],ftol=continuation['ftol'],gtol=continuation['gtol'])
 plain=chance.minimize(lambda x:objective(x),initial,jac=True,method='L-BFGS-B',options=options)
 folder=scratch/'native';folder.mkdir()
-evaluations=m.Evaluations(folder,objective)
+evaluations=m.Evaluations(folder,objective,limit=256,native_limit=64)
 observer=m.NativeObserver(folder,evaluations,initial)
 with patch.object(chance,'minimize',observer.minimize),patch.object(m._lbfgsb,'setulb',observer):
     actual=chance.solve_logistic(lambda x:evaluations(x,None,None),initial,**options)
@@ -38,7 +38,7 @@ for trial in observer.trials:
     assert trial['step']>0
 # bound refusal occurs before another evaluation; a failed/nonfinite call remains counted.
 folder=scratch/'cap';folder.mkdir()
-bounded=m.Evaluations(folder,objective,limit=1)
+bounded=m.Evaluations(folder,objective,limit=1,native_limit=64)
 bounded(initial,None,None)
 try:bounded(initial,None,None)
 except m.DiagnosticStop as e:assert str(e)=='full_objective_cap'
@@ -47,7 +47,7 @@ assert len(bounded.calls)==1
 folder=scratch/'nonfinite';folder.mkdir()
 def nonfinite(x,d,a,r,*,addends):
     addends.append(float('nan'));return float('nan'),np.zeros_like(x)
-failed=m.Evaluations(folder,nonfinite)
+failed=m.Evaluations(folder,nonfinite,limit=256,native_limit=64)
 try:failed(initial,None,None)
 except m.DiagnosticStop:pass
 else:raise AssertionError('nonfinite accepted')
@@ -71,7 +71,7 @@ changed={k:v.copy() for k,v in observer.first_state.items()};changed['isave'][29
 assert not m.gradient_direction_evidence(changed,initial,first_gradient,observer.first_direction)['resolved']
 print('passed: exact pinned cauchy construction; perturbed direction and nonzero iteration refused')
 folder=scratch/'native-cap';folder.mkdir()
-bounded=m.Evaluations(folder,objective)
+bounded=m.Evaluations(folder,objective,limit=256,native_limit=64)
 bounded.native=True
 for i in range(64):bounded(initial,None,None)
 try:bounded(initial,None,None)

@@ -9,16 +9,20 @@ import math
 from pathlib import Path
 from time import perf_counter
 import re
+import resource
+import shutil
+import sys
 
 import numpy as np
 
-from .artifacts import digest, require, write_arrays, write_json
+from .artifacts import digest, linked_path, require, write_arrays, write_json
 from .captures import InputContractError
 from .chance_cli import identity, output_path, read_json
 
 HEADS = ('u', 'q', 'r', 'g')
 MANIFEST_KEYS = 'schema_version kind purpose season recipe implementation prepared coaches previous training_cutoff heads files resources'.split()
 HEAD_KEYS = 'head target design actors priors centers ledger origin arrays starts selected_start diagnostics resolution status reasons'.split()
+RESOURCE_KEYS = 'wall_seconds input_read_wall_seconds design_wall_seconds fit_wall_seconds wall_scope peak_memory_bytes dimensions solve_counts resolution_solve_counts origin_rows candidate_branches output_bytes'.split()
 
 
 @dataclass(frozen=True)
@@ -74,7 +78,8 @@ def _member(root, value):
 
 
 def _manifest(value, purpose):
-    _closed(value, MANIFEST_KEYS, 'manifest')
+    repaired = 'u_repair' in value
+    _closed(value, MANIFEST_KEYS + (['u_repair'] if repaired else []), 'manifest')
     require(type(value['schema_version']) is int and value['schema_version'] == 1
             and value['kind'] == 'execution-state', 'invalid execution state schema')
     require(purpose in ('real', 'fixture') and value['purpose'] == purpose, 'execution purpose mismatch')
@@ -116,17 +121,57 @@ def _manifest(value, purpose):
     require(year <= cutoff.year <= year+1, 'training cutoff is outside season')
     require(type(value['implementation']) is dict and bool(value['implementation']), 'missing implementation identity')
     costs = value['resources']
-    _closed(costs, 'wall_seconds input_read_wall_seconds design_wall_seconds fit_wall_seconds wall_scope peak_memory_bytes dimensions solve_counts resolution_solve_counts origin_rows candidate_branches output_bytes'.split(), 'resources')
+    _closed(costs, RESOURCE_KEYS + (['qualification_wall_seconds', 'assembly_wall_seconds'] if repaired else []), 'resources')
     for key in ('wall_seconds','input_read_wall_seconds','design_wall_seconds','fit_wall_seconds'):
         _nonnegative(costs[key], key)
-    require(costs['wall_scope'] == 'initial_input_read+prepare_execution+fit_and_members_before_completion_manifest'
-            and costs['wall_seconds'] == sum(costs[key] for key in ('input_read_wall_seconds','design_wall_seconds','fit_wall_seconds')), 'resource wall-time scope differs')
+    wall_keys = ['input_read_wall_seconds', 'design_wall_seconds', 'fit_wall_seconds']
+    if repaired:
+        wall_keys += ['qualification_wall_seconds', 'assembly_wall_seconds']
+        for key in ('qualification_wall_seconds', 'assembly_wall_seconds'):
+            _nonnegative(costs[key], key)
+        require(costs['design_wall_seconds'] == 0 and costs['wall_scope'] ==
+                'input_read+u_repair+probability_qualification+assembly_before_completion_manifest', 'u repair wall scope differs')
+        _u_repair(value['u_repair'], value['season'])
+    else:
+        require(costs['wall_scope'] == 'initial_input_read+prepare_execution+fit_and_members_before_completion_manifest',
+                'resource wall-time scope differs')
+    require(costs['wall_seconds'] == sum(costs[key] for key in wall_keys), 'resource wall-time sum differs')
     require(type(costs['peak_memory_bytes']) is int and costs['peak_memory_bytes'] >= 0
             and type(costs['output_bytes']) is int and costs['output_bytes'] >= 0, 'invalid memory/output bytes')
     for key in ('dimensions','solve_counts','resolution_solve_counts','origin_rows','candidate_branches'):
         require(type(costs[key]) is dict and set(costs[key]) == set(HEADS), 'resource head axes differ')
         require(all(type(v) is int and v >= 0 or v is None and key in ('origin_rows','candidate_branches') for v in costs[key].values()), 'invalid resource count')
     _finite(value, 'manifest')
+
+
+
+def _u_repair(value, season):
+    _closed(value, ('kind', 'donor', 'inputs', 'diagnosis', 'repair', 'qualification', 'retained_members',
+                    'baseline_heads', 'selector_sha256', 'donor_resources', 'retained_component_counts',
+                    'performed_solve_counts', 'performed_resolution_solve_counts', 'full_objective_calls'), 'u repair')
+    require(season == '20252026' and value['kind'] == 'execution-u-outer-sum-repair-1', 'u repair scope differs')
+    for name in ('donor', 'inputs', 'diagnosis', 'repair', 'qualification'):
+        _closed(value[name], ('path', 'sha256'), 'u repair '+name)
+        _reference(value[name], 'u repair '+name)
+    require(value['retained_component_counts'] == dict(baselines=4, qrg_probes=3)
+            and value['performed_solve_counts'] == dict.fromkeys(HEADS, 0)
+            and value['performed_resolution_solve_counts'] == dict(u=1, q=0, r=0, g=0)
+            and type(value['full_objective_calls']) is int and value['full_objective_calls'] > 0,
+            'u repair component/call counts differ')
+    paths = [f'heads/{head}.npz' for head in HEADS] + [f'resolution/{head}.npz' for head in ('q', 'r', 'g')]
+    require(type(value['retained_members']) is list and [row.get('path') for row in value['retained_members']] == paths,
+            'u repair retained member axes differ')
+    for row in value['retained_members']:
+        _closed(row, ('path', 'sha256'), 'retained u repair member'); digest(row['sha256'])
+    require(type(value['baseline_heads']) is list and [row.get('head') for row in value['baseline_heads']] == list(HEADS),
+            'u repair baseline axes differ')
+    for row in value['baseline_heads']:
+        _closed(row, ('head', 'metadata_sha256', 'arrays_sha256'), 'retained baseline')
+        digest(row['metadata_sha256']); digest(row['arrays_sha256'])
+    digest(value['selector_sha256'])
+    _closed(value['donor_resources'], RESOURCE_KEYS, 'u repair donor resources')
+    require(value['donor_resources']['wall_scope'] == 'initial_input_read+prepare_execution+fit_and_members_before_completion_manifest',
+            'u repair donor resource scope differs')
 
 
 def _actor_key(row):
@@ -555,13 +600,26 @@ def _load_arrays(path, contract):
     return arrays
 
 
-def write_execution_head(output, metadata, arrays, season):
+
+def _write_head_arrays(output, name, arrays, retained):
+    if retained is None:
+        write_arrays(output, name, arrays)
+        return
+    source = linked_path(retained)
+    saved = _load_arrays(source, _array_contract(arrays))
+    require(all(saved[key].tobytes() == value.tobytes() for key, value in arrays.items()), 'retained coefficients differ')
+    with source.open('rb') as original, (output / name).open('xb') as destination:
+        shutil.copyfileobj(original, destination)
+    require(identity(output / name)['sha256'] == retained['sha256'], 'retained coefficient bytes differ')
+
+
+def write_execution_head(output, metadata, arrays, season, *, retained_arrays=None):
     """preserve a finished head before the next solve; no manifest yet."""
     head = metadata['head']
     metadata['arrays'] = _array_contract(arrays) if arrays else None
     _head(metadata, head, arrays, season)
     if arrays:
-        write_arrays(Path(output), f'heads/{head}.npz', arrays)
+        _write_head_arrays(Path(output), f'heads/{head}.npz', arrays, retained_arrays)
     write_json(Path(output) / f'heads/{head}.json', metadata)
 
 
@@ -684,14 +742,14 @@ def freeze_execution_baseline(output, manifest, heads, selector):
     return dict(path='resolution/baseline.json', sha256=identity(output / 'resolution/baseline.json')['sha256'])
 
 
-def write_execution_probe(output, baseline, metadata, arrays, comparison):
+def write_execution_probe(output, baseline, metadata, arrays, comparison, *, retained_arrays=None):
     """write one tightened state without promoting its coefficients."""
     output = Path(output)
     head = metadata['head']
     metadata = deepcopy(metadata)
     metadata['arrays'] = _array_contract(arrays)
     array_path = f'resolution/{head}.npz'
-    write_arrays(output, array_path, arrays)
+    _write_head_arrays(output, array_path, arrays, retained_arrays)
     document = dict(usage='numerical_probe', head=head, baseline=baseline,
                     metadata=metadata, arrays=dict(path=array_path, sha256=identity(output / array_path)['sha256']),
                     comparison=comparison)
@@ -746,8 +804,15 @@ def write_execution_state(output, manifest, heads, arrays, coverage, *, probes=N
                 paths.extend((reference['path'], f'resolution/{head}.npz'))
     manifest['files'] = [dict(path=path, sha256=identity(output/path)['sha256']) for path in paths]
     manifest['resources']['output_bytes'] = sum((output / path).stat().st_size for path in paths)
-    manifest['resources']['fit_wall_seconds'] += perf_counter() - began
-    manifest['resources']['wall_seconds'] = sum(manifest['resources'][key] for key in ('input_read_wall_seconds','design_wall_seconds','fit_wall_seconds'))
+    repaired = 'u_repair' in manifest
+    manifest['resources']['assembly_wall_seconds' if repaired else 'fit_wall_seconds'] += perf_counter() - began
+    wall_keys = ['input_read_wall_seconds', 'design_wall_seconds', 'fit_wall_seconds']
+    if repaired:
+        wall_keys += ['qualification_wall_seconds', 'assembly_wall_seconds']
+    manifest['resources']['wall_seconds'] = sum(manifest['resources'][key] for key in wall_keys)
+    if repaired:
+        manifest['resources']['peak_memory_bytes'] = max(manifest['resources']['peak_memory_bytes'],
+            resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * (1 if sys.platform == 'darwin' else 1024))
     write_json(output / 'manifest.json', manifest)
     state = read_execution_state(output, manifest['purpose'])
     require(all(np.array_equal(state.arrays[head][name], value) for head, values in arrays.items() for name, value in values.items()), 'save/read changed fitted coefficients')
@@ -797,6 +862,13 @@ def _read_execution_state(path, expected_purpose):
         expected = _baseline_descriptor(manifest, heads, root)
         require({key: value for key, value in descriptor.items() if key != 'selector'} == expected, 'baseline descriptor differs from annual family')
         _selector(descriptor.get('selector'), manifest, heads, read_json(files['coverage.json']))
+        if 'u_repair' in manifest:
+            repair = manifest['u_repair']
+            require(descriptor['heads'] == repair['baseline_heads']
+                    and hashlib.sha256(json.dumps(descriptor['selector'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+                    == repair['selector_sha256'], 'u repair changed frozen baseline definitions/selector')
+            require(all(row['path'] in files and identity(files[row['path']])['sha256'] == row['sha256']
+                        for row in repair['retained_members']), 'u repair retained payload differs')
         addressed.append('resolution/baseline.json')
         for head in HEADS:
             reference = heads[head]['resolution'].get('probe')

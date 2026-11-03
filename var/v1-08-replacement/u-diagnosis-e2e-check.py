@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 from unittest.mock import patch
 import numpy as np
-from hockey_stats import execution_fit,execution_inputs,chance
+from hockey_stats import execution_fit,execution_inputs,chance,execution_trace
 from hockey_stats.execution_design import DEFINITION
 
 spec=importlib.util.spec_from_file_location('u_diagnosis',Path(__file__).with_name('diagnose_execution_u.py'))
@@ -75,7 +75,7 @@ for mode,movement in [('flat_moving_pass',.01),('zero_motion_pass',0.)]:
     with patch.object(execution_inputs,'load_u_bundle',return_value=bundle), \
          patch.object(execution_fit,'objective',objective), \
          patch.object(execution_fit,'continue_head',continuation), \
-         patch.object(m,'chance_minimize',fake_native):
+         patch.object(execution_trace,'chance_minimize',fake_native):
         refused=m.diagnose(manifest,scratch/mode)
     assert refused['reason']=='original_failure_unreproduced' and not refused['eligible_endpoint']
     assert np.array_equal(np.load(scratch/mode/'raw-native-endpoint.npy'),initial+movement)

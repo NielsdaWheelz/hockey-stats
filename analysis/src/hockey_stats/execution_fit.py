@@ -1,5 +1,6 @@
 """annual execution likelihoods, native penalties and deterministic setter em."""
 
+from fractions import Fraction
 from time import perf_counter
 
 import numpy as np
@@ -145,6 +146,10 @@ def objective(beta, design, actors, responsibilities=None, *, addends=None):
     """weighted origin log losses; optional scalar observation is u-only."""
     if addends is not None and design["head"] != "u":
         raise ValueError("scalar addend observation requires u")
+    if design["head"] == "u":
+        if addends is None:
+            addends = []
+        first_addend = len(addends)
     value, gradient = penalty(beta, design, actors, addends=addends)
     physical_residual = np.zeros(len(design["target"]))
     for number, (batch, logits) in enumerate(_logit_batches(beta, design)):
@@ -167,6 +172,8 @@ def objective(beta, design, actors, responsibilities=None, *, addends=None):
         gradient += np.asarray(batch["dynamic_matrix"].T @ residual).ravel()
         np.add.at(physical_residual, batch["row"], residual)
     gradient += np.asarray(design["fixed_matrix"].T @ physical_residual).ravel()
+    if design["head"] == "u":
+        value = float(sum((Fraction.from_float(term) for term in addends[first_addend:]), Fraction()))
     return float(value), gradient
 
 

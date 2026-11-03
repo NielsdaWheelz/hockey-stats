@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-trace-owner-check.py", line 4, in <module>
+    from hockey_stats import execution_trace as trace
+ImportError: cannot import name 'execution_trace' from 'hockey_stats' (/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/__init__.py)

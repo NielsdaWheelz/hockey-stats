@@ -1,5 +1,7 @@
 """temporary transparent source observer and frozen-selector controls."""
+from contextlib import redirect_stdout
 from dataclasses import replace
+import io
 import importlib.util
 import json
 from pathlib import Path
@@ -28,20 +30,29 @@ for name in ed.HEADS:expected.head(dict(head=name,rows=[0],keys=['tiny:7']))
 expected.head_admission={name:{'included':1} for name in ed.HEADS}
 expected_report=expected.report()
 prepared=SimpleNamespace()
+read_marker=object();read_calls=[]
+def source_read(*args,**kwargs):
+    read_calls.append((args,kwargs));return read_marker
 def builder(name,*args,**kwargs):
     calls.append(name);return dict(head=name,rows=[0],keys=['tiny:7'])
 def prepare(*args,**kwargs):
     assert kwargs['training_heads']==('u',)
+    for i in range(101):assert ed.read_prepared_game(prepared,'20252026',str(i)) is read_marker
     ed._feature_context(attempt,game,1,None,(5,5,1),{},{},history)
     ed._head_design('u',predictors,labels,{})
     return SimpleNamespace(coverage={'heads':expected.head_admission})
-with patch.object(ed,'_feature_context',return_value=context),patch.object(ed,'_head_design',builder),patch.object(ed,'prepare_execution',prepare):
+progress=io.StringIO()
+with patch.object(ed,'_feature_context',return_value=context),patch.object(ed,'_head_design',builder),patch.object(ed,'prepare_execution',prepare), \
+     patch.object(ed,'read_prepared_game',source_read),redirect_stdout(progress):
     result,report=module.source_design(prepared,'unused',expected_report)
+assert progress.getvalue().splitlines()==['source pass started','prepared games read: 100','source parity accepted before u builder','u builder complete: 1 physical rows']
+assert len(read_calls)==101 and all(args==(prepared,'20252026',str(i)) and kwargs=={} for i,(args,kwargs) in enumerate(read_calls))
 assert calls==['u'] and report['source_context_sha256']==expected_report['source_context_sha256']
 assert report['head_populations']==expected_report['head_populations']
 bad=dict(expected_report,source_context_sha256='wrong')
 calls.clear()
-with patch.object(ed,'_feature_context',return_value=context),patch.object(ed,'_head_design',builder),patch.object(ed,'prepare_execution',prepare):
+with patch.object(ed,'_feature_context',return_value=context),patch.object(ed,'_head_design',builder),patch.object(ed,'prepare_execution',prepare), \
+     patch.object(ed,'read_prepared_game',source_read),redirect_stdout(io.StringIO()):
     try:module.source_design(prepared,'unused',bad)
     except InputContractError:pass
     else:raise AssertionError('source mismatch accepted')
@@ -63,4 +74,4 @@ with patch.object(ed,'build_resolution_witness',return_value=(fixture,{'wrong':'
     except InputContractError:pass
     else:raise AssertionError('changed witness accepted')
 print(json.dumps(dict(status='passed',scope='tiny transparent source observer and donor-metadata witness injection; no source, fit or objective',
-    u_only_builder=True,all_head_population_fingerprints=True,source_mismatch_before_matrix=True,frozen_selector_restoration=True,witness_mismatch_refused=True),indent=2))
+    u_only_builder=True,transparent_game_reads_once_same_arguments_and_result=True,progress_at_exact100_reads=True,all_head_population_fingerprints=True,source_mismatch_before_matrix=True,frozen_selector_restoration=True,witness_mismatch_refused=True),indent=2))

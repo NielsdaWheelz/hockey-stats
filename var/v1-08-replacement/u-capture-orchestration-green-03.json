@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "scope": "syntax/static shell inspection and main orchestration with scratch-only files, stubbed capture/load/diagnose; no real input read, shell launch, source pass or objective",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-u-capture-command.sh",
+    "sha256": "1e88d781780e16bf85d32d7d11060a2afaa6306eccbdd98e5c3ca3b2f1116c0a"
+  },
+  "reviewed_analysis_tree": "54e41d821b1cc12fb262be4c42d6898a610c37fe",
+  "capture_sha256": "e42f7be944a5350a9096b953559835cddbeb6f9a2081113f01eae32131951d5c",
+  "diagnosis_sha256": "2142a218e9759c9103db29e728605efaf7492363efd888cd2c019b956f51ec4d",
+  "exact_real_input_path_and_digest_constants": true,
+  "syntax_checked_without_execution": true,
+  "main_status_controls": [
+    {
+      "status": "arithmetic_repair_permitted",
+      "exit_code": 0,
+      "owner_calls": [
+        "read_previous",
+        "read_donor",
+        "read_prepared",
+        "capture_stub",
+        "load_stub",
+        "diagnose_stub"
+      ]
+    },
+    {
+      "status": "inconclusive",
+      "exit_code": 1,
+      "owner_calls": [
+        "read_previous",
+        "read_donor",
+        "read_prepared",
+        "capture_stub",
+        "load_stub",
+        "diagnose_stub"
+      ]
+    }
+  ],
+  "input_pin_refused_before_source_owners": true,
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-orchestration-zecmmqgc"
+}

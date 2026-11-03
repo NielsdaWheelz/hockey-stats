@@ -39,8 +39,16 @@ observer=importlib.util.module_from_spec(spec);spec.loader.exec_module(observer)
 
 def source_design(prepared, coaches, expected):
     """reuse the frozen source oracle; derive other head populations from labels."""
+    print('source pass started',flush=True)
     check=observer.StartCheck()
     original_context=ed._feature_context;original_head=ed._head_design
+    original_read=ed.read_prepared_game;games_read=0
+    def read_game(*args,**kwargs):
+        nonlocal games_read
+        result=original_read(*args,**kwargs)
+        games_read+=1
+        if games_read%100==0:print(f'prepared games read: {games_read}',flush=True)
+        return result
     def context(attempt,game,shooter,goalie,strength,coaches,team_rest,history):
         before=observer.encoded(observer.responses(attempt))
         result=original_context(attempt,game,shooter,goalie,strength,coaches,team_rest,history)
@@ -58,11 +66,13 @@ def source_design(prepared, coaches, expected):
         for key,value in report.items():
             if key not in ('observer_seconds','head_admission'):
                 require(observer.encoded(value)==observer.encoded(expected[key]),'capture source report differs before matrix construction: '+key)
+        print('source parity accepted before u builder',flush=True)
         result=original_head(name,predictors,labels,*args,**kwargs)
         require(result['keys']==[predictors[i].key for i,label in enumerate(labels) if label['u'] is not None], 'u canonical head changed physical order')
         check.head(result)
+        print(f"u builder complete: {len(result['keys'])} physical rows",flush=True)
         return result
-    with patch.object(ed,'_feature_context',context),patch.object(ed,'_head_design',head):
+    with patch.object(ed,'_feature_context',context),patch.object(ed,'_head_design',head),patch.object(ed,'read_prepared_game',read_game):
         design=ed.prepare_execution(prepared,coaches,ed.RECIPE,'20252026',training_heads=('u',))
     check.head_admission=design.coverage['heads']
     report=check.report()
@@ -129,7 +139,9 @@ def capture(prepared, coaches, previous, donor, expected, output, bindings):
         baseline_head=saved,coverage=dict(heads=donor.coverage['heads'],member=identity(donor.path.parent/'coverage.json')),
         origin=saved['origin'],anchor_objective=saved['resolution']['comparison']['base_objective'],
         anchor_gradient_max=saved['resolution']['comparison']['base_gradient_max'])
-    return write_u_bundle(output/'inputs',head,actors=actors,initial=initial,metadata=metadata,selector=selector,probes=probes)
+    path=write_u_bundle(output/'inputs',head,actors=actors,initial=initial,metadata=metadata,selector=selector,probes=probes)
+    print(f'u input bundle written: {path}',flush=True)
+    return path
 
 
 def main():
@@ -185,6 +197,7 @@ def main():
         reload_started=perf_counter();loaded=load_u_bundle(path)
         require(loaded['metadata']['bindings']==bindings and loaded['metadata']['incoming_ledger']==previous.heads['u']['ledger'],
                 'reloaded capture lineage differs')
+        print(f'u input bundle reloaded: {path}',flush=True)
         manifest=json.loads(path.read_text())
         write_json(OUTPUT/'capture-reloaded.json',dict(status='serialized and reloaded; scalar anchors pending bounded diagnosis',
             bundle=identity(path),payload_bytes=manifest['payload_bytes'],physical_rows=len(loaded['design']['target']),

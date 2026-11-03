@@ -1,0 +1,22 @@
+source pass started
+source parity accepted before u builder
+u builder complete: 1068 physical rows
+u input bundle written: /Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-capture-fixture-tpii7f8u/inputs/manifest.json
+{
+  "status": "passed",
+  "scope": "full nine-game fixture donor/history/source/capture/reload; no real source or native solve",
+  "canonical_training_heads": [
+    "u"
+  ],
+  "source_contexts": 1068,
+  "physical_rows": 1068,
+  "frozen_actual_probes": 256,
+  "frozen_fixture_witnesses": 2,
+  "source_context_sha256": "1580b9d0632742c739ff6f1b2c5df8badb6ba303aa7ec6c36cb946764badd74a",
+  "source_response_sha256": "341f42628686502c705eafb38e6f66b98b7dee079c2818cea36ec163ef511653",
+  "donor_actor_priors_support_layout_and_coverage_exact": true,
+  "objective_and_full_gradient_bits_equal": true,
+  "reloaded_saved_objective_and_gradient_max_bits_equal": true,
+  "payload_bytes": 26499044,
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-capture-fixture-tpii7f8u"
+}

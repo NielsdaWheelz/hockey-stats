@@ -1,16 +1,13 @@
 #!/bin/zsh
-# proposed only: root supplies three reviewed source pins and the release receipt.
+# reviewed analysis tree and helper pins; root must review/release this command before launch.
 # actual launch head may advance for command/docs commits; the release records the reviewed source commit.
 # keep analysis, capture, diagnosis and source-observer code unchanged from launch until exit.
 set -eu
 cd /Users/nnandal/Documents/code/hockey-stats-v1-08
 capture_commit=$(git rev-parse HEAD)
-capture_tree=PENDING_REVIEWED_ANALYSIS_TREE
-capture_sha=PENDING_REVIEWED_CAPTURE_SHA256
-capture_diagnosis_sha=PENDING_REVIEWED_DIAGNOSIS_SHA256
-case "$capture_tree:$capture_sha:$capture_diagnosis_sha" in
-  *PENDING*) print -u2 'unreviewed capture pins; command not launched'; exit 1 ;;
-esac
+capture_tree=54e41d821b1cc12fb262be4c42d6898a610c37fe
+capture_sha=e42f7be944a5350a9096b953559835cddbeb6f9a2081113f01eae32131951d5c
+capture_diagnosis_sha=2142a218e9759c9103db29e728605efaf7492363efd888cd2c019b956f51ec4d
 capture_root=/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01
 for capture_path in "$capture_root" "$capture_root.log" "$capture_root-start.txt" "$capture_root-finish.txt" "$capture_root-exit.txt" "$capture_root-shell.pid" "$capture_root-launch-head.txt" "$capture_root-launch-analysis-tree.txt" "$capture_root-launch-capture-sha256.txt" "$capture_root-launch-diagnosis-sha256.txt" "$capture_root-launch-analysis-status.txt" "$capture_root-launch-inputs-sha256.txt"; do
   if [ -e "$capture_path" ]; then

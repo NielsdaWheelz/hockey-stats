@@ -1,0 +1,119 @@
+{
+  "kind": "real-final-score-from-accepted-u-assembly-preparation",
+  "status": "prepared; source/helper/command review and root launch release pending",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-score-command.sh",
+    "bytes": 5577,
+    "sha256": "e9a60ed68b60e315003e9b795359b234e39aa2ed55e427fd6e29091f008bd3f2"
+  },
+  "saved_acceptance_helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20252026.py",
+    "bytes": 39234,
+    "sha256": "53fa5baf871a8e133ef446d8d41e4602bc371388cd607be3bd746ff2b1970d0f"
+  },
+  "input_state": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+    "bytes": 367855,
+    "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276"
+  },
+  "original_score": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026/manifest.json",
+    "bytes": 382610,
+    "sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c"
+  },
+  "fit_source": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/fit-20252026-final-02-source-check.json",
+    "bytes": 88686,
+    "sha256": "59f4b00827ea736f0a374ba6f32a1ce7003f5f9ab7a131b84d5e4971f0624e9d"
+  },
+  "expected_source_fingerprints": {
+    "source_context_sha256": "f96ee4a0eadeb2f5caa44db999c71b9ad0e6a178b8a3812f9895019dcdb065a3",
+    "source_response_sha256": "63e224a6d8ac06729882bd05b1dcd817df49d39000fb8559817e0e1d01feef04"
+  },
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4"
+  },
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "prepared": {
+    "path": "/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02/manifest.json",
+    "sha256": "63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c"
+  },
+  "coaches": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json",
+    "sha256": "102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0"
+  },
+  "accepted_assembled_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-assembled-family-saved-review.md",
+    "sha256": "23b8fe830ae17c72bcf9360ce6e98d5601f0c2ca9e0f8dbd1f77c47dee0d697a"
+  },
+  "supersedes": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-score-preparation-draft.json",
+    "bytes": 2356,
+    "sha256": "a3fc7e8bde9ff1f38a814bf0a83211e8eed9cebb65f47f07eefb0e2a5dde007f",
+    "reason": "old held final-year state locator, pending digest, analysis and observer pins are superseded; this current executable uses only accepted assembled state59e and has no old-state fallback"
+  },
+  "historical_books_preserved": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-commands.md",
+      "bytes": 24327,
+      "sha256": "747ce2fa11d3228f2c0856b9a853b16eade01170bf788876efc7ad6339243681"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-fit-commands.md",
+      "bytes": 24998,
+      "sha256": "4b421777212ccf753c368012bcc8741cc6a6858526400626a00c6eb3e0c745d1"
+    }
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026",
+  "guarded_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026.log",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026.exit",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-source-check.json",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-start.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-finish.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-shell.pid",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-observer-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-checker-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-command-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-prepared-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-coaches-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-state-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-fit-source-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-original-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-launch-acceptance-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-expected-recipe-sha256.txt"
+  ],
+  "all20paths_fresh": true,
+  "scope": "one ordinary final-year score and its four existing saved-probe propagations; no fit, repair, new probe selection or source/membership change; first four accepted states/scores remain inputs unchanged",
+  "source_acceptance": "all saved source fields must equal original final02 report except command and observer duration; exact f96/63e fingerprints, no final-year known-key census",
+  "saved_acceptance": "one strict saved-score read; existing saved accounting/24-order absolute share closure/map checks, all4 propagation budgets, frozen256 event keys/focal pairs, all32 neutral panel SUMS; no seasonwide actor probability bound",
+  "checks": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final-score-cutover-red.log",
+      "bytes": 403,
+      "sha256": "37e167c4125948434f118ac064796b480a998627a83c2eba88c2eb8deefb1a87"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final-score-cutover-green-02.log",
+      "bytes": 1997,
+      "sha256": "172130959b962a0582ac66cc13824c19315c7d9709fca82f12af718f171728d6"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/final-score-reporting-controls-after-assembly-receipt.json",
+      "bytes": 2564,
+      "sha256": "d8a7ef9470ea5134b7d5824d3025b0745df808d8dfb7f87c6f3eda621702550e"
+    }
+  ],
+  "executed": false,
+  "actual_source_passes": 0,
+  "actual_scores": 0,
+  "actual_strict_score_reads": 0,
+  "projection_or_array_reads": 0,
+  "access": "small accepted state/original-score/source manifests and local code/control metadata only; no source game or actual analytical payload read"
+}

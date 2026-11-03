@@ -19,14 +19,18 @@ WORK = Path('/Users/nnandal/Documents/code/hockey-stats-v1-08')
 CAMPAIGN = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real')
 NEW = CAMPAIGN / 'scores/20252026'
 OLD = Path('/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/current-04/scores/20252026')
-ANALYSIS = 'c2412ac713b8c60e808dd71771f0812224b94439'
+ANALYSIS = 'fc716257eb118d1a091472cde4b214e8bca1f753'
+STATE = CAMPAIGN / 'u-repair-01/assembled-01/20252026/manifest.json'
+STATE_SHA = '59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276'
+FIT_SOURCE = CAMPAIGN / 'fit-20252026-final-02-source-check.json'
+FIT_SOURCE_SHA = '59f4b00827ea736f0a374ba6f32a1ce7003f5f9ab7a131b84d5e4971f0624e9d'
 PREVIOUS = '1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe'
 RECIPE = '47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674'
-OBSERVER = '286b34dd95ae9cf60a562ad9ec6426000d04a9e658ee3977b7b88080099fedaf'
+OBSERVER = 'ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4'
 REFERENCES = ('actor', 'neutral', 'neutral_goalie')
 GROUPS = ('shooter', 'setter', 'goalie', 'coach')
-PARITY_FIELDS = ('source_context_sha256', 'source_response_sha256', 'source_contexts', 'dispositions',
-                 'all_strength_dispositions', 'eligibility_counts', 'head_admission', 'head_populations')
+SOURCE_FINGERPRINTS = dict(source_context_sha256='f96ee4a0eadeb2f5caa44db999c71b9ad0e6a178b8a3812f9895019dcdb065a3',
+                           source_response_sha256='63e224a6d8ac06729882bd05b1dcd817df49d39000fb8559817e0e1d01feef04')
 
 
 def sha(path):
@@ -216,6 +220,17 @@ def check_final_propagation(resolution, *, annual_sha, baseline_ref, annual_sele
         limits='all-event coverage applies to neutral panel sums only; bounded event/pair checks are not seasonwide actor per-event or all-player bounds; no posterior threshold or fixed total-xg budget')
 
 
+
+def check_source_parity(fit_source, source):
+    """the frozen report may differ only in command and observer duration."""
+    ignored = {'command', 'observer_seconds'}
+    assert set(fit_source)-ignored == set(source)-ignored
+    parity = {field: fit_source[field] == source[field] for field in fit_source if field not in ignored}
+    assert all(parity.values())
+    assert all(fit_source[field] == source[field] == value for field, value in SOURCE_FINGERPRINTS.items())
+    return parity
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--expected-manifest-sha256', required=True)
@@ -227,7 +242,9 @@ def main():
     assert not args.out_check.exists()
     assert all(re.fullmatch('[0-9a-f]{64}', value) for value in
                (args.expected_manifest_sha256, args.expected_state_sha256, args.expected_source_sha256, args.expected_fit_source_sha256))
+    assert args.expected_state_sha256 == STATE_SHA and args.expected_fit_source_sha256 == FIT_SOURCE_SHA
     assert (CAMPAIGN / 'score-20252026.exit').read_text().strip() == '0'
+    assert (CAMPAIGN / 'score-20252026-launch-checker-sha256.txt').read_text().split()[0] == sha(Path(__file__).resolve())
     assert sha(NEW / 'manifest.json') == args.expected_manifest_sha256
     began = perf_counter()
     scores = read_execution_scores(NEW, 'real')
@@ -238,7 +255,7 @@ def main():
     assert current['season'] == original['season'] == '20252026' and current['purpose'] == original['purpose'] == 'real'
     assert all(current[name] == original[name] for name in ('prepared', 'coaches', 'training_cutoff', 'panels', 'scoring_version'))
     assert current['recipe']['sha256'] == RECIPE and current['state']['sha256'] == args.expected_state_sha256
-    assert current['state']['path'] == str(CAMPAIGN / 'execution/20252026/manifest.json')
+    assert current['state']['path'] == str(STATE)
     assert sha(Path(current['state']['path'])) == args.expected_state_sha256
     assert current['state']['previous'] == dict(path=str(CAMPAIGN / 'execution/20242025/manifest.json'), sha256=PREVIOUS)
     assert current['prepared']['sha256'] == '63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c'
@@ -270,7 +287,7 @@ def main():
         assert document['arrays']['sha256'] == next(row['sha256'] for row in annual['files'] if row['path'] == document['arrays']['path'])
     actual_keys = set(scores.resolution['event_probes']['actual_keys'])
     actual_events = {}
-    fit_source_path = CAMPAIGN / 'fit-20252026-source-check.json'
+    fit_source_path = FIT_SOURCE
     source_path = CAMPAIGN / 'score-20252026-source-check.json'
     assert sha(fit_source_path) == args.expected_fit_source_sha256 and sha(source_path) == args.expected_source_sha256
     fit_source, source = read(fit_source_path), read(source_path)
@@ -278,10 +295,9 @@ def main():
         assert report['status'] == 'passed' and report['before_head_construction']
         assert report['purpose'] == 'real' and report['season'] == '20252026' and report['recipe_sha256'] == RECIPE
         assert report['known_expected'] == report['known_checked'] == 0 and report['known_witnesses'] == []
-    parity = {field: fit_source[field] == source[field] for field in PARITY_FIELDS}
-    assert all(parity.values())
+    parity = check_source_parity(fit_source, source)
     assert source['command'] == ['score', '--family', 'execution', '--prepared', str(Path(current['prepared']['path']).parent),
-                                 '--coaches', current['coaches']['path'], '--state', str(CAMPAIGN / 'execution/20252026'), '--out', str(NEW)]
+                                 '--coaches', current['coaches']['path'], '--state', str(STATE.parent), '--out', str(NEW)]
     named = {row['key'] for row in source['first_witnesses']
              if all(row['consumed'][name]['status'] == 'unavailable' for name in
                     ('shooter_start_zone:offensive', 'shooter_start_zone:neutral', 'shooter_start_zone:defensive'))}
@@ -471,7 +487,7 @@ def main():
     assert current['resources']['setter_branches'] == branches
     assert current['resources']['projected_skaters'] == len({pid for pid,strength in projection_values})
     assert current['resources']['origin_rows'] == sum(row['origins'] for row in current['panels'])
-    receipt = dict(kind='replacement-real-year5-score-saved-artifact-acceptance', status='saved_artifact_checks_passed; root independent acceptance pending',
+    receipt = dict(kind='replacement-real-year5-assembled-score-saved-artifact-acceptance', status='saved_artifact_checks_passed; root independent acceptance pending',
         recorded_at_utc=datetime.now(timezone.utc).isoformat(), manifest=identity(NEW / 'manifest.json'), original_manifest=identity(OLD / 'manifest.json'),
         recipe={name: current['recipe'][name] for name in ('name', 'version', 'sha256')}, state=current['state'],
         strict_read=dict(invocations_here=1, status='passed', wall_seconds=strict_seconds, all32panels=True, upstream_source_reads=0),
@@ -485,7 +501,7 @@ def main():
                         source_contexts=source['source_contexts'], physical5v5_events=public['5v5']['events'],
                         projections=projections, maps=maps, setter_branches=branches, share_rows=share_rows),
         accounting=dict(share_closure_max=closure_max, independent24order_group_error=permutation_max,
-                        native_map_scalar_closure='all available old/new saved maps exact', neutral_panel_sums='all seven published panels reconcile event sums to every projection; strict reader covers all32 saved logits'),
+                        native_map_scalar_closure='all available old/new saved maps exact', neutral_panel_sums='all32 event-panel baseline sums and saved propagation sums reconcile; every published projection reference closes to its panel; strict reader covers all32 saved logits'),
         probability_movement={population: dict(rows=stratum_counts[population], groups={group: summarize(record) for group, record in groups.items()})
                               for population, groups in strata.items()},
         movement_definition=dict(absolute='abs(new-old); quantiles of each event maximum across the named probability fields',

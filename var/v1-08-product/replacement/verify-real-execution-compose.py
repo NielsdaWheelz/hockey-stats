@@ -23,6 +23,21 @@ OBSERVED_SHA = '5b6e3f0b8ae736260070549677a59bbf648ebab9a916729333eeb577611331e9
 PREPARED = '63bd286135626baf2718582ddd0c9bcc8ea551f60f5e47ee48c5929b521de56c'
 COACHES = '102bca4c24bbcf2ef5eb207274f13ba78030f5bef7e551b77c553d741ed7f0f0'
 RECIPE = '47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674'
+SCORES = {
+    '20212022': '37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d',
+    '20222023': '296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20',
+    '20232024': 'f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238',
+    '20242025': '86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de',
+    '20252026': '40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc',
+}
+STATES = {
+    '20212022': '7c740083469c9a16edf6d73552ea18b89425a52b2ea7f4deeea41f79a5043e61',
+    '20222023': 'eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c',
+    '20232024': 'dd8b638dd8eb3e8af25722f53f633202b5fa28ef3ce81ec45bb9a180d9f09bfa',
+    '20242025': '1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe',
+    '20252026': '59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276',
+}
+FINAL_STATE = CAMPAIGN / 'u-repair-01/assembled-01/20252026/manifest.json'
 VALUED = {'neutral_all_attempt_value', 'neutral_locatable_unblocked_value'}
 FIELDS = ('finishing_goals_per100_attempts', 'setting_goals_per100_assisted_opportunities',
           'avoid_block_probability', 'on_net_probability', 'recorded_stop_probability', 'conversion_probability',
@@ -338,10 +353,12 @@ def main():
     for item in selection['scores']:
         year = item['season']
         path = CAMPAIGN / 'scores' / year / 'manifest.json'
-        assert item['path'] == str(path) and sha(path) == item['sha256']
+        assert item['path'] == str(path) and sha(path) == item['sha256'] == SCORES[year]
         annual = read(path)
         assert annual['purpose'] == 'real' and annual['season'] == year
         assert annual['prepared']['sha256'] == PREPARED and annual['coaches']['sha256'] == COACHES and annual['recipe']['sha256'] == RECIPE
+        assert annual['state']['path'] == str(FINAL_STATE if year == '20252026' else CAMPAIGN / 'execution' / year / 'manifest.json')
+        assert annual['state']['sha256'] == STATES[year]
         assert annual['state']['previous'] == previous
         assert annual['numerical_resolution']['status'] == ('passed' if year == '20252026' else 'not_applicable')
         previous = {key: annual['state'][key] for key in ('path', 'sha256')}

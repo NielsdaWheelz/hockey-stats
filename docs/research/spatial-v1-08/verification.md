@@ -548,3 +548,8 @@ the first real spatial annual may now be released under its already reviewed sta
 [the release](receipts/real-first-spatial-release.json) follows accepted final execution completion `8f9163b5`. it binds command `fa97af90`, metadata adapter `0d0cc40c`, preparation `726f795e` and independent static review `26c9724e`, with clean unchanged analysis `fc716257`. all thirteen job paths and the separate metadata receipt path are absent at release. the canonical cli selects accepted `20212022` score `37263bfc`, prepared `63bd2861` and coaches `102bca4c`; no predecessor or final probes enter this first year.
 
 the original spatial controls remain `10000/1e-15/1e-6/history10` with native function/search limits retained. one complete triple, projections and canonical state validation are released; saved metadata and independent head/history/diagnostic acceptance follow exit. keep analysis and the command/helper fixed through exit, and record launch/producer heads separately. no successor is released before first-year memory/cost is measured and accepted. no real spatial fit has launched at this release record; no activation follows.
+
+
+## first real spatial annual launched — 2026-11-03 utc
+
+[the launch](receipts/real-first-spatial-launch.json) records actual head `b7a97f3`, clean analysis `fc716257`, command `fa97af90`, recipe `04a9c15d` and nine start/pid/pin files. the released command is invoked once; first-year input/source design begins with accepted score `37263bfc` and no predecessor or probes. it is the sole heavy job. no fitted head, complete annual triple, real memory envelope or numerical resolution claim is established by this launch record.

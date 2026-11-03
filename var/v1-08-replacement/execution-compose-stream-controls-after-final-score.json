@@ -1,0 +1,62 @@
+{
+  "kind": "held-real-compose-stream-controls",
+  "status": "passed",
+  "recorded_at_utc": "2026-11-03T16:08:54.901971+00:00",
+  "checker": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-real-execution-compose.py",
+    "bytes": 28759,
+    "sha256": "bbf7c5f2cf751f8103103c3ab0337c4de0844b48ffaa57321fd871ebbfd23c60"
+  },
+  "controls": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/check-real-compose-streaming.py",
+    "bytes": 13006,
+    "sha256": "2cd5e0fa336d13abe332f045df5fa8fe273138c8a6a4ad4a85c3095fa576f358"
+  },
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/compose-controls-elrsg3_7",
+  "copied": {
+    "copied_projections_exact": 14,
+    "factual_only_unavailable_projections": 7,
+    "copied_native_maps_exact": 28,
+    "public_maps": 42,
+    "raw_only_projection_rows": 7,
+    "raw_only_map_rows": 14,
+    "source_index_passes": {
+      "projections.jsonl": {
+        "rows": 21,
+        "bytes": 37128
+      },
+      "maps.jsonl": {
+        "rows": 42,
+        "bytes": 97202
+      }
+    },
+    "live_payload_scope": "one player projection group and one656-cell map; offset keys only survive between players",
+    "display_scope": "derived display geometry/transport and upstream numerical map-scalar mathematics retain producer strict validation; this checker independently joins every copied native cell/scalar/support to its saved source"
+  },
+  "event_merge": {
+    "intersection": 2,
+    "source_only": 1,
+    "numerical_only": 1,
+    "numeric_values": 7,
+    "null_values": 8,
+    "setter_rows": 1,
+    "share_rows": 1,
+    "assist_annotations": 0
+  },
+  "wrong_records_refused": [
+    "map_wrong_key",
+    "map_nullability",
+    "interval_changed",
+    "source_value_wrong_key",
+    "public_player_omitted",
+    "public_strength_omitted",
+    "immutable_evidence_descriptor_changed"
+  ],
+  "scope": "tiny synthetic rows only; map display cells are scaffolding and their geometry math is outside these copy controls",
+  "main_invocations": 0,
+  "real_or_fixture_artifact_reads": 0,
+  "strict_reads": 0,
+  "source_passes": 0,
+  "array_reads": 0,
+  "wall_seconds": 0.061577083077281713
+}

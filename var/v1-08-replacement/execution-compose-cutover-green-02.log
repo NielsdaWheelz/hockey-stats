@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "source AST/static pins, syntax and STUB hash/parser only; no actual selection/composition/score/source/strict reader/arrays/publication",
+  "preserved_streaming_and_accounting_functions": [
+    "sha",
+    "identity",
+    "read",
+    "rows",
+    "paired",
+    "table",
+    "check_preserved_family",
+    "compare_intervals",
+    "index_score_members",
+    "at_offset",
+    "check_datum",
+    "check_copied_map",
+    "check_projections_maps",
+    "check_event_bridges"
+  ],
+  "selector_and_checker_same_five_bindings": true,
+  "pending_selection_refused_before_reads": true,
+  "valid_parser_stub_hash_calls": 1,
+  "composition_held_before_io": true,
+  "producer_summarize_arguments_unchanged": true,
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/execution-compose-cutover-mxhc8zrd"
+}

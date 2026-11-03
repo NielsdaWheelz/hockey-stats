@@ -1,0 +1,92 @@
+{
+  "kind": "execution-u-capture-diagnosis-release",
+  "status": "released_not_started",
+  "recorded_utc": "2026-11-03T05:59:49.898555+00:00",
+  "approved_scope_commit": "9d5c7be1380cc01045ab1e3aafb89c0949d22090",
+  "scope_review_record_commit": "99c6bfa2832631f70410a699b9e842152460f31b",
+  "authorization_record_commit": "7f1cfa1",
+  "reviewed_code_commit": "e310b293fa4090a27fad87c29285d5b0ff7d1bbf",
+  "core_implementation_commit": "f175e4779e1f81e268ec4f2c7ef5eed49a084624",
+  "analysis_tree": "54e41d821b1cc12fb262be4c42d6898a610c37fe",
+  "sources": {
+    "command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-u-capture-command.sh",
+      "sha256": "1e88d781780e16bf85d32d7d11060a2afaa6306eccbdd98e5c3ca3b2f1116c0a",
+      "bytes": 3249
+    },
+    "capture": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/capture_execution_u.py",
+      "sha256": "e42f7be944a5350a9096b953559835cddbeb6f9a2081113f01eae32131951d5c",
+      "bytes": 14979
+    },
+    "diagnosis": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/diagnose_execution_u.py",
+      "sha256": "2142a218e9759c9103db29e728605efaf7492363efd888cd2c019b956f51ec4d",
+      "bytes": 29642
+    },
+    "source_observer": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+      "sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+      "bytes": 19868
+    },
+    "independent_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-capture-diagnosis-independent.md",
+      "sha256": "aa0f69402b9e074f5f81cfdf2d636354ea1ed2ea3dae2689c4ee02ad29af8903",
+      "bytes": 5516
+    }
+  },
+  "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "runtime": {
+    "python": "3.14.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scipy_source_revision": "e4e854eaa8f18d807cd3496028e257e36caa93cc"
+  },
+  "budget": {
+    "real_captures": 1,
+    "full_objective_diagnostic_evaluations": 256,
+    "native_evaluations_within_total": 64,
+    "conditional_exact_sum_repairs": 1,
+    "probability_budget": 1e-05
+  },
+  "repair_implementation_exists": false,
+  "assembly_implementation_exists": false,
+  "repair_requires": "diagnosis exits with frozen positive same-trial witness, independently reviewed repair diff; exact rounded sum only; gradient and penalty unchanged",
+  "failure_or_inconclusive": "stop; no automatic successor",
+  "scoring_spatial": "held until accepted assembly",
+  "activation": false,
+  "code_freeze": [
+    "analysis",
+    "capture script",
+    "diagnosis script",
+    "source observer"
+  ],
+  "output_root": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01",
+  "guarded_paths": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01.log",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-start.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-finish.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-exit.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-shell.pid",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-capture-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-diagnosis-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01-launch-inputs-sha256.txt"
+  ],
+  "external_review": {
+    "status": "incomplete_monthly_spend_limit",
+    "billing_changes": false,
+    "substitute": "fresh independent non-author native implementation and command review"
+  },
+  "preflight": {
+    "metadata_only": true,
+    "objective_calls": 0,
+    "all_five_input_digests_match": true,
+    "outputs_absent": true,
+    "external_available_bytes": 7242532524032
+  },
+  "cost_note": "historical design reconstruction 7181-7981 seconds; no runtime or resolution forecast; inner-error dominance stops inconclusive"
+}

@@ -1384,6 +1384,19 @@ notes, not blocking:
 - **the trace names the stop:** the retained native task states will name what ended the search. 18 trials under `maxls` 20 suggests the trial limit didn't, if the c port counts like the fortran. afaict, not verified.
 - **storage:** my 13 to 18 gb figure was WRONG for retained bytes. the counter repeats fixed rows, so root's 3 to 4 gb source bound stands until capture measures the real size.
 
+### final `u` scope binding `9d5c7be`
+
+verdict: **CLEAR for the authorization request.** this is scope review, not authorization. read: the short diff from `738553c` only. the [prior review](#amended-u-scope-738553c) is committed verbatim.
+
+the blocker is closed. the sole admissible repair returns `fl64(R(x))` over the identical observed addends. it must be bit-equal to the reference on controlled inputs, with gradient and penalty code unchanged from the checked diagnostic evaluator. any other arithmetic needs a new decision. so the repair is the one evaluator the witness tested, and the curvature half of the witness still applies. the completion corner is closed in qualification too: the endpoint after prior-only filling must differ from the saved start. the plan, issue and verification text match the scope. no direction, verdict or threshold moved.
+
+the scope now binds every judgment before data: what counts as reproduction, the verdict, the one admissible repair, and the pass rule. what remains is cost and odds, which belong to the user:
+- one input capture of about a design build. that is 7,181 to 7,981 s historically, not a forecast.
+- a diagnosis that will probably stop. the witness covers only the outer reduction, and inner-error dominance ends as inconclusive.
+- a repair that, even after a positive witness, may fail qualification.
+
+before launch, implementation and command pins still need their own review, as the scope requires.
+
 ### replacement disposable rollback
 
 verdict: **clear for what it claims.** completion `6f5fca51`, correction `6cd0bdd0`, commit `bb8b34d`. this review read saved receipts, json outputs, scripts, profiles and the operator source. it ran no operator, opened no publication, rehashed no database and made no http request.

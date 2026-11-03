@@ -3,7 +3,7 @@
 # root releases composition separately, after the current heavy job leaves the resource lane.
 set -eu
 expected_final_score_sha256=40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc
-expected_selection_sha256=''
+expected_selection_sha256=588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450
 accepted_score_receipt=/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-final-score-completion.json
 accepted_score_receipt_sha256=8f9163b53c07c264ef59d651bf4860b04333b70a61ec4a19abc7bd4fecfa1953
 case "$expected_final_score_sha256$expected_selection_sha256$accepted_score_receipt_sha256" in *[!0-9a-f]*) exit 1 ;; esac

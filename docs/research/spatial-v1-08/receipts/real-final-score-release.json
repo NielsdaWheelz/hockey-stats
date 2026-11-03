@@ -1,0 +1,51 @@
+{
+  "kind": "replacement-real-final-score-release",
+  "status": "released_not_yet_launched",
+  "recorded_utc": "2026-11-03T10:00:01.750603+00:00",
+  "code_commit": "f1d4c1f48158eb88830c58e3125420b10960ea4a",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "assembly_acceptance": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/u-assembly-completion.json",
+    "sha256": "4453013fb76062148a88005cd2acb6a4b2c5fdd50d75b4f0b5f95422a7a0c797",
+    "bytes": 20659
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-final-score-command-review.md",
+    "sha256": "a1d097342fbc6a43122f4e67221d88868e7dedbd23f19478218d2c705224d5aa",
+    "bytes": 3656
+  },
+  "preparation": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-score-preparation.json",
+    "sha256": "593a1f9235ef514a6e7cc65ae8e57da476594e6899d65dbc61a348d121a8c177",
+    "bytes": 8007
+  },
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20252026-score-command.sh",
+    "sha256": "e9a60ed68b60e315003e9b795359b234e39aa2ed55e427fd6e29091f008bd3f2",
+    "bytes": 5577
+  },
+  "acceptance_helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_score_20252026.py",
+    "sha256": "53fa5baf871a8e133ef446d8d41e4602bc371388cd607be3bd746ff2b1970d0f",
+    "bytes": 39234
+  },
+  "observer": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/consumed_start_check.py",
+    "sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+    "bytes": 19868
+  },
+  "annual_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+    "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "bytes": 367855
+  },
+  "scope": "one ordinary final-year execution score with four prescribed saved-probe propagations; one subsequent saved-score acceptance; no fit, rescore of earlier years, source modification or activation",
+  "constraints": [
+    "keep HEAD, analysis, command, observer and acceptance helper fixed through exit",
+    "heavy jobs serial until first real spatial memory measurement",
+    "source parity all fields except command and observer duration",
+    "fixed final-propagation budgets; no seasonwide per-event or all-player bound",
+    "failure stops affected chain; no automatic alternative attempt"
+  ],
+  "activation": false
+}

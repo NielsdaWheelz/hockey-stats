@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "scope": "scratch-only substituted paths/pins/git and model shell stub; no real cli, model, source or array pass",
+  "command_sha256": "8fe1dfae57333aa74ee0032a1b1f75be2dc15ba297d35bd22ff84c0252d9e752",
+  "syntax_checked": true,
+  "controls": [
+    {
+      "mode": "pass",
+      "exit_code": 0,
+      "model_stub_invoked": true
+    },
+    {
+      "mode": "native_exit3",
+      "exit_code": 3,
+      "model_stub_invoked": true
+    },
+    {
+      "mode": "occupied_output",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    },
+    {
+      "mode": "occupied_log",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    },
+    {
+      "mode": "occupied_exit",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    },
+    {
+      "mode": "dirty_analysis",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    },
+    {
+      "mode": "changed_helper",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    },
+    {
+      "mode": "changed_input",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    },
+    {
+      "mode": "changed_acceptance",
+      "exit_code": 1,
+      "model_stub_invoked": false
+    }
+  ],
+  "scratch": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-repair-shell-pb42v6b_"
+}

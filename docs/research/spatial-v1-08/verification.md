@@ -560,3 +560,8 @@ the original spatial controls remain `10000/1e-15/1e-6/history10` with native fu
 [the small write release](receipts/real-execution-selection-release.json) binds writer `376cbefc`, held-package preparation `93d78e51` and [independent review `cbb1a118`](reviews/real-execution-selection-compose-command-review.md). it writes only the explicit five-score selection after fixed state/score chronology and accepted completion `8f9163b5` checks. the final year names assembled state `59e3432d` and score `40e23b35`; first-four identities remain exact. its actual stored hash is measured after exclusive writing, not guessed beforehand.
 
 composition remains held by its empty selection pin. its fourteen streaming/accounting reducers are unchanged, and tiny selection/parser/stream controls pass without reading actual score payloads. no actual composition, source, model or strict-reader call is released here. first-spatial `20212022` remains the sole heavy job; no activation follows.
+
+
+## accepted execution selection written — 2026-11-03 utc
+
+[the sole write](receipts/real-execution-selection-completion.json) exits 0 from `7f3f436`: 1,429 stored bytes, actual digest `588376316a8b4d5311a1677bb3f1419f3754854f25dd2a28e09e3e8c000f9450`, with all five accepted score manifests in chronological order. no source, strict score/state reader, model array, fit or rescore is called. the selector and first-four identities remain unchanged. composition's final one-literal pin review follows; heavy composition still waits for measured first-spatial acceptance.

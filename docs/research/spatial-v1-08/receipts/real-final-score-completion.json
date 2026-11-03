@@ -1,0 +1,306 @@
+{
+  "kind": "replacement-real-final-execution-score-acceptance",
+  "status": "accepted",
+  "recorded_utc": "2026-11-03T16:08:16.126832+00:00",
+  "root_verdict": "accept final real execution score and four bounded propagations; release already-assigned first real spatial annual",
+  "manifest": {
+    "season": "20252026",
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+    "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+    "bytes": 383423
+  },
+  "annual": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/assembled-01/20252026/manifest.json",
+    "sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+    "season": "20252026",
+    "purpose": "real",
+    "recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+    "usage": "annual",
+    "previous": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20242025/manifest.json",
+      "sha256": "1ba2c8af310d12239d6cabb89ee6cc92b6b98bd95e6834b4f44e303802a44cfe"
+    }
+  },
+  "source_report": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-source-check.json",
+    "sha256": "b7deeb18afc0eac4bbdebdf252e02c8aa5eec7182d9ab72ba54ce21aed119e8b",
+    "bytes": 88657
+  },
+  "canonical_acceptance": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026-saved-acceptance.json",
+    "sha256": "bc20e0f9558b0513aabd806498a74ea3decb0997bf1b3383bec87d96003b6e16",
+    "bytes": 106848
+  },
+  "independent_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-final-score-saved-review.md",
+    "sha256": "2a4d16f1c1181d4bb50e36e280c1b7922f172af13060a8655dc939bef0d27317",
+    "bytes": 7362
+  },
+  "independent_checked_facts": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-final-score-independent-checked-facts.json",
+    "sha256": "d4191b877b9412efacc9912c8225161c42ce5db2baf63159a31f30d2631380e1",
+    "bytes": 101804
+  },
+  "accepted_scores": [
+    {
+      "season": "20212022",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20212022/manifest.json",
+      "sha256": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d",
+      "bytes": 383198
+    },
+    {
+      "season": "20222023",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+      "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20",
+      "bytes": 383418
+    },
+    {
+      "season": "20232024",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20232024/manifest.json",
+      "sha256": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+      "bytes": 383426
+    },
+    {
+      "season": "20242025",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20242025/manifest.json",
+      "sha256": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+      "bytes": 383422
+    },
+    {
+      "season": "20252026",
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20252026/manifest.json",
+      "sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+      "bytes": 383423
+    }
+  ],
+  "execution_repair_completed": {
+    "annual_baseline_heads": 20,
+    "final_head_probes": 4,
+    "annual_scores": 5,
+    "final_head_propagations": 4
+  },
+  "population": {
+    "recognized": 153754,
+    "complete": 151381,
+    "excluded": 2373,
+    "heads": {
+      "u": {
+        "included": 151381,
+        "class:0": 40484,
+        "class:1": 110897,
+        "excluded": 2373,
+        "physical_attempts": 151381,
+        "key_sha256": "29739fafaa1aea5f62f8e7b9d819394a1b6eb1d63d6a9861c1f3a97bd9af4856",
+        "eligibility_counts": {
+          "masked_on_the_fly": 3,
+          "masked_faceoff": 4,
+          "unresolved_binding": 3,
+          "admitted_same_clock_faceoff": 13,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "q": {
+        "excluded": 42857,
+        "included": 110897,
+        "class:1": 72381,
+        "class:0": 38516,
+        "physical_attempts": 110897,
+        "key_sha256": "3753a85f0f780f0ca2c57a31d2d0d78cd4255ee9765fc80c973685a8f2d8cd80",
+        "eligibility_counts": {
+          "masked_on_the_fly": 2,
+          "masked_faceoff": 3,
+          "unresolved_binding": 3,
+          "admitted_same_clock_faceoff": 7,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "r": {
+        "excluded": 81373,
+        "included": 72381,
+        "class:0": 13753,
+        "class:1": 58628,
+        "physical_attempts": 72381,
+        "key_sha256": "da2b0db1a442eee7157c58079d4984b6b6a343107a26cf5738e2d4e4b207f79d",
+        "eligibility_counts": {
+          "masked_on_the_fly": 1,
+          "masked_faceoff": 3,
+          "unresolved_binding": 3,
+          "admitted_same_clock_faceoff": 4,
+          "withheld_earlier_anchor": 0
+        }
+      },
+      "g": {
+        "excluded": 95126,
+        "included": 58628,
+        "class:0": 51080,
+        "class:1": 7548,
+        "physical_attempts": 58628,
+        "key_sha256": "e3107420750c7a7c6d4a9de8aa5c747278b39e8a0a6a2cefdc67165b7b47d200",
+        "eligibility_counts": {
+          "masked_on_the_fly": 1,
+          "masked_faceoff": 3,
+          "unresolved_binding": 3,
+          "admitted_same_clock_faceoff": 3,
+          "withheld_earlier_anchor": 0
+        }
+      }
+    },
+    "labels_statuses_reasons_identities_exact_original": true,
+    "coverage_exact_original": true,
+    "source_contexts": 151381,
+    "physical5v5_events": 120912,
+    "projections": 6580,
+    "maps": 13160,
+    "setter_branches": 1371413,
+    "share_rows": 1825556
+  },
+  "accounting": {
+    "share_closure_max": 2.5673907444456745e-16,
+    "independent24order_group_error": 9.8879238130678e-17,
+    "native_map_scalar_closure": "all available old/new saved maps exact",
+    "neutral_panel_sums": "all32 event-panel baseline sums and saved propagation sums reconcile; every published projection reference closes to its panel; strict reader covers all32 saved logits"
+  },
+  "propagation": {
+    "status": "passed",
+    "budgets": {
+      "probability": 1e-05,
+      "per100": 0.001,
+      "map_l1": 0.001
+    },
+    "heads": {
+      "u": {
+        "status": "passed",
+        "producer_saved_maximum_changes": {
+          "actual_probability": 9.703146162109988e-07,
+          "synthetic_probability": 3.0348223325482593e-06,
+          "posterior_diagnostic": 0.0,
+          "stage": 5.693858320388046e-07,
+          "per100": 3.4718729340355026e-06,
+          "map_l1": 3.5229957705620873e-06
+        },
+        "reaggregated_pair_maxima": {
+          "stage": 5.693858320388046e-07,
+          "per100": 3.4718729340355026e-06,
+          "map_l1": 3.5229957705620873e-06
+        },
+        "compared_pairs": 43,
+        "largest_abs_neutral_panel_sum_change": 6.263766590564046e-05
+      },
+      "q": {
+        "status": "passed",
+        "producer_saved_maximum_changes": {
+          "actual_probability": 4.1730588895561027e-07,
+          "synthetic_probability": 1.2252681974578294e-06,
+          "posterior_diagnostic": 0.0,
+          "stage": 4.7203711989185493e-07,
+          "per100": 4.320704044324941e-06,
+          "map_l1": 4.366238033659056e-06
+        },
+        "reaggregated_pair_maxima": {
+          "stage": 4.7203711989185493e-07,
+          "per100": 4.320704044324941e-06,
+          "map_l1": 4.366238033659056e-06
+        },
+        "compared_pairs": 43,
+        "largest_abs_neutral_panel_sum_change": 9.550853883411037e-05
+      },
+      "r": {
+        "status": "passed",
+        "producer_saved_maximum_changes": {
+          "actual_probability": 2.589231375971224e-07,
+          "synthetic_probability": 7.509141983774725e-07,
+          "posterior_diagnostic": 0.0,
+          "stage": 2.9333090545424767e-07,
+          "per100": 4.412454249980158e-06,
+          "map_l1": 4.412454250279981e-06
+        },
+        "reaggregated_pair_maxima": {
+          "stage": 2.9333090545424767e-07,
+          "per100": 4.412454249980158e-06,
+          "map_l1": 4.412454250279981e-06
+        },
+        "compared_pairs": 43,
+        "largest_abs_neutral_panel_sum_change": 7.872456507129755e-06
+      },
+      "g": {
+        "status": "passed",
+        "producer_saved_maximum_changes": {
+          "actual_probability": 3.526917167206989e-07,
+          "synthetic_probability": 1.2707018645641277e-07,
+          "posterior_diagnostic": 4.1151610868928046e-07,
+          "stage": 5.027514754507578e-08,
+          "per100": 0.0001170476485921057,
+          "map_l1": 0.00011704764859217158
+        },
+        "reaggregated_pair_maxima": {
+          "stage": 5.027514754507578e-08,
+          "per100": 0.0001170476485921057,
+          "map_l1": 0.00011704764859217158
+        },
+        "compared_pairs": 43,
+        "largest_abs_neutral_panel_sum_change": 0.0005518088801181875
+      }
+    }
+  },
+  "resources": {
+    "whole_command_wall_seconds": 21056.96,
+    "user_seconds": 19506.47,
+    "system_seconds": 503.93,
+    "maximum_resident_bytes": 23865917440,
+    "peak_memory_footprint_bytes": 28529021688,
+    "producer": {
+      "complete_events": 151381,
+      "design_wall_seconds": 6117.093533291016,
+      "input_read_wall_seconds": 29.514617791981436,
+      "origin_rows": 26668401,
+      "output_bytes": 2473316472,
+      "panel_array_bytes": 1497063856,
+      "peak_memory_bytes": 23865917440,
+      "projected_skaters": 940,
+      "projection_wall_seconds": 11252.514825374936,
+      "projections": 6580,
+      "recognized_events": 153754,
+      "resolution_wall_seconds": 2408.5498560420237,
+      "scoring_wall_seconds": 1127.8469099580543,
+      "setter_branches": 1371413,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 20972.456565083936,
+      "write_wall_seconds": 21.516641499940306
+    },
+    "producer_wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+    "member_bytes": 2473316472,
+    "complete_bytes": 2473699895,
+    "checker_wall_seconds": 109.24350125005003,
+    "checker_peak_rss_bytes": 3454894080
+  },
+  "launch": {
+    "head": "58ca52df2d9409d1e788b07a916f8b51b9826187",
+    "producer_head": "58ca52df2d9409d1e788b07a916f8b51b9826187",
+    "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+    "observer_sha256": "ef4995e579855950cab475cc2ac237f6ce22538429cc1f04d675b48838a6fca4",
+    "start": "2026-11-03T10:00:32Z",
+    "finish": "2026-11-03T15:51:29Z",
+    "exit": 0,
+    "log": {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/score-20252026.log",
+      "bytes": 924,
+      "sha256": "300d38717231811b549f852241d50769db9bf5396c67ee93d94233b9cf7194e8"
+    }
+  },
+  "checks": {
+    "strict_score_reads_here": 1,
+    "additional_independent_strict_reads": 0,
+    "source_passes_after_score": 0,
+    "fit_calls": 0,
+    "rescore_calls": 0
+  },
+  "preservation": "first four accepted raw states/scores, all expensive originals, failed final families, preparation/facts and live publication remain preserved",
+  "limits": [
+    "panel-wide coverage concerns neutral sums; selected event/pair sensitivity is not a seasonwide actor per-event or all-player bound",
+    "unsaved variant predictions remain digest-bound producer evidence",
+    "numerical acceptance is not scientific admission",
+    "real final-year spatial volume-probe risk remains open"
+  ],
+  "next": "first real spatial annual, then its measured resource/head acceptance before successors; compatible composition remains assigned",
+  "activation": false
+}

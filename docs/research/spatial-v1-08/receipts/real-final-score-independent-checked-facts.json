@@ -1,0 +1,3544 @@
+{
+  "status": "passed",
+  "kind": "independent-saved-final-execution-score-audit",
+  "manifest_sha256": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc",
+  "canonical_acceptance_sha256": "bc20e0f9558b0513aabd806498a74ea3decb0997bf1b3383bec87d96003b6e16",
+  "original_manifest_sha256": "580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c",
+  "annual_manifest_sha256": "59e3432df70366c4e058007f4396be7737f76afada4fad96c84896dd12a6f276",
+  "source_report_sha256": "b7deeb18afc0eac4bbdebdf252e02c8aa5eec7182d9ab72ba54ce21aed119e8b",
+  "helper_sha256": "53fa5baf871a8e133ef446d8d41e4602bc371388cd607be3bd746ff2b1970d0f",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "launch_head": "58ca52df2d9409d1e788b07a916f8b51b9826187",
+  "members_checked_each": 73,
+  "member_identities": {
+    "new": [
+      {
+        "path": "events.jsonl",
+        "sha256": "b8dd611481f5a9cfdd674595efc599663a6ba4acae68f62445ae9cfcb68a8c6f",
+        "bytes": 237471640
+      },
+      {
+        "path": "setters.jsonl",
+        "sha256": "3b5a885f8b30c199c49e6a213ea222a346887d43250be1de899eded299ce1bc3",
+        "bytes": 253251135
+      },
+      {
+        "path": "shares.jsonl",
+        "sha256": "591e7800d6e6cba409fb877850a22097b1aae386bae84917b1da4a92071d06cf",
+        "bytes": 243672045
+      },
+      {
+        "path": "people.jsonl",
+        "sha256": "fd13ca1f0a8d3442814b7e8c2d9025734ffbe3d0ca0b89188f0c11ca6e8f252e",
+        "bytes": 111017
+      },
+      {
+        "path": "coach_ids.jsonl",
+        "sha256": "e62759b184e8bac8527d4d19b6972cc9d783ffa3bb1943ae34687f9bdfe91e1f",
+        "bytes": 2331
+      },
+      {
+        "path": "panels/3v3g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v3g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v3g1.jsonl",
+        "sha256": "d01176010e2927eb6bdd154e5a1982ba1b574c303fc9b4bbedf8a5ef46408f03",
+        "bytes": 331707
+      },
+      {
+        "path": "panels/3v3g1.npz",
+        "sha256": "e776e89b3b60348215f4688a95ab83c3765ea03e5448b7663cb81478f074a738",
+        "bytes": 9336210
+      },
+      {
+        "path": "panels/3v4g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v4g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v4g1.jsonl",
+        "sha256": "1b747cb3c1d044fd47b3177e2b76e839b267843550c9bbe6f7b4066d54f6edf4",
+        "bytes": 4350
+      },
+      {
+        "path": "panels/3v4g1.npz",
+        "sha256": "9de4f7ca7133d3242311bc38358f909207d772bdd9c64b9a167b0ed6f8a94530",
+        "bytes": 76650
+      },
+      {
+        "path": "panels/3v5g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v5g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v5g1.jsonl",
+        "sha256": "36ff43018adb6098172208c13bef3b4dbdf816c7cc82cf3f5099f9e160d896b0",
+        "bytes": 2069
+      },
+      {
+        "path": "panels/3v5g1.npz",
+        "sha256": "9c9302d419c6635f8ca8c41804b42dffeb0ac935f65c7b0b4fa85bcb08c72941",
+        "bytes": 2410
+      },
+      {
+        "path": "panels/3v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v6g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v6g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v3g0.jsonl",
+        "sha256": "af6a180a789cf0912c1eaa09a6c53dda05a6e85e42b6bb016ff5355e5efa82e7",
+        "bytes": 2275
+      },
+      {
+        "path": "panels/4v3g0.npz",
+        "sha256": "845a702723db790917879e40aaaa26027e3c022e82f751f3f0aa31ec0f082a6d",
+        "bytes": 39170
+      },
+      {
+        "path": "panels/4v3g1.jsonl",
+        "sha256": "7642dcd6648604e79882e70ddad5a2d5f041bc0ce41933ff5ad14ee82f049181",
+        "bytes": 86648
+      },
+      {
+        "path": "panels/4v3g1.npz",
+        "sha256": "84aac4fbf0a556b49796f2d60398330174e2a6c0e3d2bdcd80fa6d335e156346",
+        "bytes": 3299650
+      },
+      {
+        "path": "panels/4v4g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v4g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v4g1.jsonl",
+        "sha256": "aa2110bf9f6565eb1fed34c797c84bae2ead32ad2f3aa35be3a802069c0c8562",
+        "bytes": 322933
+      },
+      {
+        "path": "panels/4v4g1.npz",
+        "sha256": "f840118e18b4655d15fca5765400d02b69b10fb115a663e6d98eb4d9ae46a5e8",
+        "bytes": 12597690
+      },
+      {
+        "path": "panels/4v5g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v5g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v5g1.jsonl",
+        "sha256": "ae13ffc7c050f755728fa3d23b10ab6781f4a3feab952c3688cc5d86a5fac5a7",
+        "bytes": 567180
+      },
+      {
+        "path": "panels/4v5g1.npz",
+        "sha256": "77316bca292e3a10201aff41fcea5a3d48b09389d6f073b651829b15caf9aa62",
+        "bytes": 11151450
+      },
+      {
+        "path": "panels/4v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v6g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v6g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/5v3g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/5v3g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/5v3g1.jsonl",
+        "sha256": "d691b8f0a3f1d7dab74b23ff7238df76fa140d57cd599e3b962ca2c8166048a8",
+        "bytes": 131468
+      },
+      {
+        "path": "panels/5v3g1.npz",
+        "sha256": "b20bb270ead0c26e18595c3a5df27191f232cde940fc0c04512447ec6b04a72c",
+        "bytes": 3793930
+      },
+      {
+        "path": "panels/5v4g0.jsonl",
+        "sha256": "92afde0f28462e2b91c7664505efd90d666f73d41efcef1020f427b7773e24f5",
+        "bytes": 7656
+      },
+      {
+        "path": "panels/5v4g0.npz",
+        "sha256": "4e1972122faecda0045711483eeecf7d350aa739162f0a1e25cf3b83210d17ba",
+        "bytes": 444730
+      },
+      {
+        "path": "panels/5v4g1.jsonl",
+        "sha256": "28d641dd3a5bc6d68fb0f93b23977613882d85ebaf6283e330c8278282c2b92a",
+        "bytes": 4034061
+      },
+      {
+        "path": "panels/5v4g1.npz",
+        "sha256": "8b531a7bcba8cb4e9ed432d3db6c3e79a4a86f66b80ebf6812eaa09653ed111a",
+        "bytes": 168753210
+      },
+      {
+        "path": "panels/5v5g0.jsonl",
+        "sha256": "adae793d831277706a9d84f5f8b608e7be28a7c4c2d57a3b70ba1d651e75af67",
+        "bytes": 5381
+      },
+      {
+        "path": "panels/5v5g0.npz",
+        "sha256": "0a354309348f2a4f630fc620e92cc628dbef2010fb4167c7e8fb6945b4c3a0d0",
+        "bytes": 297130
+      },
+      {
+        "path": "panels/5v5g1.jsonl",
+        "sha256": "c335b19fd3c9decfd061911c0589626e44daa6ed2f61c7886ba4f6fd33f131ee",
+        "bytes": 24961363
+      },
+      {
+        "path": "panels/5v5g1.npz",
+        "sha256": "fc1c4af964ea580de95e21ccaa8242ce9b767148c8dc26e186e7ac8f8e948c19",
+        "bytes": 1242012530
+      },
+      {
+        "path": "panels/5v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/5v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/5v6g1.jsonl",
+        "sha256": "1c98e271ac309a7c4417ab406e079378554f2fbd8d6f3ed27c8cd2d3587c3865",
+        "bytes": 206
+      },
+      {
+        "path": "panels/5v6g1.npz",
+        "sha256": "226e6be4a01d65df71d9430159d885cba269e086d5e22fea36fe947bbe250eb8",
+        "bytes": 1690
+      },
+      {
+        "path": "panels/6v3g0.jsonl",
+        "sha256": "d5d1a1e56a5b6ef5829924d1a6ff8982f65e6f0d6ee6f6c1fcec2c40eea1b655",
+        "bytes": 414
+      },
+      {
+        "path": "panels/6v3g0.npz",
+        "sha256": "ebd894a8b14c5727933fb20d31ff0de65571f89b7df4b13f70e4818db8028aff",
+        "bytes": 38450
+      },
+      {
+        "path": "panels/6v3g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/6v3g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/6v4g0.jsonl",
+        "sha256": "8ae1b900b339cea8fc18e5ffcfad898e18a52f966c9a37268a66beb084cc2a45",
+        "bytes": 88116
+      },
+      {
+        "path": "panels/6v4g0.npz",
+        "sha256": "892b5b43a10694ee1df2f5c3b5b29c594e558201479847b30e4ea9ef9ecd4574",
+        "bytes": 5024170
+      },
+      {
+        "path": "panels/6v4g1.jsonl",
+        "sha256": "5a7d7e5bf41bb94f33b10a95872dc892145f62bbebe9b4445f2a6c3b71264d55",
+        "bytes": 413
+      },
+      {
+        "path": "panels/6v4g1.npz",
+        "sha256": "efc6e006d1aa4055206b20ab3b46e8cd73d23ed2b9fe000a6c66901250005810",
+        "bytes": 1770
+      },
+      {
+        "path": "panels/6v5g0.jsonl",
+        "sha256": "307e9bd5cc5ad58aa174adecfb40fc7c4f532269441c06bfb414b74c58d75b01",
+        "bytes": 708228
+      },
+      {
+        "path": "panels/6v5g0.npz",
+        "sha256": "a85091057039085c0445c7aa9e12835776d1b8626caa6dafd431b7b81713028e",
+        "bytes": 40220050
+      },
+      {
+        "path": "panels/6v5g1.jsonl",
+        "sha256": "53753dc3befa41206fd6b7de9514ff059a276c4c3cea9a74c2191b9c63820c35",
+        "bytes": 208
+      },
+      {
+        "path": "panels/6v5g1.npz",
+        "sha256": "84b152b15ae6c9e0a64537c7c015f585fb9733a454ef133e35a3d83dbee60a9a",
+        "bytes": 1690
+      },
+      {
+        "path": "panels/6v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/6v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/6v6g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/6v6g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "projections.jsonl",
+        "sha256": "c305d370077c53a9bdc97ef8a380d8d01610f5d40aa05924032e7a7567efd287",
+        "bytes": 33400856
+      },
+      {
+        "path": "maps.jsonl",
+        "sha256": "c9b41b59811a29c2c814e74c41daa5bff4f9b3a5dc4d049b1cfe95387f7024dc",
+        "bytes": 176624815
+      },
+      {
+        "path": "resolution.json",
+        "sha256": "d68b22dfa102520f176d274e0922d0d4efbfaa97ca15048af16ad35e1a7aa3a3",
+        "bytes": 257544
+      },
+      {
+        "path": "coverage.json",
+        "sha256": "7f96c713215922c2dffa27f45f57cfd66af042552142be8cd1ff0b688e45cb17",
+        "bytes": 155293
+      }
+    ],
+    "old": [
+      {
+        "path": "events.jsonl",
+        "sha256": "c5d4a5b79a9a962c9701dda813a56439060d825ef6f7a3198f78c9af4a9e525c",
+        "bytes": 237472464
+      },
+      {
+        "path": "setters.jsonl",
+        "sha256": "cea3ab500ae1177bc98f654e71d273cd93cf0c52f3eda2d3688300c831f89b71",
+        "bytes": 253251585
+      },
+      {
+        "path": "shares.jsonl",
+        "sha256": "3f90e4e6dfee74365268f4d198bfd8b2c2e48a5e97be9dab64bc7c6739fcede4",
+        "bytes": 243620927
+      },
+      {
+        "path": "people.jsonl",
+        "sha256": "fd13ca1f0a8d3442814b7e8c2d9025734ffbe3d0ca0b89188f0c11ca6e8f252e",
+        "bytes": 111017
+      },
+      {
+        "path": "coach_ids.jsonl",
+        "sha256": "e62759b184e8bac8527d4d19b6972cc9d783ffa3bb1943ae34687f9bdfe91e1f",
+        "bytes": 2331
+      },
+      {
+        "path": "panels/3v3g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v3g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v3g1.jsonl",
+        "sha256": "d01176010e2927eb6bdd154e5a1982ba1b574c303fc9b4bbedf8a5ef46408f03",
+        "bytes": 331707
+      },
+      {
+        "path": "panels/3v3g1.npz",
+        "sha256": "d96c7b4c3ea3cdae30c5e7d495e48c87f3d61aa264131bfc46eaf098d175f051",
+        "bytes": 9336210
+      },
+      {
+        "path": "panels/3v4g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v4g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v4g1.jsonl",
+        "sha256": "1b747cb3c1d044fd47b3177e2b76e839b267843550c9bbe6f7b4066d54f6edf4",
+        "bytes": 4350
+      },
+      {
+        "path": "panels/3v4g1.npz",
+        "sha256": "2103c8c8303a1aac2e6a882125f4ee9effde909cf6d110a0dc0e00e551cf26d8",
+        "bytes": 76650
+      },
+      {
+        "path": "panels/3v5g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v5g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v5g1.jsonl",
+        "sha256": "36ff43018adb6098172208c13bef3b4dbdf816c7cc82cf3f5099f9e160d896b0",
+        "bytes": 2069
+      },
+      {
+        "path": "panels/3v5g1.npz",
+        "sha256": "180181dc3ab76e8377207a403d8c763a6574e567b26e33cfbac704a1bd36d06b",
+        "bytes": 2410
+      },
+      {
+        "path": "panels/3v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/3v6g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/3v6g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v3g0.jsonl",
+        "sha256": "af6a180a789cf0912c1eaa09a6c53dda05a6e85e42b6bb016ff5355e5efa82e7",
+        "bytes": 2275
+      },
+      {
+        "path": "panels/4v3g0.npz",
+        "sha256": "4a88e936c0e2e688029102fe84d96c1e3eccc7064a7ada1dadc56ede52926121",
+        "bytes": 39170
+      },
+      {
+        "path": "panels/4v3g1.jsonl",
+        "sha256": "7642dcd6648604e79882e70ddad5a2d5f041bc0ce41933ff5ad14ee82f049181",
+        "bytes": 86648
+      },
+      {
+        "path": "panels/4v3g1.npz",
+        "sha256": "eafdfff28c34ca70cf2dda6067b926ec1bdec3f3a52f4c286e37fea42367e2a7",
+        "bytes": 3299650
+      },
+      {
+        "path": "panels/4v4g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v4g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v4g1.jsonl",
+        "sha256": "aa2110bf9f6565eb1fed34c797c84bae2ead32ad2f3aa35be3a802069c0c8562",
+        "bytes": 322933
+      },
+      {
+        "path": "panels/4v4g1.npz",
+        "sha256": "e42c67514dba73ed799e88b680c5d705f1d113544f5b89a9cc719dbcabc6e7e1",
+        "bytes": 12597690
+      },
+      {
+        "path": "panels/4v5g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v5g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v5g1.jsonl",
+        "sha256": "ae13ffc7c050f755728fa3d23b10ab6781f4a3feab952c3688cc5d86a5fac5a7",
+        "bytes": 567180
+      },
+      {
+        "path": "panels/4v5g1.npz",
+        "sha256": "420b06cb8daa0d0b4aa0af0b98a7f9f88344138d60e6f55c95dbc114b2646a91",
+        "bytes": 11151450
+      },
+      {
+        "path": "panels/4v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/4v6g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/4v6g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/5v3g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/5v3g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/5v3g1.jsonl",
+        "sha256": "d691b8f0a3f1d7dab74b23ff7238df76fa140d57cd599e3b962ca2c8166048a8",
+        "bytes": 131468
+      },
+      {
+        "path": "panels/5v3g1.npz",
+        "sha256": "98c1453144452f271327228cb6b54ec352288ec5e85ed478c1718af35efe8159",
+        "bytes": 3793930
+      },
+      {
+        "path": "panels/5v4g0.jsonl",
+        "sha256": "92afde0f28462e2b91c7664505efd90d666f73d41efcef1020f427b7773e24f5",
+        "bytes": 7656
+      },
+      {
+        "path": "panels/5v4g0.npz",
+        "sha256": "acf354d32e5453fe39d0441cef3cda5af58e25cbdb6f8584c5bc2d9e1e6bcc4d",
+        "bytes": 444730
+      },
+      {
+        "path": "panels/5v4g1.jsonl",
+        "sha256": "28d641dd3a5bc6d68fb0f93b23977613882d85ebaf6283e330c8278282c2b92a",
+        "bytes": 4034061
+      },
+      {
+        "path": "panels/5v4g1.npz",
+        "sha256": "e520a8e179b29f179ffb875d817340e7fe22227aa2bfbe8b64b65b336326425d",
+        "bytes": 168753210
+      },
+      {
+        "path": "panels/5v5g0.jsonl",
+        "sha256": "adae793d831277706a9d84f5f8b608e7be28a7c4c2d57a3b70ba1d651e75af67",
+        "bytes": 5381
+      },
+      {
+        "path": "panels/5v5g0.npz",
+        "sha256": "f9be1b6a0403e3fbf2bcea0d7fa3ceb8b119b291803c418f934b5fe357f7dbf2",
+        "bytes": 297130
+      },
+      {
+        "path": "panels/5v5g1.jsonl",
+        "sha256": "c335b19fd3c9decfd061911c0589626e44daa6ed2f61c7886ba4f6fd33f131ee",
+        "bytes": 24961363
+      },
+      {
+        "path": "panels/5v5g1.npz",
+        "sha256": "766d5992bd42b4d3f85c9f9f4ec88cec6d0300e927e40c3d3e9e45ae7944a836",
+        "bytes": 1242012530
+      },
+      {
+        "path": "panels/5v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/5v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/5v6g1.jsonl",
+        "sha256": "1c98e271ac309a7c4417ab406e079378554f2fbd8d6f3ed27c8cd2d3587c3865",
+        "bytes": 206
+      },
+      {
+        "path": "panels/5v6g1.npz",
+        "sha256": "8e22ea57bb14348397c170bdf46621e09e1fb914f8748e52a865ebe5d2dd8861",
+        "bytes": 1690
+      },
+      {
+        "path": "panels/6v3g0.jsonl",
+        "sha256": "d5d1a1e56a5b6ef5829924d1a6ff8982f65e6f0d6ee6f6c1fcec2c40eea1b655",
+        "bytes": 414
+      },
+      {
+        "path": "panels/6v3g0.npz",
+        "sha256": "4005212f8a78e0912cc1bf8be5f9693d18431a539bbe128fb3adf1930ba60182",
+        "bytes": 38450
+      },
+      {
+        "path": "panels/6v3g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/6v3g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/6v4g0.jsonl",
+        "sha256": "8ae1b900b339cea8fc18e5ffcfad898e18a52f966c9a37268a66beb084cc2a45",
+        "bytes": 88116
+      },
+      {
+        "path": "panels/6v4g0.npz",
+        "sha256": "5144a841c0832c04f0b6b031d66ccfd9e10338cf94427ca3efa7f9ef071636e4",
+        "bytes": 5024170
+      },
+      {
+        "path": "panels/6v4g1.jsonl",
+        "sha256": "5a7d7e5bf41bb94f33b10a95872dc892145f62bbebe9b4445f2a6c3b71264d55",
+        "bytes": 413
+      },
+      {
+        "path": "panels/6v4g1.npz",
+        "sha256": "20306aa61ac6736b8093d91676886d169ba755b5a97159c0c0a40f90ddce52d8",
+        "bytes": 1770
+      },
+      {
+        "path": "panels/6v5g0.jsonl",
+        "sha256": "307e9bd5cc5ad58aa174adecfb40fc7c4f532269441c06bfb414b74c58d75b01",
+        "bytes": 708228
+      },
+      {
+        "path": "panels/6v5g0.npz",
+        "sha256": "76d125c4611107ee651ab8c6a8db9117253149672ee96ba2855d10e8d3327b1c",
+        "bytes": 40220050
+      },
+      {
+        "path": "panels/6v5g1.jsonl",
+        "sha256": "53753dc3befa41206fd6b7de9514ff059a276c4c3cea9a74c2191b9c63820c35",
+        "bytes": 208
+      },
+      {
+        "path": "panels/6v5g1.npz",
+        "sha256": "bdc64e0dd11319b2fa2703e99665872d432f6747690b1da8a99ffbbf5f543bc0",
+        "bytes": 1690
+      },
+      {
+        "path": "panels/6v6g0.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/6v6g0.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "panels/6v6g1.jsonl",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "panels/6v6g1.npz",
+        "sha256": "c5996d12a981ecdcbf97588533e46eef642dca7da1441491ef4493531a71a9f7",
+        "bytes": 1610
+      },
+      {
+        "path": "projections.jsonl",
+        "sha256": "e1af1c6488a3c2638661d1b1e044dbed7952a96e06d9f6bd99502248800ce889",
+        "bytes": 33399937
+      },
+      {
+        "path": "maps.jsonl",
+        "sha256": "68ced724addba4eaf790276641922f5f8cf0450716b4944c7263e053204093fd",
+        "bytes": 176628394
+      },
+      {
+        "path": "resolution.json",
+        "sha256": "a0839624e94eed3d3d04e40406faf3bc09094cbecff6e41ac6549132d6d3e2a7",
+        "bytes": 257572
+      },
+      {
+        "path": "coverage.json",
+        "sha256": "7f96c713215922c2dffa27f45f57cfd66af042552142be8cd1ff0b688e45cb17",
+        "bytes": 155293
+      }
+    ]
+  },
+  "identical_members": [
+    "people.jsonl",
+    "coach_ids.jsonl",
+    "panels/3v3g0.jsonl",
+    "panels/3v3g0.npz",
+    "panels/3v3g1.jsonl",
+    "panels/3v4g0.jsonl",
+    "panels/3v4g0.npz",
+    "panels/3v4g1.jsonl",
+    "panels/3v5g0.jsonl",
+    "panels/3v5g0.npz",
+    "panels/3v5g1.jsonl",
+    "panels/3v6g0.jsonl",
+    "panels/3v6g0.npz",
+    "panels/3v6g1.jsonl",
+    "panels/3v6g1.npz",
+    "panels/4v3g0.jsonl",
+    "panels/4v3g1.jsonl",
+    "panels/4v4g0.jsonl",
+    "panels/4v4g0.npz",
+    "panels/4v4g1.jsonl",
+    "panels/4v5g0.jsonl",
+    "panels/4v5g0.npz",
+    "panels/4v5g1.jsonl",
+    "panels/4v6g0.jsonl",
+    "panels/4v6g0.npz",
+    "panels/4v6g1.jsonl",
+    "panels/4v6g1.npz",
+    "panels/5v3g0.jsonl",
+    "panels/5v3g0.npz",
+    "panels/5v3g1.jsonl",
+    "panels/5v4g0.jsonl",
+    "panels/5v4g1.jsonl",
+    "panels/5v5g0.jsonl",
+    "panels/5v5g1.jsonl",
+    "panels/5v6g0.jsonl",
+    "panels/5v6g0.npz",
+    "panels/5v6g1.jsonl",
+    "panels/6v3g0.jsonl",
+    "panels/6v3g1.jsonl",
+    "panels/6v3g1.npz",
+    "panels/6v4g0.jsonl",
+    "panels/6v4g1.jsonl",
+    "panels/6v5g0.jsonl",
+    "panels/6v5g1.jsonl",
+    "panels/6v6g0.jsonl",
+    "panels/6v6g0.npz",
+    "panels/6v6g1.jsonl",
+    "panels/6v6g1.npz",
+    "coverage.json"
+  ],
+  "changed_members": [
+    "events.jsonl",
+    "setters.jsonl",
+    "shares.jsonl",
+    "panels/3v3g1.npz",
+    "panels/3v4g1.npz",
+    "panels/3v5g1.npz",
+    "panels/4v3g0.npz",
+    "panels/4v3g1.npz",
+    "panels/4v4g1.npz",
+    "panels/4v5g1.npz",
+    "panels/5v3g1.npz",
+    "panels/5v4g0.npz",
+    "panels/5v4g1.npz",
+    "panels/5v5g0.npz",
+    "panels/5v5g1.npz",
+    "panels/5v6g1.npz",
+    "panels/6v3g0.npz",
+    "panels/6v4g0.npz",
+    "panels/6v4g1.npz",
+    "panels/6v5g0.npz",
+    "panels/6v5g1.npz",
+    "projections.jsonl",
+    "maps.jsonl",
+    "resolution.json"
+  ],
+  "population": {
+    "recognized": 153754,
+    "complete": 151381,
+    "excluded": 2373,
+    "setter_rows": 1371413,
+    "share_rows": 1825556,
+    "projections": 6580,
+    "maps": 13160,
+    "heads": {
+      "u": {
+        "included": 151381,
+        "class:0": 40484,
+        "class:1": 110897,
+        "excluded": 2373
+      },
+      "q": {
+        "excluded": 42857,
+        "included": 110897,
+        "class:1": 72381,
+        "class:0": 38516
+      },
+      "r": {
+        "excluded": 81373,
+        "included": 72381,
+        "class:0": 13753,
+        "class:1": 58628
+      },
+      "g": {
+        "excluded": 95126,
+        "included": 58628,
+        "class:0": 51080,
+        "class:1": 7548
+      }
+    }
+  },
+  "accounting": {
+    "share_closure_max": 2.5673907444456745e-16,
+    "independent24order_direct_group_error": 9.367506770274758e-17,
+    "all_map_scalar_closures_exact": true,
+    "all32panel_memberships_and_sums": true
+  },
+  "annual_event_selector": {
+    "actual_keys": 256,
+    "fixture_witnesses": [
+      "synthetic-resolution:2025020038:6:shooter:8471734"
+    ],
+    "requirements": [
+      {
+        "requirement": "strength:3,3,1",
+        "key": "2025020006:334",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:3,4,1",
+        "key": "2025020113:85",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:3,5,1",
+        "key": "2025020123:86",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:4,3,0",
+        "key": "2025020047:346",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:4,3,1",
+        "key": "2025020006:329",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:4,4,1",
+        "key": "2025020006:331",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:4,5,1",
+        "key": "2025020001:185",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:5,3,1",
+        "key": "2025020003:318",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:5,4,0",
+        "key": "2025020040:347",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:5,4,1",
+        "key": "2025020001:55",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:5,5,0",
+        "key": "2025020143:300",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:5,5,1",
+        "key": "2025020001:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:5,6,1",
+        "key": "2025020703:145",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:6,3,0",
+        "key": "2025021181:298",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:6,4,0",
+        "key": "2025020003:324",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:6,4,1",
+        "key": "2025020395:209",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:6,5,0",
+        "key": "2025020001:356",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "strength:6,5,1",
+        "key": "2025020045:285",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "type:wrist",
+        "key": "2025020001:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "type:snap",
+        "key": "2025020001:18",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "type:slap",
+        "key": "2025020001:15",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "type:backhand",
+        "key": "2025020001:84",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "type:tip",
+        "key": "2025020001:37",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "type:other",
+        "key": "2025020001:35",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "outcome:block",
+        "key": "2025020001:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "outcome:miss",
+        "key": "2025020001:18",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "outcome:save",
+        "key": "2025020001:10",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "outcome:goal",
+        "key": "2025020001:66",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "missing_context",
+        "key": "2025020001:180",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "tip",
+        "key": "2025020001:37",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "off_ice_setter",
+        "key": "2025020001:7",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "incomplete_setter",
+        "key": "2025020010:66",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:u:shooter:8471734",
+        "key": "synthetic-resolution:2025020038:6:shooter:8471734",
+        "disposition": "fixture"
+      },
+      {
+        "requirement": "sparse:u:attacking_coach:coach-peter-deboer",
+        "key": "2025021252:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:u:defending_coach:coach-peter-deboer",
+        "key": "2025021252:12",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:q:shooter:8471734",
+        "key": "synthetic-resolution:2025020038:6:shooter:8471734",
+        "disposition": "fixture"
+      },
+      {
+        "requirement": "sparse:q:goalie:8480022",
+        "key": "2025020918:158",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:q:attacking_coach:coach-peter-deboer",
+        "key": "2025021252:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:q:defending_coach:coach-peter-deboer",
+        "key": "2025021252:12",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:r:shooter:8471734",
+        "key": "synthetic-resolution:2025020038:6:shooter:8471734",
+        "disposition": "fixture"
+      },
+      {
+        "requirement": "sparse:r:goalie:8480022",
+        "key": "2025020918:158",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:r:attacking_coach:coach-peter-deboer",
+        "key": "2025021252:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:r:defending_coach:coach-peter-deboer",
+        "key": "2025021252:12",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:g:shooter:8471734",
+        "key": "synthetic-resolution:2025020038:6:shooter:8471734",
+        "disposition": "fixture"
+      },
+      {
+        "requirement": "sparse:g:goalie:8480022",
+        "key": "2025020918:158",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:g:setter:8482479",
+        "key": "2025020492:21",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:g:attacking_coach:coach-peter-deboer",
+        "key": "2025021252:2",
+        "disposition": "actual"
+      },
+      {
+        "requirement": "sparse:g:defending_coach:coach-peter-deboer",
+        "key": "2025021252:12",
+        "disposition": "actual"
+      }
+    ]
+  },
+  "focal_selector": {
+    "pairs": [
+      [
+        "8471817",
+        "5v5"
+      ],
+      [
+        "8475179",
+        "5v5"
+      ],
+      [
+        "8475461",
+        "5v5"
+      ],
+      [
+        "8475762",
+        "5v5"
+      ],
+      [
+        "8475795",
+        "5v5"
+      ],
+      [
+        "8477903",
+        "5v5"
+      ],
+      [
+        "8477931",
+        "5v5"
+      ],
+      [
+        "8478409",
+        "5v5"
+      ],
+      [
+        "8480800",
+        "5v5"
+      ],
+      [
+        "8481178",
+        "5v5"
+      ],
+      [
+        "8483429",
+        "5v5"
+      ],
+      [
+        "8483766",
+        "5v5"
+      ],
+      [
+        "8474149",
+        "5v4"
+      ],
+      [
+        "8477903",
+        "5v4"
+      ],
+      [
+        "8477931",
+        "5v4"
+      ],
+      [
+        "8477939",
+        "5v4"
+      ],
+      [
+        "8480800",
+        "5v4"
+      ],
+      [
+        "8477903",
+        "5v3"
+      ],
+      [
+        "8477931",
+        "5v3"
+      ],
+      [
+        "8480800",
+        "5v3"
+      ],
+      [
+        "8483429",
+        "5v3"
+      ],
+      [
+        "8484223",
+        "5v3"
+      ],
+      [
+        "8477903",
+        "4v3"
+      ],
+      [
+        "8477931",
+        "4v3"
+      ],
+      [
+        "8477939",
+        "4v3"
+      ],
+      [
+        "8480800",
+        "4v3"
+      ],
+      [
+        "8476872",
+        "4v5"
+      ],
+      [
+        "8477903",
+        "4v5"
+      ],
+      [
+        "8477931",
+        "4v5"
+      ],
+      [
+        "8480800",
+        "4v5"
+      ],
+      [
+        "8483429",
+        "4v5"
+      ],
+      [
+        "8477018",
+        "3v5"
+      ],
+      [
+        "8477401",
+        "3v5"
+      ],
+      [
+        "8477903",
+        "3v5"
+      ],
+      [
+        "8477931",
+        "3v5"
+      ],
+      [
+        "8477939",
+        "3v5"
+      ],
+      [
+        "8480800",
+        "3v5"
+      ],
+      [
+        "8481030",
+        "3v5"
+      ],
+      [
+        "8477903",
+        "3v4"
+      ],
+      [
+        "8477931",
+        "3v4"
+      ],
+      [
+        "8480800",
+        "3v4"
+      ],
+      [
+        "8481161",
+        "3v4"
+      ],
+      [
+        "8483429",
+        "3v4"
+      ]
+    ],
+    "requirements": [
+      {
+        "requirement": "finishing:5v5:min",
+        "pair": [
+          "8477931",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:5v5:max",
+        "pair": [
+          "8483429",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:5v5:min",
+        "pair": [
+          "8477903",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:5v5:max",
+        "pair": [
+          "8480800",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:5v4:min",
+        "pair": [
+          "8477931",
+          "5v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:5v4:max",
+        "pair": [
+          "8477939",
+          "5v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:5v4:min",
+        "pair": [
+          "8477903",
+          "5v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:5v4:max",
+        "pair": [
+          "8480800",
+          "5v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:5v3:min",
+        "pair": [
+          "8477931",
+          "5v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:5v3:max",
+        "pair": [
+          "8483429",
+          "5v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:5v3:min",
+        "pair": [
+          "8477903",
+          "5v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:5v3:max",
+        "pair": [
+          "8480800",
+          "5v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:4v3:min",
+        "pair": [
+          "8477931",
+          "4v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:4v3:max",
+        "pair": [
+          "8477939",
+          "4v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:4v3:min",
+        "pair": [
+          "8477903",
+          "4v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:4v3:max",
+        "pair": [
+          "8480800",
+          "4v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:4v5:min",
+        "pair": [
+          "8477931",
+          "4v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:4v5:max",
+        "pair": [
+          "8483429",
+          "4v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:4v5:min",
+        "pair": [
+          "8477903",
+          "4v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:4v5:max",
+        "pair": [
+          "8480800",
+          "4v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:3v5:min",
+        "pair": [
+          "8477931",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:3v5:max",
+        "pair": [
+          "8477939",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:3v5:min",
+        "pair": [
+          "8477903",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:3v5:max",
+        "pair": [
+          "8480800",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:3v4:min",
+        "pair": [
+          "8477931",
+          "3v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "finishing:3v4:max",
+        "pair": [
+          "8483429",
+          "3v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:3v4:min",
+        "pair": [
+          "8477903",
+          "3v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "setting:3v4:max",
+        "pair": [
+          "8480800",
+          "3v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "F:shooter:smallest_positive_support",
+        "pair": [
+          "8475461",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "F:shooter:first_prior_only",
+        "pair": [
+          "8478409",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "F:setter:smallest_positive_support",
+        "pair": [
+          "8471817",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "F:setter:first_prior_only",
+        "pair": null,
+        "disposition": "unavailable"
+      },
+      {
+        "requirement": "D:shooter:smallest_positive_support",
+        "pair": [
+          "8475762",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "D:shooter:first_prior_only",
+        "pair": [
+          "8483766",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "D:setter:smallest_positive_support",
+        "pair": [
+          "8475179",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "D:setter:first_prior_only",
+        "pair": null,
+        "disposition": "unavailable"
+      },
+      {
+        "requirement": "avoid_block_probability:min",
+        "pair": [
+          "8481178",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "avoid_block_probability:max",
+        "pair": [
+          "8476872",
+          "4v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "on_net_probability:min",
+        "pair": [
+          "8475795",
+          "5v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "on_net_probability:max",
+        "pair": [
+          "8477018",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "recorded_stop_probability:min",
+        "pair": [
+          "8481030",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "recorded_stop_probability:max",
+        "pair": [
+          "8481161",
+          "3v4"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "conversion_probability:min",
+        "pair": [
+          "8477401",
+          "3v5"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "conversion_probability:max",
+        "pair": [
+          "8484223",
+          "5v3"
+        ],
+        "disposition": "selected"
+      },
+      {
+        "requirement": "largest_tip_supported_fraction",
+        "pair": [
+          "8474149",
+          "5v4"
+        ],
+        "disposition": "selected"
+      }
+    ],
+    "tip_fraction_definition": "focal shooter full-joint exact-strength physical tip attempts / all focal full-joint exact-strength physical attempts; zero denominator unavailable",
+    "scope": "bounded focal pairs; every baseline panel row; no all-player error bound"
+  },
+  "propagation": {
+    "u": {
+      "saved_probability_evidence": {
+        "actual_probability": 9.703146162109988e-07,
+        "synthetic_probability": 3.0348223325482593e-06,
+        "posterior_diagnostic": 0.0,
+        "stage": 5.693858320388046e-07,
+        "per100": 3.4718729340355026e-06,
+        "map_l1": 3.5229957705620873e-06
+      },
+      "reaggregated_pair_maxima": {
+        "stage": 5.693858320388046e-07,
+        "per100": 3.4718729340355026e-06,
+        "map_l1": 3.5229957705620873e-06
+      },
+      "pair_maximum_locators": {
+        "per100": {
+          "pair": [
+            "8480800",
+            "3v5"
+          ],
+          "field": "setting_goals_per100_assisted_opportunities",
+          "change": 3.4718729340355026e-06
+        },
+        "stage": {
+          "pair": [
+            "8480800",
+            "3v5"
+          ],
+          "field": "avoid_block_probability",
+          "change": 5.693858320388046e-07
+        },
+        "map_l1": {
+          "pair": [
+            "8480800",
+            "3v5"
+          ],
+          "map_kind": "setting",
+          "change": 3.5229957705620873e-06
+        }
+      },
+      "largest_panel_sum_movement": {
+        "panel_id": "execution-v1-06-1:20252026:5,5,1",
+        "events": 120912,
+        "signed_goal_change": 6.263766590564046e-05
+      },
+      "actual_key_expected_sums": {
+        "actor": {
+          "baseline": 11.306921674321872,
+          "variant": 11.306922434025676,
+          "change": 7.597038038653636e-07
+        },
+        "neutral": {
+          "baseline": 10.871094824507932,
+          "variant": 10.87109549589218,
+          "change": 6.713842477523713e-07
+        },
+        "neutral_goalie": {
+          "baseline": 11.448203004573266,
+          "variant": 11.448203786915188,
+          "change": 7.823419228003559e-07
+        }
+      },
+      "danger_crossings_saved": 0
+    },
+    "q": {
+      "saved_probability_evidence": {
+        "actual_probability": 4.1730588895561027e-07,
+        "synthetic_probability": 1.2252681974578294e-06,
+        "posterior_diagnostic": 0.0,
+        "stage": 4.7203711989185493e-07,
+        "per100": 4.320704044324941e-06,
+        "map_l1": 4.366238033659056e-06
+      },
+      "reaggregated_pair_maxima": {
+        "stage": 4.7203711989185493e-07,
+        "per100": 4.320704044324941e-06,
+        "map_l1": 4.366238033659056e-06
+      },
+      "pair_maximum_locators": {
+        "per100": {
+          "pair": [
+            "8480800",
+            "3v4"
+          ],
+          "field": "setting_goals_per100_assisted_opportunities",
+          "change": 4.320704044324941e-06
+        },
+        "stage": {
+          "pair": [
+            "8475795",
+            "5v5"
+          ],
+          "field": "on_net_probability_difference",
+          "change": 4.7203711989185493e-07
+        },
+        "map_l1": {
+          "pair": [
+            "8480800",
+            "3v4"
+          ],
+          "map_kind": "setting",
+          "change": 4.366238033659056e-06
+        }
+      },
+      "largest_panel_sum_movement": {
+        "panel_id": "execution-v1-06-1:20252026:5,5,1",
+        "events": 120912,
+        "signed_goal_change": 9.550853883411037e-05
+      },
+      "actual_key_expected_sums": {
+        "actor": {
+          "baseline": 11.306921674321872,
+          "variant": 11.306921149166195,
+          "change": -5.25155677166822e-07
+        },
+        "neutral": {
+          "baseline": 10.871094824507932,
+          "variant": 10.871094176204691,
+          "change": -6.483032404247524e-07
+        },
+        "neutral_goalie": {
+          "baseline": 11.448203004573266,
+          "variant": 11.44820246606852,
+          "change": -5.385047447958868e-07
+        }
+      },
+      "danger_crossings_saved": 0
+    },
+    "r": {
+      "saved_probability_evidence": {
+        "actual_probability": 2.589231375971224e-07,
+        "synthetic_probability": 7.509141983774725e-07,
+        "posterior_diagnostic": 0.0,
+        "stage": 2.9333090545424767e-07,
+        "per100": 4.412454249980158e-06,
+        "map_l1": 4.412454250279981e-06
+      },
+      "reaggregated_pair_maxima": {
+        "stage": 2.9333090545424767e-07,
+        "per100": 4.412454249980158e-06,
+        "map_l1": 4.412454250279981e-06
+      },
+      "pair_maximum_locators": {
+        "per100": {
+          "pair": [
+            "8484223",
+            "5v3"
+          ],
+          "field": "finishing_goals_per100_attempts",
+          "change": 4.412454249980158e-06
+        },
+        "stage": {
+          "pair": [
+            "8484223",
+            "5v3"
+          ],
+          "field": "recorded_stop_probability",
+          "change": 2.9333090545424767e-07
+        },
+        "map_l1": {
+          "pair": [
+            "8484223",
+            "5v3"
+          ],
+          "map_kind": "finishing",
+          "change": 4.412454250279981e-06
+        }
+      },
+      "largest_panel_sum_movement": {
+        "panel_id": "execution-v1-06-1:20252026:4,5,1",
+        "events": 2740,
+        "signed_goal_change": 7.872456507129755e-06
+      },
+      "actual_key_expected_sums": {
+        "actor": {
+          "baseline": 11.306921674321872,
+          "variant": 11.306920829681733,
+          "change": -8.446401391637437e-07
+        },
+        "neutral": {
+          "baseline": 10.871094824507932,
+          "variant": 10.871094019865332,
+          "change": -8.046425996610651e-07
+        },
+        "neutral_goalie": {
+          "baseline": 11.448203004573266,
+          "variant": 11.448202169175534,
+          "change": -8.353977314357053e-07
+        }
+      },
+      "danger_crossings_saved": 0
+    },
+    "g": {
+      "saved_probability_evidence": {
+        "actual_probability": 3.526917167206989e-07,
+        "synthetic_probability": 1.2707018645641277e-07,
+        "posterior_diagnostic": 4.1151610868928046e-07,
+        "stage": 5.027514754507578e-08,
+        "per100": 0.0001170476485921057,
+        "map_l1": 0.00011704764859217158
+      },
+      "reaggregated_pair_maxima": {
+        "stage": 5.027514754507578e-08,
+        "per100": 0.0001170476485921057,
+        "map_l1": 0.00011704764859217158
+      },
+      "pair_maximum_locators": {
+        "per100": {
+          "pair": [
+            "8480800",
+            "4v5"
+          ],
+          "field": "setting_goals_per100_assisted_opportunities",
+          "change": 0.0001170476485921057
+        },
+        "stage": {
+          "pair": [
+            "8477939",
+            "4v3"
+          ],
+          "field": "conversion_probability",
+          "change": 5.027514754507578e-08
+        },
+        "map_l1": {
+          "pair": [
+            "8480800",
+            "4v5"
+          ],
+          "map_kind": "setting",
+          "change": 0.00011704764859217158
+        }
+      },
+      "largest_panel_sum_movement": {
+        "panel_id": "execution-v1-06-1:20252026:5,5,1",
+        "events": 120912,
+        "signed_goal_change": 0.0005518088801181875
+      },
+      "actual_key_expected_sums": {
+        "actor": {
+          "baseline": 11.306921674321872,
+          "variant": 11.30691880961053,
+          "change": -2.8647113428093007e-06
+        },
+        "neutral": {
+          "baseline": 10.871094824507932,
+          "variant": 10.871093197089014,
+          "change": -1.6274189178488996e-06
+        },
+        "neutral_goalie": {
+          "baseline": 11.448203004573266,
+          "variant": 11.448201440342343,
+          "change": -1.5642309225682993e-06
+        }
+      },
+      "danger_crossings_saved": 0
+    }
+  },
+  "panel_goal_sums": [
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,3,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,3,1",
+      "events": 1599,
+      "old": {
+        "neutral.u": 1340.6750375066388,
+        "neutral.uq": 979.3921531351646,
+        "neutral.uqr": 881.8320111188577,
+        "neutral.uqrg": 142.26414790772245,
+        "actor.uqrg": 162.84818161344535,
+        "neutral_goalie.uqrg": 162.45936291591303
+      },
+      "new": {
+        "neutral.u": 1340.6761060405136,
+        "neutral.uq": 979.3948160296668,
+        "neutral.uqr": 881.8411399268393,
+        "neutral.uqrg": 142.26756752660688,
+        "actor.uqrg": 162.85285589234923,
+        "neutral_goalie.uqrg": 162.46412864289925
+      },
+      "signed_goal_change": {
+        "actor": 0.0046742789038773935,
+        "neutral": 0.003419618884436204,
+        "neutral_goalie": 0.0047657269862213525
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,4,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,4,1",
+      "events": 21,
+      "old": {
+        "neutral.u": 17.09371198540278,
+        "neutral.uq": 11.430046849599714,
+        "neutral.uqr": 9.202603125362453,
+        "neutral.uqrg": 0.8509183130568063,
+        "actor.uqrg": 0.8541700220055978,
+        "neutral_goalie.uqrg": 0.8362734793745659
+      },
+      "new": {
+        "neutral.u": 17.09336605650358,
+        "neutral.uq": 11.429361783522674,
+        "neutral.uqr": 9.20193787425084,
+        "neutral.uqrg": 0.850984674751062,
+        "actor.uqrg": 0.8542643717586997,
+        "neutral_goalie.uqrg": 0.8363630197828806
+      },
+      "signed_goal_change": {
+        "actor": 9.434975310196325e-05,
+        "neutral": 6.636169425566774e-05,
+        "neutral_goalie": 8.954040831476995e-05
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,5,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,5,1",
+      "events": 10,
+      "old": {
+        "neutral.u": 7.903971670002378,
+        "neutral.uq": 7.25606683448753,
+        "neutral.uqr": 6.890724125746696,
+        "neutral.uqrg": 0.29311689648998845,
+        "actor.uqrg": 0.36246649385889596,
+        "neutral_goalie.uqrg": 0.34667705895339795
+      },
+      "new": {
+        "neutral.u": 7.903634289640407,
+        "neutral.uq": 7.255596299327603,
+        "neutral.uqr": 6.890159652002063,
+        "neutral.uqrg": 0.293128063192785,
+        "actor.uqrg": 0.3625256594802564,
+        "neutral_goalie.uqrg": 0.3467334824830167
+      },
+      "signed_goal_change": {
+        "actor": 5.916562136043524e-05,
+        "neutral": 1.1166702796550076e-05,
+        "neutral_goalie": 5.64235296187654e-05
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,6,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:3,6,1",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,3,0",
+      "events": 11,
+      "old": {
+        "neutral.u": 9.215111598138309,
+        "neutral.uq": 5.918326149162079,
+        "neutral.uqr": 5.034972623456598,
+        "neutral.uqrg": 0.7098705421204682,
+        "actor.uqrg": 0.7764537271608027,
+        "neutral_goalie.uqrg": 0.7928438899273129
+      },
+      "new": {
+        "neutral.u": 9.215144755819894,
+        "neutral.uq": 5.917346007070238,
+        "neutral.uqr": 5.033154065967648,
+        "neutral.uqrg": 0.7097702495407714,
+        "actor.uqrg": 0.7763684943096356,
+        "neutral_goalie.uqrg": 0.792764659668035
+      },
+      "signed_goal_change": {
+        "actor": -8.523285116712742e-05,
+        "neutral": -0.0001002925796967924,
+        "neutral_goalie": -7.923025927791816e-05
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,3,1",
+      "events": 419,
+      "old": {
+        "neutral.u": 327.0902715028018,
+        "neutral.uq": 225.04555457643738,
+        "neutral.uqr": 189.47762146819093,
+        "neutral.uqrg": 24.51066176569151,
+        "actor.uqrg": 29.770498933995107,
+        "neutral_goalie.uqrg": 29.908658820857333
+      },
+      "new": {
+        "neutral.u": 327.09075979774934,
+        "neutral.uq": 225.04341205490564,
+        "neutral.uqr": 189.4739164635779,
+        "neutral.uqrg": 24.51075526155634,
+        "actor.uqrg": 29.770647421607933,
+        "neutral_goalie.uqrg": 29.909198969617446
+      },
+      "signed_goal_change": {
+        "actor": 0.0001484876128259316,
+        "neutral": 9.349586483153871e-05,
+        "neutral_goalie": 0.0005401487601126576
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,4,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,4,1",
+      "events": 1561,
+      "old": {
+        "neutral.u": 1228.1770926210445,
+        "neutral.uq": 862.4797897347959,
+        "neutral.uqr": 715.0016108152349,
+        "neutral.uqrg": 69.95636101743422,
+        "actor.uqrg": 78.09770866433665,
+        "neutral_goalie.uqrg": 78.36969238135971
+      },
+      "new": {
+        "neutral.u": 1228.1770347583551,
+        "neutral.uq": 862.4775618913244,
+        "neutral.uqr": 714.9998507989283,
+        "neutral.uqrg": 69.95667108827062,
+        "actor.uqrg": 78.09827460703377,
+        "neutral_goalie.uqrg": 78.37011498113539
+      },
+      "signed_goal_change": {
+        "actor": 0.0005659426971220682,
+        "neutral": 0.0003100708364058846,
+        "neutral_goalie": 0.00042259977567482565
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,5,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,5,1",
+      "events": 2740,
+      "old": {
+        "neutral.u": 2432.8837929038705,
+        "neutral.uq": 1914.1565420652926,
+        "neutral.uqr": 1762.2116155563353,
+        "neutral.uqrg": 190.1659054356943,
+        "actor.uqrg": 177.39670774447367,
+        "neutral_goalie.uqrg": 177.3404518452805
+      },
+      "new": {
+        "neutral.u": 2432.8828903138274,
+        "neutral.uq": 1914.1549296741111,
+        "neutral.uqr": 1762.2067719438326,
+        "neutral.uqrg": 190.16893189934487,
+        "actor.uqrg": 177.3996423461292,
+        "neutral_goalie.uqrg": 177.34355716690388
+      },
+      "signed_goal_change": {
+        "actor": 0.0029346016555393817,
+        "neutral": 0.0030264636505705766,
+        "neutral_goalie": 0.003105321623365853
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,6,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:4,6,1",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,3,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,3,1",
+      "events": 637,
+      "old": {
+        "neutral.u": 531.1330721778173,
+        "neutral.uq": 358.4268166901311,
+        "neutral.uqr": 298.218915535035,
+        "neutral.uqrg": 70.51242458440802,
+        "actor.uqrg": 79.75283574820114,
+        "neutral_goalie.uqrg": 80.43585186873857
+      },
+      "new": {
+        "neutral.u": 531.1336487501401,
+        "neutral.uq": 358.42688637367377,
+        "neutral.uqr": 298.21849484057844,
+        "neutral.uqrg": 70.5129106451469,
+        "actor.uqrg": 79.75293808577685,
+        "neutral_goalie.uqrg": 80.43578213973007
+      },
+      "signed_goal_change": {
+        "actor": 0.00010233757571143087,
+        "neutral": 0.00048606073887924595,
+        "neutral_goalie": -6.972900850144015e-05
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,4,0",
+      "events": 37,
+      "old": {
+        "neutral.u": 25.975253216807562,
+        "neutral.uq": 15.782872440004086,
+        "neutral.uqr": 13.315920872858605,
+        "neutral.uqrg": 1.8199801364767536,
+        "actor.uqrg": 2.2532050985333436,
+        "neutral_goalie.uqrg": 2.169793087615452
+      },
+      "new": {
+        "neutral.u": 25.97529483346743,
+        "neutral.uq": 15.783111212958385,
+        "neutral.uqr": 13.31639487824132,
+        "neutral.uqrg": 1.8200914073726129,
+        "actor.uqrg": 2.253253029918154,
+        "neutral_goalie.uqrg": 2.169905455622603
+      },
+      "signed_goal_change": {
+        "actor": 4.793138481051784e-05,
+        "neutral": 0.0001112708958592723,
+        "neutral_goalie": 0.00011236800715108686
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,4,1",
+      "events": 19552,
+      "old": {
+        "neutral.u": 14953.081261198078,
+        "neutral.uq": 10000.519096431452,
+        "neutral.uqr": 8196.242969117424,
+        "neutral.uqrg": 1213.1290773861938,
+        "actor.uqrg": 1379.4346016196523,
+        "neutral_goalie.uqrg": 1380.4251433053487
+      },
+      "new": {
+        "neutral.u": 14953.089406072386,
+        "neutral.uq": 10000.516753577676,
+        "neutral.uqr": 8196.227439155022,
+        "neutral.uqrg": 1213.1360573758082,
+        "actor.uqrg": 1379.4413674159957,
+        "neutral_goalie.uqrg": 1380.4325732069137
+      },
+      "signed_goal_change": {
+        "actor": 0.006765796343415786,
+        "neutral": 0.0069799896143649676,
+        "neutral_goalie": 0.007429901565046748
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,5,0",
+      "events": 26,
+      "old": {
+        "neutral.u": 18.008280932262462,
+        "neutral.uq": 10.718900493299458,
+        "neutral.uqr": 9.09097324033241,
+        "neutral.uqrg": 1.148480671711236,
+        "actor.uqrg": 1.1128333135608912,
+        "neutral_goalie.uqrg": 1.137385511393192
+      },
+      "new": {
+        "neutral.u": 18.008198703216745,
+        "neutral.uq": 10.718969053060968,
+        "neutral.uqr": 9.091177565588907,
+        "neutral.uqrg": 1.1485791664506666,
+        "actor.uqrg": 1.1129191682090591,
+        "neutral_goalie.uqrg": 1.1374650241238047
+      },
+      "signed_goal_change": {
+        "actor": 8.585464816790456e-05,
+        "neutral": 9.849473943068787e-05,
+        "neutral_goalie": 7.951273061257425e-05
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,5,1",
+      "events": 120912,
+      "old": {
+        "neutral.u": 87844.59950172156,
+        "neutral.uq": 56745.90437118678,
+        "neutral.uqr": 45655.15323585539,
+        "neutral.uqrg": 5258.497126668831,
+        "actor.uqrg": 5327.547461331216,
+        "neutral_goalie.uqrg": 5321.633305146005
+      },
+      "new": {
+        "neutral.u": 87844.58721005071,
+        "neutral.uq": 56745.93970816379,
+        "neutral.uqr": 45655.179371813705,
+        "neutral.uqrg": 5258.536221165885,
+        "actor.uqrg": 5327.598366297351,
+        "neutral_goalie.uqrg": 5321.68200634382
+      },
+      "signed_goal_change": {
+        "actor": 0.05090496613502182,
+        "neutral": 0.03909449705406587,
+        "neutral_goalie": 0.04870119781480753
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,6,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:5,6,1",
+      "events": 1,
+      "old": {
+        "neutral.u": 0.7826394192977635,
+        "neutral.uq": 0.5553734248947328,
+        "neutral.uqr": 0.3964412179229143,
+        "neutral.uqrg": 0.07218486348010422,
+        "actor.uqrg": 0.06984972520237608,
+        "neutral_goalie.uqrg": 0.07308911485217637
+      },
+      "new": {
+        "neutral.u": 0.7826615345643394,
+        "neutral.uq": 0.5555696192158764,
+        "neutral.uqr": 0.39683658543551814,
+        "neutral.uqrg": 0.07223705686447345,
+        "actor.uqrg": 0.06990063444691585,
+        "neutral_goalie.uqrg": 0.07314281995479441
+      },
+      "signed_goal_change": {
+        "actor": 5.0909244539779075e-05,
+        "neutral": 5.219338436922294e-05,
+        "neutral_goalie": 5.370510261804018e-05
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,3,0",
+      "events": 2,
+      "old": {
+        "neutral.u": 1.0546776958250712,
+        "neutral.uq": 0.5299867286254918,
+        "neutral.uqr": 0.41627975101965997,
+        "neutral.uqrg": 0.04320195338545285,
+        "actor.uqrg": 0.050252700416179824,
+        "neutral_goalie.uqrg": 0.04451839484849284
+      },
+      "new": {
+        "neutral.u": 1.0546736272765573,
+        "neutral.uq": 0.5299996114407937,
+        "neutral.uqr": 0.4162913344507298,
+        "neutral.uqrg": 0.04320436458952294,
+        "actor.uqrg": 0.05025885638707889,
+        "neutral_goalie.uqrg": 0.04452428266967867
+      },
+      "signed_goal_change": {
+        "actor": 6.155970899063279e-06,
+        "neutral": 2.411204070087991e-06,
+        "neutral_goalie": 5.8878211858306995e-06
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,3,1",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,4,0",
+      "events": 426,
+      "old": {
+        "neutral.u": 289.1112714535354,
+        "neutral.uq": 179.86509751934574,
+        "neutral.uqr": 136.7625277825791,
+        "neutral.uqrg": 18.904210033718748,
+        "actor.uqrg": 21.3216790866191,
+        "neutral_goalie.uqrg": 21.720998223896796
+      },
+      "new": {
+        "neutral.u": 289.1117438512593,
+        "neutral.uq": 179.8656439254794,
+        "neutral.uqr": 136.7648415143213,
+        "neutral.uqrg": 18.904592389874416,
+        "actor.uqrg": 21.322511196899015,
+        "neutral_goalie.uqrg": 21.721793795835666
+      },
+      "signed_goal_change": {
+        "actor": 0.0008321102799158098,
+        "neutral": 0.00038235615566861725,
+        "neutral_goalie": 0.0007955719388696991
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,4,1",
+      "events": 2,
+      "old": {
+        "neutral.u": 1.812522811453591,
+        "neutral.uq": 1.2757590860980026,
+        "neutral.uqr": 1.06526467921396,
+        "neutral.uqrg": 0.20328246829308433,
+        "actor.uqrg": 0.27141462514589365,
+        "neutral_goalie.uqrg": 0.2697842664407673
+      },
+      "new": {
+        "neutral.u": 1.8125150423415315,
+        "neutral.uq": 1.2760853757029063,
+        "neutral.uqr": 1.065901298280251,
+        "neutral.uqrg": 0.2033620133159619,
+        "actor.uqrg": 0.2715319844398942,
+        "neutral_goalie.uqrg": 0.269885678975974
+      },
+      "signed_goal_change": {
+        "actor": 0.00011735929400052969,
+        "neutral": 7.954502287757514e-05,
+        "neutral_goalie": 0.0001014125352066797
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,5,0",
+      "events": 3424,
+      "old": {
+        "neutral.u": 2330.7719777764323,
+        "neutral.uq": 1458.6964024391948,
+        "neutral.uqr": 1215.2428897837835,
+        "neutral.uqrg": 164.54916763717117,
+        "actor.uqrg": 181.15166954279567,
+        "neutral_goalie.uqrg": 181.83713575674065
+      },
+      "new": {
+        "neutral.u": 2330.774016867539,
+        "neutral.uq": 1458.6691467983044,
+        "neutral.uqr": 1215.187743557421,
+        "neutral.uqrg": 164.51219738902364,
+        "actor.uqrg": 181.11600756766506,
+        "neutral_goalie.uqrg": 181.80047846927806
+      },
+      "signed_goal_change": {
+        "actor": -0.035661975130608425,
+        "neutral": -0.03697024814752581,
+        "neutral_goalie": -0.03665728746258878
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,5,1",
+      "events": 1,
+      "old": {
+        "neutral.u": 0.8385173532505888,
+        "neutral.uq": 0.6196520057805861,
+        "neutral.uqr": 0.5208073933338552,
+        "neutral.uqrg": 0.2156820663908182,
+        "actor.uqrg": 0.2165151678890571,
+        "neutral_goalie.uqrg": 0.2080686512913671
+      },
+      "new": {
+        "neutral.u": 0.8385411088408097,
+        "neutral.uq": 0.6200934995410692,
+        "neutral.uqr": 0.5216117215562679,
+        "neutral.uqrg": 0.21590348190735498,
+        "actor.uqrg": 0.2168388513467686,
+        "neutral_goalie.uqrg": 0.20834894464715975
+      },
+      "signed_goal_change": {
+        "actor": 0.0003236834577115266,
+        "neutral": 0.00022141551653678815,
+        "neutral_goalie": 0.0002802933557926601
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,6,0",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    },
+    {
+      "panel_id": "execution-v1-06-1:20252026:6,6,1",
+      "events": 0,
+      "old": {},
+      "new": {},
+      "signed_goal_change": {
+        "actor": 0.0,
+        "neutral": 0.0,
+        "neutral_goalie": 0.0
+      }
+    }
+  ],
+  "probability_movement": {
+    "all_complete": {
+      "actor": {
+        "numeric_cells": 1545707,
+        "null_cells": 119484,
+        "absolute": {
+          "key": "2025021143:254",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "actor.prefix.uqr",
+          "old": 0.5648148996480277,
+          "new": 0.5933644887778087,
+          "signed_change": 0.028549589129781006,
+          "absolute_change": 0.028549589129781006
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "actor.conditional.actor_unblocked_goal_probability",
+          "old": 0.020876362347394924,
+          "new": 0.02953115390720402,
+          "signed_change": 0.008654791559809097,
+          "relative_change": 0.4145737373105661
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151381,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.625912830178656e-05,
+          "p90": 0.00010857470649261458,
+          "p99": 0.00039691939833684135,
+          "max": 0.028549589129781006
+        }
+      },
+      "neutral": {
+        "numeric_cells": 1513810,
+        "null_cells": 0,
+        "absolute": {
+          "key": "2025021082:10",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral.prefix.uqr",
+          "old": 0.33106342113828463,
+          "new": 0.36069383056608756,
+          "signed_change": 0.02963040942780293,
+          "absolute_change": 0.02963040942780293
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral.prefix.uqrg",
+          "old": 0.01297473572560365,
+          "new": 0.017992927594413025,
+          "signed_change": 0.005018191868809375,
+          "relative_change": 0.386766403180509
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151381,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.273588083376299e-05,
+          "p90": 0.00010438746369734186,
+          "p99": 0.00038687058666704463,
+          "max": 0.02963040942780293
+        }
+      },
+      "neutral_goalie": {
+        "numeric_cells": 1586191,
+        "null_cells": 79000,
+        "absolute": {
+          "key": "2025021082:10",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral_goalie.prefix.uqr",
+          "old": 0.2934431919027572,
+          "new": 0.3215821616233485,
+          "signed_change": 0.028138969720591323,
+          "absolute_change": 0.028138969720591323
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral_goalie.conditional.neutral_goalie_unblocked_goal_probability",
+          "old": 0.01872907163838015,
+          "new": 0.026630418065997773,
+          "signed_change": 0.007901346427617622,
+          "relative_change": 0.4218760320947225
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151381,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.5703005497090814e-05,
+          "p90": 0.00010899100659889083,
+          "p99": 0.0003973965126561725,
+          "max": 0.028138969720591323
+        }
+      },
+      "coalition": {
+        "numeric_cells": 2422096,
+        "null_cells": 0,
+        "absolute": {
+          "key": "2025021070:152",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "coalition.11",
+          "old": 0.049664424559219975,
+          "new": 0.05847508130106811,
+          "signed_change": 0.008810656741848139,
+          "absolute_change": 0.008810656741848139
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "coalition.8",
+          "old": 0.012255189313144082,
+          "new": 0.017013436358289034,
+          "signed_change": 0.004758247045144952,
+          "relative_change": 0.388263854891379
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151381,
+        "event_maximum_absolute_quantiles": {
+          "p50": 3.7217999184525896e-06,
+          "p90": 1.491914636980729e-05,
+          "p99": 5.7240652588080905e-05,
+          "max": 0.008810656741848139
+        }
+      },
+      "all": {
+        "numeric_cells": 7067804,
+        "null_cells": 198484,
+        "absolute": {
+          "key": "2025021082:10",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral.prefix.uqr",
+          "old": 0.33106342113828463,
+          "new": 0.36069383056608756,
+          "signed_change": 0.02963040942780293,
+          "absolute_change": 0.02963040942780293
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral_goalie.conditional.neutral_goalie_unblocked_goal_probability",
+          "old": 0.01872907163838015,
+          "new": 0.026630418065997773,
+          "signed_change": 0.007901346427617622,
+          "relative_change": 0.4218760320947225
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151381,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.9385247760638222e-05,
+          "p90": 0.00011537920550752645,
+          "p99": 0.0004115420977823315,
+          "max": 0.02963040942780293
+        }
+      }
+    },
+    "located_unavailable_witnesses": {
+      "actor": {
+        "numeric_cells": 316,
+        "null_cells": 25,
+        "absolute": {
+          "key": "2025020523:229",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "actor.prefix.uqr",
+          "old": 0.3331891136664275,
+          "new": 0.3585421602215595,
+          "signed_change": 0.025353046555131986,
+          "absolute_change": 0.025353046555131986
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "actor.conditional.actor_unblocked_goal_probability",
+          "old": 0.0287819952897405,
+          "new": 0.0402304809236822,
+          "signed_change": 0.011448485633941699,
+          "relative_change": 0.39776553080121496
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 31,
+        "event_maximum_absolute_quantiles": {
+          "p50": 0.0002853907861394833,
+          "p90": 0.01892287140696386,
+          "p99": 0.024989290319559026,
+          "max": 0.025353046555131986
+        }
+      },
+      "neutral": {
+        "numeric_cells": 310,
+        "null_cells": 0,
+        "absolute": {
+          "key": "2025020523:229",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral.prefix.uqr",
+          "old": 0.319057902152787,
+          "new": 0.34422937788163305,
+          "signed_change": 0.025171475728846038,
+          "absolute_change": 0.025171475728846038
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral.prefix.uqrg",
+          "old": 0.01297473572560365,
+          "new": 0.017992927594413025,
+          "signed_change": 0.005018191868809375,
+          "relative_change": 0.386766403180509
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 31,
+        "event_maximum_absolute_quantiles": {
+          "p50": 0.00030451524057295565,
+          "p90": 0.019908481638916287,
+          "p99": 0.024378948618251805,
+          "max": 0.025171475728846038
+        }
+      },
+      "neutral_goalie": {
+        "numeric_cells": 326,
+        "null_cells": 15,
+        "absolute": {
+          "key": "2025020523:229",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral_goalie.prefix.uqr",
+          "old": 0.3035507162384912,
+          "new": 0.32959924204991603,
+          "signed_change": 0.026048525811424805,
+          "absolute_change": 0.026048525811424805
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral_goalie.conditional.neutral_goalie_unblocked_goal_probability",
+          "old": 0.025719179089213114,
+          "new": 0.036153117757867635,
+          "signed_change": 0.010433938668654521,
+          "relative_change": 0.4056870801537605
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 31,
+        "event_maximum_absolute_quantiles": {
+          "p50": 0.00028546132442397454,
+          "p90": 0.018925883921074138,
+          "p99": 0.02541576947926251,
+          "max": 0.026048525811424805
+        }
+      },
+      "coalition": {
+        "numeric_cells": 496,
+        "null_cells": 0,
+        "absolute": {
+          "key": "2025021070:152",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "coalition.11",
+          "old": 0.049664424559219975,
+          "new": 0.05847508130106811,
+          "signed_change": 0.008810656741848139,
+          "absolute_change": 0.008810656741848139
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "coalition.8",
+          "old": 0.012255189313144082,
+          "new": 0.017013436358289034,
+          "signed_change": 0.004758247045144952,
+          "relative_change": 0.388263854891379
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 31,
+        "event_maximum_absolute_quantiles": {
+          "p50": 3.9056706736796676e-05,
+          "p90": 0.0012579982477385013,
+          "p99": 0.008757510794751185,
+          "max": 0.008810656741848139
+        }
+      },
+      "all": {
+        "numeric_cells": 1448,
+        "null_cells": 40,
+        "absolute": {
+          "key": "2025020523:229",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral_goalie.prefix.uqr",
+          "old": 0.3035507162384912,
+          "new": 0.32959924204991603,
+          "signed_change": 0.026048525811424805,
+          "absolute_change": 0.026048525811424805
+        },
+        "relative": {
+          "key": "2025020428:312",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral_goalie.conditional.neutral_goalie_unblocked_goal_probability",
+          "old": 0.025719179089213114,
+          "new": 0.036153117757867635,
+          "signed_change": 0.010433938668654521,
+          "relative_change": 0.4056870801537605
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 31,
+        "event_maximum_absolute_quantiles": {
+          "p50": 0.00030623171242305514,
+          "p90": 0.019908481638916287,
+          "p99": 0.025476125798963998,
+          "max": 0.026048525811424805
+        }
+      }
+    },
+    "remainder_excluding_named_witnesses": {
+      "actor": {
+        "numeric_cells": 1545391,
+        "null_cells": 119459,
+        "absolute": {
+          "key": "2025021143:254",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "actor.prefix.uqr",
+          "old": 0.5648148996480277,
+          "new": 0.5933644887778087,
+          "signed_change": 0.028549589129781006,
+          "absolute_change": 0.028549589129781006
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "actor.conditional.actor_unblocked_goal_probability",
+          "old": 0.020876362347394924,
+          "new": 0.02953115390720402,
+          "signed_change": 0.008654791559809097,
+          "relative_change": 0.4145737373105661
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151350,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.625372404327364e-05,
+          "p90": 0.00010839278621339602,
+          "p99": 0.0003951677774251294,
+          "max": 0.028549589129781006
+        }
+      },
+      "neutral": {
+        "numeric_cells": 1513500,
+        "null_cells": 0,
+        "absolute": {
+          "key": "2025021082:10",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral.prefix.uqr",
+          "old": 0.33106342113828463,
+          "new": 0.36069383056608756,
+          "signed_change": 0.02963040942780293,
+          "absolute_change": 0.02963040942780293
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral.prefix.uqrg",
+          "old": 0.006330898569224587,
+          "new": 0.008700683999110963,
+          "signed_change": 0.0023697854298863757,
+          "relative_change": 0.3743205492828846
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151350,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.2731106640722087e-05,
+          "p90": 0.00010415469950333956,
+          "p99": 0.00038407401008848667,
+          "max": 0.02963040942780293
+        }
+      },
+      "neutral_goalie": {
+        "numeric_cells": 1585865,
+        "null_cells": 78985,
+        "absolute": {
+          "key": "2025021082:10",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral_goalie.prefix.uqr",
+          "old": 0.2934431919027572,
+          "new": 0.3215821616233485,
+          "signed_change": 0.028138969720591323,
+          "absolute_change": 0.028138969720591323
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral_goalie.conditional.neutral_goalie_unblocked_goal_probability",
+          "old": 0.01872907163838015,
+          "new": 0.026630418065997773,
+          "signed_change": 0.007901346427617622,
+          "relative_change": 0.4218760320947225
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151350,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.56976814947546e-05,
+          "p90": 0.00010886798423395128,
+          "p99": 0.0003951530847919751,
+          "max": 0.028138969720591323
+        }
+      },
+      "coalition": {
+        "numeric_cells": 2421600,
+        "null_cells": 0,
+        "absolute": {
+          "key": "2025021143:254",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "coalition.5",
+          "old": 0.04022444504742716,
+          "new": 0.04817151263808918,
+          "signed_change": 0.007947067590662021,
+          "absolute_change": 0.007947067590662021
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "coalition.8",
+          "old": 0.005900728902049515,
+          "new": 0.008117696029068599,
+          "signed_change": 0.002216967127019084,
+          "relative_change": 0.37571072384787224
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151350,
+        "event_maximum_absolute_quantiles": {
+          "p50": 3.721154688465962e-06,
+          "p90": 1.4911985088152114e-05,
+          "p99": 5.6892253817128404e-05,
+          "max": 0.007947067590662021
+        }
+      },
+      "all": {
+        "numeric_cells": 7066356,
+        "null_cells": 198444,
+        "absolute": {
+          "key": "2025021082:10",
+          "physical_state": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "field": "neutral.prefix.uqr",
+          "old": 0.33106342113828463,
+          "new": 0.36069383056608756,
+          "signed_change": 0.02963040942780293,
+          "absolute_change": 0.02963040942780293
+        },
+        "relative": {
+          "key": "2025020428:314",
+          "physical_state": [
+            6,
+            5,
+            0,
+            1
+          ],
+          "field": "neutral_goalie.conditional.neutral_goalie_unblocked_goal_probability",
+          "old": 0.01872907163838015,
+          "new": 0.026630418065997773,
+          "signed_change": 0.007901346427617622,
+          "relative_change": 0.4218760320947225
+        },
+        "zero_baseline_to_nonzero": 0,
+        "zero_example": null,
+        "events": 151350,
+        "event_maximum_absolute_quantiles": {
+          "p50": 2.937922169329865e-05,
+          "p90": 0.00011526693774587262,
+          "p99": 0.00040763403937227,
+          "max": 0.02963040942780293
+        }
+      }
+    }
+  },
+  "standardized_scalar_movement": {
+    "finishing_goals_per100_attempts": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v3",
+        "field": "finishing_goals_per100_attempts",
+        "old": -0.6374397076858003,
+        "new": -0.6578808752234082,
+        "signed_change": -0.02044116753760794,
+        "absolute_change": 0.02044116753760794
+      },
+      "relative": {
+        "player_id": "8476931",
+        "strength": "5v5",
+        "field": "finishing_goals_per100_attempts",
+        "old": 1.243418145536753e-05,
+        "new": -0.00031994317849058955,
+        "signed_change": -0.00033237735994595707,
+        "relative_change": 26.73094012171408
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 0.00013553948997532816,
+        "p90": 0.0005483662196253906,
+        "p99": 0.0030426039171279925,
+        "max": 0.02044116753760794
+      }
+    },
+    "setting_goals_per100_assisted_opportunities": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8478439",
+        "strength": "5v3",
+        "field": "setting_goals_per100_assisted_opportunities",
+        "old": 4.032960253292943,
+        "new": 4.027721030287263,
+        "signed_change": -0.005239223005680138,
+        "absolute_change": 0.005239223005680138
+      },
+      "relative": {
+        "player_id": "8477979",
+        "strength": "3v4",
+        "field": "setting_goals_per100_assisted_opportunities",
+        "old": -0.0013261280211163643,
+        "new": -0.002143984839724812,
+        "signed_change": -0.0008178568186084478,
+        "relative_change": 0.6167253881868491
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 0.00010107836979367235,
+        "p90": 0.0005032127790983168,
+        "p99": 0.0015754761935692075,
+        "max": 0.005239223005680138
+      }
+    },
+    "avoid_block_probability": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "avoid_block_probability",
+        "old": 0.7139958720112293,
+        "new": 0.7133162206048766,
+        "signed_change": -0.0006796514063526216,
+        "absolute_change": 0.0006796514063526216
+      },
+      "relative": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "avoid_block_probability",
+        "old": 0.7139958720112293,
+        "new": 0.7133162206048766,
+        "signed_change": -0.0006796514063526216,
+        "relative_change": 0.0009518982293807049
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 4.238040031634416e-06,
+        "p90": 3.250825971360394e-05,
+        "p99": 5.51665163575466e-05,
+        "max": 0.0006796514063526216
+      }
+    },
+    "on_net_probability": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "3v4",
+        "field": "on_net_probability",
+        "old": 0.673355938611444,
+        "new": 0.6723862077633378,
+        "signed_change": -0.0009697308481062539,
+        "absolute_change": 0.0009697308481062539
+      },
+      "relative": {
+        "player_id": "8481491",
+        "strength": "3v4",
+        "field": "on_net_probability",
+        "old": 0.673355938611444,
+        "new": 0.6723862077633378,
+        "signed_change": -0.0009697308481062539,
+        "relative_change": 0.0014401459800086967
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 7.682195052760576e-06,
+        "p90": 2.6357079863059686e-05,
+        "p99": 6.487236254643315e-05,
+        "max": 0.0009697308481062539
+      }
+    },
+    "recorded_stop_probability": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "3v4",
+        "field": "recorded_stop_probability",
+        "old": 0.1826949344678643,
+        "new": 0.18293958213569636,
+        "signed_change": 0.00024464766783205416,
+        "absolute_change": 0.00024464766783205416
+      },
+      "relative": {
+        "player_id": "8483460",
+        "strength": "3v5",
+        "field": "recorded_stop_probability",
+        "old": 0.04662151754314343,
+        "new": 0.04671022748620639,
+        "signed_change": 8.870994306296037e-05,
+        "relative_change": 0.001902768243887995
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 6.039402642446512e-06,
+        "p90": 1.73851689212648e-05,
+        "p99": 4.5946535545792687e-05,
+        "max": 0.00024464766783205416
+      }
+    },
+    "conversion_probability": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v3",
+        "field": "conversion_probability",
+        "old": 0.2197828081567956,
+        "new": 0.2192927292684836,
+        "signed_change": -0.0004900788883120122,
+        "absolute_change": 0.0004900788883120122
+      },
+      "relative": {
+        "player_id": "8483460",
+        "strength": "3v5",
+        "field": "conversion_probability",
+        "old": 0.03947278453219587,
+        "new": 0.03934863601750531,
+        "signed_change": -0.00012414851469055854,
+        "relative_change": 0.003145167389680785
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 4.561565602561463e-06,
+        "p90": 1.537298840295631e-05,
+        "p99": 5.4349517904452754e-05,
+        "max": 0.0004900788883120122
+      }
+    },
+    "avoid_block_probability_difference": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "5v5",
+        "field": "avoid_block_probability_difference",
+        "old": -0.012520929478462062,
+        "new": -0.01320047922682499,
+        "signed_change": -0.0006795497483629287,
+        "absolute_change": 0.0006795497483629287
+      },
+      "relative": {
+        "player_id": "8479533",
+        "strength": "3v5",
+        "field": "avoid_block_probability_difference",
+        "old": 0.004375974514308378,
+        "new": 0.004093690518091053,
+        "signed_change": -0.00028228399621732514,
+        "relative_change": 0.06450768744066601
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 2.586321488695642e-06,
+        "p90": 8.138780601529839e-06,
+        "p99": 4.6142527763000104e-05,
+        "max": 0.0006795497483629287
+      }
+    },
+    "on_net_probability_difference": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8481491",
+        "strength": "3v4",
+        "field": "on_net_probability_difference",
+        "old": 0.00468626292248675,
+        "new": 0.0037430776892521944,
+        "signed_change": -0.0009431852332345558,
+        "absolute_change": 0.0009431852332345558
+      },
+      "relative": {
+        "player_id": "8475151",
+        "strength": "4v5",
+        "field": "on_net_probability_difference",
+        "old": 8.285545624042712e-07,
+        "new": 1.1341299662293025e-05,
+        "signed_change": 1.0512745099888754e-05,
+        "relative_change": 12.688054084673954
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 3.841851768326965e-06,
+        "p90": 1.2486400698596967e-05,
+        "p99": 5.4555484480535316e-05,
+        "max": 0.0009431852332345558
+      }
+    },
+    "recorded_stop_probability_difference": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "3v4",
+        "field": "recorded_stop_probability_difference",
+        "old": -0.0121812330182971,
+        "new": -0.011946532370105623,
+        "signed_change": 0.00023470064819147707,
+        "absolute_change": 0.00023470064819147707
+      },
+      "relative": {
+        "player_id": "8481540",
+        "strength": "4v5",
+        "field": "recorded_stop_probability_difference",
+        "old": 6.721667068776416e-08,
+        "new": 2.3934348475779244e-06,
+        "signed_change": 2.32621817689016e-06,
+        "relative_change": 34.60775657419782
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 3.187887880722051e-06,
+        "p90": 1.1532843111400352e-05,
+        "p99": 4.145725040513887e-05,
+        "max": 0.00023470064819147707
+      }
+    },
+    "conversion_probability_difference": {
+      "numeric_cells": 6580,
+      "null_cells": 0,
+      "absolute": {
+        "player_id": "8483460",
+        "strength": "5v3",
+        "field": "conversion_probability_difference",
+        "old": -0.01666236990275924,
+        "new": -0.0171544122236659,
+        "signed_change": -0.0004920423209066604,
+        "absolute_change": 0.0004920423209066604
+      },
+      "relative": {
+        "player_id": "8481559",
+        "strength": "3v5",
+        "field": "conversion_probability_difference",
+        "old": 2.434320183562766e-06,
+        "new": 4.193639333627264e-06,
+        "signed_change": 1.7593191500644978e-06,
+        "relative_change": 0.7227147693815833
+      },
+      "zero_baseline_to_nonzero": 0,
+      "zero_example": null,
+      "available_projection_pairs": 6580,
+      "scalar_absolute_change_quantiles": {
+        "p50": 2.3380353090865502e-06,
+        "p90": 1.0700198199573022e-05,
+        "p99": 5.456456309346575e-05,
+        "max": 0.0004920423209066604
+      }
+    }
+  },
+  "native_map_l1_movement": {
+    "finishing": {
+      "available_pairs": 6580,
+      "unavailable_pairs": 0,
+      "maximum": {
+        "player_id": "8483460",
+        "strength": "5v3",
+        "map_kind": "finishing",
+        "native_map_l1": 0.02044116753760791,
+        "old_integrated": -0.6374397076858003,
+        "new_integrated": -0.6578808752234082,
+        "largest_cell": 608,
+        "old_cell": -0.020322359337626272,
+        "new_cell": -0.021444550224352377
+      },
+      "quantiles": {
+        "p50": 0.00015082706459417574,
+        "p90": 0.00055242622443109,
+        "p99": 0.003042603917128107,
+        "max": 0.02044116753760791
+      }
+    },
+    "setting": {
+      "available_pairs": 6580,
+      "unavailable_pairs": 0,
+      "maximum": {
+        "player_id": "8478439",
+        "strength": "5v3",
+        "map_kind": "setting",
+        "native_map_l1": 0.005239223005680237,
+        "old_integrated": 4.032960253292943,
+        "new_integrated": 4.027721030287263,
+        "largest_cell": 608,
+        "old_cell": 0.3468002025599518,
+        "new_cell": 0.3463667492318153
+      },
+      "quantiles": {
+        "p50": 0.00013288713759275912,
+        "p90": 0.0005395495792208102,
+        "p99": 0.001580243180566001,
+        "max": 0.005239223005680237
+      }
+    }
+  },
+  "resources": {
+    "new_member_bytes": 2473316472,
+    "old_member_bytes": 2473269316,
+    "producer": {
+      "complete_events": 151381,
+      "design_wall_seconds": 6117.093533291016,
+      "input_read_wall_seconds": 29.514617791981436,
+      "origin_rows": 26668401,
+      "output_bytes": 2473316472,
+      "panel_array_bytes": 1497063856,
+      "peak_memory_bytes": 23865917440,
+      "projected_skaters": 940,
+      "projection_wall_seconds": 11252.514825374936,
+      "projections": 6580,
+      "recognized_events": 153754,
+      "resolution_wall_seconds": 2408.5498560420237,
+      "scoring_wall_seconds": 1127.8469099580543,
+      "setter_branches": 1371413,
+      "wall_scope": "input read+prepare_execution+scoring+streamed projection+resolution+members before completion manifest",
+      "wall_seconds": 20972.456565083936,
+      "write_wall_seconds": 21.516641499940306
+    },
+    "whole_command_wall_seconds": 21056.96,
+    "audit_wall_seconds": 59.00717433297541
+  },
+  "scope": {
+    "recomputed": "manifest-bound saved row identities/nullability, scalar/map/share arithmetic, direct24-order allocation, event baseline/danger sums, all32 neutral baseline sums, signed saved variant-minus-baseline, saved pair maxima/locators and verdict budgets",
+    "bound_producer_evidence": "unsaved variant actual/synthetic probability maxima, posterior diagnostics, variant sums, pair deltas/map-l1 and danger crossings; these are bound and internally checked, not independently predicted",
+    "prohibited_calls_performed": false,
+    "strict_reader_invocations": 0,
+    "source_game_reads": 0,
+    "no_seasonwide_actor_per_event_or_all_player_bound": true
+  },
+  "rounding_contract_check": {
+    "status": "passed",
+    "scope": "focused saved reference/propagation sum check using the unchanged frozen rounding contract, no reader/evaluator/source/score",
+    "comparisons": 53152,
+    "max_absolute_sum_rounding_difference": 2.842170943040401e-14,
+    "canonical_panel_sums_exact": true,
+    "contract": "abs(left-right)<=(_log_error(left,terms)+_log_error(right,terms))*max(left,right)+2**-1072; _log_error=(abs(log(mass))+2*terms+8)*2**-52 for positive mass else0"
+  },
+  "audit_implementation": {
+    "independent_final_score_saved_audit.py": {
+      "path": "var/v1-08-replacement/independent_final_score_saved_audit.py",
+      "sha256": "87513d0b3563fe0fa4a46262754c0a45f930992f761091b0238d86f320a356ea"
+    },
+    "independent_final_score_saved_rounding_check.py": {
+      "path": "var/v1-08-replacement/independent_final_score_saved_rounding_check.py",
+      "sha256": "ff506e5357c7cc5c4749e254f1f057c91f0a29b99e579afec0a6d9ea3d8fa89f"
+    }
+  },
+  "durable_evidence_scope": "all 73 members rehashed in each raw score; no extra strict reader, source or model evaluator; upstream annual probe JSON bindings checked against already accepted assembled family; unsaved variant prediction fields remain producer evidence"
+}

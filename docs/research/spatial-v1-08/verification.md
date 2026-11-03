@@ -532,3 +532,12 @@ all four propagations pass the unchanged probability/per100/map-l1 budgets `1e-5
 measured score command cost: 21,056.96 seconds (19,506.47 user / 503.93 system), 23,865,917,440 resident peak bytes and 28,529,021,688 footprint bytes. producer phase times are input 29.514618, design 6,117.093533, scoring 1,127.846910, all-player projection 11,252.514825, resolution 2,408.549856 and write 21.516641 seconds. member bytes total 2,473,316,472; completed directory bytes including the manifest are 2,473,699,895. 940 skaters produce 6,580 public projections. no paired cost-effect claim or runtime forecast is inferred.
 
 independent saved-artifact review is underway before root acceptance. first real spatial preparation `726f795e` and [independent static command review `26c9724e`](reviews/real-first-spatial-command-review.md) are clear but held; no real spatial fit has launched. no activation follows.
+
+
+## final real execution replacement accepted — 2026-11-03 utc
+
+[root acceptance](receipts/real-final-score-completion.json) closes the final score after [independent saved review `2a4d16f1`](reviews/real-final-score-saved-review.md) and [checked facts `d4191b87`](receipts/real-final-score-independent-checked-facts.json). all 73 members in each new/original artifact rehash; 49 are identical and 24 change as expected. identities/status/labels, all 1,371,413 setter rows, 1,825,556 share rows, 6,580 projections and 13,160 maps reconcile. independent 24-order error is `9.367506770274758e-17`, and the unchanged rounding contract passes 53,152 comparisons with maximum difference `2.842170943040401e-14`. no new tolerance, strict read, source pass, fit or rescore is used.
+
+all four propagated maxima/first-tie locators, 256 keys, one attributed witness, 48 annual requirements, 43 focal pairs/45 focal requirements and all 32 neutral-panel sums bind. unsaved variant predictions retain their producer-evidence scope. root accepts the complete start-eligibility replacement: twenty baseline heads, four final probes, five scores and four propagations. the u-only repair/assembly is complete, with baseline point estimates and all costly originals preserved.
+
+the first real spatial annual may now be released under its already reviewed standalone command. measure and accept its complete triple before successors or projecting runtime. the real final-year spatial volume budget remains unresolved until its actual probe. composition/publication, real source-to-screen acceptance and cleanup remain assigned. no activation or scientific admission follows.

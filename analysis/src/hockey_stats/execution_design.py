@@ -713,7 +713,8 @@ def _head_design(head, predictors, labels, people, source_actors=None):
             # fixed and dynamic coordinates are disjoint and store no zeros:
             # this is exactly the former expanded matrix's nonzero count.
             batch = {"dynamic_matrix": dynamic, "row": row, "weight": np.asarray(weight_batch, dtype=np.float64),
-                     "base_matrix_nonzeros": int(fixed_nonzeros[row].sum() + dynamic.nnz)}
+                     "base_matrix_nonzeros": int(fixed_nonzeros[row].sum() + dynamic.nnz),
+                     "origin_cell": np.asarray(cell_batch, dtype=np.int64)}
             if head == "g":
                 offsets, indices, prior = [0], [], []
                 for predictor in expanded_predictors:
@@ -742,9 +743,12 @@ def _head_design(head, predictors, labels, people, source_actors=None):
     return result
 
 
-def prepare_execution(base_prepared, coaches, recipe, season):
+def prepare_execution(base_prepared, coaches, recipe, season, *, training_heads=HEADS):
     """bind exact selected evidence, keeping every recognized attempt disposition."""
     started = perf_counter()
+    _require(isinstance(training_heads, (tuple, list)) and bool(training_heads)
+             and all(head in HEADS for head in training_heads)
+             and len(set(training_heads)) == len(training_heads), "invalid execution training heads")
     _require(recipe == RECIPE, "execution recipe differs")
     _require(isinstance(base_prepared, PreparedManifest), "execution needs a checked prepared manifest")
     purpose = base_prepared["purpose"]
@@ -962,13 +966,13 @@ def prepare_execution(base_prepared, coaches, recipe, season):
                 shot_type=shot_type if shot_type in TYPES else None)
         game_rows.append({"game_id": game_id, "game_date": inventory["game_date"], "status": game["game"]["ledger"]["status"],
                           "recognized_attempts": len(coverage_rows) - start_count, "prepared_member": next(row for row in prepared["files"] if row["kind"] == "game" and row["game_id"] == game_id)})
-    heads = {head: _head_design(head, predictors, labels, people, source_actors) for head in HEADS}
+    heads = {head: _head_design(head, predictors, labels, people, source_actors) for head in training_heads}
     selected_members = [row for row in prepared["files"] if row["season"] == season]
     prepared_ref = {"purpose": purpose, **prepared_identity, "members": selected_members}
     coach_ref = {"purpose": purpose, "path": str(coach_path), "sha256": _sha(coach_path), "selected_game_ids": list(selected["selected_game_ids"])}
     coverage = {"purpose": purpose, "season": season, "games": game_rows, "attempts": coverage_rows,
                 "heads": {head: dict(counts) for head, counts in totals.items()},
-                "optional_features": {head: heads[head]["design"]["feature_support"] for head in HEADS}}
+                "optional_features": {head: heads[head]["design"]["feature_support"] for head in training_heads}}
     return ExecutionDesign(purpose, season, prepared_ref, coach_ref, max(dates, default=None), tuple(predictors), heads, coverage, seasons, RECIPE,
                            {"design_wall_seconds": perf_counter() - started, "input_read_wall_seconds": 0.},
                            scoring_facts, {p.key:label["observed_setter"] for p,label in zip(predictors,labels,strict=True)})

@@ -45,7 +45,7 @@ def prior_mean(actor, beta):
     return float(actor["mean"] + np.dot(actor["age_delta"], beta[actor["age_indices"]]))
 
 
-def penalty(beta, design, actors):
+def penalty(beta, design, actors, *, addends=None):
     """expand mirror ties before the original native-grid penalty."""
     gradient = np.zeros_like(beta)
     maps = np.asarray(design["map_indices"], dtype=np.int64)
@@ -53,11 +53,16 @@ def penalty(beta, design, actors):
         beta[maps].ravel(), maps.shape[1], np.array([.25, 1., 1., 1., 1., 1.]),
         4., np.asarray(design["native_neighbors"], dtype=np.int64),
     )
+    if addends is not None:
+        addends.append(float(value))
     np.add.at(gradient, maps.ravel(), native_gradient)
     for indices, precision in ((design["circumstance_indices"], 4.),
                                (design["age_indices"], 64.)):
         indices = np.asarray(indices, dtype=np.int64)
-        value += .5 * precision * np.dot(beta[indices], beta[indices])
+        term = .5 * precision * np.dot(beta[indices], beta[indices])
+        value += term
+        if addends is not None:
+            addends.append(float(term))
         gradient[indices] += precision * beta[indices]
     for actor in actors:
         # profiling a zero-likelihood actor removes its quadratic exactly.
@@ -65,7 +70,10 @@ def penalty(beta, design, actors):
             continue
         difference = beta[actor["index"]] - prior_mean(actor, beta)
         scaled = actor["precision"] * difference
-        value += .5 * difference * scaled
+        term = .5 * difference * scaled
+        value += term
+        if addends is not None:
+            addends.append(float(term))
         gradient[actor["index"]] += scaled
         gradient[actor["age_indices"]] -= scaled * np.asarray(actor["age_delta"])
     return float(value), gradient
@@ -133,9 +141,11 @@ def _setter_gradient(beta, design, batch, posterior, base_logits):
     return float(value), row_residual, gradient
 
 
-def objective(beta, design, actors, responsibilities=None):
-    """weighted sum of origin log losses, never a log of averaged origins."""
-    value, gradient = penalty(beta, design, actors)
+def objective(beta, design, actors, responsibilities=None, *, addends=None):
+    """weighted origin log losses; optional scalar observation is u-only."""
+    if addends is not None and design["head"] != "u":
+        raise ValueError("scalar addend observation requires u")
+    value, gradient = penalty(beta, design, actors, addends=addends)
     physical_residual = np.zeros(len(design["target"]))
     for number, (batch, logits) in enumerate(_logit_batches(beta, design)):
         if design["head"] == "g":
@@ -149,7 +159,10 @@ def objective(beta, design, actors, responsibilities=None):
             gradient += partial
         else:
             targets = design["target"][batch["row"]]
-            value -= np.dot(batch["weight"], log_expit((2*targets-1)*logits))
+            term = np.dot(batch["weight"], log_expit((2*targets-1)*logits))
+            value -= term
+            if addends is not None:
+                addends.append(float(-term))
             residual = batch["weight"] * (expit(logits)-targets)
         gradient += np.asarray(batch["dynamic_matrix"].T @ residual).ravel()
         np.add.at(physical_residual, batch["row"], residual)

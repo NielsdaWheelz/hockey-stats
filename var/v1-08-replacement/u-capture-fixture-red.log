@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/u-capture-fixture-check.py", line 33, in <module>
+    assert constructed==['u'] and 'attempts' not in loaded['metadata']['coverage']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

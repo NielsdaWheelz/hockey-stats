@@ -1,0 +1,101 @@
+{
+  "kind": "execution-u-exact-sum-repair-release",
+  "status": "released_not_started",
+  "recorded_utc": "2026-11-03T08:57:13.865048+00:00",
+  "approved_scope_commit": "9d5c7be1380cc01045ab1e3aafb89c0949d22090",
+  "approval_record_commit": "7f1cfa1",
+  "source_commit": "416716f4e69d07eea55a68f8c23667a36bc3dcfb",
+  "command_commit": "6798ef80bccf2a40bca5570af14a0be68ad71a37",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "sources": {
+    "command": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-u-repair-command.sh",
+      "sha256": "8fe1dfae57333aa74ee0032a1b1f75be2dc15ba297d35bd22ff84c0252d9e752",
+      "bytes": 6494
+    },
+    "runner": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/repair_execution_u.py",
+      "sha256": "9ddb1425196328fff332f5ba1da91a231d77fce233fe48565e883b9e594d9c69",
+      "bytes": 13649
+    },
+    "trace_owner": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/execution_trace.py",
+      "sha256": "89af29e14de76a3a8f332b3753c5640d9b6c825f493719163dd687b7b824bc13",
+      "bytes": 12149
+    },
+    "diagnostic_policy": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/diagnose_execution_u.py",
+      "sha256": "031f30d640c0d526e35d8d862803718c1f565ee99ca2ef5638b9e36df3f25ca1",
+      "bytes": 18226
+    },
+    "independent_review": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/u-exact-repair-independent.md",
+      "sha256": "f800f1ac2dc96ecb32fa905f5909edbdcc88bc29675de78229be52f4b66a25cc",
+      "bytes": 8040
+    },
+    "method": {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/execution-u-exact-sum-repair.md",
+      "sha256": "6beb304528f63ecb335ddab57e9baa9eb31be5099471cb5033d5810e0515abb7",
+      "bytes": 4662
+    }
+  },
+  "input_manifest": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/inputs/manifest.json",
+    "sha256": "031975b95114fbe62c0e468ebdf16d6170c27f15407b7df71ff0b08e18517a6c"
+  },
+  "accepted_diagnosis": {
+    "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/diagnosis/diagnosis.json",
+    "sha256": "115da4fe4c18912b74b1970f1825a4338f0f54c6ccd9f0cfb3f7e10dfa026af1"
+  },
+  "capture_completion_sha256": "6950fed6a7593168e9554515387debcc9e0d02b091d71995f57a00272da623d9",
+  "statistical_recipe_sha256": "47691110ac34bf7d63cdc32664335bd6579a5953545f0cefa8ebf0257bf88674",
+  "permitted_work": {
+    "new_captures": 0,
+    "baseline_fits": 0,
+    "u_continuations": 1,
+    "qrg_continuations": 0,
+    "assembly": false
+  },
+  "arithmetic": "u returns correctly rounded exact rational sum of identical observed addends; gradient and penalty unchanged",
+  "controls": {
+    "method": "L-BFGS-B",
+    "maxiter": 10000,
+    "ftol": 1e-16,
+    "gtol": 1e-07,
+    "maxfun": 15000,
+    "maxls": 20,
+    "history": 10,
+    "added_global_trace_cap": null,
+    "added_native_trace_cap": null
+  },
+  "qualification": {
+    "native_complete_and_finite": true,
+    "accepted_native_iterations": true,
+    "raw_movement": true,
+    "fresh_same_evaluator_strict_improvement": true,
+    "completed_movement": true,
+    "frozen_actual_probes": 256,
+    "frozen_fixture_probes": 1,
+    "frozen_requirements": 48,
+    "synthetic_types": 6,
+    "synthetic_cells": 656,
+    "maximum_branch_terminal_probability_change": 1e-05
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/u-repair-01/repair-01",
+  "failure_or_inconclusive": "stop; no automatic successor",
+  "assembly": "separate only after saved qualification accepted",
+  "scoring_spatial": "held until accepted assembly",
+  "activation": false,
+  "code_freeze": [
+    "analysis",
+    "repair runner",
+    "trace owner",
+    "diagnostic policy helper"
+  ],
+  "real_repair_attempts_used_before_launch": 0,
+  "limits": [
+    "witness relevance does not guarantee repaired trajectory or completion",
+    "numerical qualification is not scientific admission",
+    "no per-season all-player probability bound is claimed"
+  ]
+}

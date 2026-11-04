@@ -1,0 +1,107 @@
+{
+  "kind": "spatial-composition-pin-only-held-preparation",
+  "status": "outside-analysis_patch_held_until_execution_results_accepted_and_final_pin_reviewed",
+  "recorded_utc": "2026-11-04T11:25:48.252848+00:00",
+  "preparation_head": "b214d3c23d80c75d8b1e3c15cadb06366bdc34ae",
+  "analysis_tree": "fc716257eb118d1a091472cde4b214e8bca1f753",
+  "source": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_composition.py",
+    "sha256": "bcd6f56a26e38b9bd96f8d5ee801a1909de2b37c5096dd1a664bdf4082540416"
+  },
+  "members": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-cutover.patch.held",
+      "sha256": "9ce606a1ea5c9bd0dc98105525a1a4d41644d681828c42b4040d9db826034fa4"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-check.py",
+      "sha256": "2a428fe4dfc2961f876784570860391835e6a099475a46afe145378376ffd50c"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-red.log",
+      "sha256": "0ea133a3ab4dadf5912fcecb7a5b6a7120a2deac76210d87dab1c1531a4d70e3"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-red-02.log",
+      "sha256": "e588da27ad1a1b2bc690ceaf5a4c597477d694c011973625de95666f597c3ed9"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-green-01.log",
+      "sha256": "e273e12cd9e7720362883cf17a527638f14812a56c8531bc8b07bae0c351c4ac"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-green-02.log",
+      "sha256": "d6493894b52b07974ed6bbf282ecdddecbcf50de4bcf937d1320e5359ebae9cf"
+    }
+  ],
+  "protected_unchanged": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_design.py",
+      "sha256": "5c6925ec0b93ac52ef3442c5237f534a4bef4658ace08021e9ba759123352633"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_rates.py",
+      "sha256": "0aec2996d1725ac9b5eab2c74e75ce18cf0b846274f9da3c3cecffed3cd73cc0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_state.py",
+      "sha256": "c252bd97b8dc088bcd9ffc1f8ae266cc5cc2dbae2104f6e8a693eb4e63170bcf"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/real-compose-execution-command.sh",
+      "sha256": "c4db37fdc8167112061e71fba226aad2051d7b75d202b929345f4f3b011f367a"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-product/replacement/verify-real-execution-compose.py",
+      "sha256": "bbf7c5f2cf751f8103103c3ab0337c4de0844b48ffaa57321fd871ebbfd23c60"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-spatial-command.sh",
+      "sha256": "a781f89394b0199e68ef3500dc6201779327da472080b2d73199fac2e85a484d"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_spatial_20222023.py",
+      "sha256": "ca5f00ae790453af62b55078ffad1d14123d501aaddf0e547d170896282c8267"
+    }
+  ],
+  "accepted_replacement_selection_completion": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-execution-selection-completion.json",
+    "sha256": "5551ca020b6dc3984cad44fff48b63d4a823c1e7935efbe1243e23224414cade"
+  },
+  "accepted_first_spatial_completion": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-first-spatial-completion.json",
+    "sha256": "54ca302a29bff57fd1dba7cea8dd2cfd89e869a97eba00d2ad0a4a6af5809ed7"
+  },
+  "planned_values": {
+    "ACCEPTED_RESULTS": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results",
+    "ACCEPTED_RESULTS_SHA256": "PENDING_ACCEPTED_EXECUTION_RESULTS_MANIFEST_SHA256",
+    "ACCEPTED_VALUED": {
+      "20212022": "37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d",
+      "20222023": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20",
+      "20232024": "f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238",
+      "20242025": "86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de",
+      "20252026": "40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc"
+    }
+  },
+  "exact_scope": "seven literal values in three existing constant assignments only; every other compositor source byte preserved; no fitter, memory, interface, recipe, guard or fallback change",
+  "withheld_base_pin": "actual output manifest digest unavailable; held patch is non-production review material and must not be applied until root accepts saved execution-results and supplies its digest; tests use synthetic a*64 solely in memory",
+  "controls": {
+    "red": "red-02 reaches existing original accepted-source digest guard; initial red.log had missing mocked old-path identity, corrected in harness",
+    "green": "green-02: replacement source/all five targets pass; compatible independently added family passes; original execution rows, changed provided nonowned family and all five original targets refuse; unchanged fixture-purpose path passes",
+    "harness_correction": "green-01 used selected directory with mocked is_dir false; corrected synthetic selection to explicit manifest paths; production code untouched",
+    "first_state_compatibility": "synthetic _states check binds accepted first manifest digest3b7 with producer analysisfc; existing state chain interfaces do not require producer tree equality",
+    "proof": "candidate executed existing guard bodies with mocked IO/read_spatial_state only; held diff compared exactly with seven literal replacements; no actual strict reader",
+    "whitespace": "git diff --check passed"
+  },
+  "required_before_application": [
+    "live execution composition producer and saved-check exits; source/command/checker freeze ends",
+    "root accepts actual execution-results and supplies manifest digest",
+    "fill held base digest; independent concrete-pin/source review; only then apply seven-literal patch under root authorization"
+  ],
+  "required_before_year_two_launch": [
+    "record new analysis tree after compositor pin patch",
+    "narrowly update year-two wrapper spatial_tree and helper ANALYSIS pins and review them; ordinary argv and recipe04a9 unchanged",
+    "explicit root release"
+  ],
+  "execution": "preparation and tiny mocks only; no active code edits, real/fixture artifact reads, model/source/evaluator/fit/arrays/production reader, real composition, launch or commit"
+}

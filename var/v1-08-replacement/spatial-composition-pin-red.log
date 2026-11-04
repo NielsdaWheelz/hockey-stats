@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-check.py", line 83, in <module>
+    candidate._accepted_source(results(deepcopy(accepted)))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_composition.py", line 44, in _accepted_source
+    require(identity(path)['sha256'] == ACCEPTED_RESULTS_SHA256, 'accepted v1-06 result manifest digest differs')
+            ~~~~~~~~^^^^^^
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-pin-check.py", line 73, in <lambda>
+    stack.enter_context(patch.object(module,'identity',lambda path:dict(sha256=digests[Path(path)])))
+                                                                               ~~~~~~~^^^^^^^^^^^^
+KeyError: PosixPath('/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results/manifest.json')

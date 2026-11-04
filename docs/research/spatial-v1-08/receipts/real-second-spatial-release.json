@@ -1,0 +1,97 @@
+{
+  "kind": "real-second-spatial-release",
+  "status": "released_once_not_yet_launched",
+  "recorded_at_utc": "2026-11-04T13:31:49.166987+00:00",
+  "season": "20222023",
+  "analysis_tree": "2866624de84c2f1a4881e9cee516db3f5530e3ba",
+  "source_cutover_commit": "8a5bd97",
+  "recipe_sha256": "04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b",
+  "command": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-spatial-command.sh",
+    "bytes": 4484,
+    "sha256": "3fc512031d1b5418767d66db9ecb0d2fab1e4a1480d127bd6e7fb506d24665e9"
+  },
+  "metadata_helper": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_spatial_20222023.py",
+    "bytes": 10433,
+    "sha256": "490c33b839b51c59bfc39dbf640d40794d658d684759d0c4ba97b437676f3418"
+  },
+  "metadata_constants": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_spatial_20212022.py",
+    "bytes": 8471,
+    "sha256": "05dd24009a1efc13daf64487d0745ec6b3307bfe24fa3d3431b87a4ba9968051"
+  },
+  "refresh_receipt": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-spatial-analysis-refresh.json",
+    "bytes": 2624,
+    "sha256": "b3537571a7dcd078d8a88ac62a77918d4244c4e9c323cc3453e1c92b0c31dda3"
+  },
+  "review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-second-spatial-analysis-refresh-review.md",
+    "bytes": 2351,
+    "sha256": "2e75e0507a3969214a57a8ddf9490687907edbd65f2f6d5513d36a0228ef3f25"
+  },
+  "prior_review": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/reviews/real-second-spatial-final-pin-review.md",
+    "bytes": 2891,
+    "sha256": "57f5ccc69884203bb726d9fca5fcb420c723e902379d885d0946b144735fe2bd"
+  },
+  "accepted_first_state": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-first-spatial-completion.json",
+    "bytes": 14328,
+    "sha256": "54ca302a29bff57fd1dba7cea8dd2cfd89e869a97eba00d2ad0a4a6af5809ed7"
+  },
+  "accepted_execution_base": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-execution-composition-completion.json",
+    "bytes": 6167,
+    "sha256": "fdab2187a2d73d0dbb371bb788fefe0757387a030ad5b5db6d43e3b5e80b023b"
+  },
+  "inputs": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20212022/manifest.json",
+      "bytes": 355634,
+      "sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/scores/20222023/manifest.json",
+      "bytes": 383418,
+      "sha256": "296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution/20222023/manifest.json",
+      "bytes": 362029,
+      "sha256": "eb52909e32d051b205e9cd6ccdcb8227371202d469a52357cfb926c94cff599c"
+    }
+  ],
+  "command_argv": [
+    "/bin/zsh",
+    "var/v1-08-replacement/real-20222023-spatial-command.sh"
+  ],
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023",
+  "fresh_paths_checked": [
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023.log",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-start.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-finish.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-exit.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-shell.pid",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-head.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-analysis-tree.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-analysis-status.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-command-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-inputs-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-acceptance-sha256.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-spatial-recipe.txt",
+    "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-saved-metadata-acceptance.json"
+  ],
+  "available_external_bytes": 7211298660352,
+  "scope": "one ordinary chronological annual, three heads, no final-year probes; one saved metadata check after successful canonical output; independent history audit separately released against measured manifests",
+  "resource_decision": "heavy jobs remain serial; retain the ordinary validated full predecessor reader and measure this carry-year resource footprint rather than infer it from the entry year",
+  "freeze": "analysis, current wrapper, metadata helpers and selected saved-audit code remain fixed through native and post-exit checks",
+  "failure_boundary": "preserve all evidence and stop handoff on any failed head, native failure, failed saved check or contract violation; no automatic rerun or successor attempt",
+  "limits": [
+    "two tree-literal substitutions preserve the earlier reviewed argv, predecessor, valued score, controls and guards exactly",
+    "year-two resolution probes are not prescribed; all three final-year spatial probes remain pending",
+    "no execution refit/rescore, preparation/factual rebuild, acquisition, publication or activation"
+  ]
+}

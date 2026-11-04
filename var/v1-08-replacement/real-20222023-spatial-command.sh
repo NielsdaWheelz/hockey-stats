@@ -8,7 +8,7 @@ case "$spatial_previous_sha" in *[!0-9a-f]*) print -u2 'accepted first spatial a
 spatial_command_path=${0:A}
 cd /Users/nnandal/Documents/code/hockey-stats-v1-08
 spatial_head=$(git rev-parse HEAD)
-spatial_tree=fc716257eb118d1a091472cde4b214e8bca1f753
+spatial_tree=2866624de84c2f1a4881e9cee516db3f5530e3ba
 spatial_recipe=04a9c15d868a764744c796fb82065f2d95d2efa27914f12ecb871806ccc91e8b
 spatial_prepared=/Volumes/Expansion/hockey-stats/prepared/evidence-v1-01-02
 spatial_coaches=/Volumes/Expansion/hockey-stats/runs/coaches-v1-02-20261022-01/coaches-01/coaches.json

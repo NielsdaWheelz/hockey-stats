@@ -14,7 +14,7 @@ CAMPAIGN=Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacemen
 OUTPUT=CAMPAIGN/'real/spatial/20222023'
 PREVIOUS=CAMPAIGN/'real/spatial/20212022'
 PREVIOUS_SHA='3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509'
-ANALYSIS='fc716257eb118d1a091472cde4b214e8bca1f753'
+ANALYSIS='2866624de84c2f1a4881e9cee516db3f5530e3ba'
 
 
 def _key(row):

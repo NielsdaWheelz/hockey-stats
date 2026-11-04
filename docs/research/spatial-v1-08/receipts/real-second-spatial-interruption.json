@@ -1,0 +1,138 @@
+{
+  "kind": "real-second-spatial-user-interruption",
+  "status": "stopped_at_user_request_partial_heads_preserved_not_accepted",
+  "recorded_at_utc": "2026-11-04T16:24:01.848501+00:00",
+  "reason": "user needs to disconnect the external drive",
+  "signal": "SIGINT",
+  "native_session": 40014,
+  "native_exit": 130,
+  "pids_stopped": [
+    29411,
+    29463,
+    29464
+  ],
+  "analysis_tree": "2866624de84c2f1a4881e9cee516db3f5530e3ba",
+  "launch": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-second-spatial-launch.json",
+    "bytes": 4926,
+    "sha256": "31f8992058d67754a9698d294396ac97c4ce38a0cbdb027b320001889b6bc89a"
+  },
+  "output": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023",
+  "canonical_manifest_exists": false,
+  "interrupted_at": "spatial_rates.project_spatial -> _actual_adjustments -> _rates_from_logits",
+  "head_status": {
+    "quality": "complete",
+    "shape": "complete",
+    "volume": "complete"
+  },
+  "preserved_head_files": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/heads/quality.json",
+      "bytes": 18629560,
+      "sha256": "63a4d6b7ab51e840553b1369507669d8d7bd6250682cbfce6cad5ad88dcc430b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/heads/quality.npz",
+      "bytes": 1037742,
+      "sha256": "ff5658fcd1eec98ae9c5177546d2c578936a857a556f6aa7499fb9d9764823e8"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/heads/shape.json",
+      "bytes": 17904390,
+      "sha256": "f8eee5d3c2787da3efd5705bd595325d8119f251ec77c71ce73db0edb7e3d22c"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/heads/shape.npz",
+      "bytes": 1012438,
+      "sha256": "ebdb35f32a4a6cb41084f75eb0dab15b56ac8d02772cc9557e9087d0987b18c5"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/heads/volume.json",
+      "bytes": 4075991,
+      "sha256": "61077c66975c32a3ed0003e27743332946635e4b9f6d8977ea55e2c44e858d00"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023/heads/volume.npz",
+      "bytes": 25646,
+      "sha256": "480493b902fffc91c2faba382a008d197cc39d99392e3338ebda4578984390c2"
+    }
+  ],
+  "run_records": [
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-shell.pid",
+      "bytes": 6,
+      "sha256": "288d07bf37bd141334a300cd70ae09baf6a50dbd28b9abf303e199c7f39f458b"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-start.txt",
+      "bytes": 21,
+      "sha256": "02451ee357becb8df54d5e7a0b7546b294961b3f054f37e0970b5a269aa91596"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-finish.txt",
+      "bytes": 21,
+      "sha256": "f0a26cf6a5f2fc181f0ae5e89fd10343c48831b46a55d36de644b615a0bcb03a"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-exit.txt",
+      "bytes": 4,
+      "sha256": "f5bde7eb9f6c71611dc5726e8aca3eb4eba3e386da49e0a4ed5c295a90a73a0d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-head.txt",
+      "bytes": 41,
+      "sha256": "5069b4d6b68cf8fa818f6e08bceb4f2414dcbec45e368537ddabe9150f01d97d"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-analysis-tree.txt",
+      "bytes": 41,
+      "sha256": "852ca8bd0f86f8e9c3aeaebe40188c5d654fd5a08a751f13af679a6b1150b334"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-analysis-status.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-command-sha256.txt",
+      "bytes": 170,
+      "sha256": "8c6ad1c785af68a3120ac480a63a93f4373a4fee23f7e518b8632e99fe7fa5c9"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-inputs-sha256.txt",
+      "bytes": 836,
+      "sha256": "b9b31b4a9dfd6254e7257ffc6a0d1440e53ee1d7b77647ed03de416a1753875f"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-acceptance-sha256.txt",
+      "bytes": 279,
+      "sha256": "cf035f3136f7464b00b73ca86c38e888fe6ab56469176c025577377f8fca6e72"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023-launch-spatial-recipe.txt",
+      "bytes": 65,
+      "sha256": "738580638a1c0d553b74c8266df56efc7e7e0f927bc395a14a3e324d03683069"
+    },
+    {
+      "path": "/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/spatial/20222023.log",
+      "bytes": 2385,
+      "sha256": "559e49a28d2ba10c7a61baa5e16cab4b9b00bc64102372cafd235a3734fd872b"
+    }
+  ],
+  "resources": {
+    "whole_wall_seconds": 10194.07,
+    "user_seconds": 10285.82,
+    "system_seconds": 77.96,
+    "maximum_resident_bytes": 19295027200,
+    "peak_memory_footprint_bytes": 39141963728,
+    "swaps": 0
+  },
+  "accepted_work_preserved": [
+    "five repaired execution states/scores and four resolution/propagation families",
+    "accepted execution exchange3441f784",
+    "accepted spatial20212022 state3b7b5133"
+  ],
+  "acceptance": "year two has no canonical state and is not eligible as predecessor; no metadata/history audit or successor is run",
+  "resume": "held until user reconnects and resumes; preserve partial head files and all records; inspect existing reuse contracts before choosing any restart; no automatic rerun, checkpoint engine or activation",
+  "drive_status": "stopped job; open-handle check and normal eject pending"
+}

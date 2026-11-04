@@ -1,0 +1,38 @@
+{
+  "kind": "real-second-spatial-drive-ejection",
+  "status": "ejected_safe_to_disconnect_work_paused",
+  "recorded_at_utc": "2026-11-04T16:25:30.374769+00:00",
+  "interruption": {
+    "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/docs/research/spatial-v1-08/receipts/real-second-spatial-interruption.json",
+    "sha256": "0bc1f5cb3b09ed326b8176ad35b41d51d868ab1ac72ebef1bad52dd35692c684"
+  },
+  "stopped_native_session": 40014,
+  "native_exit": 130,
+  "stopped_pids": [
+    29411,
+    29463,
+    29464
+  ],
+  "handle_check": {
+    "command": [
+      "lsof",
+      "-nP",
+      "/Volumes/Expansion"
+    ],
+    "exit": 1,
+    "output": "empty; no open drive handles"
+  },
+  "eject": {
+    "command": [
+      "diskutil",
+      "eject",
+      "/Volumes/Expansion"
+    ],
+    "exit": 0,
+    "output": "Disk /Volumes/Expansion ejected"
+  },
+  "mount_present": false,
+  "preservation": "three complete head json/npz pairs and twelve run records remain external; hashes recorded before eject; accepted execution work, exchange3441 and spatial3b7 remain untouched",
+  "resume": "wait for reconnection and explicit resume; no restart, fit, projection, audit or activation follows from this stop",
+  "local_copy": "small receipts only; no fit/input mirror or checkpoint engine"
+}

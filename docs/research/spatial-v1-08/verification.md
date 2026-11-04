@@ -595,3 +595,8 @@ the restart keeps canonical spatial output `real/spatial/20212022` and all numer
 [the restart release](receipts/real-first-spatial-resume-01-release.json) binds command `35cc8c55`, metadata helper `05dd2400`, preparation `92448b35` and [independent review `1170f5db`](reviews/real-first-spatial-resume-01-command-review.md). numerical argv/input pins match the prior command exactly; the first-year inspection function is unchanged. fourteen guarded destinations are absent, and all twelve interrupted records rehash unchanged. pinned python/numpy/scipy remain `3.14.8/2.5.3/1.18.1`; analysis remains `fc716257`.
 
 one unchanged first annual and full projections/canonical validation are released, with fresh resume-01 run records. no predecessor/probes, solver alteration or accepted-execution recomputation is introduced. keep analysis/command/helper fixed through exit; composition stays held until first-triple resource acceptance. no actual restart has launched at this release record.
+
+
+## first spatial resume-01 launched
+
+[the launch](receipts/real-first-spatial-resume-01-launch.json) records actual head `9ff5add`, clean analysis `fc716257`, command `35cc8c55`, recipe `04a9c15d` and nine start/pid/pin files. the restart is invoked once into the unchanged canonical output with fresh resume-01 records. it is the sole heavy job. no completed head, annual triple or numerical/resource acceptance is established by launch; earlier interrupted evidence and accepted execution remain preserved.

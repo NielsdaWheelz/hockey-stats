@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "scope": "tiny in-memory synthetic history/reference/rates only; no saved fixture/real/source/model read",
+  "audit_sha256": "ed289155196ed2cd143cdcdf0f72bb06ee56ffc230a146b01f1424f6667f1621",
+  "reused_primitives_sha256": "6ebe300de7821343a3533c147871043a814e41617240358ca5674229ba581483",
+  "unchanged_rates_source_sha256": "746632c27e24e97d604e68b79f5ccb7d11cb0f7d29ccbfd935f2cfde81c86bc7",
+  "history": {
+    "volume": {
+      "entry_rows": 2,
+      "carry_rows": 6,
+      "carry_gaps": {
+        "1": 4,
+        "2": 2
+      },
+      "transitions": {
+        "age_carry": 3,
+        "missing_or_changed_role": 1,
+        "missing_age": 1,
+        "age_neutral": 1,
+        "entry": 2
+      },
+      "fresh_supported_rows": 6,
+      "prior_only_rows": 2,
+      "absent_anchors_retained": 1,
+      "previous_fresh_npz_rows": 4,
+      "previous_older_ledger_anchors": 3,
+      "maximum_conditional_mean_difference": 0.0,
+      "maximum_absolute_age_coefficient": 5.0,
+      "nonzero_age_adjusted_means": 3,
+      "maximum_absolute_age_mean_shift": 0.8399999999999999
+    },
+    "shape": {
+      "entry_rows": 2,
+      "carry_rows": 6,
+      "carry_gaps": {
+        "1": 4,
+        "2": 2
+      },
+      "transitions": {
+        "age_neutral": 6,
+        "entry": 2
+      },
+      "fresh_supported_rows": 6,
+      "prior_only_rows": 2,
+      "absent_anchors_retained": 1,
+      "previous_fresh_npz_rows": 4,
+      "previous_older_ledger_anchors": 3,
+      "maximum_conditional_mean_difference": 0.0,
+      "maximum_absolute_age_coefficient": 0.0,
+      "nonzero_age_adjusted_means": 0,
+      "maximum_absolute_age_mean_shift": 0.0
+    },
+    "quality": {
+      "entry_rows": 2,
+      "carry_rows": 6,
+      "carry_gaps": {
+        "1": 4,
+        "2": 2
+      },
+      "transitions": {
+        "age_neutral": 6,
+        "entry": 2
+      },
+      "fresh_supported_rows": 6,
+      "prior_only_rows": 2,
+      "absent_anchors_retained": 1,
+      "previous_fresh_npz_rows": 4,
+      "previous_older_ledger_anchors": 3,
+      "maximum_conditional_mean_difference": 0.0,
+      "maximum_absolute_age_coefficient": 0.0,
+      "nonzero_age_adjusted_means": 0,
+      "maximum_absolute_age_mean_shift": 0.0
+    }
+  },
+  "standardized_projections": {
+    "players": 2,
+    "roles": 2,
+    "maximum_native_difference": 0.0,
+    "maximum_scalar_difference": 0.0
+  },
+  "refusals": [
+    "conditional",
+    "packed_age",
+    "prior_only_profile",
+    "prior_only_ledger",
+    "absent_ledger",
+    "fresh_raw",
+    "incoming_anchor",
+    "previous_fresh_raw",
+    "gap_precision",
+    "changed_role",
+    "duplicate",
+    "center",
+    "scalar",
+    "native_rate"
+  ]
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-composition-concrete-pin-check.py", line 43, in <module>
+    assert len(before.targets)==len(after.targets)==1 and ast.dump(before.targets)==ast.dump(after.targets)
+                                                          ~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py", line 187, in dump
+    raise TypeError('expected AST, got %r' % node.__class__.__name__)
+TypeError: expected AST, got 'list'

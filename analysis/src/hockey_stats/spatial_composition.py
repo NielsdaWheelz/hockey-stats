@@ -15,14 +15,14 @@ from .descriptive import estimate
 YEARS = ('20212022', '20222023', '20232024', '20242025', '20252026')
 REFERENCE = 'spatial-league-centered-virtual-v1'
 POLICY = 'ordinary-attempt-segment-valued-two-direction-v1'
-ACCEPTED_RESULTS = Path('/Volumes/Expansion/hockey-stats/runs/execution-v1-06-20261026-01/real/results')
-ACCEPTED_RESULTS_SHA256 = 'cab50e44334924284e11b84f744b1bdaac8b337f00f53334892c91ac5683d3d5'
+ACCEPTED_RESULTS = Path('/Volumes/Expansion/hockey-stats/runs/execution-spatial-replacement-20261031-01/real/execution-results')
+ACCEPTED_RESULTS_SHA256 = '3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347'
 ACCEPTED_VALUED = dict(zip(YEARS, (
-    '6228d2d415f7f7d9fbf4a0f39ebeb197bd79e1baf8c1d2948f5ac91362d76d7e',
-    '1eb31b8ed28eef425a70010534f8905b06176c7d7a243d8f416657227b46dede',
-    'd1ca74ab35b522ed0b415004c540a332c1d7c9c75d7d2a8a8db81501b4f0e3d0',
-    'c363ede905c96b20579b12719ae03f6a6b1d9e25431c9637a564a4322ca05cf0',
-    '580f85fb2844fabf1d05d26e707438600e9e504fe005410406dd790c2e2ba56c',
+    '37263bfc650a06f09adc2c64588c19d3b61cd1e9cdb65dc2ba71a8f88ed5ca8d',
+    '296ae0173fb1256ddb91d14eee5a917d76c3e88f92cc3556a8647b1f10a8da20',
+    'f13a1136c3df857a83d9f37aa10b919b64934e240515c3a8d5e2c556a778b238',
+    '86e346f82d874748215f582c1a4445ab75b01358dd61d37fa4082254879c62de',
+    '40e23b35ac9c8458229b076150366960c4a25d7a92ae028d2b45dc39c89104fc',
 )))
 
 

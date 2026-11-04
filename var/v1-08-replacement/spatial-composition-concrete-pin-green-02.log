@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "scope": "existing compositor guards with mocked IO and spatial reader; no real/fixture artifact, arrays, objective, source, fit or production reader call",
+  "seven_literal_pin_delta": true,
+  "changed_ast_assignments": {
+    "purpose": "real",
+    "seasons": [
+      "20212022",
+      "20222023",
+      "20232024",
+      "20242025",
+      "20252026"
+    ],
+    "observed_bindings": {
+      "fixed": "facts"
+    },
+    "prepared_sha256": "pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",
+    "catalogs": {
+      "people": {
+        "fixed": "people"
+      },
+      "sources": {
+        "fixed": "sources"
+      },
+      "methods": {
+        "path": "catalogs/methods.jsonl",
+        "sha256": "bdd32c60f0747acc48eb5e1f46ab797459c630f1abefee3363a2667751145e98",
+        "rows": 5
+      },
+      "supports": {
+        "path": "catalogs/supports.jsonl",
+        "sha256": "b25cd1b1da1cc6f50522a8066d598157eee4129903630bc9b69c2eb082211b9b",
+        "rows": 1
+      }
+    },
+    "families": [
+      {
+        "season": "20212022",
+        "family": "execution",
+        "availability": "provided",
+        "revision": "replacement"
+      },
+      {
+        "season": "20212022",
+        "family": "descriptive",
+        "availability": "provided",
+        "revision": "changed-provided-descriptive"
+      },
+      {
+        "season": "20222023",
+        "family": "execution",
+        "availability": "provided",
+        "revision": "replacement"
+      },
+      {
+        "season": "20222023",
+        "family": "descriptive",
+        "availability": "provided",
+        "revision": "fixed"
+      },
+      {
+        "season": "20232024",
+        "family": "execution",
+        "availability": "provided",
+        "revision": "replacement"
+      },
+      {
+        "season": "20232024",
+        "family": "descriptive",
+        "availability": "provided",
+        "revision": "fixed"
+      },
+      {
+        "season": "20242025",
+        "family": "execution",
+        "availability": "provided",
+        "revision": "replacement"
+      },
+      {
+        "season": "20242025",
+        "family": "descriptive",
+        "availability": "provided",
+        "revision": "fixed"
+      },
+      {
+        "season": "20252026",
+        "family": "execution",
+        "availability": "provided",
+        "revision": "replacement"
+      },
+      {
+        "season": "20252026",
+        "family": "descriptive",
+        "availability": "provided",
+        "revision": "fixed"
+      },
+      {
+        "season": "20252026",
+        "family": "goalie",
+        "availability": "not_computed"
+      }
+    ]
+  },
+  "all_other_source_bytes_identical": true,
+  "protected_numerical_files": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_design.py",
+      "sha256": "5c6925ec0b93ac52ef3442c5237f534a4bef4658ace08021e9ba759123352633"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_rates.py",
+      "sha256": "0aec2996d1725ac9b5eab2c74e75ce18cf0b846274f9da3c3cecffed3cd73cc0"
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/analysis/src/hockey_stats/spatial_state.py",
+      "sha256": "c252bd97b8dc088bcd9ffc1f8ae266cc5cc2dbae2104f6e8a693eb4e63170bcf"
+    }
+  ],
+  "candidate_sha256": "d0d98be5c6c15a86b10945250d087b60164369df9e3887f00550eaf7f95008d6",
+  "actual_accepted_base_sha256": "3441f784c11eb6a8eda38800806b8e4dc68e06e8587c91db24c5dffaadae4347",
+  "old_base_digest_refused": true,
+  "replacement_source_and_all_five_targets_pass": true,
+  "compatible_descendant_pass": true,
+  "original_execution_family_refused": true,
+  "changed_provided_nonowned_family_refused": true,
+  "all_five_original_targets_refused": true,
+  "fixture_path_unchanged": true,
+  "accepted_first_state_identity_with_prior_analysis_tree_compatible": true,
+  "base_digest": "actual accepted digest; mocked bytes only; no saved result read"
+}

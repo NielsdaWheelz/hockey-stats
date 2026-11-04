@@ -588,3 +588,10 @@ accepted execution remains complete: twenty baseline heads, four probes, five sc
 [the resume record](receipts/user-resume-after-disconnect.json) follows the explicit user instruction. expansion is mounted and no model job is active. small prepared/coach/first-score/final-score/selection manifests retain `63bd2861` / `102bca4c` / `37263bfc` / `40e23b35` / `58837631`; interrupted log `00c7e370` and exit 130 remain exact. the first-state output directory is still absent. no accepted execution work is repeated.
 
 the restart keeps canonical spatial output `real/spatial/20212022` and all numerical inputs/controls, with fresh `20212022-resume-01` log/pid/pin/exit records and matching saved-metadata readback. focused scratch controls and independent command review precede launch. the original interruption remains user-directed, not a numerical failure. the complete first annual triple/resource measurement is still required before successors or heavy composition. no acquisition or activation is assigned.
+
+
+## first spatial resume-01 released
+
+[the restart release](receipts/real-first-spatial-resume-01-release.json) binds command `35cc8c55`, metadata helper `05dd2400`, preparation `92448b35` and [independent review `1170f5db`](reviews/real-first-spatial-resume-01-command-review.md). numerical argv/input pins match the prior command exactly; the first-year inspection function is unchanged. fourteen guarded destinations are absent, and all twelve interrupted records rehash unchanged. pinned python/numpy/scipy remain `3.14.8/2.5.3/1.18.1`; analysis remains `fc716257`.
+
+one unchanged first annual and full projections/canonical validation are released, with fresh resume-01 run records. no predecessor/probes, solver alteration or accepted-execution recomputation is introduced. keep analysis/command/helper fixed through exit; composition stays held until first-triple resource acceptance. no actual restart has launched at this release record.

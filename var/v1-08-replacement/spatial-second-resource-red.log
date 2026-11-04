@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/spatial-second-resource-check.py", line 27, in <module>
+    assert report['whole_command']==expected
+           ~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'whole_command'

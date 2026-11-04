@@ -2,7 +2,7 @@
 # second real spatial annual; held until the first spatial state is accepted and root releases it.
 # retain the same recipe/native controls; this year has a spatial predecessor and no probes.
 set -eu
-spatial_previous_sha=PENDING_ACCEPTED_SPATIAL_20212022_MANIFEST_SHA256
+spatial_previous_sha=3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509
 case "$spatial_previous_sha" in *[!0-9a-f]*) print -u2 'accepted first spatial annual pin pending; command not launched'; exit 1 ;; esac
 [ "${#spatial_previous_sha}" -eq 64 ] || exit 1
 spatial_command_path=${0:A}

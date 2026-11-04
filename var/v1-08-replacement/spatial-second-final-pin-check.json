@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "local literal/syntax/binding checks only; no real payload, source, array, model or production reader call",
+  "checks": [
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/real-20222023-spatial-command.sh",
+      "before_sha256": "763dcef14c6ac1867783445ea8e36b9c305fbaf966af7013db771bc143f1910f",
+      "after_sha256": "a781f89394b0199e68ef3500dc6201779327da472080b2d73199fac2e85a484d",
+      "literal_replacements": 1,
+      "only_predecessor_literal_changed": true
+    },
+    {
+      "path": "/Users/nnandal/Documents/code/hockey-stats-v1-08/var/v1-08-replacement/accept_real_spatial_20222023.py",
+      "before_sha256": "d0c4552972131f00405c283ea36dab0614264144036d6a7b68b9c7a824d42b9b",
+      "after_sha256": "ca5f00ae790453af62b55078ffad1d14123d501aaddf0e547d170896282c8267",
+      "literal_replacements": 1,
+      "only_predecessor_literal_changed": true
+    }
+  ],
+  "predecessor_sha256": "3b7b51339b5ebb00a340a3f593347adf3a72ee137ad24739abd582b8290a5509",
+  "syntax": {
+    "shell": "zsh -n passed",
+    "helper": "compile passed"
+  },
+  "unchanged_first_year_files": true,
+  "analysis_diff": "none",
+  "unchanged_controls_not_repeated": true
+}
